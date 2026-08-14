@@ -30,7 +30,6 @@ Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les 
 #### Créez une procédure relative aux deux points suivants :
 
   - François possédera un mot de passe qui n'aura pas de date d'expiration.
-
   - Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
 
 groupes en amont). Yann fera partie des mêmes groupes que François.

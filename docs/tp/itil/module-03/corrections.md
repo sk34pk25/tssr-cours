@@ -154,13 +154,9 @@ Pour effectuer ce TP, il faut avoir suivi les modules 1 à 3 de ce cours.
 #### a. Vérifier que le matériel est en stock
 
   - Un ordinateur portable commercial + sacoche de transport
-
   - Un dock + un câble réseau + clavier + souris
-
   - Un écran + câble de connexion au dock
-
   - Un téléphone IP + câble réseau
-
   - Un smartphone + abonnement
 
 #### b. Si nécessaire, commander le matériel manquant
@@ -170,13 +166,9 @@ Pour effectuer ce TP, il faut avoir suivi les modules 1 à 3 de ce cours.
 #### a. Sortir le matériel du stock
 
   - Un ordinateur portable commercial + sacoche de transport
-
   - Un dock + un câble réseau + clavier + souris
-
   - Un écran + câble de connexion au dock
-
   - Un téléphone IP + câble réseau
-
   - Un smartphone + abonnement
 
 #### b. Vérifier que le matériel est identifié et étiqueté
@@ -198,9 +190,7 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### b. Nombre de prises disponibles suffisantes
 
   - Une prise pour le dock
-
   - Une prise pour l'écran
-
   - Une prise pour permettre la recharge du téléphone portable
 
 #### c. Si le nombre de prises est insuffisant
@@ -214,7 +204,6 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### b. Vérifier qu'il y a assez de prises réseau
 
   - Une prise pour le téléphone IP
-
   - Une prise pour le dock de l'ordinateur
 
 #### c. Vérifier qu’elles sont identifiées
@@ -228,7 +217,6 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Vérifier le paramétrage des prises réseau sur le switch
 
   - Vérifier les ports de connexion
-
   - Vérifier le paramétrage des ports
 
 #### Etrape 7 - Création du compte utilisateur dans l’Active Directory
@@ -236,11 +224,8 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Fournir les informations du nouvel arrivant
 
   - Nom
-
   - Prénom
-
   - Service
-
   - Rôle dans le service (permettre la gestion des droits d'accès aux ressources)
 
 #### b. Mettre à jour le CMS
@@ -250,9 +235,7 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Fournir les informations du nouvel arrivant
 
   - Nom
-
   - Prénom
-
   - Service
 
 #### b. Mettre à jour le CMS
@@ -262,9 +245,7 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Fournir les informations du nouvel arrivant
 
   - Nom
-
   - Prénom
-
   - Service
 
 #### Etape 10 - Création du badge
@@ -272,9 +253,7 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Fournir les informations du nouvel arrivant
 
   - Nom
-
   - Prénom
-
   - Service
 
 #### b. Mettre à jour le CMS
@@ -284,9 +263,7 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### a. Fournir les informations du nouvel arrivant
 
   - Nom
-
   - Prénom
-
   - Service
 
 #### b. Mettre à jour le CMS
@@ -300,19 +277,15 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### téléphone)
 
   - Alimenter le téléphone
-
   - Renseigner les paramètres de l’utilisateur
 
 - Passer un appel interne
-
 - Passer un appel externe
-
 - Recevoir un appel
 
 #### b. Vérifier le fonctionnement du dock
 
   - Alimenter le dock avec son alimentation
-
   - Connecter le dock avec le câble réseau au port 2 du switch du téléphone
 
 #### c. Tester le clavier et la souris
@@ -322,7 +295,6 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### d. Vérifier le fonctionnement du moniteur et de son câble Display-Port
 
   - Alimenter le moniteur
-
   - Connecter l’écran au dock avec le câble Display-Port
 
 #### e. Vérifier le fonctionnement de l’ordinateur portable
@@ -332,7 +304,6 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### f. Déployer le système d’exploitation à partir du Serveur WDS
 
   - Vérifier que l’ordinateur démarre en UEFI
-
   - Booter à partir du réseau PXE pour se connecter au serveur de déploiement
 
 - Choisir l’image « commercial itinérant — Win11 — Off365 »
@@ -340,7 +311,6 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
 #### g. Finaliser l’installation du système d’exploitation
 
   - Procéder à la mise à jour de l’OS et du pack Office via Windows Update
-
   - Régler la résolution du deuxième écran
 
 #### h. Vérifier l’installation des logiciels
@@ -348,47 +318,34 @@ a. Vérifier la disponibilité d'un bureau standard et d'une chaise de bureau
   - Pack Office
 
 - Word
-
 - Excel
-
 - Outlook
-
 - PowerPoint
 
   - Utilitaires
 
 - Acrobat Reader DC
-
 - 7Zip 64bits
-
 - Java 64bits
-
 - Google Chrome
 
   - Antivirus
 
 - Vérification de l’installation de l’antivirus
-
 - Vérification de la licence
-
 - Vérification des mises à jour
 
   - OpenVPN
 
 - Vérification de l’installation de l’OpenVPN
-
 - Tester la mise en place du VPN de l’entreprise
 
 i. Vérifier le fonctionnement de l’ordinateur portable avec son alimentation externe
 
   - Déconnecter le portable du dock
-
   - Connecter l’alimentation externe au portable
-
   - Déconnecter le câble Ethernet du dock
-
   - Connecter le câble Ethernet au port réseau de l’ordinateur
-
   - Tester les accès aux réseaux de l’entreprise et à internet
 
 #### j. Mettre à jour le CMS
@@ -400,15 +357,12 @@ i. Vérifier le fonctionnement de l’ordinateur portable avec son alimentation 
   - Brancher le câble RJ45 sur la prise murale RJ45
 
 - Câble RJ45 de 5m
-
 - Noter le numéro de la prise murale dans le tableau ci-dessous
 
   - Vérifier que le téléphone est alimenté (POE)
 
 - Passer un appel en interne
-
 - Passer un appel en externe
-
 - Recevoir un appel
 
 #### b. Installer le dock
@@ -422,13 +376,11 @@ i. Vérifier le fonctionnement de l’ordinateur portable avec son alimentation 
 #### c. Installer les périphériques
 
   - Connecter le clavier sur le dock en USB
-
   - Connecter la souris sur le dock en USB
 
 #### d. Installer le moniteur
 
   - Brancher le câble Display-Port au dock et sur le moniteur
-
   - Brancher électriquement le moniteur
 
 #### e. Installer l’ordinateur portable
@@ -436,9 +388,7 @@ i. Vérifier le fonctionnement de l’ordinateur portable avec son alimentation 
   - Ouvrir la session avec un compte technicien du domaine
 
 - Vérifier l’obtention d’une configuration réseau à partir du serveur DHCP
-
 - Vérifier l’application des GPO du domaine
-
 - Vérifier le fonctionnement du deuxième écran
 
   - Ouvrir la session avec le compte générique « Commercial itinérant » du
@@ -450,35 +400,21 @@ i. Vérifier le fonctionnement de l’ordinateur portable avec son alimentation 
 #### itinérants
 
 - GPO1 :
-
 - GPO2 :
-
 - GPO3 :
-
 - GPO4 :
-
 - GPO5 :
-
 - GPO6 :
-
 - GPO7 :
-
 - GPO8 :
-
 - GPO9 :
-
 - GPO10 :
 
   - Vérifier le déploiement des imprimantes réseau pour les commerciaux
 
 - Imprimante1 :
-
 - Test impression
-
 - Imprimante2 :
-
 - Test impression
-
 - Imprimante3 :
-
 - Test impression

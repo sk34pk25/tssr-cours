@@ -42,15 +42,11 @@ flowchart LR
 #### Module 01 — Présentation d’ITIL et historique
 
 - Qu’est-ce qu’ITIL ?
-
 - Découvrir ITIL
-
-#### Présentation d'ITIL et historique
 
 ### Présentation d'ITIL et historique
 
 - ITIL : Information Technology Infrastructure Library.
-
 - En français : bibliothèque pour l’infrastructure des technologies de
 
 l’information.
@@ -64,13 +60,11 @@ système d’information le plus efficace et efficient que possible.
 #### Présentation d'ITIL et historique
 
 - ISO 9001
-
 - Norme qui s’adresse à tous les secteurs d’activité, qui définit un
 
 système de gestion de qualité par le processus.
 
 - ISO 20000
-
 - Norme internationale, spécifique à la gestion des systèmes
 
 #### d’information, définie en treize processus (ces processus sont
@@ -84,7 +78,6 @@ minimum.
 #### Historique
 
 - Fin des années 80
-
 - Le gouvernement britannique lance une étude nationale pour connaître les
 
 #### pratiques utilisées dans la gestion des informations au niveau de
@@ -94,21 +87,15 @@ l’administration et afin de garder les meilleures. Le but est d’homogénéis
 #### le traitement des informations
 
 - Création d’une bibliothèque de 42 livres baptisée « ITIL »
-
 - Le système d’information est un fournisseur de moyens
-
 - 1991
-
 - Création d’un forum permettant aux utilisateurs d’ITIL d’échanger les idées
 
 #### et leurs expériences. Il deviendra l’ITSMF
 
 - 2004
-
 - Évolution vers ITIL v2 qui repose sur 9 livres centraux
-
 - Apparition de processus orientés sécurité et des SLA
-
 - Le système d’information est un fournisseur de services
 
 #### Historique
@@ -116,13 +103,9 @@ l’administration et afin de garder les meilleures. Le but est d’homogénéis
 #### Présentation d'ITIL et historique
 
 - 2007
-
 - ITIL v3 qui repose sur 5 livres centraux
-
 - Ajout de la notion de « cycle de vie des services »
-
 - Janvier 2020
-
 - ITIL 4 n’est pas une version, mais un dépoussiérage de la version 3 en gardant les
 
 #### principes fondamentaux
@@ -136,11 +119,8 @@ l’administration et afin de garder les meilleures. Le but est d’homogénéis
 #### projets vers une gestion de service
 
 - Contenu :
-
 - Les bonnes pratiques de la gestion des services informatiques
-
 - Définition d’un langage commun
-
 - Définition d’un cadre de travail
 
 #### Présentation d’ITIL v3
@@ -148,27 +128,18 @@ l’administration et afin de garder les meilleures. Le but est d’homogénéis
 #### Présentation d'ITIL et historique
 
 - Les différents acteurs
-
 - OGC (Office of Government Commerce) : office public britannique du
 
 #### commerce
 
 - Propriétaire du référentiel — initialise et contrôle les publications
-
 - Axelos : entreprise créée en 2014 par l’OGC pour gérer ITIL
-
 - Organismes de gestion des certifications et des examens
-
 - APM Group, EXIN, ISEB, Loyalist College, Dansk IT, DF Certifiering
-
 - Définissent un langage commun
-
 - ITSMF (IT Service Management Forum)
-
 - Association d’utilisateurs
-
 - Les organismes de formation et les formateurs agréés
-
 - Les experts et les consultants en gestion de service certifiés ITIL
 
 #### Présentation d’ITIL v3
@@ -178,11 +149,8 @@ l’administration et afin de garder les meilleures. Le but est d’homogénéis
 génération industrielle.
 
 - Nouveautés :
-
 - Gestion de projet Agile
-
 - Le Lean
-
 - Le Cloud
 
 #### Apport d’ITIL 4

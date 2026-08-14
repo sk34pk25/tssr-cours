@@ -66,15 +66,12 @@ Lancer l'outil PSR (step recorder) avec la touche Windows+R.
 #### Puis dans la zone exécuter tapez psr
 
 1. Créer un dossier consacré à toutes vos captures
-
 2. Choisissez le nombre de captures d'écran à conserver (par exemple 200)
-
 3. Cliquez sur démarrer l’enregistrement.
 
 #### Il est possible d'insérer des commentaires lors de votre manipulation
 
 4. Cliquez sur stop record une fois votre manipulation terminée
-
 5. Vous n'avez plus qu'à ouvrir, décompresser, vérifier et stocker votre
 
 capture. Un copier -coller d'un screenshot dans votre procédure et le tour
@@ -180,7 +177,6 @@ d’installation le serveur de dépôt français de la liste (ftp.fr.debian.org)
 - Assurez-vous de la connectivité :
 
   - Entre vos systèmes
-
   - Avec les machines de votre binôme
 
 #### Partie 2 — Configuration des utilisateurs et de l’environnement
@@ -256,11 +252,8 @@ connexion à distance. Par conséquent, sa base de comptes contiendra tous les u
 - La stratégie globale de sécurité de mots de passe comportera ces contraintes :
 
   - 12 caractères au minimum
-
   - Changement obligatoire tous les 25 jours
-
   - Exigences de complexité activées
-
   - Pour plus de sûreté, vous ajouterez un autre compte d’administrateur du
 
 système en ligne de commande « cmd » et lui indiquerez un mot de passe.
@@ -290,7 +283,6 @@ forcé à sa première connexion. 2.2 Configuration de l’environnement de trav
 #### regedit…)
 
   - Forcer l’utilisation d’une image de votre choix en tant que fond d’écran
-
   - En outre, le pare-feu devra être obligatoirement actif sur le poste Windows,
 
 quel que soit l’utilisateur connecté.
@@ -302,7 +294,6 @@ quel que soit l’utilisateur connecté.
 sources deb-src dans /etc/apt/sources.list.
 
 - N’oubliez pas de commenter la ligne indiquant le DVD.
-
 - Pour améliorer le confort sous Vim, vous mettrez à jour l’application via le package
 
 simplement nommé « vim » et activerez automatiquement la coloration syntaxique et la numérotation des lignes.
@@ -322,9 +313,7 @@ format de table de partition MBR. Vous créerez sur celui-ci une partition nomm�
 - Trois partitions principales seront créées sur le deuxième disque dur :
 
   - La 1re, en ext4, occupera un espace de 15 Go et se nommera PROFILS
-
   - La 2e, formatée en ext4, fera 15 Go et s’appellera DATA
-
   - La 3e, formatée en xfs (le système de fichiers n’est pas installé par défaut),
 
 #### occupera tout l’espace restant et se nommera LOGS
@@ -382,15 +371,12 @@ depuis la machine Windows 10 de votre binôme).
 - Son adresse IP fictive sera constituée de la manière suivante :
 
   - Les deux premiers octets seront les mêmes que ceux de W10-VosInitiales
-
   - Le troisième octet sera 10101000
-
   - Le dernier octet sera le même que celui de W10-VosInitiales
 
 - Les permissions d’utilisation de cette dernière sont les suivantes :
 
   - Tous les utilisateurs peuvent imprimer
-
   - Le service Comptabilité peut supprimer des impressions bloquées en cas de
 
 #### problèmes
@@ -410,9 +396,7 @@ des provisions…), un pool d’imprimantes devra être mis en œuvre, autoris a
 - Les adresses IP fictives seront constituées de la manière suivante :
 
   - Les deux premiers octets seront les mêmes que ceux de DEB10-VosInitiales
-
   - Les troisièmes octets seront 10101000 et 10101001
-
   - Les derniers octets seront les mêmes que celui de DEB10-VosInitiales
 
 - Vous tiendrez compte des caractéristiques suivantes :
@@ -450,7 +434,6 @@ et ce de façon définitive un swap de 1 Go, pour cela vous vous servirez de l�
 vous activerez la fonctionnalité du bureau à distance avec authentification au niveau du réseau (NLA) et donnerez les autorisations adéquates pour le compte de votre binôme.
 
 - Vérifiez le numéro de port de RDP avec la commande netstat -an.
-
 - Demandez à votre binôme de se connecter à distance sur votre poste Windows 10
 
 afin de tester le bon fonctionnement du service RDP.
@@ -484,7 +467,6 @@ une interface web graphique.
 #### quotidienne à 12h30 sous forme de fichiers « tar » :
 
   - Des données personnelles des utilisateurs
-
   - Des fichiers de données présents dans les dossiers de service
 
 - Pour vous prémunir d’un arrêt brutal du système, vous configurerez une duplication
@@ -552,11 +534,8 @@ accessible depuis /opt et ce de façon permanente.
 #### employés aux derniers séminaires. Veuillez l’ouvrir et compléter :
 
   - La colonne à l’aide d’une formule “Total par élève”
-
   - La colonne à l’aide d’une formule “Moyenne par élève”
-
   - La colonne “APPRECIATION” à l’aide d’une condition
-
   - La ligne “Total par matière” est une somme des notes des employés dans une
 
 #### matière
@@ -578,11 +557,8 @@ accessible depuis /opt et ce de façon permanente.
 - Pour calculer l'appréciation selon la condition suivante :
 
   - Si la moyenne et l'assiduité &gt;10 afficher Bien
-
   - Si la moyenne &lt;=10 et l'assiduité &gt;=10 afficher En Progrès
-
   - Si la moyenne &gt;=10 et l'assiduité &lt;10 afficher Trop d'absences
-
   - Si la moyenne et l'assiduité &lt;10 afficher En danger !
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).

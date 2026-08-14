@@ -34,29 +34,21 @@
 #### Objectifs • Les stratégies de groupe local pour
 
 - Personnaliser l’environnement des utilisateurs
-
 - Personnaliser Windows 10
-
 - Sécuriser le système
 
 ### programmes et périphériques matériels
 
 - La base de registre Windows
-
 - Base de données hiérarchique et centrale
-
 - Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs,
-
 - Utilisée depuis Windows 98
-
 - Contient des milliers de paramètres
-
 - Lors de son exécution, Windows consulte en permanence les informations contenues dans
 
 #### le Registre
 
 - Consultation et modification du registre : commande regedit
-
 - À manipuler avec la plus grande précaution
 
 #### La base de registre Windows
@@ -80,49 +72,31 @@ HKEY_CLASSES_ROOT Informations sur les applications (objets OLE, extensions)
 ### La base de registre Windows
 
 - Les ruches contiennent des clés
-
 - Qui peuvent elles-mêmes contenir des clés…
-
 - Les clés contiennent des valeurs
-
 - Binaires ou hexadécimales
-
 - Chaînes de caractères
-
 - Chaque valeur correspond à un paramètre du système !
 
 #### LGPO
 
 - Les LGPO (Local Group Policy Object)
-
 - Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :
-
 - Console mmc personnalisée composant logiciel enfichable
-
 - Éditeur d'objets de stratégie de groupe
-
 - Console mmc Stratégie de sécurité locale (secpol.msc)
-
 - Réduire le temps consacré à la gestion du poste de travail
-
 - Agir sur la base de registre de façon plus conviviale
-
 - Concrètement que peut-on faire par LGPO ?
-
 - Modifier les stratégies de mots de passe
-
 - Agir sur les privilèges d'administration du système
-
 - Uniformiser l'aspect du poste de travail (bureau, barre des tâches)
-
 - Restreindre l'accès à certains paramètres (panneau de configuration, ligne de commande)
-
 - Démarrer des scripts à l'ouverture, à la fermeture de session utilisateur
 
 ### LGPO
 
 - Possibilité d'agir sur le poste local ou sur un poste distant
-
 - Possibilité d'agir sur différents objets de la base SAM
 
 #### LGPO
@@ -130,17 +104,13 @@ HKEY_CLASSES_ROOT Informations sur les applications (objets OLE, extensions)
 #### Chaque paramètre :
 
 - Peut être activé ou désactivé
-
 - Peut être non configuré = comportement par
 
 #### défaut du système
 
 - Peut être commenté
-
 - Possède des conditions
-
 - Peut posséder des options supplémentaires
-
 - Possède surtout une aide précieuse, lisez-la !
 
 ### Démonstration
@@ -154,13 +124,9 @@ HKEY_CLASSES_ROOT Informations sur les applications (objets OLE, extensions)
 #### de groupe local pour
 
 - Découvrir la base de registre
-
 - Les paramètres utilisateurs
-
 - Les paramètres ordinateurs
-
 - Les stratégies de sécurité
-
 - Se préparer à l’utilisation des stratégies de groupe de domaine
 
 ## Mise en pratique

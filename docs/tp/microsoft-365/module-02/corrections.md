@@ -24,19 +24,14 @@ Avant de se lancer bille en tête dans le TP, il est intéressant d’analyser l
 #### Voici la méthodologie :
 
 - Relever l’ensemble des styles nécessaires
-
 - Configuration des styles
 
   - Configuration du premier titre
-
   - Configuration de la liste de titres à plusieurs niveaux
 
 - Finalisation de la configuration des styles de titres
-
 - Finalisation de la préparation de tous les styles
-
 - Application des styles sur l’ensemble du document
-
 1) Relever l’ensemble des styles
 
 #### a. Titre 1

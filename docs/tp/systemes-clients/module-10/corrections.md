@@ -16,7 +16,6 @@
 - Affichez et analysez les problèmes majeurs survenus sur votre système :
 
   - Depuis le démarrage de votre VM et de manière synthétique
-
   - De manière détaillée sur le dernier évènement critique (au cas où aucun
 
 évènement critique n'est survenu depuis le début du module, procédez à un
@@ -62,11 +61,8 @@ A l'aide du Gestionnaire de tâches et du moniteur de ressources, vous pouvez li
 - Préparation :
 
   - Vérifiez la configuration de la Protection du système
-
   - Vérifiez les points de restauration disponibles
-
   - Créez si nécessaire un point de restauration manuel
-
   - Créez des fichiers dans le répertoire "Documents" de l'utilisateur en cours
 
 #### d'utilisation

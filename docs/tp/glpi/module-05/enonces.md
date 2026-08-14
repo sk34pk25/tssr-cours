@@ -38,15 +38,10 @@ Connexion à la base de données en ligne de commande de votre serveur GLPI
 `mysql_secure_installation.`
 
 - Affichez toutes les bases de données présentes dans votre serveur MariaDB.
-
 - Connectez-vous à la base de données glpidata puis affichez toutes les tables présentes.
-
 - Affichez tous les attributs de la table des calendriers.
-
 - Affichez les noms et prénoms des utilisateurs de GLPI.
-
 - Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).
-
 - Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.
 
   - Indice : utiliser un comparateur.
@@ -58,11 +53,8 @@ GAB-JL356A-ARUBA-2540-24P.
   - Indices :
 
 - Utiliser les sélections complexes.
-
 - Is_template à 1 est un gabarit.
-
 - GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.
-
 - Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.
 
   - Indice : utiliser un alias.

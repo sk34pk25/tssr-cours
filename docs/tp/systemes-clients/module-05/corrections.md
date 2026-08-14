@@ -18,7 +18,6 @@
 #### objets avec les paramètres suivant :
 
 - François possèdera un mot de passe qui n'aura pas de date d'expiration.
-
 - Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
 
 groupes en amont). Dans votre console personnalisée MaConsole.msc disponible sur votre bureau Composant logiciel enfichable "Utilisateurs et groupes locaux" &gt; utilisateurs

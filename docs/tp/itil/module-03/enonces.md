@@ -28,13 +28,9 @@ Pour effectuer ce TP, il faut avoir suivi le module 1 à 3 de ce cours.
 #### La liste de matériel informatique pour un commercial itinérant :
 
 - 1 Portable : Dell XPS 15 + accessoires
-
 - 1 Dock WD19DCS + accessoires
-
 - 1 Moniteur 22 pouces
-
 - 1 Téléphone IP Cisco 7811 + accessoires
-
 - 1 Smartphone iPhone X + abonnement
 
 Identifier tous les éléments non matériels permettant à l’utilisateur de travailler.
@@ -42,11 +38,8 @@ Identifier tous les éléments non matériels permettant à l’utilisateur de t
 #### L’entreprise contient les éléments suivants :
 
 - Un domaine Active Directory nommé « got.lcl »
-
 - Un domaine de messagerie Office 365 nommé « westeros.fr »
-
 - Un logiciel de gestion de parc GLPI
-
 - Une entrée sécurisée par badge
 
 Identifier également tous les éléments permettant aux différents matériels de fonctionner.
@@ -82,13 +75,10 @@ Pour effectuer ce TP, il faut avoir suivi les modules 1 à 3 de ce cours.
 2. Conception des Services
 
   - Vous allez détailler les différentes étapes du service.
-
   - Cette procédure est généraliste car :
 
 - Vous n'avez pas les détails de l'infrastructure existante.
-
 - Vous ne connaissez pas la liste des services existants.
-
 - Vous n'avez pas toutes les connaissances informatiques.
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).

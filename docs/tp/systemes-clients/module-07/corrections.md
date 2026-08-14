@@ -48,7 +48,6 @@ votre prénom puis du rang alphabétique de la première le ttre de votre nom
 #### de famille
 
 - Exemple : Pierre-Louis Le Guervelec
-
 - P = 16eme lettre de l’alphabet → l’octet n°3 de l’adresse ip sera
 
 #### donc 16
@@ -58,7 +57,6 @@ votre prénom puis du rang alphabétique de la première le ttre de votre nom
 #### donc 12
 
   - Le masque sera 255.255.0.0
-
   - La passerelle et le serveur DNS préféré seront les mêmes que ceux configurés
 
 #### sur votre VM Campus en ligne
@@ -100,13 +98,10 @@ Adresse IP : 172.28.18.7 (attention : ici 18.7 correspond à la partie hôte. 18
 - Utilisez la commande ping vers les hôtes suivants :
 
   - Adresse IP de la passerelle par défaut
-
   - Adresse IP de votre VM Discovery
-
   - www.facebook.com
 
 - Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
-
 - À quel niveau du réseau sont-ils ? Réseau local ? Internet ?
 
 #### Sur la VM Win10-XX
@@ -152,9 +147,7 @@ La commande nous apprend ici que le serveur web de Facebook est joignable et se 
 - Utilisez la commande nslookup avec les noms suivants :
 
   - www.hadopi.fr
-
   - www.amendes.gouv.fr
-
   - www.facebook.com
 
 #### Depuis la VM Win10-XX

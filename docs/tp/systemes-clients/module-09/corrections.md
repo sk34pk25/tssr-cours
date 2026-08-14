@@ -134,15 +134,10 @@ Au bout d'un certain temps, la nouvelle imprimante partagée apparaît dans la l
 - Affichez maintenant les informations suivantes concernant "HP LaserJet" :
 
   - Son nom
-
   - Si elle est partagée ou non
-
   - Le nom du partage
-
   - Le nom du port
-
   - Son emplacement
-
   - Sa priorité
 
 `Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location,`

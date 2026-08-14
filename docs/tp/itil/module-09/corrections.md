@@ -22,31 +22,22 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 #### Vous ouvrez une session sur GLPI en tant que directeur commercial :
 
 - Login : balon.grejoy
-
 - Mot de passe : password
 
 #### Création du ticket
 
 - Cliquer sur créer un ticket
-
 - Type : demande
-
 - Catégorie : Nouveau Poste Complet
-
 - Lieu : Service Commercial
-
 - Titre : rempli automatiquement (ne pas changer)
-
 - Description : Compléter les informations concernant les salariés
 
 #### Les informations du salarié
 
 - Nom : Targaryan
-
 - Prénom : Deanerys
-
 - Fonction : Commercial Itinérant
-
 - Service : Commercial
 
 #### Vous fermez la session
@@ -54,13 +45,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 Pour vérifier, vous pouvez vous connecter avec l’utilisateur « balon.grejoy » pour suivre l’évolution du ticket.
 
 - Une fois que la session est ouverte
-
 - Cliquer sur « Tickets »
-
 - Sélectionner le ticket
-
 - Dans le menu de gauche, sélectionner « Traitement du ticket »
-
 - Vous avez un aperçu de l’évolution du traitement du ticket
 
 #### Vous fermez la session
@@ -70,13 +57,11 @@ Pour vérifier, vous pouvez vous connecter avec l’utilisateur « balon.grejoy 
 Vous ouvrez une session sur GLPI en tant que technicien de support de niveau 1
 
 - Login : hoster.tully
-
 - Mot de passe : password
 
 Vous ouvrez le ticket et vous l’escaladez vers le groupe des techniciens parc :
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -84,25 +69,18 @@ Vous ouvrez le ticket et vous l’escaladez vers le groupe des techniciens parc 
 #### Dans le menu de gauche, sélectionner « Ticket »
 
 - Dans le corps du ticket,
-
 - Dans la zone « Acteur »
-
 - Dans la colonne « Attribué à »
-
 - Supprimer le groupe « GLPI-GRP-Support » en cliquant sur
-
 - Cliquer sur « + » à côté de « Attribué à »
 
   - Sélectionner « Groupe »
-
   - Sélectionner « GLPI-GRP-PARC », escalade fonctionnelle
 
 - Sauvegarder le ticket
-
 - Cliquer sur « + » à côté de « Attribué à »
 
   - Sélectionner « utilisateur »
-
   - Sélectionner « Tyrion Lannister »
 
 - Sauvegarder le ticket
@@ -110,7 +88,6 @@ Vous ouvrez le ticket et vous l’escaladez vers le groupe des techniciens parc 
 #### Dans le menu de gauche, sélectionner « Traitement du ticket »
 
 - Cliquer sur « Suivi »
-
 - Dans « nouvel élément — suivi »
 
   - Saisir « Escalade vers le groupe techniciens parc et envoi à l’administrateur
@@ -126,7 +103,6 @@ Fermer la session du technicien de support.
 Etape 3 - Vérification et sortie du matériel du stock. Vous ouvrez une session sur GLPI en tant que technicien de support Parc.
 
 - Login : jorah.mormont
-
 - Mot de passe : password
 
 #### Vous allez maintenant cliquer sur « Parc »
@@ -150,15 +126,12 @@ Etape 3 - Vérification et sortie du matériel du stock. Vous ouvrez une session
 - Pour chaque élément trouvé :
 
   - Vous le renommez avec le nouveau nom présent dans le tableau.
-
   - Exemple pour renommer l’ordinateur à suivre.
 
 #### Pour effectuer la rechercher de l’ordinateur :
 
 - Vous cliquez sur « Parc » puis « Ordinateurs »
-
 - Dans la zone de recherche, vous indiquez les éléments suivants :
-
 - Vous récupérez tous les ordinateurs en stock
 
   - Vous cliquez sur le nom de l’ordinateur « Dell XPS 15 » portant le numéro
@@ -166,7 +139,6 @@ Etape 3 - Vérification et sortie du matériel du stock. Vous ouvrez une session
 #### d’inventaire « Laptop-0013 »
 
   - La fiche de l’ordinateur s’ouvre.
-
   - Vous renommez l’ordinateur avec son nouveau nom.
 
 - Vous sauvegardez.
@@ -178,21 +150,16 @@ Maintenant que tous les éléments ont été renommés, vous allez les lier pour
 #### Vous allez ouvrir la fiche de l’ordinateur :
 
 - Vous cliquez sur « Parc » puis « Ordinateurs »
-
 - Dans la zone de recherche, vous indiquez les éléments suivants :
-
 - Vous récupérez tous les ordinateurs en stock
-
 - Vous cliquez sur le nom de l’ordinateur « ITI-XPS15-006 » portant le numéro d’inventaire
 
 #### « Laptop-0013 »
 
 - La fiche de l’ordinateur s’ouvre.
-
 - Dans le menu de gauche, vous cliquez sur « Connexions ».
 
   - Sous « Connecter un élément »
-
   - Sélectionnez « Moniteur », puis dans le menu qui vient d’appara ître vous
 
 cliquez sur la flèche à l’extrémité droite pour faire apparaître la liste des moniteurs disponible.
@@ -206,7 +173,6 @@ sur « connecter ».
 #### pour filtrer les éléments qui apparaissent dans la liste :
 
 - Procéder de la même façon pour les autres matériels.
-
 - Vous devez obtenir :
 
 Vous déplacez l’ensemble du matériel pour qu’ils soient préparés.
@@ -214,11 +180,9 @@ Vous déplacez l’ensemble du matériel pour qu’ils soient préparés.
 - Dans le menu de gauche, sélectionnez l’onglet « Ordinateur »
 
   - Vous changez la rubrique statut de « En stock » par « A préparer »
-
   - Vous changez le lieu :
 
 - De « …&gt;Service Informatique&gt;Stock »
-
 - Par « …&gt;Service Informatique&gt;Stock&gt;Matériels à préparer&gt;A
 
 #### préparer1 »
@@ -236,7 +200,6 @@ Vous vérifiez que tous les matériels sont dans le même lieu que l’ordinateu
 - La fiche de moniteur s’ouvre :
 
   - Dans le menu de gauche, cliquez sur « Moniteur ».
-
   - Le lieu doit contenir « …&gt;Service Informatique&gt;Stock&gt;Matériels à préparer&gt;A
 
 préparer 1 ».
@@ -244,7 +207,6 @@ préparer 1 ».
   - Modifier le statut en « A préparer ».
 
 - Sauvegarder
-
 - Dans le menu de gauche, cliquez sur « Connexions »
 
   - Cliquer sur le nom de l’ordinateur « ITI-XPS-006 » pour retourner sur la fiche de
@@ -254,13 +216,11 @@ l’ordinateur.
 - Vous procédez de la même façon avec les autres matériels.
 
   - Ils doivent être tous dans le même lieu
-
   - Ils doivent tous avoir le statut « A préparer »
 
 Vous allez modifier le ticket pour indiquer ce que vous avez fait. Vous ouvrez le ticke t et vous allez sortir le matériel du stock.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -270,13 +230,11 @@ Vous allez modifier le ticket pour indiquer ce que vous avez fait. Vous ouvrez l
 - Dans le corps du ticket,
 
   - Dans la zone « Description »
-
   - Vous remplissez les champs suivants :
 
 - Matériel disponible : OK
 
   - Dans la zone « Acteur »
-
   - Vérifier qu’il y a le groupe « GLPI-GRP-PARC » et l’utilisateur « Tyrion Lannister »
 
 de présent.
@@ -286,19 +244,15 @@ de présent.
 #### Vous allez rajouter le matériel au ticket
 
 - Dans le menu de gauche, sélectionner « Eléments »
-
 - A partir de la « recherche complète », vous allez rajouter les éléments au ticket.
-
 - Vous devez obtenir :
 
 #### Dans le menu de gauche, sélectionner « Traitement du ticket »
 
 - Cliquer sur « Suivi »
-
 - Dans « nouvel élément — suivi »
 
   - Saisir « Sortie du matériel du stock, prêt à être installé »
-
   - Cliquer sur « Ajouter »
 
 Fermer la session du technicien de parc.
@@ -306,15 +260,12 @@ Fermer la session du technicien de parc.
 Etape 4 - Création des comptes par l’administrateur Active Directory.
 
 - Vous ouvrez une session sur GLPI en tant que technicien de support de niveau 1.
-
 - Login : tyrion.lannister
-
 - Mot de passe : password
 
 Vous ouvrez le ticket pour gérer l’installation du système d’exploitation et des logiciels.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -324,15 +275,11 @@ Dans le menu de gauche, sélectionner « Ticket ».
 - Dans le corps du ticket,
 
   - Dans la zone « Description »
-
   - Vous remplissez les champs suivants :
 
 - Compte GLPI créé : OK
-
 - Compte Active Directory créé : OK
-
 - Compte Office 365 créé : OK
-
 - Badge créé : OK
 
   - Dans la zone « Acteur »
@@ -346,13 +293,10 @@ groupe « GLPI-GRP-PARC ».
 Vous modifiez le suivi du ticket.
 
 - Dans le menu de gauche, sélectionner « Traitement du ticket »
-
 - Cliquer sur « Suivi »
-
 - Dans « nouvel élément — suivi »
 
   - Saisir « Création des différents comptes effectués »
-
   - Cliquer sur « Ajouter »
 
 Fermer la session de l’administrateur Active Directory.
@@ -362,13 +306,11 @@ Fermer la session de l’administrateur Active Directory.
 Vous considérez que le matériel a été testé et que le système d’exploitation ainsi que les logiciels ont été installés. Vous allez gérer que les informations côté ticket et apporter des modifications à l’ordinateur. Vous ouvrez une session sur GLPI en tant que technicien de support Parc.
 
 - Login : barristan.selmy
-
 - Mot de passe : password
 
 Vous ouvrez le ticket pour gérer l’installation du système d’exploitation et des logiciels.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -376,33 +318,24 @@ Vous ouvrez le ticket pour gérer l’installation du système d’exploitation 
 #### Dans le menu de gauche, sélectionner « Eléments »
 
 - Vous accédez à la liste des objets liés au ticket
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 » pour accéder à la fiche.
 
 #### Dans le menu de gauche, sélectionner « Systèmes d’exploitation »
 
 - Vous remplissez les différents champs et vous sauvegardez pour obtenir :
-
 - Vous venez de renseigner le système d’exploitation qui a été installé.
 
 #### Dans le menu de gauche, sélectionner « Logiciels »
 
 - Vous allez ajouter les logiciels installés sur l’ordinateur.
-
 - Pour installer « 7Zip » :
 
   - En haut de la fenêtre, dans "Logiciels", sélectionner « 7Zip 64bits »
-
   - Dans le menu qui est apparu, sélectionner « 7Zip 21.06 — En stock »
-
   - Cliquer sur « Installer », vous venez de lier un logiciel à l’ordinateur.
-
   - Vous installez ensuite la licence.
-
   - En bas de la fenêtre, dans "Licences", sélectionner « 7Zip64 bits »
-
   - Dans le menu qui est apparu, sélectionner « 7Zip 21.06 »
-
   - Cliquer sur « Ajouter »
 
 Vous procédez de la même façon pour installer les autres logiciels.
@@ -450,19 +383,16 @@ Vous procédez de la même façon pour installer les autres logiciels.
 Vous faites les mêmes changements sur les autres éléments.
 
 - Pour retrouver les éléments plus rapidement, passer par le ticket.
-
 - Comme les éléments sont liés, le changement a dû être pris en compte
 
   - Vérifier le lieu
 
 - Modifier le statut
-
 - Sauvegarder les modifications avant de changer de matériel.
 
 Vous modifiez le suivi du ticket.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -470,29 +400,23 @@ Vous modifiez le suivi du ticket.
 #### Dans le menu de gauche, sélectionner « Ticket »
 
 - Dans le corps du ticket,
-
 - Dans la zone « Description »
 
   - Vous remplissez les champs suivants :
 
 - Prises électriques installées et créées : OK
-
 - Prises réseaux installées et testées : OK
-
 - Mobilier installé : OK
-
 - Matériel installé : OK
 
   - Dans la zone « Acteur »
 
 - Vérifier qu’il y a le groupe « GLPI-GRP-PARC ».
-
 - Sauvegarder
 
 #### Dans le menu de gauche, sélectionner « Traitement du ticket »
 
 - Cliquer sur « Suivi »
-
 - Dans « nouvel élément — suivi »
 
   - Saisir « Matériel vérifié et configuré, prêt à être livré »
@@ -504,7 +428,6 @@ Vous modifiez le suivi du ticket.
 Vous ouvrez une session sur GLPI en tant que technicien de support Parc.
 
 - Login : jorah.mormont
-
 - Mot de passe : password
 
 Vous ouvrez le ticket pour gérer la livraison du matériel.
@@ -514,7 +437,6 @@ Vous ouvrez le ticket pour gérer la livraison du matériel.
 nécessaires dans GLPI.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -522,7 +444,6 @@ nécessaires dans GLPI.
 #### Dans le menu de gauche, sélectionner « Eléments »
 
 - Vous accédez à la liste des objets liés au ticket
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 » pour accéder à la fiche.
 
 #### Dans le menu de gauche, sélectionner « Ordinateur »
@@ -540,17 +461,14 @@ nécessaires dans GLPI.
   - Sélectionner l’utilisatrice « Deanerys Targaryan »
 
 - Sauvegarder
-
 - Tout le matériel est déplacé dans le nouveau lieu et l’utilisatrice est mise à jour sur toutes
 
 les fiches des matériels. Dans le menu de gauche, sélectionner « Connexions ».
 
 - Cliquer sur « ITI-Cisco-7811-006 », vous ouvrez la fiche du téléphone IP.
-
 - Modifier le statut
 
   - Remplacer « En stock &gt; A livrer » par « En utilisation »
-
   - Sauvegarder
 
 Dans le menu de gauche, sélectionner « Ports réseau ».
@@ -558,13 +476,10 @@ Dans le menu de gauche, sélectionner « Ports réseau ».
 - Cliquez sur le « 1 » en début de ligne.
 
   - Dans la liste déroulante « Prise réseau », vous sélectionnez « S231-161 »
-
   - Dans la liste déroulante « Connecté à », vous sélectionnez :
 
 - « Matériel réseau »
-
 - « Switch-Rezo-C2960L-Utilisateurs »
-
 - « Switch-Rezo-C2960L-Utilisateurs - Le port eth26 »
 
   - Vous sauvegardez
@@ -576,7 +491,6 @@ En faisant cette manipulation, vous venez d’indiquer sur quelle prise murale e
 Pour revenir sur la fiche de l’ordinateur.
 
 - Dans le menu de gauche, sélectionner « Connexions ».
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 ».
 
 Sur la fiche de l’ordinateur.
@@ -592,13 +506,11 @@ matériel.
 - Modifier le statut
 
   - Remplacer « En stock &gt; A livrer » par « En utilisation »
-
   - Sauvegarder
 
 Pour revenir sur la fiche de l’ordinateur.
 
 - Dans le menu de gauche, sélectionner « Connexions ».
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 ».
 
 Sur la fiche de l’ordinateur.
@@ -612,11 +524,9 @@ matériel.
 dock. Sur la fiche du dock.
 
 - Dans le menu de gauche, sélectionner « Périphérique ».
-
 - Modifier le statut
 
   - Remplacer « En stock &gt; A livrer » par « En utilisation »
-
   - Sauvegarder
 
 Dans le menu de gauche, sélectionner « Ports réseau ».
@@ -626,9 +536,7 @@ Dans le menu de gauche, sélectionner « Ports réseau ».
   - Dans la liste déroulante « Connecté à », vous sélectionnez :
 
 - « Téléphone »
-
 - « ITI-Cisco7811-006 »
-
 - « ITI-Cisco7811-006 — Le port eth02 — Prise réseau S331-031 »»
 
   - Sauvegarder
@@ -640,7 +548,6 @@ Pour revenir sur la fiche du dock.
 En faisant cette manipulation, vous venez d’indiquer que le câble Ethernet du dock est connecté au micro switch du téléphone pour accéder au réseau de l’entreprise. Pour revenir sur la fiche de l’ordinateur.
 
 - Dans le menu de gauche, sélectionner « Connexions ».
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 ».
 
 Sur la fiche de l’ordinateur.
@@ -654,17 +561,14 @@ matériel.
 téléphone. Sur la fiche du téléphone.
 
 - Dans le menu de gauche, sélectionner « Téléphone ».
-
 - Modifier le statut
 
   - Remplacer « En stock &gt; A livrer » par « En utilisation »
-
   - Sauvegarder
 
 Pour revenir sur la fiche de l’ordinateur.
 
 - Dans le menu de gauche, sélectionner « Connexions ».
-
 - Cliquer sur le nom de l’ordinateur « ITI-XPS15-006 ».
 
 Sur la fiche de l’ordinateur.
@@ -672,11 +576,8 @@ Sur la fiche de l’ordinateur.
 - Dans le menu de gauche, vous cliquez sur « Connexions ».
 
   - Sous « Connecter un élément »
-
   - Sélectionner « Imprimantes »
-
   - Sélectionner l’imprimante nommée « Com-Lex-MS310DN-001 — IMP-0005 »
-
   - Cliquer sur « Connecter »
 
 En faisant cette manipulation, vous venez d’indiquer quelle imprimante peut utiliser l’utilisateur de l’ordinateur. Vous obtenez ceci.
@@ -684,7 +585,6 @@ En faisant cette manipulation, vous venez d’indiquer quelle imprimante peut ut
 Vous modifiez le suivi du ticket.
 
 - Cliquer sur « Assistance », puis « tickets »
-
 - Dans la liste des tickets, cliquer sur le titre du ticket.
 
   - « Nouveau poste pour un nouveau salarié »
@@ -692,7 +592,6 @@ Vous modifiez le suivi du ticket.
 #### Dans le menu de gauche, sélectionner « Ticket »
 
 - Dans le corps du ticket,
-
 - Dans la zone « Description »
 
   - Vous remplissez les champs suivants :
@@ -704,25 +603,18 @@ Vous modifiez le suivi du ticket.
 #### Dans le menu de gauche, sélectionner « Traitement du ticket »
 
 - Cliquer sur « Suivi »
-
 - Dans « nouvel élément — suivi »
 
   - Saisir « Matériel livré et installé »
-
   - Cliquer sur « Ajouter »
 
 Dans le menu « Ajouter : », cliquer sur « Solution ».
 
 - Gabarit de solution : Livraison de matériels
-
 - Type de solution : Livraison
-
 - Enregistrer et ajouter à la base de connaissances : NON
-
 - Description : prérempli
-
 - Ajouter
-
 - Le statut du ticket passe à « Résolu »
 
 Fermer la session.
@@ -732,19 +624,15 @@ Etape 7 - Clôture du ticket par le responsable du service.
 #### Vous ouvrez une session sur GLPI en tant que directeur commercial :
 
 - Login : balon.grejoy
-
 - Mot de passe : password
 
 #### Clôturer le ticket
 
 - Cliquer sur « Tickets »
-
 - Sélectionner le ticket
-
 - Dans le menu de gauche, sélectionner « Traitement du ticket »
 
   - Vous avez un aperçu de l’évolution du traitement du ticket.
-
   - Cliquer sur « Approuver la solution » pour clôturer le ticket.
 
 - Dans le menu de gauche, sélectionner « Ticket »

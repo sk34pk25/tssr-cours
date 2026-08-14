@@ -30,9 +30,7 @@
 ### Outils collaboratifs
 
 - Découvrir les fonctionnalités de Microsoft Word
-
 - Mettre en forme un document
-
 - Utiliser les fonctionnalités de Word qui permettent
 
 #### d’automatiser la mise en forme du document
@@ -40,11 +38,8 @@
 ### L’interface de Word
 
 - Au démarrage, choisir
-
 - Nouveau document
-
 - Un modèle
-
 - Document récent
 
 #### Présentation de Word
@@ -70,23 +65,14 @@
 #### L’interface de Word
 
 - La barre de titre
-
 - Affiche le nom du fichier et du logiciel
-
 - Le ruban
-
 - Séparé sous forme d’onglets
-
 - Contenant les commandes par thèmes (accueil, mise en page, affichage…)
-
 - La barre accès rapide
-
 - Personnalisable
-
 - Contient les commandes les plus utilisées
-
 - La zone utilisateur
-
 - Affiche le nom de l’utilisateur de la licence
 
 #### Présentation de Word
@@ -94,49 +80,29 @@
 ### L’interface de Word
 
 - Les barres de défilement
-
 - Permettent de naviguer dans le document
-
 - La barre d’état
-
 - Contient des informations sur le document
-
 - Les règles
-
 - Pas affichées par défaut
-
 - Permet de positionner les éléments précisément et les taquets de tabulation
-
 - La zone de rédaction
-
 - Contient le texte de votre document
 
 #### Présentation de Word
 
-#### Création d’un document
-
 ### Création d’un document
 
 - Afficher les caractères non imprimables :
-
 - Menu Accueil
-
 - Écrire plusieurs pages du document
-
 - Taper au kilomètre
-
 - Sans mise en forme
-
 - Identifier les différents éléments :
-
 - Les titres
-
 - Les paragraphes
-
 - Les listes :
-
 - À puces
-
 - Numérotées
 
 #### Écriture d’un document
@@ -144,35 +110,22 @@
 #### Création d’un document
 
 - Mettre en forme le document
-
 - Alignement des paragraphes :
-
 - Positionner des taquets de tabulations
-
 - Utiliser les tabulations
-
 - Espacement des paragraphes :
-
 - Éviter les paragraphes vides
-
 - Création des styles de paragraphes :
-
 - Appliquer un style aux différents paragraphes
-
 - Pas de paragraphe du style normal
 
 #### Écriture d’un document
 
 - Mettre en forme le document
-
 - Enchaînement des paragraphes :
-
 - Lier les styles les uns aux autres
-
 - Utilisation des sauts :
-
 - Permettre de fixer le contenu de chaque page
-
 - Finir l’écriture du document
 
 #### Écriture d’un document
@@ -190,13 +143,9 @@
 #### Mise en forme d’un document
 
 - Prévoir des pages vides (si nécessaire) :
-
 - Pour la page de garde
-
 - Pour le sommaire
-
 - Insérer des sauts de page
-
 - Menu Insertion
 
 #### Page de garde et sommaire
@@ -214,33 +163,21 @@
 #### Mise en forme d’un document
 
 - Mettre en forme les titres :
-
 - Choisir la numérotation
-
 - Choisir la police :
-
 - Casse (Majuscule/Minuscule)
-
 - Taille
-
 - Mettre en forme le texte
-
 - Gras
-
 - Italique
-
 - Souligné
-
 - Ajuster les retraits de la liste (clic droit sur la puce) :
-
 - Espacement de la marge
-
 - Espacement entre la numérotation et le texte
 
 #### (tabulation)
 
 - Caractère entre la numérotation et le texte :
-
 - Tabulation ou Espace
 
 #### Gestion des titres
@@ -248,13 +185,9 @@
 ### Mise en forme d’un document
 
 - Mettre en forme le style Titre
-
 - Mettre à jour le style Titre1 avec le titre nouvellement créé
-
 - Menu Accueil
-
 - Procéder de la même façon avec les autres titres
-
 - Les autres titres apparaissent automatiquement dans l’accès rapide des styles
 
 #### Gestion des titres
@@ -262,19 +195,12 @@
 #### Mise en forme d’un document
 
 - Hiérarchiser la numérotation des titres
-
 - Gérer grâce à la liste à plusieurs niveaux
-
 - À chaque niveau
-
 - Appuyer sur le bouton Plus en bas à gauche
-
 - Choisir le style
-
 - Choisir la mise en forme si nécessaire
-
 - Choisir la position du texte
-
 - La mise en forme des titres peut être
 
 #### refaite titre par titre
@@ -298,9 +224,7 @@
 #### Les étapes
 
 1. Créer les différents titres
-
 2. Définir la liste à plusieurs niveaux
-
 3. Refaire la gestion des retraits qui aura sûrement été modifiée
 
 #### Gestion des titres
@@ -308,29 +232,17 @@
 #### Gestion des paragraphes
 
 - Mettre en forme des paragraphes
-
 - Aligner le paragraphe par rapport au titre
-
 - Ajuster les retraits
-
 - Modifier les taquets sur la règle
-
 - Choisir la police
-
 - Taille
-
 - Casse (Majuscule/Minuscule)
-
 - Aligner le texte du paragraphe
-
 - Alignement « à gauche »
-
 - Alignement « centrer »
-
 - Alignement « à droite »
-
 - Alignement « justifier »
-
 - Alignement du texte sur la gauche et la droite
 
 #### Gestion des paragraphes
@@ -338,15 +250,10 @@
 #### Mise en forme d’un document
 
 - Créer un nouveau style
-
 - Sauvegarder la structure du paragraphe
-
 - Définir le nouveau style
-
 - Nommer ce style
-
 - Possibilité de le modifier
-
 - Le style apparaît dans l’accès rapide
 
 #### Gestion des paragraphes
@@ -358,17 +265,11 @@
 #### l’accès rapide
 
 - Lier les styles
-
 - Automatiser l’application des styles
-
 - Mettre en forme le texte pendant la frappe
-
 - Modifier un style de l’accès rapide
-
 - Choisir le style du paragraphe
-
 - Mise en forme liée
-
 - Choisir le style du paragraphe suivant
 
 #### Gestion des paragraphes
@@ -382,41 +283,23 @@
 #### Gestion de l’espacement
 
 - Espacement des titres et des paragraphes
-
 - Ne pas utiliser de paragraphes vides
-
 - Paragraphes ne contenant pas de texte
-
 - Symboliser par le caractère non affichable
-
 - Utiliser l’espacement de paragraphe
-
 - Utiliser l’outil « Interligne et espacement de paragraphe»
-
 - Choisir l’interligne du paragraphe
-
 - Ajouter ou supprimer l’espace
-
 - Paramétrer les options d’interligne
-
 - L’alignement
-
 - Gauche
-
 - Centrer
-
 - Droite
-
 - Justifier
-
 - Le retrait
-
 - L’espacement
-
 - Avant
-
 - Après
-
 - L’interlignage
 
 #### Gestion de l’espacement
@@ -436,13 +319,9 @@
 #### des styles
 
 - Clic droit sur un style
-
 - Modifier le style
-
 - Bouton Format
-
 - Options d’espacement
-
 - Applique la modification
 
 #### à tous les paragraphes
@@ -456,7 +335,6 @@
 #### Mise en forme d’un document
 
 - Alignement des titres et des paragraphes
-
 - Taquets de retrait de la règle
 
 #### Gestion des alignements
@@ -470,17 +348,11 @@
 #### Gestion des tabulations
 
 - Utilisation des tabulations
-
 - Taquet gauche
-
 - Taquet centré
-
 - Taquet droit
-
 - Taquet décimal
-
 - Caractère non imprimable « tabulation »
-
 - Un caractère « tabulation » par taquet sur la règle
 
 #### Gestion des tabulations
@@ -488,13 +360,9 @@
 #### Mise en forme d’un document
 
 - Utilisation des tabulations durant la création du document
-
 - Positionner les tabulations durant la frappe
-
 - Sélectionner le texte à aligner
-
 - Positionner les taquets de tabulation
-
 - Créer un style pour une réutilisation
 
 #### Gestion des tabulations
@@ -504,25 +372,15 @@
 #### Mise en forme d’un document
 
 - Les différents types de sauts
-
 - Saut de page
-
 - Permet de fixer le contenu d’une page
-
 - Poursuite de la mise en forme
-
 - En-tête de page
-
 - Pied de page
-
 - Orientation de la page
-
 - Numérotation des pages
-
 - Saut de colonne
-
 - Permet de définir la fin du contenu d’une colonne
-
 - Indiquer le texte qui doit être dans une autre colonne
 
 #### Gestion des sauts
@@ -530,29 +388,17 @@
 ### Mise en forme d’un document
 
 - Sauts de section
-
 - Saut de section page suivante
-
 - Fixer le contenu d’une page
-
 - Définir la fin d’une section et le début d’une nouvelle
-
 - Changer la mise en forme
-
 - En-tête de page
-
 - Pied de page
-
 - Orientation de la page
-
 - Numérotation des pages
-
 - Saut de section continu
-
 - Définir la fin d’une section et le début d’une nouvelle
-
 - Insérer une mise en page différente dans une page
-
 - Marges différentes
 
 #### Gestion des sauts
@@ -562,11 +408,8 @@
 #### matières
 
 - Insertion de la table des matières
-
 - Ajout de la table des matières
-
 - À partir du menu Références
-
 - Choisir une table des matières
 
 #### ou
@@ -586,23 +429,16 @@
 #### Mise en forme d’un document
 
 - Définir la table des matières personnalisée
-
 - Choisir le format
-
 - Choisir les niveaux à afficher
-
 - Quel « Titre » afficher ?
-
 - Regarder les aperçus
-
 - Choisir les caractères de suite
 
 #### Gestion de la table des matières
 
 - Personnaliser la table des matières
-
 - Dépend de la mise en forme des styles TM X
-
 - Apparaît au fur et à mesure de leur utilisation
 
 #### Gestion de la table des matières
@@ -1209,17 +1045,10 @@ T2 Ses satellites
 
 P2 Deux petits satellites sont en orbite autour de Mars. Ils sont de forme irrégulière dont la surface présente de nombreux cratères.
 
-Début_tab
-
 | [Normal] Satellite | Distance (km) | Rayon (km) | Masse (kg) |
-
 | --- | --- | --- | --- |
-
 | [Normal] Phobos | 9 376 | 11,10 | 1,08x1016 |
-
 | [Normal] Deïmos | 23 458 | 6,20 | 1,476x1015 |
-
-Fin_tab
 
 T1 La ceinture d'astéroïdes
 
@@ -1287,29 +1116,16 @@ T2 Ses satellites
 
 P2 Jupiter est entouré de 66 satellites découverts à différentes périodes. Les plus récemment n’ont pas tous été nommés. Ils peuvent être regroupés en fonction de leurs tailles et de leurs orbites.
 
-Début_tab
-
 | [Normal] Groupe | Satellite | Distance du centre de Jupiter | Diamètre (km) |
-
 | --- | --- | --- | --- |
-
 | [Normal] Amalthée | Amalthée Métis Adrastée Thébé | Moins de 200 000 km | Moins de 200 km |
-
 | [Normal] Satellites Galiléens | Io Europe Ganymède Collisto | Entre 400 000 et 2 000 000 de km |  |
-
 | [Normal] Thémisto | Thémisto |  |  |
-
 | [Normal] Himalia | Léda Himalia Lysithéa Elara S/2000 J11 | Entre 11 000 000 et 13 000 000 de km | Moins de 170 km |
-
 | [Normal] Carpo | Carpo |  |  |
-
 | [Normal] Ananké |  | Vers 21 000 000 de km |  |
-
 | [Normal] Carmé |  | Vers 23 000 000 de km |  |
-
 | [Normal] Pasiphaé |  | Entre 17 000 000 et 30 000 000 de km | Moins de 65 km |
-
-Fin_tab
 
 T2 Ses anneaux
 
@@ -1375,39 +1191,21 @@ P2 Ces satellites sont très variés : de Titan aussi grand que Mercure, à de 
 
 T2 Ses anneaux
 
-Début_tab
-
 | [Normal] Nom | Rayon interne (km) | Rayon externe (km) | Largeur (km) | Épaisseur (m) |
-
 | --- | --- | --- | --- | --- |
-
 | [Normal] Anneau D | 66 900 | 74 510 | 7 610 | ? |
-
 | [Normal] Division de Guérin | 74 510 | 74 658 | 148 | — |
-
 | [Normal] Anneau C | 74 658 | 92 000 | 17 342 | 5 |
-
 | [Normal] Anneau B | 92 000 | 117 580 | 25 580 | 5-10 |
-
 | [Normal] Division de Cassini | 117 500 | 122 200 | 4 700 | — |
-
 | [Normal] Anneau A | 122 170 | 136 775 | 14 605 | 20-40 |
-
 | [Normal] Division d'Encke | 133 589 | — | 325 | — |
-
 | [Normal] Division de Keeler | 136 530 | — | 35 | — |
-
 | [Normal] R/2004 S 1 | 137 630 | — | ? | ? |
-
 | [Normal] R/2004 S 2 | 138 900 | — | ? | ? |
-
 | [Normal] Anneau F | 140 180 | — | 30-500 | ? |
-
 | [Normal] Anneau G | 170 000 | 175 000 | 5 000 | 1×105 |
-
 | [Normal] Anneau E | 181 000 | 483 000 | 302 000 | 1×107 |
-
-Fin_tab
 
 T1 Uranus
 
@@ -1469,105 +1267,55 @@ T2 Ses satellites
 
 P2 Uranus possède 15 satellites, dont 5 ont été découverts entre 1787 et 1948 et 10 autres en 1986. Semblables aux satellites de Saturne, les plus gros (de diamètres supérieurs à 400 km) portent les noms des héros shakespeariens tirés des œuvres suivantes, le songe d'une nuit d'été et la tempête : Miranda, Ariel, Umbriel, Tatiana et Obéron. Ils sont constitués de glace et de débris rocheux. Les autres satellites sont des astéroïdes sombres de quelques dizaines de kilomètres de diamètre.
 
-Début_tab
-
 | [Normal] Nom | Diamètre (km) | Masse (1016 kg) |  | Rayon moyen (km) |
-
 | --- | --- | --- | --- | --- |
-
 | [Normal] Cordélia | 47 | 4,5 | 49 800 |  |
-
 | [Normal] Ophélie | 43 | 5,4 | 53 800 |  |
-
 | [Normal] Bianca | 51 | 9,3 | 59 200 |  |
-
 | [Normal] Cressida | 80 | 34,3 | 61 800 |  |
-
 | [Normal] Desdémone | 64 | 17,8 | 62 700 |  |
-
 | [Normal] Juliette | 94 | 55,7 | 64 400 |  |
-
 | [Normal] Portia | 135 | 168 | 66 100 |  |
-
 | [Normal] Rosalinde | 72 | 25,4 | 69 900 |  |
-
 | [Normal] Cupid | 12 | 0,12 | 74 800 |  |
-
 | [Normal] Belinda | 81 | 35,7 | 75 300 |  |
-
 | [Normal] Perdita | 80 | 40,0 | 76 416 |  |
-
 | [Normal] Puck | 162 | 289 | 86 000 |  |
-
 | [Normal] Mab | 16 | 0,28 | 97 734 |  |
-
 | [Normal] Miranda | 474 | 6 600 | 129 900 |  |
-
 | [Normal] Ariel | 1 159 | 135 000 | 190 900 |  |
-
 | [Normal] Umbriel | 1 169 | 117 000 | 266 000 |  |
-
 | [Normal] Titania | 1 578 | 352 000 | 436 300 |  |
-
 | [Normal] Obéron | 1 523 | 301 000 | 583 500 |  |
-
 | [Normal] Francisco | 12 | 0,13 | 4 276 000 |  |
-
 | [Normal] Caliban | 98 | 73 | 7 231 000 |  |
-
 | [Normal] Stephano | 20 | 0,60 | 8 004 000 |  |
-
 | [Normal] Trinculo | 10 | 0,075 | 8 578 000 |  |
-
 | [Normal] Sycorax | 190 | 540 | 12 179 000 |  |
-
 | [Normal] Margaret | 11 | 0,10 | 14 345 000 |  |
-
 | [Normal] Prospero | 30 | 2,1 | 16 243 000 |  |
-
 | [Normal] Setebos | 30 | 2,1 | 17 501 000 |  |
-
 | [Normal] Ferdinand | 12 | 0,13 | 20 901 000 |  |
-
-Fin_tab
 
 T2 Les anneaux
 
 P2 Les anneaux d'Uranus sont découverts depuis la Terre en 1977, lors de l'observation de l'occultation d'une étoile par la planète. On en compte alors 9, qui sont les principaux anneaux de la planète. Des anneaux secondaires très fins sont découverts par la sonde Voyager 2 en 1986 (dont un de 3 500 kilomètres de largeur). En comparaison de ceux de Saturne, les 9 anneaux principaux d'Uranus sont très petits. Leur épaisseur varie de 20 à 30 mètres
 
-Début_tab
-
 | [Normal] Nom | Distance (km) | Largeur (km) |
-
 | --- | --- | --- |
-
 | [Normal] ζ (Zéta) | 39 600 | 3 500 |
-
 | [Normal] 6 | 41 840 | 1 à 3 |
-
 | [Normal] 5 | 42 230 | 2 à 3 |
-
 | [Normal] 4 | 42 580 | 2 à 3 |
-
 | [Normal] α (Alpha) | 44 720 | 7 à 12 |
-
 | [Normal] β (Béta) | 45 670 | 7 à 12 |
-
 | [Normal] η (Eta) | 47 190 | 0 à 2 |
-
 | [Normal] γ (Gamma) | 47 630 | 1 à 4 |
-
 | [Normal] δ (Delta) | 48 290 | 3 à 9 |
-
 | [Normal] λ (Lambda) | 50 024 | 2 à 3 |
-
 | [Normal] ε (Epsilon) | 51 140 | 20 à 100 |
-
 | [Normal] ν (Nu) | 67 300 | 3 800 |
-
 | [Normal] μ (Mu) | 97 700 | 17 80 |
-
-Fin_tab
 
 T1 Neptune
 
@@ -1629,71 +1377,40 @@ T2 Ses anneaux
 
 P2 Neptune possède des anneaux planétaires peu visibles. Ceux-ci sont sombres, leur composition et leur origine sont inconnues.
 
-Début_tab
-
 | [Normal] Nom | Distance (km) | Largeur (km) |
-
 | --- | --- | --- |
-
 | [Normal] Galle | 41 900 | 15 |
-
 | [Normal] Le Verrier | 53 200 | 15 |
-
 | [Normal] Lassell | 53 200 | 5 800 |
-
 | [Normal] Arago | 57 000 | ? |
-
 | [Normal] Adams | 62 930 | &lt; 50 |
-
-Fin_tab
 
 T2 Ses satellites
 
 P2 Neptune compte 14 satellites. Le premier et plus gros, Triton, a été découvert en 1846, 15 jours après la première observation de la planète.
 
-Début_tab
-
 | [Normal] Ordre | Label | Nom | Diamètre |
-
 | --- | --- | --- | --- |
-
 | [Normal] (km) | Masse |  |  |
 
 (1016 kg)
 
 | [Normal] 1 | Neptune III | Naïade | 67 | 19 |
-
 | --- | --- | --- | --- | --- |
-
 | [Normal] 2 | Neptune IV | Thalassa | 83 | 35 |
-
 | [Normal] 3 | Neptune V | Despina | 152 | 210 |
-
 | [Normal] 4 | Neptune VI | Galatée | 175 | 212 |
-
 | [Normal] 5 | Neptune VII | Larissa | 195 | 420 |
-
 | [Normal] 6 |  | S/2004 N 1 |  |  |
-
 | [Normal] (provisoire) | 19 |  |  |  |
-
 | [Normal] 7 | Neptune VIII | Protée | 418 | 5 000 |
-
 | [Normal] 8 | Neptune I | Triton | 2 707 | 2 140 000 |
-
 | [Normal] 9 | Neptune II | Néréide | 340 | 3 100 |
-
 | [Normal] 10 | Neptune IX | Halimède | 60 | 9 |
-
 | [Normal] 11 | Neptune XI | Sao | 38 | 9 |
-
 | [Normal] 12 | Neptune XII | Laomédie | 38 | 9 |
-
 | [Normal] 13 | Neptune X | Psamathée | 28 | 1,5 |
-
 | [Normal] 14 | Neptune XIII | Néso | 60 | 9 |
-
-Fin_tab
 
 T1 Pluton
 
@@ -1741,25 +1458,14 @@ TP2 La température est de -230°C
 
 T2 Ses satellites
 
-Début_tab
-
 | [Normal] Nom | Désignation Système | Dimensions (km) | Masse (1021 kg) |
-
 | --- | --- | --- | --- |
-
 | [Normal] Pluton |  | 2 370 | 13,05 |
-
 | [Normal] Charon | Pluton I | 1 208 | 1,52 |
-
 | [Normal] Styx | Pluton V | 10 - 25 |  |
-
 | [Normal] Nix | Pluton II | 42 x 369 | &lt;0.005 |
-
 | [Normal] Kerbéros | Pluton IV | &lt; 30 |  |
-
 | [Normal] Hydre | Pluton III | 55 × 409 | &lt;0.005 |
-
-Fin_tab
 
 ## Système Solaire - Document Fini
 
@@ -2343,10 +2049,6 @@ Maximale : -3°C
 
 Deux petits satellites sont en orbite autour de Mars. Ils sont de forme irrégulière dont la surface présente de nombreux cratères.
 
-Début_tab
-
-Fin_tab
-
 ### La ceinture d'astéroïdes
 
 Si l'on se fonde sur la distance qui sépare chacune des neuf planètes connues, il devrait exister une dixième planète entre Mars et Jupiter. De fait, à l'endroit où cette planète devrait se situer, on trouve une bande d'astéroïdes dont certaines ont un diamètre atteignant 1 000 kilomètres alors que les autres sont de minuscules cailloux.
@@ -2413,10 +2115,6 @@ Une seconde s’est formée au début des années 2000 par la collision et la fu
 
 Jupiter est entouré de 66 satellites découverts à différentes périodes. Les plus récemment n’ont pas tous été nommés. Ils peuvent être regroupés en fonction de leurs tailles et de leurs orbites.
 
-Début_tab
-
-Fin_tab
-
 ### Ses anneaux
 
 Comme Saturne, Jupiter comprend des anneaux. Ils sont moins visibles, car constitués de grains de matières très sombres.
@@ -2481,10 +2179,6 @@ Ces satellites sont très variés : de Titan aussi grand que Mercure, à de pet
 
 ### Ses anneaux
 
-Début_tab
-
-Fin_tab
-
 ### Uranus
 
 Uranus doit son nom à la divinité grecque du ciel, le père de Cronos (Saturne) et grand-père de Zeus (Jupiter). Ouranos est le Ciel qui, en s'unissant avec Gaia, la Terre, va donner naissance aux Titans. Uranus fut tout d'abord appelé la planète Herschel du nom de son inventeur qui, lui, aurait voulu appeler cette planète "l'astre de Georges", du nom du roi Georges III. En 1781, Johann Bode la nomma Uranus.
@@ -2545,17 +2239,9 @@ La thermosphère/couronne commençant vers 4 000 kilomètres d'altitude et all
 
 Uranus possède 15 satellites, dont 5 ont été découverts entre 1787 et 1948 et 10 autres en 1986. Semblables aux satellites de Saturne, les plus gros (de diamètres supérieurs à 400 km) portent les noms des héros shakespeariens tirés des œuvres suivantes, le songe d'une nuit d'été et la tempête : Miranda, Ariel, Umbriel, Tatiana et Obéron. Ils sont constitués de glace et de débris rocheux. Les autres satellites sont des astéroïdes sombres de quelques dizaines de kilomètres de diamètre.
 
-Début_tab
-
-Fin_tab
-
 ### Les anneaux
 
 Les anneaux d'Uranus sont découverts depuis la Terre en 1977, lors de l'observation de l'occultation d'une étoile par la planète. On en compte alors 9, qui sont les principaux anneaux de la planète. Des anneaux secondaires très fins sont découverts par la sonde Voyager 2 en 1986 (dont un de 3 500 kilomètres de largeur). En comparaison de ceux de Saturne, les 9 anneaux principaux d'Uranus sont très petits. Leur épaisseur varie de 20 à 30 mètres
-
-Début_tab
-
-Fin_tab
 
 ### Neptune
 
@@ -2609,17 +2295,9 @@ Lors de survol de Neptune par la sonde Voyager 2 en 1989, les astronomes découv
 
 Neptune possède des anneaux planétaires peu visibles. Ceux-ci sont sombres, leur composition et leur origine sont inconnues.
 
-Début_tab
-
-Fin_tab
-
 ### Ses satellites
 
 Neptune compte 14 satellites. Le premier et plus gros, Triton, a été découvert en 1846, 15 jours après la première observation de la planète.
-
-Début_tab
-
-Fin_tab
 
 ### Pluton
 
@@ -2667,216 +2345,109 @@ La température est de -230°C
 
 ### Ses satellites
 
-Début_tab
-
-Fin_tab
-
 | Satellite | Distance (km) | Rayon (km) | Masse (kg) |
-
 | --- | --- | --- | --- |
-
 | Phobos | 9 376 | 11,10 | 1,08x1016 |
-
 | Deïmos | 23 458 | 6,20 | 1,476x1015 |
-
 | Groupe | Satellite | Distance du centre de Jupiter | Diamètre (km) |
-
 | --- | --- | --- | --- |
-
 | Amalthée | Amalthée Métis Adrastée Thébé | Moins de 200 000 km | Moins de 200 km |
-
 | Satellites Galiléens | Io Europe Ganymède Collisto | Entre 400 000 et 2 000 000 de km |  |
-
 | Thémisto | Thémisto |  |  |
-
 | Himalia | Léda Himalia Lysithéa Elara S/2000 J11 | Entre 11 000 000 et 13 000 000 de km | Moins de 170 km |
-
 | Carpo | Carpo |  |  |
-
 | Ananké |  | Vers 21 000 000 de km |  |
-
 | Carmé |  | Vers 23 000 000 de km |  |
-
 | Pasiphaé |  | Entre 17 000 000 et 30 000 000 de km | Moins de 65 km |
-
 | Nom | Rayon interne (km) | Rayon externe (km) | Largeur (km) | Épaisseur (m) |
-
 | --- | --- | --- | --- | --- |
-
 | Anneau D | 66 900 | 74 510 | 7 610 | ? |
-
 | Division de Guérin | 74 510 | 74 658 | 148 | — |
-
 | Anneau C | 74 658 | 92 000 | 17 342 | 5 |
-
 | Anneau B | 92 000 | 117 580 | 25 580 | 5-10 |
-
 | Division de Cassini | 117 500 | 122 200 | 4 700 | — |
-
 | Anneau A | 122 170 | 136 775 | 14 605 | 20-40 |
-
 | Division d'Encke | 133 589 | — | 325 | — |
-
 | Division de Keeler | 136 530 | — | 35 | — |
-
 | R/2004 S 1 | 137 630 | — | ? | ? |
-
 | R/2004 S 2 | 138 900 | — | ? | ? |
-
 | Anneau F | 140 180 | — | 30-500 | ? |
-
 | Anneau G | 170 000 | 175 000 | 5 000 | 1×105 |
-
 | Anneau E | 181 000 | 483 000 | 302 000 | 1×107 |
-
 | Nom | Diamètre (km) | Masse (1016 kg) |  | Rayon moyen (km) |
-
 | --- | --- | --- | --- | --- |
-
 | Cordélia | 47 | 4,5 | 49 800 |  |
-
 | Ophélie | 43 | 5,4 | 53 800 |  |
-
 | Bianca | 51 | 9,3 | 59 200 |  |
-
 | Cressida | 80 | 34,3 | 61 800 |  |
-
 | Desdémone | 64 | 17,8 | 62 700 |  |
-
 | Juliette | 94 | 55,7 | 64 400 |  |
-
 | Portia | 135 | 168 | 66 100 |  |
-
 | Rosalinde | 72 | 25,4 | 69 900 |  |
-
 | Cupid | 12 | 0,12 | 74 800 |  |
-
 | Belinda | 81 | 35,7 | 75 300 |  |
-
 | Perdita | 80 | 40,0 | 76 416 |  |
-
 | Puck | 162 | 289 | 86 000 |  |
-
 | Mab | 16 | 0,28 | 97 734 |  |
-
 | Miranda | 474 | 6 600 | 129 900 |  |
-
 | Ariel | 1 159 | 135 000 | 190 900 |  |
-
 | Umbriel | 1 169 | 117 000 | 266 000 |  |
-
 | Titania | 1 578 | 352 000 | 436 300 |  |
-
 | Obéron | 1 523 | 301 000 | 583 500 |  |
-
 | Francisco | 12 | 0,13 | 4 276 000 |  |
-
 | Caliban | 98 | 73 | 7 231 000 |  |
-
 | Stephano | 20 | 0,60 | 8 004 000 |  |
-
 | Trinculo | 10 | 0,075 | 8 578 000 |  |
-
 | Sycorax | 190 | 540 | 12 179 000 |  |
-
 | Margaret | 11 | 0,10 | 14 345 000 |  |
-
 | Prospero | 30 | 2,1 | 16 243 000 |  |
-
 | Setebos | 30 | 2,1 | 17 501 000 |  |
-
 | Ferdinand | 12 | 0,13 | 20 901 000 |  |
-
 | Nom | Distance (km) | Largeur (km) |
-
 | --- | --- | --- |
-
 | ζ (Zéta) | 39 600 | 3 500 |
-
 | 6 | 41 840 | 1 à 3 |
-
 | 5 | 42 230 | 2 à 3 |
-
 | 4 | 42 580 | 2 à 3 |
-
 | α (Alpha) | 44 720 | 7 à 12 |
-
 | β (Béta) | 45 670 | 7 à 12 |
-
 | η (Eta) | 47 190 | 0 à 2 |
-
 | γ (Gamma) | 47 630 | 1 à 4 |
-
 | δ (Delta) | 48 290 | 3 à 9 |
-
 | λ (Lambda) | 50 024 | 2 à 3 |
-
 | ε (Epsilon) | 51 140 | 20 à 100 |
-
 | ν (Nu) | 67 300 | 3 800 |
-
 | μ (Mu) | 97 700 | 17 80 |
-
 | Nom | Distance (km) | Largeur (km) |
-
 | --- | --- | --- |
-
 | Galle | 41 900 | 15 |
-
 | Le Verrier | 53 200 | 15 |
-
 | Lassell | 53 200 | 5 800 |
-
 | Arago | 57 000 | ? |
-
 | Adams | 62 930 | &lt; 50 |
-
 | Ordre | Label | Nom | Diamètre (km) | Masse (1016 kg) |
-
 | --- | --- | --- | --- | --- |
-
 | 1 | Neptune III | Naïade | 67 | 19 |
-
 | 2 | Neptune IV | Thalassa | 83 | 35 |
-
 | 3 | Neptune V | Despina | 152 | 210 |
-
 | 4 | Neptune VI | Galatée | 175 | 212 |
-
 | 5 | Neptune VII | Larissa | 195 | 420 |
-
 | 6 |  | S/2004 N 1(provisoire) | 19 |  |
-
 | 7 | Neptune VIII | Protée | 418 | 5 000 |
-
 | 8 | Neptune I | Triton | 2 707 | 2 140 000 |
-
 | 9 | Neptune II | Néréide | 340 | 3 100 |
-
 | 10 | Neptune IX | Halimède | 60 | 9 |
-
 | 11 | Neptune XI | Sao | 38 | 9 |
-
 | 12 | Neptune XII | Laomédie | 38 | 9 |
-
 | 13 | Neptune X | Psamathée | 28 | 1,5 |
-
 | 14 | Neptune XIII | Néso | 60 | 9 |
-
 | Nom | Désignation Système | Dimensions (km) | Masse (1021 kg) |
-
 | --- | --- | --- | --- |
-
 | Pluton |  | 2 370 | 13,05 |
-
 | Charon | Pluton I | 1 208 | 1,52 |
-
 | Styx | Pluton V | 10 - 25 |  |
-
 | Nix | Pluton II | 42 x 369 | &lt;0.005 |
-
 | Kerbéros | Pluton IV | &lt; 30 |  |
-
 | Hydre | Pluton III | 55 × 409 | &lt;0.005 |
 
 ## Mise en pratique

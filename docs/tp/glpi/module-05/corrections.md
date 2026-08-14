@@ -80,9 +80,7 @@ modèle GAB-JL356A-ARUBA-2540-24P.
   - Indices :
 
 - Utiliser les sélections complexes.
-
 - Is_template à 1 est un gabarit.
-
 - GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.
 
 `select n ame from glpi_networkequipments where is_template=’0’ and`

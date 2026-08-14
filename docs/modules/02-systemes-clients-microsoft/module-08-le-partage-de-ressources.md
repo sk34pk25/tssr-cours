@@ -58,7 +58,6 @@ Get-SMBShareAccess N$
 #### de l’entreprise
 
 - Accéder aux documents via des partages
-
 - Accéder aux ordinateurs grâce au bureau à
 
 #### distance
@@ -68,11 +67,8 @@ Get-SMBShareAccess N$
 #### Les principes du partage
 
 - Permet d'accéder à une ressource
-
 - hébergée par un serveur
-
 - depuis un client
-
 - à travers le réseau
 
 #### RÉSEAU
@@ -80,43 +76,26 @@ Get-SMBShareAccess N$
 #### Partages
 
 - Les ressources ?
-
 - Des fichiers (via le partage de dossier, d'arborescence entière ou de volume)
-
 - Des imprimantes
-
 - Les serveurs ?
-
 - Tout type de système connecté au réseau de l'entreprise peut potentiellement partager ses
 
 #### ressources
 
 - Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
-
 - Les clients ?
-
 - Tout type de système connecté au réseau peut accéder aux ressources partagées de l'entreprise
-
 - Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
-
 - Qui peut partager ?
-
 - Des droits administratifs sont requis ! Partager, c'est modifier le système !
-
 - Qui a accès au partage ?
-
 - Une authentification est requise (compte local, du domaine)
-
 - 3 niveaux d'accès sont définis sur la ressource partagée
-
 - Lecture, Modifier, Contrôle total
-
 - 2 vérifications d'identités sont effectuées
-
 - 1 — Au niveau du partage
-
 - 2 — Puis au niveau des droits NTFS
-
 - Les autorisations du partage sont restrictives
 
 #### RÉSEAU
@@ -136,15 +115,10 @@ Get-SMBShareAccess N$
 #### lecteur réseau
 
 - Les lecteurs mappés sont mémorisés avec le profil utilisateur
-
 - En ligne de commande avec net use
-
 - Exemple net use z: \\serveur\partage
-
 - La commande net view liste les partages
-
 - En PowerShell avec la cmdlet New-SmbMapping
-
 - Exemple
 
 `New-SmbMapping -LocalPath 'R:' -RemotePath '\\SRV-FIC\Compta'`
@@ -154,9 +128,7 @@ Get-SMBShareAccess N$
 #### Comment partager des fichiers ?
 
 - Depuis l'explorateur Windows
-
 - Ouverture du partage sur le conteneur
-
 - Partage de base : partage simplifié
 
 #### orienté utilisateur (à éviter)
@@ -176,25 +148,17 @@ Get-SMBShareAccess N$
 #### Partage de fichiers
 
 - Depuis le composant MMC Dossiers partagés (fsmgmt.msc)
-
 - Visualisation des partages actifs
-
 - Assistant de création de partages
-
 - Vues Sessions et Fichiers ouverts
-
 - Affichage des partages administratifs
 
 #### générés par le système
 
 - Depuis l'invite de commande
-
 - net share pour lister et configurer les partages
-
 - Exemple : net share commun=d:\Note_de_service /grant:"utilisateurs authentifiés",FULL
-
 - En PowerShell avec la cmdlet New-SmbShare
-
 - New-SmbShare -Name "VMSFiles" -Path "C:\ClusterStorage\Volume1\VMFiles" -FullAccess "Authenticated
 
 #### Users"
@@ -204,45 +168,27 @@ Get-SMBShareAccess N$
 #### Session à distance
 
 - Accès distant au poste
-
 - Possible grâce à la fonctionnalité Bureau à distance
-
 - Authentification avec un compte valide (local ou de domaine)
-
 - Nécessite des privilèges spécifiques
-
 - Même niveau de fonctionnement qu'une session locale
-
 - Utilisation courante
-
 - Maintenir des postes (1 seule session locale ou distante)
-
 - Accéder à distance aux serveurs (2 sessions simultanées depuis Windows 2008)
-
 - Accéder à son environnement de travail depuis l'extérieur (VPN)
-
 - Les limites
-
 - Mode maintenance sur un poste client (pas d'interaction possible avec l'utilisateur)
-
 - Sur les serveurs, 2 sessions avec des comptes différents
-
 - Blocage (à distance) si les sessions restent ouvertes
 
 ### Session à distance
 
 - Comment se connecter à distance sur un poste Windows 10 ?
-
 - Nativement, avec l'outil Connexion Bureau à distance
-
 - Ensemble d'onglets pour personnaliser la connexion
-
 - Sauvegarder les paramètres
-
 - Mappez vos ressources locales sur le poste distant !
-
 - En ligne de commande avec mstsc
-
 - Exemple : mstsc /v:serveur
 
 #### Session à distance
@@ -250,27 +196,18 @@ Get-SMBShareAccess N$
 #### Configuration du poste cible ?
 
 - Rubrique Système du panneau de configuration
-
 - Menu Paramètres système avancés
-
 - Onglet Utilisation à distance
-
 - Nativement désactivé
-
 - 2 niveaux d'authentification
-
 - Authentification standard
-
 - Authentification NLA
-
 - Par défaut, accès autorisé aux administrateurs
 
 #### Fonctionnement
 
 - Protocole RDP (port 3389)
-
 - Configuration automatique du pare-feu
-
 - Attention aux emplacements réseau
 
 ### Démonstration

@@ -24,9 +24,7 @@ tous les utilisateurs devront utiliser un mot de passe avec les caractéristique
 #### suivantes
 
   - Longueur minimale : 7 caractères
-
   - 3 mots de passe seront conservés dans l'historique
-
   - Il devra respecter les exigences de complexité
 
 #### Rechercher &gt; secpol.msc

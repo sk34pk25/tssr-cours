@@ -56,7 +56,6 @@ Afficher le SID et la source principale du groupe Utilisateurs du bureau à dist
 #### cmdlet
 
 3. Testez la cmdlet de manière basique pour commencer…
-
 4. … puis chercher et afficher les propriétés demandées
 
 Quelle commande permet d'afficher les disques durs de la VM Discovery ? Combien

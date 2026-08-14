@@ -106,7 +106,6 @@ https://docs.microsoft.com/fr-fr/troubleshoot/windows-client/deployment/sysprep-
 #### fonctionnalité de clonage de WorkStation
 
   - Créez un "Full Clone" de Win10-XX depuis son état actuel
-
   - Cette nouvelle VM sera hébergée dans le dossier Win10 -XX-Clone créé
 
 #### précédemment
@@ -114,7 +113,6 @@ https://docs.microsoft.com/fr-fr/troubleshoot/windows-client/deployment/sysprep-
 #### Configuration / observation du clone
 
 - Appliquez son dernier snapshot puis allumez la VM Win10-XX
-
 - Allumez la VM Win10 -XX-Clone dès qu'elle est disponible et procédez à sa
 
 #### configuration initiale

@@ -1,0 +1,92 @@
+name: Validate and merge collaborative publication
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.head_ref, 'collaboration/change-')
+    runs-on: ubuntu-latest
+    outputs:
+      change_id: ${{ steps.metadata.outputs.change_id }}
+    steps:
+      - name: Resolve change identifier
+        id: metadata
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: echo "change_id=${HEAD_BRANCH#collaboration/change-}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout proposed commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install MkDocs dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Generate public collaboration configuration
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPO: ${{ github.event.repository.name }}
+          GITHUB_BRANCH: main
+        run: python scripts/render_collaboration_config.py
+
+      - name: Strict MkDocs validation
+        run: mkdocs build --strict
+
+  merge:
+    needs: validate
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Merge approved proposal automatically
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHANGE_ID: ${{ needs.validate.outputs.change_id }}
+        run: |
+          gh pr merge "$PR_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --merge \
+            --delete-branch \
+            --subject "docs: publish approved change ${CHANGE_ID:0:8}" \
+            --body "Change-Request-ID: $CHANGE_ID"
+
+  report-failure:
+    if: ${{ always() && (needs.validate.result != 'success' || needs.merge.result != 'success') }}
+    needs: [validate, merge]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report failed validation or merge
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ needs.validate.outputs.change_id }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ] || [ -z "$WEBHOOK_SECRET" ] || [ -z "$CHANGE_ID" ]; then
+            exit 0
+          fi
+          payload="$(jq -n \
+            --arg id "$CHANGE_ID" \
+            '{change_request_id: $id, status: "failed", failure_reason: "La validation MkDocs ou la fusion automatique a échoué."}')"
+          curl --fail-with-body --silent --show-error \
+            --request POST "$WEBHOOK_URL" \
+            --header "content-type: application/json" \
+            --header "x-publication-secret: $WEBHOOK_SECRET" \
+            --data "$payload"

@@ -1,0 +1,141 @@
+name: Build and deploy MkDocs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      change_id:
+        description: Supabase change request identifier
+        required: false
+        type: string
+      commit_sha:
+        description: Published Git commit
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tssr-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Resolve publication metadata
+        id: metadata
+        env:
+          INPUT_CHANGE_ID: ${{ inputs.change_id }}
+          INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          import subprocess
+
+          change_id = os.environ.get("INPUT_CHANGE_ID", "").strip()
+          commit_sha = os.environ.get("INPUT_COMMIT_SHA", "").strip() or os.environ["GITHUB_SHA"]
+          if not change_id:
+              message = subprocess.check_output(
+                  ["git", "log", "-1", "--pretty=%B"], text=True
+              )
+              match = re.search(
+                  r"^Change-Request-ID:\s*([0-9a-f-]{36})\s*$",
+                  message,
+                  re.MULTILINE | re.IGNORECASE,
+              )
+              if match:
+                  change_id = match.group(1)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"change_id={change_id}\n")
+              output.write(f"commit_sha={commit_sha}\n")
+          PY
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install MkDocs dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Generate public collaboration configuration
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPO: ${{ github.event.repository.name }}
+          GITHUB_BRANCH: main
+        run: python scripts/render_collaboration_config.py
+
+      - name: Validate and build MkDocs
+        id: build
+        continue-on-error: true
+        run: mkdocs build --strict --site-dir "$RUNNER_TEMP/tssr-pages"
+
+      - name: Publish gh-pages without force push
+        id: deploy
+        if: steps.build.outcome == 'success'
+        continue-on-error: true
+        run: |
+          deployment_directory="$RUNNER_TEMP/tssr-pages"
+          test -f "$deployment_directory/index.html"
+          git fetch origin gh-pages
+          git switch gh-pages
+          git rm -r --ignore-unmatch .
+          cp -a "$deployment_directory/." .
+          touch .nojekyll
+          git add --all
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --cached --quiet; then
+            echo "Aucun changement à publier."
+          else
+            git commit -m "deploy: ${GITHUB_SHA}"
+            git push origin gh-pages
+          fi
+
+      - name: Report publication status to Supabase
+        if: always() && steps.metadata.outputs.change_id != ''
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ steps.metadata.outputs.change_id }}
+          COMMIT_SHA: ${{ steps.metadata.outputs.commit_sha }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ] || [ -z "$WEBHOOK_SECRET" ]; then
+            echo "Webhook Supabase non configuré ; aucun secret n'est affiché."
+            exit 0
+          fi
+          python - <<'PY' > "$RUNNER_TEMP/publication-status.json"
+          import json
+          import os
+
+          success = os.environ["BUILD_OUTCOME"] == "success" and os.environ["DEPLOY_OUTCOME"] == "success"
+          print(json.dumps({
+              "change_request_id": os.environ["CHANGE_ID"],
+              "status": "published" if success else "failed",
+              "commit_sha": os.environ["COMMIT_SHA"],
+              "failure_reason": None if success else "Le build strict ou le déploiement gh-pages a échoué.",
+          }))
+          PY
+          curl --fail-with-body --silent --show-error \
+            --request POST "$WEBHOOK_URL" \
+            --header "content-type: application/json" \
+            --header "x-publication-secret: $WEBHOOK_SECRET" \
+            --data-binary "@$RUNNER_TEMP/publication-status.json"
+
+      - name: Fail the workflow after reporting
+        if: steps.build.outcome != 'success' || steps.deploy.outcome != 'success'
+        run: exit 1

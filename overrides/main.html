@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  {% if page and page.file %}
+    <meta name="tssr-source-path" content="{{ page.file.src_uri | e }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if page and page.file %}
+    <span data-tssr-source-path="{{ page.file.src_uri | e }}" hidden></span>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+
 {% block scripts %}
   {{ super() }}
   <script src="{{ 'assets/javascripts/mermaid.min.js' | url }}"></script>

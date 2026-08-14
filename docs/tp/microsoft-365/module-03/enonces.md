@@ -26,7 +26,6 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
 - Récupérer deux documents :
 
   - « Clients — Document Brut.docx », document à mettre en forme
-
   - « Clients — Document Fini.pdf », document contenant le résultat attendu
 
 #### Principales tâches à réaliser

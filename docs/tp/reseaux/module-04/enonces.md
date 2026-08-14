@@ -24,7 +24,6 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 #### A. Communication dans un réseau
 
 - Les machines A, B, C, D, E et F sont situées sur le même segment.
-
 - Il n'y a pas de routeur.
 
 #### Poste A
@@ -52,7 +51,6 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 172.16.10.200 255.255.255.0
 
 - Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer
-
 - Communication avec réponse et pourquoi ?
 
 #### L'hôte peut contacter l'hôte Explications
@@ -78,9 +76,7 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 - Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
 
   - V pour Vrai (communication entre les deux postes)
-
   - F pour Faux (pas de communication entre les deux postes)
-
   - P pour Passerelle (communication entre les deux postes en passant par le
 
 #### routeur)
@@ -270,9 +266,7 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 - Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
 
   - V pour Vrai (communication entre les deux postes)
-
   - F pour Faux (pas de communication entre les deux postes)
-
   - P pour Passerelle (communication entre les deux postes en passant par le
 
 #### routeur)
@@ -298,7 +292,6 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 ### D. Remplissez les tables de routage des routeurs
 
 - On a découpé le bloc 131.107.0.0 /16 en 9 segments
-
 - Les réseaux utilisés sont les suivants et sont en gras :
 
 #### /16 /17 /18 /19 /20
@@ -366,9 +359,7 @@ R1 : ................................ ................................ .........
 212.1.96.0/24 212.1.97.0/24 212.1.127.0/24 212.1.128.0/24 212.1.158.0/24 212.1.159.0/24
 
 4. On désire agréger l'intégralité des réseaux de classe A : ................................ ...............
-
 5. On désire agréger tous les réseaux de classe B : ................................ ...............
-
 6. On désire agréger la totalité des réseaux de classe C : ................................ ...............
 
 #### Inscrivez ici le résumé de
@@ -410,11 +401,8 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4
 #### Pour découvrir le fonctionnement de Packet Tracer, vous devez :
 
 - Copier le fichier « M04-01-02—TP-Packet_Tracer-La_communication.pka »
-
 - L’ouvrir avec Packet Tracer
-
 - Vous allez mettre en place la communication inter réseau.
-
 - Suivre les directives
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).

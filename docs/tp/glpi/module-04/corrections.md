@@ -30,15 +30,10 @@ Gabarit de ticket.
   - Champs obligatoires :
 
 - Titre.
-
 - Catégorie.
-
 - Type.
-
 - Lieu.
-
 - Description.
-
 - Créez un gabarit de ticket « Incident Bureautique » :
 
 Image de correction disponible dans les ressources.
@@ -46,23 +41,16 @@ Image de correction disponible dans les ressources.
   - Champs obligatoires :
 
 - Titre.
-
 - Catégorie.
-
 - Type.
-
 - Lieu.
-
 - Description.
-
 - Éléments associés.
 
   - Champs masqués :
 
 - Urgence.
-
 - Impact.
-
 - Créez un gabarit de ticket « Demande Bureautique » :
 
 Image de correction disponible dans les ressources.
@@ -70,19 +58,14 @@ Image de correction disponible dans les ressources.
   - Champs obligatoires :
 
 - Titre.
-
 - Catégorie.
-
 - Type.
-
 - Lieu.
-
 - Description.
 
   - Champs masqués :
 
 - Urgence.
-
 - Impact.
 
 #### Catégorie de ticket
@@ -92,27 +75,16 @@ Image de correction disponible dans les ressources.
 Image de correction disponible dans les ressources.
 
   - Logiciel.
-
   - Bureautique comme enfant de logiciel.
-
   - Word comme enfant de bureautique.
-
   - Excel comme enfant de Bureautique.
-
   - Outlook comme enfant de bureautique.
-
   - Infographiste comme enfant de logiciel.
-
   - Serveur.
-
   - Virtualisation comme enfant de serveur.
-
   - Active Directory comme enfant de serveur.
-
   - Matériel.
-
   - Souris/clavier comme enfant de matériel.
-
   - Ecran comme enfant de matériel.
 
 - Lier les catégories à leurs gabarits :
@@ -146,7 +118,6 @@ Ajoutez le calendrier « cal serveur » avec les heures 8h/18h pour tous les jou
 #### spécificités suivantes :
 
   - Calendrier « cal serveur ».
-
   - SLA « Incident serveur ».
 
 - Le temps de prise en charge pour les incidents de type « serveur »,
@@ -188,9 +159,7 @@ Image de correction disponible dans les ressources.
 #### les spécificités suivantes :
 
   - Avec le calendrier « cal utilisateurs ».
-
   - Un SLA Temps de résolution de 2 jours.
-
   - Un SLA Temps de prise en charge 4h.
 
 - Créez un niveau de service « SLA demande bureautique » de l’entreprise Olympus avec
@@ -198,9 +167,7 @@ Image de correction disponible dans les ressources.
 #### les spécificités suivantes :
 
   - Avec le calendrier « cal utilisateurs ».
-
   - Un SLA Temps de résolution de 10 jours.
-
   - Un SLA Temps de prise en charge 4h.
 
 #### Règles métier pour les tickets
@@ -212,53 +179,39 @@ Attention, mettre OU comme opérateur logique pour les critères. Image de corre
   - Comme critères :
 
 - Catégories « serveur », « virtualisation » et « Active Directory ».
-
 - Type incident.
 
   - Comme actions :
 
 - SLAs Temps de résolution « incident serveur ».
-
 - SLAs Temps de prise en charge « incident serveur ».
-
 - Priorité moyenne.
-
 - Groupe de technicien « GG_GLPI_Technician ».
-
 - Créez une règle métier pour les tickets « règle SLA incident bureautique ».
 
   - Comme critères :
 
 - Catégories « Bureautique », « Word » et « Excel ».
-
 - Type « incident ».
 
   - Comme actions :
 
 - SLAs Temps de résolution « incident bureautique ».
-
 - SLAs Temps de prise en charge « incident bureautique ».
-
 - Priorité basse.
-
 - Groupe de technicien « GG_GLPI_hotliner ».
-
 - Créez une règle métier pour les tickets « règle SLA demande bureautique ».
 
   - Comme critères :
 
 - Catégories « Bureautique », « Word » et « Excel ».
-
 - Type « demande ».
 
   - Comme actions :
 
 - SLAs Temps de résolution « demande bureautique ».
-
 - SLAs Temps de prise en charge « demande bureautique ».
-
 - Priorité très basse.
-
 - Groupe de technicien « GG_GLPI_hotliner ».
 
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger, accompagnée de captures d’écran pour vous guider.

@@ -34,15 +34,12 @@
 #### Objectifs • Découvrir des outils de diagnostics système
 
 - Activer et gérer les points de restauration
-
 - Récupérer un système défaillant
 
 ### Maintenance du système
 
 - Les outils de diagnostic
-
 - Points de restauration
-
 - Récupération du système
 
 #### Maintenance du système
@@ -60,9 +57,7 @@
 #### Les méthodes disponibles
 
 - Analyse en temps réel : ce qu’il se passe en ce moment
-
 - Analyse sur un historique : ce qu’il s’est passé dernièrement (ou il y a longtemps)
-
 - Diagnostic automatique : proposé par Windows
 
 ####  Certains outils proposent de résoudre automatiquement les problèmes
@@ -72,17 +67,13 @@
 #### Analyse en temps réel
 
 - Gestionnaire de tâches : processus, services, les performances processeur et mémoire
-
 - Observateur d’évènements : contient tous les évènements enregistrés par le système
-
 - Moniteur de ressources : affichage détaillé pour les 4 composants principaux
-
 - Analyseur de performances : affichage des performances à partir de compteurs
 
 #### Analyse sur un historique
 
 - Historique de fiabilité : vue synthétique de l’état de santé du système dans le temps
-
 - Observateur d’évènements : les évènements sont mémorisés dans des journaux
 
 #### (fichiers de 20 Mo par défaut)
@@ -108,7 +99,6 @@
 #### Dans quel but ?
 
 - Trouver des indices pour comprendre les problèmes et faire des recherches
-
 - Ressources : aide Windows, Technet, blogs spécialisés, moteur de recherche...
 
 ### Démonstration
@@ -118,37 +108,25 @@
 #### Tel un journal, enregistrement des modifications du système
 
 - Propose de les restaurer à un état antérieur
-
 - Plus rapide qu'une restauration complète
-
 - Sauvegarde le registre, certains fichiers système et les programmes
-
 - Ne sauvegarde pas les données
-
 - Désactivé par défaut
-
 - S'active sur un lecteur
 
 ### Les points de restauration système
 
 - Création des points de restauration
-
 - Chaque jour
-
 - À chaque évènement important survenant sur
 
 #### le système
 
 - Installation d'un pilote
-
 - Désinstallation d'un logiciel
-
 - …
-
 - Manuellement
-
 - Outil disponible via sysdm.cpl
-
 - Espace protégé alloué au stockage des points
 
 #### de restauration (méthode FIFO)
@@ -160,35 +138,24 @@
 #### WinRE
 
 - Environnement de récupération du système d'exploitation principal de la machine
-
 - Système d'exploitation, léger, de réparation du système, lorsque le principal ne peut plus
 
 #### démarrer
 
 - Embarque des outils de diagnostics
-
 - Embarque des outils de réparation
-
 - Possibilité de réinitialiser le PC
-
 - Réinstallation du système, "retour à la configuration d'usine"
 
 ### Récupération du système
 
 - Comment lancer WinRE ?
-
 - Depuis le menu démarrer : MAJ + redémarrer
-
 - En ligne de commande shutdown /r /o
-
 - Menu Paramètres &gt; Mise à jour et sécurité &gt; Récupération &gt; Redémarrer maintenant
-
 - Depuis le support d'installation, menu Réparer l'ordinateur
-
 - Chargement automatique de WinRE
-
 - Après 2 échecs consécutifs du démarrage du système d'exploitation
-
 - Après 2 arrêts imprévus survenus moins de 2 minutes après le démarrage
 
 #### Récupération du système
@@ -196,47 +163,28 @@
 #### Options avancées
 
 - Restauration du système
-
 - Utilisation d'un point de restauration système
-
 - Privilège d'administration requis
-
 - Récupération de l'image système
-
 - Utilisation d'une sauvegarde de l'image système valide "si elle existe"
-
 - Média source requis (DVD, disque dur, etc.)
-
 - Invite de commandes
-
 - Pour utiliser des outils de diagnostic ou de réparation
-
 - cmd executée en tant qu'administrateur
-
 - Rétrograder vers la version précédente
-
 - Si Windows 10 est une MAN, possibilité de retrouver Windows 7 ou Windows 8.1 source
-
 - Impossibilité de rétrograder vers la build Windows 10 précédente
 
 #### Récupération du système
 
 - Paramètres
-
 - Redémarrage du poste et choix de démarrage spécifique
-
 - Mode sans échec
-
 - Activer le mode vidéo basse résolution
-
 - Désactiver le contrôle obligatoire des signatures de pilotes
-
 - …
-
 - Outil de redémarrage système
-
 - Reconstruit/répare le MBR éventuellement manquant ou corrompu
-
 - Reconstruit/répare le magasin BCD
 
 ### Démonstration
@@ -250,15 +198,12 @@
 #### sur l’état du système
 
 - En temps réel
-
 - Sur une période passée
-
 - En cas de dysfonctionnement, le technicien doit
 
 #### pouvoir
 
 - Investiguer, enquêter
-
 - Réparer et/ou restaurer le système
 
 ## Mise en pratique

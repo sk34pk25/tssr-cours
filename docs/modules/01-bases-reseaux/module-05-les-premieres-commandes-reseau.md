@@ -55,13 +55,13 @@ La commande ARP (Address Resolution Protocol) est un outil réseau essentiel uti
 
 1. Qu'est-ce que l'ARP ? L’Address Resolution Protocol est un protocole de la couche Liaison (couche 2) du modèle OSI, utilisé pour convertir une adresse IP en une adresse MAC.
 
-#### Chaque machine dans un réseau local possède 
+#### Chaque machine dans un réseau local possède
 
 Une adresse IP, qui identifie logiquement l’appareil sur un réseau. Une adresse MAC, qui est une identification physique unique associée à la carte réseau. L'ARP permet de faire correspondre une adresse IP à une adresse MAC pour que les données puissent être acheminées correctement au sein du réseau local.
 
 2. Rôle de la commande ARP
 
-#### La commande ARP permet 
+#### La commande ARP permet
 
 De consulter la table ARP locale (cache ARP). De forcer la mise à jour de cette table. D’ajouter ou de supprimer manuellement des entrées dans cette table. Chaque machine garde une table ARP en cache contenant les associations IP/MAC pour éviter de résoudre à chaque fois l’adresse MAC correspondante à une adresse IP.
 
@@ -77,7 +77,7 @@ Interface: 192.168.1.1 --- 0x3 Adresse Internet Adresse physique Type 192.168.1.
 
 `arp -s &lt;adresse_IP&gt; &lt;adresse_MAC&gt;`
 
-#### Exemple 
+#### Exemple
 
 `arp -s 192.168.1.200 00-14-22-01-23-45`
 
@@ -87,13 +87,13 @@ c) Supprimer une entrée de la table ARP Sous Windows, on ne peut pas supprimer 
 
 `arp -d *`
 
-#### Sous Linux, la commande est légèrement différente et utilise ip 
+#### Sous Linux, la commande est légèrement différente et utilise ip
 
 sudo ip neigh flush all 4. Fonctionnement d'ARP Lorsqu'une machine veut communiquer avec une autre dans un réseau local, elle suit ces étapes :
 
 Elle vérifie si l'adresse IP cible est déjà associée à une adresse MAC dans sa table ARP. Si ce n'est pas le cas, elle envoie une requête ARP broadcast à tous les appareils du réseau local.
 
-#### Exemple de requête ARP 
+#### Exemple de requête ARP
 
 « Qui a l’adresse IP 192.168.1.100 ? Répondez à 192.168.1.1. » L’appareil correspondant à l’adresse IP cible répond avec son adresse MAC. La machine d'origine met à jour sa table ARP avec cette association pour de futures communications. 5. Problèmes Fréquents Liés à ARP Entrées erronées dans la table ARP : Une table ARP incorrecte peut empêcher la communication avec certains appareils. Attaques ARP (ARP Spoofing) : Un attaquant peut envoyer des réponses ARP falsifiées pour intercepter ou rediriger le trafic réseau. Cache ARP obsolète : Parfois, des entrées ARP expirées ou invalides empêchent la communication. 6. Cas d'Usage Courants a) Diagnostic réseau Si un appareil ne répond pas, vérifier la table ARP avec arp -a peut montrer si l’adresse MAC est connue et si la résolution ARP est correcte.
 
@@ -111,11 +111,11 @@ La commande ipconfig La commande ipconfig est un outil en ligne de commande sous
 
 1. Rôle de la commande ipconfig
 
-#### La commande ipconfig fournit des informations détaillées sur 
+#### La commande ipconfig fournit des informations détaillées sur
 
 Les adresses IP attribuées à chaque interface réseau. Le masque de sous-réseau. La passerelle par défaut. Les informations DNS et DHCP.
 
-#### Elle peut aussi être utilisée pour effectuer certaines actions comme 
+#### Elle peut aussi être utilisée pour effectuer certaines actions comme
 
 Libérer ou renouveler une adresse IP attribuée par un serveur DHCP. Vider ou actualiser le cache DNS. 2. Syntaxe Générale La commande ipconfig est utilisée directement dans une console Windows (CMD ou PowerShell). La syntaxe générale est la suivante :
 
@@ -127,9 +127,9 @@ Libérer ou renouveler une adresse IP attribuée par un serveur DHCP. Vider ou a
 
 Cette commande affiche un résumé des configurations réseau de toutes les interfaces actives.
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
-#### Carte Ethernet Ethernet 
+#### Carte Ethernet Ethernet
 
 Suffixe DNS propre à la connexion. . . . : exemple.local Adresse IPv4 . . . . . . . . . . . . . . : 192.168.1.100 Masque de sous-réseau . . . . . . . . . : 255.255.255.0 Passerelle par défaut . . . . . . . . . : 192.168.1.1 b) Afficher des informations détaillées
 
@@ -139,9 +139,9 @@ Cette option fournit une vue exhaustive des paramètres réseau, y compris :
 
 Adresses MAC. Serveurs DNS. Adresse IP attribuée manuellement ou par DHCP. Bail DHCP (heure de début et expiration).
 
-#### Exemple de sortie pour /all 
+#### Exemple de sortie pour /all
 
-#### Carte Ethernet Ethernet 
+#### Carte Ethernet Ethernet
 
 Suffixe DNS propre à la connexion. . . . : exemple.local Description . . . . . . . . . . . . . . : Realtek PCIe GBE Family Controller Adresse physique . . . . . . . . . . . : 00-1B-44-11-3A-B7 DHCP activé. . . . . . . . . . . . . . : Oui Adresse IPv4 . . . . . . . . . . . . . : 192.168.1.100 Masque de sous-réseau . . . . . . . . . : 255.255.255.0 Passerelle par défaut . . . . . . . . . : 192.168.1.1 Serveurs DNS . . . . . . . . . . . . . : 8.8.8.8 : 8.8.4.4 c) Libérer une adresse IP
 
@@ -155,13 +155,13 @@ d) Renouveler une adresse IP
 
 Cette commande demande une nouvelle adresse IP au serveur DHCP.
 
-#### Utilisation combinée 
+#### Utilisation combinée
 
-#### Libérer une adresse 
+#### Libérer une adresse
 
 `ipconfig /release`
 
-#### Puis demander une nouvelle 
+#### Puis demander une nouvelle
 
 `ipconfig /renew`
 
@@ -184,7 +184,6 @@ g) Renouveler les paramètres DNS
 Elle force le renouvellement des enregistrements DNS dynamiques de la machine auprès du serveur DNS.
 
 4. Cas d’Utilisation Pratique 1. Diagnostiquer une connexion réseau Utilisez ipconfig pour vérifier l’adresse IP actuelle de votre machine, la passerelle par défaut, et les serveurs DNS. Si vous n’avez pas d’adresse IP ou si elle commence par 169.254.x.x (APIPA), cela indique un problème avec le serveur DHCP.
-
 2. Résoudre des problèmes DNS Si un site web ne se charge pas ou si vous suspectez un problème de résolution DNS, utilisez :
 
 `ipconfig /flushdns`
@@ -207,107 +206,107 @@ Elle ne donne pas d’informations sur le trafic réseau (utilisez netstat ou un
 
 La commande ip est un outil en ligne de commande polyvalent utilisé sous Linux pour gérer et afficher les configurations réseau. Elle remplace progressivement l'ancienne commande ifconfig et offre une plus grande richesse de fonctionnalités. La commande ip fait partie de la suite d’outils iproute2, largement utilisée pour configurer les interfaces réseau, les routes, et analyser les connexions réseau. 1. Rôle de la commande ip
 
-#### Avec la commande ip, vous pouvez 
+#### Avec la commande ip, vous pouvez
 
 Afficher et configurer les interfaces réseau. Gérer les adresses IP. Ajouter, supprimer ou consulter les routes réseau. Configurer les tunnels réseau. Diagnostiquer les problèmes de connectivité. 2. Syntaxe Générale
 
 `ip [options] [objet] [action]`
 
-#### Options principales 
+#### Options principales
 
 -s : Afficher des statistiques. -4 : Afficher uniquement les informations IPv4. -6 : Afficher uniquement les informations IPv6.
 
-#### Objets principaux 
+#### Objets principaux
 
 link : Gestion des interfaces réseau. addr : Gestion des adresses IP. route : Gestion des tables de routage. neigh : Gestion des tables ARP/voisinage. 3. Commandes Courantes a) Gestion des interfaces réseau
 
-#### Afficher les interfaces réseau actives 
+#### Afficher les interfaces réseau actives
 
 `ip link`
 
 Cela liste les interfaces réseau disponibles avec leurs statuts.
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default link/ether 12:34:56:78:9a:bc brd ff:ff:ff:ff:ff:ff
 
-#### Activer une interface réseau 
+#### Activer une interface réseau
 
 `ip link set dev eth0 up`
 
-#### Désactiver une interface réseau 
+#### Désactiver une interface réseau
 
 `ip link set dev eth0 down`
 
 b) Gestion des adresses IP
 
-#### Afficher les adresses IP des interfaces réseau 
+#### Afficher les adresses IP des interfaces réseau
 
 `ip addr`
 
-#### Ou uniquement IPv4 
+#### Ou uniquement IPv4
 
 `ip -4 addr`
 
-#### Ajouter une adresse IP à une interface 
+#### Ajouter une adresse IP à une interface
 
 `ip addr add 192.168.1.200/24 dev eth0`
 
-#### Supprimer une adresse IP 
+#### Supprimer une adresse IP
 
 `ip addr del 192.168.1.200/24 dev eth0`
 
 c) Gestion des routes
 
-#### Afficher la table de routage 
+#### Afficher la table de routage
 
 `ip route`
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
 default via 192.168.1.1 dev eth0 192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.100
 
-#### Ajouter une route 
+#### Ajouter une route
 
 `ip route add 192.168.2.0/24 via 192.168.1.1 dev eth0`
 
-#### Supprimer une route 
+#### Supprimer une route
 
 `ip route del 192.168.2.0/24`
 
 d) Gestion des voisins ARP
 
-#### Afficher les entrées ARP (voisins) 
+#### Afficher les entrées ARP (voisins)
 
 `ip neigh`
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
 192.168.1.1 dev eth0 lladdr 12:34:56:78:9a:bc REACHABLE
 
-#### Ajouter une entrée ARP statique 
+#### Ajouter une entrée ARP statique
 
 `ip neigh add 192.168.1.200 lladdr 12:34:56:78:9a:bc dev eth0`
 
-#### Supprimer une entrée ARP 
+#### Supprimer une entrée ARP
 
 `ip neigh del 192.168.1.200 dev eth0`
 
 La commande ping est un outil de diagnostic réseau indispensable. Son rôle est de tester la connectivité entre un ordinateur local et un autre appareil sur un réseau (local ou distant) en utilisant le protocole ICMP (Internet Control Message Protocol). Elle mesure également la latence, c'est-à-dire le temps nécessaire pour qu’un paquet atteigne la destination et que la réponse revienne. 1. Rôle de la commande ping
 
-#### La commande ping permet 
+#### La commande ping permet
 
 De vérifier si une machine (ou une adresse IP) est accessible sur le réseau. D’évaluer la qualité de la connexion (latence, pertes de paquets). D’identifier les problèmes de connectivité (pannes réseau, routeurs non fonctionnels, etc.). 2. Fonctionnement de la commande ping
 
-#### Envoi d’une requête ICMP Echo Request 
+#### Envoi d’une requête ICMP Echo Request
 
 L'ordinateur envoie un paquet ICMP Echo Request à la machine cible (par son adresse IP ou son nom de domaine).
 
-#### Réception d’une réponse ICMP Echo Reply 
+#### Réception d’une réponse ICMP Echo Reply
 
 Si la machine cible est joignable, elle renvoie un paquet ICMP Echo Reply. Sinon, des messages d’erreur ou des délais expirés sont retournés.
 
-#### Analyse des résultats 
+#### Analyse des résultats
 
 Les informations sur le délai (RTT : Round-Trip Time) et les éventuelles pertes de paquets sont affichées.
 
@@ -319,17 +318,17 @@ destination : Adresse IP ou nom de domaine de la machine cible (par exemple : 8.
 
 `ping www.google.com`
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
 `PING www.google.com (142.250.74.68): 56 data bytes 64 bytes from 142.250.74.68: icmp_seq=0 ttl=115 time=18.3 ms 64 bytes from 142.250.74.68: icmp_seq=1 ttl=115 time=17.5 ms 64 bytes from 142.250.74.68: icmp_seq=2 ttl=115 time=17.8 ms --- www.google.com ping statistics --- 3 packets transmitted, 3 packets received, 0% packet loss round-trip min/avg/max/stddev = 17.5/17.8/18.3/0.3 ms`
 
-#### Explications 
+#### Explications
 
 icmp_seq= : Numéro de la requête ICMP. ttl= : "Time To Live", le nombre maximum de sauts que le paquet peut effectuer avant d'être abandonné. time= : Temps aller-retour du paquet en millisecondes. statistiques : Nombre de paquets envoyés/reçus, pourcentage de pertes, et temps moyen. 5. Options courantes Nombre de requêtes : Envoyer un nombre spécifique de requêtes (par exemple, 4) :
 
 `ping -c 4 www.google.com`
 
-#### Taille du paquet : Spécifier la taille des paquets ICMP 
+#### Taille du paquet : Spécifier la taille des paquets ICMP
 
 `ping -s 1000 www.google.com`
 
@@ -347,39 +346,39 @@ Afficher uniquement les résultats utiles : Ne pas afficher chaque réponse, seu
 
 6. Problèmes détectés par ping
 
-#### 1. Aucune réponse 
+#### 1. Aucune réponse
 
 Request timeout for icmp_seq X
 
-#### Cela peut indiquer 
+#### Cela peut indiquer
 
 La machine cible est hors ligne. Un pare-feu bloque les paquets ICMP. Une erreur de configuration réseau.
 
-#### 2. Latence élevée 
+#### 2. Latence élevée
 
-#### Si le temps de réponse (time=) est élevé, cela peut indiquer 
+#### Si le temps de réponse (time=) est élevé, cela peut indiquer
 
 Une surcharge du réseau. Une distance importante entre les deux machines. Des problèmes de performances sur la machine ou le routeur.
 
-#### 3. Pertes de paquets 
+#### 3. Pertes de paquets
 
-#### Si des paquets sont perdus, cela peut indiquer 
+#### Si des paquets sont perdus, cela peut indiquer
 
 Un problème de connectivité réseau. Une mauvaise qualité de la liaison. Une saturation du réseau. 7. Cas pratiques
 
-#### 1. Tester la connectivité vers une machine spécifique 
+#### 1. Tester la connectivité vers une machine spécifique
 
 `ping 192.168.1.1`
 
 Utilisé pour vérifier si un routeur ou une machine locale est accessible.
 
-#### 2. Vérifier l’accès à Internet 
+#### 2. Vérifier l’accès à Internet
 
 `ping 8.8.8.8`
 
 Cette commande teste la connexion vers les serveurs DNS publics de Google.
 
-#### 3. Diagnostiquer un problème de nom de domaine 
+#### 3. Diagnostiquer un problème de nom de domaine
 
 Si le nom de domaine ne résout pas, utilisez l’adresse IP directement pour vérifier si le problème vient du DNS.
 
@@ -415,11 +414,11 @@ Les connexions réseau actives (TCP/UDP). Les ports d'écoute ouverts sur le sys
 
 4. Interpréter les connexions réseau
 
-#### Les informations affichées par netstat incluent 
+#### Les informations affichées par netstat incluent
 
 Protocole : TCP ou UDP. Adresse locale : Adresse IP et port local. Adresse distante : Adresse IP et port du destinataire.
 
-#### État de la connexion (TCP uniquement) 
+#### État de la connexion (TCP uniquement)
 
 LISTEN : Le port attend des connexions entrantes. ESTABLISHED : Connexion active et opérationnelle. CLOSE_WAIT : Connexion fermée par l'autre partie, en attente de fermeture locale. TIME_WAIT : Connexion fermée, mais en attente pour éviter des collisions. SYN_SENT : Une requête de connexion a été envoyée, mais pas encore établie. 5. Pourquoi utiliser netstat ? Diagnostic réseau : Identifier les connexions non autorisées ou suspectes. Analyse de performance : Repérer les ports saturés ou les erreurs d'interface. Sécurité : Vérifier les services en écoute pour identifier les failles potentielles. Dépannage des applications : Comprendre les dépendances réseau des processus. Depuis plusieurs années, la commande netstat est progressivement remplacée par d'autres outils comme ss (sous Linux) ou Get-NetTCPConnection (sous PowerShell pour Windows). Ces outils sont plus performants et offrent des fonctionnalités modernes adaptées aux réseaux actuels. 6. Exemple d'utilisation concrète 1. Identifier les connexions suspectes Si un serveur montre des signes de lenteur ou de compromission, utilisez :
 
@@ -447,17 +446,17 @@ Fonctionnement La commande tracert utilise le protocole ICMP (Internet Control M
 
 `tracert www.google.com`
 
-#### Exemple de sortie 
+#### Exemple de sortie
 
 1 &lt;1 ms &lt;1 ms &lt;1 ms 192.168.1.1 2 12 ms 10 ms 11 ms 10.0.0.1 3 25 ms 23 ms 22 ms 203.0.113.1 4 50 ms 48 ms 49 ms 8.8.8.8 Chaque ligne représente un routeur traversé. Les colonnes montrent les temps de réponse pour 3 essais successifs. Si une ligne contient des astérisques (* * *), cela indique que le routeur intermédiaire n’a pas répondu (peut être dû à un filtrage ICMP). Options courantes /d N'affiche pas les noms DNS des routeurs, uniquement leurs adresses IP (plus rapide). /h &lt;nombre&gt; Définit un nombre maximum de sauts (TTL). Par défaut, 30 sauts sont autorisés. /w &lt;millisecondes&gt; Définit le temps d’attente avant de déclarer un routeur injoignable. Par défaut, 4000 ms (4 secondes). /4 Force l’utilisation d’IPv4. /6 Force l’utilisation d’IPv6.
 
-#### Exemple avec des options 
+#### Exemple avec des options
 
 `tracert /d /h 15 /w 1000 www.google.com`
 
 /d : Pas de résolution DNS. /h 15 : Limite à 15 sauts. /w 1000 : Temps d’attente réduit à 1 seconde. Cas d’utilisation 1. Identifier un problème de connectivité Si vous ne pouvez pas atteindre un site ou une ressource réseau, tracert peut révéler où le trafic est bloqué ou ralentit.
 
-#### Exemple 
+#### Exemple
 
 Si les premiers sauts répondent mais que certains sauts plus loin ne répondent pas, le problème est probablement externe (chez un FAI ou au-delà). Si le premier saut ne répond pas, le problème est sur votre réseau local. 2. Tester la latence
 
@@ -475,7 +474,7 @@ Sous Linux, on utilise généralement traceroute au lieu de tracert.
 
 sudo apt install traceroute # Ubuntu/Debian sudo yum install traceroute # CentOS/Red Hat
 
-#### Exemple d'utilisation 
+#### Exemple d'utilisation
 
 `traceroute www.google.com`
 

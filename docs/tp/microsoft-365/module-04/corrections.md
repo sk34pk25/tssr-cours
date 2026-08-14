@@ -48,17 +48,13 @@ organisation avec comme te xte : « Je suis actuellement en congés. Je serais d
 - Créez une règle qui répond à ces critères :
 
   - À partir du message de retour de la réponse automatique.
-
   - Contenant des mots spécifiques dans le corps du message « réponse
 
 #### automatique »
 
   - Le déplacer dans le dossier « réponse congés »
-
   - L’assigner à la catégorie verte nommée « réponse auto »
-
   - Nommez votre règle « mon mail perso »
-
   - Exécuter cette règle sur les messages déjà présents dans Boite de réception
 
 Afin de tester votre règle, vérifiez que le mail reçu de réponse automatique a bien vu cette règle s’appliquer et envoyez -vous un mail avec réponse automatique dans le corps de votre message. Créez un dossier dans votre boîte de réception nommé « réponse congés », renommez la catégorie verte « réponse auto ». Faites un clic droit sur le message reçu de la réponse automatique puis Règle → Créer une règle.
@@ -70,11 +66,8 @@ Cliquez sur Fichier puis sur Gérer les compléments. Une fenêtre avec Outlook 
 - Créez une signature pour vos mails (nouveaux messages et réponses) avec :
 
   - Cordialement,
-
   - Une ligne vide de séparation
-
   - Votre nom et votre prénom
-
   - Votre adresse
 
 Faites de même dans Outlook sur le web. Cliquez sur Fichier → Options → Courrier puis Signatures. Dans Outlook sur le web, cliquez sur Paramètres → Afficher tous les paramètres d’Outlook
@@ -116,9 +109,7 @@ en rendez-vous. Glissez le message vers le menu calendrier.
 - Envoyez-vous un sondage avec Forms :
 
   - Question : le lever de soleil est-il ?
-
   - Réponse 1 : beau ?
-
   - Réponse 2 : de droite ?
 
 Créez un message puis dans Options → Utiliser les boutons de votes → Sondage

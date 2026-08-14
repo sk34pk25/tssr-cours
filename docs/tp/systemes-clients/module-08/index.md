@@ -10,7 +10,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Réaliser les manipulations.
 - [ ] Vérifier chaque résultat.
 - [ ] Comparer avec la correction.
-
 - [Énoncés](enonces.md)
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md)

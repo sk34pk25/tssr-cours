@@ -16,11 +16,8 @@
 #### Sur votre VM Win10-XX, partagez les ressources suivantes :
 
 - Partagez le dossier Echange disponible sur le lecteur D:
-
 - Vous utilisez les bonnes pratiques Microsoft
-
 - Le partage se nommera CoWorkerShare
-
 - Permettez à vos collègues la possibilité de modifier le contenu du dossier depuis leurs
 
 #### VM

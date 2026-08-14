@@ -100,7 +100,7 @@ assign letter=E
 
 exit
 
-# Administration du stockage via PowerShell
+#### Administration du stockage via PowerShell
 
 `Get-Disk`
 
@@ -111,15 +111,10 @@ exit
 `Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel "Donnees"`
 
 | Caractéristique | MBR (Master Boot Record) | GPT (GUID Partition Table) |
-
 | --- | --- | --- |
-
 | Firmware requis | BIOS traditionnel / Legacy | UEFI moderne |
-
 | Nombre max de partitions | 4 partitions principales (ou 3 + 1 étendue) | Jusqu'à 128 partitions |
-
 | Taille max du disque | 2,2 To | 256 To (et plus) |
-
 | Redondance | Aucune (secteur LBA 0 unique) | Entête de secours en fin de disque |
 
 ## Module 04 - Support de cours
@@ -131,19 +126,14 @@ exit
 #### Objectifs • Découvrir le partitionnement
 
 - Initialiser le stockage
-
 - Installer un système de fichier
-
 - Utiliser les outils de gestion du stockage
 
 ### Le partitionnement
 
 - Partitionnement
-
 - Formats de table de partition
-
 - Système de fichiers
-
 - Outils
 
 #### Partitionner un disque
@@ -157,25 +147,15 @@ indépendantes.
 #### P1 P2 P3 P4 P5 P6 P7…
 
 - Table de partition
-
 - Détermine les caractéristiques des partitions du disque
-
 - « Sommaire » du disque
-
 - Table de partition au format MBR
-
 - Master Boot Record
-
 - Format historique
-
 - Lecture du MBR par le BIOS
-
 - Stocké sur le premier secteur du disque (512 o)
-
 - 4 partitions maximum
-
 - Ne gère pas les disques de plus de 2,2 To
-
 - Compatible avec les systèmes d'exploitation 32 bits et 64 bits
 
 #### Le partitionnement
@@ -183,9 +163,7 @@ indépendantes.
 #### Partitionnement d'un disque
 
 - DE BASE
-
 - Possibilités d'étendre une partition grâce à l'espace libre contigu
-
 - 4 partitions maximum
 
 #### Partition
@@ -225,11 +203,8 @@ indépendantes.
 #### Partitionnement d'un disque
 
 - DE BASE
-
 - Possibilités d'étendre une partition grâce à l'espace libre contigu
-
 - 4 partitions maximum
-
 - Partition étendue et lecteurs logiques pour aller au-delà
 
 #### Espace librePartition
@@ -263,13 +238,9 @@ L.
 #### Partitionnement d'un disque
 
 - DYNAMIQUE (évolution du disque de base)
-
 - Attention, pour Microsoft, les partitions contenues sur un disque dynamique s'appellent des volumes
-
 - Possibilité d'étendre un volume grâce à l'espace libre disponible sur le disque source
-
 - … et disponible sur un disque supplémentaire. Permet de gérer les disques par ensemble (RAID)
-
 - Convertir un disque de base en disque dynamique ? Pas de perte de données
 
 #### Volume 1 Volume 2 Volume 3
@@ -283,17 +254,11 @@ L.
 #### Table de partitionnement au format GPT
 
 - GUID Partition Table
-
 - Nouveau format qui gomme les inconvénients du MBR
-
 - Dupliqué sur plusieurs secteurs du disque
-
 - Lecture du GPT par l'UEFI (évolution du BIOS depuis 2013)
-
 - 128 partitions maximum
-
 - Taille maximale d'une partition : 256 To
-
 - Seulement compatible avec les systèmes d'exploitation
 
 #### 64 bits et les puces UEFI
@@ -343,7 +308,6 @@ L.
 #### Les systèmes de fichiers
 
 - Après le partitionnement, le formatage
-
 - Formater une partition ou un lecteur logique, c'est installer un
 
 #### système de fichiers
@@ -385,15 +349,10 @@ L.
 #### NTFS
 
 - Le système de fichiers par défaut chez Microsoft
-
 - Nativement sécurisé (ACL)
-
 - Chiffrement intégré (EFS)
-
 - Compression intégrée
-
 - Supporte des fonctionnalités supplémentaires
-
 - Taille maximale du volume 256 To
 
 #### Les systèmes de fichiers
@@ -401,39 +360,24 @@ L.
 #### Les autres
 
 - FAT16 / FAT32 (File Allocation Table)
-
 - Historique
-
 - Standard
-
 - Volume de 4 Go maximum
-
 - Non sécurisé nativement
-
 - ReFS (Resilient File System)
-
 - Évolution de NTFS
-
 - Taille des volumes quasi illimitée
-
 - Correction proactive des erreurs
-
 - Les autres
-
 - Ext4, VMFS, UDF… et des dizaines d'autres
 
 ### Les disques durs virtuels
 
 - VHD (Virtual Hard Drive) et VHDX
-
 - Bootable
-
 - Taille fixe ou dynamique
-
 - Créés et utilisés pour les machines virtuelles
-
 - Utilisable sur les machines physiques ! montable comme ISO !
-
 - Manipulable comme un fichier (clonage, déplacement, compression,
 
 #### versioning…)
@@ -457,27 +401,18 @@ L.
 #### Les outils de gestion
 
 - Avec les cmdlet PowerShell
-
 - Get-disk
-
 - Relever le numéro du nouveau disque
-
 - Initialize-disk —number &lt;numéro relevé&gt;
-
 - Par défaut en GPT
-
 - Il faut préciser le paramètre —PartitionStyle MBR pour la rétrocompatibilité
-
 - New-partition —DiskNumber &lt;numéro relevé&gt; -UseMaximumSize —AssignDriveLetter
-
 - On peut assigner la lettre après avec set-partition —DiskNumber &lt;numéro relevé&gt; -PartitonNumber
 
 &lt;numéro relevé&gt; -NewDriveLetter &lt;Lettre de votre choix&gt;
 
 - Format-volume —DriveLetter &lt;Lettre de lecteur&gt;
-
 - Format par défaut en NTFS
-
 - Votre volume est prêt à l'utilisation
 
 ### Démonstration
@@ -487,15 +422,10 @@ L.
 ### Conclusion
 
 - Recette pour bien utiliser le stockage
-
 - Installer le média dans l’ordinateur
-
 - Initialiser
-
 - Partitionner
-
 - Installer le système de fichier
-
 - Attribuer une lettre de lecteur ou un point de montage
 
 ## Mise en pratique

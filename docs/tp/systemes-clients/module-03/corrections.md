@@ -260,7 +260,6 @@ Selon le résultat de la commande précédente, la valeur par défaut contenu e 
 #### Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell
 
 - Changez la police et la taille de la police
-
 - Agrandissez votre fenêtre
 
 Faire le focus dans la fenêtre puis "CTRL + Scroll souris vers le haut" pour agrandir la taille de
@@ -340,7 +339,6 @@ La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-l
 #### Pour une meilleure lisibilité, personnalisez votre fenêtre cmd
 
 - Changez la police en consolas taille 24
-
 - Changez les couleurs de la police et de l'arrière-plan
 
 #### Clic gauche en haut à gauche de la fenêtre cmd &gt; Propriétés
@@ -508,7 +506,6 @@ Rechercher &gt; Veille &gt; Modifier les conditions de mise en veille de l'ordin
 #### Sur la VM Discovery
 
 - Ouvrez une session avec l'utilisateur adm (Pa$$w0rd)
-
 - Quels sont les composants logiciels enfichables disponibles dans la console admConsole
 
 #### disponible sur le bureau ?

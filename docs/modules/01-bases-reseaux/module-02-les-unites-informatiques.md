@@ -168,7 +168,7 @@ Pour convertir un nombre binaire en octal, on regroupe simplement les bits par p
 
 Séparer en groupes de trois : 110 110.
 
-#### Convertir chaque groupe en octal 
+#### Convertir chaque groupe en octal
 
 =
 
@@ -216,7 +216,7 @@ Pour convertir un nombre binaire en hexadécimal, il suffit de regrouper les bit
 
 Séparer en groupes de quatre : 1010 1111.
 
-#### Convertir chaque groupe 
+#### Convertir chaque groupe
 
 = A et
 
@@ -230,17 +230,17 @@ Couleurs Web : En conception web, les couleurs sont souvent exprimées en hexad�
 
 Le principe de conversion d'un nombre décimal en binaire repose sur la méthode des divisions successives par 2.
 
-#### Voici les étapes de cette méthode 
+#### Voici les étapes de cette méthode
 
 Diviser le nombre décimal par 2 et noter le reste (qui sera toujours 0 ou 1). Prendre le quotient obtenu et le diviser de nouveau par 2. Répéter cette opération jusqu’à obtenir un quotient égal à 0. Le nombre binaire est formé en lisant les restes de bas en haut, c'est-à-dire en commençant par le dernier reste obtenu jusqu'au premier. Exemple : Conversion du Nombre Décimal 25 en Binaire
 
-#### Prenons l'exemple de la conversion du nombre décimal 25 en binaire 
+#### Prenons l'exemple de la conversion du nombre décimal 25 en binaire
 
 25 ÷ 2 = 12, reste 1 12 ÷ 2 = 6, reste 0 6 ÷ 2 = 3, reste 0 3 ÷ 2 = 1, reste 1 1 ÷ 2 = 0, reste 1 En lisant les restes de bas en haut, on obtient le nombre binaire 11001.
 
 Ainsi, 25 en base 10 est égal à 11001 en base 2.
 
-#### Pour convertir un nombre décimal en binaire 
+#### Pour convertir un nombre décimal en binaire
 
 Divisez le nombre par 2 et notez le reste. Répétez l’opération avec le quotient jusqu'à atteindre 0. Le nombre binaire final s'obtient en lisant les restes de bas en haut.
 
@@ -252,11 +252,11 @@ Identifiez les positions des bits dans le nombre binaire, en commençant par la 
 
 2 élevé à la puissance correspondant à sa position. Additionnez tous les produits obtenus pour obtenir le nombre décimal. Exemple : Conversion du Nombre Binaire 10110 en Décimal Prenons le nombre binaire 10110 et convertissons-le en base 10.
 
-#### En partant de la droite, on note la position de chaque bit 
+#### En partant de la droite, on note la position de chaque bit
 
 Le bit tout à droite (0) est à la position 0 Le bit suivant (1) est à la position 1 Le bit suivant (1) est à la position 2 Le bit suivant (0) est à la position 3 Le bit le plus à gauche (1) est à la position 4 On multiplie chaque bit par
 
-#### à la puissance de sa position 
+#### à la puissance de sa position
 
 (
 
@@ -280,7 +280,7 @@ Le bit tout à droite (0) est à la position 0 Le bit suivant (1) est à la posi
 
 )
 
-#### En simplifiant les calculs 
+#### En simplifiant les calculs
 
 (
 
@@ -316,7 +316,7 @@ Le bit tout à droite (0) est à la position 0 Le bit suivant (1) est à la posi
 
 Ainsi, le nombre binaire 10110 correspond au nombre décimal 22.
 
-#### Pour convertir un nombre binaire en décimal 
+#### Pour convertir un nombre binaire en décimal
 
 Multipliez chaque bit par une puissance de 2, en fonction de sa position (de droite à gauche). Additionnez les valeurs obtenues pour obtenir le nombre en base 10.
 
@@ -328,13 +328,13 @@ Méthode de Conversion La conversion d’un nombre décimal en octal suit la mé
 
 Diviser le nombre décimal par 8 et noter le reste. Prendre le quotient obtenu et le diviser à nouveau par 8. Répéter cette opération jusqu’à obtenir un quotient de 0. Le nombre octal est formé en lisant les restes de bas en haut, en commençant par le dernier reste obtenu jusqu'au premier. Exemple : Conversion du Nombre Décimal 156 en Octal
 
-#### Prenons l’exemple de la conversion du nombre décimal 156 en octal 
+#### Prenons l’exemple de la conversion du nombre décimal 156 en octal
 
 156 ÷ 8 = 19, reste 4 19 ÷ 8 = 2, reste 3 2 ÷ 8 = 0, reste 2 En lisant les restes de bas en haut, on obtient le nombre octal 234.
 
 Ainsi, 156 en base 10 est égal à 234 en base 8.
 
-#### Pour convertir un nombre décimal en octal 
+#### Pour convertir un nombre décimal en octal
 
 Divisez le nombre par 8 et notez le reste. Répétez avec le quotient jusqu'à obtenir 0. Lisez les restes de bas en haut pour obtenir le nombre en base 8
 
@@ -346,11 +346,11 @@ Identifiez les positions des chiffres dans le nombre octal, en commençant par l
 
 élevé à la puissance de sa position. Additionnez les produits obtenus pour obtenir le nombre en base 10. Exemple : Conversion du Nombre Octal 234 en Décimal Prenons le nombre octal 234 et convertissons-le en base 10.
 
-#### En partant de la droite, on note la position de chaque chiffre 
+#### En partant de la droite, on note la position de chaque chiffre
 
 Le chiffre le plus à droite (4) est à la position 0 Le chiffre suivant (3) est à la position 1 Le chiffre le plus à gauche (2) est à la position 2 On multiplie chaque chiffre par
 
-#### à la puissance de sa position 
+#### à la puissance de sa position
 
 (
 
@@ -366,7 +366,7 @@ Le chiffre le plus à droite (4) est à la position 0 Le chiffre suivant (3) est
 
 )
 
-#### En simplifiant les calculs 
+#### En simplifiant les calculs
 
 (
 
@@ -390,7 +390,7 @@ Le chiffre le plus à droite (4) est à la position 0 Le chiffre suivant (3) est
 
 Ainsi, le nombre octal 234 correspond au nombre décimal 156.
 
-#### Pour convertir un nombre octal en décimal 
+#### Pour convertir un nombre octal en décimal
 
 Multipliez chaque chiffre par une puissance de 8, selon sa position. Additionnez les valeurs obtenues pour obtenir le nombre en base 10.
 
@@ -406,7 +406,7 @@ Divisez le nombre décimal par 16 et notez le reste (qui sera compris entre 0 et
 
 Ainsi, 254 en base 10 est égal à FE en base 16.
 
-#### Pour convertir un nombre décimal en hexadécimal 
+#### Pour convertir un nombre décimal en hexadécimal
 
 Divisez le nombre par 16 et notez le reste. Remplacez les restes supérieurs à 9 par les lettres correspondantes (A à F). Lisez les restes de bas en haut pour obtenir le nombre hexadécimal.
 
@@ -416,11 +416,11 @@ Identifiez les positions des chiffres hexadécimaux, en commençant par la droit
 
 16 élevé à la puissance correspondant à sa position. Additionnez les produits obtenus pour obtenir le nombre décimal. Exemple : Conversion du Nombre Hexadécimal 3F en Décimal Prenons l'exemple du nombre hexadécimal 3F et convertissons-le en base 10.
 
-#### En partant de la droite, identifions la position de chaque chiffre 
+#### En partant de la droite, identifions la position de chaque chiffre
 
 Le chiffre F (qui vaut 15 en décimal) est à la position 0. Le chiffre 3 est à la position 1. Multiplions chaque chiffre par
 
-#### à la puissance de sa position 
+#### à la puissance de sa position
 
 (
 
@@ -432,7 +432,7 @@ Le chiffre F (qui vaut 15 en décimal) est à la position 0. Le chiffre 3 est à
 
 )
 
-#### En simplifiant les calculs 
+#### En simplifiant les calculs
 
 (
 
@@ -450,7 +450,7 @@ Le chiffre F (qui vaut 15 en décimal) est à la position 0. Le chiffre 3 est à
 
 Ainsi, le nombre hexadécimal 3F correspond au nombre décimal 63.
 
-#### Pour convertir un nombre hexadécimal en décimal 
+#### Pour convertir un nombre hexadécimal en décimal
 
 Multipliez chaque chiffre hexadécimal par une puissance de 16 en fonction de sa position. Additionnez les valeurs obtenues pour obtenir le nombre en base 10.
 

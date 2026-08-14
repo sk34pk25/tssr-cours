@@ -176,11 +176,8 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 ### Outils collaboratifs
 
 - Découvrir les fonctionnalités de Microsoft Excel
-
 - Mettre en forme un tableau
-
 - Utiliser des fonctions de calcul
-
 - Mettre en avant la liaison avec SharePoint
 
 ### Notions de base Excel
@@ -188,19 +185,12 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Classeur Excel
 
 - Créer un classeur
-
 - Nouveau classeur
-
 - À partir d’un modèle
-
 - Ouvrir un classeur
-
 - À partir des classeurs récents
-
 - En recherchant le classeur
-
 - Dans l’ordinateur
-
 - Sur le réseau
 
 #### Classeur sous Excel
@@ -208,33 +198,19 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 ### Classeur Excel
 
 - Les limitations d’un classeur sont liées :
-
 - À l’ordinateur
-
 - Au système d’exploitation
-
 - Limitation d’un classeur :
-
 - Nombre de feuilles : 255
-
 - Les limitations d’une feuille sont :
-
 - Nombre de feuilles : 255
-
 - Nombre de lignes maximum : 10 148 576
-
 - Nombre de colonnes maximum : 16 384
-
 - Nom des cellules va de A1 à XFD10148576
-
 - Nom d’une feuille : 31 caractères maximum
-
 - Nombre de caractères dans une cellule
-
 - Texte : 32767 caractères
-
 - Formule : 8192 caractères
-
 - Chiffre : 11 caractères affichables
 
 #### Si le chiffre est plus long, affichage en écriture exponentielle
@@ -244,27 +220,16 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Utilisation d’Excel
 
 - Calcul simple
-
 - Excel ≈ calculatrice
-
 - Opérateurs
-
 - Classique
-
 - +
-
 - -
-
 - *
-
 - /
-
 - Ordre de calcul
-
 - %, ^, * , / -, +
-
 - Pourcentage, exposant, multiplication & division, soustraction & addition
-
 - L’ordre peut être changé avec l’utilisation des parenthèses (calcul prioritaire)
 
 #### Calcul simple dans Excel
@@ -282,29 +247,17 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Utilisation d’Excel
 
 - Les cellules
-
 - Référencées par une ou plusieurs lettres (colonne) et un nombre (ligne)
-
 - La première cellule : A1
-
 - La dernière cellule : XFD10148576
-
 - Modification des références
-
 - La référence peut-être remplacée par un nom
-
 - La zone « référence » est modifiable
-
 - La liste des noms
-
 - Accessible par le menu « Formules »
-
 - Dans le gestionnaire de noms
-
 - Nouveau nom
-
 - Modifier un nom
-
 - Supprimer un nom
 
 #### Cellules d’Excel
@@ -316,21 +269,13 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 ### Utilisation d’Excel
 
 - Les pointeurs
-
 - La croix blanche
-
 - Sélectionner une cellule
-
 - La référence est affichée
-
 - Sélectionner plusieurs cellules
-
 - Le nombre de colonnes et de lignes est affiché
-
 - Éditer le contenu d’une cellule
-
 - Par la barre de formule
-
 - En double cliquant dans une cellule
 
 #### Cellules d’Excel
@@ -338,27 +283,18 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Utilisation d’Excel
 
 - Les pointeurs
-
 - La flèche blanche
-
 - Apparaît en se positionnant sur le bord d’une cellule sélectionnée
-
 - Permet de déplacer une cellule (contenu, formule, mise en forme)
-
 - Curseur : flèche blanche + croix fléchée
-
 - Permet de copier une cellule + CTRL (contenu, formule,
 
 #### mise en forme)
 
 - Curseur : flèche blanche + petite croix
-
 - La croix noire
-
 - Apparaît en se positionnant sur le petit carré en bas à droite
-
 - Recopier la cellule (contenu, formule, mise en forme)
-
 - Recopier en incrémentant la valeur de contenu si possible
 
 #### Cellules d’Excel
@@ -368,23 +304,14 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Copie
 
 - Les pointeurs
-
 - Incrémentation
-
 - En fonction des listes personnalisées
-
 - Dans les « Options Excel »
-
 - Menu « Options avancées »
-
 - En bas du menu
-
 - Modifier les listes personnalisées
-
 - En sélectionnant deux cellules
-
 - Définir un pas de recopie
-
 - Aperçu des valeurs lors de la recopie
 
 #### Cellules d’Excel
@@ -393,38 +320,22 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 
 #### Aperçu de la valeur
 
-#### Les fonctions
-
 ### Les fonctions
 
 - Les fonctions d’Excel
-
 - La liste des fonctions Excel
-
 - Les catégories des fonctions
-
 - Base de données
-
 - Cube
-
 - Date et Heure
-
 - Finances
-
 - Informations
-
 - Ingénierie
-
 - Logique
-
 - Mathématiques et Trigonométrie
-
 - Recherche et Référence
-
 - Statistiques
-
 - Texte
-
 - Web
 
 #### Fonctions Excel
@@ -432,7 +343,6 @@ Numéro de la commande Date de la commande Code clients Nom et Prénom Produits 
 #### Les fonctions
 
 - Quelques fonctions à connaître
-
 - Fonctions « Mathématiques »
 
 #### Fonctions Excel
@@ -442,7 +352,6 @@ alea() : Génère en nombre aléatoire entre 0 et 1 Ex : = alea()*100 Résultat 
 #### arrondi() : Arrondit un nombre à X chiffre après la virgule
 
 - arrondi.inf()
-
 - arronfi.sup()
 
 #### Ex : = arrondi(3,14159;2)
@@ -480,7 +389,6 @@ ent() : Arrondit un nombre à l’entier inférieur Ex : = ent(3,14159) Résulta
 #### mod() : Renvoie le reste d’une division Ex : = mod(5;2) Résultat : 1
 
 - Quelques fonctions à connaître
-
 - Fonctions « Texte »
 
 #### Fonctions Excel
@@ -496,7 +404,6 @@ droite() : Extrait des caractères à partir de la droite Ex : = droite(Hello;2)
 #### Les fonctions
 
 - Quelques fonctions à connaître
-
 - Fonctions « Recherche »
 
 #### Fonctions Excel
@@ -528,7 +435,6 @@ droite() : Extrait des caractères à partir de la droite Ex : = droite(Hello;2)
 #### Ex : = trouve("o";C3) Résultat : 8
 
 - Quelques fonctions à connaître
-
 - Fonctions « Logique »
 
 #### Fonctions Excel
@@ -581,20 +487,13 @@ conditions à vérifier .
 
 #### Résultat : "une valeur est NULL"
 
-#### Utilisation des fonctions
-
 ### Utilisation des fonctions
 
 - Trouver la fonction
-
 - Choisir la cellule de destination du résultat
-
 - Taper « = »
-
 - Puis les premières lettres de la fonction
-
 - Excel va vous proposer les fonctions contenant les caractères saisis
-
 - En cliquant sur le nom des fonctions, vous avez un aperçu de la fonction
 
 #### Les fonctions
@@ -602,17 +501,13 @@ conditions à vérifier .
 #### Utilisation des fonctions
 
 - Sélectionner la fonction par un double clic
-
 - Une aide simplifiée sur la commande apparaît
-
 - Cliquer sur pour obtenir de l’aide détaillée
 
 #### Les fonctions
 
 - Recopie de la formule vers d’autres cellules
-
 - En utilisant la croix noire, recopie de toute la structure de la cellule
-
 - Pour recopier seulement la formule, effectuer un copier-coller spécial avec le clic
 
 #### droit de la souris
@@ -622,15 +517,10 @@ conditions à vérifier .
 #### Utilisation des fonctions
 
 - Recopie de la formule verticalement
-
 - Lors de la copie, la référence des cellules évolue
-
 - Copie vers la ligne suivante
-
 - Recopie de la formule horizontalement
-
 - Lors de la copie, la référence des cellules évolue
-
 - Copie vers la ligne suivante
 
 #### Recopie des fonctions
@@ -644,39 +534,22 @@ conditions à vérifier .
 #### En cellule B10 : =somme(B2:B9)
 
 - Référence relative d’une cellule
-
 - « nom » normal
-
 - Utilisable dans les formules
-
 - Évolue lors de la recopie
-
 - Référence absolue d’une cellule
-
 - Nom contenant des symboles « $ »
-
 - Utilisable dans les formules
-
 - N’évolue pas lors de la recopie
-
 - Horizontalement
-
 - Verticalement
-
 - Référence absolue d’une ligne ou d’une colonne
-
 - Ligne absolue : $ devant les nombres
-
 - Colonne absolue : $ devant les lettres
-
 - Utilisable dans les formules
-
 - Ne change pas la ligne ou la colonne
-
 - Horizontalement
-
 - Verticalement
-
 - Touche « F4 » pour le référencement absolu
 
 #### Recopie des fonctions
@@ -689,20 +562,13 @@ conditions à vérifier .
 
 #### Colonne absolue $A1
 
-#### Excel et SharePoint
-
 ### Excel et SharePoint
 
 - Documents stockés sur SharePoint
-
 - Sauvegarde automatique
-
 - Gestion automatique des versions des documents
-
 - Possibilité d’ouvrir une version antérieure
-
 - Sans écrasement de la version courante
-
 - Historique des personnes qui ont modifié le document
 
 #### Office et SharePoint

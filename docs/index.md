@@ -106,40 +106,6 @@ hide:
 
 </div>
 
-<div class="tssr-section-heading">
-  <h2>Votre parcours TSSR</h2>
-  <p>Les premières étapes du calendrier officiel, du 8 juin au 7 août 2026. La frise complète détaille les neuf semaines.</p>
-</div>
-
-<div class="tssr-module-grid">
-  <a class="tssr-module-card" href="parcours/01-microsoft-365/" aria-label="Ouvrir l’étape 1 Microsoft 365">
-    <span class="tssr-module-card__number">01</span>
-    <span class="tssr-module-card__meta">8 → 12 juin · KURTULUS Hasan</span>
-    <strong>Microsoft 365 — Outils collaboratifs</strong>
-    <p>Word, Excel, Outlook, Teams, SharePoint et OneDrive.</p>
-  </a>
-  <a class="tssr-module-card" href="parcours/02-bases-reseaux/" aria-label="Ouvrir l’étape 2 Bases des réseaux">
-    <span class="tssr-module-card__number">02</span>
-    <span class="tssr-module-card__meta">15 → 19 juin · GUYADER Thélo</span>
-    <strong>Bases des réseaux</strong>
-    <p>OSI, adressage, communication et outils de diagnostic.</p>
-  </a>
-  <a class="tssr-module-card" href="parcours/03-systemes-clients-microsoft-1/" aria-label="Ouvrir l’étape 3 Systèmes clients Microsoft première partie">
-    <span class="tssr-module-card__number">03</span>
-    <span class="tssr-module-card__meta">22 → 26 juin · RICHEZ Cédric</span>
-    <strong>Systèmes clients Microsoft (1/2)</strong>
-    <p>Fondamentaux, installation, PowerShell, stockage et comptes locaux.</p>
-  </a>
-  <a class="tssr-module-card" href="parcours/04-systemes-clients-microsoft-2/" aria-label="Ouvrir l’étape 4 Systèmes clients Microsoft seconde partie">
-    <span class="tssr-module-card__number">04</span>
-    <span class="tssr-module-card__meta">29 juin → 3 juillet · KURTULUS Hasan</span>
-    <strong>Systèmes clients Microsoft (2/2)</strong>
-    <p>Sécurité, réseau, partage, maintenance et déploiement.</p>
-  </a>
-</div>
-
-<p class="tssr-home-path-cta"><a class="md-button md-button--primary" href="parcours/">Voir les neuf étapes du parcours</a></p>
-
 ## Une méthode de travail durable
 
 1. Suivre le [parcours chronologique](parcours/index.md) dans l’ordre réel des semaines de formation.

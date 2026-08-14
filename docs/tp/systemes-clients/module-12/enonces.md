@@ -46,7 +46,6 @@ Activez le compte utilisateur Administrateur et fixez-lui un mot de passe. Ferme
 #### Utilisez la fonctionnalité de clonage de WorkStation
 
   - Créez un "Full Clone" de Win10-XX depuis son état actuel
-
   - Cette nouvelle VM sera hébergée dans le dossier Win10 -XX-Clone créé
 
 #### précédemment

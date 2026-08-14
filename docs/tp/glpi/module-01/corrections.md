@@ -64,15 +64,10 @@ utilisateur.
 - Installez une VM Debian 10 64b avec interface graphique
 
   - 4Go RAM, 1CPU, bridge, 40Gb de disque dur.
-
   - Utilisez l’ISO NetInstall de Debian 10 disponible sur distrib.
-
   - Adressage réseau : DHCP en bridge pour l’installation.
-
   - Puis faites la configuration réseau une fois installée (VMNet18).
-
   - Serveur DNS : srv-CD01.
-
   - Uniquement le serveur SSH et l’environnement graphique de bureau seront
 
 installés avec les utilitaires usuels du système.
@@ -84,17 +79,13 @@ installés avec les utilitaires usuels du système.
 domaine Olympus.gr.
 
 - Procédez au nommage et adressage réseau comme indiqué sur le schéma.
-
 - Créez les domaines ADDS « Olympus.gr ».
-
 - Ne créer ni OU, ni utilisateurs pour le moment.
 
 #### Installation d’un client W10
 
 - Depuis l’image SysPrep Windows 10 présente dans distrib, déployez un client.
-
 - Procédez à la configuration réseau en vous basant sur le schéma.
-
 - Ajoutez le client dans le domaine ADDS.
 
 #### Installation du firewall pfSense
@@ -102,13 +93,10 @@ domaine Olympus.gr.
 - Créez une nouvelle machine virtuelle avec les caractéristiques suivantes :
 
   - OS : Other, FreeBSD 64-bit, 512 de RAM, 1 CPU, Disque 20G GB.
-
   - Carte réseau n°1 : bridgée en DHCP
-
   - Carte réseau n°2 : VMNet18
 
 - Depuis l’ISO présente sur Distrib, installez un pfSense avec les réglages par défaut.
-
 - Laissez la carte em0 en DHCP, configure z la carte em1 sur le LAN VMNET18 comme
 
 indiqué sur le schéma.
@@ -118,7 +106,6 @@ indiqué sur le schéma.
 proposée.
 
 - Créez une règle de filtrage sur toutes les interfaces qui autorise tout le trafic.
-
 - Test de communication
 
   - Depuis srv -Cd01, vous devez pouvoir résoudre ftp.fr.debian.org (pensez au
@@ -148,39 +135,23 @@ server.
   - Extensions obligatoires PHP pour GLPI :
 
 - Php7.3
-
 - php7.3-mysql
-
 - php7.3-mbstring
-
 - php7.3-curl
-
 - php7.3-gd
-
 - php7.3-xml
-
 - php7.3-ldap
-
 - php7.3-xmlrpc
-
 - php7.3-imap
-
 - php7.3-intl
-
 - php7.3-zip
-
 - php7.3-bz2
-
 - php-apcu-bc
-
 - php-cas
-
 - Redémarrez ensuite le serveur Apache
-
 - Configuration de la base de données
 
   - Connectez-vous au Shell mysql : mysql -u root -p
-
   - Créez une base de données pour GLPI :
 
 #### Afin de vérifier si votre base de données a bien été créée :
@@ -228,7 +199,6 @@ server.
 Debian avec Winscp disponible sur Distrib (attention, openssh-server doit être installé et le démon sshd empêche la connexion avec l’utilisateur root…).
 
   - Copiez le fichier glpi-xxxx.tar.gz dans le dossier /var/www/
-
   - Utilisez la commande tar pour désarchiver et décompressez dans /var/www
 
 puis supprimez le fichier glpi-xxxx.tar.gz.
@@ -316,9 +286,7 @@ define('GLPI_VAR_DIR', '/var/lib/glpi'); define('GLPI_DOC_DIR', GLPI_VAR_DIR); d
 #### #mkdir /var/log/glpi
 
 - Donnez les droits à l’utilisateur www-data sur /var/log/glpi.
-
 - Vérifiez.
-
 - Créez un fichier /var/www/glpi/inc/downstream.php.
 
 #### # vi /var/www/glpi/inc/downstream.php
@@ -372,7 +340,6 @@ GLPI_CONFIG_DIR . '/local_define.php';
 #### #chown -R www-data /var/ww/glpi/marketplace
 
 - Vérifiez.
-
 - Afin de publier le site web GLPI, il faut créer le fichier /etc/apache2/sites-
 
 available/glpi.domaine.tld.conf.

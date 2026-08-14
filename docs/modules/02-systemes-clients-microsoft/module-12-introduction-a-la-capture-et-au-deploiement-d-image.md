@@ -58,21 +58,13 @@ remove-or-update-store-apps
 #### Windows
 
 - Créer un système modèle
-
 - Déployer des « clones »
-
 - Recherche de productivité dans le service informatique
-
 - Tendre vers un parc informatique homogène pour réduire les configurations
-
 - Tendre vers un ensemble de systèmes d'exploitation homogènes pour réduire le maintien
-
 - Posséder des systèmes d'exploitation "clé en main" pour :
-
 - Les nouveaux collaborateurs
-
 - Les collaborateurs avec un poste défaillant
-
 - Solution : posséder des images de référence
 
 #### Problématique
@@ -80,19 +72,14 @@ remove-or-update-store-apps
 ### Préparation du master
 
 - Installation du poste de référence
-
 - Configuration initiale de son système d'exploitation
-
 - Installation d'applications validées par la DSI
-
 - Préparation pour le clonage avec l'outil sysprep
 
 ### Pour rendre les postes uniques dans l'entreprise
 
 - Les paramètres personnalisés du Master sont remis à zéro
-
 - Une version par génération de systèmes
-
 - Outils graphiques et en ligne de commande
 
 `Sysprep`
@@ -100,21 +87,15 @@ remove-or-update-store-apps
 ### interaction utilisateur au redémarrage
 
 - Paramètres nécessaires
-
 - OOBE (Out-of-Box Experience) :
-
 - Généraliser
-
 - Arrêter le système
-
 - En ligne de commande
-
 - C:\Windows\System32\sysprep\sysprep.exe /oobe
 
 #### /generalize /shutdown
 
 - En complément
-
 - Audit : Pré-paramétrages spécifiques au poste avant
 
 #### OOBE
@@ -128,17 +109,11 @@ remove-or-update-store-apps
 `Sysprep`
 
 - Incompatible avec toutes les configurations (certains rôles serveur, jonction, etc.)
-
 - Incompatible avec des Apps installées depuis le Microsoft Store
-
 - Pilotes installés manuellement
-
 - Supprimés par défaut par sysprep
-
 - Non supprimés avec le paramètre /PersistAllDeviceInstalls en ligne de commande
-
 - Les comptes utilisateurs ne sont pas supprimés par sysprep
-
 - Activez et utilisez le compte administrateur pour un paramétrage plus précis
 
 #### (il sera réinitialisé par sysprep)
@@ -150,25 +125,15 @@ remove-or-update-store-apps
 #### Une fois le système de référence éteint :
 
 - Ne pas le redémarrer avant d'avoir capturé l'image du système !
-
 - Récupérer l'image système grâce au serveur de déploiement
-
 - Méthode automatisée
-
 - Amorçage PXE
-
 - Images d’amorçage à disposition sur le serveur de déploiement
-
 - Déploiement possible grâce au serveur
-
 - Récupérer l'image système grâce à dism
-
 - Méthode manuelle
-
 - Nécessite un support WinPE amorçable (DVD, clé USB, etc.)
-
 - Léger, contient des outils spécifiques pour la capture et le déploiement
-
 - Commande puissante
 
 #### Exploitation du master
@@ -176,35 +141,24 @@ remove-or-update-store-apps
 ### (Conseiller de mise à niveau, Application Compatibility Toolkit, etc.)
 
 - Mise à jour des images
-
 - Possible en mode « déconnecté » (offline) avec le format WIM et l’outil en ligne de commande
 
 `dism (présent dans WinPE et dans Windows)`
 
 - Le poste cible est-il prêt ?
-
 - Des outils Microsoft permettent d’évaluer la compatibilité du matériel et des logiciels cibles
-
 - WinPE comprend des outils de préparation (diskpart, mount, drvload, net use, Powershel, etc.)
 
 #### Exploitation du master
 
 - Automatisé grâce au serveur de déploiement
-
 - Déploiement en masse
-
 - Démarrer les postes sur le réseau (Boot PXE)
-
 - Les clients requêtent puis se connectent au serveur de déploiement (ici WDS)
-
 - Choix de l’image à déployer
-
 - Manuel grâce à dism
-
 - Déploiement au cas par cas
-
 - Démarrer les postes sur le support amorçable WinPE
-
 - Partitionnement du stockage d'accueil
 
 #### Déploiement

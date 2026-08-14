@@ -10,7 +10,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Réaliser les manipulations.
 - [ ] Vérifier chaque résultat.
 - [ ] Comparer avec la correction.
-
 - [Énoncés](enonces.md)
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word.md)

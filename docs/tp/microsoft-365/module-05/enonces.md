@@ -30,33 +30,23 @@ Avoir installé Office 365.
 - Ouvrez un navigateur en navigation privée et allez à la page :
 
   - https://portal.office.com.
-
   - Connectez-vous avec votre compte de tenant puis ouvrez OneDrive Online.
-
   - Créez un fichier Word nommé « recette du pain perdu » :
 
 - Titre : recette du pain perdu
-
 - Contenu : retrouver le pain
-
 - Partagez le fichier « recette du pain perdu » avec une autre adresse mail.
 
   - Indiquez une date d’expiration au lendemain
-
   - Avec le mot de passe : Pa$$w0rd (c’est un zéro).
-
   - Envoyez-le avec le message : « voici la recette que tu m’avais demandée ».
-
   - Ouvrez le fichier avec votre application de bureau Word et modifiez -le en
 
 #### ajoutant la ligne : « Attention, je ne parle pas de l’arbre. »
 
 - Fermez le fichier puis affichez l’activité sur votre fichier.
-
 - Rouvrez-le et restaurez à la version précédente.
-
 - Vérifiez.
-
 - Ouvrez OneDrive avec votre explorateur et modifiez l’emplacement de synchronisation
 
 des fichiers vers « C:\usersvotrenom\Documents\OneDrive ».

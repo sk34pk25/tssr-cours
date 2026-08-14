@@ -34,15 +34,10 @@
 #### Module 04 — Transition des services
 
 - Connaitre le rôle de la transition des services
-
 - Identifier les différents processus
-
 - Définir un changement
-
 - Définir un CI (Configuration Item)
-
 - Identifier les outils
-
 - Définir la connaissance
 
 #### Les publications centrales « T ransition des services»
@@ -56,23 +51,16 @@
 #### Les publications centrales « T ransition des services»
 
 - Objectif
-
 - Mise en production des services (nouveaux ou améliorés)
-
 - Son rôle
-
 - Mettre en production en respectant les livrables produits par la conception
 
 #### des services ainsi que les coûts
 
 - Réalisation, construction, test, validation et déploiement des services
-
 - Prévoir et gérer les ressources nécessaires
-
 - Produire la documentation
-
 - Surveiller et améliorer les services
-
 - Respecter les critères de qualité, de sécurité et les délais dans la délivrance
 
 #### des services
@@ -106,7 +94,6 @@
 #### Les publications centrales « T ransition des services»
 
 - Ses objectifs
-
 - S’assurer que les procédures et les méthodes pour traiter les changements
 
 #### sont efficaces, voire efficientes
@@ -120,7 +107,6 @@
 #### d’interruption de service et en maximisant la valeur fournie
 
 - Définition d’un changement
-
 - Ajout, modification, ou retrait d’un ou plusieurs CI du système
 
 #### d’information ou d’un ou plusieurs services fournis par ce système
@@ -134,17 +120,11 @@
 #### changements
 
 - Raised : qui a fait la demande ?
-
 - Reason : pour quelle raison ?
-
 - Return : quel est le retour attendu ?
-
 - Risks : quels sont les risques ?
-
 - Resources : quelles seront les ressources ?
-
 - Responsible : qui est le responsable ?
-
 - Relationship : quelles sont les relations
 
 #### avec les autres changements ?
@@ -172,53 +152,35 @@
 #### Les publications centrales « T ransition des services»
 
 - Les origines d’un changement
-
 - Les correctifs (événement, incident, problème…)
-
 - La législation
-
 - L’organisation
-
 - Des directives ou des standards
-
 - Des évolutions des services existants
-
 - Des nouveaux services
-
 - Un nouveau modèle de sourcing
-
 - Une innovation technologique…
 
 #### La gestion des changements
 
 - La demande de changement
-
 - Tous les clients sont habilités à émettre une demande de changement, mais
 
 cela ne veut pas dire qu’elle sera acceptée.
 
 - Toute demande de changement doit être formalisée par une RFC.
-
 - RFC (Request For Change) est une formalisation d’une modification d’un ou
 
 plusieurs éléments de configuration (CI).
 
 - Une RFC doit contenir :
-
 - Un identifiant unique
-
 - Une date de demande
-
 - Le nom du demandeur
-
 - Une proposition de priorité de changement (priorité = impact x urgence)
-
 - Une description du changement
-
 - Les risques durant l’implémentation du changement
-
 - Les dates de mise en place du changement
-
 - Une estimation des ressources nécessaires (humaine, matériels…)
 
 #### La gestion des changements
@@ -260,25 +222,17 @@ plusieurs éléments de configuration (CI).
 #### 5 Très faible Très basse Standard / Planifié
 
 - Le changement standard
-
 - Actions connues, documentées, déjà réalisées et testées
-
 - Les risques sont faibles et bien maîtrisés
-
 - Changement préapprouvé, maîtrisé et associé à des procédures établies
-
 - Référencé dans un mini-catalogue de changements préautorisés
-
 - Le changement normal
-
 - Il nécessite une évaluation complète et une autorisation avant sa réalisation
 
 #### par le CAB
 
 - Le changement urgent
-
 - L’urgence est exceptionnelle et devra être validée et autorisée par l’ECAB
-
 - Court-circuitage des procédures (réalisation, mise en œuvre, documentation
 
 #### et tests)
@@ -374,7 +328,6 @@ plusieurs éléments de configuration (CI).
 #### Les publications centrales « T ransition des services»
 
 - Son objectif
-
 - Identifier, contrôler et enregistrer les actifs de services et les éléments de
 
 #### configuration
@@ -386,9 +339,7 @@ plusieurs éléments de configuration (CI).
 #### configuration
 
 - Auditer et vérifier les actifs de services et les éléments de configuration
-
 - Protéger l’intégrité des actifs de services et des éléments de configuration
-
 - Gérer un système de gestion de configuration (CMS ou Configuration
 
 #### Management System)
@@ -396,7 +347,6 @@ plusieurs éléments de configuration (CI).
 #### La gestion des actifs de services et des configurations
 
 - Élément de configuration
-
 - Un élément de configuration, dénommé CI, est un composant du
 
 #### système d’information qui va contribuer à la fourniture d’un ou
@@ -404,7 +354,6 @@ plusieurs éléments de configuration (CI).
 #### plusieurs services
 
 - Identifiable par un type et un ensemble d’attributs pour le décrire
-
 - Relation possible avec d’autres CI : situation, physique et
 
 #### fonctionnelle
@@ -442,7 +391,6 @@ plusieurs éléments de configuration (CI).
 #### configuration
 
 - Activités : planification initiale
-
 - Définir le périmètre, la stratégie, la politique de gestion des éléments
 
 #### de configuration
@@ -456,17 +404,13 @@ plusieurs éléments de configuration (CI).
 #### attributs, relations)
 
 - Chargement initial
-
 - Nomination du propriétaire, des acteurs clés avec leurs rôles et
 
 #### responsabilités
 
 - Formation des collaborateurs
-
 - Activités : planification itérative
-
 - Chargement des CMDB
-
 - Ajustement des procédures, rôles et responsabilités
 
 #### La gestion des actifs de services et des configurations
@@ -474,45 +418,30 @@ plusieurs éléments de configuration (CI).
 #### Les publications centrales « T ransition des services»
 
 - Les outils : la CMDB
-
 - Configuration Management Data Base
-
 - BDD de l’outil de gestion associé
-
 - Contient des enregistrements CI
-
 - Les outils : le CMS
-
 - Configuration Management System
-
 - Ensemble d’outils pour gérer les données de configuration
-
 - Prend les données de plusieurs CMDB pour constituer une CMDB fédérée
-
 - Les outils : la DML
-
 - Definitive Media Library : lieu de stockage sécurisé des CI logiciels
-
 - Référence pour tous les logiciels : contient les médias, documentations et
 
 #### clés de licence associées
 
 #### La gestion des actifs de services et des configurations
 
-#### La gestion des actifs de services et des configurations
-
 #### Identification
 
 - Sélectionner, identifier et définir les CI : attributs, relations, etc.
-
 - Définir le niveau de granularité d’enregistrement des CI et leurs baselines
-
 - Etiqueter les composants physiques
 
 #### Contrôle des CI
 
 - S’assurer que seuls les CI autorisés et identifiables sont enregistrés
-
 - CI accompagnés d’une documentation (ses relations, attributs, liens)
 
 #### Gestion des états
@@ -524,21 +453,17 @@ plusieurs éléments de configuration (CI).
 #### audits
 
 - Vérifier l’adéquation des activités avec celles définies par le processus
-
 - S’assurer de la fraîcheur des informations saisies
-
 - S’assurer de la bonne disponibilité des données
 
 #### Les publications centrales « T ransition des services»
 
 - La gestion des mises en production et des déploiements
-
 - Valide, organise et planifie le déploiement des services (nouveaux ou mis à
 
 jour) de façon « industrielle », en garantissant la valeur apportée, dans le respect des SLA.
 
 - Crée et fournit le document à l’exploitation des services
-
 - S’assure que les utilisateurs ont reçu les informations et sont formés pour
 
 #### utiliser les nouveaux services
@@ -576,15 +501,10 @@ Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et su
 #### Les publications centrales « T ransition des services»
 
 - La gestion de l’évaluation des changements
-
 - Mesure l’impact des changements, en évaluant les effets et les risques
-
 - Crée la revue de post-implémentation (PIR)
-
 - Indépendante de la gestion des changements
-
 - La validation et les tests
-
 - Garant du bon fonctionnement des services (nouveaux et mise à jour ) et de la
 
 #### gestion des erreurs découvertes pendant les phases d’intégration, de
@@ -596,7 +516,6 @@ Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et su
 #### d’exploitabilité, de service régulier)
 
 - La gestion de la planification et le support à la transition
-
 - Organise le ou les changements de services (nouveaux ou mise à jour) et gère
 
 #### les ressources nécessaires (humaines et matérielles)
@@ -604,25 +523,17 @@ Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et su
 #### Les autres processus de la transition des services
 
 - Ses objectifs
-
 - Donner de l’information à un collaborateur avec la granularité dont il a
 
 #### besoin
 
 - Fournir une information compréhensible et fiable
-
 - Permettre une prise de décision à tous les instants du cycle de vie
-
 - Permettre d’optimiser et de fiabiliser les prises de décision (efficience)
-
 - Permettre d’enregistrer les situations déjà connues
-
 - Mettre en place et faire vivre un système de gestion de la connaissance
-
 - Gérer l’information
-
 - S’assurer de la bonne utilisation de la base de connaissances
-
 - SKMS - Service Knowledge Management System
 
 #### La gestion de la connaissance
@@ -630,23 +541,18 @@ Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et su
 #### Les publications centrales « T ransition des services»
 
 - Gestion de l’information
-
 - Identifier les exigences, les contraintes, les spécifications des données
 
 #### traitées
 
 - Définir une architecture permettant de supporter ces données
-
 - Définir des outillages appropriés pour mettre en œuvre cette architecture
-
 - Écrire les procédures qui vont faire vivre ces données
-
 - Effectuer une analyse précise de l’état des lieux en matière de gestion de la
 
 #### connaissance
 
 - Appréhender cette spécificité pour mieux bâtir une solution adaptée
-
 - Évaluer la performance des bases de connaissances et être force de
 
 #### propositions pour l’amélioration des bases
@@ -654,7 +560,6 @@ Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et su
 #### La gestion de la connaissance
 
 - Bonne utilisation de la base
-
 - Savoir si ce que l’on a mis en place sert à quelque chose ou si des
 
 #### collaborateurs l’utilisent

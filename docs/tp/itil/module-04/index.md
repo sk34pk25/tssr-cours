@@ -10,7 +10,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Réaliser les manipulations.
 - [ ] Vérifier chaque résultat.
 - [ ] Comparer avec la correction.
-
 - [Énoncés](enonces.md)
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md)

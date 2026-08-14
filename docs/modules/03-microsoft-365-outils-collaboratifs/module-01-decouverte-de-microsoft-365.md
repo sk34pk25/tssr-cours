@@ -47,11 +47,8 @@ flowchart TB
 ### Outils collaboratifs
 
 - Comprendre les enjeux d’une plateforme Cloud
-
 - Appréhender la gestion des licences dans Microsoft 365
-
 - Découvrir les applications Office 365 disponibles
-
 - Connaître les prérequis pour créer une plateforme
 
 ### L’environnement
@@ -93,13 +90,11 @@ généralement, payent un abonnement.
 #### L’environnement Microsoft 365
 
 - Offres Cloud
-
 - Multiples applications (Exchange,
 
 #### SharePoint, Office, etc.)
 
 - Multiplateformes
-
 - S’adresse aux particuliers et aux
 
 #### entreprises
@@ -427,15 +422,10 @@ tout votre Tenant.
 #### T enant Microsoft 365
 
 - Nom de Tenant type :
-
 - nomdeladministrateurglobal@dom.onmicrosoft.com
-
 - Possibilité d’envoyer ou de recevoir des courriels pour ce domaine
-
 - Le Tenant n'est pas modifiable
-
 - Afin d’avoir une adresse mail en @votreentreprise.fr :
-
 - Location d’un domaine internet puis création d’un domaine personnalisé
 
 #### dans Microsoft 365

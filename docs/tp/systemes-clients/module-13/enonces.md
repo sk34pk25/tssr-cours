@@ -30,9 +30,7 @@ tous les utilisateurs devront utiliser un mot de passe avec les caractéristique
 #### suivantes
 
   - Longueur minimale : 7 caractères
-
   - 3 mots de passe seront conservés dans l'historique
-
   - Il devra respecter les exigences de complexité
 
 #### Créez une GPO non-administrateurs
@@ -42,7 +40,6 @@ tous les utilisateurs devront utiliser un mot de passe avec les caractéristique
 #### PC
 
   - Verrouiller la barre des tâches
-
   - Mettez en place un papier peint de votre choix sur le bureau
 
 #### Créez une GPO pour l'utilisateur Romain

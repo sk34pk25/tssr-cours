@@ -55,19 +55,12 @@ chown -R www-data /var/www/glpi/plugins
 #### FusionInventory
 
 - Comment ajouter/gérer des plugins avec GLPI
-
 - Exploration du site https://plugins.glpi-project.org/
-
 - Comment installer le plugin FusionInventory pour GLPI
-
 - Installation d’un agent FusionInventory sous Windows
-
 - Savoir modifier la configuration de l’agent FusionInventory
-
 - Comment forcer un inventaire depuis un agent
-
 - Installer le plugin Data-Injection en vue d’importer des données
-
 - Paramétrer un modèle d’importation Data-Injection
 
 #### Présentation des plug-ins — Inventaire avec FusionInventory
@@ -81,23 +74,16 @@ chown -R www-data /var/www/glpi/plugins
 #### produit de base
 
 - Catalogue: « https://plugins.glpi-project.org »
-
 - Depuis la version 9.5, il est possible d’utiliser le Marketplace
 
 #### (inscription sur le site obligatoire)
 
 - Principaux domaines :
-
 - Rapports / Graphiques
-
 - Inventaire *
-
 - Réseau
-
 - Gestion administrative
-
 - HelpDesk *
-
 - Import
 
 #### Les plug-ins : présentation
@@ -109,11 +95,8 @@ chown -R www-data /var/www/glpi/plugins
 ### « Configuration =&gt; Plugins »
 
 - Récupération des sources au format Gzip ou Bzip2
-
 - Extraction des plug-ins : « GlpiInstallationDir/plugins »
-
 - Installation et activation depuis l’interface graphique :
-
 - Chemin d’accès de configuration du plugin : va dépendre
 
 #### du plugin
@@ -121,7 +104,6 @@ chown -R www-data /var/www/glpi/plugins
 #### Les plug-ins : installation manuelle
 
 - Une version de plugin pour une version ou plus de GLPI
-
 - La mise à jour de GLPI peut nécessiter une mise à jour
 
 #### du plugin
@@ -136,8 +118,6 @@ chown -R www-data /var/www/glpi/plugins
 
 #### Paramétrage du Marketplace
 
-#### Présentation des plug-ins — Inventaire avec FusionInventory
-
 ### Présentation des plug-ins — Inventaire avec FusionInventory
 
 #### Les plug-ins : installation par le Marketplace
@@ -151,19 +131,12 @@ chown -R www-data /var/www/glpi/plugins
 ### Windows/Linux/macOS/Android
 
 - Plugins dans GLPI =&gt; la partie serveur
-
 - Les clients FusionInventory agents :
-
 - Permettre un inventaire automatique des équipements
-
 - Déploiement en mode Push / Pull d’applications
-
 - Collecte de données
-
 - Inventaire distant SNMP
-
 - Découverte réseau
-
 - Wake-on-LAN
 
 #### FusionInventory
@@ -171,15 +144,12 @@ chown -R www-data /var/www/glpi/plugins
 #### Présentation des plug-ins — Inventaire avec FusionInventory
 
 - Modèle client / serveur
-
 - Le client communique à intervalle régulier avec son serveur
-
 - Le serveur peut réveiller le client pour une communication
 
 #### anticipée
 
 - Données d’inventaire, remontée d’information de collecte, etc.
-
 - Protocole HTTP : documents XML
 
 #### FusionInventory : vue d'ensemble
@@ -189,7 +159,6 @@ chown -R www-data /var/www/glpi/plugins
 ### de clients
 
 - Nécessité de préparer la partie serveur avant toute importation
-
 - Comment gérer l’affectation des lieux et entités aux objets
 
 #### inventoriés ?
@@ -221,29 +190,23 @@ Administration =&gt; Fusion =&gt;
 #### Présentation des plug-ins — Inventaire avec FusionInventory
 
 - « Règles d’informations d’ordinateur »
-
 - À chaque update, modifier des informations ordinateur en fonction d’information de
 
 #### collecte
 
 - « Règles de lieu »
-
 - Permettre l’affectation et modification automatique du lieu des équipements importés
 
 #### par Fusion
 
 - « Règles sur l’entité ordinateur »
-
 - Permettre l’affectation et modification automatique de l’entité de rattachement
-
 - « Règles d’import et de liaison des matériels »
-
 - Liste fixe — Identification précise des machines à mettre à jour ou importer — éviter les
 
 #### doublons
 
 - « Matériels ignorés durant l’import »
-
 - Liste des équipements n’ayant pas pu être importés suite à une découverte réseau
 
 #### FusionInventory : règles
@@ -257,17 +220,11 @@ Administration =&gt; Fusion =&gt;
 #### Présentation des plug-ins — Inventaire avec FusionInventory
 
 - Il permet d’injecter des données depuis un fichier .csv
-
 - Comme dans la création à la main, l’ordre de création est important
-
 - Par exemple, création d’un fabricant, puis d’un composant et enfin l’ordinateur
-
 - Attention :
-
 - Aux droits des utilisateurs qui utilisent l’injection
-
 - Si l’utilisateur n’a pas le droit de créer un composant, il ne sera pas créé
-
 - Si vous utilisez FusionInventory, est-il indispensable d’injecter vos données ?
 
 #### Data Injection
@@ -277,57 +234,37 @@ Administration =&gt; Fusion =&gt;
 ### Data Injection
 
 - Ce qu’on peut importer
-
 - Ce qu’on ne peut pas importer
-
 - Ordinateur
-
 - Écran
-
 - Imprimante
-
 - Matériel
 
 #### réseau
 
 - Téléphone
-
 - Périphériques
-
 - Composants
-
 - Utilisateur
-
 - Groupe
-
 - Entité
-
 - Contrat
-
 - Fournisseur
-
 - Contact
-
 - Informations
 
 #### financières
 
 - Ports réseau
-
 - Type de cartouche
-
 - Type de
 
 #### consommable
 
 - Documents
-
 - Logiciel
-
 - Versions de logiciels
-
 - Licences
-
 - Données relations au helpdesk
 
 #### (catégories, tickets)
@@ -345,9 +282,7 @@ Administration =&gt; Fusion =&gt;
 #### Présentation des plug-ins — Inventaire avec FusionInventory
 
 - Étape 2 — Injecter un fichier au format .csv avec vos en-têtes de colonne
-
 - UTF-8 pour un fichier venant de Linux
-
 - ISO8859-1 pour un fichier venant de
 
 #### Windows

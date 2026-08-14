@@ -60,23 +60,16 @@ Get-Volume | Where -FilterScript {$_.DriveType -eq 'CD-ROM' -and $_.HealthStatus
 #### Objectifs • Savoir rediriger les flux des cmdlets
 
 - Utiliser le pipeline
-
 - Filtrer puis formater le résultat
 
 ### Redirection
 
 - Redirection de flux
-
 - Le pipeline
-
 - Filtrer l'affichage d'un résultat
-
 - Une cmdlet :
-
 - Reçoit des paramètres par l'entrée standard (stdin:0) par défaut le clavier
-
 - Fournit des résultats sur la sortie standard (stdout:1) par défaut l'écran
-
 - Affiche éventuellement les erreurs sur la sortie standard (stderr:2) par défaut l'écran
 
 #### Entrée
@@ -128,11 +121,8 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 #### Redirection
 
 - Exemple de redirection dans un fichier
-
 - Get-LocalUser &gt; c:\temp\LocalUserList.txt
-
 - Lecture du fichier
-
 - Get-Content c:\temp\LocalUserList.txt
 
 ### Démonstration
@@ -156,9 +146,7 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 ### Pipeline
 
 - Utilisé pour fournir un jeu restreint de propriétés
-
 - exemple avec Get-NetAdapter (sans paramètre ni argument) qui affiche certaines propriétés
-
 - Get-NetAdapter | Select Name,Status,LinkSpeed
 
 #### Démonstration
@@ -166,15 +154,10 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 ### Filtrage
 
 - Les objets fournis par le pipeline sont parfois nombreux
-
 - Mettre en place le filtrage pour ne garder que les propriétés nécessaires
-
 - Prérequis : connaître les opérateurs de comparaisons
-
 - Par défaut insensible à la casse
-
 - Les préfixer de "c" pour les rendre sensibles...
-
 - … Get-Help About_Comparison_Operator …
 
 #### Filtrage
@@ -200,11 +183,8 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 ### Filtrage basique
 
 - Ne peut filtrer qu'une seule propriété
-
 - Nécessite la cmdlet Where-Object
-
 - Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-
 - Get-Netadapter | Select Name,Status,LinkSpeed | Where Status —like Up
 
 #### Démonstration
@@ -214,19 +194,14 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 #### Le filtrage avancé
 
 - Pour filtrer plusieurs propriétés
-
 - Nécessite aussi la cmdlet Where-Object
-
 - Nécessite un script de filtrage —FilterScript {} dans la cmdlet Where-Object
-
 - Possibilité d'utiliser la variable $PSITEM (ou $_) pour être plus productif
-
 - $_ contient tous les objets transmis à Where-Object
 
 #### Filtrage
 
 - Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-
 - Get-NetAdapter | select Name,Status,LinkSpeed | Where —FilterScript
 
 #### {$_.Status —like "Up" —and $_.LinkSpeed —gt "100 Mbps"}
@@ -236,51 +211,32 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 #### Formatage
 
 - Par défaut, PowerShell "formate" les résultats des cmdlets avant de les afficher à l'écran
-
 - Le format des résultats peut être modifié à l'aide des cmdlets
-
 - Format-List
-
 - Format-Table
-
 - Format-Wide
-
 - Les cmdlets Format-* sont à réaliser en dernier lieu, "après avoir terminé le travail"
 
 ### Formatage
 
 - Affichage sous forme de liste
-
 - Get-Service | format-List
-
 - Get-Service | format-List —Property *
-
 - Get-service | FL —Property Name,Status,DisplayName
-
 - Équivalent à Get-Service | select Name,Status,DisplayName | FL
-
 - Affichage sous forme de tableau
-
 - Get-TimeZone | Format-Table
-
 - Get-TimeZone | Format-Table —Property *
-
 - Get-TimeZone | FT —Property StandardName,BaseUtcOffset -autosize
 
 #### Formatage
 
 - Affichage sous forme de liste élargie
-
 - Afficher une liste sur une ou plusieurs colonnes
-
 - Une seule propriété de la collection d'objets est sélectionnée
-
 - Get-Process | Format-Wide
-
 - Get-Process | Format-Wide —Property ID
-
 - Get-Process | FW —Property ID —column 5
-
 - Get-Process | FW —Property ID -autosize
 
 ### Démonstration
@@ -294,7 +250,6 @@ Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de so
 #### technicien moderne
 
 - Aller plus loin, être curieux
-
 - S’éveiller au scripting PowerShell
 
 ## Mise en pratique

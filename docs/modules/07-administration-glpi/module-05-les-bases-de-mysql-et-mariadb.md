@@ -67,19 +67,12 @@ mysql&gt;SELECT AVG(age) FROM clients;
 #### Module 05 — Les bases de MySQL et MariaDB
 
 - Rappels sur les SGBD et le langage d’interrogation SQL
-
 - Utilisation des commandes de bases de MySQL/MariaDB
-
 - Se connecter à une base de données et en afficher la structure
-
 - Ce qu’est une table dans une base de données
-
 - Effectuer une recherche d’enregistrements selon certains critères
-
 - Utiliser les fonctions de base du langage SQL
-
 - Afficher par des requêtes SQL, la liste des utilisateurs de GLPI
-
 - Effectuer une sauvegarde de la base de données de GLPI
 
 ### Rappels sur les SGBD
@@ -93,25 +86,16 @@ données (data) sur un support facilement consultable.
 #### Relationnelle (DB2, Oracle, SQL Server, PostgreSQL, MySQL…)
 
 - Un SGBD est rarement utilisé seul
-
 - Il est souvent utilisé par des logiciels tiers comme :
-
 - Un serveur internet
-
 - Des logiciels de comptabilité
-
 - Les serveurs de messagerie
-
 - Etc.
-
-#### SGBD - Système de Gestion de Bases de Données
 
 ### SGBD - Système de Gestion de Bases de Données
 
 - MySQL a été créé en 1994
-
 - Michael Widenius est un des co-créateurs
-
 - My (prénom de la fille de Widenius) et SQL
 
 #### (Structured Query Language)
@@ -147,11 +131,8 @@ dessus.
 `MariaDB`
 
 - Ici, se connecter en tant que root avec son mot de passe
-
 - SHOW — commande qui permet de lister
-
 - Ici, permet de voir toutes les bases de données présentes
-
 - CONNECT — commande qui permet de se connecter à une base de
 
 #### données
@@ -169,13 +150,9 @@ dessus.
 ### base de données
 
 - DROP — commande qui permet de supprimer
-
 - Ici, permet de supprimer la base de données glpidata
-
 - SHOW — commande qui permet de lister
-
 - Ici, permet de voir toutes les tables présentes une fois connecté à une
-
 - UPDATE / INSERT — commandes qui permettent d’ajouter du
 
 #### contenu à une base de données
@@ -193,11 +170,8 @@ dessus.
 #### dans des tables (ou relations)
 
 - Une relation est constituée de deux sous-ensembles :
-
 - L’en-tête est composé d’attributs (colonnes)
-
 - Le corps est composé de lignes
-
 - La table clients définit cinq attributs (ID, Prénom, Nom, Ville et Age)
 
 #### et se compose de quatre lignes (1, 2, 3 et 4)
@@ -217,11 +191,8 @@ dessus.
 ### attributs d’une table
 
 - Cette commande sert à lister les données d’un ou plusieurs
-
 - SELECT * FROM nom_de_la_table
-
 - * veut dire tous les attributs
-
 - Exemple : lister tous les attributs de la table clients
 
 #### La commande SELECT
@@ -273,7 +244,6 @@ dessus.
 ### est la ville
 
 - WHERE permet de mettre une condition à notre recherche
-
 - Liste les attributs « Prénom » et « Nom » de la table clients si Caen
 
 #### La condition WHERE à la commande SELECT
@@ -295,19 +265,12 @@ dessus.
 #### de recherche
 
 - = égal
-
 - &lt; inférieur
-
 - &lt;= inférieur ou égal
-
 - &gt; supérieur
-
 - &gt;= supérieur ou égal
-
 - &lt;&gt; ou != différent
-
 - &lt;=&gt; égal (fonctionne aussi si la valeur est NULL)
-
 - Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est strictement
 
 supérieur à 3.
@@ -329,15 +292,10 @@ supérieur à 3.
 ### critères
 
 - Il existe aussi des opérateurs qui permettent de combiner plusieurs
-
 - AND et
-
 - OR ou
-
 - XOR ou exclusif (ou, mais pas les deux)
-
 - NOT non (sauf)
-
 - Liste les attributs « Prénom » et « Nom » de la table clients si l’ID
 
 est supérieur ou égal à 2 et la ville est Caen.
@@ -357,9 +315,7 @@ est supérieur ou égal à 2 et la ville est Caen.
 #### +----------------+------------------+
 
 - Si vous souhaitez utiliser plusieurs opérateurs de combinaison
-
 - ( ) met la priorité sur les opérateurs combinés
-
 - Liste les attributs « Prénom » et « Nom » de la table clients si
 
 #### (l’ID est supérieur ou égal à 2 et la ville est Caen) ou (l’ID est
@@ -387,13 +343,9 @@ strictement supérieur à 2 et la ville est Rennes).
 ### colonne is NOT NULL
 
 - Le marqueur NULL représente qu’il n’y a pas de valeur
-
 - Le marqueur NOT NULL représente qu’il existe une valeur
-
 - On peut utiliser, colonne = NULL ou colonne is NULL
-
 - Idem pour NOT NULL, colonne = NOT NULL ou
-
 - Liste les attributs « Prénom » et « Nom » de la table clients si l'âge
 
 #### n’est pas renseigné
@@ -413,15 +365,10 @@ strictement supérieur à 2 et la ville est Rennes).
 #### +----------------+------------------+
 
 - Si vous souhaitez trier vos données en sortie
-
 - ORDER BY colonne tri en fonction de la colonne choisie
-
 - ASC tri par ordre croissant
-
 - DESC tri par ordre décroissant
-
 - Par défaut, sans préciser ASC ou DESC, c’est un ordre ascendant
-
 - Liste les attributs « Prénom » de la table clients triés par âge puis
 
 par nom.
@@ -449,13 +396,9 @@ par nom.
 ### compte le nombre de lignes souhaitées
 
 - Si vous souhaitez restreindre le nombre de lignes en résultat
-
 - LIMIT nombre_de_ligne OFFSET à_partir_de_quelle_ligne
-
 - OFFSET est optionnel et dans ce cas, il est égal à 0
-
 - OFFSET différent de 0, permet de déterminer à partir de quelle ligne on
-
 - Liste les attributs « Prénom » de la table clients triés par âge à partir
 
 de la deuxième ligne et que deux lignes.
@@ -477,11 +420,8 @@ de la deuxième ligne et que deux lignes.
 #### +----------------+
 
 - Si vous souhaitez compter le nombre de lignes en résultat
-
 - COUNT vous donne le nombre de lignes en résultat
-
 - Un attribut NULL ne compte pas
-
 - Compte le nombre d’attributs « âge » de la table clients.
 
 #### Compter le nombre de lignes récupérées
@@ -491,9 +431,7 @@ de la deuxième ligne et que deux lignes.
 ### Utilisation d'un alias
 
 - Il est possible de modifier le nom d’une colonne à l’affichage
-
 - Nom_de_la_colonne as nom_d’affichage
-
 - Liste les attributs « Prénom » de la table clients trier par âge en changeant le
 
 nom de la colonne Prénom par Firstname.
@@ -517,15 +455,10 @@ nom de la colonne Prénom par Firstname.
 #### +----------------+
 
 - Quelques fonctions qui permettent un traitement numérique
-
 - MAX(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
-
 - MIN(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
-
 - SUM(Nom_de_la_colonne) affiche la somme d’une colonne
-
 - AVG(Nom_de_la_colonne) affiche la moyenne d’une colonne
-
 - Liste la moyenne des âges de la table clients.
 
 #### Quelques fonctions d'agrégation
@@ -535,9 +468,7 @@ nom de la colonne Prénom par Firstname.
 ### (contrainte d’unicité)
 
 - Une clé primaire identifie de manière unique une ligne
-
 - Dans la table client et la table achat, il s’agit de l’ID
-
 - Elle identifie une ou plusieurs colonnes (création d’index que nous ne
 
 #### verrons pas dans ce cours)
@@ -577,7 +508,6 @@ nom de la colonne Prénom par Firstname.
 #### plusieurs tables
 
 - Elle vérifie l'intégrité de notre base.
-
 - Dans notre table achat, il s’agit de ID_client et vérifie que le client existe bien
 
 dans la table client.
@@ -587,7 +517,6 @@ dans la table client.
 erreur et c’est pour cela qu’on appelle les clés des contraintes (CONSTRAINT).
 
 - À la création d’une clé étrangère, un index est automatiquement créé.
-
 - La colonne ID_client est la clé étrangère de la table achat en relation avec la
 
 colonne ID de la table client. La colonne ID de la table client DOIT être une clé primaire.
@@ -597,7 +526,6 @@ colonne ID de la table client. La colonne ID de la table client DOIT être une c
 ### requête (l’avantage des tables relationnelles)
 
 - L’idée est de pouvoir associer plusieurs tables dans une même
-
 - Lorsque l’on fait une jointure, on crée une table virtuelle qui réunit les 2
 
 tables avec ID de la table client qui correspond à ID_client de la table achat
@@ -631,11 +559,8 @@ tables avec ID de la table client qui correspond à ID_client de la table achat
 #### Table achat
 
 - INNER JOIN
-
 - Jointure interne
-
 - Condition vraie dans les 2 tables
-
 - SELECT * FROM table_A INNER JOIN table_B ON table_A.clé = table_B.clé
 
 #### La jointure interne
@@ -649,15 +574,10 @@ tables avec ID de la table client qui correspond à ID_client de la table achat
 ### de la table client et sur la colonne ID_client de la table achat
 
 - Si je souhaite connaître le nom des jeux qu’a achetés Yann :
-
 - SELECT achat.nom : # je sélectionne ce que je veux afficher
-
 - FROM achat : # sur quelle table je travaille
-
 - INNER JOIN client : # je la joins à la table client
-
 - ON client.id = achat.id_client : # on fait la jointure sur la colonne ID
-
 - WHERE client.Prénom = ‘yann’; : # ID_client à 4 correspond à Yann
 
 #### La jointure interne

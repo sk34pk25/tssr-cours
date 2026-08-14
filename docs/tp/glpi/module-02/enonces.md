@@ -32,11 +32,8 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 Adoptez une convention de nommage adaptée.
 
 - Créez les groupes globaux suivant le tableau en annexe 1.
-
 - Créez les groupes globaux GLPI.
-
 - Créez des modèles d’utilisateurs, dans les groupes puis les utilisateurs.
-
 - Créez ces OU dans l’Active Directory d’Olympus en organisant convenablement sa
 
 structure en fonction de l’annexe 2.
@@ -52,7 +49,6 @@ structure en fonction de l’annexe 2.
 manipulations qui suivront.
 
 - Création des lieux en fonction de l’annexe 3.
-
 - Ajout de l’annuaire LDAP
 
   - Ajoutez le contrôleur de domaine d’Olympus comme source
@@ -70,9 +66,7 @@ l’AD.
 automatiquement attribué le/les profils GLPI sur les bonnes entités du groupe (les bonnes habilitations). Vous passerez par l’appartenance à des groupes AD pour l’attribution des habilitations. Par ex. : si le groupe GG d’un utilisateur appartient a u groupe GG_GLPI-Supervisor, alors il aura le profil Supervisor dans GLPI.
 
 - Importez tous les utilisateurs et les mettre dans le bon lieu.
-
 - Importez tous les groupes.
-
 - Désactivez les utilisateurs : normal, post-only et tech.
 
 #### Annexe 1

@@ -98,19 +98,19 @@ Processus de Transformation : Du PDU au SDU et vice-versa Lorsqu'une couche (N+1
 
 Étapes principales
 
-#### Le PDU de la couche N+1 devient le SDU de la couche N 
+### Le PDU de la couche N+1 devient le SDU de la couche N
 
 Lorsque la couche N+1 finit son travail, elle envoie son PDU à la couche N. La couche N considère alors ce PDU comme un SDU, une donnée à traiter.
 
-#### Ajout du PCI (Protocol Control Information) 
+#### Ajout du PCI (Protocol Control Information)
 
 La couche N ajoute son propre PCI (Protocol Control Information), qui contient des informations de contrôle comme les adresses, les numéros de séquence, les mécanismes de gestion d’erreur, etc. Cette étape est appelée encapsulation. Le PCI est essentiel car il permet à la couche N d’assurer ses responsabilités, par exemple le routage à la couche réseau ou la segmentation à la couche transport.
 
-#### Formation d’un nouveau PDU 
+#### Formation d’un nouveau PDU
 
 Une fois que la couche N a ajouté son PCI au SDU, elle forme un nouveau PDU spécifique à sa propre couche. Ce PDU sera ensuite transmis à la couche inférieure (la couche N-1), où le même processus se répétera.
 
-#### Exemple Concret (de la Couche Transport à la Couche Réseau) 
+#### Exemple Concret (de la Couche Transport à la Couche Réseau)
 
 Prenons l'exemple du transfert d'un segment TCP (couche transport) à un paquet IP (couche réseau) :
 
@@ -142,11 +142,11 @@ Les ports sont principalement utilisés à la couche transport (couche 4), mais 
 
 Ethernet Wi-Fi (802.11) 2. Couche Liaison de Données (Data Link) Rôle : Assurer une transmission fiable des trames entre deux équipements adjacents sur le même réseau. Elle gère les erreurs de transmission, la synchronisation des trames et l'accès au support physique.
 
-#### Protocoles 
+#### Protocoles
 
 Ethernet (IEEE 802.3) : Protocole dominant pour les réseaux locaux câblés. Wi-Fi (IEEE 802.11) : Protocole pour les réseaux locaux sans fil. PPP (Point-to-Point Protocol) : Utilisé pour la communication entre deux nœuds réseau, souvent pour les connexions internet via modem. HDLC (High-Level Data Link Control) : Protocole pour les connexions série synchrone. 3. Couche Réseau (Network) Rôle : Responsable de l’acheminement des paquets entre les différents réseaux et de la gestion des adresses logiques (par exemple, adresses IP).
 
-#### Protocoles 
+#### Protocoles
 
 `IP (Internet Protocol) : Le protocole principal pour l'acheminement des paquets sur l'Internet et d'autres réseaux.`
 
@@ -156,57 +156,48 @@ IPv4 : Version la plus répandue d'IP, utilisant des adresses 32 bits. IPv6 : No
 
 OSPF (Open Shortest Path First) : Protocole de routage utilisé dans les réseaux internes pour déterminer le meilleur chemin. 4. Couche Transport (Transport) Rôle : Assurer une communication fiable de bout en bout entre les hôtes, gérant le contrôle d’erreurs, le flux et la segmentation des données. Ports : La couche transport utilise les ports pour identifier les différentes communications entre les applications. Un port est un identifiant numérique attribué à chaque application communicante (par exemple, HTTP utilise le port 80).
 
-#### Protocoles 
+#### Protocoles
 
 TCP (Transmission Control Protocol) : Protocole orienté connexion, garantissant la livraison fiable des données dans le bon ordre. Il utilise des mécanismes comme le contrôle de flux et la gestion des erreurs. UDP (User Datagram Protocol) : Protocole non orienté connexion, plus rapide mais sans garantie de livraison des données (utilisé pour les flux audio/vidéo en temps réel). Exemples de ports
 
 Port 22 : SSH (Secure Shell) pour l'administration distante sécurisée. Port 25 : SMTP (Simple Mail Transfer Protocol) pour l'envoi d'emails. Port 53 : DNS (Domain Name System) pour la résolution de noms de domaine. Port 67 et 68 : DHCP (Dynamic Host Configuration Protocol) pour l'attribution d'adresses IP dynamiques. Port 80 : HTTP pour le web. Port 443 : HTTPS pour les communications web sécurisées. Port 143 : IMAP (Internet Message Access Protocol) pour la gestion des emails sur un serveur distant. Port 389 : LDAP (Lightweight Directory Access Protocol) pour les services d'annuaire. Port 3389 : RDP (Remote Desktop Protocol) pour la prise en main à distance de bureaux Windows. Port 161 et 162 : SNMP (Simple Network Management Protocol) pour la gestion des équipements réseau (161 pour les requêtes, 162 pour les notifications). 5. Couche Session (Session) Rôle : Établir, gérer et terminer les sessions entre deux applications. Elle est aussi responsable de la synchronisation et de la reprise des échanges en cas d’interruption.
 
-#### Protocoles 
+#### Protocoles
 
 RPC (Remote Procedure Call) : Permet à un programme d'exécuter des procédures sur un autre ordinateur. NetBIOS : Utilisé pour gérer les connexions et l’échange de données entre ordinateurs sur un réseau local. 6. Couche Présentation (Presentation) Rôle : Gérer la traduction des données entre le format utilisé par l'application et celui nécessaire pour la transmission réseau. Elle s’occupe également du chiffrement et de la compression des données.
 
-#### Protocoles 
+#### Protocoles
 
 SSL (Secure Sockets Layer) et TLS (Transport Layer Security) : Protocoles de sécurité pour le chiffrement des communications (utilisés pour HTTPS). JPEG, MPEG : Protocoles de codage des données multimédia pour garantir leur bonne transmission. 7. Couche Application (Application) Rôle : Fournir des services réseau aux applications utilisées par l'utilisateur final. C'est ici que se situent les protocoles que nous utilisons quotidiennement pour le web, les emails, le transfert de fichiers, etc.
 
-#### Protocoles 
+#### Protocoles
 
 HTTP/HTTPS (Hypertext Transfer Protocol / Secure) : Protocole utilisé pour naviguer sur le web. FTP (File Transfer Protocol) : Protocole de transfert de fichiers. SMTP (Simple Mail Transfer Protocol) : Utilisé pour l’envoi d’emails. DNS (Domain Name System) : Traduit les noms de domaine en adresses IP.
 
 Exemple : l'encapsulation lors d'un envoi de mail 1. Couche Application (Couche 7) Rôle : L'utilisateur compose un email via une application de messagerie, et celui-ci est envoyé à travers le protocole SMTP (Simple Mail Transfer Protocol). Encapsulation : À ce niveau, les données brutes (l'email complet, y compris le texte et les pièces jointes) sont appelées APDU (Application Protocol Data Unit). L'APDU est la forme sous laquelle les données sont manipulées dans la couche Application, avant d'être transmises à la couche inférieure. L'APDU est ensuite transmis à la couche Présentation.
 
 2. Couche Présentation (Couche 6) Rôle : La couche Présentation convertit les données dans un format standardisé pour la transmission, et peut aussi appliquer du chiffrement ou de la compression. Encapsulation : À ce niveau, l'APDU est encapsulé dans un PPDU (Presentation Protocol Data Unit). Si un chiffrement comme SSL ou TLS est utilisé, un en-tête spécifique sera ajouté à ce stade pour indiquer la méthode de cryptage. Le PPDU est ensuite transmis à la couche Session.
-
 3. Couche Session (Couche 5) Rôle : La couche Session gère la communication entre l'application cliente (votre logiciel de messagerie) et le serveur de messagerie. Encapsulation : À cette couche, le PPDU est encapsulé dans un SPDU (Session Protocol Data Unit), qui contient des informations nécessaires à la gestion de la session, comme les mécanismes de synchronisation et les informations d'identification de session. Le SPDU est ensuite transmis à la couche Transport.
-
 4. Couche Transport (Couche 4) Rôle : Cette couche est responsable du transport fiable des données entre l'hôte émetteur et le serveur de messagerie, en segmentant les données et en assurant le contrôle d’erreurs. Le protocole utilisé est généralement TCP pour garantir une transmission fiable. Encapsulation : Le SPDU est encapsulé dans un TPDU, également appelé Segment dans le cas de TCP. L'en-tête ajouté à cette couche contient des informations cruciales telles que le numéro de port (par exemple, port 25 pour SMTP), les numéros de séquence pour l'ordonnancement des segments, et les informations de contrôle d’erreurs. Les segments (TPDU) sont ensuite envoyés à la couche Réseau.
-
 5. Couche Réseau (Couche 3) Rôle : Cette couche est responsable de l’acheminement des paquets à travers différents réseaux, en utilisant les adresses IP source et destination pour déterminer le chemin. Encapsulation : Le TPDU (Segment) est encapsulé dans un RPDU, ou paquet (PDU au niveau de la couche Réseau). L'en-tête ajouté à ce niveau contient les adresses IP de source et de destination, permettant au paquet de circuler à travers le réseau. Le RPDU (paquet) est ensuite transmis à la couche Liaison de Données.
-
 6. Couche Liaison de Données (Couche 2) Rôle : La couche Liaison de Données assure la transmission fiable des données sur le lien physique, et gère les adresses MAC pour les communications entre deux appareils sur un même réseau. Encapsulation : Le RPDU (paquet) est encapsulé dans une LPDU, ou trame (PDU au niveau de la couche Liaison de Données). L'en-tête de la trame inclut les adresses MAC source et destination, ainsi que des informations de contrôle d’erreurs spécifiques au réseau local. La trame (LPDU) est ensuite envoyée à la couche Physique.
-
 7. Couche Physique (Couche 1) Rôle : La couche Physique transforme la trame (LPDU) en bits (0 et 1) et les transmet sur le support physique sous forme de signaux électriques, optiques ou radio. Cette couche utilise des supports comme les câbles Ethernet ou les ondes Wi-Fi pour la transmission des bits. Encapsulation : À ce stade, aucune encapsulation supplémentaire n'est effectuée. Les bits sont simplement transmis à l'appareil destinataire. Déroulement du Processus de Réception Le serveur de messagerie destinataire reçoit les bits et, à travers un processus de désencapsulation, retire les en-têtes à chaque couche. Les bits sont convertis en trame (LPDU), puis en paquet (RPDU), et ainsi de suite, jusqu'à reconstituer l'APDU contenant l'email dans sa forme finale au niveau de la couche Application.
 
 La Désencapsulation : Exemple de la Réception d’un Email Lorsque vous recevez un email, le processus de désencapsulation se déroule. Ce mécanisme inverse consiste à enlever les informations ajoutées par chaque couche lors de l'encapsulation à l’envoi, pour extraire les données brutes. À chaque couche, les en-têtes sont analysés et enlevés pour permettre aux données de remonter jusqu'à la couche Application.
 
-#### Voici comment cela se passe pour un email reçu 
+#### Voici comment cela se passe pour un email reçu
 
 1. Couche Physique (Couche 1) Rôle : Les bits sont reçus sous forme de signaux électriques, optiques ou radio, selon le support physique utilisé (par exemple, câble Ethernet ou Wi-Fi). Désencapsulation : Ces bits sont transmis à la couche Liaison de Données pour être reconstitués en LPDU (trames). À ce niveau, aucun traitement spécifique n'est effectué sur le contenu des données, on ne fait que transmettre les bits pour être analysés par la couche supérieure. Les bits sont convertis en une trame et transmis à la couche Liaison de Données.
-
 2. Couche Liaison de Données (Couche 2) Rôle : La couche Liaison de Données vérifie les informations ajoutées à la trame, comme les adresses MAC (source et destination) et les mécanismes de contrôle d'erreurs. Désencapsulation : La LPDU (trame) est analysée. Une fois la vérification de l’adresse MAC de destination effectuée (qui correspond à l'appareil récepteur), l'en-tête de la trame est enlevé. Ce qui reste est le RPDU, ou paquet. Le paquet (RPDU) est transmis à la couche Réseau.
-
 3. Couche Réseau (Couche 3) Rôle : La couche Réseau gère le routage des paquets en fonction des adresses IP. Elle vérifie si l'adresse IP de destination correspond à l'adresse de l'ordinateur récepteur. Désencapsulation : Le RPDU (paquet) est analysé, et son en-tête IP est enlevé. Cette en-tête contient des informations comme l'adresse IP source et destination. Si l'adresse IP de destination correspond à l'ordinateur récepteur, le paquet est accepté et transmis à la couche Transport. Ce qui reste est le TPDU, ou Segment. Le segment est ensuite envoyé à la couche Transport.
-
 4. Couche Transport (Couche 4) Rôle : La couche Transport est responsable de l'acheminement fiable des données. Elle vérifie des informations comme le numéro de port de destination et le contrôle d'erreurs pour assurer une transmission correcte. Désencapsulation : Le TPDU (Segment) est analysé, et l'en-tête TCP est enlevé. Cette en-tête contient des informations telles que le numéro de port (par exemple, port 25 pour SMTP), les numéros de séquence des segments, et les mécanismes de correction d'erreurs. Après l’enlèvement de cet en-tête, ce qui reste est le SPDU (Session Protocol Data Unit). Le SPDU est ensuite transmis à la couche Session.
-
 5. Couche Session (Couche 5) Rôle : La couche Session gère l’établissement, la gestion et la terminaison de la session de communication entre le serveur de messagerie et le client. Désencapsulation : Le SPDU est analysé, et l'en-tête de la couche Session est enlevé, révélant les PPDU (Presentation Protocol Data Unit), qui sont ensuite transmis à la couche Présentation. 6. Couche Présentation (Couche 6) Rôle : Cette couche s’assure que les données sont dans un format approprié pour l'application de destination, en effectuant la décompression ou le déchiffrement si nécessaire. Désencapsulation : Le PPDU est analysé, et l’en-tête de la couche Présentation est enlevé. Si du chiffrement a été appliqué (par exemple via SSL ou TLS), cette couche s’occupe de déchiffrer les données avant de les transmettre à la couche Application sous forme d'APDU (Application Protocol Data Unit). 7. Couche Application (Couche 7) Rôle : La couche Application est responsable de la gestion des services réseau à destination des applications utilisateur, comme l’affichage de l'email dans un client de messagerie (Outlook, Thunderbird, etc.). Désencapsulation : Le APDU est enfin reçu et interprété. À ce niveau, l'email complet (texte, pièces jointes, etc.) est reconstitué et présenté à l'utilisateur via l'application de messagerie.
 
 Analogie du modèle OSI avec le cheminement d'une lettre via un transporteur Détail de la communication d'un utilisateur souhaitant accéder à un site web La couche physique : Fondement du Modèle OSI Dans le modèle OSI, la couche Physique est la première couche, responsable de la transmission des données brutes sous forme de signaux physiques à travers divers supports de communication, comme les câbles, les ondes radio, ou encore la fibre optique. En d’autres termes, c’est elle qui transforme les informations en impulsions électriques, en signaux lumineux ou en ondes radio pour les envoyer d'un point à un autre sur le réseau. Elle est chargée de l’envoi et de la réception des bits de données sous forme de signaux. Elle s’assure que chaque bit est transmis avec précision d’un dispositif à un autre sans se soucier de l’interprétation de ces bits. Son travail est de fournir un canal de communication fiable, sur lequel les couches supérieures peuvent s’appuyer pour transférer des informations complexes.
 
 Les fonctions de la couche physique
 
-#### Elle assure plusieurs fonctions importantes, notamment 
+#### Elle assure plusieurs fonctions importantes, notamment
 
 Définition du support de transmission : Elle spécifie le type de support physique utilisé, qu'il s'agisse de câbles Ethernet, de fibres optiques ou de technologies sans fil comme le Wi-Fi. Cette couche dicte aussi les caractéristiques de ces supports, par exemple, la longueur maximale d'un câble ou la fréquence utilisée pour les signaux radio.
 
@@ -228,13 +219,13 @@ Avantages des Paires Torsadées
 
 Réduction des interférences : La torsion des paires de fils permet de réduire les interférences internes et externes. Fiabilité : Adapté aux environnements réseau courants avec des distances de câblage allant jusqu’à 100 mètres pour le câblage Ethernet standard. Types de Câbles à Paires Torsadées
 
-#### Les câbles à paires torsadées peuvent être de deux types 
+#### Les câbles à paires torsadées peuvent être de deux types
 
 UTP (Unshielded Twisted Pair) : Sans blindage, il est léger et moins coûteux, mais plus vulnérable aux interférences. STP (Shielded Twisted Pair) : Avec un blindage pour chaque paire ou pour l’ensemble du câble, il est mieux protégé contre les interférences électromagnétiques, mais plus cher. Câble Droit (Straight-Through Cable) Un câble droit est un type de câble à paires torsadées dans lequel les fils suivent exactement le même schéma de connexion aux deux extrémités du câble, en utilisant un des standards de câblage (T568A ou T568B). Ce câble est utilisé pour connecter des appareils de types différents dans un réseau.
 
 Utilisation du Câble Droit
 
-#### Le câble droit est couramment utilisé pour les connexions suivantes 
+#### Le câble droit est couramment utilisé pour les connexions suivantes
 
 Ordinateur vers commutateur (switch) Ordinateur vers routeur Commutateur vers routeur En général, le câble droit sert à relier des équipements qui n’appartiennent pas à la même catégorie, comme un poste de travail à un commutateur.
 
@@ -246,17 +237,17 @@ Le câble croisé est un autre type de câble à paires torsadées, où les fils
 
 Utilisation du Câble Croisé
 
-#### Le câble croisé est utilisé pour relier directement 
+#### Le câble croisé est utilisé pour relier directement
 
 Deux ordinateurs Deux commutateurs Deux routeurs Le but est d’inverser les connexions des fils pour que la sortie (transmission) d’un appareil soit reliée à l’entrée (réception) de l’autre. Cela permet aux deux appareils de communiquer directement entre eux.
 
 Schéma de câblage d’un Câble Croisé Dans un câble croisé, un côté utilise le schéma T568A, et l’autre côté utilise le schéma T568B. Cela crée un croisement entre les fils de transmission et de réception :
 
-#### Extrémité T568A 
+#### Extrémité T568A
 
 Blanc/vert Vert Blanc/orange Bleu Blanc/bleu Orange Blanc/marron Marron
 
-#### Extrémité T568B 
+#### Extrémité T568B
 
 Blanc/orange Orange Blanc/vert Bleu Blanc/bleu Vert Blanc/marron Marron Avec ce câblage, les fils de transmission (TX) d’un appareil sont connectés aux fils de réception (RX) de l’autre appareil, permettant ainsi une communication bidirectionnelle.
 
@@ -300,7 +291,7 @@ La couche Liaison est limitée à la communication entre dispositifs sur le mêm
 
 Les Fonctions de la Couche Réseau
 
-#### La couche Réseau remplit plusieurs fonctions essentielles 
+#### La couche Réseau remplit plusieurs fonctions essentielles
 
 Routage : Le routage consiste à déterminer le chemin optimal que les paquets de données doivent emprunter pour atteindre leur destination. Cela implique l'utilisation d'algorithmes de routage qui prennent en compte différents critères, comme la distance, la bande passante et la congestion du réseau.
 
@@ -368,11 +359,11 @@ Il permet aux utilisateurs de concevoir et de tester différents types de résea
 
 Principales Fonctions
 
-#### Voici les principales fonctionnalités de cet outil 
+#### Voici les principales fonctionnalités de cet outil
 
 Simulation de Réseau : Cisco Packet Tracer permet de simuler un large éventail de dispositifs réseau (routeurs, commutateurs, pare-feu, etc.), des protocoles et des technologies réseau comme les VLAN, OSPF, et le routage dynamique. Cela permet d’apprendre comment configurer ces dispositifs sans avoir accès à du matériel coûteux.
 
-#### Mode Simulation et Mode Temps Réel 
+#### Mode Simulation et Mode Temps Réel
 
 En mode Temps Réel, les paquets de données circulent en continu comme dans un réseau réel, permettant d’observer les flux de communication en temps réel. En mode Simulation, on peut suivre chaque étape de la transmission des paquets, visualiser les processus de routage et de commutation, et observer comment chaque couche du modèle OSI intervient. Ce mode est particulièrement utile pour l’analyse détaillée des échanges réseau. Configuration CLI : Packet Tracer permet d’utiliser l’interface en ligne de commande (CLI) pour configurer les dispositifs Cisco. Cela aide les utilisateurs à pratiquer les commandes Cisco IOS (Internetwork Operating System) et à se préparer aux certifications Cisco, comme le CCNA (Cisco Certified Network Associate).
 
@@ -387,13 +378,9 @@ Utilisation Pédagogique de Cisco Packet Tracer Dans le cadre de l'apprentissage
 Visualiser les Concepts Réseau : Il facilite la compréhension des concepts abstraits, comme le routage, le DNS, DHCP, et les couches du modèle OSI, en les rendant visuels et interactifs. Pratiquer les Configurations : Les utilisateurs peuvent pratiquer les configurations réseau et développer des compétences pratiques, ce qui les prépare efficacement pour des environnements de production ou des examens de certification. Tester et Diagnostiquer : Grâce aux modes de simulation, les utilisateurs peuvent tester différents scénarios et apprendre à diagnostiquer les problèmes réseau, comme les défaillances de connexion ou les erreurs de configuration. La structure en 7 couches 1. Couche Physique (Physique) C'est la couche la plus basse du modèle. Elle est responsable de la transmission des données sous forme de signaux électriques ou optiques à travers le support de transmission (câbles, fibres optiques, ondes radio, etc.). Les équipements de cette couche incluent les répéteurs, les hubs et les câbles.
 
 2. Couche Liaison de Données (Data Link) Elle assure un transfert fiable des données entre deux équipements adjacents, en gérant les erreurs de transmission et en structurant les données en trames. Cette couche comprend des sous-couches comme le MAC (Media Access Control) et le LLC (Logical Link Control). Les commutateurs (switches) opèrent souvent à ce niveau.
-
 3. Couche Réseau (Network) Cette couche est responsable du routage des données à travers différents réseaux et de la gestion des adresses logiques (comme les adresses IP). Elle permet de choisir le chemin le plus approprié pour transmettre les paquets d'une source à une destination. Les routeurs sont des équipements de la couche réseau.
-
 4. Couche Transport (Transport) Elle gère le contrôle de bout en bout des connexions et s'assure que les données arrivent sans erreur, dans le bon ordre, et sans duplication. Les protocoles couramment associés à cette couche sont TCP (Transmission Control Protocol) et UDP (User Datagram Protocol).
-
 5. Couche Session (Session) Cette couche établit, gère et termine les sessions entre les applications sur les différentes machines. Elle est également chargée de synchroniser les échanges, assurant ainsi une communication fluide.
-
 6. Couche Présentation (Presentation) Elle est souvent appelée "traductrice de données". Son rôle est de convertir les données en un format que l'application peut comprendre, gérer la compression des données et la cryptographie.
 
 Par exemple, elle peut convertir des fichiers de texte brut en un format sécurisé.

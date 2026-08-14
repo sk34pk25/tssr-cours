@@ -32,39 +32,26 @@
 #### Module 02 — La gestion des services
 
 - Définir un service
-
 - Connaitre les acteurs d’un service
-
 - Définir un processus
-
 - Connaitre les fonctions
-
 - Appréhender la notion de rôle
 
 ### gestion de service qui est plus orientée client
 
 - ITIL v3 propose une évolution de la gestion de projet vers la
-
 - Un projet
-
 - C’est la capacité à implémenter de nouvelles fonctionnalités par rapport à :
-
 - De nouveaux besoins
-
 - Une nouvelle législation
-
 - Une avancée technologique
-
 - Un service
-
 - C’est la capacité à produire le service demandé en respectant trois critères
 
 #### importants :
 
 - Aligner les services informatiques sur les besoins des clients
-
 - Améliorer la qualité des services informatiques
-
 - Maîtriser les coûts de fourniture
 
 #### Présentation d’ITIL
@@ -76,53 +63,33 @@
 #### risques
 
 - Un service est une application installée sur une infrastructure avec :
-
 - Une documentation associée
-
 - Une formation adaptée
-
 - Un support mis en place
-
 - De l’assistance aux utilisateurs
-
 - Un service est l’engagement sur le résultat :
-
 - Face au client
-
 - Face au risque
-
 - En assumant les risques
 
 #### Définitions
 
 - Utilité (dimension de la prestation)
-
 - La raison d’être d’un service
-
 - Amélioration des performances
-
 - Dépassement des contraintes
-
 - Ou les deux
-
 - Garantie (utilisabilité)
-
 - La garantie est l’assurance, pour le client, que le service va remplir les exigences de
 
 niveau de qualité contractualisé (condition, résultats, lieu, délais et moment)
 
 - C’est le niveau d’usage dont le client et ses utilisateurs ont besoin
-
 - Elle doit respecter :
-
 - Les heures d’ouverture
-
 - La disponibilité
-
 - La performance
-
 - La continuité de service
-
 - La sécurité
 
 #### Les 2 conditions requises pour créer de la valeur
@@ -140,15 +107,10 @@ niveau de qualité contractualisé (condition, résultats, lieu, délais et mome
 #### Garantie du service
 
 - Améliore la performance
-
 - Supprime des contraintes
-
 - Capacité suffisante
-
 - Disponibilité suffisante
-
 - Continuité suffisante
-
 - Sécurité suffisante
 
 #### utilisable
@@ -162,7 +124,6 @@ niveau de qualité contractualisé (condition, résultats, lieu, délais et mome
 #### informatiques
 
 - Type I : fournisseur interne
-
 - Par exemple, l'organisation marketing d'une entreprise décide de mettre en
 
 #### place chez elle une équipe informatique chargée de gérer l'informatique
@@ -170,13 +131,11 @@ niveau de qualité contractualisé (condition, résultats, lieu, délais et mome
 qu'elle utilise.
 
 - Type II : fournisseur de services partagés
-
 - C'est le cas d'une direction informatique ayant pour clients les différentes
 
 organisations de l'entreprise (y compris elle-même).
 
 - Type III : fournisseur externe
-
 - Ce type de fournisseur propose ses services à toutes les entreprises
 
 intéressées.
@@ -190,21 +149,15 @@ intéressées.
 #### des résultats
 
 - Il est le donneur d’ordre
-
 - Il est autorisé à signer un contrat (SLA) portant sur la fourniture de
 
 #### service informatique
 
 - Il va exprimer les besoins métiers
-
 - Négocier le service
-
 - Valider la solution
-
 - Payer la solution et le service
-
 - Il est le représentant des utilisateurs
-
 - Il a une relation particulière avec la DSI
 
 #### Les 5 acteurs de services
@@ -218,9 +171,7 @@ intéressées.
 #### professionnelle
 
 - Il remonte ses exigences auprès du client
-
 - Il ne paye pas l’utilisation d’un service
-
 - Il contacte la DSI par l’intermédiaire du centre de services
 
 #### (helpdesk)
@@ -232,19 +183,14 @@ intéressées.
 #### Entité responsable qui effectue le suivi du service informatique
 
 - Il est responsable de la définition du service et de sa mise en œuvre
-
 - Il participe aux propositions d’amélioration du service
-
 - Il est responsable de la bonne mise en œuvre des améliorations validées
-
 - Il représente le service auprès des clients
-
 - Il participe à la négociation des SLA (Service Level Agreement) et des OLA
 
 #### (Operationnal Level Agreement)
 
 - Il est un des destinataires pour les incidents majeurs lors des escalades
-
 - Il est responsable de la vie du service (évolution et fin du service, création de
 
 #### tableaux de bord)
@@ -260,7 +206,6 @@ intéressées.
 #### sein de l’entreprise et de la vie du service
 
 - Il possède une position hiérarchique élevée pour être légitime
-
 - Il coordonne les activités des propriétaires de processus et des
 
 #### propriétaires de services
@@ -272,15 +217,10 @@ intéressées.
 #### Les 5 acteurs de services
 
 - La gestion de service intègre :
-
 - La planification
-
 - La mise en œuvre
-
 - L’optimisation de la fourniture des services
-
 - Le support des services
-
 - Pour cela, il y a 2 dispositions spécialisées :
 
 #### Les 2 dispositions spécialisées au cœur d’ITIL
@@ -292,29 +232,19 @@ intéressées.
 ### poursuivant un objectif défini
 
 - Un processus est une suite d’activités structurées et logiques
-
 - Il possède plusieurs caractéristiques :
-
 - Il comprend un ou des éléments en entrée définis
-
 - Il comprend un ou des éléments en sortie qui peuvent être en entrée d’un
 
 #### autre processus
 
 - Il est mesurable : coûts, qualité, gain de productivité et délais de production
-
 - Il a un ou des résultats attendus
-
 - Il a un ou des clients
-
 - Il a un ou des déclencheurs
-
 - Il définit les rôles et les responsabilités des différents acteurs
-
 - Il définit les besoins en outils et les contrôles de gestion
-
 - Il doit être documenté
-
 - Il doit être contrôlé
 
 #### La notion de processus
@@ -350,15 +280,12 @@ Données,
 ### d’améliorer son efficacité et son efficience
 
 - Les mesures (ses résultats, ses activités, ses livrables …) permettent
-
 - L’efficacité :
-
 - C’est une mesure permettant de savoir si les objectifs d’un processus, d’un
 
 #### service ou d’une activité ont été atteints
 
 - L’efficience :
-
 - C’est une mesure qui permet de savoir si la quantité de ressources attribuée
 
 à un processus, à un service ou à une activité a été suffisante et bien utilisée
@@ -380,15 +307,10 @@ Données,
 #### processus
 
 - Il est responsable des outils (définition et utilisation)
-
 - ITIL définit quatre fonctions
-
 - Le centre de services
-
 - La gestion des opérations
-
 - La gestion technique
-
 - La gestion des applications
 
 #### La notion de fonction
@@ -414,15 +336,10 @@ Données,
 #### Recrutement d’une nouvelle personne 1 et 4 2 3
 
 1. Accueil par les ressources humaines
-
 2. Appel au helpdesk pour la création d’un nouveau compte
-
 3. Escalade vers l’équipe « Serveurs »
-
 4. Retour de l’information aux ressources humaines pour test
-
 - Un rôle se définit à un instant T (qui fait quoi à ce moment-là)
-
 - Le modèle R.A.C.I. va permettre à une organisation de représenter
 
 les rôles et les responsabilités de chacun.
@@ -432,15 +349,12 @@ les rôles et les responsabilités de chacun.
 #### R = Responsible (réalise et reporte — chargé de faire)
 
 - En charge de la réalisation de l’action (plusieurs)
-
 - Sous-traitant de A
-
 - Au moins 1 par action
 
 #### C = Consulted (est consulté)
 
 - Impliqué dans l’action en tant que fournisseur d’avis
-
 - L’avis doit être pris en compte par la personne qui l’a
 
 #### demandé
@@ -450,9 +364,7 @@ les rôles et les responsabilités de chacun.
 #### A = Accountable (autorise et assume - responsable)
 
 - Rend des comptes sur l’avancement de l’action
-
 - Assume la responsabilité de l’action
-
 - 1 seul par action
 
 #### I = Informed (est informé)
@@ -462,7 +374,6 @@ les rôles et les responsabilités de chacun.
 #### avancement
 
 - Doit être informé sur le déroulement, le résultat
-
 - Au moins 1 par action
 
 ### Le modèle R.A.C.I

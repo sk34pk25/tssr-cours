@@ -18,10 +18,8 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-    - navigation.sections
     - navigation.indexes
     - navigation.path
-    - navigation.prune
     - navigation.top
     - navigation.footer
     - navigation.tracking
@@ -89,28 +87,24 @@ extra_css:
   - assets/stylesheets/base.css
   - assets/stylesheets/navigation.css
   - assets/stylesheets/components.css
+  - assets/stylesheets/collaboration.css
   - assets/stylesheets/chronology.css
   - assets/stylesheets/visuals.css
   - assets/stylesheets/homepage.css
   - assets/stylesheets/responsive.css
   - assets/stylesheets/print.css
 extra_javascript:
+  - assets/javascripts/collaboration-config.js
+  - https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3/dist/umd/supabase.min.js
+  - https://cdn.jsdelivr.net/npm/marked@18.0.9/lib/marked.umd.min.js
+  - https://cdn.jsdelivr.net/npm/dompurify@3.4.13/dist/purify.min.js
   - assets/javascripts/extra.js
+  - assets/javascripts/collaboration-utils.js
+  - assets/javascripts/collaboration.js
 extra:
   generator: false
 nav:
   - Accueil: index.md
-  - Parcours chronologique:
-      - Vue d’ensemble: parcours/index.md
-      - "01 — Microsoft 365": parcours/01-microsoft-365.md
-      - "02 — Bases des réseaux": parcours/02-bases-reseaux.md
-      - "03 — Systèmes clients Microsoft (1/2)": parcours/03-systemes-clients-microsoft-1.md
-      - "04 — Systèmes clients Microsoft (2/2)": parcours/04-systemes-clients-microsoft-2.md
-      - "05 — Utilisation GNU/Linux": parcours/05-utilisation-linux.md
-      - "06 — Administration GNU/Linux (1/2)": parcours/06-administration-linux-1.md
-      - "07 — Administration GNU/Linux (2/2)": parcours/07-administration-linux-2.md
-      - "08 — MSP systèmes clients": parcours/08-msp-systemes-clients.md
-      - "09 — ITIL et gestion de parc": parcours/09-itil-gestion-parc.md
   - Cours:
       - "Bases des réseaux":
           - Présentation: modules/01-bases-reseaux/index.md
@@ -334,6 +328,11 @@ nav:
       - Quiz Réseaux: exercices/quiz-reseaux.md
       - Quiz Systèmes clients: exercices/quiz-systemes-clients.md
       - Cas pratiques transversaux: exercices/cas-pratiques.md
+  - Kahoot:
+      - Tous les Kahoots: kahoot/bibliotheque.md
+      # Ajouter ici chaque lien de partage officiel, par exemple :
+      # - "Thème — Nom du quiz": KAHOOT_URL_OFFICIELLE
+  - Modifications: collaboration/index.md
   - Révisions:
       - Présentation: revision/index.md
       - "Bases des réseaux":

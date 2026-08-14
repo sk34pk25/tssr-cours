@@ -1,0 +1,10 @@
+project_id = "formation-tssr"
+
+[functions.admin-users]
+verify_jwt = true
+
+[functions.change-requests]
+verify_jwt = true
+
+[functions.publication-status]
+verify_jwt = false

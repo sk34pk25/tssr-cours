@@ -16,7 +16,6 @@ Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoire
 #### suivants :
 
 - Sur le volume DATA, créer le répertoire Echange
-
 - Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?
 
 #### Depuis l'explorateur Windows, explorer le lecteur d:\DATA
@@ -60,9 +59,7 @@ Oui, les nouveaux fichiers hérite nt des autorisations du dossier parent Echang
 - Configurez les autorisations d'accès au répertoire Echange
 
   - Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire
-
   - Les administrateurs auront le contrôle total
-
   - Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
 
 #### poste
@@ -166,7 +163,6 @@ De par son appartenance au groupe prédéfini Administrateurs, francois possède
 - Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation
 
   - Yann et François accéderont en modifications à ces répertoires.
-
   - Les utilisateurs standard auront un accès en lecture et les administrateurs
 
 #### posséderont un contrôle total

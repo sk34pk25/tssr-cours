@@ -52,17 +52,11 @@ flowchart LR
 #### Module 04 — Assistance — Traitements automatisés des tickets
 
 - Le suivi opérationnel par des tickets
-
 - Les différentes solutions pour créer un ticket
-
 - Les gabarits de ticket : personnalisation du masque de saisie
-
 - Déclencheurs du chargement d’un gabarit de ticket
-
 - Les règles métiers pour modifier dynamiquement un ticket
-
 - La gestion des niveaux de services (SLA)
-
 - Ordre de création pour un traitement automatisé
 
 ### Assistance — T raitements automatisés des tickets
@@ -72,15 +66,12 @@ flowchart LR
 #### Assistance — T raitements automatisés des tickets
 
 - Dans le monde de l’informatique, tout fonctionne à base de ticket
-
 - Il va permettre de solliciter le centre de service
-
 - Un ticket passera par plusieurs statuts : c’est le cycle de vie
 
 #### d’un ticket
 
 - Il peut être de type « incident » ou « demande »
-
 - Il doit compter un minimum d’informations
 
 #### Le ticket
@@ -100,37 +91,27 @@ flowchart LR
 #### Flux d'entrée
 
 - Interface d’ouverture de tickets anonymes
-
 - Interface simplifiée
-
 - Interface standard
 
 #### Depuis GLPI
 
 - Envoi d’un mail dans une boîte mail support
-
 - Configuration d’un collecteurMail
-
 - Création du ticket par téléphone
-
 - Utilisation de l’interface standard par le technicien Téléphone
 
 #### Assistance — T raitements automatisés des tickets
 
 - http(s)://&lt;@glpi&gt;/front/helpdesk.html
-
 - Aucune authentification requise
-
 - Possibilité de désactivation
-
 - Personnalisation possible : HTML/CSS
-
 - Par défaut, rattaché à l’entité racine
 
 #### Création ticket : interface anonyme
 
 - Accessible après authentification
-
 - Formulaire à compléter et géré par
 
 #### un gabarit
@@ -146,9 +127,7 @@ flowchart LR
 #### (imprime écran, manuel, etc.)
 
 - Suivi par mail possible
-
 - Association possible des CI concernés
-
 - Récapitulatif de tous ses tickets
 
 #### depuis l’accueil
@@ -158,15 +137,12 @@ flowchart LR
 #### Assistance — T raitements automatisés des tickets
 
 - Assistance =&gt; Tickets =&gt;
-
 - Ticket par téléphone
-
 - Utilisé par le support N1
 
 #### et N2
 
 - Accès à plus d’éléments
-
 - Vu en détail par la suite
 
 #### Création ticket : interface standard
@@ -180,15 +156,10 @@ flowchart LR
 #### du type et d’une catégorie de ticket
 
 - Interface standard et simplifiée
-
 - Champs obligatoires
-
 - Champs masqués
-
 - Champs prédéfinis
-
 - Notion de gabarit par défaut
-
 - Accessibles depuis le menu listant les tickets
 
 #### Le gabarit : généralités
@@ -198,25 +169,17 @@ flowchart LR
 #### Assistance — T raitements automatisés des tickets
 
 - Assistance =&gt; Tickets =&gt;
-
 - Attention à l’entité active : récursivité possible
 
 #### Le gabarit : création
 
 - Personnalisation visuelle
-
 - Rendu côté utilisateur
-
 - Liaison avec catégorie / type
-
 - Depuis la catégorie
-
 - On commence par créer ses différentes catégories
-
 - Création des gabarits nommés ainsi : « catégorie-type »
-
 - Jusqu’à deux gabarits par catégorie (incidents et demandes)
-
 - Liaison entre les gabarits et les catégories pour chaque type
 
 #### Le gabarit : bonnes pratiques
@@ -228,7 +191,6 @@ flowchart LR
 #### ticket (priorité, SLA, etc.)
 
 - Gabarit uniquement pour le visuel
-
 - Utilisation de règles métier pour la
 
 #### configuration du ticket
@@ -236,9 +198,7 @@ flowchart LR
 #### Assistance — T raitements automatisés des tickets
 
 - « Administration =&gt; règles »
-
 - Permettre une configuration automatisée des tickets saisis
-
 - Maintenance simplifiée : configuration centralisée au travers
 
 #### de règles
@@ -246,25 +206,15 @@ flowchart LR
 #### Règles métier pour les tickets
 
 - Règles uniquement lues à la création du ticket
-
 - Toutes les règles sont interprétées
-
 - Importance de l’ordre =&gt; Champs concurrent
-
 - Critères : permettre d’identifier les tickets *
-
 - Type
-
 - Catégorie
-
 - Actions : définir des champs hors de portée de l’utilisateur *
-
 - Priorité
-
 - Techniciens / groupes de techniciens
-
 - SLA
-
 - etc.
 
 #### Règles métier pour les tickets
@@ -274,7 +224,6 @@ flowchart LR
 #### Assistance — T raitements automatisés des tickets
 
 - Objectif : attribuer un temps de résolution ou de prise en charge
-
 - Saisie manuelle d’une date/heure ou utilisation des objets SLA
 
 #### sous GLPI
@@ -330,9 +279,7 @@ flowchart LR
 #### cycle de vie
 
 - Se configure à travers des objets SLA qu’on applique à un ticket
-
 - Identifiable par un nom
-
 - Configuration d’un déclencheur temporelle par rapport au temps
 
 #### de résolution
@@ -348,17 +295,13 @@ flowchart LR
 #### Ordre de création
 
 - Matériel
-
 - Logiciel =&gt; Bureautique
-
 - Logiciel =&gt; Infographiste
 
 #### Créer les catégories de ticket
 
 - Personnalisation de l’interface
-
 - Champs obligatoires
-
 - Champs masqués
 
 #### Créer les gabarits de ticket puis les
@@ -366,15 +309,10 @@ flowchart LR
 #### lier aux catégories suivant le type
 
 - Temps de prise en charge
-
 - Temps de résolutionCréer les SLAs
-
 - Critère (catégories, type, temps restant…)
-
 - Action (élévation de priorité, affection à un niveau supérieur…)Créer les escalades de SLAs
-
 - Critère (type (incident, demande), catégorie de ticket)
-
 - Action (affectation technicien, SLA, priorité…)
 
 #### Créer les règles métier

@@ -182,29 +182,20 @@ Segment 1 ............ 199.210.15.0 /25 ................................ .......
 ### E. Découpage en sous-réseau
 
 - Vous êtes chargé planifier l'adressage de plusieurs réseaux.
-
 - Vous subdivisez successivement les blocs d'adresses et vous conservez toujours les
 
 blocs supérieurs et divisez le dernier bloc.
 
 - Indiquez les numéros de réseau en notation CIDR
-
 - Schématisez les divisions des blocs.
-
 - Indiquez le nombre d'adresses valides par segment et le nombre d'adresses global.
-
 1. Premier réseau à découper : 195.220.12.0 /24
-
 - Segments à définir
 
   - 1 segment contenant 115 postes
-
   - 1 segment contenant 58 postes
-
   - 1 segment contenant 25 machines
-
   - 1 segment contenant d'une douzaine d'hôtes
-
   - 2 segments contenant 5 machines
 
 - Listez les segments dans le tableau :
@@ -220,9 +211,7 @@ blocs supérieurs et divisez le dernier bloc.
 - Segments à définir
 
   - 3 segments contenant d'une soixantaine d'hôtes
-
   - 1 segment contenant d'une trentaine de postes
-
   - 2 segments contenant d'au moins 11 machines
 
 - Listez les segments dans le tableau :
@@ -234,11 +223,9 @@ blocs supérieurs et divisez le dernier bloc.
 #### # adresses 62 30 14
 
 3. Troisième réseau à découper : 222.8.15.0 /24
-
 - Segments à définir
 
   - 1 segments contenant d'une centaine d'hôtes
-
   - 4 segments contenant 28 hôtes environ
 
 - Listez les segments dans le tableau :
@@ -252,9 +239,7 @@ blocs supérieurs et divisez le dernier bloc.
 ### F. Recherche de sous-réseaux inutilisés
 
 - Vous auditez plusieurs réseaux.
-
 - On vous demande de rechercher les segments inutilisés.
-
 1. Premier réseau à étudier :
 
   - 112.19.0.0 /16
@@ -262,17 +247,11 @@ blocs supérieurs et divisez le dernier bloc.
 - Liste de réseaux actuellement utilisés :
 
   - 112.19.0.0 /18
-
   - 112.19.64.0 /18
-
   - 112.19.128.0 /19
-
   - 112.19.160.0 /20
-
   - 112.19.176.0 /20
-
   - 112.19.224.0 /20
-
   - 112.19.240.0 /20
 
 #### Existe-t-il une ou plusieurs plages d'adresses inutilisées ?
@@ -290,15 +269,11 @@ blocs supérieurs et divisez le dernier bloc.
 ### o 192.168.10.0 /24
 
 2. Deuxième réseau à étudier :
-
 - Liste de réseaux actuellement utilisés :
 
   - 192.168.10.0 /25
-
   - 192.168.10.128 /27
-
   - 192.168.10.160 /27
-
   - 192.168.10.224 /28
 
 #### Indiquer les segments inutilisés :
@@ -316,19 +291,13 @@ blocs supérieurs et divisez le dernier bloc.
 ### o 199.1.1.0 /24
 
 3. Troisième réseau à étudier :
-
 - Liste de réseaux actuellement utilisés :
 
   - 199.1.1.0 /26
-
   - 199.1.1.128 /27
-
   - 199.1.1.160 /27
-
   - 199.1.1.192 /28
-
   - 199.1.1.224 /28
-
   - 199.1.1.240 /28
 
 #### Indiquer les segments inutilisés :
@@ -346,13 +315,10 @@ blocs supérieurs et divisez le dernier bloc.
 ### o Réseau de classe C
 
 4. Quatrième réseau à étudier :
-
 - Liste de réseaux actuellement utilisés :
 
   - 1 segment de 62 postes
-
   - 3 segments de 30 postes
-
   - 4 segments de 14 postes
 
 #### Indiquer les segments inutilisés :
@@ -404,11 +370,9 @@ blocs supérieurs et divisez le dernier bloc.
 #### # adresses 62 30 14
 
 5. Cinquième réseau à étudier :
-
 - Liste de réseaux actuellement utilisés :
 
   - 3 segments de 30 postes
-
   - 3 segments de 14 postes
 
 #### Indiquer les segments inutilisés :
@@ -460,11 +424,9 @@ blocs supérieurs et divisez le dernier bloc.
 #### # adresses 62 30 14
 
 6. Sixième réseau à étudier :
-
 - Liste de réseaux actuellement utilisés :
 
   - 1 segment de 62 postes
-
   - 1 segment de 14 postes
 
 #### Indiquer les segments inutilisés :

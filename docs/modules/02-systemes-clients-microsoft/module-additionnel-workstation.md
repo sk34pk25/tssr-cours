@@ -46,13 +46,9 @@ flowchart TB
 #### Objectifs • Découvrir
 
 - La virtualisation des systèmes
-
 - Workstation et les ressources
-
 - Workstation et le réseau
-
 - Les spécificités de Workstation
-
 - L’import et l’export de machines virtuelles
 
 ### Virtualisation des systèmes
@@ -62,23 +58,14 @@ flowchart TB
 #### ressources d'un ordinateur physique, appelé hôte
 
 - Hôte
-
 - Ordinateur physique (serveur ou PC client)
-
 - Possède les ressources
-
 - Système invité
-
 - Ordinateur virtuel (ou VM pour Virtual Machine)
-
 - Possède son propre OS
-
 - Utilise les ressources de l'hôte
-
 - Défini par un ensemble de fichiers
-
 - Géré par l'hyperviseur
-
 - Contenu dans un répertoire d'accueil
 
 #### Virtualisation des systèmes
@@ -86,13 +73,9 @@ flowchart TB
 #### L'hyperviseur
 
 - Élément indispensable de la virtualisation
-
 - Lien entre l'hôte et les VM
-
 - Sous la forme d'un logiciel ou d'un OS
-
 - Propose des ressources disponibles de l'hôte
-
 - Gère, partage et priorise les accès aux ressources de l'hôte lorsque les
 
 #### VM en ont besoin
@@ -102,21 +85,13 @@ flowchart TB
 #### physique
 
 - Le processeur
-
 - La mémoire vive
-
 - Le disque dur
-
 - La carte réseau
-
 - Une VM possède les mêmes besoins pour fonctionner
-
 - Autres besoins
-
 - Lecteur DVD / Stockage externe
-
 - Carte graphique, carte son
-
 - Firmware
 
 #### Virtualisation des systèmes
@@ -130,31 +105,22 @@ flowchart TB
 #### La mémoire vive
 
 - Attribuée à la VM au démarrage
-
 - Configurable
 
 ### Le disque dur
 
 - Est un fichier !
-
 - De taille dynamique
-
 - Taille maximale configurable
 
 #### La carte réseau
 
 - La VM peut communiquer avec :
-
 - des VM de son réseau
-
 - des VM de réseaux différents
-
 - l'hôte
-
 - d'autres machines physiques
-
 - le monde entier
-
 - Pour cela, elle doit être connectée à un switch
 
 ### La carte réseau
@@ -162,11 +128,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - VMnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### VM
@@ -184,11 +147,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - VMnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### VM
@@ -204,11 +164,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - VMnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### VM
@@ -220,11 +177,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - Vmnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### Usine
@@ -242,11 +196,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - VMnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### VM
@@ -260,11 +211,8 @@ flowchart TB
 #### Les switchs sont virtuels :
 
 - Host-Only
-
 - VMnet et Lan Segment
-
 - Bridge
-
 - NAT (Translation d'adresse)
 
 #### VM
@@ -286,29 +234,21 @@ flowchart TB
 ### Les avantages
 
 - IHM épurée, simple d'utilisation
-
 - Pause, Snapshots, clonage
-
 - Partages de dossier entre l'hôte et la machine virtuelle
-
 - Glisser/Déposer et autres avantages grâce aux VMware Tools
 
 #### Les inconvénients
 
 - Prévu pour des maquettes simples
-
 - Logiciel propriétaire VMware
-
 - Temps d'adaptation aux différentes notions
-
 - Virtualisation des OS, du stockage, des réseaux…
 
 #### Quelques trucs à connaître
 
 - Possibilité de paramétrer la séquence de démarrage dans le BIOS de la VM
-
 - Les médias amovibles de type CD/DVD, USB, disquette sont gérés
-
 - Par défaut la VM « capture » le clavier et la souris
 
 ####  Tapez la combinaison Ctrl + Alt pour reprendre la main
@@ -322,19 +262,12 @@ flowchart TB
 #### Import/export de VM
 
 - Importer = Possibilité d'utiliser des VM existantes
-
 - Ouvrir (ou Open) une VM depuis son dossier d'accueil
-
 - Importer une VM depuis son archive .ovf ou .ova
-
 - Exporter = Sauvegarder votre VM dans son état actuel
-
 - Pour la réutiliser plus tard
-
 - En copiant son dossier d'accueil
-
 - En l'exportant dans une archive .ovf ou .ova
-
 - Permet de maquetter des environnements pour
 
 #### apprendre ou pour tester avant de mettre en
@@ -346,7 +279,6 @@ flowchart TB
 #### l’accès au réseau
 
 - C’est l’outil majeur de votre formation
-
 - Vous en découvrirez davantage avec l’expérience
 
 ## Mise en pratique

@@ -144,9 +144,7 @@ attribuerez la lettre de votre choix. Lancer une fenêtre de ligne de commande c
 list vol (pour vérifier que le lecteur K de 15 Go est bien formaté en NTFS) .
 
 - Étendre le volume COMMUN en utilisant l'espace libre restant sur le disque 1.
-
 - Supprimer le volume DATA.
-
 - Recréez le volume DATA avec l'ensemble de l'espace libre des deux disques.
 
 #### Investigation sur la VM Discovery à l'aide de PowerShell

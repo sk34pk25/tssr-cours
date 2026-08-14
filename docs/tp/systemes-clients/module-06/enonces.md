@@ -38,7 +38,6 @@ Quelles sont les autorisations positionnées par défaut sur le répertoire Echa
 #### répertoire
 
   - Les administrateurs auront le contrôle total
-
   - Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
 
 #### poste
@@ -48,7 +47,6 @@ Quelles sont les autorisations positionnées par défaut sur le répertoire Echa
 Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation :
 
   - Yann et François accéderont en modifications à ces répertoires.
-
   - Les utilisateurs standard auront un accès en lecture et les administrateurs
 
 #### posséderont un contrôle total

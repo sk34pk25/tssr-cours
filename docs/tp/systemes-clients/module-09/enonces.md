@@ -70,15 +70,10 @@ HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery.
 À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante "HP LaserJet". Affichez maintenant les informations suivantes concernant "HP LaserJet" :
 
   - Son nom
-
   - Si elle est partagée ou non
-
   - Le nom du partage
-
   - Le nom du port
-
   - Son emplacement
-
   - Sa priorité
 
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.

@@ -60,17 +60,11 @@ systemctl reload apache2.service
 #### Module 01 — Présentation de l'environnement - Installation de GLPI
 
 - Présentation de l’environnement de formation
-
 - Présentation du projet GLPI par son site internet
-
 - Présentation des principaux composants logiciels nécessaires
-
 - Installation du service de base de données MySQL/MariaDB
-
 - Installation du service Web Apache2
-
 - Installation de l’interpréteur PHP et des modules requis par GLPI
-
 - Récupération du code de GLPI et lancement du paramétrage initial
 
 ### Présentation de l'environnement — Installation de GLPI
@@ -96,15 +90,10 @@ systemctl reload apache2.service
 #### Administrateur système / bureautique
 
 - Mise en place d’un GLPI au sein de l’entreprise
-
 - La gestion et l’hébergement par Olympus
-
 - Authentification centralisée et habilitations GLPI dynamiques
-
 - Inventaire du matériel d’Olympus
-
 - Traitement uniformisé et automatisé des tickets
-
 - Inventaire régulier des machines de l’entreprise Olympus
 
 #### Contexte
@@ -114,17 +103,11 @@ systemctl reload apache2.service
 #### Présentation de GLPI
 
 - G.L.P .I :Gestion Libre de Parc Informatique
-
 - ITSM (IT Service Management) conforme ITIL
-
 - Logiciel libre sous licence GPL 100% libre
-
 - Logiciel complet pour la gestion de parc et centre de services
-
 - Plusieurs langues et plug-ins de disponibles
-
 - Installation possible sous Windows et Linux
-
 - Pour les petits comme les grands systèmes d’information
 
 #### Présentation de GLPI
@@ -134,39 +117,24 @@ systemctl reload apache2.service
 #### Les composants de GLPI
 
 - Application web : nécessite un serveur web avec le moteur PHP
-
 - Linux : Apache2 ou Windows : IIS avec PHP ou Nginx avec PHP
-
 - Installation sous Linux : paquets apache2.4 et php7.4
-
 - Extensions PHP obligatoires / recommandées :
 
 #### Installation — Serveur Web
 
 - php-mysql
-
 - php-mbstring
-
 - php-curl
-
 - php-gd
-
 - php-xml
-
 - php-ldap
-
 - php-xmlrpc
-
 - php-imap
-
 - php-intl
-
 - php-zip
-
 - php-bz2
-
 - php-apcu-bc
-
 - php-cas
 
 #### Présentation de l'environnement — Installation de GLPI
@@ -180,15 +148,10 @@ systemctl reload apache2.service
 #### Installation — Serveur de base de données
 
 - SGBD pris en charge par GLPI
-
 - MySQL
-
 - MariaDB
-
 - Installation de MariaDB
-
 - Paquet : mariadb-server
-
 - Composants du serveur GLPI
 
 #### Fonctionnement — Serveur de base de données
@@ -208,11 +171,8 @@ Change the root password? [Y/n] n # mot de passe pour l’utilisateur root dans 
 #### Sécurisation du serveur de base de données MariaDB
 
 - Paramétrage du serveur de base de données MariaDB
-
 - Connexion au Shell du SGBD MariaDB
-
 - Création d’une base de données
-
 - Affectation des droits à l’utilisateur root de mariadb
 
 #### Paramétrage - Serveur de bases de données
@@ -230,9 +190,7 @@ terminer par un point-virgule.
 #### Présentation de l'environnement — Installation de GLPI
 
 - Récupération de l’archive GLPI sur le site de l’éditeur
-
 - Décompression à la racine du serveur web (/var/www/)
-
 - Accès à l’interface web de GLPI via l’URL «http://@ipSrvGLPI/glpi »*
 
 #### * URL par défaut d’accès à l’application pouvant varier
@@ -272,22 +230,13 @@ terminer par un point-virgule.
 #### Présentation de l'environnement — Installation de GLPI
 
 - Comptes par défauts
-
 - glpi/glpi pour le compte administrateur
-
 - tech/tech pour le compte technicien
-
 - normal/normal pour le compte normal
-
 - post-only/postonly pour le compte postonly
-
 - Changement des mots de passe par défaut
-
 - Désactivation du fichier « install/install.php »
-
 - Définition d’un nom d’hôte d’accès à l’application
-
-#### Configuration — Application GLPI
 
 #### Configuration — Application GLPI
 

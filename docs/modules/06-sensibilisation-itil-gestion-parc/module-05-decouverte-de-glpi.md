@@ -34,27 +34,18 @@
 #### Module 05 — Découverte de GLPI
 
 - Découvrir l’outil GLPI
-
 - Définir les différentes fonctionnalités
-
 - Découvrir les fonctionnalités de recherche
-
 - Découvrir son utilisation au quotidien
 
 ### avec ITIL
 
 - GLPI : Gestion Libre de Parc Informatique
-
 - ITSM : Information Technology Service Management conforme
-
 - Logiciel libre sous licence GPL 100% libre
-
 - Logiciel complet pour la gestion de parc et centre de services
-
 - Plusieurs langues et plug-ins disponibles
-
 - Installation possible sous Windows et Linux
-
 - Pour les petits comme les grands systèmes d’information
 
 #### GLPI : présentation
@@ -84,21 +75,13 @@ Vue détaillée, connexions, etc.
 ### à la FAQ
 
 - Interface simplifiée
-
 - Interface la plus restrictive
-
 - Destinée aux utilisateurs finaux
-
 - Permet de créer un ticket, suivre ses tickets, accéder aux réservations et
-
 - Interface standard
-
 - Interface principale de GLPI
-
 - Tous les modules y sont disponibles en fonction des droits de chacun
-
 - Utilisée pour les taches techniciens, d’administration et de configuration
-
 - 3 vues de travail : personnelle, groupe et globale
 
 #### GLPI : les interfaces
@@ -114,13 +97,9 @@ Vue détaillée, connexions, etc.
 #### éléments d’inventaire
 
 - Utilisation possible des caractères suivants (REGEX) :
-
 - « ^ » pour symboliser le début du champ
-
 - « $ » pour symboliser la fin du champ
-
 - « NULL » pour rechercher les champs vides
-
 - Utilisation conjointe de « ^ » et « $ » pour la valeur exacte d’un champ
 
 ### GLPI : gestion de parc
@@ -128,17 +107,11 @@ Vue détaillée, connexions, etc.
 #### Menu parc
 
 - Affichage par défaut des ordinateurs
-
 - Possibilité de personnaliser les colonnes affichées
-
 - Menu de recherche avancée
-
 - Export possible des données sous différents formats
-
 - Sélection du nombre d’éléments à afficher par page
-
 - Navigation entre les pages
-
 - Affichage possible de la corbeille
 
 #### GLPI : gestion de parc
@@ -146,13 +119,9 @@ Vue détaillée, connexions, etc.
 #### Recherche basique multicritères
 
 - Possibilité de recherches combinant plusieurs critères
-
 - Combinaison possible de critères à l’aide d’opérateurs logiques
-
 - Opérateurs logiques disponibles : ET/OU — ET PAS/OU PAS
-
 - S’applique à un grand nombre de paramètres de l’objet concerné
-
 - Plusieurs critères de recherches selon le paramètre choisi
 
 Contient — Est — N’est pas — Sous — Pas sous — Avant — Après, etc.
@@ -162,17 +131,11 @@ Contient — Est — N’est pas — Sous — Pas sous — Avant — Après, etc
 #### Recherche avancée
 
 - Possibilité d’utiliser des caractères spéciaux pour les recherches
-
 - NULL : s’assurer qu’un champ est vide
-
 - &lt;Nb ou &gt;Nb : utilisé dans le cas des dates, prend un nombre de mois
-
 - ^ : tester le début d’un champ
-
 - $ : tester la fin d’un champ
-
 - ^$ : tester une valeur exacte pour un champ
-
 - [Année]-[Mois]-[Jours] : tester un champ date
 
 #### GLPI : gestion de parc
@@ -180,25 +143,17 @@ Contient — Est — N’est pas — Sous — Pas sous — Avant — Après, etc
 #### Recherche sauvegardée
 
 - Possibilité de sauvegarder ses recherches
-
 - Création d’une recherche sauvegardée
-
 - Un nom
-
 - Une visibilité/portée
-
 - Entité de rattachement avec ou sans récursivité
-
 - Comptage
-
 - Accès à ses recherches
 
 #### Modification massive
 
 - Pour effectuer une modification sur un ensemble d’éléments
-
 - Utilisé conjointement aux recherches avancées
-
 - Généralement appliquée sur tous les éléments retournés d’une
 
 #### recherche
@@ -210,15 +165,10 @@ Contient — Est — N’est pas — Sous — Pas sous — Avant — Après, etc
 #### Fiche élément
 
 - Accessible en cliquant sur un élément
-
 - Contient toutes les informations de l’élément
-
 - Menu de navigation vertical sur la gauche
-
 - Certains onglets communs à tous les éléments
-
 - Possibilité d’afficher tous les onglets sur la même page
-
 - Navigation possible entre les fiches des éléments de la page
 
 #### courante

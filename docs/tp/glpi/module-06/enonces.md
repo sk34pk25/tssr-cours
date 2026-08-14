@@ -52,21 +52,17 @@ l’application GLPI au sein de son domaine.
 Installation du Plugins FusionInventory.
 
 - Récupérez depuis le serveur Debian, le fichier fusioninventory-9.5.0+1.0.tar.bz2.
-
 - Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire
 
 /var/www/glpi/plugins.
 
 - Changez l’utilisateur propriétaire pour www-data sur ce répertoire et tout son contenu.
-
 - Installez et activez le plugin dans l’interface GLPI.
-
 - Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr.
 
 #### Bonus
 
 - Activez le marketplace puis installez le plugin « Data injection ».
-
 - Un fichier avec seulement les en -têtes et un autre rempli est disponible auprès du
 
 formateur.

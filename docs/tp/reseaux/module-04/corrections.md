@@ -24,7 +24,6 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 #### A. Communication dans un réseau
 
 - Les machines A, B, C, D, E et F sont situées sur le même segment.
-
 - Il n'y a pas de routeur.
 
 #### Poste A
@@ -52,7 +51,6 @@ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
 172.16.10.200 255.255.255.0
 
 - Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer
-
 - Communication avec réponse et pourquoi ?
 
 #### L'hôte
@@ -104,9 +102,7 @@ logique 172.16.0.0 /16, A et B répondent à travers ce réseau logique.
 - Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
 
   - V pour Vrai (communication entre les deux postes)
-
   - F pour Faux (pas de communication entre les deux postes)
-
   - P pour Passerelle (communication entre les deux postes en passant par le
 
 #### routeur)
@@ -296,9 +292,7 @@ logique 172.16.0.0 /16, A et B répondent à travers ce réseau logique.
 - Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
 
   - V pour Vrai (communication entre les deux postes)
-
   - F pour Faux (pas de communication entre les deux postes)
-
   - P pour Passerelle (communication entre les deux postes en passant par le
 
 #### routeur)
@@ -324,7 +318,6 @@ logique 172.16.0.0 /16, A et B répondent à travers ce réseau logique.
 ### D. Remplissez les tables de routage des routeurs
 
 - On a découpé le bloc 131.107.0.0 /16 en 9 segments
-
 - Les réseaux utilisés sont les suivants et sont en gras :
 
 #### /16 /17 /18 /19 /20
@@ -392,9 +385,7 @@ R1 : 13.107.32.0/19 R2 - 13.107.64.0/18 R2 — 13.107.128.0/17 R2 ..............
 212.1.96.0/24 212.1.97.0/24 212.1.127.0/24 212.1.128.0/24 212.1.158.0/24 212.1.159.0/24
 
 4. On désire agréger l'intégralité des réseaux de classe A : 0.0.0.0/1 ................................
-
 5. On désire agréger tous les réseaux de classe B : 128.0.0.0/2 .............................
-
 6. On désire agréger la totalité des réseaux de classe C : 192.0.0.0/3 .............................
 
 #### Inscrivez ici le résumé de

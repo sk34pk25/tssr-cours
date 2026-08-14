@@ -26,11 +26,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2.
 #### Prérequis :
 
 - Avoir installé Office 365.
-
 - Récupérer deux documents :
 
   - « Système Solaire — Document Brut.docx », document à mettre en forme
-
   - « Système Solaire — Document Fini.pdf », document contenant le résultat
 
 #### attendu
@@ -130,7 +128,6 @@ Taille : ❑ 13 pts - Gras.
 #### Aligner à gauche : ❑ 1,5 cm
 
 - Pensez à définir la liste à plusieurs niveaux pour tous ces titres.
-
 - Mettre en forme les paragraphes (P0) :
 
 #### Format du style à appliquer :
@@ -428,13 +425,9 @@ Taille : ❑ 13 pts - Gras.
 Le texte et les images sont présentés sur 2 colonnes.
 
 - Créer la table des matières en première page
-
 - Mettre un filigrane sur les pages
-
 - Mettre un en-tête sur chaque page des planètes
-
 - Mettre une numération sur toutes pages sauf la page de garde
-
 - Rajouter une page de garde avec la présentation que vous souhaitez.
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).

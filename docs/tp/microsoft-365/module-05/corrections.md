@@ -28,11 +28,9 @@ page https://portal.office.com. Connectez-vous avec votre compte de tenant puis 
 #### Créez un fichier Word nommé « recette du pain perdu » :
 
   - Titre centré : recette du pain perdu
-
   - Contenu :
 
 - 1. retrouver le pain
-
 - 2. C’est prêt
 
 Utilisez une page en navigation privée pour ne pas interférer avec une autre connexion Office 365 puis cliquez sur OneDrive.

@@ -24,7 +24,6 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
 fonction MAJUSCULE().
 
 - Il faut ensuite isoler les colonnes qui contiennent les informations à concaténer :
-
 - La fonction GAUCHE() permet d’isoler les premiers caractères d’une cellul e en en
 
 spécifiant le nombre après un « ; ». On peut maintenant commencer à dessiner le
@@ -72,7 +71,6 @@ On s’aperçoit que le résultat n’est pas satisfaisant : les mois et jours i
 #### suivant :
 
 - Nous pouvons maintenant faire référence à ce tableau dans la fonction recherchev()
-
 - D6 symbolise la valeur de la recher che (code client), à comparer avec notre tableau
 
 Clients en récupérant la 3ème colonne du tableau (nom) puis la 4ème (prénom).
@@ -86,7 +84,6 @@ champs nom et prénom avec un espace entre eux.
 #### Titre et Tome
 
 - Même procédé que pour la question précédente :
-
 - Dans la feuille Lis te des produits vendu s, on va rechercher dans la colonne F6 , à
 
 comparer avec la 2e colonne du tableau Ouvrage, ajouter un espace, et englober dans la fonction DROITE(), qui ne récupérera que le dernier caractère, une recherche toujours basée sur le code produit mais cette fois sur la 4ème colonne du tableau Ouvrage.
@@ -114,7 +111,6 @@ On peut ajouter un SIERREUR() avec comme valeur "" afin d’éviter des erreurs 
 cellule montante est vide.
 
 - Si ce test est validé, le contenu de la cellule Montant de la commande devrait être vide.
-
 - On va ensuite additionner les montants en fonction du nombre d’occurrences trouvées
 
 #### du numéro de commande grâce à la fonction SOMME.SI.ENS

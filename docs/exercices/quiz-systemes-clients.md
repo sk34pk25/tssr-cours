@@ -4,11 +4,7 @@ Questions et réponses issues des fichiers Kahoot fournis. Les formulations conv
 
 ## Module 6
 
-Parfait. Pour un module aussi court, 20 questions suffisent largement pour couvrir les notions essentielles. Je te propose 16 QCM + 4 Vrai/Faux, en restant strictement basé sur le cours ENI.
-
-⸻
-
-Quiz Kahoot — Module 6 : La sécurité NTFS et les ACL
+### Quiz Kahoot — Module 6 : La sécurité NTFS et les ACL
 
 Niveau Facile (1 à 7)
 
@@ -16,43 +12,43 @@ Niveau Facile (1 à 7)
 
 A. FAT32 B. NTFS ✅ C. exFAT D. FAT16
 
-⸻
+---
 
 2. Que signifie ACL ?
 
 A. Access Computer List B. Access Control List ✅ C. Active Control Link D. Access Configuration Level
 
-⸻
+---
 
 3. Que signifie DACL ?
 
 A. Dynamic Access Control List B. Discretionary Access Control List ✅ C. Direct Access Control List D. Data Access Control List
 
-⸻
+---
 
 4. Que représente une ACE ?
 
 A. Une partition B. Une entrée de contrôle d’accès ✅ C. Un groupe d’utilisateurs D. Un système de fichiers
 
-⸻
+---
 
 5. Quel niveau d’autorisation permet toutes les actions sur un fichier ou un dossier ?
 
 A. Lecture B. Modification C. Contrôle total ✅ D. Exécution
 
-⸻
+---
 
 6. Où configure-t-on les autorisations NTFS de base ?
 
 A. Onglet Général B. Bouton Modifier ✅ C. Invite de commandes D. Gestionnaire de périphériques
 
-⸻
+---
 
 7. Où trouve-t-on les autorisations spéciales ?
 
 A. Modifier B. Avancé ✅ C. Partage D. Général
 
-⸻
+---
 
 Niveau Moyen (8 à 14)
 
@@ -60,43 +56,43 @@ Niveau Moyen (8 à 14)
 
 A. Il obtient Lecture B. Il obtient Modification C. Son accès est refusé implicitement ✅ D. Il obtient Contrôle total
 
-⸻
+---
 
-#### 9. Une ACE peut 
+#### 9. Une ACE peut
 
 A. Seulement autoriser B. Seulement refuser C. Autoriser ou refuser ✅ D. Seulement modifier
 
-⸻
+---
 
 10. Si plusieurs autorisations “Autoriser” s’appliquent à un utilisateur, laquelle est retenue ?
 
 A. La plus restrictive B. La première C. La plus permissive ✅ D. Aucune
 
-⸻
+---
 
 11. Quelle règle est prioritaire ?
 
 A. L’autorisation explicite B. Le refus explicite ✅ C. Le refus implicite D. L’autorisation héritée
 
-⸻
+---
 
-#### 12. Par défaut, un dossier transmet ses autorisations à 
+#### 12. Par défaut, un dossier transmet ses autorisations à
 
 A. Son propriétaire uniquement B. Ses fichiers et sous-dossiers ✅ C. Son disque uniquement D. Aucun élément
 
-⸻
+---
 
 13. Lors d’un déplacement dans le même volume, les autorisations NTFS sont :
 
 A. Supprimées B. Conservées ✅ C. Réinitialisées D. Converties
 
-⸻
+---
 
-#### 14. Lors d’une copie vers un autre volume, les autorisations 
+#### 14. Lors d’une copie vers un autre volume, les autorisations
 
 A. Sont conservées B. Héritent du dossier de destination ✅ C. Deviennent publiques D. Sont supprimées
 
-⸻
+---
 
 Niveau Difficile (15 à 16)
 
@@ -104,13 +100,13 @@ Niveau Difficile (15 à 16)
 
 A. Get-Permission B. Get-Acl ✅ C. Show-Acl D. Read-Acl
 
-⸻
+---
 
 16. Quelle cmdlet PowerShell permet de modifier les ACL ?
 
 A. Update-Acl B. Set-Acl ✅ C. Edit-Acl D. New-Acl
 
-⸻
+---
 
 Vrai / Faux
 
@@ -120,7 +116,7 @@ Microsoft recommande de privilégier les groupes plutôt que les utilisateurs da
 
 ✅ Vrai
 
-⸻
+---
 
 18. Vrai ou Faux
 
@@ -128,7 +124,7 @@ Les autorisations héritées peuvent être modifiées directement sans action pa
 
 ❌ Faux
 
-⸻
+---
 
 19. Vrai ou Faux
 
@@ -136,7 +132,7 @@ Après avoir configuré les ACL, il est recommandé de tester les accès ou de c
 
 ✅ Vrai
 
-⸻
+---
 
 20. Vrai ou Faux
 
@@ -144,34 +140,22 @@ Le double jeton d’accès des administrateurs (UAC) peut influencer les autoris
 
 ✅ Vrai
 
-⸻
+---
 
-#### ✅ Ce quiz couvre les points essentiels du module 6 
+#### ✅ Ce quiz couvre les points essentiels du module 6
 
 - ACL
-
 - DACL
-
 - ACE
-
 - Autorisations de base (Lecture, Modification, Contrôle total)
-
 - Autorisations spéciales
-
 - Refus implicite et explicite
-
 - Héritage
-
 - Copie / Déplacement
-
 - Accès effectif
-
 - Bonnes pratiques Microsoft
-
 - Get-Acl
-
 - Set-Acl
-
 - Double jeton d’accès (UAC)
 
 Il est suffisamment complet pour un Kahoot de révision tout en restant fidèle au contenu du module.
@@ -472,7 +456,7 @@ Il vous demande de donner un nom pour cette VM dans votre librairie. Puis, dans 
 
 Exportation d'une machine virtuelle Passons maintenant à l'exportation d'une VM. Admettons que nous souhaitions conserver une copie de notre VM démo. Dans un premier temps, on peut tout simplement copier-coller le dossier d'un volume vers un autre. Ce qui est peut-être la solution la plus simple. Cependant, nous pouvons aussi créer une archive OVA ou OVF de notre VM.
 
-#### Allons-y. On sélectionne la VM. Voici les étapes à suivre 
+#### Allons-y. On sélectionne la VM. Voici les étapes à suivre
 
 File, Export to OVF On sélectionne une destination pour l'export. Et on choisit le format OVF par défaut. Sinon, on peut changer l'extension en OVA. Enregistré. L'exportation de la VM est en cours. L'export se termine.
 
@@ -485,22 +469,6 @@ Dans cette formation, nous avons découvert que Workstation est un logiciel esse
 Grâce à cet outil, nous serons en mesure de créer des environnements flexibles et adaptés à nos besoins, facilitant ainsi l'expérimentation et l'apprentissage pratique.
 
 En conclusion, VMware Workstation est un outil incontournable qui nous accompagnera tout au long de notre formation, et nous avons hâte de découvrir davantage grâce à nos futures expériences.
-
-Parfait — je pars donc sur **l’option A** : je te fais le **quiz complet “Systèmes clients Microsoft” (modules 1 + 2 + extra)** **à partir de ce que tu m’as déjà fourni**, avec la même logique que pour les autres :
-
-- questions faciles, moyennes et difficiles**
-
-- QCM + vrai/faux**
-
-- explication + exemple pour chaque question**
-
-- centré sur le cours**
-
-- sans partir hors sujet**
-
-- avec la partie **extra basée sur VMware / virtualisation / installation de Windows 10 en VM** telle qu’elle apparaît dans ton fichier
-
----
 
 ### Quiz complet — Systèmes clients Microsoft
 
@@ -838,7 +806,7 @@ A. Remplacer définitivement le système hôte B. Tester, installer ou manipuler
 
 A. VirtualBox B. VMware Workstation ✅ C. Hyper-V uniquement D. QEMU exclusivement
 
-**Pourquoi ?** La partie extra que tu m’as donnée tourne autour de **VMware Workstation**.
+**Pourquoi ?** La partie extra porte sur **VMware Workstation**.
 
 **Exemple :** Créer une VM Windows 10 dans VMware Workstation avec un ISO.
 
@@ -1066,56 +1034,6 @@ Une version Windows en fin de support continue à recevoir normalement les même
 
 ---
 
-### Mon avis critique sur ce quiz
-
-Il est **cohérent avec les modules 1 + 2 + extra que tu m’as donnés**, mais je préfère être franc sur deux limites :
-
-### 1) La partie **extra** est forcément moins “dense”
-
-Parce que je n’ai pas un vrai module extra structuré comme les autres ; j’ai surtout de la matière autour de **VMware / installation Windows en VM**. Donc j’ai construit cette partie **proprement**, mais elle est **moins riche** que si j’avais un support extra complet.
-
-### 2) Le quiz est **bon pédagogiquement**, mais encore un peu “théorique”
-
-Pour un **Kahoot**, ça passe très bien. Mais si tu veux une version **plus forte**, je te conseillerais ensuite une **version optimisée prête à copier** avec :
-
-- moins de définitions
-
-- plus de **mises en situation**
-
-- plus de **“que choisir dans ce cas ?”**
-
-- plus de questions type :
-
-- “tu veux réinstaller sans perdre les données : que choisis-tu ?”
-
-- “tu veux tester Windows sans casser ton PC : quelle solution ?”
-
-- “quelle licence conviendrait le mieux à tel contexte ?”
-
-Et là, ton Kahoot sera nettement meilleur.
-
----
-
-### Ce que je peux faire maintenant
-
-Je peux te faire **immédiatement la version Kahoot prête à copier** de ce quiz Microsoft, exactement comme pour les autres :
-
-- juste les questions**
-
-- 4 réponses**
-
-- bonne réponse marquée**
-
-- sans explication**
-
-- format propre à coller dans Kahoot**
-
-#### Si tu veux, réponds simplement 
-
-### **“fais-moi la version Kahoot prête à copier pour Systèmes clients Microsoft”**
-
-et je te la prépare.
-
 ## module 3 et 4 system clients microsoft
 
 ### Module 3 - Interagir avec Windows 10
@@ -1218,7 +1136,7 @@ En résumé, PowerShell est un outil puissant pour les administrateurs système,
 
 Dans ce module, nous allons apprendre à utiliser la ligne de commande PowerShell, un outil puissant pour interagir avec Windows 10. Vérification de la version de PowerShell Nous devons d'abord vérifier la version actuelle de PowerShell qui est prise en charge sur notre poste. Pour cela, nous faisons appel à la variable $PSVersionTable. Cette variable contient plusieurs informations, dont la version de PowerShell. Il est crucial de connaître cette version, surtout dans un contexte professionnel où nous devons gérer des parcs de machines hétérogènes, incluant des clients Windows 10, Windows 7 et des serveurs tels que 2012 R2, 2016, 2019. Nous allons exécuter la commande suivante pour afficher ces informations : $PSVersionTable Importance de la rétrocompatibilité Il est aussi important de prendre en compte la rétrocompatibilité lorsque nous écrivons des scripts. Par exemple, un script élaboré sur Windows 10 utilisant PowerShell version 5.1 pourrait ne pas fonctionner sur des systèmes d'exploitation plus anciens. La variable $PSVersionTable nous fournit également des informations sur la compatibilité, en particulier la valeur PSCompatibleVersion. Cette valeur indique quelle version de PowerShell fonctionne dans notre console, ce qui est essentiel pour éviter les erreurs lors de l'exécution de scripts sur différentes versions du système d'exploitation. Commandlets : structure et utilisation Nous allons également explorer les commandlets, qui sont les commandes que nous utilisons dans PowerShell. Ces commandlets ont une structure intuitive, composée d'un verbe et d'un nom, séparés par un tiret. Les verbes courants incluent GET, SET, REMOVE, ADD et NEW. Par exemple, si nous souhaitons afficher la liste des alias PowerShell, nous pouvons utiliser la commande suivante : GET ALIAS
 
-#### De même, pour découvrir les verbes utilisables, nous tapons 
+#### De même, pour découvrir les verbes utilisables, nous tapons
 
 GET VERB Chaque commandlet est conçu pour exécuter une tâche spécifique et il est important de noter qu'elles ne sont pas sensibles à la casse. Utilisation des paramètres avec les commandlets Les commandlets peuvent également posséder des paramètres, qui sont représentés par un tiret suivi d'un mot. Par exemple, la commandlet GET CHILD ITEM possède un paramètre nommé -Path. Certains de ces paramètres fonctionnent seuls, tandis que d'autres nécessitent des arguments. Dans ce cas, -Path nécessite un argument, comme suit : GET CHILD ITEM -Path C://users En résumé, nous avons exploré les concepts fondamentaux de PowerShell, de la vérification de la version avec $PSVersionTable à la structure des commandlets et leur utilisation avec des paramètres. Ces connaissances seront essentielles pour interagir efficacement avec Windows 10 et d'autres systèmes dans un environnement professionnel.
 
@@ -1232,7 +1150,7 @@ Ceci nous donne une liste de tous les verbes disponibles. Si nous souhaitons lis
 
 Nous découvrons alors qu'il y a beaucoup de commandes. Trois familles de commandes sont regroupées dans le système : les cmdlets, des fonctions et des aliases, et ces familles sont classées dans la colonne "Commande Type". Filtrer les commandes
 
-#### Si nous ne souhaitons afficher que les cmdlets, nous devons taper 
+#### Si nous ne souhaitons afficher que les cmdlets, nous devons taper
 
 `get-command -commandtype cmdlet`
 
@@ -1270,7 +1188,7 @@ Utiliser l'aide de PowerShell Une fois que l'aide a été mise à jour, comment 
 
 `Get-Help`
 
-#### Ou, pour un affichage page par page, nous utilisons simplement 
+#### Ou, pour un affichage page par page, nous utilisons simplement
 
 Help Il est également possible d'utiliser l'alias de la commande Unix, man, pour afficher l'aide :
 
@@ -1310,7 +1228,7 @@ Maintenant que l'aide est à jour, retentons d'afficher l'aide de la commande up
 
 Consultation des exemples de la commande
 
-#### Pour consulter les exemples, nous pouvons utiliser la commande suivante 
+#### Pour consulter les exemples, nous pouvons utiliser la commande suivante
 
 `Get-Help Update-Help -Examples`
 
@@ -1330,7 +1248,7 @@ Update-Help Naviguer dans l'aide de PowerShell Une fois que nous avons mis à jo
 
 `Get-Module -ListAvailable`
 
-#### Puis, pour voir l'aide d'une cmdlet spécifique, nous pouvons utiliser 
+#### Puis, pour voir l'aide d'une cmdlet spécifique, nous pouvons utiliser
 
 `Get-Help &lt;NomDeLaCmdlet&gt;`
 
@@ -1368,13 +1286,13 @@ Cette commande nous fournira une liste exhaustive des commandes disponibles dans
 
 affichera toutes les commandes qui commencent par « get- ». En ce qui concerne les objets spécifiques, nous pourrions rechercher les commandes liées aux imprimantes : let get-commande étoile printer étoile
 
-#### Et pour créer des utilisateurs, il serait judicieux d'utiliser 
+#### Et pour créer des utilisateurs, il serait judicieux d'utiliser
 
 let get-commande new-étoile user étoile
 
 Modifier un objet avec les commandes let Pour modifier un objet, il est essentiel de comprendre la structure des commandes let. Par exemple, pour corriger la description d'un ballon de basket, nous pourrions utiliser : let set-mon-ballon -name "basket" -description "ballon de basket"
 
-#### Pour ajouter un nouveau ballon à notre collection 
+#### Pour ajouter un nouveau ballon à notre collection
 
 let new-mon-ballon -name "rugby" -forme "ovale" -couleur "blanc" -description "ballon de rugby"
 
@@ -1436,7 +1354,7 @@ Importance de l'aide de PowerShell Surtout, n'oublions pas l'aide de PowerShell.
 
 Exemples de commandes
 
-#### Voici quelques exemples de commandes que nous pouvons utiliser 
+#### Voici quelques exemples de commandes que nous pouvons utiliser
 
 `Get-Command`
 

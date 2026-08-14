@@ -10,7 +10,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Réaliser les manipulations.
 - [ ] Vérifier chaque résultat.
 - [ ] Comparer avec la correction.
-
 - [Énoncés](enonces.md)
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md)

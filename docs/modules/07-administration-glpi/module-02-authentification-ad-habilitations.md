@@ -32,27 +32,18 @@
 #### Module 02 — Authentification AD - Habilitations
 
 - Les entités dans GLPI et la visibilité des items par récursivité
-
 - Les interfaces de GLPI et les profils des utilisateurs
-
 - Les intitulés et les lieux : la nomenclature de GLPI
-
 - Création d’un compte local à GLPI
-
 - Ajout d’une source externe d’identification (Active Directory)
-
 - Gérer les habilitations des utilisateurs
 
 ### Authentification AD - Habilitations
 
 - Notion clé dans GLPI
-
 - Permet de segmenter les domaines d’administration de l’application
-
 - Intéressant pour une entreprise dont la gestion est hiérarchique
-
 - Cloisonnement étanche entre les entités, sauf en cas de récursivité
-
 - Cas d’une société gérant plusieurs clients avec filiales : une entité
 
 #### par client
@@ -72,11 +63,8 @@
 #### Authentification AD - Habilitations
 
 - Consiste à rendre visible un objet dans les sous-entités
-
 - Permet de traiter la problématique des objets globaux et locaux
-
 - Exemple d’utilisation : un objet de type fournisseur
-
 - Un fournisseur global à toutes les entités sera déclaré dans l’entité la plus
 
 #### haute avec l’option de récursivité
@@ -88,21 +76,15 @@
 #### La récursivité
 
 - Interface simplifiée
-
 - Interface la plus restrictive
-
 - Destinée aux utilisateurs finaux
-
 - Permet de créer un ticket, suivre ses tickets, accéder aux réservations
 
 #### et à la FAQ
 
 - Interface standard
-
 - Interface principale d’un technicien de GLPI
-
 - Tous les modules y sont disponibles en fonction du profil
-
 - Utilisée pour les tâches de techniciens, d’administration
 
 #### et de configuration
@@ -114,25 +96,15 @@
 #### Authentification AD - Habilitations
 
 - Détermine le type d’interface (standard ou simplifiée)
-
 - Détermine les droits sur l’application
-
 - Propre à une entité : récursivité possible
-
 - Plusieurs profils possibles pour un même utilisateur
-
 - Plusieurs profils prédéfinis :
-
 - Super-Admin : tous les droits sur GLPI (profil de l’utilisateur GLPI)
-
 - Admin : tous les droits d’administration
-
 - Technician : accès en lecture à l’inventaire et à la gestion de ticket
-
 - Hotliner : saisi et suivi de ticket, mais pas d’en être attribué
-
 - Observer : accès en lecture à l’inventaire et à la gestion
-
 - Self-Service : profil par défaut, interface simplifiée, permet de créer un
 
 #### ticket, suivre ses tickets, accéder aux réservations et à la FAQ
@@ -140,35 +112,22 @@
 #### Les profils GLPI
 
 - On peut donner des droits sur différentes fonctionnalités :
-
 - Parc — gestion de l’inventaire
-
 - Assistance — gestion des tickets
-
 - Cycles de vie — gestion du suivi des tickets
-
 - Gestion — gestion des licences, fournisseurs, budgets…
-
 - Outils — gestion des rapports, de la base de connaissance, des projets, des tâches…
-
 - Administration — gestion des différentes règles d’automatisation, des entités, des groupes…
-
 - Configuration — gestion de la configuration globale de GLPI, les lieux, les intitulés,
 
 les calendriers...
 
 - Il existe différents droits :
-
 - Lecture
-
 - Mettre à jour
-
 - Créer
-
 - Supprimer
-
 - Purger
-
 - …
 
 #### La création de profils dans GLPI
@@ -176,31 +135,20 @@ les calendriers...
 #### Authentification AD - Habilitations
 
 - Deux formats :
-
 - Liste de valeurs à plat
-
 - Liste de valeurs arborescente : hiérarchie entre les intitulés
-
 - Il existe une liste par défaut, mais beaucoup de listes propres
 
 #### à GLPI sont paramétrables :
 
 - Les lieux
-
 - Les statuts de matériels
-
 - Les fournisseurs
-
 - Les constructeurs
-
 - Les catégories de tickets
-
 - Les noms de logiciels
-
 - Les prises réseau
-
 - Les calendriers
-
 - …
 
 #### Les intitulés
@@ -210,7 +158,6 @@ les calendriers...
 #### différents éléments d’inventaire et les utilisateurs
 
 - Liste de valeurs arborescente
-
 - Une convention de nommage est OBLIGATOIRE
 
 #### Les lieux
@@ -220,23 +167,14 @@ les calendriers...
 #### Authentification AD
 
 - Base de comptes interne à GLPI : stockée dans la base de données
-
 - Base de compte externe : authentification dynamique et centralisée
-
 - LDAP
-
 - LDAP Active Directory
-
 - Messagerie : comptes pop/imap
-
 - Certificats X509
-
 - Base de compte externe : nécessite l’ajout d’un serveur d’authentification
-
 - Import manuel possible des utilisateurs en amont
-
 - Import automatique de l’utilisateur à la première connexion
-
 - Champs utilisateur GLPI automatiquement alimentés depuis les attributs AD
 
 #### Les utilisateurs — Base de comptes
@@ -244,21 +182,13 @@ les calendriers...
 #### Authentification AD - Habilitations
 
 - Configuration =&gt; Authentification =&gt; Annuaires LDAP =&gt; +
-
 - Choisir la préconfiguration ActiveDirectory
-
 - Configuration automatique d’un filtre d’exclusion des utilisateurs désactivés
-
 - Configuration obligatoire :
-
 - Nom
-
 - @ip du serveur AD
-
 - Base DN : DistinguishedName du domaine au format :
-
 - DC=mondomaine,DC=monTLD
-
 - DN du compte : DistinguishedName du compte utilisé par GLPI auprès
 
 #### du contrôleur de domaine pour l’interroger (au minimum, un compte
@@ -270,8 +200,6 @@ les calendriers...
 #### les_utilisateurs,OU=_monentreprise,DC=mondomaine,DC=monTLD
 
 - Mot de passe du compte précédemment renseigné
-
-#### Serveur d'authentification Active Directory
 
 #### Serveur d'authentification Active Directory
 
@@ -310,13 +238,9 @@ CN=compte_admin_du_domaine,OU=OU_ou_se_trouve_le_compte,DC=mondomaine,DC=TLD
 #### Présentation de l'environnement — Installation de GLPI
 
 - Vont déterminer les droits et leurs portées dont dispose un utilisateur
-
 - Une habilitation est composée d’un profil (droits) et d’une entité
-
 - Récursivité sur les entités enfants possible
-
 - Plusieurs habilitations possibles pour un même utilisateur
-
 - Se gèrent de manière statique ou dynamique à l’aide de règle
 
 #### d’habilitation
@@ -326,11 +250,8 @@ CN=compte_admin_du_domaine,OU=OU_ou_se_trouve_le_compte,DC=mondomaine,DC=TLD
 ### Présentation de l'environnement — Installation de GLPI
 
 - Ajout manuel depuis l’application GLPI
-
 - Aucune centralisation de la gestion des droits
-
 - Maintenance compliquée / risque d’erreurs accru
-
 - S’ajoutent pour chaque utilisateur
 
 #### Les habilitations statiques
@@ -338,37 +259,23 @@ CN=compte_admin_du_domaine,OU=OU_ou_se_trouve_le_compte,DC=mondomaine,DC=TLD
 #### Présentation de l'environnement — Installation de GLPI
 
 - Attribution automatique d’habilitations
-
 - Utilisation des « règles d’affectation d’habilitations à un utilisateur »
-
 - Toutes les règles sont lues à chaque connexion d’un utilisateur
-
 - L’ordre de création n’a pas d’importance
-
 - Une règle pour une habilitation
-
 - Les critères : globaux internes GLPI ou LDAP
-
 - Les actions : un profil, une entité, récursivité, refus d’import, etc.
 
 #### Les habilitations dynamiques
 
 - Les critères :
-
 - Gestion des droits GLPI centralisée dans l’Active Directory
-
 - Utilisation d’appartenance à des groupes AD
-
 - Critère « (LDAP) MemberOf »
-
 - Utilisation de la condition « Contient », moins contraignante que « est »
-
 - Les actions :
-
 - Deux actions minimum pour constituer une habilitation
-
 - Sont exécutées si le(s) critère(s) sont vérifiés
-
 - Comportement en fonction de l’opérateur logique (ET/OU)
 
 #### Les habilitations dynamiques - Critères - Actions

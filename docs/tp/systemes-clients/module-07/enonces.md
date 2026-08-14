@@ -52,7 +52,6 @@ sur l’ordinateur à votre disposition pour réaliser les TP.
 #### sera donc 12
 
   - Le masque sera 255.255.0.0
-
   - La passerelle et le serveur DNS préféré seront les mêmes que ceux
 
 #### configurés sur votre VM Campus en ligne
@@ -62,9 +61,7 @@ sur l’ordinateur à votre disposition pour réaliser les TP.
 #### Utilisez la commande ping vers les hôtes suivants :
 
   - Adresse IP de la passerelle par défaut
-
   - Adresse IP de votre VM Discovery
-
   - www.facebook.com
 
 Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
@@ -80,9 +77,7 @@ Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configura
 #### Utilisez la commande nslookup avec les noms suivants :
 
   - www.hadopi.fr
-
   - www.amendes.gouv.fr
-
   - www.facebook.com
 
 Obtenez-vous des réponses pour chacune des requêtes  ? Quelles sont les adresses

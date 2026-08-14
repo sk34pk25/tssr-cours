@@ -197,7 +197,6 @@ Bravo, vous êtes maintenant connecté au VPN. Vous pouvez maintenant accéder v
 #### Objectifs • Rappel sur les bases des réseaux
 
 - Configurer la carte et l’emplacement réseau
-
 - Manipuler le pare-feu Windows
 
 ### Rappel
@@ -351,27 +350,16 @@ Le routeur 2 recherche dans son cache ARP l’adresse MAC du poste BLe routeur e
 #### Le centre réseau et partage
 
 - Accessible depuis l'icône réseau de la barre de notification
-
 - Paramètre réseau et Internet &gt; Centre réseau et partage
-
 - Accessible depuis le panneau de configuration
-
 - Réseau et Internet &gt; Centre réseau et partage
-
 - Donne des indications sur :
-
 - La connectivité du poste
-
 - Les connexions réseau détectées
-
 - Les profils réseau et les emplacements associés
-
 - Donne accès aux paramétrages :
-
 - Des fonctionnalités de partage : découverte, partages, dossiers publics…
-
 - Des cartes réseau (accès direct en lançant ncpa.cpl)
-
 - Des nouvelles connexions
 
 ### Configuration de la carte réseau
@@ -379,11 +367,8 @@ Le routeur 2 recherche dans son cache ARP l’adresse MAC du poste BLe routeur e
 #### Une carte réseau est associée à un emplacement réseau
 
 - Détermine le comportement du pare-feu
-
 - Réseau privé sur un poste autonome
-
 - Réseau avec domaine non modifiable si le poste est joint à un domaine
-
 - Réseau public si aucune passerelle n’a été définie, si le domaine n’a pas été détecté pour les
 
 postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau…
@@ -391,71 +376,44 @@ postes en domaine, si vous refusez de rendre votre ordinateur visible sur le ré
 #### Configuration de la carte réseau
 
 - Quels paramètres pour le poste de travail ?
-
 - Adresse IP et masque
-
 - Passerelle
-
 - Serveurs DNS préférés et auxiliaires
-
 - Le type d’adressage
-
 - Statique : configuré manuellement
-
 - Dynamique : fourni par le serveur DHCP ou APIPA
-
 - APIPA : communication temporaire sur le réseau local
-
 - Obtenir automatiquement une adresse grâce au système
 
 #### d'exploitation Windows si aucun serveur DHCP n'est joignable
 
 - Réseau 169.254.0.0/16
-
 - Communication sur le réseau local possible
-
 - Outils graphiques
-
 - Zone de notification (état de la connexion)
-
 - Composant Connexions réseau
-
 - Assistant Résoudre les problèmes : orienté utilisateur…
-
 - Rappel sur les outils invite de commande : les plus précis et efficaces
-
 - ipconfig : afficher la configuration et interagir avec la pile réseau (DNS, DHCP)
-
 - ping : tester la connectivité (bloqué par défaut par le pare-feu Windows !)
-
 - tracert : tester la route empruntée par les paquets TPC/IP
-
 - nslookup : diagnostic de la résolution de noms d’hôte
 
 #### Pare-feu
 
 - Pourquoi ?
-
 - Délimiter quels flux réseau sont autorisés en entrée et en sortie
-
 - Protéger le poste contre les accès non autorisés (utilisateurs, programmes)
-
 - Élément de la stratégie globale de sécurité de l’entreprise
-
 - Caractéristiques
-
 - Activé par défaut, bloque certains flux en entrée et les autorise tous en sortie
-
 - Se compose de règles prédéfinies activées (ou facilement activables)
-
 - S'adapte à la situation du poste (emplacements réseau)
-
 - Administrable de manière centralisée (stratégies, export)
 
 ### Pare-feu
 
 - 3 niveaux de configuration
-
 - Utilisateur depuis le composant Vérifier l'état du
 
 #### Pare-feu pour l’activation / la désactivation

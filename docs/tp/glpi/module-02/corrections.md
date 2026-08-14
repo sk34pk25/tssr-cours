@@ -26,7 +26,6 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 #### Structure AD et utilisateurs
 
 - Créez les utilisateurs en fonction de l’annexe 1 (cf. fin du document).
-
 - Créez les groupes globaux suivant le tableau en annexe 1.
 
   - Les groupes globaux dans l’AD
@@ -34,17 +33,12 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 - Créez les groupes globaux GLPI.
 
   - Les groupes GLPI dans l’AD
-
   - Membres du groupe GG_GLPI_Observer
-
   - Membres du groupe GG_GLPI_Super_Admin
-
   - Membres du groupe GG_GLPI_Technician
-
   - Membres du groupe GG_GLPI_Hotliner
 
 - Créez des modèles d’utilisateurs, dans les groupes puis les utilisateurs.
-
 - Créez ces OU dans l’Active Directory d’Olympus en organisant convenablement sa
 
 structure en fonction de l’annexe 2.
@@ -60,7 +54,6 @@ structure en fonction de l’annexe 2.
 manipulations qui suivront.
 
 - Création des lieux en fonction de l’annexe 3.
-
 - Ajout de l’annuaire LDAP
 
   - Ajoutez le contrôleur de domaine d’Olympus comme source
@@ -72,7 +65,6 @@ d’authentification LDAP.
 l’AD.
 
 - Obtenir le DN de l’administrateur
-
 - Paramétrage de la liaison AD dans GLPI
 
 #### Règles d’habilitation
@@ -82,17 +74,12 @@ l’AD.
 automatiquement attribué le/les profils GLPI sur les bonnes entités du groupe (les bonnes habilitations).
 
   - Règle d’importation observer
-
   - Règle d’importation Super_Admin
-
   - Règle d’importation technicien
-
   - Règle d’importation hotliner
 
 - Importez tous les utilisateurs et les mettre dans le bon lieu.
-
 - Importez tous les groupes.
-
 - Désactivez les utilisateurs : normal, post-only et tech.
 
 #### La désactivation s’effectue à partir de chaque compte utilisateurs

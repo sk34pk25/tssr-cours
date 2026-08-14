@@ -24,17 +24,13 @@ d’exploitation Windows 10 , dans le dossier ISO que vous venez tout juste de c
 #### Démarrer WorkStation et procéder à la création de votre première VM
 
 - Lancez VMware Workstation (icône disponible sur le bureau).
-
 - Créez votre 1re VM
-
 - Cliquez sur Create a New Virtual Machine pour entrer dans l’assistant de création de
 
 #### votre VM
 
   - 1 - Typical
-
   - 2 - Guest operating system : Windows 10 x64
-
   - 3 - Virtual Machine Name : Win10-XX (XX étant vos initiales)
 
 #### Location : C:\Vms-WorkStation\Win10-XX
@@ -46,11 +42,8 @@ d’exploitation Windows 10 , dans le dossier ISO que vous venez tout juste de c
 #### Customize Hardware
 
   - Memory : 4 GB
-
   - Processors : 1 processeur / 1 cœur de processeur
-
   - Network Adapter : Host-Only
-
   - Finish
 
 - À l’issue de la création de votre VM, Win10-XX doit apparaître dans le champ Library à
@@ -68,19 +61,14 @@ trouve dans le dossier ISO de votre lecteur de données . Cliquez sur Browse… 
 Dans la barre de recherche Windows 10, tapez psr puis lancer l’application Enregistreur d’actions utilisateur. Éditez les paramètres du logiciel en cliquant sur la flèche à gauche du bouton d’aide et appliquez la configuration comme ci -dessous puis lancez l’enregistrement. Lorsque l’enregistrement est lancé, pour une meilleure lisibilité, vous réduisez la fenêtre psr dans votre barre des tâches.
 
 - Démarrez votre VM Power on this virtual machine
-
 - Faites le focus dans votre VM (cliquez à l’intérieur).
-
 - Pour lancer la procédure d’installation depuis le DVD virtuel, appuyer sur une touche
 
 #### lorsque vous est demandé : Press any key to boot from CD or DVD……
 
   - Langue à installer : Français (France)
-
   - Installer Maintenant
-
   - Activer Windows : Je n’ai pas de clé de produit
-
   - Sélectionner le système d’exploit ation à installer : Windows 10
 
 #### Professionnel
@@ -156,7 +144,6 @@ l’amélioration de fonctionnement de votre VM.
 votre lecteur de DVD (D:) VMware Tools.
 
   - Exécutez setup64
-
   - Choisissez les propositions par défaut lorsque l’assistant d’installation vous le
 
 #### demande
@@ -196,7 +183,6 @@ amont nommé Discovery dans le dossier VMs-WorkStation. L'archive OVA se trouve 
 #### dans le dossier VMs-WorkStation\Discovery créé précédemment
 
   - Avec WorkStation, onglet Home &gt; Open a Virtuel Machine
-
   - Naviguez dans votre volume de données puis sélectionnez le fichier
 
 #### VMs-WorkStation\Discovery\Discovery.ova
@@ -222,7 +208,6 @@ amont nommé Discovery dans le dossier VMs-WorkStation. L'archive OVA se trouve 
 #### Carte réseau Host-Only
 
 - Démarrez Discovery et ouvrez une session avec l'utilisateur adm (Pa$$w0rd)
-
 - Complétez le tableau suivant
 
 #### Caractéristiques de Discovery

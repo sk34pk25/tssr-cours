@@ -85,7 +85,7 @@ Présentation de l'adressage IPv4 Les classes IPv4 Démonstration - Les classes 
 
 Une adresse IPv4 est constituée de 32 bits découpés en 4 octets distincts.
 
-#### Une adresse IPv4 est composée 
+### Une adresse IPv4 est composée
 
 d’un identifiant réseau (ID_Réseau) d’un identifiant d’hôte unique sur le réseau logique (ID_Hôtes) Pour communiquer avec d’autres hôtes sur son réseau logique, un hôte réseau a besoin :
 
@@ -95,11 +95,11 @@ son adresse de réseau logique son adresse de diffusion
 
 Une adresse IPv4 est composée de 32 bits (4 octets) et est représentée sous forme de quatre nombres décimaux séparés par des points, chacun des quatre nombres étant compris entre 0 et 255.
 
-#### Par exemple 
+#### Par exemple
 
 192.168.1.1
 
-#### En binaire, cette adresse se représenterait ainsi 
+#### En binaire, cette adresse se représenterait ainsi
 
 11000000.10101000.00000001.00000001 Chaque section de 8 bits (ou 1 octet) est appelée octet, et elle permet d’obtenir 256 combinaisons possibles par section (de 0 à 255).
 
@@ -107,15 +107,15 @@ Classes d’adresses IPv4 Les adresses IPv4 sont divisées en différentes class
 
 Classe A : Destinée aux réseaux de grande taille, elle utilise les adresses de 0.0.0.0 à 127.255.255.255. Le premier octet représente le réseau, et les trois suivants représentent l’hôte. Classe B : Utilisée pour les réseaux de taille moyenne, avec des adresses de 128.0.0.0 à 191.255.255.255. Les deux premiers octets sont réservés pour le réseau, et les deux derniers pour l’hôte. Classe C : Utilisée pour les petits réseaux, de 192.0.0.0 à 223.255.255.255. Les trois premiers octets représentent le réseau, et le dernier octet est pour l’hôte. Classe D : Réservée pour les adresses de multidiffusion (ou multicast), allant de 224.0.0.0 à 239.255.255.255. Classe E : Réservée pour des utilisations futures ou expérimentales, de 240.0.0.0 à 255.255.255.255. Adresses Spéciales
 
-#### Certaines adresses IPv4 ont des significations spécifiques 
+#### Certaines adresses IPv4 ont des significations spécifiques
 
 Adresse de boucle locale (localhost) : 127.0.0.1 — utilisée pour les tests et la communication à l'intérieur de l'appareil. Adresse réseau : Utilisée pour identifier le réseau lui-même (ex. : 192.168.1.0 pour un réseau de classe C). Adresse de diffusion (broadcast) : Permet d’envoyer un message à tous les appareils d'un réseau (ex. : 192.168.1.255). Aller vers l’activité
 
-#### Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties 
+#### Dans l’adressage IPv4, chaque adresse IP est divisée en deux parties
 
 L’ID réseau : Identifie le réseau auquel appartient l’adresse. L’adresse hôte : Identifie un appareil (hôte) spécifique dans ce réseau. Pour récupérer ces deux éléments, on utilise le masque de sous-réseau. Ce masque détermine quels bits de l’adresse IP correspondent à la partie réseau et lesquels correspondent à la partie hôte.
 
-#### Voici comment procéder 
+#### Voici comment procéder
 
 Étapes du Calcul des Adresses Convertir l’adresse IP en binaire Une adresse IPv4 est composée de 4 octets (32 bits) exprimés en notation décimale pointée. Chaque octet est converti en binaire pour faciliter les opérations.
 
@@ -139,15 +139,15 @@ Analyse de l’adresse IP 192.168.10.100 avec le masque 255.255.255.0 Pour déte
 
 1. Conversion de l’adresse IP et du masque en binaire
 
-#### Adresse IP 
+#### Adresse IP
 
-#### 192.168.10.100 en binaire 
+#### 192.168.10.100 en binaire
 
 11000000.10101000.00001010.01100100
 
-#### Masque 
+#### Masque
 
-#### 255.255.255.0 en binaire 
+#### 255.255.255.0 en binaire
 
 11111111.11111111.11111111.00000000 2. Calcul de l’ID réseau L’ID réseau est obtenu en appliquant une opération AND entre l’adresse IP et le masque de sous-réseau.
 
@@ -159,13 +159,13 @@ ID Réseau : 11000000.10101000.00001010.00000000 Partie Hôte : 00000000.0000000
 
 4. Calcul des adresses disponibles pour les hôtes
 
-#### Les adresses hôtes sont comprises entre 
+#### Les adresses hôtes sont comprises entre
 
 ID réseau + 1 : 192.168.10.1 Adresse de broadcast - 1 : 192.168.10.254 Cela donne une plage d’hôtes de 192.168.10.1 à 192.168.10.254.
 
 5. Reconnaissance du type d’adresse
 
-#### L’adresse IP 192.168.10.100 
+#### L’adresse IP 192.168.10.100
 
 Appartient à la plage d’adresses privées de la Classe C (192.168.0.0 à 192.168.255.255). Utilisée dans un réseau local (LAN). Conclusion : L’adresse 192.168.10.100 est une adresse privée utilisée pour un hôte spécifique dans le réseau 192.168.10.0/24.
 
@@ -173,15 +173,15 @@ Résumé des Calculs Élément Valeur Adresse IP 192.168.10.100 Masque 255.255.2
 
 1. Conversion de l’adresse IP et du masque en binaire
 
-#### Adresse IP 
+#### Adresse IP
 
-#### 172.25.192.0 en binaire 
+#### 172.25.192.0 en binaire
 
 10101100.00011001.11000000.00000000
 
-#### Masque 
+#### Masque
 
-#### 255.255.240.0 en binaire 
+#### 255.255.240.0 en binaire
 
 11111111.11111111.11110000.00000000 2. Calcul de l’ID réseau L’ID réseau est obtenu en appliquant une opération AND entre l’adresse IP et le masque.
 
@@ -193,13 +193,13 @@ ID Réseau : 10101100.00011001.11000000.00000000 Partie Hôte : 00000000.0000000
 
 4. Calcul des adresses disponibles pour les hôtes
 
-#### Les adresses hôtes sont comprises entre 
+#### Les adresses hôtes sont comprises entre
 
 ID réseau + 1 : 172.25.192.1 Adresse de broadcast - 1 : 172.25.207.254 Cela donne une plage d’hôtes de 172.25.192.1 à 172.25.207.254.
 
 5. Reconnaissance du type d’adresse
 
-#### L’adresse IP 172.25.192.0 
+#### L’adresse IP 172.25.192.0
 
 Appartient à la plage d’adresses privées de la Classe B (172.16.0.0 à 172.31.255.255). Utilisée dans un réseau local (LAN). N’est pas routable sur Internet sans translation d’adresse (NAT). Conclusion : L’adresse 172.25.192.0 est une adresse privée utilisée comme ID réseau dans le réseau 172.25.192.0/20.
 
@@ -217,7 +217,7 @@ Conversion en Masque Décimal Chaque notation CIDR peut être convertie en masqu
 
 /24 correspond à 255.255.255.0 en décimal (les 24 premiers bits sont des 1, les 8 restants des 0). /16 correspond à 255.255.0.0. /26 correspond à 255.255.255.192. CIDR Masque Décimal Bits de Réseau Bits d’Hôtes Nombre d'Hôtes /24 255.255.255.0 24 8 254 /26 255.255.255.192 26 6 62 /28 255.255.255.240 28 4 14 Exemple d'Utilisation : 192.168.10.0/26
 
-#### Si l'on prend 192.168.10.0/26 
+#### Si l'on prend 192.168.10.0/26
 
 Les 26 premiers bits (soit 255.255.255.192) sont réservés pour l'identifiant réseau. Les 6 bits restants permettent de créer 64 adresses, mais seulement 62 hôtes utilisables (les adresses de réseau et de broadcast ne sont pas attribuables aux hôtes).
 
@@ -227,43 +227,43 @@ Pour convertir un masque de sous-réseau en préfixe CIDR, il suffit de compter 
 
 Étapes pour trouver le masque IP à partir du CIDR Écrire le nombre de bits en 1 correspondant au préfixe CIDR. Compléter avec des 0 pour atteindre un total de 32 bits. Diviser les 32 bits en 4 octets de 8 bits. Convertir chaque octet binaire en notation décimale. Exemples de Conversion Exemple 1 : Préfixe CIDR /24
 
-#### Écrire 24 bits à 1 et compléter avec 8 bits à 0 
+#### Écrire 24 bits à 1 et compléter avec 8 bits à 0
 
 11111111.11111111.11111111.00000000
 
-#### Diviser en octets 
+#### Diviser en octets
 
 11111111 . 11111111 . 11111111 . 00000000
 
-#### Convertir chaque octet en décimal 
+#### Convertir chaque octet en décimal
 
 255.255.255.0 Le masque est donc 255.255.255.0 pour un /24.
 
 Exemple 2 : Préfixe CIDR /26
 
-#### Écrire 26 bits à 1 et compléter avec 6 bits à 0 
+#### Écrire 26 bits à 1 et compléter avec 6 bits à 0
 
 11111111.11111111.11111111.11000000
 
-#### Diviser en octets 
+#### Diviser en octets
 
 11111111 . 11111111 . 11111111 . 11000000
 
-#### Convertir chaque octet en décimal 
+#### Convertir chaque octet en décimal
 
 255.255.255.192 Le masque est donc 255.255.255.192 pour un /26.
 
 Exemple 3 : Préfixe CIDR /20
 
-#### Écrire 20 bits à 1 et compléter avec 12 bits à 0 
+#### Écrire 20 bits à 1 et compléter avec 12 bits à 0
 
 11111111.11111111.11110000.00000000
 
-#### Diviser en octets 
+#### Diviser en octets
 
 11111111 . 11111111 . 11110000 . 00000000
 
-#### Convertir chaque octet en décimal 
+#### Convertir chaque octet en décimal
 
 255.255.240.0 Le masque est donc 255.255.240.0 pour un /20.
 
@@ -307,13 +307,13 @@ Les sous-réseaux (ou subnetting) sont une méthode permettant de diviser un ré
 
 Objectifs du Sous-réseautage Optimisation de l’espace d’adressage : En divisant un grand réseau en sous-réseaux plus petits, on peut réduire le gaspillage d’adresses IP, surtout dans les réseaux ayant moins de périphériques. Amélioration des performances : Le sous-réseautage réduit la taille des domaines de diffusion (broadcast domains), ce qui diminue le nombre de paquets de diffusion et améliore les performances du réseau. Sécurité : En segmentant un réseau en sous-réseaux, on peut limiter l’accès entre les différents segments et mieux contrôler le flux de données. Structure d’une adresse IP et du masque de sous-réseau
 
-#### Une adresse IPv4 est composée de 32 bits divisés en deux parties 
+#### Une adresse IPv4 est composée de 32 bits divisés en deux parties
 
 Partie Réseau : Identifie le réseau principal. Partie Hôte : Identifie les périphériques (hôtes) au sein de ce réseau. Le masque de sous-réseau est utilisé pour spécifier quelles parties de l’adresse IP représentent le réseau et lesquelles représentent les hôtes. En créant des sous-réseaux, on modifie ce masque pour "emprunter" certains bits de la partie hôte afin de les utiliser pour identifier des sous-réseaux.
 
 Exemple de sous-réseautage avec une adresse IPv4
 
-#### Imaginons une adresse IP de réseau 192.168.1.0/24 
+#### Imaginons une adresse IP de réseau 192.168.1.0/24
 
 Le masque /24 correspond à un masque de sous-réseau 255.255.255.0, où les 24 premiers bits sont réservés pour le réseau, et les 8 bits restants pour les hôtes. Ce réseau peut théoriquement contenir jusqu'à 254 hôtes (soit
 
@@ -323,11 +323,11 @@ Le masque /24 correspond à un masque de sous-réseau 255.255.255.0, où les 24 
 
 Sous-réseau 1 : 192.168.1.0/25 (adresses de 192.168.1.0 à 192.168.1.127) Sous-réseau 2 : 192.168.1.128/25 (adresses de 192.168.1.128 à 192.168.1.255) Calcul du Nombre de Sous-Réseaux et d’Hôtes Pour déterminer le nombre de sous-réseaux et d’hôtes disponibles, il faut connaître le nombre de bits "empruntés" dans le masque :
 
-#### Nombre de Sous-Réseaux 
+#### Nombre de Sous-Réseaux
 
 n où n est le nombre de bits empruntés pour la partie réseau.
 
-#### Nombre d’Hôtes par Sous-Réseau 
+#### Nombre d’Hôtes par Sous-Réseau
 
 h −
 

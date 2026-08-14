@@ -2,7 +2,7 @@
 (function () {
   const sectionNames = [
     "modules", "parcours", "tutoriels", "tp", "exercices", "revision",
-    "memo", "commandes", "troubleshooting", "glossaire", "ressources"
+    "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources"
   ];
 
   const languageLabels = {
@@ -73,11 +73,45 @@
     }
   }
 
-  if (typeof document$ !== "undefined") {
-    document$.subscribe(classifyPage);
-  } else if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", classifyPage, { once: true });
-  } else {
+  function setupTocToggle() {
+    const sidebar = document.querySelector(".md-sidebar--secondary");
+    const container = sidebar?.querySelector(".md-sidebar__inner");
+    const toc = container?.querySelector(".md-nav--secondary");
+
+    if (!container || !toc || !toc.querySelector("[data-md-component='toc']")) return;
+    if (container.querySelector(".tssr-toc-toggle")) return;
+
+    toc.id = "tssr-page-toc";
+    toc.hidden = true;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.id = "tssr-toc-toggle";
+    button.className = "tssr-toc-toggle";
+    button.setAttribute("aria-controls", toc.id);
+    button.setAttribute("aria-expanded", "false");
+    button.innerHTML = '<span class="tssr-toc-toggle__icon" aria-hidden="true"></span><span>Sur cette page</span>';
+
+    toc.setAttribute("aria-labelledby", button.id);
+    button.addEventListener("click", function () {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      toc.hidden = expanded;
+    });
+
+    container.insertBefore(button, toc);
+  }
+
+  function enhancePage() {
     classifyPage();
+    setupTocToggle();
+  }
+
+  if (typeof document$ !== "undefined") {
+    document$.subscribe(enhancePage);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhancePage, { once: true });
+  } else {
+    enhancePage();
   }
 })();

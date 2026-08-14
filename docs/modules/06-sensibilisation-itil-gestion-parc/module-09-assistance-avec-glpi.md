@@ -55,21 +55,13 @@ stateDiagram-v2
 #### Module 09 — Assistance avec GLPI
 
 - Découvrir la création d’un ticket
-
 - Découvrir le traitement d’un ticket
-
 - Appréhender la base de connaissance
-
 - Dans le monde de l’informatique, tout fonctionne à base de ticket
-
 - Cela va permettre de solliciter la DSI
-
 - Un ticket passera par plusieurs statuts : cycle de vie du ticket
-
 - Peut-être de type incident ou demande
-
 - Doit compter un minimum d’informations
-
 - De nombreux avantages
 
 #### Le ticket
@@ -85,17 +77,11 @@ stateDiagram-v2
 #### Utilisation d’un outil de gestion de ticket
 
 - Système de gestion de tickets / outil de ticketing
-
 - Conforme aux bonnes pratiques ITIL
-
 - Recueil des sollicitations utilisateur pour une gestion centralisée
-
 - Différents canaux de communication possibles
-
 - Saisie, suivi et traitement du ticket
-
 - Cycle de vie des tickets
-
 - Statistiques possibles
 
 #### L’assistance sous GLPI
@@ -105,49 +91,35 @@ stateDiagram-v2
 #### Flux d’entrée
 
 - Interface d’ouverture de tickets anonymes
-
 - Interface simplifiée
-
 - Interface standard
 
 #### Depuis GLPI
 
 - Envoi d’un mail dans une boîte mail support
-
 - Configuration d’un collecteurMail
-
 - Création du ticket par téléphone
-
 - Utilisation de l’interface standard par le technicien Téléphone
 
 #### Cycle de vie d’un ticket
 
 - Ni groupes et utilisateurs sur le ticketNouveau
-
 - En attente d’éléments =&gt; Modification manuelleEn attente
-
 - Au moins un utilisateur/groupe est attribuéEn cours attribué
-
 - Une tâche vient d’être planifiéeEn cours planifié
-
 - Une solution vient d’être apportée au ticketRésolu
-
 - La solution est approuvée par le demandeurClos
 
 ### Traitement d’un ticket : aperçu
 
 - Utilisateurs, groupes ou fournisseurs
-
 - Représente les techniciens ou groupes de compétence en charge
 
 #### du ticket
 
 - Utilisé lors des escalades fonctionnelles
-
 - Raccourci pour s’attribuer nominativement le ticket
-
 - Peut être automatisé en fonction de critères à la création du ticket
-
 - Ticket visible pour traitement par les groupes et utilisateurs
 
 #### attribués
@@ -159,13 +131,9 @@ stateDiagram-v2
 ### critères
 
 - Utilisé lors des escalades hiérarchiques
-
 - Utilisateurs et groupes
-
 - Notifications sans traitement possible du ticket
-
 - Va permettre de suivre l’évolution d’un ticket
-
 - Peuvent être ajoutés automatiquement à la création en fonction de
 
 #### Traitement d’un ticket : observateurs
@@ -173,11 +141,8 @@ stateDiagram-v2
 #### Ajout
 
 - Doivent être facilement identifiables
-
 - Le type : temps de résolution
-
 - La durée maximum de résolution souhaitée
-
 - Possibilité de créer des niveaux d’escalade
 
 #### Traitement d’un ticket : SLA
@@ -189,17 +154,11 @@ stateDiagram-v2
 ### Traitement d’un ticket : validation
 
 - Un ticket peut nécessiter une validation hiérarchique
-
 - Manuelle ou automatique à la création
-
 - Non bloquant pour le traitement du ticket
-
 - Droits spécifiques pour pouvoir être « valideur »
-
 - Demandes multiples possibles
-
 - Les valideurs reçoivent une notification de validation
-
 - Ils approuvent ou refusent en accédant au ticket à valider.
 
 #### Comment ?
@@ -211,15 +170,10 @@ stateDiagram-v2
 #### Depuis notre vue personnelle
 
 - Onglet Traitement du ticket
-
 - Quatre possibilités
-
 - Suivi
-
 - Tâche
-
 - Solution
-
 - Document
 
 #### Traitement d’un ticket : traitement
@@ -227,45 +181,31 @@ stateDiagram-v2
 ### téléphone)
 
 - La clôture du ticket s’effectue à l’approbation de la solution
-
 - Peut être effectuée par le demandeur ou le rédacteur (ticket par
-
 - Accessible par le mail de validation ou le menu ticket de l’interface
 
 #### simplifiée
 
 - Commentaire obligatoire en cas de refus
-
 - Possibilité de planifier ou rendre la clôture immédiate à la résolution
 
 #### Traitement d’un ticket : clôture
 
 - Liaison de CI possible à la création d’un ticket
-
 - Utile pour le diagnostic
-
 - Utile pour les statistiques
-
 - Nécessite une CMDB à jour et bien renseignée
 
 #### Ticket : éléments liés
 
 - Objectifs
-
 - Centraliser des connaissances internes aux différents techniciens
-
 - Mettre à disposition des utilisateurs des informations (FAQ)
-
 - Accessible depuis Outils =&gt; Base de connaissances
-
 - Restriction à un nombre d’acteurs
-
 - Validation de publications d’articles
-
 - Gestion des révisions
-
 - Liaisons possibles avec les tickets et les éléments d’inventaire (CI)
-
 - FAQ : sous-partie de la base de connaissances à destination des
 
 #### utilisateurs
@@ -275,15 +215,10 @@ stateDiagram-v2
 #### Base de connaissances : article
 
 - Création d’un article
-
 - Ajout des cibles
-
 - Usage public ou non
-
 - Article sans cible = Article non publié
-
 - Apparaît dans Gérer
-
 - Visible que par son créateur
 
 #### Base de connaissances : création
@@ -291,15 +226,10 @@ stateDiagram-v2
 ### Base de connaissances : cibles
 
 - Vont permettre de publier l’article à différentes personnes
-
 - Entité — Profil — Groupe - Utilisateur
-
 - Éviter la création systématique d’un ticket
-
 - FAQ (Foire Aux Questions)
-
 - Accessible depuis l’interface simplifiée
-
 - Accès rapide ou par catégories
 
 #### Base de connaissances publiques

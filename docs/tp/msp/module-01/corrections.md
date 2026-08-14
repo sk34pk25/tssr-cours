@@ -16,25 +16,15 @@ Basé sur l’énoncé actuel, la note technique ANSSI, les ressources, les scri
 #### Sommaire
 
 1. Analyse du dossier et règles de priorité
-
 2. Paramètres à personnaliser et plan d’adressage
-
 3. Partie 1 - Installation des systèmes
-
 4. Partie 2 - Utilisateurs et environnement
-
 5. Partie 3 - Stockage, partages et imprimantes
-
 6. Partie 4 - Configuration avancée
-
 7. Partie 5 - Installation des applications
-
 8. Partie 6 - Sauvegarde et restauration
-
 9. Partie 7 - LVM, montages avancés et tableur
-
 10. Matrice de validation et livrables fournis
-
 1. Analyse complète du dossier
 
 Tous les fichiers accessibles de l’archive ont été inventoriés et exploités. Les exécutables ont été identifiés et leurs métadonnées/version ont été contrôlées, mais ils n’ont pas été lancés dans cet environnement Linux.
@@ -292,15 +282,12 @@ Elles sont explicitement annoncées comme fictives. Elles servent à créer les 
 3.1 Préparation VMware
 
 1. Créer W10-AB et DEB10-AB dans des dossiers distincts.
-
 2. Ajouter immédiatement les deux disques demandés, mais installer chaque système uniquement sur le premier
 
 disque.
 
 3. Configurer l’interface réseau en Bridged. Ne pas utiliser Host-only malgré le corrigé modèle.
-
 4. Monter l’ISO Windows 10 Professionnel la plus récente et l’ISO DVD Debian 10.x.
-
 5. Créer un snapshot machine éteinte après chaque grande étape : installation, utilisateurs, stockage, imprimantes.
 
 #### Pourquoi les snapshots machine éteinte ?
@@ -308,15 +295,12 @@ disque.
 Ils permettent un retour fiable avant une opération risquée sur les partitions, /home, /var/log, le swap ou le spool d’impression. 3.2 Installation de Windows 10 Professionnel
 
 6. Démarrer sur l’ISO et sélectionner Windows 10 Professionnel.
-
 7. Choisir l’installation personnalisée et sélectionner uniquement le disque de 32 Go.
-
 8. Créer le compte administrateur initial, appliquer les mises à jour de pilotes nécessaires, puis renommer le poste
 
 W10-AB.
 
 9. Configurer IPv4 statiquement avec 172.16.0.189/26, passerelle 172.16.0.190 et le DNS retenu.
-
 10. Arrêter Windows Update selon la méthode du cours, puis appliquer la stratégie locale qui interdit la connexion aux
 
 emplacements Windows Update sur Internet.
@@ -350,15 +334,12 @@ Configuration ordinateur &gt; Modèles d’administration &gt; Composants Window
 Le service arrêté satisfait la méthode du corrigé. La stratégie évite qu’un utilisateur ou une tâche ne relance ensuite une connexion aux serveurs Microsoft. 3.3 Installation de Debian 10
 
 11. Démarrer l’installation graphique depuis l’ISO DVD.
-
 12. Nommer la machine DEB10-AB et configurer l’adresse 172.16.0.188/26.
-
 13. Choisir le partitionnement manuel et placer les partitions dans l’ordre indiqué ci-dessous afin que le swap soit suivi
 
 par l’espace libre.
 
 14. Conserver les systèmes de fichiers proposés par l’installateur pour chaque point de montage.
-
 15. Laisser les paquets par défaut, conserver l’environnement graphique et choisir ftp.fr.debian.org comme miroir
 
 français.
@@ -500,21 +481,15 @@ Utiliser le script 02_informatique_logistique.ps1 pour les quatre comptes. Il de
 #### Commercial - Interface graphique
 
 16. Exécuter lusrmgr.msc.
-
 17. Créer le groupe l_commercial avec une description explicite.
-
 18. Dans Utilisateurs, créer ddixon, gstokes et mgreene avec leur nom complet et la description Commercial.
-
 19. Ajouter les trois comptes au groupe l_commercial.
-
 20. Vérifier les membres depuis les propriétés du groupe.
 
 4.3 Dossier Procédures sur le Bureau
 
 21. Créer C:\Users\Default\Desktop\Procédures.
-
 22. Créer le fichier Règlement intérieur.txt dans ce dossier.
-
 23. Le profil Default sert de modèle aux futurs profils. Pour les profils déjà ouverts, recopier le dossier manuellement
 
 ou exécuter 03_preparer_profils.ps1.
@@ -530,13 +505,9 @@ Un simple dossier créé dans le Bureau de l’administrateur ne sera visible qu
 Sur certains systèmes, les noms de jours sont localisés différemment. Utiliser net help user si la syntaxe L-V est refusée. Le contrôle doit afficher les heures autorisées du lundi au vendredi. 4.5 Stratégie de mots de passe et administrateurs
 
 24. Ouvrir secpol.msc &gt; Stratégies de comptes &gt; Stratégie de mot de passe.
-
 25. Définir longueur minimale = 12, durée de vie maximale = 25 jours et exigences de complexité = Activées.
-
 26. Créer le compte adminsecours en CMD et l’ajouter au groupe Administrateurs.
-
 27. Ajouter jdupont et mmartin au groupe Administrateurs.
-
 28. Forcer le changement du mot de passe du binôme à la première connexion.
 
 #### net accounts /minpwlen:12 /maxpwage:25
@@ -614,13 +585,9 @@ Privé et Public.
 4.8 Sources APT et confort Vim
 
 36. Ouvrir /etc/apt/sources.list avec Vim.
-
 37. Commenter en une seule commande toutes les lignes deb-src non commentées.
-
 38. Commenter la ligne du DVD.
-
 39. Mettre à jour la base de paquets et installer vim.
-
 40. Activer la coloration, la numérotation et le mode non compatible dans /etc/vim/vimrc.local.
 
 #### sudo vim /etc/apt/sources.list
@@ -694,9 +661,7 @@ La commande clean n’est pas nécessaire ici et n’est volontairement pas util
 15360 Mo correspond à 15 Gio. Si le formateur attend la convention du corrigé modèle, size=15000 donne environ 15 Go décimaux. 5.2 Partitions PROFILS, DATA et LOGS sous Debian
 
 41. Identifier le disque de 40 Go avec lsblk -o NAME,SIZE,MODEL,TYPE,MOUNTPOINTS.
-
 42. Lancer fdisk /dev/sdb et créer trois partitions primaires : +15G, +15G, puis tout le reste.
-
 43. Écrire avec w, installer xfsprogs puis formater avec les labels demandés.
 
 #### sudo fdisk /dev/sdb
@@ -724,13 +689,9 @@ La commande clean n’est pas nécessaire ici et n’est volontairement pas util
 5.3 Remplacement définitif de /home par PROFILS
 
 44. Éteindre la VM et créer un snapshot.
-
 45. Démarrer en mode secours afin qu’aucun utilisateur n’écrive dans /home.
-
 46. Monter PROFILS temporairement et copier toutes les données avec les droits.
-
 47. Commenter l’ancienne ligne /home dans /etc/fstab et ajouter LABEL=PROFILS.
-
 48. Redémarrer et vérifier que les comptes retrouvent leurs fichiers.
 
 #### sudo systemctl isolate rescue.target
@@ -802,13 +763,9 @@ La première commande doit réussir et la seconde doit renvoyer Permission non a
 5.5 Dossiers NTFS Commerciaux et Support_Info
 
 49. Créer D:\donnees\Commerciaux et D:\Support_Info.
-
 50. Dans Sécurité &gt; Avancé, désactiver l’héritage et supprimer les autorisations héritées.
-
 51. Conserver SYSTEM et Administrateurs en contrôle total.
-
 52. Accorder Modifier au groupe l_commercial sur Commerciaux et au groupe l_informatique sur Support_Info.
-
 53. Utiliser l’onglet Accès effectif pour tester un membre autorisé et un utilisateur étranger au service.
 
 `mkdir D:\donnees\Commerciaux`
@@ -852,13 +809,11 @@ Lors d’un accès réseau, le droit effectif est l’intersection des permissio
 Méthode graphique équivalente : Explorateur &gt; Ce PC &gt; Connecter un lecteur réseau &gt; U: &gt; chemin UNC &gt; Reconnexion à l’ouverture de session. 5.7 Imprimante HP LaserJet M9050 MFP
 
 54. Extraire ou installer le pilote HP fourni.
-
 55. Ouvrir printmanagement.msc, ajouter un port TCP/IP standard avec 172.16.168.189. Si la détection échoue, choisir
 
 Carte réseau générique et désactiver la requête SNMP.
 
 56. Ajouter l’imprimante avec le pilote HP, la nommer HP LaserJet M9050 MFP et la partager sous HP-M9050.
-
 57. Dans Sécurité : Tout le monde = Imprimer ; l_comptabilite = Imprimer + Gérer les documents ; l_informatique =
 
 Imprimer + Gérer cette imprimante + Gérer les documents.
@@ -870,15 +825,10 @@ Imprimer + Gérer cette imprimante + Gérer les documents.
 Ce droit permet de supprimer une impression bloquée sans permettre de modifier toute la configuration de l’imprimante. 5.8 Pool Xerox, horaires et priorités
 
 59. Installer le pilote Xerox C60/C70 fourni.
-
 60. Créer les ports TCP/IP 172.16.168.188 et 172.16.169.188.
-
 61. Créer une imprimante Xerox-Comptabilite, ouvrir Ports, activer le pool et sélectionner les deux ports.
-
 62. Sécurité : supprimer Tout le monde, autoriser l_comptabilite à imprimer et l_informatique en contrôle total.
-
 63. Avancé : définir Disponible de 19:00 à 03:00.
-
 64. Créer une deuxième file Xerox-Direction utilisant le même pilote et les mêmes ports ; priorité 99 contre priorité 1
 
 pour la file normale.
@@ -890,9 +840,7 @@ pour la file normale.
 Deux files logiques peuvent envoyer vers les mêmes ports physiques. Windows traite d’abord la file ayant la priorité la plus haute, ce qui donne la priorité aux directeurs. 5.9 Déplacement du spool vers D:
 
 66. Créer D:\Spool avec les droits SYSTEM et Administrateurs.
-
 67. Arrêter le service Spouleur d’impression.
-
 68. Dans les propriétés avancées du serveur d’impression, remplacer le dossier de spool par D:\Spool, ou exécuter
 
 05_deplacer_spool.ps1.
@@ -972,11 +920,8 @@ Le swap ne contient pas de données à conserver : il peut être désactivé, re
 6.4 Bureau à distance Windows avec NLA
 
 70. Panneau de configuration &gt; Système &gt; Paramètres d’utilisation à distance.
-
 71. Autoriser les connexions distantes et conserver l’authentification au niveau du réseau (NLA).
-
 72. Ajouter mmartin ou le groupe l_informatique aux Utilisateurs du Bureau à distance.
-
 73. Vérifier l’écoute sur le port 3389 puis demander au binôme de se connecter.
 
 `Add-LocalGroupMember -Group 'Utilisateurs du Bureau à distance' -Member 'mmartin'`
@@ -1012,11 +957,8 @@ Aucune boîte de dialogue ne doit apparaître, hors éventuelle demande UAC. La 
 #### remmina
 
 74. Créer un profil RDP vers 172.16.0.189.
-
 75. Renseigner le login Windows autorisé et son mot de passe.
-
 76. Conserver la négociation de sécurité automatique/NLA.
-
 77. Se connecter et capturer le Bureau Windows affiché dans Remmina.
 
 7.3 Installation de Webmin La méthode du corrigé installe un paquet .deb, laisse dpkg signaler les dépendances, puis les répare avec apt. Utiliser le paquet officiel téléchargé pour Debian.
@@ -1044,11 +986,8 @@ Accéder depuis le navigateur à https://172.16.0.188:10000/. Le certificat auto
 compte distant.
 
 79. Sur votre Debian, installer openssh-client, générer une clé SSH pour root et copier la clé publique avec ssh-copy-id.
-
 80. Adapter REMOTE_USER, REMOTE_HOST et REMOTE_DIR dans le script.
-
 81. Tester le script manuellement avant de le planifier.
-
 82. Ajouter une tâche cron quotidienne à 12 h 30.
 
 #### sudo apt install -y openssh-client
@@ -1086,11 +1025,8 @@ Les deux archives doivent exister localement et sur la machine distante.
 8.2 Image système Windows
 
 83. Ajouter le disque de 60 Go dans VMware, l’initialiser et le formater en NTFS avec une lettre libre, par exemple E:.
-
 84. Ouvrir Panneau de configuration &gt; Sauvegarder et restaurer (Windows 7) &gt; Créer une image système.
-
 85. Choisir le disque de 60 Go comme destination et inclure les volumes critiques proposés.
-
 86. Lancer la sauvegarde et vérifier la présence du dossier WindowsImageBackup.
 
 #### Alternative en ligne de commande
@@ -1102,13 +1038,9 @@ Les deux archives doivent exister localement et sur la machine distante.
 8.3 Sauvegarde du dossier Support_Info vers le W10 du binôme à 12 h 45
 
 87. Sur le W10 du binôme, créer dans son partage Support_Info$ un dossier Sauvegarde_W10_AB.
-
 88. Ouvrir Sauvegarder et restaurer &gt; Configurer la sauvegarde &gt; Enregistrer sur un réseau.
-
 89. Saisir \\172.16.0.187\Support_Info$\Sauvegarde_W10_AB et un compte autorisé.
-
 90. Choisir Me laisser choisir, sélectionner D:\Support_Info et décocher l’image système.
-
 91. Créer la planification quotidienne. Si l’interface ne propose pas 12 h 45, modifier la tâche AutomaticBackup dans le
 
 Planificateur de tâches.
@@ -1118,11 +1050,8 @@ Planificateur de tâches.
 Il évite de mélanger les sauvegardes de plusieurs postes et simplifie la restauration et la preuve de fonctionnement. 8.4 Points de restauration : 8 % sur C:
 
 92. Ouvrir Protection du système.
-
 93. Sélectionner C: &gt; Configurer &gt; Activer la protection du système.
-
 94. Placer l’utilisation maximale à 8 %.
-
 95. Créer un point nommé Avant_MSP_Final et vérifier qu’il apparaît.
 
 #### Enable-ComputerRestore -Drive 'C:\'
@@ -1136,11 +1065,8 @@ Checkpoint-Computer -Description 'Avant_MSP_Final' -RestorePointType 'MODIFY_SET
 9.1 Montage permanent de LOGS dans /var/log sans perte
 
 96. Créer un snapshot machine éteinte.
-
 97. Passer en mode secours pour réduire les écritures dans /var/log.
-
 98. Monter la partition LOGS dans un emplacement temporaire et copier les journaux en préservant les attributs.
-
 99. Ajouter LABEL=LOGS dans /etc/fstab puis monter la nouvelle partition sur /var/log.
 
 100.Redémarrer et vérifier que de nouvelles lignes sont écrites.

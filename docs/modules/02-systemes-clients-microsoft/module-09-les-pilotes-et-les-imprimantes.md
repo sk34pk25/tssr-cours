@@ -44,31 +44,20 @@ Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location
 #### Objectifs • Définir un pilote
 
 - Windows et les pilotes
-
 - Windows et les imprimantes
-
 - Utiliser, configurer une imprimante
-
 - Partager une ressource « imprimante »
 
 ### Pilotes
 
 - Prise en charge du matériel
-
 - Plug and Play : prise en charge « à chaud »
-
 - Non Plug and Play : nécessite un redémarrage (plus rare)
-
 - Plusieurs modes de prise en charge
-
 - Détection et installation automatique
-
 - Détection et installation manuelle
-
 - Affichage et paramétrage
-
 - Outil Gestionnaire de périphériques
-
 - Devmgmt.msc
 
 #### Gestionnaires de périphériques
@@ -88,67 +77,42 @@ Restaurer le pilote, informations détaillées,
 #### paramètres
 
 - Pour la gestion des composants matériel et logiciel
-
 - Spécifiques à chaque architecture : 32 bits ou 64 bits
-
 - Les pilotes signés sont privilégiés par Microsoft
-
 - Les certificats sont délivrés par Microsoft ou générés en suivant les procédures
 
 #### fournies par Microsoft
 
 - Ils permettent de garantir la stabilité des systèmes
-
 - Ils sont obligatoires pour les éditions 64 bits
-
 - Les principaux fichiers
-
 - *.inf : définition du pilote au format texte
-
 - *.sys : pilote lui-même
-
 - *.cat : certificat fourni par Microsoft ou un tiers de confiance
-
 - *.exe, *.dll, *.xml… : fichiers complémentaires selon les besoins
 
 #### Pilotes
 
 - La prise en charge se fait à partir du fichier INF
-
 - Directement depuis le fichier (clic droit Installer)
-
 - À partir d’un assistant d’installation (setup.exe) ou de mise à jour
-
 - Une fois installé, le pilote est mémorisé par le système
-
 - Permet sa réinstallation automatique
-
 - Fichiers INF dans C:\Windows\inf
-
 - Chaque pilote installé manuellement génère un fichier oemXX.inf
-
 - Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64
-
 - Le magasin de pilotes Windows
-
 - Pour une prise en charge immédiate du matériel (installation du système)
-
 - Emplacement : C:\Windows\System32\DriverStore
-
 - Gestion du magasin en ligne de commande avec pnputil
 
 #### En complément
 
 - msinfo32 pour le détail du matériel
-
 - driverquery : outil CMD pour lister les pilotes installés
-
 - driverquery /SI pour lister les pilotes signés
-
 - pnputil : gestion du magasin de pilotes (ajout, suppression, information)
-
 - pnputil /enum-drivers pour lister les pilotes tiers (oemXX.inf)
-
 - pnputil /add-driver pilote.inf pour ajouter un pilote au magasin
 
 #### Démonstration
@@ -159,9 +123,9 @@ Restaurer le pilote, informations détaillées,
 
 #### Périphérique
 
-d'impression Le matériel : moteur permettant de sortir la feuille imprimée Imprimante Le logiciel : envoie l'ordre d'impression au périphérique d'impression​
+d'impression Le matériel : moteur permettant de sortir la feuille imprimée Imprimante Le logiciel : envoie l'ordre d'impression au périphérique d'impression
 
-#### (pilote, configuration, file d'attente d'impression, port d'impression)​
+#### (pilote, configuration, file d'attente d'impression, port d'impression)
 
 #### File d'attente
 
@@ -171,26 +135,23 @@ d'impression Le matériel : moteur permettant de sortir la feuille imprimée Imp
 
 interprétable par le périphérique d'impression. Envoi du job vers le port
 
-#### d'impression​
+#### d'impression
 
-Imprimante locale Périphérique d'impression directement relié à l'ordinateur (via un port local)​ Imprimante partagée Imprimante locale partagée sur le réseau grâce à l'OS de l'ordinateur .
+Imprimante locale Périphérique d'impression directement relié à l'ordinateur (via un port local) Imprimante partagée Imprimante locale partagée sur le réseau grâce à l'OS de l'ordinateur .
 
-#### Disponible si et seulement si l'ordinateur est allumé.​
+#### Disponible si et seulement si l'ordinateur est allumé.
 
 Imprimante réseau Imprimante indépendante. Possède son propre OS, une interface réseau, un
 
-#### service web pour la configuration​
+#### service web pour la configuration
 
 #### Imprimantes
 
 #### Imprimante locale
 
 - Directement reconnue par le système
-
 - Utilisation d'un pilote générique du magasin de pilote
-
 - Possibilité d'installer le pilote signé du constructeur pour plus de fonctionnalités
-
 - Sécurité NTFS de l'imprimante
 
 #### (Propriétés de l'imprimante onglet Sécurité)
@@ -206,9 +167,7 @@ Imprimante réseau Imprimante indépendante. Possède son propre OS, une interfa
 #### options
 
 - Éditer les propriétés de l'imprimante
-
 - Informations générales
-
 - Options avancées (horaire de
 
 #### production, priorité…)
@@ -222,39 +181,26 @@ Imprimante réseau Imprimante indépendante. Possède son propre OS, une interfa
 #### configuration
 
 - Visualiser la file d'attente et autres options
-
 - Éditer les propriétés de l'imprimante
-
 - Informations générales
-
 - Options avancées (horaire de production, priorité…)
-
 - Partager l'imprimante locale sur le réseau
-
 - Disponible et utilisable via le réseau de l'entreprise
-
 - Accessible depuis le chemin UNC : \\serveur\imprimante
-
 - Disponible si l'ordinateur hôte est allumé
-
 - Les droits NTFS s'appliquent
 
 #### Imprimante réseau
 
 - Les imprimantes sont généralement raccordées au réseau de l’entreprise
-
 - Le service de rôle Serveur d’impression pour
-
 - Partager plusieurs imprimantes
-
 - Centraliser la gestion des imprimantes
-
 - Simplifier l'accès et la gestion des imprimantes
 
 #### Depuis le client
 
 - Accès au serveur d'impression depuis le chemin UNC
-
 - …puis connecter…
 
 #### Réseau
@@ -264,15 +210,12 @@ Imprimante réseau Imprimante indépendante. Possède son propre OS, une interfa
 #### Le spouleur d'impression
 
 - Programme qui gère la file d'attente
-
 - Envoie les travaux d'impression au périphérique d'impression
-
 - Peut être déplacé via une clé de la base de registre
 
 #### Créer un pool d'impression
 
 - Imprimante connectée à plusieurs périphériques d'impression
-
 - Distribuer automatiquement les travaux d'impression à la
 
 #### prochaine imprimante disponible
@@ -288,15 +231,10 @@ utilisateurs.
 ### Conclusion • Les périphériques ont besoin
 
 - D’une liaison à un ordinateur
-
 - Liaison locale
-
 - Liaison réseau
-
 - Les ordinateurs ont besoin
-
 - D’un « mode d’emploi » du périphérique
-
 - Les imprimantes sont des ressources à part
 
 #### entière
