@@ -122,6 +122,49 @@
   text-transform: uppercase;
 }
 
+.tssr-toc-toggle {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.65rem 0 0.35rem;
+  padding: 0.42rem 0.48rem;
+  border: 0;
+  border-radius: var(--tssr-radius-sm);
+  background: transparent;
+  color: var(--tssr-text-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.tssr-toc-toggle:hover {
+  background: var(--tssr-surface-muted);
+  color: var(--tssr-text);
+}
+
+.tssr-toc-toggle__icon {
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 auto;
+  border-right: 0.1rem solid currentColor;
+  border-bottom: 0.1rem solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--tssr-transition);
+}
+
+.tssr-toc-toggle[aria-expanded="true"] .tssr-toc-toggle__icon {
+  transform: rotate(45deg);
+}
+
+.tssr-toc-toggle + .md-nav--secondary > .md-nav__title {
+  display: none;
+}
+
 .md-nav--secondary .md-nav__link {
   padding-block: 0.25rem;
   font-size: 0.68rem;
