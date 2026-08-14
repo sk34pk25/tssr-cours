@@ -1,5 +1,6 @@
-site_name: TSSR · Portail de formation
-site_description: Apprendre, pratiquer et diagnostiquer avec les cours, TP, révisions et mémos de la formation TSSR.
+site_name: TSSR · PAK
+site_description: Apprendre, pratiquer et diagnostiquer avec les cours, TP,
+  révisions et mémos de la formation TSSR.
 site_author: Portail personnel de formation
 site_url: https://sk34pk25.github.io/tssr-cours/
 copyright: Formation TSSR · Documentation personnelle
@@ -61,13 +62,13 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: ""
+      emoji_generator: ""
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+          format: ""
   - toc:
       permalink: true
 plugins:
@@ -106,81 +107,86 @@ extra:
 nav:
   - Accueil: index.md
   - Cours:
-      - "Bases des réseaux":
+      - Bases des réseaux:
           - Présentation: modules/01-bases-reseaux/index.md
-          - "Module 01 — Le modèle OSI": modules/01-bases-reseaux/module-01-le-modele-osi.md
-          - "Module 02 — Les unités informatiques": modules/01-bases-reseaux/module-02-les-unites-informatiques.md
-          - "Module 03 — L’adressage IPv4": modules/01-bases-reseaux/module-03-l-adressage-ipv4.md
-          - "Module 04 — La communication dans un réseau": modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md
-          - "Module 05 — Les premières commandes réseau": modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md
-          - "Module 06 — L’adressage IPv6": modules/01-bases-reseaux/module-06-l-adressage-ipv6.md
-      - "Systèmes clients Microsoft":
+          - Module 01 — Le modèle OSI: modules/01-bases-reseaux/module-01-le-modele-osi.md
+          - Module 02 — Les unités informatiques: modules/01-bases-reseaux/module-02-les-unites-informatiques.md
+          - Module 03 — L’adressage IPv4: modules/01-bases-reseaux/module-03-l-adressage-ipv4.md
+          - Module 04 — La communication dans un réseau: modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md
+          - Module 05 — Les premières commandes réseau: modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md
+          - Module 06 — L’adressage IPv6: modules/01-bases-reseaux/module-06-l-adressage-ipv6.md
+      - Systèmes clients Microsoft:
           - Présentation: modules/02-systemes-clients-microsoft/index.md
-          - "Module 01 — Les systèmes d’exploitation et Microsoft Windows 10": modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md
-          - "Module 02 — Installation du système d’exploitation Windows 10": modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md
-          - "Module 03 — Interagir avec Windows 10": modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md
-          - "Module 04 — La gestion du stockage": modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md
-          - "Module 05 — Les utilisateurs et les groupes": modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md
-          - "Module 06 — La sécurité NTFS et les ACL": modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md
-          - "Module 07 — La gestion du réseau et du pare-feu": modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md
-          - "Module 08 — Le partage de ressources": modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md
-          - "Module 09 — Les pilotes et les imprimantes": modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes.md
-          - "Module 10 — La maintenance du système": modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme.md
-          - "Module 11 — Plus loin avec PowerShell": modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell.md
-          - "Module 12 — Introduction à la capture et au déploiement d’image": modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md
-          - "Module 13 — Les stratégies de groupe local": modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md
-          - "Module additionnel — Workstation": modules/02-systemes-clients-microsoft/module-additionnel-workstation.md
-      - "Microsoft 365 — Outils collaboratifs":
+          - Module 01 — Les systèmes d’exploitation et Microsoft Windows 10:
+              modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md
+          - Module 02 — Installation du système d’exploitation Windows 10:
+              modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md
+          - Module 03 — Interagir avec Windows 10: modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md
+          - Module 04 — La gestion du stockage: modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md
+          - Module 05 — Les utilisateurs et les groupes: modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md
+          - Module 06 — La sécurité NTFS et les ACL: modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md
+          - Module 07 — La gestion du réseau et du pare-feu: modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md
+          - Module 08 — Le partage de ressources: modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md
+          - Module 09 — Les pilotes et les imprimantes: modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes.md
+          - Module 10 — La maintenance du système: modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme.md
+          - Module 11 — Plus loin avec PowerShell: modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell.md
+          - Module 12 — Introduction à la capture et au déploiement d’image:
+              modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md
+          - Module 13 — Les stratégies de groupe local: modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md
+          - Module additionnel — Workstation: modules/02-systemes-clients-microsoft/module-additionnel-workstation.md
+      - Microsoft 365 — Outils collaboratifs:
           - Présentation: modules/03-microsoft-365-outils-collaboratifs/index.md
-          - "Module 01 — Découverte de Microsoft 365": modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365.md
-          - "Module 02 — Connaissances des notions de base Word": modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word.md
-          - "Module 03 — Connaissances des notions de base d’Excel": modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel.md
-          - "Module 04 — Exploiter Outlook et savoir le dépanner": modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner.md
-          - "Module 05 — Exploiter Teams, SharePoint et OneDrive": modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive.md
-      - "Utilisation d’une distribution GNU/Linux":
+          - Module 01 — Découverte de Microsoft 365: modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365.md
+          - Module 02 — Connaissances des notions de base Word: modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word.md
+          - Module 03 — Connaissances des notions de base d’Excel: modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel.md
+          - Module 04 — Exploiter Outlook et savoir le dépanner: modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner.md
+          - Module 05 — Exploiter Teams, SharePoint et OneDrive: modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive.md
+      - Utilisation d’une distribution GNU/Linux:
           - Présentation: modules/04-utilisation-gnu-linux/index.md
-          - "Module 03 — Premières commandes": modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md
-          - "Module 04 — Fichiers, dossiers et métacaractères": modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md
-          - "Module 05 — Lire des fichiers et gérer les liens": modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md
-          - "Module 06 — Recherches et expressions régulières": modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md
-          - "Module 07 — Utilisation de Vi": modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md
-          - "Module 08 — Mécanismes Linux et Bash avancé": modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md
-      - "Administration Debian GNU/Linux":
+          - Module 03 — Premières commandes: modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md
+          - Module 04 — Fichiers, dossiers et métacaractères: modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md
+          - Module 05 — Lire des fichiers et gérer les liens: modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md
+          - Module 06 — Recherches et expressions régulières: modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md
+          - Module 07 — Utilisation de Vi: modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md
+          - Module 08 — Mécanismes Linux et Bash avancé: modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md
+      - Administration Debian GNU/Linux:
           - Présentation: modules/05-administration-debian-gnu-linux/index.md
-          - "Module 01 — Présentation de Debian GNU/Linux": modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md
-          - "Module 02 — Installation d’une distribution Debian": modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md
-          - "Module 03 — Démarrage d’une distribution Debian": modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian.md
-          - "Module 04 — Debian en mode maintenance": modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md
-          - "Module 05 — Gestion du réseau": modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau.md
-          - "Module 06 — Gestion des paquets logiciels": modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels.md
-          - "Module 07 — Gestion des espaces de stockage": modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage.md
-          - "Module 08 — Gestion des espaces de stockage avancée — LVM": modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md
-          - "Module 09 — Gestion des espaces de stockage — File System": modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md
-          - "Module 10 — Gestion des utilisateurs et groupes": modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md
-          - "Module 11 — Droits sur les fichiers et répertoires": modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md
-          - "Module 12 — Maintenance d’un système en production": modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md
-      - "Sensibilisation ITIL et gestion de parc":
+          - Module 01 — Présentation de Debian GNU/Linux: modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md
+          - Module 02 — Installation d’une distribution Debian: modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md
+          - Module 03 — Démarrage d’une distribution Debian: modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian.md
+          - Module 04 — Debian en mode maintenance: modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md
+          - Module 05 — Gestion du réseau: modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau.md
+          - Module 06 — Gestion des paquets logiciels: modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels.md
+          - Module 07 — Gestion des espaces de stockage: modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage.md
+          - Module 08 — Gestion des espaces de stockage avancée — LVM: modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md
+          - Module 09 — Gestion des espaces de stockage — File System: modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md
+          - Module 10 — Gestion des utilisateurs et groupes: modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md
+          - Module 11 — Droits sur les fichiers et répertoires: modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md
+          - Module 12 — Maintenance d’un système en production: modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md
+      - Sensibilisation ITIL et gestion de parc:
           - Présentation: modules/06-sensibilisation-itil-gestion-parc/index.md
-          - "Module 01 — Présentation d’ITIL et historique": modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique.md
-          - "Module 02 — La gestion des services": modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md
-          - "Module 03 — Stratégie et conception des services": modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md
-          - "Module 04 — Transition des services": modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md
-          - "Module 05 — Découverte de GLPI": modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi.md
-          - "Module 06 — Exploitation des services": modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services.md
-          - "Module 07 — Amélioration continue des services": modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services.md
-          - "Module 08 — Savoir, savoir-faire, savoir-être": modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md
-          - "Module 09 — Assistance avec GLPI": modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md
-      - "Administration GLPI":
+          - Module 01 — Présentation d’ITIL et historique: modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique.md
+          - Module 02 — La gestion des services: modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md
+          - Module 03 — Stratégie et conception des services: modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md
+          - Module 04 — Transition des services: modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md
+          - Module 05 — Découverte de GLPI: modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi.md
+          - Module 06 — Exploitation des services: modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services.md
+          - Module 07 — Amélioration continue des services: modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services.md
+          - Module 08 — Savoir, savoir-faire, savoir-être: modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md
+          - Module 09 — Assistance avec GLPI: modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md
+      - Administration GLPI:
           - Présentation: modules/07-administration-glpi/index.md
-          - "Module 01 — Présentation de l’environnement — Installation de GLPI": modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md
-          - "Module 02 — Authentification AD — Habilitations": modules/07-administration-glpi/module-02-authentification-ad-habilitations.md
-          - "Module 03 — Gestion de parc — Inventaire informatique": modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md
-          - "Module 04 — Assistance — Traitements automatisés des tickets": modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md
-          - "Module 05 — Les bases de MySQL et MariaDB": modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md
-          - "Module 06 — Plug-ins et inventaire": modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md
-      - "Mise en situation professionnelle — Systèmes clients":
+          - Module 01 — Présentation de l’environnement — Installation de GLPI:
+              modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md
+          - Module 02 — Authentification AD — Habilitations: modules/07-administration-glpi/module-02-authentification-ad-habilitations.md
+          - Module 03 — Gestion de parc — Inventaire informatique: modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md
+          - Module 04 — Assistance — Traitements automatisés des tickets:
+              modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md
+          - Module 05 — Les bases de MySQL et MariaDB: modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md
+          - Module 06 — Plug-ins et inventaire: modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md
+      - Mise en situation professionnelle — Systèmes clients:
           - Présentation: modules/08-msp-systemes-clients/index.md
-          - "Module 01 — MSP Systèmes clients": modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md
+          - Module 01 — MSP Systèmes clients: modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
@@ -191,135 +197,135 @@ nav:
       - Configurer FortiClient VPN: tutoriels/forticlient-vpn.md
   - Travaux pratiques:
       - Présentation: tp/index.md
-      - "Bases des réseaux":
+      - Bases des réseaux:
           - Présentation: tp/reseaux/index.md
-          - "Module 01 — Le modèle OSI":
+          - Module 01 — Le modèle OSI:
               - Présentation: tp/reseaux/module-01/index.md
-          - "Module 03 — L’adressage IPv4":
+          - Module 03 — L’adressage IPv4:
               - Présentation: tp/reseaux/module-03/index.md
               - Énoncés: tp/reseaux/module-03/enonces.md
               - Corrections: tp/reseaux/module-03/corrections.md
-          - "Module 04 — La communication dans un réseau":
+          - Module 04 — La communication dans un réseau:
               - Présentation: tp/reseaux/module-04/index.md
               - Énoncés: tp/reseaux/module-04/enonces.md
               - Corrections: tp/reseaux/module-04/corrections.md
-          - "Module 05 — Les premières commandes réseau":
+          - Module 05 — Les premières commandes réseau:
               - Présentation: tp/reseaux/module-05/index.md
-      - "Systèmes clients Microsoft":
+      - Systèmes clients Microsoft:
           - Présentation: tp/systemes-clients/index.md
-          - "Module 02 — Installation du système d’exploitation Windows 10":
+          - Module 02 — Installation du système d’exploitation Windows 10:
               - Présentation: tp/systemes-clients/module-02/index.md
               - Énoncés: tp/systemes-clients/module-02/enonces.md
               - Corrections: tp/systemes-clients/module-02/corrections.md
-          - "Module 03 — Interagir avec Windows 10":
+          - Module 03 — Interagir avec Windows 10:
               - Présentation: tp/systemes-clients/module-03/index.md
               - Énoncés: tp/systemes-clients/module-03/enonces.md
               - Corrections: tp/systemes-clients/module-03/corrections.md
-          - "Module 04 — La gestion du stockage":
+          - Module 04 — La gestion du stockage:
               - Présentation: tp/systemes-clients/module-04/index.md
               - Énoncés: tp/systemes-clients/module-04/enonces.md
               - Corrections: tp/systemes-clients/module-04/corrections.md
-          - "Module 05 — Les utilisateurs et les groupes":
+          - Module 05 — Les utilisateurs et les groupes:
               - Présentation: tp/systemes-clients/module-05/index.md
               - Énoncés: tp/systemes-clients/module-05/enonces.md
               - Corrections: tp/systemes-clients/module-05/corrections.md
-          - "Module 06 — La sécurité NTFS et les ACL":
+          - Module 06 — La sécurité NTFS et les ACL:
               - Présentation: tp/systemes-clients/module-06/index.md
               - Énoncés: tp/systemes-clients/module-06/enonces.md
               - Corrections: tp/systemes-clients/module-06/corrections.md
-          - "Module 07 — La gestion du réseau et du pare-feu":
+          - Module 07 — La gestion du réseau et du pare-feu:
               - Présentation: tp/systemes-clients/module-07/index.md
               - Énoncés: tp/systemes-clients/module-07/enonces.md
               - Corrections: tp/systemes-clients/module-07/corrections.md
-          - "Module 08 — Le partage de ressources":
+          - Module 08 — Le partage de ressources:
               - Présentation: tp/systemes-clients/module-08/index.md
               - Énoncés: tp/systemes-clients/module-08/enonces.md
               - Corrections: tp/systemes-clients/module-08/corrections.md
-          - "Module 09 — Les pilotes et les imprimantes":
+          - Module 09 — Les pilotes et les imprimantes:
               - Présentation: tp/systemes-clients/module-09/index.md
               - Énoncés: tp/systemes-clients/module-09/enonces.md
               - Corrections: tp/systemes-clients/module-09/corrections.md
-          - "Module 10 — La maintenance du système":
+          - Module 10 — La maintenance du système:
               - Présentation: tp/systemes-clients/module-10/index.md
               - Énoncés: tp/systemes-clients/module-10/enonces.md
               - Corrections: tp/systemes-clients/module-10/corrections.md
-          - "Module 11 — Plus loin avec PowerShell":
+          - Module 11 — Plus loin avec PowerShell:
               - Présentation: tp/systemes-clients/module-11/index.md
               - Énoncés: tp/systemes-clients/module-11/enonces.md
               - Corrections: tp/systemes-clients/module-11/corrections.md
-          - "Module 12 — Introduction à la capture et au déploiement d’image":
+          - Module 12 — Introduction à la capture et au déploiement d’image:
               - Présentation: tp/systemes-clients/module-12/index.md
               - Énoncés: tp/systemes-clients/module-12/enonces.md
               - Corrections: tp/systemes-clients/module-12/corrections.md
-          - "Module 13 — Les stratégies de groupe local":
+          - Module 13 — Les stratégies de groupe local:
               - Présentation: tp/systemes-clients/module-13/index.md
               - Énoncés: tp/systemes-clients/module-13/enonces.md
               - Corrections: tp/systemes-clients/module-13/corrections.md
-      - "Microsoft 365 — Outils collaboratifs":
+      - Microsoft 365 — Outils collaboratifs:
           - Présentation: tp/microsoft-365/index.md
-          - "Module 02 — Connaissances des notions de base Word":
+          - Module 02 — Connaissances des notions de base Word:
               - Présentation: tp/microsoft-365/module-02/index.md
               - Énoncés: tp/microsoft-365/module-02/enonces.md
               - Corrections: tp/microsoft-365/module-02/corrections.md
-          - "Module 03 — Connaissances des notions de base d’Excel":
+          - Module 03 — Connaissances des notions de base d’Excel:
               - Présentation: tp/microsoft-365/module-03/index.md
               - Énoncés: tp/microsoft-365/module-03/enonces.md
               - Corrections: tp/microsoft-365/module-03/corrections.md
-          - "Module 04 — Exploiter Outlook et savoir le dépanner":
+          - Module 04 — Exploiter Outlook et savoir le dépanner:
               - Présentation: tp/microsoft-365/module-04/index.md
               - Énoncés: tp/microsoft-365/module-04/enonces.md
               - Corrections: tp/microsoft-365/module-04/corrections.md
-          - "Module 05 — Exploiter Teams, SharePoint et OneDrive":
+          - Module 05 — Exploiter Teams, SharePoint et OneDrive:
               - Présentation: tp/microsoft-365/module-05/index.md
               - Énoncés: tp/microsoft-365/module-05/enonces.md
               - Corrections: tp/microsoft-365/module-05/corrections.md
-      - "Utilisation d’une distribution GNU/Linux":
+      - Utilisation d’une distribution GNU/Linux:
           - Présentation: tp/utilisation-linux/index.md
-      - "Administration Debian GNU/Linux":
+      - Administration Debian GNU/Linux:
           - Présentation: tp/administration-linux/index.md
-      - "Sensibilisation ITIL et gestion de parc":
+      - Sensibilisation ITIL et gestion de parc:
           - Présentation: tp/itil/index.md
-          - "Module 03 — Stratégie et conception des services":
+          - Module 03 — Stratégie et conception des services:
               - Présentation: tp/itil/module-03/index.md
               - Énoncés: tp/itil/module-03/enonces.md
               - Corrections: tp/itil/module-03/corrections.md
-          - "Module 04 — Transition des services":
+          - Module 04 — Transition des services:
               - Présentation: tp/itil/module-04/index.md
               - Énoncés: tp/itil/module-04/enonces.md
               - Corrections: tp/itil/module-04/corrections.md
-          - "Module 09 — Assistance avec GLPI":
+          - Module 09 — Assistance avec GLPI:
               - Présentation: tp/itil/module-09/index.md
               - Énoncés: tp/itil/module-09/enonces.md
               - Corrections: tp/itil/module-09/corrections.md
-      - "Administration GLPI":
+      - Administration GLPI:
           - Présentation: tp/glpi/index.md
-          - "Module 01 — Présentation de l’environnement — Installation de GLPI":
+          - Module 01 — Présentation de l’environnement — Installation de GLPI:
               - Présentation: tp/glpi/module-01/index.md
               - Énoncés: tp/glpi/module-01/enonces.md
               - Corrections: tp/glpi/module-01/corrections.md
-          - "Module 02 — Authentification AD — Habilitations":
+          - Module 02 — Authentification AD — Habilitations:
               - Présentation: tp/glpi/module-02/index.md
               - Énoncés: tp/glpi/module-02/enonces.md
               - Corrections: tp/glpi/module-02/corrections.md
-          - "Module 03 — Gestion de parc — Inventaire informatique":
+          - Module 03 — Gestion de parc — Inventaire informatique:
               - Présentation: tp/glpi/module-03/index.md
               - Énoncés: tp/glpi/module-03/enonces.md
               - Corrections: tp/glpi/module-03/corrections.md
-          - "Module 04 — Assistance — Traitements automatisés des tickets":
+          - Module 04 — Assistance — Traitements automatisés des tickets:
               - Présentation: tp/glpi/module-04/index.md
               - Énoncés: tp/glpi/module-04/enonces.md
               - Corrections: tp/glpi/module-04/corrections.md
-          - "Module 05 — Les bases de MySQL et MariaDB":
+          - Module 05 — Les bases de MySQL et MariaDB:
               - Présentation: tp/glpi/module-05/index.md
               - Énoncés: tp/glpi/module-05/enonces.md
               - Corrections: tp/glpi/module-05/corrections.md
-          - "Module 06 — Plug-ins et inventaire":
+          - Module 06 — Plug-ins et inventaire:
               - Présentation: tp/glpi/module-06/index.md
               - Énoncés: tp/glpi/module-06/enonces.md
               - Corrections: tp/glpi/module-06/corrections.md
-      - "Mise en situation professionnelle — Systèmes clients":
+      - Mise en situation professionnelle — Systèmes clients:
           - Présentation: tp/msp/index.md
-          - "Module 01 — MSP Systèmes clients":
+          - Module 01 — MSP Systèmes clients:
               - Présentation: tp/msp/module-01/index.md
               - Énoncés: tp/msp/module-01/enonces.md
               - Corrections: tp/msp/module-01/corrections.md
@@ -330,86 +336,89 @@ nav:
       - Cas pratiques transversaux: exercices/cas-pratiques.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
-      # Ajouter ici chaque lien de partage officiel, par exemple :
-      # - "Thème — Nom du quiz": KAHOOT_URL_OFFICIELLE
   - Modifications: collaboration/index.md
   - Révisions:
       - Présentation: revision/index.md
-      - "Bases des réseaux":
+      - Bases des réseaux:
           - Présentation: revision/reseaux/index.md
-          - "Module 01 — Le modèle OSI": revision/reseaux/module-01-le-modele-osi.md
-          - "Module 02 — Les unités informatiques": revision/reseaux/module-02-les-unites-informatiques.md
-          - "Module 03 — L’adressage IPv4": revision/reseaux/module-03-l-adressage-ipv4.md
-          - "Module 04 — La communication dans un réseau": revision/reseaux/module-04-la-communication-dans-un-reseau.md
-          - "Module 05 — Les premières commandes réseau": revision/reseaux/module-05-les-premieres-commandes-reseau.md
-          - "Module 06 — L’adressage IPv6": revision/reseaux/module-06-l-adressage-ipv6.md
-      - "Systèmes clients Microsoft":
+          - Module 01 — Le modèle OSI: revision/reseaux/module-01-le-modele-osi.md
+          - Module 02 — Les unités informatiques: revision/reseaux/module-02-les-unites-informatiques.md
+          - Module 03 — L’adressage IPv4: revision/reseaux/module-03-l-adressage-ipv4.md
+          - Module 04 — La communication dans un réseau: revision/reseaux/module-04-la-communication-dans-un-reseau.md
+          - Module 05 — Les premières commandes réseau: revision/reseaux/module-05-les-premieres-commandes-reseau.md
+          - Module 06 — L’adressage IPv6: revision/reseaux/module-06-l-adressage-ipv6.md
+      - Systèmes clients Microsoft:
           - Présentation: revision/systemes-clients/index.md
-          - "Module 01 — Les systèmes d’exploitation et Microsoft Windows 10": revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md
-          - "Module 02 — Installation du système d’exploitation Windows 10": revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10.md
-          - "Module 03 — Interagir avec Windows 10": revision/systemes-clients/module-03-interagir-avec-windows-10.md
-          - "Module 04 — La gestion du stockage": revision/systemes-clients/module-04-la-gestion-du-stockage.md
-          - "Module 05 — Les utilisateurs et les groupes": revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes.md
-          - "Module 06 — La sécurité NTFS et les ACL": revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md
-          - "Module 07 — La gestion du réseau et du pare-feu": revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu.md
-          - "Module 08 — Le partage de ressources": revision/systemes-clients/module-08-le-partage-de-ressources.md
-          - "Module 09 — Les pilotes et les imprimantes": revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md
-          - "Module 10 — La maintenance du système": revision/systemes-clients/module-10-la-maintenance-du-systeme.md
-          - "Module 11 — Plus loin avec PowerShell": revision/systemes-clients/module-11-plus-loin-avec-powershell.md
-          - "Module 12 — Introduction à la capture et au déploiement d’image": revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md
-          - "Module 13 — Les stratégies de groupe local": revision/systemes-clients/module-13-les-strategies-de-groupe-local.md
-          - "Module additionnel — Workstation": revision/systemes-clients/module-additionnel-workstation.md
-      - "Microsoft 365 — Outils collaboratifs":
+          - Module 01 — Les systèmes d’exploitation et Microsoft Windows 10:
+              revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md
+          - Module 02 — Installation du système d’exploitation Windows 10:
+              revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10.md
+          - Module 03 — Interagir avec Windows 10: revision/systemes-clients/module-03-interagir-avec-windows-10.md
+          - Module 04 — La gestion du stockage: revision/systemes-clients/module-04-la-gestion-du-stockage.md
+          - Module 05 — Les utilisateurs et les groupes: revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes.md
+          - Module 06 — La sécurité NTFS et les ACL: revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md
+          - Module 07 — La gestion du réseau et du pare-feu: revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu.md
+          - Module 08 — Le partage de ressources: revision/systemes-clients/module-08-le-partage-de-ressources.md
+          - Module 09 — Les pilotes et les imprimantes: revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md
+          - Module 10 — La maintenance du système: revision/systemes-clients/module-10-la-maintenance-du-systeme.md
+          - Module 11 — Plus loin avec PowerShell: revision/systemes-clients/module-11-plus-loin-avec-powershell.md
+          - Module 12 — Introduction à la capture et au déploiement d’image:
+              revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md
+          - Module 13 — Les stratégies de groupe local: revision/systemes-clients/module-13-les-strategies-de-groupe-local.md
+          - Module additionnel — Workstation: revision/systemes-clients/module-additionnel-workstation.md
+      - Microsoft 365 — Outils collaboratifs:
           - Présentation: revision/microsoft-365/index.md
-          - "Module 01 — Découverte de Microsoft 365": revision/microsoft-365/module-01-decouverte-de-microsoft-365.md
-          - "Module 02 — Connaissances des notions de base Word": revision/microsoft-365/module-02-connaissances-des-notions-de-base-word.md
-          - "Module 03 — Connaissances des notions de base d’Excel": revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel.md
-          - "Module 04 — Exploiter Outlook et savoir le dépanner": revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner.md
-          - "Module 05 — Exploiter Teams, SharePoint et OneDrive": revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive.md
-      - "Utilisation d’une distribution GNU/Linux":
+          - Module 01 — Découverte de Microsoft 365: revision/microsoft-365/module-01-decouverte-de-microsoft-365.md
+          - Module 02 — Connaissances des notions de base Word: revision/microsoft-365/module-02-connaissances-des-notions-de-base-word.md
+          - Module 03 — Connaissances des notions de base d’Excel: revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel.md
+          - Module 04 — Exploiter Outlook et savoir le dépanner: revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner.md
+          - Module 05 — Exploiter Teams, SharePoint et OneDrive: revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive.md
+      - Utilisation d’une distribution GNU/Linux:
           - Présentation: revision/utilisation-linux/index.md
-          - "Module 03 — Premières commandes": revision/utilisation-linux/module-03-premieres-commandes.md
-          - "Module 04 — Fichiers, dossiers et métacaractères": revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md
-          - "Module 05 — Lire des fichiers et gérer les liens": revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md
-          - "Module 06 — Recherches et expressions régulières": revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md
-          - "Module 07 — Utilisation de Vi": revision/utilisation-linux/module-07-utilisation-de-vi.md
-          - "Module 08 — Mécanismes Linux et Bash avancé": revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md
-      - "Administration Debian GNU/Linux":
+          - Module 03 — Premières commandes: revision/utilisation-linux/module-03-premieres-commandes.md
+          - Module 04 — Fichiers, dossiers et métacaractères: revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md
+          - Module 05 — Lire des fichiers et gérer les liens: revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md
+          - Module 06 — Recherches et expressions régulières: revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md
+          - Module 07 — Utilisation de Vi: revision/utilisation-linux/module-07-utilisation-de-vi.md
+          - Module 08 — Mécanismes Linux et Bash avancé: revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md
+      - Administration Debian GNU/Linux:
           - Présentation: revision/administration-linux/index.md
-          - "Module 01 — Présentation de Debian GNU/Linux": revision/administration-linux/module-01-presentation-de-debian-gnu-linux.md
-          - "Module 02 — Installation d’une distribution Debian": revision/administration-linux/module-02-installation-d-une-distribution-debian.md
-          - "Module 03 — Démarrage d’une distribution Debian": revision/administration-linux/module-03-demarrage-d-une-distribution-debian.md
-          - "Module 04 — Debian en mode maintenance": revision/administration-linux/module-04-debian-en-mode-maintenance.md
-          - "Module 05 — Gestion du réseau": revision/administration-linux/module-05-gestion-du-reseau.md
-          - "Module 06 — Gestion des paquets logiciels": revision/administration-linux/module-06-gestion-des-paquets-logiciels.md
-          - "Module 07 — Gestion des espaces de stockage": revision/administration-linux/module-07-gestion-des-espaces-de-stockage.md
-          - "Module 08 — Gestion des espaces de stockage avancée — LVM": revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md
-          - "Module 09 — Gestion des espaces de stockage — File System": revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system.md
-          - "Module 10 — Gestion des utilisateurs et groupes": revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes.md
-          - "Module 11 — Droits sur les fichiers et répertoires": revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires.md
-          - "Module 12 — Maintenance d’un système en production": revision/administration-linux/module-12-maintenance-d-un-systeme-en-production.md
-      - "Sensibilisation ITIL et gestion de parc":
+          - Module 01 — Présentation de Debian GNU/Linux: revision/administration-linux/module-01-presentation-de-debian-gnu-linux.md
+          - Module 02 — Installation d’une distribution Debian: revision/administration-linux/module-02-installation-d-une-distribution-debian.md
+          - Module 03 — Démarrage d’une distribution Debian: revision/administration-linux/module-03-demarrage-d-une-distribution-debian.md
+          - Module 04 — Debian en mode maintenance: revision/administration-linux/module-04-debian-en-mode-maintenance.md
+          - Module 05 — Gestion du réseau: revision/administration-linux/module-05-gestion-du-reseau.md
+          - Module 06 — Gestion des paquets logiciels: revision/administration-linux/module-06-gestion-des-paquets-logiciels.md
+          - Module 07 — Gestion des espaces de stockage: revision/administration-linux/module-07-gestion-des-espaces-de-stockage.md
+          - Module 08 — Gestion des espaces de stockage avancée — LVM: revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md
+          - Module 09 — Gestion des espaces de stockage — File System: revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system.md
+          - Module 10 — Gestion des utilisateurs et groupes: revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes.md
+          - Module 11 — Droits sur les fichiers et répertoires: revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires.md
+          - Module 12 — Maintenance d’un système en production: revision/administration-linux/module-12-maintenance-d-un-systeme-en-production.md
+      - Sensibilisation ITIL et gestion de parc:
           - Présentation: revision/itil/index.md
-          - "Module 01 — Présentation d’ITIL et historique": revision/itil/module-01-presentation-d-itil-et-historique.md
-          - "Module 02 — La gestion des services": revision/itil/module-02-la-gestion-des-services.md
-          - "Module 03 — Stratégie et conception des services": revision/itil/module-03-strategie-et-conception-des-services.md
-          - "Module 04 — Transition des services": revision/itil/module-04-transition-des-services.md
-          - "Module 05 — Découverte de GLPI": revision/itil/module-05-decouverte-de-glpi.md
-          - "Module 06 — Exploitation des services": revision/itil/module-06-exploitation-des-services.md
-          - "Module 07 — Amélioration continue des services": revision/itil/module-07-amelioration-continue-des-services.md
-          - "Module 08 — Savoir, savoir-faire, savoir-être": revision/itil/module-08-savoir-savoir-faire-savoir-etre.md
-          - "Module 09 — Assistance avec GLPI": revision/itil/module-09-assistance-avec-glpi.md
-      - "Administration GLPI":
+          - Module 01 — Présentation d’ITIL et historique: revision/itil/module-01-presentation-d-itil-et-historique.md
+          - Module 02 — La gestion des services: revision/itil/module-02-la-gestion-des-services.md
+          - Module 03 — Stratégie et conception des services: revision/itil/module-03-strategie-et-conception-des-services.md
+          - Module 04 — Transition des services: revision/itil/module-04-transition-des-services.md
+          - Module 05 — Découverte de GLPI: revision/itil/module-05-decouverte-de-glpi.md
+          - Module 06 — Exploitation des services: revision/itil/module-06-exploitation-des-services.md
+          - Module 07 — Amélioration continue des services: revision/itil/module-07-amelioration-continue-des-services.md
+          - Module 08 — Savoir, savoir-faire, savoir-être: revision/itil/module-08-savoir-savoir-faire-savoir-etre.md
+          - Module 09 — Assistance avec GLPI: revision/itil/module-09-assistance-avec-glpi.md
+      - Administration GLPI:
           - Présentation: revision/glpi/index.md
-          - "Module 01 — Présentation de l’environnement — Installation de GLPI": revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md
-          - "Module 02 — Authentification AD — Habilitations": revision/glpi/module-02-authentification-ad-habilitations.md
-          - "Module 03 — Gestion de parc — Inventaire informatique": revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md
-          - "Module 04 — Assistance — Traitements automatisés des tickets": revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md
-          - "Module 05 — Les bases de MySQL et MariaDB": revision/glpi/module-05-les-bases-de-mysql-et-mariadb.md
-          - "Module 06 — Plug-ins et inventaire": revision/glpi/module-06-plug-ins-et-inventaire.md
-      - "Mise en situation professionnelle — Systèmes clients":
+          - Module 01 — Présentation de l’environnement — Installation de GLPI:
+              revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md
+          - Module 02 — Authentification AD — Habilitations: revision/glpi/module-02-authentification-ad-habilitations.md
+          - Module 03 — Gestion de parc — Inventaire informatique: revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md
+          - Module 04 — Assistance — Traitements automatisés des tickets:
+              revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md
+          - Module 05 — Les bases de MySQL et MariaDB: revision/glpi/module-05-les-bases-de-mysql-et-mariadb.md
+          - Module 06 — Plug-ins et inventaire: revision/glpi/module-06-plug-ins-et-inventaire.md
+      - Mise en situation professionnelle — Systèmes clients:
           - Présentation: revision/msp/index.md
-          - "Module 01 — MSP Systèmes clients": revision/msp/module-01-msp-systemes-clients.md
+          - Module 01 — MSP Systèmes clients: revision/msp/module-01-msp-systemes-clients.md
   - Mémos:
       - Présentation: memo/index.md
       - Ports essentiels: memo/ports-essentiels.md
