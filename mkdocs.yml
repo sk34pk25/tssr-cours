@@ -1,7 +1,7 @@
 site_name: TSSR · Portail de formation
 site_description: Apprendre, pratiquer et diagnostiquer avec les cours, TP, révisions et mémos de la formation TSSR.
 site_author: Portail personnel de formation
-site_url: http://localhost:8000/
+site_url: https://sk34pk25.github.io/tssr-cours/
 copyright: Formation TSSR · Documentation personnelle
 use_directory_urls: true
 strict: true
