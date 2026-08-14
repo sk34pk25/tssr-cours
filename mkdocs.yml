@@ -62,13 +62,13 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
-      emoji_index: ""
-      emoji_generator: ""
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: ""
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - toc:
       permalink: true
 plugins:
@@ -83,12 +83,16 @@ plugins:
       draggable: true
       auto_themed: true
       auto_caption: false
+hooks:
+  - scripts/mkdocs_hooks.py
 extra_css:
   - assets/stylesheets/tokens.css
   - assets/stylesheets/base.css
   - assets/stylesheets/navigation.css
   - assets/stylesheets/components.css
+  - assets/stylesheets/glossaire.css
   - assets/stylesheets/collaboration.css
+  - assets/stylesheets/course-creator.css
   - assets/stylesheets/chronology.css
   - assets/stylesheets/visuals.css
   - assets/stylesheets/homepage.css
@@ -100,8 +104,11 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/marked@18.0.9/lib/marked.umd.min.js
   - https://cdn.jsdelivr.net/npm/dompurify@3.4.13/dist/purify.min.js
   - assets/javascripts/extra.js
+  - assets/javascripts/glossaire.js
   - assets/javascripts/collaboration-utils.js
+  - assets/javascripts/course-creator-utils.js
   - assets/javascripts/collaboration.js
+  - assets/javascripts/course-creator.js
 extra:
   generator: false
 nav:

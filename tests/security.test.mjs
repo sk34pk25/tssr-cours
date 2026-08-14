@@ -28,12 +28,52 @@ test("server secrets occur only in server code, workflows or documentation", () 
     "docs/assets/javascripts/collaboration.js",
     "docs/assets/javascripts/collaboration-utils.js",
     "docs/assets/javascripts/collaboration-config.js",
+    "docs/assets/javascripts/course-creator.js",
+    "docs/assets/javascripts/course-creator-utils.js",
     "overrides/main.html"
   ];
   for (const file of publicFiles) {
     const content = read(file);
     assert.doesNotMatch(content, /SUPABASE_(SERVICE_ROLE|SECRET)_KEY|GITHUB_TOKEN|github_pat_|ghp_/i, file);
   }
+});
+
+test("structured course creation uses the authenticated change endpoint and never accepts an author field", () => {
+  const frontend = read("docs/assets/javascripts/course-creator.js");
+  const endpoint = read("supabase/functions/change-requests/index.ts");
+  assert.match(frontend, /action:\s*"create-course"/);
+  assert.match(endpoint, /body\.action === "create-course"[\s\S]+requireProfile\(req, \{ canEdit: true \}\)/);
+  assert.doesNotMatch(frontend, /\bauthor(?:_id|_display_name)?\s*:/i);
+  assert.match(endpoint, /buildCourseProposal\(body\.course, snapshot\)/);
+});
+
+test("course attachments are allowlisted, signature checked and staged outside the public repository", () => {
+  const validation = read("supabase/functions/_shared/validation.ts");
+  const migration = read("supabase/migrations/20260815120000_course_creation.sql");
+  assert.match(validation, /SAFE_RESOURCE/);
+  assert.match(validation, /0x25, 0x50, 0x44, 0x46, 0x2d/);
+  assert.match(validation, /totalBinarySize > 12_000_000/);
+  assert.match(validation, /html\?|svg\|js\|mjs\|exe/);
+  assert.match(migration, /cleanup_staged_binary_files/);
+  assert.match(migration, /status in \('rejected', 'cancelled', 'published'\)/);
+});
+
+test("course proposals share consensus, rate limiting, audit and publication tables", () => {
+  const migration = read("supabase/migrations/20260815120000_course_creation.sql");
+  assert.match(migration, /proposal_kind in \('content_change', 'navigation_change', 'create_course'\)/);
+  assert.match(migration, /created_at > now\(\) - interval '10 minutes'/);
+  assert.match(migration, /course_creation_submitted/);
+  assert.match(migration, /insert into public\.change_approvals/);
+  assert.doesNotMatch(migration, /create table public\.course_/i);
+});
+
+test("the Add action is derived from the active editable profile and the page has a login fallback", () => {
+  const frontend = read("docs/assets/javascripts/course-creator.js");
+  const page = read("docs/ajouter/index.md");
+  assert.match(frontend, /if \(!current\?\.can_edit\) return/);
+  assert.match(frontend, /tssr:auth-changed/);
+  assert.match(frontend, /Connexion requise/);
+  assert.match(page, /id="tssr-course-creator"/);
 });
 
 test("RLS is enabled on every collaboration table and anon receives no data grant", () => {

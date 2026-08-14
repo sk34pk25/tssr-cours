@@ -282,7 +282,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
 
     const { data: rawFiles, error: filesError } = await adminClient
       .from("change_request_files")
-      .select("file_path, new_file_path, base_file_sha, old_content, new_content, content_encoding, change_type")
+      .select("file_path, new_file_path, base_file_sha, old_content, new_content, content_encoding, media_type, change_type")
       .eq("change_request_id", changeId);
     if (filesError) throw new Error(filesError.message);
     const files = validateProposedFiles((rawFiles || []) as ProposedFile[]);

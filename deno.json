@@ -1,7 +1,7 @@
 {
   "nodeModulesDir": "auto",
   "tasks": {
-    "test:edge": "deno test --allow-env supabase/functions/_shared/validation_test.ts",
+    "test:edge": "deno test --allow-env supabase/functions/_shared/*_test.ts",
     "check:edge": "deno check supabase/functions/admin-users/index.ts supabase/functions/change-requests/index.ts supabase/functions/publication-status/index.ts"
   }
 }

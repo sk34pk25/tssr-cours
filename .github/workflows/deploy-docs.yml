@@ -77,6 +77,12 @@ jobs:
           GITHUB_BRANCH: main
         run: python scripts/render_collaboration_config.py
 
+      - name: Generate and validate glossary
+        run: python scripts/build_glossary.py
+
+      - name: Validate course relations
+        run: python scripts/validate_course_structure.py
+
       - name: Validate and build MkDocs
         id: build
         continue-on-error: true

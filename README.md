@@ -29,6 +29,12 @@ Ouvrir ensuite `http://127.0.0.1:8000/`.
 
 Le site statique est généré dans `site/`.
 
+## Contributions et création de cours
+
+Les utilisateurs authentifiés et autorisés disposent d’un bouton **Ajouter** dans la navigation gauche. La page `/ajouter/` prépare un cours complet (modules, pages, exercices, TP, quiz/Kahoots, glossaire et fichiers), puis le soumet au même consensus que les modifications de pages. La publication GitHub reste atomique et n’intervient qu’après validation.
+
+L’architecture, les limites, la sécurité, le stockage temporaire et les commandes de déploiement sont décrits dans [`COURSE_CREATION.md`](COURSE_CREATION.md).
+
 ## Expérience proposée
 
 - accueil éditorial avec accès rapides, métriques et aperçu du parcours officiel en neuf étapes datées ;

@@ -14,6 +14,11 @@ import {
   validateMkDocsEdit,
   validateProposedFiles,
 } from "../_shared/validation.ts";
+import {
+  buildCourseProposal,
+  COURSE_LIMITS,
+  type CourseRepositorySnapshot,
+} from "../_shared/course.ts";
 
 interface ChangeRequestBody {
   action: string;
@@ -29,6 +34,9 @@ interface ChangeRequestBody {
   site_name?: string;
   site_description?: string;
   nav?: unknown;
+  proposal_kind?: "content_change" | "navigation_change" | "create_course";
+  payload_summary?: Record<string, unknown>;
+  course?: unknown;
 }
 
 function rpcRow<T>(data: T | T[] | null): T | null {
@@ -86,6 +94,8 @@ async function submit(
   context: Awaited<ReturnType<typeof requireProfile>>,
   files: ProposedFile[],
   baseCommitSha: string,
+  proposalKind: "content_change" | "navigation_change" | "create_course" = "content_change",
+  payloadSummary: Record<string, unknown> = {},
 ): Promise<Response> {
   const trusted = await trustedFiles(files, baseCommitSha);
   const { data, error } = await context.userClient.rpc("create_change_request", {
@@ -94,6 +104,8 @@ async function submit(
     p_base_commit_sha: baseCommitSha,
     p_files: trusted,
     p_supersedes_id: body.supersedes_id || null,
+    p_proposal_kind: proposalKind,
+    p_payload_summary: payloadSummary,
   });
   const changeRequest = rpcRow(data);
   if (error || !changeRequest) throw new Error(error?.message || "Création de la proposition impossible.");
@@ -109,7 +121,7 @@ Deno.serve(async (req: Request) => {
   if (req.method !== "POST") return errorResponse(req, "Méthode non autorisée.", 405);
 
   try {
-    const body = await readJsonBody<ChangeRequestBody>(req);
+    const body = await readJsonBody<ChangeRequestBody>(req, 20_000_000);
 
     if (body.action === "get-source") {
       await requireProfile(req, { canEdit: true });
@@ -136,6 +148,32 @@ Deno.serve(async (req: Request) => {
       });
     }
 
+    if (body.action === "get-course-context") {
+      await requireProfile(req, { canEdit: true });
+      const [tree, glossary] = await Promise.all([
+        fetchRepositoryTree(),
+        fetchRepositoryFile("data/glossaire.json"),
+      ]);
+      const glossaryData = JSON.parse(glossary.content) as Record<string, unknown>;
+      const terms = (Array.isArray(glossaryData.entries) ? glossaryData.entries : []).map((entry) => {
+        const item = entry as Record<string, unknown>;
+        return {
+          id: item.id,
+          term: item.term,
+          full_name: item.fullName || "",
+          definition: item.definition || "",
+        };
+      });
+      return jsonResponse(req, {
+        course_context: {
+          base_commit_sha: tree.commitSha,
+          terms,
+          limits: COURSE_LIMITS,
+          file_limits: { image: 5_000_000, pdf: 7_000_000, other: 5_000_000, total: 12_000_000 },
+        },
+      });
+    }
+
     if (body.action === "create-navigation-change") {
       const context = await requireProfile(req, { canEdit: true });
       const source = await fetchRepositoryFile("mkdocs.yml");
@@ -158,13 +196,58 @@ Deno.serve(async (req: Request) => {
         new_content: normalized,
         content_encoding: "utf-8",
         change_type: "update",
-      }], source.commitSha);
+      }], source.commitSha, "navigation_change");
+    }
+
+    if (body.action === "create-course") {
+      const context = await requireProfile(req, { canEdit: true });
+      if (!body.base_commit_sha) throw new Error("Commit de base manquant.");
+      const tree = await fetchRepositoryTree();
+      if (tree.commitSha !== body.base_commit_sha) {
+        throw new Error("Le dépôt a changé depuis l’ouverture du formulaire. Rechargez le contexte avant de soumettre.");
+      }
+      const [mkdocs, glossary, kahoot, home, generalIndex, curriculum] = await Promise.all([
+        fetchRepositoryFile("mkdocs.yml"),
+        fetchRepositoryFile("data/glossaire.json"),
+        fetchRepositoryFile("docs/kahoot/bibliotheque.md"),
+        fetchRepositoryFile("docs/index.md"),
+        fetchRepositoryFile("docs/index-general.md"),
+        fetchRepositoryFile("docs/parcours/index.md"),
+      ]);
+      const snapshot: CourseRepositorySnapshot = {
+        commitSha: tree.commitSha,
+        files: tree.files,
+        mkdocs,
+        glossary,
+        kahoot,
+        home,
+        generalIndex,
+        curriculum,
+      };
+      const built = buildCourseProposal(body.course, snapshot);
+      return await submit(
+        req,
+        { ...body, title: body.title || `Ajout du cours « ${built.summary.title} »` },
+        context,
+        built.files,
+        tree.commitSha,
+        "create_course",
+        built.summary,
+      );
     }
 
     if (body.action === "create") {
       const context = await requireProfile(req, { canEdit: true });
       if (!body.base_commit_sha) throw new Error("Commit de base manquant.");
-      return await submit(req, body, context, body.files || [], body.base_commit_sha);
+      return await submit(
+        req,
+        body,
+        context,
+        body.files || [],
+        body.base_commit_sha,
+        body.proposal_kind === "navigation_change" ? "navigation_change" : "content_change",
+        body.payload_summary || {},
+      );
     }
 
     if (body.action === "vote") {

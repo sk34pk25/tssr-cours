@@ -9,20 +9,66 @@ export interface ProposedFile {
   old_content?: string | null;
   new_content?: string | null;
   content_encoding?: "utf-8" | "base64";
+  media_type?: string | null;
   change_type: ChangeType;
 }
 
 const SAFE_IMAGE = /^docs\/assets\/images\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/i;
+const SAFE_RESOURCE = /^docs\/assets\/resources\/[a-zA-Z0-9_./-]+\.(pdf|txt|cfg|conf|ini|csv|json|ya?ml|xml|zip|xlsx|pptx|pka|bat|cmd|ps1|sh)$/i;
 const SAFE_MARKDOWN = /^docs\/[a-zA-Z0-9_./-]+\.md$/;
+const SAFE_DATA = /^data\/glossaire\.json$/;
 const SHA = /^[0-9a-f]{40}$/;
 const FORBIDDEN_MARKDOWN = [
   /<\s*script\b/i,
-  /<\s*(iframe|object|embed|form|input|button)\b/i,
+  /<\s*(iframe|object|embed|form|input|button|svg|meta|base|link|template|video|audio|source)\b/i,
   /\bon[a-z]+\s*=/i,
+  /\bstyle\s*=/i,
   /javascript\s*:/i,
-  /data\s*:\s*text\/html/i,
+  /\b(?:src|href)\s*=\s*["']?\s*data\s*:/i,
+  /\]\(\s*data\s*:/i,
   /\bsrcdoc\s*=/i,
 ];
+
+// npm:yaml does not know MkDocs' Python object tags and otherwise serializes
+// them as empty strings. Protect the three trusted, repository-owned tags while
+// the editable site name, description and navigation are normalized.
+const MKDOCS_PYTHON_TAGS = [
+  {
+    key: "emoji_index",
+    raw: "!!python/name:material.extensions.emoji.twemoji",
+    token: "__TSSR_MKDOCS_PYTHON_TAG_TWEMOJI__",
+  },
+  {
+    key: "emoji_generator",
+    raw: "!!python/name:material.extensions.emoji.to_svg",
+    token: "__TSSR_MKDOCS_PYTHON_TAG_TO_SVG__",
+  },
+  {
+    key: "format",
+    raw: "!!python/name:pymdownx.superfences.fence_div_format",
+    token: "__TSSR_MKDOCS_PYTHON_TAG_FENCE_DIV__",
+  },
+] as const;
+
+function protectMkDocsPythonTags(content: string): string {
+  return MKDOCS_PYTHON_TAGS.reduce((result, tag) => result.replaceAll(tag.raw, tag.token), content);
+}
+
+export function parseMkDocsConfig(content: string): Record<string, unknown> {
+  const config = parse(protectMkDocsPythonTags(content)) as Record<string, unknown>;
+  if (!config || typeof config !== "object" || Array.isArray(config)) throw new Error("Configuration MkDocs invalide.");
+  return config;
+}
+
+export function stringifyMkDocsConfig(config: Record<string, unknown>): string {
+  let content = stringify(config);
+  for (const tag of MKDOCS_PYTHON_TAGS) {
+    const escapedToken = tag.token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const expression = new RegExp(`^(\\s*${tag.key}:\\s*)(?:[\"']?${escapedToken}[\"']?)\\s*$`, "gm");
+    content = content.replace(expression, `$1${tag.raw}`);
+  }
+  return content;
+}
 
 function normalizePath(path: string): string {
   const normalized = path.replaceAll("\\", "/").replace(/^\.\//, "");
@@ -34,7 +80,10 @@ function normalizePath(path: string): string {
 
 export function assertEditablePath(path: string): string {
   const normalized = normalizePath(path);
-  if (normalized === "mkdocs.yml" || SAFE_MARKDOWN.test(normalized) || SAFE_IMAGE.test(normalized)) {
+  if (
+    normalized === "mkdocs.yml" || SAFE_DATA.test(normalized) || SAFE_MARKDOWN.test(normalized) ||
+    SAFE_IMAGE.test(normalized) || SAFE_RESOURCE.test(normalized)
+  ) {
     return normalized;
   }
   throw new Error(`Le fichier ${normalized} n’est pas éditable depuis le portail.`);
@@ -52,11 +101,105 @@ function decodeBase64Size(value: string): number {
   return Math.floor((value.length * 3) / 4) - padding;
 }
 
+function decodeBase64Prefix(value: string, byteLength = 16): Uint8Array {
+  if (!/^[a-zA-Z0-9+/]*={0,2}$/.test(value) || value.length % 4 !== 0) {
+    throw new Error("Le contenu binaire n’est pas un Base64 valide.");
+  }
+  const prefix = value.slice(0, Math.ceil(byteLength / 3) * 4);
+  try {
+    return Uint8Array.from(atob(prefix), (character) => character.charCodeAt(0));
+  } catch {
+    throw new Error("Le contenu binaire n’est pas un Base64 valide.");
+  }
+}
+
+function startsWith(bytes: Uint8Array, signature: number[]): boolean {
+  return signature.every((value, index) => bytes[index] === value);
+}
+
+function validateResourceMime(path: string, mediaType: string): void {
+  if (!mediaType || mediaType === "application/octet-stream") return;
+  const extension = path.toLowerCase().match(/\.([a-z0-9]+)$/)?.[1] || "";
+  const allowed: Record<string, Set<string>> = {
+    txt: new Set(["text/plain"]), cfg: new Set(["text/plain"]), conf: new Set(["text/plain"]), ini: new Set(["text/plain"]),
+    csv: new Set(["text/csv", "application/csv", "text/plain"]),
+    json: new Set(["application/json", "text/json", "text/plain"]),
+    yaml: new Set(["application/yaml", "application/x-yaml", "text/yaml", "text/x-yaml", "text/plain"]),
+    yml: new Set(["application/yaml", "application/x-yaml", "text/yaml", "text/x-yaml", "text/plain"]),
+    xml: new Set(["application/xml", "text/xml", "text/plain"]),
+    zip: new Set(["application/zip", "application/x-zip-compressed"]),
+    xlsx: new Set(["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/zip"]),
+    pptx: new Set(["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/zip"]),
+    pka: new Set(["application/x-packet-tracer"]),
+    bat: new Set(["application/x-bat", "application/x-msdos-program", "text/plain"]),
+    cmd: new Set(["application/x-bat", "application/x-msdos-program", "text/plain"]),
+    ps1: new Set(["text/plain", "application/x-powershell"]),
+    sh: new Set(["text/plain", "application/x-sh", "application/x-shellscript"]),
+  };
+  if (!allowed[extension]?.has(mediaType)) throw new Error(`Le type MIME de ${path} ne correspond pas à son extension.`);
+}
+
+function validateBinary(path: string, content: string, mediaType: string): void {
+  const size = decodeBase64Size(content);
+  const bytes = decodeBase64Prefix(content);
+  const lowerPath = path.toLowerCase();
+  if (SAFE_IMAGE.test(path)) {
+    if (size > 5_000_000) throw new Error(`L’image ${path} dépasse 5 Mo.`);
+    const valid = lowerPath.endsWith(".png")
+      ? startsWith(bytes, [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])
+      : lowerPath.endsWith(".jpg") || lowerPath.endsWith(".jpeg")
+        ? startsWith(bytes, [0xff, 0xd8, 0xff])
+        : lowerPath.endsWith(".gif")
+          ? startsWith(bytes, [0x47, 0x49, 0x46, 0x38])
+          : startsWith(bytes, [0x52, 0x49, 0x46, 0x46]) &&
+            String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
+    if (!valid) throw new Error(`La signature binaire de l’image ${path} est invalide.`);
+    const expected = lowerPath.endsWith(".png") ? "image/png"
+      : lowerPath.endsWith(".gif") ? "image/gif"
+      : lowerPath.endsWith(".webp") ? "image/webp" : "image/jpeg";
+    if (mediaType && mediaType !== expected) throw new Error(`Le type MIME de ${path} ne correspond pas à son extension.`);
+    return;
+  }
+  if (lowerPath.endsWith(".pdf")) {
+    if (size > 7_000_000) throw new Error(`Le PDF ${path} dépasse 7 Mo.`);
+    if (!startsWith(bytes, [0x25, 0x50, 0x44, 0x46, 0x2d])) {
+      throw new Error(`Le fichier ${path} n’est pas un PDF valide.`);
+    }
+    if (mediaType && mediaType !== "application/pdf") throw new Error(`Le type MIME de ${path} doit être application/pdf.`);
+    return;
+  }
+  if (size > 5_000_000) throw new Error(`La ressource ${path} dépasse 5 Mo.`);
+  validateResourceMime(path, mediaType);
+  if (/\.(zip|xlsx|pptx)$/i.test(path) && !startsWith(bytes, [0x50, 0x4b])) {
+    throw new Error(`L’archive ${path} possède une signature invalide.`);
+  }
+  if (/\.(html?|svg|js|mjs|exe|dll|dylib|so)$/i.test(path)) {
+    throw new Error(`Le type de ressource ${path} est interdit.`);
+  }
+}
+
+function validateGlossaryData(content: string): void {
+  if (content.length > 4_000_000) throw new Error("Les données du glossaire dépassent 4 Mo.");
+  let data: Record<string, unknown>;
+  try {
+    data = JSON.parse(content) as Record<string, unknown>;
+  } catch {
+    throw new Error("Les données du glossaire ne sont pas un JSON valide.");
+  }
+  if (data.schemaVersion !== 1 || !Array.isArray(data.courses) || !Array.isArray(data.modules) || !Array.isArray(data.entries)) {
+    throw new Error("La structure des données du glossaire est invalide.");
+  }
+  if (data.courses.length > 200 || data.modules.length > 2_000 || data.entries.length > 2_000) {
+    throw new Error("Les données du glossaire dépassent les limites de cohérence.");
+  }
+}
+
 export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
-  if (!Array.isArray(files) || files.length < 1 || files.length > 20) {
-    throw new Error("Une proposition doit contenir entre 1 et 20 fichiers.");
+  if (!Array.isArray(files) || files.length < 1 || files.length > 100) {
+    throw new Error("Une proposition doit contenir entre 1 et 100 fichiers.");
   }
   const seen = new Set<string>();
+  let totalBinarySize = 0;
 
   return files.map((file) => {
     const path = assertEditablePath(file.file_path);
@@ -77,16 +220,20 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
       seen.add(file.new_file_path);
     }
     const encoding = file.content_encoding || "utf-8";
-    if (SAFE_IMAGE.test(path) || (file.new_file_path && SAFE_IMAGE.test(file.new_file_path))) {
+    const destination = file.new_file_path || path;
+    if (SAFE_IMAGE.test(destination) || SAFE_RESOURCE.test(destination)) {
       if (encoding !== "base64") throw new Error(`L’image ${path} doit être encodée en base64.`);
-      if (file.new_content && decodeBase64Size(file.new_content) > 5_000_000) {
-        throw new Error(`L’image ${path} dépasse 5 Mo.`);
+      if (file.new_content) {
+        totalBinarySize += decodeBase64Size(file.new_content);
+        validateBinary(destination, file.new_content, String(file.media_type || "").toLowerCase());
       }
     } else {
       if (encoding !== "utf-8") throw new Error(`Le fichier texte ${path} doit être encodé en UTF-8.`);
       if (path.endsWith(".md") && file.new_content != null) validateMarkdown(file.new_content);
+      if (path === "data/glossaire.json" && file.new_content != null) validateGlossaryData(file.new_content);
     }
-    return { ...file, file_path: path, content_encoding: encoding };
+    if (totalBinarySize > 12_000_000) throw new Error("Les fichiers binaires de la proposition dépassent 12 Mo au total.");
+    return { ...file, file_path: path, content_encoding: encoding, media_type: file.media_type || null };
   });
 }
 
@@ -126,11 +273,8 @@ export function validateMkDocsEdit(
   newContent: string,
   availableFiles: Set<string>,
 ): { content: string; navTargets: Set<string> } {
-  const oldConfig = parse(oldContent) as Record<string, unknown>;
-  const newConfig = parse(newContent) as Record<string, unknown>;
-  if (!oldConfig || !newConfig || typeof oldConfig !== "object" || typeof newConfig !== "object") {
-    throw new Error("Configuration MkDocs invalide.");
-  }
+  const oldConfig = parseMkDocsConfig(oldContent);
+  const newConfig = parseMkDocsConfig(newContent);
   const allowed = new Set(["site_name", "site_description", "nav"]);
   const allKeys = new Set([...Object.keys(oldConfig), ...Object.keys(newConfig)]);
   for (const key of allKeys) {
@@ -149,7 +293,7 @@ export function validateMkDocsEdit(
   for (const target of navTargets) {
     if (!availableFiles.has(target)) throw new Error(`La navigation référence un fichier absent : ${target}`);
   }
-  return { content: stringify(newConfig), navTargets };
+  return { content: stringifyMkDocsConfig(newConfig), navTargets };
 }
 
 export function buildNavigationEdit(
@@ -158,9 +302,9 @@ export function buildNavigationEdit(
   siteDescription: string,
   nav: unknown,
 ): string {
-  const config = parse(oldContent) as Record<string, unknown>;
+  const config = parseMkDocsConfig(oldContent);
   config.site_name = siteName.trim();
   config.site_description = siteDescription.trim();
   config.nav = nav;
-  return stringify(config);
+  return stringifyMkDocsConfig(config);
 }

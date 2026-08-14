@@ -2,7 +2,7 @@
 (function () {
   const sectionNames = [
     "modules", "parcours", "tutoriels", "tp", "exercices", "revision",
-    "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources"
+    "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources", "ajouter"
   ];
 
   const languageLabels = {
@@ -102,9 +102,29 @@
     container.insertBefore(button, toc);
   }
 
+  function enhancePdfViewers() {
+    document.querySelectorAll(".tssr-pdf-embed[data-tssr-pdf-src]:not([data-tssr-pdf-ready])").forEach((container) => {
+      try {
+        const source = new URL(container.dataset.tssrPdfSrc, window.location.href);
+        if (source.origin !== window.location.origin || !/\.pdf$/i.test(source.pathname)) return;
+        const viewer = document.createElement("object");
+        viewer.type = "application/pdf";
+        viewer.data = source.href;
+        viewer.setAttribute("aria-label", container.dataset.tssrPdfTitle || "Document PDF");
+        viewer.innerHTML = "<p>Le PDF ne peut pas être affiché directement dans ce navigateur.</p>";
+        const fallback = container.querySelector(".tssr-pdf-embed__fallback");
+        container.insertBefore(viewer, fallback || null);
+        container.dataset.tssrPdfReady = "true";
+      } catch (_) {
+        /* The static open/download links remain available. */
+      }
+    });
+  }
+
   function enhancePage() {
     classifyPage();
     setupTocToggle();
+    enhancePdfViewers();
   }
 
   if (typeof document$ !== "undefined") {

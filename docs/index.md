@@ -18,7 +18,7 @@ hide:
 
 <div class="tssr-hero__metrics">
   <span class="tssr-hero__metric"><strong>9</strong><span>étapes datées</span></span>
-  <span class="tssr-hero__metric"><strong>59</strong><span>modules et ateliers</span></span>
+  <span class="tssr-hero__metric" data-tssr-metric="modules"><strong>59</strong><span>modules et ateliers</span></span>
   <span class="tssr-hero__metric"><strong>292</strong><span>sources analysées</span></span>
 </div>
 </div>

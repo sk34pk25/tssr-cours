@@ -38,6 +38,8 @@ supabase db push
 
 Cette commande crée les tables `profiles`, `change_requests`, `change_request_files`, `change_approvals` et `audit_logs`, ainsi que les politiques RLS, les protections du dernier administrateur et les fonctions SQL atomiques de consensus.
 
+Elle applique aussi la migration de création structurée de cours : type de proposition `create_course`, résumé de validation, MIME des fichiers, limitation de débit et nettoyage des binaires temporaires. Aucune table de cours parallèle n’est créée.
+
 ## 4. Préparer le token GitHub serveur
 
 Dans GitHub, créer un **fine-grained personal access token** limité au seul dépôt `sk34pk25/tssr-cours` avec :
@@ -78,6 +80,13 @@ Les variables serveur Supabase (`SUPABASE_URL`, clé publiable et clé secrète/
 supabase functions deploy admin-users
 supabase functions deploy change-requests
 supabase functions deploy publication-status --no-verify-jwt
+```
+
+Après une mise à jour du code de création de cours, redéployer au minimum `change-requests` :
+
+```bash
+supabase db push
+supabase functions deploy change-requests
 ```
 
 Les deux premières fonctions exigent une session utilisateur valide. `publication-status` n’accepte pas de JWT utilisateur : elle vérifie exclusivement le secret partagé envoyé par GitHub Actions.
