@@ -1,0 +1,7664 @@
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apprendre, pratiquer et diagnostiquer avec les cours, TP, révisions et mémos de la formation TSSR.">
+      
+      
+        <meta name="author" content="Portail personnel de formation">
+      
+      
+        <link rel="canonical" href="http://localhost:8000/modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/">
+      
+      
+        <link rel="prev" href="../module-03-l-adressage-ipv4/">
+      
+      
+        <link rel="next" href="../module-05-les-premieres-commandes-reseau/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Module 04 — La communication dans un réseau - TSSR · Portail de formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/base.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/navigation.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/components.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/chronology.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/visuals.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/homepage.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/responsive.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-04-la-communication-dans-un-reseau" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="TSSR · Portail de formation" class="md-header__button md-logo" aria-label="TSSR · Portail de formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TSSR · Portail de formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 04 — La communication dans un réseau
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Passer au thème sombre" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au thème sombre" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Passer au thème clair" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au thème clair" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TSSR · Portail de formation" class="md-nav__button md-logo" aria-label="TSSR · Portail de formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
+
+    </a>
+    TSSR · Portail de formation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../parcours/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parcours chronologique
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parcours chronologique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/01-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 — Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/02-bases-reseaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 — Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/03-systemes-clients-microsoft-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 — Systèmes clients Microsoft (1/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/04-systemes-clients-microsoft-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 — Systèmes clients Microsoft (2/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/05-utilisation-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 — Utilisation GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/06-administration-linux-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 — Administration GNU/Linux (1/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/07-administration-linux-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 — Administration GNU/Linux (2/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/08-msp-systemes-clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 — MSP systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/09-itil-gestion-parc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 — ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bases des réseaux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-01-le-modele-osi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 01 — Le modèle OSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-02-les-unites-informatiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 02 — Les unités informatiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-03-l-adressage-ipv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 03 — L’adressage IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 04 — La communication dans un réseau
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 04 — La communication dans un réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-et-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs et compétences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reperes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repères visuels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repères visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arp-obtenir-la-mac-correspondant-a-une-ipv4-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARP : obtenir la MAC correspondant à une IPv4 locale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routage-entre-deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routage entre deux réseaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours-consolide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cours consolidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cours consolidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-domaine-de-diffusion-est-limite-par-les-equipements-reseau-suivants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un domaine de diffusion est limité par les équipements réseau suivants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-role-principal-du-routage-est-de" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le rôle principal du routage est de
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-routeur-est-un-equipement-qui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un routeur est un équipement qui
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dentree-dans-une-table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d’entrée dans une table de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-existe-deux-types-principaux-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il existe deux types principaux de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lorsquun-paquet-arrive-sur-un-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lorsqu’un paquet arrive sur un routeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-sans-sur-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple sans sur-réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-avec-sur-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple avec sur-réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-identifier-les-sous-reseaux-a-regrouper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Identifier les sous-réseaux à regrouper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-trouver-le-nouveau-prefixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Trouver le nouveau préfixe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-pour-les-reseaux-ci-dessus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pour les réseaux ci-dessus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ici-les-22-premiers-bits-sont-identiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ici, les 22 premiers bits sont identiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-regrouper-les-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Regrouper les réseaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-jai-identifie-dans-ton-cours-des-modules-3-et-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que j’ai identifié dans ton cours des modules 3 et 4
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que j’ai identifié dans ton cours des modules 3 et 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-themes-visibles-dans-le-fichier-sont-notamment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les thèmes visibles dans le fichier sont notamment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donc-oui-je-peux-te-faire-exactement-la-meme-chose-que-pour-les-modules-1-et-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-chaque-question-je-te-donnerai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour chaque question, je te donnerai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-te-propose-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je te propose maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je te propose maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#je-peux-te-generer-tout-de-suite-un-pack-complet-du-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Je peux te générer tout de suite un pack complet du style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-3-et-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 3 et 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-du-rendu-que-je-vais-te-faire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple du rendu que je vais te faire :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ma-recommandation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ma recommandation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ma recommandation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#et-je-te-genere-tout-le-quiz-complet-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        et je te génère tout le quiz complet maintenant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#je-vais-te-donner-le-meme-format-que-pour-modules-1-et-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Je vais te donner le même format que pour modules 1 et 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-3-et-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 3 et 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-facile-1-a-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Facile (1 à 12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-combien-de-bits-contient-une-adresse-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Combien de bits contient une adresse IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dans-une-adresse-ipv4-a-quoi-sert-le-masque-de-sous-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dans une adresse IPv4, à quoi sert le masque de sous-réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quelle-classe-ipv4-correspond-aux-petits-reseaux-dans-le-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quelle classe IPv4 correspond aux petits réseaux dans le cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-quelle-classe-ipv4-couvre-les-adresses-de-128000-a-191255255255" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Quelle classe IPv4 couvre les adresses de 128.0.0.0 à 191.255.255.255 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quelle-adresse-est-ladresse-de-boucle-locale-localhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quelle adresse est l’adresse de boucle locale (localhost) ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quelle-adresse-permet-denvoyer-un-message-a-tous-les-hotes-dun-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quelle adresse permet d’envoyer un message à tous les hôtes d’un réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quelle-plage-correspond-aux-adresses-privees-de-classe-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Quelle plage correspond aux adresses privées de classe A ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-quelle-plage-correspond-aux-adresses-privees-de-classe-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quelle plage correspond aux adresses privées de classe B ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quelle-plage-correspond-aux-adresses-privees-de-classe-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quelle plage correspond aux adresses privées de classe C ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-quelle-plage-est-utilisee-par-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Quelle plage est utilisée par APIPA ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-apipa-permet-surtout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. APIPA permet surtout :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-que-signifie-la-notation-24-dans-une-adresse-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Que signifie la notation /24 dans une adresse IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-moyen-13-a-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Moyen (13 à 24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-quel-masque-correspond-au-prefixe-cidr-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Quel masque correspond au préfixe CIDR /24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-quel-masque-correspond-au-prefixe-cidr-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Quel masque correspond au préfixe CIDR /26 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-quel-masque-correspond-au-prefixe-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Quel masque correspond au préfixe /20 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-quel-prefixe-cidr-correspond-au-masque-255255255192" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Quel préfixe CIDR correspond au masque 255.255.255.192 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-quel-prefixe-cidr-correspond-au-masque-255255255240" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quel préfixe CIDR correspond au masque 255.255.255.240 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-quel-est-lid-reseau-de-19216811024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Quel est l’ID réseau de 192.168.1.10/24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-quel-est-le-broadcast-du-reseau-19216810024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Quel est le broadcast du réseau 192.168.10.0/24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-quelle-est-la-plage-dhotes-utilisables-du-reseau-19216810024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-retire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On retire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-quel-est-le-broadcast-de-172251920-avec-le-masque-2552552400" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Quel est le broadcast de 172.25.192.0 avec le masque 255.255.240.0 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quelle-est-la-plage-dhotes-du-reseau-17225192020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Quelle est la plage d’hôtes du réseau 172.25.192.0/20 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-combien-dhotes-utilisables-y-a-t-il-dans-un-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Combien d’hôtes utilisables y a-t-il dans un /26 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-combien-dhotes-utilisables-y-a-t-il-dans-un-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Combien d’hôtes utilisables y a-t-il dans un /28 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-difficile-25-a-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Difficile (25 à 35)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-si-un-reseau-1921681024-est-decoupe-en-deux-sous-reseaux-25-combien-obtient-on-de-sous-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-si-un-reseau-24-devient-25-combien-dhotes-utilisables-possede-chaque-sous-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-25-laisse-7-bits-hote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un /25 laisse 7 bits hôte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-quel-est-le-premier-sous-reseau-obtenu-dans-lexemple-de-decoupage-de-1921681024-en-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-donne-cet-exemple-explicitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours donne cet exemple explicitement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-quel-est-le-second-sous-reseau-obtenu-dans-ce-meme-decoupage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Quel est le second sous-réseau obtenu dans ce même découpage ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-quelle-operation-logique-permet-dobtenir-lid-reseau-a-partir-dune-ip-et-de-son-masque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-quel-equipement-delimite-les-domaines-de-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Quel équipement délimite les domaines de diffusion ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-quel-equipement-transmet-les-diffusions-a-tous-les-ports-dun-meme-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-quel-est-le-role-principal-dun-routeur-selon-le-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Quel est le rôle principal d’un routeur selon le cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-que-contient-une-table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Que contient une table de routage ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="33. Que contient une table de routage ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours liste
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#une-entree-peut-dire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Une entrée peut dire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-quelle-difference-caracterise-le-routage-statique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Quelle différence caractérise le routage statique ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-quel-sur-reseau-regroupe-1921680024-1921681024-1921682024-et-1921683024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ton-cours-donne-precisement-cet-exemple-de-supernetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ton cours donne précisément cet exemple de supernetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions-pieges-vrai-faux-36-a-42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions pièges / Vrai-Faux (36 à 42)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#40-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-te-conseille-pour-ton-kahoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je te conseille pour ton Kahoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-garder-absolument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À garder absolument
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="À garder absolument">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comme-ca-tu-couvres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comme ça tu couvres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-peux-faire-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je peux faire maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je peux faire maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#si-tu-veux-reponds-juste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si tu veux, réponds juste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-05-les-premieres-commandes-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 05 — Les premières commandes réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-06-l-adressage-ipv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — L’adressage IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-systemes-clients-microsoft/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-microsoft-365-outils-collaboratifs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-utilisation-gnu-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-administration-debian-gnu-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-sensibilisation-itil-gestion-parc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-administration-glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-msp-systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutoriels/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutoriels
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutoriels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/diagnostic-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnostic réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/ipv4-statique-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPv4 statique sous Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/installer-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installer Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/installer-glpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installer GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/capture-deploiement-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capture et déploiement Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/forticlient-vpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configurer FortiClient VPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux pratiques
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/reseaux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/microsoft-365/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/utilisation-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/administration-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/itil/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/msp/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../exercices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-reseaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Réseaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-systemes-clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/cas-pratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cas pratiques transversaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../revision/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Révisions
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Révisions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/reseaux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/microsoft-365/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/utilisation-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/administration-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/itil/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/msp/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../memo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mémos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/ports-essentiels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports essentiels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/ipv4-cidr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPv4 et CIDR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/permissions-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permissions Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/glpi-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLPI et SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../commandes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commandes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commandes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/windows-powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows et PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/mariadb-glpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MariaDB et GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../troubleshooting/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dépannage
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dépannage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/client-sans-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client sans réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/service-linux-echec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Linux en échec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/windows-instable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows instable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/glpi-inaccessible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLPI inaccessible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/outlook-connexion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outlook ne se connecte pas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ressources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/sources-officielles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sources officielles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/inventaire-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire des sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index-general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index général
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-et-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs et compétences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reperes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repères visuels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repères visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arp-obtenir-la-mac-correspondant-a-une-ipv4-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARP : obtenir la MAC correspondant à une IPv4 locale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routage-entre-deux-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routage entre deux réseaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours-consolide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cours consolidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cours consolidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-domaine-de-diffusion-est-limite-par-les-equipements-reseau-suivants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un domaine de diffusion est limité par les équipements réseau suivants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-role-principal-du-routage-est-de" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le rôle principal du routage est de
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-routeur-est-un-equipement-qui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un routeur est un équipement qui
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dentree-dans-une-table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d’entrée dans une table de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-existe-deux-types-principaux-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il existe deux types principaux de routage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lorsquun-paquet-arrive-sur-un-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lorsqu’un paquet arrive sur un routeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-sans-sur-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple sans sur-réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-avec-sur-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple avec sur-réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-identifier-les-sous-reseaux-a-regrouper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Identifier les sous-réseaux à regrouper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-trouver-le-nouveau-prefixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Trouver le nouveau préfixe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-pour-les-reseaux-ci-dessus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pour les réseaux ci-dessus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ici-les-22-premiers-bits-sont-identiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ici, les 22 premiers bits sont identiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-regrouper-les-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Regrouper les réseaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-jai-identifie-dans-ton-cours-des-modules-3-et-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que j’ai identifié dans ton cours des modules 3 et 4
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que j’ai identifié dans ton cours des modules 3 et 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-themes-visibles-dans-le-fichier-sont-notamment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les thèmes visibles dans le fichier sont notamment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donc-oui-je-peux-te-faire-exactement-la-meme-chose-que-pour-les-modules-1-et-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour-chaque-question-je-te-donnerai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour chaque question, je te donnerai
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-te-propose-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je te propose maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je te propose maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#je-peux-te-generer-tout-de-suite-un-pack-complet-du-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Je peux te générer tout de suite un pack complet du style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-3-et-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 3 et 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-du-rendu-que-je-vais-te-faire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple du rendu que je vais te faire :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ma-recommandation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ma recommandation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ma recommandation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#et-je-te-genere-tout-le-quiz-complet-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        et je te génère tout le quiz complet maintenant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#je-vais-te-donner-le-meme-format-que-pour-modules-1-et-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Je vais te donner le même format que pour modules 1 et 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-3-et-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 3 et 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-facile-1-a-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Facile (1 à 12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-combien-de-bits-contient-une-adresse-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Combien de bits contient une adresse IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dans-une-adresse-ipv4-a-quoi-sert-le-masque-de-sous-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dans une adresse IPv4, à quoi sert le masque de sous-réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quelle-classe-ipv4-correspond-aux-petits-reseaux-dans-le-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quelle classe IPv4 correspond aux petits réseaux dans le cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-quelle-classe-ipv4-couvre-les-adresses-de-128000-a-191255255255" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Quelle classe IPv4 couvre les adresses de 128.0.0.0 à 191.255.255.255 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quelle-adresse-est-ladresse-de-boucle-locale-localhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quelle adresse est l’adresse de boucle locale (localhost) ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quelle-adresse-permet-denvoyer-un-message-a-tous-les-hotes-dun-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quelle adresse permet d’envoyer un message à tous les hôtes d’un réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quelle-plage-correspond-aux-adresses-privees-de-classe-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Quelle plage correspond aux adresses privées de classe A ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-quelle-plage-correspond-aux-adresses-privees-de-classe-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quelle plage correspond aux adresses privées de classe B ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quelle-plage-correspond-aux-adresses-privees-de-classe-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quelle plage correspond aux adresses privées de classe C ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-quelle-plage-est-utilisee-par-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Quelle plage est utilisée par APIPA ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-apipa-permet-surtout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. APIPA permet surtout :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-que-signifie-la-notation-24-dans-une-adresse-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Que signifie la notation /24 dans une adresse IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-moyen-13-a-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Moyen (13 à 24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-quel-masque-correspond-au-prefixe-cidr-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Quel masque correspond au préfixe CIDR /24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-quel-masque-correspond-au-prefixe-cidr-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Quel masque correspond au préfixe CIDR /26 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-quel-masque-correspond-au-prefixe-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Quel masque correspond au préfixe /20 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-quel-prefixe-cidr-correspond-au-masque-255255255192" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Quel préfixe CIDR correspond au masque 255.255.255.192 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-quel-prefixe-cidr-correspond-au-masque-255255255240" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quel préfixe CIDR correspond au masque 255.255.255.240 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-quel-est-lid-reseau-de-19216811024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Quel est l’ID réseau de 192.168.1.10/24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-quel-est-le-broadcast-du-reseau-19216810024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Quel est le broadcast du réseau 192.168.10.0/24 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-quelle-est-la-plage-dhotes-utilisables-du-reseau-19216810024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-retire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On retire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-quel-est-le-broadcast-de-172251920-avec-le-masque-2552552400" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Quel est le broadcast de 172.25.192.0 avec le masque 255.255.240.0 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quelle-est-la-plage-dhotes-du-reseau-17225192020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Quelle est la plage d’hôtes du réseau 172.25.192.0/20 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-combien-dhotes-utilisables-y-a-t-il-dans-un-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Combien d’hôtes utilisables y a-t-il dans un /26 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-combien-dhotes-utilisables-y-a-t-il-dans-un-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Combien d’hôtes utilisables y a-t-il dans un /28 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-difficile-25-a-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Difficile (25 à 35)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-si-un-reseau-1921681024-est-decoupe-en-deux-sous-reseaux-25-combien-obtient-on-de-sous-reseaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-si-un-reseau-24-devient-25-combien-dhotes-utilisables-possede-chaque-sous-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-25-laisse-7-bits-hote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un /25 laisse 7 bits hôte
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-quel-est-le-premier-sous-reseau-obtenu-dans-lexemple-de-decoupage-de-1921681024-en-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-donne-cet-exemple-explicitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours donne cet exemple explicitement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-quel-est-le-second-sous-reseau-obtenu-dans-ce-meme-decoupage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Quel est le second sous-réseau obtenu dans ce même découpage ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-quelle-operation-logique-permet-dobtenir-lid-reseau-a-partir-dune-ip-et-de-son-masque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-quel-equipement-delimite-les-domaines-de-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Quel équipement délimite les domaines de diffusion ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-quel-equipement-transmet-les-diffusions-a-tous-les-ports-dun-meme-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-quel-est-le-role-principal-dun-routeur-selon-le-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Quel est le rôle principal d’un routeur selon le cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-que-contient-une-table-de-routage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Que contient une table de routage ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="33. Que contient une table de routage ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours liste
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#une-entree-peut-dire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Une entrée peut dire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-quelle-difference-caracterise-le-routage-statique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Quelle différence caractérise le routage statique ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-quel-sur-reseau-regroupe-1921680024-1921681024-1921682024-et-1921683024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ton-cours-donne-precisement-cet-exemple-de-supernetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ton cours donne précisément cet exemple de supernetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions-pieges-vrai-faux-36-a-42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions pièges / Vrai-Faux (36 à 42)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#40-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-te-conseille-pour-ton-kahoot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je te conseille pour ton Kahoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-garder-absolument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À garder absolument
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="À garder absolument">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comme-ca-tu-couvres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comme ça tu couvres
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-peux-faire-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je peux faire maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je peux faire maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#si-tu-veux-reponds-juste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si tu veux, réponds juste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cours
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Bases des réseaux
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-04-la-communication-dans-un-reseau">Module 04 — La communication dans un réseau<a class="headerlink" href="#module-04-la-communication-dans-un-reseau" title="Permanent link">¶</a></h1>
+<p><strong>Séquence :</strong> Bases des réseaux<br>
+<strong>Importance :</strong> socle de la progression officielle<br>
+<strong>Sources consolidées :</strong> 1 support(s) de cours, 2 énoncé(s), 1 correction(s)</p>
+<div class="admonition warning">
+<p class="admonition-title">Périmètre et versions</p>
+<p>Les six modules sont explicitement nommés dans les dossiers et supports Réseaux. Les activités Packet Tracer sont conservées comme ressources binaires à ouvrir avec Cisco Packet Tracer.</p>
+</div>
+<h2 id="objectifs-et-competences">Objectifs et compétences<a class="headerlink" href="#objectifs-et-competences" title="Permanent link">¶</a></h2>
+<ul>
+<li>Déterminer si une destination est locale ou distante.</li>
+<li>Comprendre l’emploi des adresses MAC, d’ARP et de la passerelle par défaut.</li>
+<li>Suivre une communication à travers commutateur et routeur.</li>
+<li>Vérifier un scénario de communication dans Packet Tracer.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Façon simple de le comprendre</p>
+<p>Ce module sert à passer de la notion « La communication dans un réseau » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.</p>
+</div>
+<h2 id="methode-de-travail">Méthode de travail<a class="headerlink" href="#methode-de-travail" title="Permanent link">¶</a></h2>
+<ol>
+<li>Lire les concepts dans l’ordre du support.</li>
+<li>Reproduire les exemples dans un environnement de laboratoire.</li>
+<li>Noter le résultat attendu avant de modifier une configuration.</li>
+<li>Vérifier avec l’outil ou la commande appropriée.</li>
+<li>Revenir à l’état initial si le résultat diverge.</li>
+</ol>
+<h2 id="reperes-visuels">Repères visuels<a class="headerlink" href="#reperes-visuels" title="Permanent link">¶</a></h2>
+<p>Avant d’émettre, un hôte applique son masque à sa propre adresse et à l’adresse de destination. Si les identifiants réseau sont identiques, il cherche directement la MAC du destinataire ; sinon, il cherche la MAC de sa passerelle.</p>
+<div class="mermaid">flowchart TD
+    D["Destination IP à joindre"] --&gt; C{"Même réseau&lt;br/&gt;après application du masque ?"}
+    C --&gt;|"Oui"| L["ARP pour la MAC&lt;br/&gt;du destinataire"]
+    C --&gt;|"Non"| G["ARP pour la MAC&lt;br/&gt;de la passerelle"]
+    L --&gt; S["Le commutateur relaie&lt;br/&gt;la trame Ethernet"]
+    G --&gt; R["Le routeur consulte&lt;br/&gt;sa table de routage"]
+    R --&gt; N["Nouvelle trame&lt;br/&gt;sur le réseau suivant"]</div>
+<p class="tssr-caption">Décision locale ou distante : le paquet conserve les IP de bout en bout, tandis que les adresses MAC changent à chaque lien routé.</p>
+
+<h3 id="arp-obtenir-la-mac-correspondant-a-une-ipv4-locale">ARP : obtenir la MAC correspondant à une IPv4 locale<a class="headerlink" href="#arp-obtenir-la-mac-correspondant-a-une-ipv4-locale" title="Permanent link">¶</a></h3>
+<div class="mermaid">sequenceDiagram
+    participant A as PC A · 192.168.10.20
+    participant S as Commutateur
+    participant B as PC B · 192.168.10.30
+    A-&gt;&gt;S: Requête ARP en diffusion&lt;br/&gt;Qui possède 192.168.10.30 ?
+    S--&gt;&gt;B: Diffuse la requête sur le LAN
+    B-&gt;&gt;A: Réponse ARP en unicast&lt;br/&gt;192.168.10.30 = MAC-B
+    A-&gt;&gt;B: Trame vers MAC-B&lt;br/&gt;paquet vers 192.168.10.30</div>
+<p class="tssr-caption">ARP ne traverse pas le routeur. Pour une destination distante, le PC résout la MAC de la passerelle, pas celle du serveur final.</p>
+
+<h3 id="routage-entre-deux-reseaux">Routage entre deux réseaux<a class="headerlink" href="#routage-entre-deux-reseaux" title="Permanent link">¶</a></h3>
+<div class="mermaid">flowchart LR
+    A["PC A&lt;br/&gt;192.168.10.20/24"] --&gt; S1["Switch LAN A"]
+    S1 --&gt; R["Routeur&lt;br/&gt;192.168.10.1 ↔ 192.168.20.1"]
+    R --&gt; S2["Switch LAN B"]
+    S2 --&gt; B["Serveur B&lt;br/&gt;192.168.20.30/24"]</div>
+<p class="tssr-caption">Le routeur sépare les domaines de diffusion et relie les réseaux. Chaque hôte utilise comme passerelle l’interface du routeur située dans son propre réseau.</p>
+
+<h2 id="cours-consolide">Cours consolidé<a class="headerlink" href="#cours-consolide" title="Permanent link">¶</a></h2>
+<p>La communication entre deux PC</p>
+<p>La communication entre deux nœuds La communication entre deux nœuds - suite Le routage Le sur-réseau Démonstration - La communication réseau Enoncé du TP - Communication dans un réseau Enoncé du TP - Communication inter-réseau</p>
+<p>Dans le cadre des réseaux informatiques, un domaine de diffusion (ou broadcast domain) est une portion logique du réseau dans laquelle une trame de diffusion (broadcast) est transmise à tous les appareils connectés. Cela permet à une machine d’envoyer un message destiné à tous les autres équipements présents dans le même domaine.</p>
+<ol>
+<li>Définition de la Diffusion (Broadcast) La diffusion est un mécanisme dans lequel une trame ou un paquet est envoyé avec une adresse de destination spéciale appelée adresse de broadcast. En IPv4, cette adresse est constituée de tous les bits à 1 dans la partie hôte, par exemple 192.168.1.255 dans un réseau avec un masque 255.255.255.0.</li>
+</ol>
+<p>Tous les appareils du domaine de diffusion reçoivent ce message, même si ce n’est pas explicitement destiné à eux. Les messages de broadcast sont souvent utilisés pour des tâches comme :</p>
+<p>La découverte de machines (exemple : DHCP). La résolution d’adresses (exemple : ARP). 2. Composants du Domaine de Diffusion</p>
+<h4 id="un-domaine-de-diffusion-est-limite-par-les-equipements-reseau-suivants">Un domaine de diffusion est limité par les équipements réseau suivants<a class="headerlink" href="#un-domaine-de-diffusion-est-limite-par-les-equipements-reseau-suivants" title="Permanent link">¶</a></h4>
+<p>Switchs (commutateurs) : Ils transmettent les diffusions à tous les ports d’un même VLAN. Routeurs : Ils délimitent les domaines de diffusion. Un routeur ne transmet pas les trames de diffusion d’un réseau à un autre, créant ainsi des frontières entre domaines. VLAN (Virtual LAN) : Chaque VLAN constitue un domaine de diffusion distinct, même s’ils sont configurés sur le même switch physique. 3. Importance du Domaine de Diffusion Un domaine de diffusion trop grand peut entraîner des problèmes de performances, car chaque appareil du domaine doit traiter les diffusions, même si elles ne lui sont pas destinées. Cela peut surcharger le réseau et les ressources des machines.</p>
+<p>C’est pourquoi les réseaux modernes sont souvent segmentés en plusieurs domaines de diffusion pour :</p>
+<p>Réduire le trafic inutile. Améliorer les performances globales. Sécuriser la communication entre différentes parties du réseau. 4. Exemple Pratique Dans un réseau local avec un switch, si 10 ordinateurs sont connectés au même VLAN, ils appartiennent tous au même domaine de diffusion. Si un ordinateur envoie une requête de type ARP (Who has 192.168.1.10?), cette requête est envoyée à tous les autres appareils. En revanche, si ce réseau est segmenté avec un routeur ou des VLANs, la diffusion sera limitée au sous-réseau correspondant.</p>
+<ol>
+<li>
+<p>Lien avec le Modèle OSI Le domaine de diffusion opère principalement à la couche 2 (Liaison de données) du modèle OSI. Les diffusions sont transmises à tous les appareils d’un même domaine via l’adresse MAC de destination FF:FF:FF:FF:FF:FF. À la couche 3 (Réseau), les diffusions utilisent des adresses IP spéciales comme 192.168.1.255.</p>
+</li>
+<li>
+<p>Segmenter les Domaines de Diffusion Pour limiter les problèmes liés aux domaines de diffusion trop étendus, on peut utiliser :</p>
+</li>
+</ol>
+<p>Des routeurs : Ils créent des segments de réseau distincts. Des VLANs : Ils divisent logiquement un réseau en plusieurs sous-réseaux indépendants. Le domaine de diffusion est une notion clé pour comprendre comment le trafic de diffusion circule dans un réseau. Bien qu’il facilite certaines communications, il peut rapidement devenir une source de congestion si le réseau n’est pas correctement segmenté. L’utilisation de VLANs et de routeurs permet d’organiser et d’optimiser le trafic dans un réseau informatique.</p>
+<p>Le Routage Le routage est un processus fondamental en réseau informatique qui consiste à déterminer le chemin que doivent emprunter les données (paquets) pour atteindre leur destination. Ce mécanisme se déroule principalement à la couche 3 (Réseau) du modèle OSI, où les routeurs et les équipements connectés décident de la meilleure route pour acheminer les paquets à travers un ou plusieurs réseaux.</p>
+<ol>
+<li>Rôle du Routage</li>
+</ol>
+<p>Le routage intervient lorsque des données doivent traverser plusieurs réseaux pour atteindre leur destination. Contrairement à la communication au sein d’un même réseau local (LAN), qui repose sur des commutateurs (switches), le routage est nécessaire pour connecter différents sous-réseaux ou réseaux distants via des équipements appelés routeurs.</p>
+<h4 id="le-role-principal-du-routage-est-de">Le rôle principal du routage est de<a class="headerlink" href="#le-role-principal-du-routage-est-de" title="Permanent link">¶</a></h4>
+<p>Acheminer les paquets IP vers leur destination. Trouver le chemin optimal pour minimiser le temps de transit et éviter les congestions. Séparer les domaines de diffusion, limitant ainsi le trafic inutile. 2. Les Routeurs</p>
+<h4 id="un-routeur-est-un-equipement-qui">Un routeur est un équipement qui<a class="headerlink" href="#un-routeur-est-un-equipement-qui" title="Permanent link">¶</a></h4>
+<p>Lit l’adresse IP de destination dans chaque paquet. Consulte sa table de routage, une base de données interne contenant les routes disponibles. Décide du meilleur chemin pour transmettre les données, en fonction de critères tels que la distance (nombre de sauts) ou la priorité d’une route. 3. Table de Routage La table de routage est au cœur du fonctionnement des routeurs. Elle contient des informations sur :</p>
+<p>Les réseaux connus : Les sous-réseaux que le routeur peut atteindre. Les passerelles : Les routeurs voisins qui peuvent relayer les paquets. Les métriques : Des valeurs utilisées pour évaluer la "coût" ou l’efficacité de chaque route (distance, bande passante, etc.).</p>
+<h4 id="exemple-dentree-dans-une-table-de-routage">Exemple d’entrée dans une table de routage<a class="headerlink" href="#exemple-dentree-dans-une-table-de-routage" title="Permanent link">¶</a></h4>
+<p>Réseau Destination Masque Passerelle Interface Sortante 192.168.1.0 255.255.255.0 192.168.0.1 Ethernet 0 10.0.0.0 255.0.0.0 192.168.0.2 Ethernet 1 4. Types de Routage</p>
+<h4 id="il-existe-deux-types-principaux-de-routage">Il existe deux types principaux de routage<a class="headerlink" href="#il-existe-deux-types-principaux-de-routage" title="Permanent link">¶</a></h4>
+<p>a) Routage statique Les routes sont configurées manuellement par un administrateur réseau. Idéal pour les petits réseaux ou des routes fixes. Avantages : Simplicité, contrôle précis. Inconvénients : Manque de flexibilité en cas de panne ou de changement. b) Routage dynamique Les routes sont déterminées automatiquement à l’aide de protocoles de routage. Les protocoles de routage comme RIP, OSPF, ou BGP permettent aux routeurs d’échanger des informations et d’ajuster les routes en fonction des changements dans le réseau. Avantages : Adaptabilité, gestion automatique des pannes. Inconvénients : Configuration plus complexe et consommation de ressources. 5. Processus de Routage</p>
+<h4 id="lorsquun-paquet-arrive-sur-un-routeur">Lorsqu’un paquet arrive sur un routeur<a class="headerlink" href="#lorsquun-paquet-arrive-sur-un-routeur" title="Permanent link">¶</a></h4>
+<p>Le routeur lit l’adresse IP de destination dans l’en-tête du paquet. Il consulte sa table de routage pour déterminer où envoyer le paquet. Si aucune route n’est trouvée, il transmet généralement le paquet à une passerelle par défaut. Le paquet est ensuite envoyé vers le prochain routeur ou la destination finale. 6. Exemple : Routage d’un Paquet Un ordinateur avec l’adresse IP 192.168.1.100 (masque 255.255.255.0) envoie des données à une machine distante 10.0.0.1 :</p>
+<p>L’ordinateur identifie que la destination 10.0.0.1 n’est pas sur le même réseau local (192.168.1.0/24). Le paquet est envoyé au routeur configuré comme passerelle par défaut (par exemple 192.168.1.1). Le routeur consulte sa table de routage et trouve une route vers le réseau 10.0.0.0/8. Il transmet le paquet au routeur suivant, ou directement à la destination si elle est atteignable. 7. Avantages du Routage Permet la communication entre différents réseaux. Optimise le trafic réseau en choisissant les meilleurs chemins. Assure la scalabilité en supportant des réseaux complexes et vastes (exemple : Internet).</p>
+<p>Le sur-réseau, ou supernetting, est une technique utilisée en réseau pour regrouper plusieurs sous-réseaux en un seul réseau plus grand. C’est l’opération inverse du sous-réseau (subnetting). Le sur-réseau est souvent utilisé pour réduire la taille des tables de routage et simplifier la gestion des adresses IP dans des réseaux de grande envergure, comme l’Internet. 1. Principe du Sur-Réseau Dans un réseau, le sur-réseau consiste à fusionner plusieurs plages d’adresses IP contiguës pour en former une plus grande, en utilisant un masque de réseau moins restrictif (moins de bits à 1 dans le masque). Cela permet de représenter plusieurs sous-réseaux avec une seule entrée dans une table de routage.</p>
+<h4 id="exemple-sans-sur-reseau">Exemple sans sur-réseau<a class="headerlink" href="#exemple-sans-sur-reseau" title="Permanent link">¶</a></h4>
+<p>Les réseaux 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 sont représentés comme quatre routes distinctes dans une table de routage.</p>
+<h4 id="exemple-avec-sur-reseau">Exemple avec sur-réseau<a class="headerlink" href="#exemple-avec-sur-reseau" title="Permanent link">¶</a></h4>
+<p>Ces mêmes réseaux peuvent être regroupés en un seul sur-réseau : 192.168.0.0/22.</p>
+<ol>
+<li>Avantages du Sur-Réseau Réduction de la taille des tables de routage : En combinant plusieurs réseaux, on simplifie les tables de routage, ce qui améliore la performance des routeurs. Meilleure gestion des ressources : Utile dans les grandes infrastructures où les adresses doivent être regroupées pour une administration simplifiée. Efficacité sur Internet : Le sur-réseau est utilisé dans le cadre du routage interdomaines (CIDR) pour regrouper des adresses IP en blocs. 3. Sur-Réseau et CIDR Le sur-réseau utilise la notation CIDR (Classless Inter-Domain Routing), qui est une méthode flexible pour attribuer des plages d’adresses IP.</li>
+</ol>
+<p>Dans l’exemple 192.168.0.0/22, le préfixe /22 indique que les 22 premiers bits sont réservés pour l’identification du réseau. Cela laisse 10 bits pour les adresses d’hôtes, permettant de regrouper 4 sous-réseaux de 256 adresses (soit 1024 adresses). 4. Étapes pour Créer un Sur-Réseau</p>
+<h4 id="a-identifier-les-sous-reseaux-a-regrouper">a) Identifier les sous-réseaux à regrouper<a class="headerlink" href="#a-identifier-les-sous-reseaux-a-regrouper" title="Permanent link">¶</a></h4>
+<p>Les plages doivent être contiguës et alignées sur des limites binaires compatibles. Exemple : 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24.</p>
+<h4 id="b-trouver-le-nouveau-prefixe">b) Trouver le nouveau préfixe<a class="headerlink" href="#b-trouver-le-nouveau-prefixe" title="Permanent link">¶</a></h4>
+<p>Convertissez les adresses réseau des sous-réseaux en binaire.</p>
+<h4 id="exemple-pour-les-reseaux-ci-dessus">Exemple pour les réseaux ci-dessus<a class="headerlink" href="#exemple-pour-les-reseaux-ci-dessus" title="Permanent link">¶</a></h4>
+<p>192.168.0.0 = 11000000.10101000.00000000.00000000 192.168.1.0 = 11000000.10101000.00000001.00000000 192.168.2.0 = 11000000.10101000.00000010.00000000 192.168.3.0 = 11000000.10101000.00000011.00000000 Identifiez les bits communs partagés entre ces adresses.</p>
+<h4 id="ici-les-22-premiers-bits-sont-identiques">Ici, les 22 premiers bits sont identiques<a class="headerlink" href="#ici-les-22-premiers-bits-sont-identiques" title="Permanent link">¶</a></h4>
+<p>11000000.10101000.000000** Le masque est donc /22.</p>
+<h4 id="c-regrouper-les-reseaux">c) Regrouper les réseaux<a class="headerlink" href="#c-regrouper-les-reseaux" title="Permanent link">¶</a></h4>
+<p>Le sur-réseau correspondant est 192.168.0.0/22, couvrant les plages d’adresses 192.168.0.0 à 192.168.3.255. 5. Limites du Sur-Réseau Perte de granularité : Le regroupement des réseaux peut réduire la précision pour identifier ou isoler des plages spécifiques. Alignement des plages requis : Les sous-réseaux doivent être contigus et alignés sur des limites binaires, ce qui limite parfois son application. Risque de conflits : En superposant des plages d’adresses mal planifiées, des conflits d’adresses IP peuvent survenir. 6. Exemple Pratique Imaginons un fournisseur d’accès à Internet (FAI) qui attribue plusieurs sous-réseaux à ses clients :</p>
+<p>192.168.0.0/24 pour Client 1 192.168.1.0/24 pour Client 2 192.168.2.0/24 pour Client 3 192.168.3.0/24 pour Client 4 Au lieu d’annoncer quatre routes distinctes sur Internet, le FAI peut utiliser un sur-réseau 192.168.0.0/22, simplifiant ainsi le routage.</p>
+<p>Le sur-réseau est une technique de regroupement d’adresses IP qui permet de simplifier les tables de routage et d’améliorer l’efficacité du réseau, en particulier à grande échelle. Bien qu’il nécessite une planification attentive pour garantir l’alignement des plages d’adresses, il reste un outil puissant pour optimiser l’infrastructure des réseaux modernes.</p>
+<p>Oui — et cette fois je vais le faire proprement <strong>en me basant sur le fichier du module 3 et 4</strong>, pas en improvisant.</p>
+<h3 id="ce-que-jai-identifie-dans-ton-cours-des-modules-3-et-4">Ce que j’ai identifié dans ton cours des modules 3 et 4<a class="headerlink" href="#ce-que-jai-identifie-dans-ton-cours-des-modules-3-et-4" title="Permanent link">¶</a></h3>
+<h4 id="les-themes-visibles-dans-le-fichier-sont-notamment">Les thèmes visibles dans le fichier sont notamment<a class="headerlink" href="#les-themes-visibles-dans-le-fichier-sont-notamment" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>Adressage IPv4**</p>
+</li>
+<li>
+<p>structure d’une IPv4 sur 32 bits</p>
+</li>
+<li>
+<p>ID réseau / ID hôte</p>
+</li>
+<li>
+<p>classes IPv4</p>
+</li>
+<li>
+<p>adresses spéciales</p>
+</li>
+<li>
+<p>adresses privées</p>
+</li>
+<li>
+<p>APIPA</p>
+</li>
+<li>
+<p>Calcul réseau**</p>
+</li>
+<li>
+<p>adresse réseau</p>
+</li>
+<li>
+<p>broadcast</p>
+</li>
+<li>
+<p>plage d’hôtes</p>
+</li>
+<li>
+<p>calcul avec masque</p>
+</li>
+<li>
+<p>CIDR**</p>
+</li>
+<li>
+<p>conversion <strong>CIDR → masque</strong></p>
+</li>
+<li>
+<p>conversion <strong>masque → CIDR</strong></p>
+</li>
+<li>
+<p>nombre d’hôtes selon le préfixe</p>
+</li>
+<li>
+<p>Sous-réseaux**</p>
+</li>
+<li>
+<p>calculs de sous-réseaux</p>
+</li>
+<li>
+<p>Domaine de diffusion**</p>
+</li>
+<li>
+<p>rôle</p>
+</li>
+<li>
+<p>segmentation via routeurs / VLAN</p>
+</li>
+<li>
+<p>Routage**</p>
+</li>
+<li>
+<p>rôle du routeur</p>
+</li>
+<li>
+<p>table de routage</p>
+</li>
+<li>
+<p>routage statique vs dynamique</p>
+</li>
+<li>
+<p>passerelle par défaut</p>
+</li>
+<li>
+<p>protocoles RIP / OSPF / BGP</p>
+</li>
+<li>
+<p>Sur-réseau (supernetting)**</p>
+</li>
+<li>
+<p>principe</p>
+</li>
+<li>
+<p>regroupement de réseaux contigus</p>
+</li>
+<li>
+<p>exemple <strong>192.168.0.0/24 à 192.168.3.0/24 → 192.168.0.0/22</strong></p>
+</li>
+</ul>
+<h3 id="donc-oui-je-peux-te-faire-exactement-la-meme-chose-que-pour-les-modules-1-et-2">Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2<a class="headerlink" href="#donc-oui-je-peux-te-faire-exactement-la-meme-chose-que-pour-les-modules-1-et-2" title="Permanent link">¶</a></h3>
+<p>Je te propose de te produire un <strong>quiz Kahoot complet modules 3 et 4</strong> avec la <strong>même logique</strong> :</p>
+<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Niveau facile** : définitions, classes, adresses privées, CIDR de base</p>
+</li>
+<li>
+<p>Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage</p>
+</li>
+<li>
+<p>Niveau difficile** : calculs de sous-réseaux, conversion masque↔CIDR, nombre d’hôtes, supernetting</p>
+</li>
+<li>
+<p>Questions pièges** : vrai/faux sur APIPA, broadcast, passerelle, routeur, etc.</p>
+</li>
+</ul>
+<h3 id="format">Format<a class="headerlink" href="#format" title="Permanent link">¶</a></h3>
+<h4 id="pour-chaque-question-je-te-donnerai">Pour <strong>chaque question</strong>, je te donnerai<a class="headerlink" href="#pour-chaque-question-je-te-donnerai" title="Permanent link">¶</a></h4>
+<ol>
+<li><strong>la question Kahoot</strong> 2. <strong>4 réponses</strong> 3. <strong>la bonne réponse</strong> 4. <strong>une explication claire</strong> 5. <strong>un exemple concret</strong>, comme je l’ai fait pour modules 1 et 2</li>
+</ol>
+<hr>
+<h3 id="ce-que-je-te-propose-maintenant">Ce que je te propose maintenant<a class="headerlink" href="#ce-que-je-te-propose-maintenant" title="Permanent link">¶</a></h3>
+<h4 id="je-peux-te-generer-tout-de-suite-un-pack-complet-du-style">Je peux te générer <strong>tout de suite</strong> un pack complet du style<a class="headerlink" href="#je-peux-te-generer-tout-de-suite-un-pack-complet-du-style" title="Permanent link">¶</a></h4>
+<h3 id="quiz-kahoot-modules-3-et-4">Quiz Kahoot — Modules 3 et 4<a class="headerlink" href="#quiz-kahoot-modules-3-et-4" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>35 questions**</p>
+</li>
+<li>
+<p>difficulté progressive</p>
+</li>
+<li>
+<p>100 % basé sur ton cours**</p>
+</li>
+<li>
+<p>avec explication + exemple pour <strong>chaque question</strong></p>
+</li>
+</ul>
+<h3 id="exemple-du-rendu-que-je-vais-te-faire">Exemple du rendu que je vais te faire :<a class="headerlink" href="#exemple-du-rendu-que-je-vais-te-faire" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Question 1** — Que signifie le préfixe /24 ?</p>
+</li>
+<li>
+<p>Question 2** — Quelle est la plage privée de classe B ?</p>
+</li>
+<li>
+<p>Question 3** — Convertir 255.255.255.192 en CIDR</p>
+</li>
+<li>
+<p>Question 4** — Trouver l’adresse réseau de 192.168.10.100/24</p>
+</li>
+<li>
+<p>Question 5** — Trouver le broadcast de 172.25.192.0 avec 255.255.240.0</p>
+</li>
+<li>
+<p>Question 6** — Combien d’hôtes utilisables dans un /26 ?</p>
+</li>
+<li>
+<p>Question 7** — Quel est le rôle d’une passerelle par défaut ?</p>
+</li>
+<li>
+<p>Question 8** — Quelle différence entre routage statique et dynamique ?</p>
+</li>
+<li>
+<p>Question 9** — Quel sur-réseau regroupe 192.168.0.0/24 à 192.168.3.0/24 ?</p>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+<hr>
+<h3 id="ma-recommandation">Ma recommandation<a class="headerlink" href="#ma-recommandation" title="Permanent link">¶</a></h3>
+<p>Vu ce que tu veux, le plus efficace est que je te livre directement <strong>la version finale complète</strong>, comme pour les modules 1 et 2, en un seul bloc.</p>
+<p>👉 <strong>Si tu veux, réponds juste :</strong> <strong>“fais-moi le quiz complet modules 3 et 4”</strong></p>
+<h4 id="et-je-te-genere-tout-le-quiz-complet-maintenant">et je te génère <strong>tout le quiz complet maintenant</strong><a class="headerlink" href="#et-je-te-genere-tout-le-quiz-complet-maintenant" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>35 questions</p>
+</li>
+<li>
+<p>réponses</p>
+</li>
+<li>
+<p>correction</p>
+</li>
+<li>
+<p>explication</p>
+</li>
+<li>
+<p>exemple pour chaque question</p>
+</li>
+<li>
+<p>sans hors sujet, uniquement à partir du cours.</p>
+</li>
+</ul>
+<p>Oui — je te fais le <strong>quiz complet modules 3 et 4</strong>, en restant <strong>strictement collé à ton cours</strong> : IPv4, classes, adresses privées, APIPA, calcul réseau/broadcast/hôtes, CIDR, sous-réseautage, domaine de diffusion, routage et sur-réseau. Je me base sur les éléments explicitement présents dans ton fichier.</p>
+<h4 id="je-vais-te-donner-le-meme-format-que-pour-modules-1-et-2">Je vais te donner le <strong>même format que pour modules 1 et 2</strong><a class="headerlink" href="#je-vais-te-donner-le-meme-format-que-pour-modules-1-et-2" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>question Kahoot**</p>
+</li>
+<li>
+<p>4 réponses**</p>
+</li>
+<li>
+<p>bonne réponse**</p>
+</li>
+<li>
+<p>explication**</p>
+</li>
+<li>
+<p>exemple concret**</p>
+</li>
+</ul>
+<hr>
+<h3 id="quiz-kahoot-modules-3-et-4_1">Quiz Kahoot — Modules 3 et 4<a class="headerlink" href="#quiz-kahoot-modules-3-et-4_1" title="Permanent link">¶</a></h3>
+<hr>
+<h3 id="niveau-facile-1-a-12">Niveau Facile (1 à 12)<a class="headerlink" href="#niveau-facile-1-a-12" title="Permanent link">¶</a></h3>
+<h3 id="1-combien-de-bits-contient-une-adresse-ipv4">1. Combien de bits contient une adresse IPv4 ?<a class="headerlink" href="#1-combien-de-bits-contient-une-adresse-ipv4" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 16</p>
+</li>
+<li>
+<p>B. 32 ✅</p>
+</li>
+<li>
+<p>C. 48</p>
+</li>
+<li>
+<p>D. 64</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Une adresse IPv4 est composée de <strong>4 octets</strong>, donc <strong>4 × 8 = 32 bits</strong>.</p>
+<p><strong>Exemple :</strong> 192.168.1.10 = 4 nombres séparés par des points → chaque nombre = 1 octet.</p>
+<hr>
+<h3 id="2-dans-une-adresse-ipv4-a-quoi-sert-le-masque-de-sous-reseau">2. Dans une adresse IPv4, à quoi sert le masque de sous-réseau ?<a class="headerlink" href="#2-dans-une-adresse-ipv4-a-quoi-sert-le-masque-de-sous-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. À chiffrer l’adresse IP</p>
+</li>
+<li>
+<p>B. À séparer la partie réseau et la partie hôte ✅</p>
+</li>
+<li>
+<p>C. À convertir l’adresse en MAC</p>
+</li>
+<li>
+<p>D. À calculer la passerelle</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le masque sert à savoir <strong>quels bits appartiennent au réseau</strong> et <strong>quels bits appartiennent à l’hôte</strong>.</p>
+<p><strong>Exemple :</strong> Avec <strong>192.168.1.10/24</strong>, les <strong>24 premiers bits</strong> sont le réseau, les <strong>8 derniers</strong> sont la partie hôte.</p>
+<hr>
+<h3 id="3-quelle-classe-ipv4-correspond-aux-petits-reseaux-dans-le-cours">3. Quelle classe IPv4 correspond aux petits réseaux dans le cours ?<a class="headerlink" href="#3-quelle-classe-ipv4-correspond-aux-petits-reseaux-dans-le-cours" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Classe A</p>
+</li>
+<li>
+<p>B. Classe B</p>
+</li>
+<li>
+<p>C. Classe C ✅</p>
+</li>
+<li>
+<p>D. Classe D</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Dans ton cours, la <strong>classe C</strong> est utilisée pour les <strong>petits réseaux</strong> et couvre <strong>192.0.0.0 à 223.255.255.255</strong>.</p>
+<p><strong>Exemple :</strong> 192.168.1.0/24 est un cas typique de réseau de type classe C.</p>
+<hr>
+<h3 id="4-quelle-classe-ipv4-couvre-les-adresses-de-128000-a-191255255255">4. Quelle classe IPv4 couvre les adresses de 128.0.0.0 à 191.255.255.255 ?<a class="headerlink" href="#4-quelle-classe-ipv4-couvre-les-adresses-de-128000-a-191255255255" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Classe A</p>
+</li>
+<li>
+<p>B. Classe B ✅</p>
+</li>
+<li>
+<p>C. Classe C</p>
+</li>
+<li>
+<p>D. Classe D</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours indique que la <strong>classe B</strong> correspond à cette plage.</p>
+<p><strong>Exemple :</strong> 172.25.192.0 appartient à cette plage.</p>
+<hr>
+<h3 id="5-quelle-adresse-est-ladresse-de-boucle-locale-localhost">5. Quelle adresse est l’adresse de boucle locale (localhost) ?<a class="headerlink" href="#5-quelle-adresse-est-ladresse-de-boucle-locale-localhost" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.1.1</p>
+</li>
+<li>
+<p>B. 10.0.0.1</p>
+</li>
+<li>
+<p>C. 127.0.0.1 ✅</p>
+</li>
+<li>
+<p>D. 255.255.255.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> 127.0.0.1 est l’adresse utilisée pour tester la machine elle-même.</p>
+<p><strong>Exemple :</strong> Quand tu fais un test local sur ton PC, tu peux viser <strong>127.0.0.1</strong>.</p>
+<hr>
+<h3 id="6-quelle-adresse-permet-denvoyer-un-message-a-tous-les-hotes-dun-reseau">6. Quelle adresse permet d’envoyer un message à tous les hôtes d’un réseau ?<a class="headerlink" href="#6-quelle-adresse-permet-denvoyer-un-message-a-tous-les-hotes-dun-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Adresse MAC</p>
+</li>
+<li>
+<p>B. Adresse de broadcast ✅</p>
+</li>
+<li>
+<p>C. Adresse APIPA</p>
+</li>
+<li>
+<p>D. Adresse loopback</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> L’adresse de <strong>broadcast</strong> a tous les bits de la partie hôte à 1.</p>
+<p><strong>Exemple :</strong> Dans <strong>192.168.1.0/24</strong>, le broadcast est <strong>192.168.1.255</strong>.</p>
+<hr>
+<h3 id="7-quelle-plage-correspond-aux-adresses-privees-de-classe-a">7. Quelle plage correspond aux adresses privées de classe A ?<a class="headerlink" href="#7-quelle-plage-correspond-aux-adresses-privees-de-classe-a" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 172.16.0.0 à 172.31.255.255</p>
+</li>
+<li>
+<p>B. 192.168.0.0 à 192.168.255.255</p>
+</li>
+<li>
+<p>C. 10.0.0.0 à 10.255.255.255 ✅</p>
+</li>
+<li>
+<p>D. 127.0.0.0 à 127.255.255.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> C’est l’une des trois plages privées RFC 1918 mentionnées dans ton cours.</p>
+<p><strong>Exemple :</strong> Un grand réseau d’entreprise peut utiliser des adresses comme <strong>10.1.20.5</strong>.</p>
+<hr>
+<h3 id="8-quelle-plage-correspond-aux-adresses-privees-de-classe-b">8. Quelle plage correspond aux adresses privées de classe B ?<a class="headerlink" href="#8-quelle-plage-correspond-aux-adresses-privees-de-classe-b" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 10.0.0.0 à 10.255.255.255</p>
+</li>
+<li>
+<p>B. 172.16.0.0 à 172.31.255.255 ✅</p>
+</li>
+<li>
+<p>C. 192.168.0.0 à 192.168.255.255</p>
+</li>
+<li>
+<p>D. 224.0.0.0 à 239.255.255.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Ton cours donne explicitement cette plage privée.</p>
+<p><strong>Exemple :</strong> <strong>172.25.192.0</strong> fait partie de cette plage.</p>
+<hr>
+<h3 id="9-quelle-plage-correspond-aux-adresses-privees-de-classe-c">9. Quelle plage correspond aux adresses privées de classe C ?<a class="headerlink" href="#9-quelle-plage-correspond-aux-adresses-privees-de-classe-c" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.0.0 à 192.168.255.255 ✅</p>
+</li>
+<li>
+<p>B. 172.16.0.0 à 172.31.255.255</p>
+</li>
+<li>
+<p>C. 10.0.0.0 à 10.255.255.255</p>
+</li>
+<li>
+<p>D. 224.0.0.0 à 239.255.255.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> C’est la plage privée la plus courante dans les petits réseaux.</p>
+<p><strong>Exemple :</strong> Ta box à la maison utilise souvent <strong>192.168.1.x</strong>.</p>
+<hr>
+<h3 id="10-quelle-plage-est-utilisee-par-apipa">10. Quelle plage est utilisée par APIPA ?<a class="headerlink" href="#10-quelle-plage-est-utilisee-par-apipa" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 10.x.x.x</p>
+</li>
+<li>
+<p>B. 172.16.x.x</p>
+</li>
+<li>
+<p>C. 169.254.x.x ✅</p>
+</li>
+<li>
+<p>D. 192.168.x.x</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> APIPA attribue automatiquement une adresse <strong>169.254.x.x</strong> quand aucun serveur DHCP ne répond.</p>
+<p><strong>Exemple :</strong> Si ton PC n’obtient pas d’adresse du DHCP, il peut s’auto-attribuer <strong>169.254.12.8</strong>.</p>
+<hr>
+<h3 id="11-apipa-permet-surtout">11. APIPA permet surtout :<a class="headerlink" href="#11-apipa-permet-surtout" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. d’accéder à Internet plus vite</p>
+</li>
+<li>
+<p>B. de communiquer localement sans DHCP ✅</p>
+</li>
+<li>
+<p>C. de chiffrer les paquets</p>
+</li>
+<li>
+<p>D. de remplacer le routage</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> APIPA permet de <strong>continuer à communiquer sur le réseau local</strong>, mais <strong>pas sur Internet</strong>.</p>
+<p><strong>Exemple :</strong> Deux PC en panne de DHCP peuvent encore échanger des fichiers localement via des adresses 169.254.x.x.</p>
+<hr>
+<h3 id="12-que-signifie-la-notation-24-dans-une-adresse-ipv4">12. Que signifie la notation /24 dans une adresse IPv4 ?<a class="headerlink" href="#12-que-signifie-la-notation-24-dans-une-adresse-ipv4" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 24 bits pour les hôtes</p>
+</li>
+<li>
+<p>B. 24 bits pour la partie réseau ✅</p>
+</li>
+<li>
+<p>C. 24 octets dans le masque</p>
+</li>
+<li>
+<p>D. 24 adresses utilisables</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le <strong>/24</strong> indique que <strong>24 bits</strong> sont réservés au réseau.</p>
+<p><strong>Exemple :</strong> <strong>192.168.1.0/24</strong> → masque <strong>255.255.255.0</strong>.</p>
+<hr>
+<h3 id="niveau-moyen-13-a-24">Niveau Moyen (13 à 24)<a class="headerlink" href="#niveau-moyen-13-a-24" title="Permanent link">¶</a></h3>
+<h3 id="13-quel-masque-correspond-au-prefixe-cidr-24">13. Quel masque correspond au préfixe CIDR /24 ?<a class="headerlink" href="#13-quel-masque-correspond-au-prefixe-cidr-24" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 255.255.0.0</p>
+</li>
+<li>
+<p>B. 255.255.255.0 ✅</p>
+</li>
+<li>
+<p>C. 255.255.255.128</p>
+</li>
+<li>
+<p>D. 255.255.255.192</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> /24 = <strong>24 bits à 1</strong>, puis 8 bits à 0 → <strong>255.255.255.0</strong>.</p>
+<p><strong>Exemple :</strong> 11111111.11111111.11111111.00000000 = 255.255.255.0</p>
+<hr>
+<h3 id="14-quel-masque-correspond-au-prefixe-cidr-26">14. Quel masque correspond au préfixe CIDR /26 ?<a class="headerlink" href="#14-quel-masque-correspond-au-prefixe-cidr-26" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 255.255.255.0</p>
+</li>
+<li>
+<p>B. 255.255.255.128</p>
+</li>
+<li>
+<p>C. 255.255.255.192 ✅</p>
+</li>
+<li>
+<p>D. 255.255.255.240</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> /26 = 26 bits à 1 → le dernier octet vaut <strong>11000000</strong>, soit <strong>192</strong>.</p>
+<p><strong>Exemple :</strong> /26 = <strong>255.255.255.192</strong></p>
+<hr>
+<h3 id="15-quel-masque-correspond-au-prefixe-20">15. Quel masque correspond au préfixe /20 ?<a class="headerlink" href="#15-quel-masque-correspond-au-prefixe-20" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 255.255.255.0</p>
+</li>
+<li>
+<p>B. 255.255.240.0 ✅</p>
+</li>
+<li>
+<p>C. 255.255.224.0</p>
+</li>
+<li>
+<p>D. 255.255.255.240</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> /20 = 20 bits à 1 → <strong>11111111.11111111.11110000.00000000</strong>.</p>
+<p><strong>Exemple :</strong> Le cours utilise <strong>172.25.192.0 / 255.255.240.0</strong>, soit <strong>/20</strong>.</p>
+<hr>
+<h3 id="16-quel-prefixe-cidr-correspond-au-masque-255255255192">16. Quel préfixe CIDR correspond au masque 255.255.255.192 ?<a class="headerlink" href="#16-quel-prefixe-cidr-correspond-au-masque-255255255192" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. /24</p>
+</li>
+<li>
+<p>B. /25</p>
+</li>
+<li>
+<p>C. /26 ✅</p>
+</li>
+<li>
+<p>D. /28</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> 255.255.255.192 = <strong>11111111.11111111.11111111.11000000</strong> → <strong>26 bits à 1</strong>.</p>
+<p><strong>Exemple :</strong> Ce masque laisse <strong>6 bits pour les hôtes</strong>.</p>
+<hr>
+<h3 id="17-quel-prefixe-cidr-correspond-au-masque-255255255240">17. Quel préfixe CIDR correspond au masque 255.255.255.240 ?<a class="headerlink" href="#17-quel-prefixe-cidr-correspond-au-masque-255255255240" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. /26</p>
+</li>
+<li>
+<p>B. /27</p>
+</li>
+<li>
+<p>C. /28 ✅</p>
+</li>
+<li>
+<p>D. /29</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> 255.255.255.240 = <strong>11110000</strong> dans le dernier octet → <strong>28 bits à 1</strong> au total.</p>
+<p><strong>Exemple :</strong> Un /28 offre 16 adresses au total, dont 14 hôtes utilisables.</p>
+<hr>
+<h3 id="18-quel-est-lid-reseau-de-19216811024">18. Quel est l’ID réseau de 192.168.1.10/24 ?<a class="headerlink" href="#18-quel-est-lid-reseau-de-19216811024" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.1.1</p>
+</li>
+<li>
+<p>B. 192.168.1.10</p>
+</li>
+<li>
+<p>C. 192.168.1.0 ✅</p>
+</li>
+<li>
+<p>D. 192.168.1.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Avec un /24, le dernier octet est la partie hôte. On le met à 0 pour obtenir l’ID réseau.</p>
+<p><strong>Exemple :</strong> 192.168.1.10 AND 255.255.255.0 = <strong>192.168.1.0</strong></p>
+<hr>
+<h3 id="19-quel-est-le-broadcast-du-reseau-19216810024">19. Quel est le broadcast du réseau 192.168.10.0/24 ?<a class="headerlink" href="#19-quel-est-le-broadcast-du-reseau-19216810024" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.10.0</p>
+</li>
+<li>
+<p>B. 192.168.10.1</p>
+</li>
+<li>
+<p>C. 192.168.10.254</p>
+</li>
+<li>
+<p>D. 192.168.10.255 ✅</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le broadcast met <strong>tous les bits hôte à 1</strong>.</p>
+<p><strong>Exemple :</strong> Pour un /24, les hôtes vont de <strong>1 à 254</strong>, donc le broadcast est <strong>255</strong>.</p>
+<hr>
+<h3 id="20-quelle-est-la-plage-dhotes-utilisables-du-reseau-19216810024">20. Quelle est la plage d’hôtes utilisables du réseau 192.168.10.0/24 ?<a class="headerlink" href="#20-quelle-est-la-plage-dhotes-utilisables-du-reseau-19216810024" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.10.0 à 192.168.10.255</p>
+</li>
+<li>
+<p>B. 192.168.10.1 à 192.168.10.254 ✅</p>
+</li>
+<li>
+<p>C. 192.168.10.1 à 192.168.10.255</p>
+</li>
+<li>
+<p>D. 192.168.10.0 à 192.168.10.254</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="on-retire">On retire<a class="headerlink" href="#on-retire" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>l’adresse réseau → <strong>192.168.10.0</strong></p>
+</li>
+<li>
+<p>l’adresse de broadcast → <strong>192.168.10.255</strong></p>
+</li>
+</ul>
+<p><strong>Exemple :</strong> Les hôtes utilisables sont donc <strong>192.168.10.1 à 192.168.10.254</strong>.</p>
+<hr>
+<h3 id="21-quel-est-le-broadcast-de-172251920-avec-le-masque-2552552400">21. Quel est le broadcast de 172.25.192.0 avec le masque 255.255.240.0 ?<a class="headerlink" href="#21-quel-est-le-broadcast-de-172251920-avec-le-masque-2552552400" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 172.25.192.255</p>
+</li>
+<li>
+<p>B. 172.25.200.255</p>
+</li>
+<li>
+<p>C. 172.25.207.255 ✅</p>
+</li>
+<li>
+<p>D. 172.25.255.255</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours donne cet exemple complet : <strong>172.25.192.0 /20</strong> a pour broadcast <strong>172.25.207.255</strong>.</p>
+<p><strong>Exemple :</strong> La plage d’hôtes va de <strong>172.25.192.1 à 172.25.207.254</strong>.</p>
+<hr>
+<h3 id="22-quelle-est-la-plage-dhotes-du-reseau-17225192020">22. Quelle est la plage d’hôtes du réseau 172.25.192.0/20 ?<a class="headerlink" href="#22-quelle-est-la-plage-dhotes-du-reseau-17225192020" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 172.25.192.0 à 172.25.207.255</p>
+</li>
+<li>
+<p>B. 172.25.192.1 à 172.25.207.254 ✅</p>
+</li>
+<li>
+<p>C. 172.25.192.1 à 172.25.255.254</p>
+</li>
+<li>
+<p>D. 172.25.193.1 à 172.25.207.254</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> On retire l’ID réseau et le broadcast.</p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>
+<p>Réseau : <strong>172.25.192.0</strong></p>
+</li>
+<li>
+<p>Broadcast : <strong>172.25.207.255</strong></p>
+</li>
+<li>
+<p>Hôtes : <strong>172.25.192.1 → 172.25.207.254</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="23-combien-dhotes-utilisables-y-a-t-il-dans-un-26">23. Combien d’hôtes utilisables y a-t-il dans un /26 ?<a class="headerlink" href="#23-combien-dhotes-utilisables-y-a-t-il-dans-un-26" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 30</p>
+</li>
+<li>
+<p>B. 62 ✅</p>
+</li>
+<li>
+<p>C. 64</p>
+</li>
+<li>
+<p>D. 126</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Un /26 laisse <strong>6 bits hôte</strong>. Donc : <strong>2⁶ = 64 adresses</strong>, mais on retire <strong>réseau + broadcast</strong> → <strong>62 hôtes</strong>.</p>
+<p><strong>Exemple :</strong> 192.168.10.0/26 → 62 hôtes utilisables.</p>
+<hr>
+<h3 id="24-combien-dhotes-utilisables-y-a-t-il-dans-un-28">24. Combien d’hôtes utilisables y a-t-il dans un /28 ?<a class="headerlink" href="#24-combien-dhotes-utilisables-y-a-t-il-dans-un-28" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 14 ✅</p>
+</li>
+<li>
+<p>B. 16</p>
+</li>
+<li>
+<p>C. 30</p>
+</li>
+<li>
+<p>D. 62</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Un /28 laisse <strong>4 bits hôte</strong>. Donc : <strong>2⁴ = 16 adresses</strong>, moins 2 = <strong>14 hôtes utilisables</strong>.</p>
+<p><strong>Exemple :</strong> Un petit sous-réseau de 14 machines maximum.</p>
+<hr>
+<h3 id="niveau-difficile-25-a-35">Niveau Difficile (25 à 35)<a class="headerlink" href="#niveau-difficile-25-a-35" title="Permanent link">¶</a></h3>
+<h3 id="25-si-un-reseau-1921681024-est-decoupe-en-deux-sous-reseaux-25-combien-obtient-on-de-sous-reseaux">25. Si un réseau 192.168.1.0/24 est découpé en deux sous-réseaux /25, combien obtient-on de sous-réseaux ?<a class="headerlink" href="#25-si-un-reseau-1921681024-est-decoupe-en-deux-sous-reseaux-25-combien-obtient-on-de-sous-reseaux" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 2 ✅</p>
+</li>
+<li>
+<p>B. 4</p>
+</li>
+<li>
+<p>C. 8</p>
+</li>
+<li>
+<p>D. 16</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> On passe de /24 à /25 : on <strong>emprunte 1 bit</strong> pour le sous-réseau. Nombre de sous-réseaux = <strong>2¹ = 2</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>
+<p>192.168.1.0/25</p>
+</li>
+<li>
+<p>192.168.1.128/25</p>
+</li>
+</ul>
+<hr>
+<h3 id="26-si-un-reseau-24-devient-25-combien-dhotes-utilisables-possede-chaque-sous-reseau">26. Si un réseau /24 devient /25, combien d’hôtes utilisables possède chaque sous-réseau ?<a class="headerlink" href="#26-si-un-reseau-24-devient-25-combien-dhotes-utilisables-possede-chaque-sous-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 62</p>
+</li>
+<li>
+<p>B. 126 ✅</p>
+</li>
+<li>
+<p>C. 128</p>
+</li>
+<li>
+<p>D. 254</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="un-25-laisse-7-bits-hote">Un /25 laisse <strong>7 bits hôte</strong><a class="headerlink" href="#un-25-laisse-7-bits-hote" title="Permanent link">¶</a></h4>
+<p><strong>2⁷ = 128</strong>, donc <strong>126 hôtes utilisables</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>
+<p>Sous-réseau 1 : 192.168.1.0 à 192.168.1.127</p>
+</li>
+<li>
+<p>Sous-réseau 2 : 192.168.1.128 à 192.168.1.255</p>
+</li>
+</ul>
+<hr>
+<h3 id="27-quel-est-le-premier-sous-reseau-obtenu-dans-lexemple-de-decoupage-de-1921681024-en-25">27. Quel est le premier sous-réseau obtenu dans l’exemple de découpage de 192.168.1.0/24 en /25 ?<a class="headerlink" href="#27-quel-est-le-premier-sous-reseau-obtenu-dans-lexemple-de-decoupage-de-1921681024-en-25" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.1.0/25 ✅</p>
+</li>
+<li>
+<p>B. 192.168.1.64/25</p>
+</li>
+<li>
+<p>C. 192.168.1.128/25</p>
+</li>
+<li>
+<p>D. 192.168.1.255/25</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="le-cours-donne-cet-exemple-explicitement">Le cours donne cet exemple explicitement<a class="headerlink" href="#le-cours-donne-cet-exemple-explicitement" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>192.168.1.0/25**</p>
+</li>
+<li>
+<p>192.168.1.128/25**</p>
+</li>
+</ul>
+<p><strong>Exemple :</strong> Le premier couvre <strong>192.168.1.0 à 192.168.1.127</strong>.</p>
+<hr>
+<h3 id="28-quel-est-le-second-sous-reseau-obtenu-dans-ce-meme-decoupage">28. Quel est le second sous-réseau obtenu dans ce même découpage ?<a class="headerlink" href="#28-quel-est-le-second-sous-reseau-obtenu-dans-ce-meme-decoupage" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.1.64/25</p>
+</li>
+<li>
+<p>B. 192.168.1.127/25</p>
+</li>
+<li>
+<p>C. 192.168.1.128/25 ✅</p>
+</li>
+<li>
+<p>D. 192.168.1.255/25</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le second bloc commence à <strong>128</strong>, car un /25 coupe le /24 en deux blocs de 128 adresses.</p>
+<p><strong>Exemple :</strong> 192.168.1.128/25 couvre <strong>192.168.1.128 à 192.168.1.255</strong>.</p>
+<hr>
+<h3 id="29-quelle-operation-logique-permet-dobtenir-lid-reseau-a-partir-dune-ip-et-de-son-masque">29. Quelle opération logique permet d’obtenir l’ID réseau à partir d’une IP et de son masque ?<a class="headerlink" href="#29-quelle-operation-logique-permet-dobtenir-lid-reseau-a-partir-dune-ip-et-de-son-masque" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. OR</p>
+</li>
+<li>
+<p>B. XOR</p>
+</li>
+<li>
+<p>C. AND ✅</p>
+</li>
+<li>
+<p>D. NOT</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours précise que l’ID réseau est obtenu en faisant <strong>IP AND masque</strong>.</p>
+<p><strong>Exemple :</strong> 192.168.1.10 AND 255.255.255.0 = 192.168.1.0</p>
+<hr>
+<h3 id="30-quel-equipement-delimite-les-domaines-de-diffusion">30. Quel équipement délimite les domaines de diffusion ?<a class="headerlink" href="#30-quel-equipement-delimite-les-domaines-de-diffusion" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Hub</p>
+</li>
+<li>
+<p>B. Switch</p>
+</li>
+<li>
+<p>C. Routeur ✅</p>
+</li>
+<li>
+<p>D. Répéteur</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Un routeur <strong>ne transmet pas les diffusions</strong> d’un réseau à un autre. Il sépare donc les broadcast domains.</p>
+<p><strong>Exemple :</strong> Deux sous-réseaux reliés par un routeur ne partagent pas le même broadcast.</p>
+<hr>
+<h3 id="31-quel-equipement-transmet-les-diffusions-a-tous-les-ports-dun-meme-vlan">31. Quel équipement transmet les diffusions à tous les ports d’un même VLAN ?<a class="headerlink" href="#31-quel-equipement-transmet-les-diffusions-a-tous-les-ports-dun-meme-vlan" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Routeur</p>
+</li>
+<li>
+<p>B. Switch ✅</p>
+</li>
+<li>
+<p>C. Modem</p>
+</li>
+<li>
+<p>D. Pare-feu</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Dans un même VLAN, le switch propage les trames de diffusion à tous les ports concernés.</p>
+<p><strong>Exemple :</strong> Une requête ARP est diffusée à toutes les machines du VLAN.</p>
+<hr>
+<h3 id="32-quel-est-le-role-principal-dun-routeur-selon-le-cours">32. Quel est le rôle principal d’un routeur selon le cours ?<a class="headerlink" href="#32-quel-est-le-role-principal-dun-routeur-selon-le-cours" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Convertir les adresses MAC en IP</p>
+</li>
+<li>
+<p>B. Acheminer les paquets IP entre réseaux ✅</p>
+</li>
+<li>
+<p>C. Chiffrer les communications</p>
+</li>
+<li>
+<p>D. Attribuer automatiquement les adresses IP</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le routage sert à faire passer des paquets <strong>d’un réseau à un autre</strong>.</p>
+<p><strong>Exemple :</strong> Un PC du réseau <strong>192.168.1.0/24</strong> veut joindre <strong>10.0.0.1</strong> → il envoie le paquet à sa passerelle.</p>
+<hr>
+<h3 id="33-que-contient-une-table-de-routage">33. Que contient une table de routage ?<a class="headerlink" href="#33-que-contient-une-table-de-routage" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Seulement les adresses MAC</p>
+</li>
+<li>
+<p>B. Les réseaux connus, les passerelles et les métriques ✅</p>
+</li>
+<li>
+<p>C. Les mots de passe Wi-Fi</p>
+</li>
+<li>
+<p>D. Les ports TCP ouverts</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="le-cours-liste">Le cours liste<a class="headerlink" href="#le-cours-liste" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>réseaux connus</p>
+</li>
+<li>
+<p>passerelles</p>
+</li>
+<li>
+<p>métriques</p>
+</li>
+<li>
+<p>interface sortante</p>
+</li>
+</ul>
+<p><strong>Exemple :</strong></p>
+<h4 id="une-entree-peut-dire">Une entrée peut dire<a class="headerlink" href="#une-entree-peut-dire" title="Permanent link">¶</a></h4>
+<p>“Pour atteindre <strong>10.0.0.0/8</strong>, passe par <strong>192.168.0.2</strong>”.</p>
+<hr>
+<h3 id="34-quelle-difference-caracterise-le-routage-statique">34. Quelle différence caractérise le routage statique ?<a class="headerlink" href="#34-quelle-difference-caracterise-le-routage-statique" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Les routes sont apprises automatiquement</p>
+</li>
+<li>
+<p>B. Les routes sont configurées manuellement ✅</p>
+</li>
+<li>
+<p>C. Il utilise forcément OSPF</p>
+</li>
+<li>
+<p>D. Il ne fonctionne qu’en IPv6</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le routage statique est <strong>saisi par l’administrateur</strong>.</p>
+<p><strong>Exemple :</strong> Sur un petit réseau, on ajoute à la main une route vers <strong>10.0.0.0/8</strong>.</p>
+<hr>
+<h3 id="35-quel-sur-reseau-regroupe-1921680024-1921681024-1921682024-et-1921683024">35. Quel sur-réseau regroupe 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 et 192.168.3.0/24 ?<a class="headerlink" href="#35-quel-sur-reseau-regroupe-1921680024-1921681024-1921682024-et-1921683024" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 192.168.0.0/24</p>
+</li>
+<li>
+<p>B. 192.168.0.0/23</p>
+</li>
+<li>
+<p>C. 192.168.0.0/22 ✅</p>
+</li>
+<li>
+<p>D. 192.168.0.0/20</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="ton-cours-donne-precisement-cet-exemple-de-supernetting">Ton cours donne précisément cet exemple de <strong>supernetting</strong><a class="headerlink" href="#ton-cours-donne-precisement-cet-exemple-de-supernetting" title="Permanent link">¶</a></h4>
+<p>4 réseaux /24 contigus peuvent être regroupés en <strong>192.168.0.0/22</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>
+<p>192.168.0.0/24</p>
+</li>
+<li>
+<p>192.168.1.0/24</p>
+</li>
+<li>
+<p>192.168.2.0/24</p>
+</li>
+<li>
+<p>192.168.3.0/24</p>
+</li>
+</ul>
+<p>→ regroupés dans <strong>192.168.0.0/22</strong></p>
+<hr>
+<h3 id="questions-pieges-vrai-faux-36-a-42">Questions pièges / Vrai-Faux (36 à 42)<a class="headerlink" href="#questions-pieges-vrai-faux-36-a-42" title="Permanent link">¶</a></h3>
+<h3 id="36-vrai-ou-faux">36. Vrai ou Faux<a class="headerlink" href="#36-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Une adresse APIPA permet normalement d’accéder à Internet.</p>
+<p>❌ <strong>Faux</strong></p>
+<p><strong>Pourquoi ?</strong> Le cours précise que les adresses APIPA <strong>ne sont pas routables</strong> hors du réseau local.</p>
+<p><strong>Exemple :</strong> Deux PC peuvent se parler en 169.254.x.x, mais pas aller sur Internet via cette adresse seule.</p>
+<hr>
+<h3 id="37-vrai-ou-faux">37. Vrai ou Faux<a class="headerlink" href="#37-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Dans un réseau /24, l’adresse se terminant par .255 peut être l’adresse de broadcast.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Exemple :</strong> Dans <strong>192.168.1.0/24</strong>, le broadcast est <strong>192.168.1.255</strong>.</p>
+<hr>
+<h3 id="38-vrai-ou-faux">38. Vrai ou Faux<a class="headerlink" href="#38-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Le sous-réseautage permet de réduire la taille des domaines de diffusion.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Pourquoi ?</strong> C’est un des objectifs du subnetting dans ton cours : <strong>réduire le broadcast</strong> et améliorer les performances.</p>
+<hr>
+<h3 id="39-vrai-ou-faux">39. Vrai ou Faux<a class="headerlink" href="#39-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Un routeur transmet automatiquement toutes les diffusions d’un réseau à l’autre.</p>
+<p>❌ <strong>Faux</strong></p>
+<p><strong>Pourquoi ?</strong> Au contraire, il <strong>délimite</strong> les domaines de diffusion.</p>
+<hr>
+<h3 id="40-vrai-ou-faux">40. Vrai ou Faux<a class="headerlink" href="#40-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>OSPF, RIP et BGP sont cités comme protocoles de routage dynamique.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Pourquoi ?</strong> Le cours les cite explicitement dans la partie routage dynamique.</p>
+<hr>
+<h3 id="41-vrai-ou-faux">41. Vrai ou Faux<a class="headerlink" href="#41-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Le masque 255.255.255.0 correspond à /24.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Exemple :</strong> 11111111.11111111.11111111.00000000 → 24 bits à 1.</p>
+<hr>
+<h3 id="42-vrai-ou-faux">42. Vrai ou Faux<a class="headerlink" href="#42-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Le sur-réseau est l’opération inverse du sous-réseautage.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Pourquoi ?</strong> Le cours dit explicitement que le <strong>sur-réseau (supernetting)</strong> est l’inverse du <strong>subnetting</strong>.</p>
+<hr>
+<h3 id="ce-que-je-te-conseille-pour-ton-kahoot">Ce que je te conseille pour ton Kahoot<a class="headerlink" href="#ce-que-je-te-conseille-pour-ton-kahoot" title="Permanent link">¶</a></h3>
+<p>Si tu veux un Kahoot <strong>efficace et pas trop long</strong>, je te recommande de garder <strong>25 à 30 questions</strong> sur les 42 ci-dessus, par exemple :</p>
+<h3 id="a-garder-absolument">À garder absolument<a class="headerlink" href="#a-garder-absolument" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>1, 2, 5</p>
+</li>
+<li>
+<p>7, 8, 9, 10</p>
+</li>
+<li>
+<p>12, 13, 14, 15, 16</p>
+</li>
+<li>
+<p>18, 19, 20, 21, 22</p>
+</li>
+<li>
+<p>23, 24</p>
+</li>
+<li>
+<p>29, 30, 32, 33, 34, 35</p>
+</li>
+<li>
+<p>36, 38, 39, 40</p>
+</li>
+</ul>
+<h4 id="comme-ca-tu-couvres">Comme ça tu couvres<a class="headerlink" href="#comme-ca-tu-couvres" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>IPv4</p>
+</li>
+<li>
+<p>classes</p>
+</li>
+<li>
+<p>privées / APIPA</p>
+</li>
+<li>
+<p>CIDR</p>
+</li>
+<li>
+<p>calcul réseau/broadcast/hôtes</p>
+</li>
+<li>
+<p>subnetting</p>
+</li>
+<li>
+<p>broadcast domain</p>
+</li>
+<li>
+<p>routage</p>
+</li>
+<li>
+<p>supernetting</p>
+</li>
+</ul>
+<hr>
+<h3 id="ce-que-je-peux-faire-maintenant">Ce que je peux faire maintenant<a class="headerlink" href="#ce-que-je-peux-faire-maintenant" title="Permanent link">¶</a></h3>
+<p>Je peux enchaîner directement avec <strong>l’étape suivante</strong> et te préparer <strong>la version prête à copier dans Kahoot</strong>, c’est-à-dire un tableau propre comme ça :</p>
+<p>| Question | Réponse 1 | Réponse 2 | Réponse 3 | Réponse 4 | Bonne réponse | | -------- | --------: | --------: | --------: | --------: | ------------: |</p>
+<p>Donc <strong>sans les explications</strong>, juste le format <strong>copier-coller Kahoot</strong>.</p>
+<h4 id="si-tu-veux-reponds-juste">Si tu veux, réponds juste<a class="headerlink" href="#si-tu-veux-reponds-juste" title="Permanent link">¶</a></h4>
+<p><strong>“fais-moi la version Kahoot prête à copier”</strong></p>
+<p>et je te la prépare pour <strong>les modules 3 et 4</strong>.</p>
+<h2 id="mise-en-pratique">Mise en pratique<a class="headerlink" href="#mise-en-pratique" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../tp/reseaux/module-04/">Travaux pratiques du module</a></li>
+<li><a href="../../../revision/reseaux/module-04-la-communication-dans-un-reseau/">Fiche de révision du module</a></li>
+</ul>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment expliquer simplement « La communication dans un réseau » à un collègue ?</li>
+<li>Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?</li>
+<li>Quel contrôle permet de prouver que le résultat est correct ?</li>
+<li>Quel est le premier risque ou piège à écarter ?</li>
+</ol>
+<details class="success">
+<summary>Éléments de réponse</summary>
+<ul>
+<li>Déterminer si une destination est locale ou distante.</li>
+<li>Comprendre l’emploi des adresses MAC, d’ARP et de la passerelle par défaut.</li>
+<li>Suivre une communication à travers commutateur et routeur.</li>
+<li>Vérifier un scénario de communication dans Packet Tracer.</li>
+</ul>
+</details>
+<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../">Présentation de la séquence</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page">
+        
+          
+          <a href="../module-03-l-adressage-ipv4/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Module 03 — L’adressage IPv4">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Module 03 — L’adressage IPv4
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../module-05-les-premieres-commandes-reseau/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Module 05 — Les premières commandes réseau">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Module 05 — Les premières commandes réseau
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Formation TSSR · Documentation personnelle
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  <script src="../../../assets/javascripts/mermaid.min.js"></script>
+  <script>
+    window.renderTssrMermaid = function () {
+      if (typeof mermaid === "undefined") return;
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "strict",
+        theme: document.body.getAttribute("data-md-color-scheme") === "slate" ? "dark" : "base",
+        fontFamily: "Inter, system-ui, sans-serif",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      var diagrams = Array.from(document.querySelectorAll(".mermaid:not([data-processed='true'])"));
+      diagrams.forEach(function (diagram) {
+        diagram.dataset.tssrSource = diagram.textContent.trim();
+      });
+      mermaid.run({ nodes: diagrams, suppressErrors: false }).catch(function (error) {
+        diagrams.forEach(function (diagram) {
+          diagram.dataset.tssrMermaidError = error && error.message ? error.message : String(error);
+          if (!diagram.textContent.trim()) diagram.textContent = diagram.dataset.tssrSource;
+        });
+        console.error("Mermaid render error:", error && error.message ? error.message : error);
+      });
+    };
+    if (typeof document$ !== "undefined") {
+      document$.subscribe(function () { window.renderTssrMermaid(); });
+      window.renderTssrMermaid();
+    } else if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", window.renderTssrMermaid, { once: true });
+    } else {
+      window.renderTssrMermaid();
+    }
+  </script>
+
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "fade"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
