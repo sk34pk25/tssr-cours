@@ -1,4 +1,4 @@
-# Module 01 — Le modèle OSI
+# Module 01 — Le modèle OSI test
 
 **Séquence :** Bases des réseaux  
 **Importance :** socle de la progression officielle  
