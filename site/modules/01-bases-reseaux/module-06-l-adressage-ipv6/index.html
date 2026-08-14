@@ -1,0 +1,7322 @@
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apprendre, pratiquer et diagnostiquer avec les cours, TP, révisions et mémos de la formation TSSR.">
+      
+      
+        <meta name="author" content="Portail personnel de formation">
+      
+      
+        <link rel="canonical" href="http://localhost:8000/modules/01-bases-reseaux/module-06-l-adressage-ipv6/">
+      
+      
+        <link rel="prev" href="../module-05-les-premieres-commandes-reseau/">
+      
+      
+        <link rel="next" href="../../02-systemes-clients-microsoft/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Module 06 — L’adressage IPv6 - TSSR · Portail de formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/base.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/navigation.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/components.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/chronology.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/visuals.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/homepage.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/responsive.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-06-ladressage-ipv6" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="TSSR · Portail de formation" class="md-header__button md-logo" aria-label="TSSR · Portail de formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TSSR · Portail de formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 06 — L’adressage IPv6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Passer au thème sombre" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au thème sombre" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Passer au thème clair" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au thème clair" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TSSR · Portail de formation" class="md-nav__button md-logo" aria-label="TSSR · Portail de formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
+
+    </a>
+    TSSR · Portail de formation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../parcours/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parcours chronologique
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parcours chronologique
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/01-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 — Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/02-bases-reseaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 — Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/03-systemes-clients-microsoft-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 — Systèmes clients Microsoft (1/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/04-systemes-clients-microsoft-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 — Systèmes clients Microsoft (2/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/05-utilisation-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 — Utilisation GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/06-administration-linux-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 — Administration GNU/Linux (1/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/07-administration-linux-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 — Administration GNU/Linux (2/2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/08-msp-systemes-clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 — MSP systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../parcours/09-itil-gestion-parc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 — ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bases des réseaux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-01-le-modele-osi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 01 — Le modèle OSI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-02-les-unites-informatiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 02 — Les unités informatiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-03-l-adressage-ipv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 03 — L’adressage IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-04-la-communication-dans-un-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 04 — La communication dans un réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-05-les-premieres-commandes-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 05 — Les premières commandes réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — L’adressage IPv6
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — L’adressage IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-et-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs et compétences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reperes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repères visuels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repères visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neighbor-discovery-remplace-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Neighbor Discovery remplace ARP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours-consolide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cours consolidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cours consolidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-6-ladressage-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 6 - L'adressage IPv6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 6 - L'adressage IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dadresse-ipv6-decomposee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d'adresse IPv6 décomposée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regles-de-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règles de simplification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-locales-de-lien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses locales de lien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-globales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses globales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses multicast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresse-de-loopback-boucle-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresse de loopback (boucle locale)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-adresses-ipv6-sont-classees-en-trois-categories-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les adresses IPv6 sont classées en trois catégories principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure-generale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure générale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-5-et-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 5 et 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-facile-1-a-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Facile (1 à 12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-que-signifie-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Que signifie ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-a-quoi-sert-principalement-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. À quoi sert principalement ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quelle-commande-permet-dafficher-la-table-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quelle commande permet d’afficher la table ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-que-contient-principalement-une-table-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Que contient principalement une table ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quelle-commande-permet-dajouter-une-entree-arp-statique-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quelle commande permet d’ajouter une entrée ARP statique sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quelle-commande-permet-de-vider-le-cache-arp-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quelle commande permet de vider le cache ARP sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-sous-windows-quelle-commande-affiche-un-resume-des-informations-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Sous Windows, quelle commande affiche un résumé des informations réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-quelle-commande-windows-affiche-des-informations-reseau-detaillees-y-compris-dhcp-et-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quelle commande Windows affiche des informations réseau détaillées, y compris DHCP et DNS ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quelle-commande-windows-libere-ladresse-ip-obtenue-par-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quelle commande Windows libère l’adresse IP obtenue par DHCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-quelle-commande-windows-demande-une-nouvelle-adresse-ip-au-serveur-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Quelle commande Windows demande une nouvelle adresse IP au serveur DHCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-quelle-commande-vide-le-cache-dns-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Quelle commande vide le cache DNS sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-quelle-commande-affiche-le-cache-dns-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Quelle commande affiche le cache DNS sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-moyen-13-a-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Moyen (13 à 24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-sous-linux-quelle-commande-moderne-remplace-progressivement-ifconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Sous Linux, quelle commande moderne remplace progressivement ifconfig ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-quel-objet-de-la-commande-ip-sert-a-gerer-les-adresses-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Quel objet de la commande ip sert à gérer les adresses IP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-quelle-commande-linux-affiche-uniquement-les-adresses-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Quelle commande Linux affiche uniquement les adresses IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-quel-objet-de-la-commande-ip-sert-a-gerer-les-interfaces-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Quel objet de la commande ip sert à gérer les interfaces réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-quel-objet-de-la-commande-ip-sert-a-afficher-les-routes-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quel objet de la commande ip sert à afficher les routes réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-quel-objet-de-la-commande-ip-permet-de-gerer-la-table-de-voisinage-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Quel objet de la commande ip permet de gérer la table de voisinage / ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-quel-protocole-utilise-la-commande-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Quel protocole utilise la commande ping ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-quel-est-le-role-principal-de-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Quel est le rôle principal de ping ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-dans-la-sortie-de-ping-que-represente-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Dans la sortie de ping, que représente time= ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-dans-la-sortie-de-ping-que-signifie-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Dans la sortie de ping, que signifie ttl= ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-quelle-option-de-ping-permet-denvoyer-un-nombre-precis-de-requetes-sous-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Quelle option de ping permet d’envoyer un nombre précis de requêtes sous Linux ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-quelle-option-de-ping-permet-dafficher-seulement-les-statistiques-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Quelle option de ping permet d’afficher seulement les statistiques finales ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-difficile-25-a-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Difficile (25 à 38)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-quelle-commande-netstat-affiche-toutes-les-connexions-actives-et-les-ports-en-ecoute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Quelle commande netstat affiche toutes les connexions actives et les ports en écoute ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-quelle-option-netstat-affiche-les-adresses-et-ports-en-format-numerique-sans-resolution-de-noms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Quelle option netstat affiche les adresses et ports en format numérique sans résolution de noms ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-quelle-option-netstat-affiche-uniquement-les-connexions-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Quelle option netstat affiche uniquement les connexions TCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-quelle-option-netstat-affiche-uniquement-les-connexions-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Quelle option netstat affiche uniquement les connexions UDP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-que-signifie-letat-listen-dans-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Que signifie l’état LISTEN dans netstat ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-que-signifie-letat-established-dans-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Que signifie l’état ESTABLISHED dans netstat ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-quelle-option-netstat-affiche-les-processus-associes-aux-connexions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Quelle option netstat affiche les processus associés aux connexions ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-quelle-commande-reseau-sert-a-afficher-le-chemin-emprunte-par-les-paquets-jusqua-une-destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Quelle commande réseau sert à afficher le chemin emprunté par les paquets jusqu’à une destination ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-sur-quel-principe-fonctionne-tracert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Sur quel principe fonctionne tracert ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-sous-linux-quelle-commande-est-lequivalent-de-tracert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Sous Linux, quelle commande est l’équivalent de tracert ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="34. Sous Linux, quelle commande est l’équivalent de tracert ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-indique-clairement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours indique clairement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-combien-de-bits-contient-une-adresse-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Combien de bits contient une adresse IPv6 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-une-adresse-ipv6-est-generalement-ecrite-sous-quelle-forme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Une adresse IPv6 est généralement écrite sous quelle forme ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-quelle-adresse-ipv6-est-ladresse-de-boucle-locale-loopback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Quelle adresse IPv6 est l’adresse de boucle locale (loopback) ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-quelle-plage-correspond-aux-adresses-ipv6-de-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Quelle plage correspond aux adresses IPv6 de lien-local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-avance-pieges-39-a-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Avancé / Pièges (39 à 50)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-quelle-plage-correspond-aux-adresses-ipv6-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Quelle plage correspond aux adresses IPv6 multicast ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#40-quelle-plage-correspond-aux-adresses-ipv6-globales-routables-sur-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. Quelle plage correspond aux adresses IPv6 globales routables sur Internet ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-dans-la-structure-dune-adresse-ipv6-gua-quelle-partie-identifie-generalement-linterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-donne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours donne
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-quelle-adresse-multicast-ipv6-designe-tous-les-nuds-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. Quelle adresse multicast IPv6 désigne tous les nœuds du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-quelle-adresse-multicast-ipv6-designe-tous-les-routeurs-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        43. Quelle adresse multicast IPv6 désigne tous les routeurs du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-quelle-adresse-multicast-ipv6-est-associee-au-multicast-dns-mdns-dans-ton-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        44. Quelle adresse multicast IPv6 est associée au Multicast DNS (mDNS) dans ton cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-quelle-adresse-multicast-ipv6-est-associee-aux-serveurs-et-relais-dhcp-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        45. Quelle adresse multicast IPv6 est associée aux serveurs et relais DHCP du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-quelle-commande-windows-peut-aider-a-confirmer-quune-machine-a-recu-une-adresse-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46. Quelle commande Windows peut aider à confirmer qu’une machine a reçu une adresse APIPA ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-quel-protocole-remplace-arp-en-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47. Quel protocole remplace ARP en IPv6 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-quelle-commande-netstat-affiche-la-table-de-routage-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        48. Quelle commande netstat affiche la table de routage du système ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        49. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#50-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        50. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bilan-rapide-sur-ce-quiz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bilan rapide sur ce quiz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bilan rapide sur ce quiz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-quiz-couvre-bien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce quiz couvre bien
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-critique-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point critique important
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-peux-faire-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je peux faire maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je peux faire maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#si-tu-veux-reponds-juste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si tu veux, réponds juste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../02-systemes-clients-microsoft/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../03-microsoft-365-outils-collaboratifs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../04-utilisation-gnu-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../05-administration-debian-gnu-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../06-sensibilisation-itil-gestion-parc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../07-administration-glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../08-msp-systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutoriels/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutoriels
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutoriels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/diagnostic-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnostic réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/ipv4-statique-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPv4 statique sous Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/installer-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installer Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/installer-glpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installer GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/capture-deploiement-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capture et déploiement Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriels/forticlient-vpn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configurer FortiClient VPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux pratiques
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/reseaux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/microsoft-365/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/utilisation-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/administration-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/itil/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../tp/msp/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../exercices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-reseaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Réseaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-systemes-clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/cas-pratiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cas pratiques transversaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../revision/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Révisions
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Révisions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/reseaux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bases des réseaux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/systemes-clients/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes clients Microsoft
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/microsoft-365/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft 365 — Outils collaboratifs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/utilisation-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilisation d’une distribution GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/administration-linux/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/itil/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensibilisation ITIL et gestion de parc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/glpi/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration GLPI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../revision/msp/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mise en situation professionnelle — Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../memo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémos
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mémos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/ports-essentiels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports essentiels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/ipv4-cidr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPv4 et CIDR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/permissions-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permissions Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/glpi-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLPI et SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../commandes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commandes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commandes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/windows-powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows et PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commandes/mariadb-glpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MariaDB et GLPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../troubleshooting/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dépannage
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dépannage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/client-sans-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client sans réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/service-linux-echec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Linux en échec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/windows-instable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows instable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/glpi-inaccessible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GLPI inaccessible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/outlook-connexion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outlook ne se connecte pas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ressources/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/sources-officielles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sources officielles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/inventaire-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventaire des sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index-general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index général
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-et-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs et compétences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reperes-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repères visuels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repères visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neighbor-discovery-remplace-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Neighbor Discovery remplace ARP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours-consolide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cours consolidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cours consolidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-6-ladressage-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 6 - L'adressage IPv6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 6 - L'adressage IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dadresse-ipv6-decomposee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d'adresse IPv6 décomposée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regles-de-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règles de simplification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-locales-de-lien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses locales de lien
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-globales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses globales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresses-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresses multicast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adresse-de-loopback-boucle-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adresse de loopback (boucle locale)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-adresses-ipv6-sont-classees-en-trois-categories-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les adresses IPv6 sont classées en trois catégories principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure-generale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure générale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quiz-kahoot-modules-5-et-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz Kahoot — Modules 5 et 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-facile-1-a-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Facile (1 à 12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-que-signifie-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Que signifie ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-a-quoi-sert-principalement-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. À quoi sert principalement ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quelle-commande-permet-dafficher-la-table-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quelle commande permet d’afficher la table ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-que-contient-principalement-une-table-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Que contient principalement une table ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quelle-commande-permet-dajouter-une-entree-arp-statique-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quelle commande permet d’ajouter une entrée ARP statique sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quelle-commande-permet-de-vider-le-cache-arp-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quelle commande permet de vider le cache ARP sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-sous-windows-quelle-commande-affiche-un-resume-des-informations-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Sous Windows, quelle commande affiche un résumé des informations réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-quelle-commande-windows-affiche-des-informations-reseau-detaillees-y-compris-dhcp-et-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quelle commande Windows affiche des informations réseau détaillées, y compris DHCP et DNS ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quelle-commande-windows-libere-ladresse-ip-obtenue-par-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quelle commande Windows libère l’adresse IP obtenue par DHCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-quelle-commande-windows-demande-une-nouvelle-adresse-ip-au-serveur-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Quelle commande Windows demande une nouvelle adresse IP au serveur DHCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-quelle-commande-vide-le-cache-dns-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Quelle commande vide le cache DNS sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-quelle-commande-affiche-le-cache-dns-sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Quelle commande affiche le cache DNS sous Windows ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-moyen-13-a-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Moyen (13 à 24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-sous-linux-quelle-commande-moderne-remplace-progressivement-ifconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Sous Linux, quelle commande moderne remplace progressivement ifconfig ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-quel-objet-de-la-commande-ip-sert-a-gerer-les-adresses-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Quel objet de la commande ip sert à gérer les adresses IP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-quelle-commande-linux-affiche-uniquement-les-adresses-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Quelle commande Linux affiche uniquement les adresses IPv4 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-quel-objet-de-la-commande-ip-sert-a-gerer-les-interfaces-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Quel objet de la commande ip sert à gérer les interfaces réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-quel-objet-de-la-commande-ip-sert-a-afficher-les-routes-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quel objet de la commande ip sert à afficher les routes réseau ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-quel-objet-de-la-commande-ip-permet-de-gerer-la-table-de-voisinage-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Quel objet de la commande ip permet de gérer la table de voisinage / ARP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-quel-protocole-utilise-la-commande-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Quel protocole utilise la commande ping ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-quel-est-le-role-principal-de-ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Quel est le rôle principal de ping ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-dans-la-sortie-de-ping-que-represente-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. Dans la sortie de ping, que représente time= ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-dans-la-sortie-de-ping-que-signifie-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. Dans la sortie de ping, que signifie ttl= ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-quelle-option-de-ping-permet-denvoyer-un-nombre-precis-de-requetes-sous-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. Quelle option de ping permet d’envoyer un nombre précis de requêtes sous Linux ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-quelle-option-de-ping-permet-dafficher-seulement-les-statistiques-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24. Quelle option de ping permet d’afficher seulement les statistiques finales ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-difficile-25-a-38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Difficile (25 à 38)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-quelle-commande-netstat-affiche-toutes-les-connexions-actives-et-les-ports-en-ecoute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25. Quelle commande netstat affiche toutes les connexions actives et les ports en écoute ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-quelle-option-netstat-affiche-les-adresses-et-ports-en-format-numerique-sans-resolution-de-noms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26. Quelle option netstat affiche les adresses et ports en format numérique sans résolution de noms ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-quelle-option-netstat-affiche-uniquement-les-connexions-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27. Quelle option netstat affiche uniquement les connexions TCP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-quelle-option-netstat-affiche-uniquement-les-connexions-udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28. Quelle option netstat affiche uniquement les connexions UDP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-que-signifie-letat-listen-dans-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29. Que signifie l’état LISTEN dans netstat ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-que-signifie-letat-established-dans-netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30. Que signifie l’état ESTABLISHED dans netstat ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-quelle-option-netstat-affiche-les-processus-associes-aux-connexions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31. Quelle option netstat affiche les processus associés aux connexions ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-quelle-commande-reseau-sert-a-afficher-le-chemin-emprunte-par-les-paquets-jusqua-une-destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        32. Quelle commande réseau sert à afficher le chemin emprunté par les paquets jusqu’à une destination ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-sur-quel-principe-fonctionne-tracert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        33. Sur quel principe fonctionne tracert ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-sous-linux-quelle-commande-est-lequivalent-de-tracert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        34. Sous Linux, quelle commande est l’équivalent de tracert ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="34. Sous Linux, quelle commande est l’équivalent de tracert ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-indique-clairement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours indique clairement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-combien-de-bits-contient-une-adresse-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35. Combien de bits contient une adresse IPv6 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-une-adresse-ipv6-est-generalement-ecrite-sous-quelle-forme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36. Une adresse IPv6 est généralement écrite sous quelle forme ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-quelle-adresse-ipv6-est-ladresse-de-boucle-locale-loopback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        37. Quelle adresse IPv6 est l’adresse de boucle locale (loopback) ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-quelle-plage-correspond-aux-adresses-ipv6-de-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        38. Quelle plage correspond aux adresses IPv6 de lien-local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-avance-pieges-39-a-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau Avancé / Pièges (39 à 50)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-quelle-plage-correspond-aux-adresses-ipv6-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        39. Quelle plage correspond aux adresses IPv6 multicast ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#40-quelle-plage-correspond-aux-adresses-ipv6-globales-routables-sur-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        40. Quelle plage correspond aux adresses IPv6 globales routables sur Internet ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-dans-la-structure-dune-adresse-ipv6-gua-quelle-partie-identifie-generalement-linterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-cours-donne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cours donne
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-quelle-adresse-multicast-ipv6-designe-tous-les-nuds-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        42. Quelle adresse multicast IPv6 désigne tous les nœuds du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-quelle-adresse-multicast-ipv6-designe-tous-les-routeurs-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        43. Quelle adresse multicast IPv6 désigne tous les routeurs du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-quelle-adresse-multicast-ipv6-est-associee-au-multicast-dns-mdns-dans-ton-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        44. Quelle adresse multicast IPv6 est associée au Multicast DNS (mDNS) dans ton cours ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-quelle-adresse-multicast-ipv6-est-associee-aux-serveurs-et-relais-dhcp-du-lien-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        45. Quelle adresse multicast IPv6 est associée aux serveurs et relais DHCP du lien local ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-quelle-commande-windows-peut-aider-a-confirmer-quune-machine-a-recu-une-adresse-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46. Quelle commande Windows peut aider à confirmer qu’une machine a reçu une adresse APIPA ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-quel-protocole-remplace-arp-en-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47. Quel protocole remplace ARP en IPv6 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-quelle-commande-netstat-affiche-la-table-de-routage-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        48. Quelle commande netstat affiche la table de routage du système ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        49. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#50-vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        50. Vrai ou Faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bilan-rapide-sur-ce-quiz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bilan rapide sur ce quiz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bilan rapide sur ce quiz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-quiz-couvre-bien" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce quiz couvre bien
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point-critique-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Point critique important
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-je-peux-faire-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que je peux faire maintenant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce que je peux faire maintenant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#si-tu-veux-reponds-juste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si tu veux, réponds juste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cours
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Bases des réseaux
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-06-ladressage-ipv6">Module 06 — L’adressage IPv6<a class="headerlink" href="#module-06-ladressage-ipv6" title="Permanent link">¶</a></h1>
+<p><strong>Séquence :</strong> Bases des réseaux<br>
+<strong>Importance :</strong> socle de la progression officielle<br>
+<strong>Sources consolidées :</strong> 1 support(s) de cours, 0 énoncé(s), 0 correction(s)</p>
+<div class="admonition warning">
+<p class="admonition-title">Périmètre et versions</p>
+<p>Les six modules sont explicitement nommés dans les dossiers et supports Réseaux. Les activités Packet Tracer sont conservées comme ressources binaires à ouvrir avec Cisco Packet Tracer.</p>
+</div>
+<h2 id="objectifs-et-competences">Objectifs et compétences<a class="headerlink" href="#objectifs-et-competences" title="Permanent link">¶</a></h2>
+<ul>
+<li>Lire, compresser et développer une adresse IPv6.</li>
+<li>Distinguer unicast, multicast et anycast.</li>
+<li>Reconnaître les portées link-local, unique-local et globale.</li>
+<li>Comprendre le remplacement d’ARP par Neighbor Discovery.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Façon simple de le comprendre</p>
+<p>Ce module sert à passer de la notion « L’adressage IPv6 » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.</p>
+</div>
+<h2 id="methode-de-travail">Méthode de travail<a class="headerlink" href="#methode-de-travail" title="Permanent link">¶</a></h2>
+<ol>
+<li>Lire les concepts dans l’ordre du support.</li>
+<li>Reproduire les exemples dans un environnement de laboratoire.</li>
+<li>Noter le résultat attendu avant de modifier une configuration.</li>
+<li>Vérifier avec l’outil ou la commande appropriée.</li>
+<li>Revenir à l’état initial si le résultat diverge.</li>
+</ol>
+<h2 id="reperes-visuels">Repères visuels<a class="headerlink" href="#reperes-visuels" title="Permanent link">¶</a></h2>
+<p>Une adresse IPv6 contient <strong>128 bits</strong>, écrits sous la forme de huit groupes hexadécimaux de 16 bits. Les zéros initiaux d’un groupe peuvent être supprimés et une seule suite contiguë de groupes nuls peut être remplacée par <code>::</code>.</p>
+<figure class="tssr-figure">
+  <div class="tssr-figure__canvas">
+    <div class="tssr-bits" role="img" aria-label="Huit groupes hexadécimaux de 16 bits formant une adresse IPv6 de 128 bits">
+      <div class="tssr-bit"><b>2001</b><span>16 bits</span></div><div class="tssr-bit"><b>0db8</b><span>16 bits</span></div>
+      <div class="tssr-bit"><b>85a3</b><span>16 bits</span></div><div class="tssr-bit"><b>0000</b><span>16 bits</span></div>
+      <div class="tssr-bit"><b>0000</b><span>16 bits</span></div><div class="tssr-bit"><b>8a2e</b><span>16 bits</span></div>
+      <div class="tssr-bit"><b>0370</b><span>16 bits</span></div><div class="tssr-bit"><b>7334</b><span>16 bits</span></div>
+    </div>
+  </div>
+  <figcaption><code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code> → <code>2001:db8:85a3::8a2e:370:7334</code>.</figcaption>
+</figure>
+
+<div class="tssr-service-grid" aria-label="Principales portées IPv6">
+  <div class="tssr-service-card" style="--card-color:#3978c5"><b>Globale · 2000::/3</b><span>Routable sur Internet ; équivalent fonctionnel des adresses IPv4 publiques.</span></div>
+  <div class="tssr-service-card" style="--card-color:#159574"><b>Link-local · fe80::/10</b><span>Valable sur le lien ; créée automatiquement et non routée.</span></div>
+  <div class="tssr-service-card" style="--card-color:#7c5bc4"><b>Unique-local · fc00::/7</b><span>Destinée aux communications privées internes.</span></div>
+  <div class="tssr-service-card" style="--card-color:#c47a18"><b>Multicast · ff00::/8</b><span>Adresse un groupe de destinataires ; IPv6 n’utilise pas le broadcast.</span></div>
+</div>
+
+<h3 id="neighbor-discovery-remplace-arp">Neighbor Discovery remplace ARP<a class="headerlink" href="#neighbor-discovery-remplace-arp" title="Permanent link">¶</a></h3>
+<div class="mermaid">sequenceDiagram
+    participant A as Hôte IPv6 A
+    participant M as Multicast sollicité
+    participant B as Hôte IPv6 B
+    A-&gt;&gt;M: Neighbor Solicitation&lt;br/&gt;ICMPv6 · qui possède cette IPv6 ?
+    M--&gt;&gt;B: La sollicitation atteint le voisin ciblé
+    B-&gt;&gt;A: Neighbor Advertisement&lt;br/&gt;voici mon adresse MAC
+    A-&gt;&gt;B: Trame Ethernet vers le voisin</div>
+<p class="tssr-caption">NDP s’appuie sur ICMPv6 et le multicast pour la découverte des voisins, des routeurs et de certains paramètres du lien.</p>
+
+<h2 id="cours-consolide">Cours consolidé<a class="headerlink" href="#cours-consolide" title="Permanent link">¶</a></h2>
+<h3 id="module-6-ladressage-ipv6">Module 6 - L'adressage IPv6<a class="headerlink" href="#module-6-ladressage-ipv6" title="Permanent link">¶</a></h3>
+<p>Objectifs La structure d'une adresse IPv6 (RFC 2800) Les différents types d'adresses IPv6 Adresse de monodiffusion de Lien-Local Adresses de monodiffusion globale unique Adresses de multidiffusion Adresses IPv6 d'un hôte Démonstration - Les adresses IPv6 Enoncé du TP - L'adressage IPv6 TP - Adressage IPv6</p>
+<p>L'adresse IPv6 (Internet Protocol version 6) est la version la plus récente du protocole Internet, conçue pour résoudre les limitations de l'IPv4, notamment la pénurie d'adresses disponibles. Avec un espace d'adressage beaucoup plus grand et des fonctionnalités avancées, l'IPv6 est essentiel pour répondre aux besoins de l'Internet moderne. Structure d'une adresse IPv6 Une adresse IPv6 est composée de 128 bits, soit quatre fois la taille d'une adresse IPv4 (32 bits). Elle est représentée sous forme de huit groupes de quatre chiffres hexadécimaux, séparés par des deux-points (:) :</p>
+<p>2001:0db8:85a3:0000:0000:8a2e:0370:7334 Chaque groupe (appelé quartet) représente 16 bits, soit deux octets.</p>
+<h4 id="exemple-dadresse-ipv6-decomposee">Exemple d'adresse IPv6 décomposée<a class="headerlink" href="#exemple-dadresse-ipv6-decomposee" title="Permanent link">¶</a></h4>
+<p>2001 : 0db8 : 85a3 : 0000 : 0000 : 8a2e : 0370 : 7334 2001:0db8 : Identifiant du réseau. 8a2e:0370:7334 : Identifiant de l'hôte. Format Comprimé des Adresses IPv6 Les adresses IPv6 peuvent être simplifiées pour une lecture et une écriture plus aisées.</p>
+<h4 id="regles-de-simplification">Règles de simplification<a class="headerlink" href="#regles-de-simplification" title="Permanent link">¶</a></h4>
+<p>Supprimez les zéros initiaux dans chaque quartet. Exemple : 2001:0db8:0000:0000:8a2e:0370:7334 devient 2001:db8:0:0:8a2e:370:7334.</p>
+<p>Remplacez les séries continues de 0 par :: une seule fois dans l’adresse. Exemple : 2001:0db8:0000:0000:0000:ff00:0042:8329 devient 2001:db8::ff00:42:8329.</p>
+<p>Plages Spéciales d'Adresses IPv6</p>
+<h4 id="adresses-locales-de-lien">Adresses locales de lien<a class="headerlink" href="#adresses-locales-de-lien" title="Permanent link">¶</a></h4>
+<p>Plage : FE80::/10 Utilisées pour la communication entre appareils sur un réseau local sans configuration particulière.</p>
+<h4 id="adresses-globales">Adresses globales<a class="headerlink" href="#adresses-globales" title="Permanent link">¶</a></h4>
+<p>Plage : 2000::/3 Correspondent aux adresses routables sur Internet.</p>
+<h4 id="adresses-multicast">Adresses multicast<a class="headerlink" href="#adresses-multicast" title="Permanent link">¶</a></h4>
+<p>Plage : FF00::/8 Utilisées pour envoyer des paquets à plusieurs destinataires.</p>
+<h4 id="adresse-de-loopback-boucle-locale">Adresse de loopback (boucle locale)<a class="headerlink" href="#adresse-de-loopback-boucle-locale" title="Permanent link">¶</a></h4>
+<p>Adresse : ::1 Équivalent à 127.0.0.1 en IPv4, utilisée pour tester la connectivité locale.</p>
+<p>Avantages de l'IPv6 Espace d'Adressage Étendu IPv6 permet de générer 3,4 × 10^38 adresses (contre 4,3 milliards pour IPv4). Cela garantit des adresses suffisantes pour les décennies à venir, y compris avec l'expansion de l'IoT. Suppression du NAT (Network Address Translation)</p>
+<p>Chaque appareil peut avoir une adresse unique, éliminant le besoin de traductions d'adresses. Meilleure Gestion des Flux</p>
+<p>L'IPv6 inclut une prise en charge native de la QoS (Qualité de Service). Simplification de la Configuration</p>
+<p>Grâce à l'auto-configuration stateless, les appareils peuvent générer automatiquement leurs adresses à partir du préfixe réseau. Sécurité Intégrée</p>
+<p>L'IPv6 inclut IPsec (sécurité IP) pour chiffrer et authentifier les données. Compatibilité IPv6 et IPv4 IPv6 et IPv4 ne sont pas directement compatibles, car leurs structures diffèrent. Cependant, plusieurs techniques permettent leur coexistence :</p>
+<p>Double Stack : Les appareils utilisent les deux protocoles simultanément. Tunneling : Les paquets IPv6 sont encapsulés dans des paquets IPv4. Traduction d'adresses (NAT64) : Permet aux appareils IPv6 de communiquer avec des appareils IPv4.</p>
+<p>Types d'Adresses IPv6</p>
+<h4 id="les-adresses-ipv6-sont-classees-en-trois-categories-principales">Les adresses IPv6 sont classées en trois catégories principales<a class="headerlink" href="#les-adresses-ipv6-sont-classees-en-trois-categories-principales" title="Permanent link">¶</a></h4>
+<p>a) Adresses Unicast Utilisées pour identifier un unique appareil sur un réseau. Exemple : Adresse d'une machine spécifique. b) Adresses Multicast Permettent d'envoyer des paquets à plusieurs appareils en une seule transmission. Remplacent en grande partie les diffusions (broadcast) de l'IPv4. c) Adresses Anycast Permettent d'envoyer des paquets au nœud le plus proche parmi un groupe partageant la même adresse. Adresses spécifiques : : /0 Représente tous les réseaux Utilisé comme route par défaut ≈ 0.0.0.0/0 pour IPv4 : : /128 Adresse non spécifiée Utilisée par un hôte avant d’obtenir une adresse lien-local (link-local) : : 1 /128 Adresse de boucle locale ≈ 127.0.0.1 FE80 : : /10 Adresses monodiffusions d’auto-configuration de lien-local ≈ @APIPA IPv4 FF00 : : /8 Adresses multidiffusions FC00 : : /8 Adresses multidiffusions Le 8ième bit = 1 : FD00 : : /8 ≈ @IPv4 privées Non routable sur internet 2000 : : /3 Adresses locales uniques (Unique-Local) Routable sur Internet</p>
+<p>Les adresses de monodiffusion globale unique (ou Global Unicast Addresses, GUA) en IPv6 sont des adresses routables sur Internet. Elles identifient de manière unique un appareil ou une interface sur un réseau mondial, similaire aux adresses publiques IPv4.</p>
+<p>Elles sont utilisées pour la communication point-à-point entre des appareils sur Internet ou sur des réseaux privés. Chaque appareil avec une adresse GUA peut être directement atteint depuis n'importe quel autre appareil à travers le monde, à condition que les règles de routage et de pare-feu le permettent.</p>
+<p>Structure des Adresses GUA Une adresse IPv6 GUA est une adresse de 128 bits divisée en plusieurs parties :</p>
+<p>| Préfixe global | Sous-réseau | Identifiant d’interface | | 48 bits | 16 bits | 64 bits |</p>
+<h4 id="details">Détails<a class="headerlink" href="#details" title="Permanent link">¶</a></h4>
+<p>Préfixe global (48 bits)</p>
+<p>Identifie un réseau spécifique au niveau mondial. Assigné par les registres Internet régionaux (RIR, comme RIPE ou ARIN). Identifiant de sous-réseau (16 bits)</p>
+<p>Permet de diviser le réseau global en sous-réseaux plus petits au sein d'une organisation. Identifiant d’interface (64 bits)</p>
+<p>Identifie une interface unique sur le réseau. Généralement dérivé de l'adresse MAC grâce à le format EUI-64 ou configuré manuellement.</p>
+<p>Les Adresses de Multidiffusion en IPv6 Les adresses de multidiffusion (ou multicast addresses) en IPv6 permettent de transmettre des paquets à un groupe spécifique de nœuds plutôt qu’à un seul destinataire (comme en monodiffusion) ou à tous les nœuds d’un réseau (comme en diffusion). Cela est utile pour optimiser l’utilisation de la bande passante dans des cas où plusieurs destinataires doivent recevoir le même flux de données.</p>
+<ol>
+<li>
+<p>Définition d'une Adresse de Multidiffusion Une adresse de multidiffusion IPv6 est utilisée pour identifier un groupe de nœuds. Un paquet envoyé à une adresse de multidiffusion est livré à tous les nœuds faisant partie du groupe associé à cette adresse.</p>
+</li>
+<li>
+<p>Format d’une Adresse de Multidiffusion IPv6 Les adresses de multidiffusion IPv6 appartiennent à la plage FF00::/8. Cela signifie que toutes les adresses de multidiffusion commencent par FF dans leurs 8 premiers bits. Elles sont composées de plusieurs champs définissant leur portée et leur type.</p>
+</li>
+</ol>
+<h4 id="structure-generale">Structure générale<a class="headerlink" href="#structure-generale" title="Permanent link">¶</a></h4>
+<p>| 8 bits (préfixe) | 4 bits (flags) | 4 bits (scope) | 112 bits (identifiant de groupe) | Préfixe : Toujours FF, indiquant une adresse de multidiffusion. Flags : Indiquent des propriétés spécifiques de l’adresse. Scope : Définit l’étendue ou la portée de la diffusion (locale, globale, etc.). Identifiant de groupe : Identifie le groupe de nœuds destinataires. Exemples d’Adresses de Multidiffusion FF02::1</p>
+<p>Scope : Lien local. Description : Groupe contenant tous les nœuds d’un réseau local. FF02::2</p>
+<p>Scope : Lien local. Description : Groupe contenant tous les routeurs d’un réseau local. FF02::1:2</p>
+<p>Scope : Lien local. Tous les serveurs et agents relais DHCP du lien local FF02::fb</p>
+<p>Scope : Lien local. Multidiffusion DNS FF05::1</p>
+<p>Scope : Site local. Description : Tous les nœuds au sein d’un site spécifique. FF0E::101</p>
+<p>Scope : Global. Description : Une multidiffusion spécifique au niveau mondial. Utilisations des Adresses de Multidiffusion Les adresses de multidiffusion sont largement utilisées dans des applications nécessitant une diffusion simultanée vers plusieurs destinataires, notamment :</p>
+<p>Diffusion Vidéo et Audio (Streaming) : Envoyer un flux multimédia à plusieurs utilisateurs sans répéter l'envoi à chaque destinataire. Routage Multicast : Protocoles comme PIM (Protocol Independent Multicast) utilisent des adresses de multidiffusion pour gérer les groupes. Découverte de Services : Protocoles comme mDNS (Multicast DNS) ou SSDP (Simple Service Discovery Protocol) utilisent des adresses multicast pour découvrir des périphériques ou services sur un réseau local. Protocoles Réseaux Internes : OSPF (Open Shortest Path First) utilise des adresses multicast pour échanger des informations entre routeurs.</p>
+<p>Oui — voici le <strong>quiz complet modules 5 et 6</strong>, dans le <strong>même style</strong> que pour les modules précédents :</p>
+<ul>
+<li>
+<p>QCM**</p>
+</li>
+<li>
+<p>vrai/faux**</p>
+</li>
+<li>
+<p>difficulté progressive**</p>
+</li>
+<li>
+<p>explication + exemple pour chaque question**</p>
+</li>
+</ul>
+<hr>
+<h3 id="quiz-kahoot-modules-5-et-6">Quiz Kahoot — Modules 5 et 6<a class="headerlink" href="#quiz-kahoot-modules-5-et-6" title="Permanent link">¶</a></h3>
+<hr>
+<h3 id="niveau-facile-1-a-12">Niveau Facile (1 à 12)<a class="headerlink" href="#niveau-facile-1-a-12" title="Permanent link">¶</a></h3>
+<h3 id="1-que-signifie-arp">1. Que signifie ARP ?<a class="headerlink" href="#1-que-signifie-arp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Address Routing Protocol</p>
+</li>
+<li>
+<p>B. Address Resolution Protocol ✅</p>
+</li>
+<li>
+<p>C. Automatic Relay Process</p>
+</li>
+<li>
+<p>D. Address Register Protocol</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>ARP signifie **Address Resolution Protocol**. Il sert à faire le lien entre une **adresse IP** et une **adresse MAC** sur un réseau local.</code></p>
+<p><strong>Exemple :</strong> Un PC veut joindre <strong>192.168.1.100</strong> mais ne connaît pas sa MAC → il utilise ARP.</p>
+<hr>
+<h3 id="2-a-quoi-sert-principalement-arp">2. À quoi sert principalement ARP ?<a class="headerlink" href="#2-a-quoi-sert-principalement-arp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. À convertir une adresse MAC en nom DNS</p>
+</li>
+<li>
+<p>B. À convertir une adresse IP en adresse MAC ✅</p>
+</li>
+<li>
+<p>C. À attribuer une adresse IP automatiquement</p>
+</li>
+<li>
+<p>D. À chiffrer les trames Ethernet</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>ARP sert à trouver l’adresse **MAC** correspondant à une adresse **IP** locale.</code></p>
+<p><strong>Exemple :</strong> “Qui a <strong>192.168.1.100</strong> ?” → la machine répond avec sa MAC.</p>
+<hr>
+<h3 id="3-quelle-commande-permet-dafficher-la-table-arp">3. Quelle commande permet d’afficher la table ARP ?<a class="headerlink" href="#3-quelle-commande-permet-dafficher-la-table-arp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. arp -s</p>
+</li>
+<li>
+<p>B. arp -a ✅</p>
+</li>
+<li>
+<p>C. arp -d</p>
+</li>
+<li>
+<p>D. ipconfig /all</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>arp -a</code> affiche les associations <strong>IP ↔ MAC</strong> connues par la machine.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sb">`</span>arp<span class="w"> </span>-a<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="4-que-contient-principalement-une-table-arp">4. Que contient principalement une table ARP ?<a class="headerlink" href="#4-que-contient-principalement-une-table-arp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Des noms de domaine</p>
+</li>
+<li>
+<p>B. Des associations IP / MAC ✅</p>
+</li>
+<li>
+<p>C. Des routes statiques</p>
+</li>
+<li>
+<p>D. Des mots de passe réseau</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> La table ARP contient le <strong>cache des correspondances entre IP et MAC</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>192.168.1.100 → 00-14-22-01-23-45</li>
+</ul>
+<hr>
+<h3 id="5-quelle-commande-permet-dajouter-une-entree-arp-statique-sous-windows">5. Quelle commande permet d’ajouter une entrée ARP statique sous Windows ?<a class="headerlink" href="#5-quelle-commande-permet-dajouter-une-entree-arp-statique-sous-windows" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. arp -a</p>
+</li>
+<li>
+<p>B. arp -s &lt;IP&gt; &lt;MAC&gt; ✅</p>
+</li>
+<li>
+<p>C. arp -d *</p>
+</li>
+<li>
+<p>D. ip neigh show</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>arp -s</code> crée une association IP/MAC <strong>manuelle</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sb">`</span>arp<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.1.200<span class="w"> </span><span class="m">00</span>-14-22-01-23-45<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="6-quelle-commande-permet-de-vider-le-cache-arp-sous-windows">6. Quelle commande permet de vider le cache ARP sous Windows ?<a class="headerlink" href="#6-quelle-commande-permet-de-vider-le-cache-arp-sous-windows" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. arp -flush</p>
+</li>
+<li>
+<p>B. arp -clear</p>
+</li>
+<li>
+<p>C. arp -d * ✅</p>
+</li>
+<li>
+<p>D. ipconfig /flusharp</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours indique que sous Windows, on vide le cache ARP avec <strong>arp -d </strong>*.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sb">`</span>arp<span class="w"> </span>-d<span class="w"> </span>*<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="7-sous-windows-quelle-commande-affiche-un-resume-des-informations-reseau">7. Sous Windows, quelle commande affiche un résumé des informations réseau ?<a class="headerlink" href="#7-sous-windows-quelle-commande-affiche-un-resume-des-informations-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ip addr</p>
+</li>
+<li>
+<p>B. ipconfig ✅</p>
+</li>
+<li>
+<p>C. netstat</p>
+</li>
+<li>
+<p>D. ping</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ipconfig</code> affiche un résumé des interfaces actives : IP, masque, passerelle.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sb">`</span>ipconfig<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="8-quelle-commande-windows-affiche-des-informations-reseau-detaillees-y-compris-dhcp-et-dns">8. Quelle commande Windows affiche des informations réseau détaillées, y compris DHCP et DNS ?<a class="headerlink" href="#8-quelle-commande-windows-affiche-des-informations-reseau-detaillees-y-compris-dhcp-et-dns" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ipconfig /all ✅</p>
+</li>
+<li>
+<p>B. ipconfig /displaydns</p>
+</li>
+<li>
+<p>C. ipconfig /renew</p>
+</li>
+<li>
+<p>D. ip link</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ipconfig /all</code> affiche la version détaillée : <strong>MAC, DNS, DHCP, bail, passerelle…</strong></p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sb">`</span>ipconfig<span class="w"> </span>/all<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="9-quelle-commande-windows-libere-ladresse-ip-obtenue-par-dhcp">9. Quelle commande Windows libère l’adresse IP obtenue par DHCP ?<a class="headerlink" href="#9-quelle-commande-windows-libere-ladresse-ip-obtenue-par-dhcp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ipconfig /renew</p>
+</li>
+<li>
+<p>B. ipconfig /release ✅</p>
+</li>
+<li>
+<p>C. ipconfig /flushdns</p>
+</li>
+<li>
+<p>D. ipconfig /displaydns</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>/release</code> abandonne l’adresse IP actuelle fournie par DHCP.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sb">`</span>ipconfig<span class="w"> </span>/release<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="10-quelle-commande-windows-demande-une-nouvelle-adresse-ip-au-serveur-dhcp">10. Quelle commande Windows demande une nouvelle adresse IP au serveur DHCP ?<a class="headerlink" href="#10-quelle-commande-windows-demande-une-nouvelle-adresse-ip-au-serveur-dhcp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ipconfig /release</p>
+</li>
+<li>
+<p>B. ipconfig /renew ✅</p>
+</li>
+<li>
+<p>C. ipconfig /all</p>
+</li>
+<li>
+<p>D. arp -a</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>/renew</code> force la machine à demander une <strong>nouvelle adresse IP</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">`</span>ipconfig<span class="w"> </span>/renew<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="11-quelle-commande-vide-le-cache-dns-sous-windows">11. Quelle commande vide le cache DNS sous Windows ?<a class="headerlink" href="#11-quelle-commande-vide-le-cache-dns-sous-windows" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ipconfig /registerdns</p>
+</li>
+<li>
+<p>B. ipconfig /displaydns</p>
+</li>
+<li>
+<p>C. ipconfig /flushdns ✅</p>
+</li>
+<li>
+<p>D. netstat -r</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ipconfig /flushdns</code> efface les entrées DNS locales obsolètes ou corrompues.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sb">`</span>ipconfig<span class="w"> </span>/flushdns<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="12-quelle-commande-affiche-le-cache-dns-sous-windows">12. Quelle commande affiche le cache DNS sous Windows ?<a class="headerlink" href="#12-quelle-commande-affiche-le-cache-dns-sous-windows" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ipconfig /displaydns ✅</p>
+</li>
+<li>
+<p>B. ipconfig /flushdns</p>
+</li>
+<li>
+<p>C. ipconfig /all</p>
+</li>
+<li>
+<p>D. arp -a</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ipconfig /displaydns</code> montre les noms de domaine déjà résolus et mis en cache.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="sb">`</span>ipconfig<span class="w"> </span>/displaydns<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="niveau-moyen-13-a-24">Niveau Moyen (13 à 24)<a class="headerlink" href="#niveau-moyen-13-a-24" title="Permanent link">¶</a></h3>
+<h3 id="13-sous-linux-quelle-commande-moderne-remplace-progressivement-ifconfig">13. Sous Linux, quelle commande moderne remplace progressivement ifconfig ?<a class="headerlink" href="#13-sous-linux-quelle-commande-moderne-remplace-progressivement-ifconfig" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ip ✅</p>
+</li>
+<li>
+<p>B. route</p>
+</li>
+<li>
+<p>C. ping</p>
+</li>
+<li>
+<p>D. arp</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours indique que la commande <strong>ip</strong> remplace progressivement <strong>ifconfig</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="sb">`</span>ip<span class="w"> </span>addr<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="14-quel-objet-de-la-commande-ip-sert-a-gerer-les-adresses-ip">14. Quel objet de la commande <code>ip</code> sert à gérer les adresses IP ?<a class="headerlink" href="#14-quel-objet-de-la-commande-ip-sert-a-gerer-les-adresses-ip" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. link</p>
+</li>
+<li>
+<p>B. addr ✅</p>
+</li>
+<li>
+<p>C. route</p>
+</li>
+<li>
+<p>D. neigh</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ip addr</code> sert à <strong>afficher et gérer les adresses IP</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="sb">`</span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="15-quelle-commande-linux-affiche-uniquement-les-adresses-ipv4">15. Quelle commande Linux affiche uniquement les adresses IPv4 ?<a class="headerlink" href="#15-quelle-commande-linux-affiche-uniquement-les-adresses-ipv4" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ip -6 addr</p>
+</li>
+<li>
+<p>B. ip -4 addr ✅</p>
+</li>
+<li>
+<p>C. ip route</p>
+</li>
+<li>
+<p>D. ip link</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> L’option <code>-4</code> filtre les informations <strong>IPv4</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="sb">`</span>ip<span class="w"> </span>-4<span class="w"> </span>addr<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="16-quel-objet-de-la-commande-ip-sert-a-gerer-les-interfaces-reseau">16. Quel objet de la commande <code>ip</code> sert à gérer les interfaces réseau ?<a class="headerlink" href="#16-quel-objet-de-la-commande-ip-sert-a-gerer-les-interfaces-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. addr</p>
+</li>
+<li>
+<p>B. route</p>
+</li>
+<li>
+<p>C. link ✅</p>
+</li>
+<li>
+<p>D. neigh</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ip link</code> concerne les <strong>interfaces réseau</strong> (état, activation, désactivation…).</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="sb">`</span>ip<span class="w"> </span>link<span class="w"> </span>show<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="17-quel-objet-de-la-commande-ip-sert-a-afficher-les-routes-reseau">17. Quel objet de la commande <code>ip</code> sert à afficher les routes réseau ?<a class="headerlink" href="#17-quel-objet-de-la-commande-ip-sert-a-afficher-les-routes-reseau" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. link</p>
+</li>
+<li>
+<p>B. addr</p>
+</li>
+<li>
+<p>C. route ✅</p>
+</li>
+<li>
+<p>D. neigh</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ip route</code> affiche ou modifie la <strong>table de routage</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="sb">`</span>ip<span class="w"> </span>route<span class="w"> </span>show<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="18-quel-objet-de-la-commande-ip-permet-de-gerer-la-table-de-voisinage-arp">18. Quel objet de la commande <code>ip</code> permet de gérer la table de voisinage / ARP ?<a class="headerlink" href="#18-quel-objet-de-la-commande-ip-permet-de-gerer-la-table-de-voisinage-arp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. addr</p>
+</li>
+<li>
+<p>B. neigh ✅</p>
+</li>
+<li>
+<p>C. route</p>
+</li>
+<li>
+<p>D. link</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ip neigh</code> gère les voisins, donc l’équivalent moderne de certaines fonctions ARP.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="sb">`</span>ip<span class="w"> </span>neigh<span class="w"> </span>show<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="19-quel-protocole-utilise-la-commande-ping">19. Quel protocole utilise la commande ping ?<a class="headerlink" href="#19-quel-protocole-utilise-la-commande-ping" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. TCP</p>
+</li>
+<li>
+<p>B. UDP</p>
+</li>
+<li>
+<p>C. ICMP ✅</p>
+</li>
+<li>
+<p>D. ARP</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>Ping utilise des **ICMP Echo Request / Echo Reply**.</code></p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="sb">`</span>ping<span class="w"> </span><span class="m">8</span>.8.8.8<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="20-quel-est-le-role-principal-de-ping">20. Quel est le rôle principal de ping ?<a class="headerlink" href="#20-quel-est-le-role-principal-de-ping" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Chiffrer le trafic</p>
+</li>
+<li>
+<p>B. Tester la connectivité réseau et mesurer la latence ✅</p>
+</li>
+<li>
+<p>C. Modifier la table de routage</p>
+</li>
+<li>
+<p>D. Attribuer une adresse IP</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>Ping permet de savoir si une machine répond, et d’observer le **temps de réponse** et les **pertes de paquets**.</code></p>
+<p><strong>Exemple :</strong> Tester si la passerelle <strong>192.168.1.1</strong> est joignable.</p>
+<hr>
+<h3 id="21-dans-la-sortie-de-ping-que-represente-time">21. Dans la sortie de ping, que représente <code>time=</code> ?<a class="headerlink" href="#21-dans-la-sortie-de-ping-que-represente-time" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. La taille du paquet</p>
+</li>
+<li>
+<p>B. Le temps aller-retour du paquet ✅</p>
+</li>
+<li>
+<p>C. Le nombre de routeurs</p>
+</li>
+<li>
+<p>D. Le TTL maximum théorique</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>time=</code> correspond au <strong>RTT</strong> (Round Trip Time), donc le temps aller-retour.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text time=18.3 ms</code></p>
+<hr>
+<h3 id="22-dans-la-sortie-de-ping-que-signifie-ttl">22. Dans la sortie de ping, que signifie <code>ttl=</code> ?<a class="headerlink" href="#22-dans-la-sortie-de-ping-que-signifie-ttl" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Le nombre de paquets perdus</p>
+</li>
+<li>
+<p>B. Le numéro de séquence ICMP</p>
+</li>
+<li>
+<p>C. Le nombre maximum de sauts restants pour le paquet ✅</p>
+</li>
+<li>
+<p>D. Le temps d’attente avant renouvellement DHCP</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> TTL = <strong>Time To Live</strong> : chaque routeur le décrémente, et s’il atteint 0, le paquet est abandonné.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text ttl=115</code></p>
+<hr>
+<h3 id="23-quelle-option-de-ping-permet-denvoyer-un-nombre-precis-de-requetes-sous-linux">23. Quelle option de ping permet d’envoyer un nombre précis de requêtes sous Linux ?<a class="headerlink" href="#23-quelle-option-de-ping-permet-denvoyer-un-nombre-precis-de-requetes-sous-linux" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -n</p>
+</li>
+<li>
+<p>B. -q</p>
+</li>
+<li>
+<p>C. -c ✅</p>
+</li>
+<li>
+<p>D. -r</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ping -c 4</code> envoie <strong>4 requêtes ICMP</strong>, puis s’arrête.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="sb">`</span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>www.google.com<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="24-quelle-option-de-ping-permet-dafficher-seulement-les-statistiques-finales">24. Quelle option de ping permet d’afficher seulement les statistiques finales ?<a class="headerlink" href="#24-quelle-option-de-ping-permet-dafficher-seulement-les-statistiques-finales" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -i</p>
+</li>
+<li>
+<p>B. -s</p>
+</li>
+<li>
+<p>C. -q ✅</p>
+</li>
+<li>
+<p>D. -t</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>-q</code> = <strong>quiet</strong>, donc moins de détails, surtout les statistiques.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="sb">`</span>ping<span class="w"> </span>-q<span class="w"> </span>www.google.com<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="niveau-difficile-25-a-38">Niveau Difficile (25 à 38)<a class="headerlink" href="#niveau-difficile-25-a-38" title="Permanent link">¶</a></h3>
+<h3 id="25-quelle-commande-netstat-affiche-toutes-les-connexions-actives-et-les-ports-en-ecoute">25. Quelle commande netstat affiche toutes les connexions actives et les ports en écoute ?<a class="headerlink" href="#25-quelle-commande-netstat-affiche-toutes-les-connexions-actives-et-les-ports-en-ecoute" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. netstat -r</p>
+</li>
+<li>
+<p>B. netstat -a ✅</p>
+</li>
+<li>
+<p>C. netstat -e</p>
+</li>
+<li>
+<p>D. netstat -u</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>netstat -a</code> montre <strong>toutes les connexions TCP/UDP</strong> et les ports d’écoute.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="sb">`</span>netstat<span class="w"> </span>-a<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="26-quelle-option-netstat-affiche-les-adresses-et-ports-en-format-numerique-sans-resolution-de-noms">26. Quelle option netstat affiche les adresses et ports en format numérique sans résolution de noms ?<a class="headerlink" href="#26-quelle-option-netstat-affiche-les-adresses-et-ports-en-format-numerique-sans-resolution-de-noms" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -l</p>
+</li>
+<li>
+<p>B. -n ✅</p>
+</li>
+<li>
+<p>C. -t</p>
+</li>
+<li>
+<p>D. -p</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>-n</code> évite la résolution DNS et affiche les adresses <strong>brutes</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="sb">`</span>netstat<span class="w"> </span>-an<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="27-quelle-option-netstat-affiche-uniquement-les-connexions-tcp">27. Quelle option netstat affiche uniquement les connexions TCP ?<a class="headerlink" href="#27-quelle-option-netstat-affiche-uniquement-les-connexions-tcp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -u</p>
+</li>
+<li>
+<p>B. -r</p>
+</li>
+<li>
+<p>C. -t ✅</p>
+</li>
+<li>
+<p>D. -e</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>netstat -t</code> filtre sur le protocole <strong>TCP</strong>.</p>
+<hr>
+<h3 id="28-quelle-option-netstat-affiche-uniquement-les-connexions-udp">28. Quelle option netstat affiche uniquement les connexions UDP ?<a class="headerlink" href="#28-quelle-option-netstat-affiche-uniquement-les-connexions-udp" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -u ✅</p>
+</li>
+<li>
+<p>B. -t</p>
+</li>
+<li>
+<p>C. -n</p>
+</li>
+<li>
+<p>D. -l</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>netstat -u</code> filtre sur <strong>UDP</strong>.</p>
+<hr>
+<h3 id="29-que-signifie-letat-listen-dans-netstat">29. Que signifie l’état <code>LISTEN</code> dans netstat ?<a class="headerlink" href="#29-que-signifie-letat-listen-dans-netstat" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. La connexion est fermée</p>
+</li>
+<li>
+<p>B. Le port attend des connexions entrantes ✅</p>
+</li>
+<li>
+<p>C. La connexion a expiré</p>
+</li>
+<li>
+<p>D. Le paquet a été perdu</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>LISTEN</code> indique qu’un service est <strong>en attente</strong> sur un port.</p>
+<p><strong>Exemple :</strong> Un serveur web peut écouter sur le port <strong>80</strong>.</p>
+<hr>
+<h3 id="30-que-signifie-letat-established-dans-netstat">30. Que signifie l’état <code>ESTABLISHED</code> dans netstat ?<a class="headerlink" href="#30-que-signifie-letat-established-dans-netstat" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. La connexion est active et établie ✅</p>
+</li>
+<li>
+<p>B. Le port est fermé</p>
+</li>
+<li>
+<p>C. La route est invalide</p>
+</li>
+<li>
+<p>D. L’interface est désactivée</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ESTABLISHED</code> = une connexion TCP est en cours de fonctionnement.</p>
+<p><strong>Exemple :</strong> Ton navigateur a une connexion établie vers un site web.</p>
+<hr>
+<h3 id="31-quelle-option-netstat-affiche-les-processus-associes-aux-connexions">31. Quelle option netstat affiche les processus associés aux connexions ?<a class="headerlink" href="#31-quelle-option-netstat-affiche-les-processus-associes-aux-connexions" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. -e</p>
+</li>
+<li>
+<p>B. -p ✅</p>
+</li>
+<li>
+<p>C. -r</p>
+</li>
+<li>
+<p>D. -u</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>netstat -p</code> permet de voir <strong>quel processus utilise quel port</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="sb">`</span>netstat<span class="w"> </span>-p<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="32-quelle-commande-reseau-sert-a-afficher-le-chemin-emprunte-par-les-paquets-jusqua-une-destination">32. Quelle commande réseau sert à afficher le chemin emprunté par les paquets jusqu’à une destination ?<a class="headerlink" href="#32-quelle-commande-reseau-sert-a-afficher-le-chemin-emprunte-par-les-paquets-jusqua-une-destination" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ping</p>
+</li>
+<li>
+<p>B. arp</p>
+</li>
+<li>
+<p>C. tracert / traceroute ✅</p>
+</li>
+<li>
+<p>D. ipconfig</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>tracert</code> (Windows) / <code>traceroute</code> (Linux) montre les <strong>routeurs intermédiaires</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="sb">`</span>tracert<span class="w"> </span>www.google.com<span class="sb">`</span>
+</span></code></pre></div>
+<hr>
+<h3 id="33-sur-quel-principe-fonctionne-tracert">33. Sur quel principe fonctionne tracert ?<a class="headerlink" href="#33-sur-quel-principe-fonctionne-tracert" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Il modifie le masque de sous-réseau</p>
+</li>
+<li>
+<p>B. Il augmente progressivement le TTL des paquets ✅</p>
+</li>
+<li>
+<p>C. Il lit la table ARP distante</p>
+</li>
+<li>
+<p>D. Il ouvre une connexion TCP sur chaque routeur</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>Tracert envoie des paquets avec **TTL = 1, puis 2, puis 3…** pour découvrir chaque saut.</code></p>
+<p><strong>Exemple :</strong></p>
+<ul>
+<li>
+<p>TTL 1 → premier routeur</p>
+</li>
+<li>
+<p>TTL 2 → second routeur</p>
+</li>
+</ul>
+<hr>
+<h3 id="34-sous-linux-quelle-commande-est-lequivalent-de-tracert">34. Sous Linux, quelle commande est l’équivalent de tracert ?<a class="headerlink" href="#34-sous-linux-quelle-commande-est-lequivalent-de-tracert" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. route</p>
+</li>
+<li>
+<p>B. traceroute ✅</p>
+</li>
+<li>
+<p>C. traceip</p>
+</li>
+<li>
+<p>D. netpath</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="le-cours-indique-clairement">Le cours indique clairement<a class="headerlink" href="#le-cours-indique-clairement" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>Windows → <code>tracert</code></p>
+</li>
+<li>
+<p>Linux → <code>traceroute</code></p>
+</li>
+</ul>
+<hr>
+<h3 id="35-combien-de-bits-contient-une-adresse-ipv6">35. Combien de bits contient une adresse IPv6 ?<a class="headerlink" href="#35-combien-de-bits-contient-une-adresse-ipv6" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 32</p>
+</li>
+<li>
+<p>B. 64</p>
+</li>
+<li>
+<p>C. 128 ✅</p>
+</li>
+<li>
+<p>D. 256</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> IPv6 utilise <strong>128 bits</strong>, soit 4 fois la taille d’une IPv4.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text 2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></p>
+<hr>
+<h3 id="36-une-adresse-ipv6-est-generalement-ecrite-sous-quelle-forme">36. Une adresse IPv6 est généralement écrite sous quelle forme ?<a class="headerlink" href="#36-une-adresse-ipv6-est-generalement-ecrite-sous-quelle-forme" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 4 groupes décimaux</p>
+</li>
+<li>
+<p>B. 8 groupes hexadécimaux séparés par des deux-points ✅</p>
+</li>
+<li>
+<p>C. 6 groupes binaires</p>
+</li>
+<li>
+<p>D. 2 groupes de 64 bits visibles</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Une IPv6 est représentée par <strong>8 groupes de 4 chiffres hexadécimaux</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text 2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></p>
+<hr>
+<h3 id="37-quelle-adresse-ipv6-est-ladresse-de-boucle-locale-loopback">37. Quelle adresse IPv6 est l’adresse de boucle locale (loopback) ?<a class="headerlink" href="#37-quelle-adresse-ipv6-est-ladresse-de-boucle-locale-loopback" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ::</p>
+</li>
+<li>
+<p>B. ::1 ✅</p>
+</li>
+<li>
+<p>C. FE80::1</p>
+</li>
+<li>
+<p>D. FF02::1</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>::1</code> est l’équivalent IPv6 de <strong>127.0.0.1</strong> en IPv4.</p>
+<p><strong>Exemple :</strong> Tester la pile IPv6 locale sur sa propre machine.</p>
+<hr>
+<h3 id="38-quelle-plage-correspond-aux-adresses-ipv6-de-lien-local">38. Quelle plage correspond aux adresses IPv6 de lien-local ?<a class="headerlink" href="#38-quelle-plage-correspond-aux-adresses-ipv6-de-lien-local" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. 2000::/3</p>
+</li>
+<li>
+<p>B. FC00::/8</p>
+</li>
+<li>
+<p>C. FE80::/10 ✅</p>
+</li>
+<li>
+<p>D. FF00::/8</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Les adresses <strong>FE80::/10</strong> sont utilisées pour la communication locale sur le lien.</p>
+<p><strong>Exemple :</strong> Une interface réseau peut s’auto-attribuer une adresse <strong>FE80::...</strong></p>
+<hr>
+<h3 id="niveau-avance-pieges-39-a-50">Niveau Avancé / Pièges (39 à 50)<a class="headerlink" href="#niveau-avance-pieges-39-a-50" title="Permanent link">¶</a></h3>
+<h3 id="39-quelle-plage-correspond-aux-adresses-ipv6-multicast">39. Quelle plage correspond aux adresses IPv6 multicast ?<a class="headerlink" href="#39-quelle-plage-correspond-aux-adresses-ipv6-multicast" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FE80::/10</p>
+</li>
+<li>
+<p>B. 2000::/3</p>
+</li>
+<li>
+<p>C. FF00::/8 ✅</p>
+</li>
+<li>
+<p>D. ::1/128</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Toutes les adresses multicast IPv6 commencent dans la plage <strong>FF00::/8</strong>.</p>
+<p><strong>Exemple :</strong> <code>FF02::1</code></p>
+<hr>
+<h3 id="40-quelle-plage-correspond-aux-adresses-ipv6-globales-routables-sur-internet">40. Quelle plage correspond aux adresses IPv6 globales routables sur Internet ?<a class="headerlink" href="#40-quelle-plage-correspond-aux-adresses-ipv6-globales-routables-sur-internet" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FF00::/8</p>
+</li>
+<li>
+<p>B. FE80::/10</p>
+</li>
+<li>
+<p>C. 2000::/3 ✅</p>
+</li>
+<li>
+<p>D. ::/128</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Les adresses globales IPv6 (GUA) appartiennent à <strong>2000::/3</strong>.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text 2001:db8::...</code></p>
+<hr>
+<h3 id="41-dans-la-structure-dune-adresse-ipv6-gua-quelle-partie-identifie-generalement-linterface">41. Dans la structure d’une adresse IPv6 GUA, quelle partie identifie généralement l’interface ?<a class="headerlink" href="#41-dans-la-structure-dune-adresse-ipv6-gua-quelle-partie-identifie-generalement-linterface" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. Le préfixe global</p>
+</li>
+<li>
+<p>B. Le sous-réseau</p>
+</li>
+<li>
+<p>C. L’identifiant d’interface de 64 bits ✅</p>
+</li>
+<li>
+<p>D. Le TTL</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong></p>
+<h4 id="le-cours-donne">Le cours donne<a class="headerlink" href="#le-cours-donne" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>48 bits** préfixe global</p>
+</li>
+<li>
+<p>16 bits** sous-réseau</p>
+</li>
+<li>
+<p>64 bits** identifiant d’interface</p>
+</li>
+</ul>
+<hr>
+<h3 id="42-quelle-adresse-multicast-ipv6-designe-tous-les-nuds-du-lien-local">42. Quelle adresse multicast IPv6 désigne tous les nœuds du lien local ?<a class="headerlink" href="#42-quelle-adresse-multicast-ipv6-designe-tous-les-nuds-du-lien-local" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FF02::2</p>
+</li>
+<li>
+<p>B. FF02::1 ✅</p>
+</li>
+<li>
+<p>C. FF05::1</p>
+</li>
+<li>
+<p>D. FF02::fb</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>FF02::1</code> = <strong>tous les nœuds</strong> du réseau local.</p>
+<hr>
+<h3 id="43-quelle-adresse-multicast-ipv6-designe-tous-les-routeurs-du-lien-local">43. Quelle adresse multicast IPv6 désigne tous les routeurs du lien local ?<a class="headerlink" href="#43-quelle-adresse-multicast-ipv6-designe-tous-les-routeurs-du-lien-local" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FF02::1</p>
+</li>
+<li>
+<p>B. FF02::2 ✅</p>
+</li>
+<li>
+<p>C. FF02::fb</p>
+</li>
+<li>
+<p>D. FF0E::101</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>FF02::2</code> correspond au groupe <strong>all-routers</strong> sur le lien local.</p>
+<hr>
+<h3 id="44-quelle-adresse-multicast-ipv6-est-associee-au-multicast-dns-mdns-dans-ton-cours">44. Quelle adresse multicast IPv6 est associée au Multicast DNS (mDNS) dans ton cours ?<a class="headerlink" href="#44-quelle-adresse-multicast-ipv6-est-associee-au-multicast-dns-mdns-dans-ton-cours" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FF02::1:2</p>
+</li>
+<li>
+<p>B. FF02::2</p>
+</li>
+<li>
+<p>C. FF02::fb ✅</p>
+</li>
+<li>
+<p>D. FF05::1</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours donne explicitement <strong>FF02::fb</strong> pour la multidiffusion DNS.</p>
+<hr>
+<h3 id="45-quelle-adresse-multicast-ipv6-est-associee-aux-serveurs-et-relais-dhcp-du-lien-local">45. Quelle adresse multicast IPv6 est associée aux serveurs et relais DHCP du lien local ?<a class="headerlink" href="#45-quelle-adresse-multicast-ipv6-est-associee-aux-serveurs-et-relais-dhcp-du-lien-local" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. FF02::1</p>
+</li>
+<li>
+<p>B. FF02::1:2 ✅</p>
+</li>
+<li>
+<p>C. FF02::2</p>
+</li>
+<li>
+<p>D. FF0E::101</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours cite <strong>FF02::1:2</strong> pour DHCPv6 sur le lien local.</p>
+<hr>
+<h3 id="46-quelle-commande-windows-peut-aider-a-confirmer-quune-machine-a-recu-une-adresse-apipa">46. Quelle commande Windows peut aider à confirmer qu’une machine a reçu une adresse APIPA ?<a class="headerlink" href="#46-quelle-commande-windows-peut-aider-a-confirmer-quune-machine-a-recu-une-adresse-apipa" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ping</p>
+</li>
+<li>
+<p>B. ipconfig /all ✅</p>
+</li>
+<li>
+<p>C. arp -a</p>
+</li>
+<li>
+<p>D. tracert</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>ipconfig /all</code> permet de voir si l’interface a reçu une adresse <strong>169.254.x.x</strong>.</p>
+<p><strong>Exemple :</strong> Si tu vois <strong>169.254.12.8</strong>, ça signale souvent un problème DHCP.</p>
+<hr>
+<h3 id="47-quel-protocole-remplace-arp-en-ipv6">47. Quel protocole remplace ARP en IPv6 ?<a class="headerlink" href="#47-quel-protocole-remplace-arp-en-ipv6" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. ICMPv6 NDP ✅</p>
+</li>
+<li>
+<p>B. OSPFv3</p>
+</li>
+<li>
+<p>C. DHCPv6</p>
+</li>
+<li>
+<p>D. BGP</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> Le cours indique qu’en IPv6, <strong>ARP est remplacé par NDP (Neighbor Discovery Protocol)</strong>.</p>
+<hr>
+<h3 id="48-quelle-commande-netstat-affiche-la-table-de-routage-du-systeme">48. Quelle commande netstat affiche la table de routage du système ?<a class="headerlink" href="#48-quelle-commande-netstat-affiche-la-table-de-routage-du-systeme" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>A. netstat -a</p>
+</li>
+<li>
+<p>B. netstat -n</p>
+</li>
+<li>
+<p>C. netstat -r ✅</p>
+</li>
+<li>
+<p>D. netstat -u</p>
+</li>
+</ul>
+<p><strong>Pourquoi ?</strong> <code>netstat -r</code> affiche la <strong>routing table</strong>.</p>
+<hr>
+<h3 id="49-vrai-ou-faux">49. Vrai ou Faux<a class="headerlink" href="#49-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p><code>ARP fonctionne pour la communication entre réseaux différents via Internet.</code></p>
+<p>❌ <strong>Faux</strong></p>
+<p><strong>Pourquoi ?</strong></p>
+<p><code>ARP ne fonctionne que **dans un réseau local**. Pour aller vers un autre réseau, on passe par le **routage**.</code></p>
+<hr>
+<h3 id="50-vrai-ou-faux">50. Vrai ou Faux<a class="headerlink" href="#50-vrai-ou-faux" title="Permanent link">¶</a></h3>
+<p>Une adresse IPv6 peut être compressée en remplaçant une suite continue de zéros par <code>::</code>, mais une seule fois dans l’adresse.</p>
+<p>✅ <strong>Vrai</strong></p>
+<p><strong>Pourquoi ?</strong> Le cours précise que la compression par <code>::</code> ne peut être utilisée <strong>qu’une seule fois</strong> dans une adresse IPv6.</p>
+<p><strong>Exemple :</strong></p>
+<p><code>text 2001:db8::ff00:42:8329</code></p>
+<hr>
+<h3 id="bilan-rapide-sur-ce-quiz">Bilan rapide sur ce quiz<a class="headerlink" href="#bilan-rapide-sur-ce-quiz" title="Permanent link">¶</a></h3>
+<h4 id="ce-quiz-couvre-bien">Ce quiz couvre bien<a class="headerlink" href="#ce-quiz-couvre-bien" title="Permanent link">¶</a></h4>
+<ul>
+<li>
+<p>ARP**</p>
+</li>
+<li>
+<p>ipconfig**</p>
+</li>
+<li>
+<p>commande ip**</p>
+</li>
+<li>
+<p>ping**</p>
+</li>
+<li>
+<p>netstat**</p>
+</li>
+<li>
+<p>tracert / traceroute**</p>
+</li>
+<li>
+<p>IPv6**</p>
+</li>
+<li>
+<p>multicast**</p>
+</li>
+<li>
+<p>plages spéciales**</p>
+</li>
+<li>
+<p>compression d’adresses**</p>
+</li>
+<li>
+<p>NDP vs ARP**</p>
+</li>
+</ul>
+<hr>
+<h3 id="point-critique-important">Point critique important<a class="headerlink" href="#point-critique-important" title="Permanent link">¶</a></h3>
+<p>Je vais quand même te signaler un problème dans <strong>ton cours</strong>, pas dans le quiz : il y a un passage sur les plages IPv6 où <strong>la description semble incohérente</strong> entre <strong>FC00::/8 / FD00::/8 / 2000::/3</strong> (les libellés ont l’air mélangés à un endroit du texte). Donc pour le Kahoot, je me suis basé sur <strong>ce qui est cohérent dans l’ensemble du module</strong> :</p>
+<ul>
+<li>
+<p>FE80::/10** → lien-local</p>
+</li>
+<li>
+<p>FF00::/8** → multicast</p>
+</li>
+<li>
+<p>2000::/3** → global unicast routable</p>
+</li>
+<li>
+<p>::1** → loopback</p>
+</li>
+</ul>
+<p>et j’ai évité de bâtir des questions piégeuses sur la partie du cours qui semble mal rédigée.</p>
+<hr>
+<h3 id="ce-que-je-peux-faire-maintenant">Ce que je peux faire maintenant<a class="headerlink" href="#ce-que-je-peux-faire-maintenant" title="Permanent link">¶</a></h3>
+<p>Je peux te faire <strong>immédiatement la version “Kahoot prête à copier”</strong> pour les modules 5 et 6, comme je l’ai fait pour les modules 3 et 4 :</p>
+<ul>
+<li>
+<p>juste les questions**</p>
+</li>
+<li>
+<p>4 réponses**</p>
+</li>
+<li>
+<p>bonne réponse marquée**</p>
+</li>
+<li>
+<p>sans explications**</p>
+</li>
+<li>
+<p>format propre à coller dans Kahoot**</p>
+</li>
+</ul>
+<h4 id="si-tu-veux-reponds-juste">Si tu veux, réponds juste<a class="headerlink" href="#si-tu-veux-reponds-juste" title="Permanent link">¶</a></h4>
+<p><strong>“fais-moi la version Kahoot prête à copier pour modules 5 et 6”</strong></p>
+<h2 id="mise-en-pratique">Mise en pratique<a class="headerlink" href="#mise-en-pratique" title="Permanent link">¶</a></h2>
+<ul>
+<li>Aucun énoncé de TP distinct n’est fourni pour ce module.</li>
+<li><a href="../../../revision/reseaux/module-06-l-adressage-ipv6/">Fiche de révision du module</a></li>
+</ul>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment expliquer simplement « L’adressage IPv6 » à un collègue ?</li>
+<li>Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?</li>
+<li>Quel contrôle permet de prouver que le résultat est correct ?</li>
+<li>Quel est le premier risque ou piège à écarter ?</li>
+</ol>
+<details class="success">
+<summary>Éléments de réponse</summary>
+<ul>
+<li>Lire, compresser et développer une adresse IPv6.</li>
+<li>Distinguer unicast, multicast et anycast.</li>
+<li>Reconnaître les portées link-local, unique-local et globale.</li>
+<li>Comprendre le remplacement d’ARP par Neighbor Discovery.</li>
+</ul>
+</details>
+<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../">Présentation de la séquence</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page">
+        
+          
+          <a href="../module-05-les-premieres-commandes-reseau/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Module 05 — Les premières commandes réseau">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Module 05 — Les premières commandes réseau
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../02-systemes-clients-microsoft/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Présentation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Présentation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Formation TSSR · Documentation personnelle
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  <script src="../../../assets/javascripts/mermaid.min.js"></script>
+  <script>
+    window.renderTssrMermaid = function () {
+      if (typeof mermaid === "undefined") return;
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "strict",
+        theme: document.body.getAttribute("data-md-color-scheme") === "slate" ? "dark" : "base",
+        fontFamily: "Inter, system-ui, sans-serif",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+      var diagrams = Array.from(document.querySelectorAll(".mermaid:not([data-processed='true'])"));
+      diagrams.forEach(function (diagram) {
+        diagram.dataset.tssrSource = diagram.textContent.trim();
+      });
+      mermaid.run({ nodes: diagrams, suppressErrors: false }).catch(function (error) {
+        diagrams.forEach(function (diagram) {
+          diagram.dataset.tssrMermaidError = error && error.message ? error.message : String(error);
+          if (!diagram.textContent.trim()) diagram.textContent = diagram.dataset.tssrSource;
+        });
+        console.error("Mermaid render error:", error && error.message ? error.message : error);
+      });
+    };
+    if (typeof document$ !== "undefined") {
+      document$.subscribe(function () { window.renderTssrMermaid(); });
+      window.renderTssrMermaid();
+    } else if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", window.renderTssrMermaid, { once: true });
+    } else {
+      window.renderTssrMermaid();
+    }
+  </script>
+
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "fade"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

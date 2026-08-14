@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <div class="tssr-404">
+    <span class="tssr-hero__badge">Erreur 404</span>
+    <h1>Page introuvable</h1>
+    <p>Cette page a peut-être été déplacée. Revenez à l’accueil ou utilisez la recherche du portail.</p>
+    <p><a class="md-button md-button--primary" href="{{ config.site_url | default('/') }}">Retour à l’accueil</a></p>
+  </div>
+{% endblock %}
