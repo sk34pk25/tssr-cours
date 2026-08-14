@@ -1,1095 +1,1095 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://localhost:8000/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/index-general/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/index-general/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/commandes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/commandes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/commandes/linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/commandes/linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/commandes/mariadb-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/commandes/mariadb-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/commandes/reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/commandes/reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/commandes/windows-powershell/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/commandes/windows-powershell/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/exercices/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/exercices/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/exercices/cas-pratiques/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/exercices/cas-pratiques/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/exercices/quiz-reseaux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/exercices/quiz-reseaux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/exercices/quiz-systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/exercices/quiz-systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/glossaire/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/glossaire/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/memo/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/memo/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/memo/glpi-sql/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/memo/glpi-sql/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/memo/ipv4-cidr/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/memo/ipv4-cidr/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/memo/permissions-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/memo/permissions-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/memo/ports-essentiels/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/memo/ports-essentiels/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-01-le-modele-osi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-01-le-modele-osi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-02-les-unites-informatiques/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-02-les-unites-informatiques/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-03-l-adressage-ipv4/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-03-l-adressage-ipv4/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/01-bases-reseaux/module-06-l-adressage-ipv6/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/01-bases-reseaux/module-06-l-adressage-ipv6/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/02-systemes-clients-microsoft/module-additionnel-workstation/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/02-systemes-clients-microsoft/module-additionnel-workstation/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-03-premieres-commandes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-03-premieres-commandes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-02-authentification-ad-habilitations/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-02-authentification-ad-habilitations/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/07-administration-glpi/module-06-plug-ins-et-inventaire/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/07-administration-glpi/module-06-plug-ins-et-inventaire/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/08-msp-systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/08-msp-systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/modules/08-msp-systemes-clients/module-01-msp-systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/modules/08-msp-systemes-clients/module-01-msp-systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/01-microsoft-365/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/01-microsoft-365/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/02-bases-reseaux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/02-bases-reseaux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/03-systemes-clients-microsoft-1/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/03-systemes-clients-microsoft-1/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/04-systemes-clients-microsoft-2/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/04-systemes-clients-microsoft-2/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/05-utilisation-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/05-utilisation-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/06-administration-linux-1/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/06-administration-linux-1/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/07-administration-linux-2/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/07-administration-linux-2/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/08-msp-systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/08-msp-systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/parcours/09-itil-gestion-parc/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/parcours/09-itil-gestion-parc/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/ressources/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/ressources/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/ressources/inventaire-sources/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/ressources/inventaire-sources/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/ressources/sources-officielles/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/ressources/sources-officielles/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-01-presentation-de-debian-gnu-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-01-presentation-de-debian-gnu-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-02-installation-d-une-distribution-debian/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-02-installation-d-une-distribution-debian/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-03-demarrage-d-une-distribution-debian/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-03-demarrage-d-une-distribution-debian/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-04-debian-en-mode-maintenance/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-04-debian-en-mode-maintenance/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-05-gestion-du-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-05-gestion-du-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-06-gestion-des-paquets-logiciels/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-06-gestion-des-paquets-logiciels/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-07-gestion-des-espaces-de-stockage/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-07-gestion-des-espaces-de-stockage/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/administration-linux/module-12-maintenance-d-un-systeme-en-production/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/administration-linux/module-12-maintenance-d-un-systeme-en-production/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-02-authentification-ad-habilitations/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-02-authentification-ad-habilitations/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-03-gestion-de-parc-inventaire-informatique/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-03-gestion-de-parc-inventaire-informatique/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-04-assistance-traitements-automatises-des-tickets/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-04-assistance-traitements-automatises-des-tickets/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-05-les-bases-de-mysql-et-mariadb/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-05-les-bases-de-mysql-et-mariadb/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/glpi/module-06-plug-ins-et-inventaire/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/glpi/module-06-plug-ins-et-inventaire/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-01-presentation-d-itil-et-historique/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-01-presentation-d-itil-et-historique/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-02-la-gestion-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-02-la-gestion-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-03-strategie-et-conception-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-03-strategie-et-conception-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-04-transition-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-04-transition-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-05-decouverte-de-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-05-decouverte-de-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-06-exploitation-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-06-exploitation-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-07-amelioration-continue-des-services/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-07-amelioration-continue-des-services/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-08-savoir-savoir-faire-savoir-etre/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-08-savoir-savoir-faire-savoir-etre/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/itil/module-09-assistance-avec-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/itil/module-09-assistance-avec-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/module-01-decouverte-de-microsoft-365/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/module-01-decouverte-de-microsoft-365/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/module-02-connaissances-des-notions-de-base-word/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/module-02-connaissances-des-notions-de-base-word/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/msp/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/msp/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/msp/module-01-msp-systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/msp/module-01-msp-systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-01-le-modele-osi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-01-le-modele-osi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-02-les-unites-informatiques/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-02-les-unites-informatiques/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-03-l-adressage-ipv4/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-03-l-adressage-ipv4/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-04-la-communication-dans-un-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-04-la-communication-dans-un-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-05-les-premieres-commandes-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-05-les-premieres-commandes-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/reseaux/module-06-l-adressage-ipv6/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/reseaux/module-06-l-adressage-ipv6/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-03-interagir-avec-windows-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-03-interagir-avec-windows-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-04-la-gestion-du-stockage/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-04-la-gestion-du-stockage/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-08-le-partage-de-ressources/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-08-le-partage-de-ressources/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-10-la-maintenance-du-systeme/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-10-la-maintenance-du-systeme/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-11-plus-loin-avec-powershell/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-11-plus-loin-avec-powershell/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-13-les-strategies-de-groupe-local/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-13-les-strategies-de-groupe-local/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/systemes-clients/module-additionnel-workstation/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/systemes-clients/module-additionnel-workstation/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-03-premieres-commandes/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-03-premieres-commandes/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-06-recherches-et-expressions-regulieres/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-06-recherches-et-expressions-regulieres/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-07-utilisation-de-vi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-07-utilisation-de-vi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/administration-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/administration-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-01/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-01/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-01/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-01/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-01/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-01/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-02/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-02/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-02/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-02/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-02/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-02/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-03/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-03/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-03/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-03/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-03/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-03/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-04/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-04/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-04/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-04/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-04/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-04/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-05/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-05/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-05/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-05/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-05/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-05/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-06/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-06/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-06/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-06/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/glpi/module-06/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/glpi/module-06/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-03/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-03/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-03/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-03/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-03/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-03/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-04/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-04/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-04/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-04/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-04/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-04/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-09/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-09/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-09/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-09/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/itil/module-09/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/itil/module-09/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-02/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-02/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-02/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-02/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-02/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-02/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-03/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-03/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-03/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-03/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-03/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-03/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-04/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-04/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-04/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-04/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-04/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-04/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-05/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-05/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-05/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-05/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/microsoft-365/module-05/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/microsoft-365/module-05/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/msp/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/msp/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/msp/module-01/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/msp/module-01/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/msp/module-01/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/msp/module-01/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/msp/module-01/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/msp/module-01/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-01/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-01/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-03/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-03/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-03/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-03/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-03/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-03/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-04/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-04/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-04/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-04/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-04/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-04/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/reseaux/module-05/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/reseaux/module-05/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-02/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-02/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-02/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-02/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-02/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-02/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-03/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-03/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-03/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-03/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-03/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-03/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-04/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-04/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-04/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-04/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-04/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-04/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-05/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-05/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-05/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-05/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-05/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-05/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-06/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-06/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-06/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-06/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-06/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-06/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-07/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-07/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-07/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-07/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-07/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-07/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-08/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-08/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-08/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-08/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-08/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-08/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-09/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-09/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-09/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-09/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-09/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-09/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-10/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-10/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-10/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-10/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-10/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-10/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-11/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-11/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-11/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-11/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-11/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-11/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-12/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-12/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-12/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-12/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-12/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-12/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-13/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-13/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-13/corrections/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-13/corrections/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/systemes-clients/module-13/enonces/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/systemes-clients/module-13/enonces/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tp/utilisation-linux/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tp/utilisation-linux/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/client-sans-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/client-sans-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/glpi-inaccessible/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/glpi-inaccessible/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/outlook-connexion/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/outlook-connexion/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/service-linux-echec/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/service-linux-echec/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/troubleshooting/windows-instable/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/troubleshooting/windows-instable/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/capture-deploiement-windows/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/capture-deploiement-windows/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/diagnostic-reseau/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/diagnostic-reseau/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/forticlient-vpn/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/forticlient-vpn/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/installer-debian/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/installer-debian/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/installer-glpi/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/installer-glpi/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
-         <loc>http://localhost:8000/tutoriels/ipv4-statique-windows/</loc>
+         <loc>https://sk34pk25.github.io/tssr-cours/tutoriels/ipv4-statique-windows/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
 </urlset>
