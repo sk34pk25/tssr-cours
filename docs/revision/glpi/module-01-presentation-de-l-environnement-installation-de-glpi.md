@@ -1,46 +1,133 @@
-# Fiche de révision — Module 01 — Présentation de l’environnement — Installation de GLPI
 
-## À connaître absolument
 
-- Comprendre l’architecture Apache, PHP et MariaDB.
-- Préparer une base et un compte SQL dédiés.
-- Installer les fichiers GLPI avec des permissions adaptées.
-- Finaliser l’assistant, supprimer les comptes par défaut et sécuriser l’accès.
+# Module 01 - Présentation de l'environnement & installation
 
-## Méthode express
+!!! abstract "Objectif"
+    Déployer l'architecture **Olympus**, installer la pile web / base de données et rendre **GLPI accessible**.
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+## Architecture du TP
 
-## Commandes à reconnaître
+| Élément | Adresse / rôle |
+|---|---|
+| **VMNet18** | `192.168.1.0/24` |
+| **srv-CD01** | `.1` - AD DS + DNS, domaine `Olympus.gr` |
+| **srv-glpi** | `.2` - Debian 10 + GLPI |
+| **pfSense LAN** | `.254` - WAN bridgé / DHCP |
+| **Client Windows 10** | Joint au domaine |
 
-```text
-mysql&gt;create database glpidata;
-mysql&gt;grant all privileges on glpidata.* to root@localhost identified by ‘MotDePass’;
+### Contrôles réseau initiaux
+
+- Vérifier la **résolution DNS externe** depuis `srv-CD01`.
+- Vérifier le **ping externe** depuis `srv-glpi`.
+
+!!! tip "Réflexe à retenir"
+    Toujours valider **réseau + DNS** avant de commencer l'installation de GLPI.
+
+## Pile logicielle
+
+GLPI est présenté dans le cours comme une **application web libre** reposant sur :
+
+- **Apache** : serveur web ;
+- **PHP 7.3** + modules requis ;
+- **MariaDB** : base de données ;
+- **DNS** : publication de `glpi.olympus.gr`.
+
+### Modules PHP cités
+
+`mysql`, `mbstring`, `curl`, `gd`, `xml`, `ldap`, `xmlrpc`, `imap`, `intl`, `zip`, `bz2`, `APCu/CAS`.
+
+## Commandes clés
+
+### MariaDB
+
+```bash
+mysql_secure_installation
+mysql -u root -p
 ```
 
-## Pièges fréquents
+```sql
+CREATE DATABASE glpidata;
+SHOW DATABASES;
+```
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+### Extraction de GLPI
 
-## Checklist de maîtrise
+```bash
+tar xvzf /var/www/glpi-xxxx.tar.gz
+```
 
-- [ ] Comprendre l’architecture Apache, PHP et MariaDB.
-- [ ] Préparer une base et un compte SQL dédiés.
-- [ ] Installer les fichiers GLPI avec des permissions adaptées.
-- [ ] Finaliser l’assistant, supprimer les comptes par défaut et sécuriser l’accès.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+### Répertoires GLPI
 
-## Questions flash
+```bash
+mkdir /etc/glpi /var/lib/glpi /var/log/glpi
+chown -R www-data /etc/glpi
+chown -R www-data /var/lib/glpi
+chown -R www-data /var/log/glpi
+```
 
-1. Quels sont les concepts indispensables de « Présentation de l’environnement — Installation de GLPI » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+Après la configuration, **recharger Apache**.
 
-Pour approfondir : [cours complet](../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md).
+## Méthode à retenir
+
+```mermaid
+flowchart LR
+    A[Installer / nommer / adresser les VM] --> B[Configurer AD DS + DNS]
+    B --> C[Configurer pfSense et la connectivité]
+    C --> D[Installer Apache + MariaDB + PHP]
+    D --> E[Sécuriser MariaDB]
+    E --> F[Créer la BDD]
+    F --> G[Extraire GLPI dans /var/www]
+    G --> H[Déplacer config / données / logs]
+    H --> I[Publier le vhost Apache]
+    I --> J[Créer A + CNAME DNS]
+    J --> K[Terminer l'assistant web]
+```
+
+### Procédure en 10 étapes
+
+1. Installer, nommer et adresser les VM.
+2. Mettre en place **AD DS + DNS**.
+3. Configurer **pfSense** et vérifier la connectivité.
+4. Installer **Apache + MariaDB + PHP**.
+5. Sécuriser MariaDB.
+6. Créer la base de données GLPI.
+7. Extraire GLPI dans `/var/www`.
+8. Séparer configuration, données et logs dans :
+   - `/etc/glpi` ;
+   - `/var/lib/glpi` ;
+   - `/var/log/glpi`.
+9. Publier le **VirtualHost Apache**.
+10. Créer les enregistrements DNS **A + CNAME**, puis terminer l'assistant web.
+
+## Exemple du cours
+
+URL finale attendue :
+
+```text
+http://glpi.olympus.gr
+```
+
+## Incohérences détectées dans le support
+
+!!! warning "BDD : glpidb vs glpidata"
+    Le TP mélange `glpidb` lors de `CREATE DATABASE` et `glpidata` dans les commandes `SHOW/GRANT`. La fiche PDF demande de choisir un nom unique et utilise **`glpidata`**.
+
+!!! warning "Chemins incorrects"
+    Deux chemins du support utilisent `/var/ww/...` :
+
+    - `/var/ww/glpi/files`
+    - `/var/ww/glpi/marketplace`
+
+    La correction donnée dans la fiche est : **`/var/www/glpi/...`**.
+
+!!! warning "Versions anciennes"
+    Debian 10, PHP 7.3 et GLPI 9.x correspondent à l'environnement pédagogique du TP.
+
+## À retenir
+
+- Toujours valider **réseau + DNS** avant GLPI.
+- Séparer **code web**, **configuration**, **données variables** et **logs**.
+- Adapter les droits à l'utilisateur web `www-data`.
+- La résolution de `glpi.olympus.gr` constitue le dernier contrôle fonctionnel du module.
+
+---
