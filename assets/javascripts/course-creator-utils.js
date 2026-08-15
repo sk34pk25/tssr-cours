@@ -37,15 +37,15 @@
   }
 
   function newExercise(overrides = {}) {
-    return { title: "", instructions: "", difficulty: "", duration: "", type: "", solution: "", hint: "", moduleIndex: -1, tags: [], ...overrides };
+    return { clientId: uid("exercise"), title: "", instructions: "", difficulty: "", duration: "", type: "", solution: "", hint: "", moduleIndex: -1, tags: [], ...overrides };
   }
 
   function newLab(overrides = {}) {
-    return { title: "", objective: "", prerequisites: [], environment: "", duration: "", steps: "", resources: "", correction: "", moduleIndex: -1, ...overrides };
+    return { clientId: uid("lab"), title: "", objective: "", prerequisites: [], environment: "", duration: "", steps: "", resources: "", correction: "", moduleIndex: -1, ...overrides };
   }
 
   function newQuiz(overrides = {}) {
-    return { title: "", kind: "kahoot", description: "", url: "", difficulty: "", category: "", moduleIndex: -1, questions: [], ...overrides };
+    return { clientId: uid("quiz"), title: "", kind: "kahoot", description: "", url: "", difficulty: "", category: "", moduleIndex: -1, questions: [], content: "", ...overrides };
   }
 
   function newQuestion(overrides = {}) {
@@ -53,11 +53,11 @@
   }
 
   function newGlossaryEntry(overrides = {}) {
-    return { term: "", fullName: "", definition: "", aliases: [], keywords: [], moduleIndex: -1, ...overrides };
+    return { clientId: uid("glossary"), term: "", fullName: "", definition: "", aliases: [], keywords: [], moduleIndex: -1, ...overrides };
   }
 
   function newResource(overrides = {}) {
-    return { title: "", description: "", url: "", type: "web", moduleIndex: -1, ...overrides };
+    return { clientId: uid("resource"), title: "", description: "", url: "", type: "web", moduleIndex: -1, ...overrides };
   }
 
   function defaultDraft() {
@@ -192,9 +192,46 @@
     textarea.focus();
   }
 
+  function editorDiff(original, current, originalAttachments = [], currentAttachments = []) {
+    const changes = [];
+    const clean = (value) => JSON.stringify(value, function (key, child) {
+      if (["objectUrl", "file"].includes(key)) return undefined;
+      return child;
+    });
+    const compareFamily = (section, beforeValues, afterValues, label) => {
+      const before = new Map((beforeValues || []).map((item, index) => [String(item.clientId || item.id || `${section}-${index}`), item]));
+      const after = new Map((afterValues || []).map((item, index) => [String(item.clientId || item.id || `${section}-${index}`), item]));
+      before.forEach((item, id) => {
+        if (!after.has(id)) changes.push({ section, type: "removed", label: label(item) });
+        else if (clean(item) !== clean(after.get(id))) changes.push({ section, type: "modified", label: label(after.get(id)) });
+      });
+      after.forEach((item, id) => { if (!before.has(id)) changes.push({ section, type: "added", label: label(item) }); });
+    };
+    if (clean(original?.general || {}) !== clean(current?.general || {})) {
+      changes.push({ section: "general", type: "modified", label: current?.general?.title || "Informations générales" });
+    }
+    compareFamily("modules", original?.modules, current?.modules, (item) => item.title || "Module sans titre");
+    const originalPages = (original?.modules || []).flatMap((module) => module.pages || []);
+    const currentPages = (current?.modules || []).flatMap((module) => module.pages || []);
+    compareFamily("pages", originalPages, currentPages, (item) => item.title || "Page sans titre");
+    compareFamily("exercises", original?.exercises, current?.exercises, (item) => item.title || "Exercice sans titre");
+    compareFamily("labs", original?.labs, current?.labs, (item) => item.title || "TP sans titre");
+    compareFamily("quizzes", original?.quizzes, current?.quizzes, (item) => item.title || "Quiz sans titre");
+    compareFamily("glossary", original?.glossaryEntries, current?.glossaryEntries, (item) => item.term || "Terme sans nom");
+    compareFamily("resources", original?.resources, current?.resources, (item) => item.title || item.url || "Ressource");
+    compareFamily("files", originalAttachments, currentAttachments, (item) => item.name || item.path || "Fichier");
+    return {
+      changes,
+      added: changes.filter((item) => item.type === "added").length,
+      modified: changes.filter((item) => item.type === "modified").length,
+      removed: changes.filter((item) => item.type === "removed").length,
+      total: changes.length
+    };
+  }
+
   return {
     slugify, escapeHtml, uid, clone, splitList, defaultDraft, hydrateDraft, serializableDraft, summarize,
     newPage, newModule, newExercise, newLab, newQuiz, newQuestion, newGlossaryEntry, newResource,
-    allowedFile, signatureMatches, htmlToMarkdown, insertIntoTextarea
+    allowedFile, signatureMatches, htmlToMarkdown, insertIntoTextarea, editorDiff
   };
 });
