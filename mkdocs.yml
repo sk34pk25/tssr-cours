@@ -343,6 +343,8 @@ nav:
       - Cas pratiques transversaux: exercices/cas-pratiques.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
+      - Bases des réseaux:
+          - Sans titre: kahoot/bases-reseaux-01-sans-titre.md
   - Modifications: collaboration/index.md
   - Révisions:
       - Présentation: revision/index.md
