@@ -133,6 +133,7 @@
       <div class="tssr-collab-menu" hidden>
         <button type="button" data-user-action="account">Mon compte</button>
         <a href="${siteUrl("collaboration/")}">Modifications <span data-pending-badge></span></a>
+        <a href="${siteUrl("ajouter/")}" data-edit-only>Ajouter un cours</a>
         <button type="button" data-user-action="edit" data-edit-only>Mode édition</button>
         <button type="button" data-user-action="navigation" data-edit-only>Navigation du site</button>
         <button type="button" data-user-action="admin" data-admin-only>Tableau de bord</button>
@@ -259,6 +260,9 @@
     enhanceCurrentPage();
     renderCollaborationPage();
     await updatePendingNotice();
+    document.dispatchEvent(new CustomEvent("tssr:auth-changed", {
+      detail: { profile: state.profile ? { ...state.profile } : null }
+    }));
   }
 
   async function updatePendingNotice() {
@@ -374,8 +378,8 @@
       return;
     }
     target.innerHTML = window.DOMPurify.sanitize(window.marked.parse(text), {
-      FORBID_TAGS: ["script", "iframe", "object", "embed", "form", "input", "button"],
-      FORBID_ATTR: ["srcdoc"]
+      FORBID_TAGS: ["script", "iframe", "object", "embed", "form", "input", "button", "svg", "meta", "base", "link", "template", "video", "audio", "source"],
+      FORBID_ATTR: ["srcdoc", "style"]
     });
   }
 
@@ -722,9 +726,20 @@
     const canVote = state.profile.can_edit && request.status === "pending" && request.required_approvers.includes(state.profile.id) && !myVote;
     const canCancel = (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
     const canRevise = request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
-    return `<article class="tssr-change-card" data-change-id="${request.id}">
+    const kindLabel = request.proposal_kind === "create_course" ? "Ajout d’un cours"
+      : request.proposal_kind === "navigation_change" ? "Navigation" : "Modification";
+    const summary = request.proposal_kind === "create_course" && request.payload_summary
+      ? `<div class="tssr-course-proposal-summary">
+          <span>${Number(request.payload_summary.modules || 0)} module(s)</span>
+          <span>${Number(request.payload_summary.pages || 0)} page(s)</span>
+          <span>${Number(request.payload_summary.exercises || 0)} exercice(s)</span>
+          <span>${Number(request.payload_summary.labs || 0)} TP</span>
+          <span>${Number(request.payload_summary.glossary_entries || 0) + Number(request.payload_summary.glossary_links || 0)} terme(s)</span>
+          <span>${Array.isArray(request.payload_summary.attachments) ? request.payload_summary.attachments.length : 0} fichier(s)</span>
+        </div>` : "";
+    return `<article class="tssr-change-card" data-change-id="${request.id}" data-proposal-kind="${utils.escapeHtml(request.proposal_kind || "content_change")}">
       <div class="tssr-change-card__header">
-        <h3>${utils.escapeHtml(request.title)}</h3>
+        <div><span class="tssr-proposal-kind">${kindLabel}</span><h3>${utils.escapeHtml(request.title)}</h3></div>
         <span class="tssr-status tssr-status--${status.className}">${status.label}</span>
       </div>
       <div class="tssr-change-meta">
@@ -734,6 +749,7 @@
         <span>Validations : ${approval.approved} / ${approval.total}</span>
       </div>
       ${request.description ? `<p>${utils.escapeHtml(request.description)}</p>` : ""}
+      ${summary}
       ${request.failure_reason ? `<div class="tssr-form-error">${utils.escapeHtml(request.failure_reason)}</div>` : ""}
       <ul class="tssr-approvals">${approval.rows}</ul>
       ${request.published_commit_sha ? `<p class="tssr-muted">Commit : <code>${utils.escapeHtml(request.published_commit_sha)}</code></p>` : ""}
@@ -755,7 +771,20 @@
       const file = request.change_request_files[index];
       const target = dialog.querySelector("[data-diff-content]");
       if (file.content_encoding === "base64") {
-        target.innerHTML = `<div class="tssr-collaboration-empty"><strong>Fichier image</strong><p>${utils.escapeHtml(file.file_path)} — aperçu binaire non affiché dans le diff.</p></div>`;
+        const mediaType = file.media_type || (file.file_path.endsWith(".pdf") ? "application/pdf" : "application/octet-stream");
+        const size = file.new_content ? Math.floor(file.new_content.length * 3 / 4) : 0;
+        if (file.new_content && mediaType.startsWith("image/")) {
+          target.innerHTML = `<div class="tssr-binary-preview"><strong>Nouveau fichier image</strong><img alt="Aperçu de ${utils.escapeHtml(file.file_path)}" src="data:${utils.escapeHtml(mediaType)};base64,${file.new_content}"><p>${utils.escapeHtml(file.file_path)} · ${Math.ceil(size / 1024)} Ko</p></div>`;
+        } else if (file.new_content && mediaType === "application/pdf") {
+          target.innerHTML = `<div class="tssr-binary-preview"><strong>Nouveau document PDF</strong><object type="application/pdf" data="data:application/pdf;base64,${file.new_content}"><p>Aperçu indisponible dans ce navigateur.</p></object><p>${utils.escapeHtml(file.file_path)} · ${Math.ceil(size / 1024)} Ko</p></div>`;
+        } else {
+          target.innerHTML = `<div class="tssr-collaboration-empty"><strong>Nouveau fichier joint</strong><p>${utils.escapeHtml(file.file_path)}${size ? ` · ${Math.ceil(size / 1024)} Ko` : " · contenu temporaire nettoyé"}</p></div>`;
+        }
+        return;
+      }
+      if (request.proposal_kind === "create_course" && file.change_type === "create" && file.file_path.endsWith(".md")) {
+        target.innerHTML = '<div class="tssr-course-review-preview md-typeset"></div>';
+        renderPreview(file.new_content || "", target.firstElementChild);
         return;
       }
       const diff = utils.lineDiff(file.old_content || "", file.new_content || "");
@@ -923,7 +952,7 @@
     }
     if (window.location.hash === "#administration" && state.profile.role === "admin") state.dashboardTab = "admin";
     page.innerHTML = `<div class="tssr-dashboard-actions">
-      ${state.profile.can_edit ? '<button type="button" class="tssr-action tssr-action--primary" data-dashboard-action="new-page">Nouvelle page</button><button type="button" class="tssr-action" data-dashboard-action="navigation">Navigation du site</button>' : ""}
+      ${state.profile.can_edit ? `<a class="tssr-action tssr-action--primary" href="${siteUrl("ajouter/")}">＋ Ajouter un cours</a><button type="button" class="tssr-action" data-dashboard-action="new-page">Nouvelle page</button><button type="button" class="tssr-action" data-dashboard-action="navigation">Navigation du site</button>` : ""}
     </div>
     <div class="tssr-tabs" role="tablist">
       <button type="button" class="tssr-tab" data-dashboard-tab="pending" aria-selected="${state.dashboardTab === "pending"}">En attente</button>
@@ -990,6 +1019,15 @@
     injectNotificationBar();
     initializeAuth();
   }
+
+  window.TSSRCollaboration = Object.freeze({
+    getProfile: () => state.profile ? { ...state.profile } : null,
+    invoke,
+    siteUrl,
+    openLogin,
+    toast,
+    renderPreview
+  });
 
   if (typeof document$ !== "undefined") {
     document$.subscribe(function () {

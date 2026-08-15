@@ -12,6 +12,30 @@
   min-height: 3.2rem;
 }
 
+/* True visual centering on wide screens: the native search remains untouched,
+   while its box is anchored to the geometric center of the viewport header. */
+@media (min-width: 76.25em) {
+  .md-header__inner {
+    position: relative;
+  }
+
+  .md-header__inner > .md-search {
+    position: absolute;
+    left: 50%;
+    width: min(34rem, 42vw);
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  .md-header__inner > .md-search .md-search__form {
+    width: 100%;
+  }
+
+  .md-header__inner > .tssr-collab-header {
+    margin-left: auto;
+  }
+}
+
 .md-header__button,
 .md-header__title {
   color: var(--tssr-text);
