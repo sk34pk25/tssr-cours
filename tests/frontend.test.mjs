@@ -105,3 +105,33 @@ test("serialized local drafts never persist selected file payloads", () => {
   assert.deepEqual(JSON.parse(JSON.stringify(serialized.attachments)), []);
   assert.equal(serialized.general.coverAttachmentId, "");
 });
+
+test("the shared course model preserves server IDs, storage metadata and lossless Markdown", () => {
+  const source = course.defaultDraft();
+  source.modules = [course.newModule({
+    clientId: "module-stable",
+    content: "# Module\n\n!!! note \"Repère\"\n    Intact.\n",
+    storage: { path: "docs/modules/01-test/module.md", sha: "a".repeat(40) },
+    pages: [course.newPage({ clientId: "page-stable", storage: { path: "docs/modules/01-test/page.md" } })]
+  })];
+  const hydrated = course.hydrateDraft(source);
+  assert.equal(hydrated.modules[0].clientId, "module-stable");
+  assert.equal(hydrated.modules[0].storage.path, "docs/modules/01-test/module.md");
+  assert.match(hydrated.modules[0].content, /!!! note/);
+  assert.equal(hydrated.modules[0].pages[0].clientId, "page-stable");
+});
+
+test("the editor diff reports additions, modifications and removals but rejects a no-op", () => {
+  const original = course.defaultDraft();
+  original.general.title = "Réseaux";
+  original.modules.push(course.newModule({ clientId: "module-1", title: "OSI" }));
+  const unchanged = course.clone(original);
+  assert.equal(course.editorDiff(original, unchanged, [], []).total, 0);
+  unchanged.general.title = "Réseaux avancés";
+  unchanged.modules[0].title = "Modèle OSI";
+  unchanged.exercises.push(course.newExercise({ clientId: "exercise-new", title: "Diagnostic" }));
+  const diff = course.editorDiff(original, unchanged, [{ id: "file-old", name: "support.pdf", kind: "existing" }], []);
+  assert.equal(diff.modified >= 2, true);
+  assert.equal(diff.added, 1);
+  assert.equal(diff.removed, 1);
+});

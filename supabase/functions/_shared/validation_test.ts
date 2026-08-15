@@ -3,6 +3,7 @@ import {
   assertEditablePath,
   buildNavigationEdit,
   validateMarkdown,
+  validateMarkdownTransition,
   validateMkDocsEdit,
   validateProposedFiles,
 } from "./validation.ts";
@@ -34,6 +35,13 @@ Deno.test("Markdown active content is rejected", () => {
   assertThrows(() => validateMarkdown('<svg><script>alert(1)</script></svg>'));
   assertThrows(() => validateMarkdown('<span style="position:fixed">Piège</span>'));
   assertThrows(() => validateMarkdown('![Piège](data:image/svg+xml;base64,PHN2Zz4=)'));
+});
+
+Deno.test("legacy visual HTML is retained only when its sensitive tag is byte-identical", () => {
+  const oldContent = '# OSI\n\n<div class="layer" style="--layer-color:#3978c5">Réseau</div>\n';
+  validateMarkdownTransition(oldContent, oldContent.replace("# OSI", "# Modèle OSI"));
+  assertThrows(() => validateMarkdownTransition(oldContent, oldContent.replace("#3978c5", "url(javascript:alert(1))")));
+  assertThrows(() => validateMarkdownTransition(oldContent, `${oldContent}\n<button onclick="alert(1)">Piège</button>`));
 });
 
 Deno.test("file proposals require trusted hashes for existing files", () => {

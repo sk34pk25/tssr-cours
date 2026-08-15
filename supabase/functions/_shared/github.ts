@@ -18,6 +18,7 @@ interface GitTreeItem {
   mode: string;
   type: "blob" | "tree";
   sha: string;
+  size?: number;
 }
 
 interface ChangeRequestRow {
@@ -105,6 +106,19 @@ export async function fetchRepositoryFileRaw(filePath: string): Promise<{
   return { content: file.content.replace(/\s/g, ""), encoding: "base64", fileSha: file.sha, commitSha: ref.object.sha };
 }
 
+/** Read a known blob without resolving the branch again for every course file. */
+export async function fetchRepositoryBlob(filePath: string, fileSha: string): Promise<{
+  content: string;
+  encoding: "utf-8";
+  fileSha: string;
+}> {
+  if (!/^[0-9a-f]{40}$/.test(fileSha)) throw new Error(`SHA Git invalide pour ${filePath}.`);
+  const config = githubConfig();
+  const blob = await github<{ content: string; encoding: string; sha: string }>(config, `/git/blobs/${fileSha}`);
+  if (blob.encoding !== "base64" || blob.sha !== fileSha) throw new Error(`Le fichier ${filePath} n’est pas un blob Git lisible.`);
+  return { content: decodeBase64(blob.content), encoding: "utf-8", fileSha };
+}
+
 export async function fetchRepositoryTree(): Promise<{
   commitSha: string;
   files: Array<{ path: string; sha: string }>;
@@ -116,7 +130,7 @@ export async function fetchRepositoryTree(): Promise<{
   if (tree.truncated) throw new Error("L’arbre GitHub est trop volumineux pour une validation sûre.");
   return {
     commitSha: ref.object.sha,
-    files: tree.tree.filter((item) => item.type === "blob").map((item) => ({ path: item.path, sha: item.sha })),
+    files: tree.tree.filter((item) => item.type === "blob").map((item) => ({ path: item.path, sha: item.sha, size: item.size })),
   };
 }
 

@@ -96,6 +96,27 @@ export function validateMarkdown(content: string): void {
   }
 }
 
+function removeOnce(content: string, fragment: string): string {
+  const index = content.indexOf(fragment);
+  return index < 0 ? content : `${content.slice(0, index)}${content.slice(index + fragment.length)}`;
+}
+
+/**
+ * Legacy pages may retain sensitive visual fragments that already exist in the
+ * trusted Git source. They must remain byte-for-byte identical; the rest of the
+ * proposed Markdown still follows the strict rule used for new content.
+ */
+export function validateMarkdownTransition(oldContent: string, newContent: string): void {
+  if (newContent.length > 2_000_000) throw new Error("Un fichier Markdown ne peut pas dépasser 2 Mo.");
+  let candidate = newContent;
+  const trusted = [
+    ...oldContent.matchAll(/<[^>]+>/g),
+    ...oldContent.matchAll(/!?\[[^\]]*\]\([^\n)]*\)/g),
+  ].map((match) => match[0]).filter((fragment) => FORBIDDEN_MARKDOWN.some((pattern) => pattern.test(fragment)));
+  for (const fragment of trusted) candidate = removeOnce(candidate, fragment);
+  validateMarkdown(candidate);
+}
+
 function decodeBase64Size(value: string): number {
   const padding = value.endsWith("==") ? 2 : value.endsWith("=") ? 1 : 0;
   return Math.floor((value.length * 3) / 4) - padding;
@@ -229,7 +250,10 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
       }
     } else {
       if (encoding !== "utf-8") throw new Error(`Le fichier texte ${path} doit être encodé en UTF-8.`);
-      if (path.endsWith(".md") && file.new_content != null) validateMarkdown(file.new_content);
+      if (path.endsWith(".md") && file.new_content != null) {
+        if (file.change_type === "create") validateMarkdown(file.new_content);
+        else validateMarkdownTransition(file.old_content || "", file.new_content);
+      }
       if (path === "data/glossaire.json" && file.new_content != null) validateGlossaryData(file.new_content);
     }
     if (totalBinarySize > 12_000_000) throw new Error("Les fichiers binaires de la proposition dépassent 12 Mo au total.");

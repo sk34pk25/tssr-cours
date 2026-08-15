@@ -31,6 +31,14 @@
     return utils.sourcePath(value);
   }
 
+  function completeCourseEditorUrl(filePath) {
+    if (!/^docs\/modules\/\d+-[^/]+\/(?:[^/]+\.md)$/.test(filePath || "")) return null;
+    const url = new URL(siteUrl("ajouter/"));
+    url.searchParams.set("mode", "edit");
+    url.searchParams.set("course", filePath);
+    return url.href;
+  }
+
   function formatDate(value) {
     if (!value) return "—";
     return new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
@@ -424,6 +432,11 @@
     if (!state.profile?.can_edit) return;
     const filePath = options.filePath || currentSourcePath();
     if (!filePath) return toast("Cette page ne peut pas être reliée à un fichier Markdown.", "error");
+    const courseEditor = !options.supersedesId && completeCourseEditorUrl(filePath);
+    if (courseEditor) {
+      window.location.href = courseEditor;
+      return;
+    }
     let source;
     try {
       const result = await invoke("change-requests", { action: "get-source", file_path: filePath });
@@ -727,8 +740,9 @@
     const canCancel = (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
     const canRevise = request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
     const kindLabel = request.proposal_kind === "create_course" ? "Ajout d’un cours"
+      : request.proposal_kind === "modify_course" ? "Modification d’un cours"
       : request.proposal_kind === "navigation_change" ? "Navigation" : "Modification";
-    const summary = request.proposal_kind === "create_course" && request.payload_summary
+    const summary = ["create_course", "modify_course"].includes(request.proposal_kind) && request.payload_summary
       ? `<div class="tssr-course-proposal-summary">
           <span>${Number(request.payload_summary.modules || 0)} module(s)</span>
           <span>${Number(request.payload_summary.pages || 0)} page(s)</span>
@@ -736,6 +750,7 @@
           <span>${Number(request.payload_summary.labs || 0)} TP</span>
           <span>${Number(request.payload_summary.glossary_entries || 0) + Number(request.payload_summary.glossary_links || 0)} terme(s)</span>
           <span>${Array.isArray(request.payload_summary.attachments) ? request.payload_summary.attachments.length : 0} fichier(s)</span>
+          ${request.proposal_kind === "modify_course" ? `<span>＋ ${Number(request.payload_summary.added || 0)}</span><span>✎ ${Number(request.payload_summary.modified || 0)}</span><span>− ${Number(request.payload_summary.removed || 0)}</span>` : ""}
         </div>` : "";
     return `<article class="tssr-change-card" data-change-id="${request.id}" data-proposal-kind="${utils.escapeHtml(request.proposal_kind || "content_change")}">
       <div class="tssr-change-card__header">
@@ -782,7 +797,7 @@
         }
         return;
       }
-      if (request.proposal_kind === "create_course" && file.change_type === "create" && file.file_path.endsWith(".md")) {
+      if (["create_course", "modify_course"].includes(request.proposal_kind) && file.change_type === "create" && file.file_path.endsWith(".md")) {
         target.innerHTML = '<div class="tssr-course-review-preview md-typeset"></div>';
         renderPreview(file.new_content || "", target.firstElementChild);
         return;
@@ -1001,7 +1016,7 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = "tssr-edit-page";
-    button.textContent = "Modifier cette page";
+    button.textContent = completeCourseEditorUrl(source) ? "Modifier ce cours" : "Modifier cette page";
     button.addEventListener("click", () => openPageEditor());
     article.insertBefore(button, article.querySelector("h1") || article.firstChild);
   }

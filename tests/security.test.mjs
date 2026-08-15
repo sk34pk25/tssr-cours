@@ -47,6 +47,29 @@ test("structured course creation uses the authenticated change endpoint and neve
   assert.match(endpoint, /buildCourseProposal\(body\.course, snapshot\)/);
 });
 
+test("complete course editing is server-loaded, identity-checked and submitted through consensus", () => {
+  const frontend = read("docs/assets/javascripts/course-creator.js");
+  const collaboration = read("docs/assets/javascripts/collaboration.js");
+  const endpoint = read("supabase/functions/change-requests/index.ts");
+  const migration = read("supabase/migrations/20260815190000_course_editing.sql");
+  assert.match(frontend, /action:\s*"get-course-editor"/);
+  assert.match(frontend, /action:\s*"modify-course"/);
+  assert.match(collaboration, /completeCourseEditorUrl/);
+  assert.match(endpoint, /body\.action === "modify-course"[\s\S]+requireProfile\(req, \{ canEdit: true \}\)/);
+  assert.match(endpoint, /buildCourseModification\(\s*editorPayload,\s*loaded\.plan,\s*loaded\.snapshot,?\s*\)/);
+  assert.match(endpoint, /"modify_course"/);
+  assert.match(migration, /proposal_kind in \('content_change', 'navigation_change', 'create_course', 'modify_course'\)/);
+  assert.match(migration, /course_modification_submitted/);
+  assert.doesNotMatch(frontend, /\bauthor(?:_id|_display_name)?\s*:/i);
+});
+
+test("legacy active Markdown can only survive an update as an identical trusted fragment", () => {
+  const validation = read("supabase/functions/_shared/validation.ts");
+  assert.match(validation, /validateMarkdownTransition/);
+  assert.match(validation, /removeOnce\(candidate, fragment\)/);
+  assert.match(validation, /file\.change_type === "create"/);
+});
+
 test("course attachments are allowlisted, signature checked and staged outside the public repository", () => {
   const validation = read("supabase/functions/_shared/validation.ts");
   const migration = read("supabase/migrations/20260815120000_course_creation.sql");

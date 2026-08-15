@@ -1,7 +1,9 @@
 /* Structured course creation. Authentication and mutations are delegated to the existing collaboration client. */
 (function () {
   const utils = window.TSSRCourseCreatorUtils;
-  const storageKey = "tssr-course-creator-draft-v1";
+  const requested = new URLSearchParams(window.location.search);
+  const requestedCourse = requested.get("course") || "";
+  const requestedMode = requested.get("mode") === "edit" && requestedCourse ? "edit" : "create";
   const sectionLabels = {
     general: "Général", modules: "Modules", activities: "Exercices / TP", quizzes: "Quiz / Kahoot",
     glossary: "Glossaire", resources: "Ressources / PDF", preview: "Aperçu", submit: "Soumission"
@@ -21,8 +23,38 @@
     initializedFor: null,
     authProfile: null,
     previewMode: false,
-    proposalDescription: ""
+    proposalDescription: "",
+    mode: requestedMode,
+    coursePath: requestedCourse,
+    meta: null,
+    originalDraft: null,
+    originalAttachments: [],
+    relations: null
   };
+
+  function storageKey() {
+    const suffix = state.mode === "edit" ? `${state.meta?.courseId || utils.slugify(state.coursePath)}-${state.context?.base_commit_sha || "loading"}` : "create";
+    return `tssr-course-editor-draft-v2-${suffix}`;
+  }
+
+  function syncRequestedMode() {
+    const params = new URLSearchParams(window.location.search);
+    const coursePath = params.get("course") || "";
+    const mode = params.get("mode") === "edit" && coursePath ? "edit" : "create";
+    if (mode === state.mode && coursePath === state.coursePath) return;
+    state.attachments.forEach((item) => { if (item.kind !== "existing" && item.objectUrl) URL.revokeObjectURL(item.objectUrl); });
+    state.mode = mode;
+    state.coursePath = coursePath;
+    state.draft = utils.defaultDraft();
+    state.attachments = [];
+    state.context = null;
+    state.meta = null;
+    state.originalDraft = null;
+    state.originalAttachments = [];
+    state.initializedFor = null;
+    state.dirty = false;
+    state.proposalDescription = "";
+  }
 
   function bridge() {
     return window.TSSRCollaboration;
@@ -36,18 +68,44 @@
     return bridge()?.siteUrl?.(path) || new URL(path, window.location.href).href;
   }
 
+  function syncPageModeLabels() {
+    const label = state.mode === "edit" ? "Modifier le cours" : "Ajouter un cours";
+    const heading = document.querySelector(".md-content__inner > h1");
+    if (heading) {
+      const textNode = Array.from(heading.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
+      if (textNode) textNode.textContent = label;
+      else heading.insertBefore(document.createTextNode(label), heading.firstChild);
+    }
+    const headerTopic = document.querySelector('.md-header__topic[data-md-component="header-topic"] .md-ellipsis');
+    if (headerTopic) headerTopic.textContent = label;
+    document.title = document.title.replace(/^(?:Ajouter un cours|Modifier le cours)(?=\s+-\s+|$)/, label);
+  }
+
   function loadDraft() {
     try {
-      const stored = JSON.parse(localStorage.getItem(storageKey) || "null");
-      state.draft = utils.hydrateDraft(stored);
+      const stored = JSON.parse(localStorage.getItem(storageKey()) || "null");
+      if (state.mode === "edit") {
+        if (!stored || stored.baseCommitSha !== state.context?.base_commit_sha) return;
+        state.draft = utils.hydrateDraft(stored.draft);
+        state.attachments = Array.isArray(stored.attachments) ? stored.attachments : state.attachments;
+        state.proposalDescription = String(stored.proposalDescription || "");
+      } else state.draft = utils.hydrateDraft(stored);
     } catch (_) {
-      state.draft = utils.defaultDraft();
+      if (state.mode === "create") state.draft = utils.defaultDraft();
     }
   }
 
   function saveDraft(manual = false) {
     if (!state.draft) return;
-    localStorage.setItem(storageKey, JSON.stringify(utils.serializableDraft(state.draft)));
+    const serializable = utils.serializableDraft(state.draft);
+    if (state.mode === "edit") {
+      localStorage.setItem(storageKey(), JSON.stringify({
+        baseCommitSha: state.context?.base_commit_sha,
+        draft: serializable,
+        attachments: state.attachments.filter((item) => item.kind === "existing"),
+        proposalDescription: state.proposalDescription
+      }));
+    } else localStorage.setItem(storageKey(), JSON.stringify(serializable));
     state.dirty = false;
     const status = state.root?.querySelector("[data-draft-status]");
     if (status) status.textContent = `${manual ? "Brouillon enregistré" : "Enregistrement automatique"} · ${new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" }).format(new Date())}${state.attachments.length ? " · fichiers à joindre de nouveau après rechargement" : ""}`;
@@ -300,6 +358,7 @@
         ${field("Catégorie", `${path}.category`, item.category, { maxlength: 100 })}
         ${selectField("Module associé", `${path}.moduleIndex`, item.moduleIndex, [{ value: -1, label: "Cours entier" }, ...state.draft.modules.map((module, moduleIndex) => ({ value: moduleIndex, label: `M${moduleIndex + 1} · ${module.title || "Sans titre"}` }))])}
       </div>
+      ${state.mode === "edit" && item.storage?.path ? editor(`${path}.content`, item.content || "", "Contenu Markdown existant") : ""}
       <div class="tssr-nested-list"><div class="tssr-nested-list__header"><h4>Questions facultatives</h4><button type="button" class="tssr-action" data-struct-action="question-add" data-quiz-index="${index}">＋ Ajouter une question</button></div>
         ${item.questions.length ? item.questions.map((question, questionIndex) => questionCard(question, index, questionIndex)).join("") : '<div class="tssr-builder-empty">Aucune question interne. Le lien Kahoot suffit.</div>'}</div>
     </article>`;
@@ -354,18 +413,23 @@
   }
 
   function attachmentCard(item, index) {
-    const size = new Intl.NumberFormat("fr-FR", { style: "unit", unit: "kilobyte", maximumFractionDigits: 0 }).format(item.file.size / 1024);
-    const preview = item.mediaType.startsWith("image/")
-      ? `<img src="${item.objectUrl}" alt="${utils.escapeHtml(item.alt || item.file.name)}">`
-      : item.mediaType === "application/pdf"
-        ? `<object type="application/pdf" data="${item.objectUrl}"><p>Aperçu PDF indisponible.</p></object>`
+    const existing = item.kind === "existing";
+    const name = item.file?.name || item.name || item.path || "Fichier";
+    const byteSize = item.file?.size ?? item.size ?? 0;
+    const size = byteSize ? new Intl.NumberFormat("fr-FR", { style: "unit", unit: "kilobyte", maximumFractionDigits: 0 }).format(byteSize / 1024) : "taille non fournie";
+    const objectUrl = item.objectUrl || (item.publicPath ? siteUrl(item.publicPath) : "");
+    const mediaType = String(item.mediaType || "application/octet-stream");
+    const preview = mediaType.startsWith("image/")
+      ? `<img src="${utils.escapeHtml(objectUrl)}" alt="${utils.escapeHtml(item.alt || name)}">`
+      : mediaType === "application/pdf"
+        ? `<object type="application/pdf" data="${utils.escapeHtml(objectUrl)}"><p>Aperçu PDF indisponible.</p></object>`
         : '<span class="tssr-file-icon" aria-hidden="true">📄</span>';
-    return `<article class="tssr-file-card" data-attachment-index="${index}">${preview}<div class="tssr-file-card__body"><strong>${utils.escapeHtml(item.file.name)}</strong><span>${utils.escapeHtml(item.mediaType || "Type inconnu")} · ${size}</span>
+    return `<article class="tssr-file-card${existing ? " tssr-file-card--existing" : ""}" data-attachment-index="${index}">${preview}<div class="tssr-file-card__body"><strong>${utils.escapeHtml(name)}</strong><span>${existing ? "Fichier existant · " : "Nouveau fichier · "}${utils.escapeHtml(mediaType)} · ${size}</span>
       <div class="tssr-form-grid">
         <label class="tssr-field"><span>Titre</span><input data-attachment-field="title" value="${utils.escapeHtml(item.title || "")}"></label>
         <label class="tssr-field"><span>Emplacement publié</span><select data-attachment-field="target">${attachmentTargetOptions(item)}</select></label>
-        ${item.mediaType.startsWith("image/") ? `<label class="tssr-field"><span>Texte alternatif</span><input data-attachment-field="alt" value="${utils.escapeHtml(item.alt || "")}"></label><label class="tssr-field"><span>Légende</span><input data-attachment-field="caption" value="${utils.escapeHtml(item.caption || "")}"></label><label class="tssr-field tssr-field--check tssr-field--wide"><input type="checkbox" data-cover-attachment="${utils.escapeHtml(item.id)}" ${state.draft.general.coverAttachmentId === item.id ? "checked" : ""}> <span>Utiliser comme image de couverture du cours</span></label>` : ""}
-      </div><button type="button" class="tssr-action tssr-action--danger" data-struct-action="attachment-remove" data-index="${index}">Retirer</button></div></article>`;
+        ${mediaType.startsWith("image/") ? `<label class="tssr-field"><span>Texte alternatif</span><input data-attachment-field="alt" value="${utils.escapeHtml(item.alt || "")}"></label><label class="tssr-field"><span>Légende</span><input data-attachment-field="caption" value="${utils.escapeHtml(item.caption || "")}"></label><label class="tssr-field tssr-field--check tssr-field--wide"><input type="checkbox" data-cover-attachment="${utils.escapeHtml(item.id)}" ${state.draft.general.coverAttachmentId === item.id ? "checked" : ""}> <span>Utiliser comme image de couverture du cours</span></label>` : ""}
+      </div>${existing ? `<a class="tssr-action" href="${utils.escapeHtml(objectUrl)}" target="_blank" rel="noopener noreferrer">Ouvrir</a>` : ""}<button type="button" class="tssr-action tssr-action--danger" data-struct-action="attachment-remove" data-index="${index}">${existing ? "Dissocier du cours" : "Retirer"}</button></div></article>`;
   }
 
   function resourcesPanel() {
@@ -380,6 +444,21 @@
 
   function compilePreviewMarkdown() {
     const d = state.draft;
+    if (state.mode === "edit") {
+      const documents = [d.general.description];
+      d.modules.forEach((module) => {
+        if (module.content) documents.push(module.content);
+        module.pages.forEach((page) => { if (page.content) documents.push(page.content); });
+      });
+      d.exercises.forEach((item) => { if (item.instructions) documents.push(item.instructions); });
+      d.labs.forEach((item) => {
+        if (item.resources) documents.push(item.resources);
+        if (item.steps) documents.push(item.steps);
+        if (item.correction) documents.push(item.correction);
+      });
+      d.quizzes.forEach((item) => { if (item.content) documents.push(item.content); });
+      return documents.filter(Boolean).join("\n\n---\n\n");
+    }
     const lines = [`# ${d.general.title || "Nouveau cours"}`, ""];
     if (d.general.subtitle) lines.push(`*${d.general.subtitle}*`, "");
     if (d.general.shortDescription) lines.push(d.general.shortDescription, "");
@@ -413,25 +492,28 @@
 
   function submitPanel() {
     const summary = utils.summarize({ ...state.draft, attachments: state.attachments });
+    const diff = state.mode === "edit" ? utils.editorDiff(state.originalDraft, state.draft, state.originalAttachments, state.attachments) : null;
+    const diffRows = diff?.changes.map((item) => `<li class="tssr-editor-diff__${item.type}"><span>${item.type === "added" ? "Ajouté" : item.type === "removed" ? "Supprimé" : "Modifié"}</span><strong>${utils.escapeHtml(item.label)}</strong><small>${utils.escapeHtml(sectionLabels[item.section] || item.section)}</small></li>`).join("") || "";
     return `<section class="tssr-builder-panel" data-builder-panel="submit" hidden>
-      <div class="tssr-builder-section-heading"><div><span>08</span><h2>Soumission communautaire</h2></div></div>
+      <div class="tssr-builder-section-heading"><div><span>08</span><h2>${state.mode === "edit" ? "Proposition de modification" : "Soumission communautaire"}</h2></div></div>
       <div class="tssr-submit-summary">
         <h3>${utils.escapeHtml(summary.title)}</h3>
         <dl><div><dt>Modules</dt><dd>${summary.modules}</dd></div><div><dt>Pages</dt><dd>${summary.pages}</dd></div><div><dt>Exercices</dt><dd>${summary.exercises}</dd></div><div><dt>TP</dt><dd>${summary.labs}</dd></div><div><dt>Quiz / Kahoot</dt><dd>${summary.quizzes}</dd></div><div><dt>Glossaire</dt><dd>${summary.glossary}</dd></div><div><dt>Fichiers</dt><dd>${summary.files} (${summary.pdfs} PDF)</dd></div></dl>
       </div>
+      ${diff ? `<div class="tssr-editor-diff"><div class="tssr-editor-diff__summary"><span>${diff.added} ajout(s)</span><span>${diff.modified} modification(s)</span><span>${diff.removed} suppression(s)</span></div>${diff.total ? `<ul>${diffRows}</ul>` : '<div class="tssr-builder-empty"><strong>Aucune modification détectée.</strong><p>La soumission est désactivée tant que le cours reste identique à sa version chargée.</p></div>'}</div>` : ""}
       <div class="tssr-submit-flow" aria-label="Workflow de publication"><span>Vous</span><i>→</i><span>Proposition</span><i>→</i><span>Validation communautaire</span><i>→</i><span>GitHub + build strict</span><i>→</i><span>Site public</span></div>
       <p>La proposition sera enregistrée avec votre identité serveur. Elle ne sera pas visible publiquement avant le consensus défini par le projet.</p>
-      <label class="tssr-field"><span>Description pour les validateurs</span><textarea data-proposal-description maxlength="1000" placeholder="Contexte facultatif de cette création">${utils.escapeHtml(state.proposalDescription)}</textarea></label>
+      <label class="tssr-field"><span>Description pour les validateurs</span><textarea data-proposal-description maxlength="1000" placeholder="Contexte facultatif de cette ${state.mode === "edit" ? "modification" : "création"}">${utils.escapeHtml(state.proposalDescription)}</textarea></label>
       <div class="tssr-form-message" data-submit-message hidden></div>
       ${state.previewMode ? '<div class="tssr-form-error">Mode aperçu local : la soumission est volontairement désactivée.</div>' : ""}
-      <button type="button" class="tssr-action tssr-action--primary tssr-submit-course" data-submit-course ${state.submitting || state.previewMode ? "disabled" : ""}>Soumettre le cours pour validation</button>
+      <button type="button" class="tssr-action tssr-action--primary tssr-submit-course" data-submit-course ${state.submitting || state.previewMode || diff && !diff.total ? "disabled" : ""}>${state.mode === "edit" ? "Proposer les modifications" : "Soumettre le cours pour validation"}</button>
     </section>`;
   }
 
   function shell() {
     const summary = utils.summarize({ ...state.draft, attachments: state.attachments });
     return `<div class="tssr-builder-header">
-      <div><span class="tssr-hero__badge">${state.previewMode ? "Aperçu local · soumission désactivée" : "Contribution structurée"}</span><h2>${utils.escapeHtml(state.draft.general.title || "Nouveau cours")}</h2><p>Chemin prévu : <code>modules/…-${utils.slugify(state.draft.general.title)}/</code></p></div>
+      <div><span class="tssr-hero__badge">${state.previewMode ? "Aperçu local · soumission désactivée" : state.mode === "edit" ? "Mode modification · version publiée chargée" : "Contribution structurée"}</span><h2>${utils.escapeHtml(state.draft.general.title || "Nouveau cours")}</h2><p>${state.mode === "edit" ? `Chemin conservé : <code>${utils.escapeHtml(state.meta?.coursePath?.replace(/^docs\//, "") || state.coursePath)}</code>` : `Chemin prévu : <code>modules/…-${utils.slugify(state.draft.general.title)}/</code>`}</p></div>
       <div class="tssr-builder-header__actions"><span data-draft-status>Brouillon local prêt</span><button type="button" class="tssr-action" data-save-draft>Enregistrer le brouillon</button><button type="button" class="tssr-action tssr-action--danger" data-reset-draft>Réinitialiser</button></div>
     </div>
     <nav class="tssr-builder-nav" aria-label="Sections du formulaire">${Object.entries(sectionLabels).map(([id, label], index) => `<button type="button" data-builder-section="${id}" aria-current="${state.activeSection === id ? "step" : "false"}"><span>${String(index + 1).padStart(2, "0")}</span>${label}</button>`).join("")}</nav>
@@ -574,8 +656,9 @@
 
   async function handleFiles(fileList) {
     const files = Array.from(fileList || []);
-    if (state.attachments.length + files.length > 12) return bridge()?.toast?.("Maximum 12 fichiers par proposition.", "error");
-    let total = state.attachments.reduce((sum, item) => sum + item.file.size, 0);
+    const newAttachments = state.attachments.filter((item) => item.kind !== "existing");
+    if (newAttachments.length + files.length > 12) return bridge()?.toast?.("Maximum 12 nouveaux fichiers par proposition.", "error");
+    let total = newAttachments.reduce((sum, item) => sum + (item.file?.size || 0), 0);
     for (const file of files) {
       if (!utils.allowedFile(file.name, file.type)) {
         bridge()?.toast?.(`${file.name} : format interdit.`, "error"); continue;
@@ -589,7 +672,7 @@
         bridge()?.toast?.(`${file.name} : contenu incompatible avec son extension.`, "error"); continue;
       }
       total += file.size;
-      state.attachments.push({ id: utils.uid("file"), file, mediaType: file.type || "application/octet-stream", title: "", alt: "", caption: "", moduleIndex: -1, pageIndex: -1, objectUrl: URL.createObjectURL(file) });
+      state.attachments.push({ id: utils.uid("file"), kind: "new", name: file.name, file, mediaType: file.type || "application/octet-stream", title: "", alt: "", caption: "", moduleIndex: -1, pageIndex: -1, objectUrl: URL.createObjectURL(file) });
     }
     state.dirty = true;
     rerender(false);
@@ -630,7 +713,8 @@
     else if (action === "resource-remove") state.draft.resources.splice(index, 1);
     else if (action === "attachment-remove") {
       if (state.draft.general.coverAttachmentId === state.attachments[index].id) state.draft.general.coverAttachmentId = "";
-      URL.revokeObjectURL(state.attachments[index].objectUrl); state.attachments.splice(index, 1);
+      if (state.attachments[index].kind !== "existing" && state.attachments[index].objectUrl) URL.revokeObjectURL(state.attachments[index].objectUrl);
+      state.attachments.splice(index, 1);
     } else return;
     scheduleSave(); rerender(false);
   }
@@ -648,9 +732,11 @@
     const payload = utils.clone(utils.serializableDraft(state.draft));
     payload.attachments = await Promise.all(state.attachments.map(async (attachment) => ({
       id: attachment.id,
-      name: attachment.file.name,
+      kind: attachment.kind || "new",
+      path: attachment.path || null,
+      name: attachment.file?.name || attachment.name,
       mediaType: attachment.mediaType,
-      content: await fileToBase64(attachment.file),
+      content: attachment.kind === "existing" ? undefined : await fileToBase64(attachment.file),
       title: attachment.title,
       alt: attachment.alt,
       caption: attachment.caption,
@@ -664,7 +750,8 @@
     return new Promise((resolve) => {
       const dialog = document.createElement("dialog");
       dialog.className = "tssr-collab-dialog tssr-collab-dialog--small";
-      dialog.innerHTML = `<div class="tssr-dialog__header"><h2>Confirmer la proposition</h2><button type="button" class="tssr-dialog__close" data-confirm="false" aria-label="Fermer">×</button></div><div class="tssr-dialog__body"><p><strong>${utils.escapeHtml(summary.title)}</strong></p><ul><li>${summary.modules} module(s), ${summary.pages} page(s)</li><li>${summary.exercises} exercice(s), ${summary.labs} TP</li><li>${summary.quizzes} quiz, ${summary.glossary} terme(s)</li><li>${summary.files} fichier(s), dont ${summary.pdfs} PDF</li></ul><p>Soumettre cette création au vote communautaire ?</p></div><div class="tssr-dialog__footer"><button type="button" class="tssr-action" data-confirm="false">Retour</button><button type="button" class="tssr-action tssr-action--primary" data-confirm="true">Soumettre</button></div>`;
+      const diff = state.mode === "edit" ? utils.editorDiff(state.originalDraft, state.draft, state.originalAttachments, state.attachments) : null;
+      dialog.innerHTML = `<div class="tssr-dialog__header"><h2>Confirmer la proposition</h2><button type="button" class="tssr-dialog__close" data-confirm="false" aria-label="Fermer">×</button></div><div class="tssr-dialog__body"><p><strong>${utils.escapeHtml(summary.title)}</strong></p><ul><li>${summary.modules} module(s), ${summary.pages} page(s)</li><li>${summary.exercises} exercice(s), ${summary.labs} TP</li><li>${summary.quizzes} quiz, ${summary.glossary} terme(s)</li><li>${summary.files} fichier(s), dont ${summary.pdfs} PDF</li>${diff ? `<li>${diff.added} ajout(s), ${diff.modified} modification(s), ${diff.removed} suppression(s)</li>` : ""}</ul><p>Soumettre cette ${state.mode === "edit" ? "modification" : "création"} au vote communautaire ?</p></div><div class="tssr-dialog__footer"><button type="button" class="tssr-action" data-confirm="false">Retour</button><button type="button" class="tssr-action tssr-action--primary" data-confirm="true">Soumettre</button></div>`;
       dialog.addEventListener("click", (event) => {
         const button = event.target.closest("[data-confirm]");
         if (!button) return;
@@ -680,6 +767,9 @@
     if (state.previewMode) return bridge()?.toast?.("Le mode aperçu local ne peut pas soumettre de proposition.", "error");
     if (state.submitting) return;
     const summary = utils.summarize({ ...state.draft, attachments: state.attachments });
+    if (state.mode === "edit" && !utils.editorDiff(state.originalDraft, state.draft, state.originalAttachments, state.attachments).total) {
+      return bridge()?.toast?.("Aucune modification n’a été détectée.", "error");
+    }
     if (!await confirmationDialog(summary)) return;
     state.submitting = true;
     const button = state.root.querySelector("[data-submit-course]");
@@ -690,19 +780,27 @@
       const course = await submissionPayload();
       button.textContent = "Soumission au serveur…";
       const description = state.proposalDescription;
-      const result = await bridge().invoke("change-requests", {
+      const request = state.mode === "edit" ? {
+        action: "modify-course",
+        title: `Modification du cours « ${summary.title} »`,
+        description,
+        base_commit_sha: state.context.base_commit_sha,
+        course_path: state.meta.coursePath,
+        course_editor: { meta: state.meta, baseCommitSha: state.context.base_commit_sha, draft: course, attachments: course.attachments }
+      } : {
         action: "create-course",
         title: `Ajout du cours « ${summary.title} »`,
         description,
         base_commit_sha: state.context.base_commit_sha,
         course
-      });
-      localStorage.removeItem(storageKey);
+      };
+      const result = await bridge().invoke("change-requests", request);
+      localStorage.removeItem(storageKey());
       state.dirty = false;
       message.className = "tssr-form-message tssr-form-success";
-      message.innerHTML = `Votre proposition de nouveau cours a été envoyée pour validation. <a href="${siteUrl("collaboration/")}">Voir la proposition</a>. Le cours n’est pas encore publié.`;
+      message.innerHTML = `Votre proposition de ${state.mode === "edit" ? "modification" : "nouveau cours"} a été envoyée pour validation. <a href="${siteUrl("collaboration/")}">Voir la proposition</a>. Le site public n’a pas encore été modifié.`;
       button.textContent = result.change_request?.status === "published" ? "Cours transmis au build" : "Proposition envoyée";
-      bridge()?.toast?.("Proposition de cours créée.");
+      bridge()?.toast?.(state.mode === "edit" ? "Proposition de modification créée." : "Proposition de cours créée.");
     } catch (error) {
       message.className = "tssr-form-message tssr-form-error";
       message.textContent = `${error.message} Votre brouillon et vos fichiers restent dans cette page.`;
@@ -716,8 +814,16 @@
     state.root.querySelectorAll("[data-builder-section]").forEach((button) => button.addEventListener("click", () => showSection(button.dataset.builderSection)));
     state.root.querySelector("[data-save-draft]")?.addEventListener("click", () => saveDraft(true));
     state.root.querySelector("[data-reset-draft]")?.addEventListener("click", () => {
-      if (!window.confirm("Réinitialiser tout le brouillon ? Les fichiers sélectionnés seront retirés.")) return;
-      state.attachments.forEach((item) => URL.revokeObjectURL(item.objectUrl)); state.attachments = []; state.draft = utils.defaultDraft(); localStorage.removeItem(storageKey); state.dirty = false; rerender(false);
+      if (!window.confirm(state.mode === "edit" ? "Rétablir exactement la version du cours chargée depuis GitHub ?" : "Réinitialiser tout le brouillon ? Les fichiers sélectionnés seront retirés.")) return;
+      state.attachments.forEach((item) => { if (item.kind !== "existing" && item.objectUrl) URL.revokeObjectURL(item.objectUrl); });
+      if (state.mode === "edit") {
+        state.draft = utils.hydrateDraft(utils.clone(state.originalDraft));
+        state.attachments = utils.clone(state.originalAttachments);
+      } else {
+        state.attachments = [];
+        state.draft = utils.defaultDraft();
+      }
+      localStorage.removeItem(storageKey()); state.dirty = false; rerender(false);
     });
     state.root.querySelector(".tssr-course-form")?.addEventListener("input", (event) => {
       const control = event.target.closest("[data-model-path]");
@@ -793,14 +899,27 @@
       return;
     }
     if (state.initializedFor !== current.id) {
-      loadDraft();
-      state.root.innerHTML = '<div class="tssr-collaboration-empty"><strong>Chargement du contexte éditorial…</strong><p>Vérification du commit GitHub et des termes du glossaire.</p></div>';
+      if (state.mode === "create") loadDraft();
+      state.root.innerHTML = `<div class="tssr-collaboration-empty"><strong>${state.mode === "edit" ? "Chargement complet du cours…" : "Chargement du contexte éditorial…"}</strong><p>${state.mode === "edit" ? "Lecture des pages, activités, relations, fichiers et données du glossaire depuis la version GitHub publiée." : "Vérification du commit GitHub et des termes du glossaire."}</p></div>`;
       try {
-        const result = await bridge().invoke("change-requests", { action: "get-course-context" });
-        state.context = result.course_context;
+        if (state.mode === "edit") {
+          const result = await bridge().invoke("change-requests", { action: "get-course-editor", course_path: state.coursePath });
+          const editorModel = result.course_editor;
+          state.meta = editorModel.meta;
+          state.context = editorModel.context;
+          state.relations = editorModel.relations;
+          state.draft = utils.hydrateDraft(editorModel.draft);
+          state.attachments = (editorModel.attachments || []).map((item) => ({ ...item, objectUrl: item.publicPath ? siteUrl(item.publicPath) : "" }));
+          state.originalDraft = utils.clone(state.draft);
+          state.originalAttachments = utils.clone(state.attachments);
+          loadDraft();
+        } else {
+          const result = await bridge().invoke("change-requests", { action: "get-course-context" });
+          state.context = result.course_context;
+        }
         state.initializedFor = current.id;
       } catch (error) {
-        state.root.innerHTML = `<div class="tssr-form-error"><strong>Impossible de préparer le formulaire.</strong><p>${utils.escapeHtml(error.message)}</p><button type="button" class="tssr-action" data-retry-context>Réessayer</button></div>`;
+        state.root.innerHTML = `<div class="tssr-form-error"><strong>${state.mode === "edit" ? "Chargement complet impossible : modification désactivée pour éviter toute perte." : "Impossible de préparer le formulaire."}</strong><p>${utils.escapeHtml(error.message)}</p><button type="button" class="tssr-action" data-retry-context>Réessayer</button></div>`;
         state.root.querySelector("[data-retry-context]")?.addEventListener("click", loadContextAndRender);
         return;
       }
@@ -821,6 +940,8 @@
   }
 
   function enhance() {
+    syncRequestedMode();
+    syncPageModeLabels();
     injectSidebarAction();
     loadContextAndRender();
   }
@@ -843,13 +964,13 @@
     enhance();
   });
   window.addEventListener("beforeunload", (event) => {
-    if (!state.dirty && !state.attachments.length) return;
+    if (!state.dirty && !state.attachments.some((item) => item.kind !== "existing")) return;
     event.preventDefault(); event.returnValue = "";
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") document.querySelectorAll(".tssr-rich-editor.is-fullscreen").forEach((editor) => editor.classList.remove("is-fullscreen"));
   });
-  window.addEventListener("pagehide", () => state.attachments.forEach((item) => URL.revokeObjectURL(item.objectUrl)), { once: true });
+  window.addEventListener("pagehide", () => state.attachments.forEach((item) => { if (item.kind !== "existing" && item.objectUrl) URL.revokeObjectURL(item.objectUrl); }), { once: true });
 
   enableLocalPreview();
   if (typeof document$ !== "undefined") {

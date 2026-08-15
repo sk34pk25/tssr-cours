@@ -38,7 +38,7 @@ supabase db push
 
 Cette commande crée les tables `profiles`, `change_requests`, `change_request_files`, `change_approvals` et `audit_logs`, ainsi que les politiques RLS, les protections du dernier administrateur et les fonctions SQL atomiques de consensus.
 
-Elle applique aussi la migration de création structurée de cours : type de proposition `create_course`, résumé de validation, MIME des fichiers, limitation de débit et nettoyage des binaires temporaires. Aucune table de cours parallèle n’est créée.
+Elle applique aussi les migrations de création et de modification structurées de cours : types de proposition `create_course` et `modify_course`, résumé de validation, MIME des fichiers, limitation de débit, nettoyage des binaires temporaires et audit dédié. Aucune table de cours parallèle n’est créée.
 
 ## 4. Préparer le token GitHub serveur
 
@@ -82,7 +82,7 @@ supabase functions deploy change-requests
 supabase functions deploy publication-status --no-verify-jwt
 ```
 
-Après une mise à jour du code de création de cours, redéployer au minimum `change-requests` :
+Après une mise à jour du code de création ou de modification de cours, appliquer les nouvelles migrations puis redéployer au minimum `change-requests` :
 
 ```bash
 supabase db push
