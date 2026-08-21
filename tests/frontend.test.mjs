@@ -16,6 +16,10 @@ vm.runInNewContext(
   courseContext
 );
 const course = courseContext.module.exports;
+const courseCreatorUiSource = fs.readFileSync(
+  new URL("../docs/assets/javascripts/course-creator.js", import.meta.url),
+  "utf8"
+);
 
 test("public Supabase configuration accepts only a project URL and publishable key", () => {
   assert.equal(utils.collaborationConfigured({
@@ -134,4 +138,12 @@ test("the editor diff reports additions, modifications and removals but rejects 
   assert.equal(diff.modified >= 2, true);
   assert.equal(diff.added, 1);
   assert.equal(diff.removed, 1);
+});
+
+test("course editor page labels never overwrite headings outside the course creator", () => {
+  const scopeGuard = courseCreatorUiSource.match(
+    /function syncPageModeLabels\(\) \{[\s\S]*?const label =/
+  )?.[0] || "";
+  assert.match(scopeGuard, /getElementById\("tssr-course-creator"\)/);
+  assert.match(scopeGuard, /if \(!editorRoot\) return;/);
 });

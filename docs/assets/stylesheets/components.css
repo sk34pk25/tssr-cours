@@ -194,6 +194,7 @@ body[data-tssr-section="commandes"] .md-typeset pre {
   max-width: 100%;
   margin-block: 1.3rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid var(--tssr-border);
   border-radius: var(--tssr-radius-md);
   background: var(--tssr-surface-raised);
@@ -201,11 +202,19 @@ body[data-tssr-section="commandes"] .md-typeset pre {
 }
 
 .md-typeset table:not([class]) {
-  display: table;
+  display: block;
   width: 100%;
+  max-width: 100%;
   margin: 0;
+  overflow-x: auto;
   border: 0;
   font-size: 0.72rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset__table > table:not([class]) {
+  display: table;
+  overflow: visible;
 }
 
 .md-typeset table:not([class]) th {
@@ -379,11 +388,13 @@ body[data-tssr-page="track-index"] .tssr-flow {
   margin-block: 1.5rem;
   padding: 1.2rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid var(--tssr-border);
   border-radius: var(--tssr-radius-lg);
   background: var(--tssr-surface-raised);
   box-shadow: var(--tssr-shadow-sm);
   text-align: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .md-typeset .mermaid svg {

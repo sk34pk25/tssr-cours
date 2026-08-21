@@ -318,6 +318,13 @@ body[data-tssr-section="glossaire"] .md-content__inner {
   }
 }
 
+@media (max-width: 60em) {
+  .tssr-glossary-field input,
+  .tssr-glossary-field select {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 76.1875em) {
   body[data-tssr-section="glossaire"] .md-content__inner {
     width: auto;

@@ -69,6 +69,8 @@
   }
 
   function syncPageModeLabels() {
+    const editorRoot = document.getElementById("tssr-course-creator");
+    if (!editorRoot) return;
     const label = state.mode === "edit" ? "Modifier le cours" : "Ajouter un cours";
     const heading = document.querySelector(".md-content__inner > h1");
     if (heading) {
@@ -424,12 +426,15 @@
       : mediaType === "application/pdf"
         ? `<object type="application/pdf" data="${utils.escapeHtml(objectUrl)}"><p>Aperçu PDF indisponible.</p></object>`
         : '<span class="tssr-file-icon" aria-hidden="true">📄</span>';
+    const openLink = objectUrl && (existing || mediaType === "application/pdf")
+      ? `<a class="tssr-action" href="${utils.escapeHtml(objectUrl)}" target="_blank" rel="noopener noreferrer">${existing ? "Ouvrir" : "Ouvrir l’aperçu PDF"}</a>`
+      : "";
     return `<article class="tssr-file-card${existing ? " tssr-file-card--existing" : ""}" data-attachment-index="${index}">${preview}<div class="tssr-file-card__body"><strong>${utils.escapeHtml(name)}</strong><span>${existing ? "Fichier existant · " : "Nouveau fichier · "}${utils.escapeHtml(mediaType)} · ${size}</span>
       <div class="tssr-form-grid">
         <label class="tssr-field"><span>Titre</span><input data-attachment-field="title" value="${utils.escapeHtml(item.title || "")}"></label>
         <label class="tssr-field"><span>Emplacement publié</span><select data-attachment-field="target">${attachmentTargetOptions(item)}</select></label>
         ${mediaType.startsWith("image/") ? `<label class="tssr-field"><span>Texte alternatif</span><input data-attachment-field="alt" value="${utils.escapeHtml(item.alt || "")}"></label><label class="tssr-field"><span>Légende</span><input data-attachment-field="caption" value="${utils.escapeHtml(item.caption || "")}"></label><label class="tssr-field tssr-field--check tssr-field--wide"><input type="checkbox" data-cover-attachment="${utils.escapeHtml(item.id)}" ${state.draft.general.coverAttachmentId === item.id ? "checked" : ""}> <span>Utiliser comme image de couverture du cours</span></label>` : ""}
-      </div>${existing ? `<a class="tssr-action" href="${utils.escapeHtml(objectUrl)}" target="_blank" rel="noopener noreferrer">Ouvrir</a>` : ""}<button type="button" class="tssr-action tssr-action--danger" data-struct-action="attachment-remove" data-index="${index}">${existing ? "Dissocier du cours" : "Retirer"}</button></div></article>`;
+      </div>${openLink}<button type="button" class="tssr-action tssr-action--danger" data-struct-action="attachment-remove" data-index="${index}">${existing ? "Dissocier du cours" : "Retirer"}</button></div></article>`;
   }
 
   function resourcesPanel() {
