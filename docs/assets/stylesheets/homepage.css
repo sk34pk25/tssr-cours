@@ -33,6 +33,11 @@ body[data-tssr-page="home"] .md-content__inner > h1:first-child {
   pointer-events: none;
 }
 
+.tssr-hero__content,
+.tssr-hero__visual {
+  min-width: 0;
+}
+
 .tssr-hero__content {
   position: relative;
   z-index: 1;
@@ -40,6 +45,7 @@ body[data-tssr-page="home"] .md-content__inner > h1:first-child {
 
 .tssr-hero__badge {
   display: inline-flex;
+  max-width: 100%;
   align-items: center;
   gap: 0.45rem;
   margin-bottom: 1rem;
@@ -51,7 +57,10 @@ body[data-tssr-page="home"] .md-content__inner > h1:first-child {
   font-size: 0.57rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
+  white-space: normal;
 }
 
 .tssr-hero__badge::before {
@@ -188,7 +197,7 @@ body[data-tssr-page="home"] .md-content__inner > h1:first-child {
 .tssr-module-card {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 0.25rem 1rem;
   min-height: 10rem;
   padding: 1.2rem;

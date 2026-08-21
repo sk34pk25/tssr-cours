@@ -15,7 +15,7 @@ Retrouvez ici les différents quiz Kahoot associés aux cours.
 
     Aucun lien de partage officiel n’est encore configuré. Les quiz apparaîtront ici dès que leurs URLs Kahoot seront ajoutées.
 
-    [Accéder à Kahoot :material-open-in-new:](https://create.kahoot.it/groups/6166bbc5-bc29-48af-8704-e12833124120/join?inviteCode=8f343bq78v7qk6ml8rp9d9v1egkhtiff6hsrr8oa7tq43m6sh0qb7om9ct08bm8754o4lf758knam" }
+    [Accéder à Kahoot :material-open-in-new:](https://create.kahoot.it/groups/6166bbc5-bc29-48af-8704-e12833124120/join?inviteCode=8f343bq78v7qk6ml8rp9d9v1egkhtiff6hsrr8oa7tq43m6sh0qb7om9ct08bm8754o4lf758knam){ .md-button target="_blank" rel="noopener noreferrer" }
 
 </div>
 

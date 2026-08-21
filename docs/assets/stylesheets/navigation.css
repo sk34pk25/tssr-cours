@@ -201,9 +201,17 @@
 }
 
 .md-path {
+  min-width: 0;
   margin-bottom: 0.9rem;
   color: var(--tssr-text-muted);
   font-size: 0.66rem;
+  overflow-wrap: anywhere;
+}
+
+.md-path__item,
+.md-path__link {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .md-path__link:hover {

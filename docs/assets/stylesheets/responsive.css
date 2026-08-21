@@ -6,12 +6,13 @@
   body[data-tssr-page="track-index"] .md-content__inner,
   body[data-tssr-section="parcours"] .md-content__inner {
     max-width: none;
+    margin-inline: clamp(0.8rem, 2.5vw, 1.2rem);
   }
 }
 
 @media (max-width: 60em) {
   .tssr-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .tssr-hero__visual {
@@ -93,6 +94,16 @@
 }
 
 @media (max-width: 30em) {
+  .tssr-hero {
+    padding: 1rem;
+  }
+
+  .tssr-hero h1 {
+    font-size: clamp(1.75rem, 9.5vw, 2.25rem);
+    line-height: 1.04;
+    overflow-wrap: anywhere;
+  }
+
   .tssr-hero__actions {
     display: grid;
   }
@@ -107,7 +118,7 @@
   }
 
   .tssr-module-card {
-    grid-template-columns: 2.4rem 1fr;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
     padding: 1rem;
   }
 

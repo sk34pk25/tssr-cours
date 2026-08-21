@@ -72,7 +72,7 @@ body[data-tssr-section="parcours"] .md-content__inner {
 .tssr-timeline__card {
   position: relative;
   display: grid;
-  grid-template-columns: 4.1rem 1fr;
+  grid-template-columns: 4.1rem minmax(0, 1fr);
   gap: 1.2rem;
   padding: 1.25rem;
   border: 1px solid var(--tssr-border);
@@ -314,7 +314,7 @@ body[data-tssr-section="parcours"] .md-content__inner {
   }
 
   .tssr-timeline__card {
-    grid-template-columns: 2.9rem 1fr;
+    grid-template-columns: 2.9rem minmax(0, 1fr);
     gap: 0.65rem;
     padding: 1rem 0.8rem;
   }
