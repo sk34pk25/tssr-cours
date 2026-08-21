@@ -46,6 +46,7 @@ body[data-tssr-page="course"] .md-typeset h2#objectifs-et-competences + ul > li:
 .tssr-figure__canvas {
   padding: clamp(0.85rem, 2vw, 1.35rem);
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid var(--tssr-border);
   border-radius: var(--tssr-radius-lg);
   background-color: var(--tssr-figure-bg);
@@ -54,6 +55,7 @@ body[data-tssr-page="course"] .md-typeset h2#objectifs-et-competences + ul > li:
     linear-gradient(90deg, var(--tssr-figure-grid) 1px, transparent 1px);
   background-size: 1rem 1rem;
   box-shadow: var(--tssr-shadow-sm);
+  -webkit-overflow-scrolling: touch;
 }
 
 .tssr-figure figcaption,
