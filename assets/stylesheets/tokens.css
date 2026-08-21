@@ -54,6 +54,10 @@
   --tssr-primary: #4355d7;
   --tssr-primary-hover: #3546bd;
   --tssr-primary-soft: #e8ecff;
+  --tssr-on-primary: #ffffff;
+  --tssr-danger-text: #a52f41;
+  --tssr-editor-toolbar-bg: #edf1f7;
+  --tssr-editor-overlay-bg: rgba(23, 32, 51, 0.5);
   --tssr-accent: #0e7490;
   --tssr-accent-soft: #e4f5f8;
   --tssr-link: #3546bd;
@@ -104,6 +108,10 @@
   --tssr-primary: #8997ff;
   --tssr-primary-hover: #a5afff;
   --tssr-primary-soft: rgba(107, 124, 255, 0.14);
+  --tssr-on-primary: #111827;
+  --tssr-danger-text: #ff9eaa;
+  --tssr-editor-toolbar-bg: #202a3b;
+  --tssr-editor-overlay-bg: rgba(0, 0, 0, 0.72);
   --tssr-accent: #67d5ec;
   --tssr-accent-soft: rgba(103, 213, 236, 0.1);
   --tssr-link: #a4afff;

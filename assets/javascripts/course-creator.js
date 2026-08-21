@@ -1,6 +1,7 @@
 /* Structured course creation. Authentication and mutations are delegated to the existing collaboration client. */
 (function () {
   const utils = window.TSSRCourseCreatorUtils;
+  const editorUi = window.TSSRAdvancedEditorUI;
   const requested = new URLSearchParams(window.location.search);
   const requestedCourse = requested.get("course") || "";
   const requestedMode = requested.get("mode") === "edit" && requestedCourse ? "edit" : "create";
@@ -20,6 +21,10 @@
     saveTimer: null,
     editorModes: new Map(),
     editorLayouts: new Map(),
+    editorHistories: new Map(),
+    editorControllers: new Set(),
+    loadGeneration: 0,
+    loadingKey: null,
     initializedFor: null,
     authProfile: null,
     previewMode: false,
@@ -34,7 +39,7 @@
 
   function storageKey() {
     const suffix = state.mode === "edit" ? `${state.meta?.courseId || utils.slugify(state.coursePath)}-${state.context?.base_commit_sha || "loading"}` : "create";
-    return `tssr-course-editor-draft-v2-${suffix}`;
+    return `tssr-course-editor-draft-v3-${profile()?.id || "anonymous"}-${suffix}`;
   }
 
   function syncRequestedMode() {
@@ -42,6 +47,9 @@
     const coursePath = params.get("course") || "";
     const mode = params.get("mode") === "edit" && coursePath ? "edit" : "create";
     if (mode === state.mode && coursePath === state.coursePath) return;
+    state.loadGeneration += 1;
+    state.loadingKey = null;
+    resetEditorViewState();
     state.attachments.forEach((item) => { if (item.kind !== "existing" && item.objectUrl) URL.revokeObjectURL(item.objectUrl); });
     state.mode = mode;
     state.coursePath = coursePath;
@@ -99,18 +107,23 @@
 
   function saveDraft(manual = false) {
     if (!state.draft) return;
-    const serializable = utils.serializableDraft(state.draft);
-    if (state.mode === "edit") {
-      localStorage.setItem(storageKey(), JSON.stringify({
-        baseCommitSha: state.context?.base_commit_sha,
-        draft: serializable,
-        attachments: state.attachments.filter((item) => item.kind === "existing"),
-        proposalDescription: state.proposalDescription
-      }));
-    } else localStorage.setItem(storageKey(), JSON.stringify(serializable));
-    state.dirty = false;
     const status = state.root?.querySelector("[data-draft-status]");
-    if (status) status.textContent = `${manual ? "Brouillon enregistré" : "Enregistrement automatique"} · ${new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" }).format(new Date())}${state.attachments.length ? " · fichiers à joindre de nouveau après rechargement" : ""}`;
+    try {
+      const serializable = utils.serializableDraft(state.draft);
+      if (state.mode === "edit") {
+        localStorage.setItem(storageKey(), JSON.stringify({
+          baseCommitSha: state.context?.base_commit_sha,
+          draft: serializable,
+          attachments: state.attachments.filter((item) => item.kind === "existing"),
+          proposalDescription: state.proposalDescription
+        }));
+      } else localStorage.setItem(storageKey(), JSON.stringify(serializable));
+      state.dirty = false;
+      if (status) status.textContent = `${manual ? "Brouillon enregistré" : "Enregistrement automatique"} · ${new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" }).format(new Date())}${state.attachments.length ? " · fichiers à joindre de nouveau après rechargement" : ""}`;
+    } catch (_) {
+      if (status) status.textContent = "Brouillon trop volumineux pour le stockage local. Le contenu reste ouvert dans cette page.";
+      bridge()?.toast?.("Impossible d’enregistrer ce brouillon localement. Exportez le Markdown avant de fermer la page.", "error");
+    }
   }
 
   function scheduleSave() {
@@ -157,50 +170,16 @@
     return field(label, path, Array.isArray(value) ? value.join("\n") : value, { multiline: true, wide: true, maxlength: 4_000, placeholder, help: "Une valeur par ligne, ou séparée par une virgule.", list: true });
   }
 
+  function editorIdentity(path) {
+    const session = [profile()?.id || "anonymous", state.mode, state.meta?.courseId || state.coursePath || "new", state.context?.base_commit_sha || "unloaded"].join(":");
+    return utils.stableEditorIdentity(session, path, state.draft);
+  }
+
   function editor(path, value, label = "Contenu") {
-    const mode = state.editorModes.get(path) || "markdown";
-    const layout = state.editorLayouts.get(path) || "split";
-    return `<div class="tssr-rich-editor" data-rich-editor data-editor-path="${path}" data-mode="${mode}" data-layout="${layout}">
-      <div class="tssr-rich-editor__header">
-        <strong>${label}</strong>
-        <div class="tssr-rich-editor__modes" role="group" aria-label="Mode d’édition">
-          <button type="button" data-editor-mode="markdown" aria-pressed="${mode === "markdown"}">Markdown</button>
-          <button type="button" data-editor-mode="visual" aria-pressed="${mode === "visual"}">Visuel</button>
-        </div>
-        <div class="tssr-rich-editor__layouts" role="group" aria-label="Disposition de l’éditeur">
-          <button type="button" data-editor-layout="edit" aria-pressed="${layout === "edit"}">Édition</button>
-          <button type="button" data-editor-layout="preview" aria-pressed="${layout === "preview"}">Aperçu</button>
-          <button type="button" data-editor-layout="split" aria-pressed="${layout === "split"}">Côte à côte</button>
-        </div>
-      </div>
-      <div class="tssr-rich-editor__toolbar" role="toolbar" aria-label="Mise en forme">
-        <button type="button" data-editor-insert="heading" title="Titre">H</button>
-        <button type="button" data-editor-insert="bold" title="Gras"><strong>B</strong></button>
-        <button type="button" data-editor-insert="italic" title="Italique"><em>I</em></button>
-        <button type="button" data-editor-insert="strike" title="Barré"><s>S</s></button>
-        <button type="button" data-editor-insert="list" title="Liste à puces">• Liste</button>
-        <button type="button" data-editor-insert="ordered" title="Liste numérotée">1. Liste</button>
-        <button type="button" data-editor-insert="task" title="Liste de tâches">☐</button>
-        <button type="button" data-editor-insert="quote" title="Citation">❝</button>
-        <button type="button" data-editor-insert="link" title="Lien">Lien</button>
-        <button type="button" data-editor-insert="table" title="Tableau">Tableau</button>
-        <button type="button" data-editor-insert="code" title="Bloc de code">Code</button>
-        <button type="button" data-editor-insert="admonition" title="Encadré MkDocs">Encadré</button>
-        <button type="button" data-editor-insert="details" title="Détails repliables">Détails</button>
-        <button type="button" data-editor-insert="tabs" title="Onglets MkDocs">Onglets</button>
-        <button type="button" data-editor-insert="mermaid" title="Diagramme Mermaid">Diagramme</button>
-        <button type="button" data-editor-insert="style" title="Style contrôlé">Style</button>
-        <button type="button" data-editor-fullscreen title="Plein écran">⛶</button>
-      </div>
-      <div class="tssr-rich-editor__workspace">
-        <div class="tssr-rich-editor__source">
-          <textarea class="tssr-markdown-editor" data-editor-markdown spellcheck="true" aria-label="${utils.escapeHtml(label)} en Markdown">${utils.escapeHtml(value || "")}</textarea>
-          <div class="tssr-visual-editor md-typeset" data-editor-visual contenteditable="true" role="textbox" aria-multiline="true" aria-label="${utils.escapeHtml(label)} en mode visuel"></div>
-        </div>
-        <div class="tssr-rich-editor__preview md-typeset" data-editor-preview aria-label="Aperçu sécurisé"></div>
-      </div>
-      <p class="tssr-help">Les fonctions avancées génèrent les syntaxes MkDocs déjà activées. Le Markdown reste toujours accessible en secours.</p>
-    </div>`;
+    const editorKey = editorIdentity(path);
+    const mode = state.editorModes.get(editorKey) || "markdown";
+    const layout = state.editorLayouts.get(editorKey) || "split";
+    return editorUi?.markup?.({ path, editorKey, value, label, mode, layout }) || `<label class="tssr-field tssr-field--wide"><span>${utils.escapeHtml(label)}</span><textarea data-editor-markdown data-editor-path="${utils.escapeHtml(path)}">${utils.escapeHtml(value || "")}</textarea></label>`;
   }
 
   function generalPanel() {
@@ -533,6 +512,10 @@
     return path.split(".").reduce((value, part) => value?.[Number.isNaN(Number(part)) ? part : Number(part)], state.draft);
   }
 
+  function getAtDraftPath(draft, path) {
+    return path.split(".").reduce((value, part) => value?.[Number.isNaN(Number(part)) ? part : Number(part)], draft);
+  }
+
   function setAtPath(path, value) {
     const parts = path.split(".");
     const last = parts.pop();
@@ -542,10 +525,42 @@
   }
 
   function preprocessPreview(markdown) {
-    return String(markdown || "").replace(/^!!!\s+(\w+)(?:\s+"([^"]+)")?\n((?: {4}.*(?:\n|$))+)/gm, function (_, type, title, body) {
-      const clean = body.split("\n").map((line) => line.replace(/^ {4}/, "")).join("\n");
-      return `<div class="admonition ${utils.escapeHtml(type)}"><p class="admonition-title">${utils.escapeHtml(title || type)}</p>\n\n${clean}\n\n</div>`;
-    });
+    const lines = String(markdown || "").replace(/^([ \t]*[-*+])\s+\[([ xX])\]\s+/gm, (_, marker, checked) => `${marker} ${checked.toLowerCase() === "x" ? "☑" : "☐"} `).split("\n");
+    const output = [];
+    let index = 0;
+    while (index < lines.length) {
+      const admonition = lines[index].match(/^(!!!|\?\?\?\+?)\s+([a-z0-9_-]+)(?:\s+"([^"]*)")?\s*$/i);
+      if (admonition) {
+        const body = [];
+        let end = index + 1;
+        while (end < lines.length && (!lines[end].trim() || /^(?: {4}|\t)/.test(lines[end]))) {
+          body.push(lines[end].replace(/^(?: {4}|\t)/, "")); end += 1;
+        }
+        const type = /^[a-z0-9_-]+$/i.test(admonition[2]) ? admonition[2].toLowerCase() : "note";
+        const title = utils.escapeHtml(admonition[3] || type);
+        if (admonition[1] === "!!!") output.push(`<div class="admonition ${type}"><p class="admonition-title">${title}</p>\n\n${body.join("\n")}\n\n</div>\n`);
+        else output.push(`<details class="admonition ${type}"${admonition[1] === "???+" ? " open" : ""}><summary>${title}</summary>\n\n${body.join("\n")}\n\n</details>\n`);
+        index = end; continue;
+      }
+      if (/^===\s+"[^"]+"\s*$/.test(lines[index])) {
+        const tabs = [];
+        let end = index;
+        while (end < lines.length) {
+          const tab = lines[end].match(/^===\s+"([^"]+)"\s*$/);
+          if (!tab) break;
+          const body = [];
+          end += 1;
+          while (end < lines.length && (!lines[end].trim() || /^(?: {4}|\t)/.test(lines[end]))) {
+            body.push(lines[end].replace(/^(?: {4}|\t)/, "")); end += 1;
+          }
+          tabs.push({ title: tab[1], body: body.join("\n") });
+        }
+        output.push('<div class="tssr-preview-tabs">', ...tabs.map((tab, tabIndex) => `<details${tabIndex === 0 ? " open" : ""}><summary>${utils.escapeHtml(tab.title)}</summary>\n\n${tab.body}\n\n</details>`), "</div>\n");
+        index = end; continue;
+      }
+      output.push(lines[index]); index += 1;
+    }
+    return output.join("\n");
   }
 
   function renderSecurePreview(markdown, target) {
@@ -556,69 +571,68 @@
       diagram.textContent = code.textContent;
       code.parentElement.replaceWith(diagram);
     });
-    window.renderTssrMermaid?.();
+    window.renderTssrMermaid?.(target);
   }
 
   function bindEditors() {
     state.root.querySelectorAll("[data-rich-editor]").forEach((wrapper) => {
       const path = wrapper.dataset.editorPath;
-      const markdown = wrapper.querySelector("[data-editor-markdown]");
-      const visual = wrapper.querySelector("[data-editor-visual]");
-      const preview = wrapper.querySelector("[data-editor-preview]");
-      const refreshPreview = () => renderSecurePreview(markdown.value, preview);
-      const refreshVisual = () => {
-        renderSecurePreview(markdown.value, visual);
-        visual.querySelectorAll("a").forEach((link) => link.removeAttribute("target"));
-      };
-      refreshPreview();
-      refreshVisual();
-      markdown.addEventListener("input", () => {
-        setAtPath(path, markdown.value);
-        refreshPreview();
-      });
-      visual.addEventListener("input", () => {
-        const converted = utils.htmlToMarkdown(visual);
-        markdown.value = converted;
-        setAtPath(path, converted);
-        refreshPreview();
-      });
-      wrapper.querySelectorAll("[data-editor-mode]").forEach((button) => button.addEventListener("click", () => {
-        const mode = button.dataset.editorMode;
-        if (mode === "visual") refreshVisual();
-        state.editorModes.set(path, mode);
-        wrapper.dataset.mode = mode;
-        wrapper.querySelectorAll("[data-editor-mode]").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-      }));
-      wrapper.querySelectorAll("[data-editor-layout]").forEach((button) => button.addEventListener("click", () => {
-        const layout = button.dataset.editorLayout;
-        state.editorLayouts.set(path, layout);
-        wrapper.dataset.layout = layout;
-        wrapper.querySelectorAll("[data-editor-layout]").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-      }));
-      wrapper.querySelectorAll("[data-editor-insert]").forEach((button) => button.addEventListener("click", () => {
-        const snippets = {
-          heading: ["## ", "", "Titre"], bold: ["**", "**", "texte en gras"], italic: ["*", "*", "texte en italique"],
-          strike: ["~~", "~~", "texte barré"], list: ["- ", "", "élément"], ordered: ["1. ", "", "élément"],
-          task: ["- [ ] ", "", "tâche"], quote: ["> ", "", "citation"], link: ["[", "](https://)", "libellé"],
-          table: ["| Colonne 1 | Colonne 2 |\n| --- | --- |\n| Valeur 1 | Valeur 2 |\n", "", ""],
-          code: ["```bash title=\"Exemple\" linenums=\"1\"\n", "\n```", "commande --option"],
-          admonition: ["!!! info \"Information\"\n    ", "", "Contenu de l’encadré"],
-          details: ["??? note \"Détails\"\n    ", "", "Contenu repliable"],
-          tabs: ["=== \"Onglet 1\"\n\n    Contenu du premier onglet\n\n=== \"Onglet 2\"\n\n    ", "", "Contenu du second onglet"],
-          mermaid: ["```mermaid\nflowchart LR\n    PC --> Switch\n    Switch --> Router\n", "\n```", ""],
-          style: ["<span class=\"tssr-text-accent\">", "</span>", "texte accentué"]
-        };
-        const snippet = snippets[button.dataset.editorInsert];
-        if (!snippet) return;
-        if (wrapper.dataset.mode === "visual") {
-          state.editorModes.set(path, "markdown");
-          wrapper.dataset.mode = "markdown";
-          wrapper.querySelectorAll("[data-editor-mode]").forEach((item) => item.setAttribute("aria-pressed", String(item.dataset.editorMode === "markdown")));
+      const editorKey = wrapper.dataset.editorKey || path;
+      const currentValue = String(getAtPath(path) || "");
+      if (!state.editorHistories.has(editorKey)) state.editorHistories.set(editorKey, { entries: [currentValue], index: 0 });
+      else {
+        const history = state.editorHistories.get(editorKey);
+        if (history.entries[history.index] !== currentValue) {
+          history.entries.splice(history.index + 1);
+          history.entries.push(currentValue);
+          if (history.entries.length > 100) history.entries.shift();
+          history.index = history.entries.length - 1;
         }
-        utils.insertIntoTextarea(markdown, ...snippet);
-      }));
-      wrapper.querySelector("[data-editor-fullscreen]").addEventListener("click", () => wrapper.classList.toggle("is-fullscreen"));
+      }
+      const controller = editorUi?.mount?.(wrapper, {
+        context: state.context,
+        trustedSource: state.mode === "edit" ? String(getAtDraftPath(state.originalDraft, path) || "") : "",
+        history: state.editorHistories.get(editorKey),
+        filename: utils.slugify(state.draft.general.title || "contenu"),
+        renderPreview: renderSecurePreview,
+        onChange: (value) => setAtPath(path, value),
+        onMode: (mode) => state.editorModes.set(editorKey, mode),
+        onLayout: (layout) => state.editorLayouts.set(editorKey, layout),
+        onFiles: handleFiles,
+        notify: (message, type) => bridge()?.toast?.(message, type)
+      });
+      if (controller) {
+        wrapper._tssrEditorController = controller;
+        state.editorControllers.add(controller);
+      }
     });
+  }
+
+  function destroyEditorControllers() {
+    state.editorControllers.forEach((controller) => controller.destroy?.());
+    state.editorControllers.clear();
+    document.querySelectorAll(".tssr-editor-dialog, .tssr-editor-palette").forEach((dialog) => {
+      if (dialog.open) dialog.close("cancel");
+      else dialog.remove();
+    });
+    document.documentElement.classList.remove("tssr-editor-fullscreen-open");
+  }
+
+  function resetEditorViewState() {
+    state.editorModes.clear();
+    state.editorLayouts.clear();
+    state.editorHistories.clear();
+  }
+
+  function pruneEditorViewState() {
+    const active = new Set(Array.from(state.root?.querySelectorAll("[data-editor-key]") || [], (wrapper) => wrapper.dataset.editorKey));
+    [state.editorModes, state.editorLayouts, state.editorHistories].forEach((map) => {
+      for (const key of map.keys()) if (!active.has(key)) map.delete(key);
+    });
+  }
+
+  function activateVisibleEditors() {
+    state.root?.querySelectorAll(`[data-builder-panel="${state.activeSection}"] [data-rich-editor]`).forEach((wrapper) => wrapper._tssrEditorController?.activate?.());
   }
 
   function showSection(id) {
@@ -629,6 +643,7 @@
     state.root.querySelector(".tssr-builder-mobile-footer span").textContent = sectionLabels[id];
     if (id === "preview") renderGlobalPreview();
     if (id === "submit") rerender(false);
+    activateVisibleEditors();
     state.root.querySelector(".tssr-builder-panel:not([hidden])")?.scrollIntoView({ block: "start", behavior: "smooth" });
   }
 
@@ -639,11 +654,14 @@
 
   function rerender(scroll = true) {
     if (!state.root?.isConnected) return;
+    destroyEditorControllers();
     state.root.innerHTML = shell();
+    pruneEditorViewState();
     bindRootEvents();
     bindEditors();
     state.root.querySelectorAll("[data-builder-panel]").forEach((panel) => { panel.hidden = panel.dataset.builderPanel !== state.activeSection; });
     if (state.activeSection === "preview") renderGlobalPreview();
+    activateVisibleEditors();
     if (scroll) state.root.querySelector(`[data-builder-panel="${state.activeSection}"]`)?.scrollIntoView({ block: "start" });
   }
 
@@ -662,25 +680,34 @@
   async function handleFiles(fileList) {
     const files = Array.from(fileList || []);
     const newAttachments = state.attachments.filter((item) => item.kind !== "existing");
-    if (newAttachments.length + files.length > 12) return bridge()?.toast?.("Maximum 12 nouveaux fichiers par proposition.", "error");
+    if (newAttachments.length + files.length > 12) {
+      bridge()?.toast?.("Maximum 12 nouveaux fichiers par proposition.", "error");
+      return { accepted: 0, rejected: files.length };
+    }
     let total = newAttachments.reduce((sum, item) => sum + (item.file?.size || 0), 0);
+    let accepted = 0;
+    let rejected = 0;
     for (const file of files) {
       if (!utils.allowedFile(file.name, file.type)) {
-        bridge()?.toast?.(`${file.name} : format interdit.`, "error"); continue;
+        bridge()?.toast?.(`${file.name} : format interdit.`, "error"); rejected += 1; continue;
       }
       const limit = file.type === "application/pdf" ? 7_000_000 : file.type.startsWith("image/") ? 5_000_000 : 5_000_000;
       if (file.size > limit || total + file.size > 12_000_000) {
-        bridge()?.toast?.(`${file.name} dépasse la limite autorisée.`, "error"); continue;
+        bridge()?.toast?.(`${file.name} dépasse la limite autorisée.`, "error"); rejected += 1; continue;
       }
       const bytes = new Uint8Array(await file.slice(0, 16).arrayBuffer());
       if (!utils.signatureMatches(bytes, file.name, file.type)) {
-        bridge()?.toast?.(`${file.name} : contenu incompatible avec son extension.`, "error"); continue;
+        bridge()?.toast?.(`${file.name} : contenu incompatible avec son extension.`, "error"); rejected += 1; continue;
       }
       total += file.size;
       state.attachments.push({ id: utils.uid("file"), kind: "new", name: file.name, file, mediaType: file.type || "application/octet-stream", title: "", alt: "", caption: "", moduleIndex: -1, pageIndex: -1, objectUrl: URL.createObjectURL(file) });
+      accepted += 1;
     }
-    state.dirty = true;
-    rerender(false);
+    if (accepted) {
+      state.dirty = true;
+      rerender(false);
+    }
+    return { accepted, rejected };
   }
 
   function handleStructure(button) {
@@ -692,7 +719,12 @@
     else if (action === "module-up") return move(state.draft.modules, index, -1);
     else if (action === "module-down") return move(state.draft.modules, index, 1);
     else if (action === "module-duplicate") {
-      const duplicate = utils.clone(state.draft.modules[index]); duplicate.clientId = utils.uid("module"); duplicate.title = `${duplicate.title || "Module"} — copie`; state.draft.modules.splice(index + 1, 0, duplicate);
+      const duplicate = utils.clone(state.draft.modules[index]);
+      duplicate.clientId = utils.uid("module");
+      duplicate.pages = (duplicate.pages || []).map((page) => ({ ...page, clientId: utils.uid("page"), storage: undefined }));
+      duplicate.storage = undefined;
+      duplicate.title = `${duplicate.title || "Module"} — copie`;
+      state.draft.modules.splice(index + 1, 0, duplicate);
     } else if (action === "module-remove") return removeWithConfirmation(state.draft.modules, index, "Supprimer ce module et toutes ses pages ?");
     else if (action === "page-add") state.draft.modules[moduleIndex].pages.push(utils.newPage());
     else if (action === "page-up") return move(state.draft.modules[moduleIndex].pages, index, -1);
@@ -828,6 +860,7 @@
         state.attachments = [];
         state.draft = utils.defaultDraft();
       }
+      resetEditorViewState();
       localStorage.removeItem(storageKey()); state.dirty = false; rerender(false);
     });
     state.root.querySelector(".tssr-course-form")?.addEventListener("input", (event) => {
@@ -891,24 +924,49 @@
   }
 
   async function loadContextAndRender() {
-    state.root = document.getElementById("tssr-course-creator");
-    if (!state.root) return;
+    const root = document.getElementById("tssr-course-creator");
+    if (!root) {
+      state.loadGeneration += 1;
+      state.loadingKey = null;
+      destroyEditorControllers();
+      state.root = null;
+      return;
+    }
+    state.root = root;
     const current = profile();
     if (!current) {
+      state.loadGeneration += 1;
+      state.loadingKey = null;
+      destroyEditorControllers();
+      state.initializedFor = null;
+      state.context = null;
       state.root.innerHTML = `<div class="tssr-collaboration-empty"><strong>Connexion requise</strong><p>Connectez-vous pour préparer un cours et le soumettre à la validation communautaire.</p><button type="button" class="md-button md-button--primary" data-course-login>Se connecter</button></div>`;
       state.root.querySelector("[data-course-login]")?.addEventListener("click", () => bridge()?.openLogin?.());
       return;
     }
     if (!current.can_edit) {
+      state.loadGeneration += 1;
+      state.loadingKey = null;
+      destroyEditorControllers();
+      state.initializedFor = null;
       state.root.innerHTML = '<div class="tssr-collaboration-empty"><strong>Permission de contribution requise</strong><p>Votre compte est connecté, mais il n’est pas autorisé à modifier la documentation.</p></div>';
       return;
     }
     if (state.initializedFor !== current.id) {
+      const loadKey = `${current.id}:${state.mode}:${state.coursePath || "new"}`;
+      if (state.loadingKey === loadKey) return;
+      const generation = ++state.loadGeneration;
+      state.loadingKey = loadKey;
+      destroyEditorControllers();
+      resetEditorViewState();
       if (state.mode === "create") loadDraft();
       state.root.innerHTML = `<div class="tssr-collaboration-empty"><strong>${state.mode === "edit" ? "Chargement complet du cours…" : "Chargement du contexte éditorial…"}</strong><p>${state.mode === "edit" ? "Lecture des pages, activités, relations, fichiers et données du glossaire depuis la version GitHub publiée." : "Vérification du commit GitHub et des termes du glossaire."}</p></div>`;
       try {
+        const requestedMode = state.mode;
+        const requestedCourse = state.coursePath;
         if (state.mode === "edit") {
           const result = await bridge().invoke("change-requests", { action: "get-course-editor", course_path: state.coursePath });
+          if (generation !== state.loadGeneration || state.root !== root || !root.isConnected || state.mode !== requestedMode || state.coursePath !== requestedCourse || profile()?.id !== current.id) return;
           const editorModel = result.course_editor;
           state.meta = editorModel.meta;
           state.context = editorModel.context;
@@ -920,13 +978,17 @@
           loadDraft();
         } else {
           const result = await bridge().invoke("change-requests", { action: "get-course-context" });
+          if (generation !== state.loadGeneration || state.root !== root || !root.isConnected || state.mode !== requestedMode || state.coursePath !== requestedCourse || profile()?.id !== current.id) return;
           state.context = result.course_context;
         }
         state.initializedFor = current.id;
       } catch (error) {
+        if (generation !== state.loadGeneration || state.root !== root || !root.isConnected) return;
         state.root.innerHTML = `<div class="tssr-form-error"><strong>${state.mode === "edit" ? "Chargement complet impossible : modification désactivée pour éviter toute perte." : "Impossible de préparer le formulaire."}</strong><p>${utils.escapeHtml(error.message)}</p><button type="button" class="tssr-action" data-retry-context>Réessayer</button></div>`;
         state.root.querySelector("[data-retry-context]")?.addEventListener("click", loadContextAndRender);
         return;
+      } finally {
+        if (state.loadingKey === loadKey) state.loadingKey = null;
       }
     }
     rerender(false);
@@ -945,6 +1007,14 @@
   }
 
   function enhance() {
+    if (!document.getElementById("tssr-course-creator")) {
+      state.loadGeneration += 1;
+      state.loadingKey = null;
+      destroyEditorControllers();
+      state.root = null;
+      injectSidebarAction();
+      return;
+    }
     syncRequestedMode();
     syncPageModeLabels();
     injectSidebarAction();
@@ -972,15 +1042,11 @@
     if (!state.dirty && !state.attachments.some((item) => item.kind !== "existing")) return;
     event.preventDefault(); event.returnValue = "";
   });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") document.querySelectorAll(".tssr-rich-editor.is-fullscreen").forEach((editor) => editor.classList.remove("is-fullscreen"));
-  });
   window.addEventListener("pagehide", () => state.attachments.forEach((item) => { if (item.kind !== "existing" && item.objectUrl) URL.revokeObjectURL(item.objectUrl); }), { once: true });
 
   enableLocalPreview();
   if (typeof document$ !== "undefined") {
     document$.subscribe(enhance);
-    enhance();
   } else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", enhance, { once: true });
   else enhance();
 })();

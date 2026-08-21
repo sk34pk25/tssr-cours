@@ -13086,6 +13086,10 @@
       
         <script src="../../../assets/javascripts/course-creator-utils.js"></script>
       
+        <script src="../../../assets/javascripts/course-editor.js"></script>
+      
+        <script src="../../../assets/javascripts/course-editor-ui.js"></script>
+      
         <script src="../../../assets/javascripts/collaboration.js"></script>
       
         <script src="../../../assets/javascripts/course-creator.js"></script>
@@ -13093,7 +13097,7 @@
     
   <script src="../../../assets/javascripts/mermaid.min.js"></script>
   <script>
-    window.renderTssrMermaid = function () {
+    window.renderTssrMermaid = function (root) {
       if (typeof mermaid === "undefined") return;
       mermaid.initialize({
         startOnLoad: false,
@@ -13102,7 +13106,8 @@
         fontFamily: "Inter, system-ui, sans-serif",
         flowchart: { htmlLabels: true, curve: "basis" }
       });
-      var diagrams = Array.from(document.querySelectorAll(".mermaid:not([data-processed='true'])"));
+      var scope = root && root.querySelectorAll ? root : document;
+      var diagrams = Array.from(scope.querySelectorAll(".mermaid:not([data-processed='true'])"));
       diagrams.forEach(function (diagram) {
         diagram.dataset.tssrSource = diagram.textContent.trim();
       });
@@ -13114,6 +13119,17 @@
         console.error("Mermaid render error:", error && error.message ? error.message : error);
       });
     };
+    var tssrMermaidScheme = document.body.getAttribute("data-md-color-scheme") || "";
+    new MutationObserver(function () {
+      var nextScheme = document.body.getAttribute("data-md-color-scheme") || "";
+      if (nextScheme === tssrMermaidScheme) return;
+      tssrMermaidScheme = nextScheme;
+      document.querySelectorAll(".mermaid[data-tssr-source]").forEach(function (diagram) {
+        diagram.removeAttribute("data-processed");
+        diagram.textContent = diagram.dataset.tssrSource;
+      });
+      window.renderTssrMermaid();
+    }).observe(document.body, { attributes: true, attributeFilter: ["data-md-color-scheme"] });
     if (typeof document$ !== "undefined") {
       document$.subscribe(function () { window.renderTssrMermaid(); });
       window.renderTssrMermaid();
