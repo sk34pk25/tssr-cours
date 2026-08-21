@@ -51,6 +51,7 @@ markdown_extensions:
   - tables
   - footnotes
   - def_list
+  - abbr
   - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.highlight:
@@ -61,6 +62,8 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.tilde:
+      subscript: false
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -107,6 +110,8 @@ extra_javascript:
   - assets/javascripts/glossaire.js
   - assets/javascripts/collaboration-utils.js
   - assets/javascripts/course-creator-utils.js
+  - assets/javascripts/course-editor.js
+  - assets/javascripts/course-editor-ui.js
   - assets/javascripts/collaboration.js
   - assets/javascripts/course-creator.js
 extra:

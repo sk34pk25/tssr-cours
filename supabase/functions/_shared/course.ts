@@ -416,10 +416,13 @@ function buildAttachmentChanges(
   return { changes, published };
 }
 
-function renderPdf(sourceFile: string, attachment: JsonRecord): string {
+export function renderPdfAttachment(
+  sourceFile: string,
+  attachment: Record<string, unknown>,
+): string {
   const relative = pathRelative(sourceFile, String(attachment.path));
   const title = String(attachment.title || attachment.name || "Document PDF");
-  return `\n<div class="tssr-pdf-embed" data-tssr-pdf-src="${htmlAttribute(relative)}" data-tssr-pdf-title="${htmlAttribute(title)}">\n  <strong>${markdownText(title)}</strong>\n\n  [Ouvrir le PDF](${relative}){ target="_blank" rel="noopener noreferrer" } · [Télécharger](${relative}){ download }\n\n  <span class="tssr-pdf-embed__fallback">Le PDF ne peut pas être affiché directement dans ce navigateur. Utilisez les liens ci-dessus.</span>\n</div>\n`;
+  return `\n<div class="tssr-pdf-embed" data-tssr-pdf-src="${htmlAttribute(relative)}" data-tssr-pdf-title="${htmlAttribute(title)}" markdown>\n  <strong>${markdownText(title)}</strong>\n\n  [Ouvrir le PDF](${relative}){ target="_blank" rel="noopener noreferrer" } · [Télécharger](${relative}){ download }\n\n  <span class="tssr-pdf-embed__fallback">Le PDF ne peut pas être affiché directement dans ce navigateur. Utilisez les liens ci-dessus.</span>\n</div>\n`;
 }
 
 function renderAttachments(sourceFile: string, attachments: JsonRecord[]): string {
@@ -428,7 +431,7 @@ function renderAttachments(sourceFile: string, attachments: JsonRecord[]): strin
   for (const attachment of attachments) {
     const relative = pathRelative(sourceFile, String(attachment.path));
     const title = String(attachment.title || attachment.name || "Fichier");
-    if (attachment.pdf) output.push(renderPdf(sourceFile, attachment));
+    if (attachment.pdf) output.push(renderPdfAttachment(sourceFile, attachment));
     else if (attachment.image) {
       const alt = markdownText(attachment.alt || title);
       output.push(`\n![${alt}](${relative})`);

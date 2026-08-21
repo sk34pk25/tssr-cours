@@ -35,6 +35,22 @@ Deno.test("Markdown active content is rejected", () => {
   assertThrows(() => validateMarkdown('<svg><script>alert(1)</script></svg>'));
   assertThrows(() => validateMarkdown('<span style="position:fixed">Piège</span>'));
   assertThrows(() => validateMarkdown('![Piège](data:image/svg+xml;base64,PHN2Zz4=)'));
+  assertThrows(() => validateMarkdown('<a href="java&#x73;cript:alert(1)">Piège</a>'));
+  assertThrows(() => validateMarkdown('<a href="jav&#97;script:alert(1)">Piège</a>'));
+  assertThrows(() => validateMarkdown('<a href="java&#x09;script:alert(1)">Piège</a>'));
+  assertThrows(() => validateMarkdown('<a href="data&#58;text/html,attaque">Piège</a>'));
+  assertThrows(() => validateMarkdown('<img title=">" onerror="alert(1)">'));
+  assertThrows(() => validateMarkdown('<div title=">" style="position:fixed">Piège</div>'));
+  assertThrows(() => validateMarkdown('<style>body { display: none }</style>'));
+  assertThrows(() => validateMarkdown('<plaintext>suite'));
+  validateMarkdown('```javascript\nconst exemple = "javascript:alert(1)";\n```');
+  validateMarkdown('Utilisez `javascript:alert(1)` uniquement comme exemple de chaîne neutralisée.');
+  validateMarkdown('Utilisez `` `<script>` `` uniquement comme exemple neutralisé.');
+  validateMarkdown('Paramètre only=true dans un fichier de configuration.');
+  assertThrows(() => validateMarkdown('\\`<script>alert(1)</script>\\`'));
+  assertThrows(() => validateMarkdown('`<script>alert(1)</script>``'));
+  assertThrows(() => validateMarkdown('```lang`invalide\n<script>alert(1)</script>\n```\n'));
+  assertThrows(() => validateMarkdown('<div>\n```html\n<script>alert(1)</script>\n```\n</div>\n'));
 });
 
 Deno.test("legacy visual HTML is retained only when its sensitive tag is byte-identical", () => {
@@ -42,6 +58,16 @@ Deno.test("legacy visual HTML is retained only when its sensitive tag is byte-id
   validateMarkdownTransition(oldContent, oldContent.replace("# OSI", "# Modèle OSI"));
   assertThrows(() => validateMarkdownTransition(oldContent, oldContent.replace("#3978c5", "url(javascript:alert(1))")));
   assertThrows(() => validateMarkdownTransition(oldContent, `${oldContent}\n<button onclick="alert(1)">Piège</button>`));
+  assertThrows(() => validateMarkdownTransition(oldContent, `${oldContent}\n<div class="layer" style="--layer-color:#3978c5">Copie</div>`));
+  const quoted = '<div class="layer" title=">" style="--layer-color:#3978c5">Réseau</div>\n';
+  validateMarkdownTransition(quoted, quoted.replace("Réseau", "Couche réseau"));
+  assertThrows(() => validateMarkdownTransition(quoted, quoted.replace("#3978c5", "red")));
+});
+
+Deno.test("active examples cannot be moved from a code fence into rendered Markdown", () => {
+  const oldContent = '# Sécurité\n\n```html\n<script>alert(1)</script>\n```\n';
+  validateMarkdownTransition(oldContent, oldContent.replace("# Sécurité", "# Sécurité Web"));
+  assertThrows(() => validateMarkdownTransition(oldContent, '# Sécurité\n\n<script>alert(1)</script>\n'));
 });
 
 Deno.test("file proposals require trusted hashes for existing files", () => {

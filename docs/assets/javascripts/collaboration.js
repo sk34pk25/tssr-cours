@@ -386,8 +386,8 @@
       return;
     }
     target.innerHTML = window.DOMPurify.sanitize(window.marked.parse(text), {
-      FORBID_TAGS: ["script", "iframe", "object", "embed", "form", "input", "button", "svg", "meta", "base", "link", "template", "video", "audio", "source"],
-      FORBID_ATTR: ["srcdoc", "style"]
+      FORBID_TAGS: ["script", "iframe", "object", "embed", "form", "input", "button", "svg", "meta", "base", "link", "template", "video", "audio", "source", "style", "plaintext", "xmp", "textarea", "marquee"],
+      FORBID_ATTR: ["srcdoc", "style", "ping"]
     });
   }
 

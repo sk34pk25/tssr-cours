@@ -20,14 +20,186 @@ const SAFE_DATA = /^data\/glossaire\.json$/;
 const SHA = /^[0-9a-f]{40}$/;
 const FORBIDDEN_MARKDOWN = [
   /<\s*script\b/i,
-  /<\s*(iframe|object|embed|form|input|button|svg|meta|base|link|template|video|audio|source)\b/i,
-  /\bon[a-z]+\s*=/i,
-  /\bstyle\s*=/i,
+  /<\s*(iframe|object|embed|form|input|button|svg|meta|base|link|template|video|audio|source|style|plaintext|xmp|textarea|marquee)\b/i,
   /javascript\s*:/i,
+  /vbscript\s*:/i,
   /\b(?:src|href)\s*=\s*["']?\s*data\s*:/i,
   /\]\(\s*data\s*:/i,
   /\bsrcdoc\s*=/i,
 ];
+
+function decodeHtmlEntities(value: string): string {
+  return value
+    .replace(/&#x([0-9a-f]+);?/gi, (_, code) => String.fromCodePoint(Math.min(Number.parseInt(code, 16) || 0, 0x10ffff)))
+    .replace(/&#([0-9]+);?/g, (_, code) => String.fromCodePoint(Math.min(Number.parseInt(code, 10) || 0, 0x10ffff)))
+    .replace(/&(colon|tab|newline|sol|bsol|amp|quot|apos);/gi, (_, name: string) => ({
+      colon: ":",
+      tab: "\t",
+      newline: "\n",
+      sol: "/",
+      bsol: "\\",
+      amp: "&",
+      quot: '"',
+      apos: "'",
+    })[name.toLowerCase() as "colon"]);
+}
+
+type HtmlBlockState = { kind: "blank" } | { kind: "until"; pattern: RegExp };
+
+function htmlBlockOpening(line: string): HtmlBlockState | null {
+  const body = line.replace(/^ {0,3}/, "");
+  const rawTag = body.match(/^<(script|pre|style|textarea)(?=\s|>|$)/i)?.[1];
+  if (rawTag) return { kind: "until", pattern: new RegExp(`</${rawTag}\\s*>`, "i") };
+  if (body.startsWith("<!--")) return { kind: "until", pattern: /-->/ };
+  if (body.startsWith("<?")) return { kind: "until", pattern: /\?>/ };
+  if (/^<!\[CDATA\[/i.test(body)) return { kind: "until", pattern: /\]\]>/ };
+  if (/^<![A-Z]/.test(body)) return { kind: "until", pattern: />/ };
+  if (/^<\/?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?=\s|\/?>|$)/i.test(body)) {
+    return { kind: "blank" };
+  }
+  const trimmed = body.trimEnd();
+  const first = extractHtmlTagMatches(trimmed)[0];
+  return first?.index === 0 && first.raw.length === trimmed.length ? { kind: "blank" } : null;
+}
+
+function maskMarkdownCode(value: string): string {
+  const source = String(value ?? "");
+  const output = source.split("");
+  const barriers = new Uint8Array(source.length);
+  const lines = source.match(/[^\r\n]*(?:\r\n|\r|\n|$)/g)?.filter(Boolean) || [];
+  let offset = 0;
+  let fence: string | null = null;
+  let htmlBlock: HtmlBlockState | null = null;
+  const mark = (start: number, end: number, barrier = false) => {
+    for (let index = start; index < end; index += 1) {
+      if (!/[\r\n]/.test(output[index])) output[index] = " ";
+      if (barrier) barriers[index] = 1;
+    }
+  };
+
+  for (const line of lines) {
+    const start = offset;
+    const end = start + line.length;
+    offset = end;
+    const text = line.replace(/[\r\n]+$/, "");
+    if (fence) {
+      mark(start, end);
+      const closing = text.match(/^ {0,3}(`+|~+)\s*$/)?.[1];
+      if (closing && closing[0] === fence[0] && closing.length >= fence.length) fence = null;
+      continue;
+    }
+    if (htmlBlock) {
+      if (htmlBlock.kind === "blank" && !text.trim()) {
+        barriers.fill(1, start, end);
+        htmlBlock = null;
+        continue;
+      }
+      barriers.fill(1, start, end);
+      if (htmlBlock.kind === "until" && htmlBlock.pattern.test(text)) htmlBlock = null;
+      continue;
+    }
+    const openingHtml = htmlBlockOpening(text);
+    if (openingHtml) {
+      barriers.fill(1, start, end);
+      if (!(openingHtml.kind === "until" && openingHtml.pattern.test(text))) htmlBlock = openingHtml;
+      continue;
+    }
+    if (!text.trim()) barriers.fill(1, start, end);
+    const opening = text.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (!opening || opening[1][0] === "`" && opening[2].includes("`")) continue;
+    fence = opening[1];
+    mark(start, end);
+  }
+
+  const tagMask = new Uint8Array(source.length);
+  for (const tag of extractHtmlTagMatches(source)) tagMask.fill(1, tag.index, tag.index + tag.raw.length);
+  const runs: Array<{ start: number; end: number; length: number }> = [];
+  for (let index = 0; index < source.length;) {
+    if (output[index] !== "`" || barriers[index] || tagMask[index]) {
+      index += 1;
+      continue;
+    }
+    const start = index;
+    while (index < source.length && output[index] === "`") index += 1;
+    let slashCount = 0;
+    for (let cursor = start - 1; cursor >= 0 && source[cursor] === "\\"; cursor -= 1) slashCount += 1;
+    if (slashCount % 2 === 0) runs.push({ start, end: index, length: index - start });
+  }
+  const barrierPrefix = new Uint32Array(source.length + 1);
+  for (let index = 0; index < source.length; index += 1) barrierPrefix[index + 1] = barrierPrefix[index] + barriers[index];
+  const nextSame = new Int32Array(runs.length);
+  nextSame.fill(-1);
+  const lastRun = new Map<string, number>();
+  for (let index = runs.length - 1; index >= 0; index -= 1) {
+    const key = `${barrierPrefix[runs[index].start]}:${runs[index].length}`;
+    if (lastRun.has(key)) nextSame[index] = lastRun.get(key)!;
+    lastRun.set(key, index);
+  }
+  for (let index = 0; index < runs.length; index += 1) {
+    const opening = runs[index];
+    const closingIndex = nextSame[index];
+    if (closingIndex < 0) continue;
+    mark(opening.start, runs[closingIndex].end);
+    index = closingIndex;
+  }
+  return output.join("");
+}
+
+function extractHtmlTagMatches(value: string): Array<{ raw: string; index: number }> {
+  const tags: Array<{ raw: string; index: number }> = [];
+  let index = 0;
+  while ((index = value.indexOf("<", index)) >= 0) {
+    if (value.startsWith("<!--", index)) {
+      const end = value.indexOf("-->", index + 4);
+      if (end < 0) throw new Error("Commentaire HTML non fermé.");
+      tags.push({ raw: value.slice(index, end + 3), index });
+      index = end + 3;
+      continue;
+    }
+    if (!/^<\/?[a-z!]/i.test(value.slice(index))) {
+      index += 1;
+      continue;
+    }
+    let cursor = index + 1;
+    let quote = "";
+    while (cursor < value.length) {
+      const character = value[cursor];
+      if (quote) {
+        if (character === quote) quote = "";
+      } else if (character === '"' || character === "'") quote = character;
+      else if (character === ">") break;
+      cursor += 1;
+    }
+    if (cursor >= value.length) {
+      index += 1;
+      continue;
+    }
+    tags.push({ raw: value.slice(index, cursor + 1), index });
+    index = cursor + 1;
+  }
+  return tags;
+}
+
+function extractHtmlTags(value: string): string[] {
+  return extractHtmlTagMatches(value).map((tag) => tag.raw);
+}
+
+function securityView(content: string): string {
+  return decodeHtmlEntities(maskMarkdownCode(content))
+    .replace(/j[\t\n\r\f ]*a[\t\n\r\f ]*v[\t\n\r\f ]*a[\t\n\r\f ]*s[\t\n\r\f ]*c[\t\n\r\f ]*r[\t\n\r\f ]*i[\t\n\r\f ]*p[\t\n\r\f ]*t[\t\n\r\f ]*:/gi, "javascript:")
+    .replace(/v[\t\n\r\f ]*b[\t\n\r\f ]*s[\t\n\r\f ]*c[\t\n\r\f ]*r[\t\n\r\f ]*i[\t\n\r\f ]*p[\t\n\r\f ]*t[\t\n\r\f ]*:/gi, "vbscript:")
+    .replace(/d[\t\n\r\f ]*a[\t\n\r\f ]*t[\t\n\r\f ]*a[\t\n\r\f ]*:/gi, "data:");
+}
+
+function containsForbiddenMarkdown(content: string): boolean {
+  const view = securityView(content);
+  if (FORBIDDEN_MARKDOWN.some((pattern) => pattern.test(view))) return true;
+  return extractHtmlTags(view).some((tag) => {
+    const decoded = decodeHtmlEntities(tag);
+    return /\s(?:on[a-z]+|style|srcdoc|ping)\s*=/i.test(decoded) ||
+      /\s(?:href|src|xlink:href|action|formaction)\s*=\s*(?:["']\s*)?(?:javascript|vbscript|data)\s*:/i.test(decoded);
+  });
+}
 
 // npm:yaml does not know MkDocs' Python object tags and otherwise serializes
 // them as empty strings. Protect the three trusted, repository-owned tags while
@@ -91,14 +263,26 @@ export function assertEditablePath(path: string): string {
 
 export function validateMarkdown(content: string): void {
   if (content.length > 2_000_000) throw new Error("Un fichier Markdown ne peut pas dépasser 2 Mo.");
-  if (FORBIDDEN_MARKDOWN.some((pattern) => pattern.test(content))) {
+  if (containsForbiddenMarkdown(content)) {
     throw new Error("Le Markdown contient du HTML actif interdit pour des raisons de sécurité.");
   }
 }
 
-function removeOnce(content: string, fragment: string): string {
-  const index = content.indexOf(fragment);
-  return index < 0 ? content : `${content.slice(0, index)}${content.slice(index + fragment.length)}`;
+function isMaskedCodeSpan(masked: string, start: number, length: number): boolean {
+  const view = masked.slice(start, start + length);
+  return view.length === length && !/[^\s]/.test(view);
+}
+
+function removeOnceOutsideCode(content: string, fragment: string): string {
+  const masked = maskMarkdownCode(content);
+  let index = content.indexOf(fragment);
+  while (index >= 0) {
+    if (!isMaskedCodeSpan(masked, index, fragment.length)) {
+      return `${content.slice(0, index)}${content.slice(index + fragment.length)}`;
+    }
+    index = content.indexOf(fragment, index + fragment.length);
+  }
+  return content;
 }
 
 /**
@@ -109,11 +293,13 @@ function removeOnce(content: string, fragment: string): string {
 export function validateMarkdownTransition(oldContent: string, newContent: string): void {
   if (newContent.length > 2_000_000) throw new Error("Un fichier Markdown ne peut pas dépasser 2 Mo.");
   let candidate = newContent;
+  const oldMasked = maskMarkdownCode(oldContent);
   const trusted = [
-    ...oldContent.matchAll(/<[^>]+>/g),
-    ...oldContent.matchAll(/!?\[[^\]]*\]\([^\n)]*\)/g),
-  ].map((match) => match[0]).filter((fragment) => FORBIDDEN_MARKDOWN.some((pattern) => pattern.test(fragment)));
-  for (const fragment of trusted) candidate = removeOnce(candidate, fragment);
+    ...extractHtmlTagMatches(oldContent).map((tag) => ({ raw: tag.raw, index: tag.index })),
+    ...Array.from(oldContent.matchAll(/!?\[[^\]]*\]\([^\n)]*\)/g), (match) => ({ raw: match[0], index: match.index ?? -1 })),
+  ].filter((match) => match.index >= 0 && !isMaskedCodeSpan(oldMasked, match.index, match.raw.length))
+    .map((match) => match.raw).filter((fragment) => containsForbiddenMarkdown(fragment));
+  for (const fragment of trusted) candidate = removeOnceOutsideCode(candidate, fragment);
   validateMarkdown(candidate);
 }
 

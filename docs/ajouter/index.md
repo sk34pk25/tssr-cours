@@ -5,7 +5,7 @@ hide:
 
 # Ajouter un cours
 
-<div id="tssr-course-creator" class="tssr-course-creator" aria-live="polite">
+<div id="tssr-course-creator" class="tssr-course-creator">
   <div class="tssr-collaboration-empty">
     <strong>Chargement de l’espace de création…</strong>
     <p>Le formulaire vérifie votre session et charge le contexte éditorial courant.</p>

@@ -6,6 +6,7 @@ import {
   validateMkDocsEdit,
   validateProposedFiles,
 } from "./validation.ts";
+import { renderPdfAttachment } from "./course.ts";
 
 type JsonRecord = Record<string, unknown>;
 
@@ -528,17 +529,32 @@ function attachmentType(path: string): string {
 function attachmentReferences(
   content: string,
   sourcePath: string,
-): Array<{ path: string; token: string }> {
-  const output: Array<{ path: string; token: string }> = [];
+): Array<{ path: string; token: string; format: "markdown" | "html" | "pdf"; title?: string }> {
+  const output: Array<{ path: string; token: string; format: "markdown" | "html" | "pdf"; title?: string }> = [];
+  const pdfRanges: Array<{ start: number; end: number }> = [];
+  const pdfComponent = /<div\b(?=[^>]*\bclass\s*=\s*["'][^"']*\btssr-pdf-embed\b[^"']*["'])[^>]*>[\s\S]*?<\/div>/gi;
+  for (const match of content.matchAll(pdfComponent)) {
+    const token = match[0];
+    const relative = token.match(/\bdata-tssr-pdf-src\s*=\s*["']([^"']+)["']/i)?.[1] || "";
+    const path = resolveRelativePath(sourcePath, relative);
+    if (!path || !/^docs\/assets\/resources\/.*\.pdf$/i.test(path)) continue;
+    const title = token.match(/\bdata-tssr-pdf-title\s*=\s*["']([^"']*)["']/i)?.[1] ||
+      token.match(/<strong>([^<]*)<\/strong>/i)?.[1] || "";
+    const start = match.index ?? 0;
+    pdfRanges.push({ start, end: start + token.length });
+    output.push({ path, token, format: "pdf", title });
+  }
   const patterns = [
-    /!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)/g,
-    /\b(?:src|href|data-tssr-pdf-src)\s*=\s*["']([^"']+)["']/gi,
+    { expression: /!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)/g, format: "markdown" as const },
+    { expression: /\b(?:src|href)\s*=\s*["']([^"']+)["']/gi, format: "html" as const },
   ];
-  patterns.forEach((pattern) => {
-    for (const match of content.matchAll(pattern)) {
+  patterns.forEach(({ expression, format }) => {
+    for (const match of content.matchAll(expression)) {
+      const start = match.index ?? 0;
+      if (pdfRanges.some((range) => start >= range.start && start < range.end)) continue;
       const path = resolveRelativePath(sourcePath, match[1]);
       if (path && /^docs\/assets\/(?:images|resources)\//.test(path)) {
-        output.push({ path, token: match[0] });
+        output.push({ path, token: match[0], format });
       }
     }
   });
@@ -808,7 +824,7 @@ export function buildCourseEditorModel(
         name: reference.path.split("/").at(-1),
         mediaType: attachmentType(reference.path),
         size: file.size || 0,
-        title: markdownLabel && !markdownLabel[1] ? markdownLabel[2] : "",
+        title: reference.title || (markdownLabel && !markdownLabel[1] ? markdownLabel[2] : ""),
         alt: markdownLabel?.[1] ? markdownLabel[2] : "",
         caption: "",
         path: reference.path,
@@ -821,6 +837,7 @@ export function buildCourseEditorModel(
       (existing.references as unknown[]).push({
         sourcePath: path,
         token: reference.token,
+        format: reference.format,
       });
       attachments.set(reference.path, existing);
     });
@@ -2144,6 +2161,19 @@ export function buildCourseModification(
         nextText.set(path, content.replaceAll(token, ""));
         return;
       }
+      if (reference.format === "pdf") {
+        const replacement = renderPdfAttachment(path, {
+          path: attachment.path,
+          name: attachment.name,
+          title: cleanText(
+            proposed.title,
+            160,
+            String(attachment.title || attachment.name || "Document PDF"),
+          ),
+        }).trim();
+        nextText.set(path, content.replaceAll(token, replacement));
+        return;
+      }
       const label = token.match(/^(!?)\[([^\]]*)\]/);
       if (!label) return;
       const nextLabel = label[1]
@@ -2221,6 +2251,8 @@ export function buildCourseModification(
             ? `\n\n*${cleanText(attachment.caption, 500)}*`
             : ""
         }`
+        : extension === "pdf"
+        ? renderPdfAttachment(target, { ...attachment, path, title }).trim()
         : `- [${title}](${relative}){ download }`;
       nextText.set(target, `${nextText.get(target)?.trimEnd()}\n\n${markup}\n`);
     },

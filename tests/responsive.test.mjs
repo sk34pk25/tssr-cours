@@ -88,6 +88,18 @@ function lastDeclaration(selector, property, predicate = () => true) {
   }, undefined);
 }
 
+test("editor command menus are viewport-bound through the full tablet breakpoint", () => {
+  const tabletRule = rules.find((rule) =>
+    targets(rule, ".tssr-editor-menu__panel") &&
+    rule.media.some((query) => /max-width\s*:\s*60em/i.test(query)) &&
+    rule.declarations.position === "fixed"
+  );
+  assert.ok(tabletRule, "missing fixed editor menu rule at 60em");
+  assert.equal(tabletRule.declarations.left, "0.5rem");
+  assert.equal(tabletRule.declarations.right, "0.5rem");
+  assert.equal(tabletRule.declarations.width, "auto");
+});
+
 test("mobile rich-editor layout controls remain available", () => {
   const display = lastDeclaration(
     ".tssr-rich-editor__layouts",
@@ -173,7 +185,7 @@ test("mobile form controls keep a readable 0.8rem font size", () => {
 
 test("PDF open and download actions stay outside the conditionally hidden fallback message", () => {
   const renderPdf = courseRendererSource.match(
-    /function renderPdf\([\s\S]*?\n\}/
+    /function renderPdfAttachment\([\s\S]*?\n\}/
   )?.[0] || "";
   const openLink = renderPdf.indexOf("[Ouvrir le PDF]");
   const downloadLink = renderPdf.indexOf("[Télécharger]");

@@ -364,6 +364,83 @@ Deno.test("removing an existing attachment dissociates its references without de
   );
 });
 
+Deno.test("a PDF added while editing uses the same safe viewer component as course creation", () => {
+  const { plan, snapshot, editor } = fixture();
+  const attachments = [...editor.attachments as Record<string, unknown>[], {
+    id: "pdf-new",
+    kind: "new",
+    name: "diagnostic-reseau.pdf",
+    mediaType: "application/pdf",
+    content: btoa("%PDF-1.7\nfixture"),
+    title: "Diagnostic réseau",
+    alt: "",
+    caption: "",
+    moduleIndex: 0,
+    pageIndex: -1,
+  }];
+  const built = buildCourseModification(
+    {
+      meta: editor.meta,
+      baseCommitSha: snapshot.commitSha,
+      draft: editor.draft,
+      attachments,
+    },
+    plan,
+    snapshot,
+  );
+  const module = built.files.find((file) =>
+    file.file_path.endsWith("module-01-osi.md")
+  );
+  assertMatch(String(module?.new_content), /class="tssr-pdf-embed"/);
+  assertMatch(String(module?.new_content), /data-tssr-pdf-src=/);
+  assertMatch(String(module?.new_content), /Ouvrir le PDF/);
+  assertMatch(String(module?.new_content), /Télécharger/);
+  assertEquals(
+    built.files.some((file) =>
+      file.change_type === "create" && file.file_path.endsWith(".pdf")
+    ),
+    true,
+  );
+});
+
+Deno.test("an existing PDF viewer is renamed and removed as one atomic component", () => {
+  const { plan, snapshot } = fixture();
+  const modulePath = "docs/modules/01-bases-reseaux/module-01-osi.md";
+  const pdfPath = "docs/assets/resources/cours/reseaux/diagnostic.pdf";
+  const component = `\n<div class="tssr-pdf-embed" data-tssr-pdf-src="../../assets/resources/cours/reseaux/diagnostic.pdf" data-tssr-pdf-title="Diagnostic initial" markdown>\n  <strong>Diagnostic initial</strong>\n\n  [Ouvrir le PDF](../../assets/resources/cours/reseaux/diagnostic.pdf){ target="_blank" rel="noopener noreferrer" } · [Télécharger](../../assets/resources/cours/reseaux/diagnostic.pdf){ download }\n\n  <span class="tssr-pdf-embed__fallback">Utilisez les liens.</span>\n</div>\n`;
+  snapshot.documents[modulePath].content += component;
+  snapshot.files.push({ path: pdfPath, sha: sha("e"), size: 2048 });
+  const editor = buildCourseEditorModel(plan, snapshot);
+  const pdf = (editor.attachments as Record<string, unknown>[]).find((item) =>
+    item.path === pdfPath
+  );
+  assertEquals(pdf?.title, "Diagnostic initial");
+  assertEquals((pdf?.references as unknown[]).length, 1);
+
+  const renamedAttachments = (editor.attachments as Record<string, unknown>[]).map((item) =>
+    item.path === pdfPath ? { ...item, title: "Diagnostic actualisé" } : item
+  );
+  const renamed = buildCourseModification(
+    { meta: editor.meta, baseCommitSha: snapshot.commitSha, draft: editor.draft, attachments: renamedAttachments },
+    plan,
+    snapshot,
+  );
+  const renamedModule = String(renamed.files.find((file) => file.file_path === modulePath)?.new_content || "");
+  assertMatch(renamedModule, /data-tssr-pdf-title="Diagnostic actualisé"/);
+  assertMatch(renamedModule, /<strong>Diagnostic actualisé<\/strong>/);
+  assertEquals((renamedModule.match(/class="tssr-pdf-embed"/g) || []).length, 1);
+
+  const withoutPdf = (editor.attachments as Record<string, unknown>[]).filter((item) => item.path !== pdfPath);
+  const removed = buildCourseModification(
+    { meta: editor.meta, baseCommitSha: snapshot.commitSha, draft: editor.draft, attachments: withoutPdf },
+    plan,
+    snapshot,
+  );
+  const removedModule = String(removed.files.find((file) => file.file_path === modulePath)?.new_content || "");
+  assertEquals(removedModule.includes("tssr-pdf-embed"), false);
+  assertEquals(removedModule.includes("diagnostic.pdf"), false);
+});
+
 Deno.test("an existing cover can be removed without reuploading or deleting its image", () => {
   const { plan, snapshot, editor } = fixture();
   const draft = structuredClone(editor.draft) as Record<string, unknown>;

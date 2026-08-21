@@ -30,6 +30,8 @@ test("server secrets occur only in server code, workflows or documentation", () 
     "docs/assets/javascripts/collaboration-config.js",
     "docs/assets/javascripts/course-creator.js",
     "docs/assets/javascripts/course-creator-utils.js",
+    "docs/assets/javascripts/course-editor.js",
+    "docs/assets/javascripts/course-editor-ui.js",
     "overrides/main.html"
   ];
   for (const file of publicFiles) {
@@ -45,6 +47,17 @@ test("structured course creation uses the authenticated change endpoint and neve
   assert.match(endpoint, /body\.action === "create-course"[\s\S]+requireProfile\(req, \{ canEdit: true \}\)/);
   assert.doesNotMatch(frontend, /\bauthor(?:_id|_display_name)?\s*:/i);
   assert.match(endpoint, /buildCourseProposal\(body\.course, snapshot\)/);
+});
+
+test("change request creation is server-only after files and identity are validated", () => {
+  const endpoint = read("supabase/functions/change-requests/index.ts");
+  const migration = read("supabase/migrations/20260821120000_secure_change_request_rpc.sql");
+  assert.match(endpoint, /context\.adminClient\.rpc\(\s*["']create_change_request["']/);
+  assert.match(endpoint, /_actor_profile_id:\s*context\.profile\.id/);
+  assert.match(migration, /auth\.role\(\)[\s\S]+service_role/);
+  assert.match(migration, /revoke all[\s\S]+from public, anon, authenticated/i);
+  assert.match(migration, /grant execute[\s\S]+to service_role/i);
+  assert.doesNotMatch(migration, /grant execute[\s\S]+to authenticated/i);
 });
 
 test("complete course editing is server-loaded, identity-checked and submitted through consensus", () => {
@@ -66,7 +79,8 @@ test("complete course editing is server-loaded, identity-checked and submitted t
 test("legacy active Markdown can only survive an update as an identical trusted fragment", () => {
   const validation = read("supabase/functions/_shared/validation.ts");
   assert.match(validation, /validateMarkdownTransition/);
-  assert.match(validation, /removeOnce\(candidate, fragment\)/);
+  assert.match(validation, /removeOnceOutsideCode\(candidate, fragment\)/);
+  assert.match(validation, /isMaskedCodeSpan/);
   assert.match(validation, /file\.change_type === "create"/);
 });
 
