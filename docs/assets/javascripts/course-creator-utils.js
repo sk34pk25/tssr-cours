@@ -145,41 +145,109 @@
     return true;
   }
 
-  function nodeToMarkdown(node, depth = 0) {
+  function codeSpan(value) {
+    const source = String(value ?? "");
+    const runs = source.match(/`+/g) || [];
+    const delimiter = "`".repeat(Math.max(0, ...runs.map((run) => run.length)) + 1);
+    const padding = /^(?:`| )|(?:`| )$/.test(source) ? " " : "";
+    return `${delimiter}${padding}${source}${padding}${delimiter}`;
+  }
+
+  function escapeMarkdownText(value) {
+    return String(value ?? "")
+      .replaceAll("\\", "\\\\")
+      .replace(/([`*_[\]{}<>|~^&])/g, "\\$1")
+      .replace(/(^|\n)( {0,3})([#>+\-:])(?=\s|$)/g, "$1$2\\$3")
+      .replace(/(^|\n)( {0,3})(\d+)([.)])(?=\s)/g, "$1$2$3\\$4")
+      .replace(/==/g, "\\=\\=")
+      .replace(/:([a-z0-9_+\-]+):/gi, "\\:$1\\:");
+  }
+
+  function escapeMarkdownLabel(value) {
+    return escapeMarkdownText(value);
+  }
+
+  function stableEditorIdentity(session, path, draft) {
+    const prefix = String(session || "editor-session");
+    const parts = String(path || "").split(".");
+    if (parts[0] === "modules" && /^\d+$/.test(parts[1] || "")) {
+      const module = draft?.modules?.[Number(parts[1])];
+      if (parts[2] === "pages" && /^\d+$/.test(parts[3] || "")) {
+        const page = module?.pages?.[Number(parts[3])];
+        return `${prefix}:page:${page?.clientId || page?.id || parts[3]}:${parts.slice(4).join(".")}`;
+      }
+      return `${prefix}:module:${module?.clientId || module?.id || parts[1]}:${parts.slice(2).join(".")}`;
+    }
+    if (["exercises", "labs", "quizzes"].includes(parts[0]) && /^\d+$/.test(parts[1] || "")) {
+      const item = draft?.[parts[0]]?.[Number(parts[1])];
+      return `${prefix}:${parts[0]}:${item?.clientId || item?.id || parts[1]}:${parts.slice(2).join(".")}`;
+    }
+    return `${prefix}:${path}`;
+  }
+
+  function nodeToMarkdown(node, depth = 0, options = {}) {
     if (!node) return "";
-    if (node.nodeType === 3) return node.nodeValue || "";
+    if (node.nodeType === 3) {
+      if (options.literalText) return node.nodeValue || "";
+      if (options.htmlText) return escapeHtml(node.nodeValue || "");
+      return escapeMarkdownText(node.nodeValue || "");
+    }
     if (node.nodeType !== 1) return "";
+    if (node.hasAttribute("data-tssr-raw-block")) {
+      return node.querySelector("[data-tssr-raw-source]")?.textContent || "";
+    }
     const tag = node.tagName.toLowerCase();
-    const content = Array.from(node.childNodes).map((child) => nodeToMarkdown(child, depth + 1)).join("");
+    const childOptions = tag === "code"
+      ? { ...options, linkLabel: false, literalText: true, htmlText: false }
+      : ["u", "mark", "sup", "sub", "span"].includes(tag)
+        ? { ...options, htmlText: true, literalText: false }
+        : options;
+    const content = Array.from(node.childNodes).map((child) => nodeToMarkdown(child, depth + 1, childOptions)).join("");
     if (/^h[1-6]$/.test(tag)) return `${"#".repeat(Number(tag.slice(1)))} ${content.trim()}\n\n`;
     if (tag === "p" || tag === "div") return `${content.trim()}\n\n`;
     if (tag === "br") return "  \n";
     if (tag === "strong" || tag === "b") return `**${content}**`;
     if (tag === "em" || tag === "i") return `*${content}*`;
     if (tag === "del" || tag === "s" || tag === "strike") return `~~${content}~~`;
-    if (tag === "code" && node.parentElement?.tagName.toLowerCase() !== "pre") return `\`${content.replaceAll("`", "\\`")}\``;
+    if (["u", "mark", "sup", "sub"].includes(tag)) return `<${tag}>${content}</${tag}>`;
+    if (tag === "code" && node.parentElement?.tagName.toLowerCase() !== "pre") return codeSpan(content);
     if (tag === "pre") return `\n\`\`\`\n${node.textContent || ""}\n\`\`\`\n\n`;
     if (tag === "blockquote") return `${content.trim().split("\n").map((line) => `> ${line}`).join("\n")}\n\n`;
     if (tag === "hr") return "\n---\n\n";
-    if (tag === "a") return `[${content || node.getAttribute("href") || "lien"}](${node.getAttribute("href") || ""})`;
-    if (tag === "img") return `![${node.getAttribute("alt") || ""}](${node.getAttribute("src") || ""})`;
+    if (tag === "a") {
+      const href = options.safeUrl ? options.safeUrl(node.getAttribute("href") || "") : node.getAttribute("href") || "";
+      const title = node.getAttribute("title");
+      const attributes = node.getAttribute("target") === "_blank" ? '{ target="_blank" rel="noopener noreferrer" }' : "";
+      const label = Array.from(node.childNodes).map((child) => nodeToMarkdown(child, depth + 1, { ...options, linkLabel: true, htmlText: false, literalText: false })).join("");
+      return `[${label || escapeMarkdownLabel(href) || "lien"}](${href}${title ? ` "${title.replaceAll('"', "&quot;")}"` : ""})${attributes}`;
+    }
+    if (tag === "img") {
+      const title = node.getAttribute("title");
+      const source = options.safeUrl ? options.safeUrl(node.getAttribute("src") || "") : node.getAttribute("src") || "";
+      return `![${escapeMarkdownLabel(node.getAttribute("alt") || "")}](${source}${title ? ` "${title.replaceAll('"', "&quot;")}"` : ""})`;
+    }
     if (tag === "ul" || tag === "ol") {
-      return `${Array.from(node.children).map((child, index) => `${tag === "ol" ? `${index + 1}.` : "-"} ${nodeToMarkdown(child, depth + 1).trim()}`).join("\n")}\n\n`;
+      return `${Array.from(node.children).map((child, index) => `${tag === "ol" ? `${index + 1}.` : "-"} ${nodeToMarkdown(child, depth + 1, options).trim()}`).join("\n")}\n\n`;
     }
     if (tag === "li") return content;
     if (tag === "table") {
       const rows = Array.from(node.querySelectorAll(":scope > thead > tr, :scope > tbody > tr, :scope > tr"));
       if (!rows.length) return "";
-      const cells = rows.map((row) => Array.from(row.children).map((cell) => (cell.textContent || "").trim().replaceAll("|", "\\|")));
+      const cells = rows.map((row) => Array.from(row.children).map((cell) => escapeMarkdownText((cell.textContent || "").trim())));
       const width = Math.max(...cells.map((row) => row.length));
       const header = cells[0].concat(Array(Math.max(0, width - cells[0].length)).fill(""));
       return `| ${header.join(" | ")} |\n| ${header.map(() => "---").join(" | ")} |\n${cells.slice(1).map((row) => `| ${row.concat(Array(Math.max(0, width - row.length)).fill("")).join(" | ")} |`).join("\n")}\n\n`;
     }
+    if (tag === "span") {
+      const classes = Array.from(node.classList || []).filter((name) => /^tssr-content-(?:text|color|background|badge)--[a-z0-9-]+$/.test(name) || name === "tssr-content-badge");
+      if (classes.length) return `<span class="${classes.join(" ")}">${content}</span>`;
+    }
     return content;
   }
 
-  function htmlToMarkdown(element) {
-    return Array.from(element?.childNodes || []).map((node) => nodeToMarkdown(node)).join("").replace(/\n{3,}/g, "\n\n").trim();
+  function htmlToMarkdown(element, options = {}) {
+    const markdown = Array.from(element?.childNodes || []).map((node) => nodeToMarkdown(node, 0, options)).join("");
+    return options.trim === false ? markdown : markdown.trim();
   }
 
   function insertIntoTextarea(textarea, before, after = "", placeholder = "texte") {
@@ -232,6 +300,6 @@
   return {
     slugify, escapeHtml, uid, clone, splitList, defaultDraft, hydrateDraft, serializableDraft, summarize,
     newPage, newModule, newExercise, newLab, newQuiz, newQuestion, newGlossaryEntry, newResource,
-    allowedFile, signatureMatches, htmlToMarkdown, insertIntoTextarea, editorDiff
+    allowedFile, signatureMatches, codeSpan, escapeMarkdownText, escapeMarkdownLabel, stableEditorIdentity, nodeToMarkdown, htmlToMarkdown, insertIntoTextarea, editorDiff
   };
 });

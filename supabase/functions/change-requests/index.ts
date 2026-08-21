@@ -151,7 +151,7 @@ async function submit(
   payloadSummary: Record<string, unknown> = {},
 ): Promise<Response> {
   const trusted = await trustedFiles(files, baseCommitSha);
-  const { data, error } = await context.userClient.rpc(
+  const { data, error } = await context.adminClient.rpc(
     "create_change_request",
     {
       p_title: cleanTitle(body.title || ""),
@@ -160,7 +160,7 @@ async function submit(
       p_files: trusted,
       p_supersedes_id: body.supersedes_id || null,
       p_proposal_kind: proposalKind,
-      p_payload_summary: payloadSummary,
+      p_payload_summary: { ...payloadSummary, _actor_profile_id: context.profile.id },
     },
   );
   const changeRequest = rpcRow(data);

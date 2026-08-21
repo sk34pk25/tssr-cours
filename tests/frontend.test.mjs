@@ -49,6 +49,46 @@ test("relative image links are correct at root and nested levels", () => {
   );
 });
 
+test("visual inline code chooses a valid CommonMark delimiter", () => {
+  assert.equal(course.codeSpan("commande"), "`commande`");
+  assert.equal(course.codeSpan("a`b"), "``a`b``");
+  assert.equal(course.codeSpan("`a`"), "`` `a` ``");
+  assert.equal(course.codeSpan(" texte "), "`  texte  `");
+  assert.equal(course.escapeMarkdownLabel("a]b\\c"), "a\\]b\\\\c");
+});
+
+test("visual text serialization preserves literal Markdown punctuation", () => {
+  assert.equal(course.nodeToMarkdown({ nodeType: 3, nodeValue: "*x* [y] C:\\Windows" }), "\\*x\\* \\[y\\] C:\\\\Windows");
+  const anchor = {
+    nodeType: 1,
+    tagName: "A",
+    childNodes: [{ nodeType: 3, nodeValue: "a]b" }],
+    hasAttribute: () => false,
+    getAttribute: (name) => ({ href: "#ipv4", title: null, target: null }[name] ?? null)
+  };
+  assert.equal(course.nodeToMarkdown(anchor, 0, { safeUrl: (value) => value }), "[a\\]b](#ipv4)");
+});
+
+test("editor histories follow stable entities across quiz deletion and module reordering", () => {
+  const draft = course.defaultDraft();
+  draft.modules = [
+    course.newModule({ clientId: "module-a" }),
+    course.newModule({ clientId: "module-b" })
+  ];
+  draft.quizzes = [
+    course.newQuiz({ clientId: "quiz-a" }),
+    course.newQuiz({ clientId: "quiz-b" })
+  ];
+  const session = "profile:edit:course:sha";
+  const moduleB = course.stableEditorIdentity(session, "modules.1.content", draft);
+  const quizB = course.stableEditorIdentity(session, "quizzes.1.content", draft);
+  draft.modules.reverse();
+  draft.quizzes.shift();
+  assert.equal(course.stableEditorIdentity(session, "modules.0.content", draft), moduleB);
+  assert.equal(course.stableEditorIdentity(session, "quizzes.0.content", draft), quizB);
+  assert.notEqual(moduleB, course.stableEditorIdentity(session, "modules.1.content", draft));
+});
+
 test("line diff identifies unchanged, removed and added lines", () => {
   assert.deepEqual(JSON.parse(JSON.stringify(utils.lineDiff("A\nB", "A\nC"))), [
     { type: "same", line: "A" },

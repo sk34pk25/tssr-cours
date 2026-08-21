@@ -504,7 +504,7 @@
 .tssr-action--primary {
   border-color: var(--tssr-primary);
   background: var(--tssr-primary);
-  color: #fff;
+  color: var(--tssr-on-primary, #fff);
 }
 
 .tssr-action--danger {
