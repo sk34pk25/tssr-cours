@@ -191,7 +191,107 @@ function securityView(content: string): string {
     .replace(/d[\t\n\r\f ]*a[\t\n\r\f ]*t[\t\n\r\f ]*a[\t\n\r\f ]*:/gi, "data:");
 }
 
+// ATTR_POLICY_V1: keep in parity with course-editor.js and markdown_security.py.
+// Only inert presentation attributes are accepted; URL-bearing attributes must
+// continue to use Markdown links/images, never an attribute-list override.
+function validateAttribute(name: string, rawValue: string, fenced = false): void {
+  const key = name === "." ? "class" : name.toLowerCase();
+  const value = decodeHtmlEntities(rawValue);
+  const plain = !/[\u0000-\u001f\u007f<>"]/.test(value) &&
+    (!value.includes("'") || ["title", "alt", "aria-label"].includes(key));
+  const tokens = value.split(/ +/).filter(Boolean);
+  const valid = plain && (
+    key === "class" && tokens.length > 0 && tokens.every((token) => /^[a-zA-Z_][a-zA-Z0-9_-]*$/.test(token)) ||
+    key === "id" && /^[a-zA-Z0-9_][a-zA-Z0-9_.:-]*$/.test(value) ||
+    ["title", "alt", "aria-label"].includes(key) ||
+    ["width", "height"].includes(key) && /^[1-9][0-9]{0,3}%?$/.test(value) ||
+    key === "target" && ["_blank", "_self", "_parent", "_top"].includes(value) ||
+    key === "rel" && tokens.length > 0 && tokens.every((token) => /^(?:noopener|noreferrer|nofollow|external|author|help|license|prev|next|search|bookmark|tag|sponsored|ugc)$/.test(token)) ||
+    key === "loading" && ["lazy", "eager"].includes(value) ||
+    key === "download" && value === "download" ||
+    fenced && key === "linenums" && /^[0-9]+(?: +[0-9]+){0,2}$/.test(value) ||
+    fenced && key === "hl_lines" && /^[0-9 ,.-]+$/.test(value)
+  );
+  if (!valid) throw new Error("Le Markdown contient un attribut actif ou non autorisé.");
+}
+
+function validateAttributeList(source: string, fenced = false): void {
+  // Equivalent token order to Python-Markdown's attr_list scanner. Tabs are
+  // expanded by Markdown's NormalizeWhitespace preprocessor before attr_list.
+  let remaining = source.replaceAll("\t", "    ");
+  while (remaining && !remaining.startsWith("}")) {
+    if (remaining.startsWith(" ")) { remaining = remaining.slice(1); continue; }
+    const token = remaining.match(/^[^ =}]+="[^"]*"|^[^ =}]+='[^']*'|^[^ =}]+=[^ =}]+|^[^ =}]+/);
+    if (!token) throw new Error("Liste d’attributs Markdown invalide.");
+    const raw = token[0];
+    const equal = raw.indexOf("=");
+    const name = equal >= 0 ? raw.slice(0, equal) : raw.startsWith(".") ? "." : raw.startsWith("#") ? "id" : raw;
+    let value = equal >= 0 ? raw.slice(equal + 1) : /^[.#]/.test(raw) ? raw.slice(1) : raw;
+    if (/^["']/.test(value)) value = value.slice(1, -1);
+    validateAttribute(name, value, fenced);
+    remaining = remaining.slice(raw.length);
+  }
+}
+
+function validateMarkdownAttributes(content: string): void {
+  const masked = maskMarkdownCode(content);
+  let offset = 0;
+  let fence: string | null = null;
+  const lines = content.split("\n");
+  let precedingRootLine = "";
+  let hasBlockBoundary = true;
+  let table = false;
+  for (const [lineIndex, line] of lines.entries()) {
+    const body = line.replace(/\r$/, "");
+    if (!body.trim()) hasBlockBoundary = true;
+    else if (!/^(?: {4}|\t)/.test(body)) { precedingRootLine = body; hasBlockBoundary = false; }
+    if (!body.trim()) table = false;
+    else if (/^[| :\t-]+$/.test(body) && body.includes("|") && body.includes("-")) table = true;
+    const opening = body.match(/^[ \t]*(?:>[ \t]*)*(?:(?:[-+*]|[0-9]+[.)])[ \t]+)?(`{3,}|~{3,})(.*)$/);
+    if (fence) {
+      if (opening && opening[1][0] === fence[0] && opening[1].length >= fence.length && !opening[2].trim()) fence = null;
+      offset += line.length + 1;
+      continue;
+    }
+    if (opening && !(opening[1][0] === "`" && opening[2].includes("`"))) {
+      fence = opening[1];
+      const header = opening[2].trim();
+      const brace = header.indexOf("{");
+      if (brace >= 0 && header.endsWith("}")) validateAttributeList(header.slice(brace + 1, -1), true);
+      else {
+        const options = header.replace(/^[^\s]+/, "").trim();
+        if (options) validateAttributeList(options, true);
+      }
+      offset += line.length + 1;
+      continue;
+    }
+    // Preserve native root indented code, without skipping nested list,
+    // definition, HTML, tab or admonition attribute assignments.
+    if (/^(?: {4}|\t)/.test(body)) {
+      if (hasBlockBoundary && !/^\s*(?:[-+*]\s|[0-9]+[.)]\s|>|<|:|!{3}|\?{3}|={3}|\[\^[^\]]+\]:)/.test(precedingRootLine)) {
+        offset += line.length + 1;
+        continue;
+      }
+    }
+    const visible = masked.slice(offset, offset + body.length);
+    for (const match of visible.matchAll(/\{:?[ ]*([^}\n ][^\n]*?)\}/g)) {
+      const start = match.index ?? 0;
+      const before = body.slice(0, start).replace(/^[ \t]*(?:>[ \t]*)+/, "");
+      const nextLine = lines[lineIndex + 1] || "";
+      const atEnd = !body.slice(start + match[0].length).trim();
+      // Native attr_list attaches to inline elements, headings/table cells,
+      // or a final attribute-only block line. Braces in ordinary prose/code
+      // (e.g. PowerShell/Ruby examples) are not attribute lists.
+      if (/[)\]`*_~=:]$/.test(before) || table && before.includes("|") || atEnd && (!before.trim() || /^\s*#{1,6}\s+\S.* $/.test(before) || /^\s*(?:[=-]+\s*$|:\s)/.test(nextLine))) {
+        validateAttributeList(match[1]);
+      }
+    }
+    offset += line.length + 1;
+  }
+}
+
 function containsForbiddenMarkdown(content: string): boolean {
+  validateMarkdownAttributes(content);
   const view = securityView(content);
   if (FORBIDDEN_MARKDOWN.some((pattern) => pattern.test(view))) return true;
   return extractHtmlTags(view).some((tag) => {
@@ -415,6 +515,12 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
     if (!["create", "update", "delete", "rename"].includes(file.change_type)) {
       throw new Error(`Type de modification invalide pour ${path}.`);
     }
+    if (file.change_type !== "rename" && file.new_file_path != null) {
+      throw new Error("new_file_path est réservé aux renommages.");
+    }
+    if (["mkdocs.yml", "data/glossaire.json"].includes(path) && ["delete", "rename"].includes(file.change_type)) {
+      throw new Error(`Le fichier structurant ${path} ne peut être supprimé ou renommé.`);
+    }
     if (file.change_type !== "create" && (!file.base_file_sha || !SHA.test(file.base_file_sha))) {
       throw new Error(`SHA de base manquant ou invalide pour ${path}.`);
     }
@@ -427,7 +533,12 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
       seen.add(file.new_file_path);
     }
     const encoding = file.content_encoding || "utf-8";
-    const destination = file.new_file_path || path;
+    const destination = file.change_type === "rename" ? file.new_file_path! : path;
+    if (file.change_type === "rename" && destination === "mkdocs.yml") {
+      // Configuration edits need the trusted original YAML, not another file
+      // masquerading as its base. Normal mkdocs.yml updates remain supported.
+      throw new Error("La configuration MkDocs ne peut être remplacée par un renommage.");
+    }
     if (SAFE_IMAGE.test(destination) || SAFE_RESOURCE.test(destination)) {
       if (encoding !== "base64") throw new Error(`L’image ${path} doit être encodée en base64.`);
       if (file.new_content) {
@@ -436,11 +547,11 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
       }
     } else {
       if (encoding !== "utf-8") throw new Error(`Le fichier texte ${path} doit être encodé en UTF-8.`);
-      if (path.endsWith(".md") && file.new_content != null) {
-        if (file.change_type === "create") validateMarkdown(file.new_content);
+      if (destination.endsWith(".md") && file.new_content != null) {
+        if (file.change_type === "create" || !SAFE_MARKDOWN.test(path)) validateMarkdown(file.new_content);
         else validateMarkdownTransition(file.old_content || "", file.new_content);
       }
-      if (path === "data/glossaire.json" && file.new_content != null) validateGlossaryData(file.new_content);
+      if (destination === "data/glossaire.json" && file.new_content != null) validateGlossaryData(file.new_content);
     }
     if (totalBinarySize > 12_000_000) throw new Error("Les fichiers binaires de la proposition dépassent 12 Mo au total.");
     return { ...file, file_path: path, content_encoding: encoding, media_type: file.media_type || null };

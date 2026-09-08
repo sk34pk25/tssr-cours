@@ -3,6 +3,14 @@
 from __future__ import annotations
 
 from build_glossary import OUTPUT, load_data, render_page, validate
+from markdown_security import MarkdownSecurityExtension
+
+
+def on_config(config):
+    """Install security after the configured native Markdown extensions."""
+    if not any(isinstance(extension, MarkdownSecurityExtension) for extension in config.markdown_extensions):
+        config.markdown_extensions.append(MarkdownSecurityExtension())
+    return config
 
 
 def on_pre_build(*, config) -> None:  # noqa: ARG001 - MkDocs hook signature

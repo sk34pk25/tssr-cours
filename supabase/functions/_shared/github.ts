@@ -1,11 +1,12 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
+import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
 import {
   ProposedFile,
   validateMkDocsEdit,
   validateProposedFiles,
 } from "./validation.ts";
 
-interface GitHubConfig {
+export interface GitHubConfig {
   token: string;
   owner: string;
   repo: string;
@@ -42,6 +43,9 @@ export function githubConfig(): GitHubConfig {
   if (!["auto", "direct", "pull_request"].includes(requestedMode)) {
     throw new Error("GITHUB_PUBLISH_MODE doit valoir auto, direct ou pull_request.");
   }
+  singleLine(owner, "GitHub owner", 100);
+  singleLine(repo, "GitHub repository", 100);
+  singleLine(branch, "GitHub branch", 255);
   return { token, owner, repo, branch, publishMode: requestedMode as GitHubConfig["publishMode"] };
 }
 
@@ -64,6 +68,11 @@ async function github<T>(config: GitHubConfig, path: string, init: RequestInit =
     throw error;
   }
   return data as T;
+}
+
+/** Read-only GitHub evidence for the authenticated publication callback. */
+export function readGitHub<T>(path: string): Promise<T> {
+  return github<T>(githubConfig(), path);
 }
 
 function decodeBase64(value: string): string {
@@ -140,13 +149,28 @@ async function markFailure(
   status: "conflict" | "failed",
   reason: string,
 ): Promise<void> {
-  await adminClient.from("change_requests").update({ status, failure_reason: reason }).eq("id", changeId);
-  await adminClient.from("audit_logs").insert({
+  const { data, error } = await adminClient.from("change_requests")
+    .update({ status, failure_reason: reason.slice(0, 2000) })
+    .eq("id", changeId).eq("status", "publishing").select("id").maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!data) return; // Never overwrite a callback or another terminal transition.
+  const { error: auditError } = await adminClient.from("audit_logs").insert({
     action: status === "conflict" ? "publication_conflict" : "publication_failed",
     target_type: "change_request",
     target_id: changeId,
     metadata: { reason },
   });
+  if (auditError) throw new Error(auditError.message);
+}
+
+async function recordPublicationIntent(
+  adminClient: SupabaseClient, changeId: string, sha: string, mode: "direct" | "pull_request",
+): Promise<void> {
+  const { data, error } = await adminClient.from("change_requests").update({
+    publication_expected_sha: commitSha(sha), publication_mode: mode,
+    published_commit_sha: sha, failure_reason: null,
+  }).eq("id", changeId).eq("status", "publishing").select("id").single();
+  if (error || !data) throw new Error(error?.message || "Intention de publication non enregistrée.");
 }
 
 function treeMap(tree: GitTreeItem[]): Map<string, GitTreeItem> {
@@ -185,6 +209,8 @@ async function createAtomicCommit(
   files: ProposedFile[],
   approverNames: string[],
 ): Promise<{ commitSha: string; currentSha: string }> {
+  // Check every display value before creating even an unreferenced Git object.
+  const message = buildCommitMessage(request, approverNames);
   const ref = await github<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
   const currentSha = ref.object.sha;
   const commit = await github<{ tree: { sha: string } }>(config, `/git/commits/${currentSha}`);
@@ -225,15 +251,6 @@ async function createAtomicCommit(
     method: "POST",
     body: JSON.stringify({ base_tree: commit.tree.sha, tree: elements }),
   });
-  const shortId = request.id.slice(0, 8);
-  const message = [
-    `docs: apply approved change #${shortId}`,
-    "",
-    `Approved change: ${request.title}`,
-    `Author: ${request.author_display_name}`,
-    `Approved by: ${approverNames.join(", ")}`,
-    `Change-Request-ID: ${request.id}`,
-  ].join("\n");
   const created = await github<{ sha: string }>(config, "/git/commits", {
     method: "POST",
     body: JSON.stringify({ message, tree: tree.sha, parents: [currentSha] }),
@@ -249,6 +266,7 @@ async function publishDirect(config: GitHubConfig, commitSha: string, expectedPa
     });
   } catch (error) {
     const latest = await github<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
+    if (latest.object.sha === commitSha) return; // Lost response after a successful push.
     if (latest.object.sha !== expectedParent) {
       const conflict = new Error("La branche GitHub a avancé pendant la publication.") as Error & { conflict?: boolean };
       conflict.conflict = true;
@@ -286,12 +304,14 @@ async function publishPullRequest(
 }
 
 export async function publishApprovedChange(adminClient: SupabaseClient, changeId: string): Promise<void> {
+  changeRequestId(changeId);
   let claimed = false;
+  let externallyPublished = false;
   try {
     const { data: claimedRequest, error: claimError } = await adminClient
       .rpc("service_claim_change_for_publication", { p_change_request_id: changeId });
     const request = Array.isArray(claimedRequest) ? claimedRequest[0] : claimedRequest;
-    if (claimError || !request) throw new Error(claimError?.message || "Publication déjà prise en charge.");
+    if (claimError || !request?.id) throw new Error(claimError?.message || "Publication déjà prise en charge.");
     claimed = true;
 
     const { data: rawFiles, error: filesError } = await adminClient
@@ -323,8 +343,11 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
     let mode = config.publishMode;
     let prNumber: number | null = null;
     if (mode !== "pull_request") {
+      // Persist the expected identity before a push can start Actions.
+      await recordPublicationIntent(adminClient, changeId, commitSha, "direct");
       try {
         await publishDirect(config, commitSha, currentSha);
+        externallyPublished = true;
         mode = "direct";
       } catch (error) {
         if ((error as Error & { conflict?: boolean }).conflict) throw error;
@@ -333,22 +356,33 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
       }
     }
     if (mode === "pull_request") {
+      await recordPublicationIntent(adminClient, changeId, commitSha, "pull_request");
       prNumber = await publishPullRequest(config, request as ChangeRequestRow, commitSha);
+      externallyPublished = true;
     }
 
-    await adminClient.from("change_requests").update({
-      published_commit_sha: commitSha,
-      github_pr_number: prNumber,
-      failure_reason: null,
-    }).eq("id", changeId);
-    await adminClient.from("audit_logs").insert({
+    if (prNumber !== null) {
+      const { error: metadataError } = await adminClient.from("change_requests")
+        .update({ github_pr_number: prNumber }).eq("id", changeId)
+        .eq("publication_expected_sha", commitSha).eq("status", "publishing");
+      if (metadataError) throw new Error(metadataError.message);
+    }
+    const { error: auditError } = await adminClient.from("audit_logs").insert({
       action: mode === "direct" ? "publication_committed" : "publication_pull_request_created",
       target_type: "change_request",
       target_id: changeId,
       metadata: { commit_sha: commitSha, pull_request: prNumber },
     });
+    if (auditError) throw new Error(auditError.message);
   } catch (error) {
-    if (!claimed && /déjà prise en charge/i.test(error instanceof Error ? error.message : String(error))) return;
+    // The losing/uncertain claimant owns no state: do not write, audit or publish.
+    if (!claimed) {
+      if (/déjà prise en charge|n’est pas disponible pour publication/i.test(error instanceof Error ? error.message : String(error))) return;
+      throw error;
+    }
+    // An acknowledged Git effect must be reconciled by the callback, not undone
+    // by a later metadata/audit error. Keep publishing rather than report false failure.
+    if (externallyPublished) throw error;
     const conflict = Boolean((error as Error & { conflict?: boolean }).conflict) || /modifié|existe désormais|n’existe plus|avancé/i.test(
       error instanceof Error ? error.message : String(error),
     );
