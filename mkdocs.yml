@@ -199,6 +199,14 @@ nav:
       - Mise en situation professionnelle — Systèmes clients:
           - Présentation: modules/08-msp-systemes-clients/index.md
           - Module 01 — MSP Systèmes clients: modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md
+      - Services réseaux en environnement Microsoft:
+          - Présentation: modules/09-services-reseaux-en-environnement-microsoft/index.md
+          - Module 01: modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md
+          - Module 02: modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md
+          - Module 03: modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03.md
+          - Module 04: modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04.md
+          - Module 05: modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05.md
+          - Module 06: modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06.md
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md

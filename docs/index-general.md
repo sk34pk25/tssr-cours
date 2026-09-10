@@ -113,3 +113,15 @@
 ## W
 
 - [Workstation](modules/02-systemes-clients-microsoft/module-additionnel-workstation.md)
+
+<!-- TSSR-COURSE-CREATOR:services-reseaux-en-environnement-microsoft:START -->
+## Contributions approuvées — Services réseaux en environnement Microsoft
+
+- [Services réseaux en environnement Microsoft](modules/09-services-reseaux-en-environnement-microsoft/index.md)
+- [Module 01](modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md)
+- [Module 02](modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md)
+- [Module 03](modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03.md)
+- [Module 04](modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04.md)
+- [Module 05](modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05.md)
+- [Module 06](modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06.md)
+<!-- TSSR-COURSE-CREATOR:services-reseaux-en-environnement-microsoft:END -->
