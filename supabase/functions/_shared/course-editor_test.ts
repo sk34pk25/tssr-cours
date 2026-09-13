@@ -12,6 +12,41 @@ import {
 
 const sha = (character: string) => character.repeat(40);
 
+function modificationWithGlossary(links: unknown) {
+  const { plan, snapshot, editor } = fixture();
+  const draft = structuredClone(editor.draft) as Record<string, unknown>;
+  draft.existingGlossary = links;
+  return buildCourseModification({
+    meta: editor.meta,
+    baseCommitSha: snapshot.commitSha,
+    draft,
+    attachments: editor.attachments,
+  }, plan, snapshot);
+}
+
+Deno.test("editing rejects malformed glossary links with a controlled error, never undefined", () => {
+  for (const link of [{}, { id: null }, { id: "" }, null, "osi", { id: 12 }, { id: "<img>" }, { id: "osi\n" }]) {
+    const error = assertThrows(() => modificationWithGlossary([link]), Error);
+    assertEquals(error.message.includes("undefined"), false);
+    assertMatch(error.message, /association de glossaire.*invalide/);
+  }
+});
+
+Deno.test("editing reports an unknown valid glossary ID explicitly", () => {
+  assertThrows(() => modificationWithGlossary([{ id: "dhcp", moduleIndex: -1 }]), Error, "Le terme de glossaire « dhcp » n’existe plus.");
+});
+
+Deno.test("editing still associates a known glossary term with the course overview", () => {
+  const result = modificationWithGlossary([{ id: "osi", moduleIndex: -1 }]);
+  const glossary = result.files.find((file) => file.file_path === "data/glossaire.json");
+  const entry = JSON.parse(glossary!.new_content!).entries.find((item: { id: string }) => item.id === "osi");
+  assertEquals(entry.refs, ["reseaux:r01", "reseaux:r00"]);
+});
+
+Deno.test("editing fails closed for a mix of valid and invalid glossary links", () => {
+  assertThrows(() => modificationWithGlossary([{ id: "osi", moduleIndex: -1 }, {}]), Error, "association de glossaire");
+});
+
 function fixture() {
   const mkdocs = `site_name: TSSR
 theme:

@@ -2464,11 +2464,21 @@ export function buildCourseModification(
   });
   list(nextDraft.existingGlossary, 500).forEach((linkValue) => {
     const link = record(linkValue);
+    // Match the glossary source ID grammar without coercion or reassignment.
+    if (
+      typeof link.id !== "string" ||
+      link.id !== link.id.trim() ||
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(link.id)
+    ) {
+      throw new Error(
+        "Une association de glossaire du brouillon est invalide. Rechargez ou supprimez cette association.",
+      );
+    }
     const entry = entries.find((candidate) =>
-      String(candidate.id || slugify(candidate.term)) === String(link.id)
+      String(candidate.id || slugify(candidate.term)) === link.id
     );
     if (!entry) {
-      throw new Error(`Le terme de glossaire ${link.id} n’existe plus.`);
+      throw new Error(`Le terme de glossaire « ${link.id} » n’existe plus.`);
     }
     const reference = `${plan.courseId}:${moduleIdForIndex(link.moduleIndex)}`;
     const refs = Array.isArray(entry.refs) ? entry.refs as string[] : [];
