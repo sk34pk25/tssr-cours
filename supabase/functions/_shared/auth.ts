@@ -26,10 +26,18 @@ function requiredEnv(...names: string[]): string {
   throw new Error(`Secret serveur manquant : ${names.join(" ou ")}`);
 }
 
-export function createAdminClient(): SupabaseClient {
+export function createAdminClient(operationId?: string, beforeMutation?: () => void): SupabaseClient {
   const url = requiredEnv("SUPABASE_URL");
   const key = requiredEnv("SUPABASE_SECRET_KEY", "SUPABASE_SERVICE_ROLE_KEY");
   return createClient(url, key, {
+    global: {
+      headers: operationId ? { "x-tssr-operation": operationId } : {},
+      fetch: (input, init) => {
+        const method = init?.method || (input instanceof Request ? input.method : "GET");
+        if (!["GET", "HEAD", "OPTIONS"].includes(method.toUpperCase())) beforeMutation?.();
+        return fetch(input, init);
+      },
+    },
     auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false },
   });
 }

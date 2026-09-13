@@ -76,7 +76,8 @@ jobs:
           except Exception:
               raise SystemExit("Publication attestation failed; deployment is not authorized.") from None
           sha, number = result.get("expected_sha"), result.get("pr_number")
-          if (result.get("ok") is not True or not isinstance(sha, str)
+          if (result.get("maintenance_protocol") != "tssr-maintenance-v1"
+                  or result.get("ok") is not True or not isinstance(sha, str)
                   or not re.fullmatch(r"[0-9a-f]{40}", sha)
                   or "pr_number" not in result
                   or (number is not None and (type(number) is not int or number < 1))):
@@ -158,9 +159,41 @@ jobs:
           retention-days: 1
           include-hidden-files: true
 
+  authorize-deploy:
+    needs: [attest, build]
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      # No checkout or downloaded artifact in this secret-bearing job.
+      - name: Recheck admitted publication immediately before deploy
+        if: needs.attest.outputs.change_id != ''
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ needs.attest.outputs.change_id }}
+          COMMIT_SHA: ${{ needs.attest.outputs.commit_sha }}
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          request = urllib.request.Request(os.environ["WEBHOOK_URL"], method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": os.environ["WEBHOOK_SECRET"],
+          }, data=json.dumps({"action": "verify-deploy", "change_request_id": os.environ["CHANGE_ID"],
+                              "commit_sha": os.environ["COMMIT_SHA"]}).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.load(response)
+              if (result.get("ok") is not True or result.get("maintenance_protocol") != "tssr-maintenance-v1"
+                      or result.get("change_request_id") != os.environ["CHANGE_ID"]
+                      or result.get("expected_sha") != os.environ["EXPECTED_SHA"]):
+                  raise ValueError("Invalid drain attestation")
+          except Exception:
+              raise SystemExit("Publication drain was not authorized.") from None
+          PY
+
   deploy:
     name: TSSR-deploy-v1|${{ needs.attest.outputs.change_id }}|${{ needs.attest.outputs.expected_sha }}|${{ needs.attest.outputs.commit_sha }}
-    needs: [attest, build]
+    needs: [attest, build, authorize-deploy]
     runs-on: ubuntu-latest
     permissions:
       contents: write

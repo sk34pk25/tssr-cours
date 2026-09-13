@@ -201,14 +201,33 @@ class WorkflowBoundaryTests(unittest.TestCase):
         self.assertIn('-f commit_sha="$merge_sha"', job)
         self.assertIn("actions: write", job)
 
-    def test_generic_validation_covers_every_main_pr_including_fork_prefix(self):
+    def test_generic_validation_covers_main_and_dependent_prs_including_fork_prefix(self):
         self.assertIn("\n  pull_request:\n", self.generic)
-        self.assertIn("branches: [main]", self.generic)
+        self.assertIn("branches: [main, hardening/pre-agent]", self.generic)
         self.assertNotIn("head_ref", self.generic)
         self.assertNotIn("collaboration/change-", self.generic)
         self.assertNotIn("    if:", jobs(self.generic)["validate"])
         self.assertIn("contents: read", self.generic)
         self.assertIn("persist-credentials: false", self.generic)
+
+    def test_generic_validation_has_only_bounded_pr_events_and_read_authority(self):
+        # Exact trigger block: no wildcard base, head/fork exclusion, push,
+        # manual dispatch or privileged pull_request_target entrypoint.
+        trigger = self.generic.split("\non:\n", 1)[1].split("\npermissions:\n", 1)[0]
+        self.assertEqual(trigger.strip(),
+                         "pull_request:\n    branches: [main, hardening/pre-agent]\n"
+                         "    types: [opened, synchronize, reopened]")
+        permissions = self.generic.split("\npermissions:\n", 1)[1].split("\nconcurrency:\n", 1)[0]
+        self.assertEqual(permissions.strip(), "contents: read")
+        self.assertEqual(set(jobs(self.generic)), {"validate"})
+        job = jobs(self.generic)["validate"]
+        for forbidden in ("permissions:", "secrets.", "environment:", "write-all",
+                          "git push", "gh pr merge", "auto-merge", "workflow run",
+                          "x-publication-secret", "supabase.co", "curl ", "wget "):
+            with self.subTest(forbidden=forbidden):
+                self.assertNotIn(forbidden, job)
+        self.assertIn("runs-on: ubuntu-latest", job)
+        self.assertIn("persist-credentials: false", job)
 
     def test_deployment_gate_precedes_pinned_secretless_build(self):
         gate, build = self.deploy_jobs["attest"], self.deploy_jobs["build"]
@@ -228,7 +247,7 @@ class WorkflowBoundaryTests(unittest.TestCase):
 
     def test_deploy_privileges_do_not_execute_source_code_and_preserve_proof_names(self):
         deploy = self.deploy_jobs["deploy"]
-        self.assertIn("needs: [attest, build]", deploy)
+        self.assertIn("needs: [attest, build, authorize-deploy]", deploy)
         self.assertIn("contents: write", deploy)
         self.assertIn("ref: gh-pages", deploy)
         self.assertIn("persist-credentials: false", deploy)
@@ -280,10 +299,19 @@ class WorkflowBoundaryTests(unittest.TestCase):
 
     def test_all_trusted_inline_python_compiles(self):
         sources = inline_python(self.pr) + inline_python(self.deploy)
-        self.assertEqual(len(sources), 6)
+        self.assertEqual(len(sources), 7)  # Additional isolated pre-deploy admission check.
         for index, source in enumerate(sources):
             with self.subTest(script=index):
                 compile(source, f"workflow-inline-{index}", "exec")
+
+    def test_pre_deploy_gate_keeps_secrets_off_the_deploy_runner(self):
+        gate = self.deploy_jobs["authorize-deploy"]
+        self.assertIn("needs: [attest, build]", gate)
+        self.assertIn("permissions: {}", gate)
+        self.assertNotIn("uses:", gate)
+        self.assertNotIn("scripts/", gate)
+        self.assertIn('"action": "verify-deploy"', gate)
+        self.assertIn('result.get("maintenance_protocol") != "tssr-maintenance-v1"', gate)
 
 
 class WorkflowAttestationExecutionTests(unittest.TestCase):
@@ -303,7 +331,7 @@ class WorkflowAttestationExecutionTests(unittest.TestCase):
             return output.read_text(), request
 
     def valid_result(self) -> dict:
-        return {"ok": True, "change_request_id": CHANGE_ID, "expected_sha": HEAD_SHA, "pr_number": 42}
+        return {"ok": True, "maintenance_protocol": "tssr-maintenance-v1", "change_request_id": CHANGE_ID, "expected_sha": HEAD_SHA, "pr_number": 42}
 
     def test_legitimate_binding_calls_gate_and_emits_only_verified_outputs(self):
         output, request = self.run_attestation(self.valid_result())
@@ -314,7 +342,7 @@ class WorkflowAttestationExecutionTests(unittest.TestCase):
         self.assertNotIn("test-only-value", output)
 
     def test_invalid_or_stale_attestations_never_emit_merge_authority(self):
-        for changes in ({"ok": False}, {"expected_sha": MERGE_SHA}, {"change_request_id": OTHER_ID}, {"pr_number": 43}, {"pr_number": "42"}):
+        for changes in ({"maintenance_protocol": None}, {"maintenance_protocol": "unknown"}, {"ok": False}, {"expected_sha": MERGE_SHA}, {"change_request_id": OTHER_ID}, {"pr_number": 43}, {"pr_number": "42"}):
             with self.subTest(changes=changes), self.assertRaises(SystemExit):
                 self.run_attestation({**self.valid_result(), **changes})
 

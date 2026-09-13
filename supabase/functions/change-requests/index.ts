@@ -5,7 +5,8 @@ import {
   isAllowedOrigin,
   jsonResponse,
 } from "../_shared/cors.ts";
-import { readJsonBody, requireProfile } from "../_shared/auth.ts";
+import { createAdminClient, readJsonBody, requireProfile } from "../_shared/auth.ts";
+import { guardEditorAction } from "../_shared/maintenance.ts";
 import { singleLine } from "../_shared/publication-metadata.ts";
 import {
   fetchRepositoryBlob,
@@ -251,6 +252,7 @@ Deno.serve(async (req: Request) => {
 
   try {
     const body = await readJsonBody<ChangeRequestBody>(req, 20_000_000);
+    await guardEditorAction(createAdminClient(), body.action);
 
     if (body.action === "get-source") {
       await requireProfile(req, { canEdit: true });
