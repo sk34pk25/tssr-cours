@@ -201,14 +201,33 @@ class WorkflowBoundaryTests(unittest.TestCase):
         self.assertIn('-f commit_sha="$merge_sha"', job)
         self.assertIn("actions: write", job)
 
-    def test_generic_validation_covers_every_main_pr_including_fork_prefix(self):
+    def test_generic_validation_covers_main_and_dependent_prs_including_fork_prefix(self):
         self.assertIn("\n  pull_request:\n", self.generic)
-        self.assertIn("branches: [main]", self.generic)
+        self.assertIn("branches: [main, hardening/pre-agent]", self.generic)
         self.assertNotIn("head_ref", self.generic)
         self.assertNotIn("collaboration/change-", self.generic)
         self.assertNotIn("    if:", jobs(self.generic)["validate"])
         self.assertIn("contents: read", self.generic)
         self.assertIn("persist-credentials: false", self.generic)
+
+    def test_generic_validation_has_only_bounded_pr_events_and_read_authority(self):
+        # Exact trigger block: no wildcard base, head/fork exclusion, push,
+        # manual dispatch or privileged pull_request_target entrypoint.
+        trigger = self.generic.split("\non:\n", 1)[1].split("\npermissions:\n", 1)[0]
+        self.assertEqual(trigger.strip(),
+                         "pull_request:\n    branches: [main, hardening/pre-agent]\n"
+                         "    types: [opened, synchronize, reopened]")
+        permissions = self.generic.split("\npermissions:\n", 1)[1].split("\nconcurrency:\n", 1)[0]
+        self.assertEqual(permissions.strip(), "contents: read")
+        self.assertEqual(set(jobs(self.generic)), {"validate"})
+        job = jobs(self.generic)["validate"]
+        for forbidden in ("permissions:", "secrets.", "environment:", "write-all",
+                          "git push", "gh pr merge", "auto-merge", "workflow run",
+                          "x-publication-secret", "supabase.co", "curl ", "wget "):
+            with self.subTest(forbidden=forbidden):
+                self.assertNotIn(forbidden, job)
+        self.assertIn("runs-on: ubuntu-latest", job)
+        self.assertIn("persist-credentials: false", job)
 
     def test_deployment_gate_precedes_pinned_secretless_build(self):
         gate, build = self.deploy_jobs["attest"], self.deploy_jobs["build"]

@@ -40,9 +40,9 @@ test("deploy rechecks admission after build; ordinary main deployment remains po
   assert.match(source, /if: steps.metadata.outputs.change_id != ''/);
 });
 
-test("every PR including forks retains validation and real PostgreSQL maintenance tests", () => {
+test("main and dependent PRs including forks retain validation and real PostgreSQL maintenance tests", () => {
   const source = read(".github/workflows/validate-pr.yml");
-  assert.match(source, /pull_request:\s+branches: \[main\]/);
+  assert.match(source, /pull_request:\s+branches: \[main, hardening\/pre-agent\]/);
   assert.doesNotMatch(source, /collaboration\/change-|pull_request_target/);
   assert.match(source, /python tests\/maintenance_postgres.py/);
 });
