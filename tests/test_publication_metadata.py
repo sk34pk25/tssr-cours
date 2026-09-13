@@ -228,7 +228,7 @@ class WorkflowBoundaryTests(unittest.TestCase):
 
     def test_deploy_privileges_do_not_execute_source_code_and_preserve_proof_names(self):
         deploy = self.deploy_jobs["deploy"]
-        self.assertIn("needs: [attest, build]", deploy)
+        self.assertIn("needs: [attest, build, authorize-deploy]", deploy)
         self.assertIn("contents: write", deploy)
         self.assertIn("ref: gh-pages", deploy)
         self.assertIn("persist-credentials: false", deploy)
@@ -280,10 +280,19 @@ class WorkflowBoundaryTests(unittest.TestCase):
 
     def test_all_trusted_inline_python_compiles(self):
         sources = inline_python(self.pr) + inline_python(self.deploy)
-        self.assertEqual(len(sources), 6)
+        self.assertEqual(len(sources), 7)  # Additional isolated pre-deploy admission check.
         for index, source in enumerate(sources):
             with self.subTest(script=index):
                 compile(source, f"workflow-inline-{index}", "exec")
+
+    def test_pre_deploy_gate_keeps_secrets_off_the_deploy_runner(self):
+        gate = self.deploy_jobs["authorize-deploy"]
+        self.assertIn("needs: [attest, build]", gate)
+        self.assertIn("permissions: {}", gate)
+        self.assertNotIn("uses:", gate)
+        self.assertNotIn("scripts/", gate)
+        self.assertIn('"action": "verify-deploy"', gate)
+        self.assertIn('result.get("maintenance_protocol") != "tssr-maintenance-v1"', gate)
 
 
 class WorkflowAttestationExecutionTests(unittest.TestCase):
@@ -303,7 +312,7 @@ class WorkflowAttestationExecutionTests(unittest.TestCase):
             return output.read_text(), request
 
     def valid_result(self) -> dict:
-        return {"ok": True, "change_request_id": CHANGE_ID, "expected_sha": HEAD_SHA, "pr_number": 42}
+        return {"ok": True, "maintenance_protocol": "tssr-maintenance-v1", "change_request_id": CHANGE_ID, "expected_sha": HEAD_SHA, "pr_number": 42}
 
     def test_legitimate_binding_calls_gate_and_emits_only_verified_outputs(self):
         output, request = self.run_attestation(self.valid_result())
@@ -314,7 +323,7 @@ class WorkflowAttestationExecutionTests(unittest.TestCase):
         self.assertNotIn("test-only-value", output)
 
     def test_invalid_or_stale_attestations_never_emit_merge_authority(self):
-        for changes in ({"ok": False}, {"expected_sha": MERGE_SHA}, {"change_request_id": OTHER_ID}, {"pr_number": 43}, {"pr_number": "42"}):
+        for changes in ({"maintenance_protocol": None}, {"maintenance_protocol": "unknown"}, {"ok": False}, {"expected_sha": MERGE_SHA}, {"change_request_id": OTHER_ID}, {"pr_number": 43}, {"pr_number": "42"}):
             with self.subTest(changes=changes), self.assertRaises(SystemExit):
                 self.run_attestation({**self.valid_result(), **changes})
 

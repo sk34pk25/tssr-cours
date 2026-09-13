@@ -41,6 +41,9 @@ jobs:
       - name: Test native Markdown and publication boundaries
         run: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -p 'test_*.py'
 
+      - name: Test maintenance against isolated PostgreSQL 16
+        run: PYTHONDONTWRITEBYTECODE=1 python tests/maintenance_postgres.py
+
       - name: Test shared Supabase functions
         run: npx --yes deno-bin@2.2.7 test --allow-env 'supabase/functions/_shared/*_test.ts'
 

@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { handlePreflight, isAllowedOrigin, jsonResponse, errorResponse } from "../_shared/cors.ts";
-import { readJsonBody, requireProfile, type Profile } from "../_shared/auth.ts";
+import { createAdminClient, readJsonBody, requireProfile, type Profile, type RequestContext } from "../_shared/auth.ts";
+import { beginOperation, finishOperation } from "../_shared/maintenance.ts";
 import { publishApprovedChange } from "../_shared/github.ts";
 import { singleLine } from "../_shared/publication-metadata.ts";
 
@@ -89,11 +90,19 @@ Deno.serve(async (req: Request) => {
   if (!isAllowedOrigin(req)) return errorResponse(req, "Origine non autorisée.", 403);
   if (req.method !== "POST") return errorResponse(req, "Méthode non autorisée.", 405);
 
+  let operation: { client: SupabaseClient; id: string; engaged: boolean } | undefined;
+  const admit = async (context: RequestContext) => {
+    const id = await beginOperation(context.adminClient, "admin");
+    operation = { client: context.adminClient, id, engaged: false };
+    context.adminClient = createAdminClient(id, () => { operation!.engaged = true; });
+  };
   try {
+    const respond = async () => {
     const body = await readJsonBody<AdminRequest>(req, 100_000);
 
     if (body.action === "change-own-password") {
       const context = await requireProfile(req, { allowTemporaryPassword: true });
+      await admit(context);
       const currentPassword = body.current_password || "";
       const newPassword = body.password || "";
       if (!currentPassword) throw new Error("Le mot de passe actuel est requis.");
@@ -118,6 +127,7 @@ Deno.serve(async (req: Request) => {
 
     if (body.action === "update-own-profile") {
       const context = await requireProfile(req);
+      await admit(context);
       const displayName = validateName(body.display_name || "");
       const { data, error } = await context.adminClient.from("profiles")
         .update({ display_name: displayName })
@@ -130,6 +140,7 @@ Deno.serve(async (req: Request) => {
     }
 
     const context = await requireProfile(req, { admin: true });
+    if (body.action !== "list") await admit(context);
     const { adminClient, profile: actor } = context;
 
     if (body.action === "list") {
@@ -245,7 +256,17 @@ Deno.serve(async (req: Request) => {
     }
 
     throw new Error("Action administrateur inconnue.");
+    };
+    const response = await respond();
+    if (operation) await finishOperation(operation.client, operation.id);
+    return response;
   } catch (error) {
+    // Ambiguous Auth/DB errors retain the operation for explicit operator review.
+    // No TTL may make a still-running external call disappear from the drain.
+    if (operation && !operation.engaged) {
+      try { await finishOperation(operation.client, operation.id); }
+      catch (maintenanceError) { return errorResponse(req, maintenanceError); }
+    }
     const message = error instanceof Error ? error.message : String(error);
     const status = /Session|Accès|Permission|suspendu/i.test(message) ? 403 : 400;
     return errorResponse(req, error, status);

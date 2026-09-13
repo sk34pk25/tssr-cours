@@ -2,6 +2,7 @@ import { assertEquals, assertRejects, assertThrows } from "jsr:@std/assert@1.0.1
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
 import { publishApprovedChange } from "./github.ts";
+import { MaintenanceError } from "./maintenance.ts";
 import {
   checkReceiptState, handlePublication, normalizeReceipt, verifyPull, verifyRunEvidence,
   type GitHubReader, type PublicationReceipt, type PublicationRow,
@@ -13,7 +14,8 @@ const MERGE = "b".repeat(40);
 const CONFIG = { token: "test-only", owner: "example", repo: "tssr", branch: "main", publishMode: "auto" as const };
 function row(overrides: Partial<PublicationRow> = {}): PublicationRow {
   return { id: ID, status: "publishing", publication_expected_sha: SHA, publication_mode: "direct",
-    github_pr_number: null, published_commit_sha: SHA, publication_callback: null, ...overrides };
+    github_pr_number: null, published_commit_sha: SHA, publication_callback: null,
+    published_at: null, failure_reason: null, ...overrides };
 }
 function receipt(overrides: Partial<PublicationReceipt> = {}): PublicationReceipt {
   return { change_request_id: ID, expected_sha: SHA, commit_sha: SHA, status: "published",
@@ -78,13 +80,13 @@ Deno.test("callback mismatch and contradiction reject; identical terminal replay
   assertThrows(() => checkReceiptState(row(), receipt({ commit_sha: MERGE })));
   assertThrows(() => checkReceiptState(row({ status: "pending" }), receipt()));
   assertThrows(() => checkReceiptState(row({ publication_expected_sha: null }), receipt()));
-  const done = row({ status: "published", publication_callback: receipt() });
+  const done = row({ status: "published", publication_callback: receipt(), published_at: "2026-09-12T10:00:00Z" });
   assertEquals(checkReceiptState(done, receipt()), "replay");
   for (const override of [{ status: "failed" as const }, { run_id: "124" }, { commit_sha: MERGE }, { failure_reason: "autre" }]) {
     assertThrows(() => checkReceiptState(done, receipt(override)));
   }
   const failure = receipt({ status: "failed", failure_reason: "Build échoué" });
-  assertEquals(checkReceiptState(row({ status: "failed", publication_callback: failure }), failure), "replay");
+  assertEquals(checkReceiptState(row({ status: "failed", publication_callback: failure, failure_reason: failure.failure_reason }), failure), "replay");
   assertThrows(() => checkReceiptState(row({ status: "failed", publication_callback: failure }), receipt()));
 });
 
@@ -98,6 +100,51 @@ Deno.test("PR attestation requires the approved head, repository, exact branch a
     { base: { ref: "other", repo: { full_name: "example/tssr" } } }, { merged: true },
   ]) await assertRejects(() => verifyPull(proposal, 7, "example/tssr", "main", reader({ "/pulls/7": pull(override) })));
   await assertRejects(() => verifyPull(row(), 7, "example/tssr", "main", reader({ "/pulls/7": pull() })));
+});
+
+Deno.test("B1 intermediate modern statuses cannot enter callback application", async () => {
+  for (const status of ["conflict", "approved", "cancelled", "failed", "published"]) {
+    assertThrows(() => checkReceiptState(row({ status }), receipt()));
+    await assertRejects(() => handlePublication(callbackClient(row({ status })).client, { ...receipt() },
+      () => { throw new Error("No GitHub call allowed"); }, CONFIG));
+  }
+});
+
+Deno.test("B2 replay rejects contradictory status SHA PR mode reason and timestamp", async () => {
+  const done=row({ status:"published",publication_callback:receipt(),published_at:"2026-09-12T10:00:00Z" });
+  for (const change of [{ status:"failed" },{ published_commit_sha:MERGE },{ github_pr_number:7 },
+    { publication_mode:"pull_request" as const },{ publication_mode:null },{ publication_expected_sha:MERGE },
+    { failure_reason:"Contradiction" },{ published_at:null },{ published_at:"invalid" }]) {
+    const contradictory={...done,...change};
+    assertThrows(() => checkReceiptState(contradictory,receipt()));
+    await assertRejects(() => handlePublication(callbackClient(contradictory).client,{...receipt()},
+      () => { throw new Error("No GitHub call allowed"); },CONFIG));
+  }
+});
+
+Deno.test("B2 failed PR deploy preserves expected SHA while receipt names merge SHA", async () => {
+  for (const status of ["published","failed"] as const) {
+    const received=receipt({status,commit_sha:MERGE,pr_number:7,failure_reason:status==="failed"?"Build failed":null});
+    const done=row({status,publication_mode:"pull_request",github_pr_number:7,publication_callback:received,
+      published_commit_sha:status==="published"?MERGE:SHA,published_at:status==="published"?"2026-09-12T10:00:00Z":null,
+      failure_reason:received.failure_reason});
+    assertEquals(checkReceiptState(done,received),"replay");
+    const client=callbackClient(done);
+    assertEquals((await handlePublication(client.client,{...received},()=>{throw new Error("No GitHub");},CONFIG)).replayed,true);
+    assertEquals(client.writes(),0);
+    assertThrows(()=>checkReceiptState({...done,status:status==="published"?"failed":"published"},received));
+    assertThrows(()=>checkReceiptState({...done,github_pr_number:null},received));
+    assertThrows(()=>checkReceiptState({...done,published_commit_sha:status==="published"?SHA:MERGE},received));
+  }
+});
+
+Deno.test("B2 replay cannot bypass SQL snapshot rejection after a valid frontend precheck", async () => {
+  const done=row({status:"published",publication_callback:receipt(),published_at:"2026-09-12T10:00:01Z"});
+  const db={from:()=>({select:()=>({eq:()=>({single:()=>Promise.resolve({data:done,error:null})})})}),
+    rpc:(name:string)=>{assertEquals(name,"service_complete_guarded_publication");
+      return Promise.resolve({data:null,error:{message:"Contradictory terminal publication state"}});},
+  } as unknown as SupabaseClient;
+  await assertRejects(()=>handlePublication(db,{...receipt()},()=>{throw new Error("No GitHub");},CONFIG),Error,"Contradictory terminal");
 });
 
 Deno.test("GitHub run/attempt evidence, not caller assertions, establishes deploy success", async () => {
@@ -160,8 +207,18 @@ function callbackClient(proposal: PublicationRow) {
   const client = {
     from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: structuredClone(proposal), error: null }) }) }) }),
     rpc: (_name: string, args: { p_receipt: PublicationReceipt }) => {
+      if (_name === "service_check_publication_drain") return Promise.resolve({ data: {
+        protocol: "tssr-maintenance-v1", admitted: true, change_request_id: ID,
+      }, error: null });
+      assertEquals(_name, "service_complete_guarded_publication");
       const replayed = checkReceiptState(proposal, args.p_receipt) === "replay";
-      if (!replayed) { writes++; proposal.publication_callback = args.p_receipt; proposal.status = args.p_receipt.status; proposal.published_commit_sha = args.p_receipt.commit_sha; }
+      if (!replayed) {
+        writes++; proposal.publication_callback = args.p_receipt; proposal.status = args.p_receipt.status;
+        proposal.github_pr_number = args.p_receipt.pr_number; proposal.failure_reason = args.p_receipt.failure_reason;
+        if (args.p_receipt.status === "published") {
+          proposal.published_commit_sha = args.p_receipt.commit_sha; proposal.published_at = "2026-09-12T10:00:00Z";
+        }
+      }
       return Promise.resolve({ data: { id: ID, status: proposal.status, published_commit_sha: proposal.published_commit_sha, replayed }, error: null });
     },
   } as unknown as SupabaseClient;
@@ -212,8 +269,10 @@ Deno.test("PR deployment accepts only the real merged SHA of the approved PR", a
   assertEquals(state.writes(), 0, "merged PR requires deploy recovery, never false validation failure");
 });
 
-Deno.test("two publication claims: losing worker never publishes, writes or marks failure", async () => {
-  for (const losePushResponse of [false, true]) {
+Deno.test("publication ownership and maintenance guard hold at the actual GitHub sink", async () => {
+  for (const scenario of ["normal", "lost-push-response", "close-after-claim"]) {
+  const losePushResponse = scenario === "lost-push-response";
+  const closeAfterClaim = scenario === "close-after-claim";
   const originalFetch = globalThis.fetch;
   const envNames = ["GITHUB_TOKEN", "GITHUB_OWNER", "GITHUB_REPO", "GITHUB_BRANCH", "GITHUB_PUBLISH_MODE"];
   const originals = envNames.map((key) => Deno.env.get(key));
@@ -223,9 +282,21 @@ Deno.test("two publication claims: losing worker never publishes, writes or mark
   let updates = 0;
   let audits = 0;
   let pushes = 0;
+  let gitWrites = 0;
   let expectedSha: string | null = null;
   const client = {
-    rpc: () => {
+    rpc: (name: string, args: Record<string, unknown>) => {
+      if (name === "service_begin_collaboration_operation") return Promise.resolve(closeAfterClaim
+        ? { data: null, error: { message: "COLLABORATION_MAINTENANCE" } }
+        : { data: { protocol: "tssr-maintenance-v1", operation_id: ID }, error: null });
+      if (name === "service_check_publication_drain") return Promise.resolve({ data: { protocol: "tssr-maintenance-v1", admitted: true, change_request_id: ID }, error: null });
+      if (name === "service_finish_collaboration_operation") return Promise.resolve({ data: { protocol: "tssr-maintenance-v1", finished: true }, error: null });
+      if (name === "service_record_publication_intent") {
+        assertEquals(status, "publishing");
+        expectedSha = String(args.p_sha);
+        updates++;
+        return Promise.resolve({ data: { id: ID }, error: null });
+      }
       claims++;
       if (status !== "approved") return Promise.resolve({ data: null, error: { message: "La proposition n’est pas disponible pour publication." } });
       status = "publishing";
@@ -259,6 +330,7 @@ Deno.test("two publication claims: losing worker never publishes, writes or mark
     },
   } as unknown as SupabaseClient;
   globalThis.fetch = async (input, init) => {
+    if (init?.method && init.method !== "GET") gitWrites++;
     const url = String(input);
     let result: unknown;
     if (url.includes("/git/ref/heads/")) result = { object: { sha: pushes ? SHA : MERGE } };
@@ -281,8 +353,13 @@ Deno.test("two publication claims: losing worker never publishes, writes or mark
     return new Response(JSON.stringify(result), { status: 200 });
   };
   try {
-    await publishApprovedChange(client, ID);
-    assertEquals({ claims, pushes, status }, { claims: 2, pushes: 1, status: "publishing" });
+    if (closeAfterClaim) {
+      await assertRejects(() => publishApprovedChange(client, ID), MaintenanceError);
+      assertEquals({ claims, pushes, gitWrites, status }, { claims: 1, pushes: 0, gitWrites: 0, status: "failed" });
+    } else {
+      await publishApprovedChange(client, ID);
+      assertEquals({ claims, pushes, status }, { claims: 2, pushes: 1, status: "publishing" });
+    }
     status = "published";
     const before = { updates, audits, pushes };
     await publishApprovedChange(client, ID);

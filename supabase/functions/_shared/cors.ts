@@ -1,3 +1,5 @@
+import { MAINTENANCE_CODE } from "./maintenance.ts";
+
 const defaultOrigins = [
   "https://sk34pk25.github.io",
   "http://127.0.0.1:8000",
@@ -50,5 +52,14 @@ export function handlePreflight(req: Request): Response | null {
 
 export function errorResponse(req: Request, error: unknown, status = 400): Response {
   const message = error instanceof Error ? error.message : String(error);
+  if (message.includes("COLLABORATION_PROTOCOL_NOT_READY")) {
+    return jsonResponse(req, { error: "Le protocole collaboratif n’est pas prêt à être rouvert.", code: "COLLABORATION_PROTOCOL_NOT_READY" }, 503);
+  }
+  if (message.includes(MAINTENANCE_CODE)) {
+    return jsonResponse(req, {
+      error: "Le circuit collaboratif est temporairement en maintenance. Les lectures restent disponibles.",
+      code: MAINTENANCE_CODE,
+    }, 503);
+  }
   return jsonResponse(req, { error: message }, status);
 }

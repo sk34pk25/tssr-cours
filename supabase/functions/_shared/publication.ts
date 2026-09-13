@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { changeRequestId, commitSha } from "./publication-metadata.ts";
 import { githubConfig, readGitHub } from "./github.ts";
+import { assertPublicationDrain, MAINTENANCE_PROTOCOL } from "./maintenance.ts";
 
 export interface PublicationRow {
   id: string;
@@ -10,6 +11,8 @@ export interface PublicationRow {
   github_pr_number: number | null;
   published_commit_sha: string | null;
   publication_callback: PublicationReceipt | null;
+  published_at: string | null;
+  failure_reason: string | null;
 }
 
 export interface PublicationReceipt {
@@ -39,7 +42,7 @@ interface Job {
   conclusion: string | null;
   steps?: Array<{ name: string; conclusion: string | null }>;
 }
-const COLUMNS = "id, status, publication_expected_sha, publication_mode, github_pr_number, published_commit_sha, publication_callback";
+const COLUMNS = "id, status, publication_expected_sha, publication_mode, github_pr_number, published_commit_sha, publication_callback, published_at, failure_reason";
 
 function positiveInteger(value: unknown, label: string): number {
   if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 1) throw new Error(`${label} invalide.`);
@@ -76,11 +79,6 @@ export function checkReceiptState(row: PublicationRow, receipt: PublicationRecei
   if (row.id !== receipt.change_request_id || !row.publication_expected_sha || row.publication_expected_sha !== receipt.expected_sha) {
     throw new Error("Le SHA attendu ne correspond pas à cette proposition.");
   }
-  if (row.publication_callback) {
-    if (identicalReceipt(row.publication_callback, receipt)) return "replay";
-    throw new Error("Callback contradictoire avec le résultat déjà enregistré.");
-  }
-  if (row.status !== "publishing") throw new Error("Cette proposition n’est pas en publication.");
   if (row.publication_mode === "direct") {
     if (receipt.commit_sha !== receipt.expected_sha || receipt.pr_number !== null || receipt.phase !== "deploy") {
       throw new Error("Callback incompatible avec la publication directe attendue.");
@@ -91,6 +89,20 @@ export function checkReceiptState(row: PublicationRow, receipt: PublicationRecei
     }
     if (receipt.phase === "pr-validation" && receipt.commit_sha !== receipt.expected_sha) throw new Error("SHA testé incompatible.");
   } else throw new Error("Intention de publication manquante.");
+  if (row.publication_callback) {
+    if (!identicalReceipt(row.publication_callback, receipt)) throw new Error("Callback contradictoire avec le résultat déjà enregistré.");
+    // H preserves the planned SHA on failure, including a failed deployment of
+    // a PR merge whose actual commit differs from the approved head.
+    const storedSha = receipt.status === "published" ? receipt.commit_sha : receipt.expected_sha;
+    if (row.status !== receipt.status || row.published_commit_sha !== storedSha ||
+      row.github_pr_number !== receipt.pr_number || row.failure_reason !== receipt.failure_reason ||
+      (receipt.status === "failed" ? row.published_at !== null :
+        typeof row.published_at !== "string" || !Number.isFinite(Date.parse(row.published_at)))) {
+      throw new Error("État terminal contradictoire avec le callback enregistré.");
+    }
+    return "replay";
+  }
+  if (row.status !== "publishing") throw new Error("Cette proposition n’est pas en publication.");
   return "apply";
 }
 
@@ -191,20 +203,26 @@ export async function handlePublication(
   }
   const repository = `${config.owner}/${config.repo}`;
   if (body.action === "verify-pr") {
+    await assertPublicationDrain(client, id);
     if (row.status !== "publishing" || commitSha(body.commit_sha) !== row.publication_expected_sha) throw new Error("Proposition/SHA non disponible pour cette PR.");
     const number = positiveInteger(body.pr_number, "Numéro PR");
     await verifyPull(row, number, repository, config.branch, read);
-    return { ok: true, change_request_id: id, expected_sha: row.publication_expected_sha, pr_number: number };
+    return { ok: true, maintenance_protocol: MAINTENANCE_PROTOCOL, change_request_id: id, expected_sha: row.publication_expected_sha, pr_number: number };
   }
   if (body.action === "verify-deploy") {
+    await assertPublicationDrain(client, id);
     if (row.status !== "publishing" && row.status !== "published") throw new Error("Proposition non disponible pour déploiement.");
     const number = await verifyDeployment(row, commitSha(body.commit_sha), repository, config.branch, read);
-    return { ok: true, change_request_id: id, expected_sha: row.publication_expected_sha, pr_number: number };
+    return { ok: true, maintenance_protocol: MAINTENANCE_PROTOCOL, change_request_id: id, expected_sha: row.publication_expected_sha, pr_number: number };
   }
   if (body.action != null) throw new Error("Action de publication inconnue.");
   const receipt = normalizeReceipt(body);
   if (checkReceiptState(row, receipt) === "replay") {
-    return { ok: true, replayed: true, change_request: { id: row.id, status: row.status, published_commit_sha: row.published_commit_sha } };
+    // SQL rechecks the durable terminal snapshot under the same row lock as
+    // first completion. This branch performs no writes and does not read the gate.
+    const { data, error } = await client.rpc("service_complete_guarded_publication", { p_change_request_id: id, p_receipt: receipt });
+    if (error || data?.replayed !== true) throw new Error(error?.message || "Replay terminal non confirmé.");
+    return { ok: true, replayed: true, change_request: data };
   }
   if (receipt.phase === "deploy") {
     const number = await verifyDeployment(row, receipt.commit_sha, repository, config.branch, read);
@@ -214,7 +232,7 @@ export async function handlePublication(
     if (pull.merged) throw new Error("Une PR déjà fusionnée ne peut pas être déclarée en échec de validation.");
   }
   await verifyRunEvidence(receipt, repository, config.branch, read);
-  const { data, error } = await client.rpc("service_complete_publication", { p_change_request_id: id, p_receipt: receipt });
+  const { data, error } = await client.rpc("service_complete_guarded_publication", { p_change_request_id: id, p_receipt: receipt });
   if (error || !data) throw new Error(error?.message || "Retour de publication non enregistré.");
   return { ok: true, replayed: Boolean(data.replayed), change_request: data };
 }

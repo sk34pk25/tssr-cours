@@ -1,5 +1,6 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
+import { MaintenanceError, publicationWriteGuard } from "./maintenance.ts";
 import {
   ProposedFile,
   validateMkDocsEdit,
@@ -12,6 +13,7 @@ export interface GitHubConfig {
   repo: string;
   branch: string;
   publishMode: "auto" | "direct" | "pull_request";
+  beforeWrite?: () => Promise<void>;
 }
 
 interface GitTreeItem {
@@ -50,6 +52,10 @@ export function githubConfig(): GitHubConfig {
 }
 
 async function github<T>(config: GitHubConfig, path: string, init: RequestInit = {}): Promise<T> {
+  if (!["GET", "HEAD"].includes((init.method || "GET").toUpperCase())) {
+    if (!config.beforeWrite) throw new MaintenanceError();
+    await config.beforeWrite();
+  }
   const response = await fetch(`https://api.github.com/repos/${config.owner}/${config.repo}${path}`, {
     ...init,
     headers: {
@@ -166,10 +172,9 @@ async function markFailure(
 async function recordPublicationIntent(
   adminClient: SupabaseClient, changeId: string, sha: string, mode: "direct" | "pull_request",
 ): Promise<void> {
-  const { data, error } = await adminClient.from("change_requests").update({
-    publication_expected_sha: commitSha(sha), publication_mode: mode,
-    published_commit_sha: sha, failure_reason: null,
-  }).eq("id", changeId).eq("status", "publishing").select("id").single();
+  const { data, error } = await adminClient.rpc("service_record_publication_intent", {
+    p_change_request_id: changeId, p_sha: commitSha(sha), p_mode: mode,
+  });
   if (error || !data) throw new Error(error?.message || "Intention de publication non enregistrée.");
 }
 
@@ -307,6 +312,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
   changeRequestId(changeId);
   let claimed = false;
   let externallyPublished = false;
+  const guard = publicationWriteGuard(adminClient, changeId);
   try {
     const { data: claimedRequest, error: claimError } = await adminClient
       .rpc("service_claim_change_for_publication", { p_change_request_id: changeId });
@@ -333,6 +339,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
     }
 
     const config = githubConfig();
+    config.beforeWrite = guard.beforeWrite;
     const { commitSha, currentSha } = await createAtomicCommit(
       config,
       request as ChangeRequestRow,
@@ -374,6 +381,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
       metadata: { commit_sha: commitSha, pull_request: prNumber },
     });
     if (auditError) throw new Error(auditError.message);
+    await guard.finish();
   } catch (error) {
     // The losing/uncertain claimant owns no state: do not write, audit or publish.
     if (!claimed) {
@@ -382,7 +390,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
     }
     // An acknowledged Git effect must be reconciled by the callback, not undone
     // by a later metadata/audit error. Keep publishing rather than report false failure.
-    if (externallyPublished) throw error;
+    if (externallyPublished || guard.engaged()) throw error;
     const conflict = Boolean((error as Error & { conflict?: boolean }).conflict) || /modifié|existe désormais|n’existe plus|avancé/i.test(
       error instanceof Error ? error.message : String(error),
     );
