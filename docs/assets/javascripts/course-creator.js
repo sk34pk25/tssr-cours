@@ -94,12 +94,16 @@
   function loadDraft() {
     try {
       const stored = JSON.parse(localStorage.getItem(storageKey()) || "null");
+      const restoreOptions = {
+        terms: state.context?.terms,
+        onGlossaryCleanup: () => bridge()?.toast?.("Des associations de glossaire anciennes ou invalides ont été retirées ou rattachées au cours entier dans le brouillon.")
+      };
       if (state.mode === "edit") {
         if (!stored || stored.baseCommitSha !== state.context?.base_commit_sha) return;
-        state.draft = utils.hydrateDraft(stored.draft);
+        state.draft = utils.hydrateDraft(stored.draft, restoreOptions);
         state.attachments = Array.isArray(stored.attachments) ? stored.attachments : state.attachments;
         state.proposalDescription = String(stored.proposalDescription || "");
-      } else state.draft = utils.hydrateDraft(stored);
+      } else state.draft = utils.hydrateDraft(stored, restoreOptions);
     } catch (_) {
       if (state.mode === "create") state.draft = utils.defaultDraft();
     }
@@ -368,7 +372,7 @@
   }
 
   function glossaryPanel() {
-    const linked = state.draft.existingGlossary.map((item) => state.context?.terms?.find((term) => term.id === item.id)).filter(Boolean);
+    const linked = state.draft.existingGlossary.map((item) => state.context?.terms?.find((term) => term.id === item.id) || { term: "Association indisponible — à retirer" });
     return `<section class="tssr-builder-panel" data-builder-panel="glossary" hidden>
       <div class="tssr-builder-section-heading"><div><span>05</span><h2>Termes de glossaire</h2></div><button type="button" class="tssr-action" data-struct-action="glossary-add">＋ Ajouter un terme</button></div>
       <div class="tssr-glossary-linker">
@@ -959,7 +963,6 @@
       state.loadingKey = loadKey;
       destroyEditorControllers();
       resetEditorViewState();
-      if (state.mode === "create") loadDraft();
       state.root.innerHTML = `<div class="tssr-collaboration-empty"><strong>${state.mode === "edit" ? "Chargement complet du cours…" : "Chargement du contexte éditorial…"}</strong><p>${state.mode === "edit" ? "Lecture des pages, activités, relations, fichiers et données du glossaire depuis la version GitHub publiée." : "Vérification du commit GitHub et des termes du glossaire."}</p></div>`;
       try {
         const requestedMode = state.mode;
@@ -980,6 +983,7 @@
           const result = await bridge().invoke("change-requests", { action: "get-course-context" });
           if (generation !== state.loadGeneration || state.root !== root || !root.isConnected || state.mode !== requestedMode || state.coursePath !== requestedCourse || profile()?.id !== current.id) return;
           state.context = result.course_context;
+          loadDraft();
         }
         state.initializedFor = current.id;
       } catch (error) {

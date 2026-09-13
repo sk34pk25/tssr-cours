@@ -21,6 +21,111 @@ const courseCreatorUiSource = fs.readFileSync(
   "utf8"
 );
 
+const plain = (value) => JSON.parse(JSON.stringify(value));
+
+function glossaryDraft(links) {
+  const draft = course.defaultDraft();
+  draft.modules = [course.newModule({ clientId: "stable-module" })];
+  draft.existingGlossary = links;
+  return draft;
+}
+
+test("existing glossary diff detects an association added alone", () => {
+  assert.ok(course.editorDiff(glossaryDraft([]), glossaryDraft([{ id: "dhcp", moduleIndex: -1 }])).total > 0);
+});
+
+test("existing glossary diff detects an association removed alone", () => {
+  assert.ok(course.editorDiff(glossaryDraft([{ id: "dhcp", moduleIndex: -1 }]), glossaryDraft([])).total > 0);
+});
+
+test("existing glossary diff detects a module change for the same ID", () => {
+  assert.ok(course.editorDiff(glossaryDraft([{ id: "dhcp", moduleIndex: -1 }]), glossaryDraft([{ id: "dhcp", moduleIndex: 0 }])).total > 0);
+});
+
+test("existing glossary diff detects an ID change with the same module", () => {
+  assert.ok(course.editorDiff(glossaryDraft([{ id: "dhcp", moduleIndex: 0 }]), glossaryDraft([{ id: "dns", moduleIndex: 0 }])).total > 0);
+});
+
+test("existing glossary diff ignores identical associations and their ordering", () => {
+  const original = glossaryDraft([{ id: "dhcp", moduleIndex: -1 }, { id: "dns", moduleIndex: 0 }]);
+  assert.equal(course.editorDiff(original, course.clone(original)).total, 0);
+  const reordered = course.clone(original);
+  reordered.existingGlossary.reverse();
+  assert.equal(course.editorDiff(original, reordered).total, 0);
+});
+
+test("existing glossary diff deduplicates exact pairs but keeps distinct modules of one ID", () => {
+  const original = glossaryDraft([{ id: "dhcp", moduleIndex: -1 }]);
+  const duplicate = course.clone(original);
+  duplicate.existingGlossary.push({ id: "dhcp", moduleIndex: -1 });
+  assert.equal(course.editorDiff(original, duplicate).total, 0);
+  duplicate.existingGlossary.push({ id: "dhcp", moduleIndex: 0 });
+  assert.ok(course.editorDiff(original, duplicate).total > 0);
+});
+
+test("existing glossary diff is stable across hydration and serialization without mutating its inputs", () => {
+  const original = glossaryDraft([{ id: "dhcp", moduleIndex: "0", clientId: "old-local-id" }]);
+  const current = course.hydrateDraft(course.serializableDraft(original));
+  current.existingGlossary[0].clientId = "different-local-id";
+  const before = JSON.stringify([original, current]);
+  Object.freeze(original.existingGlossary[0]);
+  Object.freeze(original.existingGlossary);
+  assert.equal(course.editorDiff(original, current).total, 0);
+  assert.equal(JSON.stringify([original, current]), before);
+});
+
+test("existing glossary diff does not turn automatic invalid-link cleanup into a user change", () => {
+  const original = glossaryDraft([]);
+  const oldDraft = glossaryDraft([{}, { id: null }, { id: "obsolete", moduleIndex: -1 }]);
+  const restored = course.hydrateDraft(oldDraft, { terms: [{ id: "dhcp" }] });
+  assert.equal(course.editorDiff(original, restored).total, 0);
+  const malformed = glossaryDraft([{}]);
+  assert.equal(course.editorDiff(malformed, course.hydrateDraft(malformed)).total, 0);
+});
+
+test("existing glossary diff preserves a restored user's real association despite unrelated cleanup", () => {
+  const original = glossaryDraft([]);
+  const restored = course.hydrateDraft(glossaryDraft([{}, { id: "dhcp", moduleIndex: -1 }]));
+  assert.ok(course.editorDiff(original, restored).total > 0);
+});
+
+test("glossary draft hydration drops empty and malformed associations without inventing IDs", () => {
+  for (const link of [{}, { id: "" }, { id: null }, { moduleIndex: 0 }, null, "dhcp", { id: 42 }, { id: " DHCP " }, { id: "<img>" }, { id: "dhcp\n" }]) {
+    assert.deepEqual(plain(course.hydrateDraft({ existingGlossary: [link] }).existingGlossary), []);
+  }
+});
+
+test("glossary draft hydration normalizes invalid module indices to the whole course", () => {
+  for (const moduleIndex of [undefined, null, "", "abc", true, 0.5, -2, 2, Infinity, "1.5"]) {
+    const draft = course.hydrateDraft({ modules: [{}, {}], existingGlossary: [{ id: "dhcp", moduleIndex }] });
+    assert.deepEqual(plain(draft.existingGlossary), [{ id: "dhcp", moduleIndex: -1 }]);
+  }
+});
+
+test("valid glossary associations preserve IDs and module semantics", () => {
+  const links = [-1, 0, 1, "1"].map((moduleIndex) => ({ id: "dhcp", moduleIndex }));
+  const draft = course.hydrateDraft({ modules: [{}, {}], existingGlossary: links });
+  assert.deepEqual(plain(draft.existingGlossary), [-1, 0, 1, 1].map((moduleIndex) => ({ id: "dhcp", moduleIndex })));
+});
+
+test("mixed glossary drafts retain valid associations and restore idempotently", () => {
+  const draft = course.hydrateDraft({ modules: [{}], existingGlossary: [{}, { id: "dhcp", moduleIndex: 0 }, { id: null }] });
+  assert.deepEqual(plain(draft.existingGlossary), [{ id: "dhcp", moduleIndex: 0 }]);
+  assert.deepEqual(plain(course.hydrateDraft(course.serializableDraft(draft))), plain(draft));
+});
+
+test("restoration only removes missing glossary IDs once a catalog is available and aggregates notice", () => {
+  const source = { existingGlossary: [{}, { id: "obsolete", moduleIndex: -1 }, { id: "dhcp", moduleIndex: -1 }] };
+  assert.equal(course.hydrateDraft(source).existingGlossary.length, 2);
+  let notices = 0;
+  const options = { terms: [{ id: "dhcp" }], onGlossaryCleanup: () => { notices += 1; } };
+  const draft = course.hydrateDraft(source, options);
+  assert.deepEqual(plain(draft.existingGlossary), [{ id: "dhcp", moduleIndex: -1 }]);
+  assert.equal(notices, 1);
+  course.hydrateDraft(course.serializableDraft(draft), options);
+  assert.equal(notices, 1);
+});
+
 test("public Supabase configuration accepts only a project URL and publishable key", () => {
   assert.equal(utils.collaborationConfigured({
     supabaseUrl: "https://example-ref.supabase.co",

@@ -79,7 +79,28 @@
     return JSON.parse(JSON.stringify(value));
   }
 
-  function hydrateDraft(raw) {
+  function restoreExistingGlossary(value, moduleCount, options) {
+    const links = Array.isArray(value) ? value : [];
+    const knownIds = Array.isArray(options.terms) ? new Set(options.terms.map((term) => term.id)) : null;
+    let cleaned = value != null && !Array.isArray(value);
+    const restored = [];
+    for (const link of links) {
+      // Same ID grammar as scripts/build_glossary.py; never slugify a reference.
+      if (!link || typeof link.id !== "string" || link.id !== link.id.trim() || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(link.id) || (knownIds && !knownIds.has(link.id))) {
+        cleaned = true;
+        continue;
+      }
+      const index = typeof link.moduleIndex === "number" || (typeof link.moduleIndex === "string" && /^-?\d+$/.test(link.moduleIndex))
+        ? Number(link.moduleIndex) : NaN;
+      const moduleIndex = Number.isSafeInteger(index) && index >= -1 && index < moduleCount ? index : -1;
+      if (moduleIndex !== index) cleaned = true;
+      restored.push({ ...link, id: link.id, moduleIndex });
+    }
+    if (cleaned) options.onGlossaryCleanup?.();
+    return restored;
+  }
+
+  function hydrateDraft(raw, options = {}) {
     const base = defaultDraft();
     const source = raw && typeof raw === "object" ? raw : {};
     return {
@@ -91,7 +112,7 @@
       labs: Array.isArray(source.labs) ? source.labs.map((item) => ({ ...newLab(), ...item })) : [],
       quizzes: Array.isArray(source.quizzes) ? source.quizzes.map((item) => ({ ...newQuiz(), ...item, questions: Array.isArray(item.questions) ? item.questions.map((question) => ({ ...newQuestion(), ...question })) : [] })) : [],
       glossaryEntries: Array.isArray(source.glossaryEntries) ? source.glossaryEntries.map((item) => ({ ...newGlossaryEntry(), ...item })) : [],
-      existingGlossary: Array.isArray(source.existingGlossary) ? source.existingGlossary : [],
+      existingGlossary: restoreExistingGlossary(source.existingGlossary, Array.isArray(source.modules) ? source.modules.length : 0, options),
       resources: Array.isArray(source.resources) ? source.resources.map((item) => ({ ...newResource(), ...item })) : [],
       attachments: []
     };
@@ -286,6 +307,14 @@
     compareFamily("labs", original?.labs, current?.labs, (item) => item.title || "TP sans titre");
     compareFamily("quizzes", original?.quizzes, current?.quizzes, (item) => item.title || "Quiz sans titre");
     compareFamily("glossary", original?.glossaryEntries, current?.glossaryEntries, (item) => item.term || "Terme sans nom");
+    // References are a set of (term, module) pairs, not ordered draft entities.
+    // Normalize both sides without mutating them or emitting cleanup notices.
+    const associations = (draft) => [...new Set(restoreExistingGlossary(
+      draft?.existingGlossary, draft?.modules?.length || 0, {}
+    ).map((link) => JSON.stringify([link.id, link.moduleIndex])))].sort();
+    if (JSON.stringify(associations(original)) !== JSON.stringify(associations(current))) {
+      changes.push({ section: "glossary", type: "modified", label: "Associations de termes existants" });
+    }
     compareFamily("resources", original?.resources, current?.resources, (item) => item.title || item.url || "Ressource");
     compareFamily("files", originalAttachments, currentAttachments, (item) => item.name || item.path || "Fichier");
     return {
