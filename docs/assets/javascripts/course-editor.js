@@ -402,9 +402,109 @@
     return canonical.replace(/\s/g, "%20");
   }
 
+  // ATTR_POLICY_V1: keep in parity with course-editor.js and markdown_security.py.
+  // Only inert presentation attributes are accepted; URL-bearing attributes must
+  // continue to use Markdown links/images, never an attribute-list override.
+  function validateAttribute(name, rawValue, fenced = false) {
+    const key = name === "." ? "class" : name.toLowerCase();
+    const value = decodeSecurityEntities(rawValue);
+    const plain = !/[\u0000-\u001f\u007f<>"]/.test(value) &&
+      (!value.includes("'") || ["title", "alt", "aria-label"].includes(key));
+    const tokens = value.split(/ +/).filter(Boolean);
+    const valid = plain && (
+      key === "class" && tokens.length > 0 && tokens.every((token) => /^[a-zA-Z_][a-zA-Z0-9_-]*$/.test(token)) ||
+      key === "id" && /^[a-zA-Z0-9_][a-zA-Z0-9_.:-]*$/.test(value) ||
+      ["title", "alt", "aria-label"].includes(key) ||
+      ["width", "height"].includes(key) && /^[1-9][0-9]{0,3}%?$/.test(value) ||
+      key === "target" && ["_blank", "_self", "_parent", "_top"].includes(value) ||
+      key === "rel" && tokens.length > 0 && tokens.every((token) => /^(?:noopener|noreferrer|nofollow|external|author|help|license|prev|next|search|bookmark|tag|sponsored|ugc)$/.test(token)) ||
+    key === "loading" && ["lazy", "eager"].includes(value) ||
+    key === "download" && value === "download" ||
+      fenced && key === "linenums" && /^[0-9]+(?: +[0-9]+){0,2}$/.test(value) ||
+      fenced && key === "hl_lines" && /^[0-9 ,.-]+$/.test(value)
+    );
+    if (!valid) throw new Error("Le Markdown contient un attribut actif ou non autorisé.");
+  }
+
+  function validateAttributeList(source, fenced = false) {
+    // Equivalent token order to Python-Markdown's attr_list scanner. Tabs are
+    // expanded by Markdown's NormalizeWhitespace preprocessor before attr_list.
+    let remaining = source.replaceAll("\t", "    ");
+    while (remaining && !remaining.startsWith("}")) {
+      if (remaining.startsWith(" ")) { remaining = remaining.slice(1); continue; }
+      const token = remaining.match(/^[^ =}]+="[^"]*"|^[^ =}]+='[^']*'|^[^ =}]+=[^ =}]+|^[^ =}]+/);
+      if (!token) throw new Error("Liste d’attributs Markdown invalide.");
+      const raw = token[0];
+      const equal = raw.indexOf("=");
+      const name = equal >= 0 ? raw.slice(0, equal) : raw.startsWith(".") ? "." : raw.startsWith("#") ? "id" : raw;
+      let value = equal >= 0 ? raw.slice(equal + 1) : /^[.#]/.test(raw) ? raw.slice(1) : raw;
+      if (/^["']/.test(value)) value = value.slice(1, -1);
+      validateAttribute(name, value, fenced);
+      remaining = remaining.slice(raw.length);
+    }
+  }
+
+  function validateMarkdownAttributes(content) {
+    const masked = maskCodeForSecurity(content);
+    let offset = 0;
+    let fence = null;
+    const lines = content.split("\n");
+    let precedingRootLine = "";
+    let hasBlockBoundary = true;
+    let table = false;
+    for (const [lineIndex, line] of lines.entries()) {
+      const body = line.replace(/\r$/, "");
+      if (!body.trim()) hasBlockBoundary = true;
+      else if (!/^(?: {4}|\t)/.test(body)) { precedingRootLine = body; hasBlockBoundary = false; }
+      if (!body.trim()) table = false;
+      else if (/^[| :\t-]+$/.test(body) && body.includes("|") && body.includes("-")) table = true;
+      const opening = body.match(/^[ \t]*(?:>[ \t]*)*(?:(?:[-+*]|[0-9]+[.)])[ \t]+)?(`{3,}|~{3,})(.*)$/);
+      if (fence) {
+        if (opening && opening[1][0] === fence[0] && opening[1].length >= fence.length && !opening[2].trim()) fence = null;
+        offset += line.length + 1;
+        continue;
+      }
+      if (opening && !(opening[1][0] === "`" && opening[2].includes("`"))) {
+        fence = opening[1];
+        const header = opening[2].trim();
+        const brace = header.indexOf("{");
+        if (brace >= 0 && header.endsWith("}")) validateAttributeList(header.slice(brace + 1, -1), true);
+        else {
+          const options = header.replace(/^[^\s]+/, "").trim();
+          if (options) validateAttributeList(options, true);
+        }
+        offset += line.length + 1;
+        continue;
+      }
+      // Preserve native root indented code, without skipping nested list,
+      // definition, HTML, tab or admonition attribute assignments.
+      if (/^(?: {4}|\t)/.test(body)) {
+        if (hasBlockBoundary && !/^\s*(?:[-+*]\s|[0-9]+[.)]\s|>|<|:|!{3}|\?{3}|={3}|\[\^[^\]]+\]:)/.test(precedingRootLine)) {
+          offset += line.length + 1;
+          continue;
+        }
+      }
+      const visible = masked.slice(offset, offset + body.length);
+      for (const match of visible.matchAll(/\{:?[ ]*([^}\n ][^\n]*?)\}/g)) {
+        const start = match.index ?? 0;
+        const before = body.slice(0, start).replace(/^[ \t]*(?:>[ \t]*)+/, "");
+        const nextLine = lines[lineIndex + 1] || "";
+        const atEnd = !body.slice(start + match[0].length).trim();
+        // Native attr_list attaches to inline elements, headings/table cells,
+        // or a final attribute-only block line. Braces in ordinary prose/code
+        // (e.g. PowerShell/Ruby examples) are not attribute lists.
+        if (/[)\]`*_~=:]$/.test(before) || table && before.includes("|") || atEnd && (!before.trim() || /^\s*#{1,6}\s+\S.* $/.test(before) || /^\s*(?:[=-]+\s*$|:\s)/.test(nextLine))) {
+          validateAttributeList(match[1]);
+        }
+      }
+      offset += line.length + 1;
+    }
+  }
+
   function validateMarkdownSecurity(value, maximum = MAX_DIALOG_TEXT) {
     const markdown = String(value ?? "").replaceAll("\0", "");
     if (markdown.length > maximum) throw new Error(`Le contenu dépasse ${Math.round(maximum / 1_000_000 * 10) / 10} Mo.`);
+    validateMarkdownAttributes(markdown);
     const interpreted = maskCodeForSecurity(markdown);
     const securityProbe = decodeSecurityEntities(interpreted)
       .replace(/j[\t\n\r ]*a[\t\n\r ]*v[\t\n\r ]*a[\t\n\r ]*s[\t\n\r ]*c[\t\n\r ]*r[\t\n\r ]*i[\t\n\r ]*p[\t\n\r ]*t[\t\n\r ]*:/gi, "javascript:")

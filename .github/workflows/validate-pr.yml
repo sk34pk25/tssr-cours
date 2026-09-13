@@ -14,11 +14,12 @@ concurrency:
 
 jobs:
   validate:
-    if: ${{ !startsWith(github.head_ref, 'collaboration/change-') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout proposed commit
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -36,6 +37,9 @@ jobs:
 
       - name: Test the browser editor and collaboration code
         run: npm test
+
+      - name: Test native Markdown and publication boundaries
+        run: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -p 'test_*.py'
 
       - name: Test shared Supabase functions
         run: npx --yes deno-bin@2.2.7 test --allow-env 'supabase/functions/_shared/*_test.ts'

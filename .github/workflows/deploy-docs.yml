@@ -6,58 +6,102 @@ on:
   workflow_dispatch:
     inputs:
       change_id:
-        description: Supabase change request identifier
+        description: Supabase change request identifier matching the final commit trailer
         required: false
         type: string
       commit_sha:
-        description: Published Git commit
+        description: Exact full Git commit to build (must already be on main)
         required: false
         type: string
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: tssr-pages-deployment
   cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  attest:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      change_id: ${{ steps.metadata.outputs.change_id }}
+      commit_sha: ${{ steps.metadata.outputs.commit_sha }}
+      expected_sha: ${{ steps.attestation.outputs.expected_sha }}
+      pr_number: ${{ steps.attestation.outputs.pr_number }}
     steps:
-      - name: Checkout source
+      - name: Checkout trusted metadata resolver
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.workflow_sha }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Resolve publication metadata
         id: metadata
         env:
           INPUT_CHANGE_ID: ${{ inputs.change_id }}
           INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+        run: python scripts/publication_metadata.py
+
+      - name: Attest publication before any build
+        id: attestation
+        if: steps.metadata.outputs.change_id != ''
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ steps.metadata.outputs.change_id }}
+          COMMIT_SHA: ${{ steps.metadata.outputs.commit_sha }}
         run: |
           python - <<'PY'
+          import json
           import os
           import re
-          import subprocess
+          import urllib.request
 
-          change_id = os.environ.get("INPUT_CHANGE_ID", "").strip()
-          commit_sha = os.environ.get("INPUT_COMMIT_SHA", "").strip() or os.environ["GITHUB_SHA"]
-          if not change_id:
-              message = subprocess.check_output(
-                  ["git", "log", "-1", "--pretty=%B"], text=True
-              )
-              match = re.search(
-                  r"^Change-Request-ID:\s*([0-9a-f-]{36})\s*$",
-                  message,
-                  re.MULTILINE | re.IGNORECASE,
-              )
-              if match:
-                  change_id = match.group(1)
+          url, secret = os.environ["WEBHOOK_URL"], os.environ["WEBHOOK_SECRET"]
+          if not url or not secret:
+              raise SystemExit("Publication attestation is not configured.")
+          request = urllib.request.Request(url, method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": secret,
+          }, data=json.dumps({
+              "action": "verify-deploy", "change_request_id": os.environ["CHANGE_ID"],
+              "commit_sha": os.environ["COMMIT_SHA"],
+          }).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.load(response)
+          except Exception:
+              raise SystemExit("Publication attestation failed; deployment is not authorized.") from None
+          sha, number = result.get("expected_sha"), result.get("pr_number")
+          if (result.get("ok") is not True or not isinstance(sha, str)
+                  or not re.fullmatch(r"[0-9a-f]{40}", sha)
+                  or "pr_number" not in result
+                  or (number is not None and (type(number) is not int or number < 1))):
+              raise SystemExit("Invalid publication attestation response.")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"change_id={change_id}\n")
-              output.write(f"commit_sha={commit_sha}\n")
+              output.write(f"expected_sha={sha}\npr_number={json.dumps(number)}\n")
           PY
+
+  build:
+    name: TSSR-build-v1|${{ needs.attest.outputs.change_id }}|${{ needs.attest.outputs.expected_sha }}|${{ needs.attest.outputs.commit_sha }}
+    needs: attest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact source commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.attest.outputs.commit_sha }}
+          persist-credentials: false
+
+      - name: Verify checked-out deployment commit
+        env:
+          COMMIT_SHA: ${{ needs.attest.outputs.commit_sha }}
+        run: test "$(git rev-parse HEAD)" = "$COMMIT_SHA"
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -75,6 +119,9 @@ jobs:
 
       - name: Test the browser editor and collaboration code
         run: npm test
+
+      - name: Test native Markdown and publication boundaries
+        run: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -p 'test_*.py'
 
       - name: Test shared Supabase functions
         run: npx --yes deno-bin@2.2.7 test --allow-env 'supabase/functions/_shared/*_test.ts'
@@ -97,20 +144,49 @@ jobs:
       - name: Validate course relations
         run: python scripts/validate_course_structure.py
 
+      # These two exact step names are checked through the GitHub jobs API by
+      # publication-status. They intentionally live on separate clean runners.
       - name: Validate and build MkDocs
-        id: build
-        continue-on-error: true
         run: mkdocs build --strict --site-dir "$RUNNER_TEMP/tssr-pages"
 
+      - name: Transfer the built site to the isolated deploy job
+        uses: actions/upload-artifact@v4
+        with:
+          name: tssr-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/tssr-pages
+          if-no-files-found: error
+          retention-days: 1
+          include-hidden-files: true
+
+  deploy:
+    name: TSSR-deploy-v1|${{ needs.attest.outputs.change_id }}|${{ needs.attest.outputs.expected_sha }}|${{ needs.attest.outputs.commit_sha }}
+    needs: [attest, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout publication branch only
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: published-pages
+          persist-credentials: false
+
+      - name: Download this run's built site
+        uses: actions/download-artifact@v4
+        with:
+          name: tssr-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/tssr-pages
+
       - name: Publish gh-pages without force push
-        id: deploy
-        if: steps.build.outcome == 'success'
-        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT_SHA: ${{ needs.attest.outputs.commit_sha }}
+        working-directory: published-pages
         run: |
           deployment_directory="$RUNNER_TEMP/tssr-pages"
           test -f "$deployment_directory/index.html"
-          git fetch origin gh-pages
-          git switch gh-pages
+          test ! -e "$deployment_directory/.git"
           git rm -r --ignore-unmatch .
           cp -a "$deployment_directory/." .
           touch .nojekyll
@@ -120,42 +196,50 @@ jobs:
           if git diff --cached --quiet; then
             echo "Aucun changement à publier."
           else
-            git commit -m "deploy: ${GITHUB_SHA}"
-            git push origin gh-pages
+            git -c core.hooksPath=/dev/null commit -m "deploy: $COMMIT_SHA"
+            git -c credential.helper='!gh auth git-credential' push origin HEAD:gh-pages
           fi
 
-      - name: Report publication status to Supabase
-        if: always() && steps.metadata.outputs.change_id != ''
+  report:
+    if: always() && needs.attest.result == 'success' && needs.attest.outputs.change_id != ''
+    needs: [attest, build, deploy]
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      # No checkout or execution of built/source files in the secret-bearing job.
+      - name: Report attested publication status to Supabase
         env:
           WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
           WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
-          CHANGE_ID: ${{ steps.metadata.outputs.change_id }}
-          COMMIT_SHA: ${{ steps.metadata.outputs.commit_sha }}
-          BUILD_OUTCOME: ${{ steps.build.outcome }}
-          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          CHANGE_ID: ${{ needs.attest.outputs.change_id }}
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
+          COMMIT_SHA: ${{ needs.attest.outputs.commit_sha }}
+          PR_NUMBER: ${{ needs.attest.outputs.pr_number }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
         run: |
-          if [ -z "$WEBHOOK_URL" ] || [ -z "$WEBHOOK_SECRET" ]; then
-            echo "Webhook Supabase non configuré ; aucun secret n'est affiché."
-            exit 0
-          fi
-          python - <<'PY' > "$RUNNER_TEMP/publication-status.json"
+          python - <<'PY'
           import json
           import os
+          import urllib.request
 
-          success = os.environ["BUILD_OUTCOME"] == "success" and os.environ["DEPLOY_OUTCOME"] == "success"
-          print(json.dumps({
+          success = os.environ["BUILD_RESULT"] == "success" and os.environ["DEPLOY_RESULT"] == "success"
+          payload = {
               "change_request_id": os.environ["CHANGE_ID"],
-              "status": "published" if success else "failed",
+              "expected_sha": os.environ["EXPECTED_SHA"],
               "commit_sha": os.environ["COMMIT_SHA"],
-              "failure_reason": None if success else "Le build strict ou le déploiement gh-pages a échoué.",
-          }))
+              "status": "published" if success else "failed", "phase": "deploy",
+              "run_id": os.environ["GITHUB_RUN_ID"], "run_attempt": int(os.environ["GITHUB_RUN_ATTEMPT"]),
+              "pr_number": json.loads(os.environ["PR_NUMBER"]),
+              "failure_reason": None if success else "Le build ou le déploiement gh-pages attesté a échoué.",
+          }
+          request = urllib.request.Request(os.environ["WEBHOOK_URL"], method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": os.environ["WEBHOOK_SECRET"],
+          }, data=json.dumps(payload).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  if json.load(response).get("ok") is not True:
+                      raise ValueError("Callback rejected")
+          except Exception:
+              raise SystemExit("Publication status callback was not accepted.") from None
           PY
-          curl --fail-with-body --silent --show-error \
-            --request POST "$WEBHOOK_URL" \
-            --header "content-type: application/json" \
-            --header "x-publication-secret: $WEBHOOK_SECRET" \
-            --data-binary "@$RUNNER_TEMP/publication-status.json"
-
-      - name: Fail the workflow after reporting
-        if: steps.build.outcome != 'success' || steps.deploy.outcome != 'success'
-        run: exit 1

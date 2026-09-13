@@ -1,39 +1,99 @@
 name: Validate and merge collaborative publication
 
+# The workflow definition and all privileged inline code come from the base
+# branch, never from the proposed commit. Branch naming alone grants no trust.
 on:
-  pull_request:
+  pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened]
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
+
+concurrency:
+  group: publish-collaboration-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
 
 jobs:
-  validate:
+  attest:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.base.repo.full_name == github.repository &&
+      github.event.pull_request.base.ref == 'main' &&
       startsWith(github.head_ref, 'collaboration/change-')
     runs-on: ubuntu-latest
+    permissions: {}
     outputs:
-      change_id: ${{ steps.metadata.outputs.change_id }}
+      change_id: ${{ steps.attestation.outputs.change_id }}
+      expected_sha: ${{ steps.attestation.outputs.expected_sha }}
+      pr_number: ${{ steps.attestation.outputs.pr_number }}
     steps:
-      - name: Resolve change identifier
-        id: metadata
+      # No checkout, actions from the PR, dependencies, or repository code here.
+      - name: Attest approved publication with Supabase
+        id: attestation
         env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
           HEAD_BRANCH: ${{ github.head_ref }}
-        run: echo "change_id=${HEAD_BRANCH#collaboration/change-}" >> "$GITHUB_OUTPUT"
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import urllib.request
 
+          uuid = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+          branch = re.fullmatch(rf"collaboration/change-({uuid})", os.environ["HEAD_BRANCH"])
+          sha = os.environ["HEAD_SHA"]
+          number = os.environ["PR_NUMBER"]
+          if not branch or not re.fullmatch(r"[0-9a-f]{40}", sha) or not re.fullmatch(r"[1-9][0-9]*", number):
+              raise SystemExit("Invalid collaborative publication identity.")
+          change_id = branch.group(1)
+          url, secret = os.environ["WEBHOOK_URL"], os.environ["WEBHOOK_SECRET"]
+          if not url or not secret:
+              raise SystemExit("Publication attestation is not configured.")
+          request = urllib.request.Request(url, method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": secret,
+          }, data=json.dumps({
+              "action": "verify-pr", "change_request_id": change_id,
+              "commit_sha": sha, "pr_number": int(number),
+          }).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.load(response)
+          except Exception:
+              raise SystemExit("Publication attestation failed; no merge is authorized.") from None
+          if (result.get("ok") is not True or result.get("change_request_id") != change_id
+                  or result.get("expected_sha") != sha or type(result.get("pr_number")) is not int
+                  or result["pr_number"] != int(number)):
+              raise SystemExit("Publication attestation does not match this exact PR head.")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"change_id={change_id}\nexpected_sha={sha}\npr_number={number}\n")
+          PY
+
+  validate:
+    name: TSSR-validate-v1|${{ needs.attest.outputs.change_id }}|${{ needs.attest.outputs.expected_sha }}|${{ needs.attest.outputs.expected_sha }}
+    needs: attest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
       - name: Checkout proposed commit
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ needs.attest.outputs.expected_sha }}
+          persist-credentials: false
+
+      - name: Verify checked-out validation commit
+        env:
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-          cache: pip
 
       - name: Install MkDocs dependencies
         run: python -m pip install --requirement requirements.txt
@@ -45,6 +105,9 @@ jobs:
 
       - name: Test the browser editor and collaboration code
         run: npm test
+
+      - name: Test native Markdown and publication boundaries
+        run: PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -p 'test_*.py'
 
       - name: Test shared Supabase functions
         run: npx --yes deno-bin@2.2.7 test --allow-env 'supabase/functions/_shared/*_test.ts'
@@ -71,42 +134,123 @@ jobs:
         run: mkdocs build --strict
 
   merge:
-    needs: validate
+    name: TSSR-merge-v1|${{ needs.attest.outputs.change_id }}|${{ needs.attest.outputs.expected_sha }}|${{ needs.attest.outputs.expected_sha }}
+    needs: [attest, validate]
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write # Explicit dispatch after a GITHUB_TOKEN-authenticated merge.
     steps:
-      - name: Merge approved proposal automatically
+      # Recheck database state and the live GitHub PR immediately before use.
+      - name: Re-attest the validated PR head
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          CHANGE_ID: ${{ needs.validate.outputs.change_id }}
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ needs.attest.outputs.change_id }}
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
+          PR_NUMBER: ${{ needs.attest.outputs.pr_number }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          change_id, sha = os.environ["CHANGE_ID"], os.environ["EXPECTED_SHA"]
+          number = int(os.environ["PR_NUMBER"])
+          request = urllib.request.Request(os.environ["WEBHOOK_URL"], method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": os.environ["WEBHOOK_SECRET"],
+          }, data=json.dumps({
+              "action": "verify-pr", "change_request_id": change_id,
+              "commit_sha": sha, "pr_number": number,
+          }).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.load(response)
+          except Exception:
+              raise SystemExit("Publication re-attestation failed; no merge is authorized.") from None
+          if (result.get("ok") is not True or result.get("change_request_id") != change_id
+                  or result.get("expected_sha") != sha or type(result.get("pr_number")) is not int
+                  or result["pr_number"] != number):
+              raise SystemExit("Publication re-attestation does not match the validated PR head.")
+          PY
+
+      - name: Merge only the validated head and dispatch its deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ needs.attest.outputs.pr_number }}
+          CHANGE_ID: ${{ needs.attest.outputs.change_id }}
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
         run: |
           gh pr merge "$PR_NUMBER" \
             --repo "$GITHUB_REPOSITORY" \
             --merge \
+            --match-head-commit "$EXPECTED_SHA" \
             --delete-branch \
             --subject "docs: publish approved change ${CHANGE_ID:0:8}" \
             --body "Change-Request-ID: $CHANGE_ID"
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" > "$RUNNER_TEMP/merged-pr.json"
+          merge_sha="$(python - <<'PY'
+          import json
+          import os
+          import re
+
+          with open(os.path.join(os.environ["RUNNER_TEMP"], "merged-pr.json"), encoding="utf-8") as source:
+              pull = json.load(source)
+          repository = os.environ["GITHUB_REPOSITORY"]
+          sha = pull.get("merge_commit_sha", "")
+          if (pull.get("merged") is not True or pull.get("number") != int(os.environ["PR_NUMBER"])
+                  or pull.get("head", {}).get("sha") != os.environ["EXPECTED_SHA"]
+                  or pull.get("head", {}).get("ref") != "collaboration/change-" + os.environ["CHANGE_ID"]
+                  or pull.get("head", {}).get("repo", {}).get("full_name") != repository
+                  or pull.get("base", {}).get("repo", {}).get("full_name") != repository
+                  or pull.get("base", {}).get("ref") != "main"
+                  or not isinstance(sha, str) or not re.fullmatch(r"[0-9a-f]{40}", sha)):
+              raise SystemExit("GitHub did not confirm the exact validated PR merge.")
+          print(sha)
+          PY
+          )"
+          gh workflow run deploy-docs.yml --repo "$GITHUB_REPOSITORY" --ref main \
+            -f change_id="$CHANGE_ID" -f commit_sha="$merge_sha"
 
   report-failure:
-    if: ${{ always() && (needs.validate.result != 'success' || needs.merge.result != 'success') }}
-    needs: [validate, merge]
+    if: >-
+      always() && needs.attest.result == 'success' &&
+      (needs.validate.result == 'failure' || needs.validate.result == 'cancelled' ||
+       needs.merge.result == 'failure' || needs.merge.result == 'cancelled')
+    needs: [attest, validate, merge]
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
       - name: Report failed validation or merge
         env:
           WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
           WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
-          CHANGE_ID: ${{ needs.validate.outputs.change_id }}
+          CHANGE_ID: ${{ needs.attest.outputs.change_id }}
+          EXPECTED_SHA: ${{ needs.attest.outputs.expected_sha }}
+          PR_NUMBER: ${{ needs.attest.outputs.pr_number }}
         run: |
-          if [ -z "$WEBHOOK_URL" ] || [ -z "$WEBHOOK_SECRET" ] || [ -z "$CHANGE_ID" ]; then
-            exit 0
-          fi
-          payload="$(jq -n \
-            --arg id "$CHANGE_ID" \
-            '{change_request_id: $id, status: "failed", failure_reason: "La validation MkDocs ou la fusion automatique a échoué."}')"
-          curl --fail-with-body --silent --show-error \
-            --request POST "$WEBHOOK_URL" \
-            --header "content-type: application/json" \
-            --header "x-publication-secret: $WEBHOOK_SECRET" \
-            --data "$payload"
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          payload = {
+              "change_request_id": os.environ["CHANGE_ID"],
+              "expected_sha": os.environ["EXPECTED_SHA"],
+              "commit_sha": os.environ["EXPECTED_SHA"],
+              "status": "failed", "phase": "pr-validation",
+              "run_id": os.environ["GITHUB_RUN_ID"], "run_attempt": int(os.environ["GITHUB_RUN_ATTEMPT"]),
+              "pr_number": int(os.environ["PR_NUMBER"]),
+              "failure_reason": "La validation ou la fusion de la proposition attestée a échoué.",
+          }
+          request = urllib.request.Request(os.environ["WEBHOOK_URL"], method="POST", headers={
+              "content-type": "application/json", "x-publication-secret": os.environ["WEBHOOK_SECRET"],
+          }, data=json.dumps(payload).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  if json.load(response).get("ok") is not True:
+                      raise ValueError("Callback rejected")
+          except Exception:
+              raise SystemExit("Publication failure callback was not accepted.") from None
+          PY

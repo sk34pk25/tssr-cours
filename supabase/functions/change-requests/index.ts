@@ -6,6 +6,7 @@ import {
   jsonResponse,
 } from "../_shared/cors.ts";
 import { readJsonBody, requireProfile } from "../_shared/auth.ts";
+import { singleLine } from "../_shared/publication-metadata.ts";
 import {
   fetchRepositoryBlob,
   fetchRepositoryFile,
@@ -68,11 +69,7 @@ function rpcRow<T>(data: T | T[] | null): T | null {
 }
 
 function cleanTitle(title: string): string {
-  const value = title.trim();
-  if (value.length < 3 || value.length > 160) {
-    throw new Error("Le titre doit contenir entre 3 et 160 caractères.");
-  }
-  return value;
+  return singleLine(title, "Le titre", 160, 3);
 }
 
 async function trustedFiles(
