@@ -2,6 +2,7 @@ import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { handlePreflight, isAllowedOrigin, jsonResponse, errorResponse } from "../_shared/cors.ts";
 import { readJsonBody, requireProfile, type Profile } from "../_shared/auth.ts";
 import { publishApprovedChange } from "../_shared/github.ts";
+import { singleLine } from "../_shared/publication-metadata.ts";
 
 interface AdminRequest {
   action: string;
@@ -27,9 +28,7 @@ function validateEmail(email: string): string {
 }
 
 function validateName(name: string): string {
-  const normalized = name.trim();
-  if (normalized.length < 1 || normalized.length > 100) throw new Error("Le nom doit contenir entre 1 et 100 caractères.");
-  return normalized;
+  return singleLine(name, "Le nom", 100);
 }
 
 async function getTarget(adminClient: SupabaseClient, profileId: string): Promise<Profile> {

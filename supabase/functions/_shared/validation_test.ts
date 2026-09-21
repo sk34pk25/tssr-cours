@@ -1,4 +1,6 @@
 import { assertEquals, assertThrows } from "jsr:@std/assert@1.0.18";
+import attributeFixtures from "../../../tests/fixtures/markdown-attributes.json" with { type: "json" };
+import type { ProposedFile } from "./validation.ts";
 import {
   assertEditablePath,
   buildNavigationEdit,
@@ -7,6 +9,72 @@ import {
   validateMkDocsEdit,
   validateProposedFiles,
 } from "./validation.ts";
+
+for (const fixture of attributeFixtures) {
+  Deno.test(`server attribute policy: ${fixture.name}`, () => {
+    if (fixture.allowed) {
+      validateMarkdown(fixture.markdown);
+      validateMarkdownTransition(fixture.markdown, fixture.markdown + "\n\nAjout passif.");
+    }
+    else assertThrows(() => validateMarkdown(fixture.markdown));
+  });
+}
+
+const sourceResource = "docs/assets/resources/cours/test/support.txt";
+const baseSha = "a".repeat(40);
+const glossary = JSON.stringify({ schemaVersion: 1, courses: [], modules: [], entries: [] });
+function rename(destination: string, content: string): ProposedFile {
+  return { file_path: sourceResource, new_file_path: destination, change_type: "rename",
+    base_file_sha: baseSha, old_content: "Ancienne ressource", new_content: content, content_encoding: "utf-8" };
+}
+
+Deno.test("rename validates Markdown destination without inheriting text-resource trust", () => {
+  for (const content of [
+    '<script>void(0)</script>', '![x](x.png){onerror="void(0)"}',
+    '[x](javascript:void(0))', '![x](data:image/svg+xml;base64,PHN2Zz4=)',
+  ]) {
+    assertThrows(() => validateProposedFiles([rename("docs/page.md", content)]));
+    assertThrows(() => validateProposedFiles([{ ...rename("docs/page.md", content), old_content: content }]));
+  }
+  assertEquals(validateProposedFiles([rename("docs/page.md", "# Page valide")]).length, 1);
+  assertEquals(validateProposedFiles([{ ...rename("docs/renamed.md", "# Page"),
+    file_path: "docs/page.md", old_content: "# Ancien" }]).length, 1);
+});
+
+Deno.test("rename applies glossary JSON and schema validation at destination", () => {
+  for (const content of ["invalid JSON", "{}", '{"schemaVersion":2,"courses":[],"modules":[],"entries":[]}']) {
+    assertThrows(() => validateProposedFiles([rename("data/glossaire.json", content)]));
+  }
+  assertEquals(validateProposedFiles([rename("data/glossaire.json", glossary)]).length, 1);
+});
+
+Deno.test("new_file_path cannot alias a create update or delete operation", () => {
+  for (const change_type of ["create", "update", "delete"] as const) {
+    assertThrows(() => validateProposedFiles([{ ...rename("docs/other.md", "# Page"),
+      file_path: "docs/page.md", change_type }]));
+  }
+});
+
+Deno.test("structural files cannot disappear through delete or rename", () => {
+  for (const file_path of ["mkdocs.yml", "data/glossaire.json"]) {
+    for (const change_type of ["delete", "rename"] as const) {
+      assertThrows(() => validateProposedFiles([{ ...rename("docs/other.md", "# Page"),
+        file_path, change_type, ...(change_type === "delete" ? { new_file_path: undefined } : {}) }]));
+    }
+  }
+  assertThrows(() => validateProposedFiles([rename("mkdocs.yml", "site_name: TSSR")]));
+});
+
+Deno.test("structural files retain permitted editorial updates", () => {
+  const yaml = "site_name: TSSR\nnav:\n  - Accueil: index.md\n";
+  const next = yaml.replace("TSSR", "TSSR formation");
+  for (const [file_path, new_content] of [["mkdocs.yml", next], ["data/glossaire.json", glossary]]) {
+    assertEquals(validateProposedFiles([{ file_path, change_type: "update",
+      base_file_sha: baseSha, old_content: file_path === "mkdocs.yml" ? yaml : glossary, new_content }]).length, 1);
+  }
+  validateMkDocsEdit(yaml, next, new Set(["mkdocs.yml", "docs/index.md"]));
+  assertThrows(() => validateMkDocsEdit(yaml, next + "hooks:\n  - malicious.py\n", new Set(["docs/index.md"])));
+});
 
 Deno.test("editable paths allow content but reject executable project files", () => {
   assertEquals(assertEditablePath("docs/modules/reseau.md"), "docs/modules/reseau.md");
