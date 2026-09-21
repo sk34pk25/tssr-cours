@@ -358,6 +358,8 @@ nav:
       - Tous les Kahoots: kahoot/bibliotheque.md
       - Bases des réseaux:
           - Sans titre: kahoot/bases-reseaux-01-sans-titre.md
+      - Services réseaux en environnement Microsoft:
+          - Sans titre: kahoot/services-reseaux-en-environnement-microsoft-01-sans-titre.md
   - Modifications: collaboration/index.md
   - Révisions:
       - Présentation: revision/index.md
