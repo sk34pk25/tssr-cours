@@ -64,7 +64,8 @@ jobs:
                   result = json.load(response)
           except Exception:
               raise SystemExit("Publication attestation failed; no merge is authorized.") from None
-          if (result.get("ok") is not True or result.get("change_request_id") != change_id
+          if (result.get("maintenance_protocol") != "tssr-maintenance-v1"
+                  or result.get("ok") is not True or result.get("change_request_id") != change_id
                   or result.get("expected_sha") != sha or type(result.get("pr_number")) is not int
                   or result["pr_number"] != int(number)):
               raise SystemExit("Publication attestation does not match this exact PR head.")
@@ -169,7 +170,8 @@ jobs:
                   result = json.load(response)
           except Exception:
               raise SystemExit("Publication re-attestation failed; no merge is authorized.") from None
-          if (result.get("ok") is not True or result.get("change_request_id") != change_id
+          if (result.get("maintenance_protocol") != "tssr-maintenance-v1"
+                  or result.get("ok") is not True or result.get("change_request_id") != change_id
                   or result.get("expected_sha") != sha or type(result.get("pr_number")) is not int
                   or result["pr_number"] != number):
               raise SystemExit("Publication re-attestation does not match the validated PR head.")
