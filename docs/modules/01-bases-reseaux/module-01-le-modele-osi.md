@@ -7,7 +7,7 @@
 !!! warning "Périmètre et versions"
     Les six modules sont explicitement nommés dans les dossiers et supports Réseaux. Les activités Packet Tracer sont conservées comme ressources binaires à ouvrir avec Cisco Packet Tracer.
 
-## Objectifs et compétences
+## Objectifs et compétences "TEST"
 
 - Situer les sept couches du modèle OSI et leur responsabilité.
 - Relier données, segments, paquets, trames et bits aux PDU correspondantes.
