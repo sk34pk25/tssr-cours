@@ -12,6 +12,111 @@ import {
 
 const sha = (character: string) => character.repeat(40);
 
+// A real course can exist in nav without glossary terms (as on main before
+// d49230bb). Its directory slug is then the editor identity, not a registry row.
+function courseWithoutGlossary() {
+  const { snapshot } = fixture();
+  const slug = "services-reseaux-en-environnement-microsoft";
+  const directory = `docs/modules/09-${slug}`;
+  const title = "Services réseaux en environnement Microsoft";
+  snapshot.mkdocs.content = `site_name: TSSR
+theme:
+  name: material
+nav:
+  - Accueil: index.md
+  - Cours:
+      - ${title}:
+          - Présentation: modules/09-${slug}/index.md
+${Array.from({ length: 6 }, (_, i) => `          - Module 0${i + 1}: modules/09-${slug}/module-0${i + 1}-module-0${i + 1}.md`).join("\n")}
+  - Kahoot:
+      - Tous les Kahoots: kahoot/bibliotheque.md
+`;
+  const add = (path: string, content: string) => {
+    snapshot.documents[path] = { content, fileSha: sha("5") };
+    snapshot.files.push({ path, sha: sha("5") });
+  };
+  add(`${directory}/index.md`, `# ${title}\n`);
+  for (let i = 1; i <= 6; i++) {
+    add(`${directory}/module-0${i}-module-0${i}.md`, `# Module 0${i} — Module 0${i}\n\nContenu conservé.\n`);
+  }
+  const plan = resolveCourseEditorPlan(`${directory}/index.md`, snapshot.mkdocs.content, snapshot.glossary.content);
+  return { snapshot, plan, editor: buildCourseEditorModel(plan, snapshot) };
+}
+
+Deno.test("text-only edit of an unregistered glossary course changes exactly the requested module", () => {
+  const { plan, snapshot, editor } = courseWithoutGlossary();
+  const draft = structuredClone(editor.draft) as Record<string, unknown>;
+  const modules = draft.modules as Record<string, unknown>[];
+  modules[0].content = "# Module 01\n\n# Ceci est un test\n\nContenu conservé.\n";
+  const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+  assertEquals(result.files.map((f) => f.file_path), ["docs/modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md"]);
+  assertEquals(result.files[0].new_content, modules[0].content);
+});
+
+Deno.test("empty new quiz rows never create a Kahoot file or navigation", () => {
+  for (const placeholder of [{ clientId: "empty", kind: "kahoot", title: "", url: "", moduleIndex: -1 }, null, {},
+    { clientId: "empty", kind: "quiz", title: "  ", questions: [{ question: "", answers: [], correctAnswer: "", explanation: "" }] }]) {
+    const { plan, snapshot, editor } = courseWithoutGlossary();
+    const draft = structuredClone(editor.draft) as Record<string, unknown>;
+    (draft.modules as Record<string, unknown>[])[0].content += "\nUne précision demandée.\n";
+    draft.quizzes = [placeholder];
+    const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+    assertEquals(result.files.map((f) => f.file_path), ["docs/modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md"]);
+  }
+});
+
+Deno.test("no glossary change preserves the original JSON bytes regardless of formatting", () => {
+  const { plan, snapshot } = fixture();
+  snapshot.glossary.content = JSON.stringify(JSON.parse(snapshot.glossary.content)) + "\r\n";
+  const editor = buildCourseEditorModel(plan, snapshot);
+  const draft = structuredClone(editor.draft) as Record<string, unknown>;
+  (draft.modules as Record<string, unknown>[])[0].content += "\nPrécision.\n";
+  const before = snapshot.glossary.content;
+  const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+  assertEquals(result.files.some((f) => f.file_path === "data/glossaire.json"), false);
+  assertEquals(snapshot.glossary.content, before);
+});
+
+Deno.test("first explicit glossary association registers a complete course and only the referenced module", () => {
+  for (const moduleIndex of [-1, 0, 5]) {
+    const { plan, snapshot, editor } = courseWithoutGlossary();
+    const draft = structuredClone(editor.draft) as Record<string, unknown>;
+    draft.existingGlossary = [{ id: "osi", moduleIndex }];
+    const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+    assertEquals(result.files.map((f) => f.file_path), ["data/glossaire.json"]);
+    const data = JSON.parse(result.files[0].new_content!);
+    const course = data.courses.find((c: { id: string }) => c.id === plan.courseId);
+    assertEquals(course, { id: "services-reseaux-en-environnement-microsoft", name: "Services réseaux en environnement Microsoft", shortName: "Services réseaux en environnement Microsoft", path: "modules/09-services-reseaux-en-environnement-microsoft/index.md" });
+    const registered = data.modules.filter((m: { courseId: string }) => m.courseId === course.id);
+    assertEquals(registered.length, 1);
+    for (const field of ["name", "shortName", "path"]) assertEquals(typeof registered[0][field] === "string" && registered[0][field].length > 0, true);
+    assertEquals(data.entries[0].refs, ["reseaux:r01", `${course.id}:${registered[0].id}`]);
+  }
+});
+
+Deno.test("a legitimate new glossary term for the previously unregistered course remains publishable", () => {
+  const { plan, snapshot, editor } = courseWithoutGlossary();
+  const draft = structuredClone(editor.draft) as Record<string, unknown>;
+  draft.glossaryEntries = [{ clientId: "new-term", term: "Serveur DNS", definition: "Serveur qui résout les noms de domaine en adresses pour les clients du réseau.", moduleIndex: 0, aliases: [], keywords: [] }];
+  const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+  assertEquals(result.files.map((f) => f.file_path), ["data/glossaire.json"]);
+  const data = JSON.parse(result.files[0].new_content!);
+  assertEquals(data.entries.length, 2);
+  assertEquals(data.entries[1].term, "Serveur DNS");
+  assertEquals(data.entries[1].refs, ["services-reseaux-en-environnement-microsoft:services-reseaux-en-environnement-microsoft-m01"]);
+  assertEquals(data.modules.at(-1).name, "Module 01 — Module 01");
+});
+
+Deno.test("empty persisted quiz content is preserved instead of silently deleting an existing page", () => {
+  const { plan, snapshot } = fixture();
+  snapshot.documents["docs/kahoot/reseaux.md"].content = "";
+  const editor = buildCourseEditorModel(plan, snapshot);
+  const draft = structuredClone(editor.draft) as Record<string, unknown>;
+  (draft.modules as Record<string, unknown>[])[0].content += "\nPrécision.\n";
+  const result = buildCourseModification({ meta: editor.meta, baseCommitSha: snapshot.commitSha, draft, attachments: editor.attachments }, plan, snapshot);
+  assertEquals(result.files.map((f) => f.file_path), ["docs/modules/01-bases-reseaux/module-01-osi.md"]);
+});
+
 function modificationWithGlossary(links: unknown) {
   const { plan, snapshot, editor } = fixture();
   const draft = structuredClone(editor.draft) as Record<string, unknown>;

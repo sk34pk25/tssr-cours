@@ -229,7 +229,7 @@
       return;
     }
     const { data, error } = await state.client.from("profiles")
-      .select("id, auth_user_id, display_name, email, role, can_edit, status, must_change_password")
+      .select("id, auth_user_id, display_name, email, role, can_edit, can_override_validation, status, must_change_password")
       .eq("auth_user_id", state.session.user.id)
       .single();
     if (error || !data || data.status !== "active") {
@@ -714,7 +714,7 @@
   async function loadChanges() {
     if (!state.client || !state.profile) return [];
     const { data, error } = await state.client.from("change_requests")
-      .select("*, change_request_files(*), change_approvals(*)")
+      .select("*, change_request_files(*), change_approvals(*), change_approval_overrides(*)")
       .order("created_at", { ascending: false });
     if (error) throw error;
     return data || [];
@@ -726,7 +726,8 @@
     const rows = labels.map((approver) => {
       const vote = approvals.get(approver.id);
       const symbol = vote?.decision === "approved" ? "✓" : vote?.decision === "rejected" ? "✕" : "○";
-      return `<li>${symbol} ${utils.escapeHtml(approver.display_name)}${vote?.comment ? ` — ${utils.escapeHtml(vote.comment)}` : ""}</li>`;
+      const label = vote?.decision === "approved" ? "approuvé" : vote?.decision === "rejected" ? "refusé" : "non voté";
+      return `<li>${symbol} ${utils.escapeHtml(approver.display_name)} : ${label}${vote?.comment ? ` — ${utils.escapeHtml(vote.comment)}` : ""}</li>`;
     }).join("");
     const approved = request.change_approvals.filter((vote) => vote.decision === "approved" && request.required_approvers.includes(vote.user_id)).length;
     return { rows, approved, total: request.required_approvers.length, approvals };
@@ -736,6 +737,8 @@
     const status = utils.statusInfo(request.status);
     const approval = approvalSummary(request);
     const myVote = approval.approvals.get(state.profile.id);
+    // PostgREST represents this one-to-one relation as an object (older clients may use an array).
+    const override = Array.isArray(request.change_approval_overrides) ? request.change_approval_overrides[0] : request.change_approval_overrides;
     const canVote = state.profile.can_edit && request.status === "pending" && request.required_approvers.includes(state.profile.id) && !myVote;
     const canCancel = (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
     const canRevise = request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
@@ -766,11 +769,14 @@
       ${request.description ? `<p>${utils.escapeHtml(request.description)}</p>` : ""}
       ${summary}
       ${request.failure_reason ? `<div class="tssr-form-error">${utils.escapeHtml(request.failure_reason)}</div>` : ""}
+      <p class="tssr-muted">Votes humains réellement enregistrés :</p>
       <ul class="tssr-approvals">${approval.rows}</ul>
+      ${override ? `<div class="tssr-help" data-admin-override-summary><strong>Override administrateur : utilisé</strong><p>${utils.escapeHtml(override.actor_display_name)} · ${formatDate(override.created_at)}</p><p>Motif : ${utils.escapeHtml(override.reason)}</p><p>Les validations absentes ne sont pas des votes favorables.</p></div>` : ""}
       ${request.published_commit_sha ? `<p class="tssr-muted">Commit : <code>${utils.escapeHtml(request.published_commit_sha)}</code></p>` : ""}
       <div class="tssr-card-actions">
         <button type="button" class="tssr-action" data-change-action="diff">Voir les changements</button>
         ${canVote ? '<button type="button" class="tssr-action tssr-action--primary" data-change-action="approve">Accepter</button><button type="button" class="tssr-action tssr-action--danger" data-change-action="reject">Refuser</button>' : ""}
+        ${utils.canOverrideValidation(state.profile, request) ? '<button type="button" class="tssr-action" data-change-action="admin-override">Valider en tant qu’administrateur</button>' : ""}
         ${canRevise ? '<button type="button" class="tssr-action" data-change-action="revise">Créer une révision</button>' : ""}
         ${canCancel ? '<button type="button" class="tssr-action tssr-action--danger" data-change-action="cancel">Annuler</button>' : ""}
       </div>
@@ -836,6 +842,25 @@
         toast("Proposition annulée.");
         renderCollaborationPage();
       } catch (error) { toast(error.message, "error"); }
+      return;
+    }
+    if (action === "admin-override") {
+      if (!utils.canOverrideValidation(state.profile, request)) return;
+      if (!window.confirm("Cette action contournera les validations restantes et pourra déclencher la publication. Les utilisateurs qui n’ont pas voté resteront indiqués comme n’ayant pas voté. Confirmer la validation administrative ?")) return;
+      const reason = window.prompt("Motif de la validation administrative (3 à 1000 caractères, une ligne) :", "");
+      if (reason === null) return;
+      if (reason.trim().length < 3 || reason.trim().length > 1000 || /[\u0000-\u001f\u007f-\u009f]/.test(reason)) {
+        toast("Un motif de 3 à 1000 caractères sur une ligne est requis.", "error");
+        return;
+      }
+      setBusy(button, true, "Validation administrative…");
+      try {
+        await invoke("change-requests", { action: "admin_override_approval", change_request_id: request.id, reason: reason.trim() });
+        toast("Validation administrative traitée. Aucun vote tiers ajouté.");
+        renderCollaborationPage();
+        updatePendingNotice();
+      } catch (error) { toast(error.message, "error"); }
+      finally { setBusy(button, false); }
       return;
     }
     if (action === "approve" || action === "reject") {

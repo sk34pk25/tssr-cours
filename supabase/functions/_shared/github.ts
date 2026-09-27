@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
+import { assertPublicationApproval } from "./approval-policy.ts";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
 import { MaintenanceError, publicationWriteGuard } from "./maintenance.ts";
 import {
@@ -333,10 +334,8 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
       .eq("change_request_id", changeId)
       .eq("decision", "approved");
     if (approvalsError) throw new Error(approvalsError.message);
-    const approverIds = new Set((approvals || []).map((approval) => approval.user_id));
-    if (!(request.required_approvers as string[]).every((id) => approverIds.has(id))) {
-      throw new Error("Le consensus n’est plus complet.");
-    }
+    await assertPublicationApproval(adminClient, changeId, request.required_approvers as string[],
+      (approvals || []).map((approval) => approval.user_id));
 
     const config = githubConfig();
     config.beforeWrite = guard.beforeWrite;
