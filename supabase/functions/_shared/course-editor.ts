@@ -1541,7 +1541,18 @@ function normalizeEditItem(item: JsonRecord, kind: string): JsonRecord {
   return { ...item, ...base };
 }
 
-function normalizedDraft(raw: unknown): JsonRecord {
+function hasQuizInput(value: unknown): boolean {
+  const item = record(value);
+  const filled = (value: unknown) => typeof value === "string" && value.trim() !== "";
+  return [item.title, item.description, item.url, item.content, item.category, item.difficulty].some(filled) ||
+    list(item.questions, 80).some((value) => {
+      const question = record(value);
+      return [question.question, question.correctAnswer, question.explanation].some(filled) ||
+        list(question.answers, 80).some(filled);
+    });
+}
+
+function normalizedDraft(raw: unknown, existingQuizIds: Set<string>): JsonRecord {
   const source = record(raw);
   const generalSource = record(source.general);
   return {
@@ -1565,7 +1576,11 @@ function normalizedDraft(raw: unknown): JsonRecord {
     labs: list(source.labs, 80).map((item) =>
       normalizeEditItem(record(item), "lab")
     ),
-    quizzes: list(source.quizzes, 80).map((item) =>
+    // Drop only empty NEW form rows, before the "Sans titre" fallback. Never
+    // remove a persisted quiz just because its editable fields are empty.
+    quizzes: list(source.quizzes, 80).filter((item) =>
+      existingQuizIds.has(String(record(item).clientId)) || hasQuizInput(item)
+    ).map((item) =>
       normalizeEditItem(record(item), "quiz")
     ),
     glossaryEntries: list(source.glossaryEntries, 500),
@@ -1820,7 +1835,8 @@ export function buildCourseModification(
   }
   const currentEditor = buildCourseEditorModel(plan, snapshot);
   const currentDraft = record(currentEditor.draft);
-  const nextDraft = normalizedDraft(record(rawEditor).draft || rawEditor);
+  const nextDraft = normalizedDraft(record(rawEditor).draft || rawEditor,
+    new Set(list(currentDraft.quizzes).map((item) => String(record(item).clientId))));
   const unavailable = new Set(snapshot.files.map((file) => file.path));
   const nextText = new Map<string, string>();
   const deleted = new Set<string>();
@@ -2290,6 +2306,7 @@ export function buildCourseModification(
     String(item.path) === plan.coursePath.replace(/^docs\//, "")
   );
   let overviewModuleRegistered = Boolean(overviewModule);
+  const pendingGlossaryModules = new Map<string, JsonRecord>();
   if (!overviewModule) {
     overviewModule = {
       id: `${plan.courseId}-presentation`,
@@ -2323,9 +2340,14 @@ export function buildCourseModification(
           String(index + 1).padStart(2, "0")
         }-${suffix++}`;
       }
-      item = { id, courseId: plan.courseId, path };
-      glossaryModules.push(item);
-      glossaryChanged = true;
+      item = {
+        id, courseId: plan.courseId, path,
+        name: `Module ${String(index + 1).padStart(2, "0")} — ${module.title}`,
+        shortName: `M${String(index + 1).padStart(2, "0")} · ${String(module.title).slice(0, 70)}`,
+      };
+      // A nav course need not participate in the glossary. Register a missing
+      // module only when an explicit term/reference actually uses it.
+      pendingGlossaryModules.set(id, item);
     }
     const nextName = `Module ${
       String(index + 1).padStart(2, "0")
@@ -2339,7 +2361,7 @@ export function buildCourseModification(
     ) {
       item.name = nextName;
       item.shortName = nextShortName;
-      glossaryChanged = true;
+      if (!pendingGlossaryModules.has(String(item.id))) glossaryChanged = true;
     }
     activeModuleIds.add(String(item.id));
     record(module.storage).glossaryModuleId = item.id;
@@ -2371,20 +2393,40 @@ export function buildCourseModification(
     nextDraft.glossaryEntries,
     "Glossaire proposé",
   );
+  const ensureGlossaryCourse = () => {
+    if (courses.some((course) => course.id === plan.courseId)) return;
+    courses.push({
+      id: plan.courseId,
+      name: nextGeneral.title,
+      shortName: nextGeneral.shortTitle || nextGeneral.title,
+      path: plan.coursePath.replace(/^docs\//, ""),
+    });
+    glossaryData.courses = courses;
+    glossaryChanged = true;
+  };
   const moduleIdForIndex = (index: unknown, preserved = ""): string => {
     if (index === -1 || !resolvedModules[Number(index)]) {
       if (preserved) return preserved;
       if (!overviewModuleRegistered && overviewModule) {
+        ensureGlossaryCourse();
         filteredGlossaryModules.push(overviewModule);
         overviewModuleRegistered = true;
         glossaryChanged = true;
       }
       return String(overviewModule?.id);
     }
-    return String(
+    const id = String(
       record(resolvedModules[Number(index)].storage).glossaryModuleId ||
         overviewModule?.id,
     );
+    const pending = pendingGlossaryModules.get(id);
+    if (pending) {
+      ensureGlossaryCourse();
+      filteredGlossaryModules.push(pending);
+      pendingGlossaryModules.delete(id);
+      glossaryChanged = true;
+    }
+    return id;
   };
   currentGlossary.forEach((current, id) => {
     const entryId = String(current.id || id.replace(/^glossary:/, ""));
