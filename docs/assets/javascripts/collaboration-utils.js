@@ -25,6 +25,11 @@
     return { label: info[0], className: info[1] };
   }
 
+  function canOverrideValidation(profile, request) {
+    return profile?.role === "admin" && profile.status === "active" && profile.can_edit === true &&
+      profile.can_override_validation === true && profile.must_change_password === false && request?.status === "pending";
+  }
+
   function collaborationConfigured(config) {
     return Boolean(config && /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(config.supabaseUrl || "") &&
       /^(sb_publishable_|eyJ)/.test(config.supabasePublishableKey || ""));
@@ -93,6 +98,7 @@
   return {
     escapeHtml,
     statusInfo,
+    canOverrideValidation,
     collaborationConfigured,
     sourcePath,
     relativeAssetPath,

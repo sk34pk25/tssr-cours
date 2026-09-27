@@ -16,7 +16,8 @@ interface AdminRequest {
   can_edit?: boolean;
 }
 
-const profileColumns = "id, auth_user_id, display_name, email, role, can_edit, status, must_change_password, created_at, updated_at";
+// Read-only here: granting/revoking override is reserved to an explicit DB operator action.
+const profileColumns = "id, auth_user_id, display_name, email, role, can_edit, can_override_validation, status, must_change_password, created_at, updated_at";
 
 function validatePassword(password: string): void {
   if (password.length < 12) throw new Error("Le mot de passe doit contenir au moins 12 caractères.");

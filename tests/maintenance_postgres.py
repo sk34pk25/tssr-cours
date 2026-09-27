@@ -817,4 +817,13 @@ class MaintenancePostgres(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    # The normal CI command must exercise the extension too. Reuse this module's
+    # harness, without running inherited guard cases twice in the override class.
+    import sys
+    sys.modules["maintenance_postgres"] = sys.modules[__name__]
+    from admin_override_postgres import AdminOverridePostgres
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(MaintenancePostgres)
+    suite.addTests(AdminOverridePostgres(name) for name in sorted(AdminOverridePostgres.__dict__)
+                   if name.startswith("test_"))
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    sys.exit(not result.wasSuccessful())

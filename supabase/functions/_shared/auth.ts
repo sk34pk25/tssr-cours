@@ -7,6 +7,7 @@ export interface Profile {
   email: string;
   role: "admin" | "member";
   can_edit: boolean;
+  can_override_validation?: boolean;
   status: "active" | "suspended" | "deleted";
   must_change_password: boolean;
 }
@@ -63,7 +64,7 @@ export async function requireProfile(
 
   const { data: profile, error: profileError } = await adminClient
     .from("profiles")
-    .select("id, auth_user_id, display_name, email, role, can_edit, status, must_change_password")
+    .select("id, auth_user_id, display_name, email, role, can_edit, can_override_validation, status, must_change_password")
     .eq("auth_user_id", userData.user.id)
     .single();
 

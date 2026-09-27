@@ -1,4 +1,5 @@
 import { parse } from "npm:yaml@2.9.0";
+import { recordAdminOverride } from "../_shared/approval-policy.ts";
 import {
   errorResponse,
   handlePreflight,
@@ -39,6 +40,7 @@ interface ChangeRequestBody {
   change_request_id?: string;
   decision?: "approved" | "rejected";
   comment?: string;
+  reason?: string;
   title?: string;
   description?: string;
   base_commit_sha?: string;
@@ -450,6 +452,16 @@ Deno.serve(async (req: Request) => {
           : "content_change",
         body.payload_summary || {},
       );
+    }
+
+    if (body.action === "admin_override_approval") {
+      const context = await requireProfile(req, { admin: true, canEdit: true });
+      const changeRequest = await recordAdminOverride(context.userClient, context.profile,
+        body.change_request_id, body.reason);
+      await publishApprovedChange(context.adminClient, changeRequest.id);
+      const { data: refreshed } = await context.adminClient.from("change_requests")
+        .select("*").eq("id", changeRequest.id).single();
+      return jsonResponse(req, { change_request: refreshed || changeRequest });
     }
 
     if (body.action === "vote") {
