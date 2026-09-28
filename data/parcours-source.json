@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "policy": "GOOGLE_DRIVE_READ_ONLY",
+  "fileId": "1HYG2eTD-1Zv42cS-xcdrpSS17XaFkCdC",
+  "folderId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+  "filename": "planning_formation_TSSR.yaml",
+  "modifiedTime": "2026-09-21T09:18:57.712Z",
+  "originalSha256": "0b8ad75dbb9a7155d7990b512d8ddff2c607713503946b1523080fdb6a7b6324",
+  "snapshotSha256": "caa3f80b55ed2dc39e1e1101131c4c9db3f6377d186ad1d461b22dc93772e02d",
+  "syntaxRepair": "Quote the non renseigne context item; insert sequence markers before the 28 cours keys. All other bytes preserved.",
+  "timezone": "Europe/Paris"
+}

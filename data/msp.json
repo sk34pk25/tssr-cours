@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "systemes-clients",
+      "title": "Mise en situation professionnelle : systèmes clients",
+      "path": "modules/08-msp-systemes-clients/index.md",
+      "sourceFolderId": "1I6MsKwD_ac__j4wfKo-Blvxl6qUaRiYO",
+      "relations": [
+        {
+          "coursePath": "modules/01-bases-reseaux/index.md",
+          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidenceQuote": "Analyser une architecture et un plan d’adressage en /26."
+        },
+        {
+          "coursePath": "modules/02-systemes-clients-microsoft/index.md",
+          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidenceQuote": "Préparer postes Windows et Debian."
+        },
+        {
+          "coursePath": "modules/05-administration-debian-gnu-linux/index.md",
+          "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
+          "evidenceQuote": "Préparer postes Windows et Debian."
+        }
+      ],
+      "resources": ["tp/msp/index.md", "revision/msp/index.md"],
+      "sections": {}
+    },
+    {
+      "id": "services-reseau",
+      "title": "Mise en situation professionnelle : services réseau",
+      "path": null,
+      "sourceFolderId": "1sTxYxQiaiKhaRdqsQYGV7Kw37myRNXK3",
+      "relations": [],
+      "resources": [],
+      "sections": {}
+    }
+  ]
+}

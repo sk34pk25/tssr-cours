@@ -1,4 +1,5 @@
 import { parse, stringify } from "npm:yaml@2.9.0";
+import { readKahoot } from "./kahoot.ts";
 
 export type ChangeType = "create" | "update" | "delete" | "rename";
 
@@ -548,6 +549,11 @@ export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
     } else {
       if (encoding !== "utf-8") throw new Error(`Le fichier texte ${path} doit être encodé en UTF-8.`);
       if (destination.endsWith(".md") && file.new_content != null) {
+        if (destination.startsWith("docs/kahoot/")) {
+          const metadata = readKahoot(file.new_content);
+          if (!metadata && readKahoot(file.old_content || "")) throw new Error("Les métadonnées d’un Kahoot structuré doivent être conservées.");
+          if (!metadata && (file.change_type === "create" || !path.startsWith("docs/kahoot/")) && /https:\/\/(?:create\.)?kahoot\.(?:it|com)\/(?:share|details)\//i.test(file.new_content)) throw new Error("Un nouveau Kahoot exige ses métadonnées de module et son nombre de questions.");
+        }
         if (file.change_type === "create" || !SAFE_MARKDOWN.test(path)) validateMarkdown(file.new_content);
         else validateMarkdownTransition(file.old_content || "", file.new_content);
       }

@@ -1,0 +1,214 @@
+# Planning formation TSSR
+
+Objectif: fournir un planning de formation simple, explicite et facilement interprétable par une IA.
+
+Contexte:
+- Formation: TSSR
+- Modalité principale: En ligne (Campus en ligne)
+- Les dates sont au format ISO AAAA-MM-JJ.
+- Le statut de chaque période ne doit PAS être considéré comme une donnée fixe.
+- L’IA doit calculer le statut au moment de la lecture en utilisant la date actuelle :
+  - si date_actuelle < date_debut : statut = a_venir
+  - si date_debut <= date_actuelle <= date_fin : statut = en_cours
+  - si date_actuelle > date_fin : statut = passe
+- Cette règle doit être recalculée à chaque utilisation du fichier.
+- "non renseigné" signifie que le formateur n'était pas indiqué dans les données fournies.
+
+planning:
+
+    cours: "Mise en situation professionnelle : services réseau"
+    date_debut: 2026-09-21
+    date_fin: 2026-09-25
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Initiation au scripting Bash"
+    date_debut: 2026-09-28
+    date_fin: 2026-10-02
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Initiation à Powershell"
+    date_debut: 2026-10-05
+    date_fin: 2026-10-09
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Virtualisation de serveurs"
+    date_debut: 2026-10-12
+    date_fin: 2026-10-16
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "KURTULUS Hasan"
+
+    cours: "Messagerie Cloud"
+    date_debut: 2026-10-19
+    date_fin: 2026-10-23
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Sauvegarde et Restauration"
+    date_debut: 2026-10-26
+    date_fin: 2026-10-30
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Réseau et Sécurité (1/2)"
+    date_debut: 2026-11-02
+    date_fin: 2026-11-06
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Réseau et Sécurité (2/2)"
+    date_debut: 2026-11-09
+    date_fin: 2026-11-13
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Services transverses Microsoft (RDS/WDS)"
+    date_debut: 2026-11-16
+    date_fin: 2026-11-20
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Stage en entreprise"
+    date_debut: 2026-11-23
+    date_fin: 2026-12-24
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Interruption"
+    date_debut: 2026-12-25
+    date_fin: 2027-01-01
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Stage en entreprise"
+    date_debut: 2027-01-04
+    date_fin: 2027-01-22
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Evaluations Finales RENNES"
+    date_debut: 2027-02-15
+    date_fin: 2027-02-19
+    modalite_lieu: "Rennes"
+    formateurs:
+      - "non renseigné"
+
+    cours: "Services réseau en environnement Linux"
+    date_debut: 2026-09-14
+    date_fin: 2026-09-18
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Services réseau en environnement Microsoft (2/2)"
+    date_debut: 2026-09-07
+    date_fin: 2026-09-11
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "GRELIER François"
+
+    cours: "Services réseau en environnement Microsoft (1/2)"
+    date_debut: 2026-08-31
+    date_fin: 2026-09-04
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Les infrastructures réseaux (2/2)"
+    date_debut: 2026-08-24
+    date_fin: 2026-08-28
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "NACEUR Maha"
+      - "GAUTIER Romain"
+
+    cours: "Les infrastructures réseaux (1/2)"
+    date_debut: 2026-08-17
+    date_fin: 2026-08-21
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "KURTULUS Hasan"
+
+    cours: "Sensibilisation ITIL et Gestion de Parc (2/2)"
+    date_debut: 2026-08-10
+    date_fin: 2026-08-14
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Sensibilisation ITIL et Gestion de Parc (1/2)"
+    date_debut: 2026-08-03
+    date_fin: 2026-08-07
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Mise en situation professionnelle : systèmes clients"
+    date_debut: 2026-07-27
+    date_fin: 2026-07-31
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Administration d'une distribution GNU/Linux (2/2)"
+    date_debut: 2026-07-20
+    date_fin: 2026-07-24
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "GRELIER François"
+
+    cours: "Administration d'une distribution GNU/Linux (1/2)"
+    date_debut: 2026-07-13
+    date_fin: 2026-07-17
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "CHAUSSIER Alexandre"
+
+    cours: "Utilisation d'une distribution GNU/Linux"
+    date_debut: 2026-07-06
+    date_fin: 2026-07-10
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Systèmes clients Microsoft (2/2)"
+    date_debut: 2026-06-29
+    date_fin: 2026-07-03
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "KURTULUS Hasan"
+
+    cours: "Systèmes clients Microsoft (1/2)"
+    date_debut: 2026-06-22
+    date_fin: 2026-06-26
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "RICHEZ Cédric"
+
+    cours: "Bases des réseaux"
+    date_debut: 2026-06-15
+    date_fin: 2026-06-19
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "GUYADER Thélo"
+
+    cours: "Microsoft 365 - Outils collaboratifs"
+    date_debut: 2026-06-08
+    date_fin: 2026-06-12
+    modalite_lieu: "En ligne (Campus en ligne)"
+    formateurs:
+      - "KURTULUS Hasan"

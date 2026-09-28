@@ -7,6 +7,7 @@ import {
   validateProposedFiles,
 } from "./validation.ts";
 import { renderPdfAttachment } from "./course.ts";
+import { MAX_KAHOOT_QUESTIONS, readKahoot, validateKahootSet, writeKahoot } from "./kahoot.ts";
 
 type JsonRecord = Record<string, unknown>;
 
@@ -736,19 +737,25 @@ export function buildCourseEditorModel(
 
   const quizzes = plan.quizzes.map((item, index) => {
     const source = sourceOrThrow(snapshot, item.path);
+    const kahoot = readKahoot(source.content);
     const url = source.content.match(
       /https:\/\/(?:create\.)?kahoot\.(?:com|it)\/[^\s)"'}]+/i,
     )?.[0] || "";
     return {
       clientId: stableId("quiz", item.path),
-      title: firstHeading(source.content, item.label),
-      kind: url ? "kahoot" : "quiz",
+      title: kahoot?.title ?? firstHeading(source.content, item.label),
+      kind: kahoot || url ? "kahoot" : "quiz",
       description: "",
-      url,
+      url: kahoot?.url ?? url,
       difficulty: "",
       category: "",
-      moduleIndex: -1,
-      questions: [],
+      moduleIndex: kahoot ? modules.findIndex((module) => String(record(module.storage).path).replace(/^docs\//, "") === kahoot.moduleId) : -1,
+      questions: kahoot?.questions || [],
+      kahootVersion: kahoot?.schemaVersion,
+      questionCount: kahoot?.questionCount ?? "",
+      provenance: kahoot?.provenance ?? "",
+      soloAvailable: kahoot?.soloAvailable === true,
+      liveAvailable: kahoot?.liveAvailable === true,
       content: source.content,
       storage: {
         path: item.path,
@@ -947,7 +954,7 @@ export function buildCourseEditorModel(
         exercises: 80,
         labs: 80,
         quizzes: 80,
-        questionsPerQuiz: 80,
+        questionsPerQuiz: MAX_KAHOOT_QUESTIONS,
         glossaryEntries: 500,
         resources: 500,
         attachments: 80,
@@ -1529,13 +1536,14 @@ function normalizeEditItem(item: JsonRecord, kind: string): JsonRecord {
       ...item,
       ...base,
       kind: quizKind,
+      title: quizKind === "kahoot" ? cleanText(item.title, 160) : base.title,
       description: cleanText(item.description, 1_000),
       url: safeHttps(item.url, quizKind === "kahoot"),
       difficulty: cleanText(item.difficulty, 60),
       category: cleanText(item.category, 100),
-      moduleIndex: cleanInteger(item.moduleIndex, -1, 200, -1),
+      moduleIndex: quizKind === "kahoot" ? Number(item.moduleIndex ?? -1) : cleanInteger(item.moduleIndex, -1, 200, -1),
       content: rawMarkdown(item.content),
-      questions: list(item.questions, 80),
+      questions: list(item.questions, MAX_KAHOOT_QUESTIONS),
     };
   }
   return { ...item, ...base };
@@ -1646,7 +1654,7 @@ function renderNewQuiz(item: JsonRecord): string {
       "",
     );
   }
-  list(item.questions, 80).forEach((questionValue, index) => {
+  (item.kind === "kahoot" ? [] : list(item.questions, MAX_KAHOOT_QUESTIONS)).forEach((questionValue, index) => {
     const question = record(questionValue);
     output.push(
       `## Question ${index + 1}`,
@@ -1950,6 +1958,15 @@ export function buildCourseModification(
     }
   });
   nextDraft.modules = resolvedModules;
+  for (const item of nextDraft.quizzes as JsonRecord[]) {
+    const current = list(currentDraft.quizzes).map(record).find((q) => q.clientId === item.clientId);
+    if (current?.kahootVersion || (item.kind === "kahoot" && (item.questionCount || list(item.questions).length || item.soloAvailable === true || item.liveAvailable === true))) {
+      item.kahootVersion = 1;
+      if (item.kind !== "kahoot") throw new Error("Une page Kahoot structurée ne peut pas perdre son contrat.");
+    }
+  }
+  validateKahootSet(nextDraft.quizzes as JsonRecord[], resolvedModules.length,
+    new Set(list(currentDraft.quizzes).map((q) => String(record(q).clientId))));
 
   const processSingleFileFamily = (
     family: "exercises" | "quizzes",
@@ -1994,6 +2011,10 @@ export function buildCourseModification(
           String(current?.url || ""),
           String(item.url || ""),
         );
+      }
+      if (family === "quizzes" && item.kind === "kahoot" && (!current || item.kahootVersion)) {
+        const module = resolvedModules[Number(item.moduleIndex)];
+        content = writeKahoot(content, item, plan.coursePath, String(record(module.storage).resolvedPath));
       }
       nextText.set(path, content);
       resolved.push({

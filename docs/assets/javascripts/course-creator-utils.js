@@ -45,11 +45,11 @@
   }
 
   function newQuiz(overrides = {}) {
-    return { clientId: uid("quiz"), title: "", kind: "kahoot", description: "", url: "", difficulty: "", category: "", moduleIndex: -1, questions: [], content: "", ...overrides };
+    return { clientId: uid("quiz"), title: "", kind: "kahoot", description: "", url: "", difficulty: "", category: "", moduleIndex: -1, questionCount: "", provenance: "A", soloAvailable: false, liveAvailable: false, questions: [], content: "", ...overrides };
   }
 
   function newQuestion(overrides = {}) {
-    return { question: "", answers: [], correctAnswer: "", explanation: "", ...overrides };
+    return { question: "", answers: [], correctAnswer: "", explanation: "", provenance: "A", source: "", ...overrides };
   }
 
   function newGlossaryEntry(overrides = {}) {
@@ -144,6 +144,35 @@
       files: draft?.attachments?.length || 0,
       pdfs: (draft?.attachments || []).filter((file) => file.mediaType === "application/pdf").length
     };
+  }
+
+  function validateKahootDraft(draft, original = {}) {
+    const seen = new Set();
+    for (const quiz of draft.quizzes || []) {
+      if ((quiz.questions || []).length > 20) throw new Error("Maximum 20 questions par module.");
+      if (quiz.kind !== "kahoot") continue;
+      const previous = (original?.quizzes || []).find((q) => q.clientId === quiz.clientId);
+      if (previous && !previous.kahootVersion && !quiz.questionCount && !quiz.questions?.length && !quiz.soloAvailable && !quiz.liveAvailable) continue;
+      if (!quiz.title && !quiz.url && !quiz.questions?.length && !quiz.questionCount) continue;
+      const count = quiz.questionCount === "" || quiz.questionCount == null ? (quiz.questions?.length || 0) : Number(quiz.questionCount);
+      if (!Number.isInteger(count) || count < 1 || count > 20 || (quiz.questions?.length && count !== quiz.questions.length)) throw new Error("Kahoot : renseignez un nombre cohérent de 1 à 20 questions.");
+      const index = Number(quiz.moduleIndex);
+      if (!Number.isInteger(index) || index < 0 || index >= draft.modules.length) throw new Error("Associez le Kahoot à un module existant.");
+      if (seen.has(index)) throw new Error("Un seul Kahoot canonique par module.");
+      seen.add(index);
+      if (!quiz.title?.trim() || (!quiz.url && !quiz.questions?.length)) throw new Error("Titre et lien officiel ou questions requis.");
+      for (const question of quiz.questions || []) {
+        if (!question.question?.trim() || !question.source?.trim() || !/^[ABCD]$/.test(question.provenance)) throw new Error("Chaque question nécessite sa provenance et sa source.");
+      }
+    }
+  }
+
+  function preserveQuizModules(draft, mutate) {
+    const references = (draft.quizzes || []).map((q) => draft.modules[Number(q.moduleIndex)]?.clientId);
+    mutate();
+    (draft.quizzes || []).forEach((q, i) => {
+      if (references[i]) q.moduleIndex = draft.modules.findIndex((m) => m.clientId === references[i]);
+    });
   }
 
   function allowedFile(name, mediaType) {
@@ -328,7 +357,7 @@
 
   return {
     slugify, escapeHtml, uid, clone, splitList, defaultDraft, hydrateDraft, serializableDraft, summarize,
-    newPage, newModule, newExercise, newLab, newQuiz, newQuestion, newGlossaryEntry, newResource,
+    newPage, newModule, newExercise, newLab, newQuiz, newQuestion, newGlossaryEntry, newResource, validateKahootDraft, preserveQuizModules,
     allowedFile, signatureMatches, codeSpan, escapeMarkdownText, escapeMarkdownLabel, stableEditorIdentity, nodeToMarkdown, htmlToMarkdown, insertIntoTextarea, editorDiff
   };
 });
