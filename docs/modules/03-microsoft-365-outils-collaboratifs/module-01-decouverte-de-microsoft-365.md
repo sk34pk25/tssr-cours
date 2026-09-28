@@ -4,6 +4,8 @@
 **Importance :** socle de la progression officielle  
 **Sources consolidées :** 1 support(s) de cours, 0 énoncé(s), 0 correction(s)
 
+Test
+
 !!! warning "Périmètre et versions"
     Les interfaces et les licences Microsoft 365 évoluent régulièrement. « Office 365 ProPlus » est l’ancien nom de « Microsoft 365 Apps for enterprise » ; les chemins d’écran sont à rapprocher de la version disponible dans le tenant utilisé. Référence : [Cycle de vie Microsoft 365 Apps](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-365-apps).
 
