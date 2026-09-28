@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "metadata": {
+        "id": "fixture-module-a",
+        "name": "Module A.md",
+        "mimeType": "text/markdown",
+        "parents": [
+          "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1"
+        ],
+        "modifiedTime": "2026-09-28T00:00:00Z",
+        "version": "1"
+      },
+      "text": "# Module A\nComprendre une adresse IPv4."
+    },
+    {
+      "metadata": {
+        "id": "fixture-module-b",
+        "name": "Module B.md",
+        "mimeType": "text/markdown",
+        "parents": [
+          "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1"
+        ],
+        "modifiedTime": "2026-09-28T00:00:00Z",
+        "version": "1"
+      },
+      "text": "# Module B\nVérifier la résolution DNS."
+    },
+    {
+      "metadata": {
+        "id": "fixture-msp",
+        "name": "MSP.md",
+        "mimeType": "text/markdown",
+        "parents": [
+          "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1"
+        ],
+        "modifiedTime": "2026-09-28T00:00:00Z",
+        "version": "1"
+      },
+      "text": "# Situation professionnelle\nMission : diagnostiquer une absence de résolution DNS.\nLivrable : un compte rendu des vérifications.\nCritère : justifier le diagnostic par les observations."
+    },
+    {
+      "metadata": {
+        "id": "fixture-tp",
+        "name": "TP.md",
+        "mimeType": "text/markdown",
+        "parents": [
+          "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1"
+        ],
+        "modifiedTime": "2026-09-28T00:00:00Z",
+        "version": "1"
+      },
+      "text": "# TP diagnostic\nPrérequis : une machine de laboratoire isolée.\nExécuter une résolution DNS puis relever le résultat."
+    }
+  ],
+  "bindings": {
+    "fixture-module-a": {
+      "humanValidated": true,
+      "kind": "COURSE",
+      "targetPath": "docs/modules/01-bases-reseaux/phase3-module-a.md",
+      "courseId": "modules/01-bases-reseaux/index.md",
+      "moduleId": "modules/01-bases-reseaux/phase3-module-a.md"
+    },
+    "fixture-module-b": {
+      "humanValidated": true,
+      "kind": "COURSE",
+      "targetPath": "docs/modules/01-bases-reseaux/phase3-module-b.md",
+      "courseId": "modules/01-bases-reseaux/index.md",
+      "moduleId": "modules/01-bases-reseaux/phase3-module-b.md"
+    },
+    "fixture-msp": {
+      "humanValidated": true,
+      "kind": "MSP",
+      "targetPath": "docs/msp/phase3-fixture.md"
+    },
+    "fixture-tp": {
+      "humanValidated": true,
+      "kind": "TP",
+      "targetPath": "docs/tp/phase3-fixture.md"
+    }
+  }
+}

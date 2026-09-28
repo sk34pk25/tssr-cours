@@ -1,4 +1,5 @@
 import { parse } from "npm:yaml@2.9.0";
+import { agentSummary } from "../_shared/agent-policy.ts";
 import { recordAdminOverride } from "../_shared/approval-policy.ts";
 import {
   errorResponse,
@@ -151,6 +152,15 @@ async function submit(
   payloadSummary: Record<string, unknown> = {},
 ): Promise<Response> {
   const trusted = await trustedFiles(files, baseCommitSha);
+  const agent = context.profile.actor_kind === "AGENT";
+  if (agent) {
+    if (proposalKind !== "content_change" || trusted.some(file =>
+      !file.file_path.startsWith("docs/") || !file.file_path.endsWith(".md") ||
+      !["create", "update"].includes(file.change_type) || file.content_encoding === "base64")) {
+      throw new Error("Permission agent : ajouts/modifications Markdown uniquement.");
+    }
+    payloadSummary = await agentSummary(payloadSummary, trusted, baseCommitSha);
+  }
   const { data, error } = await context.adminClient.rpc(
     "create_change_request",
     {
@@ -167,7 +177,7 @@ async function submit(
   if (error || !changeRequest) {
     throw new Error(error?.message || "Création de la proposition impossible.");
   }
-  if (changeRequest.status === "approved") {
+  if (!agent && changeRequest.status === "approved") {
     await publishApprovedChange(context.adminClient, changeRequest.id);
   }
   const { data: refreshed } = await context.adminClient.from("change_requests")
@@ -439,7 +449,7 @@ Deno.serve(async (req: Request) => {
     }
 
     if (body.action === "create") {
-      const context = await requireProfile(req, { canEdit: true });
+      const context = await requireProfile(req, { canEdit: true, agentAction: "create" });
       if (!body.base_commit_sha) throw new Error("Commit de base manquant.");
       return await submit(
         req,
