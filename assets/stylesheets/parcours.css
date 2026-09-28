@@ -1,0 +1,19 @@
+/* Only the new planning: keep the historical timeline styling unchanged. */
+.tssr-planning .tssr-timeline__date {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.tssr-planning time {
+  white-space: nowrap;
+}
+
+@media (max-width: 30em) {
+  .tssr-planning .tssr-timeline__card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tssr-planning .tssr-timeline__number {
+    margin-left: 0;
+  }
+}

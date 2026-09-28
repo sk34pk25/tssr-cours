@@ -1,0 +1,5 @@
+.tssr-kahoot { min-width: 0; overflow-wrap: anywhere; }
+.tssr-kahoot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+.tssr-kahoot-actions .md-button { max-width: 100%; white-space: normal; }
+.tssr-kahoot [hidden] { display: none !important; }
+.tssr-kahoot button { font: inherit; cursor: pointer; }

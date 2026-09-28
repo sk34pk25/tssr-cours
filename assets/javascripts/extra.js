@@ -1,7 +1,7 @@
 /* Minimal progressive enhancement for page context and code labels. */
 (function () {
   const sectionNames = [
-    "modules", "parcours", "tutoriels", "tp", "exercices", "revision",
+    "modules", "parcours", "parcours-tssr", "msp", "tutoriels", "tp", "exercices", "revision",
     "kahoot", "memo", "commandes", "troubleshooting", "glossaire", "ressources", "ajouter"
   ];
 
