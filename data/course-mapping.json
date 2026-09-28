@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "probable": [
+    {
+      "title": "Administration d'une distribution GNU/Linux",
+      "candidates": ["modules/05-administration-debian-gnu-linux/index.md"],
+      "reason": "Les anciennes étapes 06/07 citent Debian ; équivalence du périmètre à confirmer."
+    },
+    {
+      "title": "Services réseau en environnement Microsoft",
+      "candidates": ["modules/09-services-reseaux-en-environnement-microsoft/index.md"],
+      "reason": "Titre voisin (réseau/réseaux), couverture des deux périodes à confirmer."
+    }
+  ]
+}

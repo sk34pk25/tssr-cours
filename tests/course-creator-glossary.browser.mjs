@@ -12,6 +12,40 @@ let browser;
 before(async () => { browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || undefined }); });
 after(async () => { await browser?.close(); });
 
+test("Kahoot form rejects zero then submits a declared 20-question module quiz", async () => {
+  await openFixture({ mode: "create" }, async (page) => {
+    await page.locator("[data-builder-section=quizzes]").click();
+    await page.locator("[data-struct-action=quiz-add]").click();
+    await page.locator('[data-model-path="quizzes.0.title"]').fill("Quiz factice");
+    await page.locator('[data-model-path="quizzes.0.url"]').fill("https://create.kahoot.it/share/test/123");
+    await page.locator('[data-model-path="quizzes.0.moduleIndex"]').selectOption("0");
+    await page.locator('[data-model-path="quizzes.0.questionCount"]').fill("0");
+    await page.locator("[data-builder-section=submit]").click();
+    await page.locator("[data-submit-course]").click();
+    assert.equal(await page.locator("dialog[open]").count(), 0);
+    assert.equal(await page.evaluate(() => window.fixture.submissions.length), 0);
+    await page.locator("[data-builder-section=quizzes]").click();
+    await page.locator('[data-model-path="quizzes.0.questionCount"]').fill("20");
+    await page.locator("[data-builder-section=submit]").click();
+    await page.locator("[data-submit-course]").click();
+    await page.locator("dialog [data-confirm=true]").click();
+    await page.waitForFunction(() => window.fixture.submissions.length === 1);
+    const quiz = await page.evaluate(() => window.fixture.submissions[0].course.quizzes[0]);
+    assert.equal(Number(quiz.questionCount), 20);
+    assert.equal(quiz.moduleIndex, 0);
+  });
+});
+
+test("Kahoot form stops adding questions at twenty", async () => {
+  await openFixture({ mode: "create" }, async (page) => {
+    await page.locator("[data-builder-section=quizzes]").click();
+    await page.locator("[data-struct-action=quiz-add]").click();
+    for (let i = 0; i < 20; i++) await page.locator("[data-struct-action=question-add]").click();
+    assert.equal(await page.locator("[data-struct-action=question-add]").isDisabled(), true);
+    assert.equal(await page.locator("[data-struct-action=question-remove]").count(), 20);
+  });
+});
+
 function setup({ mode, stale, corrupt, preview, glossaryOnly, initialLinks = [], savedLinks }) {
   const utils = window.TSSRCourseCreatorUtils;
   const sha = "a".repeat(40);

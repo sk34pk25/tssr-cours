@@ -6,6 +6,7 @@ import {
   validateMkDocsEdit,
   validateProposedFiles,
 } from "./validation.ts";
+import { MAX_KAHOOT_QUESTIONS, validateKahootSet, writeKahoot } from "./kahoot.ts";
 
 export interface RepositorySource {
   content: string;
@@ -39,7 +40,7 @@ const COURSE_LIMITS = Object.freeze({
   exercises: 30,
   labs: 20,
   quizzes: 30,
-  questionsPerQuiz: 40,
+  questionsPerQuiz: MAX_KAHOOT_QUESTIONS,
   glossaryEntries: 80,
   existingGlossaryLinks: 120,
   resources: 40,
@@ -261,20 +262,26 @@ function normalizeQuizzes(value: unknown): JsonRecord[] {
     const source = record(item);
     const kind = text(source.kind, 30).toLowerCase() === "kahoot" ? "kahoot" : "quiz";
     return {
-      title: text(source.title, 160, `${kind === "kahoot" ? "Kahoot" : "Quiz"} ${index + 1}`),
+      title: text(source.title, 160, kind === "kahoot" ? "" : `Quiz ${index + 1}`),
       kind,
       description: text(source.description, 1_000),
       url: safeUrl(source.url, { kahoot: kind === "kahoot" }),
       difficulty: text(source.difficulty, 60),
       category: text(source.category, 100),
-      moduleIndex: integer(source.moduleIndex, -1, COURSE_LIMITS.modules - 1, -1),
+      questionCount: source.questionCount,
+      provenance: text(source.provenance, 1),
+      soloAvailable: source.soloAvailable === true,
+      liveAvailable: source.liveAvailable === true,
+      moduleIndex: kind === "kahoot" ? Number(source.moduleIndex ?? -1) : integer(source.moduleIndex, -1, COURSE_LIMITS.modules - 1, -1),
       questions: array(source.questions, COURSE_LIMITS.questionsPerQuiz, "Questions du quiz").map((question, questionIndex) => {
         const questionSource = record(question);
         return {
-          question: text(questionSource.question, 1_000, `Question ${questionIndex + 1}`),
+          question: text(questionSource.question, 1_000, kind === "kahoot" ? "" : `Question ${questionIndex + 1}`),
           answers: stringList(questionSource.answers, 12),
           correctAnswer: text(questionSource.correctAnswer, 500),
           explanation: text(questionSource.explanation, 2_000),
+          provenance: text(questionSource.provenance, 1),
+          source: text(questionSource.source, 2_000),
         };
       }),
     };
@@ -363,6 +370,7 @@ export function normalizeCoursePayload(value: unknown): JsonRecord {
     ...array(payload.labs, COURSE_LIMITS.labs, "TP").flatMap((item) => [record(item).steps, record(item).resources, record(item).correction]),
   ].reduce<number>((total, item) => total + String(item || "").length, 0);
   if (markdownTotal > MAX_MARKDOWN_TOTAL) throw new Error("Le contenu Markdown du cours dépasse 2,5 Mo.");
+  validateKahootSet(payload.quizzes as JsonRecord[], (payload.modules as JsonRecord[]).length);
   return payload;
 }
 
@@ -457,7 +465,7 @@ function renderCourseIndex(
   resources: JsonRecord[],
   attachments: JsonRecord[],
   cover: JsonRecord | null,
-  related: { exercises?: string; labs?: string; quizzes?: string },
+  related: { exercises?: string; labs?: string; quizzes?: string; quizPages?: Array<{ title: string; path: string }> },
 ): string {
   const title = heading(general.title, "Nouveau cours");
   const metadata = [
@@ -590,7 +598,7 @@ function renderQuizzes(courseTitle: string, quizzes: JsonRecord[]): string {
     output.push(`## ${index + 1}. ${heading(quiz.title, `Quiz ${index + 1}`)}`, "");
     if (quiz.description) output.push(markdownText(quiz.description), "");
     if (quiz.url) output.push(`[Jouer sur Kahoot :material-open-in-new:](${quiz.url}){ .md-button .md-button--primary target="_blank" rel="noopener noreferrer" }`, "");
-    (quiz.questions as JsonRecord[]).forEach((question, questionIndex) => {
+    (quiz.kind === "kahoot" ? [] : quiz.questions as JsonRecord[]).forEach((question, questionIndex) => {
       output.push(`### Question ${questionIndex + 1}`, "", markdownText(question.question), "");
       (question.answers as string[]).forEach((answer) => output.push(`- ${markdownText(answer)}`));
       if (question.correctAnswer || question.explanation) {
@@ -621,7 +629,7 @@ function updateNavigation(
   coursePath: string,
   moduleFiles: Array<{ title: string; path: string }>,
   pageFiles: Array<{ title: string; path: string }>,
-  related: { exercises?: string; labs?: string; quizzes?: string },
+  related: { exercises?: string; labs?: string; quizzes?: string; quizPages?: Array<{ title: string; path: string }> },
 ): string {
   const config = parseMkDocsConfig(content) as JsonRecord;
   const nav = Array.isArray(config.nav) ? config.nav as unknown[] : [];
@@ -638,7 +646,7 @@ function updateNavigation(
     { Corrections: related.labs.replace(/index\.md$/, "corrections.md").replace(/^docs\//, "") },
   ] });
   if (related.exercises) navigationSection(nav, "Exercices")?.push({ [title]: related.exercises.replace(/^docs\//, "") });
-  if (related.quizzes) navigationSection(nav, "Kahoot")?.push({ [title]: related.quizzes.replace(/^docs\//, "") });
+  if (related.quizzes) navigationSection(nav, "Kahoot")?.push({ [title]: related.quizPages?.map((q) => ({ [q.title]: q.path.replace(/^docs\//, "") })) || related.quizzes.replace(/^docs\//, "") });
   config.nav = nav;
   return stringifyMkDocsConfig(config);
 }
@@ -814,7 +822,7 @@ export function buildCourseProposal(rawPayload: unknown, snapshot: CourseReposit
     const moduleResources = resources.filter((resource) => resource.moduleIndex === moduleIndex);
     files.push(createMarkdown(modulePath, renderModulePage(modulePath, String(general.title), module, moduleIndex, pageLinks, moduleAttachments, moduleResources)));
   });
-  const related: { exercises?: string; labs?: string; quizzes?: string } = {};
+  const related: { exercises?: string; labs?: string; quizzes?: string; quizPages?: Array<{ title: string; path: string }> } = {};
   if (exercises.length) {
     related.exercises = `docs/exercices/${slug}/index.md`;
     files.push(createMarkdown(related.exercises, renderExercises(related.exercises, String(general.title), exercises)));
@@ -827,9 +835,15 @@ export function buildCourseProposal(rawPayload: unknown, snapshot: CourseReposit
     files.push(createMarkdown(`docs/tp/${slug}/corrections.md`, labPages.corrections));
   }
   if (quizzes.length) {
-    related.quizzes = `docs/kahoot/${slug}.md`;
-    files.push(createMarkdown(related.quizzes, renderQuizzes(String(general.title), quizzes)));
-    files.push(textChange("docs/kahoot/bibliotheque.md", snapshot.kahoot, appendKahootLibrary(snapshot.kahoot.content, String(general.title), slug, quizzes)));
+    related.quizPages = quizzes.map((quiz, index) => {
+      const path = `docs/kahoot/${slug}-${String(index + 1).padStart(2, "0")}.md`;
+      if (unavailable.has(path)) throw new Error("Page Kahoot déjà existante.");
+      let content = renderQuizzes(String(quiz.title), [quiz]);
+      if (quiz.kind === "kahoot") content = writeKahoot(content, quiz, coursePath, moduleFiles[Number(quiz.moduleIndex)].path);
+      files.push(createMarkdown(path, content));
+      return { title: String(quiz.title), path };
+    });
+    related.quizzes = related.quizPages[0].path;
   }
   const globalAttachments = publishedAttachments.filter((attachment) => Number(attachment.moduleIndex) < 0 && attachment.id !== cover?.id);
   const globalResources = resources.filter((resource) => Number(resource.moduleIndex) < 0);

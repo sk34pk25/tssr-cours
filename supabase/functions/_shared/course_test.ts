@@ -59,7 +59,7 @@ Deno.test("a complete course becomes one validated, atomic multi-file proposal",
     ],
     exercises: [{ title: "Contrôle des services", instructions: "Lister les services.", solution: "Utiliser `Get-Service`." }],
     labs: [{ title: "Durcissement", steps: "1. Créer un instantané.\n2. Appliquer la stratégie.", correction: "Vérifier avec `gpresult`." }],
-    quizzes: [{ title: "Windows — Administration", kind: "kahoot", url: "https://create.kahoot.it/share/test/123", questions: [{ question: "Quel outil ?", answers: ["PowerShell", "Paint"], correctAnswer: "PowerShell" }] }],
+    quizzes: [{ title: "Windows — Administration", kind: "kahoot", moduleIndex: 0, provenance: "A", url: "https://create.kahoot.it/share/test/123", questions: [{ question: "Quel outil ?", answers: ["PowerShell", "Paint"], correctAnswer: "PowerShell", provenance: "A", source: "Module Services Windows" }] }],
     glossaryEntries: [
       { term: "WinRM", definition: "Service de gestion distante de Windows utilisé pour administrer des machines de façon sécurisée." },
       { term: "GPMC", definition: "Console Microsoft utilisée pour créer, lier et administrer les objets de stratégie de groupe." },
@@ -103,6 +103,18 @@ Deno.test("an almost empty course receives safe defaults and no invalid optional
   assertEquals(result.files.some((file) => file.file_path === "data/glossaire.json"), false);
   assertEquals(result.files.some((file) => file.file_path === "docs/kahoot/bibliotheque.md"), false);
   assertEquals(result.files.some((file) => file.file_path === result.coursePath), true);
+});
+
+Deno.test("creation validates Kahoot count and creates a module-linked page without rewriting the library", () => {
+  const payload = (questionCount: number) => ({ modules: [{ title: "Module test", content: "# Module" }], quizzes: [{ title: "Test", kind: "kahoot", moduleIndex: 0, questionCount, provenance: "A", url: "https://create.kahoot.it/share/test/123" }] });
+  for (const count of [0, 21]) assertThrows(() => buildCourseProposal(payload(count), snapshot()));
+  for (const count of [1, 20]) {
+    const result = buildCourseProposal(payload(count), snapshot());
+    const quiz = result.files.find((f) => f.file_path.startsWith("docs/kahoot/"))!;
+    assertMatch(quiz.new_content!, /TSSR-KAHOOT-V1:/);
+    assertEquals(result.files.some((f) => f.file_path === "docs/kahoot/bibliotheque.md"), false);
+    assertMatch(decodeURIComponent(quiz.new_content!), /moduleId.*module-01-module-test.md/);
+  }
 });
 
 Deno.test("active content, unsafe Kahoot URLs and fake PDFs are rejected", () => {

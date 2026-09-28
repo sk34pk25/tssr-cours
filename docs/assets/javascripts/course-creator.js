@@ -160,7 +160,7 @@
   function field(label, path, value, options = {}) {
     const input = options.multiline
       ? `<textarea data-model-path="${path}" ${options.maxlength ? `maxlength="${options.maxlength}"` : ""} placeholder="${utils.escapeHtml(options.placeholder || "")}">${utils.escapeHtml(value || "")}</textarea>`
-      : `<input data-model-path="${path}" type="${options.type || "text"}" value="${utils.escapeHtml(value || "")}" ${options.maxlength ? `maxlength="${options.maxlength}"` : ""} placeholder="${utils.escapeHtml(options.placeholder || "")}">`;
+      : `<input data-model-path="${path}" type="${options.type || "text"}" value="${utils.escapeHtml(value ?? "")}" ${options.maxlength ? `maxlength="${options.maxlength}"` : ""} ${options.max ? `min="${options.min}" max="${options.max}" step="1"` : ""} placeholder="${utils.escapeHtml(options.placeholder || "")}">`;
     return `<label class="tssr-field ${options.wide ? "tssr-field--wide" : ""}"><span>${label}</span>${input}${options.help ? `<small>${options.help}</small>` : ""}</label>`;
   }
 
@@ -328,7 +328,13 @@
         ${listField("Réponses proposées", `${path}.answers`, question.answers, "Une réponse par ligne")}
         ${field("Bonne réponse", `${path}.correctAnswer`, question.correctAnswer, { maxlength: 500 })}
         ${field("Explication", `${path}.explanation`, question.explanation, { maxlength: 2000, multiline: true, wide: true })}
+        ${selectField("Provenance", `${path}.provenance`, question.provenance, provenanceOptions())}
+        ${field("Source validée de la question", `${path}.source`, question.source, { maxlength: 2000, wide: true })}
       </div></div>`;
+  }
+
+  function provenanceOptions() {
+    return [{ value: "A", label: "A — Original" }, { value: "B", label: "B — Reformulation" }, { value: "C", label: "C — Complément pédagogique" }, { value: "D", label: "D — Mise à jour externe" }];
   }
 
   function quizCard(item, index) {
@@ -341,11 +347,15 @@
         ${field("Lien officiel", `${path}.url`, item.url, { type: "url", placeholder: "https://create.kahoot.it/share/…", wide: true })}
         ${field("Difficulté", `${path}.difficulty`, item.difficulty, { maxlength: 60 })}
         ${field("Catégorie", `${path}.category`, item.category, { maxlength: 100 })}
+        ${field("Nombre de questions (1 à 20)", `${path}.questionCount`, item.questionCount, { type: "number", min: 1, max: 20, help: "Maximum par module, pas un objectif. Requis pour un nouveau lien externe ; sinon calculé depuis les questions." })}
+        ${selectField("Provenance du Kahoot", `${path}.provenance`, item.provenance, provenanceOptions())}
+        <label class="tssr-field"><input type="checkbox" data-model-path="${path}.soloAvailable" ${item.soloAvailable ? "checked" : ""}> Solo vérifié disponible sur Kahoot</label>
+        <label class="tssr-field"><input type="checkbox" data-model-path="${path}.liveAvailable" ${item.liveAvailable ? "checked" : ""}> Lancement groupe vérifié disponible sur Kahoot</label>
         ${selectField("Module associé", `${path}.moduleIndex`, item.moduleIndex, [{ value: -1, label: "Cours entier" }, ...state.draft.modules.map((module, moduleIndex) => ({ value: moduleIndex, label: `M${moduleIndex + 1} · ${module.title || "Sans titre"}` }))])}
       </div>
       ${state.mode === "edit" && item.storage?.path ? editor(`${path}.content`, item.content || "", "Contenu Markdown existant") : ""}
-      <div class="tssr-nested-list"><div class="tssr-nested-list__header"><h4>Questions facultatives</h4><button type="button" class="tssr-action" data-struct-action="question-add" data-quiz-index="${index}">＋ Ajouter une question</button></div>
-        ${item.questions.length ? item.questions.map((question, questionIndex) => questionCard(question, index, questionIndex)).join("") : '<div class="tssr-builder-empty">Aucune question interne. Le lien Kahoot suffit.</div>'}</div>
+      <div class="tssr-nested-list"><div class="tssr-nested-list__header"><h4>Questions préparées · ${item.questions.length}/20</h4><button type="button" class="tssr-action" data-struct-action="question-add" data-quiz-index="${index}" ${item.questions.length >= 20 ? "disabled" : ""}>＋ Ajouter une question</button></div>
+        ${item.questions.length ? item.questions.map((question, questionIndex) => questionCard(question, index, questionIndex)).join("") : '<div class="tssr-builder-empty">Un lien externe exige son nombre de questions. Les liens historiques non renseignés restent conservés.</div>'}</div>
     </article>`;
   }
 
@@ -672,13 +682,15 @@
   function move(array, index, delta) {
     const destination = index + delta;
     if (destination < 0 || destination >= array.length) return;
-    [array[index], array[destination]] = [array[destination], array[index]];
+    const mutate = () => { [array[index], array[destination]] = [array[destination], array[index]]; };
+    if (array === state.draft.modules) utils.preserveQuizModules(state.draft, mutate); else mutate();
     scheduleSave(); rerender(false);
   }
 
   function removeWithConfirmation(array, index, message) {
     if (!window.confirm(message)) return;
-    array.splice(index, 1); scheduleSave(); rerender(false);
+    if (array === state.draft.modules) utils.preserveQuizModules(state.draft, () => array.splice(index, 1)); else array.splice(index, 1);
+    scheduleSave(); rerender(false);
   }
 
   async function handleFiles(fileList) {
@@ -728,7 +740,7 @@
       duplicate.pages = (duplicate.pages || []).map((page) => ({ ...page, clientId: utils.uid("page"), storage: undefined }));
       duplicate.storage = undefined;
       duplicate.title = `${duplicate.title || "Module"} — copie`;
-      state.draft.modules.splice(index + 1, 0, duplicate);
+      utils.preserveQuizModules(state.draft, () => state.draft.modules.splice(index + 1, 0, duplicate));
     } else if (action === "module-remove") return removeWithConfirmation(state.draft.modules, index, "Supprimer ce module et toutes ses pages ?");
     else if (action === "page-add") state.draft.modules[moduleIndex].pages.push(utils.newPage());
     else if (action === "page-up") return move(state.draft.modules[moduleIndex].pages, index, -1);
@@ -740,7 +752,10 @@
     else if (action === "lab-remove") return removeWithConfirmation(state.draft.labs, index, "Supprimer ce TP et sa correction ?");
     else if (action === "quiz-add") state.draft.quizzes.push(utils.newQuiz());
     else if (action === "quiz-remove") return removeWithConfirmation(state.draft.quizzes, index, "Supprimer ce quiz ?");
-    else if (action === "question-add") state.draft.quizzes[quizIndex].questions.push(utils.newQuestion());
+    else if (action === "question-add") {
+      if (state.draft.quizzes[quizIndex].questions.length >= 20) return bridge()?.toast?.("Maximum 20 questions par module.", "error");
+      state.draft.quizzes[quizIndex].questions.push(utils.newQuestion());
+    }
     else if (action === "question-remove") state.draft.quizzes[quizIndex].questions.splice(index, 1);
     else if (action === "glossary-add") state.draft.glossaryEntries.push(utils.newGlossaryEntry());
     else if (action === "glossary-remove") state.draft.glossaryEntries.splice(index, 1);
@@ -807,6 +822,8 @@
   async function submitCourse() {
     if (state.previewMode) return bridge()?.toast?.("Le mode aperçu local ne peut pas soumettre de proposition.", "error");
     if (state.submitting) return;
+    try { utils.validateKahootDraft(state.draft, state.originalDraft); }
+    catch (error) { return bridge()?.toast?.(error.message, "error"); }
     const summary = utils.summarize({ ...state.draft, attachments: state.attachments });
     if (state.mode === "edit" && !utils.editorDiff(state.originalDraft, state.draft, state.originalAttachments, state.attachments).total) {
       return bridge()?.toast?.("Aucune modification n’a été détectée.", "error");

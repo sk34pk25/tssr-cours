@@ -9,6 +9,7 @@ import {
   type CourseEditorSnapshot,
   resolveCourseEditorPlan,
 } from "./course-editor.ts";
+import { readKahoot, writeKahoot } from "./kahoot.ts";
 
 const sha = (character: string) => character.repeat(40);
 
@@ -42,6 +43,33 @@ ${Array.from({ length: 6 }, (_, i) => `          - Module 0${i + 1}: modules/09-
   const plan = resolveCourseEditorPlan(`${directory}/index.md`, snapshot.mkdocs.content, snapshot.glossary.content);
   return { snapshot, plan, editor: buildCourseEditorModel(plan, snapshot) };
 }
+
+Deno.test("modern Kahoot roundtrip, URL update and version downgrade protection exercise the real editor", () => {
+  const { plan, snapshot } = fixture();
+  const path = "docs/kahoot/reseaux.md";
+  const modulePath = "docs/modules/01-bases-reseaux/module-01-osi.md";
+  snapshot.documents[path].content = writeKahoot("# Quiz test\n", { kind: "kahoot", title: "Quiz test", questions: [], questionCount: 10, moduleIndex: 0, provenance: "A", url: "https://create.kahoot.it/share/test/123", soloAvailable: true }, plan.coursePath, modulePath);
+  const editor = buildCourseEditorModel(plan, snapshot);
+  const makeDraft = () => structuredClone(editor.draft) as Record<string, unknown>;
+  const run = (draft: Record<string, unknown>) => buildCourseModification({ meta: editor.meta, draft, baseCommitSha: snapshot.commitSha, attachments: editor.attachments }, plan, snapshot);
+  let draft = makeDraft();
+  (draft.modules as Record<string, unknown>[])[0].content += "\nPrécision locale.\n";
+  assertEquals(run(draft).files.map((f) => f.file_path), [modulePath]);
+  draft = makeDraft();
+  const quiz = (draft.quizzes as Record<string, unknown>[])[0];
+  assertEquals(quiz.moduleIndex, 0);
+  quiz.url = "https://create.kahoot.it/share/test/456";
+  const changed = run(draft).files.find((f) => f.file_path === path)!;
+  assertEquals(readKahoot(changed.new_content!)?.url, quiz.url);
+  quiz.kahootVersion = undefined;
+  quiz.questionCount = 21;
+  assertThrows(() => run(draft));
+  quiz.questionCount = 0;
+  assertThrows(() => run(draft));
+  quiz.questionCount = 10;
+  quiz.kind = "quiz";
+  assertThrows(() => run(draft));
+});
 
 Deno.test("text-only edit of an unregistered glossary course changes exactly the requested module", () => {
   const { plan, snapshot, editor } = courseWithoutGlossary();
