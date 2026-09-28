@@ -1,4 +1,5 @@
 import { createClient, SupabaseClient, User } from "npm:@supabase/supabase-js@2.112.3";
+import { assertActorAction } from "./agent-policy.ts";
 
 export interface Profile {
   id: string;
@@ -7,6 +8,8 @@ export interface Profile {
   email: string;
   role: "admin" | "member";
   can_edit: boolean;
+  actor_kind?: "HUMAN" | "AGENT";
+  can_propose?: boolean;
   can_override_validation?: boolean;
   status: "active" | "suspended" | "deleted";
   must_change_password: boolean;
@@ -55,7 +58,7 @@ function createUserClient(req: Request): SupabaseClient {
 
 export async function requireProfile(
   req: Request,
-  requirements: { admin?: boolean; canEdit?: boolean; allowTemporaryPassword?: boolean } = {},
+  requirements: { admin?: boolean; canEdit?: boolean; allowTemporaryPassword?: boolean; agentAction?: string } = {},
 ): Promise<RequestContext> {
   const userClient = createUserClient(req);
   const adminClient = createAdminClient();
@@ -64,17 +67,18 @@ export async function requireProfile(
 
   const { data: profile, error: profileError } = await adminClient
     .from("profiles")
-    .select("id, auth_user_id, display_name, email, role, can_edit, can_override_validation, status, must_change_password")
+    .select("id, auth_user_id, display_name, email, role, can_edit, can_override_validation, actor_kind, can_propose, status, must_change_password")
     .eq("auth_user_id", userData.user.id)
     .single();
 
   if (profileError || !profile) throw new Error("Profil collaborateur introuvable.");
   if (profile.status !== "active") throw new Error("Ce compte est suspendu ou supprimé.");
+  assertActorAction(profile, requirements.agentAction || "human-only");
   if (profile.must_change_password && !requirements.allowTemporaryPassword) {
     throw new Error("Vous devez remplacer votre mot de passe temporaire avant de continuer.");
   }
   if (requirements.admin && profile.role !== "admin") throw new Error("Accès administrateur requis.");
-  if (requirements.canEdit && !profile.can_edit) throw new Error("Permission de modification requise.");
+  if (requirements.canEdit && !profile.can_edit && profile.actor_kind !== "AGENT") throw new Error("Permission de modification requise.");
 
   return { user: userData.user, profile: profile as Profile, userClient, adminClient };
 }

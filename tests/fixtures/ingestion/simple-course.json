@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "metadata": {
+        "id": "fixture-course",
+        "name": "Fixture cours.md",
+        "mimeType": "text/markdown",
+        "parents": [
+          "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1"
+        ],
+        "modifiedTime": "2026-09-28T00:00:00Z",
+        "version": "1"
+      },
+      "text": "# Adressage de démonstration\nUn masque IPv4 distingue la partie réseau et la partie hôte.\n## Exercice guidé\nIdentifier la partie réseau d'une adresse donnée."
+    }
+  ],
+  "bindings": {
+    "fixture-course": {
+      "humanValidated": true,
+      "kind": "COURSE",
+      "targetPath": "docs/modules/01-bases-reseaux/phase3-fixture.md",
+      "courseId": "modules/01-bases-reseaux/index.md",
+      "moduleId": "modules/01-bases-reseaux/phase3-fixture.md"
+    }
+  }
+}
