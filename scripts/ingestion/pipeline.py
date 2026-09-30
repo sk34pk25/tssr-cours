@@ -18,14 +18,11 @@ from .ai import BudgetExceeded, PROMPTS
 from .drive import SourceError, TSSR_ROOT
 from .extract import extract, segments
 from .registry import fingerprint
-
-
-SECRET = re.compile(r"(?i)(?:github_pat_|gh[pousr]_|sk-(?:proj-)?[A-Za-z0-9]{12}|"
-                    r"-----BEGIN .*PRIVATE KEY|\b(?:password|api_key|access_token|refresh_token)\s*[:=]\s*\S+)")
+from .credentials import contains_credential
 
 
 def safe_text(text):
-    if not isinstance(text,str) or not text.strip() or len(text)>100_000 or SECRET.search(text):
+    if not isinstance(text,str) or not text.strip() or len(text)>100_000 or contains_credential(text):
         raise SourceError("Empty, excessive or sensitive text")
     if re.search(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]",text):
         raise SourceError("Control characters refused")

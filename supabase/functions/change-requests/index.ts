@@ -1,5 +1,6 @@
 import { parse } from "npm:yaml@2.9.0";
 import { agentSummary } from "../_shared/agent-policy.ts";
+import { assertNoCredentials } from "../_shared/credentials.ts";
 import { recordAdminOverride } from "../_shared/approval-policy.ts";
 import {
   errorResponse,
@@ -151,8 +152,16 @@ async function submit(
     | "modify_course" = "content_change",
   payloadSummary: Record<string, unknown> = {},
 ): Promise<Response> {
-  const trusted = await trustedFiles(files, baseCommitSha);
   const agent = context.profile.actor_kind === "AGENT";
+  if (agent) {
+    if (Array.isArray(files) && files.some(file => file?.content_encoding === "base64")) {
+      throw new Error("Permission agent : ajouts/modifications Markdown uniquement.");
+    }
+    // Before Git reads, path-validation errors or the creation RPC. Scan keys
+    // and values, including metadata subsequently stripped by agentSummary.
+    assertNoCredentials(body);
+  }
+  const trusted = await trustedFiles(files, baseCommitSha);
   if (agent) {
     if (proposalKind !== "content_change" || trusted.some(file =>
       !file.file_path.startsWith("docs/") || !file.file_path.endsWith(".md") ||
@@ -160,6 +169,8 @@ async function submit(
       throw new Error("Permission agent : ajouts/modifications Markdown uniquement.");
     }
     payloadSummary = await agentSummary(payloadSummary, trusted, baseCommitSha);
+    // old_content is Git-sourced, but is also copied into the proposal record.
+    assertNoCredentials(trusted);
   }
   const { data, error } = await context.adminClient.rpc(
     "create_change_request",
