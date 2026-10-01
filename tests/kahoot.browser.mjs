@@ -16,7 +16,8 @@ sys.path.insert(0, 'scripts')
 from kahoot_catalog import card
 print(card(dict(legacy=False, title='Quiz de test aux intitulés volontairement longs', questionCount=20,
 courseId='modules/01-bases-reseaux/index.md', moduleId='modules/01-bases-reseaux/module-01-le-modele-osi.md', path='kahoot/test.md',
-url='https://create.kahoot.it/share/test/123', soloAvailable=True, liveAvailable=True, provenance='A'), sys.argv[1]))
+url='https://create.kahoot.it/share/test/12345678-1234-1234-1234-123456789abc', soloAvailable=True, liveAvailable=True,
+joinUrl='https://kahoot.it/', editorUrl='https://create.kahoot.it/creator/12345678-1234-1234-1234-123456789abc', provenance='A'), sys.argv[1]))
 `, current], { encoding: "utf8", env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" } });
 assert.equal(generated.status, 0, generated.stderr);
 return `<section id="kahoot-fixture"><h2>Scénario local isolé</h2>
@@ -60,11 +61,15 @@ for (const width of [320, 768, 1024, 1440]) {
     try {
       await page.goto(origin + pathname, { waitUntil: "networkidle" });
       const solo = page.locator("#kahoot-fixture a").filter({ hasText: "Jouer en solo" });
-      const live = page.locator("#kahoot-fixture [data-kahoot-live]");
+      const join = page.locator("#kahoot-fixture a").filter({ hasText: "Rejoindre un groupe" });
+      const host = page.locator("#kahoot-fixture [data-kahoot-host]");
       assert.equal(await solo.isVisible(), true);
-      assert.equal(await live.isVisible(), false);
+      assert.equal(await join.isVisible(), true);
+      assert.equal(await solo.getAttribute("href"), "https://create.kahoot.it/share/test/12345678-1234-1234-1234-123456789abc");
+      assert.equal(await join.getAttribute("href"), "https://kahoot.it/");
+      assert.equal(await host.isVisible(), false);
       await page.locator("#fixture-login").click();
-      assert.equal(await live.isVisible(), true);
+      assert.equal(await host.isVisible(), true);
       const connectedDimensions = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, width: document.documentElement.clientWidth }));
       assert.ok(connectedDimensions.scroll <= connectedDimensions.width, JSON.stringify(connectedDimensions));
       if (process.env.TSSR_TEST_SCREENSHOTS) {
@@ -73,13 +78,16 @@ for (const width of [320, 768, 1024, 1440]) {
       }
       await solo.focus();
       await page.keyboard.press("Tab");
-      assert.equal(await live.evaluate((node) => node === document.activeElement), true);
+      assert.equal(await join.evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press("Tab");
+      assert.equal(await host.evaluate((node) => node === document.activeElement), true);
       await page.keyboard.press("Enter");
-      assert.equal(await page.locator("#fixture-opened").textContent(), "https://create.kahoot.it/share/test/123");
+      assert.equal(await page.locator("#fixture-opened").textContent(), "https://create.kahoot.it/creator/12345678-1234-1234-1234-123456789abc");
       await page.locator("#fixture-logout").click();
-      assert.equal(await live.isVisible(), false);
+      assert.equal(await host.isVisible(), false);
+      assert.equal(await solo.isVisible(), true);
+      assert.equal(await join.isVisible(), true);
       assert.equal(await page.locator("iframe").count(), 0);
-      assert.equal(await page.locator("#kahoot-fixture a").filter({ hasText: "Ouvrir la fiche officielle" }).isVisible(), true);
       const dimensions = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, width: document.documentElement.clientWidth }));
       assert.ok(dimensions.scroll <= dimensions.width, JSON.stringify(dimensions));
       assert.deepEqual(errors, []);

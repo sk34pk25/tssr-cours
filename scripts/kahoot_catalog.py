@@ -10,13 +10,50 @@ ROOT = Path(__file__).resolve().parents[1]
 MARKER = re.compile(r"<!-- TSSR-KAHOOT-V1:([^\n]*?) -->\n?")
 
 
-def official_url(value):
+JOIN_URL = "https://kahoot.it/"
+
+
+def official_share_url(value):
     url = urlsplit(value)
     if (url.scheme != "https" or url.hostname not in {"create.kahoot.it", "create.kahoot.com", "kahoot.it", "kahoot.com"}
             or url.username or url.password or url.port or url.query or url.fragment
             or not re.fullmatch(r"/(share|details)/[a-zA-Z0-9_/-]+", url.path)):
         raise ValueError("Lien de partage Kahoot invalide (pas de PIN/session)")
     return value
+
+
+def official_editor_url(value):
+    if not isinstance(value, str):
+        raise ValueError("Lien éditeur Kahoot invalide")
+    url = urlsplit(value)
+    if (url.scheme != "https" or url.hostname not in {"create.kahoot.it", "create.kahoot.com"}
+            or url.username or url.password or url.port or url.query or url.fragment
+            or not re.fullmatch(r"/creator/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}", url.path)):
+        raise ValueError("Lien éditeur Kahoot invalide")
+    return value
+
+
+def action_config(root):
+    """Build-only links: never stored in the V1 marker or sent to Supabase."""
+    path = root / "data/kahoot-actions.json"
+    if not path.exists():
+        return {"joinUrl": JOIN_URL, "editorUrls": {}}
+    def unique_fields(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("Clé de configuration Kahoot dupliquée")
+            result[key] = value
+        return result
+    config = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_fields)
+    if (not isinstance(config, dict) or set(config) != {"joinUrl", "editorUrls"}
+            or config["joinUrl"] != JOIN_URL or not isinstance(config["editorUrls"], dict)):
+        raise ValueError("Configuration des actions Kahoot invalide")
+    for page, editor_url in config["editorUrls"].items():
+        if not re.fullmatch(r"kahoot/[a-z0-9_/-]+\.md", page) or "//" in page:
+            raise ValueError("Page des actions Kahoot invalide")
+        official_editor_url(editor_url)
+    return config
 
 
 def doc_path(root, path):
@@ -29,6 +66,8 @@ def doc_path(root, path):
 
 
 def catalog(root=ROOT):
+    actions = action_config(root)
+    configured_pages = set()
     result, modules, urls = [], set(), set()
     for path in sorted((root / "docs/kahoot").rglob("*.md")):
         if path.name == "bibliotheque.md":
@@ -51,7 +90,7 @@ def catalog(root=ROOT):
             raise ValueError("Identité Kahoot multiple")
         item = json.loads(unquote(matches[0]))
         fields = {"schemaVersion", "courseId", "moduleId", "title", "questionCount", "url", "soloAvailable", "liveAvailable", "provenance", "state", "questions"}
-        if not isinstance(item, dict) or set(item) != fields or item["schemaVersion"] != 1:
+        if not isinstance(item, dict) or set(item) != fields or type(item["schemaVersion"]) is not int or item["schemaVersion"] != 1:
             raise ValueError("Métadonnées Kahoot invalides")
         course = doc_path(root, item["courseId"])
         module = doc_path(root, item["moduleId"])
@@ -80,14 +119,22 @@ def catalog(root=ROOT):
             raise ValueError("Un seul Kahoot canonique par module")
         modules.add(module)
         if item["url"]:
-            identity = official_url(item["url"]).rstrip('/').split("/")[-1]
+            identity = official_share_url(item["url"]).rstrip('/').split("/")[-1]
             if identity in urls:
                 raise ValueError("Kahoot dupliqué")
             urls.add(identity)
+        editor_url = actions["editorUrls"].get(relative)
+        if editor_url is not None:
+            if not item["url"] or editor_url.rsplit("/", 1)[-1] != identity:
+                raise ValueError("Le lien éditeur ne correspond pas à l’identité du Kahoot")
+            configured_pages.add(relative)
         def title_of(target):
             match = re.search(r"^# (.+)$", (root / "docs" / target).read_text(encoding="utf-8"), re.M)
             return match[1] if match else target
-        result.append({**item, "path": relative, "legacy": False, "courseTitle": title_of(course), "moduleTitle": title_of(module)})
+        result.append({**item, "path": relative, "legacy": False, "courseTitle": title_of(course), "moduleTitle": title_of(module),
+                       "joinUrl": actions["joinUrl"], "editorUrl": editor_url})
+    if configured_pages != set(actions["editorUrls"]):
+        raise ValueError("Une action Kahoot cible une page absente ou non structurée")
     return result
 
 
@@ -105,15 +152,17 @@ def card(item, current):
     title = escape(item["title"])
     if item["legacy"]:
         return f'<section class="tssr-path-intro tssr-kahoot"><h3>{title}</h3><p>Quiz historique · association au module et modes à renseigner.</p><p>{link(item["path"], current, "Ouvrir le quiz historique")}</p></section>'
-    url = escape(item["url"] or "", quote=True)
-    solo = f'<a class="md-button md-button--primary" href="{url}" target="_blank" rel="noopener noreferrer">Jouer en solo</a>' if item["soloAvailable"] else '<span>Solo non renseigné ou indisponible.</span>'
-    live = f'<button type="button" class="md-button" data-kahoot-live="{url}" hidden>Lancer une session de groupe</button><span data-kahoot-login>Connectez-vous à TSSR pour accéder à l’action groupe.</span>' if item["liveAvailable"] else ''
-    fallback = f'<a href="{url}" target="_blank" rel="noopener noreferrer">Ouvrir la fiche officielle Kahoot</a>' if url else 'Questions préparées ; lien officiel à ajouter après création humaine sur Kahoot.'
-    return f'''<section class="tssr-path-intro tssr-kahoot"><h3>Kahoot — {title}</h3>
-<p>{item['questionCount']} questions · provenance {item['provenance']}</p>
-<p>{link(item['courseId'], current, item.get('courseTitle', 'Cours'))} → {link(item['moduleId'], current, item.get('moduleTitle', 'Module'))} → {link(item['path'], current, 'Kahoot')}</p>
-<div class="tssr-kahoot-actions">{solo}{live}</div><p>{fallback}</p>
-<small>Ouverture sur Kahoot. Les autorisations du compte Kahoot restent applicables ; TSSR ne lance pas automatiquement une partie.</small></section>'''
+    module_title = escape(re.sub(r"^Module ([0-9]{2})\s*—\s*", r"M\1 — ", item.get("moduleTitle", item["title"])))
+    share = escape(item["url"] or "", quote=True)
+    # Keep V1 availability semantics and its official-link fallback for other quizzes.
+    editor = escape((item.get("editorUrl") or item["url"] or "") if item["liveAvailable"] else "", quote=True)
+    join = escape(item.get("joinUrl", JOIN_URL), quote=True)
+    solo = f'<a class="md-button md-button--primary" href="{share}" target="_blank" rel="noopener noreferrer">Jouer en solo</a>' if share and item["soloAvailable"] else '<span class="md-button tssr-kahoot-action--unavailable" aria-disabled="true">Jouer en solo</span>'
+    host = f'<button type="button" class="md-button" data-kahoot-host="{editor}" hidden>Créer une partie</button>'
+    return f'''<section class="tssr-kahoot" aria-label="Kahoot : {title}"><div class="tssr-kahoot__label">KAHOOT</div>
+<h3 class="tssr-kahoot__title">{module_title}</h3><p class="tssr-kahoot__count">{item['questionCount']} questions</p>
+<p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>
+<div class="tssr-kahoot-actions">{solo}<a class="md-button" href="{join}" target="_blank" rel="noopener noreferrer">Rejoindre un groupe</a>{host}</div></section>'''
 
 
 def render_library(items):

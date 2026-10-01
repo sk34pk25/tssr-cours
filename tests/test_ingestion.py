@@ -377,11 +377,28 @@ class PipelineTests(unittest.TestCase):
             moduleId="modules/01-bases-reseaux/module-03-l-adressage-ipv4.md")
         self.pipeline.engine=Engine(self.reg,Quiz("KAHOOT_SOURCE"))
         self.transport.contents["source1"]=b"IPv4"
-        result=self.pipeline.run("source1")
+        # The repository may already contain a real M03 quiz. Isolate only the
+        # catalogue fixture, retaining its real parser and duplicate protection.
+        from kahoot_catalog import catalog
+        quiz_root=Path(self.tmp.name)/"quiz-catalog"
+        (quiz_root/"docs/kahoot").mkdir(parents=True)
+        for reference in (self.binding["source1"]["courseId"],self.binding["source1"]["moduleId"]):
+            target=quiz_root/"docs"/reference
+            target.parent.mkdir(parents=True,exist_ok=True)
+            target.write_text("# Test fixture\n",encoding="utf-8")
+        with patch("ingestion.pipeline.quiz_catalog",side_effect=lambda _:catalog(quiz_root)):
+            result=self.pipeline.run("source1")
         self.assertEqual(result["status"],"READY_FOR_REVIEW",result)
         self.assertEqual(len(result["questions"]),1)
         self.assertIn("TSSR-KAHOOT-V1:",result["files"][0]["new_content"])
         self.assertFalse(result["files"][0]["new_content"].find("https://kahoot")>=0)
+        # Adding that canonical quiz must still block another proposal for M03.
+        (quiz_root/"docs/kahoot/existing.md").write_text(result["files"][0]["new_content"],encoding="utf-8")
+        self.assertEqual(catalog(quiz_root)[0]["moduleId"],self.binding["source1"]["moduleId"])
+        with patch("ingestion.pipeline.quiz_catalog",side_effect=lambda _:catalog(quiz_root)):
+            refused=self.pipeline.run("source1")
+        self.assertEqual(refused["state"],"NEEDS_REVIEW")
+        self.assertNotIn("status",refused)
 
     def test_proposal_adapter_reuses_existing_endpoint_only_with_explicit_enable(self):
         result=self.pipeline.run("source1")
