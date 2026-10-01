@@ -11,20 +11,26 @@
   sync();
 })(typeof window === "undefined" ? globalThis : window, function () {
   function canHost(profile) { return !!profile?.id && profile.status === "active"; }
+  function officialHostUrl(value) {
+    try {
+      const url = new URL(value);
+      const officialShare = /^(?:create\.)?kahoot\.(it|com)$/.test(url.hostname) && /^\/(?:share|details)\/[a-zA-Z0-9_/-]+$/.test(url.pathname);
+      const officialEditor = /^create\.kahoot\.(it|com)$/.test(url.hostname) && /^\/creator\/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/.test(url.pathname);
+      return url.protocol === "https:" && !url.username && !url.password && !url.port && !url.search && !url.hash &&
+        (officialShare || officialEditor) ? url.href : null;
+    } catch { return null; }
+  }
   function sync(document, bridge) {
     const allowed = canHost(bridge?.getProfile?.());
-    document.querySelectorAll("[data-kahoot-login]").forEach((node) => { node.hidden = allowed; });
-    document.querySelectorAll("[data-kahoot-live]").forEach((button) => {
-      button.hidden = !allowed;
-      button.disabled = !allowed;
+    document.querySelectorAll("[data-kahoot-host]").forEach((button) => {
+      const url = officialHostUrl(button.dataset.kahootHost);
+      button.hidden = !allowed || !url;
+      button.disabled = !allowed || !url;
       button.onclick = () => {
         if (!canHost(bridge?.getProfile?.())) { sync(document, bridge); return; }
-        const url = new URL(button.dataset.kahootLive);
-        if (url.protocol !== "https:" || !/^(?:create\.)?kahoot\.(it|com)$/.test(url.hostname) || url.port || url.username || url.password || url.search || url.hash || !/^\/(share|details)\/[a-zA-Z0-9_/-]+$/.test(url.pathname)) return;
-        // No API call, permanent PIN, credentials or automatically started session.
-        window.open(url.href, "_blank", "noopener,noreferrer");
+        if (url) window.open(url, "_blank", "noopener,noreferrer");
       };
     });
   }
-  return { canHost, sync };
+  return { canHost, officialHostUrl, sync };
 });
