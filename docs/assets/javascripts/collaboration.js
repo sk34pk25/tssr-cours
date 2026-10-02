@@ -11,6 +11,7 @@
     navigationModel: null,
     navigationSource: null
   };
+  let recovery = null;
 
   function siteRoot() {
     try {
@@ -187,6 +188,7 @@
   }
 
   async function openLogin() {
+    if (recovery?.isActive()) return recovery.open();
     const dialog = createDialog("Se connecter", `
       <form class="tssr-form" id="tssr-login-form">
         <label class="tssr-field">Adresse e-mail
@@ -197,9 +199,15 @@
         </label>
         <p class="tssr-help">Les comptes sont créés uniquement par un administrateur. Aucune inscription publique n’est proposée.</p>
         <button type="submit" class="md-button md-button--primary">Se connecter</button>
+        <button type="button" class="md-button" data-password-recovery>Mot de passe oublié ?</button>
       </form>
     `, { small: true });
     const form = dialog.querySelector("form");
+    form.querySelector("[data-password-recovery]").addEventListener("click", () => {
+      if (!recovery) return formMessage(form, "Le service de connexion est indisponible. Réessayez plus tard.");
+      dialog.close();
+      recovery.request();
+    });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const submit = form.querySelector('[type="submit"]');
@@ -248,19 +256,47 @@
       renderCollaborationPage();
       return;
     }
+    const recoveryReturn = window.TSSRPasswordRecovery.isRecoveryReturn(window.location.href);
     state.client = window.supabase.createClient(config.supabaseUrl, config.supabasePublishableKey, {
-      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+      auth: { persistSession: !recoveryReturn, autoRefreshToken: true, detectSessionInUrl: true,
+        ...(recoveryReturn ? { storageKey: "tssr-password-recovery" } : {}) }
+    });
+    recovery = window.TSSRPasswordRecovery.create({
+      auth: state.client.auth, initialReturn: recoveryReturn, redirectTo: siteUrl(""),
+      createDialog, formMessage, setBusy, location: window.location, history: window.history,
+      onFinished(success) {
+        state.session = null;
+        state.profile = null;
+        updateAuthenticatedUi();
+        toast(success ? "Mot de passe mis à jour. Vous êtes déconnecté." : "Session de récupération fermée.");
+      }
+    });
+    // Subscribe before getSession: recovery can be emitted during SDK initialization.
+    state.client.auth.onAuthStateChange((event, session) => {
+      const recovering = recovery.onAuthEvent(event);
+      window.setTimeout(async () => {
+        if (recovering || recovery.isActive()) {
+          state.session = null;
+          state.profile = null;
+          updateAuthenticatedUi();
+          await recovery.open();
+          return;
+        }
+        state.session = session;
+        try { await loadProfile(); } catch (error) { toast(error.message, "error"); }
+        updateAuthenticatedUi();
+        if (state.profile?.must_change_password) window.setTimeout(() => openAccount(true), 100);
+      }, 0);
     });
     const { data } = await state.client.auth.getSession();
+    if (recovery.isActive()) {
+      updateAuthenticatedUi();
+      await recovery.open();
+      return;
+    }
     state.session = data.session;
     try { await loadProfile(); } catch (error) { toast(error.message, "error"); }
     updateAuthenticatedUi();
-    state.client.auth.onAuthStateChange(async (_event, session) => {
-      state.session = session;
-      try { await loadProfile(); } catch (error) { toast(error.message, "error"); }
-      updateAuthenticatedUi();
-      if (state.profile?.must_change_password) window.setTimeout(() => openAccount(true), 100);
-    });
   }
 
   async function updateAuthenticatedUi() {

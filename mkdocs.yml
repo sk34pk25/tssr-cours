@@ -115,6 +115,7 @@ extra_javascript:
   - assets/javascripts/course-creator-utils.js
   - assets/javascripts/course-editor.js
   - assets/javascripts/course-editor-ui.js
+  - assets/javascripts/password-recovery.js
   - assets/javascripts/collaboration.js
   - assets/javascripts/kahoot.js
   - assets/javascripts/course-creator.js
