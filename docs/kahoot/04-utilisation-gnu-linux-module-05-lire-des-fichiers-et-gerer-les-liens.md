@@ -1,0 +1,6 @@
+<!-- TSSR-KAHOOT-V1:%7B%22schemaVersion%22%3A%201%2C%20%22courseId%22%3A%20%22modules%2F04%2Dutilisation%2Dgnu%2Dlinux%2Findex.md%22%2C%20%22moduleId%22%3A%20%22modules%2F04%2Dutilisation%2Dgnu%2Dlinux%2Fmodule%2D05%2Dlire%2Ddes%2Dfichiers%2Det%2Dgerer%2Dles%2Dliens.md%22%2C%20%22title%22%3A%20%22TSSR%20%E2%80%94%20Utilisation%20GNU%2FLinux%20%E2%80%94%20M05%20%3A%20Lire%20des%20fichiers%20et%20g%C3%A9rer%20les%20liens%22%2C%20%22questionCount%22%3A%206%2C%20%22url%22%3A%20%22https%3A%2F%2Fcreate.kahoot.it%2Fshare%2Ftssr%2Dutilisation%2Dgnu%2Dlinux%2Dm05%2Dlire%2Ddes%2Dfichiers%2Det%2Dgerer%2Dles%2Dliens%2F82ea1e68%2D392f%2D455a%2D94cb%2D016cce06fa33%22%2C%20%22soloAvailable%22%3A%20true%2C%20%22liveAvailable%22%3A%20true%2C%20%22provenance%22%3A%20%22B%22%2C%20%22state%22%3A%20%22linked%22%2C%20%22questions%22%3A%20%5B%5D%7D -->
+# TSSR — Utilisation GNU/Linux — M05 : Lire des fichiers et gérer les liens
+
+Teste tes connaissances sur le module [Module 05 — Lire des fichiers et gérer les liens](../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md).
+
+Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.

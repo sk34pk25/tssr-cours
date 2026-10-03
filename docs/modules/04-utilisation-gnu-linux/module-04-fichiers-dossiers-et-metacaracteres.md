@@ -1,69 +1,72 @@
 # Module 04 — Fichiers, dossiers et métacaractères
 
 **Séquence :** Utilisation d’une distribution GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** TP TSSR « Fichiers et dossiers » et « Métacaractères », énoncés et corrections.
+**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports fournis commencent au module 3 et ne contiennent pas les modules 1 et 2. Le portail conserve volontairement cette numérotation. Le module additionnel Workstation présent dans ce dossier est un doublon exact du support Windows et n’est pas traité comme un module Linux.
+## Objectifs
 
-## Objectifs et compétences
+- Créer, nommer, copier, déplacer et supprimer des fichiers ou répertoires.
+- Lire les droits et le type d’un objet dans une liste détaillée.
+- Employer les métacaractères pour sélectionner plusieurs noms sans les confondre avec des fichiers réels.
 
-- Créer, copier, déplacer et supprimer fichiers et répertoires.
-- Employer chemins absolus et relatifs.
-- Utiliser les métacaractères du shell sans élargir involontairement une cible.
-- Contrôler le résultat avant une suppression récursive.
+## Notions essentielles
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Fichiers, dossiers et métacaractères » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Sous Linux, répertoires et fichiers sont des objets de l’arborescence. `pwd` donne le point de départ ; `ls -l` affiche notamment le type, les permissions, le propriétaire et le groupe. Avant une action de modification, lister le contenu avec `ls -la` et employer des chemins explicites.
 
-## Méthode de travail
-
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
-
-## Arborescence et chemins
-
-```mermaid
-flowchart TB
-    R["/ · racine"] --> E["/etc · configuration"]
-    R --> H["/home · profils utilisateurs"]
-    H --> U["/home/alex"]
-    U --> D["documents/rapport.txt"]
-    R --> V["/var · données variables et journaux"]
-    R --> T["/tmp · fichiers temporaires"]
+```bash
+touch MonPremierFichier
+mkdir essais
+cp MonPremierFichier essais/
+mv essais/MonPremierFichier essais/fichier-renomme
 ```
 
-<p class="tssr-caption">Chemin absolu : <code>/home/alex/documents/rapport.txt</code>. Depuis <code>/home/alex</code>, le chemin relatif est <code>documents/rapport.txt</code>.</p>
+`touch` crée un fichier vide s’il n’existe pas. `mkdir` crée un répertoire. `cp` copie ; `mv` déplace ou renomme selon ses arguments.
 
-!!! warning "Développer un métacaractère avant de supprimer"
-    Contrôler d’abord la cible avec une commande non destructive, par exemple <code>printf '%s\n' *.log</code> ou <code>find … -print</code>, puis seulement exécuter la suppression explicitement validée.
+## Métacaractères : sélectionner sans réécrire
 
-## Concepts essentiels
+Les métacaractères sont interprétés par le shell avant le lancement de la commande. Ils servent à développer une sélection de noms.
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+| Expression | Sens | Exemple |
+|---|---|---|
+| `*` | toute suite de caractères | `ls *.txt` |
+| `?` | un seul caractère | `ls note?.txt` |
+| `[abc]` | un caractère parmi une liste | `ls rapport[12].pdf` |
+| `[a-z]` | un caractère dans un intervalle | `ls fichier[1-9]` |
 
-## Mise en pratique
+Vérifiez d’abord la sélection avec `ls` avant de l’utiliser avec `rm`, `mv` ou `cp`. Un motif qui ne correspond à rien peut être transmis tel quel selon la configuration du shell : lire le résultat et ne pas supposer qu’une sélection a eu lieu.
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
+## Procédure sûre de rangement
 
-## Questions flash
+1. Afficher le répertoire courant avec `pwd`.
+2. Lister précisément les objets avec `ls -la`.
+3. Créer le répertoire de destination avec `mkdir` si nécessaire.
+4. Tester le motif avec `ls motif`.
+5. Copier ou déplacer avec des chemins explicites.
+6. Relister la destination pour contrôler le résultat.
 
-1. Comment expliquer simplement « Fichiers, dossiers et métacaractères » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
+## Points d’attention
+
+- `rm` ne place pas un fichier dans une corbeille : une suppression mérite une vérification préalable.
+- Un espace dans un nom impose des guillemets ou un échappement ; les guillemets empêchent aussi l’expansion des métacaractères.
+- Ne confondez pas les permissions affichées par `ls -l` avec la propriété : ce sont deux informations distinctes.
+
+## À retenir
+
+Les commandes de gestion de fichiers deviennent fiables lorsqu’elles sont précédées d’un contrôle du contexte et d’un test de sélection. Les métacaractères font gagner du temps, mais élargissent rapidement une action.
+
+## Vérification des acquis
+
+1. Quelle commande crée un fichier vide ?
+2. Que représente `?` dans un motif de shell ?
+3. Quelle vérification réaliser avant d’utiliser un motif avec `rm` ?
 
 ??? success "Éléments de réponse"
-    - Créer, copier, déplacer et supprimer fichiers et répertoires.
-    - Employer chemins absolus et relatifs.
-    - Utiliser les métacaractères du shell sans élargir involontairement une cible.
-    - Contrôler le résultat avant une suppression récursive.
+    1. `touch`.
+    2. Un unique caractère.
+    3. Tester le motif avec une commande non destructive, par exemple `ls`.
 
 ## Voir aussi
 
 - [Présentation de la séquence](index.md)
+- [Fiche de révision du module](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)

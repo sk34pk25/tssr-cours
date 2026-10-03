@@ -1,52 +1,71 @@
 # Module 06 — Recherches et expressions régulières
 
 **Séquence :** Utilisation d’une distribution GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** TP TSSR « Recherches et regex », énoncé et correction.
+**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports fournis commencent au module 3 et ne contiennent pas les modules 1 et 2. Le portail conserve volontairement cette numérotation. Le module additionnel Workstation présent dans ce dossier est un doublon exact du support Windows et n’est pas traité comme un module Linux.
+## Objectifs
 
-## Objectifs et compétences
+- Rechercher du texte avec `grep`.
+- Distinguer une recherche sensible à la casse d’une recherche insensible à la casse.
+- Utiliser des expressions régulières simples et vérifier les lignes trouvées.
 
-- Rechercher des fichiers avec find.
-- Filtrer du texte avec grep.
-- Construire une expression régulière simple.
-- Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.
+## Rechercher avec `grep`
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Recherches et expressions régulières » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+`grep` affiche les lignes contenant un motif. Dans le TP, `grep Dupont Edition` retrouve les lignes qui contiennent exactement cette chaîne ; `grep -i dupont Edition` ignore la différence entre majuscules et minuscules.
 
-## Méthode de travail
+```bash
+grep Dupont Edition
+grep -i dupont Edition
+grep -n Dupont Edition
+```
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+L’option `-n` ajoute le numéro de ligne, utile pour contrôler un résultat ou revenir dans un éditeur. Une absence de sortie ne prouve pas qu’un fichier est vide : elle peut simplement signifier qu’aucune ligne ne correspond au motif.
 
-## Concepts essentiels
+## Expressions régulières : décrire un motif
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+Une expression régulière décrit un ensemble de chaînes. Commencez par un motif simple, puis rendez-le plus précis progressivement.
 
-## Mise en pratique
+| Motif | Intention |
+|---|---|
+| `^Dupont` | ligne commençant par `Dupont` |
+| `Dupont$` | ligne se terminant par `Dupont` |
+| `Du.ont` | un caractère quelconque entre `Du` et `ont` |
+| `[0-9]` | un chiffre |
+| `^$` | ligne vide |
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
+Les caractères spéciaux peuvent nécessiter un échappement ou des guillemets selon le shell. Employer des guillemets simples autour du motif évite que le shell interprète certains caractères avant `grep`.
 
-## Questions flash
+## Procédure de recherche fiable
 
-1. Comment expliquer simplement « Recherches et expressions régulières » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
+1. Identifier le fichier cible avec un chemin clair.
+2. Exécuter une recherche littérale courte.
+3. Ajouter `-n` pour situer les résultats.
+4. Introduire une expression régulière, une contrainte à la fois.
+5. Lire les lignes retournées avant de décider d’une modification.
+
+## Points d’attention
+
+- Une expression trop large peut donner des faux positifs ; une expression trop stricte peut masquer un résultat attendu.
+- `grep -i` est adapté si la casse n’a pas de sens dans le besoin ; ne l’ajoutez pas automatiquement.
+- Les motifs transmis entre guillemets simples sont plus prévisibles pour les caractères `*`, `?`, `$` et `[]`.
+
+## À retenir
+
+La recherche est un contrôle, pas seulement une commande. Un bon motif exprime exactement ce que l’on cherche et le résultat est relu avant toute action suivante.
+
+## Vérification des acquis
+
+1. Quelle option de `grep` ignore la casse ?
+2. Que signifie `^` au début d’une expression régulière ?
+3. Pourquoi ajouter `-n` lors d’une recherche ?
 
 ??? success "Éléments de réponse"
-    - Rechercher des fichiers avec find.
-    - Filtrer du texte avec grep.
-    - Construire une expression régulière simple.
-    - Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.
+    1. `-i`.
+    2. Le début de ligne.
+    3. Pour connaître la position des lignes trouvées.
 
 ## Voir aussi
 
 - [Présentation de la séquence](index.md)
+- [Fiche de révision du module](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
