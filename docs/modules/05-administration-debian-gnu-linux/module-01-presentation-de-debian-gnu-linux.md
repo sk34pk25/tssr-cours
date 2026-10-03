@@ -1,51 +1,42 @@
 # Module 01 — Présentation de Debian GNU/Linux
 
 **Séquence :** Administration Debian GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** support TSSR « Administration Debian GNU/Linux — Module 01 ».
+**Contenu du portail (B) :** reformulation structurée de la source TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
+## Objectifs
 
-## Objectifs et compétences
+- Situer le projet Debian, son contrat social et ses principes de logiciel libre.
+- Distinguer une version, un nom de code et une branche de distribution.
+- Identifier les branches stable, testing et unstable.
 
-- Comprendre l’histoire, le contrat social et les principes Debian.
-- Distinguer stable, testing et unstable.
-- Reconnaître versions, noms de code et cycle de maintenance.
-- Lire la syntaxe des commandes utilisée dans la formation.
+## Repères essentiels
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Présentation de Debian GNU/Linux » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Le projet Debian a été créé en 1993. Sa communauté s’appuie sur un contrat social : le système Debian demeure libre, ses travaux sont rendus à la communauté et les problèmes ne sont pas dissimulés. Les logiciels non conformes aux principes du logiciel libre peuvent être proposés dans des sections séparées du système principal.
 
-## Méthode de travail
+Une version Debian possède un numéro et un nom de code. La source présente trois branches principales : **stable**, version recommandée pour la production ; **testing**, future stable ; et **unstable**, en évolution continue, appelée Sid. Le choix d’une branche est un choix de niveau de stabilité, pas seulement de nouveauté.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+## Méthode de lecture d’une commande
 
-## Concepts essentiels
+La syntaxe est représentée sous la forme `commande [options] <argument>`. L’espace sépare commande, options et arguments. Lire cette structure avant d’exécuter une commande évite de prendre un exemple pour une instruction à recopier sans adaptation.
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+## Points d’attention
 
-## Mise en pratique
+- Les versions citées par un support constituent son contexte pédagogique ; vérifier la documentation interne avant de les utiliser dans un environnement réel.
+- `unstable` ne signifie pas « branche de test sans règle » : c’est une branche de développement continu, non le choix attendu pour un serveur de production.
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/administration-linux/module-01-presentation-de-debian-gnu-linux.md)
+## À retenir
 
-## Questions flash
+Debian associe une culture du logiciel libre à des branches destinées à des usages différents. Pour l’administration, la stabilité et la traçabilité du choix de version sont essentielles.
 
-1. Comment expliquer simplement « Présentation de Debian GNU/Linux » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
+## Vérification des acquis
 
-??? success "Éléments de réponse"
-    - Comprendre l’histoire, le contrat social et les principes Debian.
-    - Distinguer stable, testing et unstable.
-    - Reconnaître versions, noms de code et cycle de maintenance.
-    - Lire la syntaxe des commandes utilisée dans la formation.
+1. Quelle branche est recommandée en production ?
+2. Comment se nomme la branche Debian en évolution continue ?
+
+??? success "Réponses"
+    1. `stable`.
+    2. `unstable`, aussi appelée Sid.
 
 ## Voir aussi
 

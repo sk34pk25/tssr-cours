@@ -1,0 +1,6 @@
+<!-- TSSR-KAHOOT-V1:%7B%22schemaVersion%22%3A%201%2C%20%22courseId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Findex.md%22%2C%20%22moduleId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Fmodule%2D01%2Dpresentation%2Dde%2Ddebian%2Dgnu%2Dlinux.md%22%2C%20%22title%22%3A%20%22TSSR%20%E2%80%94%20Administration%20Debian%20GNU%2FLinux%20%E2%80%94%20M01%20%3A%20Pr%C3%A9sentation%20de%20Debian%20GNU%2FLinux%22%2C%20%22questionCount%22%3A%205%2C%20%22url%22%3A%20%22https%3A%2F%2Fcreate.kahoot.it%2Fshare%2Ftssr%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Dm01%2Dpresentation%2Dde%2Ddebian%2Dgnu%2Dlinux%2F23a9a87e%2D84d2%2D46fd%2Db067%2D0140b85986a5%22%2C%20%22soloAvailable%22%3A%20true%2C%20%22liveAvailable%22%3A%20true%2C%20%22provenance%22%3A%20%22B%22%2C%20%22state%22%3A%20%22linked%22%2C%20%22questions%22%3A%20%5B%5D%7D -->
+# TSSR — Administration Debian GNU/Linux — M01 : Présentation de Debian GNU/Linux
+
+Teste tes connaissances sur le module [Module 01 — Présentation de Debian GNU/Linux](../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md).
+
+Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.
