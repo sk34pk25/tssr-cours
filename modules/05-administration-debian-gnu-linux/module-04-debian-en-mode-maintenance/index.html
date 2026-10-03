@@ -2384,10 +2384,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#objectifs-et-competences" class="md-nav__link">
+  <a href="#objectifs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs et compétences
+        Objectifs
       
     </span>
   </a>
@@ -2395,10 +2395,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-de-travail" class="md-nav__link">
+  <a href="#quand-intervenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode de travail
+        Quand intervenir
       
     </span>
   </a>
@@ -2406,10 +2406,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concepts-essentiels" class="md-nav__link">
+  <a href="#methode-de-reparation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concepts essentiels
+        Méthode de réparation
       
     </span>
   </a>
@@ -2417,10 +2417,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mise-en-pratique" class="md-nav__link">
+  <a href="#points-dattention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mise en pratique
+        Points d’attention
       
     </span>
   </a>
@@ -2428,10 +2428,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        À retenir
       
     </span>
   </a>
@@ -2439,10 +2439,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
+  <a href="#verification-des-acquis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voir aussi
+        Vérification des acquis
       
     </span>
   </a>
@@ -11405,10 +11405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#objectifs-et-competences" class="md-nav__link">
+  <a href="#objectifs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs et compétences
+        Objectifs
       
     </span>
   </a>
@@ -11416,10 +11416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-de-travail" class="md-nav__link">
+  <a href="#quand-intervenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode de travail
+        Quand intervenir
       
     </span>
   </a>
@@ -11427,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concepts-essentiels" class="md-nav__link">
+  <a href="#methode-de-reparation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concepts essentiels
+        Méthode de réparation
       
     </span>
   </a>
@@ -11438,10 +11438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mise-en-pratique" class="md-nav__link">
+  <a href="#points-dattention" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mise en pratique
+        Points d’attention
       
     </span>
   </a>
@@ -11449,10 +11449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        À retenir
       
     </span>
   </a>
@@ -11460,10 +11460,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
+  <a href="#verification-des-acquis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voir aussi
+        Vérification des acquis
       
     </span>
   </a>
@@ -11566,59 +11566,48 @@
 
 
 <h1 id="module-04-debian-en-mode-maintenance">Module 04 — Debian en mode maintenance<a class="headerlink" href="#module-04-debian-en-mode-maintenance" title="Permanent link">¶</a></h1>
-<p><strong>Séquence :</strong> Administration Debian GNU/Linux<br>
-<strong>Importance :</strong> socle de la progression officielle<br>
-<strong>Sources consolidées :</strong> 0 support(s) de cours, 0 énoncé(s), 0 correction(s)</p>
-<div class="admonition warning">
-<p class="admonition-title">Périmètre et versions</p>
-<p>Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : <a href="https://www.debian.org/releases/">Versions Debian</a>.</p>
-</div>
-<h2 id="objectifs-et-competences">Objectifs et compétences<a class="headerlink" href="#objectifs-et-competences" title="Permanent link">¶</a></h2>
+<p><strong>Sources originales (A) :</strong> support et TP TSSR « Debian en mode maintenance ».
+<strong>Contenu du portail (B) :</strong> reformulation structurée des sources TSSR.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
 <ul>
-<li>Accéder à un mode de secours de manière contrôlée.</li>
-<li>Comprendre les paramètres de démarrage temporaires.</li>
-<li>Réparer un système sans contourner durablement les protections.</li>
-<li>Revenir à un démarrage normal et valider les services.</li>
+<li>Reconnaître les cas qui justifient un démarrage de maintenance.</li>
+<li>Accéder à un environnement de réparation avec une méthode contrôlée.</li>
+<li>Préserver les données et consigner les actions effectuées.</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Façon simple de le comprendre</p>
-<p>Ce module sert à passer de la notion « Debian en mode maintenance » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.</p>
-</div>
-<h2 id="methode-de-travail">Méthode de travail<a class="headerlink" href="#methode-de-travail" title="Permanent link">¶</a></h2>
+<h2 id="quand-intervenir">Quand intervenir<a class="headerlink" href="#quand-intervenir" title="Permanent link">¶</a></h2>
+<p>La source cite notamment une mise à jour empêchant le démarrage, la perte du mot de passe root ou la récupération de données. Le mode maintenance n’est pas une procédure courante : il donne des droits importants dans un état dégradé du système.</p>
+<h2 id="methode-de-reparation">Méthode de réparation<a class="headerlink" href="#methode-de-reparation" title="Permanent link">¶</a></h2>
 <ol>
-<li>Lire les concepts dans l’ordre du support.</li>
-<li>Reproduire les exemples dans un environnement de laboratoire.</li>
-<li>Noter le résultat attendu avant de modifier une configuration.</li>
-<li>Vérifier avec l’outil ou la commande appropriée.</li>
-<li>Revenir à l’état initial si le résultat diverge.</li>
+<li>Décrire le symptôme et préserver les informations disponibles.</li>
+<li>Démarrer par la voie de maintenance adaptée au contexte du TP, par exemple depuis GRUB ou le support d’installation.</li>
+<li>Identifier le système et les partitions avant une modification.</li>
+<li>Appliquer une action ciblée, puis contrôler son effet.</li>
+<li>Redémarrer normalement et vérifier le service ou le compte concerné.</li>
 </ol>
-<h2 id="concepts-essentiels">Concepts essentiels<a class="headerlink" href="#concepts-essentiels" title="Permanent link">¶</a></h2>
-<p>Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.</p>
-<h2 id="mise-en-pratique">Mise en pratique<a class="headerlink" href="#mise-en-pratique" title="Permanent link">¶</a></h2>
+<h2 id="points-dattention">Points d’attention<a class="headerlink" href="#points-dattention" title="Permanent link">¶</a></h2>
 <ul>
-<li>Aucun énoncé de TP distinct n’est fourni pour ce module.</li>
-<li><a href="../../../revision/administration-linux/module-04-debian-en-mode-maintenance/">Fiche de révision du module</a></li>
+<li>Une action de réparation peut aggraver une perte de données si la cible n’est pas identifiée.</li>
+<li>Ne pas confondre mot de passe root, compte utilisateur et accès à une console de récupération.</li>
+<li>Documenter toute modification réalisée hors du fonctionnement normal.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le mode maintenance est un environnement de diagnostic et de réparation : l’objectif est de revenir à un démarrage normal avec des actions minimales et vérifiables.</p>
+<h2 id="verification-des-acquis">Vérification des acquis<a class="headerlink" href="#verification-des-acquis" title="Permanent link">¶</a></h2>
 <ol>
-<li>Comment expliquer simplement « Debian en mode maintenance » à un collègue ?</li>
-<li>Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?</li>
-<li>Quel contrôle permet de prouver que le résultat est correct ?</li>
-<li>Quel est le premier risque ou piège à écarter ?</li>
+<li>Citer un cas où le mode maintenance est utile.</li>
+<li>Pourquoi identifier les partitions avant une réparation ?</li>
 </ol>
 <details class="success">
-<summary>Éléments de réponse</summary>
-<ul>
-<li>Accéder à un mode de secours de manière contrôlée.</li>
-<li>Comprendre les paramètres de démarrage temporaires.</li>
-<li>Réparer un système sans contourner durablement les protections.</li>
-<li>Revenir à un démarrage normal et valider les services.</li>
-</ul>
+<summary>Réponses</summary>
+<ol>
+<li>Par exemple après une mise à jour qui empêche le démarrage.</li>
+<li>Pour éviter de modifier ou de récupérer les mauvaises données.</li>
+</ol>
 </details>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
-<ul>
-<li><a href="../">Présentation de la séquence</a></li>
-</ul>
+<section class="tssr-kahoot" aria-label="Kahoot : TSSR — Administration Debian GNU/Linux — M04 : Debian en mode maintenance"><div class="tssr-kahoot__label">KAHOOT</div>
+<h3 class="tssr-kahoot__title">M04 — Debian en mode maintenance</h3><p class="tssr-kahoot__count">5 questions</p>
+<p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>
+<div class="tssr-kahoot-actions"><a class="md-button md-button--primary" href="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m04-debian-en-mode-maintenance/942df471-14d6-491d-b495-e7edab12044b" target="_blank" rel="noopener noreferrer">Jouer en solo</a><a class="md-button" href="https://kahoot.it/" target="_blank" rel="noopener noreferrer">Rejoindre un groupe</a><button type="button" class="md-button" data-kahoot-host="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m04-debian-en-mode-maintenance/942df471-14d6-491d-b495-e7edab12044b" hidden="">Créer une partie</button></div></section>
 
 
 

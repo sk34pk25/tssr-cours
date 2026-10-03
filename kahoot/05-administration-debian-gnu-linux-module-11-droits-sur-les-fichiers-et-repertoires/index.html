@@ -9,31 +9,27 @@
         <meta name="author" content="Portail personnel de formation">
       
       
-        <link rel="canonical" href="https://sk34pk25.github.io/tssr-cours/modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/">
+        <link rel="canonical" href="https://sk34pk25.github.io/tssr-cours/kahoot/05-administration-debian-gnu-linux-module-11-droits-sur-les-fichiers-et-repertoires/">
       
       
-        <link rel="prev" href="../module-08-gestion-des-espaces-de-stockage-avancee-lvm/">
-      
-      
-        <link rel="next" href="../module-10-gestion-des-utilisateurs-et-groupes/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Module 09 — Gestion des espaces de stockage — File System - TSSR · PAK</title>
+        <title>TSSR — Administration Debian GNU/Linux — M11 : Droits sur les fichiers et répertoires - TSSR · PAK</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,35 +48,35 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/tokens.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/tokens.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/base.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/base.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/navigation.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/navigation.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/components.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/components.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/glossaire.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/glossaire.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/collaboration.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/collaboration.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/course-creator.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/course-creator.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/chronology.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/chronology.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/visuals.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/visuals.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/homepage.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/homepage.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/responsive.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/responsive.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/parcours.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/parcours.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/kahoot.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/kahoot.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/print.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/print.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -88,10 +84,10 @@
     
   
   
-    <meta name="tssr-source-path" content="modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md">
+    <meta name="tssr-source-path" content="kahoot/05-administration-debian-gnu-linux-module-11-droits-sur-les-fichiers-et-repertoires.md">
   
 
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -120,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-09-gestion-des-espaces-de-stockage-file-system" class="md-skip">
+        <a href="#tssr-administration-debian-gnulinux-m11-droits-sur-les-fichiers-et-repertoires" class="md-skip">
           Aller au contenu
         </a>
       
@@ -136,7 +132,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="../../.." title="TSSR · PAK" class="md-header__button md-logo" aria-label="TSSR · PAK" data-md-component="logo">
+    <a href="../.." title="TSSR · PAK" class="md-header__button md-logo" aria-label="TSSR · PAK" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
@@ -156,7 +152,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module 09 — Gestion des espaces de stockage — File System
+              TSSR — Administration Debian GNU/Linux — M11 : Droits sur les fichiers et répertoires
             
           </span>
         </div>
@@ -262,7 +258,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="TSSR · PAK" class="md-nav__button md-logo" aria-label="TSSR · PAK" data-md-component="logo">
+    <a href="../.." title="TSSR · PAK" class="md-nav__button md-logo" aria-label="TSSR · PAK" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 19h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-7zM4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m5 4h1V5H9zm0 8h1v-2H9zM5 5v2h2V5zm0 8v2h2v-2z"></path></svg>
@@ -280,7 +276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -307,7 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../parcours-tssr/" class="md-nav__link">
+      <a href="../../parcours-tssr/" class="md-nav__link">
         
   
   
@@ -354,7 +350,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../msp/" class="md-nav__link ">
+            <a href="../../msp/" class="md-nav__link ">
               
   
   
@@ -398,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../08-msp-systemes-clients/" class="md-nav__link">
+      <a href="../../modules/08-msp-systemes-clients/" class="md-nav__link">
         
   
   
@@ -430,10 +426,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -459,11 +453,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -484,7 +478,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -530,7 +524,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../03-microsoft-365-outils-collaboratifs/" class="md-nav__link ">
+            <a href="../../modules/03-microsoft-365-outils-collaboratifs/" class="md-nav__link ">
               
   
   
@@ -574,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" class="md-nav__link">
+      <a href="../../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" class="md-nav__link">
         
   
   
@@ -602,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/" class="md-nav__link">
+      <a href="../../modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/" class="md-nav__link">
         
   
   
@@ -630,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel/" class="md-nav__link">
+      <a href="../../modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel/" class="md-nav__link">
         
   
   
@@ -658,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" class="md-nav__link">
+      <a href="../../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" class="md-nav__link">
         
   
   
@@ -686,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" class="md-nav__link">
+      <a href="../../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" class="md-nav__link">
         
   
   
@@ -752,7 +746,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../01-bases-reseaux/" class="md-nav__link ">
+            <a href="../../modules/01-bases-reseaux/" class="md-nav__link ">
               
   
   
@@ -796,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-01-le-modele-osi/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-01-le-modele-osi/" class="md-nav__link">
         
   
   
@@ -824,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-02-les-unites-informatiques/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-02-les-unites-informatiques/" class="md-nav__link">
         
   
   
@@ -852,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-03-l-adressage-ipv4/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-03-l-adressage-ipv4/" class="md-nav__link">
         
   
   
@@ -880,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-04-la-communication-dans-un-reseau/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/" class="md-nav__link">
         
   
   
@@ -908,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-05-les-premieres-commandes-reseau/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau/" class="md-nav__link">
         
   
   
@@ -936,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-bases-reseaux/module-06-l-adressage-ipv6/" class="md-nav__link">
+      <a href="../../modules/01-bases-reseaux/module-06-l-adressage-ipv6/" class="md-nav__link">
         
   
   
@@ -1018,7 +1012,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../02-systemes-clients-microsoft/" class="md-nav__link ">
+            <a href="../../modules/02-systemes-clients-microsoft/" class="md-nav__link ">
               
   
   
@@ -1062,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/" class="md-nav__link">
         
   
   
@@ -1090,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/" class="md-nav__link">
         
   
   
@@ -1118,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" class="md-nav__link">
         
   
   
@@ -1146,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/" class="md-nav__link">
         
   
   
@@ -1174,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/" class="md-nav__link">
         
   
   
@@ -1202,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/" class="md-nav__link">
         
   
   
@@ -1230,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/" class="md-nav__link">
         
   
   
@@ -1258,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-08-le-partage-de-ressources/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources/" class="md-nav__link">
         
   
   
@@ -1286,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes/" class="md-nav__link">
         
   
   
@@ -1314,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/" class="md-nav__link">
         
   
   
@@ -1342,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" class="md-nav__link">
         
   
   
@@ -1370,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/" class="md-nav__link">
         
   
   
@@ -1398,7 +1392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/" class="md-nav__link">
         
   
   
@@ -1426,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-systemes-clients-microsoft/module-additionnel-workstation/" class="md-nav__link">
+      <a href="../../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" class="md-nav__link">
         
   
   
@@ -1492,7 +1486,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../04-utilisation-gnu-linux/" class="md-nav__link ">
+            <a href="../../modules/04-utilisation-gnu-linux/" class="md-nav__link ">
               
   
   
@@ -1536,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-03-premieres-commandes/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/" class="md-nav__link">
         
   
   
@@ -1564,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/" class="md-nav__link">
         
   
   
@@ -1592,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/" class="md-nav__link">
         
   
   
@@ -1620,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/" class="md-nav__link">
         
   
   
@@ -1648,7 +1642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-07-utilisation-de-vi/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi/" class="md-nav__link">
         
   
   
@@ -1676,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" class="md-nav__link">
+      <a href="../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" class="md-nav__link">
         
   
   
@@ -1732,7 +1726,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../08-msp-systemes-clients/" class="md-nav__link ">
+            <a href="../../modules/08-msp-systemes-clients/" class="md-nav__link ">
               
   
   
@@ -1776,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../08-msp-systemes-clients/module-01-msp-systemes-clients/" class="md-nav__link">
+      <a href="../../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" class="md-nav__link">
         
   
   
@@ -1848,7 +1842,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../06-sensibilisation-itil-gestion-parc/" class="md-nav__link ">
+            <a href="../../modules/06-sensibilisation-itil-gestion-parc/" class="md-nav__link ">
               
   
   
@@ -1892,7 +1886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique/" class="md-nav__link">
         
   
   
@@ -1920,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services/" class="md-nav__link">
         
   
   
@@ -1948,7 +1942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services/" class="md-nav__link">
         
   
   
@@ -1976,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-04-transition-des-services/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services/" class="md-nav__link">
         
   
   
@@ -2004,7 +1998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi/" class="md-nav__link">
         
   
   
@@ -2032,7 +2026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/" class="md-nav__link">
         
   
   
@@ -2060,7 +2054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services/" class="md-nav__link">
         
   
   
@@ -2088,7 +2082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre/" class="md-nav__link">
         
   
   
@@ -2116,7 +2110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi/" class="md-nav__link">
+      <a href="../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi/" class="md-nav__link">
         
   
   
@@ -2149,8 +2143,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2188,15 +2180,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../modules/05-administration-debian-gnu-linux/" class="md-nav__link ">
               
   
   
@@ -2220,7 +2212,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2240,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
         
   
   
@@ -2268,7 +2260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-02-installation-d-une-distribution-debian/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/" class="md-nav__link">
         
   
   
@@ -2296,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-03-demarrage-d-une-distribution-debian/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/" class="md-nav__link">
         
   
   
@@ -2324,7 +2316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-04-debian-en-mode-maintenance/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance/" class="md-nav__link">
         
   
   
@@ -2352,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-05-gestion-du-reseau/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/" class="md-nav__link">
         
   
   
@@ -2380,7 +2372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
         
   
   
@@ -2408,7 +2400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
         
   
   
@@ -2436,7 +2428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
         
   
   
@@ -2461,37 +2453,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 09 — Gestion des espaces de stockage — File System
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/" class="md-nav__link">
         
   
   
@@ -2507,81 +2472,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objectifs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#du-bloc-aux-donnees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Du bloc aux données
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-dattention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points d’attention
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        À retenir
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-des-acquis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vérification des acquis
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2594,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
         
   
   
@@ -2622,7 +2512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
         
   
   
@@ -2650,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
+      <a href="../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
         
   
   
@@ -2716,7 +2606,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../07-administration-glpi/" class="md-nav__link ">
+            <a href="../../modules/07-administration-glpi/" class="md-nav__link ">
               
   
   
@@ -2760,7 +2650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/" class="md-nav__link">
         
   
   
@@ -2788,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-02-authentification-ad-habilitations/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" class="md-nav__link">
         
   
   
@@ -2816,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique/" class="md-nav__link">
         
   
   
@@ -2844,7 +2734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/" class="md-nav__link">
         
   
   
@@ -2872,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/" class="md-nav__link">
         
   
   
@@ -2900,7 +2790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07-administration-glpi/module-06-plug-ins-et-inventaire/" class="md-nav__link">
+      <a href="../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire/" class="md-nav__link">
         
   
   
@@ -2966,7 +2856,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../09-services-reseaux-en-environnement-microsoft/" class="md-nav__link ">
+            <a href="../../modules/09-services-reseaux-en-environnement-microsoft/" class="md-nav__link ">
               
   
   
@@ -3010,7 +2900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-01-module-01/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01/" class="md-nav__link">
         
   
   
@@ -3038,7 +2928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-02-module-02/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02/" class="md-nav__link">
         
   
   
@@ -3066,7 +2956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-03-module-03/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03/" class="md-nav__link">
         
   
   
@@ -3094,7 +2984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-04-module-04/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04/" class="md-nav__link">
         
   
   
@@ -3122,7 +3012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-05-module-05/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05/" class="md-nav__link">
         
   
   
@@ -3150,7 +3040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09-services-reseaux-en-environnement-microsoft/module-06-module-06/" class="md-nav__link">
+      <a href="../../modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06/" class="md-nav__link">
         
   
   
@@ -3223,7 +3113,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tutoriels/" class="md-nav__link ">
+            <a href="../../tutoriels/" class="md-nav__link ">
               
   
   
@@ -3267,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/diagnostic-reseau/" class="md-nav__link">
+      <a href="../../tutoriels/diagnostic-reseau/" class="md-nav__link">
         
   
   
@@ -3295,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/ipv4-statique-windows/" class="md-nav__link">
+      <a href="../../tutoriels/ipv4-statique-windows/" class="md-nav__link">
         
   
   
@@ -3323,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/installer-debian/" class="md-nav__link">
+      <a href="../../tutoriels/installer-debian/" class="md-nav__link">
         
   
   
@@ -3351,7 +3241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/installer-glpi/" class="md-nav__link">
+      <a href="../../tutoriels/installer-glpi/" class="md-nav__link">
         
   
   
@@ -3379,7 +3269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/capture-deploiement-windows/" class="md-nav__link">
+      <a href="../../tutoriels/capture-deploiement-windows/" class="md-nav__link">
         
   
   
@@ -3407,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutoriels/forticlient-vpn/" class="md-nav__link">
+      <a href="../../tutoriels/forticlient-vpn/" class="md-nav__link">
         
   
   
@@ -3476,7 +3366,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/" class="md-nav__link ">
+            <a href="../../tp/" class="md-nav__link ">
               
   
   
@@ -3546,7 +3436,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/reseaux/" class="md-nav__link ">
+            <a href="../../tp/reseaux/" class="md-nav__link ">
               
   
   
@@ -3608,7 +3498,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/reseaux/module-01/" class="md-nav__link ">
+            <a href="../../tp/reseaux/module-01/" class="md-nav__link ">
               
   
   
@@ -3677,7 +3567,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/reseaux/module-03/" class="md-nav__link ">
+            <a href="../../tp/reseaux/module-03/" class="md-nav__link ">
               
   
   
@@ -3721,7 +3611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/reseaux/module-03/enonces/" class="md-nav__link">
+      <a href="../../tp/reseaux/module-03/enonces/" class="md-nav__link">
         
   
   
@@ -3749,7 +3639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/reseaux/module-03/corrections/" class="md-nav__link">
+      <a href="../../tp/reseaux/module-03/corrections/" class="md-nav__link">
         
   
   
@@ -3807,7 +3697,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/reseaux/module-04/" class="md-nav__link ">
+            <a href="../../tp/reseaux/module-04/" class="md-nav__link ">
               
   
   
@@ -3851,7 +3741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/reseaux/module-04/enonces/" class="md-nav__link">
+      <a href="../../tp/reseaux/module-04/enonces/" class="md-nav__link">
         
   
   
@@ -3879,7 +3769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/reseaux/module-04/corrections/" class="md-nav__link">
+      <a href="../../tp/reseaux/module-04/corrections/" class="md-nav__link">
         
   
   
@@ -3933,7 +3823,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/reseaux/module-05/" class="md-nav__link ">
+            <a href="../../tp/reseaux/module-05/" class="md-nav__link ">
               
   
   
@@ -4030,7 +3920,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/" class="md-nav__link ">
               
   
   
@@ -4096,7 +3986,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-02/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-02/" class="md-nav__link ">
               
   
   
@@ -4140,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-02/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-02/enonces/" class="md-nav__link">
         
   
   
@@ -4168,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-02/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-02/corrections/" class="md-nav__link">
         
   
   
@@ -4226,7 +4116,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-03/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-03/" class="md-nav__link ">
               
   
   
@@ -4270,7 +4160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-03/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-03/enonces/" class="md-nav__link">
         
   
   
@@ -4298,7 +4188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-03/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-03/corrections/" class="md-nav__link">
         
   
   
@@ -4356,7 +4246,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-04/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-04/" class="md-nav__link ">
               
   
   
@@ -4400,7 +4290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-04/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-04/enonces/" class="md-nav__link">
         
   
   
@@ -4428,7 +4318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-04/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-04/corrections/" class="md-nav__link">
         
   
   
@@ -4486,7 +4376,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-05/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-05/" class="md-nav__link ">
               
   
   
@@ -4530,7 +4420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-05/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-05/enonces/" class="md-nav__link">
         
   
   
@@ -4558,7 +4448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-05/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-05/corrections/" class="md-nav__link">
         
   
   
@@ -4616,7 +4506,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-06/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-06/" class="md-nav__link ">
               
   
   
@@ -4660,7 +4550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-06/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-06/enonces/" class="md-nav__link">
         
   
   
@@ -4688,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-06/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-06/corrections/" class="md-nav__link">
         
   
   
@@ -4746,7 +4636,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-07/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-07/" class="md-nav__link ">
               
   
   
@@ -4790,7 +4680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-07/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-07/enonces/" class="md-nav__link">
         
   
   
@@ -4818,7 +4708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-07/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-07/corrections/" class="md-nav__link">
         
   
   
@@ -4876,7 +4766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-08/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-08/" class="md-nav__link ">
               
   
   
@@ -4920,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-08/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-08/enonces/" class="md-nav__link">
         
   
   
@@ -4948,7 +4838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-08/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-08/corrections/" class="md-nav__link">
         
   
   
@@ -5006,7 +4896,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-09/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-09/" class="md-nav__link ">
               
   
   
@@ -5050,7 +4940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-09/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-09/enonces/" class="md-nav__link">
         
   
   
@@ -5078,7 +4968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-09/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-09/corrections/" class="md-nav__link">
         
   
   
@@ -5136,7 +5026,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-10/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-10/" class="md-nav__link ">
               
   
   
@@ -5180,7 +5070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-10/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-10/enonces/" class="md-nav__link">
         
   
   
@@ -5208,7 +5098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-10/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-10/corrections/" class="md-nav__link">
         
   
   
@@ -5266,7 +5156,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-11/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-11/" class="md-nav__link ">
               
   
   
@@ -5310,7 +5200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-11/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-11/enonces/" class="md-nav__link">
         
   
   
@@ -5338,7 +5228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-11/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-11/corrections/" class="md-nav__link">
         
   
   
@@ -5396,7 +5286,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-12/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-12/" class="md-nav__link ">
               
   
   
@@ -5440,7 +5330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-12/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-12/enonces/" class="md-nav__link">
         
   
   
@@ -5468,7 +5358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-12/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-12/corrections/" class="md-nav__link">
         
   
   
@@ -5526,7 +5416,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/systemes-clients/module-13/" class="md-nav__link ">
+            <a href="../../tp/systemes-clients/module-13/" class="md-nav__link ">
               
   
   
@@ -5570,7 +5460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-13/enonces/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-13/enonces/" class="md-nav__link">
         
   
   
@@ -5598,7 +5488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/systemes-clients/module-13/corrections/" class="md-nav__link">
+      <a href="../../tp/systemes-clients/module-13/corrections/" class="md-nav__link">
         
   
   
@@ -5668,7 +5558,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/microsoft-365/" class="md-nav__link ">
+            <a href="../../tp/microsoft-365/" class="md-nav__link ">
               
   
   
@@ -5734,7 +5624,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/microsoft-365/module-02/" class="md-nav__link ">
+            <a href="../../tp/microsoft-365/module-02/" class="md-nav__link ">
               
   
   
@@ -5778,7 +5668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-02/enonces/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-02/enonces/" class="md-nav__link">
         
   
   
@@ -5806,7 +5696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-02/corrections/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-02/corrections/" class="md-nav__link">
         
   
   
@@ -5864,7 +5754,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/microsoft-365/module-03/" class="md-nav__link ">
+            <a href="../../tp/microsoft-365/module-03/" class="md-nav__link ">
               
   
   
@@ -5908,7 +5798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-03/enonces/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-03/enonces/" class="md-nav__link">
         
   
   
@@ -5936,7 +5826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-03/corrections/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-03/corrections/" class="md-nav__link">
         
   
   
@@ -5994,7 +5884,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/microsoft-365/module-04/" class="md-nav__link ">
+            <a href="../../tp/microsoft-365/module-04/" class="md-nav__link ">
               
   
   
@@ -6038,7 +5928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-04/enonces/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-04/enonces/" class="md-nav__link">
         
   
   
@@ -6066,7 +5956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-04/corrections/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-04/corrections/" class="md-nav__link">
         
   
   
@@ -6124,7 +6014,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/microsoft-365/module-05/" class="md-nav__link ">
+            <a href="../../tp/microsoft-365/module-05/" class="md-nav__link ">
               
   
   
@@ -6168,7 +6058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-05/enonces/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-05/enonces/" class="md-nav__link">
         
   
   
@@ -6196,7 +6086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/microsoft-365/module-05/corrections/" class="md-nav__link">
+      <a href="../../tp/microsoft-365/module-05/corrections/" class="md-nav__link">
         
   
   
@@ -6258,7 +6148,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/utilisation-linux/" class="md-nav__link ">
+            <a href="../../tp/utilisation-linux/" class="md-nav__link ">
               
   
   
@@ -6323,7 +6213,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/administration-linux/" class="md-nav__link ">
+            <a href="../../tp/administration-linux/" class="md-nav__link ">
               
   
   
@@ -6394,7 +6284,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/itil/" class="md-nav__link ">
+            <a href="../../tp/itil/" class="md-nav__link ">
               
   
   
@@ -6460,7 +6350,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/itil/module-03/" class="md-nav__link ">
+            <a href="../../tp/itil/module-03/" class="md-nav__link ">
               
   
   
@@ -6504,7 +6394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-03/enonces/" class="md-nav__link">
+      <a href="../../tp/itil/module-03/enonces/" class="md-nav__link">
         
   
   
@@ -6532,7 +6422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-03/corrections/" class="md-nav__link">
+      <a href="../../tp/itil/module-03/corrections/" class="md-nav__link">
         
   
   
@@ -6590,7 +6480,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/itil/module-04/" class="md-nav__link ">
+            <a href="../../tp/itil/module-04/" class="md-nav__link ">
               
   
   
@@ -6634,7 +6524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-04/enonces/" class="md-nav__link">
+      <a href="../../tp/itil/module-04/enonces/" class="md-nav__link">
         
   
   
@@ -6662,7 +6552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-04/corrections/" class="md-nav__link">
+      <a href="../../tp/itil/module-04/corrections/" class="md-nav__link">
         
   
   
@@ -6720,7 +6610,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/itil/module-09/" class="md-nav__link ">
+            <a href="../../tp/itil/module-09/" class="md-nav__link ">
               
   
   
@@ -6764,7 +6654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-09/enonces/" class="md-nav__link">
+      <a href="../../tp/itil/module-09/enonces/" class="md-nav__link">
         
   
   
@@ -6792,7 +6682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/itil/module-09/corrections/" class="md-nav__link">
+      <a href="../../tp/itil/module-09/corrections/" class="md-nav__link">
         
   
   
@@ -6866,7 +6756,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/" class="md-nav__link ">
+            <a href="../../tp/glpi/" class="md-nav__link ">
               
   
   
@@ -6932,7 +6822,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-01/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-01/" class="md-nav__link ">
               
   
   
@@ -6976,7 +6866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-01/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-01/enonces/" class="md-nav__link">
         
   
   
@@ -7004,7 +6894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-01/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-01/corrections/" class="md-nav__link">
         
   
   
@@ -7062,7 +6952,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-02/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-02/" class="md-nav__link ">
               
   
   
@@ -7106,7 +6996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-02/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-02/enonces/" class="md-nav__link">
         
   
   
@@ -7134,7 +7024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-02/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-02/corrections/" class="md-nav__link">
         
   
   
@@ -7192,7 +7082,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-03/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-03/" class="md-nav__link ">
               
   
   
@@ -7236,7 +7126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-03/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-03/enonces/" class="md-nav__link">
         
   
   
@@ -7264,7 +7154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-03/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-03/corrections/" class="md-nav__link">
         
   
   
@@ -7322,7 +7212,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-04/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-04/" class="md-nav__link ">
               
   
   
@@ -7366,7 +7256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-04/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-04/enonces/" class="md-nav__link">
         
   
   
@@ -7394,7 +7284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-04/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-04/corrections/" class="md-nav__link">
         
   
   
@@ -7452,7 +7342,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-05/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-05/" class="md-nav__link ">
               
   
   
@@ -7496,7 +7386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-05/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-05/enonces/" class="md-nav__link">
         
   
   
@@ -7524,7 +7414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-05/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-05/corrections/" class="md-nav__link">
         
   
   
@@ -7582,7 +7472,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/glpi/module-06/" class="md-nav__link ">
+            <a href="../../tp/glpi/module-06/" class="md-nav__link ">
               
   
   
@@ -7626,7 +7516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-06/enonces/" class="md-nav__link">
+      <a href="../../tp/glpi/module-06/enonces/" class="md-nav__link">
         
   
   
@@ -7654,7 +7544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/glpi/module-06/corrections/" class="md-nav__link">
+      <a href="../../tp/glpi/module-06/corrections/" class="md-nav__link">
         
   
   
@@ -7718,7 +7608,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/msp/" class="md-nav__link ">
+            <a href="../../tp/msp/" class="md-nav__link ">
               
   
   
@@ -7784,7 +7674,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tp/msp/module-01/" class="md-nav__link ">
+            <a href="../../tp/msp/module-01/" class="md-nav__link ">
               
   
   
@@ -7828,7 +7718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/msp/module-01/enonces/" class="md-nav__link">
+      <a href="../../tp/msp/module-01/enonces/" class="md-nav__link">
         
   
   
@@ -7856,7 +7746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tp/msp/module-01/corrections/" class="md-nav__link">
+      <a href="../../tp/msp/module-01/corrections/" class="md-nav__link">
         
   
   
@@ -7931,7 +7821,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../exercices/" class="md-nav__link ">
+            <a href="../../exercices/" class="md-nav__link ">
               
   
   
@@ -7975,7 +7865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../exercices/quiz-reseaux/" class="md-nav__link">
+      <a href="../../exercices/quiz-reseaux/" class="md-nav__link">
         
   
   
@@ -8003,7 +7893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../exercices/quiz-systemes-clients/" class="md-nav__link">
+      <a href="../../exercices/quiz-systemes-clients/" class="md-nav__link">
         
   
   
@@ -8031,7 +7921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../exercices/cas-pratiques/" class="md-nav__link">
+      <a href="../../exercices/cas-pratiques/" class="md-nav__link">
         
   
   
@@ -8117,7 +8007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kahoot/bibliotheque/" class="md-nav__link">
+      <a href="../bibliotheque/" class="md-nav__link">
         
   
   
@@ -8152,7 +8042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../collaboration/" class="md-nav__link">
+      <a href="../../collaboration/" class="md-nav__link">
         
   
   
@@ -8213,7 +8103,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/" class="md-nav__link ">
+            <a href="../../revision/" class="md-nav__link ">
               
   
   
@@ -8287,7 +8177,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/reseaux/" class="md-nav__link ">
+            <a href="../../revision/reseaux/" class="md-nav__link ">
               
   
   
@@ -8331,7 +8221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-01-le-modele-osi/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-01-le-modele-osi/" class="md-nav__link">
         
   
   
@@ -8359,7 +8249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-02-les-unites-informatiques/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-02-les-unites-informatiques/" class="md-nav__link">
         
   
   
@@ -8387,7 +8277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-03-l-adressage-ipv4/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-03-l-adressage-ipv4/" class="md-nav__link">
         
   
   
@@ -8415,7 +8305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-04-la-communication-dans-un-reseau/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-04-la-communication-dans-un-reseau/" class="md-nav__link">
         
   
   
@@ -8443,7 +8333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-05-les-premieres-commandes-reseau/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-05-les-premieres-commandes-reseau/" class="md-nav__link">
         
   
   
@@ -8471,7 +8361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/reseaux/module-06-l-adressage-ipv6/" class="md-nav__link">
+      <a href="../../revision/reseaux/module-06-l-adressage-ipv6/" class="md-nav__link">
         
   
   
@@ -8553,7 +8443,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/systemes-clients/" class="md-nav__link ">
+            <a href="../../revision/systemes-clients/" class="md-nav__link ">
               
   
   
@@ -8597,7 +8487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-01-les-systemes-d-exploitation-et-microsoft-windows-10/" class="md-nav__link">
         
   
   
@@ -8625,7 +8515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10/" class="md-nav__link">
         
   
   
@@ -8653,7 +8543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-03-interagir-avec-windows-10/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-03-interagir-avec-windows-10/" class="md-nav__link">
         
   
   
@@ -8681,7 +8571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-04-la-gestion-du-stockage/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-04-la-gestion-du-stockage/" class="md-nav__link">
         
   
   
@@ -8709,7 +8599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes/" class="md-nav__link">
         
   
   
@@ -8737,7 +8627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl/" class="md-nav__link">
         
   
   
@@ -8765,7 +8655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu/" class="md-nav__link">
         
   
   
@@ -8793,7 +8683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-08-le-partage-de-ressources/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-08-le-partage-de-ressources/" class="md-nav__link">
         
   
   
@@ -8821,7 +8711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes/" class="md-nav__link">
         
   
   
@@ -8849,7 +8739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-10-la-maintenance-du-systeme/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-10-la-maintenance-du-systeme/" class="md-nav__link">
         
   
   
@@ -8877,7 +8767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-11-plus-loin-avec-powershell/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-11-plus-loin-avec-powershell/" class="md-nav__link">
         
   
   
@@ -8905,7 +8795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-12-introduction-a-la-capture-et-au-deploiement-d-image/" class="md-nav__link">
         
   
   
@@ -8933,7 +8823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-13-les-strategies-de-groupe-local/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-13-les-strategies-de-groupe-local/" class="md-nav__link">
         
   
   
@@ -8961,7 +8851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/systemes-clients/module-additionnel-workstation/" class="md-nav__link">
+      <a href="../../revision/systemes-clients/module-additionnel-workstation/" class="md-nav__link">
         
   
   
@@ -9025,7 +8915,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/microsoft-365/" class="md-nav__link ">
+            <a href="../../revision/microsoft-365/" class="md-nav__link ">
               
   
   
@@ -9069,7 +8959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/microsoft-365/module-01-decouverte-de-microsoft-365/" class="md-nav__link">
+      <a href="../../revision/microsoft-365/module-01-decouverte-de-microsoft-365/" class="md-nav__link">
         
   
   
@@ -9097,7 +8987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/microsoft-365/module-02-connaissances-des-notions-de-base-word/" class="md-nav__link">
+      <a href="../../revision/microsoft-365/module-02-connaissances-des-notions-de-base-word/" class="md-nav__link">
         
   
   
@@ -9125,7 +9015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel/" class="md-nav__link">
+      <a href="../../revision/microsoft-365/module-03-connaissances-des-notions-de-base-d-excel/" class="md-nav__link">
         
   
   
@@ -9153,7 +9043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner/" class="md-nav__link">
+      <a href="../../revision/microsoft-365/module-04-exploiter-outlook-et-savoir-le-depanner/" class="md-nav__link">
         
   
   
@@ -9181,7 +9071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive/" class="md-nav__link">
+      <a href="../../revision/microsoft-365/module-05-exploiter-teams-sharepoint-et-onedrive/" class="md-nav__link">
         
   
   
@@ -9247,7 +9137,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/utilisation-linux/" class="md-nav__link ">
+            <a href="../../revision/utilisation-linux/" class="md-nav__link ">
               
   
   
@@ -9291,7 +9181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-03-premieres-commandes/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-03-premieres-commandes/" class="md-nav__link">
         
   
   
@@ -9319,7 +9209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres/" class="md-nav__link">
         
   
   
@@ -9347,7 +9237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens/" class="md-nav__link">
         
   
   
@@ -9375,7 +9265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres/" class="md-nav__link">
         
   
   
@@ -9403,7 +9293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-07-utilisation-de-vi/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-07-utilisation-de-vi/" class="md-nav__link">
         
   
   
@@ -9431,7 +9321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/" class="md-nav__link">
+      <a href="../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/" class="md-nav__link">
         
   
   
@@ -9509,7 +9399,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/administration-linux/" class="md-nav__link ">
+            <a href="../../revision/administration-linux/" class="md-nav__link ">
               
   
   
@@ -9553,7 +9443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
         
   
   
@@ -9581,7 +9471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-02-installation-d-une-distribution-debian/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-02-installation-d-une-distribution-debian/" class="md-nav__link">
         
   
   
@@ -9609,7 +9499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-03-demarrage-d-une-distribution-debian/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-03-demarrage-d-une-distribution-debian/" class="md-nav__link">
         
   
   
@@ -9637,7 +9527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-04-debian-en-mode-maintenance/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-04-debian-en-mode-maintenance/" class="md-nav__link">
         
   
   
@@ -9665,7 +9555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-05-gestion-du-reseau/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-05-gestion-du-reseau/" class="md-nav__link">
         
   
   
@@ -9693,7 +9583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
         
   
   
@@ -9721,7 +9611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
         
   
   
@@ -9749,7 +9639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
         
   
   
@@ -9777,7 +9667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-09-gestion-des-espaces-de-stockage-file-system/" class="md-nav__link">
         
   
   
@@ -9805,7 +9695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
         
   
   
@@ -9833,7 +9723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
         
   
   
@@ -9861,7 +9751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/administration-linux/module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
+      <a href="../../revision/administration-linux/module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
         
   
   
@@ -9933,7 +9823,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/itil/" class="md-nav__link ">
+            <a href="../../revision/itil/" class="md-nav__link ">
               
   
   
@@ -9977,7 +9867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-01-presentation-d-itil-et-historique/" class="md-nav__link">
+      <a href="../../revision/itil/module-01-presentation-d-itil-et-historique/" class="md-nav__link">
         
   
   
@@ -10005,7 +9895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-02-la-gestion-des-services/" class="md-nav__link">
+      <a href="../../revision/itil/module-02-la-gestion-des-services/" class="md-nav__link">
         
   
   
@@ -10033,7 +9923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-03-strategie-et-conception-des-services/" class="md-nav__link">
+      <a href="../../revision/itil/module-03-strategie-et-conception-des-services/" class="md-nav__link">
         
   
   
@@ -10061,7 +9951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-04-transition-des-services/" class="md-nav__link">
+      <a href="../../revision/itil/module-04-transition-des-services/" class="md-nav__link">
         
   
   
@@ -10089,7 +9979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-05-decouverte-de-glpi/" class="md-nav__link">
+      <a href="../../revision/itil/module-05-decouverte-de-glpi/" class="md-nav__link">
         
   
   
@@ -10117,7 +10007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-06-exploitation-des-services/" class="md-nav__link">
+      <a href="../../revision/itil/module-06-exploitation-des-services/" class="md-nav__link">
         
   
   
@@ -10145,7 +10035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-07-amelioration-continue-des-services/" class="md-nav__link">
+      <a href="../../revision/itil/module-07-amelioration-continue-des-services/" class="md-nav__link">
         
   
   
@@ -10173,7 +10063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-08-savoir-savoir-faire-savoir-etre/" class="md-nav__link">
+      <a href="../../revision/itil/module-08-savoir-savoir-faire-savoir-etre/" class="md-nav__link">
         
   
   
@@ -10201,7 +10091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/itil/module-09-assistance-avec-glpi/" class="md-nav__link">
+      <a href="../../revision/itil/module-09-assistance-avec-glpi/" class="md-nav__link">
         
   
   
@@ -10267,7 +10157,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/glpi/" class="md-nav__link ">
+            <a href="../../revision/glpi/" class="md-nav__link ">
               
   
   
@@ -10311,7 +10201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi/" class="md-nav__link">
+      <a href="../../revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi/" class="md-nav__link">
         
   
   
@@ -10339,7 +10229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-02-authentification-ad-habilitations/" class="md-nav__link">
+      <a href="../../revision/glpi/module-02-authentification-ad-habilitations/" class="md-nav__link">
         
   
   
@@ -10367,7 +10257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique/" class="md-nav__link">
+      <a href="../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique/" class="md-nav__link">
         
   
   
@@ -10395,7 +10285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets/" class="md-nav__link">
+      <a href="../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets/" class="md-nav__link">
         
   
   
@@ -10423,7 +10313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb/" class="md-nav__link">
+      <a href="../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb/" class="md-nav__link">
         
   
   
@@ -10451,7 +10341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/glpi/module-06-plug-ins-et-inventaire/" class="md-nav__link">
+      <a href="../../revision/glpi/module-06-plug-ins-et-inventaire/" class="md-nav__link">
         
   
   
@@ -10507,7 +10397,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../revision/msp/" class="md-nav__link ">
+            <a href="../../revision/msp/" class="md-nav__link ">
               
   
   
@@ -10551,7 +10441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../revision/msp/module-01-msp-systemes-clients/" class="md-nav__link">
+      <a href="../../revision/msp/module-01-msp-systemes-clients/" class="md-nav__link">
         
   
   
@@ -10620,7 +10510,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../memo/" class="md-nav__link ">
+            <a href="../../memo/" class="md-nav__link ">
               
   
   
@@ -10664,7 +10554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../memo/ports-essentiels/" class="md-nav__link">
+      <a href="../../memo/ports-essentiels/" class="md-nav__link">
         
   
   
@@ -10692,7 +10582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../memo/ipv4-cidr/" class="md-nav__link">
+      <a href="../../memo/ipv4-cidr/" class="md-nav__link">
         
   
   
@@ -10720,7 +10610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../memo/permissions-linux/" class="md-nav__link">
+      <a href="../../memo/permissions-linux/" class="md-nav__link">
         
   
   
@@ -10748,7 +10638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../memo/glpi-sql/" class="md-nav__link">
+      <a href="../../memo/glpi-sql/" class="md-nav__link">
         
   
   
@@ -10809,7 +10699,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../commandes/" class="md-nav__link ">
+            <a href="../../commandes/" class="md-nav__link ">
               
   
   
@@ -10853,7 +10743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../commandes/reseau/" class="md-nav__link">
+      <a href="../../commandes/reseau/" class="md-nav__link">
         
   
   
@@ -10881,7 +10771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../commandes/windows-powershell/" class="md-nav__link">
+      <a href="../../commandes/windows-powershell/" class="md-nav__link">
         
   
   
@@ -10909,7 +10799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../commandes/linux/" class="md-nav__link">
+      <a href="../../commandes/linux/" class="md-nav__link">
         
   
   
@@ -10937,7 +10827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../commandes/mariadb-glpi/" class="md-nav__link">
+      <a href="../../commandes/mariadb-glpi/" class="md-nav__link">
         
   
   
@@ -11000,7 +10890,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../troubleshooting/" class="md-nav__link ">
+            <a href="../../troubleshooting/" class="md-nav__link ">
               
   
   
@@ -11044,7 +10934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/client-sans-reseau/" class="md-nav__link">
+      <a href="../../troubleshooting/client-sans-reseau/" class="md-nav__link">
         
   
   
@@ -11072,7 +10962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/service-linux-echec/" class="md-nav__link">
+      <a href="../../troubleshooting/service-linux-echec/" class="md-nav__link">
         
   
   
@@ -11100,7 +10990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/windows-instable/" class="md-nav__link">
+      <a href="../../troubleshooting/windows-instable/" class="md-nav__link">
         
   
   
@@ -11128,7 +11018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/glpi-inaccessible/" class="md-nav__link">
+      <a href="../../troubleshooting/glpi-inaccessible/" class="md-nav__link">
         
   
   
@@ -11156,7 +11046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../troubleshooting/outlook-connexion/" class="md-nav__link">
+      <a href="../../troubleshooting/outlook-connexion/" class="md-nav__link">
         
   
   
@@ -11191,7 +11081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../glossaire/" class="md-nav__link">
+      <a href="../../glossaire/" class="md-nav__link">
         
   
   
@@ -11240,7 +11130,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../ressources/" class="md-nav__link ">
+            <a href="../../ressources/" class="md-nav__link ">
               
   
   
@@ -11284,7 +11174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ressources/sources-officielles/" class="md-nav__link">
+      <a href="../../ressources/sources-officielles/" class="md-nav__link">
         
   
   
@@ -11312,7 +11202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ressources/inventaire-sources/" class="md-nav__link">
+      <a href="../../ressources/inventaire-sources/" class="md-nav__link">
         
   
   
@@ -11347,7 +11237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../index-general/" class="md-nav__link">
+      <a href="../../index-general/" class="md-nav__link">
         
   
   
@@ -11387,69 +11277,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objectifs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#du-bloc-aux-donnees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Du bloc aux données
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-dattention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points d’attention
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        À retenir
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-des-acquis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vérification des acquis
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11466,122 +11293,24 @@
   
 
 
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-        
-  
-  
-    <li class="md-path__item">
-      <a href="../../.." class="md-path__link">
-        
-  <span class="md-ellipsis">
-    Accueil
-  </span>
-
-      </a>
-    </li>
-  
-
-      
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../03-microsoft-365-outils-collaboratifs/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Cours
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Administration Debian GNU/Linux
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
   
-    <span data-tssr-source-path="modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md" hidden=""></span>
+    <span data-tssr-source-path="kahoot/05-administration-debian-gnu-linux-module-11-droits-sur-les-fichiers-et-repertoires.md" hidden=""></span>
   
   
                   
 
 
 
-<h1 id="module-09-gestion-des-espaces-de-stockage-file-system">Module 09 — Gestion des espaces de stockage — File System<a class="headerlink" href="#module-09-gestion-des-espaces-de-stockage-file-system" title="Permanent link">¶</a></h1>
-<p><strong>Sources originales (A) :</strong> support et TP TSSR « Préparation des systèmes de fichiers ».
-<strong>Contenu du portail (B) :</strong> reformulation structurée des sources TSSR.</p>
-<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
-<ul>
-<li>Identifier le rôle d’un système de fichiers et d’un point de montage.</li>
-<li>Vérifier les systèmes de fichiers et leur occupation.</li>
-<li>Distinguer formatage, montage et persistance du montage.</li>
-</ul>
-<h2 id="du-bloc-aux-donnees">Du bloc aux données<a class="headerlink" href="#du-bloc-aux-donnees" title="Permanent link">¶</a></h2>
-<p>Un système de fichiers organise les données sur un espace de stockage. Le formatage prépare une partition ; le montage rend ce système de fichiers accessible dans l’arborescence. Ces étapes sont différentes et doivent être vérifiées séparément.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lsblk<span class="w"> </span>-f
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>df<span class="w"> </span>-h
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>column<span class="w"> </span>-t
-</span></code></pre></div>
-<h2 id="points-dattention">Points d’attention<a class="headerlink" href="#points-dattention" title="Permanent link">¶</a></h2>
-<ul>
-<li>Formater détruit la structure de données de la cible : confirmer le périphérique avant la commande.</li>
-<li>Un montage manuel peut disparaître après redémarrage si sa configuration persistante n’est pas prévue.</li>
-<li>Utiliser des identifiants stables et vérifier le résultat après redémarrage dans le laboratoire.</li>
-</ul>
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
-<p>Un espace de stockage est utilisable lorsqu’il est correctement préparé, monté à l’emplacement attendu et contrôlé dans le temps.</p>
-<h2 id="verification-des-acquis">Vérification des acquis<a class="headerlink" href="#verification-des-acquis" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quelle commande affiche les systèmes de fichiers et leurs UUID ?</li>
-<li>Pourquoi distinguer formatage et montage ?</li>
-</ol>
-<details class="success">
-<summary>Réponses</summary>
-<ol>
-<li><code>lsblk -f</code>.</li>
-<li>Le formatage crée une structure ; le montage la rend accessible dans l’arborescence.</li>
-</ol>
-</details>
-<section class="tssr-kahoot" aria-label="Kahoot : TSSR — Administration Debian GNU/Linux — M09 : Gestion des espaces de stockage — File System"><div class="tssr-kahoot__label">KAHOOT</div>
-<h3 class="tssr-kahoot__title">M09 — Gestion des espaces de stockage — File System</h3><p class="tssr-kahoot__count">5 questions</p>
+<h1 id="tssr-administration-debian-gnulinux-m11-droits-sur-les-fichiers-et-repertoires">TSSR — Administration Debian GNU/Linux — M11 : Droits sur les fichiers et répertoires<a class="headerlink" href="#tssr-administration-debian-gnulinux-m11-droits-sur-les-fichiers-et-repertoires" title="Permanent link">¶</a></h1>
+<p>Teste tes connaissances sur le module <a href="../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/">Module 11 — Droits sur les fichiers et répertoires</a>.</p>
+<p>Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.</p>
+<section class="tssr-kahoot" aria-label="Kahoot : TSSR — Administration Debian GNU/Linux — M11 : Droits sur les fichiers et répertoires"><div class="tssr-kahoot__label">KAHOOT</div>
+<h3 class="tssr-kahoot__title">M11 — Droits sur les fichiers et répertoires</h3><p class="tssr-kahoot__count">5 questions</p>
 <p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>
-<div class="tssr-kahoot-actions"><a class="md-button md-button--primary" href="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m09-gestion-des-espaces-de-stockage-file-system/950e248c-f7be-4080-a16f-7622e30d7cd5" target="_blank" rel="noopener noreferrer">Jouer en solo</a><a class="md-button" href="https://kahoot.it/" target="_blank" rel="noopener noreferrer">Rejoindre un groupe</a><button type="button" class="md-button" data-kahoot-host="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m09-gestion-des-espaces-de-stockage-file-system/950e248c-f7be-4080-a16f-7622e30d7cd5" hidden="">Créer une partie</button></div></section>
+<div class="tssr-kahoot-actions"><a class="md-button md-button--primary" href="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m11-droits-sur-les-fichiers-et-repertoires/b5ccce02-dc17-41d7-8af8-2c26bcc74f0a" target="_blank" rel="noopener noreferrer">Jouer en solo</a><a class="md-button" href="https://kahoot.it/" target="_blank" rel="noopener noreferrer">Rejoindre un groupe</a><button type="button" class="md-button" data-kahoot-host="https://create.kahoot.it/share/tssr-administration-debian-gnu-linux-m11-droits-sur-les-fichiers-et-repertoires/b5ccce02-dc17-41d7-8af8-2c26bcc74f0a" hidden="">Créer une partie</button></div></section>
 
 
 
@@ -11616,44 +11345,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Pied de page">
-        
-          
-          <a href="../module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Module 08 — Gestion des espaces de stockage avancée — LVM">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Précédent
-              </span>
-              <div class="md-ellipsis">
-                Module 08 — Gestion des espaces de stockage avancée — LVM
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../module-10-gestion-des-utilisateurs-et-groupes/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Module 10 — Gestion des utilisateurs et groupes">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Suivant
-              </span>
-              <div class="md-ellipsis">
-                Module 10 — Gestion des utilisateurs et groupes
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -11681,13 +11372,13 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../../assets/javascripts/collaboration-config.js"></script>
+        <script src="../../assets/javascripts/collaboration-config.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3/dist/umd/supabase.min.js"></script>
       
@@ -11695,30 +11386,30 @@
       
         <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.13/dist/purify.min.js"></script>
       
-        <script src="../../../assets/javascripts/extra.js"></script>
+        <script src="../../assets/javascripts/extra.js"></script>
       
-        <script src="../../../assets/javascripts/parcours.js"></script>
+        <script src="../../assets/javascripts/parcours.js"></script>
       
-        <script src="../../../assets/javascripts/glossaire.js"></script>
+        <script src="../../assets/javascripts/glossaire.js"></script>
       
-        <script src="../../../assets/javascripts/collaboration-utils.js"></script>
+        <script src="../../assets/javascripts/collaboration-utils.js"></script>
       
-        <script src="../../../assets/javascripts/course-creator-utils.js"></script>
+        <script src="../../assets/javascripts/course-creator-utils.js"></script>
       
-        <script src="../../../assets/javascripts/course-editor.js"></script>
+        <script src="../../assets/javascripts/course-editor.js"></script>
       
-        <script src="../../../assets/javascripts/course-editor-ui.js"></script>
+        <script src="../../assets/javascripts/course-editor-ui.js"></script>
       
-        <script src="../../../assets/javascripts/password-recovery.js"></script>
+        <script src="../../assets/javascripts/password-recovery.js"></script>
       
-        <script src="../../../assets/javascripts/collaboration.js"></script>
+        <script src="../../assets/javascripts/collaboration.js"></script>
       
-        <script src="../../../assets/javascripts/kahoot.js"></script>
+        <script src="../../assets/javascripts/kahoot.js"></script>
       
-        <script src="../../../assets/javascripts/course-creator.js"></script>
+        <script src="../../assets/javascripts/course-creator.js"></script>
       
     
-  <script src="../../../assets/javascripts/mermaid.min.js"></script>
+  <script src="../../assets/javascripts/mermaid.min.js"></script>
   <script>
     window.renderTssrMermaid = function (root) {
       if (typeof mermaid === "undefined") return;
