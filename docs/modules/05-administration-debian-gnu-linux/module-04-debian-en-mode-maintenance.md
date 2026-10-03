@@ -1,52 +1,41 @@
 # Module 04 — Debian en mode maintenance
 
-**Séquence :** Administration Debian GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** support et TP TSSR « Debian en mode maintenance ».
+**Contenu du portail (B) :** reformulation structurée des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
+## Objectifs
 
-## Objectifs et compétences
+- Reconnaître les cas qui justifient un démarrage de maintenance.
+- Accéder à un environnement de réparation avec une méthode contrôlée.
+- Préserver les données et consigner les actions effectuées.
 
-- Accéder à un mode de secours de manière contrôlée.
-- Comprendre les paramètres de démarrage temporaires.
-- Réparer un système sans contourner durablement les protections.
-- Revenir à un démarrage normal et valider les services.
+## Quand intervenir
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Debian en mode maintenance » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+La source cite notamment une mise à jour empêchant le démarrage, la perte du mot de passe root ou la récupération de données. Le mode maintenance n’est pas une procédure courante : il donne des droits importants dans un état dégradé du système.
 
-## Méthode de travail
+## Méthode de réparation
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+1. Décrire le symptôme et préserver les informations disponibles.
+2. Démarrer par la voie de maintenance adaptée au contexte du TP, par exemple depuis GRUB ou le support d’installation.
+3. Identifier le système et les partitions avant une modification.
+4. Appliquer une action ciblée, puis contrôler son effet.
+5. Redémarrer normalement et vérifier le service ou le compte concerné.
 
-## Concepts essentiels
+## Points d’attention
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+- Une action de réparation peut aggraver une perte de données si la cible n’est pas identifiée.
+- Ne pas confondre mot de passe root, compte utilisateur et accès à une console de récupération.
+- Documenter toute modification réalisée hors du fonctionnement normal.
 
-## Mise en pratique
+## À retenir
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/administration-linux/module-04-debian-en-mode-maintenance.md)
+Le mode maintenance est un environnement de diagnostic et de réparation : l’objectif est de revenir à un démarrage normal avec des actions minimales et vérifiables.
 
-## Questions flash
+## Vérification des acquis
 
-1. Comment expliquer simplement « Debian en mode maintenance » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
+1. Citer un cas où le mode maintenance est utile.
+2. Pourquoi identifier les partitions avant une réparation ?
 
-??? success "Éléments de réponse"
-    - Accéder à un mode de secours de manière contrôlée.
-    - Comprendre les paramètres de démarrage temporaires.
-    - Réparer un système sans contourner durablement les protections.
-    - Revenir à un démarrage normal et valider les services.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+??? success "Réponses"
+    1. Par exemple après une mise à jour qui empêche le démarrage.
+    2. Pour éviter de modifier ou de récupérer les mauvaises données.
