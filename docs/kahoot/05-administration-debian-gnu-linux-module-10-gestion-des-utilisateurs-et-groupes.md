@@ -1,0 +1,6 @@
+<!-- TSSR-KAHOOT-V1:%7B%22schemaVersion%22%3A%201%2C%20%22courseId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Findex.md%22%2C%20%22moduleId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Fmodule%2D10%2Dgestion%2Ddes%2Dutilisateurs%2Det%2Dgroupes.md%22%2C%20%22title%22%3A%20%22TSSR%20%E2%80%94%20Administration%20Debian%20GNU%2FLinux%20%E2%80%94%20M10%20%3A%20Gestion%20des%20utilisateurs%20et%20groupes%22%2C%20%22questionCount%22%3A%205%2C%20%22url%22%3A%20%22https%3A%2F%2Fcreate.kahoot.it%2Fshare%2Ftssr%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Dm10%2Dgestion%2Ddes%2Dutilisateurs%2Det%2Dgroupes%2Ff55ac035%2D1e4a%2D4a44%2D8e62%2Dcced98e48f4d%22%2C%20%22soloAvailable%22%3A%20true%2C%20%22liveAvailable%22%3A%20true%2C%20%22provenance%22%3A%20%22B%22%2C%20%22state%22%3A%20%22linked%22%2C%20%22questions%22%3A%20%5B%5D%7D -->
+# TSSR — Administration Debian GNU/Linux — M10 : Gestion des utilisateurs et groupes
+
+Teste tes connaissances sur le module [Module 10 — Gestion des utilisateurs et groupes](../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md).
+
+Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.

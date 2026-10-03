@@ -1,65 +1,37 @@
 # Module 10 — Gestion des utilisateurs et groupes
 
-**Séquence :** Administration Debian GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** support et TP TSSR « Gérer les groupes et utilisateurs ».
+**Contenu du portail (B) :** reformulation structurée des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
+## Objectifs
 
-## Objectifs et compétences
+- Distinguer UID, GID, groupe principal et groupes secondaires.
+- Créer et contrôler un compte ou un groupe de laboratoire.
+- Comprendre l’élévation de privilèges dans un cadre administré.
 
-- Lire /etc/passwd, /etc/shadow, /etc/group et /etc/gshadow.
-- Créer, modifier, verrouiller et supprimer un compte.
-- Gérer groupe principal et groupes supplémentaires.
-- Déléguer avec sudo et contrôler l’expiration des mots de passe.
+## Identités Unix
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Gestion des utilisateurs et groupes » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Sous Linux, un utilisateur est notamment défini par un UID et un groupe principal défini par un GID. Un utilisateur peut appartenir à des groupes supplémentaires. Ces informations déterminent les accès avec les droits sur les fichiers ; elles ne doivent pas être modifiées sans vérifier les dépendances du compte.
 
-## Méthode de travail
-
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
-
-## Identité locale et groupes
-
-```mermaid
-flowchart LR
-    U["Compte<br/>/etc/passwd"] --> X["Secret et expiration<br/>/etc/shadow"]
-    U --> G["Groupe principal<br/>GID"]
-    U --> S["Groupes secondaires<br/>/etc/group"]
-    G --> T["Identité de la session<br/>id"]
-    S --> T
+```bash
+id utilisateur
+getent passwd utilisateur
+getent group groupe
 ```
 
-<p class="tssr-caption">Ajouter un utilisateur à un groupe ne modifie pas toujours une session déjà ouverte : reconnecter la session ou utiliser un mécanisme contrôlé, puis vérifier avec <code>id</code>.</p>
+## Méthode
 
-## Concepts essentiels
+Créer d’abord un groupe puis le compte de TP, contrôler les entrées créées et tester les groupes de la session après reconnexion. Toute élévation de privilèges doit être limitée à la tâche nécessaire et vérifiée.
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+## À retenir
 
-## Mise en pratique
+La gestion des comptes relie identité, groupes et droits. La création n’est achevée qu’après contrôle des attributs et de l’accès réel.
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/administration-linux/module-10-gestion-des-utilisateurs-et-groupes.md)
+## Vérification des acquis
 
-## Questions flash
+1. Que signifie UID ?
+2. Quelle commande affiche les groupes d’un utilisateur ?
 
-1. Comment expliquer simplement « Gestion des utilisateurs et groupes » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Lire /etc/passwd, /etc/shadow, /etc/group et /etc/gshadow.
-    - Créer, modifier, verrouiller et supprimer un compte.
-    - Gérer groupe principal et groupes supplémentaires.
-    - Déléguer avec sudo et contrôler l’expiration des mots de passe.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+??? success "Réponses"
+    1. Identifiant utilisateur.
+    2. `id utilisateur`.
