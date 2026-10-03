@@ -1,5 +1,8 @@
 # Fiche de révision — Module 01 — Présentation de Debian GNU/Linux
 
+**Source originale (A) :** support TSSR « Administration Debian GNU/Linux — Module 01 ».
+**Fiche de révision (B) :** synthèse et reformulation pédagogique de la source originale.
+
 ## À connaître absolument
 
 - Comprendre l’histoire, le contrat social et les principes Debian.
@@ -36,4 +39,7 @@
 2. Quelle preuve technique montre que le résultat est conforme ?
 3. Quelle action serait risquée sans sauvegarde ou instantané ?
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md).
+## Voir aussi
+
+- [Cours complet — Module 01](../../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md)
+- [Kahoot — Module 01](../../kahoot/05-administration-debian-gnu-linux-module-01-presentation-de-debian-gnu-linux.md)
