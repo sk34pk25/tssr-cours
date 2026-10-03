@@ -1,0 +1,6 @@
+<!-- TSSR-KAHOOT-V1:%7B%22schemaVersion%22%3A%201%2C%20%22courseId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Findex.md%22%2C%20%22moduleId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Fmodule%2D02%2Dinstallation%2Dd%2Dune%2Ddistribution%2Ddebian.md%22%2C%20%22title%22%3A%20%22TSSR%20%E2%80%94%20Administration%20Debian%20GNU%2FLinux%20%E2%80%94%20M02%20%3A%20Installation%20d%E2%80%99une%20distribution%20Debian%22%2C%20%22questionCount%22%3A%205%2C%20%22url%22%3A%20%22https%3A%2F%2Fcreate.kahoot.it%2Fshare%2Ftssr%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Dm02%2Dinstallation%2Ddune%2Ddistribution%2Ddebian%2F89a69ad9%2D882c%2D4120%2Db77c%2D6d0a5ed79585%22%2C%20%22soloAvailable%22%3A%20true%2C%20%22liveAvailable%22%3A%20true%2C%20%22provenance%22%3A%20%22B%22%2C%20%22state%22%3A%20%22linked%22%2C%20%22questions%22%3A%20%5B%5D%7D -->
+# TSSR — Administration Debian GNU/Linux — M02 : Installation d’une distribution Debian
+
+Teste tes connaissances sur le module [Module 02 — Installation d’une distribution Debian](../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md).
+
+Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.

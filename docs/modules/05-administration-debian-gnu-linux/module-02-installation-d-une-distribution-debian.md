@@ -1,52 +1,45 @@
 # Module 02 — Installation d’une distribution Debian
 
-**Séquence :** Administration Debian GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** TP TSSR d’installation Debian avec et sans interface graphique, énoncés et corrections.
+**Contenu du portail (B) :** reformulation structurée des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
+## Objectifs
 
-## Objectifs et compétences
+- Préparer une machine virtuelle d’installation.
+- Distinguer les choix d’installation avec et sans interface graphique.
+- Vérifier le système après le premier démarrage.
 
-- Préparer une machine et son support d’installation.
-- Installer Debian avec ou sans interface graphique.
-- Configurer comptes, stockage, réseau et sélection de logiciels.
-- Mettre le système à jour et vérifier le démarrage.
+## Préparer l’installation
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Installation d’une distribution Debian » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Le TP source commence par la récupération de l’image d’installation fournie dans le cadre de la formation, puis la création d’une machine virtuelle. Avant le démarrage, documenter les ressources attribuées, l’image sélectionnée et le type d’installation attendu. Cette préparation permet de reproduire ou de dépanner l’installation.
 
-## Méthode de travail
+## Installer et vérifier
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+Pendant l’installation, les choix de langue, réseau, comptes, disques et paquets déterminent l’état final. Une installation n’est pas validée au dernier écran : démarrer la machine installée, s’authentifier et contrôler le système réellement obtenu.
 
-## Concepts essentiels
+```bash
+hostnamectl
+ip a
+df -h
+```
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+Ces contrôles montrent respectivement l’identité de l’hôte, les interfaces réseau et l’occupation des systèmes de fichiers.
 
-## Mise en pratique
+## Points d’attention
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/administration-linux/module-02-installation-d-une-distribution-debian.md)
+- Travailler sur une machine de laboratoire, pas sur un poste de production.
+- Vérifier le disque cible avant tout partitionnement.
+- Conserver la distinction pédagogique entre installation graphique et installation sans interface graphique.
 
-## Questions flash
+## À retenir
 
-1. Comment expliquer simplement « Installation d’une distribution Debian » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
+L’installation est une procédure préparée, contrôlée au démarrage, puis documentée. Les choix effectués ont des conséquences sur l’administration ultérieure.
 
-??? success "Éléments de réponse"
-    - Préparer une machine et son support d’installation.
-    - Installer Debian avec ou sans interface graphique.
-    - Configurer comptes, stockage, réseau et sélection de logiciels.
-    - Mettre le système à jour et vérifier le démarrage.
+## Vérification des acquis
 
-## Voir aussi
+1. Pourquoi contrôler la machine après le premier démarrage ?
+2. Quelle commande affiche les systèmes de fichiers montés et leur occupation ?
 
-- [Présentation de la séquence](index.md)
+??? success "Réponses"
+    1. Pour confirmer que le système installé correspond réellement aux choix effectués.
+    2. `df -h`.
