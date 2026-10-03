@@ -1,62 +1,37 @@
 # Module 12 — Maintenance d’un système en production
 
-**Séquence :** Administration Debian GNU/Linux  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 0 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Sources originales (A) :** support et TP TSSR de journalisation, planification et analyse système.
+**Contenu du portail (B) :** reformulation structurée des sources TSSR.
 
-!!! warning "Périmètre et versions"
-    Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle en août 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
+## Objectifs
 
-## Objectifs et compétences
+- Observer l’état d’un système et ses journaux.
+- Distinguer analyse proactive et analyse réactive.
+- Planifier une tâche et contrôler son exécution.
 
-- Interroger les journaux avec journalctl.
-- Planifier des tâches avec cron et les timers adaptés.
-- Collecter les informations système utiles au diagnostic.
-- Documenter une intervention puis vérifier le retour au service.
+## Observer avant d’agir
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Maintenance d’un système en production » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+La source distingue les outils d’analyse proactive et réactive. Les journaux servent à comprendre les événements du système ; ils sont une source de diagnostic avant une action corrective. Une maintenance de production demande aussi une traçabilité des opérations et de leurs résultats.
 
-## Méthode de travail
-
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
-
-## Boucle de maintenance sûre
-
-```mermaid
-flowchart LR
-    O["Observer<br/>état et métriques"] --> S["Sauvegarder<br/>et préparer le retour arrière"] --> C["Changer<br/>une hypothèse à la fois"] --> V["Valider<br/>technique et fonctionnel"] --> D["Documenter<br/>cause et résultat"]
-    V -->|"Échec"| R["Retour arrière"] --> O
+```bash
+journalctl -b
+systemctl --failed
+df -h
 ```
 
-<p class="tssr-caption">La maintenance n’est terminée qu’après validation du service rendu et consignation de la modification, pas seulement après une commande sans erreur.</p>
+## Journalisation et planification
 
-## Concepts essentiels
+La gestion des logs vise à conserver les informations utiles sans saturer le stockage. La planification exécute une action à une date ou selon une périodicité ; la commande, l’utilisateur d’exécution, la sortie et le contrôle doivent être connus avant l’automatisation.
 
-Le support de cours autonome n’est pas présent dans l’archive. La progression ci-dessus et les travaux pratiques associés constituent la matière exploitable de ce module ; le portail ne complète pas artificiellement les parties absentes.
+## À retenir
 
-## Mise en pratique
+La maintenance est un cycle : observer, diagnostiquer, agir de façon limitée, contrôler, puis documenter. Une automatisation sans contrôle ne remplace pas ce cycle.
 
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
-- [Fiche de révision du module](../../revision/administration-linux/module-12-maintenance-d-un-systeme-en-production.md)
+## Vérification des acquis
 
-## Questions flash
+1. Quelle commande affiche les journaux du démarrage courant ?
+2. Pourquoi contrôler une tâche planifiée après sa création ?
 
-1. Comment expliquer simplement « Maintenance d’un système en production » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Interroger les journaux avec journalctl.
-    - Planifier des tâches avec cron et les timers adaptés.
-    - Collecter les informations système utiles au diagnostic.
-    - Documenter une intervention puis vérifier le retour au service.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+??? success "Réponses"
+    1. `journalctl -b`.
+    2. Pour confirmer qu’elle s’exécute avec le bon contexte et le résultat attendu.
