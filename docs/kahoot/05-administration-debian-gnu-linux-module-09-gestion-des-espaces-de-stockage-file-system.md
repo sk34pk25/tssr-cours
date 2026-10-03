@@ -1,0 +1,6 @@
+<!-- TSSR-KAHOOT-V1:%7B%22schemaVersion%22%3A%201%2C%20%22courseId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Findex.md%22%2C%20%22moduleId%22%3A%20%22modules%2F05%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Fmodule%2D09%2Dgestion%2Ddes%2Despaces%2Dde%2Dstockage%2Dfile%2Dsystem.md%22%2C%20%22title%22%3A%20%22TSSR%20%E2%80%94%20Administration%20Debian%20GNU%2FLinux%20%E2%80%94%20M09%20%3A%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%94%20File%20System%22%2C%20%22questionCount%22%3A%205%2C%20%22url%22%3A%20%22https%3A%2F%2Fcreate.kahoot.it%2Fshare%2Ftssr%2Dadministration%2Ddebian%2Dgnu%2Dlinux%2Dm09%2Dgestion%2Ddes%2Despaces%2Dde%2Dstockage%2Dfile%2Dsystem%2F950e248c%2Df7be%2D4080%2Da16f%2D7622e30d7cd5%22%2C%20%22soloAvailable%22%3A%20true%2C%20%22liveAvailable%22%3A%20true%2C%20%22provenance%22%3A%20%22B%22%2C%20%22state%22%3A%20%22linked%22%2C%20%22questions%22%3A%20%5B%5D%7D -->
+# TSSR — Administration Debian GNU/Linux — M09 : Gestion des espaces de stockage — File System
+
+Teste tes connaissances sur le module [Module 09 — Gestion des espaces de stockage — File System](../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md).
+
+Les notions sont fondées sur les sources originales du module ; les questions sont des reformulations pédagogiques.
