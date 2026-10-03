@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-05-module-05" class="md-skip">
+        <a href="#module-05-le-service-dhcp" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3029,6 +3029,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 05
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3045,6 +3063,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-bail-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le bail DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-des-acquis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification des acquis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11295,6 +11387,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-bail-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le bail DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-des-acquis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification des acquis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -11388,13 +11543,43 @@
 
 
 
-<h1 id="module-05-module-05">Module 05 — Module 05<a class="headerlink" href="#module-05-module-05" title="Permanent link">¶</a></h1>
-<p><em>Le service DHCP</em>
-<a href="../">← Retour à Services réseaux en environnement Microsoft</a></p>
-<div class="admonition note">
-<p class="admonition-title">Contenu à compléter</p>
-<p>Ce module a été créé avec une structure minimale et peut être complété par une proposition ultérieure.</p>
-</div>
+<h1 id="module-05-le-service-dhcp">Module 05 — Le service DHCP<a class="headerlink" href="#module-05-le-service-dhcp" title="Permanent link">¶</a></h1>
+<p><strong>Séquence :</strong> Services réseaux en environnement Microsoft
+<strong>Sources originales (A) :</strong> support, fiches, énoncés et corrections TSSR du module 05.
+<strong>Contenu du portail (B) :</strong> reformulation structurée des sources TSSR.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Définir le rôle DHCP et le contenu d’un bail.</li>
+<li>Expliquer les étapes DORA d’obtention d’un bail.</li>
+<li>Vérifier une configuration DHCP et le comportement d’un client.</li>
+</ul>
+<h2 id="le-bail-dhcp">Le bail DHCP<a class="headerlink" href="#le-bail-dhcp" title="Permanent link">¶</a></h2>
+<p>Un bail est l’ensemble d’informations transmises à un client : durée, adresse IP, masque et autres paramètres. La source présente la séquence DORA pour l’obtention d’un bail et les étapes de renouvellement, notamment à 50 %, 87,5 % et à expiration du bail.</p>
+<h2 id="methode">Méthode<a class="headerlink" href="#methode" title="Permanent link">¶</a></h2>
+<ol>
+<li>Définir l’étendue et les options exigées par le scénario.</li>
+<li>Vérifier que le serveur est autorisé et que le service est actif dans le laboratoire.</li>
+<li>Demander un bail depuis un client de test.</li>
+<li>Contrôler l’adresse obtenue, les options et les événements du serveur.</li>
+</ol>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>DHCP centralise la configuration IP, mais un bail doit être lu avec ses options : adresse seule, masque ou passerelle isolés ne suffisent pas à valider la connectivité.</p>
+<h2 id="verification-des-acquis">Vérification des acquis<a class="headerlink" href="#verification-des-acquis" title="Permanent link">¶</a></h2>
+<ol>
+<li>Que contient un bail DHCP ?</li>
+<li>Que signifie DORA dans le déroulement du bail ?</li>
+</ol>
+<details class="success">
+<summary>Réponses</summary>
+<ol>
+<li>Une adresse, un masque, une durée et éventuellement d’autres paramètres.</li>
+<li>Les étapes d’obtention d’un bail DHCP.</li>
+</ol>
+</details>
+<section class="tssr-kahoot" aria-label="Kahoot : TSSR — Services réseaux Microsoft — M05 : Le service DHCP"><div class="tssr-kahoot__label">KAHOOT</div>
+<h3 class="tssr-kahoot__title">M05 — Le service DHCP</h3><p class="tssr-kahoot__count">5 questions</p>
+<p class="tssr-kahoot__description">Teste tes connaissances sur ce module.</p>
+<div class="tssr-kahoot-actions"><a class="md-button md-button--primary" href="https://create.kahoot.it/share/tssr-services-reseaux-microsoft-m05-le-service-dhcp/43a4b061-31f5-4679-b3ce-bb62b718cf8a" target="_blank" rel="noopener noreferrer">Jouer en solo</a><a class="md-button" href="https://kahoot.it/" target="_blank" rel="noopener noreferrer">Rejoindre un groupe</a><button type="button" class="md-button" data-kahoot-host="https://create.kahoot.it/share/tssr-services-reseaux-microsoft-m05-le-service-dhcp/43a4b061-31f5-4679-b3ce-bb62b718cf8a" hidden="">Créer une partie</button></div></section>
 
 
 
