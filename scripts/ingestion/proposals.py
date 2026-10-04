@@ -7,6 +7,7 @@ import json
 import re
 import urllib.request
 from .drive import NoRedirect, SourceError
+from .granularity import GranularityError, assert_payload_granularity, review_description
 
 
 class ProposalClient:
@@ -27,6 +28,14 @@ class ProposalClient:
               "base_commit_sha":preview["base_commit_sha"],"files":preview["files"],
               "payload_summary":{"source":preview["source"],"idempotencyKey":preview["idempotencyKey"],
                                  "proposalFingerprint":preview["proposalFingerprint"]}}
+        if "granularity" in preview:
+            body["payload_summary"]["granularity"] = preview["granularity"]
+        try:
+            if preview.get("granularity", {}).get("components"):
+                body["description"] += "\n\n" + review_description(preview["granularity"])
+            assert_payload_granularity(body)
+        except (GranularityError, KeyError, TypeError, AttributeError):
+            raise SourceError("Proposal granularity violation") from None
         request=urllib.request.Request(self.url,data=json.dumps(body).encode(),headers=self.headers,method="POST")
         try:
             with urllib.request.build_opener(NoRedirect).open(request,timeout=30) as response:
