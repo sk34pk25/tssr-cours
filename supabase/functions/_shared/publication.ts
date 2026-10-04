@@ -50,6 +50,7 @@ function positiveInteger(value: unknown, label: string): number {
 }
 
 export function normalizeReceipt(body: Record<string, unknown>): PublicationReceipt {
+  if (body.reconciliation !== undefined) throw new Error("Une preuve de réconciliation exige le canal attesté dédié.");
   if (body.status !== "published" && body.status !== "failed") throw new Error("Résultat de publication invalide.");
   if (body.phase !== "deploy" && body.phase !== "pr-validation") throw new Error("Phase de publication invalide.");
   if (body.phase === "pr-validation" && body.status !== "failed") throw new Error("Une validation de PR ne publie pas le site.");
@@ -130,7 +131,7 @@ export async function verifyPull(
   return pull;
 }
 
-async function verifyDeployment(
+export async function verifyDeployment(
   row: PublicationRow, sha: string, repository: string, branch: string, read: GitHubReader,
 ): Promise<number | null> {
   commitSha(sha);
@@ -234,5 +235,8 @@ export async function handlePublication(
   await verifyRunEvidence(receipt, repository, config.branch, read);
   const { data, error } = await client.rpc("service_complete_guarded_publication", { p_change_request_id: id, p_receipt: receipt });
   if (error || !data) throw new Error(error?.message || "Retour de publication non enregistré.");
+  console.info(JSON.stringify({ event: "publication_callback", change_request_id: id,
+    expected_sha: receipt.expected_sha, commit_sha: receipt.commit_sha, run_id: receipt.run_id,
+    status: receipt.status, method: "direct_callback", replayed: Boolean(data.replayed) }));
   return { ok: true, replayed: Boolean(data.replayed), change_request: data };
 }

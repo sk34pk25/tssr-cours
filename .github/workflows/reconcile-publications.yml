@@ -1,0 +1,73 @@
+name: Reconcile attested publications
+
+on:
+  workflow_run:
+    workflows: [pages build and deployment]
+    types: [completed]
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Verify evidence without finalizing any proposal
+        type: boolean
+        default: true
+      after_id:
+        description: Optional continuation UUID from a bounded previous sweep
+        type: string
+        required: false
+
+permissions: {}
+concurrency:
+  group: tssr-publication-reconciliation
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    # Activation is a separate reviewed cutover AFTER the additive RPC and Edge.
+    # Event payloads are never trusted as deployment evidence by the server.
+    if: github.ref == 'refs/heads/main' && vars.PUBLICATION_RECONCILIATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions: {}
+    steps:
+      # No checkout, artifacts or execution of proposal-controlled code here.
+      - name: Reconcile individually attested deployed ancestors
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+          AFTER_ID: ${{ inputs.after_id }}
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request
+          cursor = os.environ.get('AFTER_ID') or None
+          url, secret = os.environ['WEBHOOK_URL'], os.environ['WEBHOOK_SECRET']
+          if not url.startswith('https://') or not secret:
+              raise SystemExit('RECONCILIATION_NOT_CONFIGURED')
+          for _ in range(50):
+              if cursor is not None and not re.fullmatch(r'[0-9a-f-]{36}', cursor):
+                  raise SystemExit('INVALID_CONTINUATION')
+              request = urllib.request.Request(url, method='POST', headers={
+                  'content-type': 'application/json', 'x-publication-secret': secret,
+              }, data=json.dumps({'action': 'reconcile', 'dry_run': os.environ['DRY_RUN'] == 'true',
+                                  'after_id': cursor}).encode())
+              try:
+                  with urllib.request.urlopen(request, timeout=60) as response:
+                      result = json.load(response)
+                  if result.get('ok') is not True:
+                      raise ValueError('rejected')
+              except Exception:
+                  raise SystemExit('RECONCILIATION_CHECK_FAILED_NO_RETRY') from None
+              for row in result.get('results', []):
+                  print(json.dumps({key: row.get(key) for key in ('id', 'result', 'reason')}))
+              next_cursor = result.get('next_cursor')
+              if next_cursor is None:
+                  break
+              if cursor is not None and next_cursor <= cursor:
+                  raise SystemExit('INVALID_CONTINUATION')
+              cursor = next_cursor
+          else:
+              print(json.dumps({'event': 'RECONCILIATION_SWEEP_LIMIT', 'after_id': cursor}))
+              raise SystemExit('Manual continuation required; no proposal was forced.')
+          PY
