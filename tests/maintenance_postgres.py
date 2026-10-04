@@ -123,6 +123,104 @@ class MaintenancePostgres(unittest.TestCase):
     def intent(self, mode="direct"):
         self.sql(f"set request.jwt.claim.role='service_role'; select public.service_record_publication_intent('{ID}','{SHA}','{mode}');", self.db)
 
+    def reconciliation_fixture(self, finish=True):
+        self.sql((MIGRATIONS / "20261004120000_publication_reconciliation.sql").read_text(), self.db)
+        self.claim()
+        operation = self.operation()
+        self.intent()
+        if finish:
+            self.sql(f"select public.service_finish_collaboration_operation('{operation}');", self.db)
+        return self.receipt(reconciliation={
+            "protocol": "tssr-deployed-ancestor-v1", "deployed_sha": "b" * 40,
+            "gh_pages_sha": "c" * 40, "run_id": "123", "run_attempt": 1,
+            "pages_run_id": "456", "pages_run_attempt": 1,
+            "anchor_change_request_id": "", "anchor_expected_sha": "",
+        })
+
+    def reconcile(self, receipt, dry_run=False, ok=True):
+        return self.sql(f"set request.jwt.claim.role='service_role'; set role service_role; "
+                        f"select public.service_reconcile_publication('{ID}','{receipt}',{str(dry_run).lower()});", self.db, ok)
+
+    def test_reconciliation_dry_run_and_identical_concurrent_callbacks(self):
+        receipt = self.reconciliation_fixture()
+        before = self.sql(f"select row_to_json(c) from public.change_requests c where id='{ID}';", self.db).stdout
+        self.assertTrue(json.loads(self.reconcile(receipt, dry_run=True).stdout)["eligible"])
+        self.assertEqual(before, self.sql(f"select row_to_json(c) from public.change_requests c where id='{ID}';", self.db).stdout)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            results = list(pool.map(lambda _: json.loads(self.reconcile(receipt).stdout), range(2)))
+        self.assertEqual(sorted(r["replayed"] for r in results), [False, True])
+        self.assertEqual(self.sql(f"select count(*) from public.audit_logs where target_id='{ID}' and action='publication_succeeded';", self.db).stdout.strip(), "1")
+        # A late normal callback must not replace the distinct reconciliation proof.
+        self.assertNotEqual(self.complete(ok=False).returncode, 0)
+        changed = json.loads(receipt); changed["reconciliation"]["deployed_sha"] = "d" * 40
+        self.assertNotEqual(self.reconcile(json.dumps(changed), ok=False).returncode, 0)
+        self.assertTrue(json.loads(self.reconcile(receipt).stdout)["replayed"])
+
+    def test_reconciliation_cannot_finalize_an_unfinished_worker(self):
+        receipt = self.reconciliation_fixture(finish=False)
+        self.assertNotEqual(self.reconcile(receipt, ok=False).returncode, 0)
+        self.assertEqual(self.sql(f"select status from public.change_requests where id='{ID}';", self.db).stdout.strip(), "publishing")
+
+    def test_reconciliation_acl_and_receipt_identity(self):
+        receipt = self.reconciliation_fixture()
+        for role in ["anon", "authenticated"]:
+            result = self.sql(f"set role {role}; select public.service_reconcile_publication('{ID}','{receipt}',false);", self.db, ok=False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("permission denied", result.stderr)
+        for changes in [{"expected_sha": "e" * 40}, {"commit_sha": "e" * 40},
+                        {"status": "failed"}, {"reconciliation": {}}, {"run_id": "999"}]:
+            value = json.loads(receipt); value.update(changes)
+            self.assertNotEqual(self.reconcile(json.dumps(value), ok=False).returncode, 0)
+        self.assertEqual(self.sql(f"select count(*) from public.audit_logs where target_id='{ID}' and action='publication_succeeded';", self.db).stdout.strip(), "0")
+
+    def test_reconciliation_drain_and_maintenance_finish_only_previously_admitted_work(self):
+        receipt = self.reconciliation_fixture()
+        self.close()
+        self.assertTrue(json.loads(self.reconcile(receipt, dry_run=True).stdout)["eligible"])
+        # Fixture-only forced maintenance; normal operators wait for publishing
+        # to drain. Completion must retain the established callback exception.
+        self.sql("update private.collaboration_gate set mode='maintenance';", self.db)
+        self.assertEqual(json.loads(self.reconcile(receipt).stdout)["status"], "published")
+        self.assertEqual(self.sql("select mode from private.collaboration_gate;", self.db).stdout.strip(), "maintenance")
+        self.denied("select public.service_begin_collaboration_operation('admin',null);")
+
+    def test_reconciliation_real_bursts_of_two_and_ten_distinct_permits(self):
+        for count in [2, 10]:
+            self.setUp()
+            template = json.loads(self.reconciliation_fixture())
+            receipts = [(ID, template)]
+            for index in range(1, count):
+                change_id = str(uuid.uuid4())
+                sha = format(index, "040x")
+                self.sql(f"""insert into public.change_requests(id,title,author_id,author_display_name,status,base_commit_sha,required_approvers)
+                  values ('{change_id}','Burst test','{PROFILE}','Synthetic','approved','{SHA}',array['{PROFILE}'::uuid]);
+                  select public.service_claim_change_for_publication('{change_id}');
+                  select public.service_begin_collaboration_operation('publication','{change_id}');
+                  set request.jwt.claim.role='service_role';
+                  select public.service_record_publication_intent('{change_id}','{sha}','direct');
+                  select public.service_finish_collaboration_operation(id) from private.collaboration_operations where change_id='{change_id}';
+                """, self.db)
+                receipts.append((change_id, {**template, "change_request_id": change_id, "expected_sha": sha, "commit_sha": sha}))
+            def complete_one(item):
+                change_id, receipt = item
+                return self.sql(f"set role service_role; set request.jwt.claim.role='service_role'; "
+                                f"select public.service_reconcile_publication('{change_id}','{json.dumps(receipt)}',false);", self.db)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                list(pool.map(complete_one, receipts))
+            self.assertEqual(self.sql("select count(*) from public.change_requests where status='published';", self.db).stdout.strip(), str(count))
+            self.assertEqual(self.sql("select count(*) from public.audit_logs where action='publication_succeeded';", self.db).stdout.strip(), str(count))
+            self.assertEqual(self.sql("select count(*) from public.change_requests where status='publishing';", self.db).stdout.strip(), "0")
+
+    def test_reconciliation_never_overwrites_failed_or_historical_identity(self):
+        receipt = self.reconciliation_fixture()
+        self.complete(self.receipt(status="failed", failure_reason="Attested build failure"))
+        self.assertNotEqual(self.reconcile(receipt, ok=False).returncode, 0)
+        self.assertEqual(self.sql(f"select status from public.change_requests where id='{ID}';", self.db).stdout.strip(), "failed")
+        self.setUp()
+        self.sql((MIGRATIONS / "20261004120000_publication_reconciliation.sql").read_text(), self.db)
+        self.claim()  # Historical/unbound: there is no modern permit or intent.
+        self.assertNotEqual(self.reconcile(receipt, ok=False).returncode, 0)
+
     def receipt(self, **changes):
         return json.dumps({"change_request_id": ID, "expected_sha": SHA, "commit_sha": SHA,
                            "status": "published", "phase": "deploy", "run_id": "123", "run_attempt": 1,
