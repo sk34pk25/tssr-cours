@@ -32,4 +32,4 @@ sudo <commande>
 
 Éviter une session `root` durable. `su -` charge l’environnement de l’identité cible ; `sudo` délègue uniquement les commandes autorisées par `/etc/sudoers`.
 
-Voir le [TP M10](../tp/administration-linux/module-10/index.md) et le [cours](../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md).
+Voir le TP M10 et le [cours](../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md).

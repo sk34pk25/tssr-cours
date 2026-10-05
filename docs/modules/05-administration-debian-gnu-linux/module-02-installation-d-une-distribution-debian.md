@@ -49,6 +49,6 @@ L’installation est une procédure préparée, contrôlée au démarrage, puis 
 - [Présentation des TP Debian](../../tp/administration-linux/index.md)
 - [TP — Installation avec et sans interface graphique](../../tp/administration-linux/module-02/index.md)
 - [Énoncés du TP](../../tp/administration-linux/module-02/enonces.md)
-- [Corrections du TP](../../tp/administration-linux/module-02/corrections.md)
+- Corrections du TP
 - [Fiche de révision — Module 02](../../revision/administration-linux/module-02-installation-d-une-distribution-debian.md)
 - [Kahoot — Module 02](../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian.md)

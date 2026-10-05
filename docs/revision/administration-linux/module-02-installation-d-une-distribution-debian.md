@@ -44,5 +44,5 @@
 - [Cours complet — Module 02](../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md)
 - [TP — Installation avec et sans interface graphique](../../tp/administration-linux/module-02/index.md)
 - [Énoncés](../../tp/administration-linux/module-02/enonces.md)
-- [Corrections](../../tp/administration-linux/module-02/corrections.md)
+- Corrections
 - [Kahoot — Module 02](../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian.md)

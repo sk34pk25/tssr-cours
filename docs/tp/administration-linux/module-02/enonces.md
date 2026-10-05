@@ -38,11 +38,11 @@
 
 - Documenter les paramètres effectivement appliqués dans le laboratoire.
 - Vérifier le démarrage depuis le disque installé, l’authentification et la présence des points de montage attendus.
-- Ne consulter la correction qu’après la tentative : [voir les corrections](corrections.md).
+- Ne consulter la correction qu’après la tentative : voir les corrections.
 
 ## Voir aussi
 
 - [Présentation du TP](index.md)
 - [Cours — Installation d’une distribution Debian](../../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md)
-- [Corrections du TP](corrections.md)
+- Corrections du TP
 - [Fiche de révision — Module 02](../../../revision/administration-linux/module-02-installation-d-une-distribution-debian.md)

@@ -8,7 +8,7 @@
 Le module propose deux parcours distincts. Choisir l’énoncé correspondant à l’environnement demandé, préparer la machine virtuelle, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
 
 - [Énoncés — installation avec et sans interface graphique](enonces.md)
-- [Corrections — installation avec et sans interface graphique](corrections.md)
+- Corrections — installation avec et sans interface graphique
 - [Cours du module](../../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md)
 - [Fiche de révision](../../../revision/administration-linux/module-02-installation-d-une-distribution-debian.md)
 - [Kahoot du module](../../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian.md)
