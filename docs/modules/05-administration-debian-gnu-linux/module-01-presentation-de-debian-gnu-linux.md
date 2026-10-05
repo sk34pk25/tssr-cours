@@ -41,3 +41,5 @@ Debian associe une culture du logiciel libre à des branches destinées à des u
 ## Voir aussi
 
 - [Présentation de la séquence](index.md)
+- [Fiche de révision — Module 01](../../revision/administration-linux/module-01-presentation-de-debian-gnu-linux.md)
+- [Kahoot — Module 01](../../kahoot/05-administration-debian-gnu-linux-module-01-presentation-de-debian-gnu-linux.md)
