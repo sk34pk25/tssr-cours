@@ -11447,8 +11447,16 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>apt<span class="w"> </span>search<span class="w"> </span>nom
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>apt<span class="w"> </span>show<span class="w"> </span>paquet
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>paquet
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>paquet
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>paquet
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>sudo<span class="w"> </span>apt<span class="w"> </span>clean
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>dpkg<span class="w"> </span>-L<span class="w"> </span>paquet
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="s1">'*mot-cle*'</span>
 </span></code></pre></div>
-<p>Dans un script, préférer <code>apt-get</code> lorsque la stabilité de la sortie et du comportement est nécessaire.</p>
+<p><code>apt update</code> actualise les index des dépôts ; il n'installe pas les mises à jour. Lire la liste des changements avant une mise à niveau. <code>upgrade</code> évite les suppressions de paquets installés, tandis que <code>full-upgrade</code> peut adapter les dépendances par installation ou suppression.</p>
+<p><code>dpkg -L</code> liste les fichiers installés par un paquet ; <code>dpkg -l</code> interroge son état local. Dans un script, préférer <code>apt-get</code> lorsque la stabilité de la sortie et du comportement est nécessaire.</p>
 
 
 
