@@ -1,5 +1,25 @@
 # Fiche de révision — Module 11 — Droits sur les fichiers et répertoires
 
+**Sources originales (A) :** support, énoncé et solution M11TP01 Drive. **Fiche (B) :** synthèse reformulée.
+
+## Droits usuels
+
+Les droits se répartissent entre utilisateur propriétaire, groupe propriétaire et autres. Lecture, écriture et exécution valent respectivement `4`, `2` et `1` en octal. Sur un répertoire, `r` liste, `w` permet notamment de créer ou supprimer, et `x` permet la traversée.
+
+`chmod` exprime une modification symbolique ou octale ; `chown` change propriétaire et/ou groupe. Vérifier avec `ls -ld` et n’utiliser `-R` qu’après avoir borné l’arborescence.
+
+## Bits spéciaux
+
+- SetGID sur un répertoire : les nouveaux fichiers héritent de son groupe.
+- Sticky bit sur un répertoire : seul le propriétaire d’un fichier ou `root` peut le supprimer.
+- L’umask est soustrait aux droits de création ; le support indique `0022` par défaut sous Debian.
+
+## TP M11
+
+La structure source sous `/srv` couvre un espace public, un dépôt sticky, un espace du groupe `admin` et une documentation SetGID. Tester l’accès depuis les rôles définis par l’énoncé avant de conclure.
+
+Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md) · [TP](../../tp/administration-linux/module-11/index.md) · [mémo](../../memo/permissions-linux.md).
+
 ## À connaître absolument
 
 - Lire droits rwx, propriétaire et groupe.
