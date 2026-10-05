@@ -1,5 +1,14 @@
 # Fiche de révision — Module 06 — Gestion des paquets logiciels
 
+**Sources originales (A) :** support et TP M06 TSSR. **Fiche (B) :** synthèse reformulée.
+
+## Repères
+
+- `deb` référence des binaires, `deb-src` des sources ; les dépôts sont déclarés dans `sources.list` ou `sources.list.d`.
+- `apt update` télécharge les index ; `apt upgrade` met à niveau sans suppression ; `full-upgrade` peut adapter les dépendances.
+- `dpkg` interroge les paquets locaux et ne résout pas seul les dépendances distantes.
+- Vérifier la branche, la liste de changements et le résultat avant de considérer l'opération terminée.
+
 ## À connaître absolument
 
 - Distinguer dpkg, apt et dépôts.
