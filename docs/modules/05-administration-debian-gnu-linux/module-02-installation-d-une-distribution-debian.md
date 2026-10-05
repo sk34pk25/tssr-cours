@@ -43,3 +43,12 @@ L’installation est une procédure préparée, contrôlée au démarrage, puis 
 ??? success "Réponses"
     1. Pour confirmer que le système installé correspond réellement aux choix effectués.
     2. `df -h`.
+
+## Voir aussi
+
+- [Présentation des TP Debian](../../tp/administration-linux/index.md)
+- [TP — Installation avec et sans interface graphique](../../tp/administration-linux/module-02/index.md)
+- [Énoncés du TP](../../tp/administration-linux/module-02/enonces.md)
+- [Corrections du TP](../../tp/administration-linux/module-02/corrections.md)
+- [Fiche de révision — Module 02](../../revision/administration-linux/module-02-installation-d-une-distribution-debian.md)
+- [Kahoot — Module 02](../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian.md)
