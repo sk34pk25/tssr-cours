@@ -24,7 +24,12 @@ function setup(options) {
     auth: { getSession: async () => ({ data: { session: { user: { id: "fixture" } } } }), onAuthStateChange() {} },
     from(table) {
       if (table === "profiles") return { select: () => ({ eq: () => ({ single: async () => ({ data: profile }) }) }) };
-      if (table === "change_requests") return { select: () => ({ order: async () => ({ data: [request] }), eq: async () => ({ data: [request] }) }) };
+      if (table === "change_requests") {
+        const query = { select() { return this; }, not() { return this; },
+          order: async () => ({ data: [request] }), eq() { return this; },
+          then(resolve) { return Promise.resolve({ data: [request] }).then(resolve); } };
+        return query;
+      }
       throw new Error("Unexpected fixture table");
     },
     functions: { invoke: async (name, { body }) => {
@@ -50,8 +55,8 @@ async function fixture(options, run) {
   await context.route("**/*", async route => {
     const url = new URL(route.request().url());
     if (url.origin !== origin) { unexpected.push(url.origin); return route.abort(); }
-    if (url.pathname === "/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: `<!doctype html><html lang="fr"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fixture override</title>${["tokens", "base", "components", "collaboration"].map(name => `<link rel="stylesheet" href="/${name}.css">`).join("")}<body data-md-color-scheme="default"><main class="md-typeset"><h1>Modifications — test isolé</h1><div id="tssr-collaboration-page"></div></main><script>(${setup.toString()})(${JSON.stringify(options)})</script><script src="/collaboration-utils.js"></script><script src="/collaboration.js"></script></body></html>` });
-    if (["/collaboration.js", "/collaboration-utils.js", "/collaboration.css", "/tokens.css", "/base.css", "/components.css"].includes(url.pathname)) {
+    if (url.pathname === "/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: `<!doctype html><html lang="fr"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fixture override</title>${["tokens", "base", "components", "collaboration"].map(name => `<link rel="stylesheet" href="/${name}.css">`).join("")}<body data-md-color-scheme="default"><main class="md-typeset"><h1>Modifications — test isolé</h1><div id="tssr-collaboration-page"></div></main><script>(${setup.toString()})(${JSON.stringify(options)})</script><script src="/collaboration-utils.js"></script><script src="/collaboration-campaign.js"></script><script src="/password-recovery.js"></script><script src="/collaboration.js"></script></body></html>` });
+    if (["/collaboration.js", "/collaboration-utils.js", "/collaboration-campaign.js", "/password-recovery.js", "/collaboration.css", "/tokens.css", "/base.css", "/components.css"].includes(url.pathname)) {
       const css = url.pathname.endsWith(".css");
       return route.fulfill({ contentType: css ? "text/css" : "text/javascript", body: readFileSync(new URL(`../docs/assets/${css ? "stylesheets" : "javascripts"}${url.pathname}`, import.meta.url), "utf8") });
     }
