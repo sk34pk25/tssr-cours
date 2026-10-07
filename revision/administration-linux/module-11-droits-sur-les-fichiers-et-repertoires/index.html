@@ -9791,6 +9791,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#droits-usuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Droits usuels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bits-speciaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bits spéciaux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-m11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP M11
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11394,6 +11427,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#droits-usuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Droits usuels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bits-speciaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bits spéciaux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-m11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP M11
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11536,6 +11602,19 @@
 
 
 <h1 id="fiche-de-revision-module-11-droits-sur-les-fichiers-et-repertoires">Fiche de révision — Module 11 — Droits sur les fichiers et répertoires<a class="headerlink" href="#fiche-de-revision-module-11-droits-sur-les-fichiers-et-repertoires" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> support, énoncé et solution M11TP01 Drive. <strong>Fiche (B) :</strong> synthèse reformulée.</p>
+<h2 id="droits-usuels">Droits usuels<a class="headerlink" href="#droits-usuels" title="Permanent link">¶</a></h2>
+<p>Les droits se répartissent entre utilisateur propriétaire, groupe propriétaire et autres. Lecture, écriture et exécution valent respectivement <code>4</code>, <code>2</code> et <code>1</code> en octal. Sur un répertoire, <code>r</code> liste, <code>w</code> permet notamment de créer ou supprimer, et <code>x</code> permet la traversée.</p>
+<p><code>chmod</code> exprime une modification symbolique ou octale ; <code>chown</code> change propriétaire et/ou groupe. Vérifier avec <code>ls -ld</code> et n’utiliser <code>-R</code> qu’après avoir borné l’arborescence.</p>
+<h2 id="bits-speciaux">Bits spéciaux<a class="headerlink" href="#bits-speciaux" title="Permanent link">¶</a></h2>
+<ul>
+<li>SetGID sur un répertoire : les nouveaux fichiers héritent de son groupe.</li>
+<li>Sticky bit sur un répertoire : seul le propriétaire d’un fichier ou <code>root</code> peut le supprimer.</li>
+<li>L’umask est soustrait aux droits de création ; le support indique <code>0022</code> par défaut sous Debian.</li>
+</ul>
+<h2 id="tp-m11">TP M11<a class="headerlink" href="#tp-m11" title="Permanent link">¶</a></h2>
+<p>La structure source sous <code>/srv</code> couvre un espace public, un dépôt sticky, un espace du groupe <code>admin</code> et une documentation SetGID. Tester l’accès depuis les rôles définis par l’énoncé avant de conclure.</p>
+<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/">cours complet</a> · <a href="../../../tp/administration-linux/module-11/">TP</a> · <a href="../../../memo/permissions-linux/">mémo</a>.</p>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
 <li>Lire droits rwx, propriétaire et groupe.</li>

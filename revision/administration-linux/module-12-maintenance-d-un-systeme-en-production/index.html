@@ -9819,6 +9819,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#observer-avant-dagir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observer avant d’agir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planifier-sans-perdre-la-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planifier sans perdre la trace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processus-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processus et sécurité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11394,6 +11427,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#observer-avant-dagir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observer avant d’agir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planifier-sans-perdre-la-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planifier sans perdre la trace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processus-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processus et sécurité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11536,6 +11602,14 @@
 
 
 <h1 id="fiche-de-revision-module-12-maintenance-dun-systeme-en-production">Fiche de révision — Module 12 — Maintenance d’un système en production<a class="headerlink" href="#fiche-de-revision-module-12-maintenance-dun-systeme-en-production" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> support et TP M12 Drive. <strong>Fiche (B) :</strong> synthèse reformulée.</p>
+<h2 id="observer-avant-dagir">Observer avant d’agir<a class="headerlink" href="#observer-avant-dagir" title="Permanent link">¶</a></h2>
+<p><code>systemctl status</code>, <code>journalctl</code>, <code>journalctl -u &lt;service&gt;</code>, <code>journalctl -p &lt;priorité&gt;</code> et <code>journalctl -f</code> servent à analyser le comportement des services. Les priorités vont de <code>emerg</code> à <code>debug</code>; <code>rsyslog</code> applique des règles par facility et priorité pour écrire ou transférer les journaux.</p>
+<h2 id="planifier-sans-perdre-la-trace">Planifier sans perdre la trace<a class="headerlink" href="#planifier-sans-perdre-la-trace" title="Permanent link">¶</a></h2>
+<p>Les crontabs utilisateur et système sont distinctes. Une tâche de maintenance doit préciser sa périodicité, sa commande, son destinataire et une preuve durable de son exécution. Le TP M12 utilise notamment une sortie de processus horodatée dans <code>/var/log/procstatus.log</code>.</p>
+<h2 id="processus-et-securite">Processus et sécurité<a class="headerlink" href="#processus-et-securite" title="Permanent link">¶</a></h2>
+<p>Relever PID, utilisateur et terminal avant un signal. <code>SIGTERM</code> est la première demande d’arrêt ; <code>SIGKILL</code> est un dernier recours. Éviter les processus système et tout shell non explicitement concerné par une intervention de laboratoire.</p>
+<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/">cours complet</a> · <a href="../../../tp/administration-linux/module-12/tp01-journalisation/">TP01</a> · <a href="../../../tp/administration-linux/module-12/tp02-planification/">TP02</a> · TP03.</p>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
 <li>Interroger les journaux avec journalctl.</li>

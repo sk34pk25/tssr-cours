@@ -9707,6 +9707,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#chaine-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaîne LVM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9718,21 +9729,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#sequence-du-tp-m08" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pièges fréquents
+        Séquence du TP M08
       
     </span>
   </a>
@@ -9744,17 +9744,6 @@
     <span class="md-ellipsis">
       
         Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
       
     </span>
   </a>
@@ -11394,6 +11383,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#chaine-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaîne LVM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-connaitre-absolument" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -11405,21 +11405,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#sequence-du-tp-m08" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pièges fréquents
+        Séquence du TP M08
       
     </span>
   </a>
@@ -11431,17 +11420,6 @@
     <span class="md-ellipsis">
       
         Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
       
     </span>
   </a>
@@ -11536,43 +11514,36 @@
 
 
 <h1 id="fiche-de-revision-module-08-gestion-des-espaces-de-stockage-avancee-lvm">Fiche de révision — Module 08 — Gestion des espaces de stockage avancée — LVM<a class="headerlink" href="#fiche-de-revision-module-08-gestion-des-espaces-de-stockage-avancee-lvm" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> support et TP M08 Drive. <strong>Fiche (B) :</strong> synthèse reformulée.</p>
+<h2 id="chaine-lvm">Chaîne LVM<a class="headerlink" href="#chaine-lvm" title="Permanent link">¶</a></h2>
+<p><code>PV</code> (volume physique) → <code>VG</code> (groupe de volumes) → <code>LV</code> (volume logique) → système de fichiers. Les commandes suivent ce vocabulaire : <code>pvcreate</code>, <code>vgcreate</code>/<code>vgextend</code>, <code>lvcreate</code>, <code>lvextend</code>, puis <code>pvs</code>, <code>vgs</code>, <code>lvs</code> pour contrôler.</p>
+<ul>
+<li>Une partition destinée à LVM reçoit le type Linux LVM (<code>8e</code>) dans le scénario source.</li>
+<li><code>lvcreate -n nom -L taille VG</code> crée un LV ; <code>lvextend -l 100%FREE /dev/VG/LV</code> affecte l’espace libre restant du groupe.</li>
+<li>Toujours identifier le disque, le VG et le LV existants avant une commande d’écriture.</li>
+</ul>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
 <li>Comprendre PV, VG et LV.</li>
-<li>Créer un volume logique et son système de fichiers.</li>
-<li>Étendre stockage et système de fichiers dans le bon ordre.</li>
-<li>Contrôler avec pvs, vgs, lvs, lsblk et findmnt.</li>
+<li>Repérer le disque ajouté avant de le partitionner.</li>
+<li>Transformer la partition en PV, l’ajouter au VG, puis créer ou étendre le LV attendu.</li>
+<li>Contrôler avec <code>pvs</code>, <code>vgs</code> et <code>lvs</code> avant et après l’opération.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
+<h2 id="sequence-du-tp-m08">Séquence du TP M08<a class="headerlink" href="#sequence-du-tp-m08" title="Permanent link">¶</a></h2>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>Ajouter le disque de laboratoire et le détecter dans la VM.</li>
+<li>Créer la partition et lui attribuer le type Linux LVM (<code>8e</code>) du scénario.</li>
+<li>Créer le PV, étendre le VG, créer <code>lvvar</code> de 20 Go et étendre <code>lvhome</code> avec l’espace libre restant.</li>
+<li>Vérifier l’état des PV, VG et LV ; ne pas déduire leurs noms à l’avance.</li>
 </ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
-<ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
-</ul>
 <h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comprendre PV, VG et LV.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Créer un volume logique et son système de fichiers.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Étendre stockage et système de fichiers dans le bon ordre.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Contrôler avec pvs, vgs, lvs, lsblk et findmnt.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Identifier un disque de laboratoire sans supposer son nom.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Interpréter les sorties de <code>pvs</code>, <code>vgs</code> et <code>lvs</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Expliquer l’effet de <code>pvcreate</code>, <code>vgextend</code>, <code>lvcreate</code> et <code>lvextend</code>.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Gestion des espaces de stockage avancée — LVM » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/">cours complet</a>.</p>
+<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/">cours complet</a> · <a href="../../../tp/administration-linux/module-08/">TP</a> · <a href="../../../memo/lvm-debian/">mémo LVM</a>.</p>
 
 
 

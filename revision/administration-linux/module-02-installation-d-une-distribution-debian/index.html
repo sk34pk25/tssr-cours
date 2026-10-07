@@ -9593,6 +9593,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11448,6 +11459,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11536,6 +11558,8 @@
 
 
 <h1 id="fiche-de-revision-module-02-installation-dune-distribution-debian">Fiche de révision — Module 02 — Installation d’une distribution Debian<a class="headerlink" href="#fiche-de-revision-module-02-installation-dune-distribution-debian" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> supports et TP TSSR M02 d’installation Debian avec et sans interface graphique.
+<strong>Fiche de révision (B) :</strong> synthèse et reformulation pédagogique des sources originales.</p>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
 <li>Préparer une machine et son support d’installation.</li>
@@ -11545,18 +11569,18 @@
 </ul>
 <h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>Préparer l’image, la machine virtuelle et le retour arrière du laboratoire.</li>
+<li>Choisir explicitement le parcours graphique ou sans interface graphique.</li>
+<li>Vérifier le disque cible avant le partitionnement et appliquer le schéma demandé.</li>
+<li>Démarrer sur le système installé puis contrôler l’identité, le réseau et les montages.</li>
+<li>Documenter les paramètres effectivement utilisés et les écarts éventuels.</li>
 </ol>
 <h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Confondre les deux parcours : graphique et sans interface graphique n’ont pas le même objectif ni le même schéma de stockage.</li>
+<li>Partitioner le mauvais disque ou valider sans relever le résultat réel de <code>lsblk -f</code> et <code>findmnt</code>.</li>
+<li>Réutiliser aveuglément des valeurs de laboratoire dans un environnement différent.</li>
+<li>Valider uniquement à l’écran sans démarrer ni ouvrir de session sur le système installé.</li>
 </ul>
 <h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
@@ -11568,11 +11592,18 @@
 </ul>
 <h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « Installation d’une distribution Debian » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Quelles différences essentielles séparent les parcours graphique et sans interface graphique ?</li>
+<li>Quelles commandes permettent de vérifier les systèmes de fichiers et points de montage réellement actifs ?</li>
+<li>Pourquoi faut-il identifier le disque cible avant le partitionnement ?</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/">cours complet</a>.</p>
+<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/">Cours complet — Module 02</a></li>
+<li><a href="../../../tp/administration-linux/module-02/">TP — Installation avec et sans interface graphique</a></li>
+<li><a href="../../../tp/administration-linux/module-02/enonces/">Énoncés</a></li>
+<li>Corrections</li>
+<li><a href="../../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian/">Kahoot — Module 02</a></li>
+</ul>
 
 
 

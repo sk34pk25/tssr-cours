@@ -9774,10 +9774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#privileges" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Privilèges
       
     </span>
   </a>
@@ -9785,10 +9785,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#controles-du-tp-m10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Contrôles du TP M10
       
     </span>
   </a>
@@ -9800,17 +9800,6 @@
     <span class="md-ellipsis">
       
         Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
       
     </span>
   </a>
@@ -11405,10 +11394,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#privileges" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Privilèges
       
     </span>
   </a>
@@ -11416,10 +11405,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#controles-du-tp-m10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Contrôles du TP M10
       
     </span>
   </a>
@@ -11431,17 +11420,6 @@
     <span class="md-ellipsis">
       
         Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
       
     </span>
   </a>
@@ -11536,43 +11514,30 @@
 
 
 <h1 id="fiche-de-revision-module-10-gestion-des-utilisateurs-et-groupes">Fiche de révision — Module 10 — Gestion des utilisateurs et groupes<a class="headerlink" href="#fiche-de-revision-module-10-gestion-des-utilisateurs-et-groupes" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> support, énoncé et solution M10TP01 Drive. <strong>Fiche (B) :</strong> synthèse reformulée sans identifiants de démonstration.</p>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
-<li>Lire /etc/passwd, /etc/shadow, /etc/group et /etc/gshadow.</li>
-<li>Créer, modifier, verrouiller et supprimer un compte.</li>
-<li>Gérer groupe principal et groupes supplémentaires.</li>
-<li>Déléguer avec sudo et contrôler l’expiration des mots de passe.</li>
+<li>UID identifie l’utilisateur ; GID identifie son groupe principal ; des groupes secondaires peuvent compléter ses appartenances.</li>
+<li><code>/etc/passwd</code>, <code>/etc/shadow</code>, <code>/etc/group</code> et <code>/etc/gshadow</code> sont des sources d’information : les changements passent par les commandes dédiées.</li>
+<li><code>useradd -m</code>, <code>-s</code>, <code>-g</code> et <code>-G</code> créent un compte avec son répertoire, shell et groupes ; <code>id</code> contrôle le résultat.</li>
+<li><code>groupadd</code>, <code>groupmod</code>, <code>groupdel</code> et <code>gpasswd</code> administrent les groupes ; <code>usermod</code>, <code>userdel</code> et <code>passwd</code> gèrent le cycle de vie des comptes.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
+<h2 id="privileges">Privilèges<a class="headerlink" href="#privileges" title="Permanent link">¶</a></h2>
+<p>La source conseille de limiter l’usage direct de <code>root</code>. <code>su -</code> effectue un changement complet d’identité ; <code>sudo</code> délègue des tâches définies dans <code>/etc/sudoers</code> et emploie le mot de passe de l’utilisateur appelant.</p>
+<h2 id="controles-du-tp-m10">Contrôles du TP M10<a class="headerlink" href="#controles-du-tp-m10" title="Permanent link">¶</a></h2>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>Créer les groupes avant les comptes qui les utilisent.</li>
+<li>Relever les groupes et le shell avec <code>id</code> et les fichiers de configuration, sans les éditer directement.</li>
+<li>Forcer le changement de mot de passe ou verrouiller/désactiver le compte selon le scénario, puis vérifier le comportement.</li>
 </ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
-<ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
-</ul>
 <h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire /etc/passwd, /etc/shadow, /etc/group et /etc/gshadow.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Créer, modifier, verrouiller et supprimer un compte.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Gérer groupe principal et groupes supplémentaires.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Déléguer avec sudo et contrôler l’expiration des mots de passe.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Distinguer groupe principal et groupes secondaires.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Créer un compte avec son répertoire et son shell.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier une appartenance avec <code>id</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Expliquer le verrouillage de mot de passe et la désactivation d’un compte.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Gestion des utilisateurs et groupes » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/">cours complet</a>.</p>
+<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes/">cours complet</a> · TP · <a href="../../../memo/comptes-groupes-debian/">mémo</a>.</p>
 
 
 

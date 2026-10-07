@@ -9621,6 +9621,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11448,6 +11459,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11536,6 +11558,8 @@
 
 
 <h1 id="fiche-de-revision-module-03-demarrage-dune-distribution-debian">Fiche de révision — Module 03 — Démarrage d’une distribution Debian<a class="headerlink" href="#fiche-de-revision-module-03-demarrage-dune-distribution-debian" title="Permanent link">¶</a></h1>
+<p><strong>Sources originales (A) :</strong> support et TP TSSR M03 sur le démarrage Debian et la gestion des services.
+<strong>Fiche de révision (B) :</strong> synthèse et reformulation pédagogique des sources originales.</p>
 <h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
 <ul>
 <li>Suivre la chaîne firmware, chargeur, noyau et systemd.</li>
@@ -11545,18 +11569,18 @@
 </ul>
 <h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
+<li>Identifier la cible systemd et l’état effectif du service avant toute modification.</li>
+<li>Distinguer l’action immédiate (<code>start</code>, <code>stop</code>, <code>restart</code>) de l’activation au démarrage (<code>enable</code>, <code>disable</code>).</li>
 <li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>Relever l’état, l’activation et le journal si nécessaire.</li>
+<li>Documenter et restaurer le comportement demandé par le laboratoire.</li>
 </ol>
 <h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Confondre la cible active avec la cible configurée par défaut pour le prochain démarrage.</li>
+<li>Croire qu’un <code>stop</code> désactive automatiquement le démarrage ultérieur du service.</li>
+<li>Modifier plusieurs services sans avoir relevé l’état initial.</li>
+<li>Valider sans relire <code>status</code>, <code>is-enabled</code> ou le journal de l’unité concernée.</li>
 </ul>
 <h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
@@ -11568,11 +11592,18 @@
 </ul>
 <h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « Démarrage d’une distribution Debian » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Quelle différence y a-t-il entre la cible active et la cible systemd définie par défaut ?</li>
+<li>Quelle différence y a-t-il entre arrêter un service et désactiver son démarrage automatique ?</li>
+<li>Quelles informations permettent de diagnostiquer un service qui ne démarre pas ?</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/">cours complet</a>.</p>
+<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian/">Cours complet — Module 03</a></li>
+<li><a href="../../../tp/administration-linux/module-03/">TP — Démarrage et services</a></li>
+<li><a href="../../../tp/administration-linux/module-03/enonces/">Énoncés</a></li>
+<li><a href="../../../tp/administration-linux/module-03/corrections/">Corrections</a></li>
+<li><a href="../../../kahoot/05-administration-debian-gnu-linux-module-03-demarrage-d-une-distribution-debian/">Kahoot — Module 03</a></li>
+</ul>
 
 
 

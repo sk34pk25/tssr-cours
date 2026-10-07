@@ -9595,10 +9595,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#deux-voies-de-secours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Deux voies de secours
       
     </span>
   </a>
@@ -9606,10 +9606,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#a-connaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        À connaître
       
     </span>
   </a>
@@ -9617,10 +9617,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#methode-de-controle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Méthode de contrôle
       
     </span>
   </a>
@@ -9643,6 +9643,17 @@
     <span class="md-ellipsis">
       
         Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens utiles
       
     </span>
   </a>
@@ -11394,10 +11405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#deux-voies-de-secours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Deux voies de secours
       
     </span>
   </a>
@@ -11405,10 +11416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#a-connaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        À connaître
       
     </span>
   </a>
@@ -11416,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#methode-de-controle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Méthode de contrôle
       
     </span>
   </a>
@@ -11442,6 +11453,17 @@
     <span class="md-ellipsis">
       
         Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens utiles
       
     </span>
   </a>
@@ -11536,43 +11558,67 @@
 
 
 <h1 id="fiche-de-revision-module-04-debian-en-mode-maintenance">Fiche de révision — Module 04 — Debian en mode maintenance<a class="headerlink" href="#fiche-de-revision-module-04-debian-en-mode-maintenance" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<p><strong>Sources originales (A) :</strong> support M04 et TP M04 TSSR.
+<strong>Fiche de révision (B) :</strong> synthèse reformulée des sources.</p>
+<h2 id="deux-voies-de-secours">Deux voies de secours<a class="headerlink" href="#deux-voies-de-secours" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Voie</th>
+<th>Ce que la source permet de vérifier</th>
+<th>Point de vigilance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GRUB</td>
+<td>Démarrer temporairement en maintenance depuis le noyau sélectionné</td>
+<td>Vérifier la cible et la disposition de clavier avant toute modification</td>
+</tr>
+<tr>
+<td>Média d'installation</td>
+<td>Ouvrir le mode de secours et monter la racine du système installé</td>
+<td>Choisir le bon volume logique et non un système de fichiers inconnu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-connaitre">À connaître<a class="headerlink" href="#a-connaitre" title="Permanent link">¶</a></h2>
 <ul>
-<li>Accéder à un mode de secours de manière contrôlée.</li>
-<li>Comprendre les paramètres de démarrage temporaires.</li>
-<li>Réparer un système sans contourner durablement les protections.</li>
-<li>Revenir à un démarrage normal et valider les services.</li>
+<li>Un système peut nécessiter une maintenance après un démarrage défaillant, la perte du mot de passe <code>root</code> ou pour une récupération de données.</li>
+<li>Un shell de secours peut disposer des privilèges administratifs sans l'authentification habituelle : il est réservé à un contexte autorisé.</li>
+<li>Après un démarrage de maintenance direct, la racine peut être en lecture seule ; l'écriture doit être explicitement limitée, vérifiée et synchronisée.</li>
+<li>Un <code>/home</code> non accessible peut être sur un volume logique distinct de la racine et ne pas être monté dans le shell de secours.</li>
+<li>Dans le mode de secours du média, <code>USER</code> ou le prompt permet d'identifier le shell <code>root</code>; <code>logname</code> peut être vide.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
+<h2 id="methode-de-controle">Méthode de contrôle<a class="headerlink" href="#methode-de-controle" title="Permanent link">¶</a></h2>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>Identifier le symptôme et confirmer que la machine est bien celle autorisée.</li>
+<li>Choisir la voie documentée : GRUB ou média d'installation.</li>
+<li>Identifier la racine et les volumes avant toute écriture.</li>
+<li>Réaliser seulement le test ou la réparation explicitement demandée.</li>
+<li>Synchroniser, restaurer l'état de laboratoire et vérifier le redémarrage normal.</li>
+<li>Consigner l'action, le résultat et le retour à l'état attendu.</li>
 </ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
-<ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
-</ul>
 <h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Accéder à un mode de secours de manière contrôlée.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comprendre les paramètres de démarrage temporaires.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réparer un système sans contourner durablement les protections.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Revenir à un démarrage normal et valider les services.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je distingue maintenance via GRUB et secours via le média d'installation.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer pourquoi la racine peut être en lecture seule.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je contrôle la cible de stockage avant une modification.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je limite les écritures à un laboratoire autorisé et les synchronise.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer pourquoi un shell de récupération ne doit pas devenir une voie d'accès permanente.</li>
 </ul>
 <h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « Debian en mode maintenance » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Dans quel cas choisir le média d'installation plutôt que GRUB ?</li>
+<li>Pourquoi un répertoire utilisateur peut-il sembler absent dans le shell de secours ?</li>
+<li>Quel contrôle doit précéder une écriture sur le système récupéré ?</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance/">cours complet</a>.</p>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance/">Cours complet</a></li>
+<li><a href="../../../tp/administration-linux/module-04/">TP — Debian en mode maintenance</a></li>
+<li><a href="../../../kahoot/05-administration-debian-gnu-linux-module-04-debian-en-mode-maintenance/">Kahoot du module</a></li>
+</ul>
 
 
 
