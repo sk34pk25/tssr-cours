@@ -52,7 +52,8 @@ async function run(body: Record<string, unknown> = {}, options: { mode?: string;
           tree: ["mkdocs.yml", "docs/index.md", "docs/existing.md"].map(path => ({ path, type: "blob", sha: blob })) };
         else if (path.endsWith("/contents/mkdocs.yml")) data = { type: "file", encoding: "base64", sha: blob,
           content: btoa("site_name: Fixture\nnav:\n  - Home: index.md\n") };
-        else if (path.endsWith("/contents/docs/existing.md")) data = { type: "file", encoding: "base64", sha: blob, content: btoa(options.oldContent ?? "# Existing") };
+        else if (path.endsWith("/contents/docs/existing.md")) data = { type: "file", encoding: "base64", sha: blob,
+          content: btoa(String.fromCharCode(...new TextEncoder().encode(options.oldContent ?? "# Existing"))) };
       }
       if (data === undefined) { unexpected.push(`${request.method} ${path}`); throw new Error("Unexpected fixture transport"); }
       return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
@@ -180,6 +181,15 @@ Deno.test("agent staging HTTP: secrets in every submitted field and trusted copy
   const old = await run({ files: [{ ...file, file_path: "docs/existing.md", change_type: "update", base_file_sha: blob }] }, { oldContent: secret });
   assertEquals(old.status, 400);
   assertEquals(old.proposals.length, 0);
+});
+
+Deno.test("agent staging HTTP: CLI boundaries also apply to trusted old_content", async () => {
+  for (const fixture of credentialCases) {
+    const result = await run({ files: [{ ...file, file_path: "docs/existing.md", change_type: "update", base_file_sha: blob }] },
+      { oldContent: fixture.parts.join("") });
+    assertEquals(result.status, fixture.allowed ? 201 : 400, fixture.name);
+    assertEquals(result.proposals.length, fixture.allowed ? 1 : 0, fixture.name);
+  }
 });
 
 Deno.test("agent staging HTTP: existing HUMAN creation semantics are unchanged", async () => {
