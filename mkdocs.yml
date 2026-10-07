@@ -112,6 +112,7 @@ extra_javascript:
   - assets/javascripts/parcours.js
   - assets/javascripts/glossaire.js
   - assets/javascripts/collaboration-utils.js
+  - assets/javascripts/collaboration-campaign.js
   - assets/javascripts/course-creator-utils.js
   - assets/javascripts/course-editor.js
   - assets/javascripts/course-editor-ui.js
