@@ -1,6 +1,7 @@
 /* TSSR collaborative documentation client. Public credentials only; every mutation is server-authorized. */
 (function () {
   const utils = window.TSSRCollaborationUtils;
+  const campaign = window.TSSRLegacyCampaign;
   const config = window.TSSR_COLLABORATION_CONFIG || {};
   const state = {
     client: null,
@@ -315,9 +316,11 @@
       if (bar) bar.hidden = true;
       return;
     }
-    const { data, error } = await state.client.from("change_requests")
+    document.querySelectorAll("[data-pending-badge]").forEach((badge) => { badge.textContent = ""; });
+    if (!campaign) { bar.hidden = true; return; }
+    const { data, error } = await campaign.scope(state.client.from("change_requests")
       .select("id, required_approvers, change_approvals(user_id, decision)")
-      .eq("status", "pending");
+      .eq("status", "pending"));
     if (error) { bar.hidden = true; return; }
     const pending = (data || []).filter((request) =>
       request.required_approvers.includes(state.profile.id) &&
@@ -747,10 +750,11 @@
     });
   }
 
-  async function loadChanges() {
+  async function loadChanges(historical = false) {
     if (!state.client || !state.profile) return [];
-    const { data, error } = await state.client.from("change_requests")
-      .select("*, change_request_files(*), change_approvals(*), change_approval_overrides(*)")
+    if (!campaign) throw new Error("Le filtre de campagne est indisponible. Rechargez la page.");
+    const { data, error } = await campaign.scope(state.client.from("change_requests")
+      .select("*, change_request_files(*), change_approvals(*), change_approval_overrides(*)"), historical)
       .order("created_at", { ascending: false });
     if (error) throw error;
     return data || [];
@@ -770,14 +774,15 @@
   }
 
   function changeCard(request) {
+    const archived = campaign.contains(request.id);
     const status = utils.statusInfo(request.status);
     const approval = approvalSummary(request);
     const myVote = approval.approvals.get(state.profile.id);
     // PostgREST represents this one-to-one relation as an object (older clients may use an array).
     const override = Array.isArray(request.change_approval_overrides) ? request.change_approval_overrides[0] : request.change_approval_overrides;
-    const canVote = state.profile.can_edit && request.status === "pending" && request.required_approvers.includes(state.profile.id) && !myVote;
-    const canCancel = (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
-    const canRevise = request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
+    const canVote = !archived && state.profile.can_edit && request.status === "pending" && request.required_approvers.includes(state.profile.id) && !myVote;
+    const canCancel = !archived && (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
+    const canRevise = !archived && request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
     const kindLabel = request.proposal_kind === "create_course" ? "Ajout d’un cours"
       : request.proposal_kind === "modify_course" ? "Modification d’un cours"
       : request.proposal_kind === "navigation_change" ? "Navigation" : "Modification";
@@ -812,7 +817,7 @@
       <div class="tssr-card-actions">
         <button type="button" class="tssr-action" data-change-action="diff">Voir les changements</button>
         ${canVote ? '<button type="button" class="tssr-action tssr-action--primary" data-change-action="approve">Accepter</button><button type="button" class="tssr-action tssr-action--danger" data-change-action="reject">Refuser</button>' : ""}
-        ${utils.canOverrideValidation(state.profile, request) ? '<button type="button" class="tssr-action" data-change-action="admin-override">Valider en tant qu’administrateur</button>' : ""}
+        ${!archived && utils.canOverrideValidation(state.profile, request) ? '<button type="button" class="tssr-action" data-change-action="admin-override">Valider en tant qu’administrateur</button>' : ""}
         ${canRevise ? '<button type="button" class="tssr-action" data-change-action="revise">Créer une révision</button>' : ""}
         ${canCancel ? '<button type="button" class="tssr-action tssr-action--danger" data-change-action="cancel">Annuler</button>' : ""}
       </div>
@@ -867,6 +872,8 @@
     if (!request) return;
     const action = button.dataset.changeAction;
     if (action === "diff") return showDiff(request);
+    // Historical consultation is deliberately read-only, including delegated events.
+    if (campaign.contains(request.id)) return;
     if (action === "revise") {
       const file = request.change_request_files.find((item) => item.content_encoding === "utf-8" && item.file_path.endsWith(".md"));
       return openPageEditor({ filePath: file.file_path, initialContent: file.new_content, title: `Révision de ${request.title}`, supersedesId: request.id });
@@ -1034,6 +1041,7 @@
       <button type="button" class="tssr-tab" data-dashboard-tab="pending" aria-selected="${state.dashboardTab === "pending"}">En attente</button>
       <button type="button" class="tssr-tab" data-dashboard-tab="history" aria-selected="${state.dashboardTab === "history"}">Historique</button>
       <button type="button" class="tssr-tab" data-dashboard-tab="mine" aria-selected="${state.dashboardTab === "mine"}">Mes modifications</button>
+      <button type="button" class="tssr-tab" data-dashboard-tab="legacy" aria-selected="${state.dashboardTab === "legacy"}">Ancienne campagne (lecture seule)</button>
       ${state.profile.role === "admin" ? `<button type="button" class="tssr-tab" data-dashboard-tab="admin" aria-selected="${state.dashboardTab === "admin"}">Administration</button>` : ""}
     </div>
     <div data-dashboard-content><p class="tssr-muted">Chargement…</p></div>`;
@@ -1046,8 +1054,9 @@
     const content = page.querySelector("[data-dashboard-content]");
     if (state.dashboardTab === "admin") return adminList(content);
     try {
-      const requests = await loadChanges();
-      const filtered = state.dashboardTab === "pending"
+      const historical = state.dashboardTab === "legacy";
+      const requests = await loadChanges(historical);
+      const filtered = historical ? requests : state.dashboardTab === "pending"
         ? requests.filter((request) => ["pending", "approved", "publishing"].includes(request.status))
         : state.dashboardTab === "mine"
           ? requests.filter((request) => request.author_id === state.profile.id)
