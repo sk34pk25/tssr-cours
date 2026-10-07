@@ -160,3 +160,25 @@ Initial browser attempts were environmental/fixture failures (missing bundled Ch
 fixture omitted Material's `.md-container` for notifications). Tests were rerun using
 installed isolated Chrome and corrected synthetic markup. Final results above are executed.
 Chrome DevTools MCP was unavailable; isolated Playwright was used instead.
+
+## Final rollout validation — 2026-10-07
+
+The user explicitly authorized normal GitHub merge after successful validation.
+The earlier draft/build limitation above is historical, not the current verdict.
+Prerequisite PR #17 neutralized exactly eight obsolete links in seven existing pages,
+preserving their labels and all other content; no missing pedagogical page was created.
+It merged as `2c3e81b3786e1b6b552d9b316da590f05a21cb44` after CI success.
+PR #16 was rebased on that repaired main without conflict; its scope remains the same
+seven technical documentation/UI/test files, with no broker/backend changes.
+
+Fresh checks on the rebased source: JS 171 PASS, Python 136 PASS, shared Edge 160 PASS,
+all three Edge entrypoints type-check PASS, browser regressions 12 PASS, course
+structure PASS, glossary PASS, strict MkDocs PASS with zero warnings, diff check PASS.
+Isolated PostgreSQL 16.15 suites: maintenance/override 61 PASS, agent 10 PASS;
+containers have no network, published ports or host mounts.
+The PDF extractor test PASS uses the installed bundled Poppler via `PDFTOTEXT_BIN`;
+its initial local invocation lacked that environment setting (no code correction).
+Broker offline integration again accepts mono-module ECOSYSTEM and rejects cross-module
+ECOSYSTEM, with no source change, authentication or submission.
+The final public deployment and authenticated live UI are verified after merge;
+no synthetic production proposal is created to test future visibility.
