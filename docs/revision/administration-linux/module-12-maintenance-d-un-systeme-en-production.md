@@ -14,7 +14,7 @@ Les crontabs utilisateur et système sont distinctes. Une tâche de maintenance 
 
 Relever PID, utilisateur et terminal avant un signal. `SIGTERM` est la première demande d’arrêt ; `SIGKILL` est un dernier recours. Éviter les processus système et tout shell non explicitement concerné par une intervention de laboratoire.
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md) · [TP01](../../tp/administration-linux/module-12/tp01-journalisation/index.md) · [TP02](../../tp/administration-linux/module-12/tp02-planification/index.md) · [TP03](../../tp/administration-linux/module-12/tp03-informations-systeme/index.md).
+Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md) · [TP01](../../tp/administration-linux/module-12/tp01-journalisation/index.md) · [TP02](../../tp/administration-linux/module-12/tp02-planification/index.md) · TP03.
 
 ## À connaître absolument
 

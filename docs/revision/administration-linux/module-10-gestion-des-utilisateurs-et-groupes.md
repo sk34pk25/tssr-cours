@@ -26,4 +26,4 @@ La source conseille de limiter l’usage direct de `root`. `su -` effectue un ch
 - [ ] Vérifier une appartenance avec `id`.
 - [ ] Expliquer le verrouillage de mot de passe et la désactivation d’un compte.
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md) · [TP](../../tp/administration-linux/module-10/index.md) · [mémo](../../memo/comptes-groupes-debian.md).
+Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md) · TP · [mémo](../../memo/comptes-groupes-debian.md).
