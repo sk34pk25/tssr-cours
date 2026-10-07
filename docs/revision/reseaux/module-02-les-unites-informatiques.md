@@ -1,39 +1,32 @@
 # Fiche de révision — Module 02 — Les unités informatiques
 
-## À connaître absolument
+## Repères essentiels
 
-- Distinguer bit, octet et leurs multiples.
-- Manipuler les bases binaire, décimale et hexadécimale.
-- Convertir une capacité ou un débit sans confondre octets et bits par seconde.
-- Utiliser les puissances de deux utiles à l’adressage.
+- Un octet contient **8 bits**.
+- Binaire : base 2, symboles `0` et `1`.
+- Octal : base 8, un chiffre représente trois bits.
+- Décimal : base 10.
+- Hexadécimal : base 16, symboles `0` à `9` et `A` à `F` ; un chiffre représente quatre bits.
 
-## Méthode express
+## Exemples des sources
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+- `11000000` = `128 + 64` = `192`.
+- `25` en décimal devient `11001` en binaire par divisions successives par deux.
+- `110110` devient `66` en octal en groupant les bits par trois.
+- `1010 1111` devient `AF` en hexadécimal en groupant les bits par quatre.
 
-## Pièges fréquents
+## Méthode de contrôle
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+1. noter les bases de départ et d’arrivée ;
+2. regrouper les bits depuis la droite pour l’octal ou l’hexadécimal ;
+3. contrôler le résultat avec la conversion inverse quand elle est étudiée ;
+4. ne pas appliquer une formule qui n’a pas été enseignée par les sources disponibles.
 
-## Checklist de maîtrise
+## Liens
 
-- [ ] Distinguer bit, octet et leurs multiples.
-- [ ] Manipuler les bases binaire, décimale et hexadécimale.
-- [ ] Convertir une capacité ou un débit sans confondre octets et bits par seconde.
-- [ ] Utiliser les puissances de deux utiles à l’adressage.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+[Présentation de la formation](../../modules/01-bases-reseaux/index.md) · [Cours complet](../../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) · [Kahoot](../../kahoot/01-bases-reseaux-02-les-unites-informatiques.md)
 
-## Questions flash
+## Provenance
 
-1. Quels sont les concepts indispensables de « Les unités informatiques » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-02-les-unites-informatiques.md).
+- **Sources A :** contenu TSSR Drive live M01/M02 vérifié.
+- **Structuration B :** synthèse pédagogique sans apport externe.
