@@ -1,463 +1,99 @@
 # Module 01 — Découverte de Microsoft 365
 
 **Séquence :** Microsoft 365 — Outils collaboratifs  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 0 énoncé(s), 0 correction(s)
+**Rôle dans le parcours :** découvrir le modèle de service, les principaux composants de Microsoft 365 et la notion de tenant avant les modules consacrés aux outils.
 
-Test
+## Objectifs
 
-!!! warning "Périmètre et versions"
-    Les interfaces et les licences Microsoft 365 évoluent régulièrement. « Office 365 ProPlus » est l’ancien nom de « Microsoft 365 Apps for enterprise » ; les chemins d’écran sont à rapprocher de la version disponible dans le tenant utilisé. Référence : [Cycle de vie Microsoft 365 Apps](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-365-apps).
+À l'issue du module, vous devez pouvoir :
 
-## Objectifs et compétences
+- expliquer le principe d'une offre SaaS dans le contexte de Microsoft 365 ;
+- identifier les principaux services de la plateforme et leur rôle général ;
+- distinguer une famille de plans, une licence et les applications ou services mis à disposition ;
+- définir un tenant Microsoft 365 et le rôle de l'administrateur global ;
+- décrire les informations nécessaires à la création initiale d'un tenant.
 
-- Comprendre le modèle SaaS et les enjeux du cloud.
-- Identifier les principaux services Microsoft 365.
-- Distinguer plans, licences et applications clientes.
-- Reconnaître les prérequis d’une plateforme collaborative.
+## 1. Microsoft 365 : une plateforme de services cloud
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Découverte de Microsoft 365 » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Le support présente Microsoft 365 comme une offre de services cloud, disponible pour des publics variés et utilisable sur plusieurs plateformes. L'idée centrale n'est pas d'installer un serveur local pour chaque fonction : l'organisation souscrit un abonnement donnant accès à des services en ligne et, selon le plan choisi, à des applications clientes.
 
-## Méthode de travail
+### SaaS : le modèle à retenir
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+Dans le modèle **Software as a Service (SaaS)**, le logiciel est hébergé sur des serveurs distants. L'utilisateur consomme le service en ligne dans le cadre d'un abonnement, au lieu d'acquérir une version installée et maintenue uniquement sur son poste.
 
-## Vue d’ensemble de la plateforme
+Pour raisonner correctement, séparez trois questions :
 
-```mermaid
-flowchart TB
-    U["Identité de l’utilisateur"] --> L["Licence Microsoft 365"]
-    L --> A["Applications clientes<br/>Word · Excel · Outlook"]
-    L --> C["Services cloud"]
-    C --> EX["Exchange Online<br/>messagerie et calendrier"]
-    C --> SP["SharePoint Online<br/>sites et contenus partagés"]
-    C --> OD["OneDrive<br/>fichiers personnels synchronisés"]
-    C --> TE["Teams<br/>conversations et réunions"]
-    TE --> SP
-    TE --> EX
-```
+1. **Quel besoin doit être couvert ?** Messagerie, stockage personnel, partage d'équipe, visioconférence ou production de documents.
+2. **Quel service répond au besoin ?** Par exemple Exchange Online, SharePoint Online, OneDrive ou Microsoft Teams.
+3. **Quel plan et quelles licences donnent accès à ce service ?** La réponse dépend de la famille de plan retenue pour l'organisation.
 
-<p class="tssr-caption">La licence ouvre un ensemble cohérent de services : Teams s’appuie notamment sur SharePoint pour les fichiers d’équipe et sur Exchange pour certaines fonctions de calendrier et de messagerie.</p>
+!!! warning "Ne pas confondre plan, service et application"
+    Un plan correspond à une offre d'abonnement. Une licence ouvre des droits pour un utilisateur. Un service tel qu'Exchange Online ou SharePoint Online répond à une fonction. Une application cliente permet ensuite d'utiliser certains de ces services. Ces niveaux ne sont pas interchangeables.
 
-## Module 01 - Support de cours
+## 2. Les éléments de base de la plateforme
 
-### Outils collaboratifs
+Le support cite notamment les composants suivants :
 
-- Comprendre les enjeux d’une plateforme Cloud
-- Appréhender la gestion des licences dans Microsoft 365
-- Découvrir les applications Office 365 disponibles
-- Connaître les prérequis pour créer une plateforme
+| Élément | Finalité générale dans le support |
+|---|---|
+| Exchange Online | Messagerie et fonctions associées à la boîte aux lettres. |
+| Microsoft Teams | Collaboration, échanges et travail en équipe. |
+| SharePoint Online | Organisation, partage d'informations, utilisateurs et projets. |
+| OneDrive | Espace de fichiers associé à l'utilisateur. |
+| Office 365 ProPlus | Applications Office proposées dans l'offre présentée par le support. |
+| Azure AD | Service d'identité cité parmi les composants de base. |
 
-### L’environnement
+Le support évoque aussi OneNote, Yammer, Dynamics 365, Delve et Stream. Retenez surtout qu'une plateforme collaborative n'est pas un outil unique : elle réunit des services spécialisés, reliés par une même organisation et par les droits accordés aux utilisateurs.
 
-#### Microsoft 365
+## 3. Plans et licences : partir du contexte de l'organisation
 
-#### L’environnement Microsoft 365
+Les offres décrites dans le support sont organisées par familles : particuliers, PME, éducation, associations, gouvernement, employés de terrain et entreprises. Elles comportent ensuite différents plans, par exemple Business Basic, Business Standard, Business Premium, A1, A3, A5, E1, E3, E5 ou F3.
 
-#### Qu’est-ce qu’une offre SaaS ?
+La méthode attendue dans ce module est de ne pas choisir un nom de plan par réflexe. Il faut d'abord identifier le contexte de l'organisation, les usages à couvrir et les utilisateurs concernés. Le plan et les licences doivent ensuite correspondre aux services attendus.
 
-#### Le Software as a Service ou logiciel en
+!!! tip "Point de contrôle"
+    Avant de créer ou d'attribuer quoi que ce soit, formulez le besoin sous la forme : « quel utilisateur doit accéder à quel service, pour quel usage ? ». Cette formulation aide à distinguer un besoin de messagerie, de stockage, de partage ou de collaboration.
 
-#### tant que service, est un modèle
+## 4. Le tenant Microsoft 365
 
-#### d'exploitation commerciale des logiciels dans
+Un **tenant** représente l'ensemble des services de l'abonnement Microsoft 365 associés au domaine de l'organisation. C'est le périmètre dans lequel sont organisés les services et les utilisateurs de cette organisation.
 
-#### lequel ceux-ci sont installés sur des serveurs
+Le support associe l'administrateur global à l'utilisateur ayant souscrit l'abonnement et disposant des privilèges les plus élevés sur le tenant. Ce rôle doit donc être identifié dès la création, car il porte l'administration initiale de l'environnement.
 
-#### distants plutôt que sur la machine de
+### Créer un tenant : informations attendues
 
-#### l'utilisateur. Les clients ne paient pas de
+Le support présente une séquence de création en cinq étapes :
 
-#### licence d'utilisation pour une version, mais
+1. sélectionner une famille ou un plan ;
+2. fournir une adresse électronique valide ;
+3. renseigner les données de l'entreprise ;
+4. choisir le nom du tenant ;
+5. valider et terminer l'inscription.
 
-#### utilisent librement le service en ligne ou, plus
+Le nom initial est illustré sous la forme `administrateur@domaine.onmicrosoft.com`. Le support précise que ce nom de tenant n'est pas modifiable. Pour utiliser ensuite une adresse du type `@votreentreprise.fr`, il faut disposer d'un domaine internet puis créer un domaine personnalisé dans Microsoft 365.
 
-généralement, payent un abonnement.
+!!! warning "Vérification avant validation"
+    Vérifiez le plan choisi, l'adresse de l'administrateur global et le nom de tenant avant la validation : le support signale explicitement le caractère non modifiable du nom de tenant.
 
-#### (Wikipédia)
+## Synthèse de la démarche
 
-#### Software as a Service
+Pour présenter Microsoft 365 à une organisation, procédez dans cet ordre :
 
-#### SaaS
+1. identifier les besoins de collaboration ;
+2. associer chaque besoin à un service de la plateforme ;
+3. choisir une famille de plan et les licences cohérentes ;
+4. préparer les données nécessaires au tenant ;
+5. identifier l'administrateur global et contrôler les éléments avant validation.
 
-### L’environnement Microsoft 365
+## Mise en pratique et consolidation
 
-#### Microsoft 365 et ses concurrents
+Le Drive TSSR live ne contient ni énoncé, ni correction, ni TP distinct pour ce module. Le module s'appuie donc sur le support de cours et sur les activités de consolidation déjà publiées.
 
-#### L’environnement Microsoft 365
-
-- Offres Cloud
-- Multiples applications (Exchange,
-
-#### SharePoint, Office, etc.)
-
-- Multiplateformes
-- S’adresse aux particuliers et aux
-
-#### entreprises
-
-- Moins de serveurs sur site
-
-#### Qu’est-ce que Microsoft 365 ?
-
-#### 75 M
-
-#### d’utilisateurs
-
-#### actifs par jour
-
-#### fin mai 2020
-
-#### Datacenters
-
-#### en France
-
-#### Les éléments de base de Microsoft 365
-
-#### Exchange Online
-
-#### Office 365 ProPlus
-
-#### Microsoft Teams
-
-#### SharePoint Online
-
-#### Azure AD
-
-#### OneDrive
-
-#### L’environnement Microsoft 365
-
-#### Plans et licences
-
-#### Particuliers
-
-#### Microsoft Office 365
-
-#### PME
-
-#### Education
-
-#### Association
-
-#### Gouvernement
-
-#### Famille
-
-#### Personnel
-
-#### Famille et étudiant
-
-#### Business
-
-#### Standard
-
-#### Business Basic
-
-#### Business
-
-#### Premium
-
-#### A1
-
-#### A3
-
-#### A5
-
-#### Business Basic
-
-#### Pour les associations
-
-#### Business Standard
-
-#### Pour les associations
-
-#### E1
-
-#### Pour les associations
-
-#### E3
-
-#### Pour les associations
-
-#### E5
-
-#### Pour les associations
-
-#### E1
-
-#### Secteur public
-
-#### E3
-
-#### Secteur public
-
-#### E5
-
-#### Secteur public
-
-#### Employés de terrain
-
-#### F3
-
-#### Entreprise
-
-#### Entreprise E3
-
-#### Entreprise E5
-
-#### Apps for
-
-#### Business
-
-#### Apps for
-
-#### Entreprise
-
-#### Les services principaux
-
-#### L’environnement Microsoft 365
-
-#### Les services principaux
-
-#### Yammer
-
-#### (réseau social
-
-#### d’entreprise)
-
-#### OneNote
-
-#### Dynamics 365
-
-#### (liaison avec les
-
-#### applications
-
-#### métiers)
-
-#### Delve
-
-#### (les principales
-
-#### activités de votre
-
-#### entreprise)
-
-#### Stream
-
-#### (partage de vidéo)
-
-#### …
-
-#### Office 365 ProPlus
-
-#### Office 365
-
-#### Professional Plus
-
-#### Office 365 Online
-
-#### L’environnement Microsoft 365
-
-#### SharePoint Online
-
-#### Application
-
-#### Mobile
-
-#### Communauté
-
-#### Réseau
-
-#### social
-
-#### Partage
-
-#### Echanger des idées
-
-#### et réinventer la
-
-#### collaboration
-
-#### OneDrive
-
-#### Boîte aux
-
-#### lettres de
-
-#### site
-
-#### Organisation
-
-#### Gestion de l’information, des
-
-#### utilisateurs et des projets
-
-#### PowerPivot
-
-#### et
-
-#### PowerView
-
-#### Règle
-
-#### d’affichage
-
-#### de
-
-#### recherche
-
-#### Gestion
-
-#### Réduction des
-
-#### coûts, des risques et
-
-#### du temps pour
-
-#### votre infrastructureRègle de
-
-#### recherche
-
-#### Application Design
-
-#### Manager
-
-#### Construire
-
-#### Créer vos applications
-
-#### et vos outils
-
-#### SharePoint
-
-#### Store
-
-#### SharePoint
-
-#### Online
-
-### T enant Microsoft 365
-
-#### Définition
-
-#### Famille et plan
-
-#### Microsoft Office 365 est
-
-#### disponible en famille
-
-(particulier, association,
-
-#### entreprise…) de plans
-
-#### (Business, E3 secteur
-
-public, E5 entreprise).
-
-#### C’est l’ensemble des
-
-#### services de VOTRE
-
-#### abonnement dans
-
-#### Microsoft 365 associé à
-
-#### VOTRE domaine pour
-
-VOTRE entreprise.
-
-#### Tenant
-
-#### C’est l’utilisateur qui a
-
-#### souscrit à l’abonnement
-
-#### Microsoft 365 et qui a les
-
-#### plus hauts privilèges sur
-
-tout votre Tenant.
-
-#### Administrateur global
-
-#### Créer un Tenant Microsoft 365
-
-#### Sélectionnez
-
-#### un plan
-
-#### Fournissez une
-
-#### adresse mail
-
-#### valide
-
-#### Entrez les
-
-#### données de
-
-#### votre entreprise
-
-#### Choisissez le
-
-#### nom de votre
-
-#### Tenant
-
-#### Validez
-
-#### Exemple : famille, A1, E5, F3 Exemple : prénom.nomannée@campus-eni.fr
-
-#### Exemple : nom et
-
-#### nombre de salariés
-
-#### Exemple : admin@monentreprise.onmicrosoft.comTerminez l’inscription
-
-#### T enant Microsoft 365
-
-- Nom de Tenant type :
-- nomdeladministrateurglobal@dom.onmicrosoft.com
-- Possibilité d’envoyer ou de recevoir des courriels pour ce domaine
-- Le Tenant n'est pas modifiable
-- Afin d’avoir une adresse mail en @votreentreprise.fr :
-- Location d’un domaine internet puis création d’un domaine personnalisé
-
-#### dans Microsoft 365
-
-#### Votre Tenant
-
-#### Louer un domaine internet
-
-#### T enant Microsoft 365
-
-#### Louer un domaine internet
-
-## Mise en pratique
-
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
 - [Fiche de révision du module](../../revision/microsoft-365/module-01-decouverte-de-microsoft-365.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Découverte de Microsoft 365 » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Comprendre le modèle SaaS et les enjeux du cloud.
-    - Identifier les principaux services Microsoft 365.
-    - Distinguer plans, licences et applications clientes.
-    - Reconnaître les prérequis d’une plateforme collaborative.
-
-## Voir aussi
-
+- [Kahoot du module](../../kahoot/03-microsoft-365-outils-collaboratifs-01-decouverte-de-microsoft-365.md)
 - [Présentation de la séquence](index.md)
+
+## Source et provenance
+
+- **Source A — support TSSR live :** `Module 01 - Support de cours.pdf`, Drive `1ge2dZ-8TJDb2O0oL72reWf2Z1ZXGgiqk`, SHA-256 `83fd3c99e1a0c64d3f2c3fa6fcf3db97d18ab2eb8284daed34ec0e297b922380`.
+- **Structuration B :** l'ordre des sections, les tableaux, les avertissements et les formulations pédagogiques organisent les notions explicitement présentes dans le support ; ils n'ajoutent pas de source externe.
