@@ -423,6 +423,18 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(client.submit_registered(self.reg,result)["status"],"pending")
         self.assertEqual(self.reg.get(result["importId"])["state"],"PROPOSED")
         self.assertEqual(request_body["action"],"create")
+        self.assertEqual(request_body["title"],"Proposition source source1")
         self.assertNotIn("can_override",request_body)
         self.assertNotIn("author_id",request_body)
         self.assertEqual(request_body["payload_summary"]["idempotencyKey"],result["idempotencyKey"])
+
+    def test_proposal_adapter_rejects_multiple_pedagogical_objects_before_network(self):
+        client=ProposalClient("https://"+"x"*20+".supabase.co","fixture-public","fixture-session",enabled=True)
+        preview={"status":"READY_FOR_REVIEW","source":{"fileId":"source1"},
+                 "idempotencyKey":"fixture-key","proposalFingerprint":"fixture-fingerprint",
+                 "base_commit_sha":"5ce6c9307e68f9482de370e6504a8cb0dc28cf13","files":[
+            {"file_path":"docs/modules/05-administration-debian-gnu-linux/module-01-presentation.md","new_content":"# M01","change_type":"update"},
+            {"file_path":"docs/modules/05-administration-debian-gnu-linux/module-02-installation.md","new_content":"# M02","change_type":"update"},
+        ]}
+        with self.assertRaisesRegex(SourceError,"granularity"):
+            client.submit(preview)
