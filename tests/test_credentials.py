@@ -14,9 +14,17 @@ class CredentialsTests(unittest.TestCase):
     def test_cli_argument_boundary(self):
         self.assertFalse(contains_credential("Validation du login/Password avec Outlook online"))
         for prefix in ("", "\n", "\t", "`", "(", ":", ";", "\"", "'"):
-            for option in ("/password", "--password", "-password", "-p", "--token"):
+            for option in ("/password", "--password", "-password", "--token", "--secret"):
                 with self.subTest(prefix=prefix, option=option):
                     self.assertTrue(contains_credential(f"{prefix}{option} secret123"))
+
+    def test_short_p_has_command_specific_non_secret_meanings(self):
+        for text in ("netstat -p : Affiche les processus associés aux connexions",
+                     "netstat -p", "netstat -p :", "netstat -p | grep :22",
+                     "mkdir -p /tmp/test", "ssh -p 22 host"):
+            with self.subTest(text=text):
+                self.assertFalse(contains_credential(text))
+                self.assertTrue(contains_credential(text + "\npassword=secret123"))
 
     def test_shared_cases_through_ingestion_boundary(self):
         cases = json.loads((ROOT / "tests/fixtures/credentials.json").read_text())
