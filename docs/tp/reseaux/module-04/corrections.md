@@ -1,7 +1,8 @@
 # Corrections — Module 04 — La communication dans un réseau
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+> **Utilisation de la correction.** Réalisez d’abord les tableaux de communication et les routes demandées dans l’[énoncé](enonces.md). Cette correction conserve les réponses source ; relisez pour chaque liaison le masque, la passerelle et l’itinéraire indiqués avant de conclure.
+
+> **Contrôle de cohérence.** Les valeurs et notations sont reproduites sans normalisation. Si un résultat paraît contradictoire avec les paramètres du scénario, consignez l’écart au lieu de modifier silencieusement l’énoncé ou la correction.
 
 ## M04-01-01-TP-La_communication_Correction
 

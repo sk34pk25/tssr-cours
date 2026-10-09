@@ -1,7 +1,8 @@
 # Énoncés — Module 04 — La communication dans un réseau
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+> **Objectif du laboratoire.** Les énoncés M04 font confronter adresses IP, masques, passerelles et topologies afin de décider si une communication est directe, impossible ou transite par un routeur. Les tableaux, adresses, questions et valeurs ci-dessous sont conservés tels qu’ils figurent dans les sources TSSR.
+
+> **Déroulement.** Commencez par le TP de communication (durée source : 2 heures), puis utilisez l’activité Packet Tracer (durée source : 30 minutes). Les réponses sont volontairement séparées dans la [correction](corrections.md).
 
 ## M04-01-01-TP-La_communication
 
