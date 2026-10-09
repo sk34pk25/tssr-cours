@@ -3681,6 +3681,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#contexte-objectif-et-prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte, objectif et prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-attendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultats attendus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#m03-04-tp-sous-reseaux" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3782,10 +3804,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adresse-valide-reseau-diffusion-standard" class="md-nav__link">
+  <a href="#adresse-validite-reseaudiffusion-notation-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adresse Valide @Réseau / @Diffusion Standard
+        Adresse · validité · réseau/diffusion · notation standard
       
     </span>
   </a>
@@ -12275,6 +12297,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#contexte-objectif-et-prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte, objectif et prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-attendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultats attendus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#m03-04-tp-sous-reseaux" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -12376,10 +12420,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adresse-valide-reseau-diffusion-standard" class="md-nav__link">
+  <a href="#adresse-validite-reseaudiffusion-notation-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adresse Valide @Réseau / @Diffusion Standard
+        Adresse · validité · réseau/diffusion · notation standard
       
     </span>
   </a>
@@ -13314,10 +13358,19 @@
 
 
 <h1 id="enonces-module-03-ladressage-ipv4">Énoncés — Module 03 — L’adressage IPv4<a class="headerlink" href="#enonces-module-03-ladressage-ipv4" title="Permanent link">¶</a></h1>
-<div class="admonition danger">
-<p class="admonition-title">Avant une manipulation destructive</p>
-<p>Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.</p>
+<div class="admonition note">
+<p class="admonition-title">Contexte du laboratoire</p>
+<p>Les adresses, préfixes et scénarios ci-dessous sont ceux du TP source. Ils servent à exercer le calcul IPv4 ; ne les réutilisez pas comme plan d’adressage réel sans validation adaptée.</p>
 </div>
+<h2 id="contexte-objectif-et-prerequis">Contexte, objectif et prérequis<a class="headerlink" href="#contexte-objectif-et-prerequis" title="Permanent link">¶</a></h2>
+<p><strong>Durée source :</strong> 3 heures. Ce TP intervient après la partie du module 3 consacrée au découpage en sous-réseaux. Il demande de vérifier des adresses CIDR, de choisir des masques, puis de découper et d’analyser des blocs IPv4.</p>
+<p>Avant de commencer, maîtrisez l’adresse réseau, l’adresse de diffusion, le préfixe CIDR et la plage d’hôtes. Aucun fichier binaire n’est requis pour répondre aux parties écrites ; la ressource Packet Tracer associée reste distincte.</p>
+<h2 id="resultats-attendus">Résultats attendus<a class="headerlink" href="#resultats-attendus" title="Permanent link">¶</a></h2>
+<ul>
+<li>pour chaque adresse, indiquer la validité comme adresse d’hôte, le réseau, la diffusion et le masque standard demandé ;</li>
+<li>proposer les préfixes ou masques demandés par les scénarios ;</li>
+<li>documenter les découpages et les plages inutilisées demandés, en gardant les calculs intermédiaires.</li>
+</ul>
 <h2 id="m03-04-tp-sous-reseaux">M03-04-TP-Sous-réseaux<a class="headerlink" href="#m03-04-tp-sous-reseaux" title="Permanent link">¶</a></h2>
 <h3 id="calcul-des-sous-reseaux">Calcul des sous-réseaux<a class="headerlink" href="#calcul-des-sous-reseaux" title="Permanent link">¶</a></h3>
 <h4 id="tp-du-module-03-04">TP du Module 03-04<a class="headerlink" href="#tp-du-module-03-04" title="Permanent link">¶</a></h4>
@@ -13330,7 +13383,7 @@
 <h4 id="enonce">Énoncé<a class="headerlink" href="#enonce" title="Permanent link">¶</a></h4>
 <h4 id="a-validite-des-adresses-en-notation-cidr">A. Validité des adresses en notation CIDR<a class="headerlink" href="#a-validite-des-adresses-en-notation-cidr" title="Permanent link">¶</a></h4>
 <p>Indiquez si les adresses sont valides pour des hôtes. Transformez la notation CIDR en notation standard.</p>
-<h4 id="adresse-valide-reseau-diffusion-standard">Adresse Valide @Réseau / @Diffusion Standard<a class="headerlink" href="#adresse-valide-reseau-diffusion-standard" title="Permanent link">¶</a></h4>
+<h4 id="adresse-validite-reseaudiffusion-notation-standard">Adresse · validité · réseau/diffusion · notation standard<a class="headerlink" href="#adresse-validite-reseaudiffusion-notation-standard" title="Permanent link">¶</a></h4>
 <p>12.1.1.1 /8 OUI 12.0.0.0 12.255.255.255 12.1.1.1 255.0.0.0 209.207.177.100 /30 ................................ ..................... ................................ ..................... ................................ .................... 192.0.35.12 /26 ................................ ..................... ................................ ..................... ................................ .................... 120.146.80.1 /20 ................................ ..................... ................................ ..................... ................................ .................... 120.80.1.0 /11 ................................ ..................... ................................ ..................... ................................ .................... 211.104.16.17 /29 ................................ ..................... ................................ ..................... ................................ .................... 172.168.0.1 /24 ................................ ..................... ................................ ..................... ................................ .................... 109.168.248.32 /21 ................................ ..................... ................................ ..................... ................................ ....................</p>
 <p>96.139.84.12 /21 ................................ ..................... ................................ ..................... ................................ .................... 172.16.32.0 /25 ................................ ..................... ................................ ..................... ................................ .................... 172.16.0.127 /25 ................................ ..................... ................................ .................... 192.168.19.87 /29 ................................ ..................... ................................ ..................... ................................ .................... 172.16.32.1 /18 ................................ ..................... ................................ ..................... ................................ .................... 210.71.10.128 /28 ................................ ..................... ................................ ..................... ................................ ....................</p>
 <h3 id="b-calculs-de-masque">B. Calculs de masque<a class="headerlink" href="#b-calculs-de-masque" title="Permanent link">¶</a></h3>

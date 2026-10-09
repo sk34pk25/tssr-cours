@@ -3709,6 +3709,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#methode-de-relecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de relecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#m03-04-tp-sous-reseaux_correction" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -13376,6 +13387,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#methode-de-relecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthode de relecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#m03-04-tp-sous-reseaux_correction" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -15516,9 +15538,20 @@
 
 
 <h1 id="corrections-module-03-ladressage-ipv4">Corrections — Module 03 — L’adressage IPv4<a class="headerlink" href="#corrections-module-03-ladressage-ipv4" title="Permanent link">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Utiliser la correction après la tentative</p>
+<p>Cette correction reprend les réponses du document source. Comparez d’abord votre calcul de réseau, diffusion, masque et hôtes, puis identifiez l’étape qui explique l’écart.</p>
+</div>
+<h2 id="methode-de-relecture">Méthode de relecture<a class="headerlink" href="#methode-de-relecture" title="Permanent link">¶</a></h2>
+<ol>
+<li>vérifier le préfixe et le masque décimal ;</li>
+<li>contrôler l’adresse réseau et la diffusion ;</li>
+<li>vérifier qu’une adresse d’hôte n’est ni l’adresse réseau ni la diffusion ;</li>
+<li>comparer seulement ensuite les valeurs indiquées par la correction source.</li>
+</ol>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.</p>
+<p class="admonition-title">Incohérence source à conserver</p>
+<p>Pour le scénario 1, l’énoncé demande 25 hôtes par segment alors que la correction indique <code>/28</code> et <code>14</code> hôtes utilisables. Cette divergence est conservée telle quelle ; elle doit être revue, non corrigée silencieusement.</p>
 </div>
 <h2 id="m03-04-tp-sous-reseaux_correction">M03-04-TP-Sous-réseaux_Correction<a class="headerlink" href="#m03-04-tp-sous-reseaux_correction" title="Permanent link">¶</a></h2>
 <h3 id="calcul-des-sous-reseaux">Calcul des sous-réseaux<a class="headerlink" href="#calcul-des-sous-reseaux" title="Permanent link">¶</a></h3>
