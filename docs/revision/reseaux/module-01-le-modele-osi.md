@@ -1,39 +1,45 @@
 # Fiche de révision — Module 01 — Le modèle OSI
 
-## À connaître absolument
+## Les sept couches dans l’ordre
 
-- Situer les sept couches du modèle OSI et leur responsabilité.
-- Relier données, segments, paquets, trames et bits aux PDU correspondantes.
-- Expliquer l’encapsulation et la désencapsulation de bout en bout.
-- Associer protocoles, adresses, ports et équipements à la bonne couche.
+| Couche | Nom | Repère |
+|---|---|---|
+| 7 | Application | Services réseau aux applications : HTTP/HTTPS, FTP, SMTP, DNS. |
+| 6 | Présentation | Format, chiffrement et compression des données. |
+| 5 | Session | Gestion du dialogue entre applications. |
+| 4 | Transport | Segments, TCP/UDP et ports. |
+| 3 | Réseau | Paquets, IPv4/IPv6, routage. |
+| 2 | Liaison | Trames, MAC, Ethernet/Wi-Fi, commutateur. |
+| 1 | Physique | Bits et signaux sur câble, fibre ou radio. |
 
-## Méthode express
+## Le chemin des données
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+- Données applicatives → **segment** à la couche 4.
+- Segment + informations IP → **paquet** à la couche 3.
+- Paquet + informations de liaison → **trame** à la couche 2.
+- Trame convertie en **bits** à la couche 1.
 
-## Pièges fréquents
+Une couche reçoit une **SDU**, ajoute ses informations de contrôle (**PCI**) et produit sa **PDU**. À l’arrivée, la désencapsulation retire ces informations dans l’ordre inverse.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Les trois repères à ne pas confondre
 
-## Checklist de maîtrise
+- **MAC** : interface sur le lien local ; le commutateur l’utilise pour relayer une trame.
+- **IP** : hôte et réseau ; le routeur l’utilise pour choisir le réseau suivant.
+- **Port** : service ou flux à la couche transport ; exemples cités : 22/SSH, 53/DNS, 80/HTTP, 443/HTTPS.
 
-- [ ] Situer les sept couches du modèle OSI et leur responsabilité.
-- [ ] Relier données, segments, paquets, trames et bits aux PDU correspondantes.
-- [ ] Expliquer l’encapsulation et la désencapsulation de bout en bout.
-- [ ] Associer protocoles, adresses, ports et équipements à la bonne couche.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Observer avec Packet Tracer
+
+Les activités M01 sont des fichiers binaires Packet Tracer. Ouvrez-les dans l’outil, repérez les équipements, puis utilisez le mode Simulation pour relier le trajet observé aux couches OSI. Les fichiers n’ont pas été interprétés hors de Packet Tracer.
 
 ## Questions flash
 
-1. Quels sont les concepts indispensables de « Le modèle OSI » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+1. Quelle PDU est associée à la couche réseau ?
+2. Quelle différence pratique faites-vous entre MAC, IP et port ?
+3. Quelle transformation observe-t-on entre la couche transport et la couche réseau ?
 
-Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-01-le-modele-osi.md).
+Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-01-le-modele-osi.md) · [TP Packet Tracer](../../tp/reseaux/module-01/index.md) · [Kahoot](../../kahoot/bases-reseaux-m01-modele-osi.md).
+
+## Provenance
+
+- **Sources A :** synthèse M01 et contenu Kahoot M01/M02 TSSR Drive live ; activités Packet Tracer référencées comme binaires.
+- **Structuration B :** synthèse pédagogique sans apport externe.
