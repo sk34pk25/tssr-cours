@@ -1,39 +1,49 @@
 # Fiche de révision — Module 05 — Les premières commandes réseau
 
-## À connaître absolument
+## Les cinq questions à poser
 
-- Afficher la configuration IP sous Windows et GNU/Linux.
-- Tester la résolution de voisinage, la connectivité et le chemin réseau.
-- Observer les connexions et les ports en écoute.
-- Choisir une commande en fonction du symptôme observé.
+1. Quelle adresse, quel masque, quelle passerelle et quels DNS sont configurés ?
+2. Quelle association IP/MAC est connue sur le lien local ?
+3. La cible répond-elle à un test de connectivité ?
+4. Par quels sauts le trafic tente-t-il de passer ?
+5. Quels ports et quelles connexions sont visibles localement ?
 
-## Méthode express
+## Commandes à associer au besoin
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Besoin | Windows | Linux / commande source |
+|---|---|---|
+| Configuration détaillée | `ipconfig /all` | `ip addr`, `ip -4 addr` |
+| Voisins IP/MAC | `arp -a` | `ip neigh` |
+| Test de joignabilité | `ping` | `ping` |
+| Chemin | `tracert` | `traceroute` |
+| Connexions et ports | `netstat` | `netstat` |
 
-## Pièges fréquents
+## Lecture prudente des résultats
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+- Une adresse APIPA `169.254.x.x` est un indice cité par le support lors d’un contrôle de configuration DHCP.
+- L’absence de réponse à `ping` peut aussi correspondre à un filtrage ICMP.
+- Des astérisques dans `tracert` ou `traceroute` peuvent correspondre à un équipement qui ne répond pas aux messages attendus.
+- `netstat` décrit un état de connexion ou d’écoute ; l’interprétation doit être rapprochée du service concerné.
 
-## Checklist de maîtrise
+## Commandes à manipuler avec précaution
 
-- [ ] Afficher la configuration IP sous Windows et GNU/Linux.
-- [ ] Tester la résolution de voisinage, la connectivité et le chemin réseau.
-- [ ] Observer les connexions et les ports en écoute.
-- [ ] Choisir une commande en fonction du symptôme observé.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Les sources décrivent des commandes qui modifient une adresse, une route ou un voisinage : `ip addr add`, `ip addr del`, `ip route add`, `ip route del`, `ip neigh add`, `ip neigh del`, ainsi que les variantes ARP. Relever l’état initial et identifier l’interface avant toute exécution.
 
-## Questions flash
+## Checklist
 
-1. Quels sont les concepts indispensables de « Les premières commandes réseau » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+- [ ] Je sais distinguer une commande de relevé d’une commande de modification.
+- [ ] Je peux relier `arp -a` ou `ip neigh` à un problème de voisinage local.
+- [ ] Je lis perte et délai de `ping` sans conclure trop vite.
+- [ ] Je peux utiliser `tracert` ou `traceroute` pour formuler une hypothèse de chemin.
+- [ ] Je sais où observer un port en écoute avec `netstat`.
 
-Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md).
+## Ressource et liens
+
+- [Cours M05](../../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md)
+- [Ressource Packet Tracer M05](../../tp/reseaux/module-05/index.md#ressources)
+- [Kahoot M05](../../kahoot/01-bases-reseaux-05-les-premieres-commandes-reseau.md)
+
+## Sources et provenance
+
+- **A — source TSSR :** `cours kahoot module 5 et 6.txt`.
+- **B — structuration pédagogique :** tableau, questions et checklist construits à partir de cette source.
