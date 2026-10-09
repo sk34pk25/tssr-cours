@@ -1,7 +1,17 @@
 # Corrections — Module 03 — L’adressage IPv4
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+!!! note "Utiliser la correction après la tentative"
+    Cette correction reprend les réponses du document source. Comparez d’abord votre calcul de réseau, diffusion, masque et hôtes, puis identifiez l’étape qui explique l’écart.
+
+## Méthode de relecture
+
+1. vérifier le préfixe et le masque décimal ;
+2. contrôler l’adresse réseau et la diffusion ;
+3. vérifier qu’une adresse d’hôte n’est ni l’adresse réseau ni la diffusion ;
+4. comparer seulement ensuite les valeurs indiquées par la correction source.
+
+!!! warning "Incohérence source à conserver"
+    Pour le scénario 1, l’énoncé demande 25 hôtes par segment alors que la correction indique `/28` et `14` hôtes utilisables. Cette divergence est conservée telle quelle ; elle doit être revue, non corrigée silencieusement.
 
 ## M03-04-TP-Sous-réseaux_Correction
 

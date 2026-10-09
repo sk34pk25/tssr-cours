@@ -1,7 +1,19 @@
 # Énoncés — Module 03 — L’adressage IPv4
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+!!! note "Contexte du laboratoire"
+    Les adresses, préfixes et scénarios ci-dessous sont ceux du TP source. Ils servent à exercer le calcul IPv4 ; ne les réutilisez pas comme plan d’adressage réel sans validation adaptée.
+
+## Contexte, objectif et prérequis
+
+**Durée source :** 3 heures. Ce TP intervient après la partie du module 3 consacrée au découpage en sous-réseaux. Il demande de vérifier des adresses CIDR, de choisir des masques, puis de découper et d’analyser des blocs IPv4.
+
+Avant de commencer, maîtrisez l’adresse réseau, l’adresse de diffusion, le préfixe CIDR et la plage d’hôtes. Aucun fichier binaire n’est requis pour répondre aux parties écrites ; la ressource Packet Tracer associée reste distincte.
+
+## Résultats attendus
+
+- pour chaque adresse, indiquer la validité comme adresse d’hôte, le réseau, la diffusion et le masque standard demandé ;
+- proposer les préfixes ou masques demandés par les scénarios ;
+- documenter les découpages et les plages inutilisées demandés, en gardant les calculs intermédiaires.
 
 ## M03-04-TP-Sous-réseaux
 
@@ -27,7 +39,7 @@ Pour effectuer ce TP, il faut avoir suivi la partie sur le découpage en sous -r
 
 Indiquez si les adresses sont valides pour des hôtes. Transformez la notation CIDR en notation standard.
 
-#### Adresse Valide @Réseau / @Diffusion Standard
+#### Adresse · validité · réseau/diffusion · notation standard
 
 12.1.1.1 /8 OUI 12.0.0.0 12.255.255.255 12.1.1.1 255.0.0.0 209.207.177.100 /30 ................................ ..................... ................................ ..................... ................................ .................... 192.0.35.12 /26 ................................ ..................... ................................ ..................... ................................ .................... 120.146.80.1 /20 ................................ ..................... ................................ ..................... ................................ .................... 120.80.1.0 /11 ................................ ..................... ................................ ..................... ................................ .................... 211.104.16.17 /29 ................................ ..................... ................................ ..................... ................................ .................... 172.168.0.1 /24 ................................ ..................... ................................ ..................... ................................ .................... 109.168.248.32 /21 ................................ ..................... ................................ ..................... ................................ ....................
 
