@@ -11294,10 +11294,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#organisation" class="md-nav__link">
+  <a href="#scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organisation
+        Scénario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-et-environnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis et environnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-du-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours du TP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrables-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables et contrôles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens utiles
       
     </span>
   </a>
@@ -11410,18 +11465,36 @@
 
 
 <h1 id="tp-module-09-les-pilotes-et-les-imprimantes">TP — Module 09 — Les pilotes et les imprimantes<a class="headerlink" href="#tp-module-09-les-pilotes-et-les-imprimantes" title="Permanent link">¶</a></h1>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer l’environnement et un retour arrière.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’énoncé en entier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Noter l’état initial.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réaliser les manipulations.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier chaque résultat.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comparer avec la correction.</li>
-<li><a href="enonces/">Énoncés</a></li>
-<li><a href="corrections/">Corrections</a></li>
+<h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
+<p>Ce TP de <strong>1 heure</strong> s'appuie sur une machine Windows 10 de laboratoire et une seconde machine nommée Discovery. Il vise à consulter les pilotes, observer le pilote graphique, contrôler les imprimantes disponibles, produire un PDF de test, connecter une imprimante partagée puis interroger une imprimante avec PowerShell.</p>
+<h2 id="prerequis-et-environnement">Prérequis et environnement<a class="headerlink" href="#prerequis-et-environnement" title="Permanent link">¶</a></h2>
+<ul>
+<li>une VM <code>Win10-XX</code> et une VM Discovery ;</li>
+<li>une imprimante partagée et les pilotes associés ;</li>
+<li>les droits nécessaires fournis pour le laboratoire.</li>
+</ul>
+<p>Ces ressources de laboratoire sont mentionnées dans les documents source mais <strong>ne sont pas fournies dans le dossier Drive M09 live</strong>. N'inventez ni machine, ni pilote, ni partage de remplacement.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>exporter les informations détaillées et de signature des pilotes au format CSV ;</li>
+<li>consulter les informations du pilote graphique avec l'interface Windows ;</li>
+<li>configurer Microsoft Print to PDF et vérifier le document produit ;</li>
+<li>connecter et contrôler l'imprimante partagée indiquée par le scénario ;</li>
+<li>relever les propriétés demandées d'une imprimante avec PowerShell.</li>
+</ul>
+<h2 id="parcours-du-tp">Parcours du TP<a class="headerlink" href="#parcours-du-tp" title="Permanent link">¶</a></h2>
+<ol>
+<li><a href="enonces/">Énoncé</a> — consignes et valeurs du scénario.</li>
+<li>Réaliser les activités dans l'ordre, en conservant les observations demandées.</li>
+<li><a href="corrections/">Correction</a> — méthode et contrôles après une tentative complète.</li>
+</ol>
+<h2 id="livrables-et-controles">Livrables et contrôles<a class="headerlink" href="#livrables-et-controles" title="Permanent link">¶</a></h2>
+<p>Le TP demande des exports CSV sur les pilotes, un contrôle du pilote graphique, une page de test PDF et des informations sur l'imprimante interrogée. Les valeurs de matériels, de machines, de partage et de réseau sont des valeurs du laboratoire source.</p>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
+<ul>
 <li><a href="../../../modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes/">Cours du module</a></li>
+<li><a href="../../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes/">Fiche de révision</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-09-les-pilotes-et-les-imprimantes/">Kahoot du module</a></li>
 </ul>
 
 
