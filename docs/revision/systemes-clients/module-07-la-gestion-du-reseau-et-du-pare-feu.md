@@ -1,50 +1,57 @@
 # Fiche de révision — Module 07 — La gestion du réseau et du pare-feu
 
-## À connaître absolument
+## Repères essentiels
 
-- Configurer une interface IPv4 et un profil réseau.
-- Distinguer profils Domaine, Privé et Public.
-- Créer et contrôler des règles de pare-feu.
-- Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.
+- Une carte réseau utilise une adresse IP, un masque, une passerelle par défaut et des serveurs DNS.
+- L’emplacement réseau Windows — privé, public ou domaine — influence le comportement du pare-feu.
+- Une configuration peut être statique, fournie par DHCP ou, dans le cas présenté par le support, relever d’APIPA lorsque DHCP n’est pas joignable.
+- La passerelle permet de joindre les autres réseaux ; la table de routage choisit le saut suivant ; le cache ARP associe une IP à une adresse MAC sur le réseau local.
 
-## Méthode express
+## Configuration IPv4
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Élément | À vérifier |
+| --- | --- |
+| Adresse IP | Elle correspond au réseau et à la partie hôte demandés par le scénario. |
+| Masque | Il permet d’identifier la partie réseau de l’adresse. |
+| Passerelle | Elle est nécessaire pour les destinations hors réseau local. |
+| DNS | Il est utilisé pour la résolution des noms d’hôtes. |
+
+## DHCP et APIPA
+
+- **DHCP** fournit dynamiquement les paramètres réseau du poste.
+- Dans le support, **APIPA** correspond au réseau `169.254.0.0/16` lorsqu’aucun serveur DHCP n’est joignable.
+- APIPA permet une communication temporaire locale, mais invite à vérifier l’accès au service DHCP dans le scénario de laboratoire.
 
 ## Commandes à reconnaître
 
-```text
-IP : 192.168.5.254/24
-IP : 192.168.10.254/24
-IP : 203.0.113.1/30
-IP : 203.0.113.2/30
-IP : 192.168.5.1/24
-IP : 192.168.10.1/24
-```
+| Commande | Utilisation dans le module |
+| --- | --- |
+| `ipconfig` | Afficher la configuration de l’interface. |
+| `ipconfig /all` | Relever la configuration détaillée, dont passerelle et DNS. |
+| `ping` | Tester la connectivité ; le pare-feu peut bloquer ICMP. |
+| `tracert` | Observer le chemin suivi jusqu’à une destination. |
+| `nslookup` | Interroger la résolution DNS d’un nom. |
 
-## Pièges fréquents
+Les adresses, noms et résultats observés dans le TP sont propres à son environnement. Ne les traitez pas comme des valeurs universelles.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Pare-feu Windows
 
-## Checklist de maîtrise
+- Vérifier l’état du pare-feu pour chaque profil réseau.
+- Autoriser une application seulement pour le profil demandé par le scénario.
+- Utiliser la console avancée pour consulter et activer la règle entrante ICMPv4 prévue.
+- Tester ensuite la communication entre les postes indiqués par le TP.
 
-- [ ] Configurer une interface IPv4 et un profil réseau.
-- [ ] Distinguer profils Domaine, Privé et Public.
-- [ ] Créer et contrôler des règles de pare-feu.
-- [ ] Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Contrôles de maîtrise
 
-## Questions flash
+- [ ] Je peux expliquer quand une destination est transmise à la passerelle.
+- [ ] Je sais relever les paramètres d’une interface avec `ipconfig /all`.
+- [ ] Je distingue un test de connectivité, un chemin réseau et une résolution DNS.
+- [ ] Je sais relier le profil réseau aux règles du pare-feu Windows.
+- [ ] Je contrôle une règle ICMPv4 par un test effectué dans le laboratoire prévu.
 
-1. Quels sont les concepts indispensables de « La gestion du réseau et du pare-feu » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md) et [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-07-la-gestion-du-reseau-et-du-pare-feu.md).
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md).
+## Source et provenance
+
+- **Sources A — TSSR Drive live :** support, énoncé et correction M07.
+- **Structuration B :** synthèse pédagogique limitée aux notions et contrôles attestés par ces sources.

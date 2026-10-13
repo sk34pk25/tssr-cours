@@ -1,99 +1,65 @@
-# Énoncés — Module 07 — La gestion du réseau et du pare-feu
+# Énoncé — Module 07 — Gestion du réseau
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Contexte
 
-## Enonc‚ du TP - Gestion du r‚seau
+Ce TP demande de configurer la carte réseau d’une VM, de mettre en place un adressage IP fixe, de tester les communications et la résolution de noms, puis de parcourir et d’adapter la configuration du pare-feu.
 
-### Systèmes Clients Microsoft
+**Durée estimée : 1 heure.** Lisez l’ensemble du TP avant de commencer.
 
-#### Gestion du réseau
+## Environnement
 
-#### TP du Module 07 — La gestion du réseau et du pare-feu
+Sur votre VM `Win10-XX` :
 
-Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en place un adressage IP fixe puis effectuerez des tests (tests de communications et de résolution de noms entre autres). Vous parcourrez et modifierez la configuration du pare-feu pour l’adapter aux consignes.
+1. vérifiez d’abord le report de 35 jours de Windows Update ;
+2. connectez la VM sur le switch **Bridged** ;
+3. relevez l’adresse IP obtenue et l’adresse du réseau associé.
 
-#### Durée estimée
+Les VM, le switch, les paramètres Campus et les informations de laboratoire cités par le scénario ne sont pas fournis dans le dossier Drive M07 live.
 
-#### 1 heure
+## Configuration IPv4 fixe
 
-#### Énoncé
+Configurez une adresse IPv4 fixe sur l’interface réseau de la VM.
 
-#### Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
+- La partie réseau de l’adresse doit être la même que celle de l’ordinateur utilisé pour réaliser les TP.
+- La partie hôte est composée du rang alphabétique de la première lettre du prénom puis de celui de la première lettre du nom de famille.
 
-#### Sur votre VM Win10-XX, configurez vos accès réseau :
+Exemple conservé du scénario : pour **Pierre-Louis Le Guervelec**, `P` est la 16e lettre de l’alphabet et `L` la 12e ; les troisième et quatrième octets sont donc respectivement `16` et `12`.
 
-Connectez votre VM sur le switch Bridged (vérifier d'abord le report de 35 jours de
+- Masque : `255.255.0.0`.
+- Passerelle par défaut et serveur DNS préféré : mêmes valeurs que celles configurées sur la VM Campus en ligne.
 
-#### Windows Update)
+Ces valeurs appartiennent au laboratoire source ; elles ne constituent pas une configuration générale à réutiliser hors de cet environnement.
 
-Possédez-vous une adresse IP ? Laquelle ? Quelle est l'adresse du réseau ?
+## Tests de connectivité
 
-#### Configurez une adresse IP fixe sur l'interface réseau de votre VM :
+Avec la commande `ping`, testez les hôtes suivants :
 
-  - La partie réseau de votre adresse sera la même que celle qui est configurée
+- l’adresse IP de la passerelle par défaut ;
+- l’adresse IP de votre VM Discovery ;
+- `www.facebook.com`.
 
-sur l’ordinateur à votre disposition pour réaliser les TP.
+Pour chaque test, indiquez si l’hôte est joignable et situez-le, lorsque le scénario le permet, sur le réseau local ou sur Internet. Si un hôte n’est pas joignable, vérifiez la configuration réseau.
 
-  - La partie hôte sera composée du rang alphabétique de la première lettre
+Utilisez ensuite `tracert` pour les mêmes destinations. Notez ce que cette commande apprend sur le chemin suivi par les paquets.
 
-#### de votre prénom puis du rang alphabétique de la première lettre de votre
+## Résolution DNS
 
-#### nom de famille
+Utilisez `nslookup` avec les noms suivants :
 
-#### Exemple : Pierre-Louis Le Guervelec
+- `www.hadopi.fr` ;
+- `www.amendes.gouv.fr` ;
+- `www.facebook.com`.
 
-#### P = 16eme lettre de l’alphabet  l’octet n°3 de l’adresse IP
+Indiquez si chaque requête reçoit une réponse et les adresses IPv4 retournées au moment du TP. Les réponses DNS sont des observations dépendantes de l’environnement et de la date du test.
 
-#### sera donc 16
+## Pare-feu sur Win10-XX
 
-#### L = 12eme lettre de l’alphabet  l’octet n°4 de l’adresse IP
+1. Vérifiez l’état d’activation du pare-feu pour chaque profil réseau.
+2. Dans les programmes autorisés, autorisez le **Bureau à distance** uniquement pour le profil privé.
+3. Dans la console **Pare-feu Windows Defender avec fonctions avancées de sécurité**, utilisez la règle prédéfinie permettant d’autoriser le ping entre les postes clients.
 
-#### sera donc 12
+## Livrables et vérifications
 
-  - Le masque sera 255.255.0.0
-  - La passerelle et le serveur DNS préféré seront les mêmes que ceux
+Conservez les réponses demandées : configuration relevée, adresse et réseau, résultats `ping`, observations `tracert`, réponses `nslookup`, profils de pare-feu et résultat du test ICMPv4.
 
-#### configurés sur votre VM Campus en ligne
-
-#### Connectivité
-
-#### Utilisez la commande ping vers les hôtes suivants :
-
-  - Adresse IP de la passerelle par défaut
-  - Adresse IP de votre VM Discovery
-  - www.facebook.com
-
-Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
-
-#### À quel niveau du réseau sont-ils ? Réseau local ? Internet ?
-
-#### Utilisez la commande tracert pour ces mêmes noms. Que nous apprend cette
-
-#### commande ?
-
-#### Résolution de noms
-
-#### Utilisez la commande nslookup avec les noms suivants :
-
-  - www.hadopi.fr
-  - www.amendes.gouv.fr
-  - www.facebook.com
-
-Obtenez-vous des réponses pour chacune des requêtes  ? Quelles sont les adresses
-
-#### IPv4 de ces hôtes ?
-
-#### Pare-feu sur W10-XX
-
-Vérifiez l'état d'activation de votre pare-feu pour chaque profil réseau.
-
-#### Configurez le pare-feu pour les Programmes autorisés :
-
-  - Autorisez le Bureau à distance uniquement pour le profil privé
-
-Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie vous permettant d’autoriser le ping entre vos postes client.
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+Une fois le travail terminé, [consultez la correction](corrections.md) pour comparer les méthodes et contrôles.
