@@ -1,262 +1,109 @@
 # Module 09 — Les pilotes et les imprimantes
 
 **Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
+**Objectif :** identifier le rôle d'un pilote, utiliser les outils de diagnostic prévus par le module et comprendre les principaux modes de mise à disposition d'une imprimante.
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+## Objectifs pédagogiques
 
-## Objectifs et compétences
+À l'issue du module, vous devez pouvoir :
 
-- Définir le rôle d’un pilote et contrôler sa provenance.
-- Installer, mettre à jour ou restaurer un pilote.
-- Configurer, partager et dépanner une imprimante.
-- Vérifier la file d’attente et le service Spouleur d’impression.
+- définir le rôle d'un pilote et situer la prise en charge du matériel dans Windows ;
+- consulter les informations matérielles et les pilotes avec les outils indiqués dans le support ;
+- distinguer périphérique d'impression, imprimante logicielle, file d'attente et spouleur ;
+- configurer et vérifier une imprimante locale, partagée ou réseau dans le scénario de TP ;
+- relever des informations sur une imprimante avec PowerShell lorsque le TP le demande.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Les pilotes et les imprimantes » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## Pilotes : assurer la prise en charge du matériel
 
-## Méthode de travail
+Un pilote permet au système de prendre en charge un composant matériel. Le support présente deux modes de détection : la prise en charge **Plug and Play**, y compris « à chaud », et les matériels non Plug and Play, plus rares, qui peuvent nécessiter un redémarrage.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+L'installation peut être automatique ou manuelle. Après son installation, Windows conserve le pilote afin de pouvoir le réinstaller automatiquement lorsque le matériel est de nouveau détecté.
 
-## Commandes repérées dans les supports
+### Gestionnaire de périphériques
 
-```text
-Get-Printer -name "HP LaserJet"
-Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location,
-```
+La console `devmgmt.msc` permet d'afficher les composants pris en charge ou non et d'accéder, selon le périphérique, à la mise à jour, la désactivation, la désinstallation, la restauration du pilote, aux informations détaillées et aux paramètres.
 
-!!! warning
-    Une commande extraite d’un support n’est pas à exécuter aveuglément. Vérifier la version, les droits, la cible et l’existence d’une sauvegarde avant toute action destructive.
+Dans le TP, cette console sert à observer le pilote graphique de la machine de laboratoire. Les noms du matériel, les identifiants compatibles et les valeurs relevées sont des **observations du scénario de laboratoire** : ils ne décrivent pas tous les postes Windows.
 
-## Module 09 - Support de cours
+### Architecture, signature et fichiers
 
-### Systèmes clients Microsoft
+Le support rappelle qu'un pilote est propre à une architecture 32 ou 64 bits. Il indique que les pilotes signés sont privilégiés pour la stabilité et requis par les éditions 64 bits présentées dans le cours.
 
-#### Module 09 — Les pilotes et les imprimantes
+| Élément | Rôle indiqué dans le support |
+| --- | --- |
+| `.inf` | Définition textuelle du pilote et point de départ de sa prise en charge. |
+| `.sys` | Fichier du pilote lui-même. |
+| `.cat` | Certificat fourni par Microsoft ou par un tiers de confiance. |
+| `.exe`, `.dll`, `.xml` | Fichiers complémentaires éventuels. |
 
-#### Objectifs • Définir un pilote
+Le support cite l'installation depuis un fichier INF, par l'option d'installation du fichier ou par un assistant tel que `setup.exe`. Il mentionne également les emplacements `C:\\Windows\\inf`, `C:\\Windows\\System32`, `C:\\Windows\\SysWOW64` et les fichiers `oemXX.inf` associés à une installation manuelle.
 
-- Windows et les pilotes
-- Windows et les imprimantes
-- Utiliser, configurer une imprimante
-- Partager une ressource « imprimante »
+### Magasin de pilotes et outils prévus
 
-### Pilotes
+Le **Driver Store** est présenté comme le magasin utilisé pour permettre une prise en charge immédiate du matériel. Son chemin indiqué est `C:\\Windows\\System32\\DriverStore`.
 
-- Prise en charge du matériel
-- Plug and Play : prise en charge « à chaud »
-- Non Plug and Play : nécessite un redémarrage (plus rare)
-- Plusieurs modes de prise en charge
-- Détection et installation automatique
-- Détection et installation manuelle
-- Affichage et paramétrage
-- Outil Gestionnaire de périphériques
-- Devmgmt.msc
+| Outil | Usage attesté par le support |
+| --- | --- |
+| `msinfo32` | Consulter le détail du matériel. |
+| `driverquery` | Lister les pilotes installés. |
+| `driverquery /SI` | Lister les pilotes signés. |
+| `pnputil` | Gérer le magasin de pilotes : information, ajout ou suppression. |
+| `pnputil /enum-drivers` | Lister les pilotes tiers, notamment les `oemXX.inf`. |
+| `pnputil /add-driver pilote.inf` | Ajouter un pilote au magasin. |
 
-#### Gestionnaires de périphériques
+Dans le TP, les commandes `driverquery` produisent des fichiers CSV afin de consulter les informations détaillées et la signature des pilotes. Respectez le nom de fichier demandé par l'énoncé ; la correction emploie une variante de nom qui est signalée comme divergence documentaire, sans normalisation automatique.
 
-- Affichage des composants pris
+## Comprendre les imprimantes
 
-#### en charge et non pris en charge
+Le support distingue le matériel du service logiciel qui lui envoie un travail d'impression.
 
-- Mettre à jour, désactiver,
+| Terme | Définition au niveau du support |
+| --- | --- |
+| Périphérique d'impression | Matériel qui produit la feuille imprimée. |
+| Imprimante | Partie logicielle qui envoie l'ordre d'impression : pilote, configuration, file et port. |
+| File d'attente | Ensemble des travaux en attente. |
+| Spouleur | Service qui convertit le document dans un langage interprétable par le périphérique et envoie le travail vers le port. |
 
-#### désinstaller
+### Locale, partagée ou réseau
 
-- Fonctionnalités avancées :
+Une imprimante **locale** est reliée directement à l'ordinateur. Elle peut utiliser un pilote générique du magasin de pilotes ou un pilote signé du constructeur. Le panneau de configuration donne accès à sa file d'attente et à ses propriétés, notamment les options avancées citées dans le support.
 
-Restaurer le pilote, informations détaillées,
+Une imprimante **partagée** est une imprimante locale mise à disposition par le système de l'ordinateur hôte. Le support la présente via un chemin UNC de la forme `\\\\serveur\\imprimante` et rappelle qu'elle est disponible lorsque l'hôte est allumé.
 
-#### paramètres
+Une imprimante **réseau** possède sa propre interface réseau et son propre service de configuration. Dans le contexte d'entreprise présenté, un serveur d'impression peut centraliser le partage de plusieurs imprimantes. Depuis un client, l'accès se fait alors par le chemin UNC indiqué par le scénario.
 
-- Pour la gestion des composants matériel et logiciel
-- Spécifiques à chaque architecture : 32 bits ou 64 bits
-- Les pilotes signés sont privilégiés par Microsoft
-- Les certificats sont délivrés par Microsoft ou générés en suivant les procédures
+Le support décrit aussi un **pool d'impression** : une imprimante logique reliée à plusieurs périphériques afin de distribuer les travaux vers le périphérique disponible.
 
-#### fournies par Microsoft
+## Méthode de vérification du TP
 
-- Ils permettent de garantir la stabilité des systèmes
-- Ils sont obligatoires pour les éditions 64 bits
-- Les principaux fichiers
-- *.inf : définition du pilote au format texte
-- *.sys : pilote lui-même
-- *.cat : certificat fourni par Microsoft ou un tiers de confiance
-- *.exe, *.dll, *.xml… : fichiers complémentaires selon les besoins
+Le TP fournit une démarche de contrôle concrète :
 
-#### Pilotes
+1. produire et ouvrir les CSV demandés pour vérifier les informations sur les pilotes ;
+2. consulter le pilote graphique dans le Gestionnaire de périphériques et relever les informations demandées dans le laboratoire ;
+3. comparer les imprimantes observées dans les interfaces prévues par l'énoncé ;
+4. définir Microsoft Print to PDF comme imprimante par défaut, régler l'orientation demandée et vérifier le document PDF produit ;
+5. connecter l'imprimante partagée du scénario, puis contrôler sa présence dans les interfaces Windows ;
+6. sur la machine indiquée, interroger l'imprimante avec `Get-Printer` pour relever les propriétés demandées.
 
-- La prise en charge se fait à partir du fichier INF
-- Directement depuis le fichier (clic droit Installer)
-- À partir d’un assistant d’installation (setup.exe) ou de mise à jour
-- Une fois installé, le pilote est mémorisé par le système
-- Permet sa réinstallation automatique
-- Fichiers INF dans C:\Windows\inf
-- Chaque pilote installé manuellement génère un fichier oemXX.inf
-- Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64
-- Le magasin de pilotes Windows
-- Pour une prise en charge immédiate du matériel (installation du système)
-- Emplacement : C:\Windows\System32\DriverStore
-- Gestion du magasin en ligne de commande avec pnputil
+Les noms de machines, d'imprimantes, de partages, les identifiants matériels et les résultats d'observation utilisés dans ces étapes appartiennent au laboratoire. Ils ne doivent pas être repris comme des valeurs universelles.
 
-#### En complément
+## Synthèse
 
-- msinfo32 pour le détail du matériel
-- driverquery : outil CMD pour lister les pilotes installés
-- driverquery /SI pour lister les pilotes signés
-- pnputil : gestion du magasin de pilotes (ajout, suppression, information)
-- pnputil /enum-drivers pour lister les pilotes tiers (oemXX.inf)
-- pnputil /add-driver pilote.inf pour ajouter un pilote au magasin
+- Le pilote relie Windows au matériel ; le Gestionnaire de périphériques et les outils du support permettent de l'observer et de le gérer.
+- Les fichiers `.inf`, `.sys` et `.cat` jouent des rôles distincts dans cette prise en charge.
+- Une imprimante est une configuration logicielle associée à un périphérique, une file, un port et un pilote ; le spouleur traite les travaux d'impression.
+- Le type d'imprimante et le mode de partage déterminent où elle est disponible et comment le client y accède.
 
-#### Démonstration
+## Aller plus loin dans le module
 
-### Imprimantes
+- [TP : pilotes et imprimantes](../../tp/systemes-clients/module-09/index.md)
+- [Énoncé du TP](../../tp/systemes-clients/module-09/enonces.md)
+- [Correction du TP](../../tp/systemes-clients/module-09/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-09-les-pilotes-et-les-imprimantes.md)
+- [Présentation de la formation](index.md)
 
-#### Vocabulaire
+## Provenance pédagogique
 
-#### Périphérique
-
-d'impression Le matériel : moteur permettant de sortir la feuille imprimée Imprimante Le logiciel : envoie l'ordre d'impression au périphérique d'impression
-
-#### (pilote, configuration, file d'attente d'impression, port d'impression)
-
-#### File d'attente
-
-#### d'impression
-
-#### Service spouleur : conversion numérique du document dans un langage
-
-interprétable par le périphérique d'impression. Envoi du job vers le port
-
-#### d'impression
-
-Imprimante locale Périphérique d'impression directement relié à l'ordinateur (via un port local) Imprimante partagée Imprimante locale partagée sur le réseau grâce à l'OS de l'ordinateur .
-
-#### Disponible si et seulement si l'ordinateur est allumé.
-
-Imprimante réseau Imprimante indépendante. Possède son propre OS, une interface réseau, un
-
-#### service web pour la configuration
-
-#### Imprimantes
-
-#### Imprimante locale
-
-- Directement reconnue par le système
-- Utilisation d'un pilote générique du magasin de pilote
-- Possibilité d'installer le pilote signé du constructeur pour plus de fonctionnalités
-- Sécurité NTFS de l'imprimante
-
-#### (Propriétés de l'imprimante onglet Sécurité)
-
-#### Imprimante locale
-
-- Disponible via le composant du
-
-#### Panneau de configuration
-
-- Visualiser la file d'attente et autres
-
-#### options
-
-- Éditer les propriétés de l'imprimante
-- Informations générales
-- Options avancées (horaire de
-
-#### production, priorité…)
-
-#### Imprimantes
-
-#### Imprimante locale
-
-- Disponible via le composant du Panneau de
-
-#### configuration
-
-- Visualiser la file d'attente et autres options
-- Éditer les propriétés de l'imprimante
-- Informations générales
-- Options avancées (horaire de production, priorité…)
-- Partager l'imprimante locale sur le réseau
-- Disponible et utilisable via le réseau de l'entreprise
-- Accessible depuis le chemin UNC : \\serveur\imprimante
-- Disponible si l'ordinateur hôte est allumé
-- Les droits NTFS s'appliquent
-
-#### Imprimante réseau
-
-- Les imprimantes sont généralement raccordées au réseau de l’entreprise
-- Le service de rôle Serveur d’impression pour
-- Partager plusieurs imprimantes
-- Centraliser la gestion des imprimantes
-- Simplifier l'accès et la gestion des imprimantes
-
-#### Depuis le client
-
-- Accès au serveur d'impression depuis le chemin UNC
-- …puis connecter…
-
-#### Réseau
-
-#### Imprimantes
-
-#### Le spouleur d'impression
-
-- Programme qui gère la file d'attente
-- Envoie les travaux d'impression au périphérique d'impression
-- Peut être déplacé via une clé de la base de registre
-
-#### Créer un pool d'impression
-
-- Imprimante connectée à plusieurs périphériques d'impression
-- Distribuer automatiquement les travaux d'impression à la
-
-#### prochaine imprimante disponible
-
-- Réduit les délais d'attente des documents pour les
-
-utilisateurs.
-
-### Démonstration
-
-#### TP
-
-### Conclusion • Les périphériques ont besoin
-
-- D’une liaison à un ordinateur
-- Liaison locale
-- Liaison réseau
-- Les ordinateurs ont besoin
-- D’un « mode d’emploi » du périphérique
-- Les imprimantes sont des ressources à part
-
-#### entière
-
-## Mise en pratique
-
-- [Travaux pratiques du module](../../tp/systemes-clients/module-09/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Les pilotes et les imprimantes » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Définir le rôle d’un pilote et contrôler sa provenance.
-    - Installer, mettre à jour ou restaurer un pilote.
-    - Configurer, partager et dépanner une imprimante.
-    - Vérifier la file d’attente et le service Spouleur d’impression.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- **A — Sources TSSR :** support du module 09, énoncé et solution du TP « Les pilotes et les imprimantes ».
+- **B — Structuration pédagogique :** réorganisation web des notions et des contrôles explicitement présents dans les sources A, sans ajout de procédure externe.
