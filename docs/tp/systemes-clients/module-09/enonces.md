@@ -1,81 +1,59 @@
-# Énoncés — Module 09 — Les pilotes et les imprimantes
+# Énoncé — Module 09 — Les pilotes et les imprimantes
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Contexte
 
-## Enonc‚ du TP - Les pilotes et les imprimantes
+Vous travaillez sur une VM Windows 10 et une seconde VM Discovery qui héberge une imprimante. L'atelier consiste à rechercher et afficher des informations sur les pilotes et les imprimantes, à installer l'imprimante partagée puis à vérifier sa présence.
 
-### Systèmes Clients Microsoft
+**Durée estimée : 1 heure.** Lisez l'ensemble de l'atelier avant de commencer.
 
-#### Les pilotes et les
+## Environnement
 
-#### imprimantes
+- `Win10-XX` ;
+- VM Discovery ;
+- imprimante partagée `HP_LaserJet_Accueil_RDC_Bât2` disponible via Discovery.
 
-#### TP du Module 09 — Les pilotes et les imprimantes
+Les machines, l'imprimante et les pilotes associés sont des prérequis de laboratoire mentionnés dans la source ; ils ne sont pas fournis dans le dossier Drive M09 live. Si une authentification est demandée, utilisez les identifiants fournis par le formateur.
 
-Au cours de ce TP, vous serez amené à rechercher et à afficher des informations concernant les pilotes et les imprimantes de votre VM Windows 10 ainsi que de votre seconde VM. Votre seconde VM héberge une imprimante et il s'agira d'y accéder via le réseau, de l'installer et de vérifier sa présence sur votre système.
+## 1. Exporter les informations sur les pilotes
 
-#### Durée estimée
+Depuis `Win10-XX`, utilisez la commande `cmd.exe` adaptée pour générer les fichiers CSV suivants :
 
-#### 1 heure
+- `Pilotes_detail.csv`, contenant les informations détaillées sur l'ensemble des pilotes ;
+- `Pilotes_signature.csv`, contenant les informations sur la signature des pilotes.
 
-#### Énoncé
+Ouvrez et convertissez ces fichiers avec Excel si nécessaire.
 
-#### Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+## 2. Inspecter le matériel dans l'interface graphique
 
-#### Sur Win10-XX
+Avec la console MMC adaptée, affichez les informations détaillées sur le pilote graphique. Relevez le `VENDOR_ID` et le `DEVICE_ID` du périphérique observé.
 
-#### Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
+## 3. Contrôler les imprimantes disponibles
 
-  - Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des
+Répondez à la question source : **quelles sont les 4 imprimantes disponibles par défaut** sur la VM `Win10-XX` ? Vérifiez si elles apparaissent également dans la console MMC adaptée.
 
-#### pilotes
+## 4. Configurer Microsoft Print to PDF
 
-  - Pilotes_signature.csv contenant les informations sur la signature des pilotes
+Éditez les propriétés de Microsoft Print to PDF :
 
-#### Vous pourrez ouvrir et convertir ces fichiers avec Excel
+1. définissez cette imprimante comme imprimante par défaut ;
+2. sans autre configuration, utilisez l'orientation paysage demandée ;
+3. imprimez une page de test pour vérifier le résultat.
 
-#### Avec l'interface graphique
+## 5. Connecter l'imprimante partagée
 
-  - Affichez les informations détaillées sur le pilote graphique avec la console
+Depuis `Win10-XX`, connectez-vous à l'imprimante `HP_LaserJet_Accueil_RDC_Bât2` disponible via Discovery. Attendez le temps nécessaire à l'installation du pilote, puis vérifiez sa présence dans le panneau de configuration et la console MMC adaptée.
 
-MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
+## 6. Interroger l'imprimante depuis Discovery
 
-#### Gestion des imprimantes
+Avec PowerShell, affichez d'abord les informations par défaut de l'imprimante `HP LaserJet`. Affichez ensuite :
 
-Quelles sont les 4 imprimantes disponibles par défaut sur votre VM Win10-XX ? Les
+- son nom ;
+- son état partagé ou non ;
+- le nom du partage ;
+- le nom du port ;
+- son emplacement ;
+- sa priorité.
 
-#### retrouvez-vous dans la console MMC adaptée ?
+## Livrables et vérifications
 
-#### Éditez les propriétés de l'imprimante Microsoft Print to PDF
-
-  - Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par
-
-défaut. Sans configuration particulière, l'imprimante sortira des documents en orientation paysage. Imprimez une page de test pour vérification.
-
-#### Depuis votre VM Win10-XX, connectez-vous à l'imprimante partagée
-
-HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery.
-
-  - Attendez quelques minutes le temps que le pilote s'installe puis vérifier sa
-
-#### présence dans le panneau de configuration et dans la console MMC
-
-#### adaptée
-
-#### Sur Discovery
-
-#### Gestion de configurations personnalisées
-
-À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante "HP LaserJet". Affichez maintenant les informations suivantes concernant "HP LaserJet" :
-
-  - Son nom
-  - Si elle est partagée ou non
-  - Le nom du partage
-  - Le nom du port
-  - Son emplacement
-  - Sa priorité
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+Conservez les deux exports CSV, les relevés matériels demandés, le résultat de la page de test PDF et les informations PowerShell attendues. Consultez la [correction](corrections.md) seulement après votre tentative.

@@ -1,145 +1,68 @@
-# Corrections — Module 09 — Les pilotes et les imprimantes
+# Correction — Module 09 — Les pilotes et les imprimantes
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+Cette correction décrit le scénario de laboratoire de la source. Les noms de machines, de matériel, de partage, les identifiants et les résultats observés restent propres à cet environnement.
 
-## Solution du TP - Les pilotes et imprimantes
+## 1. Exports CSV des pilotes
 
-### Systèmes Clients Microsoft
+Depuis l'invite de commandes, la correction source utilise :
 
-#### Les pilotes et les
+```text
+driverquery /v /fo CSV > pilotes_details.csv
+driverquery /si /fo CSV > pilotes_signatures.csv
+```
 
-#### imprimantes
+Les CSV peuvent être ouverts dans Excel puis convertis en sélectionnant la colonne A, **Données**, **Convertir**, **Délimité**, puis le séparateur virgule.
 
-#### TP du Module 09 — Les pilotes et les imprimantes
+!!! note "Divergence documentaire à conserver"
+    L'énoncé demande `Pilotes_detail.csv` et `Pilotes_signature.csv`, alors que la correction montre `pilotes_details.csv` et `pilotes_signatures.csv`. Cette différence est préservée : ne renommez pas silencieusement les fichiers demandés.
 
-#### Sur Win10-XX
+## 2. Pilote graphique : observation du laboratoire
 
-- Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
+1. Ouvrez `devmgmt.msc`.
+2. Déployez **Cartes graphiques**.
+3. Ouvrez les propriétés du matériel observé, puis l'onglet **Détails** et la propriété **ID compatibles**.
 
-  - Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des
+Dans la correction source, le matériel observé est **VMware SVGA 3D**, avec `VENDOR_ID=15AD` et `DEVICE_ID=0405`. Ces valeurs sont des observations de la VM de laboratoire ; elles ne constituent pas une référence générale pour un autre matériel.
 
-#### pilotes
+## 3. Imprimantes disponibles
 
-  - Pilotes_signature.csv contenant les informations sur la signature des pilotes
+La correction source passe par **Panneau de configuration → Matériel et audio → Périphériques et imprimantes**. Elle liste trois imprimantes par défaut :
 
-- Vous pourrez ouvrir et convertir ces fichiers avec Excel
+- FAX ;
+- Microsoft Print to PDF ;
+- Microsoft XPS Document Writer.
 
-#### driverquery /v /fo CSV &gt; pilotes_details.csv
+La console citée dans la correction permet de les retrouver sous le nœud **Files d'attente à l'impression**.
 
-#### driverquery /si /fo CSV &gt; pilotes_signatures.csv
+!!! note "Divergence documentaire à signaler"
+    L'énoncé demande quatre imprimantes disponibles par défaut, tandis que la correction source en liste trois. La divergence est à signaler dans le livrable ; elle n'est pas résolue ni complétée ici.
 
-#### Possibilités d'ouvrir les fichiers CSV avec Excel
+## 4. Microsoft Print to PDF
 
-#### Sélectionner la colonne A
+1. Faites un clic droit sur Microsoft Print to PDF et définissez-la comme imprimante par défaut.
+2. Ouvrez les propriétés de l'imprimante, puis les préférences.
+3. Choisissez l'orientation **Paysage**, conformément à la correction source.
+4. Imprimez une page de test.
 
-#### Menu Données
+Le résultat attendu est un document PDF enregistré à l'emplacement choisi dans le laboratoire, vérifié en orientation paysage.
 
-#### Convertir
+## 5. Imprimante partagée du scénario
 
-#### Délimité &gt; Suivant
+Depuis l'Explorateur Windows, la correction indique un chemin UNC construit avec l'adresse de Discovery et le partage :
 
-#### Cocher Virgule
+```text
+\\<adresse de Discovery>\HP_LaserJet_Accueil_RDC_Bât2
+```
 
-#### Terminer
+Utilisez les identifiants fournis par le formateur si l'environnement les demande. Connectez l'imprimante, puis attendez l'installation du pilote. Le contrôle attendu est son apparition dans la liste des imprimantes du panneau de configuration et dans l'interface Windows indiquée.
 
-- Avec l'interface graphique
+## 6. Informations PowerShell sur Discovery
 
-  - Affichez le s informations détaillées sur le pilote graphique avec la console
+La correction source utilise :
 
-MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
+```powershell
+Get-Printer -Name "HP LaserJet"
+Get-Printer -Name "HP LaserJet" | Select Name, Shared, ShareName, PortName, Location, Priority
+```
 
-#### Rechercher &gt; devmgmt.msc
-
-#### Déployez le nœud Cartes graphiques
-
-#### Clic droit sur VMware SVGA 3D &gt; Propriétés
-
-#### Onglet Détails
-
-#### Propriété ID compatibles
-
-#### Le VENDOR_ID est 15AD
-
-#### Le DEVICE_ID est 0405
-
-Il est possible de se rendre sur le site www.pcilookup.com et d'y renseigner ces ID pour retrouver des informations sur le matériel en question.
-
-#### Gestion des imprimantes
-
-Quelles sont les imprimantes disponibles par défaut sur votre VM Win10 -XX ? Les retrouvez-
-
-#### vous dans la console MMC adaptée ?
-
-#### Panneau de configuration
-
-#### Matériel et audio
-
-#### Périphériques et imprimantes
-
-Les imprimantes disponibles par défaut sont FAX, Microsoft Print to PDF , Microsoft XPS
-
-#### Document Writer
-
-#### Dans la console Gestionnaire de périphérique
-
-Nœud Files d'attente à l'impression, nous retrouvons nos imprimantes.
-
-- Éditez les propriétés de l'imprimante Microsoft Print to PDF
-
-  - Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par
-
-défaut. Sans configuration particulière, l'imprimante sortira des documents en orientation paysage. Imprimez une page de test pour vérification. Clic droit sur l'imprimante Microsoft Print to PDF &gt; Définir comme imprimante par défaut Clic droit sur l'imprimante Microsoft Print to PDF &gt; Propriétés de l'imprimante
-
-#### Préférence
-
-#### Orientation : Paysage
-
-#### OK
-
-#### Imprimer une page de test
-
-Cette imprimante est virtuelle et va sortir un document numérique au format PDF. Indiquer le nom et l'emplacement du futur document (par exemple sur le bureau) et vérifiez
-
-#### qu'il est bien au format paysage
-
-- Depuis votre VM Win10 -XX, connectez -vous à l'i mprimante partagée
-
-#### HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery
-
-  - Attendez quelques minutes le temps que le pilote s'installe puis vérifier sa
-
-#### présence dans le panneau de configuration et dans la console MMC adaptée
-
-Avec votre explorateur Windows, dans la barre de navigation, entrez le chemin UNC suivant
-
-#### \\@ ip de Discovery\HP_LaserJet_Accueil_RDC_Bât2
-
-Renseigner les login / mdp de l'utilisateur adm lorsque vous êtes challengé.
-
-#### Faites un clic droit sur HP_LaserJet_Accueil_RDC_Bât &gt; Connecter…
-
-Au bout d'un certain temps, la nouvelle imprimante partagée apparaît dans la liste des imprimantes dans le panneau de configuration.
-
-#### Sur Discovery
-
-#### Gestion de configurations personnalisées
-
-- À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante
-
-#### "HP LaserJet"
-
-`Get-Printer -name "HP LaserJet"`
-
-- Affichez maintenant les informations suivantes concernant "HP LaserJet" :
-
-  - Son nom
-  - Si elle est partagée ou non
-  - Le nom du partage
-  - Le nom du port
-  - Son emplacement
-  - Sa priorité
-
-`Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location,`
-
-#### Priority
+Vérifiez que les propriétés demandées sont affichées : nom, partage, nom de partage, port, emplacement et priorité. Les résultats sont dépendants de la configuration de Discovery ; ne les généralisez pas à un autre environnement.
