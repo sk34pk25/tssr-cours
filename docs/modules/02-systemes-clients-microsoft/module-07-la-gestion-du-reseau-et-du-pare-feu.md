@@ -1,477 +1,107 @@
 # Module 07 — La gestion du réseau et du pare-feu
 
-**Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 2 support(s) de cours, 1 énoncé(s), 1 correction(s)
+**Séquence :** Systèmes clients Microsoft
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+## Objectifs
 
-## Objectifs et compétences
+À l’issue du module, vous devez pouvoir :
 
-- Configurer une interface IPv4 et un profil réseau.
-- Distinguer profils Domaine, Privé et Public.
-- Créer et contrôler des règles de pare-feu.
-- Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.
+- situer le rôle de la passerelle, de la table de routage et du cache ARP dans le scénario étudié ;
+- configurer une carte réseau Windows et identifier son emplacement réseau ;
+- renseigner une configuration IPv4 statique ou reconnaître une configuration dynamique ;
+- vérifier une communication, un chemin réseau et une résolution de noms avec les outils du TP ;
+- adapter le pare-feu Windows aux profils et aux flux demandés par le scénario.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « La gestion du réseau et du pare-feu » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## 1. Un rappel réseau utile au poste Windows
 
-## Méthode de travail
+Le support rappelle qu’un poste compare la destination à son réseau local. Si elle appartient à un autre réseau, le poste transmet le paquet à sa **passerelle par défaut**. Le routeur consulte alors sa **table de routage** pour choisir le saut suivant.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+Dans cette démonstration, le **cache ARP** permet d’associer une adresse IP à l’adresse MAC nécessaire à l’envoi de la trame sur le réseau local. À chaque routeur, la trame de couche 2 est retirée, l’adresse IP de destination est examinée, puis une nouvelle trame est construite pour l’interface ou le saut suivant.
 
-## Repères d’interface Windows
+Ce rappel explique les tests demandés dans le TP. Il ne constitue pas un cours général de routage : les adresses, routes et adresses MAC du support sont des valeurs de démonstration du scénario source.
 
-<div class="grid cards" markdown>
+## 2. Carte réseau et emplacement réseau
 
--   **Configuration IPv4**
+Le **Centre Réseau et partage** donne accès aux informations de connectivité, aux connexions détectées et aux profils réseau. Il permet aussi d’atteindre les paramètres de partage et les cartes réseau. La commande `ncpa.cpl` ouvre directement les connexions réseau.
 
-    [![Fenêtre de propriétés IPv4 de Windows montrant une adresse, un masque, une passerelle et un DNS](../../assets/images/systemes-clients-microsoft-2/configuration-ipv4-windows.jpg)](../../assets/images/systemes-clients-microsoft-2/configuration-ipv4-windows.jpg){ .glightbox }
+Une carte réseau est associée à un emplacement réseau qui influence le comportement du pare-feu :
 
-    L’adresse, le masque, la passerelle et le DNS doivent appartenir au plan d’adressage attendu. Source : support Windows, module 07, page 3.
+- un poste autonome peut être placé sur un réseau **privé** ;
+- un poste joint à un domaine utilise l’emplacement de domaine détecté ;
+- un réseau **public** s’applique notamment lorsqu’aucune passerelle n’est définie, lorsqu’un domaine n’est pas détecté ou lorsque le poste ne doit pas être visible sur le réseau.
 
--   **Pare-feu avancé**
+## 3. Configurer IPv4
 
-    [![Console Pare-feu Windows avec fonctions avancées et règles entrantes et sortantes](../../assets/images/systemes-clients-microsoft-2/pare-feu-windows-avance.jpg)](../../assets/images/systemes-clients-microsoft-2/pare-feu-windows-avance.jpg){ .glightbox }
+Une configuration IPv4 comprend les éléments suivants :
 
-    Une règle s’évalue avec son sens, son profil, son protocole, son port et son action. Source : support Windows, module 07, page 5.
+| Paramètre | Rôle dans le scénario |
+| --- | --- |
+| Adresse IP | Identifie l’interface sur le réseau configuré. |
+| Masque de sous-réseau | Détermine la partie réseau et la partie hôte de l’adresse. |
+| Passerelle par défaut | Permet d’atteindre les réseaux autres que le réseau local. |
+| Serveur DNS préféré ou auxiliaire | Sert à la résolution des noms d’hôtes. |
 
-</div>
+Le TP demande d’utiliser une adresse fixe dont la partie réseau reprend celle de l’environnement de laboratoire et dont la partie hôte est calculée selon la consigne fournie. Ces valeurs sont propres au laboratoire : elles ne sont pas des recommandations de configuration universelles.
 
-```mermaid
-flowchart LR
-    A["Adresse et masque"] --> B["Passerelle joignable"] --> C["DNS résout le nom"] --> D["Profil réseau correct"] --> E["Règle de pare-feu"]
-```
+## 4. Adressage dynamique, DHCP et APIPA
 
-<p class="tssr-caption">Ordre de diagnostic : valider la configuration et le chemin IP avant d’attribuer le symptôme au filtrage.</p>
+Le support distingue deux modes d’adressage :
 
-## Commandes repérées dans les supports
+- **statique**, lorsque les paramètres sont saisis manuellement ;
+- **dynamique**, lorsque les paramètres sont fournis par DHCP ou, dans le cas décrit par le support, par APIPA si aucun serveur DHCP n’est joignable.
 
-```text
-IP : 192.168.5.254/24
-IP : 192.168.10.254/24
-IP : 203.0.113.1/30
-IP : 203.0.113.2/30
-IP : 192.168.5.1/24
-IP : 192.168.10.1/24
-ipconfig (attention, votre adresse IP sera différente de celle de l'encadré ci-dessous).
-ipconfig /all
-ping 172.28.0.254
-ipconfig
-Ping &lt;adresse ip de votre VM Discovery&gt;
-ping www.facebook.com
-```
+Une adresse APIPA appartient au réseau `169.254.0.0/16` dans le support. Elle autorise une communication temporaire sur le réseau local, mais elle signale dans le scénario qu’il faut vérifier la possibilité de joindre le service DHCP.
 
-!!! warning
-    Une commande extraite d’un support n’est pas à exécuter aveuglément. Vérifier la version, les droits, la cible et l’existence d’une sauvegarde avant toute action destructive.
+## 5. Commandes utilisées dans le TP
 
-## CONFIGURATION-VPN-FORTINET-ENIECOLE
+| Commande | Rôle attesté par le support et le TP |
+| --- | --- |
+| `ipconfig` | Afficher la configuration de l’interface ; la correction l’utilise pour identifier une adresse et le réseau associé. |
+| `ipconfig /all` | Relever notamment la configuration réseau, la passerelle par défaut et le serveur DNS du laboratoire. |
+| `ping` | Tester la connectivité vers la passerelle, une machine du laboratoire ou un hôte demandé. Le support précise que le pare-feu Windows peut bloquer le ping par défaut. |
+| `tracert` | Observer le chemin emprunté par les paquets TCP/IP dans les tests demandés. |
+| `nslookup` | Vérifier et diagnostiquer la résolution d’un nom d’hôte par le service DNS. |
 
-### Procédure
+Les hôtes, adresses publiques, noms DNS et nombres de sauts figurant dans l’énoncé ou la correction sont des observations historiques du laboratoire. Ils doivent être testés dans l’environnement prévu, sans être présentés comme des résultats permanents.
 
-#### SI
+## 6. Pare-feu Windows
 
-#### Procédure d’installation et de configuration du client
+Le pare-feu Windows limite les flux réseau autorisés en entrée et en sortie. Le support le présente comme un élément de la stratégie de sécurité du poste, adapté à l’emplacement réseau détecté.
 
-#### VPN pour l’accès des apprenants ENI ECOLE aux
+Trois niveaux de configuration sont décrits :
 
-#### machines de salles
+1. l’activation ou la désactivation du pare-feu depuis son interface ;
+2. l’autorisation d’une application au moyen de règles génériques ;
+3. la console **Pare-feu Windows Defender avec fonctions avancées de sécurité**, qui donne accès aux règles actives et à leur paramétrage détaillé.
 
-#### V 2026-01
+Dans le TP, le Bureau à distance est autorisé pour le profil privé seulement. La règle prédéfinie **Partage de fichiers et d’imprimantes (Demande d’écho — Trafic entrant ICMPv4)** est activée sur le profil concerné afin de permettre le test `ping` entre les postes du scénario.
 
-#### Procédure apprenant
+## 7. Vérifier la configuration
 
-Cette procédure indique comment installer et utiliser le VPN ENI Ecole pour accéder aux machines de salles.
+La méthode de vérification suit les contrôles réellement demandés par le TP :
 
-#### Récupération et installation du client VPN
+1. relever la configuration de l’interface et vérifier l’adresse, le masque, la passerelle et le DNS ;
+2. tester la passerelle et la machine du laboratoire avec `ping` ;
+3. comparer le chemin observé avec `tracert` ;
+4. interroger la résolution des noms demandés avec `nslookup` ;
+5. vérifier l’état du pare-feu pour chaque profil puis tester la règle ICMPv4 depuis le poste prévu.
 
-#### Le Web installeur est à télécharger directement depuis la section
+Un résultat dépendant du réseau de laboratoire — résolution DNS, route ou réponse d’un hôte distant — doit être interprété comme une observation du moment, pas comme une valeur attendue universelle.
 
-du site Fortinet &gt; https://www.fortinet.com/fr/support/product-downloads Le récupérer et l’installer.
+## Synthèse
 
-#### Configuration du client VPN
-
-#### Une fois installé, lancer l’application client VPN : FortiClient VPN
-
-#### Au lancement, cocher la case d’acceptation des conditions
-
-#### d’utilisation, puis cliquer sur : Configurer le VPN
-
-#### Renseigner les champs
-
-#### suivants :
-
-#### ➢ Le nom que vous
-
-#### souhaitez voir
-
-#### associé à cette
-
-#### connexion
-
-#### ➢ L’adresse de la
-
-#### passerelle :
-
-#### vpnssl.campus-
-
-#### eni.fr
-
-#### ➢ Cocher la case
-
-#### Port personnalisé
-
-#### ➢ Renseigner le
-
-#### numéro de port :
-
-#### Et cliquer sur Sauvegarder
-
-#### SI
-
-#### Procédure d’installation et de configuration du client
-
-#### VPN pour l’accès des apprenants ENI ECOLE aux
-
-#### machines de salles
-
-#### V 2026-01
-
-#### Procédure apprenant
-
-#### Connexion au VPN
-
-#### Pour vous connecter au VPN, renseignez les informations suivantes :
-
-#### Renseigner votre identifiant de compte AD du domaine ad.campus-eni.fr
-
-#### Rappel : format de votre identifiant
-
-#### pnomAAAA
-
-#### p = première lettre de votre prénom
-
-#### nom = votre nom de famille
-
-#### AAAA = l’année de votre entrée en formation
-
-Le format indiqué ci-dessus correspond à un compte apprenant (différent pour les formateurs).
-
-#### ➢ Mot de passe :
-
-#### Indiquer le mot de passe de votre compte
-
-#### Et cliquer sur le bouton : Connecter
-
-#### Cliquer sur “Yes” pour accepter le certificat
-
-Bravo, vous êtes maintenant connecté au VPN. Vous pouvez maintenant accéder via le bureau a distance à la machine de salle qui vous a été allouée. Quand vous n’aurez plus besoin d’accéder à cette machine de salle, pensez à vous déconnecter du
-
-#### VPN (voir étape suivante)
-
-#### Déconnexion du VPN
-
-#### Pour vous déconnecter du VPN :
-
-#### ➢ Dans la barre d’état système, cliquer sur
-
-#### le chevron (1)
-
-#### ➢ Localiser l’icône du client VPN Fortinet et
-
-#### faire un clic droit dessus (2)
-
-#### ➢ Cliquer sur Disconnect […]
-
-## Module 07 - Support de cours
-
-### Systèmes clients Microsoft
-
-#### Module 07 — La gestion du réseau et du pare-feu
-
-#### Objectifs • Rappel sur les bases des réseaux
-
-- Configurer la carte et l’emplacement réseau
-- Manipuler le pare-feu Windows
-
-### Rappel
-
-#### B
-
-#### Cache ARP de la machine A
-
-#### Adresse MAC Adresse IP
-
-#### 10-11-12-13-14-15 192.168.5.254
-
-#### A
-
-`IP : 192.168.5.254/24`
-
-#### MAC : 10-11-12-13-14-15
-
-`IP : 192.168.10.254/24`
-
-#### MAC : 02-46-80-13-57-90
-
-`IP : 203.0.113.1/30`
-
-#### MAC : 50-51-52-53-54-55
-
-`IP : 203.0.113.2/30`
-
-#### MAC : 1A-2B-3C-4D-5E-6F
-
-#### Adresse IP
-
-#### Source :
-
-192.168.5.1
-
-#### Données (Payload)
-
-#### ?
-
-#### Données de couche 3Données de couche 2
-
-#### Adresse IP
-
-#### Destination :
-
-192.168.10.1
-
-#### Réseau directement connecté :
-
-203.0.113.0 via 203.0.113.1
-
-#### Route vers le réseau
-
-192.168.10.0 via 203.0.113.2
-
-#### Nombre de sauts : 1
-
-#### Réseau directement connecté :
-
-192.168.5.0 via 192.168.5.254
-
-#### Cache ARP de la routeur 1
-
-#### Adresse MAC Adresse IP
-
-#### 1A-2B-3C-4D-5E-6F 203.0.113.2
-
-#### MAC Destination:
-
-#### 10-11-12-13-14-15
-
-#### MAC Source :
-
-#### 00-01-02-03-04-05
-
-#### Réseau directement connecté :
-
-192.168.10.0 via 192.168.10.254
-
-#### Réseau directement connecté :
-
-203.0.113.0 via 203.113.0.2
-
-#### Route vers le réseau
-
-192.168.5.0 via 203.0.113.1
-
-#### Nombre de sauts : 1
-
-#### Cache ARP de la routeur 1
-
-#### Adresse MAC Adresse IP
-
-#### AA-BB-CC-DD-EE-FF 192.168.10.1
-
-#### MAC Destination:
-
-#### 1A-2B-3C-4D-5E-6F
-
-#### MAC Source :
-
-#### 50-51-52-53-54-55
-
-#### MAC Destination:
-
-#### AA-BB-CC-DD-EE-FF
-
-#### MAC Source :
-
-#### 02-46-80-13-57-90
-
-`IP : 192.168.5.1/24`
-
-#### MAC : 00-01-02-03-04-05
-
-#### Passerelle : 192.168.5.254
-
-`IP : 192.168.10.1/24`
-
-#### MAC : AA-BB-CC-DD-EE-FF
-
-#### Passerelle : 192.168.10.254
-
-Le routeur trouve une correspondance dans sa table de routage. Pour atteindre le réseau 192.168.10.0 il doit passer par 203.0.113.2 et que le réseau de destination se trouve juste derrière (1 saut). La machine A souhaite envoyer un paquet à la machine BLa machine B est-elle dans mon réseau ?La machine B est sur un autre réseauLe poste A devra envoyer le paquet vers sa passerelle par défaut. Il doit trouver son adresse MAC…Le poste A regarde dans son cache ARP si l’adresse MAC de la passerelle y est stockée L’adresse MAC de la passerelle a été trouvée, la machine A encapsule la trameLa trame est transmise au routeurLe routeur reçoit le paquet, désencapsule la couche 2 et analyse l’adresse IP de destination du paquetLe routeur regarde dans sa table de routageLe routeur va rechercher dans son cache ARP l’adresse MAC de l’adresse du saut suivantLe routeur encapsule la trame et l’envoie à destination du routeur 2 Le routeur 2 désencapsule la trame et analyse l’adresse IP de destinationLe routeur 2 trouve une correspondance dans sa table de routage, le réseau 192.168.10.0 est
-
-#### directement connecté à l’interface 192.168.10.254
-
-Le routeur 2 recherche dans son cache ARP l’adresse MAC du poste BLe routeur encapsule et envoie la trame à destination du poste BLe poste B identifie qu’il est bien le destinataire du paquet et le traite
-
-`IP : 192.168.5.1/24`
-
-#### MAC : 00-01-02-03-04-05
-
-#### Passerelle : 192.168.5.254
-
-`IP : 192.168.10.1/24`
-
-#### MAC : AA-BB-CC-DD-EE-FF
-
-#### Passerelle : 192.168.10.254IP : 203.0.113.1/30
-
-#### MAC : 50-51-52-53-54-55
-
-`IP : 203.0.113.2/30`
-
-#### MAC : 1A-2B-3C-4D-5E-6F
-
-#### Configuration de la carte réseau
-
-#### Le centre réseau et partage
-
-- Accessible depuis l'icône réseau de la barre de notification
-- Paramètre réseau et Internet &gt; Centre réseau et partage
-- Accessible depuis le panneau de configuration
-- Réseau et Internet &gt; Centre réseau et partage
-- Donne des indications sur :
-- La connectivité du poste
-- Les connexions réseau détectées
-- Les profils réseau et les emplacements associés
-- Donne accès aux paramétrages :
-- Des fonctionnalités de partage : découverte, partages, dossiers publics…
-- Des cartes réseau (accès direct en lançant ncpa.cpl)
-- Des nouvelles connexions
-
-### Configuration de la carte réseau
-
-#### Une carte réseau est associée à un emplacement réseau
-
-- Détermine le comportement du pare-feu
-- Réseau privé sur un poste autonome
-- Réseau avec domaine non modifiable si le poste est joint à un domaine
-- Réseau public si aucune passerelle n’a été définie, si le domaine n’a pas été détecté pour les
-
-postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau…
-
-#### Configuration de la carte réseau
-
-- Quels paramètres pour le poste de travail ?
-- Adresse IP et masque
-- Passerelle
-- Serveurs DNS préférés et auxiliaires
-- Le type d’adressage
-- Statique : configuré manuellement
-- Dynamique : fourni par le serveur DHCP ou APIPA
-- APIPA : communication temporaire sur le réseau local
-- Obtenir automatiquement une adresse grâce au système
-
-#### d'exploitation Windows si aucun serveur DHCP n'est joignable
-
-- Réseau 169.254.0.0/16
-- Communication sur le réseau local possible
-- Outils graphiques
-- Zone de notification (état de la connexion)
-- Composant Connexions réseau
-- Assistant Résoudre les problèmes : orienté utilisateur…
-- Rappel sur les outils invite de commande : les plus précis et efficaces
-- ipconfig : afficher la configuration et interagir avec la pile réseau (DNS, DHCP)
-- ping : tester la connectivité (bloqué par défaut par le pare-feu Windows !)
-- tracert : tester la route empruntée par les paquets TPC/IP
-- nslookup : diagnostic de la résolution de noms d’hôte
-
-#### Pare-feu
-
-- Pourquoi ?
-- Délimiter quels flux réseau sont autorisés en entrée et en sortie
-- Protéger le poste contre les accès non autorisés (utilisateurs, programmes)
-- Élément de la stratégie globale de sécurité de l’entreprise
-- Caractéristiques
-- Activé par défaut, bloque certains flux en entrée et les autorise tous en sortie
-- Se compose de règles prédéfinies activées (ou facilement activables)
-- S'adapte à la situation du poste (emplacements réseau)
-- Administrable de manière centralisée (stratégies, export)
-
-### Pare-feu
-
-- 3 niveaux de configuration
-- Utilisateur depuis le composant Vérifier l'état du
-
-#### Pare-feu pour l’activation / la désactivation
-
-- Programme avec la fonction Autoriser une
-
-#### application via le pare-feu Windows : fournit un
-
-#### ensemble de règles génériques activées
-
-#### automatiquement et paramétrables
-
-- Avancé avec la console Pare-feu Windows
-
-#### Defender avec fonctions avancées de sécurité :
-
-#### donne accès au paramétrage détaillé de l’ensemble
-
-#### des règles, permet également d’afficher une vue
-
-#### globale des règles activées
-
-- Accessible avec la commande firewall.cpl
-
-#### Démonstration
-
-### Conclusion
-
-#### TP
-
-- Tout poste client doit communiquer sur les
-
-#### différents réseaux de l’entreprise
-
-- Tester la communication et diagnostiquer lorsqu’il
-
-#### y a dysfonctionnement
-
-- Ouvrir et fermer des accès grâce au pare-feu
+La gestion réseau du poste Windows associe la configuration de l’interface, le profil réseau et le filtrage du pare-feu. La passerelle relie le poste aux autres réseaux, le DNS permet d’interroger les noms d’hôtes et les commandes du module donnent des moyens de contrôle ciblés. Le TP relie ces notions à une configuration IPv4 et à l’autorisation contrôlée d’un flux ICMPv4.
 
 ## Mise en pratique
 
-- [Travaux pratiques du module](../../tp/systemes-clients/module-07/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu.md)
+- [TP — présentation](../../tp/systemes-clients/module-07/index.md)
+- [Énoncé du TP](../../tp/systemes-clients/module-07/enonces.md)
+- [Correction du TP](../../tp/systemes-clients/module-07/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-07-la-gestion-du-reseau-et-du-pare-feu.md)
+- [Présentation de la formation](index.md)
 
-## Questions flash
+## Source et provenance
 
-1. Comment expliquer simplement « La gestion du réseau et du pare-feu » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Configurer une interface IPv4 et un profil réseau.
-    - Distinguer profils Domaine, Privé et Public.
-    - Créer et contrôler des règles de pare-feu.
-    - Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- **Sources A — TSSR Drive live :** support `Module 07 - Support de cours.pdf`, énoncé `Enoncé du TP - Gestion du réseau.pdf` et correction `Solution du TP - Gestion du réseau.pdf`.
+- **Structuration B :** organisation pédagogique web, tableaux et articulation entre le support, l’énoncé et la correction, sans ajout de source externe.
