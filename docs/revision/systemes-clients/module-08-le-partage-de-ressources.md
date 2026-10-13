@@ -1,45 +1,43 @@
 # Fiche de révision — Module 08 — Le partage de ressources
 
-## À connaître absolument
+## À retenir
 
-- Créer un partage SMB et combiner permissions de partage et NTFS.
-- Gérer les sessions et fichiers ouverts.
-- Monter un partage et tester l’accès avec différents comptes.
-- Configurer et sécuriser le Bureau à distance.
+- Un partage donne accès à une ressource hébergée sur le réseau.
+- Les ressources citées par le support sont notamment les dossiers, arborescences, volumes et imprimantes.
+- Créer un partage demande des droits administratifs ; y accéder demande une authentification.
+- L’accès est contrôlé au niveau du partage puis au niveau NTFS.
+- Les niveaux de partage présentés sont Lecture, Modifier et Contrôle total.
 
-## Méthode express
+## Accéder et administrer
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Action | Outils du support |
+|---|---|
+| Accès ponctuel | Explorateur et chemin UNC `\\serveur\partage` |
+| Lecteur durable | Connecter un lecteur réseau |
+| Ligne de commande | `net use`, `net view`, `net share` |
+| PowerShell | `New-SmbMapping`, `New-SmbShare`, `Get-SmbShare`, `Get-SmbShareAccess` |
+| Observer les sessions | `fsmgmt.msc` |
 
-## Commandes à reconnaître
+## Bureau à distance
 
-```text
-New-SmbMapping -LocalPath 'R:' -RemotePath '\\SRV-FIC\Compta'
-```
+- Le Bureau à distance permet une session sur un poste cible avec un compte valide et des privilèges adaptés.
+- Le support présente l’outil **Connexion Bureau à distance**, `mstsc`, l’authentification standard et NLA.
+- RDP utilise le port 3389 dans le support.
+- Sur le poste cible, vérifiez l’état de la fonctionnalité, les utilisateurs autorisés et le résultat d’une connexion de test.
 
-## Pièges fréquents
+## Contrôles issus du TP
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+1. Vérifier la communication entre les deux VM du laboratoire.
+2. Vérifier séparément les autorisations du partage et les droits NTFS.
+3. Tester l’accès avec le compte concerné et l’action demandée.
+4. Si le scénario le demande, fermer puis rouvrir la session pour régénérer le jeton d’accès.
+5. Pour la session distante, contrôler la configuration, les utilisateurs autorisés et l’ouverture réelle de la session.
 
-## Checklist de maîtrise
+Les chemins, comptes, adresses et résultats du TP sont des valeurs de laboratoire. Utilisez les identifiants fournis par le formateur et ne les recopiez pas.
 
-- [ ] Créer un partage SMB et combiner permissions de partage et NTFS.
-- [ ] Gérer les sessions et fichiers ouverts.
-- [ ] Monter un partage et tester l’accès avec différents comptes.
-- [ ] Configurer et sécuriser le Bureau à distance.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Pour approfondir : [cours](../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md) · [TP](../../tp/systemes-clients/module-08/index.md) · [Kahoot](../../kahoot/02-systemes-clients-microsoft-08-le-partage-de-ressources.md).
 
-## Questions flash
+## Provenance
 
-1. Quels sont les concepts indispensables de « Le partage de ressources » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md).
+- **A — sources originales :** support, énoncé et correction M08 TSSR.
+- **B — structuration pédagogique :** organisation et formulation de cette fiche.
