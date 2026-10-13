@@ -8695,10 +8695,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#acl-dacl-et-ace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        ACL, DACL et ACE
       
     </span>
   </a>
@@ -8706,10 +8706,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#autorisations-a-reconnaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Autorisations à reconnaître
       
     </span>
   </a>
@@ -8717,10 +8717,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#regles-dacces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Règles d’accès
       
     </span>
   </a>
@@ -8728,10 +8728,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#heritage-copie-et-deplacement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Héritage, copie et déplacement
       
     </span>
   </a>
@@ -8739,10 +8739,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Contrôles à savoir réaliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-de-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources de laboratoire
       
     </span>
   </a>
@@ -11394,10 +11416,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#acl-dacl-et-ace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        ACL, DACL et ACE
       
     </span>
   </a>
@@ -11405,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#autorisations-a-reconnaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Autorisations à reconnaître
       
     </span>
   </a>
@@ -11416,10 +11438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#regles-dacces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Règles d’accès
       
     </span>
   </a>
@@ -11427,10 +11449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#heritage-copie-et-deplacement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Héritage, copie et déplacement
       
     </span>
   </a>
@@ -11438,10 +11460,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Contrôles à savoir réaliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-de-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ressources de laboratoire
       
     </span>
   </a>
@@ -11536,43 +11580,88 @@
 
 
 <h1 id="fiche-de-revision-module-06-la-securite-ntfs-et-les-acl">Fiche de révision — Module 06 — La sécurité NTFS et les ACL<a class="headerlink" href="#fiche-de-revision-module-06-la-securite-ntfs-et-les-acl" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="acl-dacl-et-ace">ACL, DACL et ACE<a class="headerlink" href="#acl-dacl-et-ace" title="Permanent link">¶</a></h2>
 <ul>
-<li>Lire une ACL et distinguer autorisations explicites et héritées.</li>
-<li>Appliquer le principe du moindre privilège.</li>
-<li>Comprendre la priorité d’un refus et l’effet des groupes.</li>
-<li>Tester les droits avec un compte réellement concerné.</li>
+<li>Une <strong>ACL</strong> est une liste de contrôle d’accès appliquée à une ressource.</li>
+<li>Dans le module, la <strong>DACL</strong> rassemble les utilisateurs, groupes et entités de sécurité concernés par les accès à l’objet.</li>
+<li>Une <strong>ACE</strong> définit les privilèges accordés ou refusés à une entité.</li>
+<li>Le support recommande de privilégier les groupes dans les DACL.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="autorisations-a-reconnaitre">Autorisations à reconnaître<a class="headerlink" href="#autorisations-a-reconnaitre" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Autorisation de base</th>
+<th>Repères du support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lecture</td>
+<td>Afficher le contenu, lire, lire et exécuter.</td>
+</tr>
+<tr>
+<td>Modification</td>
+<td>Écrire et modifier.</td>
+</tr>
+<tr>
+<td>Contrôle total</td>
+<td>Niveau le plus étendu présenté pour les besoins courants.</td>
+</tr>
+</tbody>
+</table>
+<p>Les autorisations spéciales se configurent depuis <strong>Avancé</strong> pour affiner certains privilèges.</p>
+<h2 id="regles-dacces">Règles d’accès<a class="headerlink" href="#regles-dacces" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Une entité absente de la DACL reçoit un refus implicite.</li>
+<li>Une règle peut autoriser ou refuser un privilège.</li>
+<li>Plusieurs règles peuvent s’appliquer au même utilisateur.</li>
+<li>La règle la plus permissive l’emporte parmi les autorisations.</li>
+<li>Un refus explicite l’emporte sur une autorisation.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire une ACL et distinguer autorisations explicites et héritées.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Appliquer le principe du moindre privilège.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comprendre la priorité d’un refus et l’effet des groupes.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Tester les droits avec un compte réellement concerné.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<h2 id="heritage-copie-et-deplacement">Héritage, copie et déplacement<a class="headerlink" href="#heritage-copie-et-deplacement" title="Permanent link">¶</a></h2>
+<ul>
+<li>Un dossier propage par défaut ses autorisations aux objets enfants.</li>
+<li>Les autorisations héritées apparaissent grisées et ne sont pas modifiables directement.</li>
+<li>La gestion de l’héritage se fait depuis le dossier parent ou le menu <strong>Avancé</strong>, avec précaution.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Même partition ou volume</th>
+<th>Entre deux partitions ou volumes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Déplacement</td>
+<td>Conservation</td>
+<td>Héritage</td>
+</tr>
+<tr>
+<td>Copie</td>
+<td>Héritage</td>
+<td>Héritage</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « La sécurité NTFS et les ACL » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Lire les autorisations d’un dossier depuis l’onglet <strong>Sécurité</strong>.</li>
+<li>Tester l’accès avec un utilisateur réellement concerné.</li>
+<li>Utiliser <strong>Accès effectif</strong> pour comparer les droits d’un membre des groupes Utilisateurs, <code>L_Collegues</code> ou Administrateurs selon le scénario.</li>
+<li>Distinguer une entrée héritée d’une entrée ajoutée sur le dossier.</li>
+<li>Tenir compte du double jeton d’accès des administrateurs cité par le support.</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">cours complet</a>.</p>
+<h2 id="powershell-du-module">PowerShell du module<a class="headerlink" href="#powershell-du-module" title="Permanent link">¶</a></h2>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Get-Acl</span> <span class="n">m</span><span class="p">:\</span><span class="n">2022</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">Set-Acl</span>
+</span></code></pre></div>
+<p><code>Get-Acl</code> est utilisé dans le TP pour afficher les droits du dossier indiqué. <code>Set-Acl</code> est la cmdlet identifiée par le scénario pour modifier les ACL d’un dossier.</p>
+<h2 id="ressources-de-laboratoire">Ressources de laboratoire<a class="headerlink" href="#ressources-de-laboratoire" title="Permanent link">¶</a></h2>
+<p>Le scénario mentionne une VM <code>Win10-XX</code>, une VM Discovery et les volumes <code>DATA</code> / <code>TOOLS</code>. Ces ressources ne sont pas présentes dans le dossier Drive M06 live.</p>
+<p>Pour aller plus loin : <a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">cours du module</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl/">Kahoot M06</a>.</p>
 
 
 

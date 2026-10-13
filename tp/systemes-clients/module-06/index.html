@@ -11294,10 +11294,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#organisation" class="md-nav__link">
+  <a href="#scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organisation
+        Scénario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-attendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultats attendus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours
       
     </span>
   </a>
@@ -11410,19 +11432,53 @@
 
 
 <h1 id="tp-module-06-la-securite-ntfs-et-les-acl">TP — Module 06 — La sécurité NTFS et les ACL<a class="headerlink" href="#tp-module-06-la-securite-ntfs-et-les-acl" title="Permanent link">¶</a></h1>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer l’environnement et un retour arrière.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’énoncé en entier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Noter l’état initial.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réaliser les manipulations.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier chaque résultat.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comparer avec la correction.</li>
-<li><a href="enonces/">Énoncés</a></li>
-<li><a href="corrections/">Corrections</a></li>
-<li><a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">Cours du module</a></li>
+<h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
+<p>Ce TP met en pratique la configuration et la vérification d’autorisations NTFS sur les répertoires de deux volumes de laboratoire. Les réponses restent séparées de l’énoncé : réalisez d’abord les activités, puis comparez les résultats à la correction.</p>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Élément attesté</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Durée estimée</td>
+<td>1 heure</td>
+</tr>
+<tr>
+<td>Environnement</td>
+<td>VM <code>Win10-XX</code>, volumes <code>DATA</code> et <code>TOOLS</code>, VM Discovery pour les questions PowerShell</td>
+</tr>
+<tr>
+<td>Objectif</td>
+<td>Configurer, expliquer et contrôler les ACL de répertoires</td>
+</tr>
+<tr>
+<td>Outils</td>
+<td>Onglet Sécurité, Accès effectif et PowerShell pour les commandes demandées</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Ressources de laboratoire non fournies</p>
+<p>La VM <code>Win10-XX</code>, la VM Discovery ainsi que les volumes <code>DATA</code> et <code>TOOLS</code> sont mentionnés dans le scénario. Ils ne sont pas fournis dans le dossier Drive M06 live. Utilisez uniquement les ressources mises à disposition par le formateur ; ne les remplacez pas par une ressource inventée.</p>
+</div>
+<h2 id="resultats-attendus">Résultats attendus<a class="headerlink" href="#resultats-attendus" title="Permanent link">¶</a></h2>
+<ul>
+<li>les répertoires <code>Echange</code>, <code>logiciels</code> et <code>manuels d’utilisation</code> sont créés dans le contexte prévu ;</li>
+<li>les groupes et droits demandés sont configurés sans modifier les noms du scénario ;</li>
+<li>l’héritage et les accès sont vérifiés ;</li>
+<li>les réponses PowerShell demandées sont contrôlées sur la VM Discovery du laboratoire.</li>
 </ul>
+<h2 id="parcours">Parcours<a class="headerlink" href="#parcours" title="Permanent link">¶</a></h2>
+<ol>
+<li><a href="enonces/">Lire l’énoncé</a>.</li>
+<li>Réaliser les activités dans l’ordre et conserver les contrôles demandés.</li>
+<li>Vérifier les résultats avec les comptes concernés ou Accès effectif.</li>
+<li><a href="corrections/">Consulter la correction</a> après votre tentative.</li>
+<li>Revoir les notions dans le <a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">cours</a> et la <a href="../../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl/">fiche de révision</a>.</li>
+</ol>
 
 
 
