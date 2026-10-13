@@ -8667,10 +8667,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#identite-et-profils" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Identité et profils
       
     </span>
   </a>
@@ -8678,10 +8678,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#groupes-et-jeton-dacces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Groupes et jeton d’accès
       
     </span>
   </a>
@@ -8689,10 +8689,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#outils-a-reconnaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Outils à reconnaître
       
     </span>
   </a>
@@ -8700,10 +8700,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#uac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        UAC
       
     </span>
   </a>
@@ -8711,10 +8711,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-a-savoir-faire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles à savoir faire
       
     </span>
   </a>
@@ -8722,10 +8722,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#ressources-de-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Ressources de laboratoire
       
     </span>
   </a>
@@ -11405,10 +11405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#identite-et-profils" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Identité et profils
       
     </span>
   </a>
@@ -11416,10 +11416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#groupes-et-jeton-dacces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Groupes et jeton d’accès
       
     </span>
   </a>
@@ -11427,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#outils-a-reconnaitre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Outils à reconnaître
       
     </span>
   </a>
@@ -11438,10 +11438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#uac" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        UAC
       
     </span>
   </a>
@@ -11449,10 +11449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-a-savoir-faire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles à savoir faire
       
     </span>
   </a>
@@ -11460,10 +11460,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#ressources-de-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Ressources de laboratoire
       
     </span>
   </a>
@@ -11558,52 +11558,57 @@
 
 
 <h1 id="fiche-de-revision-module-05-les-utilisateurs-et-les-groupes">Fiche de révision — Module 05 — Les utilisateurs et les groupes<a class="headerlink" href="#fiche-de-revision-module-05-les-utilisateurs-et-les-groupes" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="identite-et-profils">Identité et profils<a class="headerlink" href="#identite-et-profils" title="Permanent link">¶</a></h2>
 <ul>
-<li>Comprendre compte, SID, profil et groupe local.</li>
-<li>Créer et administrer utilisateurs et groupes.</li>
-<li>Appliquer les droits par groupes plutôt qu’individuellement.</li>
-<li>Expliquer l’élévation de privilèges et l’UAC.</li>
+<li>Un utilisateur local est enregistré dans la base locale <strong>SAM</strong>.</li>
+<li>Un utilisateur de domaine est géré par un annuaire Active Directory, dans le périmètre décrit par le support.</li>
+<li>Le <strong>SID</strong> identifie un utilisateur ou un groupe pour le système.</li>
+<li>À la première ouverture de session, un profil personnel est créé dans <code>C:\Users</code>.</li>
+<li>Le profil public est commun aux utilisateurs ; le profil par défaut sert de modèle de création.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="commandes-a-reconnaitre">Commandes à reconnaître<a class="headerlink" href="#commandes-a-reconnaitre" title="Permanent link">¶</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>net user
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>net user pdupond Pa$$w0rd /add
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>net localgroup Administrateurs pdupond /add
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>whoami /all
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Get-LocalUser
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>New-LocalUser -Name "pdupond" -AccountNeverExpires
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Add-LocalGroupMember -Group "Administrateurs" -Member "pdupond"
-</span></code></pre></div>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="groupes-et-jeton-dacces">Groupes et jeton d’accès<a class="headerlink" href="#groupes-et-jeton-dacces" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Tout utilisateur appartient à au moins un groupe.</li>
+<li>Les groupes locaux servent notamment aux autorisations d’accès et privilèges d’administration.</li>
+<li>Les groupes prédéfinis sont fournis par Windows ; le module cite notamment Administrateurs et Opérateurs de sauvegarde.</li>
+<li>Les SID de l’utilisateur et de ses groupes composent le <strong>jeton d’accès</strong> de la session.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comprendre compte, SID, profil et groupe local.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Créer et administrer utilisateurs et groupes.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Appliquer les droits par groupes plutôt qu’individuellement.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Expliquer l’élévation de privilèges et l’UAC.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
-</ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<h2 id="outils-a-reconnaitre">Outils à reconnaître<a class="headerlink" href="#outils-a-reconnaitre" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Repère du module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GUI / MMC</td>
+<td><code>lusrmgr.msc</code> et <code>compmgmt.msc</code> pour les utilisateurs et groupes locaux</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td><code>net user</code>, <code>net localgroup</code>, <code>whoami /user</code>, <code>whoami /groups</code></td>
+</tr>
+<tr>
+<td>PowerShell</td>
+<td>Cmdlets des familles <code>LocalUser</code>, <code>LocalGroup</code> et membres de groupes locaux</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uac">UAC<a class="headerlink" href="#uac" title="Permanent link">¶</a></h2>
+<p>L’UAC demande une validation ou une authentification lorsque l’action nécessite une élévation. Le bouclier et la fonction <strong>Exécuter en tant qu’administrateur</strong> sont les repères cités par le support.</p>
+<h2 id="controles-a-savoir-faire">Contrôles à savoir faire<a class="headerlink" href="#controles-a-savoir-faire" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « Les utilisateurs et les groupes » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Contrôler les propriétés et l’appartenance d’un utilisateur ou groupe dans la console.</li>
+<li>Vérifier les membres d’un groupe avec l’outil demandé.</li>
+<li>Ouvrir une session pour constater la création d’un profil.</li>
+<li>Afficher les SID de l’utilisateur et de ses groupes.</li>
+<li>Interpréter une sortie PowerShell demandée dans le TP.</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/">cours complet</a>.</p>
+<h2 id="ressources-de-laboratoire">Ressources de laboratoire<a class="headerlink" href="#ressources-de-laboratoire" title="Permanent link">¶</a></h2>
+<p>Le scénario cite <code>Win10-XX</code>, VM Discovery et <code>MaConsole.msc</code>. Elles ne sont pas fournies dans le dossier Drive M05 live.</p>
+<p>Pour aller plus loin : <a href="../../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/">cours du module</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-05-les-utilisateurs-et-les-groupes/">Kahoot M05</a>.</p>
 
 
 
