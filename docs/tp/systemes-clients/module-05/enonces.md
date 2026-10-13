@@ -1,93 +1,52 @@
-# Énoncés — Module 05 — Les utilisateurs et les groupes
+# Énoncé — Module 05 — Les utilisateurs et les groupes
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Contexte et environnement
 
-## Enoncé du TP - Gestion des utilisateurs et des groupes
+Dans la VM `Win10-XX`, manipulez les utilisateurs et les groupes à l’aide de la console de gestion graphique, de `cmd.exe` et de PowerShell. Le TP demande également l’utilisation de la VM Discovery pour les activités PowerShell.
 
-### Systèmes Clients Microsoft
+**Durée estimée :** 1 heure 30 minutes.
 
-#### Gestion des utilisateurs et
+!!! warning "Ressources du scénario"
+    Utilisez les ressources de laboratoire fournies par le formateur. Les VM et la console mentionnées dans l’énoncé ne sont pas disponibles dans le dossier Drive M05 live.
 
-#### des groupes
+## 1. Créer des comptes et des groupes
 
-#### TP du Module 05 — Les utilisateurs et les groupes
+1. Créez les groupes `L_Informatiques` et `L_Responsables`.
+2. Créez le compte François ; son mot de passe n’a pas de date d’expiration et il appartient aux deux groupes précédents.
+3. Créez le compte Yann et placez-le dans les mêmes groupes que François.
+4. Créez deux comptes avec nom, prénom et identifiant de votre choix ; ils appartiennent au groupe `L_Collegues`.
 
-Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les groupes. Vous mettrez en place des privilèges d’administration et vous testerez leurs effets. Vous parcourrez les caractéristiques des utilisateurs et des groupes. Vous effectuerez toutes ses manipulations à l’aide de l’interface graphique, mais aussi par l’intermédiaire des shells Microsoft.
+Pour toute saisie d’authentification exigée par le scénario, utilisez les identifiants fournis par le formateur. Ne consignez aucun mot de passe dans votre rendu.
 
-#### Durée estimée
+## 2. Attribuer et observer des privilèges
 
-#### 1 heure 30 minutes
+- Donnez à François la possibilité d’administrer les ressources du poste.
+- Permettez à Yann de consulter les journaux d’évènements et de configurer la carte réseau.
+- Donnez aux deux collègues la possibilité de sauvegarder le poste.
+- Retirez l’un des collègues du groupe Utilisateurs.
+- Dans la console graphique, relevez les propriétés d’un utilisateur et celles d’un groupe.
 
-#### Énoncé
+## 3. Contrôler avec CMD
 
-#### Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+1. Affichez les informations du compte François.
+2. Affichez les membres du groupe Administrateurs.
+3. Créez l’utilisateur Romain en utilisant une saisie de mot de passe non affichée.
+4. Ajoutez Romain au groupe `L_Responsables`.
 
-À l'aide de la console de gestion des utilisateurs de la VM Win10-XX,
+## 4. Ouvrir une session et observer les profils
 
-#### créez les objets avec les paramètres suivants :
+1. Fermez la session de l’utilisateur courant.
+2. Déterminez quels utilisateurs peuvent ouvrir une session sur le poste et expliquez pourquoi un collègue ne peut pas ouvrir de session.
+3. Ouvrez une session avec François, puis observez les profils présents sur le système.
+4. Affichez le SID de François ainsi que les SID des groupes dont il est membre.
 
-#### Créez une procédure relative aux deux points suivants :
+## 5. Contrôler avec PowerShell dans la VM Discovery
 
-  - François possédera un mot de passe qui n'aura pas de date d'expiration.
-  - Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
+- Affichez, pour les utilisateurs du système, le nom, le SID et la description.
+- Recherchez pour l’utilisateur `james` son nom complet, sa description, sa classe d’objets et sa dernière connexion.
+- Ajoutez la description demandée à l’utilisateur `adm`.
+- Affichez le nom et le SID des membres du groupe local `L_SupportInfo`.
 
-groupes en amont). Yann fera partie des mêmes groupes que François.
+## Livrables et vérifications
 
-Créez deux comptes utilisateurs auxquels vous donnerez nom, prénom, login et mot de
-
-#### passe de votre choix. Ils feront partie du groupe L_Collegues
-
-#### Mise en place de privilèges d'administration
-
-François aura la possibilité d'administrer l'ensemble des ressources du poste Win10-XX. Yann pourra consulter les journaux d'évènements et configurer la carte réseau. Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
-
-Retirez l'un de vos collègues du groupe utilisateurs.
-
-#### Informations concernant les utilisateurs et groupes
-
-En naviguant dans la console graphique des utilisateurs et des groupes, listez les
-
-#### Listez les propriétés d'un groupe
-
-#### À l'aide de la ligne de commande cmd.exe
-
-Afficher les informations du compte utilisateur François.
-
-#### Affichez les membres du groupe administrateurs
-
-Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions de sécurité, le mot de passe que vous taperez ne devra pas être visible à l'écran !
-
-#### Ajoutez Romain au groupe L_Responsables
-
-#### Manipulations supplémentaires avec l'interface graphique de
-
-#### Windows 10
-
-Fermez la session de l'utilisateur en cours.
-
-#### Quels utilisateurs peuvent ouvrir une session sur le poste ?
-
-#### L'un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
-
-Ouvrez une session avec l'utilisateur François puis affichez les profils présents sur le
-
-#### système. Que peut-on observer ?
-
-À l'aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes dont il est membre.
-
-#### À l'aide de PowerShell et de la VM Discovery
-
-Afficher la liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la description de chacun d'eux. Afficher les informations suivantes concernant l'utilisateur james : Nom complet,
-
-#### description, classe d'objets, date de dernière connexion
-
-Ajouter la description Compte générique avec privilèges d'administration à l'utilisateur
-
-#### adm
-
-#### Afficher le nom et le SID des membres du groupe local L_SupportInfo
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+Conservez les résultats de contrôle demandés par chaque activité : propriétés, appartenances, listes de membres, profils et SID. Vérifiez que chaque résultat répond à la consigne correspondante avant de consulter la [correction](corrections.md).

@@ -1,287 +1,62 @@
-# Corrections — Module 05 — Les utilisateurs et les groupes
+# Correction — Module 05 — Les utilisateurs et les groupes
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+Cette correction reprend les méthodes des sources de laboratoire. Les noms François / `francois` sont conservés selon leur occurrence documentaire ; ils ne sont pas normalisés.
 
-## Solution du TP - Gestion des utilisateurs et des groupes
+## 1. Comptes et groupes dans la console graphique
 
-### Systèmes Clients Microsoft
+### Méthode
 
-#### Les utilisateurs et les
+Dans `MaConsole.msc`, utilisez le composant logiciel enfichable **Utilisateurs et groupes locaux**. Créez d’abord les utilisateurs puis les groupes requis.
 
-#### groupes
+### Étapes et contrôles
 
-#### TP du Module 05 — Les utilisateurs et les groupes
+- Créez François ou `francois` ; désactivez l’obligation de changer le mot de passe à la prochaine ouverture si le scénario le demande, puis activez l’option indiquant que le mot de passe n’expire jamais.
+- Créez `L_Informatiques` et `L_Responsables`, puis ajoutez François / `francois` à ces groupes.
+- Créez Yann et, dans ses propriétés, ajoutez-le aux mêmes groupes.
+- Créez les deux comptes complémentaires, puis le groupe `L_Collegues` et ajoutez-y les comptes définis par le scénario.
 
-À l'aide de la console de gestion des utilisateurs de la VM Win10-XX, créez les
+**Résultat attendu :** les objets apparaissent dans les listes de la console et leurs propriétés indiquent les appartenances demandées.
 
-#### objets avec les paramètres suivant :
+## 2. Privilèges et propriétés
 
-- François possèdera un mot de passe qui n'aura pas de date d'expiration.
-- Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
+| Demande du scénario | Groupe ou contrôle indiqué par la correction |
+| --- | --- |
+| François administre les ressources du poste | Groupe prédéfini Administrateurs |
+| Yann consulte les journaux et configure le réseau | Lecteurs des journaux d’évènements ; Opérateurs de configuration réseau |
+| Les collègues peuvent sauvegarder | Opérateurs de sauvegarde |
+| Un collègue ne peut plus ouvrir de session | Retrait du groupe prédéfini Utilisateurs |
 
-groupes en amont). Dans votre console personnalisée MaConsole.msc disponible sur votre bureau Composant logiciel enfichable "Utilisateurs et groupes locaux" &gt; utilisateurs
+La correction relève aussi, dans les propriétés d’un utilisateur, le nom complet, la description, les options de mot de passe, l’état du compte, les appartenances et les informations de profil. Pour un groupe, elle demande de contrôler la description et ses membres.
 
-#### Clic droit &gt; Nouvel utilisateur
+## 3. Contrôles CMD
 
-Remplir le champ Nom d'utilisateur "françois" ou "francois" et entrez un mot de passe Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture
+| Objectif | Commande indiquée |
+| --- | --- |
+| Informations du compte François | `net user francois` |
+| Membres du groupe Administrateurs | `net localgroup administrateurs` |
+| Créer Romain avec saisie de mot de passe masquée | `net user Romain * /add` |
+| Ajouter Romain à `L_Responsables` | `net localgroup L_Responsables Romain /add` |
+| Afficher le SID de l’utilisateur et ses groupes | `whoami /user` puis `whoami /groups` |
 
-#### de session
+Pour créer un utilisateur dans la base SAM, la correction demande une invite de commandes exécutée avec les privilèges nécessaires. La saisie de mot de passe marquée par `*` ne doit pas être reproduite dans les livrables.
 
-Cocher Le mot de passe n'expire jamais.
+## 4. Session et profils
 
-#### Créer puis Fermer
+Après la première ouverture de session de François, un profil est créé dans `C:\Users` avec un sous-dossier portant le nom de son identifiant. Pour afficher les profils, la correction indique `sysdm.cpl`, puis les paramètres système avancés et les paramètres de profils utilisateur.
 
-#### Francois apparait dorénavant dans la fenêtre des utilisateurs
+**Contrôle :** seuls les utilisateurs ayant déjà ouvert une session possèdent un profil créé sur le poste. Les comptes existants dans la SAM ne possèdent pas nécessairement de profil tant qu’ils ne se sont pas connectés.
 
-#### Composant logiciel enfichable "Utilisateurs et groupes locaux"
+## 5. Contrôles PowerShell dans la VM Discovery
 
-#### Clic droit &gt; Nouveau groupe …
+| Objectif | Commande indiquée par la correction |
+| --- | --- |
+| Nom, SID et description des utilisateurs | `Get-LocalUser \| select Name,SID,Description` |
+| Propriétés de `james` | `Get-LocalUser -Name james \| Select FullName,description,ObjectClass,LastLogon` |
+| Description de `adm` | `Set-LocalUser -Name adm -description "Compte générique administrateur de secours"` |
+| Membres de `L_SupportInfo` | `Get-LocalGroupMember -Name L_SupportInfo \| Select Name,SID` |
 
-#### Nom du groupe : L_Informatiques
+**Résultat attendu :** les sorties affichent les propriétés ou membres demandés dans l’activité concernée.
 
-#### Ajouter …
+## Ressources de laboratoire
 
-#### Entrez les noms des objets à sélectionner : francois
-
-#### OK
-
-#### Créer
-
-#### Nom du groupe : L_Responsables
-
-#### Ajouter…
-
-#### Entrez les noms des objets à sélectionner : francois
-
-#### OK
-
-#### Créer
-
-#### Fermer
-
-#### Les deux nouveaux groupes apparaissent dans la liste
-
-- Yann fera partie des mêmes groupes que François.
-
-Dans votre console personnalisée MaConsole.msc disponible sur votre bureau Composant logiciel enfichable "Utilisateurs et groupes locaux" &gt; utilisateurs
-
-#### Clic droit &gt; Nouvel utilisateur
-
-#### Remplir le champ Nom d'utilisateur "Yann" et entrez un mot de passe
-
-Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture
-
-#### de session
-
-#### Créer puis Fermer
-
-#### Yann apparait dorénavant dans la fenêtre des utilisateurs
-
-#### Clic droit sur l'utilisateur Yann &gt; Propriétés
-
-#### Onglet Membre de
-
-#### Ajouter…
-
-Entrez les noms des objets à sélectionner : L_Informatiques;L_Responsables
-
-#### Appliquer &gt; OK
-
-- Créez deux comptes utilisateurs auquel vous donnerez nom, prénom, login et mot
-
-#### de passe de votre choix. Ils feront partie du groupe L_Collegues
-
-Composant logiciel enfichable "Utilisateurs et groupes locaux" &gt; utilisateurs
-
-#### Clic droit &gt; Nouvel utilisateur
-
-#### Remplir le champ Nom d'utilisateur et entrez un mot de passe
-
-Vous pouvez décocher l'utilisateur doit changer son mot de passe à la prochaine ouverture
-
-#### de session
-
-#### Créer
-
-#### Refaites ces étapes pour un utilisateur supplémentaire puis Fermer
-
-#### Ils apparaissent dorénavant dans la fenêtre des utilisateurs
-
-#### Composant logiciel enfichable "Utilisateurs et groupes locaux"
-
-#### Clic droit &gt; Nouveau groupe …
-
-#### Nom du groupe : L_Collegues
-
-#### Ajouter …
-
-#### Entrez les noms des objets à sélectionner : Pauline;Alix
-
-#### OK
-
-#### Créer
-
-#### Fermer
-
-#### Mise en place de privilèges d'administration
-
-- François aura la possibilité d'administrer l'ensemble des ressources du poste Win10 -
-
-XX.
-
-#### Ajouter François dans le groupe prédéfini Administrateurs
-
-- Yann pourra consulter les journaux d'évènements et configurer la carte réseau.
-
-#### Ajouter Yann dans les groupes prédéfinis suivants :
-
-#### Lecteurs des journaux d'événements
-
-#### Opérateurs de configuration réseau
-
-- Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
-
-Ajouter vos deux utilisateurs supplémentaires dans le groupe prédéfini Opérateurs de
-
-#### sauvegarde
-
-L'imbrication de groupe n'est pas opérationnelle d'un groupe local vers un autre gr oupe local d'une base SAM d'un système d'exploitation client. Il est possible de le faire en ligne
-
-#### de commande mais pour simple information
-
-- Retirez l'un de vos collègues du groupe utilisateurs.
-
-#### Supprimer l'un de vos deux utilisateurs du groupe prédéfini Utilisateurs
-
-#### Informations concernant les utilisateurs et groupes
-
-- En navigant dans la console graphique des utilisateurs et des groupes, listez les
-
-propriétés d'un utilisateur.
-
-#### Nom complet
-
-#### Description
-
-3 actions possibles sur les mots de passe (Changement à la prochaine ouverture de session,
-
-#### expiration, impossibilité de changer de mot de passe)
-
-#### 2 actions possibles sur le compte (désactivation et déverrouillage)
-
-#### Appartenance aux groupes
-
-Information de profil, script d'ouverture de session, connexion automatique à lecteur réseau
-
-#### et mappage via une lettre de lecteur, local path
-
-- Listez les propriétés d'un groupe.
-
-#### Description
-
-#### Ajouter ou supprimer des membres dans le groupe
-
-À l'aide de la ligne de commande cmd.exe.
-
-- Afficher les informations du compte utilisateur François.
-
-`net user francois`
-
-On remarquera ici que la ligne de commande affiche beaucoup plus d'information s concernant l'utilisateur que le composant logiciel enfichable "Util isateurs et groupes locaux". Cela prouve que la ligne de commande est plus pointue, plus aiguisé e et
-
-#### complète que l'interface graphique
-
-- Affichez les membres du groupe administrateurs
-
-`net localgroup administrateurs`
-
-- Créez un utilisateur Romain, attribuez -lui un mot de passe. Attention, pour des
-
-questions de sécurité, le mot de passe que vous taperez ne devra pas être visible à
-
-#### l'écran !
-
-`net user Romain * /add`
-
-#### Entrez le mot de passe au clavier, il ne s'affichera pas à l'écran
-
-Attention, pour pouvoir créer un nouvel utilisateur dans la base SAM, vous devez ouvrir une fenêtre de ligne de commande en tant qu'administrateur. Créer un utilisateur, c'est modifier
-
-#### le système !
-
-- Ajoutez Romain au groupe L_Responsables
-
-`net localgroup L_Responsables Romain /add`
-
-#### Manipulations supplémentaires avec l'interface graphique de Windows 10
-
-- Fermez la session de l'utilisateur en cours.
-
-#### logoff
-
-- Quels utilisateurs peuvent ouvrir une session sur le poste ?
-
-Seuls les utilisateurs membres des groupes Utilisateurs, Administrateurs ou Invités peuvent
-
-#### ouvrir une session locale sur la machine
-
-- L'un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
-
-L'un de vos utilisateurs supplémentaires n'apparait pas sur l'écran d'accueil car vous l'avez
-
-#### supprimé du groupe utilisateurs
-
-- Ouvrez une session avec l'utilisateur François puis affichez les profils présents sur le
-
-#### système. Que peut-on observer ?
-
-Après avoir ouvert une session avec l'utilisateur francois, terminez la configuration de son profil utilisateur . Puisque c'est la première fois que François ouvre une session, un profil d'utilisateur est automatiquement créé dans le dossier c:\Users. Son profil est un sous dossier dont le nom est le même que son login.
-
-#### Pour afficher les profils présents sur le système :
-
-#### Rechercher &gt; sysdm.cpl
-
-#### Onglet Paramètres système avancés
-
-#### Bouton Paramètres… du champ Profil des utilisateurs
-
-Seuls les profils des utilisateurs ayant déjà ouvert au moins une fois une session sur l'ordinateur sont présents. Il existe plus d'utilisateurs que de profils dans notre cas. C'est normal. Par exemple Yann et Romain sont bien présents dans la base SAM mais n'ont pas encore ouvert de session sur l'ordinateur. Un profil leur sera automatiquement créé lors de leur première ouverture de session, à l'aide
-
-#### du profil "modèle" le Profil par défaut
-
-- À l'aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes
-
-dont il est membre.
-
-#### Ouvrez une ligne de commande cmd.exe
-
-`whoami /user`
-
-`whoami /groups`
-
-#### L'ensemble de ces SID forment le jeton d'accès de l'utilisateur
-
-#### À l'aide de PowerShell et de la VM Discovery
-
-- Afficher la liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la
-
-description de chacun d'eux.
-
-`Get-LocalUser | select Name,SID,Description`
-
-- Afficher les informations suivantes concernant l'utilisateur james :
-
-  - Nom complet, description, classe d'objets, date de dernière connexion
-
-`Get-LocalUser -Name james | Select FullName,description,ObjectClass,LastLogon`
-
-- Ajouter la description Compte générique avec privilèges d'administration à
-
-#### l'utilisateur adm
-
-`Set-LocalUser -Name adm -description "Compte générique administrateur de secours"`
-
-- Afficher le nom et le SID des membres du groupe local L_SupportInfo
-
-`Get-LocalGroupMember -Name L_SupportInfo | Select Name,SID`
+La correction mentionne `MaConsole.msc` et la VM Discovery. Ces ressources ne figurent pas dans le dossier Drive M05 live ; aucun substitut n’est fourni ici.

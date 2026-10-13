@@ -1,51 +1,42 @@
 # Fiche de révision — Module 05 — Les utilisateurs et les groupes
 
-## À connaître absolument
+## Identité et profils
 
-- Comprendre compte, SID, profil et groupe local.
-- Créer et administrer utilisateurs et groupes.
-- Appliquer les droits par groupes plutôt qu’individuellement.
-- Expliquer l’élévation de privilèges et l’UAC.
+- Un utilisateur local est enregistré dans la base locale **SAM**.
+- Un utilisateur de domaine est géré par un annuaire Active Directory, dans le périmètre décrit par le support.
+- Le **SID** identifie un utilisateur ou un groupe pour le système.
+- À la première ouverture de session, un profil personnel est créé dans `C:\Users`.
+- Le profil public est commun aux utilisateurs ; le profil par défaut sert de modèle de création.
 
-## Méthode express
+## Groupes et jeton d’accès
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+- Tout utilisateur appartient à au moins un groupe.
+- Les groupes locaux servent notamment aux autorisations d’accès et privilèges d’administration.
+- Les groupes prédéfinis sont fournis par Windows ; le module cite notamment Administrateurs et Opérateurs de sauvegarde.
+- Les SID de l’utilisateur et de ses groupes composent le **jeton d’accès** de la session.
 
-## Commandes à reconnaître
+## Outils à reconnaître
 
-```text
-net user
-net user pdupond Pa$$w0rd /add
-net localgroup Administrateurs pdupond /add
-whoami /all
-Get-LocalUser
-New-LocalUser -Name "pdupond" -AccountNeverExpires
-Add-LocalGroupMember -Group "Administrateurs" -Member "pdupond"
-```
+| Outil | Repère du module |
+| --- | --- |
+| GUI / MMC | `lusrmgr.msc` et `compmgmt.msc` pour les utilisateurs et groupes locaux |
+| CMD | `net user`, `net localgroup`, `whoami /user`, `whoami /groups` |
+| PowerShell | Cmdlets des familles `LocalUser`, `LocalGroup` et membres de groupes locaux |
 
-## Pièges fréquents
+## UAC
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+L’UAC demande une validation ou une authentification lorsque l’action nécessite une élévation. Le bouclier et la fonction **Exécuter en tant qu’administrateur** sont les repères cités par le support.
 
-## Checklist de maîtrise
+## Contrôles à savoir faire
 
-- [ ] Comprendre compte, SID, profil et groupe local.
-- [ ] Créer et administrer utilisateurs et groupes.
-- [ ] Appliquer les droits par groupes plutôt qu’individuellement.
-- [ ] Expliquer l’élévation de privilèges et l’UAC.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+1. Contrôler les propriétés et l’appartenance d’un utilisateur ou groupe dans la console.
+2. Vérifier les membres d’un groupe avec l’outil demandé.
+3. Ouvrir une session pour constater la création d’un profil.
+4. Afficher les SID de l’utilisateur et de ses groupes.
+5. Interpréter une sortie PowerShell demandée dans le TP.
 
-## Questions flash
+## Ressources de laboratoire
 
-1. Quels sont les concepts indispensables de « Les utilisateurs et les groupes » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+Le scénario cite `Win10-XX`, VM Discovery et `MaConsole.msc`. Elles ne sont pas fournies dans le dossier Drive M05 live.
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md).
+Pour aller plus loin : [cours du module](../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md) · [Kahoot M05](../../kahoot/02-systemes-clients-microsoft-05-les-utilisateurs-et-les-groupes.md).
