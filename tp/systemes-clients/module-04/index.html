@@ -11294,10 +11294,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#organisation" class="md-nav__link">
+  <a href="#prerequis-et-ressources-de-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organisation
+        Prérequis et ressources de laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultats-attendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultats attendus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deroule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déroulé
       
     </span>
   </a>
@@ -11410,18 +11432,36 @@
 
 
 <h1 id="tp-module-04-la-gestion-du-stockage">TP — Module 04 — La gestion du stockage<a class="headerlink" href="#tp-module-04-la-gestion-du-stockage" title="Permanent link">¶</a></h1>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer l’environnement et un retour arrière.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’énoncé en entier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Noter l’état initial.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réaliser les manipulations.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier chaque résultat.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comparer avec la correction.</li>
-<li><a href="enonces/">Énoncés</a></li>
-<li><a href="corrections/">Corrections</a></li>
+<p>Ce TP reprend le scénario TSSR de gestion du stockage sous Windows : ajout de disques à une VM, création et contrôle de volumes avec l’interface graphique et <code>diskpart</code>, puis investigation de volumes avec PowerShell.</p>
+<p><strong>Durée source : 1 heure 30 minutes.</strong></p>
+<h2 id="prerequis-et-ressources-de-laboratoire">Prérequis et ressources de laboratoire<a class="headerlink" href="#prerequis-et-ressources-de-laboratoire" title="Permanent link">¶</a></h2>
+<p>Le scénario suppose une VM Windows du laboratoire, VMware Workstation et une VM Discovery. Les PDF demandent notamment l’ajout de deux disques de 60 Go à la VM Windows.</p>
+<div class="admonition info">
+<p class="admonition-title">Ressources non fournies dans le dossier Drive M04</p>
+<p>L’inventaire Drive live M04 contient le support, l’énoncé et la correction, mais aucun fichier de VM, disque virtuel, ISO, archive ou script de laboratoire. Utilisez les environnements fournis dans le cadre de la formation ; cette page ne remplace pas ces ressources.</p>
+</div>
+<h2 id="resultats-attendus">Résultats attendus<a class="headerlink" href="#resultats-attendus" title="Permanent link">¶</a></h2>
+<p>À la fin du TP, vous devez pouvoir :</p>
+<ul>
+<li>montrer la structure demandée sur les disques de la VM ;</li>
+<li>identifier les volumes par leur lettre, leur libellé, leur taille et leur système de fichiers lorsque la consigne le demande ;</li>
+<li>expliquer la différence entre le chemin GPT montré par la correction et l’alternative MBR qu’elle décrit ;</li>
+<li>produire la procédure <code>GestionDuStockage</code> demandée par le scénario ;</li>
+<li>relever les informations de stockage demandées sur la VM Discovery avec PowerShell.</li>
+</ul>
+<h2 id="deroule">Déroulé<a class="headerlink" href="#deroule" title="Permanent link">¶</a></h2>
+<ol>
+<li>Lire l’<a href="enonces/">énoncé</a> intégralement et relever les valeurs attendues.</li>
+<li>Réaliser les opérations dans la VM de laboratoire prévue.</li>
+<li>Vérifier l’état obtenu avec la console, <code>diskpart</code> ou PowerShell selon la partie du scénario.</li>
+<li>Consulter la <a href="corrections/">correction</a> après une tentative complète.</li>
+</ol>
+<p>Les consignes et les réponses restent volontairement séparées.</p>
+<ul>
+<li><a href="enonces/">Énoncé du TP</a></li>
+<li><a href="corrections/">Correction du TP</a></li>
 <li><a href="../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/">Cours du module</a></li>
+<li><a href="../../../revision/systemes-clients/module-04-la-gestion-du-stockage/">Fiche de révision</a></li>
 </ul>
 
 

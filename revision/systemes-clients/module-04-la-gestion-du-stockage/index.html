@@ -8639,10 +8639,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#les-reperes-a-distinguer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Les repères à distinguer
       
     </span>
   </a>
@@ -8650,10 +8650,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#mbr-et-gpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        MBR et GPT
       
     </span>
   </a>
@@ -8661,10 +8661,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#systemes-de-fichiers-du-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Systèmes de fichiers du module
       
     </span>
   </a>
@@ -8672,10 +8672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#outils-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Outils et contrôles
       
     </span>
   </a>
@@ -8683,10 +8683,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#precautions-source-faithful" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Précautions source-faithful
       
     </span>
   </a>
@@ -11405,10 +11405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#les-reperes-a-distinguer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Les repères à distinguer
       
     </span>
   </a>
@@ -11416,10 +11416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#mbr-et-gpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        MBR et GPT
       
     </span>
   </a>
@@ -11427,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#systemes-de-fichiers-du-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Systèmes de fichiers du module
       
     </span>
   </a>
@@ -11438,10 +11438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#outils-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Outils et contrôles
       
     </span>
   </a>
@@ -11449,10 +11449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#precautions-source-faithful" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Précautions source-faithful
       
     </span>
   </a>
@@ -11558,52 +11558,85 @@
 
 
 <h1 id="fiche-de-revision-module-04-la-gestion-du-stockage">Fiche de révision — Module 04 — La gestion du stockage<a class="headerlink" href="#fiche-de-revision-module-04-la-gestion-du-stockage" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="les-reperes-a-distinguer">Les repères à distinguer<a class="headerlink" href="#les-reperes-a-distinguer" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Notion</th>
+<th>À retenir dans ce module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disque</td>
+<td>Support à initialiser et à structurer.</td>
+</tr>
+<tr>
+<td>Partition / lecteur logique</td>
+<td>Portion logique créée sur un disque.</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Partition ou lecteur logique formaté ; le support emploie aussi ce terme pour les disques dynamiques.</td>
+</tr>
+<tr>
+<td>Système de fichiers</td>
+<td>Organisation des données installée par le formatage.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mbr-et-gpt">MBR et GPT<a class="headerlink" href="#mbr-et-gpt" title="Permanent link">¶</a></h2>
 <ul>
-<li>Distinguer MBR, GPT, partitions, volumes et systèmes de fichiers.</li>
-<li>Initialiser, partitionner et formater un disque.</li>
-<li>Utiliser Gestion des disques, DiskPart et PowerShell.</li>
-<li>Contrôler l’état et les lettres de lecteur avant toute opération destructive.</li>
+<li><strong>MBR</strong> : format historique lu par le BIOS ; le support présente quatre partitions au maximum, ou une partition étendue avec des lecteurs logiques pour dépasser cette organisation.</li>
+<li><strong>GPT</strong> : format GUID lu par l’UEFI ; le support indique jusqu’à 128 partitions et une duplication des informations de table.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
+<p>Dans le TP, la correction montre un chemin GPT et décrit séparément l’alternative MBR. Identifier le chemin suivi : ne pas les mélanger.</p>
+<h2 id="systemes-de-fichiers-du-module">Systèmes de fichiers du module<a class="headerlink" href="#systemes-de-fichiers-du-module" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>NTFS</strong> est utilisé pour les volumes DATA, TOOLS et COMMUN dans le scénario.</li>
+<li><strong>FAT32</strong> est utilisé pour ARCHIVE dans le scénario.</li>
+<li>Le support cite aussi ReFS, ext4, VMFS et UDF comme repères, sans en faire des étapes du TP.</li>
+</ul>
+<h2 id="outils-et-controles">Outils et contrôles<a class="headerlink" href="#outils-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Contrôle attendu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gestion des disques</td>
+<td>Vérifier l’initialisation, l’espace, la taille, la lettre et le système de fichiers du volume ciblé.</td>
+</tr>
+<tr>
+<td><code>diskpart</code></td>
+<td>Lister les disques et volumes avant de sélectionner celui qui correspond à la consigne, puis relister après formatage.</td>
+</tr>
+<tr>
+<td>PowerShell</td>
+<td>Relever la table de partitionnement avec <code>Get-Disk</code> et les informations de volume avec <code>Get-Volume</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Les numéros, lettres et noms vus dans la correction appartiennent au laboratoire. Ils sont à contrôler dans la machine réellement manipulée.</p>
+<h2 id="precautions-source-faithful">Précautions source-faithful<a class="headerlink" href="#precautions-source-faithful" title="Permanent link">¶</a></h2>
+<p>Avant une opération de formatage, suppression ou extension :</p>
 <ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
+<li>identifier le disque et le volume à partir des informations visibles ;</li>
+<li>comparer taille, libellé, lettre et table de partitionnement avec la consigne ;</li>
+<li>exécuter une seule opération ;</li>
+<li>relister ou rouvrir l’outil pour vérifier le résultat.</li>
 </ol>
-<h2 id="commandes-a-reconnaitre">Commandes à reconnaître<a class="headerlink" href="#commandes-a-reconnaitre" title="Permanent link">¶</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>diskpart
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>select disk 1
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>create partition primary
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Get-Disk
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Initialize-Disk -Number 1 -PartitionStyle GPT
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel "Donnees"
-</span></code></pre></div>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
-<ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
-</ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Distinguer MBR, GPT, partitions, volumes et systèmes de fichiers.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Initialiser, partitionner et formater un disque.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Utiliser Gestion des disques, DiskPart et PowerShell.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Contrôler l’état et les lettres de lecteur avant toute opération destructive.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
-</ul>
 <h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « La gestion du stockage » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Quelle différence le module fait-il entre une partition, un volume et un système de fichiers ?</li>
+<li>Quel chemin la correction montre-t-elle pour GPT, et quelle alternative décrit-elle pour MBR ?</li>
+<li>Quelles informations devez-vous vérifier avant de formater ou supprimer un volume ?</li>
+<li>Quel résultat <code>Get-Disk</code> et <code>Get-Volume</code> permettent-ils de contrôler dans le TP ?</li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/">cours complet</a>.</p>
+<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/">cours complet</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-04-la-gestion-du-stockage/">Kahoot</a>.</p>
 
 
 
