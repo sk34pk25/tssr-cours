@@ -11294,10 +11294,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#organisation" class="md-nav__link">
+  <a href="#scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organisation
+        Scénario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-et-ressources-de-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis et ressources de laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours et contrôles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrables-attendus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables attendus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens utiles
       
     </span>
   </a>
@@ -11410,18 +11465,35 @@
 
 
 <h1 id="tp-module-10-la-maintenance-du-systeme">TP — Module 10 — La maintenance du système<a class="headerlink" href="#tp-module-10-la-maintenance-du-systeme" title="Permanent link">¶</a></h1>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer l’environnement et un retour arrière.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’énoncé en entier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Noter l’état initial.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réaliser les manipulations.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier chaque résultat.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comparer avec la correction.</li>
-<li><a href="enonces/">Énoncés</a></li>
-<li><a href="corrections/">Corrections</a></li>
+<h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
+<p>Ce TP de <strong>1 heure 30 minutes</strong> fait observer l'état d'une VM Windows en fonctionnement, son historique de fiabilité, les ressources consommées pendant une charge, puis les effets d'un point de restauration utilisé via WinRE.</p>
+<h2 id="prerequis-et-ressources-de-laboratoire">Prérequis et ressources de laboratoire<a class="headerlink" href="#prerequis-et-ressources-de-laboratoire" title="Permanent link">¶</a></h2>
+<ul>
+<li>VM <code>Win10-XX</code> et environnement VM Workstation ;</li>
+<li>gros fichier de charge cité par l'énoncé ;</li>
+<li>outils Windows présents dans le scénario.</li>
+</ul>
+<p>Ces ressources sont mentionnées par les sources mais <strong>ne sont pas fournies dans le dossier Drive M10 live</strong>. En particulier, aucun chemin de partage, fichier de charge ou VM de remplacement ne doit être inventé.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>observer un problème récent de manière synthétique puis détaillée ;</li>
+<li>mesurer l'activité processeur, mémoire, réseau et disque pendant une charge ;</li>
+<li>vérifier et créer un point de restauration ;</li>
+<li>restaurer le système via WinRE et interpréter le résultat sur les fonctionnalités et les données utilisateur.</li>
+</ul>
+<h2 id="parcours-et-controles">Parcours et contrôles<a class="headerlink" href="#parcours-et-controles" title="Permanent link">¶</a></h2>
+<ol>
+<li><a href="enonces/">Énoncé</a> — lire toutes les consignes avant manipulation.</li>
+<li>Réaliser les observations et conserver les résultats demandés.</li>
+<li><a href="corrections/">Correction</a> — comparer la méthode, les contrôles et l'interprétation du scénario.</li>
+</ol>
+<h2 id="livrables-attendus">Livrables attendus<a class="headerlink" href="#livrables-attendus" title="Permanent link">¶</a></h2>
+<p>Le scénario demande une observation de fiabilité, un tableau de ressources pendant l'activité, la vérification d'un point de restauration et le contrôle des éléments demandés après restauration. Les mesures de performances sont dépendantes du laboratoire et ne possèdent pas de valeur-type.</p>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
+<ul>
 <li><a href="../../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/">Cours du module</a></li>
+<li><a href="../../../revision/systemes-clients/module-10-la-maintenance-du-systeme/">Fiche de révision</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-10-la-maintenance-du-systeme/">Kahoot du module</a></li>
 </ul>
 
 
