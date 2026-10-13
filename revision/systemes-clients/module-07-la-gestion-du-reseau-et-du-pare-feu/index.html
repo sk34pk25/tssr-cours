@@ -8723,10 +8723,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#reperes-essentiels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Repères essentiels
       
     </span>
   </a>
@@ -8734,10 +8734,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#configuration-ipv4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Configuration IPv4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp-et-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DHCP et APIPA
       
     </span>
   </a>
@@ -8756,10 +8767,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#pare-feu-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Pare-feu Windows
       
     </span>
   </a>
@@ -8767,10 +8778,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-de-maitrise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles de maîtrise
       
     </span>
   </a>
@@ -8778,10 +8789,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#source-et-provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Source et provenance
       
     </span>
   </a>
@@ -11405,10 +11416,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#reperes-essentiels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Repères essentiels
       
     </span>
   </a>
@@ -11416,10 +11427,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#configuration-ipv4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Configuration IPv4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp-et-apipa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DHCP et APIPA
       
     </span>
   </a>
@@ -11438,10 +11460,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#pare-feu-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Pare-feu Windows
       
     </span>
   </a>
@@ -11449,10 +11471,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-de-maitrise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles de maîtrise
       
     </span>
   </a>
@@ -11460,10 +11482,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#source-et-provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Source et provenance
       
     </span>
   </a>
@@ -11558,51 +11580,99 @@
 
 
 <h1 id="fiche-de-revision-module-07-la-gestion-du-reseau-et-du-pare-feu">Fiche de révision — Module 07 — La gestion du réseau et du pare-feu<a class="headerlink" href="#fiche-de-revision-module-07-la-gestion-du-reseau-et-du-pare-feu" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="reperes-essentiels">Repères essentiels<a class="headerlink" href="#reperes-essentiels" title="Permanent link">¶</a></h2>
 <ul>
-<li>Configurer une interface IPv4 et un profil réseau.</li>
-<li>Distinguer profils Domaine, Privé et Public.</li>
-<li>Créer et contrôler des règles de pare-feu.</li>
-<li>Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.</li>
+<li>Une carte réseau utilise une adresse IP, un masque, une passerelle par défaut et des serveurs DNS.</li>
+<li>L’emplacement réseau Windows — privé, public ou domaine — influence le comportement du pare-feu.</li>
+<li>Une configuration peut être statique, fournie par DHCP ou, dans le cas présenté par le support, relever d’APIPA lorsque DHCP n’est pas joignable.</li>
+<li>La passerelle permet de joindre les autres réseaux ; la table de routage choisit le saut suivant ; le cache ARP associe une IP à une adresse MAC sur le réseau local.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
+<h2 id="configuration-ipv4">Configuration IPv4<a class="headerlink" href="#configuration-ipv4" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>À vérifier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adresse IP</td>
+<td>Elle correspond au réseau et à la partie hôte demandés par le scénario.</td>
+</tr>
+<tr>
+<td>Masque</td>
+<td>Il permet d’identifier la partie réseau de l’adresse.</td>
+</tr>
+<tr>
+<td>Passerelle</td>
+<td>Elle est nécessaire pour les destinations hors réseau local.</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Il est utilisé pour la résolution des noms d’hôtes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dhcp-et-apipa">DHCP et APIPA<a class="headerlink" href="#dhcp-et-apipa" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>DHCP</strong> fournit dynamiquement les paramètres réseau du poste.</li>
+<li>Dans le support, <strong>APIPA</strong> correspond au réseau <code>169.254.0.0/16</code> lorsqu’aucun serveur DHCP n’est joignable.</li>
+<li>APIPA permet une communication temporaire locale, mais invite à vérifier l’accès au service DHCP dans le scénario de laboratoire.</li>
+</ul>
 <h2 id="commandes-a-reconnaitre">Commandes à reconnaître<a class="headerlink" href="#commandes-a-reconnaitre" title="Permanent link">¶</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>IP : 192.168.5.254/24
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>IP : 192.168.10.254/24
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>IP : 203.0.113.1/30
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>IP : 203.0.113.2/30
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>IP : 192.168.5.1/24
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>IP : 192.168.10.1/24
-</span></code></pre></div>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Utilisation dans le module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ipconfig</code></td>
+<td>Afficher la configuration de l’interface.</td>
+</tr>
+<tr>
+<td><code>ipconfig /all</code></td>
+<td>Relever la configuration détaillée, dont passerelle et DNS.</td>
+</tr>
+<tr>
+<td><code>ping</code></td>
+<td>Tester la connectivité ; le pare-feu peut bloquer ICMP.</td>
+</tr>
+<tr>
+<td><code>tracert</code></td>
+<td>Observer le chemin suivi jusqu’à une destination.</td>
+</tr>
+<tr>
+<td><code>nslookup</code></td>
+<td>Interroger la résolution DNS d’un nom.</td>
+</tr>
+</tbody>
+</table>
+<p>Les adresses, noms et résultats observés dans le TP sont propres à son environnement. Ne les traitez pas comme des valeurs universelles.</p>
+<h2 id="pare-feu-windows">Pare-feu Windows<a class="headerlink" href="#pare-feu-windows" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Vérifier l’état du pare-feu pour chaque profil réseau.</li>
+<li>Autoriser une application seulement pour le profil demandé par le scénario.</li>
+<li>Utiliser la console avancée pour consulter et activer la règle entrante ICMPv4 prévue.</li>
+<li>Tester ensuite la communication entre les postes indiqués par le TP.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
+<h2 id="controles-de-maitrise">Contrôles de maîtrise<a class="headerlink" href="#controles-de-maitrise" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Configurer une interface IPv4 et un profil réseau.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Distinguer profils Domaine, Privé et Public.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Créer et contrôler des règles de pare-feu.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Diagnostiquer IP, passerelle, DNS et filtrage dans cet ordre.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je peux expliquer quand une destination est transmise à la passerelle.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais relever les paramètres d’une interface avec <code>ipconfig /all</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je distingue un test de connectivité, un chemin réseau et une résolution DNS.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais relier le profil réseau aux règles du pare-feu Windows.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je contrôle une règle ICMPv4 par un test effectué dans le laboratoire prévu.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « La gestion du réseau et du pare-feu » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">cours complet</a>.</p>
+<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">cours complet</a> et <a href="../../../kahoot/02-systemes-clients-microsoft-07-la-gestion-du-reseau-et-du-pare-feu/">Kahoot du module</a>.</p>
+<h2 id="source-et-provenance">Source et provenance<a class="headerlink" href="#source-et-provenance" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Sources A — TSSR Drive live :</strong> support, énoncé et correction M07.</li>
+<li><strong>Structuration B :</strong> synthèse pédagogique limitée aux notions et contrôles attestés par ces sources.</li>
+</ul>
 
 
 
