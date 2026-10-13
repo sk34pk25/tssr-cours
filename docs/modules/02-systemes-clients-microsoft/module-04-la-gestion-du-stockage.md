@@ -1,451 +1,95 @@
 # Module 04 — La gestion du stockage
 
-**Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 2 support(s) de cours, 1 énoncé(s), 1 correction(s)
+## Objectifs
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+À l’issue du module, vous devez pouvoir expliquer la chaîne qui mène d’un disque à un volume utilisable, puis réaliser et contrôler les opérations demandées dans le laboratoire.
 
-## Objectifs et compétences
+- découvrir le partitionnement ;
+- initialiser le stockage ;
+- installer un système de fichiers ;
+- utiliser les outils de gestion du stockage.
 
-- Distinguer MBR, GPT, partitions, volumes et systèmes de fichiers.
-- Initialiser, partitionner et formater un disque.
-- Utiliser Gestion des disques, DiskPart et PowerShell.
-- Contrôler l’état et les lettres de lecteur avant toute opération destructive.
+> Les notions et exemples de cette page reprennent les supports TSSR du module. Ils décrivent le contexte pédagogique Windows du laboratoire ; ils ne constituent pas une mise à jour de documentation produit.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « La gestion du stockage » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## Du disque au volume utilisable
 
-## Méthode de travail
+Le support distingue plusieurs niveaux qu’il faut nommer avant d’agir :
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+| Élément | Rôle présenté dans le module |
+|---|---|
+| Disque | Support de stockage à préparer et à gérer. Dans le TP, deux disques sont ajoutés à la VM de laboratoire. |
+| Table de partitionnement | « Sommaire » du disque : elle détermine les caractéristiques de ses partitions. |
+| Partition ou lecteur logique | Portion logique créée sur le disque. |
+| Système de fichiers | Structure installée par le formatage pour organiser les données. |
+| Volume | Dans le vocabulaire du support, une partition ou un lecteur logique formaté devient un volume ; un disque dynamique emploie aussi ce terme. |
 
-## Du disque au lecteur utilisable
+La démarche source est donc : ajouter ou repérer le disque, l’initialiser, créer la structure demandée, formater le volume, puis lui attribuer la lettre prévue. Chaque étape produit un état à vérifier avant de passer à la suivante.
 
-```mermaid
-flowchart LR
-    D["Disque physique ou virtuel"] --> T["Table de partitions<br/>GPT ou MBR"] --> P["Partition ou espace de stockage"] --> F["Système de fichiers<br/>NTFS, ReFS…"] --> V["Volume monté<br/>lettre ou point de montage"]
-```
+## MBR et GPT dans le support
 
-<p class="tssr-caption">Avant toute opération destructive, identifier le disque par sa taille et son numéro, puis distinguer la structure de partitionnement du système de fichiers qu’elle contient.</p>
+Le support présente deux formats de table de partitionnement.
 
-## Commandes repérées dans les supports
+| Format | Repères enseignés |
+|---|---|
+| MBR | Format historique, lu par le BIOS ; le support indique quatre partitions au maximum et le recours à une partition étendue et à des lecteurs logiques pour aller au-delà. |
+| GPT | Format GUID lu par l’UEFI, conçu pour lever les limites présentées pour MBR ; le support indique 128 partitions et une copie des informations de table sur plusieurs secteurs. |
 
-```text
-diskpart
-select disk 1
-create partition primary
-Get-Disk
-Initialize-Disk -Number 1 -PartitionStyle GPT
-New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter
-Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel "Donnees"
-Create a new virtuel disk &gt; Next
-select volume X (où X correspond au volume de 15 Go bruts RAW, le volume n) ; 1 dans le
-Get-Disk | select number,size,PartitionStyle
-Get-Volume
-Get-Volume -FriendlyName Informatique,Achat-Ventes,Compta
-Get-Volume -FriendlyName Informatique,Achat-Ventes,Compta | Select DriveLetter,
-Set-Volume -DriveLetter C -NewFileSystemLabel "System"
-```
+Dans la correction du TP, les deux nouveaux disques sont initialisés en GPT. Elle documente également le cas MBR : trois partitions principales et une partition étendue contenant un lecteur logique. Ces deux chemins ne sont pas interchangeables ; le compte rendu doit préciser celui effectivement utilisé.
 
-!!! warning
-    Une commande extraite d’un support n’est pas à exécuter aveuglément. Vérifier la version, les droits, la cible et l’existence d’une sauvegarde avant toute action destructive.
+## Systèmes de fichiers et volumes
 
-## Synthèse Module 4 - Gestion du Stockage sous Windows V2
+Après le partitionnement, le formatage installe un système de fichiers. Le support présente notamment :
 
-### Synthèse - Module 4 : La Gestion du Stockage sous Windows (V2)
+- **NTFS**, système de fichiers Microsoft présenté avec des mécanismes de sécurité, chiffrement, compression et des fonctions supplémentaires ;
+- **FAT16/FAT32**, formats historiques cités par le support ;
+- **ReFS**, présenté comme une évolution de NTFS ;
+- d’autres systèmes de fichiers, dont ext4, VMFS et UDF, simplement cités à titre de repères.
 
-### 1. Partitionnement : MBR vs GPT
+Le scénario du TP emploie NTFS et FAT32 avec des tailles, lettres et libellés précis. Ces valeurs sont des consignes de laboratoire : elles ne définissent pas une configuration universelle.
 
-Avant de pouvoir utiliser un disque dur, celui-ci doit être initialisé avec une table de partitionnement :
+## VHD et VHDX
 
-### 2. Disques de Base vs Disques Dynamiques & Systèmes de Fichiers
+Le support introduit les formats **VHD** et **VHDX** comme des disques durs virtuels. Ils peuvent être à taille fixe ou dynamique, être utilisés par des machines virtuelles et être manipulés comme des fichiers. Le module les situe aussi dans le contexte Hyper-V.
 
-Disque de Base : Organisé en partitions principales et étendues.
+Cette présentation ne remplace pas les disques ajoutés dans le TP VMware : aucun fichier VHD, VHDX ou disque virtuel téléchargeable n’est fourni dans le dossier Drive M04 live.
 
-Disque Dynamique : Organisé en volumes (simples, agrégés par bandes, miroir/RAID).
+## Administrer le stockage
 
-NTFS : Système de fichiers standard Windows supportant les permissions de sécurité (ACL), la compression et le chiffrement EFS.
+Le module présente trois moyens d’administration. Ils servent au même objectif pédagogique, mais les contrôles et le chemin suivi dépendent de l’outil choisi.
 
-ReFS : Resilient File System, conçu pour maximiser la disponibilité des données et la résilience aux pannes.
+| Outil | Usage attesté |
+|---|---|
+| Interface graphique | Ouvrir la gestion des disques, initialiser les disques et créer ou modifier les volumes prévus par le TP. |
+| `diskpart` | Réaliser les opérations de ligne de commande demandées sur le volume ciblé. |
+| PowerShell | Relever les disques et les volumes de la VM Discovery ; le TP utilise notamment `Get-Disk` et `Get-Volume`. |
 
-FAT32 : Format universel mais limité à des fichiers de 4 Go max.
+### Vérifier plutôt que supposer
 
-### 3. Outils de Gestion du Stockage et Commandes
+La vérification fait partie de chaque opération :
 
-Le stockage se gère via la console diskmgmt.msc, l'outil CLI diskpart ou PowerShell :
+1. relever le numéro, la taille et le type de table de partitionnement du disque concerné ;
+2. vérifier la lettre, le nom et la taille des volumes demandés ;
+3. après une opération en ligne de commande, relister les disques ou volumes ciblés ;
+4. conserver la procédure demandée par le TP avec les contrôles observés.
 
-:: Gestion du stockage via Diskpart (cmd.exe)
+Les valeurs affichées par la VM Discovery sont propres au laboratoire. Elles ne doivent pas être généralisées à une autre machine.
 
-`diskpart`
+## Manipulations à risque dans le scénario
 
-list disk
+Le TP demande notamment du formatage, de l’extension et de la suppression de volumes. Ces opérations sont légitimes dans le laboratoire, mais elles modifient réellement la structure de stockage visée.
 
-`select disk 1`
+!!! warning "Identifier la cible avant une opération de stockage"
+    Avant de formater, supprimer ou étendre un volume, vérifier le disque, le volume, sa taille, son libellé et sa lettre. Réaliser uniquement les opérations prévues dans l’environnement de laboratoire : une mauvaise cible peut rendre des données ou une configuration indisponibles.
 
-clean
+## Synthèse
 
-convert gpt
+Le module entraîne à relier une structure de disque à une opération vérifiable : choisir le modèle de partitionnement indiqué, créer et formater les volumes demandés, leur attribuer les repères prévus, puis relever l’état final avec l’outil adapté.
 
-`create partition primary`
+## Pour pratiquer et réviser
 
-format fs=ntfs quick
-
-assign letter=E
-
-exit
-
-#### Administration du stockage via PowerShell
-
-`Get-Disk`
-
-`Initialize-Disk -Number 1 -PartitionStyle GPT`
-
-`New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter`
-
-`Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel "Donnees"`
-
-| Caractéristique | MBR (Master Boot Record) | GPT (GUID Partition Table) |
-| --- | --- | --- |
-| Firmware requis | BIOS traditionnel / Legacy | UEFI moderne |
-| Nombre max de partitions | 4 partitions principales (ou 3 + 1 étendue) | Jusqu'à 128 partitions |
-| Taille max du disque | 2,2 To | 256 To (et plus) |
-| Redondance | Aucune (secteur LBA 0 unique) | Entête de secours en fin de disque |
-
-## Module 04 - Support de cours
-
-### Systèmes clients Microsoft
-
-#### Module 04 — La gestion du stockage
-
-#### Objectifs • Découvrir le partitionnement
-
-- Initialiser le stockage
-- Installer un système de fichier
-- Utiliser les outils de gestion du stockage
-
-### Le partitionnement
-
-- Partitionnement
-- Formats de table de partition
-- Système de fichiers
-- Outils
-
-#### Partitionner un disque
-
-#### =
-
-#### "séparer" un disque en plusieurs "portions" logiques, étanches et
-
-indépendantes.
-
-#### P1 P2 P3 P4 P5 P6 P7…
-
-- Table de partition
-- Détermine les caractéristiques des partitions du disque
-- « Sommaire » du disque
-- Table de partition au format MBR
-- Master Boot Record
-- Format historique
-- Lecture du MBR par le BIOS
-- Stocké sur le premier secteur du disque (512 o)
-- 4 partitions maximum
-- Ne gère pas les disques de plus de 2,2 To
-- Compatible avec les systèmes d'exploitation 32 bits et 64 bits
-
-#### Le partitionnement
-
-#### Partitionnement d'un disque
-
-- DE BASE
-- Possibilités d'étendre une partition grâce à l'espace libre contigu
-- 4 partitions maximum
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Espace libre
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partitionnement d'un disque
-
-- DE BASE
-- Possibilités d'étendre une partition grâce à l'espace libre contigu
-- 4 partitions maximum
-- Partition étendue et lecteurs logiques pour aller au-delà
-
-#### Espace librePartition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### Partition
-
-#### principale
-
-#### 3 Partition étendue
-
-L.
-
-#### Logique 1
-
-L.
-
-#### Logique 2
-
-L.
-
-#### Logique 3
-
-#### Le partitionnement
-
-#### Partitionnement d'un disque
-
-- DYNAMIQUE (évolution du disque de base)
-- Attention, pour Microsoft, les partitions contenues sur un disque dynamique s'appellent des volumes
-- Possibilité d'étendre un volume grâce à l'espace libre disponible sur le disque source
-- … et disponible sur un disque supplémentaire. Permet de gérer les disques par ensemble (RAID)
-- Convertir un disque de base en disque dynamique ? Pas de perte de données
-
-#### Volume 1 Volume 2 Volume 3
-
-#### Espace libre
-
-#### Volume 2
-
-#### Volume 1 Volume 2 Volume 3 Volume 2
-
-#### Table de partitionnement au format GPT
-
-- GUID Partition Table
-- Nouveau format qui gomme les inconvénients du MBR
-- Dupliqué sur plusieurs secteurs du disque
-- Lecture du GPT par l'UEFI (évolution du BIOS depuis 2013)
-- 128 partitions maximum
-- Taille maximale d'une partition : 256 To
-- Seulement compatible avec les systèmes d'exploitation
-
-#### 64 bits et les puces UEFI
-
-#### Secondary GPT Header
-
-#### GUID Partition Table Scheme
-
-#### LBA 0
-
-#### LBA 1
-
-#### LBA 2
-
-#### LBA 33
-
-#### LBA 34
-
-#### LBA -34
-
-#### LBA -33
-
-#### LBA -2
-
-#### LBA -1
-
-#### Protective MBR
-
-#### Partition 1
-
-#### Partition 2
-
-#### Partition 1
-
-#### Remaining Partitions
-
-#### Entry 1 Entry 2 Entry 3 Entry 4
-
-#### Entries 5-128
-
-#### Entry 1 Entry 2 Entry 3 Entry 4
-
-#### Entries 5-128
-
-#### Secondary GPT Primary GPT
-
-#### Les systèmes de fichiers
-
-- Après le partitionnement, le formatage
-- Formater une partition ou un lecteur logique, c'est installer un
-
-#### système de fichiers
-
-- Le FS organise les données. Une partition ou un lecteur logique
-
-#### formaté s'appelle un volume
-
-- Plusieurs systèmes de fichiers existent
-
-#### Partition
-
-#### principale
-
-#### X
-
-#### I
-
-#### N
-
-#### D
-
-#### E
-
-#### X
-
-#### I
-
-#### N
-
-#### D
-
-#### E
-
-#### X
-
-### Les systèmes de fichiers
-
-#### NTFS
-
-- Le système de fichiers par défaut chez Microsoft
-- Nativement sécurisé (ACL)
-- Chiffrement intégré (EFS)
-- Compression intégrée
-- Supporte des fonctionnalités supplémentaires
-- Taille maximale du volume 256 To
-
-#### Les systèmes de fichiers
-
-#### Les autres
-
-- FAT16 / FAT32 (File Allocation Table)
-- Historique
-- Standard
-- Volume de 4 Go maximum
-- Non sécurisé nativement
-- ReFS (Resilient File System)
-- Évolution de NTFS
-- Taille des volumes quasi illimitée
-- Correction proactive des erreurs
-- Les autres
-- Ext4, VMFS, UDF… et des dizaines d'autres
-
-### Les disques durs virtuels
-
-- VHD (Virtual Hard Drive) et VHDX
-- Bootable
-- Taille fixe ou dynamique
-- Créés et utilisés pour les machines virtuelles
-- Utilisable sur les machines physiques ! montable comme ISO !
-- Manipulable comme un fichier (clonage, déplacement, compression,
-
-#### versioning…)
-
-- Disques durs virtuels par défaut pour HyperV
-
-#### Stockage local et GUI
-
-#### Les outils de gestion
-
-- Avec la console graphique (diskmgmt.msc)
-
-### Stockage local et cmd.exe
-
-#### Les outils de gestion
-
-- Avec diskpart (outil en ligne de commande très utilisé en production)
-
-#### Stockage local et PowerShell
-
-#### Les outils de gestion
-
-- Avec les cmdlet PowerShell
-- Get-disk
-- Relever le numéro du nouveau disque
-- Initialize-disk —number &lt;numéro relevé&gt;
-- Par défaut en GPT
-- Il faut préciser le paramètre —PartitionStyle MBR pour la rétrocompatibilité
-- New-partition —DiskNumber &lt;numéro relevé&gt; -UseMaximumSize —AssignDriveLetter
-- On peut assigner la lettre après avec set-partition —DiskNumber &lt;numéro relevé&gt; -PartitonNumber
-
-&lt;numéro relevé&gt; -NewDriveLetter &lt;Lettre de votre choix&gt;
-
-- Format-volume —DriveLetter &lt;Lettre de lecteur&gt;
-- Format par défaut en NTFS
-- Votre volume est prêt à l'utilisation
-
-### Démonstration
-
-#### TP
-
-### Conclusion
-
-- Recette pour bien utiliser le stockage
-- Installer le média dans l’ordinateur
-- Initialiser
-- Partitionner
-- Installer le système de fichier
-- Attribuer une lettre de lecteur ou un point de montage
-
-## Mise en pratique
-
-- [Travaux pratiques du module](../../tp/systemes-clients/module-04/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-04-la-gestion-du-stockage.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « La gestion du stockage » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Distinguer MBR, GPT, partitions, volumes et systèmes de fichiers.
-    - Initialiser, partitionner et formater un disque.
-    - Utiliser Gestion des disques, DiskPart et PowerShell.
-    - Contrôler l’état et les lettres de lecteur avant toute opération destructive.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [Présentation du TP](../../tp/systemes-clients/module-04/index.md)
+- [Énoncé du TP](../../tp/systemes-clients/module-04/enonces.md)
+- [Correction du TP](../../tp/systemes-clients/module-04/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-04-la-gestion-du-stockage.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-04-la-gestion-du-stockage.md)
+- [Présentation de la formation](index.md)
