@@ -1,203 +1,120 @@
 # Module 06 — La sécurité NTFS et les ACL
 
-**Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
+**Séquence :** Systèmes clients Microsoft
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+## Objectifs
 
-## Objectifs et compétences
+À l’issue du module, vous devez pouvoir :
 
-- Lire une ACL et distinguer autorisations explicites et héritées.
-- Appliquer le principe du moindre privilège.
-- Comprendre la priorité d’un refus et l’effet des groupes.
-- Tester les droits avec un compte réellement concerné.
+- définir les ACL et repérer leur rôle sur un volume formaté en NTFS ;
+- lire les éléments principaux d’une DACL et les autorisations associées ;
+- configurer puis vérifier des accès dans un scénario de laboratoire ;
+- tenir compte des groupes, de l’héritage, des copies et des déplacements.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « La sécurité NTFS et les ACL » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## 1. NTFS et les ACL
 
-## Méthode de travail
+Sur un volume formaté en **NTFS**, les répertoires et les fichiers sont soumis à la sécurité NTFS. Des autorisations définissent les privilèges d’accès. Lorsqu’un utilisateur tente d’accéder à une ressource, son **jeton d’accès** est pris en compte par cette ressource.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+Les autorisations sont consultables et modifiables depuis l’onglet **Sécurité** des propriétés d’un objet. Le support présente cet onglet comme le point d’entrée pour lire la liste des groupes, utilisateurs et entités de sécurité auxquels des autorisations sont appliquées.
 
-## Comment Windows évalue un accès
+## 2. ACL, DACL et ACE
 
-```mermaid
-flowchart LR
-    U["Utilisateur connecté"] --> J["Jeton d’accès<br/>SID utilisateur et groupes"] --> A["ACL de l’objet<br/>ACE autoriser ou refuser"] --> E["Droits effectifs"]
-    H["Héritage du dossier parent"] --> A
+Une **ACL** est une liste de contrôle d’accès. Dans le contexte du module, la **DACL** (*Discretionary Access Control List*) rassemble les utilisateurs, groupes et entités de sécurité concernés par l’accès à l’objet.
+
+Chaque **ACE** (*Access Control Entry*) correspond aux privilèges accordés ou refusés à l’entité visée. Le support recommande de privilégier les groupes dans les DACL plutôt que de multiplier les utilisateurs individuels.
+
+## 3. Lire les autorisations
+
+Les autorisations de base citées sont cumulatives :
+
+| Niveau | Repères donnés par le support |
+| --- | --- |
+| Lecture | Affichage du contenu du dossier, lecture, lecture et exécution. |
+| Modification | Écriture et modification. |
+| Contrôle total | Niveau le plus étendu présenté pour les besoins courants. |
+
+Pour des besoins spécifiques, le menu **Avancé** permet d’accéder à des autorisations spéciales, par exemple la création de fichiers ou la suppression de sous-dossiers et de fichiers.
+
+## 4. Appliquer les règles d’accès
+
+Le support distingue les règles explicites et les mécanismes suivants :
+
+- une entité absente de la DACL reçoit un **refus implicite** ;
+- une règle peut autoriser un privilège ou le refuser ;
+- plusieurs règles peuvent s’appliquer à un même utilisateur ;
+- parmi les autorisations, la règle la plus permissive l’emporte ;
+- un **refus explicite** l’emporte sur une autorisation.
+
+Ces règles doivent être lues avec les appartenances aux groupes du compte testé. Dans le TP, les groupes `L_Collegues` et `L_Informatiques` servent précisément à attribuer les accès demandés sans placer directement les utilisateurs nommés dans la DACL.
+
+## 5. Comprendre l’héritage
+
+Par défaut, un répertoire propage ses autorisations à ses objets enfants. Dans l’interface, les autorisations héritées apparaissent grisées et ne sont pas modifiables directement.
+
+Pour modifier ce comportement, le support indique deux possibilités : agir sur le dossier parent — parfois sur le volume racine — ou rompre l’héritage depuis le menu **Avancé**, avec précaution. Il indique également qu’une autorisation d’accès l’emporte sur un refus explicite hérité.
+
+## 6. Copier ou déplacer
+
+Le comportement présenté dans le support dépend de l’opération et de l’emplacement :
+
+| Opération | Dans la même partition ou le même volume | Entre deux partitions ou volumes |
+| --- | --- | --- |
+| Déplacement | Conservation | Héritage |
+| Copie | Héritage | Héritage |
+
+Avant de conclure sur un résultat, vérifiez donc la ressource d’origine, la destination et les autorisations héritées par l’objet après l’opération.
+
+## 7. Vérifier un accès
+
+Le module demande de ne pas se limiter à la configuration affichée. Deux vérifications sont présentées :
+
+1. tester l’accès avec les utilisateurs concernés ;
+2. consulter l’onglet **Accès effectif** du menu **Avancé**.
+
+La correction illustre ces contrôles avec un membre du groupe prédéfini Utilisateurs, un membre de `L_Collegues` et un membre du groupe prédéfini Administrateurs. Les résultats attendus sont liés aux droits Lecture, Modification et Contrôle total réellement appliqués dans le scénario.
+
+!!! warning "Précautions liées aux ACL"
+    Le support demande de manipuler les ACL avec précaution : tenez compte de l’héritage, des copies et déplacements, privilégiez les groupes et le refus implicite, puis testez systématiquement l’accès. Il attire aussi l’attention sur le double jeton d’accès des administrateurs.
+
+## 8. Mise en pratique : DATA et TOOLS
+
+Le TP utilise deux volumes de laboratoire :
+
+- sur **DATA**, création du répertoire `Echange`, observation des droits par défaut et de l’héritage, puis attribution des accès demandés aux collègues, administrateurs et utilisateurs du poste ;
+- sur **TOOLS**, création des répertoires `logiciels` et `manuels d’utilisation`, puis application des droits prévus pour les utilisateurs, administrateurs et le groupe qui rassemble Yann et François.
+
+Les volumes et machines cités appartiennent au scénario. Ils ne sont pas fournis comme ressources téléchargeables dans le dossier Drive M06 live.
+
+## 9. PowerShell attesté par le TP
+
+Sur la VM Discovery du scénario, le TP demande d’afficher les droits du dossier `2022` du lecteur `M:` :
+
+```powershell
+Get-Acl m:\2022
 ```
 
-<p class="tssr-caption">Les droits effectifs résultent des entrées applicables à l’utilisateur et à ses groupes, de l’héritage et des refus explicites. Les vérifier dans l’onglet d’accès effectif évite de raisonner sur une seule entrée.</p>
+La cmdlet identifiée pour modifier les ACL d’un dossier est :
 
-## Commandes repérées dans les supports
-
-```text
-Get-Acl m:\2022
+```powershell
 Set-Acl
 ```
 
-!!! warning
-    Une commande extraite d’un support n’est pas à exécuter aveuglément. Vérifier la version, les droits, la cible et l’existence d’une sauvegarde avant toute action destructive.
+Le module se limite à ces deux repères PowerShell ; les procédures complètes restent dans la correction du TP.
 
-## Module 06 - Support de cours
+## Synthèse
 
-### Systèmes clients Microsoft
-
-#### Module 06 — La sécurité NTFS et les ACL
-
-#### Objectifs • Définir et découvrir les ACL
-
-- Connaître le fonctionnement et les bonnes
-
-#### pratiques
-
-- Configurer les accès
-- Vérifier leur bon fonctionnement
-
-### NTFS et les ACL
-
-#### Sur un volume formaté en NTFS
-
-- Tous les répertoires et tous les fichiers sont soumis à la sécurité NTFS
-- Des autorisations définissent des privilèges d'accès
-- L'utilisateur présente son jeton d'accès, qui est filtré par la ressource
-- Les autorisations sont stockées dans l'index du système de fichier NTFS
-- Consultable, modifiable dans l'onglet sécurité de chaque objet
-
-#### NTFS et les ACL
-
-#### L'onglet sécurité
-
-- Accessible via les propriétés d'un objet
-- DACL : (Liste de contrôle d'accès discrétionnaire)
-
-#### contient les utilisateurs et groupes
-
-- Les DACL filtrent
-- Les groupes locaux
-- Les groupes prédéfinis
-- Les entités de sécurité
-- Les utilisateurs
-- ACE : (Access Control Entry) privilèges d'accès
-
-#### du groupe en question
-
-#### D
-
-#### A
-
-#### C
-
-#### L
-
-#### A
-
-#### C
-
-#### E
-
-- Pour les besoins courants, les ACE de base sont utilisées et cumulatives
-- Configurable depuis le menu Modifier
-- LECTURE
-- Affichage du contenu du dossier
-- Lecture
-- Lecture et exécution
-- MODIFICATION
-- Écriture
-- Modification
-- CONTRÔLE TOTAL
-- Pour des besoins spécifiques, des autorisations spéciales peuvent être configurées
-- Accessibles depuis le menu Avancé
-- Affinent les privilèges (création de fichiers, suppression de sous-dossiers et fichiers, etc.)
-
-#### NTFS et les ACL
-
-- Permissions basées sur des règles explicites
-- Un groupe absent de la DACL se verra l'accès refusé (refus implicite)
-- Chaque règle peut accorder des privilèges (autoriser) ou les ôter (refuser)
-- Plusieurs règles d’accès peuvent s’appliquer à un même utilisateur
-- La règle la plus permissive l'emporte
-- Le refus explicite l'emporte sur l'autorisation
-- Les mécanismes d'héritage
-- Par défaut, un répertoire propage ses autorisations à ses objets enfants
-- Les autorisations héritées apparaissent grisées et ne sont pas modifiables
-- Une autorisation d'accès l'emporte sur un refus explicite hérité
-- Pour les modifier, il faut :
-- Modifier les autorisations sur le dossier parent (voire parfois celles du volume racine)
-- "Casser" l'héritage (à effectuer avec précaution)
-- Gestion de l'héritage depuis le menu Avancé
-
-#### NTFS et les ACL
-
-- Que se passe-t-il lors de la copie ? Du déplacement ?
-
-#### Au sein d'une même
-
-#### partition/volume
-
-#### Entre deux
-
-#### partitions/volumes
-
-#### Déplacement Conservation Héritage
-
-#### Copie Héritage Héritage
-
-#### Une fois les ACL configurées, que faire ?
-
-- Testez les accès avec les utilisateurs !
-- Ou/et vérifiez les accès depuis l'onglet Accès effectif du menu Avancé
-
-#### NTFS et les ACL
-
-- À manipuler avec précaution !
-- Bonnes pratiques pour éviter les effets de bord et les mauvaises surprises
-- Privilégier au maximum les groupes dans les DACL
-- Utiliser au maximum ACE de base
-- Garder en tête les mécanismes d'héritage (attention aux copies, aux déplacements)
-- Privilégier l'héritage
-- Privilégier le refus implicite
-- Toujours tester/vérifier les accès aux ressources
-- Attention au double jeton d'accès des administrateurs !
-
-### Démonstration
-
-#### TP
-
-### Conclusion
-
-- La gestion des ACL est indispensable
-- ACL = DACL + ACE
-- Liste de contrôle d’accès
-- Liste de contrôle d’accès discrétionnaire
-- Entrées de contrôle d’accès
-- Tester les accès
-- Respecter les bonnes pratiques Microsoft
+La sécurité NTFS s’appuie sur des ACL constituées de DACL et d’ACE. La lecture des groupes, autorisations, refus et héritages permet d’expliquer un accès. La configuration doit être vérifiée avec le compte concerné ou avec Accès effectif, en tenant compte du comportement des copies et déplacements.
 
 ## Mise en pratique
 
-- [Travaux pratiques du module](../../tp/systemes-clients/module-06/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md)
+- [TP — présentation](../../tp/systemes-clients/module-06/index.md)
+- [Énoncé du TP](../../tp/systemes-clients/module-06/enonces.md)
+- [Correction du TP](../../tp/systemes-clients/module-06/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl.md)
+- [Présentation de la formation](index.md)
 
-## Questions flash
+## Source et provenance
 
-1. Comment expliquer simplement « La sécurité NTFS et les ACL » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Lire une ACL et distinguer autorisations explicites et héritées.
-    - Appliquer le principe du moindre privilège.
-    - Comprendre la priorité d’un refus et l’effet des groupes.
-    - Tester les droits avec un compte réellement concerné.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- **Sources A — TSSR Drive live :** support `Module 06 - Support de cours.pdf`, énoncé `Enoncé du TP - Les ACL.pdf` et correction `Solution du TP - Les ACL.pdf`.
+- **Structuration B :** organisation web, tableaux et articulation pédagogique entre le support, l’énoncé et la correction, sans ajout de source externe.
