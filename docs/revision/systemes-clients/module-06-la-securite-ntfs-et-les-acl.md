@@ -1,39 +1,60 @@
 # Fiche de révision — Module 06 — La sécurité NTFS et les ACL
 
-## À connaître absolument
+## ACL, DACL et ACE
 
-- Lire une ACL et distinguer autorisations explicites et héritées.
-- Appliquer le principe du moindre privilège.
-- Comprendre la priorité d’un refus et l’effet des groupes.
-- Tester les droits avec un compte réellement concerné.
+- Une **ACL** est une liste de contrôle d’accès appliquée à une ressource.
+- Dans le module, la **DACL** rassemble les utilisateurs, groupes et entités de sécurité concernés par les accès à l’objet.
+- Une **ACE** définit les privilèges accordés ou refusés à une entité.
+- Le support recommande de privilégier les groupes dans les DACL.
 
-## Méthode express
+## Autorisations à reconnaître
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Autorisation de base | Repères du support |
+| --- | --- |
+| Lecture | Afficher le contenu, lire, lire et exécuter. |
+| Modification | Écrire et modifier. |
+| Contrôle total | Niveau le plus étendu présenté pour les besoins courants. |
 
-## Pièges fréquents
+Les autorisations spéciales se configurent depuis **Avancé** pour affiner certains privilèges.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Règles d’accès
 
-## Checklist de maîtrise
+- Une entité absente de la DACL reçoit un refus implicite.
+- Une règle peut autoriser ou refuser un privilège.
+- Plusieurs règles peuvent s’appliquer au même utilisateur.
+- La règle la plus permissive l’emporte parmi les autorisations.
+- Un refus explicite l’emporte sur une autorisation.
 
-- [ ] Lire une ACL et distinguer autorisations explicites et héritées.
-- [ ] Appliquer le principe du moindre privilège.
-- [ ] Comprendre la priorité d’un refus et l’effet des groupes.
-- [ ] Tester les droits avec un compte réellement concerné.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Héritage, copie et déplacement
 
-## Questions flash
+- Un dossier propage par défaut ses autorisations aux objets enfants.
+- Les autorisations héritées apparaissent grisées et ne sont pas modifiables directement.
+- La gestion de l’héritage se fait depuis le dossier parent ou le menu **Avancé**, avec précaution.
 
-1. Quels sont les concepts indispensables de « La sécurité NTFS et les ACL » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+| Opération | Même partition ou volume | Entre deux partitions ou volumes |
+| --- | --- | --- |
+| Déplacement | Conservation | Héritage |
+| Copie | Héritage | Héritage |
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md).
+## Contrôles à savoir réaliser
+
+1. Lire les autorisations d’un dossier depuis l’onglet **Sécurité**.
+2. Tester l’accès avec un utilisateur réellement concerné.
+3. Utiliser **Accès effectif** pour comparer les droits d’un membre des groupes Utilisateurs, `L_Collegues` ou Administrateurs selon le scénario.
+4. Distinguer une entrée héritée d’une entrée ajoutée sur le dossier.
+5. Tenir compte du double jeton d’accès des administrateurs cité par le support.
+
+## PowerShell du module
+
+```powershell
+Get-Acl m:\2022
+Set-Acl
+```
+
+`Get-Acl` est utilisé dans le TP pour afficher les droits du dossier indiqué. `Set-Acl` est la cmdlet identifiée par le scénario pour modifier les ACL d’un dossier.
+
+## Ressources de laboratoire
+
+Le scénario mentionne une VM `Win10-XX`, une VM Discovery et les volumes `DATA` / `TOOLS`. Ces ressources ne sont pas présentes dans le dossier Drive M06 live.
+
+Pour aller plus loin : [cours du module](../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md) · [Kahoot M06](../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl.md).

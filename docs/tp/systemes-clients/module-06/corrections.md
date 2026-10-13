@@ -1,230 +1,84 @@
-# Corrections — Module 06 — La sécurité NTFS et les ACL
+# Correction — Module 06 — La sécurité NTFS et les ACL
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+Cette correction reprend les méthodes et résultats du scénario de laboratoire. Les noms Yann, François / `francois`, Romain, Alix, `L_Collegues` et `L_Informatiques` sont conservés selon leurs occurrences documentaires ; ils ne sont pas normalisés.
 
-## Solution du TP - Les ACL
+## 1. DATA : état initial et héritage
 
-### Systèmes Clients Microsoft
+### État initial
 
-#### Les ACL
+Dans l’Explorateur Windows, ouvrez `D:\DATA`, créez le dossier `Echange`, puis consultez **Propriétés → Sécurité**.
 
-#### TP du Module 06 — La sécurité NTFS et les ACL
+La correction indique les autorisations héritées suivantes sur `Echange` :
 
-Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires
+| Entité de sécurité | Autorisation indiquée |
+| --- | --- |
+| Utilisateurs authentifiés | Modification |
+| Système | Contrôle total |
+| Administrateurs | Contrôle total |
+| Utilisateurs | Lecture |
 
-#### suivants :
+Les coches grisées signalent que ces autorisations proviennent de l’héritage du volume `D:`.
 
-- Sur le volume DATA, créer le répertoire Echange
-- Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?
+### Vérifier l’héritage
 
-#### Depuis l'explorateur Windows, explorer le lecteur d:\DATA
+Dans `Echange`, créez un document texte, ouvrez ses propriétés puis l’onglet **Sécurité**. La correction constate que le nouveau fichier hérite des autorisations de `Echange`, lui-même héritier des autorisations du lecteur `D:`. Le menu **Avancé** permet d’observer plus en détail les entrées héritées.
 
-#### Clic droit &gt; Nouveau &gt; Dossier
+## 2. DATA : configurer Echange
 
-#### Nommez-le Echange
+La correction propose une méthode possible par modification des héritages :
 
-Pour connaître les autorisations NTFS positionnées par défaut sur ce répertoire :
+1. sur le lecteur `D:`, ouvrez **Propriétés → Sécurité → Modifier** ;
+2. sélectionnez **Utilisateurs authentifiés**, puis supprimez cette entrée ;
+3. conservez **Système** et **Administrateurs** en Contrôle total ;
+4. conservez **Utilisateurs** en Lecture, conformément à la consigne ;
+5. sur `Echange`, ajoutez le groupe `L_Collegues` depuis l’onglet **Sécurité** ;
+6. attribuez-lui **Modification** ; l’écriture est alors également cochée.
 
-#### Clic droit sur Echange &gt; Propriétés
+Cette séquence est la solution proposée par le document ; elle ne constitue pas l’unique façon de répondre au scénario.
 
-#### Onglet Sécurité
+## 3. DATA : tests réels et Accès effectif
 
-L'entité de sécurité Utilisateurs authentifiés possède des autorisations en Modification
+### Tests avec les utilisateurs du scénario
 
-#### L'entité de sécurité Système possède des autorisations en Contrôle total
+| Utilisateur ou groupe | Contrôle décrit | Résultat attendu par la correction |
+| --- | --- | --- |
+| Romain, membre du groupe prédéfini Utilisateurs | Lire et tenter de créer un fichier dans `Echange` | Lecture possible ; création impossible. |
+| Utilisateur supplémentaire membre de `L_Collegues` | Lire, créer puis tenter de modifier les ACL | Lecture et création possibles ; modification des ACL impossible sans Contrôle total. |
+| `francois`, membre du groupe prédéfini Administrateurs | Lire, créer puis tenter de modifier les ACL | Accès et création possibles ; modification des ACL possible avec Contrôle total. |
 
-Le groupe prédéfini Administrateurs possède des autorisations en Contrôle total
+### Vérifier avec Accès effectif
 
-#### Le groupe prédéfini Utilisateurs possède des autorisations en Lecture
+Ouvrez les propriétés de `Echange`, puis **Sécurité → Avancé → Accès effectif**. La correction demande de sélectionner un utilisateur et d’afficher son accès effectif :
 
-Ces autorisations proviennent de l'héritage du volume D: (un indice du fait qu'apparaissent des coches grisées).
+- Romain n’a que la lecture ; création, écriture et suppression ne sont pas possibles ;
+- Alix a un niveau plus élevé que Romain parce que `L_Collegues` possède Modification ;
+- `francois` possède le niveau Contrôle total par son appartenance aux Administrateurs.
 
-- Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier
+## 4. TOOLS : logiciels et manuels d’utilisation
 
-#### parent ?
+Sur le lecteur `E:`, la correction propose de supprimer **Utilisateurs authentifiés** depuis l’onglet **Sécurité**, tout en conservant :
 
-#### Dans le dossier Echange
+- **Système** et **Administrateurs** en Contrôle total ;
+- **Utilisateurs** en Lecture, comme demandé dans la consigne.
 
-#### Clic droit &gt; Nouveau &gt; Document texte
+Créez ensuite `logiciels` et `manuels d’utilisation` dans le volume **TOOLS**. Par héritage, Système et Administrateurs disposent du Contrôle total et les membres du groupe Utilisateurs conservent la Lecture.
 
-#### Sur Nouveau document texte
+Yann et François sont documentés comme membres de `L_Informatiques`. Ajoutez donc `L_Informatiques` à la DACL des deux dossiers et attribuez-lui **Modification**. La correction recommande ensuite un test grandeur réelle ou un contrôle par **Accès effectif**.
 
-#### Clic droit &gt; Propriétés
+## 5. Questions PowerShell
 
-#### Onglet Sécurité
+Sur la VM Discovery, la correction donne les réponses suivantes :
 
-Oui, les nouveaux fichiers hérite nt des autorisations du dossier parent Echange (qui lui - même hérite des autorisations du lecteur D:). Pour s'en assurer, il suffit d 'observer la présence des coches grisées. Pour plus de détail , cliquez sur le bouton Avancé.
+```powershell
+Get-Acl m:\2022
+```
 
-- Configurez les autorisations d'accès au répertoire Echange
+Cette commande affiche la liste des droits d’accès demandée. La cmdlet identifiée pour modifier les ACL d’un dossier est :
 
-  - Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire
-  - Les administrateurs auront le contrôle total
-  - Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
+```powershell
+Set-Acl
+```
 
-#### poste
+## Résultat attendu
 
-  - Testez le bon fonctionnement des autorisations
-
-#### Ici plusieurs possibilités, en voici une en modifiant les héritages
-
-#### Lecteur D:
-
-#### Clic droit &gt; Propriétés
-
-#### Onglet Sécurité
-
-#### Modifier
-
-#### Sélectionnez Utilisateurs authentifiés
-
-#### Supprimer
-
-Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne
-
-#### OK &gt; Appliquer &gt; OK
-
-#### Dossier Echange
-
-#### Clic droit &gt; Propriétés
-
-#### Onglet Sécurité
-
-On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage.
-
-#### Modifier
-
-#### Ajouter…
-
-#### Entrez les noms des objets à sélectionner : L_Collegues
-
-#### Entrée
-
-Cocher Modification (vous observerez que Ecriture va se cocher automatiquement)
-
-#### Appliquer &gt; OK
-
-#### Les tests d'accès (important)
-
-Première solution (peut-être la plus probante) : faire des tests "grandeur réelle" Fermez votre session actuelle ( logoff) puis o uvrez une session locale avec l'utilisateur Romain. Tester l'accès au dossier Echange (lecture possible car Romain (utilisateur) possède les autorisations en Lecture). Tester la création d'un nouveau fichier dans le dossier Echange (impossible car Romain n'a
-
-pas les autorisations en Modification, il fait partie du groupe prédéfini Utilisateurs). Fermez la session de Romain et ouvr ez une session avec un de vos utilisateurs supplémentaires. Tester l'accès au dossier Echange (lecture possible car votre utilisateur supplémentaire (L_Collegues) possède les autorisations en Lecture). Tester la création d'un nouveau fichier dans le dossier Echange (possible car votre utilisateur possède les autorisations en Modification, par l'intermédiaire du groupe L_Collegues). Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modi fier les ACL (Impossible car l'utilisateur supplémentaire , qui fait partie du groupe L_Collegues, ne possède pas les autorisations en Contrôle Total, le bouton Modifier est protégé par l'UAC). Fermer la session actuelle et ouvrez une session locale avec l'utilisateur francois. Tester l'accès au dossier Echange (lecture possible car francois (Administrateurs) possède les autorisations en Lecture). Tester la création d'un nouveau fichier dans le d ossier Echange (possible car francois possède les autorisations en Modification, par l'intermédiaire du groupe prédéfini Administrateurs). Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL (possible car francois, qui fai t partie du groupe prédéfini Administrateurs possède les autorisations en Contrôle Total). Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès effectif
-
-#### Ouvrez une session avec un utilisateur membre du groupe Administrateurs
-
-#### Affichez les propriétés du dossier Echange (clic droit &gt; Propriétés)
-
-#### Onglet Sécurité
-
-#### Avancé
-
-#### Onglet Accès effectif
-
-#### Sélectionner un utilisateur
-
-Tests d'autorisation d'accès avec un utilisateur membre du groupe utilisateurs
-
-#### Entrez le nom de l'objet à sélectionner : Romain
-
-#### Entrée
-
-#### Afficher l'accès effectif
-
-On observe que romain n'a que des accès en Lecture (pas de création, d'écriture et de suppression possible).
-
-Tests d'autorisation d'accès avec un utilisateur membre du groupe L_Collegues
-
-#### Sélectionner un utilisateur
-
-Entrez le nom de l'objet à sélectionner : l'un de vos utilisateurs supplémentaires
-
-#### Entrée
-
-#### Afficher l'accès effectif
-
-On observe qu'Alix possède un niveau d'autorisation plus élevé que romain car le groupe
-
-#### L_Collegues possède des accès en Modification
-
-Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs
-
-#### Sélectionner un utilisateur
-
-#### Entrez le nom de l'objet à sélectionner : francois
-
-#### Entrée
-
-#### Afficher l'accès effectif
-
-De par son appartenance au groupe prédéfini Administrateurs, francois possède le niveau
-
-#### d'accès Contrôle Total
-
-- Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation
-
-  - Yann et François accéderont en modifications à ces répertoires.
-  - Les utilisateurs standard auront un accès en lecture et les administrateurs
-
-#### posséderont un contrôle total
-
-  - Testez le bon fonctionnement des autorisations
-
-#### Ici plusieurs possibilités, en voici une en modifiant les héritages
-
-#### Lecteur e:
-
-#### Clic droit &gt; Propriétés
-
-#### Onglet Sécurité
-
-#### Modifier
-
-#### Sélectionnez Utilisateurs authentifiés
-
-#### Supprimer
-
-Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne.
-
-#### OK &gt; Appliquer &gt; OK
-
-Créer les dossiers logiciels et manuels d'utilisation dans le volume TOOLS (clic droit dans le volume TOOLS &gt; Nouveau &gt; Dossier). Par héritage, ces dossiers permettent au Système et aux Administrateurs d'en avoir le Contrôle total. Les membres du groupe Utilisateurs, n'ont qu'un accès en Lecture
-
-#### Occupons-nous maintenant des autorisations d'accès de Yann et François
-
-Les DACL ne doivent contenir que des groupes. C'est la bonne pratique.
-
-#### Yann et François sont tous les deux membres du groupe L_Informatiques
-
-Il suffit donc de rajouter le groupe L_Informatiques dans les DACL des dossiers logiciels et
-
-#### manuels d'utilisation
-
-#### Sur les dossiers logiciels et manuels d'utilisation
-
-#### Clic droit &gt; Propriétés
-
-#### Onglet Sécurité
-
-On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage.
-
-#### Modifier
-
-#### Ajouter…
-
-#### Entrez les noms des objets à sélectionner : L_Informatiques
-
-#### Entrée
-
-Cocher Modification (vous observerez que Ecriture va se cocher automatiquement). Toujours faire les tests d'autorisation d'accès "grandeur réelle " ou bien en passant par
-
-#### l'onglet Accès Effectif
-
-#### Sur la VM Discovery en PowerShell
-
-- Afficher la liste des droits d'accès au dossier 2022 du lecteur M:
-
-`Get-Acl m:\2022`
-
-- Quelle cmdlet permet la modification des ACL sur un dossier ?
-
-`Set-Acl`
+Les accès observés correspondent aux groupes et droits configurés dans le scénario. Les contrôles sont réalisés avec les comptes concernés ou avec Accès effectif, sans confondre les autorisations héritées, les entrées ajoutées et les droits réellement obtenus.

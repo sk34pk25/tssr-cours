@@ -1,64 +1,50 @@
-# Énoncés — Module 06 — La sécurité NTFS et les ACL
+# Énoncé — Module 06 — La sécurité NTFS et les ACL
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Contexte et environnement
 
-## Enoncé du TP - Les ACL
+Le TP demande de manipuler les autorisations d’accès de dossiers disponibles sur le système. Réalisez les activités dans une VM `Win10-XX`, puis utilisez la VM Discovery pour les questions PowerShell.
 
-### Systèmes Clients Microsoft
+**Durée estimée :** 1 heure.
 
-#### Les ACL
+!!! warning "Ressources du scénario"
+    Les VM et volumes utilisés dans le TP sont des ressources de laboratoire. Ils ne sont pas fournis dans le dossier Drive M06 live ; utilisez les ressources données par le formateur.
 
-#### TP du Module 06 — La sécurité NTFS et les ACL
+## 1. Préparer les groupes du scénario
 
-Ce TP va vous permettre de manipuler les autorisations d’accès aux dossiers disponibles sur votre système.
+Les activités emploient les groupes `L_Collegues` et `L_Informatiques`. Conservez ces noms tels qu’ils sont présentés dans le scénario et vérifiez les appartenances nécessaires avant les tests d’accès.
 
-#### Durée estimée
+## 2. Configurer DATA et Echange
 
-#### 1 heure
+Sur le volume **DATA** :
 
-#### Énoncé
+1. créez le répertoire `Echange` ;
+2. relevez les autorisations positionnées par défaut ;
+3. ajoutez des fichiers et des dossiers, puis vérifiez s’ils héritent des autorisations du dossier parent ;
+4. configurez les accès afin que les collègues puissent modifier tous les objets et sous-objets de `Echange` ;
+5. donnez aux administrateurs le contrôle total ;
+6. donnez aux utilisateurs du poste les droits de lecture sur le répertoire ;
+7. testez le bon fonctionnement des autorisations.
 
-#### Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
+## 3. Configurer TOOLS
 
-#### Sur votre VM Win10-XX, configurez les autorisations d'accès sur les
+Sur le volume **TOOLS** :
 
-#### répertoires suivants :
+1. créez les répertoires `logiciels` et `manuels d’utilisation` ;
+2. prévoyez que Yann et François puissent les modifier ;
+3. conservez un accès en lecture pour les utilisateurs standard et le contrôle total pour les administrateurs ;
+4. testez le bon fonctionnement des autorisations.
 
-#### Sur le volume DATA, créer le répertoire Echange
+## 4. Contrôler les accès
 
-Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ? Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier
+Pour chaque répertoire concerné, vérifiez le résultat avec les utilisateurs ou groupes du scénario. Distinguez l’observation des droits hérités, les droits configurés et l’accès réellement obtenu.
 
-#### parent ?
+## 5. Questions PowerShell dans la VM Discovery
 
-#### Configurez les autorisations d'accès au répertoire Echange :
+1. Affichez la liste des droits d’accès du dossier `2022` du lecteur `M:`.
+2. Identifiez la cmdlet qui permet de modifier les ACL d’un dossier.
 
-  - Vos collègues pourront modifier tous les objets et sous-objets de ce
+## Livrables et vérifications
 
-#### répertoire
+Conservez les relevés d’autorisations, les résultats des tests d’accès et les réponses aux deux questions PowerShell. Vérifiez que chaque résultat correspond à la consigne avant de consulter la [correction](corrections.md).
 
-  - Les administrateurs auront le contrôle total
-  - Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
-
-#### poste
-
-  - Testez le bon fonctionnement des autorisations
-
-Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation :
-
-  - Yann et François accéderont en modifications à ces répertoires.
-  - Les utilisateurs standard auront un accès en lecture et les administrateurs
-
-#### posséderont un contrôle total
-
-  - Testez le bon fonctionnement des autorisations
-
-#### Sur la VM Discovery en PowerShell
-
-#### Afficher la liste des droits d'accès au dossier 2022 du lecteur M:
-
-#### Quelle cmdlet permet la modification des ACL sur un dossier ?
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+La [correction commentée](corrections.md) est séparée de cet énoncé : elle ne doit être utilisée qu’après la tentative.
