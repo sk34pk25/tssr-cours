@@ -1,7 +1,7 @@
 import { assertEquals, assertRejects, assertThrows } from "jsr:@std/assert@1.0.18";
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
-import { publishApprovedChange } from "./github.ts";
+import { publishApprovedChange, retryFailedPublication } from "./github.ts";
 import { MaintenanceError } from "./maintenance.ts";
 import {
   checkReceiptState, handlePublication, normalizeReceipt, verifyPull, verifyRunEvidence,
@@ -270,19 +270,21 @@ Deno.test("PR deployment accepts only the real merged SHA of the approved PR", a
 });
 
 Deno.test("publication ownership and maintenance guard hold at the actual GitHub sink", async () => {
-  for (const scenario of ["normal", "lost-push-response", "close-after-claim"]) {
+  for (const scenario of ["normal", "lost-push-response", "close-after-claim", "refused-stream", "permanent-read-error", "failed-retry", "changed-blob", "existing-sha"]) {
+  const retry = ["failed-retry", "changed-blob", "existing-sha"].includes(scenario);
   const losePushResponse = scenario === "lost-push-response";
   const closeAfterClaim = scenario === "close-after-claim";
   const originalFetch = globalThis.fetch;
   const envNames = ["GITHUB_TOKEN", "GITHUB_OWNER", "GITHUB_REPO", "GITHUB_BRANCH", "GITHUB_PUBLISH_MODE"];
   const originals = envNames.map((key) => Deno.env.get(key));
   envNames.forEach((key, index) => Deno.env.set(key, ["test-only", "example", "tssr", "main", "direct"][index]));
-  let status = "approved";
+  let status = retry ? "failed" : "approved";
   let claims = 0;
   let updates = 0;
   let audits = 0;
   let pushes = 0;
   let gitWrites = 0;
+  let refReads = 0;
   let expectedSha: string | null = null;
   const client = {
     rpc: (name: string, args: Record<string, unknown>) => {
@@ -298,7 +300,12 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
         return Promise.resolve({ data: { id: ID }, error: null });
       }
       claims++;
-      if (status !== "approved") return Promise.resolve({ data: null, error: { message: "La proposition n’est pas disponible pour publication." } });
+      if (name === "service_claim_failed_publication") {
+        assertEquals(args.p_actor_id, ID);
+        assertEquals(args.p_main_sha, MERGE);
+        assertEquals(args.p_expected_updated_at, "2026-10-13T00:00:00Z");
+      }
+      if (status !== (name === "service_claim_failed_publication" ? "failed" : "approved")) return Promise.resolve({ data: null, error: { message: "La proposition n’est pas disponible pour publication." } });
       status = "publishing";
       return Promise.resolve({ data: { id: ID, title: "Cours testé", author_display_name: "Auteur", required_approvers: [ID] }, error: null });
     },
@@ -307,7 +314,7 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
       let inserting = false;
       const filters: Record<string, unknown> = {};
       const execute = () => {
-        if (table === "change_request_files") return { data: [{ file_path: "docs/new.md", change_type: "create", new_content: "# Nouveau", content_encoding: "utf-8" }], error: null };
+        if (table === "change_request_files") return { data: [{ file_path: retry ? "docs/index.md" : "docs/new.md", change_type: retry ? "update" : "create", base_file_sha: retry ? MERGE : null, old_content: retry ? "# Ancien" : null, new_content: "# Nouveau", content_encoding: "utf-8" }], error: null };
         if (table === "change_approvals") return { data: [{ user_id: ID, user_display_name: "Auteur", decision: "approved" }], error: null };
         if (inserting) { audits++; return { data: {}, error: null }; }
         if (values && (!filters.status || filters.status === status)) {
@@ -316,10 +323,11 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
           if (values.publication_expected_sha) expectedSha = String(values.publication_expected_sha);
           return { data: { id: ID }, error: null };
         }
-        return { data: null, error: null };
+        return { data: table === "change_requests" ? {status, updated_at:"2026-10-13T00:00:00Z", published_commit_sha: scenario === "existing-sha" ? SHA : null} : null, error: null };
       };
       const chain = {
         select: () => chain,
+        order: () => chain,
         eq: (key: string, value: unknown) => { filters[key] = value; return chain; },
         update: (value: Record<string, unknown>) => { values = value; return chain; },
         insert: () => { inserting = true; return chain; },
@@ -333,7 +341,12 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
     if (init?.method && init.method !== "GET") gitWrites++;
     const url = String(input);
     let result: unknown;
-    if (url.includes("/git/ref/heads/")) result = { object: { sha: pushes ? SHA : MERGE } };
+    if (url.includes("/git/ref/heads/")) {
+      refReads++;
+      if (scenario === "refused-stream" && refReads === 1) throw new TypeError("http2 error: refused stream before processing any application logic");
+      if (scenario === "permanent-read-error") return new Response(JSON.stringify({ message: "Bad credentials" }), { status: 401 });
+      result = { object: { sha: pushes ? SHA : MERGE } };
+    }
     else if (url.includes("/git/refs/heads/")) {
       // The second worker enters while the first is still publishing.
       const before = { updates, audits, pushes };
@@ -345,7 +358,7 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
       if (losePushResponse) throw new Error("Simulated lost successful push response");
       result = {};
     } else if (url.includes("/contents/mkdocs.yml")) result = { type: "file", encoding: "base64", sha: MERGE, content: btoa("site_name: TSSR\nnav:\n  - Accueil: index.md\n") };
-    else if (url.includes("/git/trees/") && !init?.method) result = { truncated: false, tree: [{ path: "docs/index.md", type: "blob", sha: MERGE }] };
+    else if (url.includes("/git/trees/") && !init?.method) result = { truncated: false, tree: [{ path: "docs/index.md", type: "blob", sha: scenario === "changed-blob" ? SHA : MERGE }] };
     else if (url.endsWith("/git/commits") && init?.method === "POST") result = { sha: SHA };
     else if (url.includes("/git/commits/")) result = { tree: { sha: MERGE } };
     else if (url.endsWith("/git/trees") || url.endsWith("/git/blobs")) result = { sha: SHA };
@@ -353,7 +366,21 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
     return new Response(JSON.stringify(result), { status: 200 });
   };
   try {
-    if (closeAfterClaim) {
+    if (retry) {
+      if (scenario === "failed-retry") {
+        await retryFailedPublication(client, ID, ID);
+        assertEquals({claims, pushes, status}, {claims:2, pushes:1, status:"publishing"});
+        assertEquals(refReads >= 3, true, "preflight and publication must independently reread main");
+      } else {
+        await assertRejects(() => retryFailedPublication(client, ID, ID), Error,
+          scenario === "changed-blob" ? "modifié" : "état incompatible");
+        assertEquals({claims, gitWrites, pushes, status}, {claims:0, gitWrites:0, pushes:0, status:"failed"});
+        if (scenario === "existing-sha") assertEquals(refReads, 0);
+      }
+    } else if (scenario === "permanent-read-error") {
+      await assertRejects(() => publishApprovedChange(client, ID), Error, "Bad credentials");
+      assertEquals({refReads, pushes, gitWrites, status}, {refReads: 1, pushes: 0, gitWrites: 0, status: "failed"});
+    } else if (closeAfterClaim) {
       await assertRejects(() => publishApprovedChange(client, ID), MaintenanceError);
       assertEquals({ claims, pushes, gitWrites, status }, { claims: 1, pushes: 0, gitWrites: 0, status: "failed" });
     } else {

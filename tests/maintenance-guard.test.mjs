@@ -17,7 +17,9 @@ test("editor mutations use centralized admission while reads retain their paths"
 
 test("all GitHub HTTP mutations require the centralized write guard", () => {
   const source = read("supabase/functions/_shared/github.ts");
-  assert.ok(source.indexOf("await config.beforeWrite()") < source.indexOf("const response = await fetch"));
+  const writeGuard = source.indexOf("await config.beforeWrite()");
+  const transport = source.indexOf("const response = await githubFetch");
+  assert.ok(writeGuard >= 0 && transport > writeGuard);
   assert.match(source, /if \(!config.beforeWrite\) throw new MaintenanceError/);
   assert.match(source, /config.beforeWrite = guard.beforeWrite/);
   assert.match(source, /externallyPublished \|\| guard.engaged\(\)/);

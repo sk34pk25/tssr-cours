@@ -2,6 +2,7 @@ import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { assertPublicationApproval } from "./approval-policy.ts";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
 import { MaintenanceError, publicationWriteGuard } from "./maintenance.ts";
+import { githubFetch } from "./github-transport.ts";
 import {
   ProposedFile,
   validateMkDocsEdit,
@@ -57,7 +58,7 @@ async function github<T>(config: GitHubConfig, path: string, init: RequestInit =
     if (!config.beforeWrite) throw new MaintenanceError();
     await config.beforeWrite();
   }
-  const response = await fetch(`https://api.github.com/repos/${config.owner}/${config.repo}${path}`, {
+  const response = await githubFetch(`https://api.github.com/repos/${config.owner}/${config.repo}${path}`, {
     ...init,
     headers: {
       "Accept": "application/vnd.github+json",
@@ -309,14 +310,41 @@ async function publishPullRequest(
   return pull.number;
 }
 
-export async function publishApprovedChange(adminClient: SupabaseClient, changeId: string): Promise<void> {
+/** Retry evidence is loaded by the server, never supplied by the HTTP caller. */
+export async function retryFailedPublication(adminClient: SupabaseClient, changeId: string, actorId: string): Promise<void> {
+  changeRequestId(changeId);
+  const { data: row, error } = await adminClient.from("change_requests")
+    .select("status,updated_at,published_commit_sha,published_at,github_pr_number,publication_expected_sha,publication_mode,publication_callback")
+    .eq("id", changeId).single();
+  if (error || !row || row.status !== "failed" || [row.published_commit_sha, row.published_at, row.github_pr_number,
+    row.publication_expected_sha, row.publication_mode, row.publication_callback].some(value => value != null)) {
+    throw new Error("Reprise refusée : état incompatible ou effet distant possible.");
+  }
+  const { data: files, error: fileError } = await adminClient.from("change_request_files")
+    .select("file_path,new_file_path,base_file_sha,old_content,new_content,content_encoding,media_type,change_type")
+    .eq("change_request_id", changeId).order("file_path");
+  if (fileError || !files?.length) throw new Error("Fichiers de reprise indisponibles.");
+  const validated = validateProposedFiles(files as ProposedFile[]);
+  const tree = await fetchRepositoryTree();
+  assertNoConflicts(validated, new Map(tree.files.map(file => [file.path, { ...file, type: "blob" as const, mode: "100644" }])));
+  // Atomic claim rechecks votes, actor, snapshot, prior effects and maintenance.
+  // createAtomicCommit rereads main and checks the blobs again before any write.
+  await publishApprovedChange(adminClient, changeId, {
+    p_actor_id: actorId, p_expected_updated_at: row.updated_at, p_files: files, p_main_sha: tree.commitSha,
+  });
+}
+
+export async function publishApprovedChange(adminClient: SupabaseClient, changeId: string,
+  retry?: { p_actor_id: string; p_expected_updated_at: string; p_files: unknown; p_main_sha: string },
+): Promise<void> {
   changeRequestId(changeId);
   let claimed = false;
   let externallyPublished = false;
   const guard = publicationWriteGuard(adminClient, changeId);
   try {
     const { data: claimedRequest, error: claimError } = await adminClient
-      .rpc("service_claim_change_for_publication", { p_change_request_id: changeId });
+      .rpc(retry ? "service_claim_failed_publication" : "service_claim_change_for_publication",
+        { p_change_request_id: changeId, ...retry });
     const request = Array.isArray(claimedRequest) ? claimedRequest[0] : claimedRequest;
     if (claimError || !request?.id) throw new Error(claimError?.message || "Publication déjà prise en charge.");
     claimed = true;
