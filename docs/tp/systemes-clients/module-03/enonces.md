@@ -1,301 +1,96 @@
 # Énoncés — Module 03 — Interagir avec Windows 10
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+Les consignes ci-dessous reprennent les cinq PDF source. Utilisez exclusivement les environnements et les identifiants transmis par le formateur. Aucune donnée d’accès n’est publiée dans cette documentation.
 
-## Enoncé du TP - Devenir autonome avec PowerShell
+## TP 1 — Prise en main de l’interface graphique
 
-### Systèmes Clients Microsoft
+**Durée source : 30 minutes.**
 
-#### Devenir autonome avec
+Sur la VM Windows du laboratoire :
 
-#### PowerShell
+1. supprimer les raccourcis Windows Store et Courrier de la barre des tâches, puis y ajouter Windows PowerShell ;
+2. interrompre temporairement les mises à jour selon la durée indiquée par le scénario ;
+3. relever le nom du PC, puis le renommer avec le nom prévu pour la VM ;
+4. créer une console MMC personnalisée regroupant la gestion des disques, les utilisateurs et groupes locaux et les dossiers partagés ; l’enregistrer sur le bureau ;
+5. personnaliser le papier peint ;
+6. désactiver la mise en veille ;
+7. créer le snapshot demandé par le scénario.
 
-#### TP du Module 03 — Interagir avec Windows 10
+Sur la VM Discovery :
 
-Lors de ce TP, vous allez continuer à pratiquer avec la ligne de commande PowerShell, dans le but de vous familiariser avec cette notion d'objet. Le but est de chercher les bonnes cmdlets grâce à get-command et d’à apprendre à les manipuler grâce à get- help. Surtout, n'oubliez pas l'aide de PowerShell. Lisez l'aide, elle vous fera gagner un temps précieux.
+1. utiliser les identifiants fournis par le formateur ;
+2. relever les composants logiciels enfichables présents dans la console `admConsole` ;
+3. renommer le système avec le nom prévu par le scénario, redémarrer si nécessaire et vérifier la prise en compte ;
+4. appliquer l’interruption temporaire des mises à jour demandée.
 
-#### Durée estimée
+## TP 2 — Prise en main de la CMD
 
-#### 1 heure 30 minutes
+**Durée source : 1 heure.**
 
-#### Énoncé
+Sur la VM Windows du laboratoire :
 
-#### Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
+1. personnaliser l’affichage de `cmd` : police Consolas, taille 24, couleurs de la police et de l’arrière-plan ;
+2. afficher les commandes internes ;
+3. afficher l’aide de `cd` et expliquer son utilité ;
+4. se placer à la racine du lecteur `C:` ;
+5. créer `C:\CommandList` ;
+6. créer `C:\CommandList\InternalCommands.txt` contenant la liste des commandes internes ;
+7. afficher ce fichier pour vérification ;
+8. copier ce fichier sur le bureau de l’utilisateur prévu par le scénario ;
+9. afficher les fichiers et sous-répertoires du bureau, triés par taille croissante ;
+10. créer le snapshot demandé.
 
-#### Sur Win10-XX, recherchez les commandes adaptées pour les besoins
+## TP 3 — Premiers pas avec PowerShell
 
-#### suivants
+**Durée source : 30 minutes.**
 
-À l'aide d'une console PowerShell, afficher les commandes disponibles sur le système
+Sur la VM Windows du laboratoire :
 
-#### À l'aide de la commande précédente, n'afficher que les cmdlets
+1. personnaliser la fenêtre PowerShell : police, taille et dimensions ;
+2. relever la version de PowerShell ;
+3. afficher le contenu du répertoire courant, puis de `C:\Users` ;
+4. lister les alias PowerShell et identifier ceux de `Get-ChildItem` ;
+5. créer le snapshot demandé.
 
-#### N'afficher que les cmdlets dont le verbe est Get
+Sur la VM Discovery :
 
-Quelle cmdlet permet d'afficher la liste des groupes locaux présents sur le système ? Quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut ?
+1. utiliser les identifiants fournis par le formateur ;
+2. afficher le contenu de `C:\PowerShell\Intro.txt` ;
+3. identifier le répertoire courant, puis se déplacer à la racine de `C:`.
 
-Quelles sont les autres propriétés des groupes locaux qui ne sont pas affichés par le
+## TP 4 — Manipuler l’aide de PowerShell
 
-#### système ?
+**Durée source : 1 heure.**
 
-Afficher le SID et la source principale du groupe Utilisateurs du bureau à distance
+1. Sur Discovery, afficher l’aide complète de `Get-Alias` et identifier la cmdlet utilisée.
+2. Sur la VM Windows du laboratoire, afficher la même aide, puis comparer les résultats obtenus.
+3. Mettre à jour l’aide PowerShell en suivant les conditions réseau et de mise à jour du scénario ; une fois l’opération terminée, restaurer la configuration réseau demandée par le laboratoire.
+4. Relever la cmdlet qui affiche les exemples de `Get-Help`.
+5. Utiliser ces exemples pour rechercher la cmdlet qui liste les concepts PowerShell disponibles.
+6. Consulter l’aide sur les alias dans une fenêtre séparée.
+7. Déterminer la persistance des alias et la rubrique d’aide à consulter pour les sauvegarder.
+8. Rechercher la variable qui fixe le nombre de commandes conservées dans l’historique, relever sa valeur par défaut et déterminer si elle est modifiable.
 
-#### Sur Discovery, recherchez les commandes adaptées pour les besoins
+## TP 5 — Devenir autonome avec PowerShell
 
-#### suivants
+**Durée source : 1 heure 30 minutes.**
 
-#### Conseils pour bien construire vos prochaines réponses
+Sur la VM Windows du laboratoire :
 
-1. Cherchez la commande demandée à l'aide de Get-
+1. afficher les commandes disponibles ;
+2. n’afficher que les cmdlets, puis celles dont le verbe est `Get` ;
+3. identifier la cmdlet qui liste les groupes locaux, les propriétés visibles par défaut et les autres propriétés disponibles ;
+4. afficher le SID et la source principale du groupe Utilisateurs du Bureau à distance.
 
-#### Command
+Sur Discovery :
 
-2. Parcourez l'aide et les exemples d'utilisation de cette
+1. rechercher la commande qui liste les disques et relever leur nombre ;
+2. afficher le numéro et le modèle des disques ;
+3. pour le disque numéro 2, n’afficher que le nom, le type de bus et le fabricant ;
+4. afficher le nom, le statut et la description du pilote de l’adaptateur réseau ;
+5. afficher les membres du groupe local Administrateurs ;
+6. rediriger cette liste vers `C:\Users\AdminMembers.txt`, puis vérifier la présence et le contenu du fichier.
 
-#### cmdlet
-
-3. Testez la cmdlet de manière basique pour commencer…
-4. … puis chercher et afficher les propriétés demandées
-
-Quelle commande permet d'afficher les disques durs de la VM Discovery ? Combien
-
-#### de disques durs possède la VM ?
-
-Afficher le numéro et le modèle des disques durs présent sur la VM Discovery
-
-#### N'afficher que le nom, le type de bus et le fabricant du disque numéro 2
-
-Afficher le nom, le statut et la description du pilote de l'adaptateur réseau de la VM
-
-#### Afficher les membres du groupe local Administrateurs de la VM Discovery
-
-Afficher les membres du groupe local Administrateurs de la VM Discovery, mais cette fois-ci, le résultat devra être redirigé dans le fichier AdminMembers.txt, lui-même
-
-#### contenu dans le dossier C:\Users
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-## Enoncé du TP - Manipuler l_aide de PowerShell
-
-### Systèmes Clients Microsoft
-
-#### Manipuler l'aide de
-
-#### PowerShell
-
-#### TP du Module 03 — Interagir avec Windows 10
-
-Durant ce TP vous serez amené à utiliser et à naviguer dans l'aide pour retrouver des informations. Bien évidemment, il faudra mettre à jour cet aide pour ensuite découvrir la manière dont on l'utilise, dont on navigue à l'intérieur. N'oubliez pas qu'il existe de l'aide pour deux domaines : l'aide pour utiliser les cmdlets et l'aide pour découvrir des concepts de PowerShell (help about_*).
-
-#### Durée estimée
-
-#### 1 heure
-
-#### Énoncé
-
-Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
-
-#### Sur Discovery, à l'aide de PowerShell
-
-#### Affichez l'aide complète de la cmdlet Get-Alias
-
-#### Quelle cmdlet avez-vous utilisée ?
-
-#### Sur Win10-XX, à l'aide de PowerShell
-
-#### Affichez l'aide complète de la cmdlet Get-Alias
-
-Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux
-
-#### VMs ?
-
-#### Mettez à jour l'aide de PowerShell
-
-  - Vérifiez, à l'aide de votre interface graphique, que les mises à jour Windows
-
-Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant.
-
-  - Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-
-
-#### XX aura besoin d'être connecté au switch virtuel Bridge
-
-Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only
-
-#### Quelle cmdlet permet d'obtenir les exemples de la cmdlet Get-Help ?
-
-À l'aide de ces exemples, recherchez et testez la cmdlet qui permet d'afficher la liste
-
-#### de tous les concepts disponible et utilisable dans PowerShell
-
-Quelle cmdlet nous permet d'en apprendre plus sur le concept d'alias PowerShell ?
-
-  - Affichez le résultat de cette cmdlet dans une fenêtre d'aide séparée
-
-Les alias configurés sont s’ils conservés si la session PowerShell est fermée  ? Quelle section de l’aide faut-il consulter pour savoir comment les sauvegarder ? PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le nom de la variable qui définit le nombre de commandes qui sont conservées dans l’historique (indice : une variable commence par le caractère $).
-
-Quelle est la valeur par défaut contenue dans cette variable  ? Cette valeur peut-elle
-
-#### être modifiée ?
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-## Enoncé du TP - Premiers pas avec PowerShell
-
-### Systèmes Clients Microsoft
-
-#### Premiers pas avec
-
-#### PowerShell
-
-#### TP du Module 03 — Interagir avec Windows 10
-
-Le but de ce TP est de découvrir la base de l'utilisation de PowerShell. Vous allez pouvoir interagir de manière simple avec le système.
-
-#### Durée estimée
-
-#### 30 minutes
-
-#### Énoncé
-
-Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
-
-#### Sur la VM Win10-XX
-
-#### Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell :
-
-#### Changez la police et la taille de la police
-
-#### Agrandissez votre fenêtre
-
-Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez
-
-#### avec votre système à l'aide des cmdlets
-
-#### Quelle version de PowerShell est installée sur votre système ?
-
-Affichez le contenu du répertoire courant .
-
-#### Quelle cmdlet avez-vous utilisée ?
-
-Affichez le contenu du répertoire c:\users.
-
-#### Quelle cmdlet avez-vous utilisée ?
-
-Affichez la liste des alias PowerShell. Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Getchild-Item ?
-
-#### Faites un snapshot TP04 terminé
-
-#### Sur la VM DiscoveryXX
-
-Ouvrez une session avec l'utilisateur adm (Pa$$w0rd) puis interagissez avec votre système à l'aide des cmdlets. Affichez le contenu du fichier C:\PowerShell\Intro.txt.
-
-#### Quelle cmdlet avez-vous utilisée ?
-
-Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\.
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-## Enoncé du TP - Prise en main de l_interface graphique
-
-### Systèmes Clients Microsoft
-
-#### Prise en main de l'interface
-
-#### graphique
-
-#### TP du Module 03 — Interagir avec Windows 10
-
-Lors de cet atelier, vous allez être amené à interagir avec l'interface graphique pour commencer à personnaliser le système d'exploitation. Ainsi, vous commencez à rentrer dans la peau d'un technicien en utilisant notamment les consoles MMC.
-
-#### Durée estimée
-
-#### 30 minutes
-
-#### Énoncé
-
-#### Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
-
-#### Sur la VM Win10-XX
-
-Ouvrez une session sur le système puis changez le mot de passe. Supprimez les raccourcis Windows Store et Courrier de votre barre des tâches. Ajoutez- y ensuite un raccourci Windows PowerShell.
-
-Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
-
-#### Quel nom porte votre PC ? (Indice : DESKTOP-…)
-
-Renommez votre PC. Il portera le même nom que votre VM. Créez une console mmc personnalisée. Elle vous permettra de configurer les disques, les utilisateurs et les groupes ainsi que les partages. Cette console devra être disponible depuis votre bureau.
-
-#### Personnalisez le papier peint du bureau
-
-#### Désactiver la mise en veille du système
-
-#### Faites un Snapshot "TP02 terminé"
-
-#### Sur la VM Discovery
-
-#### Ouvrez une session avec l'utilisateur adm (Pa$$w0rd)
-
-Quels sont les composants logiciels enfichables disponibles dans la console
-
-#### admConsole disponible sur le bureau ?
-
-Renommez l'OS, il portera le nom DiscoveryXX (XX étant vos initiales).
-
-Interrompre temporairement l'installation des mises à jour Windows Update pendant 35 jours au plus.
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-## Enoncé du TP - Prise en main de la cmd
-
-### Systèmes Clients Microsoft
-
-#### Prise en main de la cmd
-
-#### TP du Module 03 — Interagir avec Windows 10
-
-Durant ce TP, vous allez vous familiariser avec la ligne de commande cmd. Le but est d'utiliser l'aide. Il suffit de lire l'aide pour s'en sortir. Le but est aussi de réaliser des tests avant d'être sûr d'avoir la commande finale.
-
-#### Durée estimée
-
-#### 1 heure
-
-#### Énoncé
-
-Lisez l'ensemble de ce TP avant de vous lancer dans la pratique.
-
-#### Sur la VM Win10-XX, à l'aide de votre interface graphique
-
-#### Pour une meilleure lisibilité, personnalisez votre fenêtre cmd
-
-#### Changez la police en consolas taille 24
-
-#### Changez les couleurs de la police et de l'arrière-plan
-
-#### Sur la VM Win10-XX, une fois votre fenêtre cmd.exe prête, interagissez
-
-#### avec votre système à l'aide de la ligne de commande
-
-#### Affichez les commandes internes disponibles
-
-#### Affichez l'aide de la commande cd. Quelle est son utilité ?
-
-#### Placez-vous à la racine du lecteur C
-
-#### Créez un répertoire CommandList à la racine du lecteur C
-
-Dans le répertoire c:\CommandList, créez un fichier InternalCommands.txt qui recense la liste des commandes internes disponible.
-
-#### Pour vérification, affichez le contenu du fichier InternalCommands.txt
-
-Copiez ce fichier sur le bureau (indice : votre bureau est un sous-répertoire présent
-
-#### dans c:\users)
-
-Affichez la liste de tous les fichiers et sous-répertoires contenus dans votre dossier bureau. Le résultat devra afficher la liste triée par la taille (ordre croissant)
-
-#### Faites un snapshot TP03 terminé
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+Pour construire les réponses, le support recommande de rechercher la commande avec `Get-Command`, de consulter son aide et ses exemples, de la tester simplement, puis d’afficher les propriétés demandées.
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).

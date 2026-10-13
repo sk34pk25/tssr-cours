@@ -1,49 +1,52 @@
 # Fiche de révision — Module 03 — Interagir avec Windows 10
 
-## À connaître absolument
+## Les trois interfaces du module
 
-- Administrer par interface graphique, CMD et PowerShell.
-- Découvrir l’aide, les commandes et les cmdlets.
-- Manipuler fichiers, processus et services.
-- Choisir l’interface adaptée à une tâche ponctuelle ou automatisée.
+| Interface | À retenir |
+|---|---|
+| GUI | Utiliser l’interface graphique pour les paramètres et les éléments visibles demandés dans le scénario. |
+| `cmd` | Lire l’aide, naviguer, créer, afficher, copier et lister des fichiers et dossiers. |
+| PowerShell | Découvrir les cmdlets, consulter l’aide, afficher des objets et choisir leurs propriétés. |
 
-## Méthode express
+## `cmd` : une méthode courte
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+1. Lire l’aide de la commande avant de retenir une syntaxe.
+2. Se placer dans le répertoire demandé.
+3. Réaliser l’opération sur le fichier ou dossier prévu.
+4. Vérifier le résultat en affichant le contenu ou en relistant l’emplacement.
 
-## Commandes à reconnaître
+Les TP M03 utilisent notamment l’aide de `cd`, la création d’un répertoire, la génération d’un fichier de commandes internes et son contrôle.
 
-```text
-Get-Command
-Get-Help Get-Process -Detailed
-Get-Process | Where-Object {$_.CPU -gt 10}
-Get-Service | Where-Object {$_.Status -eq "Running"}
-Get-ChildItem —path c:\users
-```
+## PowerShell : vocabulaire et démarche
 
-## Pièges fréquents
+- **Cmdlet** : commande PowerShell.
+- **Paramètre** : précision ajoutée à la cmdlet.
+- **Argument** : valeur fournie à la commande ou à un paramètre.
+- **Objet** : résultat structuré dont les propriétés peuvent être sélectionnées.
+- **Alias** : autre nom utilisable pour une commande.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+Pour trouver une réponse :
 
-## Checklist de maîtrise
+1. partir de `Get-Command` ;
+2. ouvrir `Get-Help` et ses exemples ;
+3. tester la cmdlet simplement ;
+4. consulter les propriétés disponibles ;
+5. n’afficher que celles exigées par la consigne.
 
-- [ ] Administrer par interface graphique, CMD et PowerShell.
-- [ ] Découvrir l’aide, les commandes et les cmdlets.
-- [ ] Manipuler fichiers, processus et services.
-- [ ] Choisir l’interface adaptée à une tâche ponctuelle ou automatisée.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Les TP abordent aussi les rubriques `about_*`, l’aide complète, les exemples, les alias et l’historique des commandes. Les valeurs et résultats observés restent propres aux environnements du laboratoire.
+
+## Contrôles simples
+
+- un fichier créé doit être relu ou listé à son emplacement attendu ;
+- une réponse PowerShell doit montrer les propriétés demandées ;
+- une modification graphique doit être visible dans le paramètre ou la console concernée ;
+- une différence entre deux VM doit être relevée et expliquée à partir de leur aide, sans supposer qu’elle est universelle.
 
 ## Questions flash
 
-1. Quels sont les concepts indispensables de « Interagir avec Windows 10 » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+1. Dans quelle situation le scénario demande-t-il l’interface graphique plutôt que `cmd` ou PowerShell ?
+2. Quelle différence faites-vous entre une cmdlet, un paramètre et un argument ?
+3. Comment trouvez-vous une cmdlet lorsque vous connaissez l’objectif mais pas son nom ?
+4. Quelle vérification confirme qu’un fichier ou une propriété est bien celui attendu ?
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md).
+Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) · [Kahoot](../../kahoot/02-systemes-clients-microsoft-03-interagir-avec-windows-10.md).
