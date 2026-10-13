@@ -1,275 +1,87 @@
 # Module 11 — Plus loin avec PowerShell
 
 **Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
+**Thème :** redirection, pipeline, filtrage et formatage
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+## Objectifs
 
-## Objectifs et compétences
+À l’issue du module, vous devez pouvoir rediriger les flux d’une cmdlet, chaîner des objets dans un pipeline, sélectionner et filtrer les propriétés utiles, puis formater le résultat à la fin de la chaîne.
 
-- Comprendre les flux et la redirection.
-- Chaîner des objets dans le pipeline.
-- Filtrer avec Where-Object et sélectionner avec Select-Object.
-- Formater uniquement en fin de pipeline.
+## Flux standard et redirections
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Plus loin avec PowerShell » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Une cmdlet peut recevoir des paramètres par l’entrée standard, produire son résultat sur la sortie standard et signaler une erreur sur le flux d’erreur.
 
-## Méthode de travail
+| Flux | Numéro | Rôle par défaut dans le support |
+| --- | ---: | --- |
+| `stdin` | `0` | clavier |
+| `stdout` | `1` | écran |
+| `stderr` | `2` | écran |
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+| Opérateur | Effet enseigné |
+| --- | --- |
+| `>` ou `1>` | redirige et remplace la sortie standard |
+| `>>` ou `1>>` | ajoute la sortie standard à la fin du fichier |
+| `2>` | redirige et remplace le flux d’erreur |
+| `2>>` | ajoute le flux d’erreur à la fin du fichier |
+| `2>&1` | envoie le flux d’erreur vers la même destination que la sortie standard |
+| `2>$null` | écarte le flux d’erreur |
 
-## Commandes repérées dans les supports
+Le support illustre par exemple l’écriture de la liste des comptes locaux dans un fichier avec `Get-LocalUser > c:\temp\LocalUserList.txt`, puis sa lecture avec `Get-Content`.
 
-```text
-Get-Date
-Get-Date | Select DayOfYear
-Get-EventLog -LogName Security
-Get-EventLog -LogName Security | Where EventID -eq 4624
-Get-EventLog -LogName Security | Where EventID -eq 4624 | Select
-Get-NetFirewallRule | Where Enabled -like 'True'
-Get-NetFirewallRule -Enabled True
-Get-NetFirewallRule | Where Enabled -like 'true' | Select
-Get-Volume
-Get-Volume | Where SizeRemaining -gt "8GB"
-Get-Volume | Where SizeRemaining -gt 8589934592
-Get-Volume | Where Size -lt '25GB'
-Get-Wolume | where Size -lt 26843545600
-Get-Volume | Where -Filterscript {$_.sizeremaining -gt '8GB' -and $_.size -lt
-Get-Service | Where -FilterScript {$_.Status -like "Running" -and $_.StartType -
-Get-LocalGroupMember L_HA_Ventes | Select Name,SID
-Get-SMBShare | Select Name,Path | Where Name -like *$
-Get-Volume | Where -FilterScript {$_.DriveType -eq 'CD-ROM' -and $_.HealthStatus
+## Chaîner des objets avec le pipeline
+
+Le caractère `|` transmet la sortie d’une cmdlet à l’entrée de la suivante. Le pipeline permet de partir d’un ensemble d’objets, de sélectionner les propriétés nécessaires, de filtrer les éléments pertinents puis d’afficher le résultat.
+
+```powershell
+Get-NetAdapter | Select Name, Status, LinkSpeed
 ```
 
-!!! warning
-    Une commande extraite d’un support n’est pas à exécuter aveuglément. Vérifier la version, les droits, la cible et l’existence d’une sauvegarde avant toute action destructive.
+`Select-Object` — souvent abrégé `Select` dans les documents — sert à conserver les propriétés demandées. Dans le TP, cette logique est appliquée à des évènements, des règles de pare-feu, des volumes, des services, des membres de groupe, des partages administratifs et une imprimante. Ces objets restent des supports de pratique PowerShell propres au scénario de laboratoire.
 
-## Module 11 - Support de cours
+## Comparer et filtrer
 
-### Systèmes clients Microsoft
+Les opérateurs suivants sont présentés dans le support :
 
-#### Module 11 — Plus loin avec PowerShell
+| Comparer | Égalité | Différence | Supérieur | Supérieur ou égal | Inférieur | Inférieur ou égal |
+| --- | --- | --- | --- | --- | --- | --- |
+| Opérateur | `-eq` | `-ne` | `-gt` | `-ge` | `-lt` | `-le` |
 
-#### Objectifs • Savoir rediriger les flux des cmdlets
+`-like` et `-notlike` servent aux comparaisons avec motif. Le support présente les variantes sensibles à la casse avec le préfixe `c` : par exemple `-ceq`, `-cne`, `-cgt`, `-cge`, `-clt`, `-cle`, `-clike` et `-cnotlike`.
 
-- Utiliser le pipeline
-- Filtrer puis formater le résultat
+`Where-Object`, parfois écrit sous la forme abrégée `Where` dans le TP, filtre un objet selon une propriété. Lorsque plusieurs conditions sont nécessaires, le support emploie `-FilterScript` et les variables `$PSItem` ou `$_` :
 
-### Redirection
+```powershell
+Get-Volume | Where -FilterScript {
+    $_.SizeRemaining -gt '8GB' -and $_.Size -lt '25GB'
+}
+```
 
-- Redirection de flux
-- Le pipeline
-- Filtrer l'affichage d'un résultat
-- Une cmdlet :
-- Reçoit des paramètres par l'entrée standard (stdin:0) par défaut le clavier
-- Fournit des résultats sur la sortie standard (stdout:1) par défaut l'écran
-- Affiche éventuellement les erreurs sur la sortie standard (stderr:2) par défaut l'écran
+Dans cet exemple, les valeurs et les volumes appartiennent au contexte de laboratoire décrit par le TP.
 
-#### Entrée
+## Formater à la fin de la chaîne
 
-#### standard
+`Format-List` (`FL`), `Format-Table` (`FT`) et `Format-Wide` (`FW`) préparent l’affichage du résultat. Le support insiste sur une règle de méthode : **filtrer et sélectionner avant de formater**, et utiliser `Format-*` en fin de chaîne. Le formatage sert à présenter les objets ; il ne doit pas intervenir avant les opérations de sélection ou de filtrage.
 
-#### Stdin:0
+## Méthode de vérification du TP
 
-#### (clavier)
+1. Rechercher la cmdlet adaptée avec `Get-Command`.
+2. Lire son aide avec `Get-Help` avant de composer le pipeline.
+3. Construire la chaîne dans l’ordre : cmdlet de départ, filtre, sélection, puis formatage si demandé.
+4. Contrôler que les propriétés affichées répondent exactement à la consigne.
 
-#### cmdlet
+## Synthèse
 
-#### Sortie
+Une commande PowerShell peut rediriger ses flux, transmettre des objets à une autre cmdlet et réduire le résultat à l’information utile. La démarche enseignée est constante : identifier les objets, filtrer, sélectionner, puis formater l’affichage final.
 
-#### erreur
+## Pour mettre en pratique
 
-#### Stderr:2
+- [TP du module 11](../../tp/systemes-clients/module-11/index.md)
+- [Énoncés](../../tp/systemes-clients/module-11/enonces.md)
+- [Corrections](../../tp/systemes-clients/module-11/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-11-plus-loin-avec-powershell.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-11-plus-loin-avec-powershell.md)
 
-#### (écran)
+## Provenance pédagogique
 
-#### Sortie
-
-#### standard
-
-#### Stdout:1
-
-#### (écran)
-
-#### Redirection du flux de sortie standard
-
-#### Cmdlet &gt; fichier
-
-#### Cmdlet 1&gt;fichier Redirige le flux de sortie standard vers ‘fichier’
-
-#### Cmdlet &gt;&gt; fichier
-
-Cmdlet 1&gt;&gt; fichier Redirige le flux de sortie standard à la fin de ‘fichier’
-
-#### Redirection du flux de sortie d'erreur
-
-Cmdlet 2&gt; fichier .err Redirige le flux de sortie d'erreur vers fichier .err Cmdlet 2&gt;&gt; fichier .err Redirige le flux de sortie d'erreur à la fin de fichier .err
-
-#### Redirection des flux
-
-Cmdlet &gt; fichier 2&gt;&1 Redirige le flux de sortie standard et le flux de sortie d'erreur dans ‘fichier’
-
-#### Cmdlet 2&gt;$null Redirige le flux de sortie d'erreur "dans le vide"
-
-#### Redirection
-
-- Exemple de redirection dans un fichier
-- Get-LocalUser &gt; c:\temp\LocalUserList.txt
-- Lecture du fichier
-- Get-Content c:\temp\LocalUserList.txt
-
-### Démonstration
-
-#### Pipeline
-
-- Déjà utilisé avec Select-Object, le pipeline transmet le résultat de la sortie standard d'une
-
-#### cmdlet dans l'entrée standard d'une autre cmdlet
-
-- Enchaînement de cmdlet possible
-
-#### cmdlet1 cmdlet2
-
-#### stdout stdin
-
-#### cmdlet3
-
-#### stdout stdin
-
-### Pipeline
-
-- Utilisé pour fournir un jeu restreint de propriétés
-- exemple avec Get-NetAdapter (sans paramètre ni argument) qui affiche certaines propriétés
-- Get-NetAdapter | Select Name,Status,LinkSpeed
-
-#### Démonstration
-
-### Filtrage
-
-- Les objets fournis par le pipeline sont parfois nombreux
-- Mettre en place le filtrage pour ne garder que les propriétés nécessaires
-- Prérequis : connaître les opérateurs de comparaisons
-- Par défaut insensible à la casse
-- Les préfixer de "c" pour les rendre sensibles...
-- … Get-Help About_Comparison_Operator …
-
-#### Filtrage
-
-#### Comparaison Insensibilité à la casse Sensibilité à la casse
-
-#### Egalité -eq -ceq
-
-#### Inégalité -ne -cne
-
-#### Supérieur à -gt -cgt
-
-#### Supérieur ou égal à -ge -cge
-
-#### Inférieur à -lt -clt
-
-#### Inférieur ou égal à -le -cle
-
-#### Comparaison d'égalité d'expression -like -clike
-
-#### Comparaison d'inégalité d'expression -notlike -cnotlike
-
-### Filtrage basique
-
-- Ne peut filtrer qu'une seule propriété
-- Nécessite la cmdlet Where-Object
-- Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-- Get-Netadapter | Select Name,Status,LinkSpeed | Where Status —like Up
-
-#### Démonstration
-
-### Filtrage
-
-#### Le filtrage avancé
-
-- Pour filtrer plusieurs propriétés
-- Nécessite aussi la cmdlet Where-Object
-- Nécessite un script de filtrage —FilterScript {} dans la cmdlet Where-Object
-- Possibilité d'utiliser la variable $PSITEM (ou $_) pour être plus productif
-- $_ contient tous les objets transmis à Where-Object
-
-#### Filtrage
-
-- Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-- Get-NetAdapter | select Name,Status,LinkSpeed | Where —FilterScript
-
-#### {$_.Status —like "Up" —and $_.LinkSpeed —gt "100 Mbps"}
-
-### Démonstration
-
-#### Formatage
-
-- Par défaut, PowerShell "formate" les résultats des cmdlets avant de les afficher à l'écran
-- Le format des résultats peut être modifié à l'aide des cmdlets
-- Format-List
-- Format-Table
-- Format-Wide
-- Les cmdlets Format-* sont à réaliser en dernier lieu, "après avoir terminé le travail"
-
-### Formatage
-
-- Affichage sous forme de liste
-- Get-Service | format-List
-- Get-Service | format-List —Property *
-- Get-service | FL —Property Name,Status,DisplayName
-- Équivalent à Get-Service | select Name,Status,DisplayName | FL
-- Affichage sous forme de tableau
-- Get-TimeZone | Format-Table
-- Get-TimeZone | Format-Table —Property *
-- Get-TimeZone | FT —Property StandardName,BaseUtcOffset -autosize
-
-#### Formatage
-
-- Affichage sous forme de liste élargie
-- Afficher une liste sur une ou plusieurs colonnes
-- Une seule propriété de la collection d'objets est sélectionnée
-- Get-Process | Format-Wide
-- Get-Process | Format-Wide —Property ID
-- Get-Process | FW —Property ID —column 5
-- Get-Process | FW —Property ID -autosize
-
-### Démonstration
-
-#### TP
-
-### Conclusion
-
-- Maîtriser PowerShell, l’essence même d’un
-
-#### technicien moderne
-
-- Aller plus loin, être curieux
-- S’éveiller au scripting PowerShell
-
-## Mise en pratique
-
-- [Travaux pratiques du module](../../tp/systemes-clients/module-11/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-11-plus-loin-avec-powershell.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Plus loin avec PowerShell » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Comprendre les flux et la redirection.
-    - Chaîner des objets dans le pipeline.
-    - Filtrer avec Where-Object et sélectionner avec Select-Object.
-    - Formater uniquement en fin de pipeline.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- **A — Sources TSSR :** support, énoncé et correction du TP M11.
+- **B — Structuration pédagogique :** organisation web, tableaux et reformulations destinés à rendre les notions des sources plus lisibles, sans ajout de contenu externe.
