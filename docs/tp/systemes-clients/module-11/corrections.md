@@ -1,128 +1,78 @@
 # Corrections — Module 11 — Plus loin avec PowerShell
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+Les exemples suivants restituent les méthodes indiquées dans la correction TSSR. Les noms d’objets, résultats et observations dépendent du laboratoire.
 
-## Solution du TP - PowerShell redirection, pipeline, filtrage, formatage
+## 1. Date et évènements
 
-### Systèmes Clients Microsoft
+| Besoin | Cmdlet et pipeline source | Contrôle |
+| --- | --- | --- |
+| Date du jour | `Get-Date` | la date s’affiche |
+| Quantième de l’année | `Get-Date \| Select DayOfYear` | la propriété `DayOfYear` est affichée |
+| Journal Security | `Get-EventLog -LogName Security` | la liste peut être importante |
+| Évènement 4624 | `Get-EventLog -LogName Security \| Where EventID -eq 4624` | seuls les évènements demandés restent |
+| Propriétés utiles | `Get-EventLog -LogName Security \| Where EventID -eq 4624 \| Select EventID,TimeWritten,Message` | les trois propriétés demandées sont visibles |
 
-Redirection, pipeline,
+## 2. Règles de pare-feu
 
-#### filtrage, formatage
+```powershell
+Get-NetFirewallRule | Where Enabled -like 'True'
+# ou
+Get-NetFirewallRule -Enabled True
 
-#### TP du Module 11 — Plus loin avec Powershell
+Get-NetFirewallRule | Where Enabled -like 'true' |
+    Select DisplayName,Profile,Direction,Action
+```
 
-Sur Win10-XX, recherchez les commandes adaptées pour les besoins suivants
+Le contrôle consiste à retrouver les règles activées et les quatre propriétés demandées.
 
-- Affichez la date du jour, puis, à l'aide de la même commande, affichez le quantième
+## 3. Volumes : filtrer, sélectionner, formater
 
-#### de l'année (le numéro du jour de l’année)
+```powershell
+Get-Volume
+Get-Volume | Where SizeRemaining -gt '8GB'
+Get-Volume | Where SizeRemaining -gt 8589934592
+Get-Volume | Where Size -lt '25GB'
+Get-Volume | Where -FilterScript {
+    $_.SizeRemaining -gt '8GB' -and $_.Size -lt '25GB'
+} | Select FileSystemLabel,DriveLetter,FileSystem | Format-List
+```
 
-`Get-Date`
+La correction précise que `8589934592` correspond à `8 x 1024 x 1024 x 1024`. Le dernier formatage intervient après le filtre et la sélection.
 
-`Get-Date | Select DayOfYear`
+!!! note "NEEDS_REVIEW — divergence documentaire"
+    Une alternative de la correction écrit `Get-Wolume`, tandis que le support et les autres exemples écrivent `Get-Volume`. La divergence est conservée comme telle ; elle n’est pas corrigée silencieusement.
 
-- Affichez la liste des évènements ayant été enregistrés dans le journal security
+## 4. Services, groupe et partages
 
-`Get-EventLog -LogName Security`
+```powershell
+Get-Service | Where -FilterScript {
+    $_.Status -like 'Running' -and $_.StartType -like 'Automatic'
+} | Select Name,Status
 
-#### Et il y en a beaucoup !
+Get-LocalGroupMember L_HA_Ventes | Select Name,SID
+Get-SMBShare | Select Name,Path | Where Name -like '*$' | Format-List
+```
 
-- À l'aide de la commande précédente, affichez les évènements dont l'EventID est 4624
+Vérifiez que le résultat conserve uniquement les services, membres ou partages correspondant au besoin exprimé.
 
-`Get-EventLog -LogName Security | Where EventID -eq 4624`
+## 5. Volume CD-ROM et imprimante
 
-- Affichez la liste précédente en ne montrant que l’ EventID, la date d’écriture de
+```powershell
+Get-Volume | Where -FilterScript {
+    $_.DriveType -eq 'CD-ROM' -and $_.HealthStatus -like 'Healthy'
+} | Select DriveLetter,DriveType,HealthStatus
 
-#### l’évènement et le message
+Get-Printer -Name 'HP LaserJet' |
+    Select Name,Type,DriverName,ShareName | Format-List
+```
 
-`Get-EventLog -LogName Security | Where EventID -eq 4624 | Select`
+Le nom d’imprimante et les objets consultés relèvent du scénario source. Interprétez le résultat dans cet environnement, sans le généraliser.
 
-#### EventID,TimeWritten, Message
+## Méthode réutilisée dans l’atelier
 
-- Affichez la liste des règles de pare-feu activées
+Pour chaque exercice : partir de la cmdlet adaptée, ajouter le pipeline nécessaire, filtrer, sélectionner les propriétés attendues, formater uniquement à la fin si la consigne le demande, puis vérifier le résultat affiché.
 
-`Get-NetFirewallRule | Where Enabled -like 'True'`
+## Provenance pédagogique
 
-#### ou
-
-`Get-NetFirewallRule -Enabled True`
-
-- Parmi ces règles de pare -feu activées, n'affichez que leurs noms, le profil réseau à
-
-laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l'accès
-
-`Get-NetFirewallRule | Where Enabled -like 'true' | Select`
-
-#### DisplayName,Profile,Direction, Action
-
-#### Afficher des propriétés selon plusieurs critères
-
-- Sur Discovery, affichez la liste des volumes disques :
-
-`Get-Volume`
-
-- Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre :
-
-`Get-Volume | Where SizeRemaining -gt "8GB"`
-
-#### ou
-
-`Get-Volume | Where SizeRemaining -gt 8589934592`
-
-#### 8589934592 = 8 x 1024 x 1024 x 1024
-
-- Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :
-
-`Get-Volume | Where Size -lt '25GB'`
-
-#### ou
-
-`Get-Wolume | where Size -lt 26843545600`
-
-- Affichez la liste des volumes qui possèdent plus de 8Go d'espace libre et dont la taille
-
-#### maximale ne dépasse pas 25 Go
-
-`Get-Volume | Where -Filterscript {$_.sizeremaining -gt '8GB' -and $_.size -lt`
-
-#### '25GB'}
-
-- Le résultat de la commande précédente ne devra afficher que le nom, la lettre de
-
-#### lecteur et le type de système de fichier… le tout sous forme de liste
-
-`Get-Volume | Where -Filterscript {$_.SizeRemaining -gt '8GB' -and $_.Size -lt`
-
-#### '25GB'} | FL FileSystemLabel,DriveLetter,FileSystemType
-
-- Affichez les noms et status des services qui sont actuellement démarrés et qui démarrent
-
-automatiquement au lancement du système d’exploitation.
-
-`Get-Service | Where -FilterScript {$_.Status -like "Running" -and $_.StartType -`
-
-#### like "Automatic"} | Select Name,Status
-
-- Affichez les membres (et leur SID) du groupe L_HA_Ventes.
-
-`Get-LocalGroupMember L_HA_Ventes | Select Name,SID`
-
-- Affichez le nom et le chemin des partages administratifs sous forme de liste
-
-`Get-SMBShare | Select Name,Path | Where Name -like *$`
-
-- Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont l’état
-
-#### est sain et de type CD-ROM :
-
-`Get-Volume | Where -FilterScript {$_.DriveType -eq 'CD-ROM' -and $_.HealthStatus`
-
-#### -eq 'Healthy'} | Select DriveLetter,DriveType,HealthStatus
-
-- Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP
-
-LaserJet. Le résultat sera affiché sous la forme d'une liste.
-
-`Get-Printer -Name *Laser* | FL Name,Type,DriverName,ShareName`
+- **A — Source TSSR :** correction du TP M11.
+- **B — Structuration pédagogique :** regroupement par besoin, sans modification des formes `Where` / `Where-Object` ni des noms du scénario.

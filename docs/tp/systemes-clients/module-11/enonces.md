@@ -1,66 +1,42 @@
 # Énoncés — Module 11 — Plus loin avec PowerShell
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Objectif de l’atelier
 
-## Enonc‚ du TP - PowerShell redirection, pipeline, filtrage, formatage
+Répondre aux consignes en traduisant le besoin exprimé en commande PowerShell. Utilisez `Get-Command` pour rechercher une cmdlet et `Get-Help` pour comprendre son emploi. Lorsque des propriétés sont demandées, placez `Select` après le pipeline. Lorsque des valeurs sont précisées, utilisez `Where` et, si plusieurs critères sont nécessaires, la syntaxe de filtrage avancé. Utilisez un formatage seulement si la consigne le demande.
 
-### Systèmes Clients Microsoft
+**Durée estimée : 2 heures.**
 
-Redirection, pipeline,
+## 1. Recherche, aide et sélection
 
-#### filtrage, formatage
+Sur `Win10-XX`, affichez la date du jour puis, avec la même commande, le quantième de l’année.
 
-#### TP du Module 11 — Plus loin avec PowerShell
+Dans le journal `Security`, affichez les évènements enregistrés, puis ceux dont l’`EventID` vaut `4624`. Pour cette dernière liste, n’affichez que l’identifiant d’évènement, la date d’écriture et le message.
 
-Concernant ce TP, l'objectif sera de répondre aux consignes, notamment en traduisant les consignes du français en langage PowerShell. Pour arriver à vos fins, n'oubliez pas les bonnes pratiques. Utilisez get-command pour rechercher la bonne cmdlet. Utilisez get-help, pour savoir comment elle fonctionne. Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le pipeline. Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs ou plus. Utiliser les commandes de formatage si la consigne le précise. Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell, investissez du temps de lecture du get-help.
+## 2. Règles de pare-feu
 
-#### Durée estimée
+Affichez les règles de pare-feu activées. Parmi elles, n’affichez que le nom, le profil réseau, la direction et l’action qui autorise ou bloque l’accès.
 
-#### 2 heures
+## 3. Volumes et filtrage à plusieurs critères
 
-#### Énoncé
+Sur `Discovery` :
 
-#### Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+1. affichez les volumes ;
+2. affichez ceux qui possèdent plus de 8 Go d’espace libre ;
+3. affichez ceux dont la taille maximale ne dépasse pas 25 Go ;
+4. combinez les deux critères ;
+5. pour le résultat combiné, affichez uniquement le nom, la lettre de lecteur et le type de système de fichiers, sous forme de liste.
 
-#### Sur Win10-XX, recherchez les commandes adaptées pour les besoins
+## 4. Services, groupes, partages et imprimante
 
-#### suivants
+1. Affichez les noms et statuts des services démarrés automatiquement au lancement du système.
+2. Affichez les membres et leur SID du groupe `L_HA_Ventes`.
+3. Affichez, sous forme de liste, le nom et le chemin des partages administratifs.
+4. Affichez la lettre de lecteur, le type et l’état de santé des volumes sains de type CD-ROM.
+5. Affichez, sous forme de liste, le nom, le type, le pilote et le nom du partage de l’imprimante HP LaserJet.
 
-Affichez la date du jour, puis, à l'aide de la même commande, affichez le quantième
+Les noms et valeurs appartiennent au scénario de laboratoire : ils ne constituent pas des valeurs universelles. Une fois vos essais terminés, consultez la [correction](corrections.md).
 
-#### de l'année (le numéro du jour de l’année)
+## Provenance pédagogique
 
-Affichez la liste des évènements ayant été enregistrés dans le journal security À l'aide de la commande précédente, affichez les évènements dont l'EventID est 4624 Affichez la liste précédente en ne montrant que l’ EventID, la date d’écriture de
-
-#### l’évènement et le message
-
-#### Affichez la liste des règles de pare-feu activées
-
-Parmi ces règles de pare-feu activées, n'affichez que leurs noms, le profil réseau à laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l'accès
-
-#### Afficher des propriétés selon plusieurs critères
-
-#### Sur Discovery, affichez la liste des volumes disques :
-
-Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre : Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :
-
-Affichez la liste des volumes qui possèdent plus de 8Go d'espace libre et dont la taille
-
-#### maximale ne dépasse pas 25Go
-
-Le résultat de la commande précédente ne devra afficher que le nom, la lettre de
-
-#### lecteur et le type de système de fichier… le tout sous forme de liste
-
-Affichez les noms et statuts des services qui sont actuellement démarrés et qui démarrent automatiquement au lancement du système d’exploitation. Affichez les membres (et leur SID) du groupe L_HA_Ventes.
-
-Affichez le nom et le chemin des partages administratifs sous forme de liste Affichez la lettre de lecteur , le type de lecteur et l’état de santé des volumes dont
-
-#### l’état est sain et de type CD-ROM :
-
-Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP LaserJet. Le résultat sera affiché sous la forme d'une liste.
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+- **A — Source TSSR :** énoncé du TP M11.
+- **B — Structuration pédagogique :** titres et listes permettant de restituer les consignes sans les modifier.

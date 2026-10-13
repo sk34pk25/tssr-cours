@@ -1,39 +1,46 @@
 # Fiche de révision — Module 11 — Plus loin avec PowerShell
 
-## À connaître absolument
+## Flux et redirections
 
-- Comprendre les flux et la redirection.
-- Chaîner des objets dans le pipeline.
-- Filtrer avec Where-Object et sélectionner avec Select-Object.
-- Formater uniquement en fin de pipeline.
+| Flux | Numéro | Redirections associées |
+| --- | ---: | --- |
+| entrée standard | `stdin:0` | entrée de la cmdlet |
+| sortie standard | `stdout:1` | `>`, `1>`, `>>`, `1>>` |
+| erreur standard | `stderr:2` | `2>`, `2>>`, `2>&1`, `2>$null` |
 
-## Méthode express
+## Pipeline et sélection
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+- Le pipeline `|` transmet la sortie d’une cmdlet à la suivante.
+- `Select-Object` / `Select` garde les propriétés demandées.
+- Construire la chaîne dans l’ordre : cmdlet, filtre, sélection, puis affichage.
 
-## Pièges fréquents
+## Filtrer
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+- Comparer avec `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le`, `-like` et `-notlike`.
+- Les variantes précédées de `c` sont sensibles à la casse dans le support.
+- Utiliser `Where-Object` ou la forme `Where` documentée dans le TP.
+- Employer `-FilterScript` avec `$PSItem` ou `$_` lorsqu’il faut combiner plusieurs critères.
 
-## Checklist de maîtrise
+## Formater à la fin
 
-- [ ] Comprendre les flux et la redirection.
-- [ ] Chaîner des objets dans le pipeline.
-- [ ] Filtrer avec Where-Object et sélectionner avec Select-Object.
-- [ ] Formater uniquement en fin de pipeline.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+- `Format-List` / `FL` : affichage détaillé.
+- `Format-Table` / `FT` : affichage en colonnes.
+- `Format-Wide` / `FW` : affichage condensé.
 
-## Questions flash
+**Règle essentielle :** filtrer et sélectionner avant de formater ; `Format-*` intervient en fin de chaîne.
 
-1. Quels sont les concepts indispensables de « Plus loin avec PowerShell » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+## Contrôler
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell.md).
+1. Rechercher la cmdlet avec `Get-Command`.
+2. Lire l’aide avec `Get-Help`.
+3. Vérifier les propriétés affichées par rapport à la consigne.
+4. Distinguer les objets de laboratoire (`Discovery`, groupes, partages, imprimante) des notions PowerShell générales enseignées.
+
+- [Revenir au cours](../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell.md)
+- [Faire le TP](../../tp/systemes-clients/module-11/index.md)
+- [Jouer le Kahoot](../../kahoot/02-systemes-clients-microsoft-11-plus-loin-avec-powershell.md)
+
+## Provenance pédagogique
+
+- **A — Sources TSSR :** support, énoncé et correction M11.
+- **B — Structuration pédagogique :** tableau de révision et regroupement des notions des sources.
