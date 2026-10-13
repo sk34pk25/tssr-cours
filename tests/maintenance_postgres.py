@@ -117,6 +117,87 @@ class MaintenancePostgres(unittest.TestCase):
     def close(self):
         self.sql("select private.set_collaboration_mode('draining',2);", self.db)
 
+    def retry_fixture(self):
+        self.sql(next(MIGRATIONS.glob('*_admin_validation_override.sql')).read_text(), self.db)
+        self.sql(next(MIGRATIONS.glob('*_agent_propose_only.sql')).read_text(), self.db)
+        self.sql(next(MIGRATIONS.glob('*_failed_publication_retry.sql')).read_text(), self.db)
+        voters = [PROFILE, '33333333-3333-4333-8333-333333333333', '44444444-4444-4444-8444-444444444444']
+        self.sql(f"update public.profiles set role='admin' where id='{PROFILE}';", self.db)
+        for i, voter in enumerate(voters[1:]):
+            self.sql(f"insert into public.profiles(id,display_name,email,can_edit,must_change_password) "
+                     f"values('{voter}','Fixture {i}','fixture{i}@example.invalid',true,false);", self.db)
+        self.sql(f"update public.change_requests set status='failed',failure_reason='REFUSED_STREAM',"
+                 f"required_approvers=ARRAY[{','.join(repr(x)+'::uuid' for x in voters)}] where id='{ID}';"
+                 f"insert into public.audit_logs(action,target_type,target_id,metadata) values"
+                 f"('publication_failed','change_request','{ID}','{{\"reason\":\"REFUSED_STREAM\"}}');", self.db)
+        for voter in voters:
+            self.sql(f"insert into public.change_approvals(change_request_id,user_id,user_display_name,decision) "
+                     f"values('{ID}','{voter}','Fixture','approved');", self.db)
+        self.sql(f"insert into public.change_request_files(change_request_id,file_path,base_file_sha,old_content,new_content,change_type) "
+                 f"values('{ID}','docs/fixture.md','{SHA}','# Old','# New','update');", self.db)
+        stamp=self.sql(f"select updated_at from public.change_requests where id='{ID}';",self.db).stdout.strip()
+        files=[dict(file_path='docs/fixture.md',new_file_path=None,base_file_sha=SHA,old_content='# Old',new_content='# New',
+                    content_encoding='utf-8',media_type=None,change_type='update')]
+        return ("set request.jwt.claim.role='service_role'; set role service_role; "
+                f"select (public.service_claim_failed_publication('{ID}','{PROFILE}','{stamp}',"
+                f"'{json.dumps(files)}','{SHA}')).status;")
+
+    def test_retry_three_votes_preserved_and_concurrent_claim_has_one_winner(self):
+        command=self.retry_fixture()
+        votes=self.sql('select jsonb_agg(to_jsonb(a) order by id) from public.change_approvals a;',self.db).stdout
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            results=list(pool.map(lambda _:self.sql(command,self.db,False),range(2)))
+        self.assertEqual(sorted(r.returncode==0 for r in results),[False,True])
+        self.assertEqual(self.sql(f"select status from public.change_requests where id='{ID}';",self.db).stdout.strip(),'publishing')
+        self.assertEqual(self.sql("select count(*) from public.audit_logs where action='publication_retry_claimed';",self.db).stdout.strip(),'1')
+        self.assertEqual(votes,self.sql('select jsonb_agg(to_jsonb(a) order by id) from public.change_approvals a;',self.db).stdout)
+
+    def test_retry_denies_incomplete_consensus(self):
+        command=self.retry_fixture()
+        self.sql(f"delete from public.change_approvals where change_request_id='{ID}' and user_id='{PROFILE}';",self.db)
+        result=self.sql(command,self.db,False)
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('consensus humain incomplet',result.stderr)
+
+    def test_retry_denies_rejected_vote(self):
+        command=self.retry_fixture()
+        self.sql(f"update public.change_approvals set decision='rejected' where change_request_id='{ID}' and user_id='{PROFILE}';",self.db)
+        self.assertIn('consensus humain incomplet',self.sql(command,self.db,False).stderr)
+
+    def test_retry_denies_recorded_commit(self):
+        command=self.retry_fixture()
+        self.sql(f"update public.change_requests set published_commit_sha='{SHA}' where id='{ID}';",self.db)
+        self.assertIn('état incompatible',self.sql(command,self.db,False).stderr)
+
+    def test_retry_denies_changed_file_snapshot(self):
+        command=self.retry_fixture()
+        self.sql(f"update public.change_request_files set new_content='# Altered' where change_request_id='{ID}';",self.db)
+        self.assertIn('fichiers modifiés',self.sql(command,self.db,False).stderr)
+
+    def test_retry_denies_inactive_approver(self):
+        command=self.retry_fixture()
+        self.sql("update public.profiles set status='suspended' where id='33333333-3333-4333-8333-333333333333';",self.db)
+        self.assertIn('consensus humain incomplet',self.sql(command,self.db,False).stderr)
+
+    def test_retry_denies_any_prior_durable_operation(self):
+        command=self.retry_fixture()
+        self.sql(f"insert into private.collaboration_operations(kind,change_id,generation) values('publication','{ID}',2);",self.db)
+        self.assertIn('état incompatible',self.sql(command,self.db,False).stderr)
+
+    def test_retry_denies_recorded_github_effect_even_without_sha(self):
+        command=self.retry_fixture()
+        self.sql(f"insert into public.audit_logs(action,target_type,target_id) values('publication_committed','change_request','{ID}');",self.db)
+        self.assertIn('état incompatible',self.sql(command,self.db,False).stderr)
+
+    def test_retry_acl_maintenance_and_non_admin(self):
+        command=self.retry_fixture()
+        for role in ['anon','authenticated']:
+            self.assertIn('permission denied',self.sql(command.replace('set role service_role;',f'set role {role};'),self.db,False).stderr)
+        member_command=command.replace(f"'{ID}','{PROFILE}'",f"'{ID}','33333333-3333-4333-8333-333333333333'")
+        self.assertIn('Permission de reprise',self.sql(member_command,self.db,False).stderr)
+        self.close()
+        self.assertIn('COLLABORATION_MAINTENANCE',self.sql(command,self.db,False).stderr)
+
     def ready(self, generation, database=None):
         self.sql(f"select private.confirm_collaboration_readiness({generation},'{READINESS}');", database or self.db)
 

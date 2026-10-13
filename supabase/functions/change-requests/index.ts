@@ -17,6 +17,7 @@ import {
   fetchRepositoryFileRaw,
   fetchRepositoryTree,
   publishApprovedChange,
+  retryFailedPublication,
 } from "../_shared/github.ts";
 import {
   assertEditablePath,
@@ -473,6 +474,16 @@ Deno.serve(async (req: Request) => {
           : "content_change",
         body.payload_summary || {},
       );
+    }
+
+    if (body.action === "retry-publication") {
+      const context = await requireProfile(req, { admin: true, canEdit: true });
+      if (!body.change_request_id) throw new Error("Proposition manquante.");
+      await retryFailedPublication(context.adminClient, body.change_request_id, context.profile.id);
+      const { data: request, error } = await context.adminClient.from("change_requests")
+        .select("id,status,published_commit_sha").eq("id", body.change_request_id).single();
+      if (error || !request) throw new Error("État de publication indisponible. Ne pas relancer sans vérification.");
+      return jsonResponse(req, { change_request: request });
     }
 
     if (body.action === "admin_override_approval") {

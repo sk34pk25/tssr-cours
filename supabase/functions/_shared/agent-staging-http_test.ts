@@ -104,6 +104,16 @@ Deno.test("agent staging HTTP: user administration denied by actual admin-users 
   }
 });
 
+Deno.test("publication retry HTTP: AGENT and HUMAN member cannot claim or write", async () => {
+  for (const human of [false, true]) {
+    const result = await run({ action: "retry-publication", change_request_id: id }, { human });
+    assertEquals(result.status, 403);
+    assertEquals(result.proposals.length, 0);
+    assertEquals(result.calls.filter(call => call.includes("/rpc/")), ["POST /rest/v1/rpc/service_collaboration_state"]);
+    assert(!result.calls.some(call => call.includes("github")));
+  }
+});
+
 Deno.test("agent staging HTTP: binary, rename, delete, migrations, workflows and outside docs denied", async () => {
   const forbidden = [
     { ...file, file_path: "docs/existing.md", change_type: "rename", base_file_sha: blob, new_file_path: "docs/renamed.md" },
