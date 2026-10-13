@@ -8835,10 +8835,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#flux-et-redirections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Flux et redirections
       
     </span>
   </a>
@@ -8846,10 +8846,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#pipeline-et-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Pipeline et sélection
       
     </span>
   </a>
@@ -8857,10 +8857,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#filtrer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Filtrer
       
     </span>
   </a>
@@ -8868,10 +8868,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#formater-a-la-fin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Formater à la fin
       
     </span>
   </a>
@@ -8879,10 +8879,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#controler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Contrôler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-pedagogique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance pédagogique
       
     </span>
   </a>
@@ -11394,10 +11405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#flux-et-redirections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Flux et redirections
       
     </span>
   </a>
@@ -11405,10 +11416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#pipeline-et-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Pipeline et sélection
       
     </span>
   </a>
@@ -11416,10 +11427,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#filtrer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Filtrer
       
     </span>
   </a>
@@ -11427,10 +11438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#formater-a-la-fin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Formater à la fin
       
     </span>
   </a>
@@ -11438,10 +11449,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#controler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Contrôler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-pedagogique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance pédagogique
       
     </span>
   </a>
@@ -11536,43 +11558,72 @@
 
 
 <h1 id="fiche-de-revision-module-11-plus-loin-avec-powershell">Fiche de révision — Module 11 — Plus loin avec PowerShell<a class="headerlink" href="#fiche-de-revision-module-11-plus-loin-avec-powershell" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="flux-et-redirections">Flux et redirections<a class="headerlink" href="#flux-et-redirections" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Flux</th>
+<th style="text-align: right;">Numéro</th>
+<th>Redirections associées</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entrée standard</td>
+<td style="text-align: right;"><code>stdin:0</code></td>
+<td>entrée de la cmdlet</td>
+</tr>
+<tr>
+<td>sortie standard</td>
+<td style="text-align: right;"><code>stdout:1</code></td>
+<td><code>&gt;</code>, <code>1&gt;</code>, <code>&gt;&gt;</code>, <code>1&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>erreur standard</td>
+<td style="text-align: right;"><code>stderr:2</code></td>
+<td><code>2&gt;</code>, <code>2&gt;&gt;</code>, <code>2&gt;&amp;1</code>, <code>2&gt;$null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipeline-et-selection">Pipeline et sélection<a class="headerlink" href="#pipeline-et-selection" title="Permanent link">¶</a></h2>
 <ul>
-<li>Comprendre les flux et la redirection.</li>
-<li>Chaîner des objets dans le pipeline.</li>
-<li>Filtrer avec Where-Object et sélectionner avec Select-Object.</li>
-<li>Formater uniquement en fin de pipeline.</li>
+<li>Le pipeline <code>|</code> transmet la sortie d’une cmdlet à la suivante.</li>
+<li><code>Select-Object</code> / <code>Select</code> garde les propriétés demandées.</li>
+<li>Construire la chaîne dans l’ordre : cmdlet, filtre, sélection, puis affichage.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="filtrer">Filtrer<a class="headerlink" href="#filtrer" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Comparer avec <code>-eq</code>, <code>-ne</code>, <code>-gt</code>, <code>-ge</code>, <code>-lt</code>, <code>-le</code>, <code>-like</code> et <code>-notlike</code>.</li>
+<li>Les variantes précédées de <code>c</code> sont sensibles à la casse dans le support.</li>
+<li>Utiliser <code>Where-Object</code> ou la forme <code>Where</code> documentée dans le TP.</li>
+<li>Employer <code>-FilterScript</code> avec <code>$PSItem</code> ou <code>$_</code> lorsqu’il faut combiner plusieurs critères.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comprendre les flux et la redirection.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Chaîner des objets dans le pipeline.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Filtrer avec Where-Object et sélectionner avec Select-Object.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Formater uniquement en fin de pipeline.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<h2 id="formater-a-la-fin">Formater à la fin<a class="headerlink" href="#formater-a-la-fin" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>Format-List</code> / <code>FL</code> : affichage détaillé.</li>
+<li><code>Format-Table</code> / <code>FT</code> : affichage en colonnes.</li>
+<li><code>Format-Wide</code> / <code>FW</code> : affichage condensé.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<p><strong>Règle essentielle :</strong> filtrer et sélectionner avant de formater ; <code>Format-*</code> intervient en fin de chaîne.</p>
+<h2 id="controler">Contrôler<a class="headerlink" href="#controler" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quels sont les concepts indispensables de « Plus loin avec PowerShell » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
+<li>Rechercher la cmdlet avec <code>Get-Command</code>.</li>
+<li>Lire l’aide avec <code>Get-Help</code>.</li>
+<li>Vérifier les propriétés affichées par rapport à la consigne.</li>
+<li>
+<p>Distinguer les objets de laboratoire (<code>Discovery</code>, groupes, partages, imprimante) des notions PowerShell générales enseignées.</p>
+</li>
+<li>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/">Revenir au cours</a></p>
+</li>
+<li><a href="../../../tp/systemes-clients/module-11/">Faire le TP</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-11-plus-loin-avec-powershell/">Jouer le Kahoot</a></li>
 </ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/">cours complet</a>.</p>
+<h2 id="provenance-pedagogique">Provenance pédagogique<a class="headerlink" href="#provenance-pedagogique" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>A — Sources TSSR :</strong> support, énoncé et correction M11.</li>
+<li><strong>B — Structuration pédagogique :</strong> tableau de révision et regroupement des notions des sources.</li>
+</ul>
 
 
 

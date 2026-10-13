@@ -11294,10 +11294,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#organisation" class="md-nav__link">
+  <a href="#scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organisation
+        Scénario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance-pedagogique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance pédagogique
       
     </span>
   </a>
@@ -11410,18 +11432,43 @@
 
 
 <h1 id="tp-module-11-plus-loin-avec-powershell">TP — Module 11 — Plus loin avec PowerShell<a class="headerlink" href="#tp-module-11-plus-loin-avec-powershell" title="Permanent link">¶</a></h1>
-<h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
-<p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer l’environnement et un retour arrière.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’énoncé en entier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Noter l’état initial.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Réaliser les manipulations.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier chaque résultat.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Comparer avec la correction.</li>
-<li><a href="enonces/">Énoncés</a></li>
-<li><a href="corrections/">Corrections</a></li>
-<li><a href="../../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/">Cours du module</a></li>
+<h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
+<p>Cet atelier utilise PowerShell pour rechercher une cmdlet, consulter son aide, chaîner des objets, sélectionner des propriétés, filtrer puis formater l’affichage. Les résultats demandés portent sur des évènements, des règles de pare-feu, des volumes, des services, un groupe local, des partages administratifs et une imprimante du scénario.</p>
+<table>
+<thead>
+<tr>
+<th>Durée source</th>
+<th>Prérequis de laboratoire</th>
+<th>Résultats attendus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 heures</td>
+<td>poste Windows et objets du scénario</td>
+<td>commandes adaptées et résultats filtrés/formattés selon les consignes</td>
+</tr>
+</tbody>
+</table>
+<p>Les objets nommés dans les sources — notamment <code>Win10-XX</code>, <code>Discovery</code>, <code>L_HA_Ventes</code>, l’imprimante HP LaserJet et les autres objets Windows attendus — ne sont pas fournis comme ressources autonomes dans le dossier Drive M11. Ils restent des prérequis du laboratoire.</p>
+<h2 id="progression">Progression<a class="headerlink" href="#progression" title="Permanent link">¶</a></h2>
+<ol>
+<li><a href="enonces/">Lire l’énoncé</a> et rechercher les cmdlets avec <code>Get-Command</code>.</li>
+<li>Consulter l’aide avec <code>Get-Help</code> avant de construire chaque pipeline.</li>
+<li>Réaliser les exercices sans mélanger les consignes et la correction.</li>
+<li>
+<p><a href="corrections/">Comparer avec la correction</a> et contrôler l’affichage demandé.</p>
+</li>
+<li>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/">Cours du module</a></p>
+</li>
+<li><a href="../../../revision/systemes-clients/module-11-plus-loin-avec-powershell/">Fiche de révision</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-11-plus-loin-avec-powershell/">Kahoot du module</a></li>
+</ol>
+<h2 id="provenance-pedagogique">Provenance pédagogique<a class="headerlink" href="#provenance-pedagogique" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>A — Sources TSSR :</strong> énoncé et correction du TP M11.</li>
+<li><strong>B — Structuration pédagogique :</strong> mise en page et parcours de travail, sans ajout de ressource de laboratoire.</li>
 </ul>
 
 
