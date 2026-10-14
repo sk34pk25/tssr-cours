@@ -29,7 +29,7 @@
     {
       "id": "services-reseau",
       "title": "Mise en situation professionnelle : services réseau",
-      "path": null,
+      "path": "modules/10-msp-services-reseau/index.md",
       "sourceFolderId": "1sTxYxQiaiKhaRdqsQYGV7Kw37myRNXK3",
       "relations": [],
       "resources": [],
