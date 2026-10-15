@@ -221,6 +221,16 @@ nav:
       - Mise en situation professionnelle — Services réseau:
           - Présentation: modules/10-msp-services-reseau/index.md
           - Module 01 — MSP Services réseau: modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md
+      - Initiation au scripting Bash:
+          - Présentation: modules/11-initiation-scripting-bash/index.md
+          - Module 01 — Analyse: modules/11-initiation-scripting-bash/module-01-analyse.md
+          - Module 02 — Écriture des scripts: modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts.md
+          - Module 03 — Premières commandes utiles aux scripts shell: modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md
+          - Module 04 — Les variables dans les scripts: modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts.md
+          - Module 05 — Les caractères spéciaux du script: modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script.md
+          - Module 06 — Exécution conditionnelle: modules/11-initiation-scripting-bash/module-06-execution-conditionnelle.md
+          - Module 07 — Les structures de boucle: modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md
+          - Module 08 — Les fonctions: modules/11-initiation-scripting-bash/module-08-les-fonctions.md
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
