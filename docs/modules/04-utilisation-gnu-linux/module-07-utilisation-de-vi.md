@@ -1,68 +1,134 @@
 # Module 07 — Utilisation de Vi
 
-**Séquence :** Utilisation d’une distribution GNU/Linux  
-**Sources originales (A) :** TP TSSR « Utilisation de Vi », énoncé et correction.
-**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
+> **Sources A :** énoncé et solution du TP « Utilisation de Vi ». Cette page
+> structure uniquement les activités attestées par ces deux documents. Les vidéos
+> M07, le TP précédent et le fichier `Edition` sont cités par le scénario, mais ne
+> sont pas fournis dans le dossier Drive M07.
 
-## Objectifs
+## Objectifs du TP
 
-- Ouvrir un fichier texte avec `vi`.
-- Différencier mode commande et mode insertion.
-- Rechercher, modifier, enregistrer et quitter de façon contrôlée.
+- Ouvrir le fichier `Edition` avec `vi`.
+- Rechercher, parcourir et modifier les occurrences indiquées dans le scénario.
+- Enregistrer le travail, exécuter la commande externe demandée et appliquer les
+  réglages de configuration cités par les sources.
 
-## Un éditeur modal
+## Ouverture, recherches et navigation
 
-`vi` démarre en mode commande : les touches sont alors des commandes de navigation ou de modification. La touche `i` passe en insertion ; `Échap` revient au mode commande. Cette distinction explique la plupart des difficultés de prise en main : si une touche produit un résultat inattendu, vérifier le mode avant de recommencer.
+Le TP ouvre le fichier avec :
 
-```bash
+```text
 vi Edition
 ```
 
-## Commandes de base
+Les recherches et déplacements explicitement utilisés sont :
 
-| Action | Commande en mode commande |
-|---|---|
-| Passer en insertion | `i` |
-| Revenir en commande | `Échap` |
-| Rechercher | `/texte` puis Entrée |
-| Aller à l’occurrence suivante | `n` |
-| Enregistrer | `:w` |
-| Quitter | `:q` |
-| Enregistrer et quitter | `:wq` |
-| Quitter sans enregistrer | `:q!` |
+```text
+/Dupont Jean
+/Dupont Pierre
+/Dupont
+?Dupont
+n
+N
+2e
+w
+gg
+G
+```
 
-Le TP illustre la recherche d’une occurrence avec `/Dupont Jean`, puis la correction du texte. Effectuez la recherche, vérifiez la bonne occurrence et modifiez seulement la portion concernée.
+Dans les activités, ces commandes servent à retrouver les personnes ou les zones
+du fichier demandées avant une modification. `n` et `N` permettent d'observer les
+occurrences recherchées dans le scénario.
 
-## Méthode de modification
+## Insertion et modification
 
-1. Ouvrir le fichier avec `vi nom-fichier`.
-2. Rechercher la chaîne cible avec `/`.
-3. Contrôler le contexte de la ligne trouvée.
-4. Passer en insertion avec `i`, effectuer la correction, puis appuyer sur `Échap`.
-5. Enregistrer avec `:w`, relire la zone modifiée et quitter avec `:q`.
+Les formes d'insertion présentes dans le TP sont :
 
-## Points d’attention
+```text
+i
+a
+o
+O
+esc
+```
 
-- `:q!` abandonne les changements : ne l’utilisez que si l’abandon est volontaire.
-- Une recherche ne modifie rien ; elle permet précisément de confirmer l’emplacement avant l’édition.
-- Sur un fichier important, créer une copie avant une modification de TP.
+Les activités de modification emploient également :
 
-## À retenir
+```text
+cwMerlin-Duval
+dd
+yy
+p
+```
 
-Dans `vi`, la précision vient de la séparation des modes : chercher en mode commande, modifier en mode insertion, revenir en commande et enregistrer après contrôle.
+Chaque commande est utilisée dans un exercice précis : modifier un nom, supprimer
+une ligne, puis copier et insérer la ligne demandée.
 
-## Vérification des acquis
+## Sauvegarde et sortie
 
-1. Quelle touche permet de revenir au mode commande ?
-2. Quelle commande recherche `Dupont Jean` ?
-3. Quelle commande enregistre et quitte ?
+La forme attestée pour enregistrer et quitter est :
 
-??? success "Éléments de réponse"
-    1. `Échap`.
-    2. `/Dupont Jean` puis Entrée.
-    3. `:wq`.
+```text
+:wq
+```
 
-## Voir aussi
+## Commandes globales du TP
 
+Les formes ci-dessous sont reproduites telles qu'elles figurent dans les sources :
+
+```text
+:g/Dupont/s//Durand/g
+:g/Durand/m$
+:g/ Durand/s//Dupont/
+g/Jean /s/Jean/&-Paul
+:g/\(Jean\)/s//\U\1/
+:g/JEAN/s//Jean/
+:%s/Jean/Jean-Jean/
+:%s/\<[1-3]/(033)&/
+g/^F/s/$/0/
+```
+
+!!! warning "Formes documentaires à conserver"
+
+    Les deux commandes sans préfixe `:` visible, ainsi que l'espace dans
+    `:g/ Durand/s//Dupont/`, sont conservés à l'identique. Les documents ne
+    permettent pas de les normaliser.
+
+## Commande externe et configuration
+
+La commande externe demandée est :
+
+```text
+:!date
+```
+
+Les réglages cités sont :
+
+```text
+set number
+set tabstop=5
+set nocompatible
+```
+
+!!! warning "NEEDS_REVIEW — fichier de configuration"
+
+    L'énoncé mentionne `.vimrc`, tandis que la solution indique `vi .virmc`.
+    Cette divergence est conservée sans correction silencieuse.
+
+## Vérifications et synthèse
+
+Les vérifications du TP consistent à retrouver les occurrences demandées, à
+observer les modifications réalisées dans `Edition`, puis à enregistrer avec
+`:wq`. Les commandes globales, la commande externe et les réglages sont des
+activités distinctes du même scénario.
+
+## Liens du module
+
+- [TP M07 — index](../../tp/utilisation-linux/module-07/index.md)
+- [Énoncé du TP](../../tp/utilisation-linux/module-07/enonces.md)
+- [Correction du TP](../../tp/utilisation-linux/module-07/corrections.md)
+- [Fiche de révision](../../revision/utilisation-linux/module-07-utilisation-de-vi.md)
+- [Kahoot M07](../../kahoot/04-utilisation-gnu-linux-module-07-utilisation-de-vi.md)
 - [Présentation de la séquence](index.md)
-- [Fiche de révision du module](../../revision/utilisation-linux/module-07-utilisation-de-vi.md)
+
+*A — sources TSSR M07 ; B — organisation pédagogique fidèle aux activités
+attestées, sans ajout de théorie générale Vi.*
