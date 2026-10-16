@@ -9945,10 +9945,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#changement-de-mot-de-passe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Changement de mot de passe
       
     </span>
   </a>
@@ -9956,10 +9956,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#session-utilisateurs-et-identifiants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Session, utilisateurs et identifiants
       
     </span>
   </a>
@@ -9967,10 +9967,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#heure-date-et-calendrier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Heure, date et calendrier
       
     </span>
   </a>
@@ -9978,10 +9978,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-a-effectuer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles à effectuer
       
     </span>
   </a>
@@ -9989,10 +9989,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#liens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Liens
       
     </span>
   </a>
@@ -12090,10 +12090,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#changement-de-mot-de-passe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Changement de mot de passe
       
     </span>
   </a>
@@ -12101,10 +12101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#session-utilisateurs-et-identifiants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Session, utilisateurs et identifiants
       
     </span>
   </a>
@@ -12112,10 +12112,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#heure-date-et-calendrier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Heure, date et calendrier
       
     </span>
   </a>
@@ -12123,10 +12123,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#controles-a-effectuer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Contrôles à effectuer
       
     </span>
   </a>
@@ -12134,10 +12134,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#liens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Liens
       
     </span>
   </a>
@@ -12232,43 +12232,62 @@
 
 
 <h1 id="fiche-de-revision-module-03-premieres-commandes">Fiche de révision — Module 03 — Premières commandes<a class="headerlink" href="#fiche-de-revision-module-03-premieres-commandes" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<p><strong>Sources A :</strong> TP01 « Premières commandes », énoncé et solution TSSR.
+<strong>Structuration B :</strong> regroupement des contrôles demandés, sans apport de commandes supplémentaires.</p>
+<h2 id="changement-de-mot-de-passe">Changement de mot de passe<a class="headerlink" href="#changement-de-mot-de-passe" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>passwd
+</span></code></pre></div>
+<p>La vérification demandée est de fermer la session puis de se reconnecter après le changement.</p>
+<h2 id="session-utilisateurs-et-identifiants">Session, utilisateurs et identifiants<a class="headerlink" href="#session-utilisateurs-et-identifiants" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin demandé dans le TP</th>
+<th>Commande de la solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depuis quand êtes-vous connecté ?</td>
+<td><code>who am i</code></td>
+</tr>
+<tr>
+<td>Utilisateurs travaillant sur le serveur</td>
+<td><code>who</code></td>
+</tr>
+<tr>
+<td>Temps d’inactivité des utilisateurs connectés</td>
+<td><code>w -u</code></td>
+</tr>
+<tr>
+<td>Numéro de processus de la session</td>
+<td><code>who am I --all --heading</code></td>
+</tr>
+<tr>
+<td>UID, GID et groupes d’appartenance</td>
+<td><code>id</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="heure-date-et-calendrier">Heure, date et calendrier<a class="headerlink" href="#heure-date-et-calendrier" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>date<span class="w"> </span>+%X
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>date<span class="w"> </span><span class="s2">"+%A %d %B %Y"</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cal<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1900</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>cal<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">1752</span>
+</span></code></pre></div>
 <ul>
-<li>Lire l’invite de commande et reconnaître l’utilisateur courant.</li>
-<li>Naviguer dans l’arborescence et consulter l’aide.</li>
-<li>Afficher UID, GID et groupes.</li>
-<li>Changer un mot de passe puis vérifier la session.</li>
+<li>L’énoncé demande aussi le calendrier de janvier de l’année courante.</li>
+<li>La solution propose <code>cal 1 2020</code> pour cette question : ne pas remplacer silencieusement l’une des deux formulations.</li>
+<li>Pour septembre 1752, conserver l’observation historique rapportée dans la solution comme une information de source.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
-<ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
-</ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
+<h2 id="controles-a-effectuer">Contrôles à effectuer<a class="headerlink" href="#controles-a-effectuer" title="Permanent link">¶</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lire l’invite de commande et reconnaître l’utilisateur courant.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Naviguer dans l’arborescence et consulter l’aide.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Afficher UID, GID et groupes.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Changer un mot de passe puis vérifier la session.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Après <code>passwd</code>, je ferme puis rouvre la session pour vérifier le changement.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je relève la réponse affichée pour chaque question de session et d’identifiants.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je vérifie séparément l’affichage de l’heure, de la date et des calendriers demandés.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Premières commandes » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/">cours complet</a>.</p>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
+<p><a href="../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/">Cours du module</a> · <a href="../../../tp/utilisation-linux/module-03/enonces/">TP01 — Énoncé</a> · <a href="../../../tp/utilisation-linux/module-03/corrections/">TP01 — Correction</a> · <a href="../../../kahoot/04-utilisation-gnu-linux-module-03-premieres-commandes/">Kahoot</a></p>
 
 
 
