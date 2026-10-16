@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens" class="md-skip">
+        <a href="#revision-module-05-lire-des-fichiers-et-gerer-les-liens" class="md-skip">
           Aller au contenu
         </a>
       
@@ -10001,10 +10001,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#tp1-lire-des-fichiers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        TP1 — Lire des fichiers
       
     </span>
   </a>
@@ -10012,10 +10012,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#tp2-les-liens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        TP2 — Les liens
       
     </span>
   </a>
@@ -10023,10 +10023,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        À retenir
       
     </span>
   </a>
@@ -10034,10 +10034,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Liens utiles
       
     </span>
   </a>
@@ -10045,10 +10045,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Provenance
       
     </span>
   </a>
@@ -12090,10 +12090,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#tp1-lire-des-fichiers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        TP1 — Lire des fichiers
       
     </span>
   </a>
@@ -12101,10 +12101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#tp2-les-liens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        TP2 — Les liens
       
     </span>
   </a>
@@ -12112,10 +12112,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        À retenir
       
     </span>
   </a>
@@ -12123,10 +12123,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
+        Liens utiles
       
     </span>
   </a>
@@ -12134,10 +12134,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Provenance
       
     </span>
   </a>
@@ -12231,44 +12231,87 @@
 
 
 
-<h1 id="fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens">Fiche de révision — Module 05 — Lire des fichiers et gérer les liens<a class="headerlink" href="#fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h1 id="revision-module-05-lire-des-fichiers-et-gerer-les-liens">Révision — Module 05 : lire des fichiers et gérer les liens<a class="headerlink" href="#revision-module-05-lire-des-fichiers-et-gerer-les-liens" title="Permanent link">¶</a></h1>
+<h2 id="tp1-lire-des-fichiers">TP1 — Lire des fichiers<a class="headerlink" href="#tp1-lire-des-fichiers" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin attesté</th>
+<th>Commande source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Créer <code>MonDeuxiemeFichier</code></td>
+<td><code>cat &gt; MonDeuxiemeFichier</code></td>
+</tr>
+<tr>
+<td>Créer <code>MonTroisiemeFichier</code></td>
+<td><code>cat &gt; MonTroisiemeFichier</code></td>
+</tr>
+<tr>
+<td>Concaténer les deux fichiers</td>
+<td><code>cat MonDeuxiemeFichier MonTroisiemeFichier &gt; fichier2+3</code></td>
+</tr>
+<tr>
+<td>Compter les lignes de <code>/etc/passwd</code></td>
+<td><code>wc -l /etc/passwd</code></td>
+</tr>
+<tr>
+<td>Afficher deux lignes de <code>/etc/hosts</code></td>
+<td><code>head -n 2 /etc/hosts</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tp2-les-liens">TP2 — Les liens<a class="headerlink" href="#tp2-les-liens" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Observation ou action du scénario</th>
+<th>Commande source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lien physique vers <code>edition1.txt</code></td>
+<td><code>ln Edition edition1.txt</code></td>
+</tr>
+<tr>
+<td>Lire le contenu</td>
+<td><code>cat edition1.txt</code></td>
+</tr>
+<tr>
+<td>Lien symbolique du laboratoire</td>
+<td><code>ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt</code></td>
+</tr>
+<tr>
+<td>Deuxième lien physique</td>
+<td><code>ln edition1.txt edition3.txt</code></td>
+</tr>
+<tr>
+<td>Observer les caractéristiques</td>
+<td><code>ls -l edition* Edition /tmp/stag30/edition2.txt</code></td>
+</tr>
+<tr>
+<td>Étape expérimentale de suppression</td>
+<td><code>rm edition1.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p>Après cette étape, la solution observe que <code>edition2.txt</code> n’est plus lisible, alors que <code>edition3.txt</code> l’est encore. Les chemins de laboratoire restent des valeurs de scénario.</p>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Les quatre documents font pratiquer <code>cat &gt;</code>, la concaténation, <code>wc -l</code>, <code>head -n 2</code>, <code>ln</code>, <code>ln -s</code>, <code>cat</code> et <code>ls -l</code>. Ils ne fournissent pas une théorie générale des redirections ou des liens.</p>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
 <ul>
-<li>Afficher le début, la fin ou le contenu paginé d’un fichier.</li>
-<li>Compter lignes, mots et caractères.</li>
-<li>Distinguer lien physique et lien symbolique.</li>
-<li>Vérifier inode et cible d’un lien.</li>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">Cours M05</a></li>
+<li><a href="../../../tp/utilisation-linux/module-05/">TP M05</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens/">Kahoot M05</a></li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li><strong>A — source TSSR :</strong> énoncés et solutions des TP1 et TP2.</li>
+<li><strong>B — structuration pédagogique :</strong> fiche limitée aux commandes et observations attestées.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Afficher le début, la fin ou le contenu paginé d’un fichier.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Compter lignes, mots et caractères.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Distinguer lien physique et lien symbolique.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Vérifier inode et cible d’un lien.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
-</ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Lire des fichiers et gérer les liens » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">cours complet</a>.</p>
 
 
 
