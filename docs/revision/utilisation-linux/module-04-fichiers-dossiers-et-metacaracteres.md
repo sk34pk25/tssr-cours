@@ -1,39 +1,29 @@
-# Fiche de révision — Module 04 — Fichiers, dossiers et métacaractères
+# Révision — Module 04 : fichiers et dossiers
 
-## À connaître absolument
+> Cette fiche est limitée au TP1 attesté pour le module.
 
-- Créer, copier, déplacer et supprimer fichiers et répertoires.
-- Employer chemins absolus et relatifs.
-- Utiliser les métacaractères du shell sans élargir involontairement une cible.
-- Contrôler le résultat avant une suppression récursive.
+## Commandes et contrôles du TP
 
-## Méthode express
+| Besoin du TP | Commande attestée | Vérification demandée |
+|---|---|---|
+| Connaître sa position | `pwd` | relever le répertoire courant |
+| Voir fichiers et répertoires | `ls -A` | observer l’affichage obtenu |
+| Créer un fichier vide | `touch MonPremierFichier` | constater la création demandée |
+| Voir permissions et propriétaire | `ls -l MonPremierFichier` | observer les informations du fichier créé |
+| Rechercher les fichiers `.conf` dans `/etc` | `ls /etc/*.conf` | relever les éléments affichés |
+| Observer `/tmp` sans en lister le contenu | `ls -ld /tmp` | relever ses caractéristiques détaillées |
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+## À retenir
 
-## Pièges fréquents
+Le TP consiste à se situer, observer, créer `MonPremierFichier`, puis effectuer les contrôles demandés. Les résultats dépendent de l’environnement ; la fiche conserve uniquement les commandes et vérifications attestées.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Liens utiles
 
-## Checklist de maîtrise
+- [Cours M04](../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
+- [TP1 — Fichiers et dossiers](../../tp/utilisation-linux/module-04/index.md)
+- [Kahoot M04](../../kahoot/04-utilisation-gnu-linux-module-04-fichiers-dossiers-et-metacaracteres.md)
 
-- [ ] Créer, copier, déplacer et supprimer fichiers et répertoires.
-- [ ] Employer chemins absolus et relatifs.
-- [ ] Utiliser les métacaractères du shell sans élargir involontairement une cible.
-- [ ] Contrôler le résultat avant une suppression récursive.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Provenance
 
-## Questions flash
-
-1. Quels sont les concepts indispensables de « Fichiers, dossiers et métacaractères » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md).
+- **A — source TSSR :** énoncé et solution du TP1 *Fichiers et dossiers*.
+- **B — structuration pédagogique :** tableau de révision fidèle aux commandes, questions et vérifications attestées.
