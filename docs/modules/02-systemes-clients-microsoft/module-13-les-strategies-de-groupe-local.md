@@ -1,152 +1,64 @@
 # Module 13 — Les stratégies de groupe local
 
-**Séquence :** Systèmes clients Microsoft  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
+## Objectifs
 
-!!! warning "Périmètre et versions"
-    Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).
+À l'issue du module, vous devez pouvoir décrire le rôle du Registre Windows, repérer les éléments d'une stratégie de groupe local (LGPO) et vérifier l'effet d'un paramètre sur le compte concerné.
 
-## Objectifs et compétences
+## Le Registre Windows
 
-- Ouvrir et parcourir les stratégies de groupe local.
-- Appliquer des paramètres ordinateur ou utilisateur.
-- Mettre en place des règles de sécurité locales.
-- Forcer l’actualisation et contrôler le résultat effectif.
+Le Registre est une base de données hiérarchique centrale. Windows y consulte des informations de configuration relatives aux utilisateurs, aux programmes et au matériel.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Les stratégies de groupe local » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+Une ruche contient des clés, qui peuvent elles-mêmes contenir d'autres clés. Les clés portent des valeurs, par exemple sous forme de chaînes ou de données binaires. Une valeur correspond à un réglage du système.
 
-## Méthode de travail
+| Ruche | Rôle présenté dans le support |
+|---|---|
+| `HKEY_CLASSES_ROOT` | Informations sur les applications, OLE et les extensions de fichiers. |
+| `HKEY_CURRENT_USER` | Configuration de l'utilisateur courant ; elle correspond à `HKEY_USERS\\SID`. |
+| `HKEY_LOCAL_MACHINE` | Configuration de l'ordinateur, quel que soit l'utilisateur connecté. |
+| `HKEY_USERS` | Profils des utilisateurs chargés sur le système. |
+| `HKEY_CURRENT_CONFIG` | Profil matériel actuellement utilisé. |
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+`regedit` permet de consulter et de modifier le Registre. Ces modifications demandent une grande prudence : la page ne remplace pas les consignes ni les vérifications prévues par le scénario de travaux pratiques.
 
-## Module 13 - Support de cours
+## Les stratégies de groupe local
 
-### Systèmes clients Microsoft
+Les LGPO permettent d'administrer des comportements de l'utilisateur et du poste de travail sans manipuler directement les clés du Registre. Elles peuvent notamment servir à définir une stratégie de mot de passe, personnaliser le bureau et la barre des tâches, ou restreindre certains éléments de l'interface.
 
-#### Module 13 — Les stratégies de groupe local
+Les consoles citées dans le support sont :
 
-#### Objectifs • Les stratégies de groupe local pour
+- la console MMC ;
+- l'Éditeur d'objets de stratégie de groupe ;
+- `secpol.msc` pour les paramètres de sécurité locaux.
 
-- Personnaliser l’environnement des utilisateurs
-- Personnaliser Windows 10
-- Sécuriser le système
+Un paramètre peut être **Activé**, **Désactivé** ou **Non configuré**. Les paramètres peuvent relever de l'utilisateur, de l'ordinateur ou de la sécurité. L'éditeur permet aussi d'ajouter un commentaire et, selon le paramètre, de définir des options ou des conditions.
 
-### programmes et périphériques matériels
+## Exemples du scénario de TP
 
-- La base de registre Windows
-- Base de données hiérarchique et centrale
-- Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs,
-- Utilisée depuis Windows 98
-- Contient des milliers de paramètres
-- Lors de son exécution, Windows consulte en permanence les informations contenues dans
+Le TP applique des paramètres locaux à des comptes et à des groupes précis :
 
-#### le Registre
+- une stratégie de mot de passe avec une longueur minimale de 7 caractères, un historique de 3 mots de passe et la complexité activée ;
+- une LGPO destinée aux non-administrateurs pour limiter l'accès au Panneau de configuration et aux Paramètres, verrouiller la barre des tâches et définir un fond d'écran ;
+- une LGPO ciblant l'utilisateur `Romain`, afin d'autoriser les paramètres du Panneau de configuration tout en retirant le Gestionnaire des tâches.
 
-- Consultation et modification du registre : commande regedit
-- À manipuler avec la plus grande précaution
+Ces exemples sont propres au laboratoire. Ils ne constituent pas une politique de domaine ni une règle générale de durcissement.
 
-#### La base de registre Windows
+## Vérifier par des tests réels
 
-- Paramètres regroupés sous 5 catégories (ou ruches)
+Après avoir configuré un paramètre, ouvrez une session avec le compte ou le groupe visé et vérifiez le comportement attendu : modification de mot de passe, visibilité des Paramètres, état de la barre des tâches, fond d'écran ou accès au Gestionnaire des tâches. Un test doit toujours être interprété au regard du compte ciblé par la stratégie.
 
-HKEY_CLASSES_ROOT Informations sur les applications (objets OLE, extensions)
+## Synthèse
 
-#### HKEY_CURRENT_USER
+Le Registre stocke des réglages hiérarchisés. Les LGPO fournissent une interface d'administration pour appliquer certains de ces réglages à un ordinateur ou à des utilisateurs locaux. Les trois états d'un paramètre et les tests avec le bon compte permettent de contrôler l'effet réel de la stratégie.
 
-( = HKEY_USERS \ SID ) Configuration relative à l'utilisateur qui a ouvert une session HKEY_LOCAL_MACHINE Contient des informations de configuration spécifiques à
+## Pour aller plus loin dans le parcours
 
-#### l'ordinateur (pour n'importe quel utilisateur)
-
-#### HKEY_USERS Contient tous les profils utilisateur chargés activement sur
-
-#### l'ordinateur
-
-#### HKEY_CURRENT_CONFIG Profil matériel utilisé par l'ordinateur
-
-### La base de registre Windows
-
-- Les ruches contiennent des clés
-- Qui peuvent elles-mêmes contenir des clés…
-- Les clés contiennent des valeurs
-- Binaires ou hexadécimales
-- Chaînes de caractères
-- Chaque valeur correspond à un paramètre du système !
-
-#### LGPO
-
-- Les LGPO (Local Group Policy Object)
-- Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :
-- Console mmc personnalisée composant logiciel enfichable
-- Éditeur d'objets de stratégie de groupe
-- Console mmc Stratégie de sécurité locale (secpol.msc)
-- Réduire le temps consacré à la gestion du poste de travail
-- Agir sur la base de registre de façon plus conviviale
-- Concrètement que peut-on faire par LGPO ?
-- Modifier les stratégies de mots de passe
-- Agir sur les privilèges d'administration du système
-- Uniformiser l'aspect du poste de travail (bureau, barre des tâches)
-- Restreindre l'accès à certains paramètres (panneau de configuration, ligne de commande)
-- Démarrer des scripts à l'ouverture, à la fermeture de session utilisateur
-
-### LGPO
-
-- Possibilité d'agir sur le poste local ou sur un poste distant
-- Possibilité d'agir sur différents objets de la base SAM
-
-#### LGPO
-
-#### Chaque paramètre :
-
-- Peut être activé ou désactivé
-- Peut être non configuré = comportement par
-
-#### défaut du système
-
-- Peut être commenté
-- Possède des conditions
-- Peut posséder des options supplémentaires
-- Possède surtout une aide précieuse, lisez-la !
-
-### Démonstration
-
-#### TP
-
-### Conclusion
-
-- Bien connaître le fonctionnement des stratégies
-
-#### de groupe local pour
-
-- Découvrir la base de registre
-- Les paramètres utilisateurs
-- Les paramètres ordinateurs
-- Les stratégies de sécurité
-- Se préparer à l’utilisation des stratégies de groupe de domaine
-
-## Mise en pratique
-
+- [Présentation de la formation](index.md)
 - [Travaux pratiques du module](../../tp/systemes-clients/module-13/index.md)
-- [Fiche de révision du module](../../revision/systemes-clients/module-13-les-strategies-de-groupe-local.md)
+- [Énoncé du TP](../../tp/systemes-clients/module-13/enonces.md)
+- [Correction du TP](../../tp/systemes-clients/module-13/corrections.md)
+- [Fiche de révision](../../revision/systemes-clients/module-13-les-strategies-de-groupe-local.md)
+- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-13-les-strategies-de-groupe-local.md)
 
-## Questions flash
+## Provenance
 
-1. Comment expliquer simplement « Les stratégies de groupe local » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Ouvrir et parcourir les stratégies de groupe local.
-    - Appliquer des paramètres ordinateur ou utilisateur.
-    - Mettre en place des règles de sécurité locales.
-    - Forcer l’actualisation et contrôler le résultat effectif.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+Contenu A : support, énoncé et solution du TP « Les LGPO » fournis dans le dossier Drive TSSR du module 13. Contenu B : reformulation et structuration pédagogique sans ajout de règle de stratégie de groupe externe.
