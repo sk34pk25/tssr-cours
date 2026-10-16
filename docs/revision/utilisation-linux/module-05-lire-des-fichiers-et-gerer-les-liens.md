@@ -1,39 +1,39 @@
-# Fiche de révision — Module 05 — Lire des fichiers et gérer les liens
+# Révision — Module 05 : lire des fichiers et gérer les liens
 
-## À connaître absolument
+## TP1 — Lire des fichiers
 
-- Afficher le début, la fin ou le contenu paginé d’un fichier.
-- Compter lignes, mots et caractères.
-- Distinguer lien physique et lien symbolique.
-- Vérifier inode et cible d’un lien.
+| Besoin attesté | Commande source |
+|---|---|
+| Créer `MonDeuxiemeFichier` | `cat > MonDeuxiemeFichier` |
+| Créer `MonTroisiemeFichier` | `cat > MonTroisiemeFichier` |
+| Concaténer les deux fichiers | `cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3` |
+| Compter les lignes de `/etc/passwd` | `wc -l /etc/passwd` |
+| Afficher deux lignes de `/etc/hosts` | `head -n 2 /etc/hosts` |
 
-## Méthode express
+## TP2 — Les liens
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Observation ou action du scénario | Commande source |
+|---|---|
+| Lien physique vers `edition1.txt` | `ln Edition edition1.txt` |
+| Lire le contenu | `cat edition1.txt` |
+| Lien symbolique du laboratoire | `ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt` |
+| Deuxième lien physique | `ln edition1.txt edition3.txt` |
+| Observer les caractéristiques | `ls -l edition* Edition /tmp/stag30/edition2.txt` |
+| Étape expérimentale de suppression | `rm edition1.txt` |
 
-## Pièges fréquents
+Après cette étape, la solution observe que `edition2.txt` n’est plus lisible, alors que `edition3.txt` l’est encore. Les chemins de laboratoire restent des valeurs de scénario.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## À retenir
 
-## Checklist de maîtrise
+Les quatre documents font pratiquer `cat >`, la concaténation, `wc -l`, `head -n 2`, `ln`, `ln -s`, `cat` et `ls -l`. Ils ne fournissent pas une théorie générale des redirections ou des liens.
 
-- [ ] Afficher le début, la fin ou le contenu paginé d’un fichier.
-- [ ] Compter lignes, mots et caractères.
-- [ ] Distinguer lien physique et lien symbolique.
-- [ ] Vérifier inode et cible d’un lien.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Liens utiles
 
-## Questions flash
+- [Cours M05](../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [TP M05](../../tp/utilisation-linux/module-05/index.md)
+- [Kahoot M05](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
 
-1. Quels sont les concepts indispensables de « Lire des fichiers et gérer les liens » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+## Provenance
 
-Pour approfondir : [cours complet](../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md).
+- **A — source TSSR :** énoncés et solutions des TP1 et TP2.
+- **B — structuration pédagogique :** fiche limitée aux commandes et observations attestées.
