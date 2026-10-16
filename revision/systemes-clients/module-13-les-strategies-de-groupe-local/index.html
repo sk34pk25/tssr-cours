@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fiche-de-revision-module-13-les-strategies-de-groupe-local" class="md-skip">
+        <a href="#revision-module-13-les-strategies-de-groupe-local" class="md-skip">
           Aller au contenu
         </a>
       
@@ -9587,10 +9587,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#registre-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Registre Windows
       
     </span>
   </a>
@@ -9598,10 +9598,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#lgpo-et-consoles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        LGPO et consoles
       
     </span>
   </a>
@@ -9609,10 +9609,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#points-de-controle-du-tp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Points de contrôle du TP
       
     </span>
   </a>
@@ -9620,21 +9620,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        Liens utiles
       
     </span>
   </a>
@@ -12090,10 +12079,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#registre-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Registre Windows
       
     </span>
   </a>
@@ -12101,10 +12090,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#lgpo-et-consoles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        LGPO et consoles
       
     </span>
   </a>
@@ -12112,10 +12101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#points-de-controle-du-tp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Points de contrôle du TP
       
     </span>
   </a>
@@ -12123,21 +12112,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        Liens utiles
       
     </span>
   </a>
@@ -12231,44 +12209,67 @@
 
 
 
-<h1 id="fiche-de-revision-module-13-les-strategies-de-groupe-local">Fiche de révision — Module 13 — Les stratégies de groupe local<a class="headerlink" href="#fiche-de-revision-module-13-les-strategies-de-groupe-local" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h1 id="revision-module-13-les-strategies-de-groupe-local">Révision — Module 13 : les stratégies de groupe local<a class="headerlink" href="#revision-module-13-les-strategies-de-groupe-local" title="Permanent link">¶</a></h1>
+<h2 id="registre-windows">Registre Windows<a class="headerlink" href="#registre-windows" title="Permanent link">¶</a></h2>
 <ul>
-<li>Ouvrir et parcourir les stratégies de groupe local.</li>
-<li>Appliquer des paramètres ordinateur ou utilisateur.</li>
-<li>Mettre en place des règles de sécurité locales.</li>
-<li>Forcer l’actualisation et contrôler le résultat effectif.</li>
+<li>Le Registre est une base de données hiérarchique de configuration.</li>
+<li>Une ruche contient des clés ; une clé peut contenir des sous-clés et des valeurs.</li>
+<li><code>regedit</code> permet de consulter ou modifier le Registre avec prudence.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ruche</th>
+<th>Repère</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HKEY_CLASSES_ROOT</code></td>
+<td>Applications, OLE et extensions.</td>
+</tr>
+<tr>
+<td><code>HKEY_CURRENT_USER</code></td>
+<td>Configuration de l'utilisateur courant.</td>
+</tr>
+<tr>
+<td><code>HKEY_LOCAL_MACHINE</code></td>
+<td>Configuration de l'ordinateur.</td>
+</tr>
+<tr>
+<td><code>HKEY_USERS</code></td>
+<td>Profils des utilisateurs chargés.</td>
+</tr>
+<tr>
+<td><code>HKEY_CURRENT_CONFIG</code></td>
+<td>Profil matériel actif.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lgpo-et-consoles">LGPO et consoles<a class="headerlink" href="#lgpo-et-consoles" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li>Une LGPO configure le comportement d'utilisateurs locaux ou du poste.</li>
+<li>MMC peut accueillir l'Éditeur d'objets de stratégie de groupe.</li>
+<li><code>secpol.msc</code> est utilisé dans le TP pour la stratégie de mot de passe.</li>
+<li>Un paramètre peut être <strong>Activé</strong>, <strong>Désactivé</strong> ou <strong>Non configuré</strong>.</li>
+<li>Les paramètres peuvent viser l'utilisateur, l'ordinateur ou la sécurité.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Ouvrir et parcourir les stratégies de groupe local.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Appliquer des paramètres ordinateur ou utilisateur.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Mettre en place des règles de sécurité locales.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Forcer l’actualisation et contrôler le résultat effectif.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
+<h2 id="points-de-controle-du-tp">Points de contrôle du TP<a class="headerlink" href="#points-de-controle-du-tp" title="Permanent link">¶</a></h2>
+<ul>
+<li>stratégie de mot de passe : 7 caractères minimum, historique de 3 mots de passe, complexité activée ;</li>
+<li>LGPO des non-administrateurs : Panneau de configuration et Paramètres, barre des tâches, fond d'écran lorsque la ressource est disponible ;</li>
+<li>LGPO de l'utilisateur ciblé : vérifier séparément l'accès aux paramètres et au Gestionnaire des tâches ;</li>
+<li>toujours tester avec le compte réellement visé par la stratégie.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Les stratégies de groupe local » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/">cours complet</a>.</p>
+<blockquote>
+<p><strong>À revoir dans le laboratoire.</strong> L'énoncé mentionne <code>Romain</code> et la correction <code>romain</code>. Ne normalisez pas ce nom sans vérifier le compte fourni dans l'environnement de TP.</p>
+</blockquote>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/">Cours du module</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-13-les-strategies-de-groupe-local/">Kahoot du module</a></li>
+<li><a href="../../../tp/systemes-clients/module-13/">TP et correction</a></li>
+</ul>
 
 
 
