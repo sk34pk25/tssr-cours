@@ -2405,6 +2405,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 02 — Écriture des scripts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2421,6 +2439,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-et-identifier-un-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et identifier un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoriser-et-suivre-lexecution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoriser et suivre l’exécution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-02-script-a-partir-dun-algorithme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 02 — Script à partir d’un algorithme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11991,6 +12094,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-et-identifier-un-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et identifier un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoriser-et-suivre-lexecution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoriser et suivre l’exécution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-02-script-a-partir-dun-algorithme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 02 — Script à partir d’un algorithme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12085,9 +12262,41 @@
 
 
 <h1 id="module-02-ecriture-des-scripts">Module 02 — Écriture des scripts<a class="headerlink" href="#module-02-ecriture-des-scripts" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Amorçage technique : une proposition pédagogique gouvernée est attendue pour ce module.</p>
-</blockquote>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<p>Le module présente la création d’un script Bash, le choix de son interpréteur, l’autorisation d’exécution, les commentaires et le suivi de l’exécution.</p>
+<h2 id="creer-et-identifier-un-script">Créer et identifier un script<a class="headerlink" href="#creer-et-identifier-un-script" title="Permanent link">¶</a></h2>
+<p>Le support montre l’ouverture d’un fichier avec <code>vi monscript.sh</code>, puis un script minimal dont l’interpréteur est indiqué par :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+</span></code></pre></div>
+<p>Il présente aussi <code>echo Hello world</code>, un commentaire introduit par <code>#</code>, ainsi que les éléments <code>vim</code>, <code>which</code>, <code>read nom</code>, <code>read</code> utilisé comme pause, <code>$nom</code> et <code>$HOSTNAME</code>.</p>
+<p>Un exemple historique d’en-tête mentionne auteur, date, description, version et usage. Il est présenté comme un exemple du support, non comme une obligation générale.</p>
+<h2 id="autoriser-et-suivre-lexecution">Autoriser et suivre l’exécution<a class="headerlink" href="#autoriser-et-suivre-lexecution" title="Permanent link">¶</a></h2>
+<p>Les commandes attestées pour rendre le script exécutable sont :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>./monscript.sh
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>chmod<span class="w"> </span>ug+x<span class="w"> </span>./monscript.sh
+</span></code></pre></div>
+<p>Le support montre le suivi de l’exécution avec :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>-x<span class="w"> </span>monscript.sh
+</span></code></pre></div>
+<h2 id="tp-02-script-a-partir-dun-algorithme">TP 02 — Script à partir d’un algorithme<a class="headerlink" href="#tp-02-script-a-partir-dun-algorithme" title="Permanent link">¶</a></h2>
+<p>Le TP attesté est numéroté <strong>TP2</strong>. Il demande un script qui affiche un accueil, liste des scripts du répertoire courant, insère une ligne vide, affiche la version de Bash, recherche des emplacements relatifs à Bash et indique si une mise à jour est disponible.</p>
+<p>La solution source utilise les commandes suivantes, conservées telles quelles :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>*.sh
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>*.bash
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>bash<span class="w"> </span>--version
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>whereis<span class="w"> </span>bash
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>apt<span class="w"> </span>list<span class="w"> </span>--upgradable<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>bash
+</span></code></pre></div>
+<p>Les commandes dépendent du contexte du laboratoire. Elles ne sont pas généralisées au-delà du TP.</p>
+<h2 id="synthese">Synthèse<a class="headerlink" href="#synthese" title="Permanent link">¶</a></h2>
+<p>Le module relie un fichier de script, l’interpréteur, les permissions d’exécution, les commentaires et l’observation de l’exécution. Il ne fournit ni argument positionnel, ni condition, ni boucle, ni fonction dans la solution TP2.</p>
+<h2 id="liens-du-module">Liens du module<a class="headerlink" href="#liens-du-module" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-02/">TP 02 — Script à partir d’un algorithme</a></li>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-02/tp-02-script-a-partir-d-un-algorithme/">Énoncé TP2</a></li>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-02/correction-tp-02/">Correction TP2</a></li>
+<li><a href="../../../revision/11-initiation-scripting-bash/module-02-ecriture-des-scripts/">Fiche de révision</a></li>
+</ul>
 
 
 
