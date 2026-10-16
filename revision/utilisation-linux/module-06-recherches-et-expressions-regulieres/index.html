@@ -10029,10 +10029,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#tp1-recherches-et-regex" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        TP1 — Recherches et regex
       
     </span>
   </a>
@@ -10040,10 +10040,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#tp2-specificites-bash-metacaracteres" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        TP2 — Spécificités Bash / métacaractères
       
     </span>
   </a>
@@ -10051,10 +10051,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Liens utiles
       
     </span>
   </a>
@@ -10062,21 +10062,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        Provenance
       
     </span>
   </a>
@@ -12090,10 +12079,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#tp1-recherches-et-regex" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        TP1 — Recherches et regex
       
     </span>
   </a>
@@ -12101,10 +12090,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#tp2-specificites-bash-metacaracteres" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        TP2 — Spécificités Bash / métacaractères
       
     </span>
   </a>
@@ -12112,10 +12101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#liens-utiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
+        Liens utiles
       
     </span>
   </a>
@@ -12123,21 +12112,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
+  <a href="#provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        Provenance
       
     </span>
   </a>
@@ -12232,43 +12210,94 @@
 
 
 <h1 id="fiche-de-revision-module-06-recherches-et-expressions-regulieres">Fiche de révision — Module 06 — Recherches et expressions régulières<a class="headerlink" href="#fiche-de-revision-module-06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h2 id="tp1-recherches-et-regex">TP1 — Recherches et regex<a class="headerlink" href="#tp1-recherches-et-regex" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin attesté</th>
+<th>Commande source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rechercher <code>Dupont</code> dans <code>Edition</code></td>
+<td><code>grep Dupont Edition</code></td>
+</tr>
+<tr>
+<td>Ignorer la casse pour <code>dupont</code></td>
+<td><code>grep -i dupont Edition</code></td>
+</tr>
+<tr>
+<td>Afficher les lignes non vides</td>
+<td><code>grep -v '^$' Edition</code></td>
+</tr>
+<tr>
+<td>Trouver <code>localhost</code> directement dans <code>/etc</code></td>
+<td><code>grep -sl localhost /etc/*</code></td>
+</tr>
+<tr>
+<td>Fichiers standards commençant par <code>ho</code> depuis <code>/etc</code></td>
+<td><code>find /etc -type f -name "ho*"</code></td>
+</tr>
+<tr>
+<td>Répertoires du répertoire personnel</td>
+<td><code>find ~ -type d</code></td>
+</tr>
+<tr>
+<td>Fichiers terminant par <code>txt</code> et copie <code>.save</code></td>
+<td><code>find ~ -type f -name "*txt" -exec cp {} {}.save \;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tp2-specificites-bash-metacaracteres">TP2 — Spécificités Bash / métacaractères<a class="headerlink" href="#tp2-specificites-bash-metacaracteres" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin attesté</th>
+<th>Commande ou observation source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sélection de noms commençant par <code>a</code>, <code>b</code>, <code>c</code> ou <code>d</code> dans <code>/etc</code></td>
+<td><code>ls -d /etc/[a-d]*</code></td>
+</tr>
+<tr>
+<td>Arborescence sous <code>$HOME</code></td>
+<td><code>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</code></td>
+</tr>
+<tr>
+<td>Fichier du scénario depuis <code>Tp/Divers/Sources/</code></td>
+<td><code>touch fic*ier</code></td>
+</tr>
+<tr>
+<td>Tentative sur un répertoire non vide</td>
+<td><code>rmdir</code> échoue dans le scénario</td>
+</tr>
+<tr>
+<td>Suppression demandée après le constat</td>
+<td><code>rm -r $HOME/Tp/Divers/Sources/</code> puis <code>rm -r ../../Divers/</code></td>
+</tr>
+<tr>
+<td>Sélection finale dans <code>/etc</code></td>
+<td><code>ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>touch fic*ier</code> est maintenu sous sa forme source : son résultat dépend du contenu du
+répertoire au moment de l'expansion. La suppression avec <code>rm -r</code> intervient après la
+tentative <code>rmdir</code> et ne doit pas être confondue avec elle.</p>
+<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
 <ul>
-<li>Rechercher des fichiers avec find.</li>
-<li>Filtrer du texte avec grep.</li>
-<li>Construire une expression régulière simple.</li>
-<li>Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.</li>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours M06</a></li>
+<li><a href="../../../tp/utilisation-linux/module-06/">TP M06</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres/">Kahoot M06</a></li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li><strong>A — sources TSSR :</strong> énoncés et solutions des TP1 et TP2 rattachés à M06.</li>
+<li><strong>B — structuration pédagogique :</strong> fiche limitée aux commandes et observations attestées.</li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Rechercher des fichiers avec find.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Filtrer du texte avec grep.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Construire une expression régulière simple.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
-</ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Recherches et expressions régulières » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">cours complet</a>.</p>
 
 
 
