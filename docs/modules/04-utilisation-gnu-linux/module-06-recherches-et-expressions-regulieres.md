@@ -1,71 +1,95 @@
 # Module 06 — Recherches et expressions régulières
 
-**Séquence :** Utilisation d’une distribution GNU/Linux  
-**Sources originales (A) :** TP TSSR « Recherches et regex », énoncé et correction.
-**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
+> Cette page est une synthèse limitée aux deux TP et à leurs solutions. Le TP2 est
+> historiquement rangé dans Drive sous *Module 4 / TP2*, mais ses titres internes et
+> ses prérequis l'identifient explicitement comme un TP du module 06.
 
-## Objectifs
+## Objectifs du module
 
-- Rechercher du texte avec `grep`.
-- Distinguer une recherche sensible à la casse d’une recherche insensible à la casse.
-- Utiliser des expressions régulières simples et vérifier les lignes trouvées.
+- Rechercher dans le fichier `Edition` et dans des chemins indiqués par le TP1.
+- Rechercher des fichiers et des répertoires avec les formes `find` fournies.
+- Réaliser les manipulations de noms et d'arborescence demandées par le TP2.
 
-## Rechercher avec `grep`
+## TP1 — Recherches et regex
 
-`grep` affiche les lignes contenant un motif. Dans le TP, `grep Dupont Edition` retrouve les lignes qui contiennent exactement cette chaîne ; `grep -i dupont Edition` ignore la différence entre majuscules et minuscules.
+Le TP demande de rechercher `Dupont` dans `Edition`, puis la même chaîne sans tenir
+compte de la casse. Il demande aussi d'afficher les lignes non vides du même fichier.
 
 ```bash
 grep Dupont Edition
 grep -i dupont Edition
-grep -n Dupont Edition
+grep -v '^$' Edition
 ```
 
-L’option `-n` ajoute le numéro de ligne, utile pour contrôler un résultat ou revenir dans un éditeur. Une absence de sortie ne prouve pas qu’un fichier est vide : elle peut simplement signifier qu’aucune ligne ne correspond au motif.
+Les recherches suivantes sont demandées dans les chemins et avec les motifs exacts du
+scénario :
 
-## Expressions régulières : décrire un motif
+```bash
+grep -sl localhost /etc/*
+find /etc -type f -name "ho*"
+find ~ -type d
+find ~ -type f -name "*txt" -exec cp {} {}.save \;
+```
 
-Une expression régulière décrit un ensemble de chaînes. Commencez par un motif simple, puis rendez-le plus précis progressivement.
+Les résultats obtenus dépendent des fichiers et de l'environnement de laboratoire.
 
-| Motif | Intention |
-|---|---|
-| `^Dupont` | ligne commençant par `Dupont` |
-| `Dupont$` | ligne se terminant par `Dupont` |
-| `Du.ont` | un caractère quelconque entre `Du` et `ont` |
-| `[0-9]` | un chiffre |
-| `^$` | ligne vide |
+## TP2 — Spécificités Bash / métacaractères
 
-Les caractères spéciaux peuvent nécessiter un échappement ou des guillemets selon le shell. Employer des guillemets simples autour du motif évite que le shell interprète certains caractères avant `grep`.
+Le second TP fait utiliser une sélection de noms dans `/etc` et une arborescence sous
+`$HOME`. L'arborescence source est créée en une seule commande :
 
-## Procédure de recherche fiable
+```bash
+ls -d /etc/[a-d]*
+mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}
+```
 
-1. Identifier le fichier cible avec un chemin clair.
-2. Exécuter une recherche littérale courte.
-3. Ajouter `-n` pour situer les résultats.
-4. Introduire une expression régulière, une contrainte à la fois.
-5. Lire les lignes retournées avant de décider d’une modification.
+Depuis `Tp/Divers/Sources/`, le scénario demande la commande suivante :
 
-## Points d’attention
+```bash
+touch fic*ier
+```
 
-- Une expression trop large peut donner des faux positifs ; une expression trop stricte peut masquer un résultat attendu.
-- `grep -i` est adapté si la casse n’a pas de sens dans le besoin ; ne l’ajoutez pas automatiquement.
-- Les motifs transmis entre guillemets simples sont plus prévisibles pour les caractères `*`, `?`, `$` et `[]`.
+Son résultat dépend du contenu du répertoire au moment de l'expansion ; cette forme est
+conservée telle qu'elle apparaît dans la source.
 
-## À retenir
+Le TP demande ensuite une tentative avec `rmdir` sur un répertoire non vide. La solution
+constate l'échec attendu de cette tentative et utilise ensuite les commandes suivantes :
 
-La recherche est un contrôle, pas seulement une commande. Un bon motif exprime exactement ce que l’on cherche et le résultat est relu avant toute action suivante.
+```bash
+rm -r $HOME/Tp/Divers/Sources/
+rm -r ../../Divers/
+```
 
-## Vérification des acquis
+Enfin, la source fournit une sélection précise combinant négation, plages et extension :
 
-1. Quelle option de `grep` ignore la casse ?
-2. Que signifie `^` au début d’une expression régulière ?
-3. Pourquoi ajouter `-n` lors d’une recherche ?
+```bash
+ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf
+```
 
-??? success "Éléments de réponse"
-    1. `-i`.
-    2. Le début de ligne.
-    3. Pour connaître la position des lignes trouvées.
+## Vérifications
 
-## Voir aussi
+- Relire les lignes trouvées par les commandes `grep` du TP1.
+- Vérifier les fichiers et répertoires demandés par chaque commande `find`.
+- Dans le TP2, constater l'échec de `rmdir` sur le répertoire non vide avant la
+  suppression demandée avec `rm -r`.
 
-- [Présentation de la séquence](index.md)
-- [Fiche de révision du module](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
+## Synthèse
+
+Les deux TP font pratiquer des recherches ciblées, des formes précises de `find`, une
+arborescence source et les sélections de noms indiquées dans les documents TSSR. Ils ne
+constituent pas une théorie générale des expressions régulières ou du shell Bash.
+
+## Pour poursuivre
+
+- [TP M06 — index](../../tp/utilisation-linux/module-06/index.md)
+- [TP1 — énoncé](../../tp/utilisation-linux/module-06/tp1-enonces.md) · [correction](../../tp/utilisation-linux/module-06/tp1-corrections.md)
+- [TP2 — énoncé](../../tp/utilisation-linux/module-06/tp2-enonces.md) · [correction](../../tp/utilisation-linux/module-06/tp2-corrections.md)
+- [Fiche de révision M06](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Kahoot M06](../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres.md)
+
+## Provenance
+
+- **A — sources TSSR :** énoncé et solution TP1 *Recherches et regex* ; énoncé et
+  solution TP2 *Les métacaractères*, rattachés pédagogiquement à M06.
+- **B — structuration pédagogique :** synthèse web limitée aux commandes, étapes et
+  observations attestées, sans apport externe.
