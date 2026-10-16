@@ -2461,6 +2461,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 04 — Les variables dans les scripts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2477,6 +2495,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affecter-et-reutiliser-une-valeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affecter et réutiliser une valeur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-et-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environnement et export
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametres-reserves-et-saisie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètres réservés et saisie
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-01-variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 01 — Variables d’environnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11991,6 +12105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affecter-et-reutiliser-une-valeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affecter et réutiliser une valeur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-et-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environnement et export
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametres-reserves-et-saisie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètres réservés et saisie
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-01-variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 01 — Variables d’environnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12085,9 +12284,41 @@
 
 
 <h1 id="module-04-les-variables-dans-les-scripts">Module 04 — Les variables dans les scripts<a class="headerlink" href="#module-04-les-variables-dans-les-scripts" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Amorçage technique : une proposition pédagogique gouvernée est attendue pour ce module.</p>
-</blockquote>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<p>Le module présente le stockage et la réutilisation de valeurs, les variables locales et d’environnement, les paramètres réservés, l’export, la saisie utilisateur et la lecture seule.</p>
+<h2 id="affecter-et-reutiliser-une-valeur">Affecter et réutiliser une valeur<a class="headerlink" href="#affecter-et-reutiliser-une-valeur" title="Permanent link">¶</a></h2>
+<p>La syntaxe source est <code>nom=valeur</code>. Le support montre notamment :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">errormsg</span><span class="o">=</span><span class="s2">"une erreur est survenue, contactez votre administrateur système"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">logdir</span><span class="o">=</span><span class="s2">"/var/log/"</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$errormsg</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>Les noms <code>prenom</code>, <code>nom</code>, <code>tampon</code>, <code>errormsg</code>, <code>logdir</code> et <code>NOMVAR</code> sont ceux des exemples du module.</p>
+<h2 id="environnement-et-export">Environnement et export<a class="headerlink" href="#environnement-et-export" title="Permanent link">¶</a></h2>
+<p>Le support cite les variables <code>HOME</code>, <code>LOGNAME</code>, <code>HISTFILE</code> et <code>PATH</code>, ainsi que :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span>NOMVAR
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NOMVAR</span><span class="o">=</span>valeur
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">set</span><span class="w"> </span><span class="s2">"</span><span class="nv">$LOGNAME</span><span class="s2">"</span><span class="w"> </span><span class="k">$(</span>uname<span class="w"> </span>-n<span class="k">)</span>
+</span></code></pre></div>
+<h2 id="parametres-reserves-et-saisie">Paramètres réservés et saisie<a class="headerlink" href="#parametres-reserves-et-saisie" title="Permanent link">¶</a></h2>
+<p>Les paramètres réservés attestés sont <code>$$</code>, <code>$?</code>, <code>$!</code>, <code>$#</code>, <code>$0</code>, <code>$1</code> à <code>$9</code>, <code>$@</code> et <code>$*</code>. Le support montre <code>echo "$1 $2"</code>.</p>
+<p>Pour la saisie :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">read</span><span class="w"> </span>nom
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"Veuillez entrer votre nom : "</span><span class="w"> </span>nom
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">" Saisissez votre nom et prénom: "</span><span class="w"> </span>nom<span class="w"> </span>prenom<span class="w"> </span>tampon
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">unset</span><span class="w"> </span>tampon
+</span></code></pre></div>
+<h2 id="tp-01-variables-denvironnement">TP 01 — Variables d’environnement<a class="headerlink" href="#tp-01-variables-denvironnement" title="Permanent link">¶</a></h2>
+<p>Le TP demande d’identifier des variables liées à l’historique et aux chemins de commandes, puis de créer <code>script_M4TP1.sh</code> pour lister des fichiers selon une extension, demander un fichier et afficher son nombre de lignes, ses deux premières lignes et ses deux dernières lignes.</p>
+<p>La correction conserve les commandes source, notamment <code>set | grep history | grep /</code>, <code>set | grep HIST | grep /</code>, <code>set | grep /bin</code>, <code>rep=$(pwd)</code>, <code>extension="txt"</code>, <code>ls -l *.$extension</code>, <code>nblign=$(cat $fic | wc -l )</code>, <code>debut=$(cat $fic | head -n 2)</code> et <code>fin=$(cat $fic | tail -n 2)</code>.</p>
+<h2 id="synthese">Synthèse<a class="headerlink" href="#synthese" title="Permanent link">¶</a></h2>
+<p>M04 limite son périmètre aux variables, à l’environnement, aux paramètres réservés, à l’export, à <code>read</code>, à <code>unset</code> et aux exemples du TP. Les syntaxes documentaires ambiguës et les données de laboratoire restent signalées pour revue.</p>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-04/">TP 01 — Variables d’environnement</a></li>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-04/tp-01-variables-environnement/">Énoncé</a></li>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-04/correction-tp-01/">Correction</a></li>
+<li><a href="../../../revision/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/">Révision</a></li>
+</ul>
 
 
 
