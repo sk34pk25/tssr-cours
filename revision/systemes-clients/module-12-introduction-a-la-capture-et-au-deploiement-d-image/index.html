@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fiche-de-revision-module-12-introduction-a-la-capture-et-au-deploiement-dimage" class="md-skip">
+        <a href="#fiche-de-revision-module-12-capture-et-deploiement-dimage" class="md-skip">
           Aller au contenu
         </a>
       
@@ -9307,10 +9307,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#idees-cles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Idées clés
       
     </span>
   </a>
@@ -9318,10 +9318,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#sysprep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Sysprep
       
     </span>
   </a>
@@ -9329,10 +9329,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#capture-et-deploiement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Capture et déploiement
       
     </span>
   </a>
@@ -9340,32 +9340,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#tp-full-clone-vmware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        TP : Full Clone VMware
       
     </span>
   </a>
@@ -11849,10 +11827,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#a-connaitre-absolument" class="md-nav__link">
+  <a href="#idees-cles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À connaître absolument
+        Idées clés
       
     </span>
   </a>
@@ -11860,10 +11838,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methode-express" class="md-nav__link">
+  <a href="#sysprep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode express
+        Sysprep
       
     </span>
   </a>
@@ -11871,10 +11849,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commandes-a-reconnaitre" class="md-nav__link">
+  <a href="#capture-et-deploiement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commandes à reconnaître
+        Capture et déploiement
       
     </span>
   </a>
@@ -11882,32 +11860,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pieges-frequents" class="md-nav__link">
+  <a href="#tp-full-clone-vmware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pièges fréquents
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checklist-de-maitrise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist de maîtrise
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions flash
+        TP : Full Clone VMware
       
     </span>
   </a>
@@ -12001,48 +11957,48 @@
 
 
 
-<h1 id="fiche-de-revision-module-12-introduction-a-la-capture-et-au-deploiement-dimage">Fiche de révision — Module 12 — Introduction à la capture et au déploiement d’image<a class="headerlink" href="#fiche-de-revision-module-12-introduction-a-la-capture-et-au-deploiement-dimage" title="Permanent link">¶</a></h1>
-<h2 id="a-connaitre-absolument">À connaître absolument<a class="headerlink" href="#a-connaitre-absolument" title="Permanent link">¶</a></h2>
+<h1 id="fiche-de-revision-module-12-capture-et-deploiement-dimage">Fiche de révision — Module 12 — Capture et déploiement d’image<a class="headerlink" href="#fiche-de-revision-module-12-capture-et-deploiement-dimage" title="Permanent link">¶</a></h1>
+<h2 id="idees-cles">Idées clés<a class="headerlink" href="#idees-cles" title="Permanent link">¶</a></h2>
 <ul>
-<li>Préparer un poste de référence.</li>
-<li>Généraliser le système avec Sysprep.</li>
-<li>Capturer et appliquer une image WIM.</li>
-<li>Distinguer déploiement manuel avec DISM et déploiement réseau PXE/WDS.</li>
+<li>L’industrialisation vise des systèmes homogènes et prêts à l’emploi.</li>
+<li>Le <strong>master</strong> est le poste de référence préparé avant capture ou clonage.</li>
+<li>Sysprep prépare le système à devenir unique après généralisation.</li>
 </ul>
-<h2 id="methode-express">Méthode express<a class="headerlink" href="#methode-express" title="Permanent link">¶</a></h2>
-<ol>
-<li>Identifier le besoin ou le symptôme.</li>
-<li>Relever l’état actuel sans le modifier.</li>
-<li>Appliquer une seule action contrôlée.</li>
-<li>Mesurer le résultat.</li>
-<li>Documenter et, si nécessaire, revenir en arrière.</li>
-</ol>
-<h2 id="commandes-a-reconnaitre">Commandes à reconnaître<a class="headerlink" href="#commandes-a-reconnaitre" title="Permanent link">¶</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Sysprep
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>dism (présent dans WinPE et dans Windows)
+<h2 id="sysprep">Sysprep<a class="headerlink" href="#sysprep" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>OOBE</strong> : expérience de premier démarrage.</li>
+<li><strong>Généraliser</strong> : remet à zéro les paramètres personnalisés du master.</li>
+<li><strong>Arrêt</strong> : le support demande de ne pas redémarrer le master avant la capture.</li>
+<li>Journaux : répertoires Panther sous <code>C:\Windows\System32\Sysprep</code>.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:\Windows\System32\sysprep\sysprep.exe /oobe /generalize /shutdown
 </span></code></pre></div>
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">¶</a></h2>
+<h2 id="capture-et-deploiement">Capture et déploiement<a class="headerlink" href="#capture-et-deploiement" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Approche</th>
+<th>Éléments du support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatisée</td>
+<td>serveur, WDS, PXE et image d’amorçage</td>
+</tr>
+<tr>
+<td>Manuelle</td>
+<td>WinPE et <code>dism</code></td>
+</tr>
+</tbody>
+</table>
+<p>Le support cite WIM et la mise à jour offline avec <code>dism</code>, ainsi que <code>diskpart</code>, <code>mount</code>, <code>drvload</code>, <code>net use</code> et PowerShell dans WinPE. Il ne fournit pas ici leurs procédures détaillées.</p>
+<h2 id="tp-full-clone-vmware">TP : Full Clone VMware<a class="headerlink" href="#tp-full-clone-vmware" title="Permanent link">¶</a></h2>
+<p>Le TP réalise un Full Clone VMware après Sysprep, pas une capture WIM ni un déploiement WDS. Les différences master/clone sont des observations de laboratoire : nom de machine, comptes, IP, snapshots, restauration, pilote et règle ICMP.</p>
 <ul>
-<li>Confondre l’objectif attendu avec l’action réalisée.</li>
-<li>Modifier plusieurs paramètres avant d’effectuer un test.</li>
-<li>Oublier les différences de version ou de droits.</li>
-<li>Valider uniquement à l’écran sans test fonctionnel.</li>
+<li><a href="../../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">Cours</a></li>
+<li><a href="../../../kahoot/02-systemes-clients-microsoft-12-introduction-a-la-capture-et-au-deploiement-d-image/">Kahoot</a></li>
 </ul>
-<h2 id="checklist-de-maitrise">Checklist de maîtrise<a class="headerlink" href="#checklist-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Préparer un poste de référence.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Généraliser le système avec Sysprep.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Capturer et appliquer une image WIM.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Distinguer déploiement manuel avec DISM et déploiement réseau PXE/WDS.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais expliquer la vérification et le retour arrière.</li>
-</ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quels sont les concepts indispensables de « Introduction à la capture et au déploiement d’image » ?</li>
-<li>Quelle preuve technique montre que le résultat est conforme ?</li>
-<li>Quelle action serait risquée sans sauvegarde ou instantané ?</li>
-</ol>
-<p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">cours complet</a>.</p>
 
 
 
