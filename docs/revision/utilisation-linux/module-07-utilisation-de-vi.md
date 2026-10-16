@@ -1,39 +1,72 @@
 # Fiche de révision — Module 07 — Utilisation de Vi
 
-## À connaître absolument
+> **Sources A :** énoncé et solution du TP « Utilisation de Vi ». Les commandes
+> ci-dessous sont limitées aux formes réellement présentes dans ces documents.
 
-- Distinguer modes normal, insertion et commande.
-- Se déplacer, insérer, supprimer et rechercher.
-- Enregistrer ou quitter explicitement.
-- Récupérer d’une erreur sans perdre le fichier.
+## Ouvrir, chercher et se déplacer
 
-## Méthode express
+```text
+vi Edition
+/Dupont Jean
+?Dupont
+n
+N
+2e
+w
+gg
+G
+```
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+## Insérer et modifier
 
-## Pièges fréquents
+```text
+i
+a
+o
+O
+esc
+cwMerlin-Duval
+dd
+yy
+p
+```
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Enregistrer, commande externe et réglages
 
-## Checklist de maîtrise
+```text
+:wq
+:!date
+set number
+set tabstop=5
+set nocompatible
+```
 
-- [ ] Distinguer modes normal, insertion et commande.
-- [ ] Se déplacer, insérer, supprimer et rechercher.
-- [ ] Enregistrer ou quitter explicitement.
-- [ ] Récupérer d’une erreur sans perdre le fichier.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Commandes globales attestées
 
-## Questions flash
+```text
+:g/Dupont/s//Durand/g
+:g/Durand/m$
+:g/ Durand/s//Dupont/
+g/Jean /s/Jean/&-Paul
+:g/\(Jean\)/s//\U\1/
+:g/JEAN/s//Jean/
+:%s/Jean/Jean-Jean/
+:%s/\<[1-3]/(033)&/
+g/^F/s/$/0/
+```
 
-1. Quels sont les concepts indispensables de « Utilisation de Vi » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+## Points à vérifier dans les sources
 
-Pour approfondir : [cours complet](../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md).
+- `.vimrc` est cité dans l'énoncé ; `vi .virmc` est indiqué dans la solution.
+- `g/Jean /s/Jean/&-Paul` et `g/^F/s/$/0/` sont documentés sans `:` visible.
+- `:g/ Durand/s//Dupont/` contient un espace après le premier `/`.
+
+Ces formes sont conservées comme **NEEDS_REVIEW** : elles ne sont pas
+normalisées dans cette fiche.
+
+## Liens
+
+- [Cours M07](../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md)
+- [TP et énoncé](../../tp/utilisation-linux/module-07/enonces.md)
+- [Correction](../../tp/utilisation-linux/module-07/corrections.md)
+- [Kahoot M07](../../kahoot/04-utilisation-gnu-linux-module-07-utilisation-de-vi.md)
