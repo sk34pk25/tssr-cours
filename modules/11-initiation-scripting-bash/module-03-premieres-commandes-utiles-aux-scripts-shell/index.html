@@ -2433,6 +2433,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 03 — Premières commandes utiles aux scripts shell
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2449,6 +2467,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-avec-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Afficher avec echo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effacer-et-quitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effacer et quitter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-de-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code de retour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aide-integree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aide intégrée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Révision
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11991,6 +12105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-avec-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Afficher avec echo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effacer-et-quitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effacer et quitter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-de-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code de retour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aide-integree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aide intégrée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Révision
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12085,9 +12284,60 @@
 
 
 <h1 id="module-03-premieres-commandes-utiles-aux-scripts-shell">Module 03 — Premières commandes utiles aux scripts shell<a class="headerlink" href="#module-03-premieres-commandes-utiles-aux-scripts-shell" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Amorçage technique : une proposition pédagogique gouvernée est attendue pour ce module.</p>
-</blockquote>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<p>Le support présente l’affichage d’informations, l’effacement de l’écran, la sortie du shell courant et l’aide des commandes intégrées.</p>
+<h2 id="afficher-avec-echo">Afficher avec <code>echo</code><a class="headerlink" href="#afficher-avec-echo" title="Permanent link">¶</a></h2>
+<p>La syntaxe indiquée est :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span><span class="s2">"expression"</span>
+</span></code></pre></div>
+<p>Avec <code>echo -e</code>, le support présente les séquences suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Séquence</th>
+<th>Effet indiqué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\c</code></td>
+<td>suppression du retour à la ligne final</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>nouvelle ligne</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>tabulation</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>antislash</td>
+</tr>
+</tbody>
+</table>
+<h2 id="effacer-et-quitter">Effacer et quitter<a class="headerlink" href="#effacer-et-quitter" title="Permanent link">¶</a></h2>
+<p>Le support cite :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>clear
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">exit</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>n<span class="w"> </span><span class="o">]</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<p><code>clear</code> est présenté parmi les commandes internes du shell dans le support : cette présentation documentaire est conservée sans en faire une affirmation technique générale. Le support associe aussi l’absence d’un <code>exit</code> explicite à <code>exit 0</code> ; cette formulation historique n’est pas généralisée au-delà de la source.</p>
+<h2 id="code-de-retour">Code de retour<a class="headerlink" href="#code-de-retour" title="Permanent link">¶</a></h2>
+<p>La variable réservée <code>$?</code> est utilisée pour présenter le code retourné au shell parent.</p>
+<h2 id="aide-integree">Aide intégrée<a class="headerlink" href="#aide-integree" title="Permanent link">¶</a></h2>
+<p>Le support utilise :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">help</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">help</span><span class="w"> </span><span class="nb">wait</span>
+</span></code></pre></div>
+<p>La présence de <code>wait</code> est limitée à <code>help wait</code> dans ce module : elle ne constitue pas une section sur la gestion de processus.</p>
+<h2 id="synthese">Synthèse<a class="headerlink" href="#synthese" title="Permanent link">¶</a></h2>
+<p>M03 est limité aux commandes et séquences présentées dans son support : <code>echo</code>, <code>echo -e</code>, <code>clear</code>, <code>exit</code>, <code>$?</code> et <code>help</code>. Aucun TP, exercice, correction, script autonome ou Kahoot n’est fourni pour ce module.</p>
+<h2 id="revision">Révision<a class="headerlink" href="#revision" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/">Fiche de révision M03</a></li>
+</ul>
 
 
 
