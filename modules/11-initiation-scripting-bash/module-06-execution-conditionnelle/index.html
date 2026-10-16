@@ -2517,6 +2517,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — Exécution conditionnelle
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2533,6 +2551,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structures-conditionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structures conditionnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motifs-et-exemples-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motifs et exemples source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deux-tp-separes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux TP séparés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11991,6 +12094,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structures-conditionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structures conditionnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motifs-et-exemples-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motifs et exemples source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deux-tp-separes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deux TP séparés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12085,9 +12262,31 @@
 
 
 <h1 id="module-06-execution-conditionnelle">Module 06 — Exécution conditionnelle<a class="headerlink" href="#module-06-execution-conditionnelle" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Amorçage technique : une proposition pédagogique gouvernée est attendue pour ce module.</p>
-</blockquote>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<p>M06 traite les tests et les structures conditionnelles, séparément des enchaînements, regroupements et couleurs de M05.</p>
+<h2 id="tester">Tester<a class="headerlink" href="#tester" title="Permanent link">¶</a></h2>
+<p>Les formes attestées sont <code>test condition</code>, <code>[ condition ]</code>, <code>[[ condition ]]</code> et <code>(( condition ))</code>.</p>
+<p>Les opérateurs cités couvrent les entiers (<code>-eq</code>, <code>-ne</code>, <code>-gt</code>, <code>-ge</code>, <code>-lt</code>, <code>-le</code>), les chaînes (<code>=</code>, <code>!=</code>, <code>-n</code>, <code>-z</code>) et les fichiers (<code>-d</code>, <code>-f</code>, <code>-w</code>, <code>-r</code>, <code>-x</code>, <code>-s</code>), avec <code>&amp;&amp;</code>, <code>||</code>, <code>!</code> et <code>( )</code>.</p>
+<h2 id="structures-conditionnelles">Structures conditionnelles<a class="headerlink" href="#structures-conditionnelles" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span>condition<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>action
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">elif</span><span class="w"> </span>autre_condition<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>autre_action
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">else</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>action_finale
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">fi</span>
+</span></code></pre></div>
+<p>La sélection attestée est <code>case $nomvar in ... ;; ... esac</code>.</p>
+<h2 id="motifs-et-exemples-source">Motifs et exemples source<a class="headerlink" href="#motifs-et-exemples-source" title="Permanent link">¶</a></h2>
+<p>Le support cite <code>*</code>, <code>?</code>, <code>[…]</code>, <code>[^…]</code>, <code>[!...]</code>, <code>?(…)</code>, <code>*(…)</code>, <code>+(…)</code>, <code>@(…)</code>, <code>!(…)</code>, l’alternative <code>|</code> et <code>?([+-])+([0-9])</code>, ainsi que <code>shopt -s extglob</code>.</p>
+<p>Les exemples présentés sont <code>if [[ "$LOGNAME" = root ]] ; then</code>, <code>if ls /tmp ; then</code>, <code>if [[ -f fic1 &amp;&amp; ( -d rep1 || -d rep2 ) ]] ; then</code>, <code>mkdir /data/perso</code>, <code>cp -a /home/penthium/documents/* /data/perso</code>, <code>touch $file</code>, <code>exit 1</code> et <code>exit 5</code>.</p>
+<h2 id="deux-tp-separes">Deux TP séparés<a class="headerlink" href="#deux-tp-separes" title="Permanent link">¶</a></h2>
+<p>TP1 traite les arguments, la saisie, le refus de <code>root</code> et les codes de sortie. TP2 traite le menu distinct de création, modification du mot de passe, suppression, vérification et sortie d’un compte utilisateur.</p>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-06/">TP M06</a></li>
+<li><a href="../../../revision/11-initiation-scripting-bash/module-06-execution-conditionnelle/">Révision M06</a></li>
+</ul>
 
 
 
