@@ -1,55 +1,38 @@
-# Énoncés — Module 13 — Les stratégies de groupe local
+# Énoncé — Les stratégies de groupe local
 
-!!! danger "Avant une manipulation destructive"
-    Vérifier la cible, créer une sauvegarde ou un instantané et préparer le retour arrière. Les adresses et noms de machines du support appartiennent au laboratoire de formation.
+## Contexte
 
-## Enonc‚ du TP - Les LGPO
+Vous configurez des stratégies locales sur le poste de laboratoire. Utilisez les comptes et les ressources fournis par le formateur. Ne créez pas de partage ni de fichier de fond d'écran qui ne ferait pas partie de votre environnement de TP.
 
-### Systèmes Clients Microsoft
+## 1. Stratégie de mot de passe
 
-#### Les LGPO
+Dans les paramètres de sécurité locaux, configurez les valeurs suivantes :
 
-#### TP du Module — Les stratégies de groupe local
+| Paramètre | Valeur demandée |
+|---|---|
+| Longueur minimale | 7 caractères |
+| Historique | 3 mots de passe |
+| Complexité | Activée |
 
-À travers ce TP vous allez découvrir par vous-mêmes les consoles d'édition de stratégie de groupe local et de stratégie de sécurité. Vous les utiliserez pour modifier les stratégies par défaut dans le but de personnaliser les environnements de travail de votre VM et vous augmenterez la sécurité du système. Vous testerez vos LGPO pour vous assurer qu'elles soient fonctionnelles.
+Vérifiez ensuite le comportement avec un compte standard du scénario.
 
-#### Durée estimée
+## 2. LGPO des non-administrateurs
 
-#### 1 heure
+Dans une console MMC, ouvrez l'Éditeur d'objets de stratégie de groupe pour les **non-administrateurs**. Configurez les paramètres demandés dans le scénario :
 
-#### Énoncé
+1. interdire l'accès au Panneau de configuration et aux Paramètres ;
+2. verrouiller la barre des tâches ;
+3. définir le fond d'écran prévu par le laboratoire.
 
-#### Lisez l'ensemble de ce TP avant de vous lancer dans la pratique
+Le fond d'écran doit pointer vers un chemin local ou partagé accessible en lecture, lorsque cette ressource est fournie dans l'environnement.
 
-Sur Win10-XX, à l'aide des consoles appropriées appliquez les consignes suivantes :
+## 3. LGPO de Romain
 
-  - Pour augmenter le niveau de sécurité d'accès aux ressources de votre VM,
+Ajoutez l'Éditeur d'objets de stratégie de groupe pour l'utilisateur **Romain**. Configurez les paramètres demandés :
 
-tous les utilisateurs devront utiliser un mot de passe avec les caractéristiques
+1. autoriser les paramètres du Panneau de configuration ;
+2. retirer le Gestionnaire des tâches.
 
-#### suivantes
+## 4. Vérifications
 
-  - Longueur minimale : 7 caractères
-  - 3 mots de passe seront conservés dans l'historique
-  - Il devra respecter les exigences de complexité
-
-#### Créez une GPO non-administrateurs
-
-  - Interdire l'accès au panneau configuration et l'application Paramètres du
-
-#### PC
-
-  - Verrouiller la barre des tâches
-  - Mettez en place un papier peint de votre choix sur le bureau
-
-#### Créez une GPO pour l'utilisateur Romain
-
-  - Romain aura accès au panneau de configuration et à l'application
-
-#### Paramètres du PC
-
-  - Supprimer l'accès au Gestionnaire des tâches
-
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
-
-Une fois le travail terminé : [consulter les corrections](corrections.md).
+Ouvrez une session avec chaque compte concerné et notez les comportements observés. Les vérifications portent sur la politique de mot de passe, les paramètres accessibles, la barre des tâches, le fond d'écran lorsque la ressource est disponible et le Gestionnaire des tâches.

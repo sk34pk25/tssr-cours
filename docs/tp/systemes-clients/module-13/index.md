@@ -1,15 +1,30 @@
-# TP — Module 13 — Les stratégies de groupe local
+# TP — Les stratégies de groupe local
 
-## Organisation
+## Scénario
 
-Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
+Ce travail pratique met en œuvre des stratégies de groupe local pour configurer une stratégie de mot de passe et adapter l'environnement de comptes locaux ciblés.
 
-- [ ] Préparer l’environnement et un retour arrière.
-- [ ] Lire l’énoncé en entier.
-- [ ] Noter l’état initial.
-- [ ] Réaliser les manipulations.
-- [ ] Vérifier chaque résultat.
-- [ ] Comparer avec la correction.
-- [Énoncés](enonces.md)
-- [Corrections](corrections.md)
+## Cadre du TP
+
+| Élément | Indication source |
+|---|---|
+| Durée | 1 h |
+| Poste | Poste Windows du laboratoire |
+| Objectifs | Configurer une stratégie de mot de passe et appliquer des LGPO à des utilisateurs ou groupes locaux. |
+
+## Prérequis et ressources
+
+Le scénario suppose l'accès au poste de laboratoire et aux comptes indiqués par le formateur. Aucun fichier de fond d'écran ni partage réseau n'est fourni dans le dossier Drive M13 consulté ; si le scénario nécessite une authentification, utilisez les identifiants fournis par le formateur.
+
+## Résultats attendus
+
+- une stratégie de mot de passe configurée avec les valeurs demandées ;
+- des paramètres LGPO appliqués aux non-administrateurs puis à l'utilisateur ciblé ;
+- des vérifications réalisées avec le compte concerné.
+
+## Documents de travail
+
+- [Énoncé](enonces.md)
+- [Correction](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md)
+- [Fiche de révision](../../../revision/systemes-clients/module-13-les-strategies-de-groupe-local.md)
