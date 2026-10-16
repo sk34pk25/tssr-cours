@@ -1,71 +1,69 @@
 # Module 08 — Mécanismes Linux et Bash avancé
 
-**Séquence :** Utilisation d’une distribution GNU/Linux  
-**Sources originales (A) :** TP TSSR sur l’utilisation du système, l’archivage et la compression, les alias/redirections et les variables.
-**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
+> **Sources A :** huit PDF TP M08 ; aucun support séparé n'est disponible.
 
-## Objectifs
+## TP1 — Utilisation des systèmes
 
-- Employer les variables d’environnement utiles à une session shell.
-- Distinguer redirection de sortie et redirection d’erreur.
-- Comprendre le rôle d’un alias, d’une archive et d’une compression.
-
-## Variables d’environnement
-
-Une variable associe un nom à une valeur dans la session. Le TP utilise notamment `$HOME`, qui désigne le répertoire personnel, et `$PATH`, qui contient les chemins recherchés pour les exécutables.
-
-```bash
-echo "$HOME"
-echo "$PATH"
-ls "$HOME"
+```text
+mkdir $HOME/process
+ps -e | grep d$ > $HOME/process/daemons.txt
+cat process/daemons.txt
+mkdir $HOME/resultats
+find / -mount -type f -name "*.conf" 2>/dev/null | tee resultats/fichiers.conf
+cat resultats/fichiers.conf
+time find / -mount -type f -name "*.conf" 2>/dev/null | tee resultats/fichiers.conf
+find / -mount -type f -name "*.conf" 2>/dev/null | wc -l > resultats/compteur.txt
 ```
 
-Les guillemets autour d’une variable protègent sa valeur si elle contient des espaces. Une variable définie dans un shell n’est pas automatiquement disponible dans toutes les nouvelles sessions : distinguer variable de session et configuration persistante.
+## TP2 — Archivages et Compression
 
-## Redirections et alias
-
-Le shell peut rediriger les flux standards. `>` écrit la sortie standard dans un fichier en le remplaçant ; `>>` ajoute à la fin ; `2>` redirige les messages d’erreur. Un alias donne un nom court à une commande ou à une combinaison d’options, mais doit rester lisible pour ne pas cacher une action sensible.
-
-```bash
-commande > resultat.txt
-commande 2> erreurs.txt
-alias ll='ls -la'
+```text
+tar -cvf /tmp/$LOGNAME.tar $HOME
+tar -czvf /tmp/$LOGNAME.tar.gz $HOME
+tar -cjvf /tmp/$LOGNAME.tar.bz2 $HOME
+tar -xzvf /tmp/$LOGNAME.tar.gz -C Restaurations
+tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME
+tar -uvf /tmp/$LOGNAME-v2.tar ~/new_fichier.txt
+tar -tf /tmp/$LOGNAME-v2.tar
 ```
 
-## Archivage et compression
+## TP3 — Redirections et Alias
 
-Une archive rassemble plusieurs objets, tandis qu’une compression réduit la taille des données. Ces deux opérations sont souvent associées mais sont conceptuellement distinctes. Avant une extraction, inspecter l’archive et extraire dans un répertoire choisi plutôt que dans un emplacement non contrôlé.
+```text
+alias lister_daemons='ps -e | grep d$ > $HOME/process/daemons.txt'
+alias rechercher_conf='find / -mount -type f -name "*.conf" 2>/dev/null | tee $HOME/resultats/fichiers.conf'
+alias compter_fichiers='find / -mount -type f -name "*.conf" 2>/dev/null | wc -l > $HOME/resultats/compteur.txt'
+```
 
-## Méthode de travail
+Les alias sont valables pour la session courante selon la solution.
 
-1. Afficher la valeur de la variable avant de l’employer.
-2. Tester une redirection sur un fichier de laboratoire.
-3. Donner à l’archive un nom explicite et contrôler les fichiers qu’elle contient.
-4. Vérifier la destination après extraction.
-5. Documenter temporairement les alias utilisés pendant le TP.
+## TP4 — Manipuler des Variables
 
-## Points d’attention
+```text
+ls $HOME
+ls ~
+echo $PATH
+mkdir $HOME/scripts
+PATH=$PATH:/$HOME/scripts
+echo PATH=$PATH:/$HOME/scripts >> ~/.bashrc
+monom="$LOGNAME"
+monom=$(logname)
+env
+bash
+echo $monnom
+exit
+export monnom
+```
 
-- `>` peut remplacer un fichier existant ; le vérifier avant l’exécution.
-- `$PATH` influence la commande réellement lancée : ne pas modifier cette variable sans savoir quelles valeurs sont attendues.
-- L’extraction d’une archive doit tenir compte de ses chemins internes.
+!!! warning "NEEDS_REVIEW"
 
-## À retenir
+    L'énoncé indique `monnom`, la solution `monom`. La forme
+    `PATH=$PATH:/$HOME/scripts` et l'en-tête « Archivage et compression » de la
+    solution sont conservés à l'identique.
 
-Les mécanismes du shell automatisent beaucoup d’actions, mais ils rendent le contrôle du contexte encore plus important : valeurs de variables, fichiers de sortie et contenu des archives doivent être vérifiés.
+## Liens
 
-## Vérification des acquis
-
-1. Quelle variable représente le répertoire personnel ?
-2. Quelle redirection ajoute à un fichier sans le remplacer ?
-3. Quelle différence faut-il faire entre archive et compression ?
-
-??? success "Éléments de réponse"
-    1. `$HOME`.
-    2. `>>`.
-    3. L’archive regroupe des objets ; la compression réduit la taille des données.
-
-## Voir aussi
-
+- [TP M08](../../tp/utilisation-linux/module-08/index.md)
+- [Fiche de révision](../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Kahoot M08](../../kahoot/04-utilisation-gnu-linux-module-08-mecanismes-linux-et-bash-avance.md)
 - [Présentation de la séquence](index.md)
-- [Fiche de révision du module](../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
