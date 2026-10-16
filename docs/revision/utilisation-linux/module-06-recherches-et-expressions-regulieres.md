@@ -1,39 +1,39 @@
 # Fiche de révision — Module 06 — Recherches et expressions régulières
 
-## À connaître absolument
+## TP1 — Recherches et regex
 
-- Rechercher des fichiers avec find.
-- Filtrer du texte avec grep.
-- Construire une expression régulière simple.
-- Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.
+| Besoin attesté | Commande source |
+|---|---|
+| Rechercher `Dupont` dans `Edition` | `grep Dupont Edition` |
+| Ignorer la casse pour `dupont` | `grep -i dupont Edition` |
+| Afficher les lignes non vides | `grep -v '^$' Edition` |
+| Trouver `localhost` directement dans `/etc` | `grep -sl localhost /etc/*` |
+| Fichiers standards commençant par `ho` depuis `/etc` | `find /etc -type f -name "ho*"` |
+| Répertoires du répertoire personnel | `find ~ -type d` |
+| Fichiers terminant par `txt` et copie `.save` | `find ~ -type f -name "*txt" -exec cp {} {}.save \;` |
 
-## Méthode express
+## TP2 — Spécificités Bash / métacaractères
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Besoin attesté | Commande ou observation source |
+|---|---|
+| Sélection de noms commençant par `a`, `b`, `c` ou `d` dans `/etc` | `ls -d /etc/[a-d]*` |
+| Arborescence sous `$HOME` | `mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}` |
+| Fichier du scénario depuis `Tp/Divers/Sources/` | `touch fic*ier` |
+| Tentative sur un répertoire non vide | `rmdir` échoue dans le scénario |
+| Suppression demandée après le constat | `rm -r $HOME/Tp/Divers/Sources/` puis `rm -r ../../Divers/` |
+| Sélection finale dans `/etc` | `ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf` |
 
-## Pièges fréquents
+`touch fic*ier` est maintenu sous sa forme source : son résultat dépend du contenu du
+répertoire au moment de l'expansion. La suppression avec `rm -r` intervient après la
+tentative `rmdir` et ne doit pas être confondue avec elle.
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Liens utiles
 
-## Checklist de maîtrise
+- [Cours M06](../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [TP M06](../../tp/utilisation-linux/module-06/index.md)
+- [Kahoot M06](../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres.md)
 
-- [ ] Rechercher des fichiers avec find.
-- [ ] Filtrer du texte avec grep.
-- [ ] Construire une expression régulière simple.
-- [ ] Rediriger les erreurs lorsqu’elles ne font pas partie du résultat attendu.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Provenance
 
-## Questions flash
-
-1. Quels sont les concepts indispensables de « Recherches et expressions régulières » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md).
+- **A — sources TSSR :** énoncés et solutions des TP1 et TP2 rattachés à M06.
+- **B — structuration pédagogique :** fiche limitée aux commandes et observations attestées.
