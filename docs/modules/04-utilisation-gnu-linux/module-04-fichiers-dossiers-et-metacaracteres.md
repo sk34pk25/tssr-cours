@@ -1,72 +1,71 @@
-# Module 04 — Fichiers, dossiers et métacaractères
+# Module 04 — Fichiers et dossiers
 
-**Séquence :** Utilisation d’une distribution GNU/Linux  
-**Sources originales (A) :** TP TSSR « Fichiers et dossiers » et « Métacaractères », énoncés et corrections.
-**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
+> **Périmètre :** cette page reprend exclusivement le TP1 *Fichiers et dossiers* attesté pour le module.
 
-## Objectifs
+## Objectifs du TP
 
-- Créer, nommer, copier, déplacer et supprimer des fichiers ou répertoires.
-- Lire les droits et le type d’un objet dans une liste détaillée.
-- Employer les métacaractères pour sélectionner plusieurs noms sans les confondre avec des fichiers réels.
+Le TP demande de repérer sa position dans l’arborescence, d’observer les fichiers et répertoires présents, de créer un fichier vide et d’effectuer les contrôles demandés sur ce fichier, sur `/etc` et sur `/tmp`.
 
-## Notions essentielles
+Durée indicative attestée : **45 à 60 minutes**.
 
-Sous Linux, répertoires et fichiers sont des objets de l’arborescence. `pwd` donne le point de départ ; `ls -l` affiche notamment le type, les permissions, le propriétaire et le groupe. Avant une action de modification, lister le contenu avec `ls -la` et employer des chemins explicites.
+## Position dans l’arborescence
+
+```bash
+pwd
+```
+
+`pwd` répond à la première question du TP : il affiche le répertoire où la session est positionnée.
+
+## Fichiers et répertoires présents
+
+```bash
+ls -A
+```
+
+Le TP demande d’observer avec cette commande l’existence de fichiers et de répertoires.
+
+## Créer puis observer un fichier
 
 ```bash
 touch MonPremierFichier
-mkdir essais
-cp MonPremierFichier essais/
-mv essais/MonPremierFichier essais/fichier-renomme
+ls -l MonPremierFichier
 ```
 
-`touch` crée un fichier vide s’il n’existe pas. `mkdir` crée un répertoire. `cp` copie ; `mv` déplace ou renomme selon ses arguments.
+Après avoir créé le fichier vide demandé, observez les permissions et le propriétaire affichés pour ce fichier. Cette page ne généralise pas les règles de permissions au-delà de cette observation source.
 
-## Métacaractères : sélectionner sans réécrire
+## Fichiers `.conf` dans `/etc`
 
-Les métacaractères sont interprétés par le shell avant le lancement de la commande. Ils servent à développer une sélection de noms.
+```bash
+ls /etc/*.conf
+```
 
-| Expression | Sens | Exemple |
-|---|---|---|
-| `*` | toute suite de caractères | `ls *.txt` |
-| `?` | un seul caractère | `ls note?.txt` |
-| `[abc]` | un caractère parmi une liste | `ls rapport[12].pdf` |
-| `[a-z]` | un caractère dans un intervalle | `ls fichier[1-9]` |
+La consigne utilise ce motif précis pour afficher les fichiers de `/etc` dont le nom se termine par `.conf`.
 
-Vérifiez d’abord la sélection avec `ls` avant de l’utiliser avec `rm`, `mv` ou `cp`. Un motif qui ne correspond à rien peut être transmis tel quel selon la configuration du shell : lire le résultat et ne pas supposer qu’une sélection a eu lieu.
+## Caractéristiques de `/tmp`
 
-## Procédure sûre de rangement
+```bash
+ls -ld /tmp
+```
 
-1. Afficher le répertoire courant avec `pwd`.
-2. Lister précisément les objets avec `ls -la`.
-3. Créer le répertoire de destination avec `mkdir` si nécessaire.
-4. Tester le motif avec `ls motif`.
-5. Copier ou déplacer avec des chemins explicites.
-6. Relister la destination pour contrôler le résultat.
+Le TP demande les caractéristiques détaillées de `/tmp`, sans en afficher le contenu.
 
-## Points d’attention
+## Vérifications attendues
 
-- `rm` ne place pas un fichier dans une corbeille : une suppression mérite une vérification préalable.
-- Un espace dans un nom impose des guillemets ou un échappement ; les guillemets empêchent aussi l’expansion des métacaractères.
-- Ne confondez pas les permissions affichées par `ls -l` avec la propriété : ce sont deux informations distinctes.
+- relever la position courante avec `pwd` ;
+- observer l’affichage de `ls -A` ;
+- créer puis contrôler `MonPremierFichier` ;
+- relever les fichiers affichés par `ls /etc/*.conf` ;
+- relever les caractéristiques de `/tmp` sans lister son contenu.
 
-## À retenir
+## Pour poursuivre
 
-Les commandes de gestion de fichiers deviennent fiables lorsqu’elles sont précédées d’un contrôle du contexte et d’un test de sélection. Les métacaractères font gagner du temps, mais élargissent rapidement une action.
+- [TP1 — Fichiers et dossiers](../../tp/utilisation-linux/module-04/index.md)
+- [Énoncé TP1](../../tp/utilisation-linux/module-04/enonces.md)
+- [Correction TP1](../../tp/utilisation-linux/module-04/corrections.md)
+- [Fiche de révision M04](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
+- [Kahoot M04](../../kahoot/04-utilisation-gnu-linux-module-04-fichiers-dossiers-et-metacaracteres.md)
 
-## Vérification des acquis
+## Provenance
 
-1. Quelle commande crée un fichier vide ?
-2. Que représente `?` dans un motif de shell ?
-3. Quelle vérification réaliser avant d’utiliser un motif avec `rm` ?
-
-??? success "Éléments de réponse"
-    1. `touch`.
-    2. Un unique caractère.
-    3. Tester le motif avec une commande non destructive, par exemple `ls`.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
-- [Fiche de révision du module](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
+- **A — source TSSR :** *Enoncé du TP 1 - Fichiers et dossiers.pdf* et *Solution du TP 1 - Fichiers et dossiers.pdf*.
+- **B — structuration pédagogique :** mise en forme web fidèle aux objectifs, questions et commandes des deux documents, sans apport externe.
