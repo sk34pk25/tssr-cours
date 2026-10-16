@@ -1,39 +1,42 @@
-# Fiche de révision — Module additionnel — Workstation
+# Révision — Module additionnel : Workstation
 
-## À connaître absolument
+## Virtualisation
 
-- Comprendre les principes de la virtualisation de postes.
-- Dimensionner processeur, mémoire, disque et réseau d’une VM.
-- Utiliser instantanés, clonage, import et export.
-- Distinguer les modes de réseau virtuel.
+- L'hôte est l'ordinateur physique qui fournit ses ressources.
+- La machine virtuelle est un système invité avec son propre système d'exploitation.
+- L'hyperviseur relie l'hôte et les VM, puis gère et partage les ressources disponibles.
 
-## Méthode express
+## Ressources de la VM
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+| Ressource | À retenir |
+|---|---|
+| CPU | La VM reçoit des ressources processeur. |
+| Mémoire | Elle est attribuée au démarrage et configurable. |
+| Disque | C'est un fichier dont la taille dynamique et maximale sont configurables. |
+| Réseau | La VM se connecte à un switch virtuel. |
 
-## Pièges fréquents
+## Réseaux virtuels cités
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+- Host-Only ;
+- VMnet ;
+- LAN Segment ;
+- Bridge ;
+- NAT, présenté comme une translation d'adresse.
 
-## Checklist de maîtrise
+## Périphériques et manipulation
 
-- [ ] Comprendre les principes de la virtualisation de postes.
-- [ ] Dimensionner processeur, mémoire, disque et réseau d’une VM.
-- [ ] Utiliser instantanés, clonage, import et export.
-- [ ] Distinguer les modes de réseau virtuel.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Le support cite les médias CD/DVD, USB et disquette. Une VM capture par défaut clavier et souris : `Ctrl` + `Alt` redonne la main à l'hôte ; `Ctrl` + `Alt` + `Inser` est cité pour transmettre `Ctrl` + `Alt` + `Suppr` à la VM.
 
-## Questions flash
+## Import et export
 
-1. Quels sont les concepts indispensables de « Workstation » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+- Importer : utiliser une VM existante depuis son répertoire d'accueil ou une archive `.ovf` / `.ova`.
+- Exporter : sauvegarder l'état actuel de la VM par copie de son répertoire d'accueil ou dans une archive `.ovf` / `.ova`.
 
-Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-additionnel-workstation.md).
+## Avantages et limites cités
+
+Le support cite la pause, les snapshots, le clonage, les dossiers partagés et les possibilités liées aux VMware Tools. Il rappelle aussi que l'outil est prévu pour des maquettes simples, est propriétaire VMware et nécessite un temps d'adaptation.
+
+## Liens utiles
+
+- [Cours Workstation](../../modules/02-systemes-clients-microsoft/module-additionnel-workstation.md)
+- [Kahoot Workstation](../../kahoot/02-systemes-clients-microsoft-additionnel-workstation.md)
