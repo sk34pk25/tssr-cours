@@ -231,6 +231,14 @@ nav:
           - Module 06 — Exécution conditionnelle: modules/11-initiation-scripting-bash/module-06-execution-conditionnelle.md
           - Module 07 — Les structures de boucle: modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md
           - Module 08 — Les fonctions: modules/11-initiation-scripting-bash/module-08-les-fonctions.md
+      - Initiation à PowerShell:
+          - Présentation: modules/12-initiation-powershell/index.md
+          - Module 01: modules/12-initiation-powershell/module-01.md
+          - Module 02: modules/12-initiation-powershell/module-02.md
+          - Module 03: modules/12-initiation-powershell/module-03.md
+          - Module 04: modules/12-initiation-powershell/module-04.md
+          - Module 05: modules/12-initiation-powershell/module-05.md
+          - Module 06: modules/12-initiation-powershell/module-06.md
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
