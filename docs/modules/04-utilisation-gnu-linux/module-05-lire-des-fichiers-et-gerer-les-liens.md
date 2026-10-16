@@ -1,69 +1,63 @@
 # Module 05 — Lire des fichiers et gérer les liens
 
-**Séquence :** Utilisation d’une distribution GNU/Linux  
-**Sources originales (A) :** TP TSSR « Lire des fichiers » et « Les liens », énoncés et corrections.
-**Contenu pédagogique du portail (B) :** reformulation et structuration des sources TSSR.
+> Cette page est une synthèse limitée aux deux TP et à leurs solutions disponibles pour le module 05. Aucun support de cours distinct n’a été identifié dans Drive.
 
-## Objectifs
+## TP1 — Lire des fichiers
 
-- Créer puis consulter un fichier texte depuis le terminal.
-- Distinguer lien physique et lien symbolique.
-- Vérifier la cible et les effets d’une manipulation de lien.
-
-## Lire et produire un fichier texte
-
-Le TP utilise `cat` pour créer un fichier à partir de l’entrée standard puis pour relire son contenu. La redirection `>` envoie la sortie de `cat` vers un fichier ; l’utilisateur termine la saisie avec `Ctrl+D`.
+Le TP demande de créer deux fichiers avec `cat >`, puis de saisir les textes indiqués dans sa consigne :
 
 ```bash
 cat > MonDeuxiemeFichier
-# saisir le texte, puis Ctrl+D
-cat MonDeuxiemeFichier
+cat > MonTroisiemeFichier
 ```
 
-Pour un fichier long, privilégiez une lecture paginée avec `less`. Pour ajouter plutôt que remplacer, utilisez `>>` seulement après avoir vérifié que cet ajout est voulu.
-
-## Liens : une autre façon de désigner un objet
-
-Un lien physique est une autre entrée de répertoire vers le même inode ; il n’est pas utilisé pour les répertoires ordinaires et ne traverse pas les systèmes de fichiers. Un lien symbolique est un fichier spécial contenant un chemin vers une cible. Il peut viser un répertoire et devenir cassé si la cible est déplacée ou supprimée.
+Il demande ensuite de réunir les deux fichiers dans `fichier2+3`, de compter les lignes de `/etc/passwd` et d’afficher les deux premières lignes de `/etc/hosts` :
 
 ```bash
-ln MonDeuxiemeFichier copie-physique
-ln -s MonDeuxiemeFichier raccourci-symbolique
-ls -li MonDeuxiemeFichier copie-physique raccourci-symbolique
+cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3
+wc -l /etc/passwd
+head -n 2 /etc/hosts
 ```
 
-Dans la sortie détaillée, un lien symbolique est indiqué par `l` et affiche `->` vers sa cible. Les deux liens physiques partagent le même numéro d’inode ; le lien symbolique possède son propre inode.
+Les résultats affichés dépendent de la machine du TP.
 
-## Méthode de contrôle
+## TP2 — Les liens
 
-1. Créer ou identifier le fichier cible.
-2. Créer le lien demandé avec `ln` ou `ln -s`.
-3. Lire les informations avec `ls -li`.
-4. Ouvrir le lien symbolique pour vérifier qu’il désigne la bonne cible.
-5. Noter l’effet d’un déplacement de la cible sur le lien symbolique.
+Le scénario distingue un lien physique et un lien symbolique au moyen de commandes `ln` et `ln -s`. Il demande de relire le contenu du fichier associé, puis d’observer les caractéristiques demandées avec `ls -l`.
 
-## Points d’attention
+```bash
+ln Edition edition1.txt
+cat edition1.txt
+ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt
+ln edition1.txt edition3.txt
+ls -l edition* Edition /tmp/stag30/edition2.txt
+```
 
-- `>` remplace le contenu d’un fichier existant ; ne l’utilisez pas sans contrôle.
-- Un lien symbolique relatif dépend de son emplacement : un chemin relatif juste au moment de la création peut devenir trompeur après un déplacement.
-- Le compteur de liens des liens physiques est affiché par `ls -l` et évolue avec leur création ou suppression.
+Les chemins et noms de session ci-dessus sont des valeurs du laboratoire de la solution, non des valeurs universelles.
 
-## À retenir
+## Observation après la suppression de scénario
 
-La lecture de fichiers, les redirections et les liens sont liés par la même discipline : nommer clairement l’objet, contrôler le résultat, puis seulement modifier ou supprimer.
+Le TP prévoit ensuite l’étape expérimentale suivante :
 
-## Vérification des acquis
+```bash
+rm edition1.txt
+```
 
-1. Quelle redirection crée ou remplace un fichier à partir de `cat` ?
-2. Quelle option de `ln` crée un lien symbolique ?
-3. Quel indice de `ls -li` montre que deux liens physiques visent le même inode ?
+Dans l’observation donnée par la solution, le lien symbolique vers `edition2.txt` ne peut plus être lu, tandis que `edition3.txt` reste lisible. Cette page rapporte cette observation sans étendre le comportement à des cas non présents dans les sources.
 
-??? success "Éléments de réponse"
-    1. `>`.
-    2. `-s`.
-    3. Le même numéro d’inode.
+## Synthèse
 
-## Voir aussi
+Les TP font pratiquer la création de fichiers, leur concaténation, le comptage de lignes, l’affichage partiel, puis deux formes de liens et leurs observations dans un scénario donné.
 
-- [Présentation de la séquence](index.md)
-- [Fiche de révision du module](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+## Pour poursuivre
+
+- [TP M05 — index](../../tp/utilisation-linux/module-05/index.md)
+- [TP1 — énoncé](../../tp/utilisation-linux/module-05/tp1-enonces.md) · [correction](../../tp/utilisation-linux/module-05/tp1-corrections.md)
+- [TP2 — énoncé](../../tp/utilisation-linux/module-05/tp2-enonces.md) · [correction](../../tp/utilisation-linux/module-05/tp2-corrections.md)
+- [Fiche de révision M05](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Kahoot M05](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
+
+## Provenance
+
+- **A — source TSSR :** énoncés et solutions TP1 *Lire des fichiers* et TP2 *Les liens*.
+- **B — structuration pédagogique :** synthèse web des commandes, étapes et observations attestées, sans apport externe.
