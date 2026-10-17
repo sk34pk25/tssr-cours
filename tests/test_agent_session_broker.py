@@ -42,6 +42,26 @@ class Keychain:
             raise self.error
 
 class BrokerTests(unittest.TestCase):
+    def setUp(self):
+        # Real isolated MkDocs coverage lives in test_independent_build.py.
+        patcher = patch.object(broker, 'assert_independent_build')
+        self.build = patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_independent_build_failure_precedes_credentials_and_network(self):
+        self.build.side_effect = broker.IndependentBuildError('unresolved dependency')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'payload.json'
+            path.write_text(json.dumps(PAYLOAD))
+            keychain = Keychain()
+            with contextlib.redirect_stderr(io.StringIO()) as output:
+                result = broker.main(['propose', '--payload', str(path), '--agent-email', 'test@example.invalid',
+                                      '--credential-source', 'keychain'], env=ENV, keychain=keychain,
+                                     transport_factory=lambda *_: self.fail('network before build'))
+            self.assertEqual(result, 1)
+            self.assertEqual(json.loads(output.getvalue())['error'], 'INDEPENDENT_BUILD_FAILED')
+            self.assertEqual(keychain.reads, [])
+
     def assert_diagnostic(self, error, code, endpoint, emitted, received, status=None):
         self.assertIsInstance(error, broker.BrokerDiagnosticError)
         self.assertEqual(error.diagnostic, {

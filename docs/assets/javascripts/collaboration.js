@@ -754,7 +754,7 @@
     if (!state.client || !state.profile) return [];
     if (!campaign) throw new Error("Le filtre de campagne est indisponible. Rechargez la page.");
     const { data, error } = await campaign.scope(state.client.from("change_requests")
-      .select("*, change_request_files(*), change_approvals(*), change_approval_overrides(*)"), historical)
+      .select("*, change_request_files(*), change_approvals(*), change_approval_overrides(*), publication_recoveries(*)"), historical)
       .order("created_at", { ascending: false });
     if (error) throw error;
     return data || [];
@@ -775,14 +775,15 @@
 
   function changeCard(request) {
     const archived = campaign.contains(request.id);
-    const status = utils.statusInfo(request.status);
+    const recovery = utils.publicationRecovery(request);
+    const status = recovery ? { label: "Récupéré après échec de publication", className: "published" } : utils.statusInfo(request.status);
     const approval = approvalSummary(request);
     const myVote = approval.approvals.get(state.profile.id);
     // PostgREST represents this one-to-one relation as an object (older clients may use an array).
     const override = Array.isArray(request.change_approval_overrides) ? request.change_approval_overrides[0] : request.change_approval_overrides;
     const canVote = !archived && state.profile.can_edit && request.status === "pending" && request.required_approvers.includes(state.profile.id) && !myVote;
-    const canCancel = !archived && (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
-    const canRevise = !archived && request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
+    const canCancel = !archived && !recovery && (request.author_id === state.profile.id || state.profile.role === "admin") && ["pending", "approved", "failed", "conflict"].includes(request.status);
+    const canRevise = !archived && !recovery && request.change_request_files.some((file) => file.content_encoding === "utf-8" && file.file_path.endsWith(".md")) && ["rejected", "failed", "conflict"].includes(request.status);
     const kindLabel = request.proposal_kind === "create_course" ? "Ajout d’un cours"
       : request.proposal_kind === "modify_course" ? "Modification d’un cours"
       : request.proposal_kind === "navigation_change" ? "Navigation" : "Modification";
@@ -810,6 +811,7 @@
       ${request.description ? `<p>${utils.escapeHtml(request.description)}</p>` : ""}
       ${summary}
       ${request.failure_reason ? `<div class="tssr-form-error">${utils.escapeHtml(request.failure_reason)}</div>` : ""}
+      ${recovery ? `<p class="tssr-help" data-publication-recovery>Premier build en échec, conservé dans l’historique. Récupération ultérieure attestée le ${formatDate(recovery.recovered_at)}. Run de déploiement : <code>${utils.escapeHtml(recovery.evidence.deployment.run_id)}</code>. Aucun nouveau vote ni changement du contenu approuvé.</p>` : ""}
       <p class="tssr-muted">Votes humains réellement enregistrés :</p>
       <ul class="tssr-approvals">${approval.rows}</ul>
       ${override ? `<div class="tssr-help" data-admin-override-summary><strong>Override administrateur : utilisé</strong><p>${utils.escapeHtml(override.actor_display_name)} · ${formatDate(override.created_at)}</p><p>Motif : ${utils.escapeHtml(override.reason)}</p><p>Les validations absentes ne sont pas des votes favorables.</p></div>` : ""}

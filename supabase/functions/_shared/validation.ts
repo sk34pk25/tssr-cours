@@ -63,7 +63,7 @@ function htmlBlockOpening(line: string): HtmlBlockState | null {
   return first?.index === 0 && first.raw.length === trimmed.length ? { kind: "blank" } : null;
 }
 
-function maskMarkdownCode(value: string): string {
+export function maskMarkdownCode(value: string): string {
   const source = String(value ?? "");
   const output = source.split("");
   const barriers = new Uint8Array(source.length);

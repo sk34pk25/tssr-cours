@@ -1,6 +1,7 @@
 import { parse } from "npm:yaml@2.9.0";
 import { agentSummary } from "../_shared/agent-policy.ts";
 import { assertNoCredentials } from "../_shared/credentials.ts";
+import { assertProposalLinks } from "../_shared/proposal-links.ts";
 import { recordAdminOverride } from "../_shared/approval-policy.ts";
 import {
   errorResponse,
@@ -131,6 +132,7 @@ async function trustedFiles(
     }
   }
   const currentMkDocs = await fetchRepositoryFile("mkdocs.yml");
+  assertProposalLinks(trusted, available);
   const mkdocsChange = trusted.find((file) => file.file_path === "mkdocs.yml");
   validateMkDocsEdit(
     currentMkDocs.content,

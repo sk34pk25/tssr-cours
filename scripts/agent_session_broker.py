@@ -14,6 +14,7 @@ import urllib.error
 import urllib.request
 
 from ingestion.credentials import contains_credential
+from ingestion.independent_build import assert_independent_build, IndependentBuildError
 from ingestion.granularity import GranularityError, assert_payload_granularity as assert_object_granularity
 from macos_keychain import (KEYCHAIN_SERVICE, MacOSKeychain, KeychainError,
                             KeychainNotFound, KeychainAccessDenied, KeychainEmptySecret)
@@ -257,7 +258,11 @@ def main(argv=None, env=os.environ, password_reader=getpass.getpass, transport_f
                 password = None
             print(json.dumps({"credential_status": "KEYCHAIN_READ_OK", **result}))
             return 0 if result["status"] == "AUTH_OK" and result["logout_performed"] else 1
-        load_payload(args.payload)
+        payload = load_payload(args.payload)
+        try:
+            assert_independent_build(payload)
+        except IndependentBuildError:
+            raise BrokerError("INDEPENDENT_BUILD_FAILED") from None
         if args.dry_run:
             print(json.dumps({"http_status": None, "status": "DRY_RUN_READY"}))
             return 0
@@ -268,7 +273,7 @@ def main(argv=None, env=os.environ, password_reader=getpass.getpass, transport_f
         )
         try:
             if not password: raise BrokerError("Authentification AGENT annulée.")
-            result = submit(load_payload(args.payload), args.agent_email, password, transport_factory(url, key))
+            result = submit(payload, args.agent_email, password, transport_factory(url, key))
         finally:
             password = None
         print(json.dumps(result))
@@ -281,6 +286,7 @@ def main(argv=None, env=os.environ, password_reader=getpass.getpass, transport_f
         return 1
     except BrokerError as error:
         local_codes = {
+            "INDEPENDENT_BUILD_FAILED": "INDEPENDENT_BUILD_FAILED",
             "SUPABASE_URL_MISSING": "SUPABASE_URL_MISSING",
             "SUPABASE_PUBLISHABLE_KEY_MISSING": "SUPABASE_PUBLISHABLE_KEY_MISSING",
             "PAYLOAD_GRANULARITY_VIOLATION": "PAYLOAD_GRANULARITY_VIOLATION",

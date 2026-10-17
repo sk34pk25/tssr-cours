@@ -2,6 +2,7 @@ import { createAdminClient, readJsonBody } from "../_shared/auth.ts";
 import { handlePreflight, isAllowedOrigin, jsonResponse, errorResponse } from "../_shared/cors.ts";
 import { handlePublication } from "../_shared/publication.ts";
 import { handleReconciliation } from "../_shared/reconciliation.ts";
+import { handleRecovery } from "../_shared/recovery.ts";
 
 function constantTimeEqual(left: string, right: string): boolean {
   const encoder = new TextEncoder();
@@ -26,7 +27,9 @@ Deno.serve(async (req: Request) => {
       return errorResponse(req, "Signature de publication invalide.", 401);
     }
     const body = await readJsonBody<Record<string, unknown>>(req, 50_000);
-    return jsonResponse(req, await (body.action === "reconcile"
+    return jsonResponse(req, await (body.action === "recover-failed-deployment"
+      ? handleRecovery(createAdminClient(), body)
+      : body.action === "reconcile"
       ? handleReconciliation(createAdminClient(), body)
       : handlePublication(createAdminClient(), body)));
   } catch (error) {
