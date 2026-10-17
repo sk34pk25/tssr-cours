@@ -204,6 +204,92 @@ class MaintenancePostgres(unittest.TestCase):
     def intent(self, mode="direct"):
         self.sql(f"set request.jwt.claim.role='service_role'; select public.service_record_publication_intent('{ID}','{SHA}','{mode}');", self.db)
 
+    def recovery_fixture(self):
+        self.sql(next(MIGRATIONS.glob('*_admin_validation_override.sql')).read_text(), self.db)
+        self.sql(next(MIGRATIONS.glob('*_agent_propose_only.sql')).read_text(), self.db)
+        self.sql(next(MIGRATIONS.glob('*_publication_recovery.sql')).read_text(), self.db)
+        voters = [PROFILE, '33333333-3333-4333-8333-333333333333', '44444444-4444-4444-8444-444444444444']
+        for i, voter in enumerate(voters[1:]):
+            self.sql(f"insert into public.profiles(id,display_name,email,can_edit,must_change_password) "
+                     f"values('{voter}','Fixture {i}','fixture{i}@example.invalid',true,false);", self.db)
+        self.sql(f"update public.change_requests set required_approvers=ARRAY[{','.join(repr(x)+'::uuid' for x in voters)}] where id='{ID}';", self.db)
+        for voter in voters:
+            self.sql(f"insert into public.change_approvals(change_request_id,user_id,user_display_name,decision) "
+                     f"values('{ID}','{voter}','Fixture','approved');", self.db)
+        self.sql(f"insert into public.change_request_files(change_request_id,file_path,base_file_sha,old_content,new_content,change_type) "
+                 f"values('{ID}','docs/fixture.md','{SHA}','# Old','# New','update');", self.db)
+        receipt = json.loads(self.reconciliation_fixture())
+        failed = self.receipt(status='failed', failure_reason='Attested build failure')
+        self.complete(failed)
+        import hashlib
+        evidence = dict(protocol='tssr-failed-deployment-recovery-v1', initial_commit_sha=SHA,
+                        initial_callback=json.loads(failed), main_sha='b'*40, deployment=receipt['reconciliation'],
+                        files=[dict(path='docs/fixture.md', sha256=hashlib.sha256(b'# New').hexdigest())])
+        evidence['deployment']['run_id'] = '789'
+        return evidence
+
+    def recover(self, evidence, dry_run=False, role='service_role', ok=True):
+        return self.sql(f"set request.jwt.claim.role='{role}'; set role {role}; "
+                        f"select public.service_recover_failed_publication('{ID}','{json.dumps(evidence)}',{str(dry_run).lower()});", self.db, ok)
+
+    def test_recovery_preserves_original_failure_votes_and_is_idempotent(self):
+        evidence = self.recovery_fixture()
+        snapshot = self.sql(f"select row_to_json(r) from public.change_requests r where id='{ID}';", self.db).stdout
+        self.assertTrue(json.loads(self.recover(evidence, True).stdout)['eligible'])
+        self.assertEqual(self.sql('select count(*) from public.publication_recoveries;', self.db).stdout.strip(), '0')
+        self.assertEqual(json.loads(self.recover(evidence).stdout)['status'], 'recovered')
+        self.assertTrue(json.loads(self.recover(evidence).stdout)['replayed'])
+        self.assertEqual(snapshot, self.sql(f"select row_to_json(r) from public.change_requests r where id='{ID}';", self.db).stdout)
+        self.assertEqual(self.sql("select count(*) from public.audit_logs where action='publication_recovered';", self.db).stdout.strip(), '1')
+        self.assertEqual(self.sql("select count(*) from public.audit_logs where action='publication_failed';", self.db).stdout.strip(), '1')
+        self.assertEqual(self.sql('select count(*) from public.change_approvals;', self.db).stdout.strip(), '3')
+        evidence['main_sha'] = 'd'*40
+        self.assertNotEqual(self.recover(evidence, ok=False).returncode, 0)
+        self.assertNotEqual(self.sql(f"update public.change_requests set status='cancelled' where id='{ID}';",self.db,False).returncode,0)
+
+    def test_recovery_acl_including_agent_and_missing_proof(self):
+        evidence = self.recovery_fixture()
+        for role in ('anon', 'authenticated'):
+            result = self.recover(evidence, role=role, ok=False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('permission denied', result.stderr)
+        # An AGENT session is authenticated, never service_role.
+        for field in ('deployment', 'initial_commit_sha', 'initial_callback', 'files'):
+            changed = dict(evidence); changed.pop(field)
+            self.assertNotEqual(self.recover(changed, ok=False).returncode, 0)
+        evidence['files'][0]['sha256'] = '0'*64
+        self.assertNotEqual(self.recover(evidence, ok=False).returncode, 0)
+        self.assertEqual(self.sql('select count(*) from public.publication_recoveries;',self.db).stdout.strip(),'0')
+
+    def test_recovery_concurrent_identical_requests_write_once(self):
+        evidence = self.recovery_fixture()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            results = list(pool.map(lambda _: json.loads(self.recover(evidence).stdout), range(2)))
+        self.assertEqual(sorted(r['replayed'] for r in results), [False, True])
+        self.assertEqual(self.sql('select count(*) from public.publication_recoveries;',self.db).stdout.strip(),'1')
+        self.assertEqual(self.sql("select count(*) from public.audit_logs where action='publication_recovered';",self.db).stdout.strip(),'1')
+        for role in ('anon', 'authenticated', 'service_role'):
+            result = self.sql(f"set role {role}; delete from public.publication_recoveries where change_request_id='{ID}';",self.db,False)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('permission denied', result.stderr)
+
+    def test_recovery_consensus_and_files_refusals_atomic(self):
+        evidence = self.recovery_fixture()
+        mutations = [
+            f"delete from public.change_approvals where user_id='{PROFILE}'",
+            f"update public.change_approvals set decision='rejected' where user_id='{PROFILE}'",
+            f"update public.profiles set actor_kind='AGENT',can_edit=false where id='{PROFILE}'",
+            "update public.change_request_files set new_content='# Changed'",
+            "update public.change_request_files set file_path='docs/renamed.md'",
+            "delete from public.change_request_files",
+            "delete from public.audit_logs where action='publication_failed'",
+        ]
+        for mutation in mutations:
+            result = self.sql(f"begin; {mutation}; set request.jwt.claim.role='service_role'; set role service_role; "
+                              f"select public.service_recover_failed_publication('{ID}','{json.dumps(evidence)}',false); commit;",self.db,False)
+            self.assertNotEqual(result.returncode,0, mutation)
+            self.assertEqual(self.sql('select count(*) from public.publication_recoveries;',self.db).stdout.strip(),'0')
+
     def reconciliation_fixture(self, finish=True):
         self.sql((MIGRATIONS / "20261004120000_publication_reconciliation.sql").read_text(), self.db)
         self.claim()

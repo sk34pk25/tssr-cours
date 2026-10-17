@@ -10,6 +10,18 @@ vm.runInNewContext(
 );
 const utils = context.module.exports;
 
+test("publication recovery is separate from the immutable failed attempt", () => {
+  const request = {status:"failed", published_commit_sha:"a".repeat(40), failure_reason:"Initial build failed",
+    publication_recoveries:{ recovered_at:"2026-10-17T00:00:00Z", evidence:{protocol:"tssr-failed-deployment-recovery-v1",initial_commit_sha:"a".repeat(40)}}};
+  assert.ok(utils.publicationRecovery(request));
+  assert.equal(request.status,"failed");
+  assert.equal(request.failure_reason,"Initial build failed");
+  assert.ok(utils.publicationRecovery({...request,publication_recoveries:[request.publication_recoveries]}));
+  assert.equal(utils.publicationRecovery({...request,publication_recoveries:[]}),null);
+  assert.equal(utils.publicationRecovery({...request,status:"pending"}),null);
+  assert.equal(utils.publicationRecovery({...request,published_commit_sha:"b".repeat(40)}),null);
+});
+
 const courseContext = { module: { exports: {} }, exports: {}, crypto: { randomUUID: () => "00000000-0000-4000-8000-000000000000" } };
 vm.runInNewContext(
   fs.readFileSync(new URL("../docs/assets/javascripts/course-creator-utils.js", import.meta.url), "utf8"),

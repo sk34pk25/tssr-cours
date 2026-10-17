@@ -25,6 +25,14 @@
     return { label: info[0], className: info[1] };
   }
 
+  function publicationRecovery(request) {
+    const relation = request.publication_recoveries;
+    const record = Array.isArray(relation) ? (relation.length === 1 ? relation[0] : null) : relation;
+    return request.status === "failed" && record?.evidence?.protocol === "tssr-failed-deployment-recovery-v1"
+      && record.evidence.initial_commit_sha === request.published_commit_sha && record.recovered_at
+      ? record : null;
+  }
+
   function canOverrideValidation(profile, request) {
     return profile?.role === "admin" && profile.status === "active" && profile.can_edit === true &&
       profile.can_override_validation === true && profile.must_change_password === false && request?.status === "pending";
@@ -98,6 +106,7 @@
   return {
     escapeHtml,
     statusInfo,
+    publicationRecovery,
     canOverrideValidation,
     collaborationConfigured,
     sourcePath,

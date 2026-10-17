@@ -1,5 +1,6 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { assertPublicationApproval } from "./approval-policy.ts";
+import { assertProposalLinks } from "./proposal-links.ts";
 import { buildCommitMessage, changeRequestId, commitSha, singleLine } from "./publication-metadata.ts";
 import { MaintenanceError, publicationWriteGuard } from "./maintenance.ts";
 import { githubFetch } from "./github-transport.ts";
@@ -227,6 +228,7 @@ async function createAtomicCommit(
   assertNoConflicts(files, currentTree);
 
   const availableFiles = applyAvailableFiles(new Set(currentTree.keys()), files);
+  assertProposalLinks(files, availableFiles);
   const mkdocsChange = files.find((file) => file.file_path === "mkdocs.yml");
   const currentMkDocs = await fetchRepositoryFile("mkdocs.yml");
   const nextMkDocs = mkdocsChange?.new_content ?? currentMkDocs.content;

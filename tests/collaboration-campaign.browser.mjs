@@ -36,6 +36,11 @@ async function fixture(options, run) {
   const rows = ids.map((id, i) => ({ ...base, id, title: "Ancienne Debian " + i, status: statuses[i % statuses.length] }));
   rows.push({ ...base, id: "11111111-1111-4111-8111-111111111111", title: "Nouvelle Debian M01", status: "pending" });
   rows.push({ ...base, id: "22222222-2222-4222-8222-222222222222", title: "Technique hors campagne", status: "published" });
+  if (options.recovered) rows.push({ ...base, id: "33333333-3333-4333-8333-333333333333", title: "Récupération factice", status: "failed",
+    published_commit_sha: "a".repeat(40), failure_reason: "Échec initial attesté conservé",
+    publication_recoveries: { recovered_at: "2026-10-17T00:00:00Z", evidence: {
+      protocol: "tssr-failed-deployment-recovery-v1", initial_commit_sha: "a".repeat(40), deployment: { run_id: "123" }
+    } } });
   const before = JSON.stringify(rows);
   page.on("pageerror", e => errors.push(e.message));
   page.on("console", m => { if (m.type() === "error") errors.push(m.text()); });
@@ -104,5 +109,18 @@ test("missing campaign asset never falls back to an unfiltered query", async () 
     await page.getByText("Le filtre de campagne est indisponible. Rechargez la page.").waitFor();
     assert.deepEqual(queries, []);
     assert.equal(await page.locator(".tssr-change-card").count(), 0);
+  });
+});
+
+test("recovered failure remains visible, distinct and read-only", async () => {
+  await fixture({ recovered: true }, async page => {
+    await page.getByRole("heading", { name: "Nouvelle Debian M01" }).waitFor();
+    await page.locator("[data-dashboard-tab=history]").click();
+    const card = page.locator('[data-change-id="33333333-3333-4333-8333-333333333333"]');
+    await card.getByText("Récupéré après échec de publication", { exact: true }).waitFor();
+    assert.ok(await card.getByText("Échec initial attesté conservé", { exact: true }).isVisible());
+    assert.ok(await card.locator('[data-publication-recovery]').isVisible());
+    assert.equal(await card.locator('[data-change-action]:not([data-change-action="diff"])').count(), 0);
+    if (process.env.TSSR_RECOVERY_SCREENSHOT) await page.screenshot({ path: process.env.TSSR_RECOVERY_SCREENSHOT });
   });
 });

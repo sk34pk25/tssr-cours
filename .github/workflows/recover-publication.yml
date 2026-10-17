@@ -1,0 +1,52 @@
+name: Recover one attested failed publication
+on:
+  workflow_dispatch:
+    inputs:
+      change_request_id:
+        description: Exact approved failed-deployment CR to verify
+        type: string
+        required: true
+      dry_run:
+        description: Verify without recording recovery
+        type: boolean
+        default: true
+permissions: {}
+concurrency:
+  group: tssr-publication-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      # No checkout or execution of proposal-controlled code. One request only.
+      - name: Verify and optionally record one recovery
+        env:
+          WEBHOOK_URL: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_URL }}
+          WEBHOOK_SECRET: ${{ secrets.SUPABASE_PUBLICATION_WEBHOOK_SECRET }}
+          CHANGE_ID: ${{ inputs.change_request_id }}
+          DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+        run: |
+          python - <<'PY'
+          import json, os, re, urllib.request
+          identifier = os.environ['CHANGE_ID']
+          if not re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', identifier):
+              raise SystemExit('INVALID_CHANGE_ID')
+          url, secret = os.environ['WEBHOOK_URL'], os.environ['WEBHOOK_SECRET']
+          if not re.fullmatch(r'https://[a-z]{20}\.supabase\.co/functions/v1/publication-status', url) or not secret:
+              raise SystemExit('RECOVERY_NOT_CONFIGURED')
+          request = urllib.request.Request(url, method='POST', headers={
+              'content-type':'application/json', 'x-publication-secret':secret,
+          }, data=json.dumps({'action':'recover-failed-deployment','change_request_id':identifier,
+                              'dry_run':os.environ['DRY_RUN']=='true'}).encode())
+          try:
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  result = json.load(response)
+              if result.get('ok') is not True or result.get('id') != identifier:
+                  raise ValueError('unexpected response')
+          except Exception:
+              raise SystemExit('RECOVERY_REFUSED_OR_AMBIGUOUS_NO_RETRY') from None
+          print(json.dumps({key:result.get(key) for key in ('id','dry_run','eligible','status','replayed')}))
+          PY
