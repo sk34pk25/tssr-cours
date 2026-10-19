@@ -24,9 +24,13 @@ concurrency:
 
 jobs:
   reconcile:
-    # Activation is a separate reviewed cutover AFTER the additive RPC and Edge.
+    # Verify readiness without enabling automatic writes. Applying reconciliation
+    # still requires the explicit cutover flag, including manual apply requests.
     # Event payloads are never trusted as deployment evidence by the server.
-    if: github.ref == 'refs/heads/main' && vars.PUBLICATION_RECONCILIATION_ENABLED == 'true'
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (vars.PUBLICATION_RECONCILIATION_ENABLED == 'true' ||
+       (github.event_name == 'workflow_dispatch' && inputs.dry_run == true))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions: {}
