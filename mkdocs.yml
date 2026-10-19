@@ -239,6 +239,16 @@ nav:
           - Module 04: modules/12-initiation-powershell/module-04.md
           - Module 05: modules/12-initiation-powershell/module-05.md
           - Module 06: modules/12-initiation-powershell/module-06.md
+      - Virtualisation de serveurs:
+          - Présentation: modules/13-virtualisation-serveurs/index.md
+          - Module 01: modules/13-virtualisation-serveurs/module-01.md
+          - Module 02: modules/13-virtualisation-serveurs/module-02.md
+          - Module 03: modules/13-virtualisation-serveurs/module-03.md
+          - Module 04: modules/13-virtualisation-serveurs/module-04.md
+          - Module 05: modules/13-virtualisation-serveurs/module-05.md
+          - Module 06: modules/13-virtualisation-serveurs/module-06.md
+          - Module 07: modules/13-virtualisation-serveurs/module-07.md
+          - Module 08: modules/13-virtualisation-serveurs/module-08.md
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
