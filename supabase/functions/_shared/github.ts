@@ -274,8 +274,20 @@ async function publishDirect(config: GitHubConfig, commitSha: string, expectedPa
       body: JSON.stringify({ sha: commitSha, force: false }),
     });
   } catch (error) {
-    const latest = await github<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
-    if (latest.object.sha === commitSha) return; // Lost response after a successful push.
+    let latest: { object: { sha: string } };
+    try {
+      latest = await github<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
+      if (latest.object.sha === commitSha) return; // Lost response after a successful push.
+      if (latest.object.sha !== expectedParent) {
+        const comparison = await github<{ status: string }>(config, `/compare/${commitSha}...${latest.object.sha}`);
+        if (["ahead", "identical"].includes(comparison.status)) return;
+        if (!["behind", "diverged"].includes(comparison.status)) throw new Error("Unproven ancestry");
+      }
+    } catch {
+      const uncertain = new Error("Résultat du push GitHub non attesté ; conserver l’intention directe.") as Error & { publicationUncertain?: boolean };
+      uncertain.publicationUncertain = true;
+      throw uncertain;
+    }
     if (latest.object.sha !== expectedParent) {
       const conflict = new Error("La branche GitHub a avancé pendant la publication.") as Error & { conflict?: boolean };
       conflict.conflict = true;
@@ -386,6 +398,7 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
         externallyPublished = true;
         mode = "direct";
       } catch (error) {
+        if ((error as Error & { publicationUncertain?: boolean }).publicationUncertain) throw error;
         // In auto mode a concurrently advanced main must use the existing PR
         // transport. The approved commit is retained and validated before merge.
         if (config.publishMode === "direct") throw error;
