@@ -270,14 +270,15 @@ Deno.test("PR deployment accepts only the real merged SHA of the approved PR", a
 });
 
 Deno.test("publication ownership and maintenance guard hold at the actual GitHub sink", async () => {
-  for (const scenario of ["normal", "lost-push-response", "close-after-claim", "refused-stream", "permanent-read-error", "failed-retry", "changed-blob", "existing-sha"]) {
+  for (const scenario of ["normal", "advanced-main-auto", "lost-push-descendant", "unproven-push", "lost-push-response", "close-after-claim", "refused-stream", "permanent-read-error", "failed-retry", "changed-blob", "existing-sha"]) {
   const retry = ["failed-retry", "changed-blob", "existing-sha"].includes(scenario);
-  const losePushResponse = scenario === "lost-push-response";
+  const losePushResponse = ["lost-push-response", "lost-push-descendant", "unproven-push"].includes(scenario);
   const closeAfterClaim = scenario === "close-after-claim";
   const originalFetch = globalThis.fetch;
   const envNames = ["GITHUB_TOKEN", "GITHUB_OWNER", "GITHUB_REPO", "GITHUB_BRANCH", "GITHUB_PUBLISH_MODE"];
   const originals = envNames.map((key) => Deno.env.get(key));
   envNames.forEach((key, index) => Deno.env.set(key, ["test-only", "example", "tssr", "main", "direct"][index]));
+  if (["advanced-main-auto", "lost-push-descendant", "unproven-push"].includes(scenario)) Deno.env.set("GITHUB_PUBLISH_MODE", "auto");
   let status = retry ? "failed" : "approved";
   let claims = 0;
   let updates = 0;
@@ -285,6 +286,7 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
   let pushes = 0;
   let gitWrites = 0;
   let refReads = 0;
+  let pulls = 0;
   let expectedSha: string | null = null;
   const client = {
     rpc: (name: string, args: Record<string, unknown>) => {
@@ -345,7 +347,7 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
       refReads++;
       if (scenario === "refused-stream" && refReads === 1) throw new TypeError("http2 error: refused stream before processing any application logic");
       if (scenario === "permanent-read-error") return new Response(JSON.stringify({ message: "Bad credentials" }), { status: 401 });
-      result = { object: { sha: pushes ? SHA : MERGE } };
+      result = { object: { sha: pushes ? (["advanced-main-auto", "lost-push-descendant", "unproven-push"].includes(scenario) ? "f".repeat(40) : SHA) : MERGE } };
     }
     else if (url.includes("/git/refs/heads/")) {
       // The second worker enters while the first is still publishing.
@@ -355,9 +357,17 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
       assertEquals(status, "publishing");
       assertEquals(expectedSha, SHA, "intent must be durable before any push");
       pushes++;
+      if (scenario === "advanced-main-auto") return new Response(JSON.stringify({ message: "Not a fast forward" }), { status: 422 });
       if (losePushResponse) throw new Error("Simulated lost successful push response");
       result = {};
-    } else if (url.includes("/contents/mkdocs.yml")) result = { type: "file", encoding: "base64", sha: MERGE, content: btoa("site_name: TSSR\nnav:\n  - Accueil: index.md\n") };
+    } else if (url.includes("/compare/")) {
+      if (scenario === "unproven-push") return new Response(JSON.stringify({ message: "Unavailable" }), { status: 503 });
+      result = { status: scenario === "lost-push-descendant" ? "ahead" : "diverged" };
+    } else if (url.endsWith("/git/refs")) {
+      assertEquals(JSON.parse(String(init?.body)), { ref: `refs/heads/collaboration/change-${ID}`, sha: SHA });
+      result = {};
+    } else if (url.endsWith("/pulls")) { pulls++; result = { number: 7 }; }
+    else if (url.includes("/contents/mkdocs.yml")) result = { type: "file", encoding: "base64", sha: MERGE, content: btoa("site_name: TSSR\nnav:\n  - Accueil: index.md\n") };
     else if (url.includes("/git/trees/") && !init?.method) result = { truncated: false, tree: [{ path: "docs/index.md", type: "blob", sha: scenario === "changed-blob" ? SHA : MERGE }] };
     else if (url.endsWith("/git/commits") && init?.method === "POST") result = { sha: SHA };
     else if (url.includes("/git/commits/")) result = { tree: { sha: MERGE } };
@@ -377,6 +387,9 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
         assertEquals({claims, gitWrites, pushes, status}, {claims:0, gitWrites:0, pushes:0, status:"failed"});
         if (scenario === "existing-sha") assertEquals(refReads, 0);
       }
+    } else if (scenario === "unproven-push") {
+      await assertRejects(() => publishApprovedChange(client, ID), Error, "non attesté");
+      assertEquals({ pushes, pulls, updates, status }, { pushes: 1, pulls: 0, updates: 1, status: "publishing" });
     } else if (scenario === "permanent-read-error") {
       await assertRejects(() => publishApprovedChange(client, ID), Error, "Bad credentials");
       assertEquals({refReads, pushes, gitWrites, status}, {refReads: 1, pushes: 0, gitWrites: 0, status: "failed"});
@@ -386,6 +399,7 @@ Deno.test("publication ownership and maintenance guard hold at the actual GitHub
     } else {
       await publishApprovedChange(client, ID);
       assertEquals({ claims, pushes, status }, { claims: 2, pushes: 1, status: "publishing" });
+      assertEquals(pulls, scenario === "advanced-main-auto" ? 1 : 0);
     }
     status = "published";
     const before = { updates, audits, pushes };
