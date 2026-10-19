@@ -820,6 +820,7 @@
         <button type="button" class="tssr-action" data-change-action="diff">Voir les changements</button>
         ${canVote ? '<button type="button" class="tssr-action tssr-action--primary" data-change-action="approve">Accepter</button><button type="button" class="tssr-action tssr-action--danger" data-change-action="reject">Refuser</button>' : ""}
         ${!archived && utils.canOverrideValidation(state.profile, request) ? '<button type="button" class="tssr-action" data-change-action="admin-override">Valider en tant qu’administrateur</button>' : ""}
+        ${!archived && utils.canRetryPublication(state.profile, request) ? '<button type="button" class="tssr-action" data-change-action="retry-publication">Reprendre la publication approuvée</button>' : ""}
         ${canRevise ? '<button type="button" class="tssr-action" data-change-action="revise">Créer une révision</button>' : ""}
         ${canCancel ? '<button type="button" class="tssr-action tssr-action--danger" data-change-action="cancel">Annuler</button>' : ""}
       </div>
@@ -876,6 +877,18 @@
     if (action === "diff") return showDiff(request);
     // Historical consultation is deliberately read-only, including delegated events.
     if (campaign.contains(request.id)) return;
+    if (action === "retry-publication") {
+      if (button.disabled || !utils.canRetryPublication(state.profile, request)) return;
+      if (!window.confirm("Reprendre la publication du contenu déjà approuvé ? Les votes sont conservés. Le serveur vérifiera de nouveau les fichiers et l’absence de publication antérieure.")) return;
+      setBusy(button, true, "Reprise…");
+      try {
+        await invoke("change-requests", { action: "retry-publication", change_request_id: request.id });
+        toast("Reprise demandée. Les validations humaines sont conservées.");
+        renderCollaborationPage();
+      } catch (error) { toast(error.message, "error"); }
+      finally { setBusy(button, false); }
+      return;
+    }
     if (action === "revise") {
       const file = request.change_request_files.find((item) => item.content_encoding === "utf-8" && item.file_path.endsWith(".md"));
       return openPageEditor({ filePath: file.file_path, initialContent: file.new_content, title: `Révision de ${request.title}`, supersedesId: request.id });

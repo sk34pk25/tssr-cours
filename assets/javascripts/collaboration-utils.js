@@ -38,6 +38,25 @@
       profile.can_override_validation === true && profile.must_change_password === false && request?.status === "pending";
   }
 
+  // Display eligibility only. The existing retry endpoint independently checks
+  // the current human admin, votes, immutable files, Git blobs and prior effects.
+  function canRetryPublication(profile, request) {
+    if (profile?.role !== "admin" || profile.status !== "active" || profile.can_edit !== true ||
+      profile.must_change_password !== false || request?.status !== "failed" || !request.failure_reason) return false;
+    const effects = ["published_commit_sha", "published_at", "github_pr_number",
+      "publication_expected_sha", "publication_mode", "publication_callback"];
+    if (effects.some(key => request[key] !== null)) return false;
+    for (const key of ["change_approval_overrides", "publication_recoveries"]) {
+      if (!Object.hasOwn(request, key) || (request[key] !== null &&
+        (!Array.isArray(request[key]) || request[key].length !== 0))) return false;
+    }
+    const required = request.required_approvers;
+    const votes = request.change_approvals;
+    return Array.isArray(required) && required.length > 0 && new Set(required).size === required.length &&
+      Array.isArray(votes) && !votes.some(vote => vote.decision === "rejected") &&
+      required.every(id => votes.some(vote => vote.user_id === id && vote.decision === "approved"));
+  }
+
   function collaborationConfigured(config) {
     return Boolean(config && /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(config.supabaseUrl || "") &&
       /^(sb_publishable_|eyJ)/.test(config.supabasePublishableKey || ""));
@@ -108,6 +127,7 @@
     statusInfo,
     publicationRecovery,
     canOverrideValidation,
+    canRetryPublication,
     collaborationConfigured,
     sourcePath,
     relativeAssetPath,
