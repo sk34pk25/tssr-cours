@@ -16,6 +16,12 @@ ID = "11111111-1111-4111-8111-111111111111"
 
 
 class ReconciliationWorkflowTests(unittest.TestCase):
+    def test_abandoned_campaign_membership_matches_read_only_ui(self):
+        pattern = r'"([0-9a-f-]{36})"'
+        ui = (ROOT / 'docs/assets/javascripts/collaboration-campaign.js').read_text()
+        server = (ROOT / 'supabase/functions/_shared/legacy-campaign.ts').read_text()
+        self.assertEqual(set(re.findall(pattern, server)), set(re.findall(pattern, ui)))
+
     def run_client(self, results, dry_run="true", error=None):
         calls = []
         def urlopen(request, timeout):

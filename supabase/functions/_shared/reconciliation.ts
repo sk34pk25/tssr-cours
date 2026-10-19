@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import { changeRequestId, commitSha } from "./publication-metadata.ts";
 import { githubConfig, readGitHub } from "./github.ts";
+import { abandonedCampaignIds } from "./legacy-campaign.ts";
 import { type GitHubReader, type PublicationReceipt, type PublicationRow, verifyDeployment, verifyRunEvidence } from "./publication.ts";
 
 interface Run {
@@ -117,6 +118,10 @@ export async function handleReconciliation(
   }
   const results: Array<Record<string, unknown>> = [];
   for (const row of rows) {
+    if (abandonedCampaignIds.has(row.id)) {
+      results.push({ id: row.id, result: "SKIPPED", reason: "ABANDONED_CAMPAIGN_READ_ONLY" });
+      continue;
+    }
     let reason = "INCOMPLETE_OR_CONTRADICTORY_STATE";
     try {
       requireProof(row.status === "publishing" && row.failure_reason === null && row.published_at === null &&
