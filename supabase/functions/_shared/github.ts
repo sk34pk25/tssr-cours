@@ -386,7 +386,8 @@ export async function publishApprovedChange(adminClient: SupabaseClient, changeI
         externallyPublished = true;
         mode = "direct";
       } catch (error) {
-        if ((error as Error & { conflict?: boolean }).conflict) throw error;
+        // In auto mode a concurrently advanced main must use the existing PR
+        // transport. The approved commit is retained and validated before merge.
         if (config.publishMode === "direct") throw error;
         mode = "pull_request";
       }
