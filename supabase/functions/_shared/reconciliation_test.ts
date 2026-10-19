@@ -102,6 +102,17 @@ for (const count of [1, 2, 10]) Deno.test(`${count} covered CRs converge despite
   assertEquals(b.rows, snapshot); assertEquals(b.mutations(), count);
 });
 
+Deno.test("abandoned campaign stays read-only even with valid deployment proof", async () => {
+  for (const dry_run of [true, false]) {
+    const b = batch(1);
+    b.rows[0].id = "248577dd-f538-4b1f-a81e-f4dd7a57d3a1";
+    const before = structuredClone(b.rows);
+    const result = await handleReconciliation(b.client, { dry_run }, reader(b.values), CONFIG);
+    assertEquals(result.results, [{ id: b.rows[0].id, result: "SKIPPED", reason: "ABANDONED_CAMPAIGN_READ_ONLY" }]);
+    assertEquals(b.rows, before); assertEquals(b.mutations(), 0);
+  }
+});
+
 Deno.test("dry-run validates eligibility without mutation", async () => {
   const b = batch(2), before = structuredClone(b.rows);
   const result = await handleReconciliation(b.client, {}, reader(b.values), CONFIG);
