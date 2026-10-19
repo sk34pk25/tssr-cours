@@ -48,7 +48,7 @@ test("every existing page permits unchanged and passive Markdown transitions", (
   const files = pages(new URL("../docs/", import.meta.url));
   assert.ok(files.length > 0, "docs must contain Markdown pages");
   const expected = fs.readdirSync(new URL("../docs/", import.meta.url), { recursive: true })
-    .filter((path) => path.endsWith(".md")).sort();
+    .filter((file) => file.endsWith(".md")).map((file) => file.split(path.sep).join("/")).sort();
   const root = new URL("../docs/", import.meta.url);
   assert.deepEqual(files.map((path) => decodeURIComponent(path.href.slice(root.href.length))).sort(), expected);
   for (const path of files) {

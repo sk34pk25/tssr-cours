@@ -52,6 +52,12 @@ class ReconciliationWorkflowTests(unittest.TestCase):
             {"action": "reconcile", "dry_run": True, "after_id": ID},
         ])
 
+    def test_only_manual_dry_run_can_run_before_cutover(self):
+        self.assertIn("(vars.PUBLICATION_RECONCILIATION_ENABLED == 'true' ||", WORKFLOW)
+        self.assertIn("(github.event_name == 'workflow_dispatch' && inputs.dry_run == true))", WORKFLOW)
+        calls, _ = self.run_client([{"ok": True, "results": [], "next_cursor": None}])
+        self.assertTrue(calls[0]["dry_run"])
+
     def test_automatic_sweep_can_finalize_only_via_authenticated_handler(self):
         calls, _ = self.run_client([{"ok": True, "results": [], "next_cursor": None}], dry_run="false")
         self.assertFalse(calls[0]["dry_run"])
