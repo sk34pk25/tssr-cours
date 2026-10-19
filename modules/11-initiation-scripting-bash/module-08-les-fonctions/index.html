@@ -2575,6 +2575,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 08 — Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2591,6 +2609,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declarer-puis-appeler-une-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déclarer puis appeler une fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-utilisee-par-une-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable utilisée par une fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passer-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passer des paramètres
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charger-des-fonctions-depuis-un-fichier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charger des fonctions depuis un fichier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -12303,6 +12417,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declarer-puis-appeler-une-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déclarer puis appeler une fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-utilisee-par-une-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable utilisée par une fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passer-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passer des paramètres
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charger-des-fonctions-depuis-un-fichier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charger des fonctions depuis un fichier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12397,9 +12596,55 @@
 
 
 <h1 id="module-08-les-fonctions">Module 08 — Les fonctions<a class="headerlink" href="#module-08-les-fonctions" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Amorçage technique : une proposition pédagogique gouvernée est attendue pour ce module.</p>
-</blockquote>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<p>Ce module présente le regroupement d'actions réutilisables dans des fonctions, leur déclaration, leur appel et leur externalisation dans un fichier séparé.</p>
+<h2 id="declarer-puis-appeler-une-fonction">Déclarer puis appeler une fonction<a class="headerlink" href="#declarer-puis-appeler-une-fonction" title="Permanent link">¶</a></h2>
+<p>Une fonction regroupe plusieurs commandes. Sa déclaration doit précéder son appel.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nomfonction<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>ACTIONS
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">}</span>
+</span></code></pre></div>
+<p>Le support illustre une fonction puis son appel :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>func_infos<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Informations sur la distribution utilisée"</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>lsb_release<span class="w"> </span>-dric
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">}</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>func_infos
+</span></code></pre></div>
+<h2 id="variable-utilisee-par-une-fonction">Variable utilisée par une fonction<a class="headerlink" href="#variable-utilisee-par-une-fonction" title="Permanent link">¶</a></h2>
+<p>L'exemple du support montre une variable modifiée par une fonction :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">nbr</span><span class="o">=</span><span class="m">50</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>func_majnbr<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nv">nbr</span><span class="o">=</span><span class="m">100</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="o">}</span>
+</span></code></pre></div>
+<h2 id="passer-des-parametres">Passer des paramètres<a class="headerlink" href="#passer-des-parametres" title="Permanent link">¶</a></h2>
+<p>Les paramètres reçus par une fonction sont illustrés avec <code>$1</code> et <code>$2</code> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>func_accueil<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Message d’accueil :"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bonjour </span><span class="nv">$1</span><span class="s2"> </span><span class="nv">$2</span><span class="s2">"</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Bienvenue sur la machine </span><span class="nv">$HOSTNAME</span><span class="s2">"</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="o">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"Entrez votre prénom nom (ex Marc Dubois) : "</span><span class="w"> </span>prenom<span class="w"> </span>nom
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>func_accueil<span class="w"> </span><span class="s2">"</span><span class="nv">$prenom</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$nom</span><span class="s2">"</span>
+</span></code></pre></div>
+<h2 id="charger-des-fonctions-depuis-un-fichier">Charger des fonctions depuis un fichier<a class="headerlink" href="#charger-des-fonctions-depuis-un-fichier" title="Permanent link">¶</a></h2>
+<p>Le support présente un fichier de fonctions distinct, chargé dans l'environnement d'exécution courant avec <code>source</code> ou <code>.</code>. Le fichier cité n'a pas besoin d'être exécutable : des droits de lecture suffisent.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">source</span><span class="w"> </span>~/mesfonctions
+</span></code></pre></div>
+<p>La correction du TP utilise cette autre forme :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.<span class="w"> </span>./fonctions.fct
+</span></code></pre></div>
+<h2 id="mise-en-pratique">Mise en pratique<a class="headerlink" href="#mise-en-pratique" title="Permanent link">¶</a></h2>
+<p>Le TP propose un menu répété qui appelle trois fonctions : sauvegarder les fichiers <code>.sh</code>, supprimer les fichiers <code>.save</code> et lister les scripts selon l'existence d'une sauvegarde. Les fichiers <code>fonctions.fct</code> et <code>script_M8TP1.sh</code> sont décrits dans les PDF, mais ne sont pas fournis comme fichiers Drive autonomes.</p>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../tp/11-initiation-scripting-bash/module-08/">TP M08</a></li>
+<li><a href="../../../revision/11-initiation-scripting-bash/module-08-les-fonctions/">Révision M08</a></li>
+</ul>
 
 
 
