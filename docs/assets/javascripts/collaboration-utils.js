@@ -52,7 +52,7 @@
     }
     const required = request.required_approvers;
     const votes = request.change_approvals;
-    return Array.isArray(required) && required.length >= 3 && new Set(required).size === required.length &&
+    return Array.isArray(required) && required.length > 0 && new Set(required).size === required.length &&
       Array.isArray(votes) && !votes.some(vote => vote.decision === "rejected") &&
       required.every(id => votes.some(vote => vote.user_id === id && vote.decision === "approved"));
   }

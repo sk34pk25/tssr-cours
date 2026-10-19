@@ -17,6 +17,12 @@ function approvedFailure() {
 
 test("retry requires a human-admin-compatible profile and intact votes, without override permission", () => {
   assert.equal(utils.canRetryPublication(admin, approvedFailure()), true);
+  for (const required of [["one"], ["one", "two"]]) {
+    const request = { ...approvedFailure(), required_approvers: required,
+      change_approvals: required.map(user_id => ({ user_id, decision: "approved" })) };
+    assert.equal(utils.canRetryPublication(admin, request), true);
+    assert.equal(utils.canRetryPublication(admin, { ...request, change_approvals: [] }), false);
+  }
   for (const delta of [{ role: "member" }, { status: "suspended" }, { can_edit: false }, { must_change_password: true }]) {
     assert.equal(utils.canRetryPublication({ ...admin, ...delta }, approvedFailure()), false);
   }
