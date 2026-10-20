@@ -8,9 +8,9 @@ Les fiches de synthèse et leurs schémas sont affichés séparément dans **Aid
 
 **82 modules publiés · 333 documents · 2225 pages originales.** Les modules encore en attente de publication sont exclus.
 
-Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est indiquée sans les attribuer à ENI. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original.
+Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est indiquée sans les attribuer à ENI. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original. Les formations datées suivent l’ordre du planning ; Administration GLPI, bloc complémentaire non daté, est regroupé avec ITIL.
 
-## Consultation dans l’ordre du planning
+## Consultation des formations et modules
 
 | Formation / module | Documents disponibles | Pages originales |
 | --- | ---: | ---: |
@@ -57,6 +57,7 @@ Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est i
 | [Administration Debian — Module 10 — Gestion des utilisateurs et groupes](../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md) | 3 | 47 |
 | [Administration Debian — Module 11 — Droits sur les fichiers et répertoires](../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md) | 3 | 24 |
 | [Administration Debian — Module 12 — Maintenance d’un système en production](../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md) | 7 | 65 |
+| [MSP systèmes clients — Module 01 — MSP Systèmes clients](../modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md) | 6 | 195 |
 | [ITIL et gestion de parc — Module 01 — Présentation d’ITIL et historique](../modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique.md) | 1 | 5 |
 | [ITIL et gestion de parc — Module 02 — La gestion des services](../modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md) | 1 | 10 |
 | [ITIL et gestion de parc — Module 03 — Stratégie et conception des services](../modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md) | 5 | 24 |
@@ -72,7 +73,6 @@ Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est i
 | [Administration GLPI — Module 04 — Assistance — Traitements automatisés des tickets](../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md) | 3 | 19 |
 | [Administration GLPI — Module 05 — Les bases de MySQL et MariaDB](../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md) | 3 | 19 |
 | [Administration GLPI — Module 06 — Plug-ins et inventaire](../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md) | 3 | 14 |
-| [MSP systèmes clients — Module 01 — MSP Systèmes clients](../modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md) | 6 | 195 |
 | [Services réseaux Microsoft — Module 01 — Administration Windows](../modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md) | 8 | 76 |
 | [Services réseaux Microsoft — Module 02 — Active Directory](../modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md) | 13 | 109 |
 | [Services réseaux Microsoft — Module 03 — Les stratégies de groupe](../modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03.md) | 4 | 24 |
