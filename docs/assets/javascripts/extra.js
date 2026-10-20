@@ -121,10 +121,43 @@
     });
   }
 
+  function revealSourceAnchor(hash) {
+    if (!hash || !document.querySelector(".tssr-original-reader")) return null;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch (_) { return null; }
+    let block = target?.closest(".tabbed-block");
+    let changed = false;
+    while (block) {
+      const set = block.closest(".tabbed-set");
+      if (!set) break;
+      const blocks = Array.from(block.parentElement.children).filter((item) => item.classList.contains("tabbed-block"));
+      const inputs = Array.from(set.children).filter((item) => item.tagName === "INPUT" && item.type === "radio");
+      const input = inputs[blocks.indexOf(block)];
+      if (input && !input.checked) { input.click(); changed = true; }
+      block = set.parentElement?.closest(".tabbed-block");
+    }
+    return changed ? target : null;
+  }
+
+  function revealCurrentSourceAnchor() {
+    const target = revealSourceAnchor(window.location.hash);
+    if (target) window.requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+  }
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[href]");
+    if (!link) return;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin === window.location.origin && url.pathname === window.location.pathname) revealSourceAnchor(url.hash);
+  }, true);
+  window.addEventListener("hashchange", revealCurrentSourceAnchor);
+
   function enhancePage() {
     classifyPage();
     setupTocToggle();
     enhancePdfViewers();
+    revealCurrentSourceAnchor();
   }
 
   if (typeof document$ !== "undefined") {
