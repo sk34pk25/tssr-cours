@@ -71,14 +71,13 @@ def render_originals(refs, page, data):
     for i, ref in enumerate(refs):
         d = data['documents'][ref]
         name, role = escape(d['title']), ROLES[d['role']]
-        original, transcript = (escape(asset_url(d[key], page), quote=True) for key in ['original', 'transcript'])
+        original = escape(asset_url(d['original'], page), quote=True)
         is_correction = d['role'] == 'correction'
         extent = f'{d["pageCount"]} pages' if d['pageCount'] else 'document texte'
         out += [f'<details class="tssr-original-document"{ " open" if i == 0 and not is_correction else ""}>',
                 f'<summary>{role} · {name} · {extent}</summary>',
                 '<div class="tssr-original-document__body">',
                 f'<p class="tssr-original-links"><a href="{original}" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> '
-                f'<a href="{transcript}" target="_blank" rel="noopener noreferrer">Texte accessible</a> '
                 f'<a href="https://drive.google.com/file/d/{escape(ref, quote=True)}/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>']
         if d.get('sourceNotice'):
             out.append(f'<p class="tssr-original-note">{escape(d["sourceNotice"])}</p>')
