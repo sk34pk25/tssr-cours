@@ -13,8 +13,11 @@ ROLES = {'support': 'Support', 'notes': 'Notes du Drive', 'synthese-drive': 'Syn
          'enonce': 'Énoncé', 'correction': 'Correction', 'demonstration': 'Démonstration'}
 
 
-def load_catalog(root=ROOT):
-    path = root / 'data/course-sources.json'
+PENDING_CONTENT = 'Contenu pédagogique à venir via proposition gouvernée.'
+
+
+def load_catalog(root=ROOT, *, staged=False):
+    path = root / ('data/staged-course-sources.json' if staged else 'data/course-sources.json')
     if not path.exists():
         return {'schemaVersion': 1, 'documents': {}, 'pages': {}}
     data = json.loads(path.read_text(encoding='utf-8'))
@@ -42,7 +45,7 @@ def load_catalog(root=ROOT):
             raise ValueError('Page associée au support invalide')
         if not refs or len(refs) != len(set(refs)) or any(ref not in data['documents'] for ref in refs):
             raise ValueError('Association aux sources invalide')
-        if page.startswith('modules/') and 'Contenu pédagogique à venir via proposition gouvernée.' in (root / 'docs' / page).read_text(encoding='utf-8'):
+        if not staged and page.startswith('modules/') and PENDING_CONTENT in (root / 'docs' / page).read_text(encoding='utf-8'):
             raise ValueError('Un module non publié ne peut pas recevoir ces sources')
     proof = data.get('verification')
     if proof:
@@ -53,6 +56,24 @@ def load_catalog(root=ROOT):
             raise ValueError('Le périmètre publié diffère du relevé de vérification')
         if {ref for refs in data['pages'].values() for ref in refs} != set(data['documents']):
             raise ValueError('Un document original ne possède plus de page de consultation')
+    if not staged:
+        # Preparing original resources never turns a placeholder into a course.
+        # Each approved Markdown page activates its own source reader at build.
+        prepared = load_catalog(root, staged=True)
+        for page, refs in prepared['pages'].items():
+            if PENDING_CONTENT in (root / 'docs' / page).read_text(encoding='utf-8'):
+                continue
+            if page in data['pages']:
+                raise ValueError('Association publiée et préparée en doublon')
+            data['pages'][page] = refs
+            for ref in refs:
+                doc = prepared['documents'][ref]
+                if ref in data['documents'] and data['documents'][ref] != doc:
+                    raise ValueError('Source préparée en conflit avec le catalogue publié')
+                data['documents'][ref] = doc
+            notice = prepared.get('pageNotices', {}).get(page)
+            if notice:
+                data.setdefault('pageNotices', {})[page] = notice
     return data
 
 

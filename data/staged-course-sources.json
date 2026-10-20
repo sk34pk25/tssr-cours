@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 1,
+  "documents": {
+    "1Se_Xcs1zz1yiD0x5WAi_ALNW5AgJFklA": {
+      "id": "1Se_Xcs1zz1yiD0x5WAi_ALNW5AgJFklA",
+      "title": "Module 01 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "94b0952ee81d37c6afd441c29534d56caf345e86409091611deb08a467f16686",
+      "original": "assets/course-sources/94b0952ee81d37c6/original.pdf",
+      "transcript": "assets/course-sources/94b0952ee81d37c6/texte.html",
+      "pageCount": 32,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-001-004.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "14f7d30dec0aaec237e6b25345335d600fb34c4109c6986420e3879d76a40a54"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-005-008.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "0c257eaeae70934b28d7740a2ddb59d645c39e22e9b15215e7652bef542903df"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-009-012.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "ae503208a6fd4daeea72c5550e09a18e3c635553ecac2c60f04285efe4693287"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-013-016.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "07eac10caf96e69d28fbd68e6fd5b8c1152b4315a23ca06701fb73d1bf0936e0"
+        },
+        {
+          "first": 17,
+          "last": 20,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-017-020.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "a2d86ae3a798f646a31b522cc62db77416b4c42b546f15f1a2a44ed2a0a21f71"
+        },
+        {
+          "first": 21,
+          "last": 24,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-021-024.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "ada928e1fcbe5546651a165ff214b304fff43ab7e79c8cbe5415953407c648e6"
+        },
+        {
+          "first": 25,
+          "last": 28,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-025-028.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "1cf08112270732ca92ea37378d6fd1166dc636e6072913227dcc4c751c81f220"
+        },
+        {
+          "first": 29,
+          "last": 32,
+          "path": "assets/course-sources/94b0952ee81d37c6/pages-029-032.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "5901ed88896523a8aa502086b4841a51de8d0cdda37b23cf4fc93522abb95491"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 1"
+      ]
+    },
+    "1EdB6rg9Dog8Kp6dAibrm5m2IztOAIZUk": {
+      "id": "1EdB6rg9Dog8Kp6dAibrm5m2IztOAIZUk",
+      "title": "M1 - Solution du TP 2 - Création d'un tenant.pdf",
+      "role": "correction",
+      "sha256": "2cb2d8eafc3031355e556481539e8669e4b4f08fac78e7c6ec3b3e138dbd427e",
+      "original": "assets/course-sources/2cb2d8eafc303135/original.pdf",
+      "transcript": "assets/course-sources/2cb2d8eafc303135/texte.html",
+      "pageCount": 17,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/2cb2d8eafc303135/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "55296e51b98461e7805c025aeb921ff9384a51e7214d3ee2e8ff9e3a133031d0"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/2cb2d8eafc303135/pages-005-008.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "6ee678ece1d41cdb73a61b4980887a5f15365cb23dbd9966f1c0e3c4a9767f8a"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/2cb2d8eafc303135/pages-009-012.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "7fde553d2c5b63ef9c0c5a4336746d1e14f8d20606434d4072b4fc597abfae9d"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/2cb2d8eafc303135/pages-013-016.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "41ec27f6b84f0ed7864a80b3c69c6eee1e63758d955b843fbbdd4adce85eb749"
+        },
+        {
+          "first": 17,
+          "last": 17,
+          "path": "assets/course-sources/2cb2d8eafc303135/pages-017-017.webp",
+          "width": 1400,
+          "height": 1981,
+          "sha256": "ef9a02438fe175da935a7b93954f04c7ffdd28975540573390881ab713e95ec1"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 1"
+      ]
+    },
+    "1CksxEZCgZClGQ3G9H-Tbrmd-ukungFQ9": {
+      "id": "1CksxEZCgZClGQ3G9H-Tbrmd-ukungFQ9",
+      "title": "M1 - Solution du TP 1 - Adapter une reponse à des contraintes.pdf",
+      "role": "correction",
+      "sha256": "38bb0de222264a0db6256640d01b53ec133ce5cdce735149294122d0f70c9b61",
+      "original": "assets/course-sources/38bb0de222264a0d/original.pdf",
+      "transcript": "assets/course-sources/38bb0de222264a0d/texte.html",
+      "pageCount": 3,
+      "strips": [
+        {
+          "first": 1,
+          "last": 3,
+          "path": "assets/course-sources/38bb0de222264a0d/pages-001-003.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "8258e12e6f258844392fa10094d6ad174e579630e271ce87913554de8aaf1650"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 1"
+      ]
+    },
+    "1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B": {
+      "id": "1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B",
+      "title": "M1 - Enoncé du TP 2 - Création d'un tenant.pdf",
+      "role": "enonce",
+      "sha256": "27df445441ffef9a3e5fba7052d60d4ac8ed7de67a8627eaf53a4225ed04ab4a",
+      "original": "assets/course-sources/27df445441ffef9a/original.pdf",
+      "transcript": "assets/course-sources/27df445441ffef9a/texte.html",
+      "pageCount": 1,
+      "strips": [
+        {
+          "first": 1,
+          "last": 1,
+          "path": "assets/course-sources/27df445441ffef9a/pages-001-001.webp",
+          "width": 1400,
+          "height": 1981,
+          "sha256": "af7a8091bc71fdf54125ba71f07a6268cb27f13a968f379cac9a28bd8167bdf8"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 1"
+      ]
+    },
+    "1KHoMXQ5ewU7dWdgyt13PCcwHk6HmODS5": {
+      "id": "1KHoMXQ5ewU7dWdgyt13PCcwHk6HmODS5",
+      "title": "M1 - Enoncé du TP 1 - Adapter une reponse à des contraintes.pdf",
+      "role": "enonce",
+      "sha256": "14ad46ef6aaf622ffe038e688eb6ae22fff81c28a97199d96eb7c3567635455c",
+      "original": "assets/course-sources/14ad46ef6aaf622f/original.pdf",
+      "transcript": "assets/course-sources/14ad46ef6aaf622f/texte.html",
+      "pageCount": 2,
+      "strips": [
+        {
+          "first": 1,
+          "last": 2,
+          "path": "assets/course-sources/14ad46ef6aaf622f/pages-001-002.webp",
+          "width": 1400,
+          "height": 3978,
+          "sha256": "a86dc73d5484b9b06212b76a2d6b12e7adb55bd151ef11da84e7d8c6da4cd67b"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 1"
+      ]
+    },
+    "1D_WQ8CSn6GRFx1z-cJiwJT2TLAV6_Y4y": {
+      "id": "1D_WQ8CSn6GRFx1z-cJiwJT2TLAV6_Y4y",
+      "title": "Module 02 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "2d6cbe49ac253b8cfa14f54e1ca918452d3fbdb5c219daea589f4e13e14e04dd",
+      "original": "assets/course-sources/2d6cbe49ac253b8c/original.pdf",
+      "transcript": "assets/course-sources/2d6cbe49ac253b8c/texte.html",
+      "pageCount": 45,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-001-004.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "8dad64a454e9ed89372ed01b0f3a11d10d9cb6d668a049922be8ec2fe81ada40"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-005-008.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "fefca766d6821e7199e9d83e0a27f512d94bf5f30fd8f9b11471ae33df92dbb2"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-009-012.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "2773d075914147a9082e48f910f2f687ebd000055e04f7fb7bc2f9db9f66b6d2"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-013-016.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "1f184af39552dd688feeb32b959e4ba2231d471bbd3c3cc9ead6a3098bfbb4fa"
+        },
+        {
+          "first": 17,
+          "last": 20,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-017-020.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "798dd540ed53f790a59a8c7c9dcd90d5467f481a27291283da161e0cc9eb813e"
+        },
+        {
+          "first": 21,
+          "last": 24,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-021-024.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "8bbac521ded88b0e1328ce2e0da204c849c33579fed66a5f4172074b39815e2b"
+        },
+        {
+          "first": 25,
+          "last": 28,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-025-028.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "ff069dc348a0608d9780b4d68efcca631dd28d10f1a0bb7ffad2dd23cd7f5e9f"
+        },
+        {
+          "first": 29,
+          "last": 32,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-029-032.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "a918c0f1756668811bf3e908525a17bb05b2b65a11119a4adae2000d18efb9b2"
+        },
+        {
+          "first": 33,
+          "last": 36,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-033-036.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "82dad75f9afbe211aa8e12a405f32458d34a182c139e6978fc090ce09c17e538"
+        },
+        {
+          "first": 37,
+          "last": 40,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-037-040.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "82d776807661cd577b096f5e4f5f24a8d19c5d9e8e177246d19af2a39e476d55"
+        },
+        {
+          "first": 41,
+          "last": 44,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-041-044.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "52f2c3ded4af863e13d4cadaa7e8906d59cb357a2a065e4ef91ed749cbec0caa"
+        },
+        {
+          "first": 45,
+          "last": 45,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-045-045.webp",
+          "width": 1400,
+          "height": 1867,
+          "sha256": "93ed4bb6ae73f548ad850c150eeb6d33e5d7e5bfa0c9274be14630e6c4f5be32"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 2"
+      ]
+    },
+    "1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu": {
+      "id": "1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu",
+      "title": "M2 - Solution du TP 1 - Utilisateurs et groupes.pdf",
+      "role": "correction",
+      "sha256": "5aa0bc1641f5fddd77dce03e2f8413db215da19c65290a2e4fccb29c8344f91e",
+      "original": "assets/course-sources/5aa0bc1641f5fddd/original.pdf",
+      "transcript": "assets/course-sources/5aa0bc1641f5fddd/texte.html",
+      "pageCount": 4,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/5aa0bc1641f5fddd/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "53f1d844ca370aac40fcaa00c84c9b167e770ce51aa1fd1d72a4d87f8c07acb1"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 2"
+      ]
+    },
+    "1LpKVUBTMLiB-W1wEAUDHgEs_-hjOvStg": {
+      "id": "1LpKVUBTMLiB-W1wEAUDHgEs_-hjOvStg",
+      "title": "M2 - Solution du TP 2 - Azure AD Connect.pdf",
+      "role": "correction",
+      "sha256": "b0ef5fef8cee558ef2c1c1e264cbba392065e8e2daf549956735c2145a137daf",
+      "original": "assets/course-sources/b0ef5fef8cee558e/original.pdf",
+      "transcript": "assets/course-sources/b0ef5fef8cee558e/texte.html",
+      "pageCount": 19,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "576d5a13d3383d017342aab0eff8dda3d2ce0a2f03d135232f39ca97cdee57a4"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-005-008.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "74b1c5a3c95ad09995fce84114cce85a179faef3221081cc901586179ba085e3"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-009-012.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "49d5f6a6445f9818273954c632e5be5eaae5c14d05f5d902069a9aae0032f08b"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-013-016.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "fc799a3f86209c08d9c620d9284af51aecf71bbbe2990bb726d1d0f3dda94e58"
+        },
+        {
+          "first": 17,
+          "last": 19,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-017-019.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "a5fbb1159fe370a2c479af9bb2b3fdcc30caf9b9a5f1a1e09f385f78e3b2101b"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 2"
+      ]
+    },
+    "1vSub2duRw5x9hrV1yGtTmUPwZScLf_u0": {
+      "id": "1vSub2duRw5x9hrV1yGtTmUPwZScLf_u0",
+      "title": "M2 - Enoncé du TP 2 - Azure AD Connect.pdf",
+      "role": "enonce",
+      "sha256": "67cd7d118de46260b75a3e4a78af5c3a615c3ed795a9d4e352900d24bdae74ce",
+      "original": "assets/course-sources/67cd7d118de46260/original.pdf",
+      "transcript": "assets/course-sources/67cd7d118de46260/texte.html",
+      "pageCount": 2,
+      "strips": [
+        {
+          "first": 1,
+          "last": 2,
+          "path": "assets/course-sources/67cd7d118de46260/pages-001-002.webp",
+          "width": 1400,
+          "height": 3978,
+          "sha256": "6aa72ea531b6ff96ca79cd5427cfed46febe28b3d955c6a4af91cfe7d003a2ae"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 2"
+      ]
+    },
+    "1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9": {
+      "id": "1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9",
+      "title": "M2 - Enoncé du TP 1 - Utilisateurs et groupes.pdf",
+      "role": "enonce",
+      "sha256": "16589f599d6f5c8719b4d1a2e5944f27d2e18c1145fca76bff75276229d17984",
+      "original": "assets/course-sources/16589f599d6f5c87/original.pdf",
+      "transcript": "assets/course-sources/16589f599d6f5c87/texte.html",
+      "pageCount": 3,
+      "strips": [
+        {
+          "first": 1,
+          "last": 3,
+          "path": "assets/course-sources/16589f599d6f5c87/pages-001-003.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "cb98fb6d2b8f22e732a64690e0bb784948dd95de254d472411c960f89ae5432d"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 2"
+      ]
+    },
+    "1GLjA5f2bv_wItuCtVq5gmJ00cfvMr4k_": {
+      "id": "1GLjA5f2bv_wItuCtVq5gmJ00cfvMr4k_",
+      "title": "Module 04 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "30380f017a48637a05691119c307fba975923128b4d8409b0cca1a59ae501a61",
+      "original": "assets/course-sources/30380f017a48637a/original.pdf",
+      "transcript": "assets/course-sources/30380f017a48637a/texte.html",
+      "pageCount": 24,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/30380f017a48637a/pages-001-004.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "c3f1405c5818e62f9dd3c7fa85a2dd232a1c06647ceaa1be3968a4c1ad50f309"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/30380f017a48637a/pages-005-008.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "c724f3fa05ce349799129a6dd600a6cea41391b1b74f6d7763bb0df0a1ad1bfb"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/30380f017a48637a/pages-009-012.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "3446c1a8d0d4f731d600cb0c1d41622ff50af66bfa013de27103f8004797a9d0"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/30380f017a48637a/pages-013-016.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "d9d980df27a3683db4c2b9abc5ae744967653346bfb4f3af6ee02cfafc983feb"
+        },
+        {
+          "first": 17,
+          "last": 20,
+          "path": "assets/course-sources/30380f017a48637a/pages-017-020.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "69070e20d211b0d812c92b798042207b1d6325154e4bf0eb4a7b861d847227b2"
+        },
+        {
+          "first": 21,
+          "last": 24,
+          "path": "assets/course-sources/30380f017a48637a/pages-021-024.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "eb9ceebaff50b96b27c54e109f0d242ad6b4530b5197ba1ee1ee1b2c09532d9c"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 4"
+      ]
+    },
+    "1NFVLCn71-19tdQ1gyOGCdIZQ188D2HS9": {
+      "id": "1NFVLCn71-19tdQ1gyOGCdIZQ188D2HS9",
+      "title": "M4 - Solution du TP2 - Administration SharePoint et OneDrive.pdf",
+      "role": "correction",
+      "sha256": "5cb1e4dbf1ad8029178a7c64f4759fa26c767ff28640e7bcb3b566449df93e60",
+      "original": "assets/course-sources/5cb1e4dbf1ad8029/original.pdf",
+      "transcript": "assets/course-sources/5cb1e4dbf1ad8029/texte.html",
+      "pageCount": 11,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/5cb1e4dbf1ad8029/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "6f439fffcde988eb721b38646023a4a731e22707497c4a39659316d1d178e316"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/5cb1e4dbf1ad8029/pages-005-008.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "32a3b4c25a25e22b55131095c72bb5730db03c63aa17753ebb65c43b8de5ea1f"
+        },
+        {
+          "first": 9,
+          "last": 11,
+          "path": "assets/course-sources/5cb1e4dbf1ad8029/pages-009-011.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "8e389ee92bb8133775e1d61a542a2f71769e62389b02c0c6c25c54cc4c315d55"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 4"
+      ]
+    },
+    "11qy2tWr5VU5QdKrj8Ztldb3XcGN1NgnS": {
+      "id": "11qy2tWr5VU5QdKrj8Ztldb3XcGN1NgnS",
+      "title": "M4 - Solution du TP 1 - Déploiement Office 365.pdf",
+      "role": "correction",
+      "sha256": "3ec56eac14b68e7b92df4c2456a282250d62b1110a01d808fe17d53df3fd389a",
+      "original": "assets/course-sources/3ec56eac14b68e7b/original.pdf",
+      "transcript": "assets/course-sources/3ec56eac14b68e7b/texte.html",
+      "pageCount": 3,
+      "strips": [
+        {
+          "first": 1,
+          "last": 3,
+          "path": "assets/course-sources/3ec56eac14b68e7b/pages-001-003.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "e045e8ff90adf31f21d0c6d5471fd95fb98e903943898a4082510deb69d1e928"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 4"
+      ]
+    },
+    "1Nh_4blT_klGJjhXhSJE754bpm5t90Ebx": {
+      "id": "1Nh_4blT_klGJjhXhSJE754bpm5t90Ebx",
+      "title": "M4 - Enoncé du TP 1 - Déploiement Office 365.pdf",
+      "role": "enonce",
+      "sha256": "a61f9b4317b5488dcc74a2879ba199a2b7e264f58ddb4d83911044ad39904e1e",
+      "original": "assets/course-sources/a61f9b4317b5488d/original.pdf",
+      "transcript": "assets/course-sources/a61f9b4317b5488d/texte.html",
+      "pageCount": 1,
+      "strips": [
+        {
+          "first": 1,
+          "last": 1,
+          "path": "assets/course-sources/a61f9b4317b5488d/pages-001-001.webp",
+          "width": 1400,
+          "height": 1981,
+          "sha256": "dbe3cc1ea9a79e7e25c8289d784e6d69cfc52081101df71537d4d7b96271cc76"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 4"
+      ]
+    },
+    "1A9Y6kqGcVxuZTFK7bD0UGUG9HPCu72g9": {
+      "id": "1A9Y6kqGcVxuZTFK7bD0UGUG9HPCu72g9",
+      "title": "M4 - Enoncé du TP2 - Administration SharePoint et OneDrive.pdf",
+      "role": "enonce",
+      "sha256": "f04b735edcb54e16ebc4a80f87f5a811a7ba60e00ea28306976d39ec78ea5cb5",
+      "original": "assets/course-sources/f04b735edcb54e16/original.pdf",
+      "transcript": "assets/course-sources/f04b735edcb54e16/texte.html",
+      "pageCount": 1,
+      "strips": [
+        {
+          "first": 1,
+          "last": 1,
+          "path": "assets/course-sources/f04b735edcb54e16/pages-001-001.webp",
+          "width": 1400,
+          "height": 1981,
+          "sha256": "3cd8ed839d27daca468592adb24058cf42f7e9db56876c69958c7b937903b4c8"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 4"
+      ]
+    },
+    "1QXg3d1FfYiKv7fxyFAOEBtFgxcG4rQL3": {
+      "id": "1QXg3d1FfYiKv7fxyFAOEBtFgxcG4rQL3",
+      "title": "Module 02 - Support de cours.pdf",
+      "role": "support",
+      "sha256": "2d6cbe49ac253b8cfa14f54e1ca918452d3fbdb5c219daea589f4e13e14e04dd",
+      "original": "assets/course-sources/2d6cbe49ac253b8c/original.pdf",
+      "transcript": "assets/course-sources/2d6cbe49ac253b8c/texte.html",
+      "pageCount": 45,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-001-004.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "8dad64a454e9ed89372ed01b0f3a11d10d9cb6d668a049922be8ec2fe81ada40"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-005-008.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "fefca766d6821e7199e9d83e0a27f512d94bf5f30fd8f9b11471ae33df92dbb2"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-009-012.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "2773d075914147a9082e48f910f2f687ebd000055e04f7fb7bc2f9db9f66b6d2"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-013-016.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "1f184af39552dd688feeb32b959e4ba2231d471bbd3c3cc9ead6a3098bfbb4fa"
+        },
+        {
+          "first": 17,
+          "last": 20,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-017-020.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "798dd540ed53f790a59a8c7c9dcd90d5467f481a27291283da161e0cc9eb813e"
+        },
+        {
+          "first": 21,
+          "last": 24,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-021-024.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "8bbac521ded88b0e1328ce2e0da204c849c33579fed66a5f4172074b39815e2b"
+        },
+        {
+          "first": 25,
+          "last": 28,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-025-028.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "ff069dc348a0608d9780b4d68efcca631dd28d10f1a0bb7ffad2dd23cd7f5e9f"
+        },
+        {
+          "first": 29,
+          "last": 32,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-029-032.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "a918c0f1756668811bf3e908525a17bb05b2b65a11119a4adae2000d18efb9b2"
+        },
+        {
+          "first": 33,
+          "last": 36,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-033-036.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "82dad75f9afbe211aa8e12a405f32458d34a182c139e6978fc090ce09c17e538"
+        },
+        {
+          "first": 37,
+          "last": 40,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-037-040.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "82d776807661cd577b096f5e4f5f24a8d19c5d9e8e177246d19af2a39e476d55"
+        },
+        {
+          "first": 41,
+          "last": 44,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-041-044.webp",
+          "width": 1400,
+          "height": 7516,
+          "sha256": "52f2c3ded4af863e13d4cadaa7e8906d59cb357a2a065e4ef91ed749cbec0caa"
+        },
+        {
+          "first": 45,
+          "last": 45,
+          "path": "assets/course-sources/2d6cbe49ac253b8c/pages-045-045.webp",
+          "width": 1400,
+          "height": 1867,
+          "sha256": "93ed4bb6ae73f548ad850c150eeb6d33e5d7e5bfa0c9274be14630e6c4f5be32"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 3"
+      ],
+      "sourceNotice": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+    },
+    "1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G": {
+      "id": "1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G",
+      "title": "M2 - Solution du TP 1 - Utilisateurs et groupes.pdf",
+      "role": "correction",
+      "sha256": "5aa0bc1641f5fddd77dce03e2f8413db215da19c65290a2e4fccb29c8344f91e",
+      "original": "assets/course-sources/5aa0bc1641f5fddd/original.pdf",
+      "transcript": "assets/course-sources/5aa0bc1641f5fddd/texte.html",
+      "pageCount": 4,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/5aa0bc1641f5fddd/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "53f1d844ca370aac40fcaa00c84c9b167e770ce51aa1fd1d72a4d87f8c07acb1"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 3"
+      ],
+      "sourceNotice": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+    },
+    "1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G": {
+      "id": "1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G",
+      "title": "M2 - Solution du TP 2 - Azure AD Connect.pdf",
+      "role": "correction",
+      "sha256": "b0ef5fef8cee558ef2c1c1e264cbba392065e8e2daf549956735c2145a137daf",
+      "original": "assets/course-sources/b0ef5fef8cee558e/original.pdf",
+      "transcript": "assets/course-sources/b0ef5fef8cee558e/texte.html",
+      "pageCount": 19,
+      "strips": [
+        {
+          "first": 1,
+          "last": 4,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-001-004.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "576d5a13d3383d017342aab0eff8dda3d2ce0a2f03d135232f39ca97cdee57a4"
+        },
+        {
+          "first": 5,
+          "last": 8,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-005-008.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "74b1c5a3c95ad09995fce84114cce85a179faef3221081cc901586179ba085e3"
+        },
+        {
+          "first": 9,
+          "last": 12,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-009-012.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "49d5f6a6445f9818273954c632e5be5eaae5c14d05f5d902069a9aae0032f08b"
+        },
+        {
+          "first": 13,
+          "last": 16,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-013-016.webp",
+          "width": 1400,
+          "height": 7972,
+          "sha256": "fc799a3f86209c08d9c620d9284af51aecf71bbbe2990bb726d1d0f3dda94e58"
+        },
+        {
+          "first": 17,
+          "last": 19,
+          "path": "assets/course-sources/b0ef5fef8cee558e/pages-017-019.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "a5fbb1159fe370a2c479af9bb2b3fdcc30caf9b9a5f1a1e09f385f78e3b2101b"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 3"
+      ],
+      "sourceNotice": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+    },
+    "1me6SILxxJNgD0AiCdjStFN8-rUMBQuex": {
+      "id": "1me6SILxxJNgD0AiCdjStFN8-rUMBQuex",
+      "title": "M2 - Enoncé du TP 2 - Azure AD Connect.pdf",
+      "role": "enonce",
+      "sha256": "67cd7d118de46260b75a3e4a78af5c3a615c3ed795a9d4e352900d24bdae74ce",
+      "original": "assets/course-sources/67cd7d118de46260/original.pdf",
+      "transcript": "assets/course-sources/67cd7d118de46260/texte.html",
+      "pageCount": 2,
+      "strips": [
+        {
+          "first": 1,
+          "last": 2,
+          "path": "assets/course-sources/67cd7d118de46260/pages-001-002.webp",
+          "width": 1400,
+          "height": 3978,
+          "sha256": "6aa72ea531b6ff96ca79cd5427cfed46febe28b3d955c6a4af91cfe7d003a2ae"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 3"
+      ],
+      "sourceNotice": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+    },
+    "1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW": {
+      "id": "1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW",
+      "title": "M2 - Enoncé du TP 1 - Utilisateurs et groupes.pdf",
+      "role": "enonce",
+      "sha256": "16589f599d6f5c8719b4d1a2e5944f27d2e18c1145fca76bff75276229d17984",
+      "original": "assets/course-sources/16589f599d6f5c87/original.pdf",
+      "transcript": "assets/course-sources/16589f599d6f5c87/texte.html",
+      "pageCount": 3,
+      "strips": [
+        {
+          "first": 1,
+          "last": 3,
+          "path": "assets/course-sources/16589f599d6f5c87/pages-001-003.webp",
+          "width": 1400,
+          "height": 5975,
+          "sha256": "cb98fb6d2b8f22e732a64690e0bb784948dd95de254d472411c960f89ae5432d"
+        }
+      ],
+      "drivePath": [
+        "TSSR",
+        "Messagerie Cloud",
+        "Module 3"
+      ],
+      "sourceNotice": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+    }
+  },
+  "pages": {
+    "modules/14-messagerie-cloud/module-01.md": [
+      "1Se_Xcs1zz1yiD0x5WAi_ALNW5AgJFklA",
+      "1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B",
+      "1KHoMXQ5ewU7dWdgyt13PCcwHk6HmODS5",
+      "1EdB6rg9Dog8Kp6dAibrm5m2IztOAIZUk",
+      "1CksxEZCgZClGQ3G9H-Tbrmd-ukungFQ9"
+    ],
+    "tp/14-messagerie-cloud/module-01/correction-tp-02.md": [
+      "1EdB6rg9Dog8Kp6dAibrm5m2IztOAIZUk"
+    ],
+    "tp/14-messagerie-cloud/module-01/correction-tp-01.md": [
+      "1CksxEZCgZClGQ3G9H-Tbrmd-ukungFQ9"
+    ],
+    "tp/14-messagerie-cloud/module-01/tp-02.md": [
+      "1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B"
+    ],
+    "tp/14-messagerie-cloud/module-01/tp-01.md": [
+      "1KHoMXQ5ewU7dWdgyt13PCcwHk6HmODS5"
+    ],
+    "modules/14-messagerie-cloud/module-02.md": [
+      "1D_WQ8CSn6GRFx1z-cJiwJT2TLAV6_Y4y",
+      "1vSub2duRw5x9hrV1yGtTmUPwZScLf_u0",
+      "1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9",
+      "1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu",
+      "1LpKVUBTMLiB-W1wEAUDHgEs_-hjOvStg"
+    ],
+    "tp/14-messagerie-cloud/module-02/correction-tp-01.md": [
+      "1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu"
+    ],
+    "tp/14-messagerie-cloud/module-02/correction-tp-02.md": [
+      "1LpKVUBTMLiB-W1wEAUDHgEs_-hjOvStg"
+    ],
+    "tp/14-messagerie-cloud/module-02/tp-02.md": [
+      "1vSub2duRw5x9hrV1yGtTmUPwZScLf_u0"
+    ],
+    "tp/14-messagerie-cloud/module-02/tp-01.md": [
+      "1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9"
+    ],
+    "modules/14-messagerie-cloud/module-04.md": [
+      "1GLjA5f2bv_wItuCtVq5gmJ00cfvMr4k_",
+      "1Nh_4blT_klGJjhXhSJE754bpm5t90Ebx",
+      "1A9Y6kqGcVxuZTFK7bD0UGUG9HPCu72g9",
+      "1NFVLCn71-19tdQ1gyOGCdIZQ188D2HS9",
+      "11qy2tWr5VU5QdKrj8Ztldb3XcGN1NgnS"
+    ],
+    "tp/14-messagerie-cloud/module-04/correction-tp-02.md": [
+      "1NFVLCn71-19tdQ1gyOGCdIZQ188D2HS9"
+    ],
+    "tp/14-messagerie-cloud/module-04/correction-tp-01.md": [
+      "11qy2tWr5VU5QdKrj8Ztldb3XcGN1NgnS"
+    ],
+    "tp/14-messagerie-cloud/module-04/tp-01.md": [
+      "1Nh_4blT_klGJjhXhSJE754bpm5t90Ebx"
+    ],
+    "tp/14-messagerie-cloud/module-04/tp-02.md": [
+      "1A9Y6kqGcVxuZTFK7bD0UGUG9HPCu72g9"
+    ],
+    "modules/14-messagerie-cloud/module-03.md": [
+      "1QXg3d1FfYiKv7fxyFAOEBtFgxcG4rQL3",
+      "1me6SILxxJNgD0AiCdjStFN8-rUMBQuex",
+      "1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW",
+      "1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G",
+      "1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G"
+    ],
+    "tp/14-messagerie-cloud/module-03/correction-tp-01.md": [
+      "1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G"
+    ],
+    "tp/14-messagerie-cloud/module-03/correction-tp-02.md": [
+      "1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G"
+    ],
+    "tp/14-messagerie-cloud/module-03/tp-02.md": [
+      "1me6SILxxJNgD0AiCdjStFN8-rUMBQuex"
+    ],
+    "tp/14-messagerie-cloud/module-03/tp-01.md": [
+      "1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW"
+    ],
+    "tp/14-messagerie-cloud/module-01/index.md": [
+      "1EdB6rg9Dog8Kp6dAibrm5m2IztOAIZUk",
+      "1CksxEZCgZClGQ3G9H-Tbrmd-ukungFQ9",
+      "1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B",
+      "1KHoMXQ5ewU7dWdgyt13PCcwHk6HmODS5"
+    ],
+    "tp/14-messagerie-cloud/module-02/index.md": [
+      "1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu",
+      "1LpKVUBTMLiB-W1wEAUDHgEs_-hjOvStg",
+      "1vSub2duRw5x9hrV1yGtTmUPwZScLf_u0",
+      "1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9"
+    ],
+    "tp/14-messagerie-cloud/module-03/index.md": [
+      "1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G",
+      "1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G",
+      "1me6SILxxJNgD0AiCdjStFN8-rUMBQuex",
+      "1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW"
+    ],
+    "tp/14-messagerie-cloud/module-04/index.md": [
+      "1NFVLCn71-19tdQ1gyOGCdIZQ188D2HS9",
+      "11qy2tWr5VU5QdKrj8Ztldb3XcGN1NgnS",
+      "1Nh_4blT_klGJjhXhSJE754bpm5t90Ebx",
+      "1A9Y6kqGcVxuZTFK7bD0UGUG9HPCu72g9"
+    ]
+  },
+  "pageNotices": {
+    "modules/14-messagerie-cloud/module-03.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.",
+    "tp/14-messagerie-cloud/module-03/correction-tp-01.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.",
+    "tp/14-messagerie-cloud/module-03/correction-tp-02.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.",
+    "tp/14-messagerie-cloud/module-03/tp-02.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.",
+    "tp/14-messagerie-cloud/module-03/tp-01.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.",
+    "tp/14-messagerie-cloud/module-03/index.md": "Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni."
+  }
+}

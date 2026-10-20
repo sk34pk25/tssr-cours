@@ -250,6 +250,14 @@ nav:
           - Module 06: modules/13-virtualisation-serveurs/module-06.md
           - Module 07: modules/13-virtualisation-serveurs/module-07.md
           - Module 08: modules/13-virtualisation-serveurs/module-08.md
+      - Messagerie Cloud:
+          - Présentation: modules/14-messagerie-cloud/index.md
+          - Module 01: modules/14-messagerie-cloud/module-01.md
+          - Module 02: modules/14-messagerie-cloud/module-02.md
+          - Module 03: modules/14-messagerie-cloud/module-03.md
+          - Module 04: modules/14-messagerie-cloud/module-04.md
+          - Travaux pratiques: tp/14-messagerie-cloud/index.md
+
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md

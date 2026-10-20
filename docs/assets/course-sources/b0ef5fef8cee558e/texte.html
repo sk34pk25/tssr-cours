@@ -1,0 +1,352 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>M2 - Solution du TP 2 - Azure AD Connect.pdf</title><h1>M2 - Solution du TP 2 - Azure AD Connect.pdf</h1><h2>Page 1</h2><pre>                                                        Cloud et Microsoft 365
+Azure AD
+TP 02 du Module 02 – Administration Microsoft 365
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2 et d’avoir
+ réalisé les TP proposés.
+
+Solution
+
+Il faut maintenant préparer l’Active Directory ; une liste d’étapes sera à effectuer :
+    1.  Ajouter un suffixe DNS.
+    2. Remapper le suffixe DNS des utilisateurs existants (attention aux impacts sur les logins
+        utilisateurs selon le mode de connexion).
+    3.  Renseigner l’adresse mail dans les comptes utilisateurs.
+    4. Créer une OU spécifique pour le compte de service et créer un compte de service
+       administrateur de l’entreprise pour la synchronisation AD.
+    5. Créer un compte Microsoft 365 administrateur général.
+
+
+
+
+
+ Page 1/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 2</h2><pre>                                                        Cloud et Microsoft 365
+
+
+•  Ouvrez la console Domaines et approbations Active Directory
+
+
+
+
+•  Sur Domaines et approbations, effectuez un clic droit / Propriétés et ajoutez le nom de
+   domaine public utilisé dans votre tenant Microsoft 365 et cliquez sur Ajouter puis OK.
+
+
+
+
+
+•  Ouvrez la console Utilisateurs et ordinateurs Active Directory.
+•  Sélectionnez  les  utilisateurs qui seront à synchroniser et effectuez un clic droit /
+    Propriétés. Dans l’onglet compte, cochez la case Suffixe UPN et sélectionnez le suffixe
+  UPN que vous venez d’ajouter. Cliquez sur OK.
+
+NB : cette opération peut avoir de forts impacts sur la production  si les utilisateurs se
+connectent avec le format UPN. Assurez-vous de la méthode de connexion avant de
+réaliser cette action.
+
+
+
+
+
+ Page 2/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 3</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Modifiez l’adresse mail des deux comptes :
+
+
+
+
+
+•  Créez une nouvelle OU Comptes de services et créez le compte qui sera utilisé pour la
+   synchronisation AD.
+
+
+
+
+
+ Page 3/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 4</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•   Allez dans les propriétés du compte Active Directory et dans l’onglet Membre de,
+   ajoutez le groupe Administrateurs de l’entreprise.
+
+
+
+
+
+ Page 4/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 5</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+Création d’un compte administrateur général dans la console
+Microsoft 365
+•  Ajoutez un nouvel utilisateur.
+
+
+
+
+
+•  Renseignez les champs nécessaires et n’affectez pas de licence.
+
+
+
+
+
+ Page 5/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 6</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Ajoutez le rôle administrateur général.
+
+
+
+
+
+ Page 6/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 7</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+Installation d’Azure AD Connect
+•  Dans votre console Microsoft 365, allez dans Paramètres / Paramètres de l’organisation
+   et cherchez Synchronisation d’annuaires.
+
+
+
+
+
+ Page 7/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 8</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Téléchargez ensuite l’outil Azure AD Connect.
+
+
+
+
+
+•  Exécutez le fichier MSI téléchargé précédemment.
+
+
+
+
+
+ Page 8/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 9</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Cliquez sur Personnaliser.
+
+
+
+
+
+•  Cochez Utiliser un compte de service existant et entrez le compte administrateur de
+    l’entreprise créé précédemment (AD). Cliquez sur Installer.
+
+
+
+
+
+ Page 9/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 10</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Cochez Synchronisation de hachage du mot de passe et cliquez sur Suivant.
+
+
+
+
+
+•  Entrez le compte administrateur général créé précédemment (Compte Azure).
+
+
+
+
+
+ Page 10/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 11</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Cliquez sur Ajout d’un domaine.
+
+
+
+
+
+•   Laissez Créer un compte AD coché et entrez les identifiants du compte de service et
+
+
+
+ Page 11/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 12</h2><pre>                                                        Cloud et Microsoft 365
+
+   entrez à nouveau  les  identifiants du compte administrateur de  l’entreprise créé
+   précédemment (AD).
+
+
+
+
+
+•  Cliquez sur Suivant.
+
+
+
+
+
+ Page 12/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 13</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•   Laissez l’UPN comme attribut à utiliser comme nom d’utilisateur AD, cochez Continuer
+   sans faire correspondre tous les suffixes UPN à des domaines vérifiés et cliquez sur Suivant.
+
+
+
+
+
+•   Filtrez les Unités d’organisation en cochant Synchroniser les domaines et les unités
+
+
+
+ Page 13/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 14</h2><pre>                                                        Cloud et Microsoft 365
+
+   d’organisation sélectionnés, cochez uniquement les utilisateurs et les groupes. Ces OU
+   nous seront nécessaires pour la suite de ce cours.
+
+
+
+
+
+•  Cliquez sur Suivant.
+
+
+
+
+
+ Page 14/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 15</h2><pre>                                                        Cloud et Microsoft 365
+
+•  Cliquez sur Suivant.
+
+
+
+
+
+•  Cliquez sur Suivant puis Installer.
+
+
+
+
+
+ Page 15/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 16</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Dans un contexte de production, pensez à activer la corbeille Active Directory.
+
+
+
+
+
+•  Dans  la  console  Microsoft  365,  notez  l’apparition  des deux  utilisateurs  créés
+   précédemment et affectez-leur une licence.
+
+
+
+
+ Page 16/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 17</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Tentez ensuite de vous connecter avec user1 et user2 et vérifiez qu’ils accèdent bien
+   aux services Microsoft 365.
+•  Forcer la synchronisation AD Connect.
+ Import-module &quot;C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync&quot;
+•   Installer le module PowerShell AzureAD
+
+ Install-Module AzureAD
+•  Ajoutez des groupes de sécurité dans l’unité d’organisation créée précédemment
+•  Créez un groupe de sécurité que vous nommerez GG_ServiceIT
+
+
+
+
+
+ Page 17/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 18</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Lancez la commande
+
+ Start-ADSyncSyncCycle Delta
+
+
+
+
+ Page 18/19
+                                      © ENI – Tous droits réservés</pre><h2>Page 19</h2><pre>                                                        Cloud et Microsoft 365
+
+•  Patientez quelques secondes, le groupe de sécurité va remonter dans la liste des
+   groupes de la console Microsoft 365.
+•  Ajoutez par la suite user1 dans le groupe GG_ServiceIT et relancez une synchronisation.
+•  Ajoutez un alias à la boîte mail.
+•   Faites un clic droit / Propriétés sur l’utilisateur 1, allez dans l’éditeur d’attributs puis allez
+  à la valeur proxyAddresses.
+•  Entrez l’adresse principale avec SMTP : et les secondaires avec smtp :
+
+
+
+
+
+•  Forcez une synchronisation et vérifiez le bon fonctionnement.
+
+
+
+
+
+ Page 19/19
+                                      © ENI – Tous droits réservés</pre></html>

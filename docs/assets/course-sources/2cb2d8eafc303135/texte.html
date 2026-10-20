@@ -1,0 +1,344 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>M1 - Solution du TP 2 - Création d&#x27;un tenant.pdf</title><h1>M1 - Solution du TP 2 - Création d&#x27;un tenant.pdf</h1><h2>Page 1</h2><pre>                                                        Cloud et Microsoft 365
+Création d’un tenant
+Microsoft 365
+TP 02 du Module 01 – Les composantes du Cloud et de Microsoft 365
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 et d’avoir réalisé
+ les TP proposés.
+
+
+Solution
+Ouverture de votre nom de domaine
+•  Connectez-vous sur https://www.ovh.com/auth
+
+Si vous possédez déjà un compte OVH, connectez-vous. Dans le cas contraire, créez votre
+compte et renseignez les informations demandées.
+
+
+
+
+
+•  Dans le bandeau supérieur, cliquez sur Web Cloud.
+
+
+
+
+
+ Page 1/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 2</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Cliquez sur Commander, puis sur Noms de domaine
+
+
+
+
+
+•  Recherchez le nom de domaine de votre choix. Attention, certaines extensions comme
+     .fr ou .bzh peuvent être plus onéreuses.
+
+
+
+
+
+ Page 2/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 3</h2><pre>                                                        Cloud et Microsoft 365
+
+Vous pouvez ensuite continuer votre commande. Dans le cadre de ce cours, aucun service
+complémentaire  n’est  nécessaire,  vous pouvez  passer  les  différentes  propositions
+commerciales et passer à l’étape de paiement.
+
+
+
+
+
+•  Choisissez un mode de paiement et cochez les deux cases afin d’accepter les CGV.
+
+
+
+
+
+Vous pouvez ensuite retourner sur votre compte ; votre nom de domaine apparaîtra après
+quelques minutes dans Web Cloud / Noms de domaine maintenant dans la liste. Gardez
+cet onglet ouvert, nous reviendrons dans la configuration de la zone plus tard.
+
+
+
+
+
+ Page 3/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 4</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+Ouverture de votre tenant Microsoft 365
+•  Afin d’ouvrir votre tenant, tapez microsoft 365  trial tenant dans votre moteur de
+   recherche et cliquez sur Office 365 Trial Tenant.
+
+
+
+
+
+•  Entrez votre adresse mail. Si besoin, cliquez ensuite sur Configurer le compte.
+
+
+
+
+
+•  Renseignez les informations demandées. Indiquez un numéro de téléphone valide,  il
+
+
+
+
+ Page 4/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 5</h2><pre>                                                        Cloud et Microsoft 365
+
+   sera utilisé dans l’étape de vérification. Vous recevrez un code de validation qu’il faudra
+   entrer en cliquant sur Vérifier.
+
+
+
+
+
+•  Choisissez ensuite le nom de domaine pour votre tenant,  il peut être différent du nom
+  de domaine OVH souscrit.
+
+
+
+
+
+Vous serez ensuite invité à entrer le nom de votre premier compte pour vous connecter à
+votre tenant, vous pouvez définir admin ou le nom de votre choix et cliquez sur S’inscrire.
+•  Dans l’écran suivant, nous n’avons pas besoin d’installer Office pour le moment, cliquez
+    sur Continuer.
+
+
+
+
+
+ Page 5/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 6</h2><pre>                                                       Cloud et Microsoft 365
+
+
+
+
+
+Page 6/17
+                                     © ENI – Tous droits réservés</pre><h2>Page 7</h2><pre>                                                        Cloud et Microsoft 365
+
+•  Ajoutez maintenant le nom de domaine souscrit préalablement chez OVH.
+
+
+
+
+
+•  Nous allons maintenant ajouter les enregistrements TXT afin de confirmer auprès de
+   Microsoft que nous possédons bien ce nom de domaine.
+
+
+
+
+
+•  Basculez maintenant vers votre compte OVH. Vous pouvez tout de suite annuler le
+   renouvellement automatique de votre nom de domaine, vous évitant une mauvaise
+    surprise de facturation à échéance de celui-ci.
+•   Allez dans Tableau de bord, utilisez les … puis cliquez sur Configurer le renouvellement.
+
+
+
+ Page 7/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 8</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Basculez en Renouvellement manuel, validez et confirmez cette action. Retournez sur le
+   tableau de bord et vérifiez que le renouvellement est bien passé en manuel.
+
+
+
+
+
+•  Accédez maintenant à votre zone DNS publique.
+
+
+
+
+
+•  Afin de clarifier la gestion, nous allons supprimer l’ensemble des enregistrements inutiles
+   proposés par défaut et modifier les enregistrements qui nous intéressent. Nous ne
+   conserverons qu’un enregistrement MX et un enregistrement TXT pour le moment.
+•  Sur chaque entrée inutile, cliquez sur … puis, Supprimer l’entrée.
+
+
+
+
+
+ Page 8/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 9</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+Voici le résultat attendu :
+
+
+
+
+
+•  Sur l’écran de vérification Microsoft 365, copiez/collez la valeur TXT « MS=.. » proposée
+   par Microsoft.
+
+
+
+
+
+•  Dans votre zone DNS, retournez modifier l’entrée TXT restante :
+
+
+
+
+
+•  Modifiez le TTL à 3600 et collez la valeur « MS=… ».
+
+
+
+
+
+ Page 9/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 10</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  De retour sur l’ouverture de Tenant, cliquez sur Vérifier. Dans l’écran d’ajout d’utilisateurs,
+   cliquez sur Effectuer plus tard.
+
+
+
+
+
+•  Cliquez sur Continuer.
+
+
+
+
+
+ Page 10/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 11</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Développez  les différents enregistrements proposés par Microsoft et reportez ces
+    différentes valeurs dans les enregistrements de votre zone DNS.
+
+
+
+
+
+ Page 11/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 12</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Renseignez les enregistrements MX, CNAME et SPF laissés précédemment dans la zone
+  DNS OVH comme suit :
+
+
+
+
+
+ Page 12/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 13</h2><pre>                                                       Cloud et Microsoft 365
+
+
+
+
+
+Page 13/17
+                                     © ENI – Tous droits réservés</pre><h2>Page 14</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  De retour sur l’assistant de création de votre Tenant, cliquez sur Continuer, puis sur
+   Accéder au centre d’administration.
+
+
+Votre tenant est maintenant créé.
+
+Vous pourrez valider la bonne configuration de votre zone DNS en allant dans Paramètres
+/ Domaines / … Vérifier l’état d’intégrité.
+
+
+
+
+
+ Page 14/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 15</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+Votre tenant est maintenant bien créé :
+
+
+
+
+
+Vous pouvez décider de conserver votre nom de tenant en tant que nom de domaine ou
+bien modifier celui-ci avec votre propre nom de domaine.
+
+Cliquez sur Utilisateurs / Utilisateurs actifs / … / Gérer le nom d’utilisateur et le courrier.
+
+
+
+
+
+ Page 15/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 16</h2><pre>                                                        Cloud et Microsoft 365
+
+
+
+
+
+•  Cliquez sur le crayon et modifiez le nom d’utilisateurs. Vous pourrez ensuite cliquer sur
+   Terminer.
+
+Suite à cette modification, vous serez déconnecté de votre tenant,   il faudra vous
+reconnecter avec ce nouvel identifiant.
+
+
+
+
+
+•  Reconnectez-vous avec votre nouvelle adresse et accédez ensuite à l’application
+
+
+
+ Page 16/17
+                                      © ENI – Tous droits réservés</pre><h2>Page 17</h2><pre>                                                       Cloud et Microsoft 365
+
+  Outlook et tentez de vous envoyer un email sur une de vos adresses personnelles.
+
+
+
+
+
+Page 17/17
+                                     © ENI – Tous droits réservés</pre></html>

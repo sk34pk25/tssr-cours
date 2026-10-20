@@ -17,6 +17,23 @@ La mutation passe par l’Edge Function existante `change-requests` avec l’act
 
 ## Contenu généré
 
+### Ingestion depuis le Drive TSSR
+
+Chaque nouveau module issu du Drive conserve ses fichiers originaux et les captures
+de toutes leurs pages, avec empreintes SHA-256 et références Drive. Les originaux
+et l’aide pédagogique IA/externe sont affichés dans deux onglets distincts.
+Le lecteur commun ne propose pas de bouton « Texte accessible ».
+
+Les associations préparées sont enregistrées dans `data/staged-course-sources.json`.
+La préparation des ressources ne valide aucun cours : tant qu’une page contient
+le texte d’attente gouvernée, son lecteur ne s’active pas. Le remplacement de cette
+page par sa proposition approuvée active ses seuls supports au build, sans activer
+les TP ou les autres modules encore en attente. Les cours et leurs écosystèmes
+restent des demandes distinctes. Aucun statut ni vote n’est modifié par le lecteur.
+
+Un document mal classé ou dupliqué doit porter une notice explicite ; son titre
+interne et sa provenance ne doivent jamais être corrigés artificiellement.
+
 Selon les blocs renseignés, une proposition peut contenir :
 
 - `docs/modules/NN-slug/index.md`, les modules et leurs pages ;

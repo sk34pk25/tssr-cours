@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 import json
 import sys
 import tempfile
@@ -12,6 +13,36 @@ from source_catalog import asset_url, load_catalog, project_page, mark_ai_diagra
 
 
 class OriginalSourcesTests(unittest.TestCase):
+    def test_prepared_sources_activate_only_for_each_published_page(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            (root/'data').mkdir()
+            asset=root/'docs/assets/course-sources/a'
+            asset.mkdir(parents=True)
+            (asset/'original.txt').write_bytes(b'Original')
+            (asset/'texte.html').write_text('Original',encoding='utf8')
+            doc=dict(id='source',role='notes',sha256=hashlib.sha256(b'Original').hexdigest(),
+                     original='assets/course-sources/a/original.txt',
+                     transcript='assets/course-sources/a/texte.html',strips=[],pageCount=0,title='Original')
+            course='modules/course/module-01.md'
+            tp='tp/course/module-01/index.md'
+            for page in [course,tp]:
+                target=root/'docs'/page
+                target.parent.mkdir(parents=True,exist_ok=True)
+                target.write_text('# Titre\n\nContenu pédagogique à venir via proposition gouvernée.\n',encoding='utf8')
+            (root/'data/course-sources.json').write_text(json.dumps(dict(schemaVersion=1,documents={},pages={})),encoding='utf8')
+            (root/'data/staged-course-sources.json').write_text(json.dumps(dict(schemaVersion=1,documents={'source':doc},pages={course:['source'],tp:['source']})),encoding='utf8')
+            self.assertEqual(load_catalog(root)['pages'],{})
+            # Approval of the course never implicitly activates the TP.
+            (root/'docs'/course).write_text('# Titre\n\nContenu publié.\n',encoding='utf8')
+            data=load_catalog(root)
+            self.assertEqual(data['pages'],{course:['source']})
+            rendered=project_page('# Titre\n\nContenu publié.\n',course,data)
+            self.assertIn('Ouvrir le document intégral',rendered)
+            self.assertNotIn('Texte accessible',rendered)
+            (root/'docs'/tp).write_text('# TP\n\nAtelier publié.\n',encoding='utf8')
+            self.assertEqual(set(load_catalog(root)['pages']),{course,tp})
+
     def test_raw_html_asset_urls_resolve_at_module_and_index_depths(self):
         for page,url in [('modules/course/module-01.md','/modules/course/module-01/'),
                          ('tp/course/module-01/index.md','/tp/course/module-01/')]:

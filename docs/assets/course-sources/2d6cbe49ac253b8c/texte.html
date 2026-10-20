@@ -1,0 +1,1678 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>Module 02 - Support de cours.pdf</title><h1>Module 02 - Support de cours.pdf</h1><h2>Page 1</h2><pre>       Cloud et Microsoft 365
+                 Module 02 – Administration Microsoft 365
+
+
+
+
+
+1
+
+
+
+                                                                             Administration Microsoft 365
+
+             Objectifs
+
+                  • Créer et gérer des objets dans la console Microsoft 365
+                  • Gérer des licences Microsoft 365
+                  • Comprendre les connexions clientes
+                  • Synchroniser un annuaire local vers le Cloud
+
+
+
+
+
+2</pre><h2>Page 2</h2><pre>                                                                             Administration Microsoft 365
+
+    Groupes et utilisateurs
+         Microsoft 365
+
+
+
+
+
+3
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                            La console web Microsoft 365
+
+
+
+               L’écran d’accueil
+
+
+
+
+
+4</pre><h2>Page 3</h2><pre>                                                            Groupes et utilisateurs Microsoft 365
+                                                                      L’Admin Center
+
+
+
+             Dashboard
+
+
+
+
+
+5
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                              Les différents types de comptes
+
+
+
+                    • Utilisateur Microsoft 365
+                              • L’utilisateur n’existe que dans Microsoft 365
+
+                    • Un utilisateur synchronisé
+                              • Créé dans un AD DS local
+                              • Géré par un AD DS local
+                              • Mot de passe peut être synchronisé                          Galettes.lcl
+
+
+
+
+
+                                                                                                              Serveur AD
+                                    Azure AD                                                 Serveur DNS
+
+
+
+
+6</pre><h2>Page 4</h2><pre>                                                            Groupes et utilisateurs Microsoft 365
+                                                              Les différents types de comptes
+
+
+
+            Méthode de création
+                    • Un par un dans l&#x27;Admin Center
+                    • Plusieurs utilisateurs avec un fichier .csv
+                    • En PowerShell
+                    • Synchronisé via Azure AD Connect
+
+
+
+
+
+7
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                               Création d’un utilisateur O365
+
+
+
+                    • Choisissez un domaine pour l&#x27;adresse mail
+                    • Sélectionnez un emplacement
+                    • Plus vous renseignerez d&#x27;informations sur le contact et plus votre
+                 gestion sera granulaire
+                    • Vous pouvez :
+                                                                                         Bonne idée de s&#x27;envoyer le nouveau
+                              • Soit laisser O365 générer un mot de passe          compte avec le nouveau mot de passe !
+                              • Soit créer votre propre mot de passe
+
+
+
+
+
+8</pre><h2>Page 5</h2><pre>                                                            Groupes et utilisateurs Microsoft 365
+                                                               Création d’un utilisateur O365
+
+
+
+                    • Différents rôles peuvent être
+                  attribués à un nouvel utilisateur
+                              • Utilisateur simple
+                              • Administrateur général
+                              • Administrateur personnalisé
+                                       • Délégation via les RBAC
+                                     (Role Based Access Control)
+
+
+
+
+
+9
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                               Création d’un utilisateur O365
+
+
+
+               Administrateur personnalisé
+
+
+
+
+
+                     Une stratégie de délégation doit être bien pensée.
+
+
+
+
+
+10</pre><h2>Page 6</h2><pre>                                                            Groupes et utilisateurs Microsoft 365
+                                                           Se connecter en PowerShell
+
+
+
+                   1.  Installer le module nécessaire MSOnline
+
+
+
+
+
+                   2.  Vérifier que le module est bien installé
+
+
+
+
+
+11
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                           Se connecter en PowerShell
+
+                   $acctName=&quot;&lt;UPN of the account, such as belindan@litwareinc.onmicrosoft.com&gt;&quot;
+                    $orgName=&quot;&lt;for example, litwareinc for litwareinc.onmicrosoft.com&gt;&quot;
+                     #Azure Active Directory
+                      Connect-MsolService
+                      #SharePoint Online
+                     Connect-SPOService -Url https://$orgName-admin.sharepoint.com
+                    #Skype for Business Online
+                     Import-Module MicrosoftTeams
+                      Connect-MicrosoftTeams
+                    #Exchange Online
+                     Import-Module ExchangeOnlineManagement
+                     Connect-ExchangeOnline -UserPrincipalName $acctName -ShowProgress $true
+                        #Security &amp; Compliance Center
+                      Connect-IPPSSession -UserPrincipalName $acctName
+                   #Teams
+                     Import-Module MicrosoftTeams
+                      Connect-MicrosoftTeams
+
+
+
+
+12</pre><h2>Page 7</h2><pre>                                                            Groupes et utilisateurs Microsoft 365
+                                                           Se connecter en PowerShell
+
+
+
+                   3. Se connecter à Microsoft 365
+
+
+
+                                              Cette fenêtre s&#x27;ouvre.
+                                            Renseigner nom d&#x27;utilisateur :
+                                          votreprénom@tenant.onmicrosoft.com
+
+
+                   4.  Vérifier si vous êtes connecté
+
+
+
+
+
+13
+
+
+
+                                                            Groupes et utilisateurs Microsoft 365
+                                                               Création d’un utilisateur O365
+
+
+
+                    • Créer un nouvel utilisateur
+
+                      New-MsolUser -UserPrincipalName jpetit@eni-ecole.ovh -DisplayName Jean Petit -FirstName Jean -
+                      LastName Petit -Password Pa55w.rd -ForceChangePassword $true -UsageLocation fr
+
+                    • Supprimer un utilisateur, il sera gardé dans la corbeille Azure AD
+               pendant 30 jours
+
+                   Remove-MsolUser –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot;
+
+                    • Restaurer un utilisateur de la corbeille
+
+                     Restore-MsolUser –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot;
+
+
+
+
+
+14</pre><h2>Page 8</h2><pre>                                                                             Administration Microsoft 365
+
+
+     Gestion des licences
+
+
+
+
+
+15
+
+
+
+                                                                                  Gestion des licences
+                                                          Les fonctionnalités Exchange Online
+
+
+
+                    • Boîtes aux lettres et archivage
+                    • Calendrier
+                    • Visualisation et modification de pièces jointes online
+                    • Dossiers publics
+                    • Stratégie de message et de conformité
+                    • Antivirus et antispam
+                    • Configuration du flux de messagerie
+                    • Gestion d&#x27;appareils mobile
+                    • Déploiement hybride
+                    • Outils de migration
+
+
+
+16</pre><h2>Page 9</h2><pre>                                                                                  Gestion des licences
+                                                                   Les plans Exchange Online
+
+
+
+
+    Fonctionnalité     Exchange      Exchange     M365 Business     M365 Business       M365 Business                                                                                           M365 E3         M365 E5   Exchange Online   Online Plan 1   Online Plan 2          Basic             Standard            Premium
+
+                  50 Go + 50    100 Go +    50 Go + 50 Go    50 Go + 50 Go      50 Go + 50 Go        100 Go +         100 Go +
+   Boîte aux lettres     Go         Archivage       d’archivage        d’archivage           d’archivage       Archivage illimité   Archivage illimité
+                     d’archivage        illimité
+
+                                                                                             Idem Business     Idem Business     Pack Office
+                                                                                              Premium         Premium
+
+                                                                                                 Moins de       Ensemble des
+       Services                                                                                                          sécurité que       fonctionnalités
+   supplémentaires                                                                                                Business      M365 + VOIP
+                                                                                              Premium              inclus
+
+        Coût         3,40 € /m      6,70 € /m        4,20 € /m         10,50 € /m           16,90 € /m          31,50 € /m         53,70 € /m
+
+
+
+
+
+17
+
+
+
+                                                                                  Gestion des licences
+                                                                      Gestion des licences
+
+
+
+                    • Vous pouvez   :
+                              • Ajouter une licence
+                              • Remplacer une licence
+                    • Nombre de licences restantes :
+                              • Nombre de licences utilisées
+                              • Nombre d&#x27;utilisateurs sans licence
+
+
+
+
+                       Vous devez sélectionner obligatoirement un emplacement !
+
+
+
+
+
+18</pre><h2>Page 10</h2><pre>                                                                                  Gestion des licences
+                                                              La gestion Exchange Online
+
+
+
+                    • Vous pouvez gérer Exchange Online
+                              • Dans le menu Centres d&#x27;administration / Exchange Online
+                              • En PowerShell
+                    • Pour vous connecter en PowerShell à Exchange Online
+
+
+                     Find-module ExchangeOnlineManagement | install-module
+                     Connect-ExchangeOnline
+
+
+
+
+
+19
+
+
+
+                                                                                  Gestion des licences
+                                                                      Gestion des licences
+
+
+
+                    • Vérifier son nombre de licences totales et consommées
+
+                                                                                                            L’accountSkuId est nécessaire pour
+                                                                                                            toutes les manipulations de licences.
+
+                    • Assigner une licence à un utilisateur
+
+        Set-MsolUserLicense –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot; –AddLicenses &quot;Adatum201812345:ENTERPRISEPREMIUM&quot;
+                    • Enlever une licence à un utilisateur
+
+        Set-MsolUserLicense –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot; –RemoveLicenses &quot;Adatum201812345:ENTERPRISEPREMIUM&quot;
+                    • Assigner une licence à tous les comptables suisses
+
+                   Get-MsolUser -all -Department Account -UsageLocation CH -UnlicensedUsersOnly | ForEach-
+                    Object {Set-MsolUserLicense -UserPrincipalName $PSITEM.UserPrincipalName -AddLicenses
+                        &quot; Adatum201812345:ENTERPRISEPREMIUM &quot;}
+
+
+
+20</pre><h2>Page 11</h2><pre>                                                                             Administration Microsoft 365
+
+  Destinataires et permissions
+      Exchange Online
+
+
+
+
+
+21
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                   La console Exchange Online ECP (Exchange Control Panel)
+
+
+
+
+
+22</pre><h2>Page 12</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                          Les différents types de destinataires
+
+
+
+
+                                                                                        lucie@eni-ecole.ovh
+                Boîtes aux lettres Utilisateur
+                    • Envoi / Réception de mails
+                    • Attribution de stratégies
+                    • Gestion des restrictions
+                    • Gestion des redirections
+                    • Délégations
+
+
+
+
+
+23
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+              Options de remise
+                    • Ces options sont applicables à tous les types de destinataires
+
+
+
+
+
+24</pre><h2>Page 13</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+                 Restriction de taille des messages et de remise de message.
+
+
+
+
+
+25
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+               Les adresses de courrier          Les Infos courrier apparaissent lors
+                              • Éviter de les modifier ici        de la création d&#x27;un nouveau message
+
+
+
+
+
+26</pre><h2>Page 14</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+               Gestion IMAP4 et POP3
+                    • Cela veut dire que vous autorisez ou non l&#x27;accès à vos utilisateurs
+                par n&#x27;importe quel programme prend en charge les protocoles
+             POP et IMAP
+                    • Type : Outlook, Outlook Express, Thunderbird, Eudora
+                    • Si vous utilisez ces protocoles, vous ne pourrez plus accéder à :
+                              • Vos calendriers
+                              • La gestion des contacts
+                              • …
+                    • Dans le cadre de messagerie M365 ou Exchange, peu d’intérêt
+                     d’utiliser ces protocoles
+
+
+
+27
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+             Quota
+                    • Contrairement à un Exchange sur site, la gestion des quotas se fait
+               uniquement en PowerShell
+                                                                     Get-Mailbox jpetit@eni-ecole.ovh | fl *quota*
+
+
+
+
+
+                    • Paramétrer un avertissement à 49 Gb, un arrêt des envois de courriel à
+                 49,5 Gb et un arrêt des envois/réceptions à 50 Gb
+                            Set-Mailbox –Identity &quot;Jean Petit&quot; –IssueWarningQuota 49gb –ProhibitSendQuota 49.5gb
+                           –ProhibitSendReceiveQuota 50gb –UseDatabaseQuotaDefaults $false
+
+
+28</pre><h2>Page 15</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+                    • Durée de rétention des éléments supprimés pour une boîte aux lettres
+
+                                                         Get-Mailbox jpetit@eni-ecole.ovh | fl *retain*
+
+
+
+
+                    • Paramétrer la durée de rétention des éléments supprimés pour 30 jours
+                         Set-Mailbox –Identity &quot;Jean Petit&quot; –RetainDeletedItemsFor 30
+                    • Lister les boîtes aux lettres supprimées présentes dans la corbeille
+
+                          Get-Mailbox -SoftDeletedMailbox
+
+
+
+
+
+29
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                          Les différents types de destinataires
+
+
+
+                    • Boîte aux lettres de ressources
+                              • Boîte aux lettres de salle
+                                       • Permet de gérer les demandes de réservation d&#x27;un emplacement physique
+
+                      New-Mailbox –Name &quot;votre nom de salle&quot; –DiplayName &quot;votre nom de salle&quot; -Room
+
+                              • Boîte aux lettres d&#x27;équipement
+                                       • Permet de gérer les demandes de réservation d&#x27;un matériel physique
+
+                      New-Mailbox –Name &quot;vidéoproj_1&quot; –DiplayName &quot;vidéoproj_1&quot; -equipment
+
+
+
+
+
+30</pre><h2>Page 16</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                          Les différents types de destinataires
+
+
+
+                                                                                                                        Boîte aux lettres
+                                                                              Option
+                    • Demande de réunion                       d&#x27;invitation                    de ressource
+
+
+
+
+
+      Boîte aux
+    lettres de salle
+
+
+
+
+
+31
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                          Les différents types de destinataires
+
+
+
+                         • Boîte aux lettres partagées
+                                 •  Plusieurs utilisateurs peuvent accéder à une Boîte aux
+                                lettres partagée
+                                 • Gain de licence (attention à bien respecter les CGU…)
+                                 •  Possibilité de fixer un mot de passe (accès
+                         smartphone)
+                                 • Attention aux délégations
+                                           •  « Accès total » permet aux utilisateurs de voir les
+                               messages
+                                           •  « Envoyer en tant que » permet d&#x27;envoyer des messages
+                              en tant que cette boîte aux lettres
+                                 • Attention à la gestion des mails (éléments envoyés)
+
+
+                          New-Mailbox –Shared –Name &quot;support&quot; –DiplayName &quot;support&quot; –Alias &quot;support&quot; | Set-Mailbox –GrantSendOnBehalfTo
+                              jpetit@eni-ecole.ovh  | Add-MailboxPermission –User &quot;Jean Petit&quot; –AccesRights FullAccess –InheritanceType All
+
+
+
+
+32</pre><h2>Page 17</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                                          Les différents types de destinataires
+
+
+
+                    • Les contacts
+                              • C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe
+                              • Cela permet d&#x27;enregistrer, des fournisseurs par exemple, dans les carnets
+                         d&#x27;adresses
+                    • Les utilisateurs de messagerie
+                              • Tout comme les contacts, ils ont une adresse de messagerie externe
+                              • Contrairement aux contacts, ils peuvent s&#x27;authentifier sur une session (par
+                       exemple, une société de service)
+
+
+
+
+
+33
+
+
+
+                                                                 Destinataires et permissions Exchange Online
+                                                    Les fonctionnalités d’une boîte aux lettres
+
+
+
+                    • Conservation pour litige
+                              • Désactivé par défaut
+                              • Liée à un aspect juridique, elle permet de conserver les éléments d&#x27;une
+                         boîte aux lettres et enregistre les modifications apportées à ces éléments
+                    • Archivage
+                              • Permet d&#x27;activer une boîte aux lettres d&#x27;archive
+
+
+
+
+
+34</pre><h2>Page 18</h2><pre>                                                                 Destinataires et permissions Exchange Online
+                                        Résumé : les différents types de destinataires
+
+
+   Boîte aux lettres d’utilisateur                                 Fonction
+   Boîte aux lettres Exchange Online    Boîte aux lettres créée avec tout compte Microsoft 365 ayant une licence.
+   Boîte aux lettres de ressource        Boîte aux lettres de salle ou d’équipement qui permet de gérer un calendrier.
+   Boîte aux lettres partagées           Plusieurs utilisateurs peuvent accéder à une Boîte aux lettres (une seule copie du mail).
+   Boîte aux lettres de contact           C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe (ex : pour un fournisseur).
+   Boîte aux lettres d’utilisateurs de     C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe mais contrairement aux
+   messagerie                            contacts, ils peuvent s&#x27;authentifier sur une session (par exemple, une société de service).
+
+   Boîte aux lettres de groupe                                  Fonction
+    Liste de distribution ou groupe                                 Permet d&#x27;envoyer des messages à un groupe de destinataires (plusieurs copies du mails).   Outlook
+                         Comme la liste de distribution, permet d&#x27;envoyer des messages à un groupe de destinataires    Liste de distribution dynamique
+                                         (plusieurs copies du mails) mais ce groupe est créé suivant une requête LDAP.
+   Groupe de sécurité à extension de                                                                   Il permet d&#x27;accorder des accès à des ressources tout en ayant une adresse de messagerie.    courrier
+
+
+
+
+
+35
+
+
+
+                                                                             Administration Microsoft 365
+
+
+         Les groupes
+
+
+
+
+
+36</pre><h2>Page 19</h2><pre>                                                                                  Gestion des licences
+                                                    Les différents groupes dans Microsoft 365
+
+
+
+                    • Groupe Microsoft 365
+                              • Collaboration entre utilisateurs
+                              • Gestion dynamique possible par une règle LDAP Azure AD
+                              • Boîte de réception Outlook partagée
+                              • Un calendrier partagé
+                              • Une bibliothèque de documents SharePoint
+                              • Un planificateur
+                              • Un bloc-notes OneNote
+                    • Groupe de distribution
+                              • Envoi de mail à un groupe de personnes
+                    • Groupe de sécurité
+                              • Gestion de droit sur des ressources SharePoint
+
+
+
+
+37
+
+
+
+                                                                                          Les groupes
+                                                              Les différents types de groupes
+
+
+
+
+
+                                          La création d’un groupe Microsoft 365 créé un site SharePoint
+
+
+
+
+38</pre><h2>Page 20</h2><pre>                                                                                          Les groupes
+                                                              Les différents types de groupes
+
+
+               • Groupe Microsoft 365
+
+
+
+
+
+39
+
+
+
+                                                                                          Les groupes
+                                                              Les différents types de groupes
+
+                • Liste de distribution
+
+
+
+
+
+40</pre><h2>Page 21</h2><pre>                                                                                          Les groupes
+                                                              Les différents types de groupes
+
+
+              • Liste de distribution dynamique
+
+
+
+
+
+41
+
+
+
+                                                                             Administration Microsoft 365
+
+
+ Administrer Exchange Online
+
+
+
+
+
+42</pre><h2>Page 22</h2><pre>                                                                             Administrer Exchange Online
+                                                                      Les domaines acceptés
+
+
+
+                    •  Il s&#x27;agit d&#x27;un domaine dans le sens DNS.
+                    •  Il permet aux utilisateurs de ce domaine d&#x27;envoyer et recevoir
+               des messages pour ce domaine DNS.
+                    •  Il en existe 2 types :
+                              • Faisant autorité : c&#x27;est un domaine géré par votre office 365.
+                              • Relais interne : le courrier peut être relayé par vos serveurs, mais vous
+                        aurez alors besoin des connecteurs de réception et d&#x27;envoi.
+
+
+
+
+
+43
+
+
+
+                                                                             Administrer Exchange Online
+                                                                    Le suivi des messages
+
+
+
+                    • En tant qu&#x27;administrateur, il peut vous être demandé d&#x27;effectuer
+              un suivi des messages
+
+
+
+
+
+44</pre><h2>Page 23</h2><pre>                                                                             Administrer Exchange Online
+                                                                      Les règles de transport
+
+
+
+                    • Vous pouvez implémenter des stratégies et de la conformité de
+                messagerie en appliquant des règles de transport aux messages
+                    • Les règles de transport :
+                              • Limitent les flux de messages
+                              • Modifient le contenu des messages en transit
+                              • Empêchent les utilisateurs spécifiés d&#x27;échanger des courriers électroniques
+                       avec d&#x27;autres utilisateurs définis
+                              • Bloquent tout contenu inapproprié entrant ou sortant
+                              • Peuvent contourner les règles de filtrage antispam
+                              • Permettent de suivre ou journaliser les messages échangés avec certaines
+                      personnes
+                              • Redirigent les messages entrants ou sortants pour les examiner avant
+                           leur remise
+
+
+
+
+45
+
+
+
+                                                                             Administrer Exchange Online
+                                                                      Les règles de transport
+
+
+
+                     • Leurs caractéristiques :
+                              • Appliquées par les serveurs de boîte aux lettres
+                              • Appliquer les exigences de conformité
+                     • Leurs configurations :
+                              • Conditions (les attributs, en-têtes, destinataires, expéditeurs ou autres
+                           parties du message électronique)
+                              • Actions
+                              • Exceptions
+
+
+
+
+
+46</pre><h2>Page 24</h2><pre>                                                                             Administrer Exchange Online
+                                                                      Les règles de transport
+
+
+
+                    • Les conditions et exceptions peuvent se chevaucher et ainsi créer
+               des règles que vous ne souhaitez pas (modifier ou supprimer des
+                messages)
+                    • La priorité et l’ordre des règles sont capitaux à la bonne application
+              de vos contraintes de conformité
+                    • La règle en haut de liste est traitée en premier (priorité 0)
+                    • Utiliser les expressions régulières pour vérifier le contenu des
+               messages
+                    • Recherche d’un numéro de téléphone du type « \d\d\d(-|.)\d\d\d\d »
+
+
+
+
+
+47
+
+
+
+                                                                             Administrer Exchange Online
+                                                                             Les connecteurs
+
+
+
+                    • Par défaut, aucun connecteur ne sera à créer, votre messagerie
+                   est fonctionnelle.
+                    • Les connecteurs auront de multiples fonctions :
+                              • Faire le lien avec un serveur Exchange On Premise
+                              • Autoriser des sites web, copieurs, logiciels à envoyer de mails à partir de
+                         votre entreprise
+                              • D’appliquer un comportement différent en fonction du ou des domaines
+                           cibles (application de chiffrement par exemple)
+                              • Accepter du courrier entrant d’une organisation partenaire
+
+
+
+
+
+48</pre><h2>Page 25</h2><pre>                                                                             Administrer Exchange Online
+                                                                             Les connecteurs
+
+
+
+                         • L’une des utilisations les plus
+                communes est d’utiliser un relais SMTP
+                  en interne :
+                                 •  Simplifier la configuration des
+                        équipements (authentification non
+                             obligatoire en interne)                                                  Réseau de votre organisation                                         Vos boîtes aux
+
+                                                                                                                                                                                                      multifonction                                                                                                                                                                      ou                                 •  Limiter le nombre de machines pouvant             Imprimantepériphérique                                                                                      lettres Office 365                                                                                                                                                                                                             (par exemple,
+                                                                                                                                                                                numérisation vers la messagerie)                              exploiter le protocole SMTP et ainsi
+                                                                                                                                                                                                                                                               Internet                                                                                                                                 Web hébergé                                                                                                                                                                                                   localement
+                                                                                                                                                                                                                                                                                                                            Authentification                                                                                                                                                                                                                                                                                              à l’aide des                                limiter la surface d’attaque                                                  Service(par exemple,                                                                                                                                                                  un service                                                                                                                                                                           de paie)                                                                                                                                                                                                                                                                                                       informations d’identification
+                                 •  Établir une configuration sécurisée                                                                                         De boîte aux lettres Office 365
+
+                                                                                                                                                                                                                                                                        Message                                                                                                                                                                                                                                                                                                envoyé à                            entre votre relais SMTP interne et                                  Siteexemple,Web unhébergésite intranetlocalementdes RH)(par                           Smtp.office365.com                                                                                                                                                                                                                                                                                                des destinataires
+                                                                                                                                                                                                                                                                                                sur le port 587                               externes                           Microsoft 365 (pas toujours possible sur
+                                les équipements)
+                                 •  Limiter le nombre d’entrées dans le SPF                                                                                                                       extérieursDestinatairesà votre
+                                                                                                                                                                                                                                                                                                                               société
+
+
+
+
+
+49
+
+
+
+                                                                             Administration Microsoft 365
+
+    Connectivité des clients
+       de messagerie
+
+
+
+
+
+50</pre><h2>Page 26</h2><pre>                                                                    Connectivité des clients de messagerie
+                                                         Prérequis pour l’infrastructure réseau
+
+
+
+                    • Ports et protocoles
+                              • Assurez-vous que tous les ports sont bien ouverts
+
+                                     Le port 25 (SMTP) est très souvent bloqué par les FAI (Fournisseur d’Accès Internet).
+
+                            Protocole         Port non sécurisé      Port TLS/SSL
+                           HTTP                 80                443
+                          POP3                110                995
+                          IMAP4                143                993
+                       MAPI / HTTPS                               443
+                          ActiveSync / HTTPS                             443
+                         SMTP                25
+                       Soumission client SMTP        2525             587 / 465
+
+
+
+51
+
+
+
+                                                                    Connectivité des clients de messagerie
+                                                                 Quelles connexions choisir ?
+
+
+
+                    • Les connexions IMAP et POP sont de plus en plus rarement
+                    utilisées avec Microsoft 365 mais restent possibles.
+                    • Les clients Outlook utiliseront MAPI/HTTPS.
+                    • Les clients mobiles utiliseront ActiveSync.
+
+
+
+
+
+52</pre><h2>Page 27</h2><pre>                                                                    Connectivité des clients de messagerie
+                                                                            Autodiscover
+
+
+
+                    • Découverte automatique du serveur de messagerie
+                    • « Tester la configuration automatique de la messagerie » permet
+              de valider vos paramètres Autodiscover pour la configuration
+               automatique des profils.
+                    • Vous pouvez aussi utiliser le Remote Connectivity Analyser Tool.
+                    •  Il doit exister des enregistrements dans votre zone DNS publique
+               pour les clients externes.
+                     Pour Outlook
+                                         Enregistrement DNS                    Valeur
+                                                                              Alias : Autodiscover                              CNAME
+                                                                          Cible : autodiscover.outlook.com
+                                             En cas                                                                      d&#x27;utilisation                                                           de AD   Alias : Autodiscover.service.eni-ecole.ovh                                                      FS                                                                (optionnel)
+                                 CNAME              Cible : autodiscover.outlook.com
+
+
+53
+
+
+
+                                                                    Connectivité des clients de messagerie
+                                                                  Rappel Autodiscover
+
+
+
+                    • Processus de la découverte automatique
+                              • L&#x27;utilisateur entre son adresse mail à l&#x27;ouverture d&#x27;Outlook
+                              • Outlook cherche puis se connecte au serveur de messagerie de l’utilisateur
+                              • Le client envoie son adresse SMTP pour avoir les options de configuration
+                    de cette adresse
+                              • Un fichier .xml est téléchargé par le client avec les paramètres du serveur
+                              • Outlook se connecte au serveur Exchange Online dans Office 365 et peut
+                          recevoir ses mails
+
+                                                         Internet         SMTP
+
+
+
+
+                                                                                                                               web.xml
+                                                         Micheline@campus-eni.fr                          MAPI/HTTPS                           Serveur de
+                                                                                                                               messagerie
+                                                                                                                 de Micheline
+
+
+
+54</pre><h2>Page 28</h2><pre>                                                                    Connectivité des clients de messagerie
+                                                   Les fichiers Outlook .pst, .ost et spscoll.dat
+
+
+
+                    • .pst « Personal Storage Table » : fichier contenant les informations
+               pour un compte POP3 par exemple.
+                    • .ost « Offline Storage Table » : fichier contenant vos données
+                 lorsque vous êtes hors connexion pour les comptes IMAP4 et
+                Exchange.
+                    • .nst est l’extension des fichiers GST « Group Storage Table » :
+                     fichier contenant les conversations de groupe.
+                    • spscoll.dat « Outlook Social Connector » : fichier qui contient les
+                 adresses mail suggérées lors de l’écriture d’une adresse (ouverture
+                 possible avec notepad).
+
+
+
+
+
+55
+
+
+
+                                                                    Connectivité des clients de messagerie
+                                                        Réparer les fichiers .pst, .nst et .ost
+
+
+
+                    • Utilisation de l’outil natif au système pour les .pst : scanpst.exe
+                    • Supprimer le .ost afin qu’il soit régénéré
+                    • Utilisation d’outil tiers comme :
+
+
+
+
+
+56</pre><h2>Page 29</h2><pre>                                                                             Administration Microsoft 365
+
+
+     Gestion des mobiles
+
+
+
+
+
+57
+
+
+
+                                                                                  Gestion des mobiles
+                                   EMM (Enterprise Managing Mobile)
+
+
+
+                    • Gestion des appareils mobiles de l’entreprise
+                    • Représente une suite de service qui permet de gérer les appareils
+                mobiles et la sécurité des données
+                    • Différents acteurs du marché :
+
+
+
+
+
+58</pre><h2>Page 30</h2><pre>                                                                                  Gestion des mobiles
+                                                        Managing Mobile Devices
+
+
+
+                    • MDM
+                    • Ce service représente 16,29 milliards de dollars de CA en 2020.
+                    • Module de gestion des appareils mobiles.
+                              • Mobile
+                              • Tablette
+                              • Smartphone
+                    • Permet de gérer :
+                              • Les applications
+                              • Le réseau
+                              • Les données
+                              • La sécurité
+
+
+
+
+59
+
+
+
+                                                                                  Gestion des mobiles
+                                                             BYOD, CYOD et COPE
+
+
+
+                         • BYOD (Bring Your Own Device)
+                                 • Les utilisateurs peuvent utiliser les matériels personnels pour le travail.
+                                 • Permet une meilleure productivité puisqu’ils connaissent déjà le fonctionnement.
+                                 • Diminution des coûts pour l’entreprise (possibilité de prise en charge de tout ou
+                             partie des coûts d’achat et de maintenance).
+                         • CYOD (Choose Your Own Device)
+                                 • Les utilisateurs peuvent choisir un modèle parmi une liste préétablie par l’entreprise.
+                                 • Permet d’éviter un parc de matériels trop hétérogène.
+                         • COPE (Corporate Owned Personally Enabled)
+                                 • Les utilisateurs utilisent le matériel choisi par l’entreprise, mais ils peuvent l’utiliser à
+                         des fins personnelles.
+                                 •  Ils peuvent installer les applications qu’ils veulent, mais la gestion reste à l’entreprise.
+
+
+
+
+
+60</pre><h2>Page 31</h2><pre>                                                                                  Gestion des mobiles
+                                        Managing Mobile Devices dans Microsoft 365
+
+
+
+                    • MDM pour Microsoft 365 permet de gérer des appareils mobiles.
+                              • Windows phone
+                              • Android
+                              • iPhone et iPad
+                    • Pour une gestion avancée des appareils mobiles pour un domaine
+                  personnalisé, des enregistrements DNS sont nécessaires.
+
+
+                             Enregistrement DNS                                       Valeur
+                                                              Hôte : EnterpriseEnrollment                       CNAME
+                                                              Adresse : EnterpriseEnrollment.manage.microsoft.com
+                                                              Hôte : EnterpriseRegistration                       CNAME
+                                                                  Adresse : EnterpriseRegistration.windows.net
+
+
+
+
+61
+
+
+
+                                                                                  Gestion des mobiles
+                                        Managing Mobile Devices dans Microsoft 365
+
+
+
+                    • Activer la gestion mobile
+                                            https://admin.microsoft.com/EAdmin/Device/IntuneInventory.aspx
+
+
+
+
+
+62</pre><h2>Page 32</h2><pre>                                                                                  Gestion des mobiles
+                                                        Managing Mobile Devices
+
+
+
+                    • Une fois activé, vous pouvez créer une stratégie
+
+
+
+
+
+63
+
+
+
+                                                                                  Gestion des mobiles
+                                                        Managing Mobile Devices
+
+
+
+                    • Options de stratégie
+                              • Empêcher les mots de
+                       passe simples
+                              • Longueur minimale de
+                   mot de passe
+                              • Nombre d&#x27;échecs avant
+                       effacement de l&#x27;appareil
+                              • Temps d&#x27;inactivité avant
+                          verrouillage
+                              • Expiration du mot de
+                       passe et historique
+                              • Exiger le chiffrement de
+                            l&#x27;appareil
+                              • Bloquer ou autoriser
+                            l&#x27;accès à un appareil
+
+
+64</pre><h2>Page 33</h2><pre>                                                                                  Gestion des mobiles
+                                                        Managing Mobile Devices
+
+
+
+                    • Options de stratégie
+                              • Bloquer la synchronisation
+                    de photos
+                              • Bloquer la capture d&#x27;écran
+                              • Bloquer ou gérer l&#x27;accès
+                     au magasin d&#x27;application
+                              • Bloquer la connexion au
+                       stockage amovible
+
+
+
+
+
+65
+
+
+
+                                                                                  Gestion des mobiles
+                                                        Managing Mobile Devices
+
+
+
+                    • Appliquez la stratégie au groupe de sécurité
+
+
+
+
+
+66</pre><h2>Page 34</h2><pre>                                                                             Administration Microsoft 365
+
+
+          Azure AD
+
+
+
+
+
+67
+
+
+
+                                                                                     Azure AD
+                                                                                Présentation
+
+
+
+                    • C&#x27;est un service cloud de gestion des identités et des annuaires
+                    •  Il est utilisé par Microsoft 365 pour identifier les utilisateurs
+                    • Vous pourrez :
+                              • Gérer des utilisateurs
+                              • Gérer des appareils
+                              • Vous connecter à un domaine Active Directory local
+
+
+
+
+
+68</pre><h2>Page 35</h2><pre>                                                                                     Azure AD
+                                                                               Authentification
+
+
+
+                    • Indépendant de votre Active Directory local
+                    • Nécessite 2 mots de passe gérés dans 2 annuaires différents :
+                              • 1 compte Active directory local
+                              • 1 compte Azure AD dans Office 365
+                                                                                               Galettes.lcl
+
+
+
+
+
+                                                                                                       Serveur AD
+                              Azure AD                                                 Serveur DNS
+
+
+
+
+
+69
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                    • Azure AD Connect va permettre de faire une synchronisation
+                 entre Microsoft 365 et votre AD DS On-Premise
+                    • Tous les attributs utilisateurs, groupes ou contacts modifiés,
+                  désactivés ou supprimés dans votre AD sur site seront modifiés
+               dans Microsoft 365
+                    • Vous pouvez filtrer sur votre forêt, un domaine, une OU, un
+                  attribut…
+
+
+
+
+
+70</pre><h2>Page 36</h2><pre>                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+
+
+                       Après avoir installé Azure AD Connect, les utilisateurs de votre AD local
+                                   sont synchronisés avec Azure AD dans le cloud.
+
+
+
+
+
+                                                                                                                                        Serveur AD
+                                                              Azure AD              Serveur DNS
+                                                            Connect
+
+                                       Azure AD                                                                       Galettes.lcl
+
+
+
+
+
+71
+
+
+
+                                                                                     Azure AD
+                                                Authentification Cloud avec mot de passe hashé
+
+
+               Azure AD Connect récupère les mots de passe hashés puis les
+                envoie dans Azure AD en SHA256 afin de les synchroniser. Un
+                   utilisateur peut ainsi s’identifier dans le cloud avec son mot de
+                passe AD local
+
+                                                                               Avec la méthode d’authentification Cloud, la synchronisation
+                                                                           ne se fait que de l’AD local vers Azure AD Office 365.
+
+
+
+
+
+                                                              Azure AD                   ServeurServeurDNSAD
+                                                             Connect
+
+                                                               Mot de passe hashé en SHA256
+                                        Azure AD                                                                          Galettes.lcl
+
+
+
+
+
+72</pre><h2>Page 37</h2><pre>                                                                                     Azure AD
+                                         Azure AD Writeback (réécriture du mot de passe)
+
+
+
+
+                  Avec Azure Ad Writeback, la synchronisation se fait dans les deux sens.
+                            Nécessite Azure AD premium P1 ou Business Premium.
+
+
+
+
+
+                                                              Azure AD                   ServeurServeurDNSAD
+                                                            Connect
+
+                                                              Mot de passe hashé en SHA256
+                                       Azure AD                                                                          Galettes.lcl
+
+
+
+
+
+73
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                    • La synchronisation entre votre Office 365 et votre AD DS se
+                       fait toutes les 30 minutes par défaut
+
+
+
+
+
+74</pre><h2>Page 38</h2><pre>                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                   1.  Créez un nouveau suffixe
+             UPN dans votre Active
+                   Directory
+
+                   2.  Puis remplacez le suffixe
+             UPN pour chaque utilisateur
+                 dans votre AD DS
+
+
+
+
+
+75
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                       3.  Créez un compte de service pour la synchronisation
+                    •  Il est indispensable de dédier un compte à la synchronisation AD,
+            comme pour tout service.
+                    • L’utilisation de comptes génériques ou des comptes administrateur
+                   est à bannir des pratiques
+                              • Limite la possibilité de réinitialisation de mots de passe (impacts larges et
+                       souvent mal maîtrisés qui entraîneront des interruptions de service)
+                              • Permet d’avoir un mot de passe dédié par service et donc de renforcer la
+                           sécurité : un compte compromis ne donnera pas accès à l’ensemble des
+                          services de l’entreprise
+                    • Pour une délégation fine, référez-vous à cet article :
+                        https://docs.microsoft.com/fr-fr/azure/active-directory/hybrid/reference-connect-accounts-permissions
+
+
+
+
+76</pre><h2>Page 39</h2><pre>                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                       4.   Utilisez l’assistant d’installation
+
+
+
+
+                       5.   Utilisez l&#x27;utilisateur créé avec votre tenant
+
+
+
+                       6.   Utilisez un compte de service
+                       administrateur de l’entreprise
+
+
+
+
+
+77
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+
+
+            Azure AD vérifie si votre domaine est routable sur internet                       Début de la synchronisation
+
+
+
+
+
+78</pre><h2>Page 40</h2><pre>                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                    • Vérifiez dans votre Admin Center que vos utilisateurs sont bien
+                 synchronisés
+
+
+
+
+
+                    • Attention, vos utilisateurs n&#x27;ont pas encore de licences assignées
+
+
+
+
+
+79
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                    • Des outils de gestion sont mis à votre disposition dans les applications
+              du serveur sur lequel vous avez installé AzureADConnect.msi
+                    • Azure AD Connect
+                              • Relancer la configuration
+                    • Synchronization Rules Editor
+                              • Gérer les règles de synchronisation
+                    • Synchronization Service
+                              • Vérifier l&#x27;état de votre synchronisation
+                    • Synchronization Service Web
+                              • Lancer la console Web Service Configuration Tool
+
+
+
+
+
+80</pre><h2>Page 41</h2><pre>                                                                                     Azure AD
+                                                           Synchronization Service Manager
+
+
+
+                    • Opérations
+                              • Vous pouvez voir le statut de vos dernières synchronisations
+
+
+
+
+
+81
+
+
+
+                                                                                     Azure AD
+                                                               Synchronization Rules Editor
+
+
+
+                    • Cette console permet de
+                  créer des règles de
+                 synchronisation
+                  spécifiques
+                    • Vous pouvez modifier ou
+                  créer de nouvelles règles
+                    • Attention lorsque vous
+                 modifiez les règles par
+                 défaut
+
+
+
+
+
+82</pre><h2>Page 42</h2><pre>                                                                                     Azure AD
+                                                       Forcer une synchronisation AD Connect
+
+
+
+                    • Lancer la réplication initiale
+
+                           Start-ADSyncSyncCycle -PolicyType Initial
+
+                    • Lancer une réplication différentielle
+
+                           Start-ADSyncSyncCycle -PolicyType Delta
+
+
+
+
+
+83
+
+
+
+                                                                             Administration Microsoft 365
+
+
+         RBAC
+
+
+
+
+
+84</pre><h2>Page 43</h2><pre>                                                                          RBAC
+                                                                  Délégation de privilèges
+
+
+
+                    • Pour une gestion fine de l’attribution de droits d’administration
+                Exchange, il existe une console nommée RBAC (Role Based Access
+                  Control)
+                    • Basé sur des rôles prédéfinis, vous pourrez attribuer à des
+                    utilisateurs ou techniciens des privilèges pour administrer la partie
+               Exchange Online de Microsoft 365
+                    • L’affectation de permissions devra se faire au travers de comptes
+                 administrateurs spécifiques et avec le principe du privilège
+             minimum
+
+
+
+
+
+85
+
+
+
+                                                                                  Gestion des licences
+                                             Les différents rôles administrateur Microsoft 365
+
+
+
+        Nom dans l&#x27;admin     Nom                                                                       Rôle            center de Office365 Dans PowerShell
+                                 Company          Il a accès à toutes les fonctionnalités. Celui qui a acheté Microsoft 365 a              Administrateur général                                          administrator    ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.
+                 Administrateur de             Billing             Il effectue les achats, gère les abonnements et les tickets support. Il
+                     facturation           administrator     surveille l&#x27;état des services.
+               Administrateur de mot      Helpdesk           Il réinitialise les mots de passe. Il gère les tickets support et surveille
+                  de passe            administrator     l&#x27;état des services.
+                 Administrateur de      Service support     Il gère les tickets support et surveille l&#x27;état des services.
+                        service             administrator
+                 Administrateur de       User account       Il créé et supprime des utilisateurs et des groupes, réinitialise les mots
+              gestion des utilisateurs     administrator   de passe, gère les tickets support et surveille l&#x27;état des services.
+
+
+
+
+
+86</pre><h2>Page 44</h2><pre>                                                                                  Gestion des licences
+                                             Les différents rôles administrateur Microsoft 365
+
+
+
+              Quelques commandes PowerShell
+
+
+        Get-MsolRole                      Quels sont les rôles
+
+        Get-MsolUserRole       Quels sont les rôles assignés à un utilisateur
+
+       Add-MsolRoleMember          Ajouter des membres à un rôle
+        remove-
+       MsolRoleMember            Supprimer des membres à un rôle
+
+
+
+
+
+87
+
+
+
+                                                                          RBAC
+                                                                  Délégation de privilèges
+
+
+
+                    • Chaque rôle possède une liste d’actions
+
+
+
+
+
+88</pre><h2>Page 45</h2><pre>                                                                          RBAC
+                                                                         Rôles personnalisés
+
+
+          • Créez vos
+         propres                                        2
+          rôles
+
+
+
+
+                                             1
+
+
+
+                                                                                                             3
+                                                                                                                                           4
+
+
+
+
+
+                                                                                   5
+
+
+89</pre></html>
