@@ -132,3 +132,19 @@ activités distinctes du même scénario.
 
 *A — sources TSSR M07 ; B — organisation pédagogique fidèle aux activités
 attestées, sans ajout de théorie générale Vi.*
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Se repérer dans Vi
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ N["Mode normal"] -->|"i"| I["Insertion"]
+ I -->|"Échap"| N
+ N -->|":w"| W["Enregistrer"]
+ N -->|":q"| Q["Quitter si aucune modification non enregistrée"]
+```
+
+Repère de synthèse IA à confronter aux commandes du TP : identifier le mode avant de saisir une commande.

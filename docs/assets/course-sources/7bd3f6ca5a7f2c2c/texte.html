@@ -1,0 +1,130 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 2 - Gestion du stockage.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP 2 - Gestion du stockage.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                              Services réseau en environnement Microsoft
+Gestion du stockage
+TP du Module 01 – Administration Windows
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 1 et réalisé le TP
+ précédent.
+
+
+           Durée estimée
+
+         30 minutes à 1 heure
+
+Énoncé
+
+Prérequis :
+
+    •  Disposer des machines virtuelles installées dans le TP précédent.
+
+    •  Modifier la lettre du lecteur CD en L:\.
+
+Ajout de disques au serveur :
+
+Ajouter trois disques SCSI de 10 Go chacun au serveur W19-SRV1.
+
+
+
+
+
+ Page 1/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+Besoins de stockage :
+
+    •  Modifier la lettre du lecteur CD en L:\.
+
+
+
+En vue de stocker les documents de travail des utilisateurs, créez un volume en RAID-5
+pouvant héberger environ 6 Go de données appelé « Données » et accessible depuis le
+lecteur D:\
+
+
+
+
+
+ Page 2/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+Page 3/7
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                              Services réseau en environnement Microsoft
+
+Les membres du service informatique doivent pouvoir accéder à tout moment aux outils
+d’administration du système. Créez un volume miroir de 4 Go monté dans C:\INFO-TOOLS
+et reposant sur les disques 1 et 3.
+
+
+
+
+
+Une base de données SQL Server d’une taille maximale de 8 Go sera hébergée sur le
+serveur. Créez un volume optimisé pour les performances en lecture/écriture, nommé
+Database et accessible via le lecteur E:\.
+
+
+
+
+
+ Page 4/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                              Services réseau en environnement Microsoft
+
+Ces partitions n’hébergeront pas de système d’exploitation.
+
+
+
+
+
+Configuration du stockage sur le serveur :
+    •  Créez les volumes correspondant aux besoins depuis la console de Gestion des
+       disques.
+    •  Stockez des fichiers quelconques sur l’ensemble de vos lecteurs.
+
+Simulation de panne :
+Depuis les paramètres VMware Workstation, supprimez le disque SCSI n°3 puis observez les
+changements dans la console de Gestion des disques.
+
+    1. Pouvez-vous accéder aux données stockées sur Données ?  Oui □ Non
+Le comportement peut différer en fonction du disque retiré.
+
+
+
+
+ Page 5/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                              Services réseau en environnement Microsoft
+
+Sur un RAID-5 il est possible de retirer un disque sans incidence sur l’accès aux données.
+
+    2. Pouvez-vous accéder aux données stockées dans C:\INFO-TOOLS ?  Oui □ Non
+Pourquoi ?
+Le comportement peut différer en fonction du disque retiré.
+Sur un RAID-1 il est possible de retirer un disque sans incidence sur l’accès aux données.
+
+Réparation des volumes défectueux :
+    •  Ajoutez un disque supplémentaire via la console VMware Workstation puis réparez
+        les volumes défectueux depuis la console Gestion des disques.
+    •   Retirez un disque pour simuler une panne.
+    •  Ajoutez un disque via la console VMware Workstation puis réparez les volumes
+      défectueux depuis la console Gestion des disques.
+
+
+
+
+
+ Page 6/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+Page 7/7
+                                     © ENI – Tous droits réservés</pre></section></html>

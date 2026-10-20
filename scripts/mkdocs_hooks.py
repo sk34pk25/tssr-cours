@@ -7,8 +7,10 @@ from markdown_security import MarkdownSecurityExtension
 from parcours_catalog import model, reorder_courses
 from parcours_render import render_parcours, render_msp
 from kahoot_catalog import catalog as kahoot_catalog, card as kahoot_card, render_library, MARKER
+from source_catalog import load_catalog as load_source_catalog, project_page as project_source_page, label_auxiliary
 
 KAHOOTS = []
+SOURCE_CATALOG = {}
 
 
 def on_config(config):
@@ -23,6 +25,8 @@ def on_page_markdown(markdown, *, page, config, files):
     """Render libraries without overwriting the editable historical curriculum."""
     if page.file.src_uri == "kahoot/bibliotheque.md":
         return render_library(KAHOOTS)
+    markdown = project_source_page(markdown, page.file.src_uri, SOURCE_CATALOG)
+    markdown = label_auxiliary(markdown, page.file.src_uri)
     if page.file.src_uri.startswith(("modules/", "kahoot/")):
         for item in KAHOOTS:
             if not item["legacy"] and page.file.src_uri in {item["moduleId"], item["path"]}:
@@ -41,7 +45,8 @@ def on_page_markdown(markdown, *, page, config, files):
 def on_pre_build(*, config) -> None:  # noqa: ARG001 - MkDocs hook signature
     """Regenerate the static glossary before MkDocs discovers and indexes pages."""
 
-    global KAHOOTS
+    global KAHOOTS, SOURCE_CATALOG
+    SOURCE_CATALOG = load_source_catalog()
     KAHOOTS = kahoot_catalog()  # Revalidate each build, including live reload.
     course_map, module_map, entries = validate(load_data())
     rendered = render_page(course_map, module_map, entries)

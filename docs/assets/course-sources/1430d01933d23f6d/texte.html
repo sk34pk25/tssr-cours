@@ -1,0 +1,60 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 1  - Le pipeline.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 1  - Le pipeline.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+Le pipeline
+Démonstration 01 du module 3
+
+
+ L’objectif de cette démonstration est de présenter le pipeline.
+
+Déroulement
+
+Lors de la manipulation d’un objet,  il arrive que le nombre d’objets soit important, ou que l’on
+souhaite appliquer un traitement sur l’objet ou une propriété avant de l’afficher.
+
+Pour cela, on utilise le pipe qui permet d’appliquer une commande sur le résultat d’une autre
+commande.
+•  Le pipe est réalisé avec la combinaison de touches Alt Gr et 6
+        o  Le pipe sert à mettre en forme un résultat de sortie ou générer un tri de valeurs.
+        o  Nous l’avons déjà utilisé avec la commande Get-Member.
+
+
+
+
+
+Dans ce cas, la commande Get-Member est appliquée sur la commande précédant le pipe.
+
+Nous l’avons également utilisé pour mettre en forme les résultats de sortie de commande qui
+disposent de nombreux résultats.
+
+
+
+
+
+ Page 1/2
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+
+
+
+
+
+Il permet d’indiquer à la commande Format-Wide le nombre de colonnes dans lesquelles les
+verbes seront classés. Ici la commande Format-Wide est raccourcie en Fw.
+
+Le pipe dispose également d’un système d’exploration des propriétés de l’objet $PSItem.
+
+Nous reviendrons sur les variables plus tard, mais nous pouvons voir un cas simple de l’utilisation de
+cette variable réservée.
+
+
+
+
+
+Ici la variable $PSItem permet de tester la valeur de la propriété Id de chaque objet Process et
+de n’afficher que ceux dans la valeur est supérieure à 1500.
+Le pipe est utilisable à plusieurs reprises tant que l’objet dispose de suffisamment de propriétés.
+
+
+
+
+
+ Page 2/2
+                                          © ENI – Tous droits réservés</pre></section></html>

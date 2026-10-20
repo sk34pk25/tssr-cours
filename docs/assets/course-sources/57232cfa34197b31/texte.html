@@ -1,0 +1,357 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 05 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>             Scripting Shell
+                Module 05 – Les caractères spéciaux du script
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+             Objectifs
+
+                    • Savoir enchaîner plusieurs commandes
+                    • Conditionner une commande au résultat d&#x27;une autre
+                    • Regrouper les commandes
+                    • Colorier la console
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                                                                   Scripting Shell
+
+      Enchaînement de
+       commandes
+
+
+
+
+
+3
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                         Enchaînement de commandes
+
+
+                          2 types d’enchaînement de commandes
+
+
+
+                               Inconditionnel             Conditionnel
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                                                                   Scripting Shell
+                                                         Enchaînement inconditionnel
+
+  ;     L’enchaînement sans condition
+
+               Pour enchaîner des commandes quel que soit le résultat de leur
+                 exécution, on utilise le « ; » entre celles-ci.
+
+                                $ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
+                                   mkdir: cannot create directory `./data&#x27;: Permission denied
+                                   touch: cannot touch `./data/file1&#x27;: No such file or directory
+                                   Bonjour le monde !
+                          • Dans cet exemple, l’utilisateur n’a pas le droit de créer un répertoire à la racine
+                     (mkdir en erreur).
+                          • La commande de création d’un fichier dans le répertoire échoue aussi
+                     (touch en erreur).
+                          • La dernière commande (sans lien avec les précédentes) aboutit.
+
+
+
+
+
+5
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                         Enchaînement inconditionnel
+
+  ;     L’enchaînement sans condition
+
+              Dans un script, le traitement des commandes est séquentiel.
+               Le « ; » est substitué par un retour à la ligne.
+
+                     $ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
+
+      Traitementmkdirtouch /data/data/file1                           séquentiel
+                              cat /home/bonjour.txt
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                                                                   Scripting Shell
+                                                           Enchaînement conditionnel
+
+  &amp;&amp;    Le “et” logique
+                 L’opérateur « &amp;&amp; » conditionne l’enchaînement de commandes
+              au résultat d’exécution positif de la commande précédente.
+                           • Cette structure peut se traduire par :
+                           Si la commande aboutit alors je fais la suivante.
+
+                                  $ mkdir /data &amp;&amp; touch /data/file1
+                                     mkdir: cannot create directory `./data&#x27;: Permission denied
+
+                                  $ mkdir ./data &amp;&amp; touch ./data/file1
+                                  $ ls -l ./data/
+                                     -rw-r--r-- 1 Gilles Gilles 0 2021-12-26 02:12 file1
+
+
+
+
+
+7
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                           Enchaînement conditionnel
+
+  &amp;&amp;    Le “et” logique
+
+               Le système s’appuie sur le code retour de la commande
+                précédente (variable réservée $?) :
+
+                           • Si $? = 0 (pas d’erreur) : alors la commande suivante est exécutée
+
+                           • Si $? ≠ 0 (erreur) : alors la commande suivante n’est pas exécutée
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                                                                   Scripting Shell
+                                                           Enchaînement conditionnel
+
+  ||    Le “ou” logique
+
+                      • L’opérateur « || » conditionne l’enchaînement de commandes
+                 à l’échec d’exécution de la commande précédente.
+                      • Cette structure peut se traduire par :
+                       Si la commande n’a pas abouti alors je fais la suivante.
+
+
+                               mkdir ./data 2&gt;/dev/null || echo &quot;Erreur de création du répertoire &#x27;data&#x27;&quot;
+                               Erreur de création du répertoire &#x27;data&#x27;
+
+
+
+
+
+9
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                           Enchaînement conditionnel
+
+  &amp;&amp;    Le “et” logique
+
+               Le système s’appuie sur le code retour de la commande précédente
+                   (variable réservée $?) :
+
+                           • Si $? = 0 (pas d’erreur) : alors la commande suivante n’est pas exécutée
+
+                           • Si $? ≠ 0 (erreur) : alors la commande suivante est exécutée
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                                                                   Scripting Shell
+                                                             Les caractères spéciaux du script
+
+
+
+
+
+      Démo
+                            Enchaînement conditionnel et
+                                inconditionnel de commandes
+
+
+
+
+
+11
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+       Regroupements
+      de commandes
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                                                                   Scripting Shell
+                                                           Les regroupements de commandes
+
+
+                      • Les regroupements de commandes peuvent être utilisés pour :
+                          • Exécuter plusieurs commandes dans un même environnement.
+                          • Rediriger le résultat de plusieurs commandes vers un fichier
+                 ou un tube.
+                      • Deux syntaxes de regroupement de commandes sont utilisables :
+               (« regroupement ») et {« regroupement »}.
+
+
+
+
+
+13
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                           Les regroupements de commandes
+
+ Regroupement avec création de sous-shell
+
+                           • Pour regrouper dans un environnement enfant l’exécution de plusieurs
+                  commandes, on utilise la syntaxe suivante :
+
+                                       $ (cmd1 ; cmd2)
+                           • Dans un script, pour plus de lisibilité, le regroupement sera écrit ainsi :
+                                       (
+                                             cmd1
+                                             cmd2
+                                       )
+
+                                       Exemple :
+                                       pour afficherle nombretotal de fichiers    $ (ls /bin/ ; ls /usr/bin) | wc –l
+                                       contenusdans /bin et /usr/bin
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                                                                   Scripting Shell
+                                                           Les regroupements de commandes
+
+ Regroupement sans création de sous-shell
+
+                          • Pour regrouper dans un environnement enfant l’exécution de plusieurs
+                  commandes, on utilise la syntaxe suivante :
+
+                       $ { cmd1 ; cmd2 ; cmd3 ; }
+
+                        À la difference de la syntaxe du (), un “;” doit être mis juste avant l’accolade fermante. Ne pas
+                                    oublier le point-virgule suivant la dernière commande et les espaces après et avant les accolades.
+                          • Dans un script, pour plus de lisibilité, le regroupement sera écrit ainsi :
+
+                            {
+                                 cmd1
+                                 cmd2
+                            }
+
+
+
+
+
+15
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+        Utiliser les couleurs
+        dans le Shell
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                                                                   Scripting Shell
+                                                                        Utiliser les couleurs dans le Shell
+
+
+                      •  Il est possible d’utiliser quelques couleurs dans le Shell
+               ou dans les scripts.
+                      • Elles peuvent être utiles pour mettre en valeur des
+                  informations importantes.
+
+                                        Couleur     Caractères     Fond          Attribut des caractères
+                                                     Noir           30            40           0 : aucun
+                                            Rouge           31            41           1 : gras
+                                                         Vert            32            42           4 : souligné
+                                                 Jaune           33            43           7 : inversé
+                                                     Bleu           34            44           8 : invisible
+                                           Magenta          35            45           9 : barré
+                                              Cyan           36            46
+                                                         Gris clair          37            47
+
+
+
+
+
+17
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                        Utiliser les couleurs dans le Shell
+
+
+                      • Pour coloriser une information, les codes couleur seront
+                 à encadrer pour :
+                                • Annoncer la couleur : \033[ ou \e[
+                                • Finir la définition de couleur : m
+                                • Remettre la valeur initiale : \033[0m
+
+
+                              $ echo -e &quot;voici du \033[1;32mvert\033[0m&quot;
+                           Exemple
+                                voici du vert
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                                                                   Scripting Shell
+                                                             Les caractères spéciaux du script
+
+
+
+
+
+      Démo
+                                 Les couleurs dans le shell
+
+
+
+
+
+19</pre></section></html>

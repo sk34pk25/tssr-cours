@@ -89,6 +89,7 @@ plugins:
 hooks:
   - scripts/mkdocs_hooks.py
 extra_css:
+  - assets/stylesheets/source-reader.css
   - assets/stylesheets/tokens.css
   - assets/stylesheets/base.css
   - assets/stylesheets/navigation.css
@@ -505,4 +506,5 @@ nav:
       - Présentation: ressources/index.md
       - Sources officielles: ressources/sources-officielles.md
       - Inventaire des sources: ressources/inventaire-sources.md
+      - Supports originaux et provenance: ressources/conformite-sources.md
   - Index général: index-general.md

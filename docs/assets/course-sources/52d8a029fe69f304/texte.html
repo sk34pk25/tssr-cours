@@ -1,0 +1,57 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - Le Try Catch Finally.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 6 - Le Try Catch Finally.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                           Initiation à PowerShell
+Le Try Catch Finally
+Démonstration 06 du module 5
+
+
+ L’objectif de cette démonstration est de vous présenter la structure dédiée à la gestion des
+ erreurs. Cette structure exécute des commandes en fonction du résultat d’un test initial.
+
+Déroulement
+•  La première étape est le try qui va exécuter une commande. Si la commande réussit, le résultat
+    est affiché, sinon c’est la commande contenue dans le catch qui est exécutée à la place.
+
+
+
+
+
+Le paramètre ErrorAction avec la valeur Stop permet à la valeur contenue dans la structure
+Catch de s’exécuter sans afficher le message d’erreur.
+
+
+
+
+
+Sans le paramètre ErrorAction la structure Catch n’est pas exécutée et le message d’erreur
+apparaît en sortie.
+
+La structure Try-Catch-Finally s’utilise pour effectuer des tests sur des objets ou des valeurs de
+propriétés des objets. Pour faciliter ces tests, il est courant de coupler la structure avec le Foreach.
+
+
+
+
+
+ Page 1/2
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                                           Initiation à PowerShell
+
+
+
+
+
+On utilise uniquement la structure Try pour effectuer le test sur une propriété.
+
+A chaque utilisateur testé, on affiche un message de fin de test.
+
+
+
+
+
+Pour les utilisateurs qui n’ont pas de prénom, la réponse du test est « Vraie », pour les autres, la
+réponse « Faux » est envoyée.
+
+
+
+
+
+ Page 2/2
+                                          © ENI – Tous droits réservés</pre></section></html>

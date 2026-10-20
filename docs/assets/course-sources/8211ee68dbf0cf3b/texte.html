@@ -1,0 +1,298 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M08 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>RES24_0050B - M08 - Linux Administration (Debian).pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>  Administration Debian
+       GNU/Linux
+
+
+Module 08 – Gestion des espaces de stockage avancée - LVM</pre></section><section><h2>Page 2</h2><pre>                                       Gestion des espaces de stockage avancée - LVM
+
+  Objectifs
+
+• Comprendre le fonctionnement de LVM
+• Préparer le stockage pour LVM
+• Créer et modifier des groupes de volumes et volumes logiques
+
+
+
+
+                  Créer des partitions en mode « moderne »</pre></section><section><h2>Page 3</h2><pre>                                  Gestion des espaces de stockage avancée - LVM
+
+
+Présentation de LVM</pre></section><section><h2>Page 4</h2><pre>                                                                 Présentation de LVM
+                                LVM : Logical Volume Manager
+
+
+
+• Le LVM permet de s’affranchir des limites physiques des
+  périphériques. LVM implémente une couche logique pour une
+  gestion plus souple et plus évolutive des volumes de stockage
+• On gère plusieurs types d’éléments :
+     • Les volumes physiques (PV) : désignent les périphériques intégrés dans LVM
+     • Les groupes de volumes (VG) : permettent de regrouper les volumes
+      physiques
+     • Les volumes logiques (LV) : désignent les unités définies au sein des groupes
+     de volumes</pre></section><section><h2>Page 5</h2><pre>                                                                 Présentation de LVM
+                                LVM : Logical Volume Manager
+
+
+
+• La création d’un ou plusieurs groupes de volumes sera faite à
+  partir des volumes physiques (partitions) disponibles.
+  Les groupes de volumes seront ensuite découpés en volumes
+  logiques
+• Ces volumes logiques pourront alors être utilisés comme n&#x27;importe
+  quel volume de stockage
+
+
+
+
+                 ext4           ext4              xfs
+                /dev/sdb1         /dev/sdc1
+                PV             PV
+                LV-root      LV-home        LV-var    VG-System</pre></section><section><h2>Page 6</h2><pre>                                                                 Présentation de LVM
+                                LVM : Logical Volume Manager
+
+
+
+• Les commandes de gestion s&#x27;organisent autour de ces
+ dénominations et respectent toujours la même logique.
+ Pour la création, on aura par exemple :
+     • pvcreate : création des volumes physiques
+     • vgcreate : création des groupes de volumes
+     • lvcreate : création des volumes logiques
+•  Il en sera de même pour toutes les autres directives :
+  display, extend, reduce, remove...</pre></section><section><h2>Page 7</h2><pre>                        Gestion des espaces de stockage avancée - LVM
+
+
+Créer des LVM</pre></section><section><h2>Page 8</h2><pre>                                                                   Créer des LVM
+                                           LVM : prérequis
+
+
+
+Définir l&#x27;identifiant des partitions à utiliser avec fdisk, utiliser
+l&#x27;ID 8e – Linux LVM :
+
+
+     Device      Boot   Start End      blocks Id System
+     /dev/sdb1 1        486     3903763+             8e Linux LVM</pre></section><section><h2>Page 9</h2><pre>                                                                   Créer des LVM
+                                                   Créer des partitions LVM
+
+
+Créer des volumes physiques : pvcreate
+
+
+      root@deb:~# pvcreate /dev/sdb1 /dev/sdb2 /dev/sdc1 /dev/sdd
+
+
+
+
+
+  /dev/sdb1     /dev/sdb2      /dev/sdc1    /dev/sdd
+     PV          PV          PV         PV</pre></section><section><h2>Page 10</h2><pre>                                                                   Créer des LVM
+                                                   Créer des partitions LVM
+
+
+Créer des volumes groups : vgcreate
+
+
+      root@deb:~# vgcreate vggroup1 /dev/sdb1 /dev/sdb2 /dev/sdc1
+
+
+
+
+
+  /dev/sdb1     /dev/sdb2      /dev/sdc1    /dev/sdd
+     PV          PV          PV         PV
+                          vggroup1</pre></section><section><h2>Page 11</h2><pre>                                                                   Créer des LVM
+                                                   Créer des partitions LVM
+
+
+Créer des volumes logiques : lvcreate
+
+
+      root@deb:~# lvcreate -n lv1 -L 2G vggroup1
+      root@deb:~# lvcreate -n lv2 -L 512M vggroup1
+
+                                  -n : nom du Volume Logique
+                                      -L : &lt;taille&gt;K|M|G|T|E (Ko, Mo, Go...)
+
+           lv1           lv2
+                     vggroup1</pre></section><section><h2>Page 12</h2><pre>                                                                     Créer des LVM
+                                                    Créer des partitions LVM
+
+
+
+
+Il y aura deux chemins possibles pour manipuler le Volume
+Logiques
+
+
+     /dev/vgsystem/lvhome
+Ou
+
+     /dev/mapper/vgsystem-lvhome</pre></section><section><h2>Page 13</h2><pre>                                                                         Créer des LVM
+
+
+
+
+
+Démo
+
+
+                                                    Créer des LVM</pre></section><section><h2>Page 14</h2><pre>                             Gestion des espaces de stockage avancée - LVM
+
+
+Modifier des LVM</pre></section><section><h2>Page 15</h2><pre>                                                                    Modifier des LVM
+                                              Agrandir un Volume Group
+
+
+Ajouter des volumes physiques au VG : vgextend
+
+
+      root@deb:~# vgextend vggroup1 /dev/sdd
+
+
+
+
+
+  /dev/sdb1     /dev/sdb2      /dev/sdc1    /dev/sdd
+     PV          PV          PV         PV
+                         vggroup1   vggroup1</pre></section><section><h2>Page 16</h2><pre>                                                                   Créer des LVM
+                                                   Créer des partitions LVM
+
+
+Agrandir des volumes logiques : lvextend
+
+
+      root@deb:~# lvextend -r -L +512M /dev/vggroup1/lv1
+      root@deb:~# lvextend –r -L 1G /dev/vggroup1/lv2
+
+                                          -r : invoque
+                           automatiquement resize2fs
+                                  -L : [+]&lt;taille&gt;K|M|G|T|E
+
+       lv1 lv1                   lv2        lv2
+                     vggroup1</pre></section><section><h2>Page 17</h2><pre>                                                                    Modifier des LVM
+                                                        Agrandir des LV
+
+
+• De la même façon, lvreduce permet de réduire la taille d&#x27;un
+ volume logique
+• Attention, le système de fichier ne prendra pas en compte
+ automatiquement ces changements. Il faudra forcer un
+ redimensionnement pour pouvoir utiliser tout l&#x27;espace
+• La commande resize2fs qui permet de redimensionner un
+ système de fichier sera étudiée dans le module suivant</pre></section><section><h2>Page 18</h2><pre>                                                                         Modifier des LVM
+
+
+
+
+
+Démo
+
+
+                                                  Modifier des LVM</pre></section><section><h2>Page 19</h2><pre>                                        Gestion des espaces de stockage avancée - LVM
+
+
+Afficher les informations</pre></section><section><h2>Page 20</h2><pre>                                                                   Afficher les informations
+                                                Afficher les informations LVM
+
+
+
+• Plusieurs commandes sont disponibles pour obtenir des
+  informations sur les volumes LVM configurés
+• On peut les regrouper en deux « familles »
+     • Informations résumées avec « s » : pvs, vgs, lvs
+     • Informations détaillées avec « display » : pvdisplay, vgdisplay,
+     lvdisplay</pre></section><section><h2>Page 21</h2><pre>                                                                   Afficher les informations
+                                                Afficher les informations LVM
+
+
+
+• Afficher les informations résumées sur tous les groupes de volumes :
+
+
+      root@deb:~# vgs
+      VG          #PV    #LV    #SN    Attr           VSize          VFree
+      vggroup1    4      5      0      wz--n- 25,76g 22,26g
+      vggroup2    1      1      0      wz--n-         5g             4g
+
+• Afficher les informations détaillées sur tous les groupes de volumes :
+
+
+      root@deb:~# vgdisplay</pre></section><section><h2>Page 22</h2><pre>                                                                   Afficher les informations
+                                                Afficher les informations LVM
+
+
+Afficher les informations détaillées sur un groupe de volumes :
+
+   root@deb:~# vgdisplay vggroup2
+    --- Volume group ---
+     VG Name               vggroup2
+     System ID
+     Format                lvm2
+     [...]
+     Cur LV                1
+     Cur PV                1
+      [...]
+     VG Size               5 GiB
+     PE Size               4,00 MiB
+     Total PE              20480
+     Alloc PE / Size       256 / 1 GiB
+     Free  PE / Size       20224 / 5056,00 MiB
+     VG UUID               sJd23F-75eY-fdsJ-Gp2w-ezfQ-PLy1-jmQjVb</pre></section><section><h2>Page 23</h2><pre>                                                                   Afficher les informations
+                                                Afficher les informations LVM
+
+
+
+• Afficher les informations résumées sur tous les Volumes Logiques :
+
+
+
+      root@deb:~# lvs
+      LV         VG           Attr         LSize    Pool Origin
+      lv1        vggroup1     -wi-ao----   3,50g
+      lv2        vggroup1     -wi-ao----   1,00g
+
+• Afficher les informations détaillées sur tous les Volumes Logiques :
+
+
+      root@deb:~# lvdisplay</pre></section><section><h2>Page 24</h2><pre>                                                                   Afficher les informations
+                                                Afficher les informations LVM
+
+
+
+• Afficher les informations détaillées sur un Volume Logique :
+
+   root@deb:~# lvdisplay /dev/vggroup1/lv2
+   --- Logical volume ---
+     LV Path                /dev/vggoup1/lv2
+     LV Name                lv2
+     VG Name                vggroup1
+     LV UUID                V2HdqC-zM80-juKd-51QA-A8mp-pYhX-z35OQJ
+     LV Write Access        read/write
+     [...]
+     LV Size                1 GiB
+     [...]
+• Toutes les commandes LVM sont également disponibles dans un
+  shell dédié, accessible avec la commande lvm</pre></section><section><h2>Page 25</h2><pre>                                                                         Afficher les informations
+
+
+
+
+
+Démo
+
+
+                                                 Afficher les informations LVM</pre></section><section><h2>Page 26</h2><pre>                                          Gestion des espaces de stockage avancée - LVM
+
+
+
+     TPDémo
+
+                                                 Manipuler LVM</pre></section><section><h2>Page 27</h2><pre>                                    Gestion des espaces de stockage avancée - LVM
+                                                             Conclusion
+
+
+
+• Vous savez préparer des disques et partitions pour LVM
+• Vous savez créer et modifier des Volumes Groups
+• Vous savez créer et modifier des Logical Volumes</pre></section></html>

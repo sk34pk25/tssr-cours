@@ -1,0 +1,299 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Partages et sessions distantes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Partages et sessions distantes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
+Partages et sessions
+distantes
+TP du Module 08 – Le partage de ressources
+
+Proposition de solution
+
+Sur votre VM Win10-XX, partagez les ressources suivantes :
+•  Partagez le dossier Echange disponible sur le lecteur D:
+•  Vous utilisez les bonnes pratiques Microsoft
+•  Le partage se nommera CoWorkerShare
+•  Permettez à vos collègues la possibilité de modifier le contenu du dossier depuis leurs
+  VM
+•  Vous testerez le bon fonctionnement
+
+Clic droit sur le dossier Echange disponible sur le lecteur D:
+
+Propriétés
+
+Onglet Partage
+
+Partage avancé
+
+Cochez Partager ce dossier
+
+Nom du partage : CoWorkerShare
+
+Mises en place des bonnes pratiques Microsoft
+
+Autorisations
+
+Supprimer Tout le monde
+
+Ajouter Utilisateurs authentifiés en Contrôle total
+
+Appliquer &gt; OK
+
+Appliquer &gt; OK
+
+Le dossier est maintenant partagé, accessible via le réseau.
+
+Pour permettre à nos collègues d&#x27;accéder au contenu du dossier via le partage,  il faut
+consulter/modifier les autorisations d&#x27;accès NTFS
+
+Onglet Sécurité du dossier Echange
+
+
+
+ Page 1/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
+
+S&#x27;assurer que le groupe L_Collegues possède les autorisations d&#x27;accès en Modification
+
+Dans le cas contraire, ajouter le groupe L_Collegues dans la DACL et attribuer  les
+autorisations d&#x27;accès en Modification
+
+Pour tester le bon fonctionnement
+
+Ouvrez une session sur la VM Discovery
+
+Ouvrez l&#x27;explorateur Windows
+
+Dans la barre de navigation, entrez le chemin UNC correspondant à votre partage
+
+\\@ipWin10-XX\CoWorkerShare
+
+
+
+
+
+Après quelques secondes, vous êtes challengé.
+
+Seuls les utilisateurs authentifiés connus de la base SAM de Win10-XX peuvent accéder au
+contenu du partage
+
+Entrer le nom d&#x27;utilisateur d&#x27;un de vos utilisateurs membre du groupe L_Collegues ainsi que
+son mot de passe pour avoir accès au contenu du dossier partagé CoWorkerShare en
+Modification.
+
+Créer un dossier TestPartage pour vérifier le niveau d&#x27;accès en Modification.
+
+Fermer la session actuellement ouverte sur Discovery pour regénérer le jeton d&#x27;accès.
+
+•  Pour  faciliter l&#x27;usage des logiciels de l&#x27;entreprise, l&#x27;équipe informatique décide de
+   partager le dossier &quot;manuels d&#x27;utilisation&quot;. Les utilisateurs auront la possibilité d&#x27;y déposer
+   des documents texte et des images (comme des captures d&#x27;écran) dans le but
+
+
+
+
+ Page 2/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
+
+    d&#x27;enrichir une future FAQ.
+
+Vous êtes en charge de créer le partage. Vous testerez les accès avec un compte
+d’utilisateur membre du groupe L_Collegues
+
+Les utilisateurs auront la possibilité d&#x27;y déposer des documents texte et des images (comme
+des captures d&#x27;écran) dans le but d&#x27;enrichir une future FAQ
+
+Les  utilisateurs doivent donc avoir un accès en Modification sur le dossier manuels
+d&#x27;utilisation
+
+Clic droit sur le dossier Manuels d&#x27;utilisation disponible sur le volume TOOLS
+
+Propriétés
+
+Onglet Sécurité
+
+Modifier
+
+Sélectionner Utilisateurs
+
+Cochez Modification
+
+Appliquer &gt; OK
+
+Ouverture du partage en respectant les bonnes pratiques Microsoft
+
+Onglet Partage
+
+Partage avancé
+
+Cochez Partager ce dossier
+
+Nom du partage : manuels d&#x27;utilisation
+
+Autorisations
+
+Supprimer Tout le monde
+
+Ajouter Utilisateurs authentifiés en Contrôle total
+
+Appliquer &gt; OK
+
+Fermer
+
+Le dossier est maintenant partagé, accessible via le réseau.
+
+Pour tester le bon fonctionnement
+
+Ouvrez une session sur la VM Discovery
+
+Ouvrez l&#x27;explorateur Windows
+
+
+
+
+
+ Page 3/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Systèmes Clients Microsoft
+
+Dans la barre de navigation, entrez le chemin UNC correspondant à votre partage
+
+\\@ipWin10-XX\Manuels d&#x27;utilisation
+
+
+
+
+
+Après quelques secondes, vous êtes challengé.
+
+Seuls les utilisateurs authentifiés connus de la base SAM de Win10-XX peuvent accéder au
+contenu du partage
+
+Entrer le nom d&#x27;utilisateur d&#x27;un de vos utilisateurs membre du groupe L_Collegues ainsi que
+son mot de passe pour avoir accès au contenu du dossier partagé manuels d&#x27;utilisation en
+Modification.
+
+Créer un dossier TestManuelsUtil pour vérifier le niveau d&#x27;accès en Modification.
+
+Fermer la session actuellement ouverte sur Discovery pour regénérer le jeton d&#x27;accès.
+
+Sur Discovery
+•  À l&#x27;aide de PowerShell et des bonnes cmdlets, lister les partages disponibles sur la VM.
+
+Get-SMBShare
+
+Ou
+
+Get-FileShare mais peut-être un peu moins parlant comme cmdlet.
+•  Toujours à l&#x27;aide de PowerShell, quel dossier de l&#x27;arborescence du système est partagé
+   par le nom ADMIN$ ? Qui peut accéder au partage N$ ?
+
+Get-SMBShare ADMIN$
+
+
+
+
+
+ Page 4/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>Systèmes Clients Microsoft
+
+Le partage ADMIN$ permet d&#x27;accéder au contenu du dossier C:\Windows de Discovery
+(valeur de la propriété Path). C&#x27;est un partage administratif natif
+
+Get-SMBShareAccess N$
+
+Les membres du groupe Administrateurs, Opérateurs de sauvegarde et l&#x27;entité de sécurité
+INTERACTIF ont un accès en Contrôle total
+
+Bureau à distance
+•   Vérifiez l&#x27;état d&#x27;activation de la fonctionnalité Bureau à distance disponible sur votre VM
+   Discovery
+•   Est-elle active ?
+
+Rechercher &gt; sysdm.cpl
+
+Onglet Utilisation à distance
+
+Par défaut, la fonctionnalité Bureau à distance n&#x27;est pas active.
+•   Faites en sorte de permettre aux utilisateurs Géraldine et Laurent d&#x27;ouvrir une session
+   Bureau à distance sur la VM Discovery
+•  Testez ces accès via votre VM Win10-XX
+
+Sélectionner des utilisateurs…
+
+Ajouter…
+
+Giannis;Lebron
+
+OK
+
+Cocher Autoriser les connexions à distance à cet ordinateur
+
+Appliquer &gt; OK
+
+Sur Win10-XX
+
+Rechercher &gt; Connexion Bureau à distance
+
+Ordinateur : @ip de Discovery
+
+Lorsque vous êtes challengé, indiquer les login/mot de passe de Géraldine
+
+Login : giannis
+
+Mot de passe : Pa$$w0rd
+
+OK
+
+Lors de la première connexion, un échange de certificat est effectué.
+
+Cliquez sur Oui
+
+
+
+
+ Page 5/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>Systèmes Clients Microsoft
+
+Le bureau à distance s&#x27;ouvre, vous avez accès à la VM Discovery.
+
+Pour accéder au bureau, fermez éventuellement la session en cours sur Discovery.
+•  Une fois connectée, Géraldine peut-elle changer le mot de passe de Laurent ? Adm
+    peut-il ouvrir une session bureau à distance sur Discovery ? Peut-il changer le mot de
+   passe de Laurent ? Pourquoi ?
+
+Rechercher &gt; lusrmgr.msc
+
+Nœud Utilisateurs
+
+Clic droit sur Lebron
+
+Définir le mot de passe…
+
+Continuer
+
+Insérer puis confirmer un nouveau mot de passe pour Laurent EBRON
+
+OK
+
+
+
+
+
+Géraldine ne peut pas changer le mot de passe de Laurent car seuls les membres du
+groupe Administrateurs peuvent faire cette action.
+
+Fermer la session de Géraldine et ouvrir une nouvelle session à distance avec le compte
+adm.
+
+adm peut ouvrir une session à distance car par défaut, tout utilisateur membre du groupe
+prédéfini Administrateurs peut ouvrir une session à distance.
+
+Tenter de changer le mot de passe de Laurent
+
+C&#x27;est possible car l&#x27;utilisateur adm fait partie du groupe prédéfini Administrateurs
+
+Fermez la session à distance (clic droit sur le menu Démarrer &gt; Arrêter ou se déconnecter &gt;
+Se déconnecter)
+
+
+
+
+
+ Page 6/6
+                                      © ENI – Tous droits réservés</pre></section></html>

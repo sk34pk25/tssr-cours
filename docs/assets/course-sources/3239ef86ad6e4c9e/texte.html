@@ -1,0 +1,651 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 05 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>         Administration GLPI
+                Module 05 – Les bases de MySQL et MariaDB
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                         Objectifs
+
+
+
+                    •  Rappels sur les SGBD et le langage d’interrogation SQL
+                    •  Utilisation des commandes de bases de MySQL/MariaDB
+                    • Se connecter à une base de données et en afficher la structure
+                    • Ce qu’est une table dans une base de données
+                    •  Effectuer une recherche d’enregistrements selon certains critères
+                    •  Utiliser les fonctions de base du langage SQL
+                    •  Afficher par des requêtes SQL, la liste des utilisateurs de GLPI
+                    •  Effectuer une sauvegarde de la base de données de GLPI
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                                       Les bases de MySQL et MariaDB
+
+     Rappels sur les SGBD
+                                                                            Les bases de MySQL et MariaDB
+                                                                            Les bases de MySQL et MariaDB
+
+
+
+
+
+3
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                  SGBD - Système de Gestion de Bases de Données
+
+
+                    •  Sert à stocker, administrer, effectuer des opérations, récolter des
+               données (data) sur un support facilement consultable.
+                   •  Création des SGBDR - Système de Gestion de Base de Données
+                  Relationnelle (DB2, Oracle, SQL Server, PostgreSQL, MySQL…)
+                    • Un SGBD est rarement utilisé seul
+                    •   Il est souvent utilisé par des logiciels tiers comme :
+                              • Un serveur internet
+                              • Des logiciels de comptabilité
+                              • Les serveurs de messagerie
+                              • Etc.
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                  SGBD - Système de Gestion de Bases de Données
+
+
+
+
+
+5
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                                  Historique
+
+
+                    • MySQL a été créé en 1994
+                    •  Michael Widenius est un des co-créateurs
+                    • My (prénom de la fille de Widenius) et SQL
+                   (Structured Query Language)
+                    • Double licence GPL et propriétaire
+                  (Oracle Corporation depuis 2009)
+                    • En 2009, Widenius a créé MariaDB qui est open source
+                  (Maria, prénom de sa deuxième fille)
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                                             Le langage
+
+
+                    •  Contrairement à Bash par exemple, SQL ne s’exécute pas de
+                manière séquentielle mais analyse globalement une requète.
+                    •  La création d’une base de données et de sa structure (tables et clés)
+                  doit être mûrement réfléchie en amont ;
+                     c’est l’étape du MCD (Modèle Conceptuel de Données).
+                    • On fabrique d’abord les étagères de la bibliothèque et on organise
+                à vide avant de vouloir tout bouger une fois que les livres sont
+                  dessus.
+
+
+
+
+
+7
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                           Des commandes de base
+
+
+                    •  mysql est la commande qui permet, entre autres, de se connecter à
+               MariaDB
+                              •  Ici, se connecter en tant que root avec son mot de passe
+                 mysql –u root -p
+                    • SHOW – commande qui permet de lister
+                              •  Ici, permet de voir toutes les bases de données présentes
+                 mysql&gt;SHOW databases;
+                    • CONNECT – commande qui permet de se connecter à une base de
+               données
+                              •  Ici, permet de se connecter à la base de données glpidata
+                 mysql&gt;CONNECT glpidata;
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                           Des commandes de base
+
+
+                    • DROP – commande qui permet de supprimer
+                              •  Ici, permet de supprimer la base de données glpidata
+
+                 mysql&gt;DROP database glpidata;
+
+                    • SHOW – commande qui permet de lister
+                              •  Ici, permet de voir toutes les tables présentes une fois connecté à une
+                      base de données
+
+                 mysql&gt;SHOW tables;
+
+                    • UPDATE / INSERT – commandes qui permettent d’ajouter du
+               contenu à une base de données
+                              • Ces commandes ne seront pas vues dans ce cours.
+
+
+
+9
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                            La structure
+
+
+                    • Dans une base de données, les informations sont contenues
+               dans des tables (ou relations)
+                   • Une relation est constituée de deux sous-ensembles :
+                              • L’en-tête est composé d’attributs (colonnes)
+                              • Le corps est composé de lignes
+                    •  La table clients définit cinq attributs (ID, Prénom, Nom, Ville et Age)
+                   et se compose de quatre lignes (1, 2, 3 et 4)
+                   ID     Prénom      Nom                       Ville                  Age
+                  1        Fred         Enlefrigau            Stockholm                  45
+
+                  2       François        Belététoi           Pyongyang                  26
+
+                  3         Gilles        Edenotre             Rennes                   32
+
+                  4       Yann        Apourtous             Caen
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                                    La commande SELECT
+
+
+                    •  Cette commande sert à lister les données d’un ou plusieurs
+                   attributs d’une table
+                              • SELECT * FROM nom_de_la_table
+                              • * veut dire tous les attributs
+                              • Exemple : lister tous les attributs de la table clients
+
+
+
+
+              mysql&gt;SELECT * FROM clients;
+              +------+--------------+----------------+-----------------+-----------+
+              |  ID  |  Prénom      |  Nom           |  Ville          |  Age      |
+              +------+--------------+----------------+-----------------+-----------+
+              |  1   |  Fred        |  Enlefrigau    |  Stockholm      |  45       |
+              |  2   |  François    |  Belététoi     |  Pyongyang      |  26       |
+              |  3   |  Gilles      |  Etdenotre     |  Rennes         |  32       |
+              |  4   |  Yann        |  Apourtous     |  Caen           |  NULL     |
+              +------+--------------+----------------+------------------+-----------+
+
+
+
+
+11
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                    La commande SELECT
+
+
+                    • SELECT nom_de_l’attribut, nom_d’un_deuxième_attribut
+            FROM nom_de_la_table
+                   •  Liste les attributs « Nom » et « Ville » de la table clients
+
+
+
+
+
+              mysql&gt;SELECT Nom, Ville FROM clients;
+              +----------------+------------------+
+              |  Nom           |  Ville           |
+              +----------------+------------------+
+              |  Enlefrigau    |  Stockholm       |
+              |  Belététoi     |  Pyongyang       |
+              |  Etdenotre     |  Rennes          |
+              |  Apourtous     |  Caen            |
+              +----------------+------------------+
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                La condition WHERE à la commande SELECT
+
+
+                    • WHERE permet de mettre une condition à notre recherche
+                    •  Liste les attributs « Prénom » et « Nom » de la table clients si Caen
+                   est la ville
+
+
+
+
+
+              mysql&gt;SELECT Prénom, Nom FROM clients WHERE Ville=&#x27;Caen&#x27;;
+              +----------------+------------------+
+              |  Prénom        |  Nom             |
+              +----------------+------------------+
+              |  Yann          |  Apourtous       |
+              +----------------+------------------+
+
+
+
+
+
+13
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                              Les opérateurs de comparaison
+
+
+
+                        •  WHERE permet d’utiliser des symboles pour définir des critères plus précis
+                 de recherche
+                                 • = égal
+                                 • &lt; inférieur
+                                 • &lt;= inférieur ou égal
+                                 • &gt; supérieur
+                                 • &gt;= supérieur ou égal
+                                 • &lt;&gt; ou != différent
+                                 • &lt;=&gt; égal (fonctionne aussi si la valeur est NULL)
+                        •   Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est strictement
+                     supérieur à 3.
+
+                        mysql&gt;SELECT Prénom, Nom FROM clients WHERE  ID &gt; 3;
+                        +----------------+------------------+
+                        |  Prénom        |  Nom             |
+                        +----------------+------------------+
+                        |  Yann          |  Apourtous       |
+                        +----------------+------------------+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                               La combinaison de critères
+
+
+                    •   Il existe aussi des opérateurs qui permettent de combiner plusieurs
+                    critères
+                              • AND et
+                              • OR ou
+                              • XOR ou exclusif (ou, mais pas les deux)
+                              • NOT non (sauf)
+                    •  Liste les attributs « Prénom » et « Nom » de la table clients si l’ID
+                   est supérieur ou égal à 2 et la ville est Caen.
+
+
+                        mysql&gt;SELECT Prénom, Nom FROM clients WHERE ID &gt;= 2 AND ville = &#x27;Caen&#x27;;
+                        +----------------+------------------+
+                        |  Prénom        |  Nom             |
+                        +----------------+------------------+
+                        |  Yann          |  Apourtous       |
+                        +----------------+------------------+
+
+
+
+15
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                    Les sélections complexes
+
+
+                    •  Si vous souhaitez utiliser plusieurs opérateurs de combinaison
+                              •  ( ) met la priorité sur les opérateurs combinés
+                   •  Liste les attributs « Prénom » et « Nom » de la table clients si
+                       (l’ID est supérieur ou égal à 2 et la ville est Caen) ou (l’ID est
+                  strictement supérieur à 2 et la ville est Rennes).
+
+
+
+
+                        mysql&gt;SELECT Prénom, Nom FROM clients WHERE (ID &gt;= &#x27;2&#x27; AND ville = &#x27;Caen&#x27;) OR (ID
+                        &gt; 2 AND ville = &#x27;Rennes&#x27;);
+                        +----------------+------------------+
+                        |  Prénom        |  Nom             |
+                        +----------------+------------------+
+                        |  Yann          |  Apourtous       |
+                        |  Gilles        |  Etdenotre       |
+                        +----------------+------------------+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                               Les valeurs NULL et NOT NULL
+
+
+                    •  Le marqueur NULL représente qu’il n’y a pas de valeur
+                    •  Le marqueur NOT NULL représente qu’il existe une valeur
+                    • On peut utiliser, colonne = NULL ou colonne is NULL
+                   • Idem pour NOT NULL, colonne = NOT NULL ou
+                colonne is NOT NULL
+                              • Liste les attributs « Prénom » et « Nom » de la table clients si l&#x27;âge
+                            n’est pas renseigné
+
+
+                        mysql&gt;SELECT Prénom, Nom FROM clients WHERE age = NULL;
+                        +----------------+------------------+
+                        |  Prénom        |  Nom             |
+                        +----------------+------------------+
+                        |  Yann          |  Apourtous       |
+                        +----------------+------------------+
+
+
+
+
+17
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                       Le tri des données
+
+
+                    •  Si vous souhaitez trier vos données en sortie
+                              • ORDER BY colonne tri en fonction de la colonne choisie
+                              • ASC tri par ordre croissant
+                              • DESC tri par ordre décroissant
+                              • Par défaut, sans préciser ASC ou DESC, c’est un ordre ascendant
+                    •  Liste les attributs « Prénom » de la table clients triés par âge puis
+                 par nom.
+
+                        mysql&gt;SELECT Prénom FROM clients ORDER by age, nom;
+                        +----------------+
+                        |  Prénom        |
+                        +----------------+
+                        |  Yann          |
+                        |  François      |
+                        |  Gilles        |
+                        |  Fred          |
+                        +----------------+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                          Choisir le nombre de lignes récupérées
+
+
+                    •  Si vous souhaitez restreindre le nombre de lignes en résultat
+                              • LIMIT nombre_de_ligne OFFSET à_partir_de_quelle_ligne
+                                       • OFFSET est optionnel et dans ce cas, il est égal à 0
+                                       • OFFSET différent de 0, permet de déterminer à partir de quelle ligne on
+                          compte le nombre de lignes souhaitées
+                              • Liste les attributs « Prénom » de la table clients triés par âge à partir
+                     de la deuxième ligne et que deux lignes.
+
+
+
+                        mysql&gt;SELECT Prénom FROM clients ORDER by age LIMIT &#x27;2&#x27; OFFSET &#x27;1&#x27;;
+                        +----------------+
+                        |  Prénom        |
+                        +----------------+
+                        |  François      |
+                        |  Gilles        |
+                        +----------------+
+
+
+
+
+19
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                             Compter le nombre de lignes récupérées
+
+
+                    •  Si vous souhaitez compter le nombre de lignes en résultat
+                              • COUNT vous donne le nombre de lignes en résultat
+                                       • Un attribut NULL ne compte pas
+                              • Compte le nombre d’attributs « âge » de la table clients.
+
+
+
+
+
+                       mysql&gt;SELECT COUNT(age) FROM clients;
+                        3
+
+
+
+
+
+20</pre></section><section><h2>Page 11</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                                                 Utilisation d&#x27;un alias
+
+
+                    •   Il est possible de modifier le nom d’une colonne à l’affichage
+                              • Nom_de_la_colonne as nom_d’affichage
+                              • Liste les attributs « Prénom » de la table clients trier par âge en changeant le
+                 nom de la colonne Prénom par Firstname.
+
+
+
+
+
+                        mysql&gt;SELECT Prénom as Firstname FROM clients ORDER by age;
+                        +----------------+
+                        |  Firstname     |
+                        +----------------+
+                        |  Yann          |
+                        |  François      |
+                        |  Gilles        |
+                        |  Fred          |
+                        +----------------+
+
+
+
+
+21
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                       Quelques fonctions d&#x27;agrégation
+
+
+                    • Quelques fonctions qui permettent un traitement numérique
+                              • MAX(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
+                              • MIN(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
+                              • SUM(Nom_de_la_colonne) affiche la somme d’une colonne
+                              • AVG(Nom_de_la_colonne) affiche la moyenne d’une colonne
+
+
+
+
+                              • Liste la moyenne des âges de la table clients.
+
+
+                        mysql&gt;SELECT AVG(age) FROM clients;
+                        34
+
+
+
+
+22</pre></section><section><h2>Page 12</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                             La clé primaire (primary key)
+
+                   • Une clé primaire identifie de manière unique une ligne
+                  (contrainte d’unicité)
+                              • Dans la table client et la table achat, il s’agit de l’ID
+                              • Elle identifie une ou plusieurs colonnes (création d’index que nous ne
+                        verrons pas dans ce cours)
+                              • Une clé primaire ne peut pas être NULL.
+
+                    Table client                                    Table achat
+        ID  Prénom    Nom           Ville      Age      ID       Nom              ID_client         Prix      Pateforme
+        1     Fred     Enlefrigau   Stockholm    45       1        Overwatch           4          14,99    XBOX ONE
+        2   François    Belététoi   Pyongyang    26       2         Call of Duty           2          69,99        PS4
+        3      Gilles     Edenotre     Rennes     32       3         Minecraft            1          23,95     SWITCH
+        4    Yann    Apourtous     Caen               4    League of Legends        4           0         PC
+                                                     5   Mario Kart 8 DELUXE       4          43,99     SWITCH
+                                                     6         Civilization VI          3          29,99       PC
+
+
+
+23
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                             La clé étrangère (foreign key)
+
+
+                    • Une clé étrangère permet de gérer des relations entre
+                  plusieurs tables
+                              • Elle vérifie l&#x27;intégrité de notre base.
+                              • Dans notre table achat, il s’agit de ID_client et vérifie que le client existe bien
+                      dans la table client.
+                              • Si vous indiquez un ID_client qui n’existe pas, MySQL vous indiquera une
+                          erreur et c’est pour cela qu’on appelle les clés des contraintes (CONSTRAINT).
+                              • À la création d’une clé étrangère, un index est automatiquement créé.
+                              • La colonne ID_client est la clé étrangère de la table achat en relation avec la
+                       colonne ID de la table client. La colonne ID de la table client DOIT être une
+                            clé primaire.
+
+
+
+
+
+24</pre></section><section><h2>Page 13</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                                                Les jointures
+
+
+
+                        •  L’idée est de pouvoir associer plusieurs tables dans une même
+                    requête (l’avantage des tables relationnelles)
+                        •  Lorsque l’on fait une jointure, on crée une table virtuelle qui réunit les 2
+                      tables avec ID de la table client qui correspond à ID_client de la table achat
+
+                                                                      Table achat
+
+                                          ID       Nom                Prix       Pateforme      ID_client
+
+                                     1        Overwatch          14,99     XBOX ONE        4
+
+                                     2          Call of Duty          69,99         PS4           2
+
+                                     3         Minecraft          23,95       SWITCH         1
+
+                                     4    League of Legends       0          PC           4
+
+                                     5   Mario Kart 8 DELUXE     43,99       SWITCH         4
+
+                                     6         Civilization VI         29,99         PC           3                    Table client
+
+                                                                                                       ID      Prénom     Nom              Ville       Age
+
+                                                                                         1         Fred       Enlefrigau     Stockholm      45
+
+                                                                                         2        François     Belététoi     Pyongyang      26
+
+                                                                                         3           Gilles      Edenotre       Rennes       32
+
+                                                                                         4        Yann     Apourtous       Caen
+
+25
+
+
+
+
+
+                                                                       Les bases de MySQL et MariaDB
+                                                                       La jointure interne
+
+
+
+                        •  INNER JOIN
+                              • Jointure interne
+                              • Condition vraie dans les 2 tables
+
+                                A   B
+
+
+
+
+                                                                                                 La jointure représente l’intersection de A et B
+
+
+
+                              • SELECT * FROM table_A INNER JOIN table_B ON table_A.clé = table_B.clé
+
+                                 * Il existe d’autres jointures que nous ne verrons pas dans ce cours
+
+
+
+
+26</pre></section><section><h2>Page 14</h2><pre>                                                                       Les bases de MySQL et MariaDB
+                                                                       La jointure interne
+
+
+                    •  Si je souhaite connaître le nom des jeux qu’a achetés Yann :
+                              • SELECT achat.nom : # je sélectionne ce que je veux afficher
+                              • FROM achat : # sur quelle table je travaille
+                              • INNER JOIN client : # je la joins à la table client
+                              • ON client.id = achat.id_client : # on fait la jointure sur la colonne ID
+                     de la table client et sur la colonne ID_client de la table achat
+                              • WHERE client.Prénom = ‘yann’; : # ID_client à 4 correspond à Yann
+
+
+
+
+                           mysql&gt;SELECT achat.nom FROM achat INNER JOIN client ON client.id = achat.id_client where
+                           client.prénom = ‘yann’;
+                           +------------------------------+
+                           |  Nom                         |
+                           +------------------------------+
+                           |  Overwatch                          |
+                           |  League of Legends           |
+                           |  Mario Kart 8 DELUXE         |
+                           +------------------------------+
+
+
+
+
+27</pre></section></html>

@@ -41,3 +41,16 @@ Le démarrage et les services s’administrent en observant d’abord l’état,
 ??? success "Réponses"
     1. `systemctl status nom.service`.
     2. Configurer le démarrage automatique du service.
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Situer la panne de démarrage
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ F["Firmware"] --> G["GRUB2"] --> K["Noyau Linux"] --> S["Initialisation systemd"] --> V["Services"]
+```
+
+Repère IA de synthèse : repérer la dernière étape atteinte, relever le message, puis consulter la partie correspondante du support et du TP.

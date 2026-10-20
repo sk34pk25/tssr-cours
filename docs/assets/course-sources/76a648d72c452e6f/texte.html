@@ -1,0 +1,253 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - PremiŠres commandes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - PremiŠres commandes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                  Initiation à PowerShell
+Premières commandes
+TP du Module 01
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 de ce cours.
+
+
+           Durée estimée
+
+              2 heures
+
+Énoncé
+
+
+
+Objectifs :
+•  Lancer des commandes PowerShell données
+•  Analyser les différences de résultats d’exécution entre différents environnements
+
+Prérequis :
+•  Récupérer la maquette fournie par le formateur
+•  Avoir une connexion internet
+
+Consignes :
+•  Décompresser la maquette fournie par le formateur
+•  Intégrer les machines virtuelles dans VMware Workstation
+•  Démarrer les machines virtuelles suivantes :
+                   o  CLI01
+                   o  CD01
+•   S’y connecter :
+                   o  identifiant : Administrator@ad01.lcl
+                   o  mot de passe : Pa$$w0rd
+
+Depuis la machine CLI01 :
+•  Lancez  la console PowerShell en mode  administrateur  et découvrez  l&#x27;interface
+    utilisateur.
+•  Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes
+   renvoyées par la propriété Count
+
+                                     2855
+•  Lancez la console PowerShell Core en mode administrateur et découvrez l&#x27;interface
+
+
+
+ Page 1/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                                  Initiation à PowerShell
+
+    utilisateur.
+•  Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes
+   renvoyées par la propriété Count.
+
+                          Admin 2825 / user 2796
+•  Affichez  la  liste des verbes  disponibles dans chaque console  PowerShell. Que
+   remarquez-vous ?
+
+   Get-Verb (| measure)
+
+   PS = 98
+
+   PSCore = 100
+
+  On remarque les verbes sont classés par groupe.
+•   Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ?
+
+   Get-Command -Verb New
+
+•   Listez les commandes contenant user dans le nom. Quelle commande avez-vous
+    utilisée ?
+
+                         Get-Command -Noun *User*
+
+•  Indiquez la commande permettant de créer un nouvel utilisateur local.
+
+                      Get-command -Noun *localuser*
+
+•   Listez les cinq premiers utilisateurs locaux de chaque machine virtuelle.
+                   o   Utilisateurs de CD01
+
+                      Get-LocalUser | select -first 5
+
+                   o   Utilisateurs de CLI01
+                         Get-LocalUser | select -first 5
+
+Bonus
+•  Modifiez la description d’un utilisateur local sur « SRV01 » et « CLI01 ». Quelles commandes
+   avez-vous utilisées ?
+
+   Set-LocalUser -Name &quot;AxelRios&quot; -Description &quot;Operateur&quot;
+
+   Get-LocalUser -Name &quot;AxelRios&quot;
+
+
+
+Depuis la machine CLI01
+•  Affichez l’aide de la commande permettant de lister tous les services du système.
+
+Get-Help Get-Service
+
+•  Affichez l’aide dans une nouvelle fenêtre. Indiquez la commande utilisée.
+
+Get-Help Get-Service -showwindow
+
+
+
+
+
+ Page 2/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                                  Initiation à PowerShell
+
+•  Affichez la totalité de l’aide disponible. Quelle commande avez-vous utilisée ?
+
+Get-Help Get-Service -full
+
+•  Affichez l’aide en ligne de la commande permettant de lister les membres d’un groupe
+    d’utilisateurs locaux. Quelle commande avez-vous utilisée, quels sont les avantages de
+    l’aide en ligne ?
+
+Get-Help Get-LocalGroup – Online
+
+Afficher les membres d&#x27;un groupe
+
+Get-LocalGroupMember -Online
+
+•  Mettez à jour les fichiers d’aide de votre console PowerShell.
+                   o  Vous allez effectuer la mise à jour de toutes vos commandes à
+                               partir d’un dépôt local situé sur « CD01 ».
+                   o  Voici     le   chemin     «   UNC     »   du   dépôt       :
+                      \\CD01\Partage\Depot\CLI01
+                   o  Indiquez vos remarques
+
+   Update-Help -Sourcepath \\CD01\Partage\Depot\CLI01\ -UICulture EN-US
+
+On remarque que certains modules n’ont pas de fichier d’aide disponible.
+
+
+
+
+
+•  Effectuez la même action mais en sélectionnant le langage « fr-FR   ». Indiquez vos
+   remarques.
+
+Update-Help -Sourcepath \\CD01\Partage\Depot\CLI01\ -UICulture fr-FR
+
+On remarque que très peu de modules disposent de fichiers d’aide traduits.
+
+
+
+
+
+ Page 3/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                                  Initiation à PowerShell
+
+Depuis la machine CLI01
+•  Affichez les modules actuellement chargés par la console PowerShell.
+
+Get-Module ou Get-module -all
+
+
+                   o  Combien de modules sont actuellement disponibles ?
+
+                      Get-Module | measure
+
+                   o De quel module la commande Get-LocalUser est-elle issue ?
+
+                      get-command get-localuser
+
+                      get-command get-localuser | ft wrap
+
+                      get-command get-localuser | select module
+
+
+                      &gt;&gt; Microsoft.PowerShell.LocalAccounts
+
+•  Affichez les emplacements disponibles pour déposer les fichiers contenant les modules.
+   Quelle commande avez-vous utilisée ?
+
+Get-Help about_modules -showwindow
+
+On cherche &quot;Path&quot;
+
+#variable d&#x27;environnement :
+
+$env:PSModulePath
+
+C:\Users\Administrator\Documents\WindowsPowerShell\Modules;C:\Program
+Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Mod
+ules
+•   Installer   le  module  AWSPowerShell.  L’archive  est  disponible  sur  le  partage
+   \\CD01\Partage\Modules
+                   o  Quelles commandes avez-vous utilisées ?
+•  Vous allez obtenir un message d’erreur à l’importation du module
+                   o  Quelle  commande  allez-vous  exécuter  pour  permettre
+                            l’importation du module ?
+
+                      Import-Module AWSPowserShell
+
+                   o  Indiquez   trois  commandes  disponibles  dans  le  module
+                        AwsPowerShell
+
+
+
+
+
+ Page 4/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                                                  Initiation à PowerShell
+
+
+
+
+
+•  Mettez en place un profil personnel sur chaque console PowerShell.
+                   o  Vous pouvez modifier la coloration ainsi que la police.
+                   o  Affichez l’aide de la commande Get-Help à chaque ouverture
+                   de la console PowerShell.
+                   o  Quel fichier avez-vous édité ?
+                           Microsoft.PowerShell_profile.ps1
+
+
+
+
+
+Bonus
+•  Modifiez le prompt de votre console PowerShell.
+                   o  En       vous       basant         sur         le         fichier
+                       \\CD01\Partage\Aplication\Prompt.ps1
+                   o  Modifiez  votre prompt pour  afficher  l’heure  ainsi que  la
+                             localisation actuelle du prompt dans le système de fichier.
+
+Vous pouvez également afficher une bannière avec le nom de l’utilisateur actuel.
+
+
+
+
+
+ Page 5/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                                                  Initiation à PowerShell
+
+
+
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger.
+
+
+
+
+
+ Page 6/6
+                                      © ENI – Tous droits réservés</pre></section></html>

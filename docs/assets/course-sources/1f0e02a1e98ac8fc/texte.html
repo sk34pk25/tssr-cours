@@ -1,0 +1,94 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 1 - Mise en place d&#x27;un contexte AD.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche démo 1 - Mise en place d&#x27;un contexte AD.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                      Services réseau en environnement Microsoft
+Mise en place d’un contexte
+Active Directory
+Démonstration 01 du module 02
+
+
+ Cette démonstration décrit les différentes étapes relatives à la mise en place d’un contexte
+ Active Directory
+
+Déroulement
+    •  Prérequis
+        o  Avoir installé et configuré une VM Windows Server.
+        o  Avoir renommé correctement la VM.
+        o  Avoir attribué une IP fixe à la VM.
+
+    •  Ajout du rôle
+
+Lors de l’accès à la session du serveur, le Gestionnaire de Serveur ou Serveur Manager se lance
+automatiquement.
+
+Pour lancer la console permettant la gestion des disques, cliquer sur Manage (1), puis sur Add Roles
+and Features (2).
+
+
+
+
+
+    •  Ajout du rôle Active Directory
+
+Cliquer sur le bouton Next (1). Sur la fenêtre Select installation type, cliquer sur le bouton Next (2).
+Cliquer sur le bouton Next (3) sur la fenêtre Select destination server. Cocher Active Directory
+Domain Services (4), puis cliquer sur le bouton Add Features (5) de la fenêtre contextuelle qui vient
+de s’ouvrir. Puis, cliquer sur le bouton Next (6). Sur la fenêtre Select features, cliquer sur le bouton
+Next (7). Cliquer sur le bouton Next (8) sur la fenêtre Active Directory Domain Services. Enfin, cocher
+la case Restart the destination server automatically if required (9), puis cliquer sur le bouton Yes (10)
+de la fenêtre contextuelle qui apparaît. Enfin, cliquer sur le bouton Install (11) pour lancer le
+processus d’installation du rôle. Cliquer sur le bouton Close (12) pour terminer le processus
+d’installation.
+
+
+
+ Page 1/6
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 2/6
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 3/6
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Configuration de l’Active Directory
+
+Une fois l’installation terminée, un « flag » jaune (1) apparaît sur le dashboard. Cliquer sur le drapeau
+(2), puis sur la ligne Promote this server to a domain controller (3). Dans la partie Select the
+deployment operation (4), cocher le bouton radio Add a new forest (5). Par la suite, spécifier le nom
+de votre domaine dans l’input box Root domaine name (6), puis cliquer sur le bouton Next (7).
+Renseigner un mot de passe de récupération et le confirmer (8), puis cliquer sur le bouton Next (9).
+Dans la fenêtre DNS Options, cliquer sur le bouton Next (10). Cliquer sur le bouton Next (11) dans la
+fenêtre Additional Options. Cliquer sur le bouton Next (12) dans la fenêtre Paths. Dans cette fenêtre
+l’ensemble des éléments de configurations sont repris, cliquer sur le bouton Next (13). Une fois les
+prérequis validés (14), cliquer sur le bouton Install (15). À l’issue de l’installation, la VM va redémarrer
+pour appliquer les modifications.
+
+
+
+
+
+ Page 4/6
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 5/6
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Validation de la configuration AD
+
+À la suite du redémarrage de la VM, la mire de connexion doit proposer la connexion sur le
+domaine précédemment configuré (1).
+
+
+
+
+
+ Page 6/6
+                                          © ENI – Tous droits réservés</pre></section></html>

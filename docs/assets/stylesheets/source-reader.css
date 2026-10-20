@@ -1,0 +1,15 @@
+/* Original course pages retain their source appearance in both site themes. */
+.tssr-original-reader { margin: 1rem 0; }
+.tssr-origin-badge { display:inline-block; padding:.3rem .65rem; border-radius:.4rem; background:var(--tssr-primary-soft); color:var(--tssr-primary); font-size:.65rem; font-weight:800; letter-spacing:.035em; }
+.tssr-original-document { margin:1rem 0; border:1px solid var(--tssr-border); border-radius:.65rem; overflow:hidden; }
+.tssr-original-document > summary { cursor:pointer; padding:.85rem 1rem; background:var(--tssr-surface-soft); font-weight:700; line-height:1.5; }
+.tssr-original-document__body { padding:.85rem; }
+.tssr-original-links { display:flex; flex-wrap:wrap; gap:.5rem; }
+.tssr-original-links a { display:inline-block; padding:.45rem .65rem; border:1px solid var(--tssr-border); border-radius:.4rem; font-size:.72rem; text-decoration:none; }
+.tssr-original-figure { margin:1.3rem 0; padding:0; }
+.md-typeset .tssr-original-figure img { display:block; width:100%; height:auto; max-height:none; background:#fff; border:1px solid #d9dde4; border-radius:.3rem; }
+.md-typeset .tssr-original-figure figcaption { margin:.45rem 0 0; font-size:.65rem; line-height:1.55; color:var(--tssr-text-muted); text-align:left; }
+.tssr-original-note { padding:.65rem; border-left:3px solid var(--tssr-primary); background:var(--tssr-surface-soft); font-size:.75rem; }
+.tssr-original-proof { font-size:.6rem; overflow-wrap:anywhere; color:var(--tssr-text-muted); }
+.md-typeset .tssr-original-text pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; padding:1rem; line-height:1.65; }
+@media(max-width:600px) { .tssr-original-document__body { padding:.5rem; } .tssr-original-links { display:grid; } .tssr-original-document > summary { padding:.7rem; } }

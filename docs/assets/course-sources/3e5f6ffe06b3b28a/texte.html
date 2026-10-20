@@ -1,0 +1,68 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M5 - Enoncé du TP1 - Enchaînements conditionnels.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M5 - Enoncé du TP1 - Enchaînements conditionnels.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                                    Initiation au scripting Bash
+
+Enchaînements conditionnels
+TP1 du Module 05 - Les caractères spéciaux du Shell
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 5.
+
+
+Objectifs
+
+Créer un script Shell utilisant des enchainements de commandes conditionnels.
+
+
+Énoncé
+
+
+
+Réaliser un script Shell effectuant des actions automatisées :
+
+    •  Le script demandera tout d’abord la saisie d’un nom de dossier
+
+        o  En réalisera la création et confirmera la bonne création avec un message en vert
+
+    •   Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt
+
+        o  Le nom de ce fichier sera stocké dans une variable déclarée manuellement en début de
+                script
+
+        o  La bonne création du fichier sera confirmée par un message de couleur bleu
+
+    •  Renseignera automatiquement le contenu suivant dans le fichier avec la commande
+   echo &quot;Introduction du fichier fic_M5TP1.txt&quot; &gt; $dossier/$fic
+
+    •   Affichera le contenu du fichier (et vérifier la bonne insertion du texte)
+
+
+Exemple de visuel possible :
+
+$ ./script_M5TP1.sh
+Veuillez saisir un nom de dossier à créer: doss_M5TP1
+
+
+Création du dossier : doss_M5TP1
+-----------------------------
+ Répertoire ‘doss_M5TP1’ créé.
+
+
+Création du fichier : fic_M5TP1.txt
+-----------------------------
+ Fichier &#x27;fic_M5TP1.txt&#x27; créé dans ‘doss_M5TP1’.
+
+
+Contenu du fichier :
+
+                                                                     ENI Ecole Informatique</pre></section><section><h2>Page 2</h2><pre>                                                                                                    Initiation au scripting Bash
+
+
+
+
+------------------
+Introduction du fichier fic_M5TP1.txt
+
+
+
+
+
+                                                                     ENI Ecole Informatique</pre></section></html>

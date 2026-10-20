@@ -1,0 +1,113 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M6 - Solutions du TP 2 - Compte utilisateur.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M6 - Solutions du TP 2 - Compte utilisateur.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             Initiation au scripting Bash
+Compte utilisateur
+Solutions – TP2 du Module 06 – Exécution conditionnelle
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6.
+
+
+Objectifs
+
+Créer un algorithme de solution en réponse à un besoin et cahier des charges donné.
+
+Créer un script à partir d’un algorithme.
+
+Énoncé
+
+
+Pour créer ce script, il faut travailler par étape.
+
+Tout d’abord, il faut commencer par demander la saisie du compte utilisateur sur lequel agir.
+Ensuite, il faut afficher le menu à l’écran et inviter à choisir une proposition dans la liste. Enfin, il
+faudra gérer chaque choix possible en indiquant la/les commande(s) Shell à passer.
+
+   •  Créer et éditer un nouveau fichier script script_M6TP2.sh
+
+vim script_M6TP2.sh
+
+   •  Ajouter les lignes suivantes :
+
+#! /bin/bash
+
+# M6 - Solution du TP2 - Script de gestion des utilisateurs locaux
+
+# Demande de saisie du compte sur lequel agir
+
+read -p &quot; Saisir l&#x27;identifiant utilisateur souhaité : &quot; nom
+
+# Affichage du menu
+
+echo &quot;GESTION DES UTILISATEURS : $nom &quot;
+
+echo &quot;----------------------------------&quot;
+
+echo &quot;C - Créer le compte utilisateur&quot;
+
+echo &quot;M - Modifier le mot de passe de l&#x27;utilisateur &quot;
+
+echo &quot;S - Supprimer le compte utilisateur&quot;
+
+echo &quot;V - Vérifier si le compte utilisateur existe&quot;
+
+echo &quot;Q - quitter&quot;
+
+echo &quot;&quot;
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             Initiation au scripting Bash
+
+# Demander à choisir parmi la liste
+
+read -p &quot;Votre choix  : &quot; rep
+
+# Gestion choix =&gt; action(s)
+
+case $rep in
+
+        c|C ) echo &quot;Création du compte&quot;
+
+             useradd -m  -s /bin/bash $nom ;;
+
+        m|M ) echo &quot;Modification du mot de passe&quot;
+
+             passwd $nom ;;
+
+        s|S ) echo &quot;Suppression du compte&quot;
+
+             userdel $nom ;;
+
+        v|V ) echo &quot;Vérification de l’existence du compte&quot;
+
+             userpresent=$(grep $nom &quot;/etc/passwd&quot;)
+
+              if [[ -z $userpresent ]]; then
+
+                 echo &quot;Compte utilisateur de $nom INEXISTANT&quot;
+
+              else echo &quot;Compte utilisateur de $nom EXISTANT&quot;
+
+              fi ;;
+
+        q|Q ) exit 0 ;;
+
+        *) echo &quot;Erreur de saisie&quot;
+
+             exit 1 ;;
+
+esac
+
+
+   •  Rendre exécutable le script à l’aide de chmod
+
+En supplément, on pourrait avant toute action de création ou suppression, vérifier l’existence du
+compte et ainsi éviter des erreurs système de se produire en cas d’échec.
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

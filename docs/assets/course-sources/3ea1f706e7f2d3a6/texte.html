@@ -1,0 +1,124 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 1 - Les variables.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 1 - Les variables.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                           Initiation à PowerShell
+Les variables
+Démonstration 01 du module 4
+
+
+ L’objectif de cette démonstration est de découvrir en quoi, comme tout langage-objet,
+ PowerShell utilise les variables qui permettent de stocker des données dans la mémoire vive de
+ l’ordinateur puis de les réutiliser dans d’autre commande.
+
+Déroulement
+•  La console PowerShell dispose de variables réservées comme nous avons pu le voir avec
+   $PSItem. Nous allons étudier les façons de travailler avec les variables.
+
+•  La commande  Get-Variable  permet de  connaître  toutes  les  variables  disponibles
+   actuellement dans la console PowerShell.
+
+
+
+
+
+•  Pour déclarer une nouvelle variable, on utilise le caractère $ suivi du symbole = puis de la valeur
+  à attribuer à la variable.
+
+
+
+Attention au type de variable ! Le fait d’attribuer la valeur 1 type la variable en INT.
+
+Pour obtenir le type de variable, on utilise la méthode getType()
+
+
+
+
+Le paramètre FullName permet d’afficher le type complet de la variable.
+
+Lorsque l’on souhaite déclarer une variable de type String qui va contenir une chaîne de
+caractères, il faut encadrer les caractères avec des doubles quotes.
+
+
+
+
+
+La variable $b est de type SystemString car la valeur 1 est encadrée avec des doubles quotes.
+
+
+
+ Page 1/3
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                                           Initiation à PowerShell
+Les variables vont contenir également des objets, qui par la suite vont être réutilisés dans d’autres
+traitements.
+
+Pour contenir des objets dans une variable, on déclare la variable puis on assigne un résultat de
+commande à cette variable.
+
+
+
+
+
+On obtient une variable de type System.Object qui contient le résultat de la commande Get-
+Aduser.
+
+Lorsque la variable est déclarée, elle est utilisable dans la console.
+Pour visualiser son contenu, il suffit de saisir son nom précédé du $.
+
+
+
+
+
+La variable peut également servir de conteneur à une saisie dans la console. Elle va être combinée
+à la commande Read-Host
+
+
+
+
+
+La variable peut être utilisable avec la commande Write-Host pour afficher le contenu dans une
+chaîne de caractères avec des outils de mise en forme.
+
+
+
+La valeur de la variable $choix est affichée dans la chaîne de caractères.
+
+Les variables de type System.Object peuvent être utilisées pour afficher une ou plusieurs propriétés
+d’un ou des objets qu’elles contiennent.
+
+On utilise le . à la suite de la variable pour indiquer le nom de la propriété à afficher.
+
+
+
+
+
+ Page 2/3
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                                           Initiation à PowerShell
+
+
+
+
+
+Il est possible de sélectionner un seul objet dans la variable en lui indiquant une valeur d’index.
+
+
+
+
+
+On sélectionne un seul objet avec les [] puis on sélectionne une seule propriété avec le .
+
+Avec les variables de type Objet on peut également se servir des méthodes contenues dans le
+type d’objet.
+
+
+
+
+
+La variable $d utilise la méthode de conversion ToString pour convertir une valeur de type
+DateTime renvoyée par la commande Get-Date.
+
+En fin de conversion, on obtient une valeur de type string utilisable dans une commande Write-
+Host.
+
+
+
+
+
+ Page 3/3
+                                          © ENI – Tous droits réservés</pre></section></html>

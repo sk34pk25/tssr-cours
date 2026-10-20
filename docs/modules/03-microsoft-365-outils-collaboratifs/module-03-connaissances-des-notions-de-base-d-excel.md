@@ -78,3 +78,20 @@ Avant de finaliser, contrôlez :
 - **Sources A — TSSR live :** `Module 03 - Support de cours.pdf`, Drive `1iMM4_v_Oj8W9fCRz_eZZfRFRLbyfCWKk`, SHA-256 `454b907751a8980aa3560a8af585e67e572aff0ba80dc51587332bb9c7873f22` ; `M3 - Enoncé du TP - Utilisation d'Excel.pdf`, Drive `1LBnGQASfwJWAa-v07lZ8Hig74kYlcqCq`, SHA-256 `632e56cdcd27bb7885adb0ef9b0ae09a514512f8718f9d944b39ce1d217bd4f3` ; `M3 - Solution du TP - Utilisation d'Excel.pdf`, Drive `1p8MSdBOHgRnxz8hqdreos-Lzm6ZZSilu`, SHA-256 `ac619d926498a7c21967526161e23ec8bc19a963e1397a174a53cb5bb7d372cb`.
 - **Ressources A du TP :** `Clients - Document Brut.xlsx`, Drive `1kUV2BU4r5DII42OHnfBNTXtDtQ1ncUd8`, SHA-256 `0b099405b78b9582a54dc1c12e8ad5a370c14ddc6fc3d31378e793149d8bb881` ; `Clients - Document Fini.xlsx`, Drive `1vMr21WSPgRNkTZNto1S6-D5BSzRqrmWA`, SHA-256 `8991e74764c65ab349bae4517c9bed89785ebb370cc517b4ef7d77dabd9987ae` ; `Clients - Document Fini.pdf`, Drive `12QGYWriIVavMocVlQ6I_tEbRz288mcjC`, SHA-256 `9a86ba62d2ce7f29f81a036649af26542b912d4ec2425f0c1e4c5a42b1a22c55`.
 - **Structuration B :** les explications, tableaux, contrôles et exemples pédagogiques organisent les notions explicitement présentes dans ces sources, sans apport externe.
+
+<!-- TSSR-IA-ENRICHMENT-20261020 -->
+
+## Complément IA / externe au cours — précisions sur les limites d’Excel
+
+La page 3 du PDF source comporte des valeurs à ne pas mémoriser comme limites générales : elle mentionne **10 148 576 lignes** et **255 feuilles**. La documentation Microsoft indique **1 048 576 lignes et 16 384 colonnes par feuille** ; le nombre de feuilles d’un classeur dépend de la mémoire disponible. La dernière cellule de cette grille est donc **XFD1048576**. Les captures du support sont conservées intactes pour permettre la comparaison. [Source Microsoft — spécifications et limites d’Excel](https://support.microsoft.com/en-us/excel/excel-specifications-and-limits).
+
+**Illustration IA / externe au cours — la recopie des références.**
+
+```mermaid
+flowchart LR
+    A["A1 : référence relative"] -->|"copie d'une colonne à droite"| B["B1"]
+    C["$A$1 : référence absolue"] -->|"même copie"| D["$A$1"]
+    E["$A1 : colonne fixée"] -->|"copie d'une ligne vers le bas"| F["$A2"]
+```
+
+Exercice de consolidation IA : saisir un prix en A2 et un taux en B1 ; écrire `=A2*$B$1`, recopier vers le bas, puis expliquer séparément le déplacement de A2 et le maintien de B1. Ce petit scénario est un ajout pédagogique, pas une consigne du TP ENI.

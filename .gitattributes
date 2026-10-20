@@ -1,0 +1,2 @@
+# Preserve downloaded originals and their generated captures byte for byte.
+docs/assets/course-sources/** -text

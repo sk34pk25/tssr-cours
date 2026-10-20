@@ -108,3 +108,21 @@ Cette présentation situe la virtualisation par ses usages, ses avantages et ses
 M01 repose sur un seul support de cours. Il ne comporte ni TP, ni énoncé, ni correction, ni fiche de révision, ni Kahoot, ni ressource téléchargeable attestée. Le PDF source reste une ressource de provenance et n’est pas republié comme téléchargement.
 
 **Source A — Drive TSSR, lecture seule :** `Module 01 - Support de cours.pdf` — ID `1qCsojBU2zSMsawu4PupwZkXbXJSpGSaI` — SHA-256 `ea6cf1bcebe9ae208b570a9ba6b9d74d35490ecd7e344c58952920a1edc63ae2`.
+
+<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Distinguer les deux types d’hyperviseur
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart TD
+ subgraph T1["Type 1 — repère IA"]
+  M1["Matériel"] --> H1["Hyperviseur"] --> V1["Machines virtuelles"]
+ end
+ subgraph T2["Type 2 — repère IA"]
+  M2["Matériel"] --> O2["Système hôte"] --> H2["Hyperviseur hébergé"] --> V2["Machines virtuelles"]
+ end
+```
+
+Schéma simplifié IA fondé sur la distinction du module. Il présente les couches utiles pour comprendre le cours ; les composants exacts des produits restent ceux des illustrations originales.

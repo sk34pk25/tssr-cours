@@ -1,0 +1,63 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M09TP01 - Enoncé - Préparation des systèmes de fichiers.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M09TP01 - Enoncé - Préparation des systèmes de fichiers.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                        Administration Debian GNU/Linux
+Préparation des systèmes
+de fichiers
+TP du Module 09 – Gestion des espaces de stockage – File Systems
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+           30 à 45 minutes
+
+Énoncé
+
+  I.  Gestion des systèmes de fichier
+
+A partir du volume logique lvvar, configurer un système de fichier ext4 avec une étiquette
+VAR
+
+Agrandir le système de fichier présent dans le volume logique home afin qu’il utilise toute la
+place du volume logique.
+
+ II.  Migration du répertoire /var
+
+Migrer le répertoire /var vers le volume logique var tout en préservant les données
+existantes.
+
+Conseils de mise en œuvre :
+•   Faites un snapshot de votre VM
+•   Vérifier l&#x27;utilisation de /var avant de copier les fichiers (lsof).
+•  Prendre toutes les précautions nécessaires pour éviter l’écriture dans l’arborescence de
+   /var afin de pouvoir copier correctement les fichiers
+•   Utiliser un montage temporaire pour pouvoir copier les données de l&#x27;ancien vers le
+   nouveau volume
+•  Copier les données en préservant les permissions
+
+
+
+
+
+Page 1/2
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                        Administration Debian GNU/Linux
+ III.  Automatisation du montage au démarrage : sur la
+     station avec environnement graphique
+
+Activer le montage automatique au démarrage du volume logique lvvar vers /var
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger.
+
+
+
+
+
+Page 2/2
+
+                             © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,211 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Manipuler l&#x27;aide de PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Manipuler l&#x27;aide de PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
+Manipuler l’aide de
+PowerShell
+TP du Module 03 – Interagir avec Windows 10
+
+Proposition de solution
+
+Sur Discovery, à l’aide de PowerShell
+
+
+Affichez l&#x27;aide complète de la cmdlet Get-Alias
+•  Quelle cmdlet avez-vous utilisée ?
+
+Get-Help -Full Get-Alias
+
+Un Get-Help Get-Alias -ShowWindow est aussi possible
+
+
+Sur Win10-XX, à l&#x27;aide de PowerShell
+
+Affichez l&#x27;aide complète de la cmdlet Get-Alias
+•  Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux
+  VMs ?
+
+Après avoir effectué la commande sur Win10-XX, nous remarquons qu’elle semble moins
+fournie. Les exemples ne sont pas présents. On observe surtout la présence d’une section
+REMARQUES à la fin, qui indique qu’il faut télécharger les fichiers d’aide.
+
+
+•  Mettez à jour l&#x27;aide de PowerShell
+        o  Vérifiez, à l&#x27;aide de votre interface graphique, que les mises à jour Windows
+           Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant.
+
+Rechercher &gt; Options avancées de Windows Update &gt; Options avancées &gt; Interrompre les
+mises à jour jusqu’à la date maximale
+        o  Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-
+           XX aura besoin d&#x27;être connectée au switch virtuel Bridge
+
+Dans WorkStation, xlic droit sur l’onglet de votre VM Win10-XX &gt; Settings
+
+Network Adapter
+
+Cochez Bridged
+
+
+
+
+
+ Page 1/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
+
+
+
+
+
+La VM détecte un nouveau réseau.
+
+Pour mettre en place l’emplacement réseau privé, cliquez sur Oui
+
+
+
+
+
+ Page 2/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
+
+Une connexion internet est découverte, Windows 10 en profite pour vous demander de
+terminer la configuration de votre profil utilisateur. Cliquer sur Me le rappeler plus tard
+
+
+
+
+
+        o  Identifiez-vous auprès du serveur à l&#x27;aide de vos identifiants / mot de passe du
+          domaine
+
+Pour mettre à jour les fichiers d’aide PowerShell, lancer une invite PowerShell en tant
+qu’administrateur.
+
+Update-help
+
+La mise à jour se lance et est symbolisée par une barre d’avancement comme ci-dessous.
+
+
+
+
+
+ Page 3/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Systèmes Clients Microsoft
+
+Si la barre d’avancement n’apparaît pas, c’est que vous avez fait une erreur de syntaxe
+dans votre commande.
+
+
+
+
+
+Au bout de quelques minutes, la mise à jour est terminée. Un message d’erreur peut
+éventuellement apparaître, vous indiquant une mise à jour impossible pour certains
+modules. Ceci  n’est pas bloquant. Vous pouvez continuer  le  TP, cela correspond
+généralement à des modules qui ne sont pas installés sur votre ordinateur ou à des modules
+non disponibles dans la langue demandée.
+
+
+
+
+
+Pour vérifier la bonne mise à jour de l’aide, effectuez la commande suivante sur votre VM
+Win10-xx :
+
+Get-Help -Full Get-Alias
+
+Vous devez obtenir l’aide complète (avec des exemples, des liens connexes …)
+
+
+
+
+
+Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only.
+•  Quelle cmdlet permet d&#x27;obtenir les exemples de la cmdlet Get-Help ?
+
+Get-Help Get-Help -Example
+
+
+•  À l&#x27;aide de ces exemples, recherchez et testez la cmdlet qui permet d&#x27;afficher la liste de
+   tous les concepts disponible et utilisable dans PowerShell
+
+Voir l’exemple 8 de la commande précédente Get-Help
+
+Get-Help about_*
+
+
+•  Quelle cmdlet nous permet d&#x27;en apprendre plus sur le concept d&#x27;alias PowerShell ?
+
+
+
+
+ Page 4/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>Systèmes Clients Microsoft
+
+        o  Affichez le résultat de cette cmdlet dans une fenêtre d&#x27;aide séparée
+
+Get-Help about_Aliases -ShowWindow
+
+
+•  Les alias configurés sont-ils conservés si la session PowerShell est fermée ? Quelle section
+  de l’aide faut-il consulter pour savoir comment les sauvegarder ?
+
+Les alias configurés ne sont pas conservés si la session PowerShell est fermée. La section de
+l’aide qu’il faut consulter pour savoir comment les configurer est la section SAVING ALIASES
+
+SAVING ALIASES
+
+The aliases that you create are saved only in the current session. To use the
+aliases in a different session, add the alias to your Windows PowerShell profile.
+Or, use the Export-Alias cmdlet to save the aliases to a file.
+
+For more information, type:
+
+Get-Help about_Profiles
+
+
+•  PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le
+  nom de la variable qui définit le nombre de commandes qui sont conservées dans
+    l’historique. (indice : une variable commence par le caractère $)
+
+Get-Help about_History
+
+[…]
+
+MaximumHistoryCount
+
+The $MaximumHistoryCount preference variable determines the maximum number of
+commands that PowerShell saves in the command history. The default value is 4096.
+
+
+
+
+For  example,  the  following  command  lowers  the  $MaximumHistoryCount  to  100
+commands:
+
+
+
+
+    $MaximumHistoryCount = 100
+
+
+
+
+To apply the setting, restart PowerShell.
+
+
+•  Quelle est la valeur par défaut contenue dans cette variable ? Cette valeur peut-elle
+   être modifiée ?
+
+Selon le résultat de la commande précédente, la valeur par défaut contenue dans cette
+variable est 4096. Elle peut être modifiée grâce à la commande
+
+
+
+ Page 5/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>Systèmes Clients Microsoft
+
+$MaximumHistoryCount = nb
+
+
+
+
+
+ Page 6/6
+                                      © ENI – Tous droits réservés</pre></section></html>

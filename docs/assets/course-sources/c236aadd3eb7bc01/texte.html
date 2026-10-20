@@ -1,0 +1,127 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Gestion du r‚seau.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enonc‚ du TP - Gestion du r‚seau.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Gestion du réseau
+TP du Module 07 – La gestion du réseau et du pare-feu
+
+ Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en
+ place un adressage IP fixe puis effectuerez des tests (tests de communications et de
+ résolution de noms entre autres). Vous parcourrez et modifierez la configuration du
+ pare-feu pour l’adapter aux consignes.
+
+       Durée estimée
+
+          1 heure
+
+Énoncé
+
+Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique
+
+Sur votre VM Win10-XX, configurez vos accès réseau :
+
+
+  Connectez votre VM sur le switch Bridged (vérifier d&#x27;abord le report de 35 jours de
+   Windows Update)
+  Possédez-vous une adresse IP ? Laquelle ? Quelle est l&#x27;adresse du réseau ?
+
+
+
+
+
+  Configurez une adresse IP fixe sur l&#x27;interface réseau de votre VM :
+        o  La partie réseau de votre adresse sera la même que celle qui est configurée
+               sur l’ordinateur à votre disposition pour réaliser les TP.
+        o  La partie hôte sera composée du rang alphabétique de la première lettre
+          de votre prénom puis du rang alphabétique de la première lettre de votre
+         nom de famille
+             Exemple : Pierre-Louis Le Guervelec
+                 P = 16eme lettre de l’alphabet  l’octet n°3 de l’adresse IP
+                          sera donc 16
+
+
+
+ Page 1/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+                L = 12eme lettre de l’alphabet  l’octet n°4 de l’adresse IP
+                          sera donc 12
+        o  Le masque sera 255.255.0.0
+        o  La  passerelle  et  le  serveur DNS  préféré  seront  les mêmes que ceux
+             configurés sur votre VM Campus en ligne
+
+
+
+
+
+Connectivité
+   Utilisez la commande ping vers les hôtes suivants :
+        o  Adresse IP de la passerelle par défaut
+        o  Adresse IP de votre VM Discovery
+        o  www.facebook.com
+  Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
+  À quel niveau du réseau sont-ils ? Réseau local ? Internet ?
+
+
+
+
+
+   Utilisez  la commande  tracert pour ces mêmes noms. Que nous apprend cette
+  commande ?
+
+
+
+
+
+ Page 2/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+Résolution de noms
+
+
+   Utilisez la commande nslookup avec les noms suivants :
+        o  www.hadopi.fr
+        o  www.amendes.gouv.fr
+        o  www.facebook.com
+
+
+
+
+
+  Obtenez-vous des réponses pour chacune des requêtes ? Quelles sont les adresses
+   IPv4 de ces hôtes ?
+
+
+
+
+
+Pare-feu sur W10-XX
+
+
+   Vérifiez l&#x27;état d&#x27;activation de votre pare-feu pour chaque profil réseau.
+  Configurez le pare-feu pour les Programmes autorisés :
+        o  Autorisez le Bureau à distance uniquement pour le profil privé
+
+
+
+
+
+ Page 3/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie
+   vous permettant d’autoriser le ping entre vos postes client.
+
+
+
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 4/4
+                                      © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,94 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 1 - La configuration du service DNS.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche démo 1 - La configuration du service DNS.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                      Services réseau en environnement Microsoft
+La configuration du service
+DNS
+Démonstration 01 du module 06
+
+
+ Cette démonstration décrit les différentes étapes relatives à l’installation du service DNS sur une
+ machine virtuelle Windows.
+
+Déroulement
+    •  Prérequis
+
+Avoir installé et configuré une VM Windows Server.
+    •  Accès à la console d’installation.
+
+Lors de l’accès à la session du serveur, le Gestionnaire de Serveur ou Serveur Manager se lance
+automatiquement.
+
+Pour lancer la console permettant l’ajout d’un rôle, cliquer sur Manage ou Gérer (1) puis sur Add
+Roles and Features ou Ajout de Rôles et Fonctionnalités (2).
+
+
+
+
+
+    •  Choix du rôle à installer.
+
+Cliquer sur le bouton Suivant (1), puis encore une fois sur le bouton Suivant (2). Sur l’écran,
+Sélectionner le serveur de destination, cliquer sur le bouton Suivant (3). Sur l’écran Sélectionner des
+rôles de serveurs, cocher la case Serveur DNS (4). Sur la fenêtre contextuelle qui vient d’apparaître,
+cliquer sur le bouton Ajouter des fonctionnalités (5), puis sur le bouton Suivant (7). Sur l’écran
+Sélectionner des fonctionnalités, cliquer sur le bouton Suivant (8). Sur l’écran Serveur DNS, cliquer
+sur le bouton Suivant (9). Continuer jusqu’à la finalisation du rôle.
+
+
+
+
+
+ Page 1/5
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 2/5
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                      Services réseau en environnement Microsoft
+
+
+
+
+
+    •  Ajout du raccourci dans la barre des tâches
+
+Ouvrir Outils d’administration, puis création du raccourci DHCP (1) dans la barre des taches (2).
+
+
+
+
+
+ Page 3/5
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Présentation de la console
+
+
+Cliquer sur le raccourci précédemment créé afin d’ouvrir la console DNS.
+
+Zone de recherche directe (1) : processus de recherche d&#x27;une adresse IP basée sur le nom d&#x27;hôte
+dans DNS.
+
+Zone de recherche inversée (2) : processus de recherche de nom d’hôte basé sur l’adresse IP dans
+le système DNS.
+
+Redirecteurs  conditionnels (3)   :  le  serveur DNS peut  être  configuré pour  faire appel à
+des redirecteurs ciblés pour des espaces de noms identifiés. Résoudre des espaces de noms privés
+non référencés et non résolvables dans l’arborescence d’espaces de noms publics. D’optimiser la
+résolution d’espaces de noms qui sont souvent sollicités.
+
+DNS (4) et Redirecteurs (5) :  si le serveur est configuré de telle sorte à utiliser la redirection,   il
+demandera à son serveur redirecteur de trouver les réponses aux requêtes de ses clients.
+
+
+
+
+
+ Page 4/5
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 5/5
+                                         © ENI – Tous droits réservés</pre></section></html>

@@ -73,3 +73,21 @@ La ressource `M03_TP05 - Ressource - Adressage IP avec Packet Tracer.pka` est at
 
 - **Sources A — TSSR Drive live :** support partagé `cours kahoot module 3 et 4.txt`, Drive `1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT`, SHA-256 `6742f4b5b0b756fdecf31f1c9e91acbdaab2a93cca15f31b29e4c85e818b0239` ; énoncé `M03-04-TP-Sous-réseaux.pdf`, Drive `1tjvGBelc6J2jftBAFjm0l2psagWX-E-p`, SHA-256 `ad726effb62af7f234555d36fe84d9e5c1bb09fb986c7ab4ebc036d9ca0e6daf` ; correction `M03-04-TP-Sous-réseaux_Correction.pdf`, Drive `1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc`, SHA-256 `3a47c869c9c914eac7b308b58e0e7ac4c6b34a497ddbe8fb5ac31e4c3f7a52e1`.
 - **Structuration B :** progression pédagogique, tableaux et méthodes fondés uniquement sur le périmètre IPv4 M03 des sources A.
+
+<!-- TSSR-EXTERNAL-CLARIFICATION-20261020 -->
+
+## Complément IA / externe au cours — vérifier le dimensionnement
+
+Pour le scénario exigeant 25 hôtes, un `/28` ne fournit que 14 adresses d’hôtes dans un sous-réseau IPv4 classique. Un `/27` fournit 30 adresses d’hôtes : c’est le plus petit bloc classique satisfaisant ce besoin. Cette vérification arithmétique explicite l’écart entre énoncé et correction, sans modifier le document original.
+
+**Illustration IA / externe au cours — contrôle du besoin.**
+
+```mermaid
+flowchart LR
+ A["Besoin : 25 hôtes"] --> B["/28 : 16 adresses, 14 hôtes"]
+ B --> C["Insuffisant"]
+ A --> D["/27 : 32 adresses, 30 hôtes"]
+ D --> E["Besoin satisfait"]
+```
+
+La règle des deux adresses réservées concerne les sous-réseaux classiques de ces exercices. Les liaisons point à point en `/31` disposent d’un traitement spécifique : ne leur appliquez pas mécaniquement cette formule. [Source externe — RFC 3021](https://www.rfc-editor.org/info/rfc3021/).

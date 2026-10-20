@@ -97,3 +97,22 @@ Le Drive TSSR live ne contient ni énoncé, ni correction, ni TP distinct pour c
 
 - **Source A — support TSSR live :** `Module 01 - Support de cours.pdf`, Drive `1ge2dZ-8TJDb2O0oL72reWf2Z1ZXGgiqk`, SHA-256 `83fd3c99e1a0c64d3f2c3fa6fcf3db97d18ab2eb8284daed34ec0e297b922380`.
 - **Structuration B :** l'ordre des sections, les tableaux, les avertissements et les formulations pédagogiques organisent les notions explicitement présentes dans le support ; ils n'ajoutent pas de source externe.
+
+<!-- TSSR-IA-ENRICHMENT-20261020 -->
+
+## Complément IA / externe au cours — lire les noms historiques
+
+Le support utilise le nom **Azure AD**. Microsoft nomme aujourd’hui ce service **Microsoft Entra ID**. Les pages originales conservent leur vocabulaire ; ce repère externe aide à reconnaître le même service dans une documentation plus récente. [Source Microsoft Learn](https://learn.microsoft.com/en-us/entra/fundamentals/new-name).
+
+**Illustration IA / externe au cours — vue de synthèse des familles de services.**
+
+```mermaid
+flowchart TD
+    T["Tenant Microsoft 365"] --> I["Identité : Azure AD dans le support"]
+    T --> M["Messagerie : Exchange Online"]
+    T --> C["Collaboration : Teams et SharePoint"]
+    T --> F["Fichiers personnels : OneDrive"]
+    I --> N["Nom actuel : Microsoft Entra ID"]
+```
+
+Pour vérifier sa compréhension, associer chaque besoin de l’entreprise à un service, puis expliquer le rôle du tenant sans confondre service et licence.

@@ -89,3 +89,19 @@ Le TP1 conserve deux parties distinctes : l'analyse du scénario vendredi 13, pu
 
 - [TP M07](../../tp/11-initiation-scripting-bash/module-07/index.md)
 - [Révision M07](../../revision/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)
+
+<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Lire une boucle while
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart TD
+ D["État initial"] --> T{"Condition vraie ?"}
+ T -->|"Oui"| A["Actions et évolution de l’état"]
+ A --> T
+ T -->|"Non"| F["Sortie de boucle"]
+```
+
+Illustration de synthèse IA : pour expliquer une boucle du TP, nommer l’état initial, la condition, l’action qui fait progresser l’état et le cas de sortie. Comparer ensuite avec `until`, qui poursuit lorsque sa condition est fausse.

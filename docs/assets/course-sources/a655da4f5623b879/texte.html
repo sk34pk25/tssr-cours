@@ -1,0 +1,73 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 3 - Boucle while-read.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M7 - Solution du TP 3 - Boucle while-read.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             Initiation au scripting Bash
+Boucle while/read
+Solution – TP3 du Module 07 – Les structures de boucle
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7.
+
+
+Objectifs
+
+Créer un script Shell utilisant une structure de boucle while/read.
+
+Énoncé
+
+
+
+Le fichier /etc/passwd gère les comptes utilisateurs créés sur le système, un par ligne. On y trouve
+dans l’ordre : le login, le champ ‘x’ (indiquant qu’un mot de passe est présent), l’UID, le GID du groupe
+principal, le champ commentaire, le rép. d’accueil puis le shell par défaut.
+
+Seuls nous intéresse donc, le 1er et 3ème champ de chaque ligne, sachant que le séparateur est le
+symbole “:”.
+
+Il faut ainsi demander un traitement ligne par ligne en ne récupérant que le 1er et 3ème champ de
+chaque ligne et les afficher à l’écran.
+
+
+   •  Créer et éditer le nouveau fichier script_M7TP3.sh
+
+vim script_M7TP3.sh
+
+
+    •  Y ajouter les lignes suivantes :
+
+
+#! /bin/bash
+
+# M7 - Solution du TP3 – Boucle while/read
+
+# Definition des variables #
+
+#!/bin/bash
+
+while read login c2 uid
+
+  do
+
+  echo &quot;-------------------------&quot;
+
+  echo &quot;Identifiant :  $id&quot;
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             Initiation au scripting Bash
+
+  echo &quot;-  -  -  -  -&quot;
+
+  echo &quot;UID : $uid
+
+done &lt; &lt; (cat /etc/passwd | tr -s &quot;:&quot; &quot; &quot;)
+
+
+
+   •  Rendre le script exécutable avec chmod et tester
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

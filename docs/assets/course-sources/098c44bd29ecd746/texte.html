@@ -1,0 +1,204 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Installation de Windows.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Installation de Windows.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Installation de Windows 10
+TP du Module 02 – Installation de Windows 10
+
+
+ Durant ce TP, vous allez être amené à créer une machine virtuelle avec VMware
+ WorkStation. Vous serez ensuite amené à installer Windows 10 et à procéder à sa
+ configuration initiale. Vous serez également amené à importer une VM Windows 10
+ existante.
+
+
+       Durée estimée
+
+          1 heure
+
+Énoncé
+
+Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique.
+
+Préparer l&#x27;environnement
+  Créer les dossiers ISO et Procédures sur votre volume de données.
+  Copier l&#x27;image ISO de Windows 10 disponible depuis les ressources à télécharger vers
+   votre dossier ISO.
+  Créer un dossier Vms-WorkStation sur votre volume de données.   Il accueillera les
+    fichiers qui définissent vos futures VM.
+
+Création de la machine virtuelle
+
+Informations concernant la VM Windows 10
+
+        Paramètres WorkStation
+         Configuration de la VM  Typique
+   Système d&#x27;exploitation invité  Windows 10 x64
+           Nom de la VM  Win10-XX (XX étant vos initiales)
+              Emplacement  Sous-dossier Win10-XX du dossier VMs-WorkStation
+                   Disque dur  32 GB (Store Virtual disk as a single file)
+                  Mémoire  4 GB
+                   Processeurs  1 processeur – 1 coeur
+                    Réseau  Host-Only
+
+
+
+
+
+ Page 1/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+À l&#x27;issue de la création de la VM, sa configuration doit être la suivante :
+
+
+
+
+
+Installation du système d&#x27;exploitation Windows 10 Professionnel
+   Insérer l&#x27;image ISO du support d&#x27;installation de Windows 10 dans le lecteur de DVD
+    virtuel de la VM Win10-XX. Cette image ISO est disponible dans le dossier ISO de votre
+   lecteur de données.
+
+      Vous  créez une procédure de  l&#x27;installation du  système  d&#x27;exploitation
+     Windows 10 Professionnel. Pour cela, vous avez la possibilité d&#x27;utiliser l&#x27;outil
+        natif psr (Step Recorder ou Enregistreur d&#x27;actions utilisateur). Cet outil permet
+     de conserver les étapes de vos actions, dans le but de les mettre en forme
+      par la suite dans une procédure personnalisée.
+
+       Clic droit sur le menu Démarrer &gt; Exécuter &gt; psr
+          Fichier de sortie : Procédures\psr-install-Win10.zip
+         Activer la capture d&#x27;écran : Oui
+         Nombre de captures d&#x27;écran récentes à stocker : valeur max
+
+      Cliquez sur Commencer l&#x27;enregistrement
+
+  Démarrer la VM et procéder à l&#x27;installation en français de Windows 10 Professionnel.
+
+Informations concernant l&#x27;installation du système
+  Vous n&#x27;avez pas de clé produit à renseigner, nous utiliserons le délai de grâce durant
+    les TP.
+  Le système d&#x27;exploitation Windows 10 Professionnel sera à installer sur la totalité de
+   l&#x27;espace non alloué du disque dur de 32 Go (installation personnalisée).
+
+
+
+
+
+ Page 2/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+    À  la  fin de  l&#x27;installation, lorsque  la VM redémarre,  cliquez  sur  Arrêter
+       l&#x27;enregistrement.
+
+         Utilisez ensuite les données présentes dans le fichier de sortie install-Win10.zip
+      pour vous créer votre propre procédure personnalisée (avec l&#x27;aide d&#x27;un
+        logiciel de traitement de texte par exemple, et en y insérant les images
+      capturées, vos propres commentaires…)
+
+      Sauvegardez votre procédure dans le dossier Procédures\install-Win10.docx
+
+Informations concernant la configuration de base suite à l&#x27;installation
+
+   Région : France
+
+    Disposition du clavier : Français
+
+   Pas de disposition de clavier supplémentaire nécessaire
+
+   Pas de connexion Internet disponible pour le moment
+
+   Continuer avec l&#x27;installation limitée
+
+  Nom d&#x27;utilisateur : pnom (1re lettre du prénom suivi du nom de famille)
+
+   Pas d&#x27;historique des activités
+
+   Pas d&#x27;assistante numérique &quot;Cortana&quot;
+
+   Ne pas utiliser la reconnaissance vocale en ligne
+
+   Ne pas autoriser Microsoft et les applications à utiliser votre emplacement
+
+   Ne pas localiser l&#x27;appareil
+
+   Envoi basique des données de diagnostic à Microsoft
+
+   Ne pas améliorer l&#x27;écriture manuscrite et la saisie
+
+   Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic
+
+   Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité
+
+
+Finalisation de la configuration de base
+   Installez les VMware Tools (installation typique)
+  Éjectez le DVD puis éteignez votre VM
+   Faites un snapshot TP1 terminé
+
+
+
+
+
+ Page 3/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+Importer une seconde VM
+  Importez la VM Discovery au format OVA dans un sous-dossier créé par vos soins en
+   amont nommé Discovery dans le dossier VMs-WorkStation. L&#x27;archive OVA se trouve
+   dans les ressources à télécharger.
+  Complétez le tableau suivant :
+
+  Paramètres de la VM Discovery
+            Nom de la VM  Discovery
+               Emplacement  Sous-dossier Discovery du dossier VMs-WorkStation
+
+
+
+          Nb Disque(s) dur(s)
+
+
+
+
+
+                   Mémoire
+
+
+
+
+
+                    Processeurs
+
+
+
+
+
+                  Carte réseau
+
+
+
+  Démarrez Discovery et ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd).
+  Sur  le bureau,  faites un  clic  droit  sur  le  fichier  reinit.bat  puis Exécuter en  tant
+   qu’administrateur. Redémarrez ensuite la VM Discovery.
+  Complétez le tableau suivant.
+
+    Caractéristiques de Discovery
+
+
+
+       VMware Tools présents ?
+
+
+
+
+
+ Page 4/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 5/5
+                                      © ENI – Tous droits réservés</pre></section></html>

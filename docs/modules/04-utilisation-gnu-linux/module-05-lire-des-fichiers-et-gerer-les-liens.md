@@ -61,3 +61,19 @@ Les TP font pratiquer la création de fichiers, leur concaténation, le comptage
 
 - **A — source TSSR :** énoncés et solutions TP1 *Lire des fichiers* et TP2 *Les liens*.
 - **B — structuration pédagogique :** synthèse web des commandes, étapes et observations attestées, sans apport externe.
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Lire les liens
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ A["Edition"] --> I["Même contenu / même inode"]
+ B["edition3.txt : lien physique"] --> I
+ C["edition2.txt : lien symbolique"] --> P["Chemin edition1.txt"]
+ P --> I
+```
+
+Le dessin distingue le contenu partagé par les liens physiques et le chemin mémorisé par un lien symbolique. Après suppression du chemin ciblé, le lien symbolique peut devenir pendant alors qu’un autre lien physique permet encore de lire les données. [Référence externe — GNU Coreutils, ln](https://www.gnu.org/software/coreutils/manual/html_node/ln-invocation.html).

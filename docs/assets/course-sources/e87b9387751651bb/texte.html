@@ -1,0 +1,140 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 4 - La gestion des impressions.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche démo 4 - La gestion des impressions.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                      Services réseau en environnement Microsoft
+La gestion des impressions
+Démonstration 04 du module 02
+
+
+ Cette démonstration décrit comment gérer les impressions dans un contexte Active Directory
+
+Déroulement
+
+
+    •   Installation du rôle Services d’impression et de numérisation de documents
+
+Sur la VM W2019, lancer l’utilitaire d’installation de rôle (via le dashboard), puis cocher la case Print
+and Document Services (1). Cliquer sur le bouton Add Features (2) sur la fenêtre contextuelle.
+Cliquer sur le bouton Next (3). Cliquer sur le bouton Next (4). Cliquer sur le bouton Next (5). Cocher
+la case Restart the destination server automatically if required (6), puis cliquer sur le bouton Install
+(7). Enfin, cliquer sur le bouton Close (8).
+
+
+
+
+
+ Page 1/10
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 2/10
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                      Services réseau en environnement Microsoft
+
+    •  Ajout du raccourci dans la barre des tâches
+
+Ouvrir Administrative Tools, puis création du raccourci Print Management (1) dans la barre des
+taches (2).
+
+
+
+
+
+    •   Installation d’un nouveau driver.
+
+NB : un update via Windows Update sera utile s’il n’y a pas de driver sélectionnable dans l’utilitaire
+d’ajout.
+
+Ouvrir la console Print Management depuis le raccourci précédemment créé. Se positionner sur la
+ligne Driver (1). Faire un clic droit dans la zone blanche centrale, puis sur le menu Add Driver… (2).
+Dans l’utilitaire d’installation, cliquer sur le bouton Next (3). Cliquer sur le bouton Next (4) (pour la
+démonstration, seuls des drivers x64 seront installés). Sélection d’un driver, ici HP Color LaserJet Pro
+MFP M274 PCL 6 (5), puis cliquer sur le bouton Next (6). Enfin, cliquer sur le bouton Finish (7). Le driver
+apparaît correctement (8).
+
+
+
+
+
+ Page 3/10
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 4/10
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                      Services réseau en environnement Microsoft
+    •   Installation d’un nouveau port.
+
+Se positionner sur la ligne Ports (1). Faire un clic droit dans la zone blanche centrale, puis sur la ligne
+Add Port… (2). Sélection de la ligne Standard TCP/IP Port (2), puis cliquer sur le bouton New Port…
+(3). Cliquer sur le bouton Next de l’utilitaire d’ajout de port (4). Indiquer dans l’input-box Printer
+Name or IP Adress l’adresse IP de l’imprimante (5). Indiquer dans l’input-box Port Name un nom de
+port (6), puis cliquer sur le bouton Next (7). Cliquer sur le bouton Next (8). Enfin, cliquer sur le bouton
+Finish (9). Le port apparaît correctement (10).
+
+
+
+
+
+ Page 5/10
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                      Services réseau en environnement Microsoft
+
+
+
+
+
+    •   Installation d’une nouvelle imprimante
+
+Se positionner sur la ligne Printers (1). Faire un clic droit dans la zone blanche centrale, puis sur la
+ligne Add Printer… (2). Sélectionner le bouton radio Add a new printer using an existing port (3),
+sélectionner dans la combo-box le port créé précédemment (4). Cliquer sur le bouton Next (5).
+Sélectionner le bouton radio Use an existing printer driver on the computer (6), puis le driver
+précédemment installé (7). Cliquer sur le bouton Next (8). Cliquer sur le bouton Next (9). Cliquer sur
+le bouton Next (10). Enfin, cliquer sur le bouton Finish (11). L’imprimante apparaît correctement (12).
+
+
+
+
+
+ Page 6/10
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 7/10
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 8/10
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                                      Services réseau en environnement Microsoft
+
+    •   Installation imprimante sur poste client
+
+L’imprimante étant  installée  sur  le serveur d’impression,  elle  est désormais disponible pour
+l’ensemble des utilisateurs du domaine.
+
+Une fois connecté sur la VM W10 avec un utilisateur du domaine, ouvrir l’explorateur de document.
+Indiquer dans la barre, le nom de la VM sur lequel le serveur d’impression est installé (1), puis
+appuyer sur la touche [Entrée]. Double cliquer sur l’imprimante nouvellement installée sur le serveur
+cible (2). Quand la fenêtre contextuelle apparaît, c’est que le processus d’installation est terminé,
+l’imprimante est correctement installée la VM cliente.
+
+
+
+
+
+ Page 9/10
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 10/10
+                                         © ENI – Tous droits réservés</pre></section></html>

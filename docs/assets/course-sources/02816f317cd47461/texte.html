@@ -1,0 +1,89 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 2 - Le service DHCP et les réseaux.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP 2 - Le service DHCP et les réseaux.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                Services réseau en environnement Microsoft
+Le service DHCP et les
+réseaux
+ TP du Module 05 – Le service DHCP
+
+
+  Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 5 et terminé le TP
+  précédent.
+
+
+            Durée estimée
+
+              1 à 2 heures
+
+ Énoncé
+
+ Prérequis :
+
+     •  Avoir réalisé le TP précédent du Module 04.
+
+     •  Avoir les deux machines virtuelles RTR-00 et RTR-01.
+
+ Pouvoir distribuer des adresses IP dans un autre domaine de diffusion.
+     •  Paramétrer le serveur d’un domaine de diffusion pour fournir des adresses IP à
+         plusieurs domaines de diffusion.
+     •  Créer sur le serveur SRV-2K19-0 une étendue DHCP pour fournir des adresses IP dans
+         le domaine de diffusion du serveur.
+     •  Créer également une étendue pour le second domaine de diffusion hébergé sur le
+        routeur RTR-01.
+
+
+
+
+
+Nom : CLI-00                   Nom : SRV-2K19-0              Nom : RTR-00
+Adresse IP : AUTO                       Adresse IP : 192.168.0.1               Adresse IP : 192.168.0.254
+
+
+
+
+
+             Réseau                                   Carte Réseau
+             192.168.0.0/24                                    VNET10
+
+
+
+
+  Page 1/2
+                                       © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                             Services réseau en environnement Microsoft
+
+          •   Faire la même opération sur le second réseau.
+             o  Faire la mise en place d’un client en adressage automatique.
+             o  Faire la mise en place d’un serveur Windows.
+             o  Configurer deux étendues DHCP sur le serveur afin de pouvoir fournir
+                des adresses IP dans les deux domaines de diffusion.
+
+
+
+
+
+    Nom : CLI-01                   Nom : SRV-2K19-1              Nom : RTR-01
+      Adresse IP : AUTO                       Adresse IP : 192.168.1.1               Adresse IP : 192.168.1.254
+
+
+
+
+
+                 Réseau                                       Carte Réseau
+                 192.168.1.0/24                                        VNET11
+
+
+
+
+
+  •   Tester le bon fonctionnement.
+       o  Vérifier l’obtention d’une adresse IP sur les postes clients de chaque réseau.
+       o  Tester la connectivité entre les clients de chaque réseau.
+
+  •  Mettre en place un service de relai DHCP sur les routeurs de chaque domaine de
+      diffusion afin de pallier la défaillance d’un serveur DHCP.
+       o  Arrêter l’un des deux serveurs DHCP et vérifier l’obtention et la connectivité
+           des postes clients.
+
+
+
+
+
+Page 2/2
+                                     © ENI – Tous droits réservés</pre></section></html>

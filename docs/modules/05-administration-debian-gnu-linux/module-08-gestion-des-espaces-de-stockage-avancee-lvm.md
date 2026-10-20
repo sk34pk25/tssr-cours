@@ -38,3 +38,18 @@ LVM rend l’allocation plus flexible, mais chaque niveau — PV, VG, LV et syst
 ??? success "Réponses"
     1. Le groupe de volumes (VG).
     2. `lvs`.
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Lire les niveaux de LVM
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ A["Volume physique PV"] --> G["Groupe de volumes VG"]
+ B["Autre PV"] --> G
+ G --> L["Volume logique LV"] --> F["Système de fichiers"] --> M["Point de montage"]
+```
+
+Repère IA fondé sur les niveaux étudiés : `pvs`, `vgs` et `lvs` observent trois objets différents ; le montage concerne le système de fichiers créé au-dessus du volume.

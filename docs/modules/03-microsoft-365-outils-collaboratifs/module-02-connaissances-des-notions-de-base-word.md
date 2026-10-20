@@ -98,3 +98,22 @@ Le TP associé fournit un document brut, une consigne de mise en forme et une so
 - **Sources A — TSSR live :** `Module 02 - Support de cours.pdf`, Drive `1Nw7I-8Wr17r1iJIvcze8T1R2qOvO8qvP`, SHA-256 `7677971f03707dffa663fcdc13ec55278a8fa5330dfce8d78b41a87102199579` ; `Enoncé du TP - Utilisation de Word.pdf`, Drive `1cpVO66OSKeYwpzWHd6M9vMopjymmpmbP`, SHA-256 `d71a06cce8c72a7c79951cc8bb6c47f5161cdba2b0febc5dc9b927fabe4ada2c` ; `Solution du TP - Utilisation de Word.pdf`, Drive `1zm3iHXF8RS_loevQPbqj7frtV_Kf6mFj`, SHA-256 `f2e3f47a7476d825f8525abfa64fe4157bd45dbfdbf7582feb5bf5d34fa966c7`.
 - **Ressources A du TP :** `Système Solaire - Document Brut.docx`, Drive `1ZOWCMnOK1NFqglEHGPjXzeYCaoAAA0T_`, SHA-256 `8d839dc5b40b1a3529b052fdf60aa53d27b39d7cbdca10f2e56bfea01535368b` ; `Système Solaire - Document Fini.docx`, Drive `1AAg7SHsX-ZVv0BPdiwyVnpcxL0KlksiO`, SHA-256 `a0a12b8e9f1c2e0ca4349a6312ddaf481a8860f17239c0f2e6372f88795a5a39`.
 - **Structuration B :** l'ordre des sections, les tableaux, les avertissements et les contrôles reformulent et organisent les notions présentes dans ces sources, sans ajout de source externe.
+
+<!-- TSSR-IA-ENRICHMENT-20261020 -->
+
+## Complément IA / externe au cours — comprendre la chaîne de mise en forme
+
+Cette aide réorganise les notions du support pour préparer le TP. Elle ne constitue pas une capture de Word ni une page du cours original.
+
+**Illustration IA / externe au cours — des styles à la table des matières.**
+
+```mermaid
+flowchart LR
+    A["Structurer le texte"] --> B["Appliquer les styles de titre"]
+    B --> C["Définir la liste à plusieurs niveaux"]
+    C --> D["Ajuster retraits et espacements"]
+    D --> E["Générer la table des matières"]
+    E --> F["Vérifier après une modification"]
+```
+
+Exercice de consolidation IA : modifier le style d’un titre et observer les autres titres associés. Expliquer ensuite pourquoi cette méthode est plus cohérente qu’une mise en forme manuelle répétée. Les captures exactes des commandes restent dans le support original.

@@ -1,0 +1,286 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M02 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>RES24_0050B - M02 - Linux Administration (Debian).pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Administration Debian
+     GNU/Linux
+
+
+Module 02 – Installation d’une distribution Debian</pre></section><section><h2>Page 2</h2><pre>                                                             Installation d’une distribution Debian
+
+  Objectifs
+
+• Découvrir les différents modes d’installation possibles
+• Apprendre à effectuer des installations de Debian
+ GNU/Linux
+
+
+
+               Installer Debian Linux sur PC et sur serveurs</pre></section><section><h2>Page 3</h2><pre>                                                             Installation d’une distribution Debian
+
+
+Les modes d’installation</pre></section><section><h2>Page 4</h2><pre>                                                            Les modes d’installation
+                                       Depuis un CD-ROM ou DVD-ROM
+
+
+
+L’installation à partir d’un CD ou DVD est historiquement la plus
+courante
+• Live-CD Debian
+     • Un système directement fonctionnel depuis le DVD. Permet de tester sans
+      apporter la moindre modification. Propose l’installation
+     • Plusieurs versions disponibles selon le bureau choisi
+• DVD-ROM image complète
+     • Permet l’installation du système complet sans accès à internet ou à un
+     dépôt local
+     • Ne contient pas les dernières mises à jour</pre></section><section><h2>Page 5</h2><pre>                                                            Les modes d’installation
+                                       Depuis un CD-ROM ou DVD-ROM
+
+
+
+• CD-ROM Netinstall
+     • Contient le minimum pour lancer l’installation et récupérer les fichiers
+      depuis un dépôt internet ou local
+     • Peut nécessiter une connexion à internet
+     • Permet la récupération des paquets à jour
+
+
+
+        Adresse de téléchargement des images ISO des DVD et CD-ROM
+
+              https://www.debian.org/CD/http-ftp/#stable</pre></section><section><h2>Page 6</h2><pre>                                                            Les modes d’installation
+                                        Depuis une clé ou un disque USB
+
+
+
+• De plus en plus, les lecteurs optiques laissent place aux
+  périphériques USB
+• En pratique, ce sont les mêmes images qu’aux étapes précédentes,
+ mais le média CD ou DVD est remplacé par une clé
+• De nombreux logiciels permettent de préparer des périphériques
+ USB. On peut citer :
+     • Ventoy (Windows, Linux)
+     • Balena Etcher (Windows, Linux, macOS)
+     • Rufus (Windows)
+     • Unetbootin (Windows, Linux, macOS)
+
+
+
+                                                                     Écran de démarrage Ventoy
+                                                                            https://www.ventoy.net/</pre></section><section><h2>Page 7</h2><pre>                                                            Les modes d’installation
+                                                 Depuis le réseau local
+
+
+
+• La plupart des BIOS
+  actuels permettent
+  l&#x27;amorçage à partir du
+  réseau grâce au boot PXE
+• Au démarrage, la machine
+  reçoit d’un serveur dédié
+ une adresse IP et le nom
+ du fichier d’installation à
+  télécharger
+
+
+
+                                                       Exemple de démarrage par PXE.
+                                                              iPXE project http://ipxe.org</pre></section><section><h2>Page 8</h2><pre>                                                            Les modes d’installation
+                                                                 Et tout le reste
+
+
+
+• Lorsqu&#x27;il s&#x27;agit de déployer un grand nombre de machines,
+  plusieurs méthodes plus ou moins automatisées existent :
+     • FAI (Fully Automatic Installation) pour une installation sans intervention
+     • CD personnalisés avec pré-configuration
+     • Déploiements avec des outils de clonage, par exemple :
+           • FOG
+           • Symantec Ghost,
+           • Acronis True Image
+           • Clonezilla…</pre></section><section><h2>Page 9</h2><pre>                                            Installation d’une distribution Debian
+
+
+Installer Debian</pre></section><section><h2>Page 10</h2><pre>                                                                                     Installer Debian
+                                                 Partitionnement et Swap
+
+
+
+• Un système Linux doit contenir au minimum deux partitions à
+  l’installation :
+     • 1 Partition racine : /
+     • 1 Partition d’échange : SWAP
+• La quantité d’espace disque recommandée pour la partition de
+ SWAP varie suivant la quantité de RAM installée ou allouée :
+     • RAM &lt; 1Go SWAP = RAM x 1.5
+     • RAM &lt;= 2Go SWAP = RAM
+     • RAM &gt; 2Go SWAP = 2Go ou + selon le besoin</pre></section><section><h2>Page 11</h2><pre>                                                                                        Installer Debian
+                                             Étapes d’installation de Debian
+
+
+
+• Au démarrage du média d’installation, le choix
+  est donné entre une installation graphique ou
+  installation simple qui utilisera un mode texte
+  amélioré dit « semi-graphique »
+• Ce choix ne désigne pas le mode cible de
+  l’installation de Debian
+• On peut installer un serveur Linux en passant par
+  l’installation graphique comme un PC de bureau
+  avec interface graphique via l’installeur texte
+• Mode de l’installeur ≠Mode de fonctionnement
+ du Linux installé</pre></section><section><h2>Page 12</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Choix de la langue
+• Nous utiliserons dans ce cours des systèmes
+ en français
+• Toutefois, il est courant en production de
+ posséder des systèmes installés en anglais
+  avec un clavier français</pre></section><section><h2>Page 13</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Nom de machine
+Ici l’on donne le nom d’hôte du système.
+
+
+
+
+Domaine
+Ici l’on spécifie le domaine DNS auquel appartient la machine.
+Peut être laissé vide.</pre></section><section><h2>Page 14</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Mot de passe du superutilisateur root
+L’installeur demande la saisie du mot de passe qui sera affecté à root.</pre></section><section><h2>Page 15</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+École du « su »
+• Le simple fait d’affecter un mot de passe à l’utilisateur root réserve
+  les pouvoirs d’administration du système qu’à lui et lui seul
+• Le premier utilisateur créé ne possédera quant à lui que des
+  privilèges limités
+
+
+
+
+                            user30@deb:~$ su -
+                            Mot de passe :
+                            root@deb:~#</pre></section><section><h2>Page 16</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+École du « sudo »
+Si durant cette phase d’installation, aucun mot de passe n’est
+configuré pour root, alors le premier utilisateur aura la possibilité
+d’effectuer une élévation de privilège via son propre mot de passe
+avec la commande sudo.
+
+
+
+
+
+                            user30@deb:~$ sudo -i
+                            [sudo] Mot de passe de user30 :
+                            root@deb:~#</pre></section><section><h2>Page 17</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Il est fortement déconseillé de créer un seul utilisateur avec le
+privilège sudo.
+Il est possible après installation d’affecter un mot de passe au
+compte root via la commande :
+
+
+
+
+              user30@deb:~$ sudo passwd root
+              [sudo] Mot de passe de user30 :
+              root@deb:~# passwd
+              Nouveau mot de passe :
+              Retapez le nouveau mot de passe :
+              passwd : le mot de passe a été mis à jour avec succès</pre></section><section><h2>Page 18</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Partitionner les disques
+• Cette phase d’installation permet de choisir comment subdiviser son disque
+  pour créer les différents points de montage du système
+• On peut choisir le mode assisté ou le mode manuel plus complet
+
+
+
+
+
+N.B. : En choisissant la technologie LVM, il faut au préalable configurer un partitionnement Intel MBR (BIOS) ou GPT (UEFI).</pre></section><section><h2>Page 19</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Sélection des logiciels
+• En cas d’installation Netinstall,
+ on pourra ici choisir le dépôt
+  voulu (ici ftp.fr.debian.org)
+•  Il est aussi possible de préciser
+ un éventuel serveur miroir</pre></section><section><h2>Page 20</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Sélection des logiciels
+Il est aussi possible ici de préciser une adresse de serveur proxy
+(serveur mandataire en français).</pre></section><section><h2>Page 21</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Sélection des logiciels
+• Ici on peut choisir les packs
+  logiciels à installer
+• Premier exemple : un
+ environnement de bureau
+  classique (gnome) Debian
+• Et second exemple : un
+ environnement non
+ graphique pour un serveur</pre></section><section><h2>Page 22</h2><pre>                                                                                     Installer Debian
+                                            Étapes d’installation de Debian
+
+
+
+Sélection des logiciels
+Dernière étape,
+valider l’installation
+du programme de
+démarrage</pre></section><section><h2>Page 23</h2><pre>                                                                Installation d’une distribution Debian
+
+
+
+
+
+Démo
+
+
+                                            Installation Debian sur VMware Workstation</pre></section><section><h2>Page 24</h2><pre>                                                                Installation d’une distribution Debian
+
+
+
+     TP                             Installation d’un système Debian graphiqueDémo
+
+
+
+                                               Installation d’un système Debian serveur</pre></section><section><h2>Page 25</h2><pre>                                                          Installation d’une distribution Debian
+                                                             Conclusion
+
+
+
+• Vous savez nommer les divers modes d’installation
+  d’un système Linux
+• Vous savez installer une machine client Debian
+• Vous savez installer un serveur Debian</pre></section></html>

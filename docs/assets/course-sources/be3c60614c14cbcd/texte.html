@@ -1,0 +1,109 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP03 - Solution - Alias et Redirections.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M08TP03 - Solution - Alias et Redirections.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+Redirections et Alias
+TP du Module 08 – Mécanismes avancés de Linux et Bash
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module à 8 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+             30 à 45 mn
+
+Énoncé
+•   Lister tous les processus qui finissent par un d.
+   Le résultat sera stocké dans $HOME/process/daemons.txt.
+mkdir $HOME/process
+ps –e |grep d$ &gt; $HOME/process/daemons.txt
+
+•  Recherchez  les  fichiers dont  le nom se termine par .conf à partir de la racine.
+   Cette recherche ne devra être effectuée que sur  le système de  fichier racine.
+   Le   résultat  sera  affiché  à  l&#x27;écran  tout  en  étant  stocké  dans   le   fichier
+   $HOME/resultats/fichiers.conf.
+mkdir $HOME/resultats
+find / mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf
+
+•  La commande précédente a duré un certain temps, comment connaître le temps
+   exact d’exécution de celle-ci ?
+time find / mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf
+
+•  En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre
+  de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.
+   Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des
+    scripts).
+cat resultats/fichiers.conf |wc -l &gt; resultats/compteur.txt
+
+
+# Alternativement
+grep –c f$ resultats/fichiers.conf &gt; resultats/compteur.txt
+
+
+# Alternativement sans utiliser le fichier fichier.conf
+find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt
+
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+
+•  Reproduire toutes les actions précédentes, mais avec la création d’alias…
+# Créer les répertoires nécessaires
+mkdir -p $HOME/process
+mkdir -p $HOME/resultats
+
+
+# Définir des alias pour les commandes
+alias lister_daemons=&#x27;ps -e | grep d$ &gt; $HOME/process/daemons.txt&#x27;
+alias rechercher_conf=&#x27;find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null | tee
+$HOME/resultats/fichiers.conf&#x27;
+alias compter_fichiers=&#x27;find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null | wc -l &gt;
+$HOME/resultats/compteur.txt&#x27;
+
+
+# Lister tous les processus qui finissent par un d
+lister_daemons
+
+
+# Rechercher les fichiers .conf à partir de la racine
+rechercher_conf
+
+
+# Mesurer le temps d&#x27;exécution de la recherche
+time rechercher_conf
+
+
+# Compter le nombre de fichiers trouvés et stocker le résultat
+compter_fichiers
+
+
+# Alternative pour compter les fichiers à partir du fichier fichiers.conf
+cat $HOME/resultats/fichiers.conf | wc -l &gt; $HOME/resultats/compteur.txt
+
+
+# Alternative avec grep pour compter les fichiers à partir du fichier fichiers.conf
+grep -c f$ $HOME/resultats/fichiers.conf &gt; $HOME/resultats/compteur.txt
+
+
+# Alternative sans utiliser le fichier fichiers.conf
+compter_fichiers
+
+•  Explication des alias
+    •  lister_daemons : Alias pour lister les processus qui se terminent par d et stocker le
+       résultat dans daemons.txt.
+    •  rechercher_conf : Alias pour rechercher les fichiers .conf à partir de la racine et
+       afficher le résultat à l&#x27;écran tout en le stockant dans fichiers.conf.
+    •  compter_fichiers : Alias pour compter le nombre de fichiers.conf trouvés et
+       stocker ce nombre dans compteur.txt.
+•  Remarques
+    •  Les alias sont définis pour simplifier l&#x27;exécution des commandes, mais  ils ne sont
+      valables que pour la session actuelle.
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,331 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 01 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>             Scripting Shell
+                         Module 01 – Analyse
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+             Objectifs
+
+                    • Découvrir l’ingénierie logicielle
+                    • Mettre en place un cahier des charges
+                    • Planifier un algorithme et son pseudo-code
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                                                                   Scripting Shell
+
+
+          Introduction
+
+
+
+
+
+3
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                                 Introduction
+
+
+                    • Les scripts Shell sont des fichiers texte contenant un ensemble de commandes Shell.
+                    • Avant de se lancer dans l’écriture d’un script, un travail de réflexion s’impose.
+                 Cette phase d’analyse intègre la rédaction de cahier des charges et d’algorithme.
+
+                 Énoncé du problème  Situation initiale ; objectif ciblé
+
+                     Cahier des charges   Détail des contraintes et éléments à prendre en considération                 ANALYSE
+                       Algorithme       Traduction détaillée de l’ensemble des actions menées pour parvenir à l’objectif à atteindre
+
+                         Écriture du script   Code écrit dans le langage Shell par lequel il sera interprété
+
+                    • Viendra ensuite la phase d’écriture qui vous permettra de pratiquer
+                   l’éditeur de texte vim.
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                                                                   Scripting Shell
+
+    Énoncé du problème
+      et cahier des charges
+
+
+
+
+
+5
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+
+                      • La création d’un script Shell résulte de la réponse
+                 à un problème ou à un besoin donné.                                                                                                Besoin
+                      • Les scripts Shell peuvent être utilisés afin de répondre
+                 à des besoins :                                                        Contraintes
+                                • D’administrations (pour le SI)
+                                • De l’utilisateur                                                          Réflexion
+
+                      • Après analyse du besoin et des contraintes, un travail        Solution
+               de réflexion permettra l’elaboration d’une solution.
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+
+                   Identifier le besoin    Cibler, détailler et formaliser le besoin
+
+                          • Le porteur du besoin ne se préoccupe pas des contraintes techniques
+                          liées à la réalisation du script. Il décrit sa problématique et son besoin.
+                          • Le porteur du besoin détaille et formalise ses attentes.
+
+
+                                      Exemple de description du besoin         Porteur
+                                                                                       du besoin
+                                      « Nous avons besoin d’un outil qui affiche les
+                                             derniers échecs de connexion utilisateur. »
+
+
+
+
+
+7
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+                Contraintes et cahier des charges   Établir un cadre au projet
+
+                           • Une fois le besoin bien compris, il reste à établir un cadre au projet.
+                          • Ce cadre reprendra l’identification du besoin et la complètera par la
+                             liste de l’ensemble des contraintes s’appliquant à la solution.
+
+
+
+                                                                                                   Entité chargée de la
+                                                                                                     realisation du script
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+
+                Contraintes et cahier des charges   Établir un cadre au projet
+
+                                     Besoin et
+                                       contraintes
+                                                                                 Entité chargée de la
+                                  +                             realisation du script
+                       Porteur du
+                       besoin
+                                                                           Sur toute la phase d’analyse, de l’expression du
+                                                                               besoin à la réalisation de l’algorithme,
+                                      Cahier des charges                  les échanges sont essentiels entre le porteur du
+                                                                           besoin et l’entité chargée de réaliser la solution.
+
+
+
+
+
+9
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+
+                Contraintes et cahier des charges   Établir un cadre au projet
+
+                                                                •    Il sera utilisé sur un serveur sous Debian 10
+                                                                •    Il n’aura pas de dépendances
+                                                                •    Il sera écrit en Bash
+                 Exemple de cahier      •  Le nombre souhaité d’échec(s) à afficher sera
+                 des charges de             défini par l’utilisateur au lancement du script
+                          l’outil souhaité            •  À défaut d’indication de valeur de nombre                                                      d’échecs, une valeur par défaut sera considérée
+                                                                •  Le lancement du script pourra être initié par
+                                                                l’utilisateur ou automatisé
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                                                                   Scripting Shell
+                                              Énoncé du problème et cahier des charges
+
+
+                  Réflexion    Déterminer comment parvenir au résultat attendu
+
+                  S’ensuit un travail d’analyse lors duquel :
+                           • Sera étudié dans le détail le cahier des charges
+                           • On réfléchira aux traitements à effectuer pour parvenir au résultat attendu
+                        et à l’ordonnnancement des instructions
+
+
+
+
+
+11
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+         Algorithme
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                                                                   Scripting Shell
+                                                                           Algorithme
+
+
+               Pour poursuivre l’analyse, on réalisera un algorithme du script
+             ou programme envisagé.
+                                     Définition d’un algorithme                                                                              Éléments utilisés
+                                                                          pour la réalisation                    Pour qu’un ordinateur réalise une tâche, qu’elle soit basique
+                                                                                    d’algorithmes                  ou très complexe, il est nécessaire de lui indiquer dans les
+                    moindres détails toutes les actions à réaliser.                                                                                                              •  Instructions
+                Un algorithme, c’est une description complète et détaillee         •  Variables
+                    des instructions ordonnancées dont l’exécution conduit à un     •  Tests
+                         résultat donné.                                                               •  Boucles
+
+
+
+
+
+13
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                           Algorithme
+
+
+            Un algorithme peut être représenté sous forme de texte.
+            On parle alors de pseudo code. L’utilisation de schéma ou
+              organigramme est aussi adaptée à sa representation.
+
+                                             Utilisation d’algorithme
+                                 dans la vie de tous les jours
+                                                            Les algorithmes sont aussi présents
+                                                       dans nos contextes professionnels.
+                                                                                                  Ils représentent une étape
+                                                                    essentielle au processus de création
+                                                                   d’un script Shell.
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                                                                   Scripting Shell
+                                                                           Algorithme
+
+
+               Pseudo code                 Lancement du script                 Exemple de pseudo
+                                                                                            code de l’outil                                                            log ←/var/log/secure
+                                                        nbdefaut ←42
+
+                                                                             Si (nombre d’argument passé au script = 1)
+                                                                           alors nb ←argument
+              Le pseudo code est utilisé       Finsi
+             pour la representation             Si ((nb est nul) OU (nb n’est pas un entier))
+                 textuelle d’un algorithme.         alors la nb ←nbdefaut
+                                                                             Finsi
+
+                                                                       Afficher la liste des nb derniers échecs de connexion de log
+                                                                       Journaliser « exécution de logonfails.sh »
+
+                                                                      Fin d’exécution du script
+
+
+
+
+
+15
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                           Algorithme
+
+
+                  Algorithme                            Les principaux symboles d’un organigramme
+                                                                 Symbole      Signification
+                                                                                                            L’ovale matérialise les étapes du début et de fin                                                                        DÉBUT / FIN
+                                                                                           d’un programme.
+                La représentation sous                            La flèche indique le sens des flux.                                                                                         Le rectangle représente la réalisation d’une action
+               forme d’organigrammes est       ACTION     ou d’un processus.
+               basée sur l’utilisation d’un                      Le losange est utilisé pour représenter une décision
+                                                                                      à prendre ; ou la vérification d’une condition.                                                                               DÉCISION              ensemble de symboles.                                                   Il est parfois utile d’utiliser des formes plus
+                                                                                    complexes quand on a plus de 3 décisions à prendre.
+                                                                             ENTRÉE /
+                                                                                   SORTIE       Entrée / Sortie
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                                                                   Scripting Shell
+                                                                           Algorithme
+
+
+                    Exemple d’algorithme de l’outil
+
+
+
+                La variable                                                                                                                Afficher la liste                               La                                        variable                                                                                                                       nulle)                log                   prend                                                                                                                                                                   Journaliser                                                                                                                       des                                                                                                      nb dernie                                                nombre         NON          (nb est                                                                         NON                             nbdefaut                                                                      OU     Début                       la valeur                                                     d’argument                                                                                                                                     de       Fin                                                                                                                                                              rs                                                                                                                             échecs                                                                                                                     de c    “execution                                prend                /var/log/se                                         = 1                              (nb pas un                     onnexion de l    logonfails.sh”
+                  cure                                         la valeur 42                                                                entier)                       og
+
+                                                 OUI                              OUI
+
+                                                    La variable nb                      La variable nb prend
+                                                  prend la valeur                                la valeur de la
+                                               de l’argument                          variable nbdefault
+
+
+
+
+
+17</pre></section></html>

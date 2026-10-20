@@ -1,0 +1,164 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M4 - Enoncé du TP - Assistance.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M4 - Enoncé du TP - Assistance.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             GLPI
+Assistance
+TP du Module 4 – Assistance – Traitements automatisés des tickets
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir
+ réalisé les TP proposés.
+
+
+Enoncé
+Objectifs
+•  Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets.
+Prérequis
+   Application GLPI fonctionnelle.
+
+Principales tâches à réaliser
+
+Gabarit de ticket.
+•  Créez un gabarit de ticket « Incident serveur » :
+        o  Champs obligatoires :
+                  ▪   Titre.
+                  ▪  Catégorie.
+                  ▪  Type.
+                  ▪   Lieu.
+                  ▪  Description.
+•  Créez un gabarit de ticket « Incident Bureautique » :
+        o  Champs obligatoires :
+                  ▪   Titre.
+                  ▪  Catégorie.
+                  ▪  Type.
+                  ▪   Lieu.
+                  ▪  Description.
+                  ▪  Éléments associés.
+
+                  ▪
+        o  Champs masqués :
+                  ▪  Urgence.
+
+
+
+
+ Page 1/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             GLPI
+
+                  ▪  Impact.
+•  Créez un gabarit de ticket « Demande Bureautique » :
+        o  Champs obligatoires :
+                  ▪   Titre.
+                  ▪  Catégorie.
+                  ▪  Type.
+                  ▪   Lieu.
+                  ▪  Description.
+        o  Champs masqués :
+                  ▪  Urgence.
+                  ▪  Impact.
+
+Catégorie de ticket
+•  Créez les catégories :
+        o  Logiciel.
+        o  Bureautique comme enfant de logiciel.
+        o  Word comme enfant de bureautique.
+        o  Excel comme enfant de Bureautique.
+        o  Outlook comme enfant de bureautique.
+        o  Infographiste comme enfant de logiciel.
+        o  Serveur.
+        o  Virtualisation comme enfant de serveur.
+        o  Active Directory comme enfant de serveur.
+        o  Matériel.
+        o  Souris/clavier comme enfant de matériel.
+        o  Ecran comme enfant de matériel.
+•   Lier les catégories à leurs gabarits :
+        o  Catégorie  « Bureautique »,  « Word »  et  « Excel » aux  gabarits de  ticket
+               « Incident bureautique » et « Demande bureautique ».
+        o  Catégorie  « Serveur »,  « Virtualisation » et  « Active Directory » au gabarit
+               « Incident serveur ».
+
+Calendrier
+•  Tous les Incidents serveur seront traités sur un calendrier « cal serveur » en jours ouvrés
+    (lundi à jeudi) 08h00 – 18h00 et 8h00 – 17h-30 le vendredi.
+•  Tous les autres incidents utiliseront un calendrier « cal utilisateurs » en jours ouvrés (lundi
+  à vendredi) 9h00 – 17h30.
+
+Niveau de service
+
+
+
+ Page 2/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                             GLPI
+
+•  Créez un niveau de service « SLA incident serveur » de l’entreprise Olympus avec les
+    spécificités suivantes :
+        o  Calendrier « cal serveur ».
+        o  SLA « Incident serveur ».
+                  ▪  Le temps de prise en charge pour les incidents de type « serveur »,
+                       « virtualisation » et « Active Directory » devra être inférieur à 1h00.
+                  ▪  Le temps de résolution pour les incidents serveur devra être inférieur à
+                    8h.
+                  ▪   Si incident de toutes les catégories « serveur », « virtualisation » et «
+                   Active Directory » n’est pas prise en charge 10 minutes après la
+                   création  du   ticket,   le  groupe   « GG_GLPI_Super-Admin »  sera
+                automatiquement  positionné  dessus   ainsi  que  vous  en  tant
+                  qu’observateur sur le ticket.
+                  ▪   Si le ticket n’est pas résolu 4h avant la date butoir de résolution, le ticket
+                  passera en priorité haute avec une escalade vers vous.
+                  ▪   Si le ticket n’est pas résolu 3h avant la date butoir de résolution, le ticket
+                  passera en priorité très haute avec une escalade vers le directeur
+                       « Zeus ».
+•  Créez un niveau de service « SLA incident bureautique » de l’entreprise Olympus avec
+    les spécificités suivantes :
+        o  Avec le calendrier « cal utilisateurs ».
+        o  Un SLA Temps de résolution de 2 jours.
+        o  Un SLA Temps de prise en charge 4h.
+•  Créez un niveau de service « SLA demande bureautique » de l’entreprise Olympus avec
+    les spécificités suivantes :
+        o  Avec le calendrier « cal utilisateurs ».
+        o  Un SLA Temps de résolution de 10 jours.
+        o  Un SLA Temps de prise en charge 4h.
+
+Règles métier pour les tickets
+•  Créez une règle métier pour les tickets « règle SLA serveur ».
+        o Comme critères :
+                  ▪  Catégories « serveur », « virtualisation » et « Active Directory ».
+                  ▪  Type incident.
+        o Comme actions :
+                  ▪  SLAs Temps de résolution « incident serveur ».
+                  ▪  SLAs Temps de prise en charge « incident serveur ».
+                  ▪   Priorité moyenne.
+                  ▪  Groupe de technicien « GG_GLPI_Technician ».
+•  Créez une règle métier pour les tickets « règle SLA incident bureautique ».
+
+
+
+ Page 3/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                             GLPI
+
+        o Comme critères :
+                  ▪  Catégories « Bureautique », « Word » et « Excel ».
+                  ▪  Type « incident ».
+        o Comme actions :
+                  ▪  SLAs Temps de résolution « incident bureautique ».
+                  ▪  SLAs Temps de prise en charge « incident bureautique ».
+                  ▪   Priorité basse.
+                  ▪  Groupe de technicien « GG_GLPI_hotliner ».
+•  Créez une règle métier pour les tickets « règle SLA demande bureautique ».
+        o Comme critères :
+                  ▪  Catégories « Bureautique », « Word » et « Excel ».
+                  ▪  Type « demande ».
+        o Comme actions :
+                  ▪  SLAs Temps de résolution « demande bureautique ».
+                  ▪  SLAs Temps de prise en charge « demande bureautique ».
+                  ▪   Priorité très basse.
+                  ▪  Groupe de technicien « GG_GLPI_hotliner ».
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+
+
+
+
+ Page 4/4
+                                      © ENI – Tous droits réservés</pre></section></html>

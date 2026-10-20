@@ -1,0 +1,364 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 01 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>         Administration GLPI
+       Module 01 – Présentation de l&#x27;environnement - Installation de GLPI
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                         Objectifs
+
+
+
+                    •  Présentation de l’environnement de formation
+                    •  Présentation du projet GLPI par son site internet
+                    •  Présentation des principaux composants logiciels nécessaires
+                    •  Installation du service de base de données MySQL/MariaDB
+                    •  Installation du service Web Apache2
+                    •  Installation de l’interpréteur PHP et des modules requis par GLPI
+                    •  Récupération du code de GLPI et lancement du paramétrage initial
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+
+
+       Installation de GLPI
+
+
+
+
+
+3
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                         Environnement de la semaine
+
+
+
+
+
+                                                                  192.168.1.254                                                                                                             Réseau de salle
+                                                                    DHCP
+
+
+
+                                                                             PFSENSE
+
+
+
+                                      VMNET 18
+
+
+
+
+
+                                              srv-glpi                        srv-CD01
+                                    192.168.1.2                      192.168.1.1
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                                              Contexte
+
+
+               Administrateur système / bureautique
+                    • Mise en place d’un GLPI au sein de l’entreprise
+                    • La gestion et l’hébergement par Olympus
+                   • Authentification centralisée et habilitations GLPI dynamiques
+                    • Inventaire du matériel d’Olympus
+                    • Traitement uniformisé et automatisé des tickets
+                    • Inventaire régulier des machines de l’entreprise Olympus
+
+
+
+
+
+5
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+
+
+     Présentation de GLPI
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                                        Présentation de GLPI
+
+
+                    •  G.L.P.I : Gestion Libre de Parc Informatique
+                    • ITSM (IT Service Management) conforme ITIL
+                    •  Logiciel libre sous licence GPL 100% libre
+                   •  Logiciel complet pour la gestion de parc et centre de services
+                    •  Plusieurs langues et plug-ins de disponibles
+                    •  Installation possible sous Windows et Linux
+                    •  Pour les petits comme les grands systèmes d’information
+
+
+
+
+
+7
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+
+
+    Les composants de GLPI
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                                           Installation – Serveur Web
+
+
+                    •  Application web : nécessite un serveur web avec le moteur PHP
+                    •  Linux : Apache2 ou Windows : IIS avec PHP ou Nginx avec PHP
+                    •  Installation sous Linux : paquets apache2.4 et php7.4
+                   •  Extensions PHP obligatoires / recommandées :
+
+
+                                • php-mysql                               • php-ldap                                 • php-bz2
+
+                                • php-mbstring                           • php-xmlrpc                              • php-apcu-bc
+
+                                •  php-curl                                  • php-imap                                • php-cas
+
+                                • php-gd                                   •  php-intl
+
+                                • php-xml                                  •  php-zip
+
+
+
+
+9
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                           Installation – Serveur de base de données
+
+
+
+              Installation – Serveur de base de données
+                  •  GLPI a besoin de stocker des informations en base de données et pour
+                 cela il utilise un SGBD (Système de Gestion de Base de Données)
+
+
+                                                                                            •  SGBD pris en charge par GLPI
+                                                                                                                                           •  MySQL
+                                                                                                                                           •  MariaDB
+                                                                                                      •  Installation de MariaDB
+                                                                                                           •  Paquet : mariadb-server
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                           Fonctionnement – Serveur de base de données
+
+
+                    • Composants du serveur GLPI
+
+
+
+
+
+11
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                     Sécurisation - Serveur de bases de données
+
+
+              Sécurisation du serveur de base de données MariaDB
+
+
+       # apt install mariadb-server mariadb-client
+
+       # mysql_secure_installation
+       Change the root password? [Y/n] n                      # mot de passe pour l’utilisateur root dans MySQL
+      Remove anonymous users? [Y/n] Y                      # ne permettre l’accès à mariadb que pour root
+        Disallow root login remotely? [Y/n] Y                    # empêcher un accès distant à mariadb
+      Remove test database and access to it? [Y/n] Y       # supprimer la base de données de test
+       Reload privilege tables now? [Y/n] Y                     # recharger mariadb avec cette nouvelle configuration
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                              Paramétrage - Serveur de bases de données
+
+
+              Sécurisation du serveur de base de données MariaDB
+                    •  Paramétrage du serveur de base de données MariaDB
+                    • Connexion au Shell du SGBD MariaDB
+
+
+                    # mysql –u root –p
+                    •  Création d’une base de données
+
+                    mysql&gt;create database glpidata;
+                    •  Affectation des droits à l’utilisateur root de mariadb
+
+                    mysql&gt;grant all privileges on glpidata.* to root@localhost identified by ‘MotDePass’;
+
+                            Toutes les commandes MySQL doivent se
+                            terminer par un point-virgule.
+
+
+13
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                                       Installation – Application GLPI
+
+
+                    •  Récupération de l’archive GLPI sur le site de l’éditeur
+                    • Décompression à la racine du serveur web (/var/www/)
+                    •  Accès à l’interface web de GLPI via l’URL «http://@ipSrvGLPI/glpi »*
+
+                * URL par défaut d’accès à l’application pouvant varier
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    •  Post configuration - Language
+
+
+
+
+
+15
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    •  Post configuration - Installation ou mise à jour
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    •  Post configuration - Test des prérequis
+
+
+
+
+
+17
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    •  Post configuration - Accès à la base de données
+
+
+
+
+
+                                                                                                 127.0.0.1
+
+                                                                                                       root
+
+
+                                                                                                              Mot de passe de root mariadb
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    •  Post configuration - Initialisation d&#x27;une base de données
+
+
+
+
+
+19
+
+
+
+
+
+                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+                    • Comptes par défauts
+                              • glpi/glpi pour le compte administrateur
+                              • tech/tech pour le compte technicien
+                              • normal/normal pour le compte normal
+                              • post-only/postonly pour le compte postonly
+                    • Changement des mots de passe par défaut
+                    •  Désactivation du fichier « install/install.php »
+                    •  Définition d’un nom d’hôte d’accès à l’application
+
+
+
+
+
+20</pre></section><section><h2>Page 11</h2><pre>                                                     Présentation de l&#x27;environnement – Installation de GLPI
+                                                            Configuration – Application GLPI
+
+
+
+
+
+21</pre></section></html>

@@ -1,0 +1,359 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03-04-TP-Sous-réseaux.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M03-04-TP-Sous-réseaux.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Calcul des sous-réseaux
+TP du Module 03-04
+
+
+ Pour effectuer ce TP,  il faut avoir suivi la partie sur le découpage en sous-réseau du
+ module 3 sur l’adressage IPv4
+  En vidéo pour les stagiaires du campus en ligne
+  Diaporama et explications pour les stagiaires en présence d’un formateur
+
+
+           Durée estimée
+
+              3 heures
+
+Énoncé
+
+A.  Validité des adresses en notation CIDR
+Indiquez si les adresses sont valides pour des hôtes.
+
+Transformez la notation CIDR en notation standard.
+
+      Adresse        Valide     @Réseau / @Diffusion               Standard
+
+                                              12.0.0.0                           12.1.1.1
+      12.1.1.1 /8       OUI
+                                       12.255.255.255                      255.0.0.0
+                                                     .....................................................   ....................................................
+ 209.207.177.100 /30
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+    192.0.35.12 /26
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+   120.146.80.1 /20
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+    120.80.1.0 /11
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+   211.104.16.17 /29
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+    172.168.0.1 /24
+                                                     .....................................................   ....................................................
+                                                     .....................................................   ....................................................
+  109.168.248.32 /21
+                                                     .....................................................   ....................................................
+
+
+
+
+
+ Page 1/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                   .....................................................   ....................................................
+  96.139.84.12 /21
+                                                   .....................................................   ....................................................
+                                                   .....................................................   ....................................................
+   172.16.32.0 /25
+                                                   .....................................................   ....................................................
+                                                   .....................................................   ....................................................
+  172.16.0.127 /25
+                                                   .....................................................   ....................................................
+
+                                                   .....................................................   ....................................................
+  192.168.19.87 /29
+                                                   .....................................................   ....................................................
+                                                   .....................................................   ....................................................
+   172.16.32.1 /18
+                                                   .....................................................   ....................................................
+                                                   .....................................................   ....................................................
+  210.71.10.128 /28
+                                                   .....................................................   ....................................................
+
+
+
+
+
+Page 2/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>B.  Calculs de masque
+Calculez le masque approprié et complétez l&#x27;adresse en notation CIDR afin d&#x27;obtenir la
+quantité d&#x27;hôtes ou de sous-réseaux requis.
+Le masque de sous-réseau de départ est le masque par défaut associé à la classe.
+
+                  PARAMETRES REQUIS                   Notation CIDR
+
+      Au moins 120 sous-réseaux :                           172.16.0.0/ ...........
+
+        2 adresses par sous-réseau (liaisons pt à pt)          192.168.1.0/ ...........
+
+      Au moins 31 sous-réseaux                            185.221.0.0/ ...........
+
+      Au moins 15 sous-réseaux                            131.107.0.0/ ...........
+
+      A peu près 500 sous-réseaux                          140.10.0.0/ ...........
+
+       Exactement 8 sous-réseaux                        192.168.10.0/ ...........
+
+        10 sous-réseaux d&#x27;au moins 17 hôtes                 214.12.33.0/ ...........
+
+         Environ 2020 sous-réseaux                                 10.0.0.0/ ...........
+
+        127 sous-réseaux                                      188.23.0.0/ ...........
+
+C.  Calculs de masques, nombre de réseaux et hôtes
+Calculez le masque adapté aux exigences du scénario.
+Indiquez le nombre de sous-réseaux créés.
+Indiquez le nombre d&#x27;hôtes par sous-réseau.
+LE RESEAU DE DEPART COMPORTE TOUJOURS UN MASQUE DE CLASSE A, B ou C standard
+
+ Scénario 1
+ Nombre de segments physiques requis :               5
+ Nombre maximum d&#x27;hôtes par segment :             25
+ Adresse de réseau :                                192.177.4.0
+ Masque de sous-réseau proposé :
+ Nombre de sous-réseaux créés :
+ Nombre maximum d&#x27;adresses par segment :
+
+ Scénario 2
+ Nombre de segments physiques requis :              100
+ Nombre maximum d&#x27;hôtes par segment :             88.000
+ Adresse de réseau :                                    39.0.0.0
+ Masque de sous-réseau proposé :
+ Nombre de sous-réseaux créés :
+ Nombre maximum d&#x27;adresses par segment :
+
+
+
+
+ Page 3/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Scénario 3
+Nombre de segments physiques requis :              100
+Nombre maximum d&#x27;hôtes par segment :             350
+Adresse de réseau :                                171.133.0.0
+Masque de sous-réseau proposé :
+Nombre de sous-réseaux créés :
+Nombre maximum d&#x27;adresses par segment :
+
+Scénario 4
+Nombre de segments physiques requis :              16
+Nombre maximum d&#x27;hôtes par segment :            1 500
+Adresse de réseau :                                128.199.0.0
+Masque de sous-réseau proposé :
+Nombre de sous-réseaux créés :
+Nombre maximum d&#x27;adresses par segment :
+
+Scénario 5
+Nombre de segments physiques requis :              250
+Nombre maximum d&#x27;hôtes par segment :             100
+Adresse de réseau :                                191.254.0.0
+Masque de sous-réseau proposé :
+Nombre de sous-réseaux créés :
+Nombre maximum d&#x27;adresses par segment :
+
+Scénario 6
+Nombre de segments physiques requis :              12
+Nombre maximum d&#x27;hôtes par segment :             12
+Adresse de réseau :                               216.121.44.0
+Masque de sous-réseau proposé :
+Nombre de sous-réseaux créés :
+Nombre maximum d&#x27;adresses par segment :
+
+Scénario 7
+Nombre de segments physiques requis :              50
+Nombre maximum d&#x27;hôtes par segment :             600
+Adresse de réseau :                                134.119.0.0
+Masque de sous-réseau proposé :
+Nombre de sous-réseaux créés :
+Nombre maximum d&#x27;adresses par segment :
+
+
+
+
+Page 4/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>D. Découpage en sous-réseau
+On découpe le bloc 199.210.15.0 /24 selon le schéma suivant :
+
+
+
+
+
+Donnez les adresses des 7 segments définis (par ordre croissant) :
+
+Segment 1 .....................................................................................................................................
+
+Segment 2 .....................................................................................................................................
+
+Segment 3 .....................................................................................................................................
+
+Segment 4 .....................................................................................................................................
+
+Segment 5 .....................................................................................................................................
+
+Segment 6 .....................................................................................................................................
+
+Segment 7 .....................................................................................................................................
+
+
+
+
+
+ Page 5/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>E.  Découpage en sous-réseau
+    •  Vous êtes chargé planifier l&#x27;adressage de plusieurs réseaux.
+    •  Vous subdivisez successivement les blocs d&#x27;adresses et vous conservez toujours les
+      blocs supérieurs et divisez le dernier bloc.
+    •  Indiquez les numéros de réseau en notation CIDR
+    •  Schématisez les divisions des blocs.
+    •  Indiquez le nombre d&#x27;adresses valides par segment et le nombre d&#x27;adresses global.
+
+    1.  Premier réseau à découper : 195.220.12.0 /24
+    •  Segments à définir
+        o  1 segment contenant 115 postes
+        o  1 segment contenant 58 postes
+        o  1 segment contenant 25 machines
+        o  1 segment contenant d&#x27;une douzaine d&#x27;hôtes
+        o  2 segments contenant 5 machines
+    •   Listez les segments dans le tableau :
+   Classe C          / 25              / 26              / 27            /28             /29
+
+
+
+ 195.220.12.0
+
+
+
+
+    2. Deuxième réseau à découper : 192.168.10.0 /24
+    •  Segments à définir
+        o  3 segments contenant d&#x27;une soixantaine d&#x27;hôtes
+        o  1 segment contenant d&#x27;une trentaine de postes
+        o  2 segments contenant d&#x27;au moins 11 machines
+    •   Listez les segments dans le tableau :
+   Classe C          / 25              / 26              / 27            /28             /29
+
+
+
+ 192.168.10.0
+
+
+
+
+
+ Page 6/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>    3.  Troisième réseau à découper : 222.8.15.0 /24
+    •  Segments à définir
+        o  1 segments contenant d&#x27;une centaine d&#x27;hôtes
+        o  4 segments contenant 28 hôtes environ
+    •   Listez les segments dans le tableau :
+   Classe C          / 25              / 26              / 27            /28             /29
+
+
+
+  222.8.15.0
+
+
+
+
+
+F.  Recherche de sous-réseaux inutilisés
+    •  Vous auditez plusieurs réseaux.
+    •  On vous demande de rechercher les segments inutilisés.
+
+
+    1.  Premier réseau à étudier :
+        o  112.19.0.0 /16
+    •   Liste de réseaux actuellement utilisés :
+        o  112.19.0.0 /18
+        o  112.19.64.0 /18
+        o  112.19.128.0 /19
+        o  112.19.160.0 /20
+        o  112.19.176.0 /20
+        o  112.19.224.0 /20
+        o  112.19.240.0 /20
+Existe-t-il une ou plusieurs plages d&#x27;adresses inutilisées ?
+Détaillez votre calcul :
+
+
+
+
+
+ Page 7/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>    2. Deuxième réseau à étudier :
+        o  192.168.10.0 /24
+    •   Liste de réseaux actuellement utilisés :
+        o  192.168.10.0 /25
+        o  192.168.10.128 /27
+        o  192.168.10.160 /27
+        o  192.168.10.224 /28
+
+Indiquer les segments inutilisés :
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+
+    3.  Troisième réseau à étudier :
+        o  199.1.1.0 /24
+    •   Liste de réseaux actuellement utilisés :
+        o  199.1.1.0 /26
+        o  199.1.1.128 /27
+        o  199.1.1.160 /27
+        o  199.1.1.192 /28
+        o  199.1.1.224 /28
+        o  199.1.1.240 /28
+
+Indiquer les segments inutilisés :
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+
+    4. Quatrième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  1 segment de 62 postes
+        o  3 segments de 30 postes
+        o  4 segments de 14 postes
+
+Indiquer les segments inutilisés :
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+
+
+
+
+
+ Page 8/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>    5. Cinquième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  3 segments de 30 postes
+        o  3 segments de 14 postes
+
+Indiquer les segments inutilisés :
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+
+    6.  Sixième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  1 segment de 62 postes
+        o  1 segment de 14 postes
+
+Indiquer les segments inutilisés :
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+ .........................................................................................................................................................
+
+
+
+
+
+ Page 9/9
+                                      © ENI – Tous droits réservés</pre></section></html>

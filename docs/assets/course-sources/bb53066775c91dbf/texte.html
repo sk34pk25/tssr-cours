@@ -1,0 +1,355 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 – Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 01 – Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>   Services réseau en
+environnement Microsoft
+       Module 01 – Administration Windows</pre></section><section><h2>Page 2</h2><pre>Administration Windows
+
+                                         •  Connaître Microsoft Server et son biotopeObjectifs
+                                         •  Gérer le stockage du serveur et le RAID</pre></section><section><h2>Page 3</h2><pre>Administration Windows
+Version des systèmes d’exploitation Microsoft
+
+
+    Les deux familles
+
+       •  Les systèmes d’exploitation serveur
+      Windows 2008   Windows 2012                                   Windows 2016   Windows 2019   Windows 2022   Windows 2025       &amp; R2        &amp; R2
+          Ces versions ont la capacité de fournir un ensemble de services au sein d’une infrastructure
+
+       •  Les systèmes d’exploitation client
+
+        Windows 7    Windows 8 &amp; 8.1   Windows 10     Windows 11
+
+          Ces systèmes sont en règle générale utilisés en tant que station de travail par les utilisateurs</pre></section><section><h2>Page 4</h2><pre>Administration Windows
+Version des systèmes d’exploitation Microsoft
+
+
+      Les différentes éditions Windows Server
+
+                               Standard        Datacenter            Essentials
+
+
+                                                       512 Mo de RAM en mode Core                     2 Go de RAM
+                  Prise en charge matérielle             2 Go de RAM avec expérience utilisateur          CPU 1,4 GHz 64 bits – 1 sock.
+                    (minimum)                        CPU 1,4 GHz 64 bits                   160 Go de stockage avec une
+                                                         32 Go de stockage disque                       partition système de 60 Go
+
+                   Droits à la virtualisation                                                                Pas de licence pour virtualiser
+                                                   2 VMs            Nombre illimité de VMs
+                        et spécificités                                                                              Pas de CALs
+
+                Mode de licence                Basé sur les cœurs CPU (16 cœurs / 1 licence)                 Licence serveur</pre></section><section><h2>Page 5</h2><pre>Administration Windows
+Version des systèmes d’exploitation Microsoft
+
+
+      Quelques rappels sur les licences
+
+                                                          Licence d’Accès                             Licence du Système
+                                                                 Client SE                                  d’Exploitation (SE)           Licence du SE du
+                   client                                                                                                                             Installation du produit
+                                                                                                                         Mise en œuvre des services
+
+                                                                      Accès aux services depuis
+                                                                                     d’autres postes
+
+
+
+
+
+                                                                                Certains services peuvent
+                                                                                     nécessiter des CAL
+                                                                          supplémentaires (RDS)
+
+                                                                                                                                  Accès aux rôles</pre></section><section><h2>Page 6</h2><pre>Administration Windows
+Les services pris en charge par Windows Server
+
+         • L’ajout d’un serveur dans un contexte d’entreprise permet de fournir des
+         services spécifiques.
+
+         • Un ensemble de services est nativement pris en charge par les systèmes
+         d’exploitation Windows Server. Ceux-ci seront présentés ci-après.
+
+         • Bien d’autres solutions, outils, applications, non présentés ici, peuvent être
+        mis en œuvre sur les systèmes d’exploitation serveur (serveur de messagerie
+        Exchange, serveur de bases de données Microsoft SQL).</pre></section><section><h2>Page 7</h2><pre>Administration Windows
+Les services pris en charge par Windows Server
+
+
+      Les services de domaine pris en charge
+        Les systèmes d’exploitation serveur prennent en charge les composantes de services
+       Active Directory suivants :
+                   Services                       Description
+                                                             Ce rôle fournit la gestion de contextes de domaine Active         Services de domaine Active Directory (AD DS)                                                                                    Directory.
+         Service de fédération AD (AD FS)*                     Services fédérés de gestion des identités.
+          Services de gestion des droits Active Directory     Protection des ressources contre une utilisation non autorisée,
+                                                                     basée sur l’utilisation de certificats (permet notamment
+       (AD RMS)*                                                         d’interdire la copie ou l’impression d’un fichier).
+                                                                               Service de gestion d’une autorité de certification (fournit une          Services de certificat Active Directory (AD CS)*                                                                                     infrastructure à clef publique).
+
+            * Non vus pendant ce cours.</pre></section><section><h2>Page 8</h2><pre>Administration Windows
+Les services pris en charge par Windows Server
+
+
+      Les autres services pris en charge (liste non exhaustive) :
+
+                 Services                          Description
+
+         DNS                                     Service de résolution de noms d&#x27;hôtes
+         DHCP                                   Service de gestion de l&#x27;adressage IP
+                                                  Permet de créer un environnement informatique virtualisé dans lequel vous
+           Hyper-V                                                 pouvez créer et gérer des machines virtuelles.
+             Service de déploiement WDS        Service de déploiement de systèmes d’exploitation Windows à travers le réseau.
+         WSUS                                   Fournit une prise en charge centralisée des mises à jour des produits Microsoft.
+             Services d’impression et de                                                  Permet d’avoir une gestion centralisée de vos périphériques d’impressions.
+            numérisation de document</pre></section><section><h2>Page 9</h2><pre>Administration Windows
+Installation du système et composants
+         Les modes d’installation
+
+
+                 •  Installation minimale / Server Core :
+
+                          •  Sans environnement graphique
+
+                          •  Depuis Windows Server 2008
+
+                          • Mode d’installation par défaut
+
+                          •  Les commandes PowerShell peuvent être utilisées pour gérer un serveur Core
+
+
+                 •  Installation graphique ( « Expérience de bureau »)
+
+                          • Avec environnement graphique (GUI : Graphical User Interface)</pre></section><section><h2>Page 10</h2><pre>Installer Windows Server 2019 Standard
+
+
+         Démonstration</pre></section><section><h2>Page 11</h2><pre>Administration Windows
+Installation du système et composants
+
+      Les rôles et fonctionnalités
+          • Des composants peuvent être ajoutés par :
+                 • Le gestionnaire de serveur
+                 • Des commandes PowerShell
+
+          • Deux types de composants :
+                 • Les rôles : correspond généralement à un service que l’on fournit à des clients
+                 • Les fonctionnalités : correspond généralement à un outil/composant utile sur l’élément sur
+               lequel on l’ajoute</pre></section><section><h2>Page 12</h2><pre>Administration Windows
+Installation du système et composants
+
+      Les outils de gestion de Windows Server
+       Les différents outils sont :
+          • Le Gestionnaire de serveur :
+                 • Élément central d’administration du ou des serveurs
+
+          • Les consoles de gestion des services :
+                 • Disponibles suite à l’ajout d’un rôle sur un serveur
+                 • Peuvent être ajoutées sur un poste d’administration ne disposant pas du rôle à gérer
+
+          • La console PowerShell
+
+          • Ligne de commande (CMD)</pre></section><section><h2>Page 13</h2><pre>Démonstration</pre></section><section><h2>Page 14</h2><pre>M01TP01 - Installation et configuration initiale
+
+
+             TP</pre></section><section><h2>Page 15</h2><pre>Administration Windows
+Gestion du stockage
+                                                                   Les outils
+     Ce que nous allons voir
+                                          Les tables
+                                   de partition
+                                      Gestion des
+                                                                             Les ensembles                                        disques
+                                                                  de stockage
+
+                                            Les types de
+                                             configuration                                                            RAID                                      de disques</pre></section><section><h2>Page 16</h2><pre>Administration Windows
+La table de partitionnement
+
+         • Stockée en début de disque (et fin de disque si GPT)
+          • Détermine les caractéristiques des partitions créées sur un disque
+                    • Nombre
+                    •  Taille
+                    •  Position
+          • Héberge un chargeur d’amorçage
+
+          • 2 formats existent:
+                    • MBR (années 80)
+                    • GPT (années 2000)
+                             •  BIOS UEFI obligatoire</pre></section><section><h2>Page 17</h2><pre>Administration Windows
+Les formats de tables de partition
+
+   Caractéristiques de formats de partitionnement
+     • Le partitionnement MBR
+            • 4 partitions physiques (dont 1 étendue) max
+            • Limite de taille d’une partition à 2,2 To max
+
+     • Le partitionnement GPT
+            • Meilleure tolérance aux pannes (Données dupliquées en fin de disque)
+                      •  Possibilité de reconstruction
+            • 128 partitions physiques
+
+     • Possibilité de conversion
+
+
+                                MBR        Conversion OK avant que le disque ne contienne des données        GPT</pre></section><section><h2>Page 18</h2><pre>Administration Windows
+Les types de configuration des disques
+
+
+       Les configurations de disques sous Windows
+       2 types de configurations :
+             • Configuration de base
+                    •  Simplifie la gestion du disque
+                    •  Toutes les données sont inscrites dans des partitions physiques
+                    •  Sur un seul disque physique
+
+             • Configuration dynamique
+                    •  La gestion se fait par ensemble de disques
+                    •  Les données sont inscrites dans des volumes
+                                                                                  De                    •  Nécessaire pour le RAID logiciel                                                 Sans incidence pour les données         Dynamique                                                                                             base
+
+                                             • Conversion
+                                                                                                                                 De                                                                                    Dynamique    Nécessite la suppression préalable des volumes                                                                                                                                                   base</pre></section><section><h2>Page 19</h2><pre>Administration Windows
+Partitionnement physique (MBR)
+                                                                                                       Partition étendue
+
+                                                                                                                                Lecteur logique   Lecteur logique            Partition principale 1   Partition principale 2   Partition principale 3
+
+       Partitionnement d’un disque de base
+           • Sur un disque de base, on peut créer au maximum soit :
+                   • 4 partitions principales
+                   • 3 partitions principales et 1 partition étendue dans laquelle on crée des lecteurs logiques
+                               •  Les lecteurs logiques seront formatés
+
+           • Les partitions peuvent être étendues ou réduites sur l’espace contigu du même
+          disque.
+
+           • Le lancement d’un OS à partir d’un lecteur logique n’est pas possible.</pre></section><section><h2>Page 20</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Partitionnement d’un disque dynamique
+          •  Il est composé de volumes qui peuvent être de plusieurs types :
+                 • Volume simple
+                 • Volume fractionné
+                 • Volume agrégé par bandes
+                 • Volume en miroir
+                 • Volume agrégé par bandes avec parité
+
+          • RAID (Redundancy Array of Inexpensive Disk)</pre></section><section><h2>Page 21</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume simple
+     On parlera d’espace disque.
+            •  C’est le seul type de volume qui utilise un seul disque physique
+
+           Volume simple 1      Volume simple 2                    Espace libre
+
+
+            •   Il peut être étendu au sein du même disque
+
+           Volume simple 1      Volume simple 2          Volume simple 1         Espace libre</pre></section><section><h2>Page 22</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume fractionné
+     Un volume fractionné utilise plusieurs espaces sur plusieurs disques physiques.
+            • Situation initiale
+
+
+
+        1
+                                             Disque          Volume simple 1     Volume simple 2               Espace libre
+
+
+
+        2
+                                             Disque                                         Espace libre
+
+            • Extension du volume simple 2 sur le disque dynamique 2
+
+
+
+
+        1
+                                             Disque          Volume simple 1     Volume simple 2               Espace libre
+
+
+        2
+                                             Disque                         Volume simple 2                          Espace libre</pre></section><section><h2>Page 23</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume agrégé par bandes
+       Le RAID-0 ou volume agrégé par bandes en est un type :
+
+
+
+
+
+      1
+                     physique           Disque           Volume simple 1         Volume agrégé100parGobandes                                                  logique                             200 Go
+      2                                                                                                           Vue        Vue                             100 Go           Espace libre                                      Disque                                                                                                                                 RAID 0
+
+                                                                    A1           A2                 • La taille des bandes doit être identique sur chaque disque
+                 • Réparti sur 2 à x disques                                   A3           A4
+                 • Rapidité de lecture/écriture accrue
+                                                                        A5            A6                 • Aucune tolérance de panne
+                 • Tout l’espace disque alloué est utilisable                                                     Disque 1                          Disque 2</pre></section><section><h2>Page 24</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume en miroir
+       Le RAID-1 ou volume miroir en est un type :
+
+
+
+
+         1
+                                     physique           Disque           Volume simple 1             Volume100en miroirGo                                                             logique                             100 Go
+         2                                                                                                                 Vue              Vue                                 100 Go           Espace libre                                                      Disque
+                                                                                                                                           RAID 1
+                 • Réparti sur 2 disques                                                                            A1           A1
+                 • L’espace alloué sur les 2 disques doit être identique
+                                                                            A2           A2                 • Les mêmes données sont écrites simultanément sur les 2 disques
+                 • Tolérances aux pannes accrues, un des disques peut être perdu                                                                                 A3            A3
+             sans impact sur les données
+                 • La moitié de l’espace disque alloué n’est pas directement utilisable                  Disque 1                          Disque 2</pre></section><section><h2>Page 25</h2><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume agrégé par bandes avec parité
+       Le RAID-5 ou volume agrégé par bandes avec parité en est un type :
+
+
+
+
+
+            1
+
+                                                                                                          200 Go                                                                      Disque           Volume simple 1           100 Go                                               logique
+                                                                              Volume en miroir            2                                                                                    Vue
+                                     100 Go           Espace libre                                                         RAID 5                                                    physique             Disque
+                   Vue  3                                              Volume agrégé par bandes avec parité
+                                                                         A1    A2    Ap                                Espace libre          100 Go                                                                      Disque
+                                                                  B1   Bp    B2
+                 • 3 disques minimum
+                                                                              Cp     C1     C2                 • 1 disque (espace d’une bande) est alloué à la tolérance de panne
+                 • RAID offrant un compromis tolérance panne / coûts                                                                                                                                                                                  Disque 1       Disque 2       Disque 3</pre></section><section><h2>Page 26</h2><pre>Administration Windows
+Formatage et outils
+
+     Formatage
+          • Les partitions principales, lecteurs logiques et volumes                                                                                                                      Partitionnement
+         doivent être formatés avant d’être utilisables.
+
+                                                                                                             Formatage
+          • Le formatage est l’installation d’un système de fichier
+        (hébergement des données).                                                                                                              
+
+          • Les systèmes de fichiers disponibles sont :
+             FAT32 / exFAT
+               NTFS       Depuis Windows NT
+                                 Depuis Windows 2012
+                 ReFS                                   (pour les espaces de stockage)</pre></section><section><h2>Page 27</h2><pre>Administration Windows
+Formatage et outils
+
+      Les outils
+          • La console de Gestion des disques (diskmgmt.msc)
+          • La commande (CMD) diskpart
+          • Les commandes PowerShell</pre></section><section><h2>Page 28</h2><pre>Gestion du stockage
+
+
+         Démonstration</pre></section><section><h2>Page 29</h2><pre>M01TP02 - Gestion du stockage
+
+
+             TP</pre></section></html>

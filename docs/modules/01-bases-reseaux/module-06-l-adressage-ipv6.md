@@ -45,6 +45,9 @@ Deux règles de simplification sont utilisées dans le support.
 | Zéros initiaux supprimés | `2001:db8:0:0:8a2e:370:7334` |
 | Suite de zéros compressée | `2001:db8::8a2e:370:7334` |
 
+!!! warning "Erratum IA / externe — exemple source incomplet"
+    Les deux premières lignes de ce tableau source ne comptent que sept groupes et sont invalides sans `::`. Le développement correct de la troisième ligne est `2001:0db8:0000:0000:0000:8a2e:0370:7334`. Voir la précision sourcée RFC 4291 en fin de fiche ; le document original reste inchangé.
+
 Autre exemple du support :
 
 ```text
@@ -129,3 +132,20 @@ Les deux protocoles ne sont pas directement compatibles. Le support cite trois t
 
 - **A — source originale :** support TSSR « cours kahoot module 5 et 6 », partie Module 6.
 - **B — structuration pédagogique :** organisation web, tableaux de lecture, vérifications et liens de navigation construits à partir de cette source, sans apport externe.
+
+<!-- TSSR-EXTERNAL-CLARIFICATION-20261020 -->
+
+## Complément IA / externe au cours — errata de lecture IPv6
+
+Le tableau précédent reproduit un exemple de la source dont les deux premières lignes ne comportent que sept groupes, sans `::` : ces écritures ne sont pas valides. Pour développer correctement **`2001:db8::8a2e:370:7334`**, il faut écrire **`2001:0db8:0000:0000:0000:8a2e:0370:7334`** : huit groupes. La frontière réseau/hôte dépend du préfixe, pas du seul nombre de groupes visibles. En IPv6, il n’existe pas d’adresse de broadcast ; le multicast assure les fonctions correspondantes. [Source externe — RFC 4291, sections 2 et 2.2](https://www.rfc-editor.org/rfc/rfc4291.html).
+
+Les adresses locales uniques appartiennent à **`FC00::/7`** ; la partie utilisée pour une attribution locale avec le bit L à 1 est **`FD00::/8`**. Elles ne doivent pas être confondues avec les adresses de lien local `FE80::/10`. [Source externe — RFC 4193](https://www.rfc-editor.org/rfc/rfc4193.html).
+
+**Illustration IA / externe au cours — décompression vérifiable.**
+
+```mermaid
+flowchart TD
+ A["2001:db8::8a2e:370:7334"] --> B["5 groupes écrits : 3 groupes nuls manquent"]
+ B --> C["2001:0db8:0000:0000:0000:8a2e:0370:7334"]
+ C --> D["8 groupes de 16 bits = 128 bits"]
+```

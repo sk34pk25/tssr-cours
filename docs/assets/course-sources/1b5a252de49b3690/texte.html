@@ -1,0 +1,230 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 07 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+              Module 07 – La gestion du réseau et du pare-feu
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+  La gestion du réseau et du pare-feu
+
+                                            •  Rappel sur les bases des réseaux  Objectifs
+                                            •  Configurer la carte et l’emplacement réseau
+                                            •  Manipuler le pare-feu Windows
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  La gestion du réseau et du pare-feu
+ Rappel
+
+                                         IP : 192.168.5.254/24                                                     IP : 192.168.10.254/24
+                      MAC : 10-11-12-13-14-15                     Réseau192.168.5.0directementvia 192.168.5.254connecté  :        MAC : 02-46-80-13-57-90Réseau203.0.113.0directementvia 203.113.0.2connecté  :
+              ?                                                                   Réseau directement connecté  :                                         Réseau directement connecté  :
+                                                                                                                          203.0.113.0 via 203.0.113.1                                                   192.168.10.0 via 192.168.10.254
+
+                                                                                                          Route vers le réseau                                                    Route vers le réseau
+                                                                                                                                                                                                         192.168.5.0                                                                                                                                                                                                                                           via 203.0.113.1                                                                                                                                                     via 203.0.113.2     A                                                                                            192.168.10.0
+                                                                                                                                                       Nombre de sauts                                                                                                                                                                                                                                                                                                                                                                                                                                                                         : 1      B                                                                                            Nombre de sauts                                                                                                                                                                                                                                                                                                   : 1
+
+     IP IP: 192.168.5.1/24: 192.168.5.1/24                                                                                                                               IPIP: 192.168.10.1/24: 192.168.10.1/24
+ MACMAC: 00-01-02-03-04-05: 00-01-02-03-04-05                                                                    MACMAC: AA-BB-CC-DD-EE-FF: AA-BB-CC-DD-EE-FF
+ PasserellePasserelle: 192.168.5.254: 192.168.5.254                               IPIP :: 203.0.113.1/30203.0.113.1/30                         IPIP :: 203.0.113.2/30203.0.113.2/30                        PasserellePasserelle: 192.168.10.254: 192.168.10.254
+                                 MACMAC :: 50-51-52-53-54-5550-51-52-53-54-55         MACMAC :: 1A-2B-3C-4D-5E-6F1A-2B-3C-4D-5E-6F
+
+                        CacheCacheCache ARPARPARPdededelalalamachinerouteurrouteur 11A
+                                                                     Adresse IP       Adresse IP
+                          MACMACMAC SourceSourceSource :::                                     MACMACMAC                                                                 Destination:Destination:Destination:
+                                           AdresseAdresseAdresse                                                          IPIPIP             Source :       Destination :    Données (Payload)                                                          10-11-12-13-14-151A-2B-3C-4D-5E-6FAA-BB-CC-DD-EE-FF                    AdresseAdresseAdresse MACMACMAC00-01-02-03-04-0550-51-52-53-54-5502-46-80-13-57-90
+                                                                         192.168.5.1     192.168.10.1
+              10-11-12-13-14-15AA-BB-CC-DD-EE-FF1A-2B-3C-4D-5E-6F     192.168.5.254192.168.10.1203.0.113.2
+                       Données de couche 2               Données de couche 3
+
+              LeLeLerouteurrouteurposteLe LerouteurLerouteurApostetrouvereçoitL’adressedevraLe2LeLeALeletrouverouteurvauneLeenvoyerrouteurregardepostepaquet,routeurrechercherrouteurMACcorrespondanceLaunemachineB2 de2identifiedésencapsuledansledésencapsuleencapsulecorrespondanceLerechercheencapsulepaquetlaLarouteurdansLapasserellesonmachineLaAmachinequ’ilsouhaitetramecachesonversladansdansregardeetesttramecachelalasaBenvoieaestARPtramecouchesaest-elleBbiensonétépasserelleenvoyerdansesttransmisetableetARPdanssitrouvée,cachelelasurl’envoiel’adresseetsadestinataire2tramedansl’adressedeanalysesauntableetunARPparroutage.tableanalyseautreaupaquetlamonààdedéfaut.MACmachinel’adressedestinationrouteurdestinationl’adresseMACderoutage,réseauréseaudul’adressePouràderoutagelaIldepaquetladoitAmachineMACatteindre?IPl’adressepasserelleencapsuleledududetrouverIPréseauduetrouteurpostedestinationdeleposteBdestinationduletraitey192.168.10.0sonlaBréseauestsaut2trameBadressestockéesuivant192.168.10.0duMAC…estpaquet
+                                     il doit passer par 203.0.113.2directementet queconnectéle réseauà l’interfacede destination192.168.10.254se trouve juste derrière (1 saut).
+
+                                                                                         3
+
+
+3
+
+
+  La gestion du réseau et du pare-feu
+ Configuration de la carte réseau
+
+        Le centre réseau et partage
+              • Accessible depuis l&#x27;icône réseau de la barre de notification
+                       •  Paramètre réseau et Internet &gt; Centre réseau et partage
+              • Accessible depuis le panneau de configuration
+                       • Réseau et Internet &gt; Centre réseau et partage
+              • Donne des indications sur :
+                       •  La connectivité du poste
+                       •  Les connexions réseau détectées
+                       •  Les profils réseau et les emplacements associés
+              • Donne accès aux paramétrages :
+                       • Des fonctionnalités de partage : découverte, partages, dossiers publics…
+                       • Des cartes réseau (accès direct en lançant ncpa.cpl)
+                       • Des nouvelles connexions
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>  La gestion du réseau et du pare-feu
+ Configuration de la carte réseau
+
+       Une carte réseau est associée à un emplacement réseau
+              • Détermine le comportement du pare-feu
+              • Réseau privé sur un poste autonome
+
+
+              • Réseau avec domaine non modifiable si le poste est joint à un domaine
+
+
+              • Réseau public si aucune passerelle n’a été définie, si le domaine n’a pas été détecté pour les
+            postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau…
+
+
+
+                                                                                         5
+
+
+5
+
+
+  La gestion du réseau et du pare-feu
+ Configuration de la carte réseau
+
+
+              • Quels paramètres pour le poste de travail ?
+                      • Adresse IP et masque
+                      •  Passerelle
+                      • Serveurs DNS préférés et auxiliaires
+              • Le type d’adressage
+                      • Statique : configuré manuellement
+                      • Dynamique : fourni par le serveur DHCP ou APIPA
+              • APIPA : communication temporaire sur le réseau local
+                      • Obtenir automatiquement une adresse grâce au système
+                    d&#x27;exploitation Windows si aucun serveur DHCP n&#x27;est joignable
+                      • Réseau 169.254.0.0/16
+                      • Communication sur le réseau local possible
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>  La gestion du réseau et du pare-feu
+ Configuration de la carte réseau
+
+
+            • Outils graphiques
+                      • Zone de notification (état de la connexion)
+                      • Composant Connexions réseau
+                      •  Assistant Résoudre les problèmes : orienté utilisateur…
+
+            • Rappel sur les outils invite de commande : les plus précis et efficaces
+                      • ipconfig : afficher la configuration et interagir avec la pile réseau (DNS, DHCP)
+                      • ping : tester la connectivité (bloqué par défaut par le pare-feu Windows !)
+                      • tracert : tester la route empruntée par les paquets TPC/IP
+                      • nslookup : diagnostic de la résolution de noms d’hôte
+
+                                                                                         7
+
+
+7
+
+
+  La gestion du réseau et du pare-feu
+ Pare-feu
+
+
+            • Pourquoi ?
+                      • Délimiter quels flux réseau sont autorisés en entrée et en sortie
+                      • Protéger le poste contre les accès non autorisés (utilisateurs, programmes)
+                      • Élément de la stratégie globale de sécurité de l’entreprise
+
+            • Caractéristiques
+                      • Activé par défaut, bloque certains flux en entrée et les autorise tous en sortie
+                      • Se compose de règles prédéfinies activées (ou facilement activables)
+                      • S&#x27;adapte à la situation du poste (emplacements réseau)
+                      • Administrable de manière centralisée (stratégies, export)
+
+
+
+                                                                                         8
+
+
+8</pre></section><section><h2>Page 5</h2><pre>  La gestion du réseau et du pare-feu
+ Pare-feu
+
+            • 3 niveaux de configuration
+                      •  Utilisateur depuis le composant Vérifier l&#x27;état du
+                 Pare-feu pour l’activation / la désactivation
+                      • Programme avec la fonction Autoriser une
+                  application via le pare-feu Windows : fournit un
+                ensemble de règles génériques activées
+                automatiquement et paramétrables
+                      • Avancé avec la console Pare-feu Windows
+                Defender avec fonctions avancées de sécurité :
+               donne accès au paramétrage détaillé de l’ensemble
+                 des règles, permet également d’afficher une vue
+                  globale des règles activées
+            • Accessible avec la commande firewall.cpl
+
+
+                                                                                         9
+
+
+9
+
+
+  La gestion du réseau et du pare-feu
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          10
+
+
+10</pre></section><section><h2>Page 6</h2><pre>  La gestion du réseau et du pare-feu
+
+
+              TP
+
+
+
+
+
+                                                                                          11
+
+
+11
+
+
+  La gestion du réseau et du pare-feu
+ Conclusion                                            •  Tout poste client doit communiquer sur les
+                                        différents réseaux de l’entreprise
+                                            •  Tester la communication et diagnostiquer lorsqu’il
+                                  y a dysfonctionnement
+                                            •  Ouvrir et fermer des accès grâce au pare-feu
+
+
+
+
+
+                                                                                          12
+
+
+12</pre></section></html>

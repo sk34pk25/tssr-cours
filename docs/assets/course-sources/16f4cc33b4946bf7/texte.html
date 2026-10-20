@@ -1,0 +1,74 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M6 - Solutions du TP 1 - Enchaînements conditionnels.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M6 - Solutions du TP 1 - Enchaînements conditionnels.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                               Initiation au scripting Bash
+
+Enchaînements conditionnels
+Solutions - TP1 du Module 06 - Les caractères spéciaux du Shell
+
+
+
+A partir de l’analyse des besoins, réaliser un script Shell permettant d’y répondre
+
+Dans les étapes d’élaboration du script, il faudra commencer par vérifier si un nom a été saisi directement
+après le fichier de script lors de son exécution. S’il y a bien un seul argument, le conserver durablement dans
+une variable, si plus d’un : sortie du script. S’il n’y en a aucun, le script doit le demander et le stocker dans une
+variable.
+
+Ensuite, si le nom est ‘root’, le script doit afficher une interdiction et sortir du script. Sinon pour tout autre nom
+doit afficher un message de bienvenue.
+
+
+Les variables réservées sont ici utilisées : $# pour le nombre d’arguments fournis lors du lancement du script et
+$1 pour le 1er argument fourni (cf module sur variables réservées)
+
+
+    •   Créer et éditer un nouveau fichier script, par exemple, nommé script_M6TP1.sh
+
+vim script_M6TP1.sh
+
+
+    •  Y ajouter les lignes suivantes :
+
+#! /bin/bash
+
+# M6 - Solution du TP1
+
+# Utilisation : ./script_M6TP1.sh  &lt;id utilisateur&gt;
+
+#Déclaration des variables
+
+rouge=’\033[1;31m’
+
+vert=’\033[1;32m’
+
+noir=’\033[0m’
+
+# Etapes de vérification de saisie d’un nom d’utilisateur
+
+[ $# -eq 1 ] &amp;&amp; name=$1 # Si 1 argument alors stockage de sa val. dans ‘name’
+
+[ $# -gt 1 ] &amp;&amp; echo -e &quot;$rouge Le nombre d&#x27;arguments est invalide !$noir&quot; &amp;&amp; exit 1 #
+Si plusieurs arguments =&gt; sortie
+
+[ $# -eq 0 ] &amp;&amp; read -p &quot;Veuillez saisir votre nom d&#x27;utilisateur : &quot; name # Si 0
+argument fourni, invite de saisie
+
+# Si le nom saisi est ‘root’, interdiction en rouge + sortie
+
+[[ $name = root ]] &amp;&amp; echo -e &quot;$rouge Interdit de se connecter en $name $noir&quot; &amp;&amp; exit
+2
+
+# Si la variable name contient bien une valeur, affichage du message de bienvenue</pre></section><section><h2>Page 2</h2><pre>                                                                                               Initiation au scripting Bash
+
+
+
+[[ -n $name ]] &amp;&amp; echo -e &quot;$vert Bonjour $name, bienvenue sur la machine
+$HOSTNAME.$noir&quot;
+
+# Message de fin de script
+
+echo &quot;--- Fin du script ---&quot;
+
+
+    •  Rendre exécutable le fichier à l’aide de la commande chmod utilisée dans d’autres modules
+       précédents
+    •  Lancer le script en testant différents scénarios (avec 0, puis 1 et enfin 2 arguments) et avec différents
+     noms dont root</pre></section></html>

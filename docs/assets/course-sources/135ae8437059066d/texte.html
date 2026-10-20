@@ -1,0 +1,66 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 06 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>          Initiation à PowerShell
+                     Module 06 – Pour aller plus loin
+
+
+
+
+
+                                                                                          1
+
+
+1
+
+
+  Pour aller plus loin
+  S’authentifier avec PowerShell
+
+            • Pour des raisons de sécurité, nous travaillerons avec des comptes possédant
+          des privilèges réduits.
+
+            • Cela peut être problématique pour la réalisation de certaines actions.
+
+            • Afin de contourner cette problématique, il est possible de lancer le script
+          avec un compte utilisateur, puis demander une authentification à son
+          lancement.
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  Pour aller plus loin
+  S’authentifier avec PowerShell
+
+            • Une commande est dédiée à cet usage.
+         PS &gt; $Cred = Get-Credential
+
+            • Les logins et mots de passe renseignés
+          sont stockés dans la variable et
+            réutilisables dans le script.
+
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+  Pour aller plus loin
+  S’authentifier avec PowerShell
+
+      On peut personnaliser la fenêtre.
+           PS &gt; $Cred = Get-Credential -Message &quot;Entrez votre
+           login Admin du Domaine&quot; -UserName eni\Administrator
+
+
+
+
+
+                                                                                         4
+
+
+4</pre></section></html>

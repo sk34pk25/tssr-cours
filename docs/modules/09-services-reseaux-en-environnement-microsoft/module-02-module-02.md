@@ -30,3 +30,16 @@ Créer et contrôler les objets dans le contexte du TP ; affecter les droits au 
 ??? success "Réponses"
     1. Structurer l’attribution des permissions par groupes.
     2. Kerberos.
+
+<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Suivre AGDLP
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ A["Comptes"] --> G["Groupes globaux"] --> DL["Groupes locaux de domaine"] --> P["Permissions sur la ressource"]
+```
+
+Lire le schéma de gauche à droite, puis tester avec un compte de laboratoire. Ce dessin IA synthétise l’organisation présentée dans le support ; il ne remplace pas les noms et permissions du TP.

@@ -34,3 +34,16 @@ Une GPO est utile lorsqu’elle applique une règle cohérente à la bonne cible
 ??? success "Réponses"
     1. Les ordinateurs et les utilisateurs.
     2. Pour vérifier son effet et éviter une configuration inattendue.
+
+<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Valider une stratégie de groupe
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ B["Besoin du TP"] --> C["Cible : utilisateur ou ordinateur"] --> G["Paramètre et liaison GPO"] --> T["Test sur une cible de laboratoire"] --> V["Résultat observé et preuve"]
+```
+
+Repère de méthode IA : distinguer la configuration voulue de son application effective sur la cible. Reprendre les paramètres exacts dans le support original.

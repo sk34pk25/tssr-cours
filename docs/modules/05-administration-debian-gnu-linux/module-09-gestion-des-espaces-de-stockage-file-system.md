@@ -37,3 +37,16 @@ Un espace de stockage est utilisable lorsqu’il est correctement préparé, mon
 ??? success "Réponses"
     1. `lsblk -f`.
     2. Le formatage crée une structure ; le montage la rend accessible dans l’arborescence.
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Séparer préparation et accès aux données
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ B["Espace bloc identifié"] --> F["Système de fichiers"] --> M["Montage dans l’arborescence"] --> C["Contrôle avec lsblk -f et df -h"]
+```
+
+Cette illustration de synthèse IA relie les notions du support. Créer un système de fichiers et monter un système de fichiers existant sont deux opérations distinctes ; suivre la cible et les consignes exactes du TP.

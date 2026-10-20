@@ -1,0 +1,391 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module additionnel - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module additionnel - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+                    Module additionnel – Workstation
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+  Workstation
+
+                                            •  Découvrir  Objectifs
+                                                                 •  La virtualisation des systèmes
+                                                                 •  Workstation et les ressources
+                                                                 •  Workstation et le réseau
+                                                                 •  Les spécificités de Workstation
+                                                                 •  L’import et l’export de machines virtuelles
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  Workstation
+  Virtualisation des systèmes
+
+            • Faire cohabiter plusieurs systèmes invités, isolés et indépendants, grâce aux
+           ressources d&#x27;un ordinateur physique, appelé hôte
+            • Hôte
+                      • Ordinateur physique (serveur ou PC client)
+                      • Possède les ressources
+            • Système invité
+                      • Ordinateur virtuel (ou VM pour Virtual Machine)
+                      • Possède son propre OS
+                      •  Utilise les ressources de l&#x27;hôte
+                      •  Défini par un ensemble de fichiers
+                                   •  Géré par l&#x27;hyperviseur
+                                   •  Contenu dans un répertoire d&#x27;accueil
+
+                                                                                         3
+
+
+3
+
+
+  Workstation
+  Virtualisation des systèmes
+
+         L&#x27;hyperviseur
+              • Élément indispensable de la virtualisation
+              • Lien entre l&#x27;hôte et les VM
+              • Sous la forme d&#x27;un logiciel ou d&#x27;un OS
+              • Propose des ressources disponibles de l&#x27;hôte
+              • Gère, partage et priorise les accès aux ressources de l&#x27;hôte lorsque les
+        VM en ont besoin
+
+
+
+
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>  Workstation
+  Virtualisation des systèmes
+
+            • Les 4 éléments indispensables au bon fonctionnement d&#x27;un ordinateur
+          physique
+                    • Le processeur
+                    • La mémoire vive
+                    • Le disque dur
+                    • La carte réseau
+            • Une VM possède les mêmes besoins pour fonctionner
+            • Autres besoins
+                    • Lecteur DVD / Stockage externe
+                    • Carte graphique, carte son
+                    • Firmware
+
+
+                                                                                         5
+
+
+5
+
+
+  Workstation
+  Virtualisation des systèmes
+
+
+
+
+
+                                  HYPERVISEUR
+
+
+
+
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>  Workstation
+ Le processeur
+
+          Attribution des ressources CPU
+
+
+
+
+
+                                                                                         8
+
+
+8
+
+
+  Workstation
+ La mémoire vive
+
+            • Attribuée à la VM au démarrage
+            • Configurable
+
+
+
+
+
+                                                                                         9
+
+
+9</pre></section><section><h2>Page 5</h2><pre>  Workstation
+ Le disque dur
+
+            • Est un fichier !
+            • De taille dynamique
+            • Taille maximale configurable
+
+
+
+
+
+                                                                                          10
+
+
+10
+
+
+  Workstation
+ La carte réseau
+
+            • La VM peut communiquer avec :
+                    • des VM de son réseau
+                    • des VM de réseaux différents
+                    • l&#x27;hôte
+                    • d&#x27;autres machines physiques
+                    • le monde entier
+
+            • Pour cela, elle doit être connectée à un switch
+
+
+
+
+
+                                                                                          11
+
+
+11</pre></section><section><h2>Page 6</h2><pre>  Workstation
+ La carte réseau
+                                                  Hôte
+
+                                                                                                        VMware NetWork
+                                                                                                                           Adapter VMnet1         Les switchs sont virtuels :
+            • Host-Only
+            • VMnet et Lan Segment                                                               Host-Only                           VM
+            • Bridge
+            • NAT (Translation d&#x27;adresse)
+
+
+
+
+
+                                                                                          12
+
+
+12
+
+
+  Workstation
+ La carte réseau
+                                                      Hôte
+
+                                                                                                        VMware NetWork
+         Les switchs sont virtuels :                                                               Adapter VMnetX
+            • Host-Only
+            • VMnet et Lan Segment                            VMnetX                           VM
+            • Bridge
+            • NAT (Translation d&#x27;adresse)
+
+
+
+
+
+                                                                                          13
+
+
+13</pre></section><section><h2>Page 7</h2><pre>  Workstation
+ La carte réseau
+
+         Les switchs sont virtuels :
+            • Host-Only
+                                                          Lan Segment                          VM            • VMnet et Lan Segment
+            • Bridge
+            • NAT (Translation d&#x27;adresse)
+
+
+
+
+
+                                                                                          14
+
+
+14
+
+
+  Workstation
+ La carte réseau
+                                                            Serveurs
+         Les switchs sont virtuels :                                       Administratif
+              • Host-Only
+              • Vmnet et Lan Segment
+                                              Usine              • Bridge
+              • NAT (Translation d&#x27;adresse)
+                                                                    Imprimantes
+
+                                               Routeur
+                                                             virtuel
+
+
+
+
+                                                                                          15
+
+
+15</pre></section><section><h2>Page 8</h2><pre>  Workstation
+ La carte réseau
+
+         Les switchs sont virtuels :
+            • Host-Only                                                            Bridge                       VM            • VMnet et Lan Segment
+            • Bridge
+                                                                                 Internet            • NAT (Translation d&#x27;adresse)
+
+
+
+
+
+                                                                                          16
+
+
+16
+
+
+  Workstation
+ La carte réseau
+
+         Les switchs sont virtuels :
+            • Host-Only
+            • VMnet et Lan Segment     VM        NAT       Hôte       Internet
+            • Bridge
+            • NAT (Translation d&#x27;adresse)                                          VMware           Ethernet
+                                                                                                      NetWork
+                                                                                                                   Adapter
+                                                                                                   VMnet8
+
+
+
+
+
+                                                                                          17
+
+
+17</pre></section><section><h2>Page 9</h2><pre>  Workstation
+ Workstation
+
+        Les avantages
+              • IHM épurée, simple d&#x27;utilisation
+              • Pause, Snapshots, clonage
+              • Partages de dossier entre l&#x27;hôte et la machine virtuelle
+              • Glisser/Déposer et autres avantages grâce aux VMware Tools
+
+        Les inconvénients
+              • Prévu pour des maquettes simples
+              • Logiciel propriétaire VMware
+              • Temps d&#x27;adaptation aux différentes notions
+                      •  Virtualisation des OS, du stockage, des réseaux…
+
+                                                                                          18
+
+
+18
+
+
+  Workstation
+ Workstation
+
+        Quelques trucs à connaître
+            • Possibilité de paramétrer la séquence de démarrage dans le BIOS de la VM
+            • Les médias amovibles de type CD/DVD, USB, disquette sont gérés
+            • Par défaut la VM « capture » le clavier et la souris
+        Tapez la combinaison Ctrl + Alt pour reprendre la main
+            • Pour faire Ctrl + Alt + Suppr dans la VM, taper Ctrl + Alt + Inser
+        ou cliquer sur
+
+
+
+
+
+                                                                                          19
+
+
+19</pre></section><section><h2>Page 10</h2><pre>  Workstation
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          20
+
+
+20
+
+
+  Workstation
+ Import/export de VM
+
+            • Importer = Possibilité d&#x27;utiliser des VM existantes
+                    • Ouvrir (ou Open) une VM depuis son dossier d&#x27;accueil
+                    • Importer une VM depuis son archive .ovf ou .ova
+
+            • Exporter = Sauvegarder votre VM dans son état actuel
+                    • Pour la réutiliser plus tard
+                    • En copiant son dossier d&#x27;accueil
+                    • En l&#x27;exportant dans une archive .ovf ou .ova
+
+
+
+
+
+                                                                                          21
+
+
+21</pre></section><section><h2>Page 11</h2><pre>  Workstation
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          22
+
+
+22
+
+
+  Workstation
+ Conclusion                                            •  Permet de maquetter des environnements pour
+                                 apprendre ou pour tester avant de mettre en
+                                  production
+                                            •  Virtualise la puissance de calcul, le stockage et
+                                          l’accès au réseau
+                                            •  C’est l’outil majeur de votre formation
+                                            • Vous en découvrirez davantage avec l’expérience
+
+
+
+
+
+                                                                                          23
+
+
+23</pre></section></html>

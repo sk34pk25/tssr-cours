@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M12TP02 - Enoncé - Gestion de la planification des tâches.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M12TP02 - Enoncé - Gestion de la planification des tâches.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                        Administration Debian GNU/Linux
+Gestion de la planification
+des tâches
+TP du Module 12 – Maintenance d’un système en production
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+         30 à 45 minutes
+
+Énoncé : Planification de taches sur le serveur
+sans environnement graphique
+
+  I.  Crontab utilisateur
+•  Créer une tâche crontab utilisateur pour l&#x27;utilisateur &quot;François&quot;
+    o  Périodicité : tous les jours ouvrables de la semaine à 9h15
+    o Commande   : mise à  jour de  l’archive de son  répertoire personnel dans
+       l’arborescence depot de l’atelier 10 avec le nom francois.tar
+•  Créer une tâche crontab utilisateur pour l’utilisateur &quot;François&quot;
+    o  Périodicité : tous les samedis à 10h
+    o Commande   : compression de  l’archive  francois.tar en  francois.tar.bz2,  puis
+        création d’une nouvelle archive francois.tar
+
+  II.  Crontab système
+•  Créer une tâche de surveillance des processus système :
+    o  Périodicité : toutes les 30 minutes le mardi
+    o Commande : lister l&#x27;ensemble des processus de manière détaillée avec notamment
+         les pourcentages d&#x27;utilisation mémoire et processeur.
+    o  Enregistrer ces informations de façon durable dans le fichier /var/log/procstatus.log
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger.
+
+Page 1/1
+
+                             © ENI – Tous droits réservés</pre></section></html>

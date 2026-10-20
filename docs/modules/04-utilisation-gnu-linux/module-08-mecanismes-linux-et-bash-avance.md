@@ -67,3 +67,18 @@ export monnom
 - [Fiche de révision](../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Kahoot M08](../../kahoot/04-utilisation-gnu-linux-module-08-mecanismes-linux-et-bash-avance.md)
 - [Présentation de la séquence](index.md)
+
+<!-- TSSR-LINUX-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Distinguer variable du shell et environnement
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ A["monnom=valeur : shell courant"] -->|"export monnom"| B["Variable exportée"]
+ B --> C["Shell ou commande enfant : valeur héritée"]
+ D["Variable non exportée"] --> E["Absente de l’environnement enfant"]
+```
+
+La solution mélange `monom` et `monnom` : ce sont deux noms distincts. Pour tester l’héritage, garder un nom unique, par exemple `monnom="$LOGNAME"`, puis `export monnom` avant de lancer le shell enfant. Cet exemple corrigé est un ajout externe ; les commandes des PDF restent intactes. [Référence externe — manuel Bash, Environment](https://www.gnu.org/software/bash/manual/html_node/Environment.html).

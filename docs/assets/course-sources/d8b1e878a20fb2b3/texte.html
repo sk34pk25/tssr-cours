@@ -1,0 +1,66 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP01 - Enoncé - Manipuler les disques et LVM.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M08TP01 - Enoncé - Manipuler les disques et LVM.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                        Administration Debian GNU/Linux
+Manipuler les disques et
+LVM
+TP du Module 08 – Gestion des espaces de stockage avancée - LVM
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+           15 à 20 minutes
+
+Énoncé
+
+  I.  Gestion des disques sur la station avec environnement
+    graphique
+
+    •  Ajouter un nouveau disque de 40 Go.
+
+        o  Vérifier que le disque est bien présent dans /dev
+
+    •  Créer 1 partition sur le nouveau disque avec fdisk :
+
+        o  Partition principale de la totalité du disque pour du LVM
+
+    •   Intégrer la partition au groupe de volume présent dans votre système.
+
+    •  Créer un volume logique de 20 Go nommé lvvar.
+
+    •  Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe
+     de volume.
+
+  II.  Astuce
+
+Pour détecter les disques SCSI sans redémarrer :
+
+    •  Trouver la chaine SCSI qui gère les disques avec la commande :
+
+        o # udevadm info --query=path --name=sda
+
+        o  Ex. résultat      :
+             /devices/pci0000:00/0000:00:10.0/host0/target0:0:0/0:0:0:0/block/sda
+
+        o  Cela veut dire que host0 gère les disques SCSI
+Page 1/2
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                        Administration Debian GNU/Linux
+
+    •  Lancer un scan de la chaine SCSI
+
+        o # echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan
+
+  • Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger.
+
+
+
+
+
+Page 2/2
+
+                             © ENI – Tous droits réservés</pre></section></html>

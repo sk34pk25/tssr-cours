@@ -1,0 +1,178 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M09TP01 - Solution - Préparation des systèmes de fichiers.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M09TP01 - Solution - Préparation des systèmes de fichiers.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                        Administration Debian GNU/Linux
+Préparation des systèmes
+de fichiers
+TP du Module 09 – Gestion des espaces de stockage – File Systems
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+           30 à 45 minutes
+
+Énoncé
+
+  I.  Gestion des systèmes de fichier
+
+A partir du volume logique var, configurer un système de fichier ext4 avec une étiquette
+VAR
+
+
+
+
+
+                 La commande mkfs permet de préciser directement le type avec .ext4.
+                                        l’option -L affecte le label au FS.
+             NB :  il est aussi possible de modifier l’étiquette d’un FS existant avec tune2fs
+
+
+                                                     Vérifier avec blkid
+
+Agrandir le système de fichier présent dans le volume logique home afin qu’il utilise toute la
+place du volume logique.
+
+
+
+
+
+             resize2fs permet d’étendre le FS existant après avoir étendu le LV lors du précèdent TP
+
+
+
+
+    NB :  il est possible que le FS soit déjà à la taille maximale si l’option -r avait été utilisé avec lvextend
+
+
+
+Page 1/4
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                        Administration Debian GNU/Linux
+ II.  Migration du répertoire /var
+
+Migrer le répertoire /var vers le volume logique var tout en préservant les données
+existantes.
+
+Conseils de mise en œuvre :
+•   Faites un snapshot de votre VM
+
+
+
+
+
+                                  →
+                   Ce snapshot permettra un retour arrière en cas d&#x27;erreur
+•   Vérifier l&#x27;utilisation de /var avant de copier les fichiers (lsof).
+
+
+
+
+
+ La commande lsof (List Open Files) permet de dénombrer les fichiers en cours d&#x27;utilisation par des processus.
+            En filtrant (grep) sur le répertoire /var, on dénombre plusieurs centaines de lignes
+•  Prendre toutes les précautions nécessaires pour éviter l’écriture dans l’arborescence de
+   /var afin de pouvoir copier correctement les fichiers
+
+
+
+                            →
+La méthode la plus simple pour stopper les nombreux processus utilisant des fichiers présents sous /var est de
+                                         passer en mode rescue.
+
+
+
+                                    Si un service tel systemd-journald utilise encore des fichiers,
+                         vous pouvez le stopper avec la commande adéquat
+
+•   Utiliser un montage temporaire pour pouvoir copier les données de l&#x27;ancien vers le
+   nouveau volume
+
+
+
+                        La création d&#x27;un sous dossier dans /mnt est optionnelle
+                La commande mount permet ensuite d’effectuer le montage temporaire
+
+
+
+
+
+Page 2/4
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                        Administration Debian GNU/Linux
+
+
+
+
+
+     La commande findmnt affiche bien l&#x27;utilisation de /mnt/var comme point de montage pour lvvar
+
+•  Copier les données en préservant les permissions
+
+                               Les options utiles de la commande cp ici sont :
+                -p : préserver les permissions et groups et utilisateurs propriétaires des fichiers
+                            -r : la récursivité permet de copier tous les sous-dossiers et leurs contenus
+                                         -v pour avoir un affichage verbeux.
+
+
+                      Une fois l&#x27;opération achevée on peut démonter le LV
+
+
+              Une fois cela fait, on remonte le volume logique immédiatement sur /var
+
+
+                Puis relancer la cible graphique pour verifier le bon fonctionnement du système.
+
+
+
+
+                      On s’assure que le LV est bien monté sur /var
+
+
+
+
+
+          Il est possible de vérifier le bon fonctionnement par exemple avec les fichiers journaux dans /var/log
+
+ III.  Automatisation du montage au démarrage : sur la
+     station avec environnement graphique
+
+Activer le montage automatique au démarrage du volume logique lvvar vers /var
+
+
+
+
+
+                                             Editer le fichier /etc/fstab
+                 En dernière ligne, le LV est appelé par le LABEL apposé sur le file-system
+
+
+
+                                             →
+                On repasse en mode rescue pour tester AVANT de redémarrer
+
+
+
+       Ne pas oublier de stopper les éventuels process encore consommateurs de fichiers sur /var
+
+Page 3/4
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                        Administration Debian GNU/Linux
+
+
+                  On défait le montage manuel qui avait été fait sur /var
+
+
+          On relance le montage de /var, mais ce coup-ci sans options ni autre argument,
+                  ce qui implique la lecture des informations du fichier /etc/fstab
+
+             Si tout cela fonctionne bien, on peut enfin redémarrer le système en guise de dernière vérification.
+         En cas d’erreur, reprendre ces étapes, avec retour sur le snapshot préalablement pris si besoin.
+
+
+
+
+
+Page 4/4
+
+                             © ENI – Tous droits réservés</pre></section></html>

@@ -77,3 +77,18 @@ Une commande de suppression d’utilisateur est présente dans le scénario sour
 La progression source consiste à faire circuler des objets, sélectionner ou filtrer ce qui est utile, mesurer ou trier si nécessaire, puis formater ou exporter le résultat.
 
 Le TP et la fiche de révision sont proposés séparément dans l’écosystème du module.
+
+<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
+
+## Complément IA / externe au cours — Garder les objets jusqu’au résultat
+
+**Illustration IA / externe au cours.**
+
+```mermaid
+flowchart LR
+ G["Commande productrice d’objets"] --> W["Filtrer : Where-Object"] --> S["Trier : Sort-Object"] --> C["Sélectionner : Select-Object"]
+ C --> F["Afficher : Format-Table, en fin de chaîne"]
+ C --> E["Exporter : Export-Csv"]
+```
+
+Le dessin IA reprend les opérations présentées dans ce module. L’affichage et l’export sont deux issues de travail : conserver les objets avant de choisir la sortie ; ne pas insérer `Format-Table` avant `Export-Csv`.

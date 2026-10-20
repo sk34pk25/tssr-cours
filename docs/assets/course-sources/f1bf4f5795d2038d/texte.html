@@ -1,0 +1,74 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 1 - Le routeur.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP 1 - Le routeur.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                              Services réseau en environnement Microsoft
+Le routeur
+TP du Module 04 – Le routage
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.
+
+
+           Durée estimée
+
+        30 minutes à 1 heure
+
+Énoncé
+
+Prérequis :
+
+      Déployer la machine virtuelle CLI-01-TP8-OK.
+
+       Identifiant : Admineni - Mot de passe : Pa$$w0rd
+
+      Déployer la machine virtuelle RTR-01-TP8-OK sur VMware Workstation.
+
+       Identifiant : admin - Mot de passe : Pa$$w0rd
+
+Création des VMs.
+      Une VM Windows 10 nommée CLI-00 qui fera office de poste client.
+      Une VM routeur pfSense nommée RTR-00.
+
+Connectivité :
+
+      Configurer le poste client CLI-00.
+        o  Carte réseau : VMNET10
+        o  Adresse IP : 192.168.0.10/24.
+
+      Configurer le routeur RTR-00.
+        o  1ère carte réseau : Bridge.
+        o  Adresse IP : utiliser l’adressage dynamique.
+        o 2ème carte réseau : Bridge.
+        o   Utiliser l’adresse IP 172.16.0.1/16
+        o  3ème carte réseau : VMNET10
+        o  Adresse IP : utiliser la dernière adresse d’hôte du réseau privé défini
+           précédemment.
+
+       Vérifier la connectivité des machines :
+        o  Du poste CLI-00 vers le routeur RTR-00.
+        o  Du routeur RTR-01 vers le routeur RTR-00.
+        o  Du poste CLI-00 vers le poste CLI-01.
+
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                              Services réseau en environnement Microsoft
+
+Routes
+
+      Indiquer ci-dessous les opérations que vous avez réalisées sur votre routeur pfSense :
+
+
+
+
+
+Documentation
+
+     ·  Vous réaliserez un schéma et reporterez les paramètres IP de chacun de vos
+       postes.
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>
