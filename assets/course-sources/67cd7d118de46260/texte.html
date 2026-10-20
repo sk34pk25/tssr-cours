@@ -1,0 +1,96 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>M2 - Enoncé du TP 2 - Azure AD Connect.pdf</title><h1>M2 - Enoncé du TP 2 - Azure AD Connect.pdf</h1><h2>Page 1</h2><pre>                                                        Cloud et Microsoft 365
+Azure AD
+TP 02 du Module 02 – Administration Microsoft 365
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2 et d’avoir
+ réalisé les TP proposés.
+
+Enoncé
+Objectifs
+
+Synchroniser les utilisateurs de votre Active Directory local avec Microsoft 365
+Prérequis
+
+Disposer de l’ISO Windows Server 2019 en anglais.
+Principales tâches à réaliser
+•   Installez un serveur, contrôleur de domaine avec comme domaine cheouamXX.lcl où
+   XX est votre numéro de stagiaire.
+   OS           Windows Serveur 2019
+
+  Nom         CD-2k19-XX
+
+  RAM          4 Go
+
+  HDD          60 Go
+
+    Services      ADDS, DNS
+
+  Nom de      cheouamXX.lcl
+   domaine
+
+    IP              10.65.0.1 /24                         Connexion VMWare NAT
+
+•  Créez l’arborescence d’OU et les utilisateurs ci-dessous dans votre Active directory, en
+   respectant les bonnes pratiques (renseignez les attributs fonction et service dans l’AD).
+
+ Nom et prénom          Fonction              Service         Nom de connexion
+
+      Vous             Administrateur        Informatique    prenom-admin@cheouamXX.lcl
+
+     Lucie Fer          Comptable         Comptabilité          lfer@cheouamXX.lcl
+
+      Ella Danlos          Responsable        Comptabilité       edanlos@cheouamXX.lcl
+                      comptable
+
+    Paul Amploi        Directeur Général         Direction         pamploi@cheouamXX.lcl
+
+   Cécile Encieu        Commercial        Commercial       cencieu@cheouamXX.lcl
+
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre><h2>Page 2</h2><pre>                                                        Cloud et Microsoft 365
+
+Pour rappel, les bonnes pratiques sont :
+
+1 UO _cheouamXX
+
+      1 OU Utilisateurs
+
+1 OU Comptes de service
+
+            1 OU par lieu
+
+                  1 OU par service
+
+                  1 modèle par type de compte
+
+      1 OU Groupes
+
+            1 OU Domaine Local
+
+            1 OU Groupe Global
+
+                  1 GG par service
+
+      1 OU Archives
+
+
+•  Préparez l’Active Directory à utiliser la Synchronisation AD Connect
+•   Installez  AzureADConnect.msi  en mode  express  setting  pour  votre  domaine
+   cheouamXX.lcl.
+•   Faites une procédure et vérifiez que vos utilisateurs sont bien synchronisés.
+•   Vérifiez, en PowerShell, l’intervalle de temps entre deux synchronisations.
+•  Modifiez votre connecteur afin de ne synchroniser que les OU groupes et utilisateurs.
+•  Créez un nouvel utilisateur et forcez immédiatement la synchronisation.
+•  Ajoutez un alias à cet utilisateur, forcez à nouveau la synchronisation si besoin.
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></html>

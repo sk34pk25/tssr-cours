@@ -1,0 +1,815 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>Module 04 - Support de cours.pdf</title><h1>Module 04 - Support de cours.pdf</h1><h2>Page 1</h2><pre>       Cloud et Microsoft 365
+                  Module 04 – Services complémentaires
+
+
+
+
+
+1
+
+
+
+                                                                                  Services complémentaires
+
+             Objectifs
+
+                  • Déployer le pack Office aux postes clients
+                  • Maîtriser les enjeux de configuration sur OneDrive
+                  • Mettre en place des sites SharePoint sécurisés
+                  • Cadrer l’usage de Teams
+
+
+
+
+
+2</pre><h2>Page 2</h2><pre>                                                                                  Services complémentaires
+
+
+  Déploiement du Pack Office
+
+
+
+
+
+3
+
+
+
+                                                                     Déploiement du Pack Office
+                                                                                   Office Online
+
+
+
+                    • Microsoft Word Online
+
+                    • Microsoft OneNote Online
+
+                    • Microsoft PowerPoint Online
+
+                    • Microsoft Excel Online
+
+
+
+
+
+4</pre><h2>Page 3</h2><pre>                                                                     Déploiement du Pack Office
+                                                                          Office 365 client inclus
+
+
+
+                    • Microsoft Office 365 ProPlus
+                    • Microsoft SharePoint Designer
+                    • Microsoft Visio
+                    • Microsoft Project Professionnel
+                    • Microsoft Office Online
+                    • Microsoft Office pour Mac
+                    • Application Office pour iPad, iPhone et iPod touch
+                    • Application Office pour Android
+
+
+
+
+
+5
+
+
+
+                                                                     Déploiement du Pack Office
+                                              Les nouvelles fonctionnalités depuis Office 2016
+
+
+
+                    • Le co-authoring
+                    • L&#x27;intégration OneDrive
+                    • L&#x27;intégration Teams
+                    • Le support multiplateforme
+                    • La priorisation des mails dans Outlook
+
+
+
+
+
+6</pre><h2>Page 4</h2><pre>                                                                     Déploiement du Pack Office
+                                                                              Office 365 ProPlus
+
+
+
+                    • Gestion des mises à jour
+                              • Mises à jour de sécurité
+                              • Mises à jour des nouvelles fonctionnalités
+                    • Trois options possibles
+                              • Canal mensuel
+                                       • Mise à jour mensuelle
+                              • Canal semi-annuel
+                                       • Tous les six mois (en janvier et juillet)
+                              • Canal semi-annuel ciblé
+                                       • Tous les six mois (en mars et septembre) à des utilisateurs pilotes
+
+
+
+
+
+7
+
+
+
+                                                                     Déploiement du Pack Office
+                                                                              Office 365 ProPlus
+
+
+
+                    • Gestion des installations par l’utilisateur
+
+
+
+
+
+8</pre><h2>Page 5</h2><pre>                                                                     Déploiement du Pack Office
+                                                                              Office 365 ProPlus
+
+
+
+                    • Gestion des installations par l’utilisateur
+
+
+
+
+
+      Dans les
+      options de
+       chaque
+        utilisateur
+                                                                      Dans
+                                                                             Paramètres/services
+                                                                                     et compléments
+
+
+
+
+
+9
+
+
+
+                                                                     Déploiement du Pack Office
+                                               Installation d’Office 365 ProPlus avec sources locales
+
+
+
+
+
+                                    Crêpes.local
+
+
+                                                                       D:\data\O365                               213.186.33.20
+
+                                                            CDN
+                                                                                       Microsoft
+
+                                                     Serveur AD
+                                                     Serveur DNS
+
+                                                     https://config.office.com/
+
+
+
+
+
+10</pre><h2>Page 6</h2><pre>                                                                     Déploiement du Pack Office
+                                               Installation d’Office 365 ProPlus avec sources locales
+
+
+
+
+
+                         PS D:\data\office_365&gt; .\setup.exe /download \\SM01\office_365\Configuration.xml
+
+                                    Crêpes.local
+
+
+                                                                       D:\data\O365                               213.186.33.20
+                                                                       D:\data\O365\ODT.exe
+                                                   CDN Microsoft
+
+
+
+                                                     Serveur AD
+                                                     Serveur DNS
+
+
+
+
+
+11
+
+
+
+                                                                     Déploiement du Pack Office
+                                               Installation d’Office 365 ProPlus avec sources locales
+
+
+
+
+
+                         PS D:\data\office_365&gt; .\setup.exe /configure \\SM01\office_365\Configuration.xml
+
+                                    Crêpes.local
+
+
+                                                                       D:\data\O365                               213.186.33.20
+
+
+                                                    CDN Microsoft
+
+                                                      Serveur AD
+                                                     Serveur DNS
+
+
+
+
+
+12</pre><h2>Page 7</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                   1.  Créer un partage nommé : Office_365 sur votre contrôleur de
+                domaine (pas à la racine de C:\).
+                   2.  Extraire officedeploymenttool.exe dans ce répertoire.
+                Vous devez avoir ceci
+
+
+                   3. Vous pouvez utiliser les modèles .xml ci-dessus ou utiliser le site :
+
+                                       https://config.office.com/
+
+
+
+
+
+13
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                   4.  Choisir votre architecture
+
+
+
+
+
+14</pre><h2>Page 8</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                   5.  Choisir les logiciels que vous voulez déployer
+
+
+
+
+
+                   6.  Choisir le canal de mise à jour
+
+
+
+
+
+15
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                   7.  Choisir les langues
+
+
+
+
+
+                   8.  Choisir les options d’installation
+                  supplémentaire
+
+
+
+
+
+16</pre><h2>Page 9</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                   9. Choisir les options de mise à niveau
+
+
+
+
+
+17
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 10. Gérer les licences
+
+
+
+
+
+18</pre><h2>Page 10</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 11. Informations générales
+
+
+
+
+
+19
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 12. Exporter
+
+
+
+
+
+                 13. Le .xml est généré
+
+
+
+
+
+20</pre><h2>Page 11</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 14. Télécharger les fichiers d&#x27;installation d&#x27;office avec Office
+                Deployment Tool
+
+      PS C:\users\administrator\office_365&gt; .\setup.exe /download \\cd01\office_365\Configuration.xml
+
+                 15. Une fois le téléchargement effectué, créer une OU pour la ou les
+                 machines sur lesquelles vous voulez déployer Office365 ProPlus
+
+
+
+
+
+21
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 16. Créer une GPO sur l&#x27;OU qui contient vos machines
+
+
+
+
+
+22</pre><h2>Page 12</h2><pre>                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 17. Éditez la GPO, allez dans Scripts puis ShowFiles
+
+
+
+
+
+23
+
+
+
+                                                                     Déploiement du Pack Office
+                                    Annexe 1 : Déploiement Office 365 ProPlus par GPO
+
+
+
+                 18. Créez un fichier avec Notepad et changez l&#x27;extension en .cmd
+
+
+                 19. Cliquez sur Add et sélectionnez votre script
+                 20. Connectez-vous sur la machine cliente (l&#x27;utilisateur doit être
+                   administrateur local)
+
+     PS C:\users\administrator\office_365&gt; gpupdate /force
+                 21. Redémarrez la machine et vérifiez que ce processus est en route
+
+
+
+
+
+24</pre><h2>Page 13</h2><pre>                                                                                  Services complémentaires
+
+
+     Administrer OneDrive
+
+
+
+
+
+25
+
+
+
+                                                                                    Administrer OneDrive
+                                                                      L’administration OneDrive
+
+
+
+                    • Le centre d&#x27;administration OneDrive permet de gérer les
+                  fonctionnalités :
+                              • De partage
+                              • De synchronisation
+                              • De stockage
+
+
+
+
+
+26</pre><h2>Page 14</h2><pre>                                                                                    Administrer OneDrive
+                                                         L’administration des partages OneDrive
+
+
+
+                    • Administrez le type de lien par défaut
+                    • Vérifiez les droits applicables au lien
+
+
+
+
+
+27
+
+
+
+                                                                                    Administrer OneDrive
+                                                              Les partages externes OneDrive
+
+
+
+                    • Une sécurité plus importante peut être mise en place pour les
+                partages externes
+
+
+
+
+
+28</pre><h2>Page 15</h2><pre>                                                                                    Administrer OneDrive
+                                                             La synchronisation OneDrive
+
+
+
+                    • La synchronisation de vos clients OneDrive peut occasionner des
+                  latences sur votre réseau
+                    • La première synchronisation de vos clients est consommatrice de
+              bande passante
+                    • Le client utilise ensuite la synchronisation différentielle afin de ne
+                 synchroniser que la partie modifiée d&#x27;un document
+
+
+
+
+
+29
+
+
+
+                                                                                    Administrer OneDrive
+                                                            Gestion des appareils OneDrive
+
+
+
+                    • Vous pouvez spécifier des plages d&#x27;adresse IP ou des appareils qui
+                auront accès à OneDrive
+
+
+
+
+
+30</pre><h2>Page 16</h2><pre>                                                                                  Services complémentaires
+
+
+    Administrer SharePoint
+
+
+
+
+
+31
+
+
+
+                                                                                   Administrer SharePoint
+                                                               OneDrive vs SharePoint
+
+
+
+                                                              1 To
+
+
+
+
+
+32</pre><h2>Page 17</h2><pre>                                                                                   Administrer SharePoint
+                                                                               SharePoint
+
+
+
+                    • L’utilisation de SharePoint Online entre désormais dans les
+                 standards des systèmes d’information
+                    • Ses nombreux atouts comme la disponibilité, le multiplateforme,
+                     la coédition en font un outil à forte valeur ajoutée
+                    • Inclus dans la majeure partie des abonnements
+                    • Limite la gestion de serveurs et stockage en interne
+
+
+
+
+
+33
+
+
+
+                                                                                   Administrer SharePoint
+                                                                               SharePoint
+
+
+
+                    • De multiples usages de SharePoint sont possibles :
+                              • Création de bibliothèques de document
+                              • Création de sites Web internes
+                              • Créer des listes
+                              • …
+                    • SharePoint est le socle sur lequel repose Teams
+
+
+
+
+
+34</pre><h2>Page 18</h2><pre>                                                                                   Administrer SharePoint
+                                                                                  Les limites
+
+
+
+
+
+                                    Microsoft 365 Business Basic,    Microsoft 365 E3 ou E5,                                                                                             Microsoft 365 F1 ou                   Fonctionnalité         Business Standard ou       Office 365 E1, E3 ou E5, ou                                                                                                         F3, Office 365 F3                                          Business Premium         SharePoint Plan 1 ou 2
+                     Stockage total par                                                  3                                       1 To plus 10 Go par licence achetée  1 To plus 10 Go par licence achetée          1 To                          organisation
+
+                   Stockage maximum par                                                      4               25 To                           25 To                      25 To                        site (collection de sites)
+
+                      Sites (collections de sites)
+                       par organisation                2 millions                       2 millions                  2 millions
+
+                Nombre d&#x27;utilisateurs                                                          Jusqu&#x27;à 300                     1 - 500 000                 1 - 500 000
+
+
+
+
+                                          Source : https://docs.microsoft.com/fr-fr/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits
+
+
+
+
+35
+
+
+
+                                                                                   Administrer SharePoint
+                                                                          Création d’un site
+
+
+
+                    • Pour héberger vos applications ou documents, il faudra créer
+              un site
+                    • Ce site servira ensuite de conteneur pour l’ensemble de vos
+                 ressources
+
+
+
+
+
+36</pre><h2>Page 19</h2><pre>                                                                                   Administrer SharePoint
+                                                     Création de bibliothèques de documents
+
+
+
+                    • L’un des usages les plus fréquents est la création de bibliothèques
+              de documents
+                    • Permet de partager des documents avec des utilisateurs internes
+              ou externes
+                    • L’accès aux documents peut être sécurisé (permissions d’accès)
+                    • Utilisable sur smartphones et tablettes via une application
+                    • Laisser le droit à l’ensemble des utilisateurs de créer des sites peut
+                  être synonyme de perte de maîtrise des données de l’entreprise
+
+
+
+
+
+37
+
+
+
+                                                                                   Administrer SharePoint
+                                                                           Points de vigilance
+
+
+
+                    • La synchronisation hors connexion sur l’ensemble d’une
+                 bibliothèque peut créer de lourds dysfonctionnements et des
+                 pertes de données lorsqu’elle est mal utilisée
+                    • La gestion des permissions peut devenir complexe, préférez la
+                   simplicité et la segmentation
+                    • Attention aux données qui seront à héberger sur Sharepoint
+                  Online, les fichiers d’application métier (type Photoshop) pourront
+                  avoir un effet néfaste sur le confort de travail
+
+
+
+
+
+38</pre><h2>Page 20</h2><pre>                                                                                  Services complémentaires
+
+
+       Administrer Teams
+
+
+
+
+
+39
+
+
+
+                                                                                       Administrer Teams
+                                                       Un usage croissant
+
+
+
+                    • Teams est devenu l’outil incontournable du travail collaboratif
+                    • Microsoft a révélé avoir atteint 115 millions d’utilisateurs actifs
+                 quotidiens après une impressionnante croissance tout au long de
+                  l’année 2020
+                    • Ce total a été porté en 2 mois en contexte de pandémie mondiale
+                seulement
+                    • Microsoft avait initialement envisagé cette croissance en deux ans
+                    • Cette évolution massive a pu démontrer la puissance de l’éditeur
+                  et la robustesse de ses solutions, un atout supplémentaire
+
+
+
+
+
+40</pre><h2>Page 21</h2><pre>                                                                                       Administrer Teams
+                                                                                  Gestion
+
+
+
+                    • Les fonctionnalités phares comme les équipes et la possibilité de
+                  créer des réunions en quelques clics en font un outil puissant mais
+               également dangereux
+                    • À l’image de la création de sites SharePoint, la multiplication
+                 d’équipes et une éventuelle ouverture publique de celles-ci
+               peuvent engendrer des fuites de données
+                    • Un panneau d’administration est disponible et va permettre de
+                    limiter ces usages
+
+
+
+
+
+41
+
+
+
+                                                                                       Administrer Teams
+                                                                  Limiter la création des équipes
+
+
+
+                    • Conserver la maîtrise de l’environnement Microsoft 365 est
+                   essentiel pour une entreprise
+                    • Bon nombre d’administrateurs se rendent compte trop tard que
+               des débordements ont eu lieu et il est difficile de revenir en arrière
+                    • Former un groupe restreint d’utilisateurs et les responsabiliser
+                    •  Il est possible de limiter la création de groupes M365 et donc
+                 d’équipes en 3 étapes :
+                           1.  Création d’un groupe qui sera autorisé à créer des groupes M365
+                           2.  Application d’un script fourni par Microsoft
+                           3.   Vérification
+
+
+
+
+
+42</pre><h2>Page 22</h2><pre>                                                                                       Administrer Teams
+                                                                      Gestion des équipes
+
+
+
+                    • Vous avez la main sur les différentes
+                équipes créées au sein de votre tenant
+                    • Paramétrez le niveau de confidentialité
+              de l’équipe et les différents usages et
+                  fonctionnalités disponibles pour les
+             membres
+
+
+
+
+
+43
+
+
+
+                                                                                       Administrer Teams
+                                                                      Gestion des équipes
+
+
+
+                    • Ajoutez des canaux et maîtrisez les membres pour segmenter
+                  l’équipe et les accès aux différents canaux
+                    • Paramétrez le niveau de confidentialité de l’équipe et les différents
+                usages et fonctionnalités disponibles pour les membres
+
+
+
+
+
+44</pre><h2>Page 23</h2><pre>                                                                                       Administrer Teams
+                                                                      Gestion des réunions
+
+
+                    • Pour cadrer l’usage de la fonctionnalité dans les réunions Teams,
+                                 il est possible et recommandé de définir des stratégies
+                    • Elles seront ensuite affectées à un groupe d’utilisateurs
+
+
+
+
+
+45
+
+
+
+                                                                                       Administrer Teams
+                                                                      Gestion des réunions
+
+
+
+                    • Gestion des paramètres audio/vidéo
+                    • Partage de contenu
+                    • Gestion des participants
+
+
+
+
+
+46</pre><h2>Page 24</h2><pre>                                                                                       Administrer Teams
+                                                         Paramétrage de l’organisation
+
+
+
+                    • Les paramètres à l’échelle de
+                   l’organisation vous permettront de
+                    définir les fonctionnalités activées lors
+               des appels, réunions ou utilisation de la
+                messagerie pour les utilisateurs invités
+                    • Vous pourrez également maîtriser
+                      l’utilisation d’applications tierces de
+                partage de fichiers comme Dropbox ou
+               Google Drive
+
+
+
+
+
+47</pre></html>
