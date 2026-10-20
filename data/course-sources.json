@@ -828,7 +828,7 @@
     "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I": {
       "id": "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
       "title": "M04-01-02-TP-Packet_Tracer-La_communication.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "b7a822e12a83ebb51465e9bb1203c683b4c6a5749081542800cc5bab944efa27",
       "original": "assets/course-sources/b7a822e12a83ebb5/original.pdf",
       "transcript": "assets/course-sources/b7a822e12a83ebb5/texte.html",
@@ -852,7 +852,7 @@
     "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI": {
       "id": "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
       "title": "M04-01-01-TP-La_communication.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "43433ec88de1f253abbdc7311c3dca061d2f812fdf86a79c1000eaf202957194",
       "original": "assets/course-sources/43433ec88de1f253/original.pdf",
       "transcript": "assets/course-sources/43433ec88de1f253/texte.html",
@@ -964,7 +964,7 @@
     "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p": {
       "id": "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
       "title": "M03-04-TP-Sous-réseaux.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "ad726effb62af7f234555d36fe84d9e5c1bb09fb986c7ab4ebc036d9ca0e6daf",
       "original": "assets/course-sources/ad726effb62af7f2/original.pdf",
       "transcript": "assets/course-sources/ad726effb62af7f2/texte.html",
@@ -4448,7 +4448,8 @@
         "Module 4",
         "TP-20260707-TP2",
         "M04TP02 - Enoncé - Métacaractères.pdf"
-      ]
+      ],
+      "sourceNotice": "Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés."
     },
     "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa": {
       "id": "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa",
@@ -4473,7 +4474,8 @@
         "Module 4",
         "TP-20260707-TP2",
         "M04TP02 - Solution - Métacaractères.pdf"
-      ]
+      ],
+      "sourceNotice": "Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés."
     },
     "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345": {
       "id": "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345",
@@ -6497,7 +6499,7 @@
     "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ": {
       "id": "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ",
       "title": "M09 - S01 TP-L'exploitation des services.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "74146f1c688e5029b9d191003647158598ab262de6a017f602720bae362f9ab3",
       "original": "assets/course-sources/74146f1c688e5029/original.pdf",
       "transcript": "assets/course-sources/74146f1c688e5029/texte.html",
@@ -6757,7 +6759,7 @@
     "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5": {
       "id": "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5",
       "title": "M04 - S01 TP-Transition des services.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "6a370c3454c4f25e7faa38f211fc05937811e06378e34e1bb3a39b1f964a9f20",
       "original": "assets/course-sources/6a370c3454c4f25e/original.pdf",
       "transcript": "assets/course-sources/6a370c3454c4f25e/texte.html",
@@ -6833,7 +6835,7 @@
     "1DlMlL5fUDMwsURxBSNgmmOzQp9QZRlLg": {
       "id": "1DlMlL5fUDMwsURxBSNgmmOzQp9QZRlLg",
       "title": "M03 - S01 TP-Stratégie des services.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "972c32b8a784ab9edd3e6c456422cea78a5c87c635423a251fcbc6284cfb4b79",
       "original": "assets/course-sources/972c32b8a784ab9e/original.pdf",
       "transcript": "assets/course-sources/972c32b8a784ab9e/texte.html",
@@ -6859,7 +6861,7 @@
     "1cO8mC-9Fb4PS-A-kGEGH96oKAinqQriM": {
       "id": "1cO8mC-9Fb4PS-A-kGEGH96oKAinqQriM",
       "title": "M03 - S02 TP-Conception des services.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "9e7f589328b17ffe2111f9712bd77953202f69dcc8924ca19224b6897dac9608",
       "original": "assets/course-sources/9e7f589328b17ffe/original.pdf",
       "transcript": "assets/course-sources/9e7f589328b17ffe/texte.html",
@@ -7011,7 +7013,7 @@
     "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI": {
       "id": "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI",
       "title": "M09 - S01 TP-Corrigé_L'exploitation des services.pdf",
-      "role": "support",
+      "role": "correction",
       "sha256": "25f6abc33502e1e842bbf80a819fd828772c197aca8473c3ece778b88f4649fc",
       "original": "assets/course-sources/25f6abc33502e1e8/original.pdf",
       "transcript": "assets/course-sources/25f6abc33502e1e8/texte.html",
@@ -7070,7 +7072,7 @@
     "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP": {
       "id": "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP",
       "title": "M04 - S01 TP-Corrigé_Transition des services.pdf",
-      "role": "support",
+      "role": "correction",
       "sha256": "7f7bfc6431359d97e4fff30f9fbf06b1d8288884579d4a6c9f3fa398026a6ccd",
       "original": "assets/course-sources/7f7bfc6431359d97/original.pdf",
       "transcript": "assets/course-sources/7f7bfc6431359d97/texte.html",
@@ -7113,7 +7115,7 @@
     "19aCUc8tS5UZwTobRgFQZdGn__b92GnVg": {
       "id": "19aCUc8tS5UZwTobRgFQZdGn__b92GnVg",
       "title": "M03 - S02 TP-Corrigé_Conception des services.pdf",
-      "role": "support",
+      "role": "correction",
       "sha256": "2359568882b1661dd048a3a55f8a78fcea0898043af3298a6c6d51b3dcb484dd",
       "original": "assets/course-sources/2359568882b1661d/original.pdf",
       "transcript": "assets/course-sources/2359568882b1661d/texte.html",
@@ -7148,7 +7150,7 @@
     "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv": {
       "id": "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
       "title": "M03 - S01 TP-Corrigé_Stratégie des services.pdf",
-      "role": "support",
+      "role": "correction",
       "sha256": "553987d9921b8cba8dd19a11f066b10b6037927092c436b5d719a3822b0c8c0c",
       "original": "assets/course-sources/553987d9921b8cba/original.pdf",
       "transcript": "assets/course-sources/553987d9921b8cba/texte.html",
@@ -7287,7 +7289,7 @@
     "1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o": {
       "id": "1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o",
       "title": "M5 - Soution du TP - Requêtes SQL.pdf",
-      "role": "support",
+      "role": "correction",
       "sha256": "35c7ff2134c6c85affd3dbab635e2bc67b21b5be8c7169e99c579f72660b3f4a",
       "original": "assets/course-sources/35c7ff2134c6c85a/original.pdf",
       "transcript": "assets/course-sources/35c7ff2134c6c85a/texte.html",
@@ -10778,7 +10780,7 @@
     "1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv": {
       "id": "1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv",
       "title": "TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation.pdf",
-      "role": "support",
+      "role": "enonce",
       "sha256": "3424e9708fc72f9ee1e97294564e4be39586878dc6420016e83a999b4f629a38",
       "original": "assets/course-sources/3424e9708fc72f9e/original.pdf",
       "transcript": "assets/course-sources/3424e9708fc72f9e/texte.html",
@@ -11150,14 +11152,14 @@
       "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn"
     ],
     "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": [
-      "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
       "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
+      "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
     "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": [
+      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
       "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
       "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
-      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
       "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW"
     ],
     "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [
@@ -11170,12 +11172,15 @@
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
     "tp/reseaux/module-03/index.md": [
+      "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
     "tp/reseaux/module-04/corrections.md": [
       "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW"
     ],
     "tp/reseaux/module-04/index.md": [
+      "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
+      "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
       "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW"
     ],
     "modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md": [
@@ -11464,9 +11469,7 @@
     ],
     "modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md": [
       "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345",
-      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
-      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP",
-      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
+      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP"
     ],
     "modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md": [
       "1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq",
@@ -11476,7 +11479,9 @@
     ],
     "modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md": [
       "116dD0Y9yfykwJumCShlSuHBvWNZeLMut",
-      "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy"
+      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
+      "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy",
+      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
     ],
     "modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md": [
       "1_NcmRFZlM6nu_JCNLekgXw5bgCmPPgym",
@@ -11521,18 +11526,14 @@
       "1T_24hs0UrEXhrpnPCZCYbuY2paK3h2GA"
     ],
     "tp/utilisation-linux/module-04/corrections.md": [
-      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP",
-      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
+      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP"
     ],
     "tp/utilisation-linux/module-04/enonces.md": [
-      "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345",
-      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP"
+      "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345"
     ],
     "tp/utilisation-linux/module-04/index.md": [
       "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345",
-      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
-      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP",
-      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
+      "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP"
     ],
     "tp/utilisation-linux/module-05/index.md": [
       "1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq",
@@ -11554,7 +11555,9 @@
     ],
     "tp/utilisation-linux/module-06/index.md": [
       "116dD0Y9yfykwJumCShlSuHBvWNZeLMut",
-      "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy"
+      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
+      "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy",
+      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
     ],
     "tp/utilisation-linux/module-06/tp1-corrections.md": [
       "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy"
@@ -11802,15 +11805,15 @@
     ],
     "modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md": [
       "18vnbva8Vol82ZGnWwFr4uUKNSik47fmz",
-      "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
       "1DlMlL5fUDMwsURxBSNgmmOzQp9QZRlLg",
       "1cO8mC-9Fb4PS-A-kGEGH96oKAinqQriM",
+      "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
       "19aCUc8tS5UZwTobRgFQZdGn__b92GnVg"
     ],
     "modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md": [
       "1CH-nXTabYXiRxfIZKOiUCyEIco1T8x6q",
-      "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP",
-      "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5"
+      "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5",
+      "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP"
     ],
     "modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi.md": [
       "1_BoSYufbTgkE17bKE2mrlP5wUeuH_6x8"
@@ -11826,22 +11829,22 @@
     ],
     "modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md": [
       "1nf0OyiQI-Q464T8fgaIOZz2t4TV0Jzom",
-      "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI",
-      "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ"
+      "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ",
+      "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI"
     ],
     "tp/itil/module-03/index.md": [
-      "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
       "1DlMlL5fUDMwsURxBSNgmmOzQp9QZRlLg",
       "1cO8mC-9Fb4PS-A-kGEGH96oKAinqQriM",
+      "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
       "19aCUc8tS5UZwTobRgFQZdGn__b92GnVg"
     ],
     "tp/itil/module-04/index.md": [
-      "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP",
-      "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5"
+      "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5",
+      "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP"
     ],
     "tp/itil/module-09/index.md": [
-      "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI",
-      "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ"
+      "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ",
+      "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI"
     ],
     "modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md": [
       "1pwXhrHCaXYG7d_HVqe9ZwUPHpsFHn05z",
@@ -12288,6 +12291,51 @@
     "tp/13-virtualisation-serveurs/module-02/index.md": [
       "1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv",
       "1vj0BH68FvefVA0yi04I3yR_3NIf5vPgJ"
+    ],
+    "tp/reseaux/module-03/enonces.md": [
+      "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p"
+    ],
+    "tp/reseaux/module-04/enonces.md": [
+      "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
+      "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I"
+    ],
+    "tp/utilisation-linux/module-06/tp2-corrections.md": [
+      "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
+    ],
+    "tp/utilisation-linux/module-06/tp2-enonces.md": [
+      "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP"
+    ],
+    "tp/itil/module-03/corrections.md": [
+      "1Zkm1i-GXm1l54x_vbmb2waTW3CtO-kUv",
+      "19aCUc8tS5UZwTobRgFQZdGn__b92GnVg"
+    ],
+    "tp/itil/module-03/enonces.md": [
+      "1DlMlL5fUDMwsURxBSNgmmOzQp9QZRlLg",
+      "1cO8mC-9Fb4PS-A-kGEGH96oKAinqQriM"
+    ],
+    "tp/itil/module-04/corrections.md": [
+      "1dezVfetyjnXv890Ra4sjgz_FnjrDk7hP"
+    ],
+    "tp/itil/module-04/enonces.md": [
+      "1TTngfnVbMBHx7Ivr602MAbu9yIZV_uC5"
+    ],
+    "tp/itil/module-09/corrections.md": [
+      "1i035JKa6bXoX9kaLIH95ejMugk3WjpLI"
+    ],
+    "tp/itil/module-09/enonces.md": [
+      "1Uu8gtmvuVlvvhQvCmNfoVJ66Rsa6wPbQ"
+    ],
+    "tp/glpi/module-05/corrections.md": [
+      "1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o"
+    ],
+    "tp/10-msp-services-reseau/module-01/enonces.md": [
+      "17vtIX3kItMGv8dqN_fTSGJ2Nmzux766Q"
+    ],
+    "tp/10-msp-services-reseau/module-01/index.md": [
+      "17vtIX3kItMGv8dqN_fTSGJ2Nmzux766Q"
+    ],
+    "tp/13-virtualisation-serveurs/module-02/tp-01-workstation.md": [
+      "1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv"
     ]
   },
   "pageNotices": {
@@ -12295,38 +12343,20 @@
     "tp/reseaux/module-01/index.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
     "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "tp/reseaux/module-03/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "tp/reseaux/module-04/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
     "tp/reseaux/module-05/index.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "tp/systemes-clients/module-07/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/systemes-clients/module-08/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/systemes-clients/module-09/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/systemes-clients/module-10/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/systemes-clients/module-11/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/systemes-clients/module-13/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
-    "modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
+    "modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA. Les fichiers M04TP02 stockés dans le dossier M04 du Drive portent le titre interne « TP du Module 06 » : ils sont donc consultables dans le module 06, avec cette anomalie documentaire signalée.",
     "modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
     "modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
-    "tp/utilisation-linux/module-06/tp2-corrections.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/utilisation-linux/module-06/tp2-enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
     "modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
-    "tp/itil/module-03/corrections.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/itil/module-03/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/itil/module-04/corrections.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/itil/module-04/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/itil/module-09/corrections.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/itil/module-09/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/glpi/module-05/corrections.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/10-msp-services-reseau/module-01/enonces.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/10-msp-services-reseau/module-01/index.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
+    "tp/10-msp-services-reseau/module-01/enonces.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
+    "tp/10-msp-services-reseau/module-01/index.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
     "tp/11-initiation-scripting-bash/module-02/correction-tp-02.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/12-initiation-powershell/module-06/correction-tp-01.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/13-virtualisation-serveurs/module-02/tp-01-workstation.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles."
+    "tp/12-initiation-powershell/module-06/correction-tp-01.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles."
   },
   "verifiedAt": "2026-10-20",
   "verification": {
@@ -12335,5 +12365,16 @@
     "documents": 333,
     "originalPages": 2225,
     "method": "Comparaison SHA-256 des originaux récupérés, couverture exhaustive des pages, association aux dossiers des modules."
-  }
+  },
+  "documentaryExceptions": [
+    {
+      "documents": [
+        "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
+        "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa"
+      ],
+      "driveFolder": "Module 4 / TP2",
+      "internalTitle": "TP du Module 06 – Spécificités du shell Bash",
+      "module": "modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md"
+    }
+  ]
 }

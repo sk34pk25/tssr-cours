@@ -51,4 +51,16 @@ class OriginalSourcesTests(unittest.TestCase):
             covered=[n for s in doc['strips'] for n in range(s['first'],s['last']+1)]
             self.assertEqual(covered,list(range(1,doc['pageCount']+1)))
 
+    def test_available_tp_is_not_incorrectly_reported_as_missing(self):
+        data=load_catalog()
+        for page in data['pages']:
+            self.assertNotIn('Aucun document original correspondant',data.get('pageNotices',{}).get(page,''),page)
+
+    def test_misfiled_linux_tp_follows_its_internal_module_title(self):
+        data=load_catalog()
+        page='modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md'
+        for identity in ['1UxNuienstNgVxtr1UyNDEU4GdedUSzJP','1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa']:
+            self.assertIn(identity,data['pages'][page])
+            self.assertIn('TP du Module 06',data['documents'][identity]['sourceNotice'])
+
 if __name__=='__main__':unittest.main()

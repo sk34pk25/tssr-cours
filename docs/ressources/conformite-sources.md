@@ -40,9 +40,9 @@ Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est i
 | [Systèmes clients Microsoft — Module 13 — Les stratégies de groupe local](../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md) | 3 | 13 |
 | [Systèmes clients Microsoft — Module additionnel — Workstation](../modules/02-systemes-clients-microsoft/module-additionnel-workstation.md) | 2 | 11 |
 | [Utilisation GNU/Linux — Module 03 — Premières commandes](../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md) | 2 | 6 |
-| [Utilisation GNU/Linux — Module 04 — Fichiers et dossiers](../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md) | 4 | 9 |
+| [Utilisation GNU/Linux — Module 04 — Fichiers et dossiers](../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md) | 2 | 4 |
 | [Utilisation GNU/Linux — Module 05 — Lire des fichiers et gérer les liens](../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md) | 4 | 10 |
-| [Utilisation GNU/Linux — Module 06 — Recherches et expressions régulières](../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md) | 2 | 6 |
+| [Utilisation GNU/Linux — Module 06 — Recherches et expressions régulières](../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md) | 4 | 11 |
 | [Utilisation GNU/Linux — Module 07 — Utilisation de Vi](../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md) | 2 | 20 |
 | [Utilisation GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé](../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md) | 8 | 19 |
 | [Administration Debian — Module 01 — Présentation de Debian GNU/Linux](../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux.md) | 1 | 14 |
