@@ -1,0 +1,96 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Énoncé Module-Module 12-Atelier 15-Capture&amp;Deploy.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Énoncé Module-Module 12-Atelier 15-Capture&amp;Deploy.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                              ENI École Informatique
+
+Travaux pratiques 15
+
+Cursus : TSSR                                 Cours : Windows Client
+
+Sujet                           TP - Introduction à la capture et au
+                                   déploiement
+                                                  Version : 2021-01
+
+Objectifs :
+
+• Connaitre les principes de capture et de déploiement d&#x27;image Windows
+
+Prérequis :
+
+• Avoir terminé l&#x27;atelier 13 - Maintenance
+
+Principales tâches à réaliser :
+
+Préparation du poste de référence Win10-XX
+     Activez le compte utilisateur Administrateur et fixez-lui un mot de passe. Fermez votre
+     session actuelle et ouvrez une session avec le compte Administrateur.
+     Assurez-vous d&#x27;avoir un snapshot récent disponible avant de  faire  les prochaines
+     manipulations. Dans le doute, faites-en un.
+    ...................................................................................................................................
+    ...................................................................................................................................
+    ...................................................................................................................................
+    ...................................................................................................................................
+     Supprimez les utilisateurs que vous avez créés lors de l&#x27;atelier 08 qui traitait des
+      utilisateurs et des groupes. Supprimez l&#x27;utilisateur que vous avez créé lors de l&#x27;installation
+     de cette VM. Supprimez aussi leurs profils.
+    ...................................................................................................................................
+    ...................................................................................................................................
+    ...................................................................................................................................
+    ...................................................................................................................................
+     Procédez à un sysprep généralisé en mode OOBE suivi d&#x27;une extinction de votre machine
+    Win10-XX
+    ...................................................................................................................................
+
+    ...................................................................................................................................
+    ...................................................................................................................................
+    ...................................................................................................................................
+
+
+
+
+
+                                     1/2                    ©ENI Ecole Informatique</pre></section><section><h2>Page 2</h2><pre>Création d&#x27;un clone de la machine de référence
+     Créez un dossier Win10-XX-Clone dans votre dossier VMs-WorkStation
+      Utilisez la fonctionnalité de clonage de WorkStation
+           o  Créez un &quot;Full Clone&quot; de Win10-XX depuis son état actuel
+           o  Cette nouvelle VM sera hébergée dans le dossier Win10-XX-Clone créé
+               précédemment
+    ...................................................................................................................................
+    ...................................................................................................................................
+
+    ...................................................................................................................................
+    ...................................................................................................................................
+
+Configuration / observation du clone
+     Allumez la VM Win10-XX et appliquez le dernier snapshot
+     Allumez la VM Win10-XX-Clone dès qu&#x27;elle est disponible et procédez à sa configuration
+      initiale
+     Remplissez le tableau ci-dessous
+
+
+                                     Win10-XX    Win10-XX-Clone
+       Vmware Tools presents ?
+
+    Nom de la machine configure
+                     dans l&#x27;OS
+
+              Nb de volumes
+
+    Nb de users dans la base SAM
+
+                     Adresse IP
+
+     Date et heure du premier log
+         dans le journal systeme
+
+    Nb de points de restaurations
+
+   Compte administrateur active ?
+
+         Pilote de l&#x27;imprimante HP
+                LaserJet present ?
+
+           Regle entrante ICMP
+
+
+
+
+
+                                     2/2                    ©ENI Ecole Informatique</pre></section></html>

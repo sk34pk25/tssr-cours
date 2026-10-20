@@ -1,0 +1,321 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M3 - Enoncé du TP - Gestion de parc.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M3 - Enoncé du TP - Gestion de parc.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             GLPI
+Gestion de parc
+TP du Module 3 – Gestion de parc – Inventaire informatique
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir
+ réalisé les TP proposés.
+
+
+Enoncé
+Objectifs
+•   Inventorier son parc informatique
+Prérequis
+•  Application GLPI fonctionnelle
+Contexte
+•  ENI école vient de recevoir un ensemble de matériel qu’on vous demande d’inventorier
+Principales tâches à réaliser
+
+Pour toutes les demandes qui suivront, utiliser si possible des gabarits.
+
+Création d’un centre de données (Datacenter)
+•  Datacenter dans « la salle des trésors » nommé « Olympus datacenter ».
+•  Créez la salle serveur avec deux emplacements de baies (1 ligne et 1 colonne) nommée
+    « Salle serveur 1 ».
+
+
+
+
+
+ Page 1/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             GLPI
+
+Création de 2 serveurs Proliant DL380 GEN
+•  Créez un gabarit nommé « GAB-Proliant-DL380-GEN »
+        o Nom « Proliant-DL380-GEN », mais avec incrémentation à quatre chiffres.
+        o  Lieu : créez une « salle de stock »et une « salle serveur » dans la salle des
+               trésors puis affecter le gabarit dans cette salle.
+        o  Créez un statut « en stock » pour ce gabarit.
+        o  Créez un type « Rack » pour ce gabarit.
+        o  Créez le fabricant « HP » pour ce gabarit.
+        o  Créez le modèle « Proliant-DL380 » pour ce gabarit :
+                  ▪  15 kilos.
+                  ▪  2 Unités.
+                  ▪  2 alimentations.
+                  ▪  Ajouter les images « HP DL 380 Gen avant.png » et « HP DL 380 Gen
+                   arrière.png » fournies par le formateur.
+•  Créez 1 port réseau :
+        o  Numéro 0.
+        o Nom « Port- ».
+        o  Type de port « RJ45 ».
+        o  Vitesse 10 Gbit/s.
+•  Créez 8 ports réseau :
+        o  Numéro 1 à 8.
+        o Nom « Port- ».
+        o  Type de port « RJ45 ».
+        o  Vitesse 1Gbit/s.
+•  Créez le système d’exploitation « HPE iLO » pour ce gabarit et Architecture 64 bits.
+•  Créez deux processeurs pour ce gabarit :
+        o  Fabricant « Intel ».
+        o  Fréquence à 3.9 GHz.
+        o  28 cœurs.
+•  Créez 6To (12 fois 512 Go) de mémoire pour ce gabarit :
+        o  Fabricant « HP ».
+        o  Fréquence « 2666 MHz ».
+        o  Type « DDR4 ».
+        o  Modèle « HPE ».
+
+
+
+
+
+ Page 2/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                             GLPI
+
+Création d’une baie
+•  Créez un gabarit nommé « GAB-Baie-HPE ».
+        o Nom « Baie-HPE-1 ».
+        o  Lieu « salle serveur ».
+        o  Salle serveur « Salle serveur 1 ».
+        o  Orientation de la porte « Nord ».
+        o  Nombre d’unités « 42U ».
+        o  Fabricant « HP ».
+        o  Modèle « G2 Enterprise Pallet Rack ».
+        o  Type « 42U Rack ».
+        o  Statut « En stock ».
+        o  Largeur « 59.78cm ».
+        o  Hauteur « 200.66 cm ».
+        o  Profondeur « 112.52 cm ».
+        o  Poids max « 1361 kg ».
+        o  Couleur d’arrière-plan « noir ».
+•  Ajoutez la baie.
+        o  Position « colonne A, ligne 1 ».
+        o  Statut « en place ».
+•  Ajoutez les serveurs « Proliant-DL380-GEN-0001-0002 » dans la baie sur les U41-42 pour le
+   0001 et U16-17 pour le 0002.
+
+Création d’un PDU
+•  Créez un gabarit nommé « GAB-PDU-HPE-G2-3.6kva ».
+        o  Lieu « salle de stock ».
+        o  Statut « En stock ».
+        o  Type « HPE-G2-Horizontale ».
+        o  Fabricant « HP ».
+        o  Modèle « PDU-HPE-G2-3.6kVA ».
+                  ▪  Poids « 3.9kg ».
+                  ▪  Unités requises « 1 U ».
+                  ▪  Profondeur « 1 ».
+                  ▪  Connexions d’alimentation « 8 ».
+                  ▪  Puissance max. « 4 ».
+                  ▪  Commentaires « 3,6 kVA ».
+                  ▪  Ajoutez les images « PDU G2 Avant.png » et « PDU G2 Arriere.png »
+
+
+
+
+ Page 3/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                             GLPI
+
+                     fournies par le formateur.
+•  Créez 2 PDU « PDU-HPE-G2-3.6kva-1 et -2 ».
+•  Ajoutez les 2 PDU -1 en U30 et -2 en U15-42 dans la baie avec le statut « En place » et le
+    lieu « salle serveur ».
+
+Création des commutateurs
+•  Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-48P » .
+        o Nom  «  JL356A-ARUBA-2540-48P », mais avec incrémentation à quatre
+                chiffres.
+        o  Statut « En stock ».
+        o  Type « Switch-48P ».
+        o  Lieu « Salle de stock ».
+        o  4 ports 0 à 3.
+                  ▪  Nom « Port- ».
+                  ▪  Vitesse « 100 Gbit/s ».
+                  ▪  Type « RJ45 ».
+        o  44 ports 4 à 47.
+                  ▪  Nom « Port- ».
+                  ▪  Vitesse « 10 Gbit/s ».
+                  ▪  Type « RJ45 ».
+        o  Modèle « Switch-JL356A-48P ».
+                  ▪  Nom « Switch-JL356A-aruba-48P ».
+                  ▪  Poids « 4 kg ».
+                  ▪  Unités requises « 1 ».
+                  ▪  Puissance consommée « 459 Watts ».
+                  ▪  Ajoutez l’image  « JL356A-aruba-48P-Avant.png »  fournie par  le
+                   formateur.
+•  Créez 4 « JL356A-ARUBA-2540-48P-0001, 0002, 0003 et 0004 ».
+•  Ajoutez les Switchs 0001 en U40, 0002 en U29 et 0003 en U14 dans la baie avec le statut
+    « En place » et le lieu « salle serveur ».
+•  Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-24P » .
+        o Nom  «  JL356A-ARUBA-2540-24P », mais avec incrémentation à quatre
+                chiffres.
+        o  Statut « En stock ».
+        o  Type « Switch-24P ».
+        o  Lieu « Salle de stock ».
+        o  4 ports 0 et 3.
+
+
+
+
+ Page 4/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                                             GLPI
+
+                  ▪  Nom « Port- ».
+                  ▪  Vitesse « 10 Gbit/s ».
+                  ▪  Type « RJ45 ».
+        o  20 ports 4 à 23.
+                  ▪  Nom « Port- ».
+                  ▪  Vitesse « 1 Gbit/s ».
+                  ▪  Type « RJ45 ».
+        o  Modèle « Switch-JL356A-24P ».
+                  ▪  Nom « Switch-JL356A-aruba-24P ».
+                  ▪  Poids « 4 kg ».
+                  ▪  Unités requises « 1 ».
+                  ▪  Puissance consommée « 370 Watts ».
+                  ▪  Ajoutez l’image  « JL356A-aruba-24P-Avant.png »  fournie par  le
+                   formateur.
+        o  Ajoutez le fichier « manuel Aruba 24 ports.pdf » du manuel en document dans
+               la rubrique Manuel.
+•  Créez 6 « JL356A-ARUBA-2540-24P-0001 à 0006 ».
+•  Ajoutez le switch « JL356A-ARUBA-2540-24P-0001 » et le « JL356A-ARUBA-2540-24P-
+   0002 » dans le lieu « Temple de Zeus » avec le statut « En place ».
+•  Ajoutez le switch « JL356A-ARUBA-2540-24P-0003 » dans le lieu « Salle des trésors » avec
+    le statut « En place ».
+•  Ajoutez le switch « JL356A-ARUBA-2540-24P-0004 » dans le lieu « Temple d’Héra » avec
+    le statut « En place ».
+•  Ajoutez le switch « JL356A-ARUBA-2540-24P-0005 » dans le lieu « Hôtellerie » avec le statut
+    « En place ».
+•  Connectez le port-0001 de « JL356A-ARUBA-2540-24P-0001 » et de « JL356A-ARUBA-
+   2540-24P-0002 » au port-0001 et port-0002 du switch « JL356A-ARUBA-2540-48P-0001 ».
+•  Connectez le port-0001 de « JL356A-ARUBA-2540-24P-0003 » et de « JL356A-ARUBA-
+   2540-24P-0004 » au port-0001 et port-0002 du switch « JL356A-ARUBA-2540-48P-0002 ».
+•  Connectez le port-0001 de « JL356A-ARUBA-2540-24P-0005 » au port-0001 du switch
+    « JL356A-ARUBA-2540-48P-0003 ».
+
+Création d’ordinateurs
+•  Créez un gabarit nommé « GAB-Alienware-M17 »
+        o Nom « Alienware-M17 », mais avec incrémentation à trois chiffres.
+        o  Lieu « salle de stock ».
+        o  Statut « en stock ».
+        o  Créez un type « Portable » pour ce gabarit.
+        o  Créez le fabricant « DELL » pour ce gabarit.
+
+
+
+ Page 5/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                                             GLPI
+
+        o  Créez le modèle « Alienware-M17 » pour ce gabarit :
+                  ▪  3 kilos.
+                  ▪  250 Watts.
+•  Avec les composants :
+        o  1 processeur « I7-10750H » pour ce gabarit.
+                  ▪  Fabricant « Intel ».
+                  ▪  Fréquence par défaut « 2.6 MHz ».
+                  ▪  Fréquence « 5 GHz ».
+                  ▪   Six cœurs et douze threads.
+                  ▪  Modèle « 10750H ».
+        o  1 carte réseau « RJ45-Killer-E3000 » pour ce gabarit.
+                  ▪  Fabricant « Killer Networking ».
+                  ▪  Débit « 10/100/1000 ».
+                  ▪  Modèle « E3000 ».
+        o  1 carte réseau « Killer-WIFI-6-AX1650 ».
+                  ▪  Fabricant « Killer Networking ».
+                  ▪  Débit « 2.4 Gbit/s ».
+                  ▪  Modèle « AX1650 »
+        o  1 carte graphique « GeForce-RTX-2070 ».
+                  ▪  Fabricant « Nvidia ».
+                  ▪  Mémoire « 8096 Mio ».
+                  ▪  Interface « PCIe ».
+                  ▪  Modèle « RTX-2070 ».
+        o  2 disques durs « SSD-PCIe-M2 » et 1 volume pour la taille totale de chaque
+            disque C : et D :.
+                  ▪  Fabricant « Intel ».
+                  ▪  Capacité « 488281 Mio ».
+                  ▪  Interface « PCIe ».
+        o  2 barrettes de mémoires « Corsaire-8Go-2666 ».
+                  ▪  Fabricant « Corsair ».
+                  ▪   Taille « 7629Mio ».
+                  ▪  Fréquence « 2666 ».
+                  ▪  Type « DDR4 ».
+        o  Créez 1 port réseau Ethernet pour ce gabarit.
+                  ▪  Numéro 0.
+
+
+
+
+ Page 6/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                                             GLPI
+
+                  ▪  Nom « Port- ».
+                  ▪  Type de port « RJ45 ».
+                  ▪  Vitesse 1 Gbit/s.
+                  ▪  Carte réseau « RJ45-Killer-E3000 ».
+        o  Créez 1 port réseau WIFI pour ce gabarit.
+                  ▪  Numéro 0.
+                  ▪  Nom « Port- ».
+                  ▪  Carte réseau « Killer-WIFI-6-AX1650 ».
+                  ▪  Mode WIFI « Géré ».
+                  ▪  Version du protocole « a/b/g/n/y ».
+        o  Créez le système d’exploitation « Windows 10 » pour ce gabarit.
+                  ▪  Architecture « 64 bits. ».
+                  ▪  Noyau « Hybride ».
+                  ▪  Version « 20H2 ».
+                  ▪   Edition « PRO ».
+        o  Créez un logiciel « Office365-ProPlus ».
+                  ▪  Éditeur « Microsoft ».
+                  ▪  Catégorie « Bureautique ».
+                  ▪  Version « ProPlus ».
+        o  Créez 60 licences « Office365-Proplus ».
+                  ▪  Éditeur « Microsoft ».
+                  ▪   Statut « attribué ».
+                  ▪  Type « volume ».
+                  ▪  Version utilisée « ProPlus – en stock ».
+                  ▪  Version d’achat « ProPlus – en stock ».
+                  ▪  Autorisez le dépassement de quota « non ».
+        o  Installez le logiciel « Office365-ProPlus » et affectez une licence sur ce gabarit.
+•  Créez autant de prise réseau que d’utilisateur dans chaque lieu.
+        o Nom « Prise-1 », « Prise-2 », etc.
+        o  Quatre en « salle des trésors ».
+        o  Deux à « l’Hôtellerie ».
+        o  Quatre au « Temple d’Héra ».
+        o  Deux au « temple de Zeux ».
+•  Créez 12 Portables Alienware et affectez chaque ordinateur à un utilisateur d’Olympus.
+•  Connectez chaque Portable à un port de switch disponible dans le lieu où ils se trouvent
+
+
+
+
+ Page 7/8
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                                                             GLPI
+
+   par les prises situées dans ces lieux.
+
+Réservation
+•  Créez deux Portables Alienware supplémentaires et les rendre réservables.
+        o  En réserver un, pour un mois, au nom de Zeus pour ses virées nocturnes sur
+                terres.
+
+Écrans
+•  Ajoutez deux écrans E 1913 S 19 et en lien un avec un optiplex et un en stock.
+
+Imprimantes
+•  5 imprimantes Aficio MP C5502AD avec les cartouches et le papier correspondant (1
+   dans le hall et les autres dans des salles au choix). Vous prévoirez 1 jeu de tonner
+   supplémentaire pour spare ainsi que du papier d’avance.
+
+Autre
+•  1 BlackBerry Z30 assigné au directeur
+•  1 webcam Logitech C920 assignée au Hall
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+
+
+
+
+ Page 8/8
+                                      © ENI – Tous droits réservés</pre></section></html>

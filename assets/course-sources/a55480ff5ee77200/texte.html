@@ -1,0 +1,554 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 03 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>         Administration GLPI
+            Module 03 – Gestion de parc – Inventaire informatique
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                         Objectifs
+
+
+
+                    •  Découvrir la notion d’inventaire dans GLPI
+                    •  L’importance d’un plan de nommage
+                    •  L’ordinateur, un assemblage de composants
+                    •  Le logiciel, un item qui associe une licence
+                    •  Connecter un équipement au réseau
+                    •  Gérer les consommables avec GLPI
+                    •  Création d’un gabarit d’inventaire
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                              Gestion de parc – Inventaire informatique
+
+
+   Les éléments d&#x27;inventaire
+                                                                   Gestion de parc – Inventaire informatique
+
+
+
+
+
+3
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                Fonctionnalités gestion de parc
+
+
+
+
+
+                                                    Inventaire matériel                         Composants internes
+
+
+                            Vue détaillée, connexions, etc.                                Composants et cartographie réseau
+
+
+                                    Historique sur les éléments                                         Cycle de vie des matériels
+
+
+                                     Systèmes d’exploitation                                      Réservation de matériel
+
+
+                          Informations administratives et financières                                 Logiciels et licences
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                Élaborer un plan de nommage
+
+
+                    • Un plan de nommage est une nomenclature
+                    •  Définir l’information importante pour retrouver un item
+
+
+
+                           Type        Service      Date achat   Index
+                                            Organisation
+
+                     PC        DIR         202203     012
+
+                                        Ordinateur fixe   Direction        Mars 2022     N° 012
+
+
+
+
+
+5
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                   Élément ordinateur
+
+
+                    • Se gèrent depuis le menu Parc =&gt; ordinateurs
+                    •  Utilisables pour les ordinateurs fixes, portables, serveurs, etc.
+                    • Champ « type » très important pour les différencier
+                    •  Utilisation possible des gabarits
+                    •  Utilisation possible d’un outil d’inventaire automatique
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                  Ordinateur : composants
+
+
+                    • Ne sont pas des intitulés
+                    •  Doivent être créés depuis configuration =&gt; composants
+                    •  Sont caractérisés par plusieurs champs qui eux sont des intitulés
+                   •  La liste des différents composants est fixe
+                    •  Peuvent être gérés dynamiquement par un outil d’inventaire
+                    •  Portée limitée à l’entité de création, récursivité possible
+
+
+
+
+
+7
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                      Ordinateur : logiciels
+
+
+                    •  Gérer quels sont les logiciels installés sur l’ordinateur
+                    •  Triés par catégories et caractérisés par un nom, leur version
+                   et le statut
+                    •  Possibilité de choisir la catégorie à afficher
+                    •  Possibilité de définir si une licence a été installée sur le poste
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                      Ordinateur : logiciels
+
+
+
+
+              1                          2                          3                          4
+
+        Créer une catégorie               Créer le logiciel.           À partir du logiciel,              Créer les licences.
+          de logiciel.                 Exemple : Office                  créer la version.
+                                                                                                Renseigner le nombre,
+           Exemple :                  Associer ce logiciel                Exemple :                     le logiciel et l’éditeur.
+           bureautique                 à un éditeur et                365 ProPlus
+                                     à une catégorie.                                              Puis affecter la licence
+                                                                  Renseigner le système            à un ordinateur.
+                                                                                   d’exploitation.
+
+
+
+
+
+9
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                    Ordinateur : connexion
+
+
+                    • Va permettre de gérer les connexions directes avec d’autres
+                éléments
+                   •  Représentation de la liaison physique (USB, série, HDMI…)
+                 entre un ordinateur et un autre élément
+                    • Connexion possible : imprimantes, périphériques, moniteurs
+                   et téléphones
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                   Ordinateur : port réseau
+
+
+                    •  Connexions réseau entre les différents éléments
+                    •  Modélisation de la sortie d’une interface réseau sur un
+                élément matériel
+                   •  Plusieurs types : Ethernet, wifi, fibre, agrégation, etc.
+                    •  L’ajout de plusieurs ports en même temps est possible
+                    •   Il est caractérisé par un nom et un numéro (convention de
+             nommage)
+                    •  Peut être associé à un composant de type carte réseau
+                    •  Information réseau (@IP, domaine, nom et vlan)
+
+
+
+
+
+11
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                    Ordinateur : connexion d&#x27;un port réseau
+
+
+                    •  Connecter les ports réseau des éléments va permettre une
+                 représentation physique de tout son réseau
+                   • Connexion réseau possible à tout autre élément disposant d’un
+                 port réseau
+                    •  Le raccordement préalable à une prise réseau pourra être renseigné
+                    •  Les intitulés « prises réseau » seront associés à un lieu
+
+
+
+
+
+                       Le port réseau « 1 » de mon ordinateur est raccordé à la prise « p001 »
+                     en S331 qui ensuite est raccordée au port réseau « eth01 » d’un switch cisco
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                             Ordinateur : les autres onglets
+
+
+                    • Système d’exploitation
+                    •  Contrats
+                    • Volumes
+                   •  Virtualisation
+                    •  Antivirus
+                    •  Liens externes
+                    •  Certificats
+
+
+
+
+
+13
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                    Élément moniteur
+
+
+                    •  Informations de gestion de l’élément (responsable, statut, lieu, etc.)
+                    •  Caractéristiques générales (fabricant, modèle, type, etc.)
+                    •  Usagers du moniteur (connu ou non, groupes, etc.)
+                    •  Spécifications techniques (taille, connectiques, etc.)
+                    • Son type de gestion : globale ou unitaire
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                               Élément matériel réseau
+
+
+                    •  Permettre la représentation de tout matériel qui gère, transmet
+                   et route le réseau entre plusieurs autres éléments matériels
+                    •   Ils devront être différenciables par l’intitulé type
+                              • Switch, routeur, firewall, borne wifi, etc.
+                    •  Utilisation possible d’un gabarit
+                    • Grand nombre de paramètres communs aux autres éléments
+                    •  Ports réseau importants pour les connexions réseau avec les
+                  autres éléments
+
+
+
+
+
+15
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                  Élément imprimante
+
+
+                    •  Représenter toutes les imprimantes présentes sur le parc
+                 informatique
+                   •  Utilisation possible d’un gabarit
+                    • Champs : caractéristiques générales, gestion, usagers et
+                   spécifications
+                    •  Gestion unitaire ou globale
+                    • Connexion directe ou réseau
+                    •  Gestion des cartouches installées
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                   Élément cartouches et consommables
+
+
+                    •  Définitions des modèles
+                    •  Importation en masse
+                    • Modèles d’imprimantes compatibles
+                   •  Installation sur les imprimantes
+                    •  Fin de vie des cartouches
+                    •  Seuils d’alerte (avec supervision)
+
+
+
+
+
+17
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                     Gérer les cartouches
+
+
+
+
+             1                       2                       3                       4
+
+       Créer un modèle            Créer un modèle               Ajouter des                  Installer la ou les
+         d’imprimante.             de cartouche.             cartouches à votre         cartouches sur votre
+                                  Exemple :                  modèle.                  imprimante.
+         Exemple :                 Cart-impr-HP.
+     imprimante USB HP                                      Exemple :               L’imprimante doit
+                                      Puis associer le          50 cartouches neuves            être du même
+                            modèle de cartouche                              modèle d’imprimante
+                                 à votre modèle                                 que les cartouches.
+                                    d’imprimante.
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                   Élément téléphones
+
+
+                    •  Fixe, portable, combiné
+                    •  Spécifications
+                    •  Usagers
+                   •  Gestion des composants
+                    • Connexion directe et réseau
+                    •  Associable à un ticket
+
+
+
+
+
+19
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                 Élément périphérique
+
+
+                    •  Tout ce qui n’est pas implémenté nativement dans GLPI
+                    • Connexion directe et réseau
+                    •  Réservation possible
+                    •  Usagers
+                    •  Associable à un ticket
+
+
+
+
+
+20</pre></section><section><h2>Page 11</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                            Élément centre de données
+
+
+                    •  Représentation de ses centres de données (Datacenters)
+                    •  Salles serveur
+                    •  Baie                                  Datacenter
+                   • Équipements
+                    •  Onduleurs (PDU)
+                                                                                                                                  Baie          Baie          Baie                             Baie          Baie          Baie
+
+
+
+                                                                                                                                  Baie          Baie          Baie                             Baie          Baie          Baie
+
+
+                                                                          Salle 1                         Salle 2
+
+
+21
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                               Réservations
+
+
+                    • Un grand nombre d’éléments peuvent être réservés
+
+
+
+                      Autoriser les réservations Rendre un élément réservable
+
+                     Rendre indisponible    Plus de nouvelles réservations possibles
+
+                      Rendre disponible     Rétablir la possibilité de réserver
+
+                  Ne pas autoriser      Désactiver les réservations
+
+
+
+
+22</pre></section><section><h2>Page 12</h2><pre>                                                              Gestion de parc – Inventaire informatique
+
+
+         Les gabarits
+
+
+
+
+
+23
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                                              Le gabarit
+
+
+                    •  Applicables à plusieurs éléments
+                    •  Définition d’un élément standard, généralement identifié
+                 par son modèle
+                    •  Pré-remplissage de certains champs communs à un même
+              modèle d’élément
+                    •  Simplifie l’ajout de plusieurs éléments de même modèle
+
+
+
+
+
+24</pre></section><section><h2>Page 13</h2><pre>                                                              Gestion de parc – Inventaire informatique
+                                                                              Le gabarit
+
+
+
+                        •  Certains champs peuvent bénéficier d’un système d’incrémentation
+                        •  Champs identifiables par une baguette
+                        •  Le champ est rempli automatiquement selon un format défini
+                        •  Format sous la forme &lt;XXX####&gt;
+                                 • &lt; et &gt; pour indiquer le début et la fin d’un format à interpréter
+                                 •  X pour un caractère quelconque fixe
+                                 • # pour un numéro à incrémenter. Nombre de chiffres égaux
+                       au nombre de #
+                                 • \Y pour y inscrire l’année courante sur 4 chiffres
+                                 •  \y pour l’année sur 2 chiffres
+                                 • \m pour le mois
+                                 • \d pour le jour
+
+
+
+
+
+25
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                           Champs récurrents
+
+
+
+                        •  Peu importe l’élément d’inventaire, plusieurs champs sont identiques
+                        •   Intitulés du champ à créer en amont ou « sur place »
+                       •   Liste des principaux
+                              • Nom
+                              • Lieu
+                              • Statut
+                              • Type
+                              • Fabricant
+                              • Modèle
+                              • Numéro d’inventaire
+                              • Responsable et groupe techniques
+                              • Utilisateur et groupe
+                                                         Le  permet l’ajout d’un intitulé sans                              • Commentaire
+                                                                    quitter la fiche de l’élément
+
+
+26</pre></section><section><h2>Page 14</h2><pre>                                                              Gestion de parc – Inventaire informatique
+
+
+     Les différentes étapes
+
+
+
+
+
+27
+
+
+
+
+
+                                                              Gestion de parc – Inventaire informatique
+                                                         Étapes de création d&#x27;un Datacenter
+
+
+
+
+             1                       2                       3                       4
+
+       Créer un centre de            Créer une salle             Créer la baie dans         Créer le matériel avec
+          données.               serveur dans votre           votre salle serveur            les images dans le
+                                      datacenter                                   modèle de matériel.
+          Exemple :                                              puis indiquer le
+        Datacenter L.A.            Puis indiquer la taille         nombre d’unités
+                             de l’emplacement
+                                  pour la baie.                Exemple :
+                                  Exemple :                   42 U
+                                 2 colonnes
+                                  2 lignes
+
+
+
+
+
+28</pre></section></html>

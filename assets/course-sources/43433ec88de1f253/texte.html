@@ -1,0 +1,274 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M04-01-01-TP-La_communication.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M04-01-01-TP-La_communication.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>La communication
+TP du Module 04-01
+
+
+ Pour effectuer ce TP, il faut avoir suivi le module 4 sur la communication
+  En vidéo pour les stagiaires du campus en ligne
+  Diaporama et explications pour les stagiaires en présence d’un formateur
+
+
+           Durée estimée
+
+              2 heures
+
+Énoncé
+A.  Communication dans un réseau
+    •  Les machines A, B, C, D, E et F sont situées sur le même segment.
+    •     Il n&#x27;y a pas de routeur.
+
+                              Poste A       Poste B       Poste C
+                           172.16.10.10 172.16.11.20  172.16.100.30
+                            255.255.0.0   255.255.0.0   255.255.0.0
+
+
+
+
+
+                            Poste D        Poste E        Poste F
+                         172.16.11.100 172.16.100.150 172.16.10.200
+                         255.255.255.0  255.255.255.0  255.255.255.0
+
+    •  Remplissez le tableau ci-dessous en indiquant quels hôtes peuvent dialoguer
+    •  Communication avec réponse et pourquoi ?
+
+ L&#x27;hôte  peut contacter l&#x27;hôte                            Explications
+  A
+   B
+  C
+  D
+   E
+    F
+
+
+
+ Page 1/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>B.  Communication dans un réseau
+    •  Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à
+      quel autre poste
+
+    Poste A
+    Mac: PhyA                                                                             Poste E
+  @IP: 10.11.2.1                     Routeur X       Routeur Y                             Mac: PhyE
+ Mask: 255.0.0.0                         Mac: PhyX         Mac: PhyY                          @IP: 192.168.2.2
+ GW: 10.0.0.254                       @IP: 10.0.0.254   @IP: 192.168.1.254                      Mask: 255.255.0.0
+                                         Mask:255.0.0.0   Mask: 255.255.255.0                  GW: 192.168.1.254
+
+
+
+                         Réseau 1                                        Réseau 2
+
+
+
+
+
+          Poste B                  Poste C
+          Mac: PhyB                  Mac: PhyC                          Poste D
+       @IP: 192.168.1.35             @IP: 10.0.2.4                           Mac: PhyD
+        Mask: 255.0.0.0             Mask: 255.255.0.0                    @IP: 192.168.1.123
+       GW: 10.0.0.254            GW: 10.0.0.254                     Mask: 255.255.255.0
+                                                           GW: 192.168.1.254
+
+    •  Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
+        o V pour Vrai (communication entre les deux postes)
+        o  F pour Faux (pas de communication entre les deux postes)
+        o  P pour Passerelle (communication entre les deux postes en passant par le
+              routeur)
+        o  Le tableau est déjà rempli avec certaines réponses,
+                  ▪  Le poste A peut envoyer au poste A ainsi pour les postes B, C, D, E.
+
+    X pev Y         A           B            C          D            E
+
+      A           V
+
+     B                        V
+
+      C                                    V
+
+     D                                                V
+
+      E                                                            V
+
+
+
+
+
+ Page 2/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>C. Communication dans un réseau
+    •  Examinez le réseau et remplissez le tableau pour indiquer quel poste peut envoyer à
+      quel autre poste
+
+
+                                       Routeur X          Routeur Y            Poste A
+                                              Mac: PhyX             Mac: PhyY             Mac: PhyA
+                                         @IP: 192.168.5.254     @IP: 172.19.0.254          @IP: 192.167.5.1
+                                           Mask:255.255.255.0     Mask: 255.255.0.0         Mask: 255.255.255.0
+        GW: 192.168.5.254
+
+
+
+                               Réseau 1                                        Réseau 3
+
+
+                                               Routeur Z
+                                                       Mac: PhyZ
+                                                   @IP: 172.20.0.254
+                                                    Mask: 255.255.0.0
+           Poste B
+            Mac: PhyB
+        @IP: 192.168.5.35                                                    Poste F
+       Mask: 255.255.255.0      Poste C                Réseau 2                 Mac: PhyF
+       GW: 172.20.0.254       Mac: PhyC                                                                             @IP: 172.19.2.2
+                            @IP: 172.20.1.4                                                                              Mask: 255.0.0.0
+                            Mask: 255.255.0.0                                                                 GW: 172.19.0.254
+                       GW: 192.168.5.254
+
+                          Poste D                                          Poste E
+                            Mac: PhyD                                            Mac: PhyE
+                        @IP: 172.20.1.123                                      @IP: 172.20.0.7
+                        Mask: 255.255.255.0                                    Mask: 255.255.0.0
+                     GW: 172.20.1.254                                GW: 172.20.0.254
+
+    •  Vous remplissez le tableau pour consigner les résultats (pev = Peut Envoyer Vers) :
+        o V pour Vrai (communication entre les deux postes)
+        o  F pour Faux (pas de communication entre les deux postes)
+        o  P pour Passerelle (communication entre les deux postes en passant par le
+              routeur)
+        o  Le tableau est déjà rempli avec certaines réponses,
+                  ▪  Le poste A peut envoyer au poste A ainsi pour les postes B, C, D, E, F.
+
+  X pev Y       A        B          C        D         E          F
+
+    A         V
+
+    B                   V
+
+     C                             V
+
+    D                                       V
+
+     E                                                 V
+
+     F                                                          V
+
+
+
+
+ Page 3/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>D.  Remplissez les tables de routage des routeurs
+    •  On a découpé le bloc 131.107.0.0 /16 en 9 segments
+    •  Les réseaux utilisés sont les suivants et sont en gras :
+       /16              /17              /18              /19              /20
+                                                                                13.107.0.0
+                                                              13.107.0.0
+                                                                              13.107.16.0
+                                           13.107.0.0
+                        13.107.0.0                           13.107.32.0
+
+                                                            13.107.64.0
+     13.107.0.0                           13.107.64.0
+                                                            13.107.96.0
+                                                          13.107.128.0
+                                         13.107.128.0
+                                                          13.107.160.0
+                      13.107.128.0
+                                                          13.107.192.0
+                                         13.107.192.0
+                                                          13.107.224.0
+
+    •  Schéma du réseau
+
+  13.107.0.0              13.107.16.0              13.107.32.0              13.107.64.0              13.107.96.0
+
+          R1            R2            R3            R4
+
+
+
+
+
+                       13.107.128.0             13.107.160.0             13.107.192.0             13.107.224.0
+
+         R5            R6            R7            R8
+
+    •  Vous devez paramétrer chaque routeur en n&#x27;ajoutant qu&#x27;un minimum d&#x27;itinéraires
+       statique
+    •   Ecrivez, en format abrégé les routes que vous ajoutez :
+        o  (@_rezo, masque, Routeur de destination)
+
+R1 : ...................................................................................................................................................
+
+R2 : ...................................................................................................................................................
+
+R3 : ...................................................................................................................................................
+
+R4 : ...................................................................................................................................................
+
+R5 : ...................................................................................................................................................
+
+R6 : ...................................................................................................................................................
+
+R7 : ...................................................................................................................................................
+
+R8 : ...................................................................................................................................................
+
+
+
+
+ Page 4/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>E.  Calculer les résumés de routes
+
+    1. On désire agréger les 4 réseaux suivants :
+
+                                                                   212.56.132.0/24
+
+                                                                   212.56.133.0/24
+
+                                                                   212.56.134.0/24
+        R1                      R2                  212.56.135.0/24
+                                       Inscrivez ici le résumé de
+                                     route en notation CIDR
+
+
+    2. On désire agréger les 4 réseaux suivants :
+
+                                                                   212.56.146.0/24
+
+                                                                   212.56.147.0/24
+
+                                                                   212.56.148.0/24
+        R1                      R2                  212.56.149.0/24
+                                       Inscrivez ici le résumé de
+                                      route en notation CIDR
+
+
+    3. On désire agréger les 64 réseaux suivants :
+
+                                                                     212.1.96.0/24
+
+                                                                     212.1.97.0/24
+
+
+                                                                    212.1.127.0/24
+
+                                                                    212.1.128.0/24
+
+        R1                      R2
+                                                                    212.1.158.0/24
+
+                                                                    212.1.159.0/24
+
+                                       Inscrivez ici le résumé de
+                                      route en notation CIDR
+
+
+    4. On désire agréger l&#x27;intégralité des réseaux de classe A : ...............................................
+
+    5. On désire agréger tous les réseaux de classe B :              ...............................................
+
+    6. On désire agréger la totalité des réseaux de classe C :   ...............................................
+
+
+
+
+
+ Page 5/5
+                                      © ENI – Tous droits réservés</pre></section></html>

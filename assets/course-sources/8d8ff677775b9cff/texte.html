@@ -1,0 +1,158 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M01 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>RES24_0050B - M01 - Linux Administration (Debian).pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Administration Debian
+     GNU/Linux
+
+
+ Module 01 – Présentation de Debian GNU/Linux</pre></section><section><h2>Page 2</h2><pre>                                                      Présentation de Debian GNU/Linux
+
+  Objectifs
+
+• Connaître l&#x27;historique Debian
+• Découvrir les piliers de la distribution
+• Faire connaissance avec les diverses versions du système
+
+
+
+          Découvrir Debian, son histoire et sa philosophie</pre></section><section><h2>Page 3</h2><pre>                                                                 Présentation de Debian GNU/Linux
+
+
+Conventions typographiques</pre></section><section><h2>Page 4</h2><pre>                                                    Conventions typographiques
+                                                Syntaxe des commandes
+
+
+
+• La syntaxe des commandes est représentée ainsi :
+ Commande [options] &lt;Argument&gt;
+
+      Rappel: L’espace est un séparateur d’expressions entre la
+          commande, les options et les arguments.
+• Les exemples de commande et leur résultat sont représentés ainsi :
+
+
+           user30@deb:~$ ls -l /home/user30
+           total 8
+           -rw-r--r-- 1 user30 user30  36 juin  26 12:08 aFaire.txt
+           -rw------- 1 user30 user30 586 avril 16 17:26 Edition
+           user30@deb:~$</pre></section><section><h2>Page 5</h2><pre>                                                    Présentation de Debian GNU/Linux
+
+
+Historique de Debian</pre></section><section><h2>Page 6</h2><pre>                                                                 Historique de Debian
+                                                     Version et distribution
+
+
+
+• Depuis 1993, une quinzaine de versions majeures de Debian ont vu
+  le jour.
+• Chaque version porte en plus de son numéro le nom d&#x27;un
+ personnage de la série de films d&#x27;animation Toy Story.
+• La distribution Debian a été conçue dès son origine pour les
+ systèmes serveur. Elle est parfaitement adaptée à cette fonction.
+  Cette volonté implique des calendriers de sorties assez longues, et
+ un développement de l&#x27;ergonomie peu propice aux utilisateurs
+  finaux.
+• Des distributions dérivées de Debian et axées sur l&#x27;utilisateur final
+  ont vu le jour, comme Ubuntu ou Linux Mint, permettant de pallier
+  ce manque.</pre></section><section><h2>Page 7</h2><pre>                                                                 Historique de Debian
+                                                     Version et distribution
+
+
+
+• Août 1993 : création de la distribution Debian
+• Deux objectifs :
+     • Qualité
+     • Aspect non commercial
+• Le projet Debian a défini des principes du logiciel libre, qui doivent
+  être respectés par la communauté Debian :
+     • Redistribution libre
+     • Disponibilité du code source
+     • Licences</pre></section><section><h2>Page 8</h2><pre>                                                                 Historique de Debian
+                                          Contrat social Debian GNU/Linux
+
+
+
+Le projet Debian a établi un contrat social dont les points
+principaux sont :
+
+1. Debian demeurera totalement libre.
+2. Nous donnerons nos travaux à la communauté des logiciels
+    libres.
+3. Nous ne dissimulerons pas les problèmes.
+4. Nos priorités sont nos utilisateurs et les logiciels libres.
+5.  Les travaux non conformes aux principes du logiciel libre
+   pourront être disponibles dans des sections différenciées ne
+    faisant pas partie du système Debian.</pre></section><section><h2>Page 9</h2><pre>                                                                 Historique de Debian
+                                               Debian Linux 10 Buster
+
+
+
+• Canal Stable actuel Debian 12 Bookworm
+     • Debian 11 Bullseye
+     • Debian 10 Buster
+
+• Distribution GNU/Linux libre
+
+
+         https://www.debian.org/social_contract.fr.html• Basé sur un contrat social
+
+
+
+• Redistribution libre et gratuite
+
+• Inclusion du code source</pre></section><section><h2>Page 10</h2><pre>                                                   Présentation de Debian GNU/Linux
+
+Branches et versions
+    de Debian</pre></section><section><h2>Page 11</h2><pre>                                                                     Historique de Debian
+                                             Les versions de Debian GNU/Linux
+
+
+
+Version 1.1         Buzz, le ranger de l&#x27;espace   Version 4.0     Etch, l&#x27;écran magique
+
+Version 1.2         Rex, le tyrannosaure         Version 5.0     Lenny, la paire de jumelles
+
+Version 1.3         Bo, la bergère              Version 6.0    Squeeze, l&#x27;extraterrestre
+
+Version 2.0       Hamm, le cochon tirelire     Version 7.0    Wheezy, le manchot au
+                                             nœud papillon rouge
+
+Version 2.1           Slink, le chien à ressort      Version 8.0      Jessie, la cowgirl
+
+Version 2.2         Potato, M. patate           Version 9.0     Stretch, la pieuvre
+
+Version 3.0        Woody, le cowboy          Version 10      Buster, le chien
+
+Version 3.1         Sarge, le chef des soldats    Version 11      Bullseye, le cheval
+
+
+                                     Source : https://www.debian.org/releases/index.fr.html</pre></section><section><h2>Page 12</h2><pre>                                                                 Historique de Debian
+                                                       Les branches Debian
+
+
+
+• 3 principales branches :
+     • Stable : c&#x27;est la version de production de Debian, celle qu&#x27;il est recommandé
+        d&#x27;utiliser.
+     • Testing : la branche Testing contient la future version stable de Debian.
+     • Unstable : version en constante évolution (on parle de Rolling release). La
+      distribution Unstable est toujours appelée Sid.
+• En production, nous utilisons principalement la branche Stable ou
+  antérieure
+• Release (en anglais) : version numérotée spécifique stable et prête
+ à être utilisée, qui a été publiée pour le public.</pre></section><section><h2>Page 13</h2><pre>                                                                 Historique de Debian
+                                                       Les branches Debian
+
+
+
+• Des sous-branches OLD-STABLE et OLD-OLD-STABLE existent
+  également.
+• Elles désignent les branches N-1 et N-2.
+     • La version stable est actuellement la version 11 Bullseye
+     • old-stable est la version 10 Buster
+     • old-old-stable est la version 9 Stretch</pre></section><section><h2>Page 14</h2><pre>                                                   Présentation de Debian GNU/Linux
+                                                             Conclusion
+
+
+
+• Vous connaissez :
+     • les origines du système Debian,
+     • les valeurs qui sous-tendent son évolution.
+• Vous avez des notions sur les versions de Debian et les branches.</pre></section></html>

@@ -1,0 +1,167 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - Installation et configuration initiale.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP 1 - Installation et configuration initiale.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                              Services réseau en environnement Microsoft
+Installation et configuration
+initiale
+TP 1 du Module 01 – Administration Windows
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1.
+
+
+           Durée estimée
+
+            1 à 2 heures
+
+Énoncé
+
+Prérequis :
+
+    •  Copiez le fichier image ISO « Windows Server 2019 Standard » depuis le partage
+      Réseau vers votre lecteur local.
+
+Création des machines virtuelles :
+
+ Nom de la machine virtuelle                 Caractéristiques supplémentaires
+                                                    •  Windows Server 2019
+ VM_Modele_2019                                                    •  1 disque dur : 32Go
+                                                    •  Mémoire vive : 2Go
+                                                    •  Carte réseau : mode « bridge »
+                                                    •  Windows 10
+ VM_Modele_W10                                                    •  1 disque dur : 32Go
+                                                    •  Mémoire vive : 2Go
+                                                    •  Carte réseau : mode « bridge »
+
+Les VM seront stockées sous D:\Machines_Virtuelles\Modeles\Nom_de_la_VM
+
+
+
+
+
+Les systèmes seront hébergés sur la totalité du disque. Au fur et à mesure de l’avancée du
+
+
+
+
+ Page 1/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                              Services réseau en environnement Microsoft
+
+cours, nous serons amenés à ajouter des disques supplémentaires.
+
+Une fois les systèmes installés :
+    •   Installez les VMware Tools.
+
+
+
+
+
+    •  Procédez à un sysprep des OS puis éteignez-les.
+
+
+
+
+
+    •  Créez un Folder nommé VM MODELES – A NE
+     PAS DEMARRER dans  le  volet  Library de
+      Workstation    puis   glissez-déplacez   vos
+     VM_Modele dedans.
+
+
+
+
+
+ Page 2/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+Ces VM seront utiles pour faire évoluer l’infrastructure au fur et à mesure des modules, mais
+aussi en cas de perte éventuelle d’un serveur ou d’un client.
+Ces modèles ne doivent pas être démarrés et devront être conservés durant l’ensemble
+des modules du cours Service Réseau Microsoft.
+
+Création de l’infrastructure :
+    •  Clonez VM_Modele_2019 en W19-CD1 ainsi qu’en W19-SRV1.
+    •  Clonez VM_Modele_W10 en W10-CLI1.
+    •  Les     dossiers    d’accueil   de    ces   VM     seront     situés    dans
+      D:\Machines_Virtuelles\Nom_De_La_VM
+
+
+
+
+
+ Page 3/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                               Services réseau en environnement Microsoft
+
+
+Configuration réseau :
+    •  Les machines auront un adressage IPv4 statique.
+    •  Le réseau sera 172.28.10.0/16.
+    •  Les systèmes d’exploitation porteront le même nom que les VM.
+
+
+
+
+                                               Nom : W19-CD1
+                                                                   Adresse IP : 172.28.10.1
+
+
+
+
+
+                                                          Nom : W19-SRV1
+Nom : W10-CLI1                                                                                   Adresse IP : 172.28.10.2
+Adresse IP : 172.28.10.11
+
+                        Réseau salle
+                            172.28.10.0/16
+
+
+
+
+
+ Page 4/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                              Services réseau en environnement Microsoft
+
+Rôle et fonctionnalités :
+•   Installez sur le serveur le service Web IIS et l’outil de Sauvegarde Windows Server.
+
+
+
+
+
+•  Pour tester le bon fonctionnement du service IIS, vérifiez l’accès à l’URL http://localhost
+   depuis le navigateur web du serveur (une image IIS doit s’afficher).
+
+
+
+
+
+•  Autorisez l’utilisation du bureau à distance pour l’administration à distance du serveur et
+   du client.
+
+
+
+
+
+ Page 5/6
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+Testez l’administration du serveur depuis W10-CLI1 :
+    •  Avec l’outil graphique Connexion Bureau à distance
+
+
+
+
+
+    •  Avec  l’outil en ligne de commande mstsc  (si besoin, afficher l’aide avec la
+     commande mstsc / ?)
+
+
+
+
+
+ Page 6/6
+                                      © ENI – Tous droits réservés</pre></section></html>

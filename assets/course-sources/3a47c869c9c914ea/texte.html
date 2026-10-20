@@ -1,0 +1,650 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03-04-TP-Sous-réseaux_Correction.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M03-04-TP-Sous-réseaux_Correction.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Calcul des sous-réseaux
+TP du Module 03.04
+
+
+ Pour effectuer ce TP,  il faut avoir suivi la partie sur le découpage en sous-réseau du
+ module 3 sur l’adressage IPv4
+  En vidéo pour les stagiaires du campus en ligne
+
+ Diaporama et explications pour les stagiaires en présence d’un formateur
+
+
+           Durée estimée
+
+              3 heures
+
+Énoncé
+
+A.  Validité des adresses en notation CIDR
+Indiquez si les adresses sont valides pour des hôtes.
+
+Transformez la notation CIDR en notation standard.
+
+      Adresse        Valide     @Réseau / @Diffusion               Standard
+
+                                              12.0.0.0                           12.1.1.1
+      12.1.1.1 /8       OUI
+                                       12.255.255.255                      255.0.0.0
+                                                     ..... 209.207.177.100 (réseau) .....   ............ 209.207.177.100 .............
+ 209.207.177.100 /30  NON
+                                                     ............. 209.207.177.103 .............   ............ 255.255.255.252 .............
+                                                     .................. 192.0.35.0..................   ................ 192.0.35.12 .................
+    192.0.35.12 /26     OUI
+                                                     ................. 192.0.35.63.................   ............ 255.255.255.192 .............
+                                                     ................ 120.146.80.0................   ............... 120.146.80.1 ................
+   120.146.80.1 /20     OUI
+                                                     .............. 120.146.95.255 ..............   .............. 255.255.240.0 ...............
+                                                     .................. 120.64.0.0..................   ................. 120.80.1.0 ..................
+    120.80.1.0 /11      OUI
+                                                     .............. 120.95.255.255 ..............   ................ 255.224.0.0 .................
+                                                     ............... 211.104.16.16 ...............   .............. 211.104.16.17 ...............
+   211.104.16.17 /29    OUI
+                                                     ............... 211.104.16.23 ...............   ............ 255.255.255.248 .............
+                                                     ................. 172.168.0.0.................   ................ 172.168.0.1 .................
+    172.168.0.1 /24     OUI
+                                                     ............... 172.168.0.255 ...............   .............. 255.255.255.0 ...............
+                                                     ............... 109.168.248.0 ...............   ............. 109.168.248.32 ..............
+  109.168.248.32 /21    OUI
+                                                     ............. 109.168.255.255 .............   .............. 255.255.248.0 ...............
+
+
+
+
+
+ Page 1/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                   ................. 96.139.80.0.................   ............... 96.139.84.12 ................
+  96.139.84.12 /21     OUI
+                                                   ............... 96.139.87.255 ...............   .............. 255.255.248.0 ...............
+                                                   ......... 172.16.32.0 (Réseau) ........   ................ 172.16.32.0 .................
+   172.16.32.0 /25    NON
+                                                   ............... 172.16.32.127 ...............   ............ 255.255.255.128 .............
+                                                   .................. 172.16.0.0..................   ............... 172.16.0.127 ................
+  172.16.0.127 /25   NON
+                                                   ..... 172.16.0.127 ( broadcast) ....   ............ 255.255.255.128 .............
+
+                                                   ............... 192.168.19.80 ...............   .............. 192.168.19.87 ...............
+  192.168.19.87 /29   NON
+                                                   .... 192.168.19.87 (broadcast) ....   ............ 255.255.255.248 .............
+                                                   .................. 172.16.0.0..................   ................ 172.16.32.1 .................
+   172.16.32.1 /18     OUI
+                                                   ............... 172.16.63.255 ...............   .............. 255.255.192.0 ...............
+                                                   ....... 210.71.10.128 (Réseau) ......   .............. 210.71.10.128 ...............
+  210.71.10.128 /28   NON
+                                                   ............... 210.71.10.143 ...............   ............ 255.255.255.240 .............
+
+
+
+
+
+Page 2/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>B.  Calculs de masque
+Calculez le masque approprié et complétez l&#x27;adresse en notation CIDR afin d&#x27;obtenir la
+quantité d&#x27;hôtes ou de sous-réseaux requis.
+Le masque de sous-réseau de départ est le masque par défaut associé à la classe.
+
+                  PARAMETRES REQUIS                   Notation CIDR
+
+      Au moins 120 sous-réseaux :                           172.16.0.0/ ... 23 ...
+
+        2 adresses par sous-réseau (liaisons pt à pt)          192.168.1.0/ ... 30 ...
+
+      Au moins 31 sous-réseaux                            185.221.0.0/ ... 21 ...
+
+      Au moins 15 sous-réseaux                            131.107.0.0/ ... 20 ...
+
+      A peu près 500 sous-réseaux                          140.10.0.0/ ... 25 ...
+
+       Exactement 8 sous-réseaux                        192.168.10.0/ ... 27 ...
+
+        10 sous-réseaux d&#x27;au moins 17 hôtes                 214.12.33.0/ .... X ....
+
+         Environ 2020 sous-réseaux                                 10.0.0.0/ ... 19 ...
+
+        127 sous-réseaux                                      188.23.0.0/ ... 23 ...
+
+C.  Calculs de masques, nombre de réseaux et hôtes
+Calculez le masque adapté aux exigences du scénario.
+Indiquez le nombre de sous-réseaux créés.
+Indiquez le nombre d&#x27;hôtes par sous-réseau.
+LE RESEAU DE DEPART COMPORTE TOUJOURS UN MASQUE DE CLASSE A, B ou C standard
+
+ Scénario 1
+ Nombre de segments physiques requis :                5             3 bits + 1
+ Nombre maximum d&#x27;hôtes par segment :              25            5 bits - 1
+ Adresse de réseau :                                 192.177.4.0
+ Masque de sous-réseau proposé :                255.255.255.240
+ Nombre de sous-réseaux créés :                        24 = 16
+ Nombre maximum d&#x27;adresses par segment :          24-2 = 14
+
+ Scénario 2
+ Nombre de segments physiques requis :               100            7 bits + 1
+ Nombre maximum d&#x27;hôtes par segment :              88.000           17 bits - 1
+ Adresse de réseau :                                     39.0.0.0
+ Masque de sous-réseau proposé :                   255.255.0.0
+ Nombre de sous-réseaux créés :                       28 = 256
+ Nombre maximum d&#x27;adresses par segment :        216-2 = 65534
+
+
+
+
+ Page 3/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Scénario 3
+Nombre de segments physiques requis :               100           7 bits + 1
+Nombre maximum d&#x27;hôtes par segment :              350           9 bits - 1
+Adresse de réseau :                                 171.133.0.0
+Masque de sous-réseau proposé :                  255.255.255.0
+Nombre de sous-réseaux créés :                       28 = 256
+Nombre maximum d&#x27;adresses par segment :         28-2 = 254
+
+Scénario 4
+Nombre de segments physiques requis :               16            4 bits + 1 + 1
+Nombre maximum d&#x27;hôtes par segment :             1 500           11 bits - 1
+Adresse de réseau :                                 128.199.0.0
+Masque de sous-réseau proposé :                  255.255.252.0
+Nombre de sous-réseaux créés :                        26 = 64
+Nombre maximum d&#x27;adresses par segment :         210-2 = 1022
+
+Scénario 5
+Nombre de segments physiques requis :               250            8 bits + 1 + 1
+Nombre maximum d&#x27;hôtes par segment :              100            7 bits - 1
+Adresse de réseau :                                 191.254.0.0
+Masque de sous-réseau proposé :                255.255.255.192
+Nombre de sous-réseaux créés :                        210 = 1024
+Nombre maximum d&#x27;adresses par segment :          26-2 = 62
+
+Scénario 6
+Nombre de segments physiques requis :               12             4 bits + 1
+Nombre maximum d&#x27;hôtes par segment :              12             4 bits - 1
+Adresse de réseau :                                216.121.44.0
+Masque de sous-réseau proposé :                255.255.255.248
+Nombre de sous-réseaux créés :                        25 = 32
+Nombre maximum d&#x27;adresses par segment :          23-2= 6
+
+Scénario 7
+Nombre de segments physiques requis :               50            6 bits + 1
+Nombre maximum d&#x27;hôtes par segment :              600            10 bits - 1
+Adresse de réseau :                                 134.119.0.0
+Masque de sous-réseau proposé :                  255.255.254.0
+Nombre de sous-réseaux créés :                       27 = 128
+Nombre maximum d&#x27;adresses par segment :         29-2= 510
+
+
+
+
+Page 4/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>D. Découpage en sous-réseau
+On découpe le bloc 199.210.15.0 /24 selon le schéma suivant :
+
+
+
+
+
+Donnez les adresses des 7 segments définis (par ordre croissant) :
+
+Segment 1 ............ 199.210.15.0 /25 ............................................................................................
+
+Segment 2 .......... 199.210.15.128 /26 ..........................................................................................
+
+Segment 3 .......... 199.210.15.192 /27 ..........................................................................................
+
+Segment 4 .......... 199.210.15.224 /29 ..........................................................................................
+
+Segment 5 .......... 199.210.15.232 /29 ..........................................................................................
+
+Segment 6 .......... 199.210.15.240 /29 ..........................................................................................
+
+Segment 7 .......... 199.210.15.248 /29 ..........................................................................................
+
+
+
+
+
+ Page 5/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>E.  Découpage en sous-réseau
+    •  Vous êtes chargé planifier l&#x27;adressage de plusieurs réseaux.
+    •  Vous subdivisez successivement les blocs d&#x27;adresses et vous conservez toujours les
+      blocs supérieurs et divisez le dernier bloc.
+    •  Indiquez les numéros de réseau en notation CIDR
+    •  Schématisez les divisions des blocs.
+    •  Indiquez le nombre d&#x27;adresses valides par segment et le nombre d&#x27;adresses global.
+
+    1.  Premier réseau à découper : 195.220.12.0 /24
+    •  Segments à définir
+        o  1 segment contenant 115 postes
+        o  1 segment contenant 58 postes
+        o  1 segment contenant 25 machines
+        o  1 segment contenant d&#x27;une douzaine d&#x27;hôtes
+        o  2 segments contenant 5 machines
+    •   Listez les segments dans le tableau :
+
+            / 24                / 25                / 26                / 27                / 28                / 29
+                                                                                                       195.220.12.0
+                                                                                    195.220.12.0
+                                                                                                       195.220.12.8
+                                                                 195.220.12.0
+                                                                                                      195.220.12.16
+                                                                                   195.220.12.16
+                                                                                                      195.220.12.24
+                                              195.220.12.0
+                                                                                                      195.220.12.32
+                                                                                   195.220.12.32
+                                                                                                      195.220.12.40
+                                                                195.220.12.32
+                                                                                                      195.220.12.48
+                                                                                   195.220.12.48
+                                                                                                      195.220.12.56
+                           195.220.12.0
+                                                                                                      195.220.12.64
+                                                                                   195.220.12.64
+                                                                                                      195.220.12.72
+                                                                195.220.12.64
+                                                                                                      195.220.12.80
+                                                                                   195.220.12.80
+                                                                                                      195.220.12.88
+                                             195.220.12.64
+                                                                                                      195.220.12.96
+                                                                                   195.220.12.96
+                                                                                                    195.220.12.104
+                                                                195.220.12.96
+                                                                                                    195.220.12.112
+                                                                                 195.220.12.112
+                                                                                                    195.220.12.120
+       195.220.12.0
+                                                                                                    195.220.12.128
+                                                                                 195.220.12.128
+                                                                                                    195.220.12.136
+                                                               195.220.12.128
+                                                                                                      195.22.12.144
+                                                                                   195.22.12.144
+                                                                                                      195.22.12.152
+                                            195.220.12.128
+                                                                                                    195.220.12.160
+                                                                                 195.220.12.160
+                                                                                                    195.220.12.168
+                                                               195.220.12.160
+                                                                                                    195.220.12.176
+                                                                                 195.220.12.176
+                                                                                                    195.220.12.184
+                         195.220.12.128
+                                                                                                    195.220.12.192
+                                                                                 195.220.12.192
+                                                                                                    195.220.12.200
+                                                               195.220.12.192
+                                                                                                    195.220.12.208
+                                                                                 195.220.12.208
+                                                                                                    195.220.12.216
+                                            195.220.12.192
+                                                                                                    195.220.12.224
+                                                                                 195.220.12.224
+                                                                                                    195.220.12.232
+                                                               195.220.12.224
+                                                                                                    195.220.12.240
+                                                                                 195.220.12.240
+                                                                                                    195.220.12.248
+       # adresses           126              62               30               14               6
+
+
+
+
+
+ Page 6/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>   2. Deuxième réseau à découper : 192.168.10.0 /24
+  •  Segments à définir
+       o  3 segments contenant d&#x27;une soixantaine d&#x27;hôtes
+       o  1 segment contenant d&#x27;une trentaine de postes
+       o  2 segments contenant d&#x27;au moins 11 machines
+  •   Listez les segments dans le tableau :
+                               / 24                / 26                / 27                / 28
+                                                                                   192.168.10.0
+                                                                192.168.10.0
+                                                                                  192.168.10.16
+                                            192.168.10.0
+                                                                                  192.168.10.32
+                                                               192.168.10.32
+                                                                                  192.168.10.48
+                                                                                  192.168.10.64
+                                                               192.168.10.64
+                                                                                  192.168.10.80
+                                           192.168.10.64
+                                                                                  192.168.10.96
+                                                               192.168.10.96
+                                                                                192.168.10.112
+                         192.168.10.0
+                                                                                192.168.10.128
+                                                             192.168.10.128
+                                                                                192.168.10.144
+                                          192.168.10.128
+                                                                                192.168.10.160
+                                                             192.168.10.160
+                                                                                192.168.10.176
+                                                                                192.168.10.192
+                                                             192.168.10.192
+                                                                                192.168.10.208
+                                          192.168.10.192
+                                                                                192.168.10.224
+                                                             192.168.10.224
+                                                                                192.168.10.240
+                     # adresses           62               30               14
+
+
+   3.  Troisième réseau à découper : 222.8.15.0 /24
+  •  Segments à définir
+       o  1 segments contenant d&#x27;une centaine d&#x27;hôtes
+       o  4 segments contenant 28 hôtes environ
+  •   Listez les segments dans le tableau :
+                                         / 24                / 25                / 27
+                                                                             222.8.15.0
+                                                                           222.8.15.32
+                                                         222.8.15.0
+                                                                           222.8.15.64
+                                                                           222.8.15.96
+                                     222.8.15.0
+                                                                         222.8.15.128
+                                                                         222.8.15.160
+                                                      222.8.15.128
+                                                                         222.8.15.192
+                                                                         222.8.15.224
+                             # adresses           126              30
+
+
+
+
+
+Page 7/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>F.  Recherche de sous-réseaux inutilisés
+    •  Vous auditez plusieurs réseaux.
+    •  On vous demande de rechercher les segments inutilisés.
+
+
+    1.  Premier réseau à étudier :
+        o  112.19.0.0 /16
+    •   Liste de réseaux actuellement utilisés :
+        o  112.19.0.0 /18
+        o  112.19.64.0 /18
+        o  112.19.128.0 /19
+        o  112.19.160.0 /20
+        o  112.19.176.0 /20
+        o  112.19.224.0 /20
+        o  112.19.240.0 /20
+Existe-t-il une ou plusieurs plages d&#x27;adresses inutilisées ?
+Détaillez votre calcul :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+           /16                 /17                 /18                 /19                 /20
+                                                                                                    112.19.0.0                                                                             112.19.0.0                                                                                                  112.19.16.0
+                                                       112.19.0.0                                                                                                  112.19.32.0
+                                                                           112.19.32.0
+                                                                                                  112.19.48.0
+                                112.19.0.0                                                                                                  112.19.64.0
+                                                                           112.19.64.0
+                                                                                                  112.19.80.0
+                                                     112.19.64.0
+                                                                                                  112.19.96.0
+                                                                           112.19.96.0
+                                                                                                112.19.112.0
+         112.19.0.0                                                                                                112.19.128.0
+                                                                          112.19.128.0
+                                                                                                112.19.144.0
+                                                    112.19.128.0
+                                                                                                112.19.160.0
+                                                                          112.19.160.0
+                                                                                                112.19.176.0
+                              112.19.128.0
+                                                                                                112.19.192.0
+                                                                          112.19.192.0
+                                                                                                112.19.208.0
+                                                    112.19.192.0
+                                                                                                112.19.224.0
+                                                                          112.19.224.0
+                                                                                                112.19.240.0
+
+
+
+
+
+ Page 8/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>    2. Deuxième réseau à étudier :
+        o  192.168.10.0 /24
+    •   Liste de réseaux actuellement utilisés :
+        o  192.168.10.0 /25
+        o  192.168.10.128 /27
+        o  192.168.10.160 /27
+        o  192.168.10.224 /28
+
+Indiquer les segments inutilisés :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+                    / 24               / 25               / 26               / 27               / 28
+                                                                                           192.168.10.0
+                                                                         192.168.10.0
+                                                                                          192.168.10.16
+                                                      192.168.10.0
+                                                                                          192.168.10.32
+                                                                       192.168.10.32
+                                                                                          192.168.10.48
+                                   192.168.10.0
+                                                                                          192.168.10.64
+                                                                       192.168.10.64
+                                                                                          192.168.10.80
+                                                     192.168.10.64
+                                                                                          192.168.10.96
+                                                                       192.168.10.96
+                                                                                        192.168.10.112
+                 192.168.10.0
+                                                                                        192.168.10.128
+                                                                      192.168.10.128
+                                                                                        192.168.10.144
+                                                   192.168.10.128
+                                                                                        192.168.10.160
+                                                                      192.168.10.160
+                                                                                        192.168.10.176
+                                 192.168.10.128
+                                                                                        192.168.10.192
+                                                                      192.168.10.192
+                                                                                        192.168.10.208
+                                                   192.168.10.192
+                                                                                        192.168.10.224
+                                                                      192.168.10.224
+                                                                                        192.168.10.240
+              # adresses          126             62              30              14
+
+
+
+
+
+ Page 9/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>    3.  Troisième réseau à étudier :
+        o  199.1.1.0 /24
+    •   Liste de réseaux actuellement utilisés :
+        o  199.1.1.0 /26
+        o  199.1.1.128 /27
+        o  199.1.1.160 /27
+        o  199.1.1.192 /28
+        o  199.1.1.224 /28
+        o  199.1.1.240 /28
+
+Indiquer les segments inutilisés :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+                                 / 24                / 26                / 27                / 28
+                                                                                          199.1.1.0
+                                                                      199.1.1.0
+                                                                                        199.1.1.16
+                                                  199.1.1.0
+                                                                                        199.1.1.32
+                                                                    199.1.1.32
+                                                                                        199.1.1.48
+                                                                                        199.1.1.64
+                                                                    199.1.1.64
+                                                                                        199.1.1.80
+                                                199.1.1.64
+                                                                                        199.1.1.96
+                                                                    199.1.1.96
+                                                                                      199.1.1.112
+                              199.1.1.0
+                                                                                      199.1.1.128
+                                                                  199.1.1.128
+                                                                                      199.1.1.144
+                                               199.1.1.128
+                                                                                      199.1.1.160
+                                                                  199.1.1.160
+                                                                                      199.1.1.176
+                                                                                      199.1.1.192
+                                                                  199.1.1.192
+                                                                                      199.1.1.208
+                                               199.1.1.192
+                                                                                      199.1.1.224
+                                                                  199.1.1.224
+                                                                                      199.1.1.240
+                      # adresses           62               30               14
+
+
+
+
+
+ Page 10/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 11</h2><pre>    4. Quatrième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  1 segment de 62 postes
+        o  3 segments de 30 postes
+        o  4 segments de 14 postes
+
+Indiquer les segments inutilisés :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+
+
+                              / 24               / 26               / 27               / 28
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                          Réseau                                            SR
+                             Global                                             SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                      # adresses           62              30              14
+
+
+
+
+
+ Page 11/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 12</h2><pre>    5. Cinquième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  3 segments de 30 postes
+        o  3 segments de 14 postes
+
+Indiquer les segments inutilisés :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+                              / 24               / 26               / 27               / 28
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                          Réseau                                            SR
+                             Global                                             SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                      # adresses           62              30              14
+
+
+
+
+
+ Page 12/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 13</h2><pre>    6.  Sixième réseau à étudier :
+        o  Réseau de classe C
+    •   Liste de réseaux actuellement utilisés :
+        o  1 segment de 62 postes
+        o  1 segment de 14 postes
+
+Indiquer les segments inutilisés :
+En rouge les réseaux utilisés
+En vert les réseaux disponibles
+
+                              / 24               / 26               / 27               / 28
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                          Réseau                                            SR
+                             Global                                             SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                                          SR
+                                                                          SR
+                                                          SR
+                                                                          SR
+                      # adresses           62              30              14
+
+
+
+
+
+ Page 13/13
+                                      © ENI – Tous droits réservés</pre></section></html>

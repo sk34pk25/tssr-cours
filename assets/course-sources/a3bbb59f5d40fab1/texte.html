@@ -1,0 +1,260 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M06TP01 - Solution - Gestion des paquets logiciels.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M06TP01 - Solution - Gestion des paquets logiciels.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                              Titre exact du cours complet
+Gestion des paquets
+TP du Module 06 – Gestion des paquets logiciels
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+             30 à 45 mn
+
+Énoncé :
+
+  I.  Gérer les installations logicielles avec interface graphique
+
+Afficher le composant les &quot;Software &amp; Updates&quot;
+
+
+
+
+
+                          Rechercher le composant dans le menu Gnome
+
+    •   Vérifier les paramétrages dans les différents onglets
+
+        o  Rechercher les informations relatives aux dépôts configurés
+
+
+
+
+
+  Onglet Debian Software, configuration du dépot principal Main. Possibilité de cocher contrib et non-free
+                   Onglet Updates, presence de bullseye-security et bullseye-updates
+
+        o  Désactiver le dépôt CDROM si nécessaire
+
+
+
+
+
+                  Décocher les cases au besoin pour désactiver les dépots cdrom.
+Page 1/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                              Titre exact du cours complet
+
+Vérifier la configuration du fichier sources.list dans /etc/apt :
+
+    •  Quelles lignes définissent l&#x27;emplacement des sources d&#x27;installation des paquets
+       binaires ?
+
+    •  Quelles lignes définissent l&#x27;emplacement des mises à jour ?
+
+    •  Pouvez-vous récupérer les paquets sous la forme du code source ?
+
+
+
+
+
+                     Les lignes commençant par &quot;deb &quot; indiquent les dépôts de binaires
+               Les lignes contenant “bookworm-updates” indiquent les dépôts de mises à jour
+            Les lignes commençant par “deb-src ” indiquent la disponibilité des paquets sources
+
+    •  Désactiver l&#x27;accès aux dépôts concernant le code source.
+
+
+
+
+                   Faire une élévation de droit en tant que root et lancer l&#x27;édition du fichier
+
+
+
+
+
+                                  →
+      Pour modifier toutes les lignes visées en une fois, les options de substitution de VI sont à privilégier
+                                        :g/^deb-src/s/^/#
+   Recherche des lignes commençant par deb-src, puis substitution du caractère début de ligne ^ par #
+
+
+Effectuer une mise à jour des paquets installés avec apt :
+       Lancer la mise à jour de la base données locales des paquets avec
+
+    •  Combien de paquets seront mis à jour ? ( pourquoi ? )
+
+
+
+
+
+                                          Très peu de paquets, voire aucun.
+       Cela est du au mode d’installation net install qui a directement récupéré des paquets à jours
+
+
+
+
+Page 2/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                              Titre exact du cours complet
+
+Installer le logiciel suivant avec l&#x27;outil &quot;Logiciels&quot;
+
+    •  Gparted      (outil de partitionnement)
+
+
+
+
+
+                       →                    →
+                           Rechercher Gparted et lancer son installation.
+                  Le mot de passe root est demandé pour valider l’élévation de droits
+
+        o  Lancer cette application depuis les menus Gnome
+
+
+
+
+
+                         →
+                         Gparted est bien présent dans les applications.
+               Le logiciels se lance après demande d’une nouvelle élévation de privilèges.
+                           Ne rien modifier et quitter le logiciel.
+
+Installer les paquets suivants avec la commande apt :
+
+    •  vim           (Editeur VI amélioré)
+
+
+
+
+
+                           Valider l&#x27;installation du paquet et de ses dépendances.
+
+    •  Serveur SSH   (rechercher d’abord le nom du paquet adapté)
+
+
+
+
+
+                    La recherche apt search ssh renvoie de très nombreux résultats.
+                    On peut limiter les résultats en cherchant ssh-server
+              A noter que le paquet nommé simplement ssh est un “métapaquet”
+                      qui installe openssh-server + openssh-client (si pas déjà present).
+
+
+Page 3/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                              Titre exact du cours complet
+
+    •  Terminator
+
+
+
+
+
+           Terminator est un logiciel terminal pour client graphique Linux hautement configurable.
+
+Afficher les informations sur ces 3 paquets avec les commandes :
+
+    •  $ apt show &lt;paquet&gt;
+
+    •  $ dpkg -L &lt;paquet&gt;
+
+
+
+
+
+                                    →
+             apt show récupère de nombreuses informations : version, taille, dépendances…
+                 dpkg -L va lister les fichiers liés à ce paquet présents sur le système.
+
+Connectez-vous via Putty sur votre VM Debian graphique.
+Récupérer un client Putty sur Distrib ou bien à l’adresse
+https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
+
+
+
+
+
+                              →
+                  Lancer le logiciel, saisir l&#x27;adresse IP de la VM, et saisir login/password.
+
+
+
+
+
+Page 4/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                                              Titre exact du cours complet
+
+  II.  Gérer les installations logicielles sans interface graphique
+Configurer manuellement les dépôts Internet dans le fichier /etc/apt/sources.list
+
+
+    •  Ajouter les directives :
+        o  deb http://ftp.fr.debian.org/debian/ bookworm main
+        o  deb http://ftp.fr.debian.org/debian/ bookworm-updates main
+    •  Garder la directive :
+        o  deb http://security.debian.org/debian-security bookworm-security main
+
+
+
+
+                            Les dépots Debian nécessaires Bulseye → Bookworm
+
+Vérifier les mises à jour disponibles
+    •  Combien de paquets seront mis à jour ?
+    •  Effectuer les mises à jour et redémarrer si nécessaire
+
+
+
+
+
+Le nombre de mises à jour dépend de l&#x27;écart entre la date de génération du DVD utilisé pour l&#x27;installation du
+                    système et la date de lancement de la demande de mise à jour
+Installer les paquets suivants avec la commande apt :
+    •  vim          (éditeur VIM)
+    •   cifs-utils       (outils pour la connexion aux partages SMB)
+
+
+
+
+
+                                Il est possible de lancer l&#x27;installation des deux paquets en même temps avec apt
+
+
+
+
+
+Page 5/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                                              Titre exact du cours complet
+
+Configurer le fonctionnement de VIM pour les deux Postes:
+    •  Lancer l&#x27;édition : # vi /etc/vim/vimrc
+    •  Décommenter la ligne contenant la mention  : syntax on (active la coloration
+      syntaxique)
+    •  Ajouter les modifications suivantes pour retrouver un comportement normal de vim
+     en créant le fichier : /etc/vim/vimrc.local
+               source /usr/share/vim/vim90/defaults.vim
+               let skip_defaults_vim = 1
+               if has(&#x27;mouse&#x27;)
+                  set mouse=r
+               endif
+               set paste
+                                                                                                      .
+
+
+
+
+
+          Vérifier dans /usr/share/vim le nom du dossier suivant,  il change selon les versions de Debian
+
+
+
+
+
+Page 6/6
+
+                             © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,94 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M4 - Enoncé du TP1 - Les variables denvironnement.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M4 - Enoncé du TP1 - Les variables denvironnement.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                           Initiation au scripting Bash
+
+Variables d’environnement
+TP1 du Module 04 - Les variables dans les scripts
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 4.
+
+
+Objectifs
+
+Identifier et utiliser les variables d’environnement du système afin de répondre à un besoin donné.
+
+Créer un script utilisant des variables à partir d’un algorithme.
+
+
+Énoncé
+
+
+
+    1.  Utiliser les commandes appropriées afin d’afficher des variables
+
+De nombreuses variables sont paramétrées et manipulées par le système afin de faciliter l’accès à certaines
+données ou informations.
+
+    •   L’une d’entre-elles précise le nom du fichier qui enregistre chacune de vos saisies de commande. On
+        parle de fichier d’historique des commandes. Mais quel est le nom de cette variable ? (indice :
+        traduire ‘historique’ en anglais)
+    •  Une autre indique à quels emplacements le système Linux peut trouver les fichiers
+        exécutables/binaires installés sur le système, comme ls par exemple. Comment se nomme-t ’elle ?
+        (indice : a été abordée dans un module précédent l’arborescence des systèmes Linux et notamment
+         les dossiers de binaires, servez-vous en !)
+
+
+    2.  Réaliser un script
+
+Créer un fichier de script ‘script_M4TP1.sh’ à partir du pseudo-code ci-dessous.
+
+L’objectif est d’afficher les fichiers dans votre dossier courant comportant une certaine extension (.txt, .sh,
+.odt ou .docx par ex.). Puis, pour l’un d’entre eux, de visualiser une partie du contenu.
+
+
+
+       Début du script
+
+
+       rep  chemin du répertoire courant
+       extension  txt
+
+
+
+
+
+                                                                     ENI Ecole Informatique</pre></section><section><h2>Page 2</h2><pre>                                                                                           Initiation au scripting Bash
+
+
+         Afficher &quot;Répertoire de travail : rep&quot;
+         Afficher &quot;Fichiers pouvant être traités :&quot;
+         Afficher la liste des fichiers de rep ayant pour extension
+       extension
+
+
+         Afficher : Quel fichier voulez-vous traiter ?
+          fic  réponse à la question posée précédemment
+       nblign  nombre de lignes que contient fic
+       debut  2 premières lignes de fic
+         fin  2 dernières lignes de fic
+
+
+         Afficher &quot;CARACTERISTIQUES de fic :&quot;
+         Afficher &quot;Nombre de lignes du fichier : nblign&quot;
+         Afficher &quot;Début du fichier :&quot;
+         Afficher debut
+         Afficher &quot;Fin du fichier :&quot;
+         Afficher fin
+
+
+         Fin d’exécution du script
+
+
+
+Sachant que :
+
+    •   La variable extension porte le nom de l’extension de fichiers souhaitée
+    •   La variable rep récupère la valeur de votre position actuelle dans l’arborescence, donc le résultat
+       d’une commande
+    •   La variable fic contient le nom du fichier saisi par l’utilisateur qui exécute le script (il doit donc être
+         invité à saisir un nom de fichier existant)
+
+
+
+
+
+                                                                     ENI Ecole Informatique</pre></section></html>

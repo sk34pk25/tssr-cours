@@ -1,0 +1,161 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Redirection, pipeline,
+filtrage, formatage
+TP du Module 11 – Plus loin avec PowerShell
+
+ Concernant ce TP, l&#x27;objectif sera de répondre aux consignes, notamment en traduisant
+ les consignes du français en langage PowerShell.
+
+ Pour arriver à vos fins, n&#x27;oubliez pas les bonnes pratiques.
+ Utilisez get-command pour rechercher la bonne cmdlet.
+ Utilisez get-help, pour savoir comment elle fonctionne.
+ Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le
+ pipeline.
+ Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et
+ éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs
+ ou plus.
+ Utiliser les commandes de formatage si la consigne le précise.
+ Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell,
+ investissez du temps de lecture du get-help.
+
+
+       Durée estimée
+
+          2 heures
+
+Énoncé
+
+Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique
+
+Sur Win10-XX, recherchez les commandes adaptées pour les besoins
+suivants
+  Affichez la date du jour, puis, à l&#x27;aide de la même commande, affichez le quantième
+  de l&#x27;année (le numéro du jour de l’année)
+
+
+
+
+
+ Page 1/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+  Affichez la liste des évènements ayant été enregistrés dans le journal security
+
+
+
+
+
+  À l&#x27;aide de la commande précédente, affichez les évènements dont l&#x27;EventID est 4624
+
+
+
+
+
+  Affichez la  liste précédente en ne montrant que l’EventID, la date d’écriture de
+   l’évènement et le message
+
+
+
+
+
+  Affichez la liste des règles de pare-feu activées
+
+
+
+
+
+ Page 2/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+  Parmi ces règles de pare-feu activées, n&#x27;affichez que leurs noms, le profil réseau à
+   laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l&#x27;accès
+
+
+
+
+
+Afficher des propriétés selon plusieurs critères
+   Sur Discovery, affichez la liste des volumes disques :
+
+
+
+
+
+  Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre :
+
+
+
+
+
+  Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :
+
+
+
+
+
+ Page 3/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Affichez la liste des volumes qui possèdent plus de 8Go d&#x27;espace libre et dont la taille
+   maximale ne dépasse pas 25Go
+
+
+
+
+
+  Le résultat de la commande précédente ne devra afficher que le nom, la lettre de
+   lecteur et le type de système de fichier… le tout sous forme de liste
+
+
+
+
+
+  Affichez  les noms et  statuts des services qui sont actuellement démarrés et qui
+   démarrent automatiquement au lancement du système d’exploitation.
+
+
+
+
+
+  Affichez les membres (et leur SID) du groupe L_HA_Ventes.
+
+
+
+
+
+ Page 4/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Affichez le nom et le chemin des partages administratifs sous forme de liste
+
+
+
+
+
+  Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont
+    l’état est sain et de type CD-ROM :
+
+
+
+
+
+  Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP
+   LaserJet. Le résultat sera affiché sous la forme d&#x27;une liste.
+
+
+
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 5/5
+                                      © ENI – Tous droits réservés</pre></section></html>

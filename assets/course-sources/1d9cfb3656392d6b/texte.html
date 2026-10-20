@@ -1,0 +1,481 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 07 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>             Scripting Shell
+                   Module 07 – Les structures de boucle
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+             Objectifs
+
+                    • Appréhender les boucles en algorithmique
+                    • Utiliser des fonctions arithmétiques
+                    • Maîtriser les boucles while, until, for
+                    • Coupler read avec while pour lire des fichiers
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                                                                   Scripting Shell
+                                                                     Les structures de boucle
+
+
+                           • Une boucle est une structure permettant de répéter plusieurs fois un même
+                      bloc d’actions.
+                           • Le nombre de fois à exécuter le bloc d’actions peut être déterminé par une
+                      condition ou une liste d’objets à traiter.
+                           • Quand il s’agit d’une condition, penser à faire évoluer la valeur des variables utilisées
+                    dans celle-ci (notamment au moyen de calcul).
+
+                                                                                    Trois mécanismes de boucles sont
+                                               choix &lt;= saisie utilisateur                                                                                      utilisables en Shell :
+                         Choix =       NON     Afficher : les choix possibles     •  while
+               O ou N ou Q             sont O(ui), N(on) ou Q(uitter)     •  until
+                                                                                                •  for
+                            OUI
+
+
+
+
+
+3
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+  expr : calcul arithmétique
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                                                                   Scripting Shell
+                                                       expr : calcul arithmétique
+
+
+                                  Syntaxe       expr calcul
+
+                           • Les arguments passés à la commande peuvent être des entiers ou des
+                        variables (contenant des entiers). Chaque opérateur doit être précédé et suivi
+                     d’un espace.
+
+                         expr 2 + 7                     Les commandes let et ((…)) peuvent être utilisées
+                       9                          en remplacement de la commande expr.
+                         expr 2 \* 7                Nous les étudions au module « L’arithmétique entière »
+                        14
+
+
+
+
+
+5
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+  La boucle while (tant que)
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                                                                   Scripting Shell
+                                                              La boucle while (tant que)
+
+
+                           • Structure de bouclage basée sur une condition atteinte : tant que la condition
+                        est atteinte, on effectue le bloc d’actions.
+                             Moderne                                         Classique
+                                                                     while CONDITION
+                           while CONDITION ; do
+                                                                   do
+                                    ACTIONS
+                                                                              ACTIONS
+                           done
+                                                                     done
+                           • Dans ce support, la forme moderne de la structure sera prise pour les exemples.
+                    Mais vous pouvez choisir la méthode de votre choix.
+                           • La boucle until vue plus loin aura les mêmes méthodes d’écriture moderne
+                  ou classique.
+
+
+
+
+
+7
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                              La boucle while (tant que)
+
+ Exemple
+                           • Imposer la saisie du nom à l’utilisateur
+                                     while [[ -z &quot;$nom&quot; ]] ; do
+                                              echo -e &quot;Veuillez entrer votre nom : \c&quot;
+                                              read nom
+                                     done
+                                     echo &quot;Bonjour $nom&quot;
+                           • La structure while analyse le code retour de la condition pour déterminer
+                               si le bloc d’actions est à exécuter ou s’il doit sortir de la boucle.
+                           • Généralement, la condition se matérialise par une commande de test.
+                           • On agit alors dans le bloc d’actions afin de faire évoluer le résultat du test.
+                           • Cependant, toute commande peut être utilisée en condition (tant que son code
+                       retour est « 0 », on reste dans la boucle).
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                                                                   Scripting Shell
+                                                              La boucle while (tant que)
+
+ Cas particulier des boucles infinies
+                           • Pour générer une boucle infinie, on utilise la commande true ou &quot;:&quot;.
+                           • Les boucles infinies sont notamment utilisées pour la création de menus.
+
+
+                                           while true ;          do
+                                                      echo menu  # Affichage du menu
+                                                      echo &quot;1) copie des fichiers&quot;
+                                                      echo &quot;2) restauration des fichiers&quot;
+                                                      echo &quot;q) Quitter&quot;
+                                                 # Récupérer la saisie de l&#x27;utilisateur dans $choix
+                                                      read -p &quot;Taper 1, 2 ou q pour continuer : &quot; choix
+                                                 # Tester la valeur de $choix
+                                                      case $choix in
+                                                               1) echo copie des fichiers; […] ;;
+                                                               2) echo restauration des fichiers; […] ;;
+                                                               q) clear ; exit 0 ;;
+                                                               *) echo -e &quot;\e[41msaisie incorrecte \e[0m&quot; ;;
+                                                      esac
+                                           done
+
+
+
+
+
+9
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+  La boucle until (jusqu’à)
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                                                                   Scripting Shell
+                                                                        La boucle until
+
+
+                    • Structure basée sur une condition à atteindre :
+                  tant que la condition n’est pas atteinte, on effectue un bloc d’actions.
+                    • La vérification de la condition mène à la sortie de la boucle.
+                    • La structure until et son mode de fonctionnement sont identiques à la boucle
+               while. Seule la condition de bouclage les différencie.
+                    • Pour faire une boucle infinie avec until, il est possible d’utiliser la commande false.
+
+                                   Structure                      until [[ -n &quot;$age&quot; ]] ; do
+                               until CONDITION ; do                   echo -e &quot;Saisissez votre age : \c&quot;
+                                       ACTIONS                        read age
+                              Done                           done
+
+
+
+
+
+11
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                                              la boucle until
+
+
+
+
+
+      Démo
+                                     La boucle until
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                                                                   Scripting Shell
+
+
+        La boucle for
+
+
+
+
+
+13
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                           La boucle for
+
+
+                      • La boucle for peut boucler :
+
+                                • Pour un ensemble de valeurs à traiter
+
+                                • Un nombre de fois prédéterminé
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                                                                   Scripting Shell
+                                                                           La boucle for
+
+ Boucler pour un ensemble de valeurs
+                      • La syntaxe d’utilisation suivante permet de boucler pour un ensemble
+               de valeurs à traiter.
+
+                                    for element in LISTE DE VALEURS ; do
+                                              ACTIONS
+                                    done
+
+                      • Lors du premier passage dans la boucle, la valeur affectée à la variable
+                    définie $element sera la première valeur de la liste : « LISTE ».
+                      • Lors du second passage, $variable contiendra « DE » et ainsi
+               de suite jusqu’à ce que les valeurs aient été traitées.
+
+
+
+
+
+15
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                           La boucle for
+
+ Boucler pour un ensemble de valeurs
+                            • La liste de valeurs est           $ for valeurs in &quot;petit exemple&quot; de &quot;boucle for&quot; ; do Exemple
+                        interprétée par le Shell.          &gt;echo&gt;echo &quot;Entrée&quot;contenudansde lalevariablebloc d’actionsvaleursde: la$valeurs&quot;boucle&quot;
+                            • La liste des caractères de         &gt;done
+                       séparation de champs entre      Entrée dans le bloc d’actions de la boucle
+                           les différentes valeurs est        contenuEntrée dansde lalevariablebloc d’actionsvaleursde: lapetitboucleexemple
+                      récupérée depuis la variable     contenu de la variable valeurs : de
+                      d’environnement IFS            Entrée dans le bloc d’actions de la boucle
+                          (Internal Field Separator).        contenu de la variable valeurs : boucle for
+                            •   Il est parfois utile de modifier   # set | grep ^IFS
+                         cette valeur.                      IFS=$&#x27; \t\n&#x27;
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                                                                   Scripting Shell
+                                                                     Les structures de boucle
+
+
+                           Mise en situation                 Les boucles for
+
+
+                                   Réaliser l’atelier numéro 7 mis à disposition
+                               par le formateur
+         TP
+
+
+
+
+
+17
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+       Utilisation cumulée
+    de while  et read
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                                                                   Scripting Shell
+                                                              Utilisation cumulée de while et read
+
+
+                      • La boucle for récupère les séparateurs de champs définis pour
+                      le contexte d’exécution en cours (via la variable IFS).
+                      • Les caractères espace, tabulation (\t) ou retour à la ligne (\n)
+               ne sont pas interprétés comme caractères quelconques,
+                 mais comme des séparateurs.
+                      • L’utilisation combinée de while et de read permet :
+                                • De traiter ligne par ligne un fichier (ou résultat de commande)
+                                • De traiter distinctement les champs de chaque ligne
+
+
+
+
+
+19
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                              Utilisation cumulée de while et read
+
+                      thouin Frèdèric linux                                              Exemple d’utilisation
+                      brossier Gilles windows
+                     […]
+
+                               Traitement avec une boucle for               Traitement avec while read
+                               for var in $(cat fichier.txt) ; do               while read nom prenom suite  ; do
+                                        echo &quot;$var&quot;                                     echo &quot;$prenom $nom&quot;
+                               done                                            done &lt; fichier.txt
+
+                               thouin                                           Frédéric thouin
+                                Frédéric                                         Gilles brossier
+                               linux
+                                brossier
+                               Gilles
+                               windows
+                            …
+
+
+
+
+
+20</pre></section><section><h2>Page 11</h2><pre>                                                                                                   Scripting Shell
+                                                              Utilisation cumulée de while et read
+
+
+                      • La structure combinée while read nous permet d’utiliser distinctement les
+                      trois champs de chaque ligne du fichier, à la différence de for qui ne le permet
+                 pas directement.
+                      • L’argument suite passé à la commande read n’est pas utilisé dans le bloc d’actions.
+                      •  Il est cependant nécessaire afin que toutes les informations de fin de ligne ne soient
+                 pas stockées dans la variable prenom.
+                      • La syntaxe présentée ci-dessous est utilisée quand les informations à traiter se
+                  trouvent dans un fichier.
+                                                              while read nom prenom suite  ; do
+                                                                       echo &quot;$prenom $nom&quot;
+                                                              done &lt; fichier.txt
+
+
+
+
+
+21
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+   while  / read avec
+       redirection d’entrée
+
+
+
+
+
+22</pre></section><section><h2>Page 12</h2><pre>                                                                                                   Scripting Shell
+                                            while / read avec redirection d’entrée
+
+
+                           • Pour utiliser le résultat de commandes comme flux d’entrée ou pour effectuer un
+                      traitement au fichier avant la boucle while read, on utilise la syntaxe suivante :
+
+                    while read nom prenom reste ; do
+                        echo &quot;$prenom $nom&quot;                                    Bien respecter les espaces
+                    done &lt; &lt;(cat Edition)                            comme dans cet exemple.
+                           • Alternativement, cette syntaxe peut être utilisée :
+                    cat Edition | while read nom prenom num
+                    do
+                                                         Le pipe suppose la création d’un sous Shell. Les variables                    echo &quot;$prenom $nom&quot;
+                                                            créées dans le script ne sont pas utilisables dans la boucle.
+                    done                              Cette méthode a l’avantage d’une meilleure lisibilité.
+
+
+
+
+
+23
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+     - Pour aller plus loin -
+   Utilisation read dans une
+     boucle while read
+
+
+
+
+
+24</pre></section><section><h2>Page 13</h2><pre>                                                                                                   Scripting Shell
+                     Pour aller plus loin – Utilisation de read dans une boucle while read
+
+                            • La commande read utilisée avec while a pour flux d’entrée le flux stdin
+                      (généré par la commande avant le pipe).
+                            • Ce flux n’est pas exploitable par un second read.
+                            • Pour utiliser un second read, il faut rediriger son flux d’entrée standard depuis
+                  /dev/tty (périphérique correspondant aux saisies clavier).
+
+                               cat fic | while read nom ; do
+                                   if [[ &quot;$nom&quot; = toto ]] ; then
+                                         echo &quot;$nom&quot;
+                                                  read -p &quot;message : &quot; choix &lt;/dev/tty
+                                                  echo &quot;$choix&quot;
+                                        fi
+                               done
+
+                            • Alternativement, cette syntaxe peut être utilisée :
+
+                             while read nom ; do
+                             if [[ &quot;$nom&quot; = toto ]] ; then
+                                 echo &quot;$nom&quot;
+                                     read -p &quot;message : &quot; choix &lt;/dev/tty
+                                     echo &quot;$choix&quot;
+                                 fi
+                             done &lt; &lt;(cat fic)
+
+25</pre></section></html>

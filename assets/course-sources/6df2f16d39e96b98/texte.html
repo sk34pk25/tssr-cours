@@ -1,0 +1,150 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 3 - Disponibilité du service DHCP.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP 3 - Disponibilité du service DHCP.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                              Services réseau en environnement Microsoft
+Disponibilité du service
+DHCP
+TP du Module 05 – Le service DHCP
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 5 et terminé le TP
+ précédent.
+
+
+           Durée estimée
+
+            1 à 2 heures
+
+Énoncé
+
+Prérequis :
+
+    •  Avoir réalisé le TP précédent du Module 05.
+
+Définition des paramètres :
+    •   Définir le plan d’adressage et les paramètres pour :
+        o  Fournir à vos postes clients des adresses IP dans votre réseau VmNet10.
+
+
+
+
+
+ Page 1/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+Page 2/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+       o  Permettre au serveur du réseau 192.168.1.0/24 de fournir les adresses IP de
+            votre réseau en cas de défaillance de votre serveur.
+       o   Utiliser la fonction FailOver
+
+
+
+
+Page 3/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                              Services réseau en environnement Microsoft
+
+Il faut utiliser la fonction Failover pour partager la zone créée sur le premier serveur DHCP
+vers le serveur DHCP du second réseau.
+
+
+
+
+
+ Page 4/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+Page 5/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+Page 6/9
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+Configuration pour les clients du 1er réseau:
+    •  Configurer les plages adaptées sur les deux serveurs DHCP.
+        Il faut suivre la procédure indiquée sur la première phase du TP pour créer les plages
+   DHCP.
+
+
+
+
+ Page 7/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+    •  Configurer le relais DHCP sur le routeur adapté.
+
+
+
+
+
+    •   Tester le bon fonctionnement.
+        o   Si le serveur DHCP du 1er réseau est arrêté.
+
+Le relai DHCP du réseau VNET10 doit renvoyer les requêtes sur le serveur DHCP du réseau
+vnet11.
+        o   Si le serveur DHCP du 1er réseau est relancé.
+
+Le relai DHCP du réseau VNET11 doit renvoyer les requêtes sur le serveur DHCP du réseau
+
+
+
+
+ Page 8/9
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                              Services réseau en environnement Microsoft
+
+vnet10.
+
+        o  Vérifier la connectivité avec le réseau VmNet10 du VmNet11.
+
+Configuration pour les clients du 2ème réseau :
+    •  Configurer les plages adaptées sur les deux serveurs DHCP.
+
+
+
+
+
+    •  Configurer le relais DHCP sur le routeur adapté.
+
+
+
+
+
+    •   Tester le bon fonctionnement.
+        o   Si le serveur DHCP du 2ème réseau est arrêté.
+
+Le relai DHCP du réseau VNET10 doit renvoyer les requêtes sur le serveur DHCP du réseau
+vnet11.
+        o   Si le serveur DHCP du 2ème réseau est relancé.
+
+Le relai DHCP du réseau VNET11 doit renvoyer les requêtes sur le serveur DHCP du réseau
+vnet10.
+        o  Vérifier la connectivité avec le réseau VmNet11 du VmNet10.
+
+
+
+
+
+ Page 9/9
+                                      © ENI – Tous droits réservés</pre></section></html>

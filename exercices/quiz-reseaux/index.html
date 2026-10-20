@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/stylesheets/source-reader.css">
+    
       <link rel="stylesheet" href="../../assets/stylesheets/tokens.css">
     
       <link rel="stylesheet" href="../../assets/stylesheets/base.css">
@@ -15857,6 +15859,8 @@
       
         
       
+        
+      
     
     
     
@@ -15949,6 +15953,34 @@
     
   
     Inventaire des sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressources/conformite-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supports originaux et provenance
   
 
     
@@ -19770,6 +19802,10 @@
 
 
 <h1 id="quiz-bases-des-reseaux">Quiz — Bases des réseaux<a class="headerlink" href="#quiz-bases-des-reseaux" title="Permanent link">¶</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Complément IA / externe au cours</p>
+<p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Support original du Drive</strong> du module correspondant.</p>
+</div>
 <p>Questions et réponses issues des fichiers Kahoot fournis. Les formulations conversationnelles ou métadonnées de génération ont été retirées.</p>
 <h2 id="cours_reseaux_modules1_2_quiz_kahoot">Cours_Reseaux_Modules1_2_Quiz_Kahoot<a class="headerlink" href="#cours_reseaux_modules1_2_quiz_kahoot" title="Permanent link">¶</a></h2>
 <p>Cours Réseaux - Modules 1 et 2 Contenu du cours fourni Connaitre les couches du modèle OSI Manipuler les unités de mesure informatique Appréhender l’adressage IP Connaître la communication au sein d’un réseau Découvrir les premières commandes Modèle OSI : Une Structure en 7 Couches Le modèle OSI (Open Systems Interconnection) est une norme qui définit comment les communications se font entre deux systèmes sur un réseau. Ce modèle théorique est divisé en 7 couches distinctes, chaque couche ayant une fonction spécifique et communiquant avec celles situées directement au-dessus et en dessous d'elle. Cette segmentation permet de structurer les processus réseau et de faciliter le développement et le débogage des protocoles réseau. Le PDU (Protocol Data Unit) : Qu’est-ce que c’est ? Le PDU (Unité de Données de Protocole en français) est un terme utilisé dans le domaine des réseaux pour désigner une unité de données qui est échangée entre deux entités réseau dans le cadre d'une communication sur une couche spécifique du modèle OSI. Chaque couche du modèle OSI a son propre PDU, qui change en fonction du rôle et des tâches de la couche concernée. Le PDU comprend à la fois les données utilisateur et les informations de contrôle ajoutées par les protocoles de la couche pour garantir le bon acheminement des données sur le réseau. Le PDU à travers les différentes couches du Modèle OSI Chaque couche du modèle OSI encapsule les données reçues de la couche supérieure en y ajoutant ses propres en-têtes (et éventuellement un pied de trame pour certaines couches) afin de former un nouveau PDU. Encapsulation et Désencapsulation des PDU Chaque fois qu'une couche du modèle OSI reçoit des données de la couche supérieure, elle encapsule ces données dans un PDU en ajoutant des informations spécifiques à son rôle (adresses, numéro de séquence, contrôle d'erreur, etc.). Ce processus d'encapsulation se poursuit jusqu'à la couche physique, où les données sont converties en signaux et transmises sur le réseau. À l'arrivée, le processus inverse se produit. Les données sont désencapsulées couche par couche, les informations ajoutées à chaque PDU étant retirées par la couche correspondante jusqu'à ce que les données d'origine soient reconstituées et livrées à l'application finale. PDU et SDU : Le Passage d’une Couche à l’Autre dans le Modèle OSI Dans le modèle OSI (Open Systems Interconnection), chaque couche a un rôle bien défini dans le traitement des données lors de la communication réseau. Le transfert de données entre ces couches implique deux concepts importants : le PDU (Protocol Data Unit) et le SDU (Service Data Unit). PDU : C'est l'unité de données transmise d'une couche à une autre. Elle inclut les données utilisateur ainsi que les informations de contrôle propres à la couche qui traite le PDU. SDU : C'est l'unité de données fournie par une couche N+1 à la couche N. La couche N+1 donne des données brutes à la couche N pour qu'elle les prépare à la transmission. Processus de Transformation : Du PDU au SDU et vice-versa Lorsqu'une couche (N+1) termine son travail sur les données, elle génère un PDU (par exemple, un segment pour la couche transport ou un paquet pour la couche réseau). Ce PDU devient alors le</p>

@@ -1,0 +1,60 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 7 - Les modules.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 7 - Les modules.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+Les modules
+Démonstration 07 du module 1
+
+
+ L’objectif de cette démonstration est de vous présenter la notion de module.
+
+Déroulement
+•  Les modules sont des fichiers portant l’extension .PSM1
+•  La commande Get-Module permet d’obtenir la liste des modules actuellement disponibles
+   dans la console.
+
+
+
+
+
+Pour ajouter un module à la console PowerShell,l il faut ajouter le fichier PSM1 dans un
+emplacement valide. Pour connaître les emplacements valides, on utilise la commande :
+$env :PsModulePath
+
+
+
+
+On place ensuite le fichier PSM1 ou un dossier contenant un ensemble de fichiers.
+
+Dans l’exemple, on utilise le module AWS permettant de gérer une infrastructure Amazon Web
+Services depuis la console PowerShell.
+
+
+
+
+
+ Page 1/2
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+
+
+
+
+
+On importe ensuite le module dans la console avec la commande Import-Module.
+
+
+
+On  vérifie ensuite  la bonne  prise en charge avec  la commande Get-Command  -module
+AWSPOWERSHELL.
+
+
+
+
+
+Le paramètre Measure-Object permet de compter le nombre de commandes.
+
+Le module AwsPowershell ajoute presque 8000 commandes dans la console PowerShell.
+
+
+
+
+
+ Page 2/2
+                                          © ENI – Tous droits réservés</pre></section></html>

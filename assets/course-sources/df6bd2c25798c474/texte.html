@@ -1,0 +1,99 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 2 - Boucle for.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M7 - Solution du TP 2 - Boucle for.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             Initiation au scripting Bash
+Boucle for
+Solution - TP2 du Module 07 – Les structures de boucle
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7.
+
+
+Objectifs
+
+Créer un script Shell utilisant une instruction de boucle for.
+
+Énoncé
+
+
+
+Les principales difficultés du script sont d’une part lancer un traitement ligne par ligne dans un
+fichier externe, celui portant les extensions de fichier à traiter, et d’autre part de comptabiliser le
+nombre de fichiers de chaque type.
+
+Avant tout, il faudra vérifier la présence d’un argument derrière le script, et forcer la sortie s’il est
+différent de 1. Puis, une boucle for comptabilisera et traitera les fichiers pour chaque extension
+indiquée dans le fichier externe, avant de récapituler tout cela à l’écran.
+
+   •  Créer et éditer un nouveau fichier script script_M7TP2.sh
+
+vim script_M7TP2.sh
+
+   •  Ajouter les lignes suivantes :
+
+#! /bin/bash
+
+# M7 - Solution du TP2 – Boucle for
+
+#! /bin/bash
+
+# Déclaration des variables
+
+chemin=$1 # Récupération de la valeur de l’argument fourni
+
+extfile=./ext.txt # Stockage du nom de fichier avec les extensions
+
+# Vérification : si argument n’est pas = à 1 =&gt; sortie
+
+if [[ $# -ne 1 ]]
+
+  then echo &quot;Syntaxe utilisation : ./script_M7TP2.sh &lt;chemin&gt;&quot;
+
+       exit 1
+
+fi
+
+# Calcul du nombre de fichiers présents dans le dossier cible
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             Initiation au scripting Bash
+
+nbfictotal=$(ls $chemin | wc -l )
+
+echo &quot;Nombre total de fichiers dans $chemin : $nbfictotal&quot;
+
+echo &quot;&quot;
+
+# Début de la boucle for pour traiter chaque extension
+
+for ext in $(cat $extfile)
+
+ do
+
+    nbfic=$(ls  $chemin/*.$ext  2&gt;/dev/null |  wc  -w) # Comptabiliser nb
+fichiers trouvés portant l’extension
+
+    if [[ $nbfic -gt 0 ]] # Si le nb fichiers trouvés &gt; 0 alors affichage
+
+     then echo &quot;--------------&quot;
+
+          echo &quot;     .$ext     &quot;
+
+          echo &quot;--------------&quot;
+
+          echo &quot;-&gt; $nbfic fichier(s) trouvé(s)&quot;
+
+          echo &quot;&quot;
+
+    fi
+
+done
+
+
+   •  Rendre exécutable le script à l’aide de chmod
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,156 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion du stockage.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Gestion du stockage.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Gérer le stockage
+TP du Module 04 – La gestion du stockage
+
+ À travers ce TP, vous serez amené à ajouter des supports de stockage à votre VM puis à
+ créer des volumes sur les disques à l’aide de la console de gestion des disques et à
+ l’aide de diskpart. Enfin, vous découvrirez les volumes présents sur Discovery grâce à
+ PowerShell.
+
+       Durée estimée
+
+     1 heure 30 minutes
+
+Énoncé
+
+Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique
+
+À l&#x27;aide de VMware WorkStation, ajoutez 2 disques durs de 60 Go
+chacun à votre VM Win10-XX (Store virtual disk as a single file)
+
+
+Avec la console graphique de votre VM Windows 10
+
+   Sur le premier disque, créer 3 partitions principales de 15 Go chacune sans assigner de
+    lettre de lecteur et sans formater.
+
+
+
+
+
+ Page 1/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Créer une 4e partition de 7 Go sans assigner de lettre de lecteur et sans formater.
+
+
+
+
+
+  Formater les deux premières partitions de 15 Go en NTFS. La première sera nommée
+   DATA, la seconde TOOLS.
+
+
+
+
+
+   Attribuer la lettre D au volume DATA et la lettre E au volume TOOLS.
+
+
+
+
+
+  Formater la partition de 7 Go restante en FAT32, que vous nommerez ARCHIVE et lui
+   attribue la lettre de votre choix.
+
+
+
+
+
+ Page 2/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Étendre le volume DATA de 15 Go supplémentaire. Pour cela vous n&#x27;utiliserez que
+   l&#x27;espace libre disponible sur le disque 2.
+
+
+
+
+
+En ligne de commande sur votre VM Windows 10
+
+  Formater la 3e partition de 15 Go en NTFS. Vous la nommerez COMMUN et  lui
+   attribuerez la lettre de votre choix.
+
+
+
+
+
+  Étendre le volume COMMUN en utilisant l&#x27;espace libre restant sur le disque 1.
+
+
+
+
+
+ Page 3/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Supprimer le volume DATA.
+
+
+
+
+
+  Recréer le volume DATA avec l&#x27;ensemble de l&#x27;espace libre des deux disques.
+
+
+
+
+
+      Rédiger une procédure GestionDuStockage reprenant la configuration de
+      vos disques avec l&#x27;interface graphique et avec diskpart.  Utilisez psr, un
+      traitement de texte ou un autre outil.
+
+
+      Exemple :
+           - Ajoutez un disque dur supplémentaire avec VMware WorkStation
+           - Avec l’interface graphique, initialisez le disque
+           - Créez un volume formaté en NTFS avec une lettre de votre choix sur ce
+     nouveau lecteur
+           - Lancez diskpart
+           - Sur le nouveau disque, créez un volume supplémentaire en NTFS avec une
+        lettre de lecteur
+
+       Enregistrez votre procédure GestionDuStockage dans le dossier Procédures
+
+
+
+
+
+ Page 4/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
+
+Investigation sur la VM Discovery à l&#x27;aide de PowerShell
+
+
+  Affichez le numéro, la taille et le type de table de partitionnement des disques durs
+   présents sur la VM
+
+
+
+
+
+  Affichez la lettre de lecteur, le nom et la taille totale des volumes qui possèdent un
+   FriendlyName
+
+
+
+
+
+  Le volume C: ne possède pas de nom. Attribuez-lui le nom &quot;System&quot;
+
+
+
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 5/5
+                                      © ENI – Tous droits réservés</pre></section></html>

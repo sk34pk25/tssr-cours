@@ -1,0 +1,166 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M3 - Enoncé du TP - Utilisation d&#x27;Excel.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M3 - Enoncé du TP - Utilisation d&#x27;Excel.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                     Microsoft 365 - Outils
+Utilisation d’Excel
+TP du Module 3 - Notions de base sur Excel
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
+
+
+           Durée estimée
+
+           60 à 90 minutes
+
+Énoncé
+Objectifs
+
+Connaître l’utilisation du tableur Excel (fonctions, graphique, tableau)
+Prérequis :
+•  Récupérer deux documents :
+        o  « Clients – Document Brut.docx », document à mettre en forme
+        o  « Clients – Document Fini.pdf », document contenant le résultat attendu
+Principales tâches à réaliser
+
+✓ Feuille « Liste des clients »
+   Créer la formule pour générer les « Codes clients »
+      Les « Codes clients » sont composés des colonnes :
+       Nom
+        Prénom
+         Ville
+        Pays
+      Fonctions utilisées
+        majuscule()
+        gauche()
+        concatener() ou &amp;
+
+
+
+
+
+ Page 1/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                     Microsoft 365 - Outils
+
+✓ Feuille « Catalogue des produits »
+   Créer la formule pour générer les « Code » de l’ouvrage
+      Les « Code » sont composés des colonnes :
+        Nom-Auteur
+        Prénom-Auteur
+        Collection
+        Tome
+      Fonctions utilisées
+        majuscule()
+        gauche()
+        droite()
+        concatener() ou &amp;
+
+✓ Feuille « Liste des produits vendus »
+   Créer la formule pour générer les « Numéro de la commande »
+      Les « Numéro de la commande » sont composés des colonnes :
+        Date de la commande
+       Code clients
+       S’il n’y a pas d’informations dans les colonnes date de commande ou de code
+            clients, la colonne « Numéros de la commande » n’affiche rien.
+      Fonctions utilisées
+        droite()
+        annee()
+        mois()
+        jour()
+         si()
+        ou()
+        concatener() ou &amp;
+
+
+
+
+
+ Page 2/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                     Microsoft 365 - Outils
+
+✓ Feuille « Liste des produits vendus »
+   Créer la formule pour récupérer les « Nom et Prénom »
+      Les « Nom et Prénom » sont composés des colonnes :
+        « Nom » du tableau « Clients » de la feuille « Liste des clients »
+        « Prénom » du tableau « Clients » de la feuille « Liste des clients »
+      Fonctions utilisées
+        rechercherv()
+        concatener() ou &amp;
+
+✓ Feuille « Liste des produits vendus »
+   Créer la formule pour récupérer les « Titre et Tome »
+      Les « Titre et Tome » sont composés des colonnes :
+        « Collection » du tableau « Ouvrage » de la feuille « Catalogue des produits »
+        « Tome » du tableau « Ouvrage » de la feuille « Catalogue des produits »
+      Fonctions utilisées
+        rechercherv()
+        concatener() ou &amp;
+        droite()
+
+✓ Feuille « Liste des produits vendus »
+   Créer la formule pour récupérer les « Montant TTC »
+      Les « Montant TTC » sont composés des colonnes :
+        « Prix » du tableau « Ouvrage » de la feuille « Catalogue des produits »
+      Fonction utilisée
+        rechercherv()
+
+✓ Feuille « Liste des produits vendus »
+   Créer la formule pour calculer les « Total de la commande »
+      Les « Total de la commande » sont calculés à partir de la colonne « Montant TTC »:
+        « Prix » du tableau « Ouvrage » de la feuille « Catalogue des produits »
+      Dans la colonne « Total de la commande », si le « Code clients » est identique à
+           celui de la ligne du dessous, la cellule est vide, sinon le résultat du calcul s’affiche.
+      Fonctions utilisées
+         si()
+        ou()
+        somme.si.ens()
+
+
+
+
+
+ Page 3/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                     Microsoft 365 - Outils
+
+✓ Feuille « Catalogue des produits »
+   Créer la formule dans la colonne « Ventes » pour compter le nombre d’articles
+      vendus.
+      Le décompte s’effectue à partir des colonnes
+        « Produits » du tableau « Achats » de la feuille « Liste des produits vendus »
+        « Codes » du tableau « Ouvrage » de la feuille « Catalogue des produits »
+      Fonction utilisée
+        nb.si.ens()
+
+✓ Feuille « Catalogue des produits »
+   Créer la formule dans la colonne « % des ventes » pour représenter le pourcentage
+      des ventes d’un produit.
+      Le calcul s’effectue à partir de la colonne « Ventes »
+      Fonction utilisée
+        somme()
+
+✓ Feuille « Total des ventes par clients »
+   Créer un tableau récapitulatif du montant des achats effectués par chaque client.
+      Tableau croisé dynamique créé à partir du tableau de la feuille « Liste des
+           produits vendus »
+        « Nom et Prénom » en ligne
+        « Montant TTC » en valeurs sur lesquelles est effectuée une somme.
+
+✓ Feuille « Total des ventes par clients »
+   Créer un graphique à partir du tableau créé précédemment.
+      Graphique croisé dynamique histogramme groupé 3D
+
+✓ Feuille « Liste des clients »
+   Créer la formule pour le montant des achats de chaque client dans la colonne
+        « Total Achats ».
+      Les « Total Achats » sont récupérés à partir :
+        Des valeurs calculées dans le tableau croisé dynamique.
+        Des colonnes « Nom » et « Prénom » du tableau « Clients » de la feuille « Liste
+            des clients »
+      En cas d’erreur retournée par la formule, la cellule ne devra rien contenir.
+      Fonction utilisée
+        recherchev()
+         sierreur()
+
+
+
+
+
+ Page 4/4
+                                      © ENI – Tous droits réservés</pre></section></html>

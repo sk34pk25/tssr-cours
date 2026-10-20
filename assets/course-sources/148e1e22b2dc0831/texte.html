@@ -1,0 +1,116 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M4 - Solution du TP1 - Les variables denvironnement.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M4 - Solution du TP1 - Les variables denvironnement.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                               Initiation au scripting Bash
+
+Variables d’environnement
+Solutions – TP1 du Module 04 - Les variables dans les scripts
+
+
+
+    1.  Utiliser les commandes appropriées afin d’afficher des variables
+
+    •   Variable qui indique le chemin du fichier d’historique des commandes :
+
+set | grep history | grep /
+
+ou bien :
+
+set | grep HIST | grep /
+
+
+On doit ainsi trouver la variable HISTFILE qui doit indiquer le fichier .bash_history
+
+
+    •   Variable qui indique l’emplacement de recherche des exécutables :
+
+A été étudié dans le module d’utilisation Linux, l’emplacement dans l’arborescence des binaires/exécutables
+tels ls, cp etc. Ils sont situés dans le dossier /bin.
+
+On peut donc rechercher cette chaîne parmi les variables d’environnement du système :
+
+set | grep /bin
+
+
+Résultat :
+
+localhost:~# set | grep /bin
+
+PATH=&#x27;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#x27;
+
+La variable s’appelle donc PATH
+
+
+    2.  Réaliser un script
+
+
+Créer un fichier de script ‘script_M4TP1.sh’ qui contiendra les instructions nécessaires.
+
+
+    •  Créer et éditer un nouveau fichier :
+
+vim script_M4TP1.sh
+
+
+    •   Ajouter les lignes suivantes :
+
+#! /bin/bash
+
+# M4 - Solution du TP1</pre></section><section><h2>Page 2</h2><pre>                                                                                               Initiation au scripting Bash
+
+
+
+
+
+# Définition des variables
+
+rep=$(pwd) # Stocker le résultat de la commande ‘pwd’ dans la var ‘rep’
+
+extension=&quot;txt&quot; # Choix ici de travailler sur des fichiers de type ’txt’
+
+
+
+# Corps du script
+
+echo &quot;Répertoire de travail : $rep &quot; # Affiche du texte + contenu var ‘rep’
+
+echo &quot;Fichiers pouvant être traités: &quot;
+
+ls -l *.$extension # Affiche tous les fichiers terminant par extension
+
+echo &quot;&quot; # Affiche simple ligne vide, pour la présentation
+
+read -p &quot;Quel fichier pouvez-vous traiter ? : &quot; fic # Demande saisie fichier
+
+
+
+# Utilisation de variables pour stocker les infos du fichier
+
+nblign=$(cat $fic | wc -l ) # Variable stocke le nb de lignes du fichier
+
+debut=$(cat $fic | head -n 2) # Variable stocke 2ères lignes du fichier
+
+fin=$(cat $fic | tail -n 2 ) # Variable stocke 2 lignes fin du fichier
+
+
+
+# Affichage final des informations à l’écran
+
+# Les ‘\n’ utilisés ci-après sont des sauts de ligne pour la présentation
+
+echo -e &quot;\nCARACTERISTIQUES de $fic :\n&quot; #
+
+echo -e &quot;Nombres de lignes du fichier : $nblign\n&quot;
+
+echo -e &quot;\&quot;Début du fichier : \n$debut\n&quot;
+
+echo -e &quot;\&quot;Fin du fichier : \n$fin\n&quot;
+
+
+    •  Rendre exécutable le fichier avec la commande chmod :
+
+chmod u+x script_M4TP1.sh
+
+
+    •   Ensuite, exécuter le script ./script_M4TP1.sh
+
+
+Il faudra bien entendu disposer de fichiers avec l’extension mentionnée et contenant du texte pour obtenir des
+résultats !</pre></section></html>

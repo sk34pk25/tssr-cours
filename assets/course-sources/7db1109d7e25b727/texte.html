@@ -1,0 +1,196 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 13 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 13 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+                 Module 13 – Les stratégies de groupe local
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+  Les stratégies de groupe local
+
+                                            •  Les stratégies de groupe local pour  Objectifs
+                                                                 •  Personnaliser l’environnement des utilisateurs
+                                                                 •  Personnaliser Windows 10
+                                                                 •  Sécuriser le système
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  Les stratégies de groupe local
+ Les stratégies de groupe local
+
+
+              • La base de registre Windows
+                      • Base de données hiérarchique et centrale
+                      • Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs,
+               programmes et périphériques matériels
+                      •  Utilisée depuis Windows 98
+                      • Contient des milliers de paramètres
+              • Lors de son exécution, Windows consulte en permanence les informations contenues dans
+               le Registre
+              • Consultation et modification du registre : commande regedit
+              • À manipuler avec la plus grande précaution
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+  Les stratégies de groupe local
+ Les stratégies de groupe local
+
+        La base de registre Windows
+              • Paramètres regroupés sous 5 catégories (ou ruches)
+
+                                        HKEY_CLASSES_ROOT     Informations sur les applications (objets OLE, extensions)
+                                       HKEY_CURRENT_USER
+                                                                                   ( = HKEY_USERS \ SID )         Configuration relative à l&#x27;utilisateur qui a ouvert une session
+                                                                     Contient des informations de configuration spécifiques à                                       HKEY_LOCAL_MACHINE
+                                                                             l&#x27;ordinateur (pour n&#x27;importe quel utilisateur)
+                                                                     Contient tous les profils utilisateur chargés activement sur                                        HKEY_USERS
+                                                                             l&#x27;ordinateur
+                                        HKEY_CURRENT_CONFIG   Profil matériel utilisé par l&#x27;ordinateur
+
+
+
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>  Les stratégies de groupe local
+ Les stratégies de groupe local
+
+        La base de registre Windows
+              • Les ruches contiennent des clés
+              • Qui peuvent elles-mêmes contenir des clés…
+              • Les clés contiennent des valeurs
+                      •  Binaires ou hexadécimales
+                      • Chaînes de caractères
+              • Chaque valeur correspond à un paramètre du système !
+
+
+
+
+
+                                                                                         5
+
+
+5
+
+
+  Les stratégies de groupe local
+ LGPO
+
+
+              • Les LGPO (Local Group Policy Object)
+                     • Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :
+                              • Console mmc personnalisée composant logiciel enfichable
+                              •  Éditeur d&#x27;objets de stratégie de groupe
+                              • Console mmc Stratégie de sécurité locale (secpol.msc)
+                      • Réduire le temps consacré à la gestion du poste de travail
+                      • Agir sur la base de registre de façon plus conviviale
+
+              • Concrètement que peut-on faire par LGPO ?
+                      • Modifier les stratégies de mots de passe
+                      • Agir sur les privilèges d&#x27;administration du système
+                      • Uniformiser l&#x27;aspect du poste de travail (bureau, barre des tâches)
+                      • Restreindre l&#x27;accès à certains paramètres (panneau de configuration, ligne de commande)
+                      • Démarrer des scripts à l&#x27;ouverture, à la fermeture de session utilisateur
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>  Les stratégies de groupe local
+ LGPO
+
+
+              • Possibilité d&#x27;agir sur le poste local ou sur un poste distant
+              • Possibilité d&#x27;agir sur différents objets de la base SAM
+
+
+
+
+
+                                                                                         7
+
+
+7
+
+
+  Les stratégies de groupe local
+ LGPO
+
+       Chaque paramètre :
+              • Peut être activé ou désactivé
+              • Peut être non configuré = comportement par
+             défaut du système
+              • Peut être commenté
+              • Possède des conditions
+              • Peut posséder des options supplémentaires
+              • Possède surtout une aide précieuse, lisez-la !
+
+
+
+
+
+                                                                                         8
+
+
+8</pre></section><section><h2>Page 5</h2><pre>  Les stratégies de groupe local
+
+
+          Démonstration
+
+
+
+
+
+                                                                                         9
+
+
+9
+
+
+  Les stratégies de groupe local
+
+
+              TP
+
+
+
+
+
+                                                                                          10
+
+
+10</pre></section><section><h2>Page 6</h2><pre>  Les stratégies de groupe local
+ Conclusion                                            •  Bien connaître le fonctionnement des stratégies
+                              de groupe local pour
+                                                                 •  Découvrir la base de registre
+                                                                                           •   Les paramètres utilisateurs
+                                                                                           •   Les paramètres ordinateurs
+                                                                                           •   Les stratégies de sécurité
+                                                                 •  Se préparer à l’utilisation des stratégies de groupe de domaine
+
+
+
+
+
+                                                                                          11
+
+
+11</pre></section></html>

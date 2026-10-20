@@ -1,0 +1,280 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 1 - Boucle until.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M7 - Solution du TP 1 - Boucle until.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                             Initiation au scripting Bash
+Boucle until
+Solution – TP1 du Module 07 – Les structures de boucle
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6.
+
+
+Objectifs
+
+Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes
+conditionnels.
+
+
+Énoncé
+
+    1- Analyse d’un script existant
+
+
+#!/bin/bash
+
+# Definition des variables #
+
+annee=$1
+
+nummois=1
+
+###annee=2011
+
+rouge=&#x27;\033[31m&#x27;
+
+orange=&#x27;\033[33m&#x27;
+
+vert=&#x27;\033[32m&#x27;
+
+noir=&#x27;\033[0m&#x27;
+
+# Début du script #
+
+# Vérification qu&#x27;un argument a été passé #
+
+[[ -z $1 ]] &amp;&amp; { echo -e &quot;Syntaxe d&#x27;utilisation : $0 $rouge &lt;annee&gt; $noir&quot;;
+exit 13; }
+
+
+echo &quot;###################&quot;
+
+echo &quot;##  ANNEE $annee   ##&quot;
+
+echo &quot;###################&quot;
+
+# Corps du script #
+
+# On boucle pour tous les mois
+
+until [[ $nummois -eq 13 ]]
+
+
+
+
+ Page 1/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                             Initiation au scripting Bash
+
+        do
+
+        ligne13=`cal $nummois $annee | grep 13`
+
+     # format du retour de la commande precedente incorrect
+
+     ligne13=$(echo $ligne13)
+
+        if [[ $ligne13 = *13\ 14 ]]
+
+                then
+
+                nommois=`date --date &quot;$nummois/01&quot; +%B`
+
+                listmois=&quot;$listmois $nommois,&quot;
+
+                nbremois=`expr $nbremois + 1`
+
+        fi
+
+        nummois=`expr $nummois + 1`
+
+done
+
+
+# On affiche la liste des mois concernés #
+
+echo -e &quot;En $rouge $listmois $noir surveiller les paraskaviedekatriaphobes
+&quot;
+
+# On catégorise l&#x27;année en fonction du nombre d&#x27;occurence(s) et choix
+couleur
+
+case $nbremois in
+
+        1)
+
+        niveau=&quot;calme&quot;
+
+        color=&quot;$vert&quot;
+
+        ;;
+
+        2)
+
+        niveau=&quot;moyenne&quot;
+
+        color=&quot;$orange&quot;
+
+        ;;
+
+        *)
+
+        ### Test avec 2009
+
+        niveau=&quot;a forte vigilance&quot;
+
+        color=&quot;$rouge&quot;
+
+        ;;
+
+esac
+
+
+# On résume l&#x27;état de l&#x27;année
+
+echo -e &quot;$annee sera une annee ${color}$niveau $noir( $nbremois )&quot;
+
+
+
+
+
+ Page 2/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                             Initiation au scripting Bash
+
+    2- Rédaction d’un nouveau script
+
+L’objectif ici, est de trouver quelles sont, dans l’intervalle donnée, les années bissextiles. On se
+focalise chaque année sur le mois de février seulement. Nous aurons besoin pour cela de la
+commande cal qui affiche le calendrier mensuel, permettant d’identifier l’existence d’un 29ème
+jour, ou pas, au mois de février.
+
+Dans ce script,  il y aura 3 compteurs à incrémenter : celui qui indiquera le nombre d’années
+bissextiles trouvées nbannées, celui qui stockera les années réelles listannees et enfin celui qui
+mettra fin à la boucle until lorsque toutes les années ont été analysées.
+
+Pour ce dernier compteur, qui conditionne l’arrêt ou continuation de la boucle until, il s’agit de
+rajouter ‘+1’ à l’année de début, pour chaque boucle effectuée. La condition à respecter est : la date
+de fin de période fournie doit être supérieure au compteur (année de début + nb de boucle
+effectuée). Ainsi, si on débute la plage à 2024 avec une fin en 2029, voici ce qui se passe :
+
+1er tour de boucle : vérification de la condition : annecourante (2024) est &gt; à 2029 ? NON donc
+
+   o  Recherche sur l’année 2024 de 29 jour au mois de février
+
+   o  Incrément du compteur pour until : anneecourante ajout + 1
+
+  2ème tour de boucle : vérification de la condition : anneecourante (2025) est &gt; à 2029 ? NON
+  donc
+
+    o  Recherche sur l’année 2025 de 29 jour au mois de février
+
+    o  Incrément du compteur pour until : anneecourante ajout + 1
+
+     3ème tour de boucle : vérification de la condition : anneecourante (2026) est &gt; à 2029 ?
+     NON donc
+
+        o  Recherche sur l’année 2026 de 29 jour au mois de février
+
+        o  Incrément du compteur pour until : anneecourante ajout + 1
+
+Et ainsi de suite …
+
+   •  Créer et éditer le nouveau fichier script_M7TP1.sh
+
+vim script_M7TP1.sh
+
+
+    •  Y ajouter les lignes suivantes :
+
+
+#! /bin/bash
+
+# Definition des variables #
+
+anneedeb=$1 # Stockage de la première année de la plage
+
+
+
+
+ Page 3/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                             Initiation au scripting Bash
+
+anneefin=$2 # Stockage de la dernière année de la plage
+
+anneecourante=$anneedeb # Création d&#x27;une variable année courante à partir
+du début
+
+nbannees=0 # Compteur nombre d’années bissextiles initialisé à zéro
+
+
+# Debut du script #
+
+# Si arguments fournis au script ne sont pas = à 2 =&gt; Sortie
+
+if [[ $# -ne 2 ]]
+
+  then echo &quot;Syntaxe utilisation : script_M6TP2.sh &lt;annee_debut&gt;
+&lt;annee_fin&gt;&quot;
+
+  exit 3
+
+fi
+
+echo &quot;##########################################&quot;
+
+echo -e &quot;##  Période considérée de $anneedeb a $anneefin   ##&quot;
+
+echo &quot;##########################################&quot;
+
+
+# Bouclage pour chaque année sur le mois de février
+
+until [[ $anneecourante -gt $anneefin ]]
+
+ do fevrier=$(cal 02 $anneecourante) # Recup du calendrier du mois de
+février de l&#x27;année courante
+
+    echo &quot;$fevrier&quot; | grep &quot;29&quot; | grep -v &quot;[0-9][0-9]29&quot; &gt;/dev/null 2&gt;&amp;1
+# On cherche dans ce calendrier la présence du 29ème jour
+
+if [[ $? -eq 0 ]] # Si la valeur 29 est trouvée (code retour = 0)
+
+ then  nbannees=`expr  $nbannees  +  1`  #  Ajout  +1  au  nombre  d&#x27;années
+bissextiles
+
+   listannees=&quot;$listannees $anneecourante,&quot; # Ajout de l’année au listing
+des années concernées
+
+fi
+
+anneecourante=`expr  $anneecourante  +  1`  #  Incrément  de  1  du  compteur
+d&#x27;année courante afin de vérifier si condition de la boucle until toujours
+vraie
+
+done
+
+
+# Résumé des années bissextiles trouvées (ou pas)
+
+if [[ $nbannees -gt 0 ]]; then # Si plus d&#x27;une année
+
+  echo -e &quot;Il y a $nbannees année(s) bissextile(s) dans la plage donnée&quot;
+
+  echo -e &quot;Année(s) : $listannees&quot;
+
+else # Si pas d’année bissextile dans la plage
+
+  echo -e &quot;Il n&#x27;y a aucune année bissextile dans la plage donnée&quot;
+
+fi
+
+
+
+
+
+ Page 4/5
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                                            Initiation au scripting Bash
+
+  •  Rendre le script exécutable avec chmod et tester
+
+
+
+
+
+Page 5/5
+                                     © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,323 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Utilisation de Vi.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Utilisation de Vi.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+Utilisation de Vi
+TP du Module 07 – Editer du texte sous Linux
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 7 et d’avoir
+ effectué le TP précédent.
+
+
+           Durée estimée
+
+           45 à 60 minutes
+
+Proposition de solution
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires
+pour répondre aux questions.
+
+    1.  Ouvrir le fichier Edition de votre répertoire d&#x27;accueil avec vi .
+
+      vi Edition
+
+
+
+
+
+    2. Le premier Dupont Jean se prénomme en  fait Jean-Jacques. Recherchez la
+      première occurrence de Dupont Jean .
+
+      /Dupont Jean
+
+
+
+
+
+ Page 1/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+   3. Déplacez-vous sur le n de Jean puis insérez -Jacques .
+
+     2e
+
+     a
+
+     -Jacques
+
+
+
+
+
+Page 2/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+   4. De la même manière, recherchez Dupont Pierre et insérez Jean- après vous être
+     placé sur le &#x27;P&#x27; de Pierre.
+
+     /Dupont Pierre
+
+     w
+
+     i
+
+     Jean-
+
+
+
+
+
+   5. Replacez-vous en début de fichier.
+
+     esc
+
+     gg
+
+
+
+   6. Cherchez le premier Dupont et insérez sur la ligne précédente votre nom et prénom.
+
+     /Dupont
+
+     O
+
+     CLAVEAU Mathieu
+
+
+
+
+
+Page 3/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+   7.  Entrez le nom et le prénom de votre voisin après la ligne du dernier Dupont. Déplacez-
+     vous dans le fichier sur les différentes occurrences avec les touches &#x27;n&#x27; et &#x27;N&#x27;.
+
+     G
+
+     ?Dupont
+
+     o
+
+     Richez Cédric
+
+
+
+
+
+   8.  Enregistrez les modifications apportées au fichier et sortez de l&#x27;éditeur.
+
+     :wq
+
+
+
+
+
+Page 4/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+   9. Dupont Jean s&#x27;appelle en  fait Merlin-Duval Jean. Recherchez Dupont Jean et
+    changez Dupont par Merlin-Duval.
+
+     vi Edition
+
+     /Dupont Jean
+
+     n
+
+     cwMerlin-Duval
+
+
+
+
+
+  10. Supprimez la ligne Couteau Jean après l&#x27;avoir retrouvé.
+
+     /Couteau Jean
+
+     dd
+
+
+
+  11. Changez tous les Dupont en Durand .
+
+     : g/Dupont/s//Durand/g
+
+
+
+
+
+Page 5/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+  12. Déplacez toutes les lignes contenant Durand en fin de fichier.
+
+     : g/Durand/m$
+
+
+
+
+
+Page 6/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+
+    13. Ajoutez un second Ben Raf, en dupliquant la ligne existante.
+
+      /Ben Raf
+
+      yy
+
+      p
+
+    14. Sans sortir de la session vi, affichez la date et l&#x27;heure (pour savoir si c&#x27;est l&#x27;heure de la
+      pause).
+
+      :!date
+
+
+
+
+
+    15. Créez un fichier .vimrc dans le répertoire de connexion ($HOME), dont le contenu va
+      permettre d&#x27;afficher les numéros de lignes, de positionner les tabulations tous les 5
+      caractères et de passer en mode non compatible (Linux uniquement) .
+
+      vi .virmc
+
+      i
+
+      set number
+
+      set tabstop=5
+
+      set nocompatible
+
+
+
+
+
+Recherche globale avec remplacement.
+
+    16. Recherchez et remplacez tous les Durand en Dupont.
+
+      vi Edition
+
+      :g/ Durand/s//Dupont/
+
+
+
+
+
+ Page 7/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+
+    17. Substituez Jean en Jean-Paul.
+
+      g/Jean /s/Jean/&amp;-Paul
+
+       (attention à mettre un espace après Jean comme vous pouvez le voir dans la
+capture d’écran suivante)
+
+
+
+
+
+    18. Substituez Jean en JEAN (sans écrire JEAN dans l&#x27;expression régulière).
+
+      :g/\(Jean\)/s//\U\1/
+
+
+
+
+
+ Page 8/13
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+  19. Substituez JEAN en Jean en modifiant le séparateur de l&#x27;expression régulière.
+
+     :g/JEAN/s//Jean/
+
+
+
+
+
+Page 9/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+  20. Substituez Jean en Jean-Jean sur tout le texte.
+
+     :%s/Jean/Jean-Jean/
+
+
+
+
+
+Page 10/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 11</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+  21. Ajoutez (033) devant chaque numéro (en fin de ligne) commençant par 1,2 ou 3.
+
+     Exemple : Frederic Thouin (033)124666
+
+     :%s/\&lt;[1-3]/(033)&amp;/
+
+
+
+
+
+Page 11/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 12</h2><pre>                                                              Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+  22. Ajoutez 0 (zéro) à la fin de toutes les lignes qui commencent par &#x27;F&#x27;.
+
+     g/^F/s/$/0/
+
+
+
+
+
+Page 12/13
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 13</h2><pre>                                                               Utilisation d&#x27;une distribution GNU/Linux
+
+
+
+
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les
+ressources à télécharger.
+
+
+
+
+
+ Page 13/13
+                                      © ENI – Tous droits réservés</pre></section></html>

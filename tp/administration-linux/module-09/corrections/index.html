@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../../assets/stylesheets/source-reader.css">
+    
       <link rel="stylesheet" href="../../../../assets/stylesheets/tokens.css">
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/base.css">
@@ -12126,6 +12128,8 @@
       
         
       
+        
+      
     
     
     
@@ -12231,6 +12235,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ressources/conformite-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supports originaux et provenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -12313,10 +12345,36 @@
 
 
 <h1 id="correction-module-09-preparation-des-systemes-de-fichiers">Correction — Module 09 — Préparation des systèmes de fichiers<a class="headerlink" href="#correction-module-09-preparation-des-systemes-de-fichiers" title="Permanent link">¶</a></h1>
+<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p></p><div class="tssr-original-reader">
+<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
+<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<details class="tssr-original-document">
+<summary>Correction · M09TP01 - Solution - Préparation des systèmes de fichiers.pdf · 4 pages</summary>
+<div class="tssr-original-document__body">
+<p class="tssr-original-links"><a href="../../../../assets/course-sources/875c895cdf2ad435/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="../../../../assets/course-sources/875c895cdf2ad435/texte.html" target="_blank" rel="noopener noreferrer">Texte accessible</a> <a href="https://drive.google.com/file/d/1n4zSxPb4C7LiPn3-KO0a3IktlZBdqnBc/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
+<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/875c895cdf2ad435/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/875c895cdf2ad435/pages-001-004.webp" alt="Source Drive — M09TP01 - Solution - Préparation des systèmes de fichiers.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M09TP01 - Solution - Préparation des systèmes de fichiers.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<p class="tssr-original-proof">Référence du document : 1n4zSxPb4C7LiPn3-KO0a3IktlZBdqnBc · <span title="Empreinte SHA-256 du fichier source">SHA-256 875c895cdf2ad435…</span></p>
+</div>
+</details>
+</div><p></p>
+</div>
+<div class="tabbed-block">
+<div class="admonition info">
+<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+</div>
 <p><strong>Sources originales (A) :</strong> solution M09TP01 et support M09 Drive. <strong>Correction (B) :</strong> synthèse des contrôles de la solution.</p>
 <p>La solution crée le système de fichiers avec <code>mkfs.ext4</code> et affecte l’étiquette avec l’option <code>-L</code>; <code>blkid</code> vérifie ensuite le type, l’UUID et l’étiquette. <code>resize2fs</code> étend le système de fichiers après l’extension du LV effectuée au TP précédent ; si <code>lvextend -r</code> avait déjà été utilisé, il peut être déjà à sa taille maximale.</p>
 <p>Pour migrer <code>/var</code>, la solution impose un snapshot, vérifie les fichiers utilisés avec <code>lsof</code>, passe en mode rescue pour limiter les écritures, monte le nouveau volume temporairement sous <code>/mnt</code>, puis copie en préservant propriétaires, groupes, permissions et récursivité. Après le montage de <code>lvvar</code> sur <code>/var</code>, contrôler le point de montage et les journaux sous <code>/var/log</code>.</p>
 <p>L’entrée persistante est ajoutée dans <code>/etc/fstab</code> avec l’étiquette créée. Tester les montages définis par ce fichier avant le redémarrage ; ne pas conclure sur la seule modification du fichier.</p>
+</div>
+</div>
+</div>
 
 
 

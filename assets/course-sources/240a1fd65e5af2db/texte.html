@@ -1,0 +1,57 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 5 - La gestion des erreurs.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 5 - La gestion des erreurs.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                           Initiation à PowerShell
+La gestion des erreurs
+Démonstration 05 du module 5
+
+
+ Une erreur sur une commande peut facilement bloquer toute l’exécution d’un script. L’objectif
+ de cette démonstration est de montrer que toutes les commandes disposent d’un paramètre
+ permettant d’indiquer l’action de la console en cas d’erreur d’exécution d’une commande.
+
+Déroulement
+•  Le paramètre ErrorAction indique le comportement de la console en cas d’erreur.
+
+Avec la valeur continue
+
+
+
+
+
+Avec la valeur SilentlyContinue, l’erreur n’apparaît plus sur la console.
+
+
+
+
+
+ Page 1/2
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                                           Initiation à PowerShell
+La valeur Stop arrête immédiatement l’exécution du script.
+
+
+
+
+
+Les erreurs, même non affichées dans la console, sont stockées dans une variable $Error.
+
+
+
+
+
+Le paramètre ErrorVariable permet de spécifier une autre variable.
+
+
+
+
+
+Il est possible de déterminer le comportement général des erreurs dans la console en modifiant la
+variable $ErrorActionPreference.
+
+
+
+Toutes les erreurs seront affichées, mais ne bloqueront pas l’exécution du script.
+
+
+
+
+
+ Page 2/2
+                                          © ENI – Tous droits réservés</pre></section></html>

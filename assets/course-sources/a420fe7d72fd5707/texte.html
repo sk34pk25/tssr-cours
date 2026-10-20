@@ -1,0 +1,197 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion des utilisateurs et des groupes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Gestion des utilisateurs et des groupes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Gestion des utilisateurs et
+des groupes
+TP du Module 05 – Les utilisateurs et les groupes
+
+ Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les groupes. Vous
+ mettrez en place des privilèges d’administration et vous testerez leurs effets. Vous
+ parcourrez les caractéristiques des utilisateurs et des groupes. Vous effectuerez toutes
+ ses manipulations à l’aide de l’interface graphique, mais aussi par l’intermédiaire des
+ shells Microsoft.
+
+       Durée estimée
+
+     1 heure 30 minutes
+
+Énoncé
+
+Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique
+
+À l&#x27;aide de la console de gestion des utilisateurs de la VM Win10-XX,
+créez les objets avec les paramètres suivants :
+
+  Créez une procédure relative aux deux points suivants :
+        o  François possédera un mot de passe qui n&#x27;aura pas de date d&#x27;expiration.
+        o     Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
+            groupes en amont).
+
+
+ Yann fera partie des mêmes groupes que François.
+
+
+
+
+
+ Page 1/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Créez deux comptes utilisateurs auxquels vous donnerez nom, prénom, login et mot de
+   passe de votre choix. Ils feront partie du groupe L_Collegues
+
+
+
+
+
+Mise en place de privilèges d&#x27;administration
+  François aura la possibilité d&#x27;administrer l&#x27;ensemble des ressources du poste Win10-XX.
+
+
+
+
+
+ Yann pourra consulter les journaux d&#x27;évènements et configurer la carte réseau.
+
+
+
+
+
+  Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
+
+
+
+
+
+ Page 2/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Retirez l&#x27;un de vos collègues du groupe utilisateurs.
+
+
+
+
+
+Informations concernant les utilisateurs et groupes
+      En naviguant dans la console graphique des utilisateurs et des groupes, listez les
+       propriétés d&#x27;un utilisateur : Nom complet, Description
+
+
+
+
+
+Listez les propriétés d&#x27;un groupe
+
+
+À l&#x27;aide de la ligne de commande cmd.exe
+  Afficher les informations du compte utilisateur François.
+
+
+
+
+
+ Page 3/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Affichez les membres du groupe administrateurs
+
+
+
+
+
+  Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions
+  de sécurité, le mot de passe que vous taperez ne devra pas être visible à l&#x27;écran !
+
+
+
+
+
+  Ajoutez Romain au groupe L_Responsables
+
+
+
+
+
+Manipulations supplémentaires avec l&#x27;interface graphique de
+Windows 10
+
+
+  Fermez la session de l&#x27;utilisateur en cours.
+
+
+
+
+
+ Page 4/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+  Quels utilisateurs peuvent ouvrir une session sur le poste ?
+
+
+
+
+
+  L&#x27;un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
+
+
+
+
+
+  Ouvrez une session avec l&#x27;utilisateur François puis affichez les profils présents sur le
+   système. Que peut-on observer ?
+
+
+
+
+
+  À l&#x27;aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes
+   dont il est membre.
+
+
+
+
+
+ Page 5/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                         Systèmes Clients Microsoft
+
+À l&#x27;aide de PowerShell et de la VM Discovery
+  Afficher la  liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la
+   description de chacun d&#x27;eux.
+
+
+
+
+
+  Afficher  les informations suivantes concernant  l&#x27;utilisateur james   : Nom complet,
+   description, classe d&#x27;objets, date de dernière connexion
+
+
+
+
+
+  Ajouter la description Compte générique avec privilèges d&#x27;administration à l&#x27;utilisateur
+  adm
+
+
+
+
+
+  Afficher le nom et le SID des membres du groupe local L_SupportInfo
+
+
+
+
+
+ Page 6/7
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                         Systèmes Clients Microsoft
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 7/7
+                                      © ENI – Tous droits réservés</pre></section></html>

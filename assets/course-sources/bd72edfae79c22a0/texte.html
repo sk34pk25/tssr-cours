@@ -1,0 +1,149 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - L&#x27;objet.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - L&#x27;objet.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                                  Initiation à PowerShell
+L’objet
+TP du Module 02
+
+
+ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 de ce cours.
+
+
+           Durée estimée
+
+             30 minutes
+
+Énoncé
+
+Objectifs :
+•  Comprendre le langage objet.
+•   Utiliser les commandes de gestion de l’objet.
+
+Consignes :
+
+Depuis la machine CLI01 :
+•   Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet
+   System.ServiceProcess.ServiceController
+
+Quelle commande avez-vous utilisée ?
+
+Get-Service | Get-Member
+
+
+
+
+
+•  Indiquez deux propriétés de type String
+
+DisplayName               Property      string DisplayName {get;set;}
+
+MachineName               Property      string MachineName {get;set;}
+
+•  Indiquez une méthode de type Bool et une de type int.
+
+
+
+ Page 1/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                                  Initiation à PowerShell
+
+Equals                    Method        bool Equals(System.Object obj)
+
+GetHashCode               Method        int GetHashCode()
+
+La méthode de type Bool est Equals la méthode de type Int est GetHashCode
+
+•  Affichez les propriétés du service Spooler.
+
+Quelle commande avez-vous utilisée ?
+
+get-service -name spooler | get-member -MemberType Property
+
+
+
+
+
+Quelles propriétés avez-vous affichées ?
+
+Get-Service -Name Spooler
+
+
+
+
+
+Les propriétés affichées par défaut sont :
+
+Status Name DisplayName
+
+
+
+
+
+ Page 2/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                                  Initiation à PowerShell
+
+•  Indiquez les valeurs de chaque propriété.
+
+Running Spooler Print Spooler
+•  Affichez les propriétés de l’utilisateur local Adara Mcintyre.
+
+Quelle commande avez-vous utilisée ?
+
+Get-LocalUser -Name
+
+Quelles propriétés avez-vous affichées ?
+
+Name Enabled Description
+
+Indiquez les valeurs de chaque propriété.
+
+Adara Mcintyre True Technician
+
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
+avez-vous utilisée ?
+Set-LocalUser -Name &quot;adara mcintyre&quot;-Description &quot;Administrateur&quot;
+
+Get-LocalUser -Name &quot;adara mcintyre&quot;
+
+•  Affichez le statut du service Spooler.
+
+
+
+
+
+Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?
+
+(Get-Service -Name Spooler).stop()
+
+Vérifier à nouveau le statut du service.
+
+Get-Service -Name Spooler
+
+
+
+
+
+ Page 3/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                                  Initiation à PowerShell
+
+
+
+
+
+Bonus
+
+Utilisez  la méthode de  l’objet Get-Date pour renseigner  la valeur de  la propriété
+AccountExpires du compte de l’utilisateur Axel Rios.
+
+•  Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios
+   » |  select *
+
+   La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures
+   supérieure à la date actuelle.
+
+Set-LocalUser -Name &quot;adara mcintyre&quot;-AccountExpires (get-date).adddays(2)
+
+Set-LocalUser -Name &quot;adara mcintyre&quot;| select *
+
+
+
+
+
+ Page 4/4
+                                      © ENI – Tous droits réservés</pre></section></html>

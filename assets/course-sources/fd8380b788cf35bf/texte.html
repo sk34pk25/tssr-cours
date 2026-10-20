@@ -1,0 +1,376 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 04 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>             Scripting Shell
+                 Module 04 – Les variables dans les scripts
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+             Objectifs
+
+                    • Comprendre l&#x27;intérêt des variables
+                    • Utiliser des variables dans ses scripts
+                    • Manipuler les variables
+                    • Récupérer une saisie utilisateur dans une variable
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+
+                      • Les variables sont des éléments essentiels à la réalisation
+               de scripts.
+                      • Elles permettent de stocker temporairement des informations
+                au cours du déroulement du script.
+                      • Ce contenu peut être affiché ou réutilisé par d’autres commandes.
+
+                                                                                  Il est important de bien appréhender
+                                                     les mécanismes régissant les variables.
+
+
+
+
+
+3
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+ rappel  Fonctionnement d’une variable
+
+                EtapeEtapeEtapeEtape 23451                                                     CréationLectureLectureModificationLibérer ladededemémoirelalaladevariablevariablevariablela variableuneprenomprenomavecfoiszprenomlela RomainSofianomvariabledu premierinutile  utilisateur       Etape
+
+
+
+
+
+                                                 prenom=Sofia
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+
+                Les variables peuvent être classées en 4 catégories.
+
+                                                                                    Les constantes                        Les variables        Les variables        Les variables
+                                                                                                                           (variables                              locales         d’environnement        réservées                                                                                           en lecture seule)
+
+                            Les noms doivent être en       Variable système                     Il est impossible          Variable en lecture seule
+                           minuscule (utilisation de     (comme HOME) ou           d’utiliser leurs noms                    via
+                           doubles quotes “ pour         variable exportée         pour des variables       declare –r &lt;var&gt;.
+                                séparer les mots)                                             locales ou           Leurs noms doivent être en
+                                                                                d’environnement       majuscule (utilisation de “_”
+                                                                                                           pour séparer les mots
+
+
+
+
+
+5
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+
+
+                    Les principales actions            Affectation d’un contenu
+                     réalisées sur les variables
+                                                            Utilisation de son contenu
+
+                                                     Exportation de la variable
+
+                                                    Réaffectation de son contenu
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                                                                   Scripting Shell
+
+
+ Utilisation de variables locales
+
+
+
+
+
+7
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                       Utilisation de variables locales
+
+
+             Une variable locale est utilisable dans l’environnement courant.
+                      • Pour affecter un contenu à une variable : nom=valeur
+                           errormsg=&quot;une erreur est survenue, contactez votre administrateur système&quot;
+                            logdir=&quot;/var/log/&quot;
+                      • Pour utiliser le contenu d’une variable, on préfixe son nom par le
+                   caractère dollar $ , généralement entouré de doubles quotes.
+
+                           [...]
+                           echo &quot;$errormsg&quot;
+                           mkdir –p &quot;$logdir&quot; 2&gt;/dev/null
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                                                                   Scripting Shell
+
+
+    Les variables réservées
+
+
+
+
+
+9
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                      Les variables réservées
+
+
+                      • Ce sont des variables        $$       Numéro du processus en cours
+                dont le nom est réservé     $?        Code retour (0 si vrai, different de 0 si faux)
+                  par le Shell qui en gère                exit 2 -&gt; provoque la sortie avec le code retour “2”
+                      le contenu.                   $!       Numéro du dernier processus lancé en arrière-plan
+                                                    $#       Nombre de paramètres reçus par le script
+                                                    $1 à $9  Paramètres de la commande (1 pour le premier, 2 pour le                      • Elles sont très utilisées
+                dans les scripts et les                       deuxième, etc.)                                                    $0      Nom de la commande ou du script
+                enchaînements de
+               commandes.                 $@$* ou     ValeursCertainesdesversionsparamètresUnix reçusconcatènentencadréslesparvaleurs“ “ . avec *.
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                                                                   Scripting Shell
+                                                                      Les variables réservées
+
+               Exemple
+  $1$ ./monscript.sh$0       valun valdeux$2   valtrois$3    $#
+
+
+                                                           $@
+                  Variables                 $# 3       Trois paramètres reçus
+                  affectées                 $0$1  ./monscript.shvalun
+                                              $2  valdeux
+                                              $3  valtrois
+                                              $@  valun valdeux valtrois
+
+
+
+
+
+11
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+ Modification du contenu d’une
+    variable d’environnement
+
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                                                                   Scripting Shell
+                                     Modification du contenu d’une variable d’environnement
+
+
+             Une variable d’environnement est une variable qui est héritée dans
+                tous les sous-Shell.
+                      • Pour créer une variable d’environnement, on peut :
+                                • Soit exporter une variable locale
+
+                           export NOMVAR
+
+                                • Soit créer (ou modifier) et exporter directement une nouvelle variable
+
+                           export NOMVAR=valeur
+
+
+
+
+
+13
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+     Commande set
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                                                                   Scripting Shell
+                                                         Commande set
+
+
+                      • La commande set permet notamment d’affecter des valeurs
+                aux variables réservées 1, 2 ...
+
+                        $ set &quot;$LOGNAME&quot; $(uname -n)
+                        $ echo &quot;$1 $2&quot;
+                          user20 serveur102
+
+                      • Si aucun argument n’est donné, toutes les variables du Shell
+                  sont affichées.
+
+
+
+
+
+15
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+
+     Commande read
+
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                                                                   Scripting Shell
+                                                        Commande read
+
+
+                      • La commande read est utilisée pour affecter un contenu saisi
+                  par l’utilisateur à une variable.
+                                          Syntaxe    Read [options] &lt;variable(s)&gt;
+                      • Cette commande génère l’attente de saisie clavier validée
+                   (par Entrée) et procède au stockage de cette saisie dans la (ou les)
+                     variable(s) spécifiée(s).
+
+                                      echo &quot;Veuillez entrer votre nom : &quot;
+                                      read nom
+                                      echo &quot;Bonjour $nom&quot;
+
+
+
+
+
+17
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                        Commande read
+
+
+                      •  Il est possible de substituer la commande echo par
+                    l’option –p de read.
+
+
+
+                             read –p &quot;Veuillez entrer votre nom : &quot; nom
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                                                                   Scripting Shell
+                                                        Commande read
+
+
+                      • Si plusieurs paramètres séparés par des espaces sont fournis à
+                read, alors chaque mot saisi est affecté à la variable correspondante.
+                  Les saisies en surnombre sont affectées au dernier nom de
+                    variable indiqué.
+
+                                  read –p &quot; Saisissez votre nom et prénom : &quot; nom prenom
+                                          Thouin Frédéric dit penthium
+                                  echo &quot;Nom saisi : $nom &quot;
+                                  Nom saisi : Thouin
+                                  echo &quot;Prénom saisi : $prenom &quot;
+                                   Prénom saisi : Frédéric dit penthium
+
+
+
+
+
+19
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                        Commande read
+
+
+                      • Pour éviter ce type de désagrément, il est possible de déclarer
+               une variable tampon non utilisée.
+                                   read –p &quot; Saisissez votre nom et prénom : &quot; nom prenom tampon
+                                            Thouin frédéric dit penthium
+                                   […]
+                                   echo &quot;Prénom saisi : $prenom &quot;
+                                    Prénom saisi : frédéric
+                      •  Il est éventuellement possible ultérieurement de détruire cette
+                    variable tampon
+
+                                    unset tampon
+
+
+
+
+
+20</pre></section><section><h2>Page 11</h2><pre>                                                                                                   Scripting Shell
+                                               Les variables dans les scripts
+
+
+
+
+      Démo
+                                 Les variables
+
+
+
+
+
+21</pre></section></html>

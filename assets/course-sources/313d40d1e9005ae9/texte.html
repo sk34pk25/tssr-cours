@@ -1,0 +1,279 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 08 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 08 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+                   Module 08 – Le partage de ressources
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+  Le partage de ressources
+
+                                            •  Utiliser le réseau pour accéder aux informations  Objectifs                              de l’entreprise
+                                            •  Accéder aux documents via des partages
+                                            •  Accéder aux ordinateurs grâce au bureau à
+                                     distance
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  Le partage de ressources
+ Partages
+
+        Les principes du partage
+            • Permet d&#x27;accéder à une ressource
+                      • hébergée par un serveur
+                      • depuis un client
+                      • à travers le réseau
+
+
+                                                  RÉSEAU
+
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+  Le partage de ressources
+ Partages
+
+            • Les ressources ?
+                      • Des fichiers (via le partage de dossier, d&#x27;arborescence entière ou de volume)
+                      • Des imprimantes
+
+            • Les serveurs ?
+                      • Tout type de système connecté au réseau de l&#x27;entreprise peut potentiellement partager ses
+                   ressources
+                                   •  Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
+
+            • Les clients ?
+                      • Tout type de système connecté au réseau peut accéder aux ressources partagées de l&#x27;entreprise
+                                   •  Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
+
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>  Le partage de ressources
+ Partages
+
+            • Qui peut partager ?
+                      • Des droits administratifs sont requis ! Partager, c&#x27;est modifier le système !
+            • Qui a accès au partage ?
+                      • Une authentification est requise (compte local, du domaine)
+                      • 3 niveaux d&#x27;accès sont définis sur la ressource partagée
+                               •  Lecture, Modifier, Contrôle total
+                      • 2 vérifications d&#x27;identités sont effectuées
+                               • 1 – Au niveau du partage
+                               • 2 – Puis au niveau des droits NTFS
+                      • Les autorisations du partage sont restrictives
+                                                          RÉSEAU
+
+
+
+                                                                                         5
+
+
+5
+
+
+  Le partage de ressources
+ Partage de fichiers
+
+
+        Comment accéder aux fichiers partagés depuis
+        Windows 10 ?
+              • De façon momentanée, depuis l&#x27;explorateur avec le
+          chemin UNC \\serveur\partage
+              • Durablement, avec la fonctionnalité Connecter un
+             lecteur réseau
+                          •  Les lecteurs mappés sont mémorisés avec le profil utilisateur
+              • En ligne de commande avec net use
+                          •  Exemple net use z: \\serveur\partage
+                          •  La commande net view liste les partages
+              • En PowerShell avec la cmdlet New-SmbMapping
+                          •  Exemple
+                 New-SmbMapping -LocalPath &#x27;R:&#x27; -RemotePath &#x27;\\SRV-FIC\Compta&#x27;
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>  Le partage de ressources
+ Partage de fichiers
+
+      Comment partager des fichiers ?
+              • Depuis l&#x27;explorateur Windows
+                     • Ouverture du partage sur le conteneur
+                     • Partage de base : partage simplifié
+                   orienté utilisateur (à éviter)
+                     • Partage avancé : onglet Partage depuis
+                      les propriétés du conteneur
+                     • Par défaut, l&#x27;entité Tout le monde est en
+                 Lecture
+                              • Bonne pratique : préférez l&#x27;entité de
+                            sécurité Utilisateurs Authentifiés
+
+
+
+
+                                                                                         7
+
+
+7
+
+
+  Le partage de ressources
+ Partage de fichiers
+
+            • Depuis le composant MMC Dossiers partagés (fsmgmt.msc)
+                      •  Visualisation des partages actifs
+                      •  Assistant de création de partages
+                      • Vues Sessions et Fichiers ouverts
+                      • Affichage des partages administratifs
+                 générés par le système
+
+            • Depuis l&#x27;invite de commande
+                     • net share pour lister et configurer les partages
+                              • Exemple : net share commun=d:\Note_de_service /grant:&quot;utilisateurs authentifiés&quot;,FULL
+            • En PowerShell avec la cmdlet New-SmbShare
+                                   •  New-SmbShare -Name &quot;VMSFiles&quot; -Path &quot;C:\ClusterStorage\Volume1\VMFiles&quot; -FullAccess &quot;Authenticated
+                             Users&quot;
+
+                                                                                         8
+
+
+8</pre></section><section><h2>Page 5</h2><pre>  Le partage de ressources
+
+
+          Démonstration
+
+
+
+
+
+                                                                                         9
+
+
+9
+
+
+  Le partage de ressources
+ Session à distance
+
+            • Accès distant au poste
+                      • Possible grâce à la fonctionnalité Bureau à distance
+                      • Authentification avec un compte valide (local ou de domaine)
+                      • Nécessite des privilèges spécifiques
+                      • Même niveau de fonctionnement qu&#x27;une session locale
+            • Utilisation courante
+                      • Maintenir des postes (1 seule session locale ou distante)
+                      • Accéder à distance aux serveurs (2 sessions simultanées depuis Windows 2008)
+                      • Accéder à son environnement de travail depuis l&#x27;extérieur (VPN)
+            • Les limites
+                      • Mode maintenance sur un poste client (pas d&#x27;interaction possible avec l&#x27;utilisateur)
+                      • Sur les serveurs, 2 sessions avec des comptes différents
+                                   •  Blocage (à distance) si les sessions restent ouvertes
+
+
+                                                                                          10
+
+
+10</pre></section><section><h2>Page 6</h2><pre>  Le partage de ressources
+ Session à distance
+
+            • Comment se connecter à distance sur un poste Windows 10 ?
+                      • Nativement, avec l&#x27;outil Connexion Bureau à distance
+                               • Ensemble d&#x27;onglets pour personnaliser la connexion
+                               •  Sauvegarder les paramètres
+                               • Mappez vos ressources locales sur le poste distant !
+
+                      • En ligne de commande avec mstsc
+                               • Exemple : mstsc /v:serveur
+
+
+
+
+
+                                                                                          11
+
+
+11
+
+
+  Le partage de ressources
+ Session à distance
+
+
+          Configuration du poste cible ?
+                • Rubrique Système du panneau de configuration
+                • Menu Paramètres système avancés
+                • Onglet Utilisation à distance
+                • Nativement désactivé
+                • 2 niveaux d&#x27;authentification
+                        •  Authentification standard
+                        •  Authentification NLA
+                • Par défaut, accès autorisé aux administrateurs
+         Fonctionnement
+                • Protocole RDP (port 3389)
+                • Configuration automatique du pare-feu
+                        •  Attention aux emplacements réseau
+
+                                                                                          12
+
+
+12</pre></section><section><h2>Page 7</h2><pre>  Le partage de ressources
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          17
+
+
+17
+
+
+  Le partage de ressources
+
+
+              TP
+
+
+
+
+
+                                                                                          18
+
+
+18</pre></section><section><h2>Page 8</h2><pre>  Le partage de ressources
+ Conclusion                                            •  Les réseaux sont les fondations des systèmes
+                                    d’informations des entreprises.
+                                            •  Les systèmes d’exploitation tirent profit du réseau
+                                pour organiser et sécuriser l’accès aux
+                                    informations
+
+
+
+
+
+                                                                                          19
+
+
+19</pre></section></html>

@@ -1,0 +1,269 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 3 - DNS hébergeur et redondance.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP 3 - DNS hébergeur et redondance.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                              Services réseau en environnement Microsoft
+DNS hébergeur et
+redondance
+TP du Module 06 – Le service DNS
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 6 et réalisé le
+ précédent TP.
+
+
+           Durée estimée
+
+            1 à 2 heures
+
+Solution
+
+Prérequis :
+
+    •  Avoir réalisé le TP précédent du module 05.
+
+    •  Un serveur DNS sera à mettre en place dans le réseau 192.168.0.0/24 ainsi que dans
+        le réseau 192.168.1.0/24.
+
+    •  Le routage entre les deux réseaux doit être fonctionnel.
+
+Enregistrements dynamiques :
+    •  Sur le serveur DNS hébergeur, configurez les zones principales pour permettre
+       l’enregistrement dynamique des clients.
+
+
+
+
+
+ Page 1/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+Il faut faire un clic droit sur la zone DNS, puis dans l’onglet Général, sélectionner Nonsecure
+and Secure dans le champ Dynamic Update.
+
+
+    •  Sur les postes clients, configurez le suffixe DNS principal.
+
+Il faut aller dans les propriétés de la carte réseau, puis cliquer sur Advanced, puis sur l’onglet
+DNS.
+
+
+
+
+
+    •   Vérifiez la présence des nouveaux enregistrements DNS :
+        o  avec la console DNS sur le serveur DNS hébergeur
+
+
+
+
+
+ Page 2/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+Voici le détail des fichiers de zone mis à jour par le serveur DHCP et le détail de  la
+configuration du serveur DHCP.
+
+
+
+
+
+ Page 3/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+                                                                                                                                                                                                   Il faut aller dans les propriétés du serveur
+                                                          DHCP en cliquant sur IPV4, puis sur l’onglet
+                                                               DNS et activer les cases suivantes.
+
+
+
+
+
+        o  Avec la commande nslookup
+
+Avec la configuration du suffixe DNS configuré
+
+
+
+
+
+Sans la configuration du suffixe, il faut ajouter le nom de domaine.
+
+
+
+
+
+ Page 4/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+        o  Quels types d’enregistrements sont créés ?
+Des enregistrements de type A et TXT.
+
+
+
+
+
+ Page 5/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+Mise en œuvre de la redondance DNS :
+Vérifiez au préalable que le routage est opérationnel entre les deux réseaux.
+Vous réaliserez un schéma des infrastructures.
+
+    •  Sur le serveur DNS hébergeur du réseau 192.168.0.0/24 :
+        o  Configurez les zones principales, et le transfert de zone pour permettre le
+               transfert à partir du serveur DNS hébergeur du réseau 192.168.1.0/24.
+
+Il faut faire un clic droit sur la zone DNS puis dans l’onglet Zone Transfers, il faut ajouter l’IP
+du serveur distant.
+
+
+
+
+
+    •  Sur le serveur DNS du réseau 192.168.1.0/24 :
+        o  Configurez les zones secondaires et le transfert de zone pour permettre le
+               transfert à partir du serveur DNS du réseau 192.168.0.0/24.
+
+
+
+
+
+ Page 6/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                             Services réseau en environnement Microsoft
+
+
+
+
+
+                                                       On crée une nouvelle zone sur le serveur
+                                                                        DNS, en type secondary, puis on spécifie
+                                                                                                le nom de la zone
+
+
+
+
+
+Page 7/11
+                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+                                                    On indique ensuite l’IP du serveur DNS
+                                                                                Maitre.
+
+
+
+
+
+    •   Vérifiez que le transfert est fonctionnel en créant un nouvel enregistrement dans la
+      zone principale :
+
+Ici on crée l’enregistrement sur le serveur maître.
+
+
+
+
+
+        o  Le nouvel enregistrement est-il créé ?
+□ Oui
+
+
+
+
+
+ Page 8/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+        o  Sinon, consultez le journal d’évènements DNS, vérifiez les connexions…
+
+
+
+
+
+Validation de la redondance DNS
+    •  Paramétrez les clients de chacune des infrastructures :
+        o  Pour les clients du réseau 192.168.0.0/24 :
+                  ▪  DNS préféré = Serveur DNS hébergeur du réseau d’appartenance.
+                  ▪  DNS auxiliaire = Serveur DNS hébergeur du second réseau.
+
+
+
+
+
+ Page 9/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>                                              Services réseau en environnement Microsoft
+
+
+
+
+
+        o  Pouvez-vous configurer les suffixes DNS de deux domaines sur tous les
+               clients ?
+ □ OUI
+           o  Comment procéder ?
+     Une option DHCP est disponible.
+
+
+
+
+
+    •  Arrêtez le service DNS hébergeur du 1er réseau et testez la résolution depuis
+        l’infrastructure du 2e réseau.
+        o  Peut-on résoudre les noms du 1er Réseau ?
+□ Oui
+
+        o  Peut-on résoudre les noms du 2e Réseau ?
+
+
+
+
+ Page 10/11
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 11</h2><pre>                                              Services réseau en environnement Microsoft
+
+□ Oui
+
+        o  Peut-on résoudre les noms DNS publics ?
+□ Oui, à condition d’indiquer l’IP du serveur DNS de l’ENI comme redirecteur non
+conditionnel
+
+
+    •  Redémarrez le service DNS hébergeur du 1er réseau.
+        o  Peut-on résoudre les noms du 1er Réseau ?
+□ Oui
+
+        o  Peut-on résoudre les noms du 2e réseau ?
+□ Oui
+
+        o  Peut-on résoudre les noms DNS publics ?
+□ Oui, à condition d’indiquer l’IP du serveur DNS de l’ENI comme redirecteur non
+conditionnel
+
+
+    •  Vous réaliserez un schéma montrant les chaînes de résolutions DNS.
+
+
+
+
+
+ Page 11/11
+                                      © ENI – Tous droits réservés</pre></section></html>

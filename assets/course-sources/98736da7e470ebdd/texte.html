@@ -1,0 +1,158 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 2 - Les bases de gestion d&#x27;un domaine.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche démo 2 - Les bases de gestion d&#x27;un domaine.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                      Services réseau en environnement Microsoft
+Les bases de gestion d’un
+domaine
+Démonstration 02 du module 02
+
+
+ Cette démonstration décrit les différentes étapes relatives aux opérations courantes dans la
+ gestion d’un domaine Active Directory.
+
+Déroulement
+    •  Ouverture de la console MMC
+
+Après l’ouverture de session sur la session du domaine, cliquer sur le menu démarrer (1), puis sur la
+tuile Windows Administrative Tools (2).
+
+
+
+
+
+ Page 1/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Ajout du raccourci dans la barre des tâches
+
+Dans l’explorateur qui vient de s’ouvrir, faire un clic droit sur la ligne Active Directory Users and
+Computers (1), puis sur la ligne Pin to taskbar (2). L’icône (3) apparaît.
+
+
+
+
+
+    •  Accès à la console Active Directory
+
+Cliquer sur le raccourci précédemment créé afin de voir l’arborescence de l’Active Directory
+précédemment configuré.
+
+
+
+
+
+    •  Création Unité d’Organisation
+
+Faire un clic droit à la racine du domaine (1), puis sur la ligne New (2) et enfin sur la ligne
+Organizational Unit (3). Indiquer dans l’input box Mon Entreprise (4), puis cliquer sur le bouton OK
+(5). L’UO apparaît dans l’arborescence du domaine (6).
+
+
+
+
+
+ Page 2/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                      Services réseau en environnement Microsoft
+
+
+
+
+
+    •  Création Arborescence
+
+Dans l’UO « Mon Entreprise » qui vient d’être créée, créer les UO suivantes :
+
+     -   Utilisateurs
+
+     -   Ordinateurs
+
+     -  Groupes
+
+
+
+
+
+ Page 3/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Création Utilisateur
+
+Se positionner dans l’UO Utilisateurs (1). Faire un clic droit, aller sur la ligne New (2), puis sur la ligne
+User (3). Dans les deux input box First name et Last name (4), indiquer un prénom et un nom. Dans
+l’input box User logon name (5), indiquer un login de connexion pour l’utilisateur, puis cliquer sur le
+bouton Next (6). Sur les lignes Password et Confirm password (7), indiquer un mot de passe avec
+Majuscule + Minuscule + Chiffre, puis cliquer sur le bouton Next (8). Enfin, cliquer sur le bouton Finish
+(9). L’utilisateur apparaît dans l’UO Utilisateurs (10).
+
+
+
+
+
+ Page 4/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                      Services réseau en environnement Microsoft
+    •  Création Ordinateur
+
+Se positionner dans l’UO Ordinateurs (1). Faire un clic droit, aller sur la ligne New (2), puis sur la ligne
+Computer (3). Dans l’input box Computer name (4), indiquer un nom de machine, puis cliquer sur
+le bouton Next (5). Cliquer sur le bouton Next (6). Enfin, cliquer sur le bouton Finish (7). L’ordinateur
+apparaît dans l’UO Ordinateurs (8).
+
+
+
+
+
+ Page 5/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                      Services réseau en environnement Microsoft
+
+
+
+
+
+    •  Création Utilisateur
+
+Se positionner dans l’UO Groupes (1). Faire un clic droit, aller sur la ligne New (2), puis sur la ligne
+Group (3). Dans l’input box Group Name (4), indiquer le nom du groupe, puis cliquer sur le bouton
+OK (5). Le groupe apparaît dans l’UO Groupes (6).
+
+
+
+
+
+ Page 6/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                      Services réseau en environnement Microsoft
+
+    •  Intégration Ordinateurs dans AD
+
+Prérequis : avoir une VM Windows 10 configurée (correctement nommée, sur le même sous-réseau
+que la VM sur laquelle l’Active Directory est installé).
+
+Aller dans les propriétés système de la VM Windows 10. Pour ce faire, appuyer simultanément sur la
+touche Windows du clavier ainsi que la touche R du clavier. Indiquer control dans l’input-box (1),
+puis cliquer sur le bouton OK (2). Cliquer sur le lien Système et sécurité (3). Cliquer sur le lien Système
+(4). Cliquer sur le lien Modifier les paramètres (5). Cliquer sur le bouton Modifier (6). Cocher le bouton
+radio Domaine et indiquer le nom du domaine à rejoindre (7), puis cliquer sur le bouton OK (8). Saisir
+les informations de sécurité (9), puis cliquer sur le bouton OK (10). Après redémarrage de la VM, la
+mire de connexion propose la connexion sur le domaine.
+
+
+
+
+
+ Page 7/9
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                                     Services réseau en environnement Microsoft
+
+
+
+
+
+Page 8/9
+                                         © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                                      Services réseau en environnement Microsoft
+
+    •   Vérification de l’ajout du nouvel ordinateur dans l’AD
+
+Se connecter sur la VM sur laquelle est installé l’Active Directory. Ouvrir la console Active Directory
+Users and Computers. Aller sur l’UO Computers (1). Faire un clic droit sur le nouvel ordinateur, puis
+sur le menu Move (2). Sélectionner l’UO Ordinateurs précédemment créée (3), puis cliquer sur le
+bouton OK (4). L’ordinateur se trouve désormais dans l’UO Ordinateurs précédemment créé.
+
+
+
+
+
+ Page 9/9
+                                          © ENI – Tous droits réservés</pre></section></html>

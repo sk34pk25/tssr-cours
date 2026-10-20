@@ -1,0 +1,544 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 4 - La gestion des impressions.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP 4 - La gestion des impressions.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                             Service Réseau en environnement Microsoft
+La gestion des impressions
+TP du Module 02 – Active Directory
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 2 et réalisé les TP
+ précédents.
+
+
+           Durée estimée
+
+            30 à 1 heure
+
+Énoncé
+
+Prérequis :
+
+    •  Avoir réalisé le TP précédent du Module 02.
+
+
+Mise en place du service d’impression
+
+W19-SRV1 sera le serveur en charge de la gestion des imprimantes.
+
+
+Installation du rôle du serveur d’impression
+
+
+Depuis la console Gestionnaire de serveur de W19-SRV1, cliquer sur Gérer puis Ajouter des
+rôles et fonctionnalités et réaliser l’installation du rôle Services d’impression. Attendre la fin
+de l’installation du service (le redémarrage du serveur n’est pas nécessaire).
+
+
+
+
+
+ Page 1/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Une fois l’installation du rôle et des fonctionnalités associées effectuée, lancer la console
+Gestion de l’impression à partir du menu Outils dans la console Gestionnaire de serveur.
+
+
+
+
+
+Configuration d’imprimantes
+
+L’entreprise vient d&#x27;investir dans un périphérique d&#x27;impression réseau à destination du
+service commercial sur le site de Rennes. Le modèle est HP Color LaserJet M552.
+
+Réalisez les actions nécessaires sur le serveur afin de pouvoir mettre à disposition ce
+périphérique.
+
+ Adresse IP  Nom imprimante       Param. par défaut  Qui peut imprimer ?
+
+
+ 172.28.10.46  Imp-Commercial-35RDC     - Recto/Verso         Service commercial
+
+
+Paramètres supplémentaires :
+
+
+
+
+
+ Page 2/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                             Service Réseau en environnement Microsoft
+
+    •  Les administrateurs du domaine auront le contrôle total sur la gestion de ces
+      imprimantes
+    •  Les imprimantes seront publiées dans l’annuaire Active Directory
+
+La société possède un périphérique HP Laserjet 5 destinée à imprimer des bons de
+livraison/retrait pour le service production. Les livreurs doivent impérativement récupérer
+ceux-ci avant de quitter la plateforme logistique.
+
+L&#x27;imprimante actuelle ne  suffit plus aujourd’hui pour suivre la cadence de l&#x27;usine. La
+direction a donc décidé d&#x27;investir dans deux nouveaux périphériques d&#x27;impression de
+modèle HP Color LaserJet Pro MFP M274
+
+Réalisez les actions nécessaires sur le serveur afin de mettre à disposition ces périphériques.
+
+ Adresse IP   Nom Imprimante            Qui peut imprimer ?
+
+ 172.28.10.90
+                Imp-BL44-Usine                 Service production
+ 172.28.10.91
+
+
+
+Paramètres supplémentaires :
+
+    •  Les administrateurs du domaine auront le contrôle total sur la gestion de cette
+      imprimante
+    •  L’imprimante sera publiée dans l’annuaire Active Directory
+
+
+
+
+1°) Copie des fichiers
+
+A partir de votre machine ENI, se rendre sur le partage distrib (lecteur R:) à l’endroit
+suivant : ‘Drivers\Drivers_imprimantes_TSSR090_Services_réseau_Microsoft’
+
+
+
+
+
+ Page 3/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Copier/coller sur W19-SRV1 le fichier contenant le pilote
+universel d’imprimante HP nommé upd-pcl6-x64-….
+
+
+
+
+
+2°) Extraction des pilotes
+
+
+Faire un clic droit sur le fichier de pilote et sélectionner Extraire tout…, puis choisir le dossier de votre
+choix
+
+
+
+
+
+Un nouveau dossier apparait avec le contenu du fichier décompressé.
+
+
+
+
+
+ Page 4/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                             Service Réseau en environnement Microsoft
+
+3°) Ajout des pilotes au serveur d’impression
+
+
+Dans la console Gestion de l’impression, se diriger dans la section Pilotes. Seuls les pilotes
+installés par défaut sont affichés pour le moment :
+
+
+
+
+
+Faire un clic droit sur le noeud Pilotes puis sélectionner Ajouter un pilote. Une fenêtre
+d’assistant s’ouvre pour effectuer les paramétrages.
+
+
+
+
+
+ Page 5/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Dans le cas présent, seuls des pilotes x64 (64 bits) seront utilisés, ne pas cocher ARM64 ni
+x86.
+
+
+
+
+
+Pour ajouter des pilotes complémentaires, cliquer sur Disque fourni.
+
+
+
+
+
+Cliquer ensuite sur Parcourir pour accéder aux fichiers décompressés sur W19-SRV1
+précédemment.
+
+
+
+
+
+ Page 6/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Dans la capture ci-dessous, les fichiers de pilotes ont été décompressés dans un dossier sur
+le bureau de l’utilisateur Administrateur.
+
+Sélectionner le fichier hpzipa23.inf comme indiqué dans la capture :
+
+
+
+
+
+Confirmer en cliquant sur Ouvrir puis OK
+
+Le modèle de périphérique d’impression apparait, valider avec le bouton Suivant.
+
+
+
+
+
+ Page 7/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Le nouveau pilote est maintenant listé dans la console Gestion de l’impression.
+
+
+
+
+
+ Page 8/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Création des ports d’impression
+
+4 ports d’impression doivent être créés.
+
+Faire un clic droit dans la console sur la section Ports puis sélectionner Ajouter un port.
+
+
+
+
+
+Choisir le type de port Standard TCP/IP Port et cliquer sur Ajouter un port.
+
+
+
+
+
+ Page 9/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Renseigner dans la zone Nom ou adresse IP la première adresse IP (ici 172.28.10.46)
+Le Nom du port se complète automatiquement.
+
+
+
+
+
+L’assistant tente de contacter l’imprimante sur l’adresse indiquée. Il faut attendre que le
+test se termine pour pouvoir poursuivre. Choisir ensuite le périphérique générique proposé
+et cliquer sur Suivant.
+
+
+
+
+
+ Page 10/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 11</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+. Cliquer sur Terminer pour valider la fin du paramétrage.
+
+
+
+
+
+Un port TCP/IP est maintenant créé et listé dans la console de gestion
+
+
+
+
+
+ Page 11/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 12</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Effectuer les mêmes opérations pour les ports restants (172.28.10.90 et 172.28.10.91)
+
+Cela doit donner finalement :
+
+
+
+
+
+Création des imprimantes
+
+Il faut maintenant configurer les différentes imprimantes nécessaires sur le serveur.
+
+2 imprimantes différentes seront créées pour correspondre aux « profils d’impression »
+demandés,
+
+IMP-Commercial-35RDC (HP Color Laserjet M552)
+
+Faire un clic droit sur la section Imprimantes puis sélectionner Ajouter une imprimante
+
+
+
+
+
+ Page 12/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 13</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Cocher Ajouter une nouvelle imprimante via un port existant et sélectionner le premier
+port TCP/IP créé (ici 172.28.10.46)
+
+
+
+
+
+Sélectionner le pilote existant
+
+
+
+
+
+ Page 13/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 14</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Nommer l’imprimante et paramétrez-là comme suit :
+
+
+
+
+
+Cliquez sur suivant dans chaque écran restant puis sur Terminer
+
+IMP-BL44-Usine (HP Color Laserjet Pro MFP M274)
+
+Procédez de la même façon pour le périphérique suivant
+
+
+
+
+
+ Page 14/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 15</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Ajoutez une imprimante, puis sélectionnez le port existant 172.28.10.90 (le 2ème port sera
+sélectionné plus tard) et le pilote installé précédemment.
+
+
+
+
+
+Paramétrez l’imprimante comme suit :
+
+
+
+
+
+Gestion des droits d’accès
+
+Il faut maintenant configurer les autorisations d’utiliser ou gérer ces imprimantes en
+respectant les préconisations AGDLP
+
+Pour la création des groupes de domaine local, veuillez vous reporter à l’atelier
+précédent relatif aux partages de fichiers.
+
+Vous devrez avoir créé les groupes de domaine local suivant :
+
+
+
+
+
+ Page 15/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 16</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Pour chacune des imprimantes, signification des groupes :
+    •  GestDocuments =&gt; permet de gérer la file d’attente et les travaux qui y sont
+    •  GestImprimante =&gt; permet de gérer l’imprimante (modifier autorisations d’accès,
+                         gérer les documents et imprimer)
+    •  Imprimer =&gt; pas besoin de préciser…
+
+Le groupe des administrateurs GG_Informatique_Admin sera membre des
+DL_*_GestImprimante
+
+Le groupe GG_Commercial sera membre du groupe DL_IMP-Commercial-
+35RDC_Imprimer
+
+Le groupe GG_Production sera membre du groupe DL_IMP-BL44-Usine_Imprimer
+
+
+IMP-Commercial-35RDC (HP Color Laserjet Pro MFP M274)
+
+Faire un clic droit sur l’imprimante IMP-Commercial-35RDC, puis Propriétés
+
+
+
+
+
+ Page 16/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 17</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Dans l’onglet Sécurité, ajoutez les bons groupes DL comme suit après avoir supprimé le
+groupe tout le monde :
+
+
+
+
+
+Pour publier l’imprimante dans l’annuaire Active Directory, rendez-vous dans l’onglet
+Partage et cocher la case :
+
+
+
+
+
+ Page 17/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 18</h2><pre>                                             Service Réseau en environnement Microsoft
+
+IMP-BL44-Usine (HP Color Laserjet Pro MFP M274)
+
+
+Faire un clic droit sur l’imprimante IMP-BL44-Usine, puis Propriétés
+
+
+
+
+
+Dans l’onglet Sécurité, ajoutez les bons groupes DL comme suit après avoir supprimé le
+groupe tout le monde :
+
+
+
+
+
+ Page 18/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 19</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Pour publier l’imprimante dans l’annuaire Active Directory, cochez la case déjà abordée
+pour l’imprimante précédente (dans onglet Partage)
+
+Dernier point, pour associer l’imprimante IMP-BL44-Usine à deux adresses IP, il faut activer
+ce qui s’appelle un « pool » d’imprimantes.
+
+Pour ce faire, direction onglet Ports afin d’activer la case nécessaire permettant de
+cocher le 2ème port :
+
+
+
+
+
+Installation d’une imprimante sur un poste client
+
+
+    •   Installer manuellement l’imprimante partagée IMP-Commercial-35RDC sur le poste
+       client W10
+    •   Tester l’impression avec un compte utilisateur membre du groupe G-Commercial
+
+
+Ouvrir une session avec un compte administrateur  sur  le poste client pour  installer
+l’imprimante.
+
+1ère méthode
+
+Le moyen le plus simple pour installer une imprimante est de taper le chemin UNC dans le
+menu Exécuter :
+
+
+
+
+ Page 19/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 20</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Valider par OK, voici la présentation des partages disponibles où nous retrouvons les 2
+imprimantes :
+
+
+
+
+
+Un clic droit, puis sélectionner Connecter… pour déclencher l’installation de l’imprimante
+
+
+2ème méthode
+
+Passer par le menu Démarrer -&gt; Paramètres :
+
+
+
+
+
+Puis cliquer sur ajouter une imprimante
+
+
+
+
+
+ Page 20/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 21</h2><pre>                                             Service Réseau en environnement Microsoft
+
+
+
+
+
+Les imprimantes, si elles sont bien listées dans l’annuaire AD, doivent apparaitre.
+
+
+
+
+
+Ne reste plus qu’à sélectionner l’imprimante souhaitée et cliquer sur Ajouter l’appareil
+
+
+
+
+
+Fermer la session et rouvrez-là avec un compte du service commercial. Utilisez une
+application type bureautique ou retouche/affichage d’image et lancez une impression
+en utilisant l’imprimante installé précédemment.
+
+Le travail d’impression doit normalement apparaitre dans la file d’attente d’impression.
+
+
+
+
+
+ Page 21/22
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 22</h2><pre>                                            Service Réseau en environnement Microsoft
+
+
+
+
+
+Page 22/22
+                                     © ENI – Tous droits réservés</pre></section></html>

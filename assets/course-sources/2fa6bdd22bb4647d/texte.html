@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 4 - Sort-Object.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Fiche d‚mo 4 - Sort-Object.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+Sort-Object
+Démonstration 04 du module 3
+
+
+ L’objectif de cette démonstration est de vous présenter la commande Sort-Object.
+
+Déroulement
+
+L’ordre d’affichage des objets dans le résultat de commande est déterminé selon le type de valeur.
+
+Pour une valeur de type String c’est un ordre alphabétique, pour une valeur de type Int c’est un
+ordre croissant. La commande Sort-Object permet de modifier ses ordres.
+
+La commande Sort-Object s’utilise en fin de linge de commande de manière à mettre en forme
+le résultat final.
+
+
+
+
+
+•  A la suite d’une commande Select-Object
+
+              o  Les objets sont affichés par état de leur statut, les statuts Stopped puis les statuts
+                  Running.
+
+              o  La     valeur    de     propriété    Status     étant    de     type
+                System.ServiceProcess.serviceControllerStatus, l’ordre de tri se fait
+                en premier sur les statuts arrêtés.
+La commande permet aussi d’inverser l’ordre de tri standard.
+
+
+
+
+ Page 1/2
+                                          © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                        Initiation au Scripting avec PowerShell
+
+
+
+
+
+Le paramètre Descending inverse l’ordre de tri, quel que soit le type de valeurs de propriété.
+
+Comme on le voit dans l’exemple précédent, seule la propriété Status subit un tri ; la propriété
+Name est non triée.
+
+La commande Sort-Object accepte plusieurs propriétés pour effectuer un tri.
+
+
+
+
+
+Les services sont triés par leurs statuts et ensuite l’ensemble des services Stopped subissent un tri au
+niveau de leur nom.
+
+
+
+
+
+ Page 2/2
+                                          © ENI – Tous droits réservés</pre></section></html>

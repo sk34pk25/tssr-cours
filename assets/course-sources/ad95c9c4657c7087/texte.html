@@ -1,0 +1,109 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Les pilotes et les imprimantes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enonc‚ du TP - Les pilotes et les imprimantes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Les pilotes et les
+imprimantes
+TP du Module 09 – Les pilotes et les imprimantes
+
+ Au cours de ce TP, vous serez amené à rechercher et à afficher des informations
+ concernant les pilotes et les imprimantes de votre VM Windows 10 ainsi que de votre
+ seconde VM. Votre seconde VM héberge une imprimante et il s&#x27;agira d&#x27;y accéder via le
+ réseau, de l&#x27;installer et de vérifier sa présence sur votre système.
+
+       Durée estimée
+
+          1 heure
+
+Énoncé
+
+Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique
+
+Sur Win10-XX
+  Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
+        o  Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des
+               pilotes
+        o  Pilotes_signature.csv contenant les informations sur la signature des pilotes
+                    Vous pourrez ouvrir et convertir ces fichiers avec Excel
+
+
+
+
+
+ Page 1/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+  Avec l&#x27;interface graphique
+        o  Affichez les informations détaillées sur le pilote graphique avec la console
+        MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
+
+
+
+
+
+Gestion des imprimantes
+Quelles sont les 4 imprimantes disponibles par défaut sur votre VM Win10-XX ? Les
+retrouvez-vous dans la console MMC adaptée ?
+
+
+
+
+
+  Éditez les propriétés de l&#x27;imprimante Microsoft Print to PDF
+        o  Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par
+             défaut. Sans configuration particulière, l&#x27;imprimante sortira des documents
+          en orientation paysage. Imprimez une page de test pour vérification.
+
+
+
+
+
+  Depuis   votre  VM   Win10-XX,   connectez-vous  à   l&#x27;imprimante   partagée
+   HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery.
+        o  Attendez quelques minutes le temps que le pilote s&#x27;installe puis vérifier sa
+           présence dans  le panneau de configuration et dans  la console MMC
+           adaptée
+
+
+
+
+
+ Page 2/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+Sur Discovery
+Gestion de configurations personnalisées
+  À l&#x27;aide de PowerShell, afficher les informations par défaut concernant l&#x27;imprimante
+   &quot;HP LaserJet&quot;.
+
+
+
+
+
+  Affichez maintenant les informations suivantes concernant &quot;HP LaserJet&quot; :
+        o  Son nom
+        o   Si elle est partagée ou non
+        o  Le nom du partage
+        o  Le nom du port
+        o  Son emplacement
+        o  Sa priorité
+
+
+
+
+
+ Page 3/4
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+Solution
+
+Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
+les ressources à télécharger.
+
+
+
+
+
+ Page 4/4
+                                      © ENI – Tous droits réservés</pre></section></html>

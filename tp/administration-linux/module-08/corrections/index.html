@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../../assets/stylesheets/source-reader.css">
+    
       <link rel="stylesheet" href="../../../../assets/stylesheets/tokens.css">
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/base.css">
@@ -12126,6 +12128,8 @@
       
         
       
+        
+      
     
     
     
@@ -12231,6 +12235,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ressources/conformite-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supports originaux et provenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -12313,6 +12345,29 @@
 
 
 <h1 id="correction-module-08-stockage-avance-lvm">Correction — Module 08 — Stockage avancé LVM<a class="headerlink" href="#correction-module-08-stockage-avance-lvm" title="Permanent link">¶</a></h1>
+<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p></p><div class="tssr-original-reader">
+<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
+<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<details class="tssr-original-document">
+<summary>Correction · M08TP01 - Solution - Manipuler les disques et LVM.pdf · 2 pages</summary>
+<div class="tssr-original-document__body">
+<p class="tssr-original-links"><a href="../../../../assets/course-sources/b9b591720725e783/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="../../../../assets/course-sources/b9b591720725e783/texte.html" target="_blank" rel="noopener noreferrer">Texte accessible</a> <a href="https://drive.google.com/file/d/17vtmbV7KvIdKkDDVpPIkV6KiF4Xtzxlr/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
+<p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/b9b591720725e783/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/b9b591720725e783/pages-001-002.webp" alt="Source Drive — M08TP01 - Solution - Manipuler les disques et LVM.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP01 - Solution - Manipuler les disques et LVM.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<p class="tssr-original-proof">Référence du document : 17vtmbV7KvIdKkDDVpPIkV6KiF4Xtzxlr · <span title="Empreinte SHA-256 du fichier source">SHA-256 b9b591720725e783…</span></p>
+</div>
+</details>
+</div><p></p>
+</div>
+<div class="tabbed-block">
+<div class="admonition info">
+<p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+</div>
 <p><strong>Sources originales (A) :</strong> solution M08TP01 et support M08 Drive. <strong>Correction (B) :</strong> contrôles reformulés.</p>
 <p>Après ajout du disque virtuel, la solution identifie le <code>host</code> SCSI puis déclenche son scan avant de contrôler l’apparition du nouveau disque. <code>fdisk</code> crée la partition ; le type est changé vers <code>8e</code> (Linux LVM). La partition devient un volume physique avec <code>pvcreate</code>, est ajoutée au groupe existant avec <code>vgextend</code>, puis <code>lvcreate -n lvvar -L 20G</code> crée le volume attendu. Pour affecter le reste au volume existant, la solution utilise <code>lvextend -l 100%FREE /dev/&lt;VG&gt;/&lt;LV&gt;</code>.</p>
 <p>Avant et après chaque étape, contrôler les objets LVM :</p>
@@ -12321,6 +12376,9 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lvs
 </span></code></pre></div>
 <p>Ne pas supposer le nom du disque, du groupe ni du volume : les relever sur la VM de laboratoire.</p>
+</div>
+</div>
+</div>
 
 
 

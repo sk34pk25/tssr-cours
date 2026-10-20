@@ -1,0 +1,1707 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Modèle_Solution_MSP.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Modèle_Solution_MSP.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>MSP systèmes clients
+
+ Avant de démarrer ce TP,   il convient d’avoir suivi les vidéos des cours Outils
+ collaboratifs offices 365, Base des réseaux, Windows client, Linux client.
+
+
+       Durée estimée
+
+      4 jours et 2 heures
+
+Énoncé
+1. Partie 1 – Installation des systèmes
+
+
+1.1  Présentation
+
+     L’objectif de cette mise en situation professionnelle est d’installer et configurer
+progressivement deux systèmes d’exploitation : Microsoft Windows 10 et Debian 10.
+
+
+                              DHCP
+
+
+
+
+
+1.1.1  Vous installerez 2 systèmes clients à l’aide de l’outil de virtualisation VMware
+      Workstation en respectant les caractéristiques spécifiques qui vous seront fournies
+       plus tard.
+
+
+
+
+
+1.1.2  Certaines tâches demandées nécessiteront de travailler en binôme.</pre></section><section><h2>Page 2</h2><pre>Vous prendrez soin de créer des procédures relatant toutes vos actions. Ces
+procédures doivent être partagées avec votre coach à des fins d&#x27;aide et de
+vérification.
+
+
+Grace à l’outil PSR et capture écran. Nous pourrons faire rapidement des procédures.
+
+
+
+
+
+Nous paramétrons le nombre de capture à 200 minimum pour avoir suffisamment de
+ressources.</pre></section><section><h2>Page 3</h2><pre>1.2  Caractéristiques matérielles des machines virtuelles
+
+
+✓ Poste Client Windows
+
+Nom : W10-VosInitiales
+Système d’exploitation : Windows 10 Professionnel
+Prérequis matériels :
+
+         CPU:
+                                       Allouer les ressources en suivant les
+                                   recommandations Microsoft
+        Mémoire :
+
+                                       - 1 disque dur de 32 Go
+         Disque dur :
+                                       - 1 disque dur additionnel de 40 Go
+
+        Réseau :            1 interface réseau en « Bridged »
+
+
+
+
+✓ Poste Client Linux
+
+Nom : DEB10-VosInitiales
+Système : Debian 10
+Prérequis matériels :
+
+         CPU:               1 vCPU
+
+                            2048 MB
+        Mémoire :
+
+                                       - 1 disque dur de 20 Go
+         Disque dur :
+                                       - 1 disque dur additionnel de 40 Go
+        Réseau :            1 interface réseau en « Bridged »</pre></section><section><h2>Page 4</h2><pre>Création des machines virtuelles</pre></section><section><h2>Page 5</h2><pre></pre></section><section><h2>Page 6</h2><pre></pre></section><section><h2>Page 7</h2><pre>Spécifié un emplacement pour le disque (le mieux et de mettre le disque virtuelle sur un
+disque physique different du système d’exploitation).
+
+
+
+
+
+Choississez la carte reseau virtuelle “host-only”:</pre></section><section><h2>Page 8</h2><pre>Nous insérons dans le lecteur virtuel de la VM l’iso demander :</pre></section><section><h2>Page 9</h2><pre>Ajout d’un disque :</pre></section><section><h2>Page 10</h2><pre>1.3  Tâches à réaliser
+
+
+✓ Schéma et tableau récapitulatif
+
+1.3.1  Votre première tâche sera, en utilisant l’illustration précédemment indiquée, de
+       reproduire le schéma et d’y faire figurer toutes les informations liées à l’adressage IP.
+      Vous vous servirez pour cela de tout moyen à votre convenance (www.draw.io, MS
+        Visio, Word ou Paint…).
+
+Voici  le schéma demandé  (les adresses  IP sont  ici à  titre d&#x27;exemple et ne seront
+certainement pas les vôtres):
+
+
+
+
+
+1.3.2  Vous produirez également un tableau récapitulant l’ensemble des informations
+       relatives aux configurations des systèmes (login/mots de passe, noms, adresses IP,
+       processeurs, mémoire…).</pre></section><section><h2>Page 11</h2><pre>✓ Installation des systèmes
+1.3.3  Sur le poste Microsoft sera déployé le système d’exploitation Windows 10 édition
+       professionnelle, sur le 1er disque dur qui ne comportera qu’une seule partition
+        utilisant l’intégralité de l’espace. Vous configurerez le système en respectant les
+        critères précédemment évoqués (nommage, adressage IP…). Vous empêcherez en
+       outre, le service Windows Update, de se connecter aux serveurs Microsoft. Vous
+       trouverez l’iso d’installation ici : \\Distrib\iso\os\windows\10\
+
+Lors de l’installation du système d’exploitation windows 10 selectionner « windows 10
+professionnel » :</pre></section><section><h2>Page 12</h2><pre>Dans services.msc nous pouvons voir le service windows update. Il nous suffit de le
+mettre en démarrage manuel (au lancement du système d’exploitation) et de
+l’arrêter.</pre></section><section><h2>Page 13</h2><pre>1.3.4  Quant au Client Debian, en plus des informations déjà mentionnées, vous installerez
+        le système depuis l’image ISO « DVD » de la distribution Debian en version 10.x avec
+     un environnement graphique. Vous trouverez l’iso d’installation ici :
+       \\10.0.0.6\Distrib\iso\os\unix-linux\linux\Debian\debian 10 Buster\debian-10.2.0-
+      amd64-DVD-1.iso
+
+
+
+
+
+   Vous partitionnerez le disque manuellement selon le schéma suivant en prenant garde de
+ pouvoir exploiter ultérieurement l’espace non alloué et Vous conserverez le système de fichiers
+                        par défaut des différents points de montage.
+
+
+                                               /         17 Go
+
+                                      /boot       512 Mo
+
+                                swap       256 Mo
+
+                               /home       1 Go
+
+Pour la racine nous sélectionnerons le disque à partitionner :</pre></section><section><h2>Page 14</h2><pre>Une nouvelle partition apparait alors, il nous suffit maintenant de la modeler comme nous
+le désirons :
+
+
+
+
+
+Puis nous utiliserons le « gestionnaire de partition logique » :
+
+
+
+
+
+Puis nous ferons un groupe de volume :</pre></section><section><h2>Page 15</h2><pre>Ensuite nous ferons nos 3 volumes :
+
+
+
+
+
+On le nomme :</pre></section><section><h2>Page 16</h2><pre>On le taille :
+
+
+
+
+
+Puis les 2 autres (boot et swap) et on termine :</pre></section><section><h2>Page 17</h2><pre>Ce qui nous donne :
+
+
+
+
+
+Nous sélections le bon volume :</pre></section><section><h2>Page 18</h2><pre>Pour sélectionner le bon montage :</pre></section><section><h2>Page 19</h2><pre>Pour obtenir les points de montage par défaut nous entrerons dans « point de montage » :
+
+
+
+
+
+Une fois satisfait de notre partition nous cliquerons sur :</pre></section><section><h2>Page 20</h2><pre>Afin de pouvoir continuer, pour les autres volumes de la manière.
+
+Pour le swap nous devrons cliquer sur « utiliser comme » une fois la partition définit :</pre></section><section><h2>Page 21</h2><pre>Voici le résultat attendu :
+
+
+
+
+
+1.3.5  Vous laisserez cochés les paquets par défaut et sélectionnerez comme source
+       d’installation le premier serveur de dépôt miroir français de la liste.</pre></section><section><h2>Page 22</h2><pre>    Tester la connectivité réseau
+
+
+1.3.6  Assurez-vous de la connectivité :
+           o  Entre vos systèmes
+           o Avec les machines de votre binôme</pre></section><section><h2>Page 23</h2><pre>Tout d’abord nous devrons vérifier les cartes réseaux de nos machines :
+Sur la machine Windows
+Ouvrir le panneau de configuration :
+
+
+
+
+
+Cliquer sur &quot;Réseau et Internet&quot;</pre></section><section><h2>Page 24</h2><pre>Aller dans le &quot;Centre Réseau et partage&quot;
+
+
+
+
+
+Accéder aux propriétés de la carte réseau</pre></section><section><h2>Page 25</h2><pre>Cliquer sur &quot;Propriétés&quot;
+
+
+
+
+
+Double-clic sur &quot;Protocole Internet version 4&quot;</pre></section><section><h2>Page 26</h2><pre>Valider en cliquant sur &quot;OK&quot;
+Vérifiez vos adresse et autres informations IP (passerelle, DNS…) à l&#x27;aide de la
+commande ipconfig /all
+Pour que le test de ping que nous allons faire puisse fonctionner nous devons l’autoriser
+avec l’aide d’une règle dans le pare-feu. (Par défaut le ping ICMPv4 echo 8 est
+bloqué).
+
+Allons dans le pare-feu:</pre></section><section><h2>Page 27</h2><pre>Créons une nouvelle règle :</pre></section><section><h2>Page 28</h2><pre>Nous créerons une règle personnalisée :
+
+
+
+
+
+Autorisant tous les programmes:</pre></section><section><h2>Page 29</h2><pre>Tous les ports:
+
+
+
+
+
+Sur tout l’IPV4:</pre></section><section><h2>Page 30</h2><pre>Sur tous les profils:</pre></section><section><h2>Page 31</h2><pre>Puis nous la nommerons:
+
+
+
+
+
+ Nous faisons par la suite un ping vers notre machine Debian (elle doit être configurée) afin de
+ vérifier la connexion :</pre></section><section><h2>Page 32</h2><pre>Sur la machine Linux:</pre></section><section><h2>Page 33</h2><pre>Désactiver puis réactiver la carte réseau afin que les changement soient bien pris en
+compte.
+
+
+
+
+
+Pour finir nous ferons la commande ip a afin de vérifier l&#x27;adresse IP de la machine
+Debian puis nous ferons un test de ping vers la machine windows afin de vérifier la
+connexion:</pre></section><section><h2>Page 34</h2><pre>     2    Partie 2 – Configuration des utilisateurs et de
+   l’environnement
+
+
+2.1  Création d’utilisateurs et de groupes
+
+✓ Liste des membres du personnel
+2.1.1  La société comporte 9 employés répartis en 5 services comme indiqué ci-
+      dessous :
+
+             Services     Membres
+
+                 Direction         Rick Grimes
+
+                                 Daryl Dixon
+              Commercial      Gabriel Stokes
+                          Maggie Greene
+
+                          Eugene Porter
+                Comptabilité
+                               Carol Peletier (intérimaire)
+
+                         Vous-même (Administrateur)
+                Informatique
+                               Votre binôme (prestataire)
+
+                                  Rosita Espinosa
+                 Logistique
+                          Morgan Jones
+
+2.1.2  Chaque compte utilisateur sera identifié par la première lettre de son prénom,
+        suivi de son nom. Les mots de passe seront affectés à votre libre convenance,
+       tout en respectant les recommandations de l’ANSSI.
+         ( https://www.ssi.gouv.fr/guide/mot-de-passe/ )
+
+     Voici les recommandations de l’ANSSI pour la création de mot de passe :
+Choisissez des mots de passe d’au moins 12 caractères de types différents (majuscules,
+minuscules, chiffres, caractères spéciaux).
+https://www.ssi.gouv.fr/guide/mot-de-passe/
+
+
+
+Pour aller plus vite nous utiliserons Excel :
+    Pour le mdp nous utiliserons la première lettre du nom (en majuscule) et la
+    première lettre du prénom (en majuscule) + P4$$vv0I):
+
+     =MAJUSCULE(STXT([@Prénom];1;1))&amp;MAJUSCULE(STXT([@Nom];1;1))&amp;&quot;P4$$VV0rI)&quot;
+    Pour le login :
+
+     =MINUSCULE(STXT([@Prénom];1;1)&amp;MINUSCULE([@Nom]))
+    Pour le mail (qui servira d’UPN plus tard sur un serveur) :
+    =MINUSCULE([@Prénom])&amp;MINUSCULE([@Nom])&amp;&quot;@gmail.com&quot;</pre></section><section><h2>Page 35</h2><pre>Ensuite nous utiliserons une commande powershell afin de créer nos utilisateurs :
+Attention de bien lancer votre PowerShell en administrateur.
+
+
+
+
+
+     Voici la commande utiliser pour la création d’un utilisateur avec un mot de
+    passe :
+
+New-LocalUser -FullName &quot;Lena Oxton&quot; -Description &quot;Adminstratrice trop rapide&quot; -Name
+&quot;loxton&quot; -Password (ConvertTo-SecureString -AsPlainText &quot; OLP4$$VV0rI)&quot; -Force) -
+PasswordNeverExpires</pre></section><section><h2>Page 36</h2><pre>Pour plus de facilité encore nous pouvons faire de notre excel un .csv puis, nous
+écrirons un script qui créera les utilisateurs pour nous :
+
+###############################################################
+# Script de création des utilisateurs dans windows 10 client  #
+# Tracer Lexton                                               #
+# créé le 20 octobre 2020                                     #
+# Mis à jour le 20 octobre 2020                               #
+# Mis à jour par Jesse MacCree                                #
+# le 20 octobre 2020                                          #
+# Fonctionnel sous Windows 10 entreprise build 2004           #
+###############################################################
+
+
+# Indiquer l&#x27;adresse complète du fichier utilisateurs .csv
+# Indiquer le délimiteur pour le fichier .csv
+# Indiquer les noms d&#x27;en-têtes
+
+
+$datasource=Import-CSV -Path &quot;C:\Users\fx\Desktop\utilisateurs.csv&quot; -Delimiter &quot;;&quot; -
+Header Prénom,Nom,login,mail,password,description
+
+#Boucle d&#x27;alimentation
+
+Foreach($data in $datasource) {
+# Nom et prénom de famille
+$FullName=$data.Nom + &quot; &quot; + $datasource.Prénom
+
+# Nom de famille
+$login=$data.Nom
+
+#le mot de passe
+$password=$data.password
+
+#la description
+$description=$data.description
+
+#creation utilisateur avec les toutes les données renseignées
+New-LocalUser -FullName &quot;$FullName&quot; -Description &quot;$description&quot; -Name &quot;$login&quot; -
+Password (ConvertTo-SecureString -AsPlainText &quot;$password&quot; -Force)
+
+# Fait une liste
+    $nomliste=$affich
+
+    $liste = $liste + $nomliste + &quot;,&quot;
+}
+
+# Affiche le résultat des imports
+write-host &quot;Les utilisateurs : &quot; -ForegroundColor Black
+write-host &quot;$liste&quot; -foregroundcolor red
+write-host &quot;ont été créés&quot; -ForegroundColor Black
+
+
+
+2.1.3  Vous adopterez une convention de nommage pour les groupes, que vous
+      conserverez, quel que soit le système d’exploitation.
+
+Nous pouvons proposer comme convention de nommage :
+
+L_ Le nom du groupe_Le droit accorder au groupe
+
+L indiquant que le groupe est local
+R indiquant le droit de lecture
+W indiquant le droit de modification
+X indiquant le droit d’exécution
+CT indiquant le droit de contrôle total
+
+Exemple :
+L_Comptabilité le groupe contenant tous les comptables
+L_Commercial_W le groupe pour les commerciaux avec les droits en modification
+L_Informatique_CT les groupes pour les informaticiens avec le droit en contrôle total</pre></section><section><h2>Page 37</h2><pre>✓ Sur le poste Windows 10
+2.1.4  Le système Windows 10 sera utilisé par tous les membres. Vous créerez donc les
+      groupes et comptes nécessaires en précisant dans le champ description leur
+       service d’appartenance. Vous créerez une partie via la commande (la
+       direction, comptabilité), une partie en PowerShell (les groupes informatiques,
+        logistiques), une partie en graphique (les commerciaux).
+
+Nous utiliserons comme pour les utilisateurs une commande PowerShell :
+
+
+New-LocalGroup -Name ”L_informatique” -Description “groupe informatiques”
+
+
+Pour les groupes nous pouvons procéder comme pour les utilisateurs :
+
+
+###############################################################
+# Script de création des groupes dans windows 10 client       #
+# Tracer Lexton                                               #
+# créé le 20 octobre 2020                                     #
+# Mis à jour le 20 octobre 2020                               #
+# Mis à jour par Jesse MacCree                                #
+# le 20 octobre 2020                                          #
+# Fonctionnel sous Windows 10 entreprise build 2004           #
+###############################################################
+
+# Indiquer l&#x27;adresse complète du fichier utilisateurs .csv
+# Indiquer le délimiteur pour le fichier .csv
+# Indiquer les noms d&#x27;en-têtes
+
+
+$datasource=Import-CSV -Path &quot;C:\Users\fx\Desktop\groupes.csv&quot; -Delimiter &quot;;&quot; -Header
+Groupes,description
+
+#Boucle d&#x27;alimentation
+
+Foreach($data in $datasource) {
+# Nom des groupes
+$groupes=$data.Groupes
+
+# description des groupes
+$description=$data.description
+
+#creation du groupe avec les données renseignées dnas le tableau csv
+New-LocalGroup -Name ”$groupes” -Description “$description”
+
+# Fait une liste
+    $nomliste=$affich
+
+    $liste = $liste + $nomliste + &quot;,&quot;
+}
+
+# Affiche le résultat des imports
+write-host &quot;Les groupes : &quot; -ForegroundColor Black
+write-host &quot;$liste&quot; -foregroundcolor red
+write-host &quot;ont été créés&quot; -ForegroundColor Black
+
+
+Avec la commande :
+
+
+Net localgroup direction /add
+Net localgroup direction /comment:”le groupe de la direction”
+Net localgroup comptabilite /add
+Net localgroup comptabilite /comment:”le groupe de ceux qui compte”</pre></section><section><h2>Page 38</h2><pre>Avec l’interface graphique :
+
+Ouvrir la console &quot;lusrmgr.msc&quot;
+
+
+
+
+
+ Sous &quot;Groupes&quot; : clic-droit -&gt; Nouveau Groupe...&quot;</pre></section><section><h2>Page 39</h2><pre>Puis cliquer sur créer :
+
+
+
+
+
+Pour ajouter un utilisateur dans un groupe :
+
+
+Add-LocalGroupMember -Group &quot;L_comptabilite&quot; -Member &quot;eporter&quot;
+Add-LocalGroupMember -Group &quot;L_comptabilite&quot; -Member &quot;cpeletier&quot;
+Add-LocalGroupMember -Group &quot;L_commercial&quot; -Member &quot;ddixon&quot;
+Add-LocalGroupMember -Group &quot;L_commercial&quot; -Member &quot;gstokes”
+Add-LocalGroupMember -Group &quot;L_commercial&quot; -Member &quot;mgreene&quot;</pre></section><section><h2>Page 40</h2><pre>2.1.5  Ces utilisateurs possèderont tous dans le dossier « Bureau » de leur profil un
+       dossier nommé « Procédures » qui contiendra, en outre, un fichier « Règlement
+        intérieur ».
+
+
+ Dans le dossier &#x27;C:\Users\Default\Desktop&#x27;, ajouter le dossier &#x27;Procédures&#x27; qui
+ contiendra le fichier &#x27;Règlement intérieur&#x27;
+
+
+
+
+
+2.1.6  Le poste d’intérimaire comptable est un emploi à mi-temps. La société a décidé
+     de contraindre les heures d’ouverture de session disponibles de ce compte de
+      9h00 jusque 12h00 tous les jours ouvrés (lundi au vendredi).
+
+Nous utiliserons une commande pour cela :
+
+
+net user cpeletier /times:lundi-vendredi,9:00-12:00
+
+
+✓ Sur le poste Debian 10
+2.1.7  Tous les utilisateurs de la société sont susceptibles d’utiliser ce poste localement
+     ou en connexion à distance. Par conséquent, sa base de comptes contiendra
+       tous les utilisateurs et groupes. Tous les utilisateurs auront un /bin/bash sauf votre
+        le prestataire en KSH
+
+Commencer par ajouter les groupes avec la commande &#x27;addgroup&#x27; :
+
+
+# addgroup direction commercial comptabilite informatique logistique
+
+Pour chaque utilisateurs:
+       Ajouter l&#x27;utilisateur en lui attribuant un commentaire, un login, un répertoire
+home, un groupe, un shell et un mot de passe:
+
+
+# useradd -c &quot;Rick Grimes&quot; rgrimes -m -g direction --shell /bin/bash -p RGP4$$VV0rI)</pre></section><section><h2>Page 41</h2><pre>Pour le shell KSH de notre prestataire :
+
+
+# useradd -c &quot;365 magnum et presta bien faite&quot; jmaccree -m -g informatique --shell /bin/ksh -
+p JMP4$$VV0rI)
+
+Pour vérifier nous pouvons regarder les utilisateurs :
+
+
+#cat /etc/shadow
+
+Regarder les groupes :
+
+
+#cat /etc/groups
+
+Et nous connecter avec les utilisateurs :
+
+
+#su loxton
+
+
+
+                            Contraintes supplémentaires
+
+✓ Sur le poste Windows 10
+2.1.8  La stratégie globale de sécurité de mots de passe comportera les contraintes
+       suivantes :
+2.1.9  12 caractères au minimum
+2.1.10 Changement obligatoire tous les 25 jours
+2.1.11 Exigences de complexité actives
+
+Pour cela nous devons ouvrir avec “executer” secpol.msc :</pre></section><section><h2>Page 42</h2><pre> Modifier :
+  - Durée de vie maximale du mot de passe : 25 jours
+  - Le mot de passe doit respecter des exigences de complexité : Activer
+  - Longueur minimale du mot de passe : 12 caractères
+
+
+
+
+
+Pour plus de sureté, vous ajouterez un autre compte d’administrateur du système en
+ligne de commande « cmd » et lui indiquerez un mot de passe.
+
+Pour ajouter un utilisateur en administrateur (attention il faut que l’invite de commande
+soit exécutée en administrateur):
+
+
+net user admin rgrimes /add
+
+Pour changer son mot de passe :
+
+
+net user rgrimes *
+
+
+
+
+
+2.1.12 Les membres du service informatique doivent à l’aide de leur compte pouvoir se
+      connecter sur le système et bénéficier des privilèges d’administrateurs.
+
+
+Add-LocalGroupMember -Group &quot;Administrateurs&quot; -Member &quot;loxton&quot;
+Add-LocalGroupMember -Group &quot;Administrateurs&quot; -Member &quot;jmaccree&quot;</pre></section><section><h2>Page 43</h2><pre>✓ Sur les postes Windows 10 &amp; Debian 10
+2.1.13 Le changement de mot de passe du compte utilisateur de votre binôme devra
+       être forcé à sa première connexion.
+
+
+
+
+
+Sur le poste Debian pour forcer le changement de mot de passe de notre prestataire
+informatique Jesse Mac Cree :
+
+
+# chage jmaccree -d 0</pre></section><section><h2>Page 44</h2><pre>2.2  Configuration de l’environnement de travail
+
+✓ Sur le poste Windows 10
+2.2.1  Les restrictions suivantes seront à paramétrer pour tous les utilisateurs non-
+       administrateurs du système :
+2.2.2  Supprimer les fonctions de gravure CD et empêcher tout accès au lecteur CD et
+    DVD
+2.2.3  Empêcher le lancement des outils de modification du registre (comme
+      regedit…)
+2.2.4  Forcer l’utilisation d’une image de votre choix en tant que fond d’écran
+2.2.5  En outre, le pare-feu devra être obligatoirement actif sur le poste Windows, quel
+     que soit l’utilisateur connecté.
+
+Pour cela nous allons utiliser des GPO local :
+
+Nous allons donc ouvrir un console : mmc
+
+
+
+
+
+Ajouter le composant enfichable &quot;Editeur d&#x27;objets de stratégie&quot;,</pre></section><section><h2>Page 45</h2><pre>Dans l&#x27;assistant cliquer sur Parcourir,
+
+
+
+
+
+Aller sur l&#x27;onglet Utilisateurs et choisir &quot;Non-administrateurs&quot;</pre></section><section><h2>Page 46</h2><pre>Sous &quot;Configuration utilisateur&quot; - &quot;Modèles d&#x27;administration&quot; - &quot;Accès au stockage
+amovible » : Activer &quot;CD et DVD : refuser l&#x27;accès en lecture/écriture&quot;</pre></section><section><h2>Page 47</h2><pre>Sous &quot;Composant Windows&quot; - &quot;Windows Store&quot;, désactiver l&#x27;application Store
+
+
+
+
+
+Sous &quot;Modèles d&#x27;administration&quot; - &quot;Système&quot;, activer &quot;Empêche l&#x27;accès aux outils de
+modifications du Registre&quot;</pre></section><section><h2>Page 48</h2><pre>Sous &quot;Modèle d&#x27;administration&quot; - &quot;Bureau&quot; -&quot;Bureau&quot;, configurer &quot;Papier peint du Bureau
+
+
+
+
+
+Activer et ajouter le chemin de l&#x27;image de fond d&#x27;écran</pre></section><section><h2>Page 49</h2><pre>Sous &quot;Configuration ordinateur&quot; - &quot;Paramètres de sécurité&quot; - &quot;Pare-feu Windows
+Defender&quot;
+
+
+
+
+
+ &quot;Propriétés du Pare-feu Windows&quot;</pre></section><section><h2>Page 50</h2><pre>Il faudra l’activer sur tous les profils :</pre></section><section><h2>Page 51</h2><pre>Pour finir nous faisons un gpudate pour appliquer les GPO et un gpresult /R pour voir si
+nos GPO s’applique sans problèmes :</pre></section><section><h2>Page 52</h2><pre>✓ Sur le poste Debian 10
+
+2.2.6  Avec l’editeur de texte VIM; En une seule ligne avec l’option “g” (remplacer)
+     décommenter les sources deb-src dans /etc/apt/sources.list.
+2.2.7  N’oublier pas de commenter la ligne indiquant le DVD.
+
+Nous rentrerons avec vim dans l’édition du fichier /etc/apt/sources.list:
+
+
+#vim /etc/pat/sources.list
+
+Puis nous utiliserons l’option g ent tapant sur”:
+
+
+:g:/^deb-src/s/^/#/gc</pre></section><section><h2>Page 53</h2><pre>Le /gc à la fin déclenchera une demande sur les chagement a valider ou non :</pre></section><section><h2>Page 54</h2><pre>2.2.8  Pour améliorer le confort sous Vim, vous mettrez à jour l’application via le package
+      simplement nommé « vim» et activerez automatiquement la coloration syntaxique
+       et la numérotation des lignes.
+
+
+Nous allons d’abord mettre à jour la base de données des paquets :
+
+
+# aptitude update
+
+Puis lancer l’installation :
+
+
+# apt install vim
+
+Ensuite, modifier le fichier /etc/vim/vimrc comme suit :
+
+Décommenter la ligne syntax on, chercher les lignes commençant par « set » et modifier la
+ligne set compatible en set nocompatible. Si elle n’existe pas, ajoutez totalement la
+directive. Enfin, ajouter la ligne set number.
+
+syntax on : Active le surlignage syntaxique de vim.
+
+
+
+
+
+Tout les modifications effectuées dans /etc/vim/vimrc s’appliquent sur tous les utilisateurs.
+Afin de personnaliser le vim pour chaque utilisateur  il faut faire des modification dans
+/home/User/.vimrc et ensuite ajouter les lignes :
+
+Set number : numérote les lignes du fichier.
+
+set nocompatible : Cette option empêche vim d&#x27;avoir une compatibilité vi trop affirmée. Elle
+doit être au début de chaque fichier vimrc car elle affecte beaucoup d&#x27;autres options
+que vous pourriez vouloir modifier.</pre></section><section><h2>Page 55</h2><pre>     3    Partie 3 – Configuration du stockage et des ressources
+
+
+3.1  Partitionnement de disques
+
+✓ Sur le poste Windows 10
+3.1.1  Via l’outil en ligne de commande DISKPART sur le deuxième disque dur vous
+        utiliserez le format de table de partition « MBR ». Vous créerez sur celui-ci une
+       partition nommée « DATA », accessible par la lettre « D: » d’une taille de 15 Go.
+
+DISKPART&gt; list disk
+
+ N° disque Statut      Taille  Libre  Dyn GPT
+  ---------  -------------  -------  -------  ---  ---
+ Disque 0  En ligne    32 G octets   0 octets     *
+ Disque 1  En ligne    40 G octets  39 G octets
+
+DISKPART&gt; select disk 1
+
+Le disque 1 est maintenant le disque sélectionné.
+
+DISKPART&gt; list disk
+
+ N° disque Statut      Taille  Libre  Dyn GPT
+  ---------  -------------  -------  -------  ---  ---
+ Disque 0  En ligne    32 G octets   0 octets     *
+* Disque 1  En ligne    40 G octets  39 G octets
+
+DISKPART&gt; offline disk
+
+DiskPart a réussi la mise hors connexion du disque sélectionné.
+
+DISKPART&gt; online disk
+
+DiskPart a amené le disque sélectionné en ligne.
+
+DISKPART&gt; convert MBR
+
+DiskPart a correctement converti le disque sélectionné au format MBR.
+
+DISKPART&gt; create partition primary size=15000
+
+DiskPart a réussi à créer la partition spécifiée.
+
+DISKPART&gt; format fs=ntfs label=&quot;DATA&quot;
+
+ 100 pour cent effectués
+
+DiskPart a formaté le volume.
+
+DISKPART&gt; assign letter=D
+
+DiskPart a correctement assigné la lettre de lecteur ou le point de montage.</pre></section><section><h2>Page 56</h2><pre>Vérifions le résultat, nous pouvons voir avec l’image ci-dessous (grâce à la commande
+detail disk) la partition de 14G en NTFS et la lettre D assignée
+
+Nous pouvons voir (grâce à list disk) que le disque 1 de 40GO n’est pas en GPT, donc en
+MBR.
+
+
+
+
+
+✓ Sur le poste Debian 10
+3.1.2   Trois partitions principales seront créées sur le deuxième disque dur :
+
+        3.1.2.1  La 1re, formatée en ext4, occupera un espace de 15 Go et se nommera
+                 « PROFILS »
+
+        3.1.2.2  La 2e, formatée en ext4, fera 15 Go et s’appellera « DATA »
+
+        3.1.2.3  La 3e, formatée en xfs (le système de fichiers n’est pas installé par défaut),
+            occupera tout l’espace restant et se nommera « LOGS »
+
+
+En tant que super-utilisateur,
+Lister les disques pour connaitre le nom du disque à partitionner :
+
+# fdisk -l
+
+Disque /dev/sda : 21.5 Go, 21474836480 octets
+255 têtes, 63 secteurs/piste, 2610 cylindres, total 41943040 secteurs
+Unités = secteurs de 1 * 512 = 512 octets
+Taille de secteur (logique / physique) : 512 octets / 512 octets
+taille d&#x27;E/S (minimale / optimale) : 512 octets / 512 octets
+Identifiant de disque : 0x000db18b
+
+Périphérique Amorce          Début        Fin           Blocs         Id Système
+/dev/sda1   *           2048        999423      498688      83 Linux
+/dev/sda2              41443328    41940991    248832      82 partition d&#x27;échange
+              Linux / Solaris
+/dev/sda3              999424      34201599    16601088    83 Linux
+/dev/sda4              34201600    36155391    976896      83 Linux</pre></section><section><h2>Page 57</h2><pre>Les entrées de la table de partitions ne sont pas dans l&#x27;ordre du disque
+
+Disque /dev/sdb : 42.9 Go, 42949672960 octets
+255 têtes, 63 secteurs/piste, 5221 cylindres, total 83886080 secteurs
+Unités = secteurs de 1 * 512 = 512 octets
+Taille de secteur (logique / physique) : 512 octets / 512 octets
+taille d&#x27;E/S (minimale / optimale) : 512 octets / 512 octets
+Identifiant de disque : 0x00000000
+
+Le disque /dev/sdb ne contient pas une table de partitions valable
+
+
+Utiliser le disque /dev/sdb avec l&#x27;outil fdisk :
+
+
+# fdisk /dev/sdb
+
+Utiliser les commandes suivantes afin de créer les trois partitions :
+
+1ère partition :
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· +15G pour ajouter 15Go
+
+2ème partition:
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· +15G pour ajouter 15Go
+
+3ème partition:
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· Laisser le dernier secteur par défaut pour occuper tout l&#x27;espace restant
+
+Quitter fdisk en utilisant la commande &#x27;w&#x27; afin d&#x27;écrire les modifications.
+Installer le paquet &#x27;xfsprogs&#x27; pour utiliser le système de fichier xfs:
+
+
+# apt install xfsprogs
+
+Formater les partitions :
+
+
+# mkfs.ext4 -L PROFILS /dev/sdb1
+# mkfs.ext4 -L DATA /dev/sdb2
+# mkfs.xfs -L LOGS /dev/sdb3</pre></section><section><h2>Page 58</h2><pre>3.2  Occupation des espaces disques
+
+✓ Sur le poste Debian 10
+    N.B : il est fortement conseillé de réaliser un snapshot machine éteinte
+
+3.2.1  Répertoires d’accueil
+   Finalement, l’espace alloué au dossier contenant les profils utilisateurs « /home » a été
+sous-estimé. En conséquence, il vous est demandé de remplacer définitivement ce volume
+par celui nommé « PROFILS », crée précédemment. Une fois les actions terminées, vous
+testerez que les utilisateurs ont bien accès à leurs données personnelles.
+
+Répertoire d&#x27;accueil
+Faire une copie temporaire du répertoire /home en préservant les droits :
+
+
+# cp -rp /home /tmp/home-backup
+
+Modifier le fichier /etc/fstab:
+
+
+# vim /etc/fstab
+
+Commenter la ligne contenant home, en ajoutant un &quot;#&quot; devant :
+
+
+#UUID=4b59933b-136a-4287-8658-c97b2ec93603 /home ext4 defaults 0 2
+
+Ajouter la ligne permettant de monter la partition « PROFILS » dans /home en fin de fichier :
+
+
+LABEL=PROFILS /home ext4 defaults 0 2
+
+Enregistrer les modifications et monter les partitions :
+
+
+# mount -a
+
+Copier les données de /tmp/home-backup dans /home :
+
+
+# cp -rp /tmp/home-backup/* /home/</pre></section><section><h2>Page 59</h2><pre>3.2.2  Dossiers de service
+
+   Les données mises en commun entre membres de chaque service seront stockées au
+sein du volume appelé « DATA ». Ce dernier sera monté automatiquement dans le dossier
+« /services » et hébergera l’arborescence ci-dessous :
+
+
+
+
+
+Créer l&#x27;arborescence :
+
+
+# mkdir -p /services/
+       Puis le faire pour chaque dossier
+        {commercial,comptabilite,direction,informatique,logistique}
+
+3.2.3  Pour éviter tout problème de confidentialité, chaque dossier ne sera accessible en
+       lecture et écriture qu’aux seuls membres de chaque groupe.
+  Par exemple,  les commerciaux seront  les seuls à pouvoir accéder en lecture et
+modification au dossier « commercial ».
+
+Changer les groupes propriétaires de chaque dossier :
+
+
+# cd /services/
+# chown :commercial commercial
+# chown :comptabilite comptabilite
+# chown :direction direction
+# chown :informatique informatique
+# chown :logistique logistique
+
+Changer les droits de tous les répertoires :
+
+
+# chmod 770 *
+Ou
+
+
+# chmod g+x *</pre></section><section><h2>Page 60</h2><pre>✓ Sur le poste Windows 10
+3.2.4 À l’emplacement « D:\données\ », vous créerez un dossier « Commerciaux », dont
+      l’accès sera interdit à toute personne étrangère au service.
+
+Sous D:\données\ créer le dossier &#x27;Commerciaux&#x27;
+
+
+
+
+
+Clic-Droit sur le dossier -&gt; &quot;Propriétés&quot; sur le dossier</pre></section><section><h2>Page 61</h2><pre>Sous l&#x27;onglet Sécurité cliquer sur &quot;Avancé&quot;
+
+
+
+
+
+Désactiver l&#x27;héritage</pre></section><section><h2>Page 62</h2><pre>Supprimer toutes les autorisations héritées de cet objet.
+
+
+
+
+
+Valider
+
+
+
+
+
+ &quot;Cliquer sur &quot;Ajouter...&quot; puis sur Sélectionnez un principal</pre></section><section><h2>Page 63</h2><pre>Sélectionnez “modification” et “Appliquer ces autorisations…” puis cliquer sur ok</pre></section><section><h2>Page 64</h2><pre>Ensuite supprimer les autres membres autorisés d’accès de sorte qu’il ne reste plus que le
+groupe L_commercial_W et le système (l’accès ne sera autorisés exclusivement qu’au
+groupe L_commercial_W) :
+
+
+
+
+
+Afin de tester rapidement nos modifications nous pouvons utiliser le l’accès effectifs
+(onglet « Accès effectif ») et voir le résultat :</pre></section><section><h2>Page 65</h2><pre></pre></section><section><h2>Page 66</h2><pre>Si nous changeons le propriétaire du fichier (car ici notre administrateur l’est) nous n’aurons
+plus aucun n’accès :
+
+
+
+
+
+3.2.5 De plus, les informaticiens bénéficieront pour leur propre besoin, d’un dossier
+        « D:\Support_Info » leur permettant d’y déposer des fichiers et dossiers. Son accès
+      sera bien évidemment restrictif.
+Sous DATA (D:), créer le dossier &quot;Support_Info&quot;</pre></section><section><h2>Page 67</h2><pre>Clic-Droit sur le dossier -&gt; Propriétés</pre></section><section><h2>Page 68</h2><pre>&quot;Désactiver l&#x27;héritage&quot;
+
+
+
+
+
+Valider en cliquant sur &quot;OK&quot;</pre></section><section><h2>Page 69</h2><pre>Puis nous procéderons de la même manière :</pre></section><section><h2>Page 70</h2><pre></pre></section><section><h2>Page 71</h2><pre></pre></section><section><h2>Page 72</h2><pre></pre></section><section><h2>Page 73</h2><pre></pre></section><section><h2>Page 74</h2><pre></pre></section><section><h2>Page 75</h2><pre></pre></section><section><h2>Page 76</h2><pre>3.3  Creation de partages reseau
+  N.B : il est fortement conseillé de réaliser un snapshot machine éteinte
+
+3.3.1  En suivant les bonnes pratiques, vous partagerez le dossier « Support_Info ». Il sera
+        invisible aux yeux de tous pour plus de sécurité. En cas de nécessité de déployer un
+      partage similaire sur un autre poste, vous chercherez la commande PowerShell
+      équivalente à vos actions, que vous conserverez dans un fichier PowerShell « .ps1 ».
+      Vous afficherez avec la commande cmd la liste des partages disponible
+
+
+Pour cacher le partage il faut mettre un « $ » à la fin du nom du partage, comme ceci :
+Clic avec le bouton gauche sur « Propriétés »</pre></section><section><h2>Page 77</h2><pre>Clic avec le bouton gauche sur « Partage »
+
+
+
+
+
+Clic sur « Partage avancé »</pre></section><section><h2>Page 78</h2><pre>Clic sur « Nom du partage »
+
+
+
+
+
+Clic « Autorisations »</pre></section><section><h2>Page 79</h2><pre>Clic OK
+
+
+
+
+
+Ou en ligne de commande :
+
+Créons le partage :
+
+
+New-smbshare support_info$ -path d:\support_info -changeaccess “utilisateurs authentifiés”
+
+Changeons les permissions :
+$acl prend le resultat des acl du fichier :
+
+
+$acl = get-acl D:\support_info
+
+$ace definit la nouvelle règle des ACE (Acces Control Entry) (droit en modification pour le
+groupe informatique) :
+
+
+$ace = New-Object security.accesscontrol.filesystemaccessrule(&quot;L_informatique_RW&quot;, &quot;Modify&quot;,
+&quot;Allow&quot;)</pre></section><section><h2>Page 80</h2><pre>Appliquons les règles :
+
+
+$acl.addaccessrule($ace)
+set-acl D:\support_info $acl
+
+Pour voir les partage en ligne de commande tapez “net share”:
+
+
+
+
+
+3.3.2  Afin d’en tester l’accès, votre binôme génèrera un lecteur réseau « U: » qui pointera
+       vers le dossier partagé. Ce lecteur devra apparaître automatiquement à
+       l’ouverture de session. À cette fin, deux méthodes opérationnelles différentes
+      devront être trouvées.
+
+
+Utilisons la commande :
+
+
+net use U: \\10.10.255.253\Support_info$ /persistent:yes
+
+
+3.3.3  Enfin, votre binôme en validera l’accès en écriture en y créant un fichier.</pre></section><section><h2>Page 81</h2><pre>3.4  Gestion d’imprimantes
+
+3.4.1  Une imprimante HP LaserJet M9050 MFP est à installer sur le système Windows. Elle
+      possède l’adresse IP (fictive) 172.16.63.251 et doit être partagée sur le réseau afin
+     de la rendre disponible pour d’autres postes.
+
+Nous utilisons les pilotes fournis :
+
+
+
+
+
+Nous les dézippons :</pre></section><section><h2>Page 82</h2><pre>Choisissez l’ajout d’une imprimante via son port TCP/IP</pre></section><section><h2>Page 83</h2><pre>     Ecrivez l’@ip demandée :
+
+
+
+
+
+Nous patientons un peu:</pre></section><section><h2>Page 84</h2><pre>Nous choisirons un pilote HP :
+
+
+
+
+
+Cliquez sur suivant :</pre></section><section><h2>Page 85</h2><pre>Nous choisirons un pilote à déployer :
+
+
+
+
+
+Renseignez les informations sur l’imprimante :</pre></section><section><h2>Page 86</h2><pre>    Nous renseignerons le nom demander : « HP LaserJet M9050 MFP »
+
+
+
+
+
+Nous cliquons sur terminer :</pre></section><section><h2>Page 87</h2><pre>Pour vérifier nous pouvons aller voir dans la « gestion de l’impression » :
+
+
+
+
+
+Nous pouvons voir que l’imprimante installée est bien présente :</pre></section><section><h2>Page 88</h2><pre>3.4.2  Les permissions d’utilisation de cette dernière sont les suivantes :
+
+        3.4.2.1  Tous les utilisateurs peuvent imprimer
+
+        3.4.2.2  Le service Comptabilité peut supprimer des impressions bloquées en cas de
+             problèmes
+
+        3.4.2.3  Le service informatique possède le contrôle total
+
+Pour cela faites un clic droit sur l’imprimante :
+
+
+
+
+
+Puis sur l’onglet sécurité :</pre></section><section><h2>Page 89</h2><pre>Supprimer les utilisateurs non concernés puis ajouter les groupes
+L_comptabilite_W et L_informatique_W :</pre></section><section><h2>Page 90</h2><pre>Ensuite indique les droits demandés :
+Le groupe L_Comptabilité_W aura « imprimer » et « gestion des documents »
+Le groupe L_Informatique_CT aura tous les droits.</pre></section><section><h2>Page 91</h2><pre>3.4.3  Votre binôme s’y connectera et la déclarera comme imprimante par défaut.
+
+
+ Afin de se connecter à l&#x27;imprimante réseau de notre binôme, entrer le chemin UNC de
+ son poste Windows : \\@ipdubinome
+
+
+
+
+
+ Puis faire un Clic-Droit sur l&#x27;imprimante et &quot;Connecter&quot;
+
+
+
+
+
+ Faire un Clic-Droit sur l&#x27;imprimante &quot;HP LaserJet M9050 MFP &quot; et sélectionner &quot;Définir
+ comme imprimante par défaut&quot;</pre></section><section><h2>Page 92</h2><pre>3.4.4  Pour l’édition de documents comptables volumineux (bilan de fin d’exercice, état
+      des provisions…), un pool d’imprimantes devra être mis en œuvre, autorisant
+       l’impression sur 2 périphériques d’impression physiques Xerox Office Color possédant
+        les adresses IP suivantes : les pilotes sont ici :
+
+✓ 172.16.63.250
+✓ 172.16.63.249
+
+
+
+
+
+Nous déployons les pilotes demandés :</pre></section><section><h2>Page 93</h2><pre>Cliquons sur j’accepte:</pre></section><section><h2>Page 94</h2><pre>Ici nous choisirons une imprimante reconnu sur les réseau:
+
+
+
+
+
+Nous indiquons l’@ ip de l’imprimante :</pre></section><section><h2>Page 95</h2><pre>Nous choisissons le pilote demandé:</pre></section><section><h2>Page 96</h2><pre>Nous indiquons le nom de l’imprimante, puis nous cliquons sur installer:</pre></section><section><h2>Page 97</h2><pre>Retournons dans le gestionnaire d’imprimante pour voir notre nouvelle imprimante:
+
+
+
+
+
+Sous l&#x27;onglet &quot;Ports&quot;, cocher &quot;Activer le pool d&#x27;imprimante&quot;</pre></section><section><h2>Page 98</h2><pre>Cliquons sur ajouter un port :
+
+
+
+
+
+Sélectionner &quot;Standard TCP/IP Port&quot; puis valider avec &quot;Ajouter un port...&quot;</pre></section><section><h2>Page 99</h2><pre>Ajouter l&#x27;adresse IP souhaitée (ici 172.16.63.249) et valider par &quot;Suivant&quot;</pre></section><section><h2>Page 100</h2><pre>                    Laissons les pilotes “Generic Network Card” :
+
+
+
+
+
+Valider en cliquant sur &quot;Terminer&quot;</pre></section><section><h2>Page 101</h2><pre>Voici notre second port ip ajouter à notre imprimante qui fait notre pool d’impression:</pre></section><section><h2>Page 102</h2><pre>3.4.5  Vous tiendrez compte des caractéristiques suivantes :
+
+        3.4.5.1  Seul le service Comptabilité est habilité à utiliser ces périphériques et
+            uniquement entre 19h00 et 3h00
+
+        3.4.5.2  Les administrateurs (service informatique) possèdent le contrôle total.
+
+
+ Se rendre sous l&#x27;onglet &quot;Sécurité&quot;, supprimer le groupe &quot;Tout le monde&quot; de la liste des
+ groupes autorisés puis cliquer sur &quot;Ajouter...&quot;</pre></section><section><h2>Page 103</h2><pre>Accorder toutes les autorisations au groupe &quot;informatique&quot;
+
+
+
+
+
+Sous l’onglet avancé, cocher l’option « disponible de » puis compléter la tranche
+horaire de 19:00 à 03:00)</pre></section><section><h2>Page 104</h2><pre>Valider les modifications avec &quot;OK&quot;
+
+
+
+
+
+3.4.6  Crée 2 files d’attente pour la Xerox Office Color. Les directeurs auront la priorité
+        sur les autres groupes.
+
+3.4.7  Déplacer le spool d’impression sur D : (au lieu de C:\windows).</pre></section><section><h2>Page 105</h2><pre>4  Partie 4 – Configuration avancée des systems
+
+
+4.1  Configuration avancée système Debian
+
+  N.B : il est fortement conseillé de réaliser un snapshot machine éteinte.
+
+4.1.1  Afin d’accélérer quelque peu le démarrage du système, l’affichage du menu
+     du chargeur d’amorçage grub ne durera que 2 secondes.
+
+Éditer le fichier /etc/default/grub et modifier l’entrée GRUB_TIMEOUT avec valeur
+« 2 » :
+
+
+# vim /etc/default/grub
+
+
+
+
+
+Ensuite, mettre à jour le Grub :
+
+
+#update-grub ou grub2-mkconfig -o /boot/grub/grub.cfg</pre></section><section><h2>Page 106</h2><pre>4.1.2  Finalement, l’espace réservé à la pagination n’est pas suffisant. Il faudrait ainsi
+         utiliser, et ce de façon définitive un swap de 1 Go, pour cela vous vous servirez
+     de l’espace restant sur le premier disque.
+
+Afin de redimensionner le swap, désactiver le swap :
+
+
+# swapoff /dev/sda2
+
+Puis modifier le partitionnement :
+
+
+# fdisk /dev/sda
+
+
+Préparer la partition à recevoir le swap :
+
+
+# mkswap /dev/sda2
+
+Puis éditer le fichier /etc/fstab et copier la ligne de swap existante (en la
+commentant) pour la modifier comme suit :
+
+
+/dev/sda2 swap swap defaults 0 0
+
+activer le swap:
+
+
+# swapon –a /dev/sda2
+
+
+
+4.1.3  Vous mettrez à jour l’intégralité des paquets de votre système Debian.
+
+Grâce à la commande :
+
+
+# apt upgrade</pre></section><section><h2>Page 107</h2><pre>4.2  Configuration avancée système Windows 10
+4.2.1  Pour permettre la reconfiguration du système Windows 10 depuis un système
+       distant, vous activerez la fonctionnalité du bureau à distance avec
+       authentification au niveau du réseau (NLA) et donnerez les autorisations
+     adéquates pour le compte utilisateur de votre binôme.
+
+Autoriser les connexions à distance ce situe dans le Panneau de configuration &gt;
+système et sécurité &gt; autoriser l’accès à distance :</pre></section><section><h2>Page 108</h2><pre>Ensuite nous pouvons ajouter le groupe des informaticiens dans le groupe des
+utilisateurs de bureau à distance :
+
+
+
+
+
+Nous le ferons via l’invite de commande powershell (avec les droits administrateur),
+sinon le système ne l’acceptera pas :
+
+
+net localgroup « utilisateurs du bureau à distance » L_informatique /add
+
+
+
+
+
+Pour vérifier le résultat :</pre></section><section><h2>Page 109</h2><pre>4.2.2  Vérifiez le numéro de port de RDP avec la commande netstat -an.
+
+
+
+
+
+Depuis le pc Debian 10 avec remmina :
+
+
+
+
+
+Nous pouvons voir sur l’image ci-dessus, la connexion locale est bien sur le port
+3389 avec l’@ip 172.16.63.253.
+4.2.3  Vous demanderez à votre binôme de se connecter sur votre poste
+     Windows 10 afin de tester le bon fonctionnement.</pre></section><section><h2>Page 110</h2><pre>5  Partie 5 – Installation d’applications
+
+
+5.1  Installation d’application sur le Windows 10
+5.1.1  Vous chercherez et validerez la possibilité d’installer de façon silencieuse le
+        logiciel 7zip. C’est-à-dire, qu’aucune boite de dialogue ou assistant
+      graphique ne doit s’afficher à l’écran au déclenchement de l’installation,
+      hormis bien sûr l’alerte UAC.(Regarder dans l’aide et la FAQ du site officiel
+     de 7zip)
+
+
+Nous pouvons accèder à l’aide de 7zip via l’URL suivante :
+
+https://www.7-zip.org/faq.html
+
+À partir d’un fichier batch ou directement depuis la ligne de commande, lancer
+l’exécutable :
+
+
+7zipXXXX-x64.exe /S /D=&quot;c:\program files\7zip&quot;
+
+
+5.2  Installation d’application sur le poste Debian 10
+5.2.1  Sans toucher aux paramétrages actuels du poste Windows, vous vous
+      connecterez à ce dernier à l’aide du protocole RDP. Pour cela, vous
+      rechercherez et installerez une application cliente disponible sur les dépôts
+        officiels sous forme graphique capable entre autres de gérer ce protocole,
+      sachant que Vinagre et freerdp ne permettent pas facilement de gérer
+       l’authentification NLA.
+
+Après une recherche avec :
+
+#apt search rdp
+#apt search bureau a distance (ou apt seach remote desktop)
+
+
+
+
+
+Nous pouvons installer remmina :
+#apt install remmina
+Dans l&#x27;interface graphique, lancer Remmina :</pre></section><section><h2>Page 111</h2><pre>Créer une nouvelle connexion :
+
+
+
+
+
+Compléter le nom et le mot de passe puis cliquons sur « connexion » :</pre></section><section><h2>Page 112</h2><pre>Nous pouvons voir sur l’image ci-dessous que nous sommes connecté sur le windows 10 :
+
+
+
+
+
+5.2.2   Installez Webmin afin que l’administrateur puis effectuer une partie de son travail via
+     une interface web graphique.
+
+Avec l’installation en ligne :
+https://www.webmin.com/deb.html</pre></section><section><h2>Page 113</h2><pre>Comme indiquer il manque des dépendances :
+
+
+
+
+
+Appliquons les dépendances :
+
+
+
+
+
+Webmin est cassé réparons le :</pre></section><section><h2>Page 114</h2><pre>Nous allons maintenant sur notre navigateur :
+
+
+
+
+
+Acceptons les risques :</pre></section><section><h2>Page 115</h2><pre>Authentifions-nous en super-admin root :
+
+
+
+
+
+Ça marche :</pre></section><section><h2>Page 116</h2><pre>6  Partie 6 – Sauvegarde et restauration
+
+6.1  Sauvegarde sur le poste Debian 10
+6.1.1  Afin d’éviter toute perte de données importantes, vous planifierez la sauvegarde
+      quotidienne à 12h30 sous forme de fichiers « tar » :
+
+        6.1.1.1 Des données personnelles des utilisateurs
+
+        6.1.1.2 Des fichiers de données présents dans les dossiers de service
+
+Pour cela nous pouvons créer un script :
+
+
+#vim /root/script.sh
+
+Contenu du script :
+
+
+#!/bin/bash
+tar cf /root/HomeBack.tar /home
+tar cf /root/ServicesBack.tar /services
+
+Modification des permissions du script afin qu’il puisse être utilisé :
+
+
+#chmod u+x /root/script.sh
+
+Puis planification à l’aide d’une crontab :
+
+
+#crontab -e
+
+Puis inscription dans le fichier :
+
+
+30 12 * * 1-5 /root/script.sh</pre></section><section><h2>Page 117</h2><pre>6.1.2  Pour vous prémunir d’un arrêt brutal du système, vous configurerez une duplication
+      des fichiers à l’aide de la commande scp en direction d’un dossier qui sera mis à
+       disposition à distance sur le poste Debian de votre binôme.
+
+  N.B : il se peut que la commande scp ne soit pas présente sur votre système. Vous installerez
+le cas échéant les paquets nécessaires.
+
+Pour cela regardons si nous avons déjà des paquets concernant SCP :
+
+
+#apt-cache search scp
+
+Puis dans notre crontab ajoutons :
+
+
+scp /root/*.tar loxton@ipdubinôme:/dossier</pre></section><section><h2>Page 118</h2><pre>6.2  Sauvegarde sur les postes Windows 10
+6.2.1  Vous ajouterez tout d’abord un nouveau disque dur de 60 Go dans le cas où vous
+      manqueriez d’espace de stockage.
+
+Veuillez répéter la procédure d’ajout de disque sous Vmware workstation écrite au début
+de la correction de cette MSP
+
+
+6.2.2  Vous réaliserez une image système permettant en cas de panne importante de
+       restaurer le système d’exploitation en intégralité.</pre></section><section><h2>Page 119</h2><pre>Sous &quot;Stockage&quot; - &quot;Gestion des disques&quot;, repérer le disque de 60Go puis ajouter un nouveau
+volume simple
+(Clic-droit sur l&#x27;espace &quot;non alloué&quot; puis &quot;Nouveau volume simple&quot;)
+
+
+
+
+
+ Laisser la taille maximale et cliquer sur &quot;Suivant&quot;</pre></section><section><h2>Page 120</h2><pre>Attribuer une lettre :
+
+
+
+
+
+ Formater le volume en formatage rapide et lui attribuer un nom :</pre></section><section><h2>Page 121</h2><pre>Ouvrir le panneau de configuration -&gt; système et sécurité -&gt; sauvegarder et restaurer &gt;
+Créer une image système</pre></section><section><h2>Page 122</h2><pre>Choisir le bon disque cliquer sur suivant puis enregistrer la sauvegarde.</pre></section><section><h2>Page 123</h2><pre>6.2.3  Ensuite, vous planifierez une sauvegarde journalière des données du service
+      informatique (dossier « support informatique ») à 12h45. Les fichiers résultants seront
+      placés sur le partage « Support_Info » de votre binôme dans un dossier qui sera créé
+     à cette fin.
+Ouvrir les paramètres de sauvegarde.
+
+
+
+
+
+Accéder à l&#x27;outil Sauvegarder et restaurer</pre></section><section><h2>Page 124</h2><pre>Cliquer sur &quot;Configurer la sauvegarde&quot;
+
+
+
+
+
+Cliquer sur &quot;Enregistrer sur un réseau...&quot;</pre></section><section><h2>Page 125</h2><pre>Indiquer l&#x27;emplacement réseau de sauvegarde (\\@ipdubinôme\Support_Info), entrer les
+informations d&#x27;identification (Nom d&#x27;utilisateur et mot de passe d&#x27;un compte ayant accès
+à l&#x27;emplacement réseau) puis valider.
+
+
+
+
+
+Cliquer sur suivant.</pre></section><section><h2>Page 126</h2><pre>Sélectionner &quot;Me laisser choisir&quot; puis cliquer sur &quot;Suivant&quot;</pre></section><section><h2>Page 127</h2><pre>Sélectionner le dossier à sauvegarder (Support_Info) et décocher &quot;Inclure une image
+système de lecteurs&quot; puis cliquer sur &quot;Suivant&quot;
+
+
+
+
+
+Cliquer ensuite sur &quot;Modifier la planification&quot;</pre></section><section><h2>Page 128</h2><pre>Exécuter la sauvegarde tous les jours à l&#x27;heure voulu (ici 13:00) puis valider.
+
+
+
+
+
+Enfin, enregistrer les paramètres et exécuter la sauvegarde, une première sauvegarde est
+alors effectuée et devrait apparaitre dans l&#x27;emplacement réseau sélectionné plus haut.</pre></section><section><h2>Page 129</h2><pre>Afin de modifier plus précisément l&#x27;heure de la sauvegarde, accéder au &quot;Planificateur des
+tâches&quot;
+
+
+
+
+
+Dans les Tâches actives, double-clic sur la tâche &quot;AutomaticBackup&quot;</pre></section><section><h2>Page 130</h2><pre>Clic-Droit sur la tâche puis &quot;Propriétés&quot;
+
+
+
+
+
+Sous l&#x27;onglet &quot;Déclencheurs&quot;, modifier le déclenchement</pre></section><section><h2>Page 131</h2><pre>Modifier l&#x27;heure à la valeur souhaitée (12:45) et valider
+
+
+
+
+
+6.2.4  Enfin, vous paramétrerez les points de restauration sur le volume « C: » et réserverez à
+      cet usage 8% de la capacité du lecteur.
+
+
+Accéder à la gestion des points de restauration système</pre></section><section><h2>Page 132</h2><pre>Sélectionner le lecteur C: et cliquer sur &quot;Configurer&quot;</pre></section><section><h2>Page 133</h2><pre>Créer un point de restauration système</pre></section><section><h2>Page 134</h2><pre>7  Pour aller plus loin – Partitionnement LVM
+
+
+7.1  Configuration du stockage et des ressources
+7.1.1  Sur le poste Debian : La partition nommée « LOGS » sera montée de façon
+     permanente dans le dossier « /var/log » afin de soulager la partition utilisée
+       jusque-là. De nombreux fichiers y sont positionnés et utilisés notamment par le
+      système en quasi-permanence, vous veillerez donc à ne perdre aucune
+       information vitale. Vous vérifierez après coup que l’inscription des évènements
+      fonctionne correctement.
+
+
+Afin de pouvoir copier l&#x27;intégralité du dossier &quot;/var/log&quot; qui est en quasi-permanence
+utilisé par le système, nous devons dans un premier temps redémarrer en mode
+maintenance :
+
+
+# init 1
+
+Une fois en mode maintenance, nous pouvons copier le contenu de &quot;/var/log&quot; dans
+un dossier temporaire, en conservant les permissions :
+
+
+# mkdir /tmp/logs
+# cp -rp /var/log /tmp/logs
+
+Nous pouvons alors modifier le fichier &quot;/etc/fstab&quot; puis vérifier que le montage se
+déroule correctement :
+
+
+# echo &quot;LABEL=LOGS /var/log xfs defaults 0 0&quot; &gt;&gt; /etc/fstab
+# mount -a
+
+Nous pouvons maintenant recopier les données de log dans la nouvelle partition :
+
+
+# cp -rp /tmp/logs/* /var/log/
+
+Jettons un œil dans le contenu de /var/log et dans tmp/logs :
+
+
+#ls -al /var /log
+#ls -al /tmp/logs
+
+Maintenant redémarrons la machine :
+
+
+# reboot
+
+Nous pouvons vérifier que de nouvelles données ont étés inscrites dans les journaux
+(log) pendant ou après le redémarrage du système :
+
+
+# tail /var/log/syslog</pre></section><section><h2>Page 135</h2><pre>7.1.2  Depuis le système Debian : vous devez monter le partage « Support_Info »
+     hébergé sur le poste Windows de votre binôme, à l’aide du compte utilisateur
+      adéquat. Attention à la problématique de version de protocole SMB supportée
+      par Windows 10.
+
+Sur le windows 10 installer le support protocolaire SMB/CIFS :
+
+
+
+
+
+Sur le Debian:
+Installez le paquets cifs-utils :
+#apt install cifs-utils
+Créer le repertoire de montage :
+
+#mkdir /home/loxton/support_info
+Vérifions les droits sur le repertoire :
+#chown loxton:informatique /home/loxton/support_info
+#chmod 770 /home/loxton/support_info
+Dans fstab ajoutons la ligne :
+//172.16.63.253/support_info /home/loxton/support_info cifs
+username=loxton,password=TLP4$$VV0rI),file_mode=0777,dir_mode=0777 0 0
+Puis monter le partage :
+#mount -a
+
+Attention n’oublier pas que le partage ne doit pas être caché sur windows (supprimer
+le $ à la fin du partage)</pre></section><section><h2>Page 136</h2><pre>7.2  Configuration avancée des systèmes
+7.2.1  Sur le poste Windows : Pour économiser l’espace de la partition système, vous
+      déplacerez le fichier de pagination (swap) à la racine du lecteur « D: » en
+       laissant le système gérer la taille du fichier.
+
+
+ Accéder au panneau de configuration système</pre></section><section><h2>Page 137</h2><pre>Entrer dans les “Paramètres systèmes avancés”</pre></section><section><h2>Page 138</h2><pre>Cliquer sur “Paramètres”
+
+
+
+
+
+Sous l’onglet “Avancé”, cliquer sur “Modifier”</pre></section><section><h2>Page 139</h2><pre>Décocher la case “Gestion automatique du fichier d’échange pour les lecteurs”
+Sélectionner le lecteur D:
+Cocher “Taille gérée par le système” Valider en cliquant sur “OK”
+
+
+
+
+
+ Après avoir validé, redémarrer l’ordinateur pour que les modifications soient prises
+ en comptes.</pre></section><section><h2>Page 140</h2><pre>7.2.2  Sur le poste Debian : Plusieurs applications installées depuis les sources vont
+       être installées dans /opt. Pour plus de flexibilité, l’espace disque accessible
+     à cet emplacement sera géré au moyen de LVM.
+
+        7.2.2.1 Vous ajouterez 2 nouveaux disques SCSI de 20Go ; vérifier leur
+           bonne prise en compte par le système.
+
+        7.2.2.2 Au moyen des commandes appropriées, vous créerez un volume
+              logique LMV de 32Go
+
+        7.2.2.3  Le volume logique créé précédemment est à formater en ext4. Il
+               doit être accessible depuis /opt et ce de façon permanente.
+
+Pour cela, nous devons utiliser la méthode LVM pour créer un volume logique
+s&#x27;étendant sur les deux disques physiques.
+
+Une fois les disques ajouter à la VM nous la redémarrerons.
+
+Nous aurons besoin dans un premier temps de trouver le gestionnaire lvm :
+
+
+#apt search lvm
+
+Installons-le :
+
+
+#apt install lvm2
+
+Nous allons d&#x27;abord préparer nos deux disques durs à recevoir des volumes
+logiques. Nous allons donc créer un volume physique pour les deux disques durs,
+nous pourrons voir le résultat grâce à la commande pvdisplay :
+
+
+# pvcreate /dev/sdc /dev/sdd
+
+
+
+
+
+# pvdisplay</pre></section><section><h2>Page 141</h2><pre>Nous pouvons maintenant créer un groupe de volume englobant les deux disques
+dur, ils seront alors ensemble considérés comme un seul disque dur logique (nous
+l&#x27;appellerons applications):
+
+
+# vgcreate applications /dev/sdc /dev/sdd
+
+ Enfin, nous pouvons créer un volume logique nommé opt, d&#x27;une taille de 32Go
+ dans le groupe de volumes applications :
+
+
+# lvcreate -n opt -L 32G applications
+# lvdisplay</pre></section><section><h2>Page 142</h2><pre>MSP systèmes clients
+
+Nous pouvons maintenant formater ce nouveau volume en ext4 :
+
+
+# mkfs.ext4 /dev/applications/opt
+
+
+
+
+
+Enfin nous pouvons le monter de manière permanente dans le dossier /opt en ajoutant
+une ligne au fichier /etc/fstab puis en relançant le montage des disques :
+
+
+# echo &quot;/dev/mapper/applications-opt /opt ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab
+# mount -a
+
+
+
+
+
+ Page 142/143
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 143</h2><pre>MSP systèmes clients
+
+7.2.3  Vous trouverez un fichier Excel (Résultats_séminaire.xlsx) comprenant les notes des
+      employer aux derniers séminaires. Veuillez l’ouvrir et compléter :
+
+        7.2.3.1  La colonne à l’aide d’une formule “Total par élève” 
+=SOMME(B5:E5)
+
+        7.2.3.2  La colonne à l’aide d’une formule “Moyenne par élève”
+=MOYENNE(B5:E5)
+
+        7.2.3.3  La ligne “Total par matière” est une somme des notes des employés dans
+            une matière
+=SOMME(B5:B12)
+
+        7.2.3.4  La ligne “Moyenne par matière” est une moyenne des notes des employés
+            dans une matière
+
+=MOYENNE(B5:B12)
+
+        7.2.3.5  La ligne “note maximum” indique la meilleure note des employés dans une
+             matière
+
+=MAX(B5:B12)
+
+        7.2.3.6  La ligne “note minimum” indique la note la plus faible des employés dans
+            un matière
+
+=MIN(B5:B12)
+
+        7.2.3.7  La ligne “nombre d’élèves” indique le nombre d’élèves
+=NBVAL(A5:A12)
+
+    Pour compléter la colonne appréciation vous devrez créer la condition suivante
+        :
+
+        7.2.3.8  Si la moyenne et l&#x27;assiduité &gt;10 afficher Bien
+
+        7.2.3.9  Si la moyenne &lt;=10 et l&#x27;assiduité &gt;=10 afficher En Progrès
+
+       7.2.3.10 Si la moyenne &gt;=10 et l&#x27;assiduité &lt;10 afficher Trop d&#x27;absences
+
+       7.2.3.11 Si la moyenne et l&#x27;assiduité &lt;10 afficher En danger !
+
+
+=SI(ET(G5&gt;10;H5&gt;10);&quot;Bien&quot;;SI(ET(G5&lt;=10;H5&gt;=10);&quot;En progrès&quot;;SI(ET(G5&gt;=10;H5&lt;10);&quot;Trop
+d&#x27;absences&quot;;&quot;En danger!&quot;)))
+
+
+
+
+
+ Page 143/143
+                                      © ENI – Tous droits réservés</pre></section></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Premiers pas avec PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
+Premiers pas avec
+PowerShell
+TP du Module 03 – Interagir avec Windows 10
+
+Proposition de solution
+
+Sur la VM Win10-XX
+
+
+Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell
+•  Changez la police et la taille de la police
+•  Agrandissez votre fenêtre
+
+Faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir la taille de
+la fenêtre et la taille de la police en même temps
+
+Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez
+avec votre système à l&#x27;aide des cmdlets
+
+•  Quelle version de PowerShell est installée sur votre système ?
+
+$PSVersionTable
+
+Ou
+
+Get-Host
+
+
+•  Affichez le contenu du répertoire courant
+        o  Quelle cmdlet avez-vous utilisée ?
+
+Get-ChildItem
+
+
+•  Affichez le contenu du répertoire c:\users
+        o  Quelle cmdlet avez-vous utilisée ?
+
+Get-ChildItem -Path C:\Users
+
+
+•  Affichez la liste des alias PowerShell
+        o  Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Get-
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
+
+             ChildItem ?
+
+Get-Alias
+
+Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls
+
+
+Faites un snapshot TP04 terminé
+
+
+Sur la VM DiscoveryXX
+•  Ouvrez une session avec  l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre
+   système à l&#x27;aide des cmdlets.
+•  Affichez le contenu du fichier C:\PowerShell\Intro.txt
+        o  Quelle cmdlet avez-vous utilisée ?
+
+Avec la cmdlet Get-Content ou avec les alias gc, type ou cat
+
+On peut trouver la réponse dans le fichier texte à l&#x27;aide du bloc-notes ou en tapant dans la
+console PowerShell &gt; notepad.exe c:\PowerShell\Intro.txt
+•  Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\
+
+Set-location c:\
+
+Indice pour trouver : s&#x27;aider de la liste des alias
+
+La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-location
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

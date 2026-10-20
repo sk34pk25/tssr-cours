@@ -1,0 +1,372 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 04 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>         Administration GLPI
+         Module 04 – Assistance – Traitements automatisés des tickets
+
+
+
+
+
+1
+
+
+
+
+
+                                                                                         Objectifs
+
+
+
+                    •  Le suivi opérationnel par des tickets
+                    •  Les différentes solutions pour créer un ticket
+                    •  Les gabarits de ticket : personnalisation du masque de saisie
+                    •  Déclencheurs du chargement d’un gabarit de ticket
+                    •  Les règles métiers pour modifier dynamiquement un ticket
+                    •  La gestion des niveaux de services (SLA)
+                    •  Ordre de création pour un traitement automatisé
+
+
+
+
+
+2</pre></section><section><h2>Page 2</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+
+
+     Rappels sur les tickets
+
+
+
+
+
+3
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                                               Le ticket
+
+
+
+                    • Dans le monde de l’informatique, tout fonctionne à base de ticket
+                    •   Il va permettre de solliciter le centre de service
+                    • Un ticket passera par plusieurs statuts : c’est le cycle de vie
+                 d’un ticket
+                    •   Il peut être de type « incident » ou « demande »
+                    •   Il doit compter un minimum d’informations
+
+                                         Détection des             Répartition des                    Traçabilité                                                          Communication                                       problèmes                  tâches
+
+                                                 Utilisation d’un outil de gestion de ticket
+
+
+
+
+
+4</pre></section><section><h2>Page 3</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                                                Flux d&#x27;entrée
+
+
+
+                Trois façons de créer un ticket
+
+                                                  • Interface d’ouverture de tickets anonymes
+              Depuis GLPI      • Interface simplifiée
+                                                  • Interface standard
+
+
+                                                  • Envoi d’un mail dans une boîte mail support
+                  Mail            • Configuration d’un collecteur
+
+
+
+                                                  • Création du ticket par téléphone
+              Téléphone       • Utilisation de l’interface standard par le technicien
+
+
+
+
+
+5
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                          Création ticket : interface anonyme
+
+
+
+                                                      •  http(s)://&lt;@glpi&gt;/front/helpdesk.html
+                                                      • Aucune authentification requise
+                                                      •  Possibilité de désactivation
+                                                      •  Personnalisation possible : HTML/CSS
+                                                      •  Par défaut, rattaché à l’entité racine
+
+
+
+
+
+6</pre></section><section><h2>Page 4</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                         Création ticket : interface simplifiée
+
+
+
+                                                      •  Accessible après authentification
+                                                      •  Formulaire à compléter et géré par
+                                   un gabarit
+                                                      •  Si une délégation est configurée,
+                                                  possibilité de sélectionner un
+                                                   utilisateur
+                                                      •  Ajout possible de document
+                                        (imprime écran, manuel, etc.)
+                                                      •  Suivi par mail possible
+                                                      •  Association possible des CI concernés
+                                                      •  Récapitulatif de tous ses tickets
+                                         depuis l’accueil
+
+
+7
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                          Création ticket : interface standard
+
+
+
+                                                                       •  Assistance =&gt; Tickets =&gt;
+                                                                       •  Ticket par téléphone
+                                                                       •  Utilisé par le support N1
+                                                             et N2
+                                                                       •  Accès à plus d’éléments
+                                                                       • Vu en détail par la suite
+
+
+
+
+
+8</pre></section><section><h2>Page 5</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+
+
+       Gabarits de ticket
+
+
+
+
+
+9
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                                  Le gabarit : généralités
+
+
+
+                    •  Personnalisation de l’interface de saisie d’un ticket en fonction
+              du type et d’une catégorie de ticket
+                    •  Interface standard et simplifiée
+                    • Champs obligatoires
+                    • Champs masqués
+                    • Champs prédéfinis
+                    •  Notion de gabarit par défaut
+                    •  Accessibles depuis le menu listant les tickets
+
+
+
+
+
+10</pre></section><section><h2>Page 6</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                              Le gabarit : fonctionnement
+
+
+
+
+
+11
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                                     Le gabarit : création
+
+
+
+                    •  Assistance =&gt; Tickets =&gt;
+                    •  Attention à l’entité active : récursivité possible
+
+
+                                                    • Personnalisation visuelle
+
+
+                                                    • Rendu côté utilisateur
+
+                                                            • Liaison avec catégorie / type
+                                                            • Depuis la catégorie
+
+
+
+
+12</pre></section><section><h2>Page 7</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                             Le gabarit : bonnes pratiques
+
+
+
+                    • On commence par créer ses différentes catégories
+                    •  Création des gabarits nommés ainsi : « catégorie-type »
+                    •  Jusqu’à deux gabarits par catégorie (incidents et demandes)
+                    •  Liaison entre les gabarits et les catégories pour chaque type
+
+                                         • On évite au maximum d’inclure
+                             dans le gabarit le paramétrage du
+                                      ticket (priorité, SLA, etc.)
+                                         • Gabarit uniquement pour le visuel
+                                         • Utilisation de règles métier pour la
+                                 configuration du ticket
+
+
+13
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                              Règles métier pour les tickets
+
+
+
+                    •  « Administration =&gt; règles »
+                    •  Permettre une configuration automatisée des tickets saisis
+                    •  Maintenance simplifiée : configuration centralisée au travers
+               de règles
+
+
+
+
+
+14</pre></section><section><h2>Page 8</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                              Règles métier pour les tickets
+
+
+
+                    •  Règles uniquement lues à la création du ticket
+                    •  Toutes les règles sont interprétées
+                    •  Importance de l’ordre =&gt; Champs concurrent
+                    •  Critères : permettre d’identifier les tickets *
+                               • Type
+                               • Catégorie
+                    •  Actions : définir des champs hors de portée de l’utilisateur *
+                               • Priorité
+                               • Techniciens / groupes de techniciens
+                               • SLA
+                               • etc.
+
+                                                                                      * Donnés à titre d’exemples
+
+
+15
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                                  Niveaux de services
+
+
+
+                    •  Objectif : attribuer un temps de résolution ou de prise en charge
+                    •  Saisie manuelle d’une date/heure ou utilisation des objets SLA
+                sous GLPI
+                    •  Attribution des objets SLA manuelle ou automatique via des
+                   règles
+
+
+                                                                                                       Sélection d’un SLA
+
+                                                                                                               Priorité     SLA
+
+                                                                                     1       2h
+                    Calcul effectué en fonction du                            2       8h
+                    calendrier de travail                                        3           2j
+
+
+
+
+16</pre></section><section><h2>Page 9</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                       Niveaux de services : objets SLA
+
+
+
+                    •  « Configuration =&gt; Niveaux de services »
+                                                                      •  Doivent être facilement
+                                                              identifiables
+                                                                      •  Le type : temps de
+                                                           résolution/prise en charge
+                                                                      •  La durée max de résolution
+                                                      souhaitée
+                                                                      •  Possibilité de créer des
+                                                     niveaux d’escalades
+
+                               Dépasser la date butoir de résolution
+                                      n’est pas bloquant, juste informatif
+
+
+
+17
+
+
+
+
+
+                                                            Assistance – Traitements automatisés des tickets
+                                                                  Niveaux de services
+
+
+
+                    •  Permettre une modification automatisée du ticket pendant son
+                   cycle de vie
+                    • Se configure à travers des objets SLA qu’on applique à un ticket
+                    •  Identifiable par un nom
+                    •  Configuration d’un déclencheur temporelle par rapport au temps
+               de résolution
+                    •  Vont ensuite s’appuyer sur des critères (optionnels) pour réaliser
+                des actions
+                    •  Critères et actions applicables aux différents champs du ticket
+
+
+
+
+
+18</pre></section><section><h2>Page 10</h2><pre>                                                            Assistance – Traitements automatisés des tickets
+                                                                     Ordre de création
+
+
+
+
+                                                                                              • Matériel
+                   Créer les catégories de ticket              • Logiciel =&gt; Bureautique
+                                                                                              • Logiciel =&gt; Infographiste
+
+                 Créer les gabarits de ticket puis les         • Personnalisation de l’interface                                                                                              • Champs obligatoires
+                        lier aux catégories suivant le type          • Champs masqués
+
+                          Créer les SLAs                          •• TempsTemps dede résolutionprise en charge
+
+                    Créer les escalades de SLAs               •• CritèreAction (élévation(catégories,detype,priorité,tempsaffectionrestant…)à un niveau supérieur…)
+
+                      Créer les règles métier                   • Critère (type (incident, demande), catégorie de ticket)
+                       pour les tickets                         • Action (affectation technicien, SLA, priorité…)
+
+
+
+
+19</pre></section></html>

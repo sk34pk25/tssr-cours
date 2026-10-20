@@ -1,0 +1,233 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M11 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>RES24_0050B - M11 - Linux Administration (Debian).pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Administration Debian
+     GNU/Linux
+
+
+ Module 11 – Droits sur les fichiers et répertoires</pre></section><section><h2>Page 2</h2><pre>                                                          Droits sur les fichiers et répertoires
+
+  Objectifs
+
+• Comprendre le fonctionnement des droits
+• Gérer les droits sur les répertoires et fichiers
+• Gérer les utilisateurs et groupes propriétaires des
+  répertoires et fichiers
+• Gérer le modèle de droits
+• Les droits spéciaux
+
+               Donner les droits suffisants, ni plus, ni moins</pre></section><section><h2>Page 3</h2><pre>                                                    Droits sur les fichiers et répertoires
+
+
+Les droits Unix/Linux</pre></section><section><h2>Page 4</h2><pre>                                                               Les droits Unix/Linux
+                                                        Les types de droits
+
+
+• Les droits d’accès sur les fichiers sont directement inscrits dans
+  l’inode des fichiers (répertoires). Ils sont découpés en trois
+  colonnes : utilisateur propriétaire (user), groupe propriétaire
+  (group) et les autres (other).
+• En pratique, il y a toujours trois groupes de trois droits.
+
+
+              rwxrwxr-x
+                   utilisateur groupe other</pre></section><section><h2>Page 5</h2><pre>                                                                        Les droits Unix/Linux
+                                                                 Les types de droits
+
+
+
+  Droit    Octal               Fichier                             Répertoire
+               Permet de lire, ouvrir le Lecture                                  Permet de lister le contenu du dossier.           4    fichier     (r)                                       Ex : ls                Ex : cat
+
+               Permet d’écrire dans le fichier Permet de modifier le contenu du dossier Écriture           2    (le droit de lecture doit être    (créer, copier, renommer, supprimer)   (w)                 présent)                     Ex : mkdir cp rm
+
+               Permet d’exécuter le fichier                                         Permet à un utilisateur de traverser ouExécution        binaire ou script shell (le           1                                 d’accéder à un fichier dans le dossier.    (x)            droit de lecture doit être                                            Ex : cd                 présent)</pre></section><section><h2>Page 6</h2><pre>                                                                 Les droits Unix/Linux
+                                                          Les types de droits
+
+
+
+Pour calculer les droits en octal, il faut additionner les valeurs des
+droits présents pour les trois groupes
+rwx  =    4+2+1 = 7
+                                          Exemplesrw-  =    4+2  = 6
+                                    rwxrwxr-x  = 775
+r-x   =    4+1  = 5                                    rwxr-x---  = 750
+r--   =    4                        rw-rw-r--  = 664</pre></section><section><h2>Page 7</h2><pre>                                                                      Les droits Unix/Linux
+                                                               Les types de droits
+
+
+
+        • Pour afficher les droits d’un fichier ou répertoire,
+          la commande ls sera utilisée :
+
+root@deb:~$ ls –ld
+total 16
+drwxr-xr-x 3 user30 user30 4096 17:36 .
+-rw------- 1 user30 user30  616 09:34 Edition
+drwxr-xr-x 2 user30 user30 4096 17:36 Nantes
+lrwxrwxrwx 1 user30 user30   15 17:38 Quimper -&gt; Rennes/Quimper/
+drwxr-xr-x 3 user30 user30 4096 17:36 Rennes
+-rw-r--r-- 1 user30 user30   33 17:35 todo.list
+        • Dans cet exemple, sont mis en avant les droits de l’utilisateur
+        propriétaire en vert, les droits du groupe propriétaire en bleu et
+       ceux des autres en violet.</pre></section><section><h2>Page 8</h2><pre>                                                    Droits sur les fichiers et répertoires
+
+Modifier les droits et
+    propriétaires</pre></section><section><h2>Page 9</h2><pre>                                                    Modifier les droits et propriétaires
+                                                   Modification des droits
+
+
+
+• chmod &lt;-R&gt; [ugoa][+ - =][rwxX] fichier ou dossier
+• La commande chmod permet de modifier les droits.
+•  Il est possible d’utiliser cette commande de deux façons :
+     • Absolue : en octal ou symbolique avec le signe « = »
+     • Relative : en symbolique avec les signes « + » ou « - »
+• Attention à l’option –R, le fait de réaliser un chmod de façon
+  récursive doit être effectué de façon réfléchie et ne doit pas être
+  généralisé à tous les usages.</pre></section><section><h2>Page 10</h2><pre>                                                    Modifier les droits et propriétaires
+                                                   Modification des droits
+
+
+
+• Modifier les permissions d’un répertoire en notation symbolique
+
+     root@deb:~# chmod g+w,o-rx /data/commun
+
+• Modifier les permissions d’un répertoire en notation octale
+
+
+     root@deb:~# chmod 770 /data/commun
+
+• Modifier les permissions d’un répertoire ET de son contenu
+
+
+     root@deb:~# chmod –R g+w,o-rx /data/commun</pre></section><section><h2>Page 11</h2><pre>                                                    Modifier les droits et propriétaires
+                   Modification du propriétaire et/ou du groupe propriétaire
+
+
+
+• chown &lt;-R&gt; [user]:[group] fichier(dossier)
+• La commande chown permet de modifier l’utilisateur propriétaire
+  et le groupe propriétaire
+• Modifier l’utilisateur et le groupe propriétaire
+
+
+      root@deb:~# chown penthium:users /data
+
+• Modifier seulement le groupe propriétaire de /data/commun ET
+ son contenu
+
+
+      root@deb:~# chown –R :users /data/commun</pre></section><section><h2>Page 12</h2><pre>                                                          Modifier les droits et propriétaires
+
+
+
+
+
+Démo
+
+                                 Modifier les droits et propriétaires</pre></section><section><h2>Page 13</h2><pre>                                                  Droits sur les fichiers et répertoires
+
+Modèle de droits et
+   droits spéciaux</pre></section><section><h2>Page 14</h2><pre>                                          Modèle de droits et droits spéciaux
+                                     Gestion du modèle de droit « Umask »
+
+
+
+• L’umask est utilisé pour déterminer les droits des fichiers et
+  répertoires.
+• La valeur de l’umask sera « soustraite » à la valeur des droits
+ maximaux à la création : 0666 pour un fichier, 0777 pour un
+  répertoire.
+• Sur Debian, l’umask par défaut des utilisateurs est de 0022.
+   Il est important que l’umask de root et des utilisateurs de service
+  (UID &lt; 1000) reste à 0022.
+•  Il est possible pour chaque utilisateur de changer son umask avec
+  la commande umask.</pre></section><section><h2>Page 15</h2><pre>                                          Modèle de droits et droits spéciaux
+                                     Gestion du modèle de droit « Umask »
+
+
+
+• En pratique, on calcule toujours l’umask à partir des droits pour les
+  répertoires (sinon le droit d’exécution ne sera pas posé pour les
+  dossiers créés avec ce masque.)
+• Si je souhaite obtenir des droits de lecture-écriture-exécution pour
+  l’utilisateur et le groupe propriétaire :
+     • Je vais calculer la somme en octal : 770
+     • Ensuite je vais soustraire cette valeur cible de 777, le maximum possible
+     • Ce qui amène ici le résultat 007
+
+     • Ou 0007 avec prise en compte du premier chiffre représentant les droits
+      spéciaux</pre></section><section><h2>Page 16</h2><pre>                                          Modèle de droits et droits spéciaux
+                                     Gestion du modèle de droit « Umask »
+
+
+
+• umask [mode]
+• Afficher le masque courant
+
+    user30@deb:~$ umask
+    0022
+• Modifier le masque courant
+
+    user30@deb:~$ umask 0007
+    user30@deb:~$ umask
+    0007
+• Pour avoir un umask spécifique lors de sa connexion, il sera possible d’ajouter
+  une entrée avec la commande umask dans son fichier de chargement de son
+  shell (le fichier ~/.bashrc pour le shell bash)</pre></section><section><h2>Page 17</h2><pre>                                                     Modèle de droits et droits spéciaux
+                                                               Les droits spéciaux Unix
+
+
+          Droit           Octal               Fichier                     Répertoire
+SetUID                         4---  Exécution avec les droits du        Non utilisé pour les dossiers
+Symbolique sur colonne user,          propriétaire du fichier
+champ x:
+s = SetUID + droit x                 Ex : la commande /usr/bin/passwd
+positionné                            s’exécute avec les droits de root, afin
+S = SetUID positionné seul          de permettre l’écriture dans les
+                                            fichiers passwd et shadow
+
+SetGID                         2---  Exécution avec les droits du groupe   Tout fichier créé dans ce dossier
+Symbolique sur colonne             Ex : /usr/sbin/crontab s’éxecute avec   héritera du groupe du dossier
+group, champ x:                         les droits du groupe crontab          parent. Les sous-dossiers créés
+s = SetGID + droit x                                                          hériteront quant à eux du droit
+positionné                                                                SetGID.
+S = SetGID positionné seul</pre></section><section><h2>Page 18</h2><pre>                                                      Modèle de droits et droits spéciaux
+                                                                Les droits spéciaux Unix
+
+
+
+            Droit             Octal           Fichier                  Répertoire
+Sticky bit                             1---  Mise en zone de swap.        Tout fichier créé ne pourra être
+Symbolique sur colonne other,             Le but est que le fichier       supprimé que par son
+champ x:                                   puisse être stocké en          propriétaire et par root
+t = Sticky bit + droit x positionné          mémoire pour pouvoir être
+T = Sticky bit positionné seul                relancé plus rapidement      Ex : /tmp
+
+
+
+
+        chmod &lt;-R&gt; [ugoa][+ - =][st] fichier ou dossier</pre></section><section><h2>Page 19</h2><pre>                                              Modèle de droits et droits spéciaux
+
+
+
+
+
+Démo
+
+
+                                 Masque de droits et droits spéciaux</pre></section><section><h2>Page 20</h2><pre>                                                             Droits sur les fichiers et répertoires
+
+
+
+     TPDémo
+
+                                               Gestion des permissions</pre></section><section><h2>Page 21</h2><pre>                                                       Droits sur les fichiers et répertoires
+                                                             Conclusion
+
+
+
+• Vous comprenez le fonctionnement des droits Unix Linux
+• Vous savez modifier les droits et propriétaires de dossiers
+  et fichiers
+• Vous savez manipuler les modèles de droits
+• Vous savez positionner des droits spéciaux</pre></section></html>

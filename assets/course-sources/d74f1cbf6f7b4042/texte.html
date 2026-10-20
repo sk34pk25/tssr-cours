@@ -1,0 +1,234 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M05TP01 - Solution - Gestion de la configuration réseau dun poste.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M05TP01 - Solution - Gestion de la configuration réseau dun poste.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                        Administration Debian GNU/Linux
+Gérer la configuration
+réseau d’un poste
+TP du Module 05 – Gestion du réseau
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir
+ réalisé les TP proposés.
+
+
+           Durée estimée
+
+            2 à 3 heures
+
+Solution
+
+  I.  Configurer une adresse IP statique sur le serveur sans
+    environnement graphique
+
+Configurer la 1ere carte réseau détectée (ens33) avec l&#x27;adressage suivant :
+    •  Adresse IP : 10.X.Y.1/16
+        o  Avec le second octet X=n° de réseau.
+                  ▪  Pour récupérer votre réseau de salle, depuis le poste Windows hôte,
+                      ouvrir une fenêtre cmd et lancer la commande ipconfig
+
+
+
+
+
+                           Dans cet exemple, le numéro de salle est 49
+        o  avec le troisième octet Y=votre n° de stagiaire (donné par votre coach en
+           début de semaine)
+    •  Passerelle : 10.X.255.254
+
+
+                 Pour cette solution, je vais utiliser la salle 49 et le numéro de stagiaire 222
+                               Donc le reseau 10.49.222.0/16
+
+
+
+Page 1/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                        Administration Debian GNU/Linux
+
+
+
+
+
+                                    Ouvrir une session avec l&#x27;utilisateur root
+
+
+
+           Précaution préalable : créer le fichier .vimrc avec l&#x27;activation du mode nocompatible
+                 Pour le moment notre système est nativement en mode compatible Unix
+
+
+
+
+
+                          Le fichier interfaces dans sa configuration d&#x27;origine
+
+
+
+
+
+                                 Modifier la mention allow-hotplug en auto
+                                         passer de dhcp à static
+                            ajouter l’adresse (attention à l’orthographe anglaise),
+                                       le masque de sous reseau et la passerelle.
+
+
+
+
+
+                                Redémarrer le service networking,
+                                  optionnel : verifier le statut du service.
+
+
+
+
+
+Page 2/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                        Administration Debian GNU/Linux
+
+Vérifier et adapter si nécessaire les paramètres de résolution de nom :
+
+
+
+                                     Modifier le fichier /etc/resolv.conf
+    •  Serveurs DNS : serveurs DNS de l’ENI
+    •  Domaines résolus par défaut : ad.campus-eni.fr et eni-ecole.net
+
+
+
+                                                        hostname
+                 Une seule directive search pour plusieurs domaines de recherches
+                            mais une directive nameserver par serveur DNS
+    •  Pour valider la bonne prise en compte du point précédent, vous pourrez essayer un
+      ping vers les hôtes suivants :
+        o  dc44-far
+        o  dc35-cdb1
+        o  repos
+
+
+
+
+
+                  Les deux adresses “DC” sont résolues avec le domaine ad.campus-eni.fr
+                   L’adresse repos elle appartient par contre au domaine eni-ecole.net
+   Astuce avec ping, l’option “-c” permet de préciser le nombre de ping avant de quitter la commande
+
+
+
+
+
+Page 3/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                        Administration Debian GNU/Linux
+
+Modifier le nom de la machine :
+    •  Indiquer le nom : deb-&lt;prénom&gt;-01 avec &lt;prénom&gt; = votre prénom
+         Attention, il y a 2 fichiers à modifier ! (/etc/hosts et /etc/hostname)
+
+
+                       →
+                        Le fichier hostname contient uniquement le nom d&#x27;hôte.
+
+
+                →
+             Sur la seconde ligne du fichier hosts   il faut modifier nom long et nom court de l&#x27;hôte.
+
+
+
+
+
+           La commande hostname rpermet la modification du nom d&#x27;hôte sans redémarrage
+                      Il faut ouvrir un nouveau shell ou une nouvelle session pour verifier cette prise en compte.
+
+
+Ajouter une 2e carte réseau en Host-only à votre VM et utiliser les paramètres suivants :
+
+
+
+
+
+                Dans les paramètres de la machine virtuelle, ajout de la seconde carte
+
+
+
+
+                   La commande ip a permet de montrer la nouvelle carte, ici ens35.
+
+    •   IP : 192.168.100.1/24
+    •  Pas de passerelle par défaut
+
+
+
+
+
+                  →
+                          Ajouter ces lignes dans le fichier /etc/network/interfaces
+           Après redémarrage du service networking, la carte ens35 a récupérée son adresse IP
+
+
+
+
+
+Page 4/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                        Administration Debian GNU/Linux
+  II.  Configurer une adresse IP statique sur la machine avec
+    environnement graphique
+
+
+
+
+
+           Au démarrage saisir systemctl isolate graphical pour lancer la couche graphique
+
+
+
+
+
+                      →
+                                  Ouvrir une session avec l&#x27;utilisateur standard
+                         Se rendre dans les paramètres de la carte ethernet.
+
+Configurer un adressage IP statique compatible avec la 1ere carte réseau de la VM Debian
+sans environnement graphique
+
+
+
+
+                                Cliquer sur l&#x27;icone en forme de roue dentelée
+
+
+
+
+
+        Dans l’onglet IPv4 passer en mode manuel et saisir une adresse valide. Pas de passerelle.
+             NB : l’interface graphique ne permet pas de saisir de nom de domaine DNS.
+
+
+
+
+
+Page 5/6
+
+                             © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                        Administration Debian GNU/Linux
+
+
+
+
+
+                       Au besoin les renseigner via la commande nmtui
+
+              Désactiver/réactiver la carte afin que ces modifications soient prises en compte
+    •  Pouvez-vous pinguer l&#x27;autre VM Debian ?
+    •  Pouvez-vous pinguer les serveurs ENI ?
+
+
+
+
+
+        Si la configuration est correcte,  il est possible de pinguer l&#x27;autre VM Debian comme les serveurs ENI
+
+
+
+
+
+Page 6/6
+
+                             © ENI – Tous droits réservés</pre></section></html>

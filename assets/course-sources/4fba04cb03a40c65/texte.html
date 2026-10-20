@@ -1,0 +1,414 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 11 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 11 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+                  Module 11 – Plus loin avec PowerShell
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+   Plus loin avec PowerShell
+
+                                            •  Savoir rediriger les flux des cmdlets  Objectifs
+                                            •  Utiliser le pipeline
+                                            •  Filtrer puis formater le résultat
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>   Plus loin avec PowerShell
+ Plus loin avec PowerShell
+
+
+              • Redirection de flux
+              • Le pipeline
+              •  Filtrer l&#x27;affichage d&#x27;un résultat
+
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+   Plus loin avec PowerShell
+ Redirection
+
+
+              • Une cmdlet :
+                      • Reçoit des paramètres par l&#x27;entrée standard (stdin:0) par défaut le clavier
+                      • Fournit des résultats sur la sortie standard (stdout:1) par défaut l&#x27;écran
+                      • Affiche éventuellement les erreurs sur la sortie standard (stderr:2) par défaut l&#x27;écran
+
+
+                                                                                                               Sortie
+                                                                                                   standard
+                                                                                                                Stdout:1                    Entrée                                                                                                                        (écran)
+                   standard                                                  cmdlet                        Stdin:0
+                          (clavier)                                                                                            Sortie
+                                                                                                                          erreur
+                                                                                                                                        Stderr:2
+                                                                                                                                       (écran)
+
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>   Plus loin avec PowerShell
+ Redirection
+
+
+                                       Redirection du flux de sortie standard
+                 Cmdlet &gt; fichier                                    Redirige le flux de sortie standard vers ‘fichier’
+                  Cmdlet 1&gt;fichier
+                Cmdlet &gt;&gt; fichier                                    Redirige le flux de sortie standard à la fin de ‘fichier’
+                 Cmdlet 1&gt;&gt; fichier
+                                        Redirection du flux de sortie d&#x27;erreur
+             Cmdlet 2&gt; fichier.err  Redirige le flux de sortie d&#x27;erreur vers fichier.err
+            Cmdlet 2&gt;&gt; fichier.err  Redirige le flux de sortie d&#x27;erreur à la fin de fichier.err
+
+                                                Redirection des flux
+            Cmdlet &gt; fichier 2&gt;&amp;1  Redirige le flux de sortie standard et le flux de sortie d&#x27;erreur dans ‘fichier’
+                  Cmdlet 2&gt;$null  Redirige le flux de sortie d&#x27;erreur &quot;dans le vide&quot;
+
+                                                                                         5
+
+
+5
+
+
+   Plus loin avec PowerShell
+ Redirection
+
+
+              • Exemple de redirection dans un fichier
+                      • Get-LocalUser &gt; c:\temp\LocalUserList.txt
+              • Lecture du fichier
+                      • Get-Content c:\temp\LocalUserList.txt
+
+
+
+
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>   Plus loin avec PowerShell
+
+
+          Démonstration
+
+
+
+
+
+                                                                                         7
+
+
+7
+
+
+   Plus loin avec PowerShell
+ Pipeline
+
+
+              • Déjà utilisé avec Select-Object, le pipeline transmet le résultat de la sortie standard d&#x27;une
+            cmdlet dans l&#x27;entrée standard d&#x27;une autre cmdlet
+              • Enchaînement de cmdlet possible
+
+
+
+            cmdlet1                       cmdlet2                       cmdlet3
+
+
+
+                     stdout                          stdin    stdout                          stdin
+
+
+
+
+                                                                                         8
+
+
+8</pre></section><section><h2>Page 5</h2><pre>   Plus loin avec PowerShell
+ Pipeline
+
+
+              • Utilisé pour fournir un jeu restreint de propriétés
+                      • exemple avec Get-NetAdapter (sans paramètre ni argument) qui affiche certaines propriétés
+
+
+
+
+
+                      • Get-NetAdapter | Select Name,Status,LinkSpeed
+
+
+
+
+
+                                                                                         9
+
+
+9
+
+
+   Plus loin avec PowerShell
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          10
+
+
+10</pre></section><section><h2>Page 6</h2><pre>   Plus loin avec PowerShell
+  Filtrage
+
+
+              • Les objets fournis par le pipeline sont parfois nombreux
+              • Mettre en place le filtrage pour ne garder que les propriétés nécessaires
+              • Prérequis : connaître les opérateurs de comparaisons
+                      • Par défaut insensible à la casse
+                      • Les préfixer de &quot;c&quot; pour les rendre sensibles...
+                      • … Get-Help About_Comparison_Operator …
+
+
+
+
+
+                                                                                          11
+
+
+11
+
+
+   Plus loin avec PowerShell
+  Filtrage
+
+
+                  Comparaison                Insensibilité à la casse       Sensibilité à la casse
+                                Egalité                            -eq                        -ceq
+                               Inégalité                           -ne                         -cne
+                          Supérieur à                             -gt                           -cgt
+                      Supérieur ou égal à                      -ge                         -cge
+                               Inférieur à                                       -lt                                  -clt
+                           Inférieur ou égal à                              -le                              -cle
+             Comparaison d&#x27;égalité d&#x27;expression                   -like                             -clike
+             Comparaison d&#x27;inégalité d&#x27;expression               -notlike                       -cnotlike
+
+
+
+                                                                                          12
+
+
+12</pre></section><section><h2>Page 7</h2><pre>   Plus loin avec PowerShell
+  Filtrage basique
+
+
+              • Ne peut filtrer qu&#x27;une seule propriété
+              • Nécessite la cmdlet Where-Object
+              • Exemple Get-NetAdapter | select Name,Status,LinkSpeed
+
+
+
+
+
+              • Get-Netadapter | Select Name,Status,LinkSpeed | Where Status –like Up
+
+
+
+
+
+                                                                                          13
+
+
+13
+
+
+   Plus loin avec PowerShell
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          14
+
+
+14</pre></section><section><h2>Page 8</h2><pre>   Plus loin avec PowerShell
+  Filtrage
+
+        Le filtrage avancé
+              • Pour filtrer plusieurs propriétés
+              • Nécessite aussi la cmdlet Where-Object
+              • Nécessite un script de filtrage –FilterScript {} dans la cmdlet Where-Object
+              • Possibilité d&#x27;utiliser la variable $PSITEM (ou $_) pour être plus productif
+              • $_ contient tous les objets transmis à Where-Object
+
+
+
+
+
+                                                                                          15
+
+
+15
+
+
+   Plus loin avec PowerShell
+  Filtrage
+
+
+              • Exemple Get-NetAdapter | select Name,Status,LinkSpeed
+
+
+
+
+
+              • Get-NetAdapter | select Name,Status,LinkSpeed | Where –FilterScript
+          {$_.Status –like &quot;Up&quot; –and $_.LinkSpeed –gt &quot;100 Mbps&quot;}
+
+
+
+
+
+                                                                                          16
+
+
+16</pre></section><section><h2>Page 9</h2><pre>   Plus loin avec PowerShell
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          17
+
+
+17
+
+
+   Plus loin avec PowerShell
+ Formatage
+
+
+              • Par défaut, PowerShell &quot;formate&quot; les résultats des cmdlets avant de les afficher à l&#x27;écran
+              • Le format des résultats peut être modifié à l&#x27;aide des cmdlets
+                      • Format-List
+                      • Format-Table
+                      • Format-Wide
+
+              • Les cmdlets Format-* sont à réaliser en dernier lieu, &quot;après avoir terminé le travail&quot;
+
+
+
+
+
+                                                                                          18
+
+
+18</pre></section><section><h2>Page 10</h2><pre>   Plus loin avec PowerShell
+ Formatage
+
+
+              • Affichage sous forme de liste
+                      • Get-Service | format-List
+                      • Get-Service | format-List –Property *
+                      • Get-service | FL –Property Name,Status,DisplayName
+                               •  Équivalent à Get-Service | select Name,Status,DisplayName | FL
+
+              • Affichage sous forme de tableau
+                      • Get-TimeZone | Format-Table
+                      • Get-TimeZone | Format-Table –Property *
+                      • Get-TimeZone | FT –Property StandardName,BaseUtcOffset -autosize
+
+
+
+
+                                                                                          19
+
+
+19
+
+
+   Plus loin avec PowerShell
+ Formatage
+
+
+              • Affichage sous forme de liste élargie
+                      •  Afficher une liste sur une ou plusieurs colonnes
+                      • Une seule propriété de la collection d&#x27;objets est sélectionnée
+
+                      • Get-Process | Format-Wide
+                      • Get-Process | Format-Wide –Property ID
+                      • Get-Process | FW –Property ID –column 5
+                      • Get-Process | FW –Property ID -autosize
+
+
+
+
+
+                                                                                          20
+
+
+20</pre></section><section><h2>Page 11</h2><pre>   Plus loin avec PowerShell
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          21
+
+
+21
+
+
+   Plus loin avec PowerShell
+
+
+              TP
+
+
+
+
+
+                                                                                          22
+
+
+22</pre></section><section><h2>Page 12</h2><pre>   Plus loin avec PowerShell
+ Conclusion                                            •  Maîtriser PowerShell, l’essence même d’un
+                                     technicien moderne
+                                            •  Aller plus loin, être curieux
+                                            •  S’éveiller au scripting PowerShell
+
+
+
+
+
+                                                                                          23
+
+
+23</pre></section></html>

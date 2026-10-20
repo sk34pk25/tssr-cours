@@ -1,0 +1,340 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Gestion du r‚seau.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Gestion du r‚seau.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
+Gestion du réseau
+TP du Module 07 – La gestion du réseau et du pare-feu
+
+Proposition de solution
+
+Sur votre VM Win10-XX, configurez vos accès réseau :
+
+    •  Connectez votre VM sur le switch Bridged (vérifier d&#x27;abord le report de 35 jours de
+     Windows Update)
+
+Rechercher &gt; Windows Update &gt; Options avancées de Windows Update
+
+Vérifier le report des mises à jour
+
+Dans le cas contraire, reportez les mises à jour depuis le menu Options avancées
+
+
+
+
+
+Dans VMware WorkStation &gt; Clic droit sur votre VM Win10-XX &gt; Settings
+
+Network Adapter &gt; cocher Bridged
+
+    •  Possédez-vous une adresse IP ? Laquelle ? Quelle est l&#x27;adresse du réseau ?
+
+Ouvrez une fenêtre de ligne de commande cmd.exe
+
+ipconfig (attention, votre adresse IP sera différente de celle de l&#x27;encadré ci-dessous).
+
+
+
+
+
+ Page 1/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+Ici, l&#x27;adresse IP est 172.28.2.5
+
+L&#x27;adresse du réseau est 172.28.0.0 (résultat de l&#x27;opération du &amp; entre l&#x27;adresse  IP et le
+masque de sous-réseau).
+
+    •  Configurez une adresse IP fixe sur l&#x27;interface réseau de votre VM
+
+        o  La partie réseau de votre adresse sera la même que celle de votre VM
+          Campus en ligne
+
+        o  La partie hôte sera composée du rang alphabétique de la première lettre de
+             votre prénom puis du rang alphabétique de la première lettre de votre nom
+          de famille
+
+                  ▪  Exemple : Pierre-Louis Le Guervelec
+
+                         •  P = 16eme lettre de l’alphabet l’octet n°3 de l’adresse ip sera
+                    donc 16
+
+                         •   L = 12eme lettre de l’alphabet l’octet n°4 de l’adresse ip sera
+                    donc 12
+
+        o  Le masque sera 255.255.0.0
+
+        o  La passerelle et le serveur DNS préféré seront les mêmes que ceux configurés
+               sur votre VM Campus en ligne
+
+Ouvrez une fenêtre de ligne de commande cmd.exe sur l&#x27;environnement de travail de
+l&#x27;école
+
+ipconfig /all
+
+Notez les informations concernant la partie réseau, la passerelle par défaut et le serveur
+DNS préféré.
+
+
+
+
+
+ Page 2/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+Sur votre VM Win10-XX (faites bien attention de faire les manipulations sur votre VM Win10-
+XX)
+
+Rechercher &gt; ncpa.cpl
+
+Clic droit sur la carte Ethernet0 &gt; Propriétés
+
+Sélectionnez Protocole Internet version 4 (TCP/IPv4) puis Propriétés
+
+Cochez Utiliser l&#x27;adresse IP suivante :
+
+Adresse IP : 172.28.18.7 (attention : ici 18.7 correspond à la partie hôte. 18 pour R et 7 pour
+G. Votre partie hôte sera donc différente).
+
+Masque de sous-réseau : 255.255.0.0
+
+Passerelle par défaut : 172.28.0.254
+
+Cochez Utiliser l&#x27;adresse de serveur DNS suivante
+
+Serveur DNS préféré : 172.28.0.4
+
+
+
+
+
+ Page 3/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
+
+OK
+
+
+
+
+
+Connectivité
+
+    •   Utilisez la commande ping vers les hôtes suivants :
+
+        o  Adresse IP de la passerelle par défaut
+
+        o  Adresse IP de votre VM Discovery
+
+        o  www.facebook.com
+
+    •  Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
+
+    •  À quel niveau du réseau sont-ils ? Réseau local ? Internet ?
+
+Sur la VM Win10-XX
+
+Ouvrez une fenêtre de commande cmd.exe
+
+
+
+
+
+ Page 4/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
+
+ping 172.28.0.254
+
+
+
+
+
+La VM Win10-XX obtient une réponse ICMP de la passerelle. La VM Win10-XX et la passerelle
+par défaut communiquent bien.
+
+Pour retrouver l&#x27;adresse IP de la VM Discovery, ouvrez une session avec l&#x27;utilisateur adm puis
+ouvrez une fenêtre de ligne de commande cmd.exe
+
+ipconfig
+
+Si l&#x27;adresse IP de la VM Discovery est au format APIPA, c&#x27;est que la Discovery ne possède
+pas d&#x27;informations IP fournies par le service DHCP. Pour remédier à cela,  il faut que la VM
+Discovery puisse d&#x27;abord communiquer avec le serveur DHCP. Pour cela,  il faut donc la
+&quot;brancher&quot; sur le switch &quot;Bridged&quot;
+
+À l&#x27;issue de la bascule sur le switch &quot;Bridged&quot;, attendez quelques secondes, votre VM
+obtiendra les informations IP adéquates pour communiquer sur le réseau
+
+Sur la VM Win10-XX
+
+Ping &lt;adresse ip de votre VM Discovery&gt;
+
+
+
+
+
+La VM Win10-XX et Discovery communiquent ensemble sur le même réseau local.
+
+ping www.facebook.com
+
+
+
+
+
+ Page 5/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+La communication entre votre VM Win10-XX et ce serveur web est possible grâce au fait
+que vous avez configuré une passerelle par défaut. Cette passerelle par défaut correspond
+à une interface réseau du routeur connecté au réseau. Ce routeur vous permet de
+communiquer avec des hôtes disponibles dans d&#x27;autres réseaux et notamment internet.
+
+    •   Utiliser la commande tracert pour ces mêmes noms. Que nous apprend cette
+     commande ?
+
+
+
+
+
+Cette commande nous apprend que la passerelle par défaut ainsi que la VM Discovery
+sont joignables directement. La communication est directe, sans que le paquet ne traverse
+des routeurs, ne passe par différents réseaux.
+
+
+
+
+
+ Page 6/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+La commande nous apprend ici que le serveur web de Facebook est joignable et se trouve
+dans un réseau différent de celui dans lequel se trouve la VM Win10-XX. La communication
+est donc possible en passant par des routeurs (nous avons même l&#x27;information de leur
+adresse IP et même parfois de leur nom).
+
+La ligne délai de la demande dépassé indique simplement que le routeur en question ne
+&quot;souhaite pas&quot; communiquer son adresse IP, mais cela ne bouscule ne rien le processus de
+routage.
+
+Il faut que le paquet traverse 10 routeurs différents (10 sauts) avant d&#x27;atteindre la destination
+finale.
+
+Résolution de noms
+
+    •   Utilisez la commande nslookup avec les noms suivants :
+
+        o  www.hadopi.fr
+
+        o  www.amendes.gouv.fr
+
+        o  www.facebook.com
+
+Depuis la VM Win10-XX
+
+
+
+
+
+ Page 7/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>                                                         Systèmes Clients Microsoft
+
+
+
+
+
+    •  Obtenez-vous des réponses pour chacune des requêtes ? Quelles sont les adresses
+       ipv4 de ces hôtes ?
+
+Nous obtenons plusieurs informations suite à ces commandes nslookup.
+
+La commande nslookup permet d&#x27;obtenir l&#x27;adresse IP d&#x27;un hôte lorsque nous connaissons
+son nom. C&#x27;est le principe du service DNS. nslookup permet de consulter le service DNS.
+
+Ici, nous pouvons observer que le service DNS est hébergé par l&#x27;hôte dont le nom est
+dceel.ad.campus-eni.fr et que son adresse IP est 172.28.0.4. C&#x27;est justement l&#x27;adresse que
+nous avons renseignée comme serveur DNS préféré dans la configuration de notre carte
+réseau.
+
+L&#x27;adresse IP de l&#x27;hôte www.hadopi.fr est 217.115.114.160
+
+L&#x27;adresse IP de l&#x27;hôte www.amendes.gouv.fr est 90.102.115.80
+
+L&#x27;adresse IPv4 l&#x27;hôte www.facebook.com est 185.60.216.35. Il possède aussi une adresse IPv6
+(2a03:2880:f12d:83:face:booc:0:25de)
+
+www.facebook.com est un alias (un surnom). Son nom d&#x27;hôte DNS est en réalité :
+
+star-mini.c10r.facebook.com
+
+
+
+
+
+ Page 8/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>                                                         Systèmes Clients Microsoft
+
+Pare-feu sur W10-XX
+
+    •   Vérifiez l&#x27;état d&#x27;activation de votre pare-feu pour chaque profil réseau.
+
+Avec la VM Win10-XX
+
+Rechercher &gt; Pare-feu Windows Defender
+
+La VM se trouve sur l&#x27;emplacement Réseaux privés, le pare-feu est activé. Si, par mobilité,
+vous basculez dans un réseau public ou invités, le pare-feu sera activé automatiquement.
+
+La VM n&#x27;étant pas jointe à un domaine, aucune indication sur l&#x27;emplacement de domaine.
+
+
+
+
+
+    •  Configurez le pare-feu pour les Programmes autorisés :
+
+        o  Autorisez le Bureau à distance uniquement pour le profil privé
+
+Rechercher &gt; Autoriser une application via le Pare-feu Windows
+
+Cocher Bureau à distance pour le profil Privé
+
+
+
+
+
+ Page 9/10
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>                                                         Systèmes Clients Microsoft
+
+Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie vous
+permettant d’autoriser le ping entre vos postes client.
+
+Rechercher &gt; Pare-feu Windows Defender avec fonctions avancées de sécurité
+
+Sélectionner Règles de trafic entrant
+
+Clic droit sur Partage de fichiers et d&#x27;imprimantes (Demande d&#x27;écho – Trafic entrant ICMPv4)
+Activer la règle
+
+Il y a deux lignes qui portent le même intitulé, activez celle dont le profil correspond à Privé,
+Public
+
+Pour s&#x27;assurer du bon fonctionnement, faites un ping depuis la VM Discovery vers votre VM
+Win10-XX, la communication doit être maintenant possible.
+
+
+
+
+
+ Page 10/10
+                                      © ENI – Tous droits réservés</pre></section></html>

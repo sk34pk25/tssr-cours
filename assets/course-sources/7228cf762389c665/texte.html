@@ -1,0 +1,99 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 4 - La gestion des impressions.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP 4 - La gestion des impressions.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                             Service Réseau en environnement Microsoft
+La gestion des impressions
+TP du Module 02 – Active Directory
+
+
+ Avant de démarrer ce TP,  il convient d’avoir suivi les vidéos du module 2 et avoir réalisé
+ les TP précédents.
+
+
+           Durée estimée
+
+          30 mn à 1 heure
+
+Énoncé
+
+Prérequis :
+
+    •  Avoir réalisé le TP précédent du Module 02.
+
+
+Mise en place du service d’impression
+
+W19-SRV1 sera le serveur en charge de la gestion des imprimantes.
+
+Le fichier de pilote unique et universel est présent sur le partage distrib (lecteur R:) à l’endroit
+suivant :  ‘Drivers\Drivers_imprimante_TSSR090_services_réseau_Microsoft’,    il commence
+par upd-pcl6-x64-…
+
+Dans ce fichier compressé, le fichier d’installation “.inf” à utiliser est hpzipa23.inf
+
+
+Configuration d’imprimantes
+
+L’entreprise vient d&#x27;investir dans un périphérique d&#x27;impression réseau à destination du
+service commercial sur le site de Rennes. Le modèle est HP Color LaserJet M552.
+
+Réalisez les actions nécessaires sur le serveur afin de pouvoir mettre à disposition ce
+périphérique sur le réseau.
+
+ Adresse IP  Nom imprimante       Param. par défaut  Qui peut imprimer ?
+
+
+ 172.28.10.46  Imp-Commercial-35RDC     - Recto/Verso         Service commercial
+
+
+
+
+
+ Page 1/2
+                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                             Service Réseau en environnement Microsoft
+
+Paramètres supplémentaires :
+
+    •  Les administrateurs du domaine auront le contrôle total sur la gestion de ces
+      imprimantes
+    •  Les imprimantes seront publiées dans l’annuaire Active Directory
+
+
+La société possède un périphérique HP Laserjet 5 destinée à imprimer des bons de
+livraison/retrait pour le service production. Les livreurs doivent impérativement récupérer
+ceux-ci avant de quitter la plateforme logistique.
+
+L&#x27;imprimante actuelle ne  suffit plus aujourd’hui pour suivre la cadence de l&#x27;usine. La
+direction a donc décidé d&#x27;investir dans deux nouveaux périphériques d&#x27;impression de
+modèle HP Color LaserJet Pro MFP M274 réunies au sein d’un « pool » d’imprimantes,
+permettant de paralléliser les travaux et donc de gagner du temps.
+
+Réalisez les actions nécessaires sur le serveur afin de mettre à disposition ces périphériques
+sur le réseau.
+
+ Adresse IP   Nom Imprimante            Qui peut imprimer ?
+
+ 172.28.10.90
+                Imp-BL44-Usine                 Service production
+ 172.28.10.91
+
+
+
+Paramètres supplémentaires :
+
+    •  Les administrateurs du domaine auront le contrôle total sur la gestion de cette
+      imprimante
+    •  Les périphériques seront configurés dans un « pool » d’imprimantes
+    •  L’imprimante sera publiée dans l’annuaire Active Directory
+
+
+Installation d’une imprimante sur un poste client
+
+
+    •   Installer manuellement l’imprimante partagée IMP-Commercial-35RDC sur le poste
+       client W10
+    •   Tester l’impression avec un compte utilisateur membre du groupe G-Commercial
+
+
+
+
+
+ Page 2/2
+                                      © ENI – Tous droits réservés</pre></section></html>

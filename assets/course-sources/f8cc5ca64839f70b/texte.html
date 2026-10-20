@@ -1,0 +1,164 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M04 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>RES24_0050B - M04 - Linux Administration (Debian).pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Administration Debian
+     GNU/Linux
+
+
+   Module 04 – Debian en mode maintenance</pre></section><section><h2>Page 2</h2><pre>                                                   Debian en mode maintenance
+
+  Objectifs
+
+• Savoir démarrer en mode maintenance depuis GRUB ou
+  depuis le CD d’installation
+
+
+
+
+                         Réparer Linux</pre></section><section><h2>Page 3</h2><pre>                                                    Debian en mode maintenance
+
+Démarrer un système en
+  mode maintenance</pre></section><section><h2>Page 4</h2><pre>                                    Démarrer un système en mode maintenance
+                                               Passer en mode maintenance
+
+
+
+•  Il est parfois nécessaire de passer en mode maintenance sur un
+  ordinateur ou un serveur pour diverses raisons
+• En voici quelques-unes :
+     • Le système ne démarre plus à la suite d&#x27;une mise à jour ou d’une installation
+     • Le mot de passe de l’utilisateur root est perdu
+     • Récupération de données
+     • …</pre></section><section><h2>Page 5</h2><pre>                                                  Debian en mode maintenance
+
+Mode maintenance via
+      GRUB</pre></section><section><h2>Page 6</h2><pre>                                        Mode maintenance via GRUB
+                                                    Méthode 1
+
+
+
+• Passer par le boot
+  manager GRUB pour
+  passer en mode
+  maintenance
+• Utiliser les flèches pour
+  choisir la ligne du noyau
+  voulu puis appuyez sur
+  la touche [e]
+
+
+    Ce mode n’est pas
+     fonctionnel en
+   mode « sudo sans
+    mot de passe »
+    pour l’utilisateur.</pre></section><section><h2>Page 7</h2><pre>                                        Mode maintenance via GRUB
+                                                    Méthode 1
+
+
+
+• Modifier la fin de la ligne suivante
+
+      linux   /vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro quiet
+
+
+• De cette manière
+
+      linux   /vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro single
+
+• Valider avec [ctrl] + [x] ou [F10]. Saisissez le mot de passe root.
+  Attention le clavier est au format QWERTY en_US par défaut
+• Après vos actions en mode maintenance, la séquence de touches
+  [ctrl] + [d] vous permettra de poursuivre vers le chargement vers la
+  cible « rescue.target »</pre></section><section><h2>Page 8</h2><pre>                                                              Debian en mode maintenance
+                                                                        Méthode 1
+
+
+
+
+
+Démo
+
+                                   Maintenance via GRUB avec mot de passe
+                                                         root</pre></section><section><h2>Page 9</h2><pre>                                                  Debian en mode maintenance
+
+Maintenance via GRUB
+sans mot de passe root</pre></section><section><h2>Page 10</h2><pre>                                        Mode maintenance via GRUB
+                                                    Méthode 2
+
+
+
+• Passer par le boot
+  manager GRUB pour
+  passer en mode
+  maintenance
+• Utiliser les flèches pour
+  choisir la ligne du noyau
+  voulu puis appuyez sur
+  la touche [e]</pre></section><section><h2>Page 11</h2><pre>                                        Mode maintenance via GRUB
+                                                    Méthode 2
+
+
+
+• Modifier la fin de la ligne de cette manière
+
+     linux   /vmlinuz-4.19.0-8 root=/dev/mapper/debian--vg-sys ro init=/bin/bash
+
+• Valider avec [ctrl] + [x] ou [F10].
+  Attention le clavier est au format QWERTY en-US</pre></section><section><h2>Page 12</h2><pre>                                        Mode maintenance via GRUB
+                                                    Méthode 2
+
+
+
+• Le système est démarré mais le système de fichier racine est en
+  lecture seule. Il faut lancer la commande suivante pour obtenir
+  l’accès en lecture-écriture :
+
+       root@(none):/# mount –o remount,rw /
+       [   88.5124578] EXT4-fs (dm-0): re-mounted. Opts: errors=remount-ro
+       root@(none):/#
+
+• Après vos actions, synchronisez l’écriture des données en RAM vers
+  le disque avec la commande sync
+• Rappel : il n’est pas possible d’éteindre proprement l’ordinateur
+ dans ce mode
+•  Il faudra forcer l’extinction par un poweroff matériel</pre></section><section><h2>Page 13</h2><pre>                                                              Debian en mode maintenance
+                                                                        Méthode 2
+
+
+
+
+
+Démo
+
+                                   Maintenance via GRUB sans mot de passe
+                                                         root</pre></section><section><h2>Page 14</h2><pre>                                             Debian en mode maintenance
+
+Mode maintenance
+  via le CD-ROM</pre></section><section><h2>Page 15</h2><pre>                                       Mode maintenance via le CD-ROM
+                            Mode maintenance via le CD d’installation
+
+
+
+     • Une autre solution : passer par le mode maintenance inclus dans
+    chaque CD d’installation
+
+    Avantages                       Inconvénient
+                                                     •  nécessité d’avoir un CD-ROM•  langue française disponible                                           disponible•  pas de besoin du mot de passe root                                                     • ou une image•  extinction                                                     •  complexité possible en virtualisation</pre></section><section><h2>Page 16</h2><pre>                                               Mode maintenance via le CD-ROM
+
+
+
+
+
+Démo
+
+
+                                         Maintenance via le CD-ROM</pre></section><section><h2>Page 17</h2><pre>                                                     Debian en mode maintenance
+
+
+
+     TPDémo</pre></section><section><h2>Page 18</h2><pre>                                                Debian en mode maintenance
+                                                             Conclusion
+
+
+
+• Vous savez passer en mode maintenance au démarrage depuis
+ GRUB
+• Vous savez démarrer sur le CD d’installation Debian en mode
+ maintenance</pre></section></html>

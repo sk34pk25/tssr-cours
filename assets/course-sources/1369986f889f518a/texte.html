@@ -1,0 +1,347 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 04 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
+                   Module 04 – La gestion du stockage
+
+
+
+
+
+                                                                                         1
+
+
+1
+
+
+
+  La gestion du stockage
+
+                                            •  Découvrir le partitionnement  Objectifs
+                                            •  Initialiser le stockage
+                                            •  Installer un système de fichier
+                                            •  Utiliser les outils de gestion du stockage
+
+
+
+
+
+                                                                                         2
+
+
+2</pre></section><section><h2>Page 2</h2><pre>  La gestion du stockage
+ La gestion du stockage
+
+            • Partitionnement
+            • Formats de table de partition
+            • Système de fichiers
+            • Outils
+
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+  La gestion du stockage
+ Le partitionnement
+
+                                Partitionner un disque
+                             =
+            &quot;séparer&quot; un disque en plusieurs &quot;portions&quot; logiques, étanches et
+                                  indépendantes.
+
+
+          P1         P2       P3      P4     P5   P6     P7…
+
+
+
+
+
+                                                                                         4
+
+
+4</pre></section><section><h2>Page 3</h2><pre>  La gestion du stockage
+ Le partitionnement
+
+            • Table de partition
+                    • Détermine les caractéristiques des partitions du disque
+                    • « Sommaire » du disque
+
+            • Table de partition au format MBR
+                    • Master Boot Record
+                    • Format historique
+                    • Lecture du MBR par le BIOS
+                    • Stocké sur le premier secteur du disque (512 o)
+                   • 4 partitions maximum
+                    • Ne gère pas les disques de plus de 2,2 To
+                    • Compatible avec les systèmes d&#x27;exploitation 32 bits et 64 bits
+
+                                                                                         5
+
+
+5
+
+
+  La gestion du stockage
+ Le partitionnement
+
+         Partitionnement d&#x27;un disque
+            • DE BASE
+            • Possibilités d&#x27;étendre une partition grâce à l&#x27;espace libre contigu
+            • 4 partitions maximum
+
+
+                PartitionPartition              Partition    Partition                           PartitionPartition           PartitionPartition
+               principaleprincipale            principale   principale                Espaceprincipaleprincipalelibre        principaleprincipale
+           11            2      2                   33          44
+
+
+
+
+                                                                                         6
+
+
+6</pre></section><section><h2>Page 4</h2><pre>  La gestion du stockage
+ Le partitionnement
+
+
+         Partitionnement d&#x27;un disque
+            • DE BASE
+            • Possibilités d&#x27;étendre une partition grâce à l&#x27;espace libre contigu
+            • 4 partitions maximum
+            • Partition étendue et lecteurs logiques pour aller au-delà
+
+
+                                                                                                                               L.                    L.                   L.
+                Partition              Partition                Partition        Logique 1      Logique 2      Logique 3               principale            principale              principale               Espace libre
+           1            2             3             Partition étendue
+
+
+
+                                                                                         7
+
+
+7
+
+
+  La gestion du stockage
+ Le partitionnement
+
+         Partitionnement d&#x27;un disque
+                • DYNAMIQUE (évolution du disque de base)
+                •  Attention, pour Microsoft, les partitions contenues sur un disque dynamique s&#x27;appellent des volumes
+                •  Possibilité d&#x27;étendre un volume grâce à l&#x27;espace libre disponible sur le disque source
+                • … et disponible sur un disque supplémentaire. Permet de gérer les disques par ensemble (RAID)
+                • Convertir un disque de base en disque dynamique ? Pas de perte de données
+
+          VolumeVolume 11    VolumeVolume 22      VolumeVolume 33         VolumeVolume 22
+
+                      Volume 2                       Espace libre
+
+
+                                                                                         8
+
+
+8</pre></section><section><h2>Page 5</h2><pre>  La gestion du stockage
+ Le partitionnement                   GUID Partition Table Scheme
+
+                                                                                                       LBA 0                       Protective MBR
+
+                                                                                                       LBA 1                          Partition 1
+         Table de partitionnement au format GPT                  LBA 2                 Entry 1  Entry 2  Entry 3  Entry 4    GPT
+                                                                                                                                                                                  Entries 5-128                                       Primary              • GUID Partition Table                                                       LBA 33
+              • Nouveau format qui gomme les inconvénients du MBR     LBA 34
+                                                                                                                                                                    Partition 1
+              • Dupliqué sur plusieurs secteurs du disque
+              • Lecture du GPT par l&#x27;UEFI (évolution du BIOS depuis 2013)
+                                                                                                                                                                    Partition 2
+              • 128 partitions maximum
+              •  Taille maximale d&#x27;une partition : 256 To
+                                                                                                                                  Remaining Partitions
+              • Seulement compatible avec les systèmes d&#x27;exploitation     LBA -34
+                                                                                                       LBA -33               Entry 1  Entry 2  Entry 3  Entry 4           64 bits et les puces UEFI                                                                                                                                                             GPT
+
+                                                                                                                                                                                  Entries 5-128
+                                                                                                       LBA -2                                                                                                       LBA -1                Secondary GPT Header                             Secondary
+
+                                                                                         9
+
+
+9
+
+
+  La gestion du stockage
+ Les systèmes de fichiers
+
+            • Après le partitionnement, le formatage
+            • Formater une partition ou un lecteur logique, c&#x27;est installer un
+          système de fichiers
+            • Le FS organise les données. Une partition ou un lecteur logique
+          formaté s&#x27;appelle un volume
+            • Plusieurs systèmes de fichiers existent
+
+
+                                                                                II
+                                NN                     Partition
+                                  DD                    principale
+                                                EE             X
+                                       XX
+
+
+                                                                                          10
+
+
+10</pre></section><section><h2>Page 6</h2><pre>  La gestion du stockage
+ Les systèmes de fichiers
+
+       NTFS
+            • Le système de fichiers par défaut chez Microsoft
+            • Nativement sécurisé (ACL)
+            • Chiffrement intégré (EFS)
+            • Compression intégrée
+            • Supporte des fonctionnalités supplémentaires
+            • Taille maximale du volume 256 To
+
+
+
+
+                                                                                          11
+
+
+11
+
+
+  La gestion du stockage
+ Les systèmes de fichiers
+
+        Les autres
+              • FAT16 / FAT32 (File Allocation Table)
+                      • Historique
+                      • Standard
+                      • Volume de 4 Go maximum
+                      • Non sécurisé nativement
+              • ReFS (Resilient File System)
+                      • Évolution de NTFS
+                      •  Taille des volumes quasi illimitée
+                      • Correction proactive des erreurs
+              • Les autres
+                      •  Ext4, VMFS, UDF… et des dizaines d&#x27;autres
+
+                                                                                          12
+
+
+12</pre></section><section><h2>Page 7</h2><pre>  La gestion du stockage
+ Les disques durs virtuels
+
+            • VHD (Virtual Hard Drive) et VHDX
+            • Bootable
+            • Taille fixe ou dynamique
+            • Créés et utilisés pour les machines virtuelles
+            • Utilisable sur les machines physiques ! montable comme ISO !
+            • Manipulable comme un fichier (clonage, déplacement, compression,
+          versioning…)
+            • Disques durs virtuels par défaut pour HyperV
+
+
+
+                                                                                          13
+
+
+13
+
+
+  La gestion du stockage
+ Stockage local et GUI
+
+        Les outils de gestion
+            • Avec la console graphique (diskmgmt.msc)
+
+
+
+
+
+                                                                                          14
+
+
+14</pre></section><section><h2>Page 8</h2><pre>  La gestion du stockage
+ Stockage local et cmd.exe
+
+        Les outils de gestion
+            • Avec diskpart (outil en ligne de commande très utilisé en production)
+
+
+
+
+
+                                                                                          15
+
+
+15
+
+
+  La gestion du stockage
+ Stockage local et PowerShell
+
+        Les outils de gestion
+            • Avec les cmdlet PowerShell
+                        •  Get-disk
+                               •  Relever le numéro du nouveau disque
+                        •  Initialize-disk –number &lt;numéro relevé&gt;
+                               •  Par défaut en GPT
+                               •   Il faut préciser le paramètre –PartitionStyle MBR pour la rétrocompatibilité
+                        •  New-partition –DiskNumber &lt;numéro relevé&gt; -UseMaximumSize –AssignDriveLetter
+                               • On peut assigner la lettre après avec set-partition –DiskNumber &lt;numéro relevé&gt; -PartitonNumber
+                    &lt;numéro relevé&gt; -NewDriveLetter &lt;Lettre de votre choix&gt;
+                        • Format-volume –DriveLetter &lt;Lettre de lecteur&gt;
+                               • Format par défaut en NTFS
+                               •  Votre volume est prêt à l&#x27;utilisation
+
+
+                                                                                          16
+
+
+16</pre></section><section><h2>Page 9</h2><pre>  La gestion du stockage
+
+
+          Démonstration
+
+
+
+
+
+                                                                                          17
+
+
+17
+
+
+  La gestion du stockage
+
+
+              TP
+
+
+
+
+
+                                                                                          18
+
+
+18</pre></section><section><h2>Page 10</h2><pre>  La gestion du stockage
+ Conclusion                                            •  Recette pour bien utiliser le stockage
+                                                                 •  Installer le média dans l’ordinateur
+                                                                 •   Initialiser
+                                                                 •  Partitionner
+                                                                 •  Installer le système de fichier
+                                                                 •  Attribuer une lettre de lecteur ou un point de montage
+
+
+
+
+
+                                                                                          19
+
+
+19</pre></section></html>
