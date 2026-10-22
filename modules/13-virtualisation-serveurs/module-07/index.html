@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-07-virtualisation-de-serveurs" class="md-skip">
+        <a href="#module-07-gestion-du-stockage" class="md-skip">
           Aller au contenu
         </a>
       
@@ -3111,6 +3111,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3127,6 +3145,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectif-et-modes-dacces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif et modes d’accès
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptateurs-et-banques-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptateurs et banques de données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datastores-et-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datastores et gestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disques-des-vm-et-provisionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disques des VM et provisionnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadre-de-latelier-n5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cadre de l’atelier n°5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -12557,6 +12660,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectif-et-modes-dacces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif et modes d’accès
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adaptateurs-et-banques-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adaptateurs et banques de données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datastores-et-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datastores et gestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disques-des-vm-et-provisionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disques des VM et provisionnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadre-de-latelier-n5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cadre de l’atelier n°5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -12650,8 +12827,135 @@
 
 
 
-<h1 id="module-07-virtualisation-de-serveurs">Module 07 — Virtualisation de serveurs<a class="headerlink" href="#module-07-virtualisation-de-serveurs" title="Permanent link">¶</a></h1>
-<p>Contenu pédagogique à venir via proposition gouvernée.</p>
+<h1 id="module-07-gestion-du-stockage">Module 07 — Gestion du stockage<a class="headerlink" href="#module-07-gestion-du-stockage" title="Permanent link">¶</a></h1>
+<h2 id="objectif-et-modes-dacces">Objectif et modes d’accès<a class="headerlink" href="#objectif-et-modes-dacces" title="Permanent link">¶</a></h2>
+<p>Configurer un stockage local ou partagé. Le support distingue la connectique,
+le protocole et le mode d’accès, ainsi que stockage dédié à un hôte et stockage
+mutualisé. Les services dépendent de données ; les contraintes de stockage ont
+donc des conséquences sur leur fonctionnement.</p>
+<table>
+<thead>
+<tr>
+<th>Notion</th>
+<th>Présentation du support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode bloc</td>
+<td>Données organisées en blocs, accessibles notamment par des commandes SCSI.</td>
+</tr>
+<tr>
+<td>SAN</td>
+<td>Réseau de stockage donnant accès à des ressources en mode bloc, par exemple via Fibre Channel ou iSCSI.</td>
+</tr>
+<tr>
+<td>NAS</td>
+<td>Service de fichiers partagé sur le réseau, notamment via NFS ou CIFS/SMB.</td>
+</tr>
+<tr>
+<td>iSCSI</td>
+<td>Transport réseau de commandes SCSI et de données pour l’accès en mode bloc.</td>
+</tr>
+<tr>
+<td>Initiateur iSCSI</td>
+<td>Élément qui accède au stockage proposé.</td>
+</tr>
+<tr>
+<td>Cible iSCSI</td>
+<td>Élément qui met l’espace de stockage à disposition.</td>
+</tr>
+<tr>
+<td>LUN</td>
+<td>Unité logique de stockage présentée par la baie dans le schéma.</td>
+</tr>
+<tr>
+<td>HBA</td>
+<td>Adaptateur permettant l’accès aux espaces de stockage après configuration.</td>
+</tr>
+</tbody>
+</table>
+<p>Le support présente comme limites du stockage local les contraintes matérielles,
+la répartition de la tolérance aux pannes entre serveurs, l’effet des sauvegardes
+sur les performances et la distance entre serveur et stockage. La mutualisation
+est la réponse étudiée, avec un choix entre modes bloc et fichier.</p>
+<h2 id="adaptateurs-et-banques-de-donnees">Adaptateurs et banques de données<a class="headerlink" href="#adaptateurs-et-banques-de-donnees" title="Permanent link">¶</a></h2>
+<p>Les <strong>adaptateurs de stockage</strong> relient les solutions aux hôtes. Les <strong>banques de
+données</strong>, ou datastores, sont les conteneurs utilisés pour héberger leurs données.
+Le choix dépend du partage entre hôtes, du protocole, du support, du mode d’accès
+et du système de fichiers.</p>
+<p>Le support présente les disques locaux, HBA/CNA matériels et adaptateurs logiciels
+iSCSI ou FCoE. Il associe ces derniers à une charge sur l’hôte ; cette comparaison
+reste celle du document, sans recommandation matérielle actuelle ajoutée.</p>
+<p>Pour iSCSI, il recommande un réseau dédié et si possible redondant. Il mentionne
+un MTU de 9000 <strong>uniquement sous condition de prise en charge de bout en bout</strong>.
+Cette recommandation du support ne devient pas une étape imposée de l’atelier,
+dont les captures conservent le réseau préparé précédemment.</p>
+<h2 id="datastores-et-gestion">Datastores et gestion<a class="headerlink" href="#datastores-et-gestion" title="Permanent link">¶</a></h2>
+<p>Le cours présente VMFS, RDM avec VMFS et NFS. Il décrit VMFS comme permettant
+l’accès concurrent en lecture et écriture par plusieurs hôtes. Son tableau
+historique compare VMFS 2, 3, 5 et 6, avec VMFS 6 associé à vSphere 6.5 et supérieur.
+Les cellules fusionnées ou peu explicites ne sont pas reconstituées.</p>
+<p>Les besoins sont à inventorier par usage : production, tests, modèles et ISO, avec
+des attentes de performances, de tolérance aux pannes et de criticité. Les tâches
+présentées sont création/formatage, suivi d’utilisation, extension dynamique,
+parcours/import/export et démontage. Le support cite <code>ls</code> en console ou après
+connexion SSH pour voir des fichiers masqués par l’explorateur ; aucune connexion
+ni commande n’est exécutée ici.</p>
+<h2 id="disques-des-vm-et-provisionnement">Disques des VM et provisionnement<a class="headerlink" href="#disques-des-vm-et-provisionnement" title="Permanent link">¶</a></h2>
+<p>Le support distingue les fichiers <strong>VMDK</strong> et le mappage direct <strong>RDM</strong>. Il cite
+pour RDM certains besoins liés au SAN ou aux services de cluster Microsoft.</p>
+<table>
+<thead>
+<tr>
+<th>Provisionnement</th>
+<th>Description du support</th>
+<th>Point de vigilance cité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thick</td>
+<td>Réservation statique de tout l’espace indiqué dès la création.</td>
+<td>Temps de création.</td>
+</tr>
+<tr>
+<td>Thin</td>
+<td>Allocation à la demande jusqu’au maximum indiqué.</td>
+<td>Surallocation possible du datastore.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">NEEDS_REVIEW — limites et performances historiques</p>
+<p>Le document affirme une limite VMDK de 2 To et présente le thick comme plus
+performant. Ces formulations sont conservées comme indications du support
+historique à contextualiser, sans limite universelle ni classement de
+performances ajouté pour les versions actuelles.</p>
+</div>
+<h2 id="cadre-de-latelier-n5">Cadre de l’atelier n°5<a class="headerlink" href="#cadre-de-latelier-n5" title="Permanent link">¶</a></h2>
+<p>L’atelier dure deux à trois heures. Il utilise les deux ESXi et leurs réseaux
+préparés aux ateliers 3 et 4, plus une VM Windows Server 2019 restaurée au snapshot
+de fin d’atelier 1. Cette restauration modifie l’état du laboratoire.</p>
+<p>Le serveur reçoit un disque de 150 Go et fournit deux services : une cible iSCSI
+associée à un disque virtuel de <strong>80 Go</strong>, puis un partage <strong>NFS 3</strong>. Chaque ESXi
+accède à la même banque VMFS iSCSI et monte le partage NFS. Le texte parle d’une
+« cible de 80 Go » ; les captures distinguent le disque virtuel et sa cible.</p>
+<div class="admonition warning">
+<p class="admonition-title">NEEDS_REVIEW — périmètre du laboratoire</p>
+<p>Les paramètres NFS demandés sont sans authentification serveur, avec accès
+des utilisateurs non mappés et autorisation des deux hyperviseurs en lecture/
+écriture par adresse. Ils appartiennent au scénario de laboratoire et ne
+constituent pas une politique de production. Les adresses, noms et chemins
+internes sont neutralisés. La solution cite le module 6 dans son bandeau,
+contre le module 7 dans l’énoncé. Le mot « Bonus » final ne contient aucun
+exercice exploitable ; aucun bonus n’est créé.</p>
+</div>
+<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
+<p>A : support M07, énoncé de quatre pages et solution de 17 pages, Drive TSSR en
+lecture seule. B : restructuration fidèle avec lecture des captures, sans
+republication de données internes. Aucun TP exécuté, ressource binaire, quiz ou
+association Kahoot ajouté. Cette page reste indépendante des objets non publiés.</p>
 
 
 
