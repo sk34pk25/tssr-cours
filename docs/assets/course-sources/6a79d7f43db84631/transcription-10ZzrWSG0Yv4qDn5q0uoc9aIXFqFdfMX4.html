@@ -1,0 +1,317 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 – Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 03 – Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en <br>environnement Microsoft</h4>
+<p class="tssr-source-paragraph">Module 03 – Les stratégies de groupe</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Objectifs</h4>
+<p class="tssr-source-paragraph">• Appréhender les stratégies de groupe (GPO)</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le fonctionnement des GPO</h4>
+<p class="tssr-source-paragraph">Descriptif</p>
+<p class="tssr-source-paragraph">Les GPO (Group Policy Object) ou stratégies de groupes sont utilisés dans un <br>domaine AD pour paramétrer les ordinateurs et les utilisateurs.</p>
+<p class="tssr-source-paragraph">Les +<br>Les -</p>
+<p class="tssr-source-paragraph">La configuration </p>
+<p class="tssr-source-paragraph">Ajoute de la <br>sécurité dans </p>
+<p class="tssr-source-paragraph">l’entreprise</p>
+<p class="tssr-source-paragraph">peut être <br>complexe</p>
+<p class="tssr-source-paragraph">Automatisation </p>
+<p class="tssr-source-paragraph">Le nombre de <br>paramètres est </p>
+<p class="tssr-source-paragraph">d’actions</p>
+<p class="tssr-source-paragraph">élevé</p>
+<p class="tssr-source-paragraph">Réduction des </p>
+<p class="tssr-source-paragraph">Dépendant des </p>
+<p class="tssr-source-paragraph">tâches <br>d’administration</p>
+<p class="tssr-source-paragraph">versions <br>système</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le fonctionnement des GPO</h4>
+<p class="tssr-source-paragraph">Les types de stratégie<br>Les conditions d’utilisation et d’application varient selon le type de stratégie.</p>
+<p class="tssr-source-paragraph">La stratégie de groupe<br>La stratégie locale</p>
+<p class="tssr-source-paragraph">• Nécessite un contexte de domaine.</p>
+<p class="tssr-source-paragraph">• Est utilisable dans et hors contexte de domaine.</p>
+<p class="tssr-source-paragraph">• S’applique sur un ou des ensembles d’éléments.</p>
+<p class="tssr-source-paragraph">• Se configure poste par poste.</p>
+<p class="tssr-source-paragraph">• En cas de conflits, elle l’emporte sur la stratégie locale.</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le fonctionnement des GPO</h4>
+<p class="tssr-source-paragraph">Du registre aux stratégies</p>
+<p class="tssr-source-paragraph">• Chaque paramètre modifié va impacter les machines de votre domaine.</p>
+<p class="tssr-source-paragraph">• 2 méthodes :<br>• Via le registre</p>
+<p class="tssr-source-paragraph">• Via la console MMC traitant des stratégies de groupes.</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le fonctionnement des GPO</h4>
+<p class="tssr-source-paragraph">Application des stratégies</p>
+<p class="tssr-source-paragraph">• Comment sont appliquées les GPO :</p>
+<p class="tssr-source-paragraph">Pour les contrôleurs de <br>domaine, toutes les 5min</p>
+<p class="tssr-source-paragraph">Par défaut toutes les <br>90min à plus ou moins <br>30min près.</p>
+<p class="tssr-source-paragraph">Application <br>d’une stratégie</p>
+<p class="tssr-source-paragraph">Commande gpdupate sur le </p>
+<p class="tssr-source-paragraph">Passage en mode manuel</p>
+<p class="tssr-source-paragraph">poste visé par les </p>
+<p class="tssr-source-paragraph">stratégies.</p>
+<p class="tssr-source-paragraph">• Les extensions côté client (CSE) sont les composants du poste client qui :<br>• Récupèrent les stratégies mises à disposition par le contrôleur de domaine.<br>• Intègrent et appliquent les paramétrages qui s’y trouvent.</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DT GE M EEnbeinsteler…<br>REG-DW... 0x00000001(1)<br>rs bar | |BRenabiewua<br>REG_DW...<br>0x00000001 (1)<br>4<br>»<br>%]EnableSecureUl.. REG_DW...<br> 0x00000001 (1)</p><p>[ordinateur\HKEY_LOCAL MACHINE\SOFTWARE Microsoft Windows CurrentVersion\Poldes\System</p><p>15 3} tige Orénateest<br>al<br>svete<br>=<br>Paramètrede:<br>© &amp; Catroncine<br>Gen<br>camps dota<br>| exter cn dan dé</p><p>181 LD Stratégie<br>de résolution</p><p>denoms<br>=) Suits(énarageer&amp;)<br>RE<br>© i Frames</p><p>de sécté<br>PR<br>EES<br>1<br>Li Sté<br>decomptes<br>A Sainte<br>en no dappcboiond&#x27;noter<br>53 Da Sratépeslocaes<br>1g<br>Sig<br>ue<br>63<br>Da<br>ret<br>desrasusa<br>pr<br>none</p><p>65 25 Pare feu widows ave fonctions avancées de<br>C Désacié<br>2)<br>FT raies da csteonre de eee réseau<br>env</p><p>End</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le fonctionnement des GPO</h4>
+<p class="tssr-source-paragraph">Les stratégies par défaut</p>
+<p class="tssr-source-paragraph">Après l’installation d’un domaine, deux stratégies sont configurées par défaut :</p>
+<p class="tssr-source-paragraph">• Liée à la racine du domaine.<br>• Définit les paramètres de sécurité pour les utilisateurs du domaine.<br>Default Domain </p>
+<p class="tssr-source-paragraph">Policy (DDP)</p>
+<p class="tssr-source-paragraph">Default Domain </p>
+<p class="tssr-source-paragraph">Controller </p>
+<p class="tssr-source-paragraph">• Liée à l’UO Domain Controllers<br>• Définit les paramètres de sécurité pour les contrôleurs de domaine.</p>
+<p class="tssr-source-paragraph">Policy</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le ciblage des stratégies</h4>
+<p class="tssr-source-paragraph">La liaison d’une <br>stratégie se fait via </p>
+<p class="tssr-source-paragraph">Le ciblage permet de définir <br>le ou les objets soumis à <br>cette règle </p>
+<p class="tssr-source-paragraph">ces objets<br>• Les objets ordinateurs <br>pour les paramètres <br>ordinateur<br>• Les objets utilisateurs pour <br>les paramètres utilisateur</p>
+<p class="tssr-source-paragraph">• Un site Active Directory<br>• Un Domaine<br>• Une Unité d’Organisation</p>
+<p class="tssr-source-paragraph">Objet de stratégie </p>
+<p class="tssr-source-paragraph">créé</p>
+<p class="tssr-source-paragraph">Une fois liée, la <br>stratégie s’applique </p>
+<p class="tssr-source-paragraph">sur</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p><p>| il</p><p>|pe</p><p>Oe</p><p>\</p><p>=</p><p>7</p><p>ni</p><p>\</p><p>Recent mescroopepas aux<br>ane de gypee veces out uw<br>pee qua eles covtees ant are<br>wepeutpias wereopinurgrou</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-2b9934333760d983f4d1cfbc17ba9af707d1b393535ffb404b0232288e39360c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2b9934333760d983f4d1cfbc17ba9af707d1b393535ffb404b0232288e39360c.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="6525"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le ciblage des stratégies</h4>
+<p class="tssr-source-paragraph">La console de gestion</p>
+<p class="tssr-source-paragraph">Conteneurs de liaisons<br>Liaisons de stratégies</p>
+<p class="tssr-source-paragraph">Conteneur des stratégies<br>du domaine</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le ciblage des stratégies</h4>
+<p class="tssr-source-paragraph">Ordre de traitement</p>
+<p class="tssr-source-paragraph">Les stratégies héritées sont </p>
+<p class="tssr-source-paragraph">Les stratégies sont héritées du </p>
+<p class="tssr-source-paragraph">appliquées avant celles du </p>
+<p class="tssr-source-paragraph">parent vers l’enfant.</p>
+<p class="tssr-source-paragraph">conteneur courant.</p>
+<p class="tssr-source-paragraph">Priorités et </p>
+<p class="tssr-source-paragraph">héritage</p>
+<p class="tssr-source-paragraph">Les stratégies dont le numéro </p>
+<p class="tssr-source-paragraph">d’ordre est le plus élevé sont </p>
+<p class="tssr-source-paragraph">d’abord appliquées</p>
+<p class="tssr-source-paragraph">Les stratégies marquées <br>Appliqué deviennent prioritaires.</p>
+<p class="tssr-source-paragraph">(au sein d’un même conteneur).</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Li Gestion de stratégie de groupe<br>|G Fichier<br>Action<br>Affichage<br>Fenêtre<br>2<br>e+2r0<br>8<br>8m</p><p>FycS de stratégie de groupe<br>Objets de stratégie de groupe dans eni.local<br>À<br>Foret: enilocal<br>=<br>Contenu |<br>Délégation<br>v I Domaines<br>Die<br>_</p><p>i Defaut Domain Controlers Poicy</p><p>&gt;a<br>Bordeaux<br>hem Domain Policy<br>&gt; Bl Domain Controllers<br>=] Fond_ecran<br>v<br>Gi Nantes<br>v Bl Services</p><p>&gt;<br>St<br>Rennes</p><p>3]<br>Utilisateurs<br>2} Objetsde stratégiedegroupe<br>LJ Default Domain Controllers Policy<br>J Default Domain Policy</p><p>Fond ecran<br> Filtres WMI<br>&gt; [Gj Objets GPO Starter</p><p>iB Sites</p><p>57 Modélisation de stratégie de groupe<br>2)<br>1 Résultats de stratégie de groupe<br>env</p><p>End</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le ciblage des stratégies</h4>
+<p class="tssr-source-paragraph">Ordre de traitement</p>
+<p class="tssr-source-paragraph">Si les stratégies définissent des paramètres </p>
+<p class="tssr-source-paragraph">Un objet peut être soumis à plusieurs </p>
+<p class="tssr-source-paragraph">distincts, la résultante est le cumul de ces </p>
+<p class="tssr-source-paragraph">stratégies</p>
+<p class="tssr-source-paragraph">paramètres</p>
+<p class="tssr-source-paragraph">Valeurs conflictuelles </p>
+<p class="tssr-source-paragraph">/<br>Paramètres <br>complémentaires</p>
+<p class="tssr-source-paragraph">Si plusieurs stratégies appliquant des valeurs </p>
+<p class="tssr-source-paragraph">La dernière stratégie appliquée l’emporte</p>
+<p class="tssr-source-paragraph">distinctes d’un même paramètre à un même </p>
+<p class="tssr-source-paragraph">objet existent, c’est l’ordre d’application qui </p>
+<p class="tssr-source-paragraph">La plus proche de l’objet</p>
+<p class="tssr-source-paragraph">définira la valeur prise en compte.</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le ciblage des stratégies</h4>
+<p class="tssr-source-paragraph">Les possibilités de restrictions de liaison</p>
+<p class="tssr-source-paragraph">d’héritage</p>
+<p class="tssr-source-paragraph">• S’active sur un conteneur.<br>• Annule la prise en comptes des stratégies héritées de conteneurs parents.<br>• Impacte toutes les stratégies héritées.<br>Le blocage </p>
+<p class="tssr-source-paragraph">• Permet d’outrepasser le blocage d’héritage.<br>• Rend la GPO prioritaire<br>Le paramètre </p>
+<p class="tssr-source-paragraph">Appliqué</p>
+<p class="tssr-source-paragraph">• De sécurité<br>• Restreint la lecture et l’application de GPO.<br>• Des règles de contrôle d’accès pour accorder ou ôter des privilèges.<br>• WMI : limiter l’application grâce aux requêtes WMI<br>Les filtres</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  Les stratégies de groupe
+ Le ciblage des stratégies
+
+        Ordre de traitement
+
+
+
+                                                                                          Si les stratégies définissent des paramètres                         Un objet peut être soumis à plusieurs                                                                                           distincts, la résultante est le cumul de ces                                                    stratégies                                                                                     paramètres
+
+                                                 Valeurs conflictuelles
+                                                                    /
+                                                  Paramètres
+                                             complémentaires
+                                                                                          Si plusieurs stratégies appliquant des valeurs
+                               La dernière stratégie appliquée l’emporte    distinctes d’un même paramètre à un même
+                                       La plus proche de l’objet            objet existent, c’est l’ordre d’application qui
+                                                                                         définira la valeur prise en compte.
+
+
+                                                                                          11
+
+
+11
+
+
+  Les stratégies de groupe
+ Le ciblage des stratégies
+
+
+        Les possibilités de restrictions de liaison
+
+                   Le blocage        • S’active sur un conteneur.
+                     d’héritage        •• AnnuleImpactelatoutesprise enles comptesstratégiesdeshéritées.stratégies héritées de conteneurs parents.
+
+
+                  Le paramètre      • Permet d’outrepasser le blocage d’héritage.
+                    Appliqué         • Rend la GPO prioritaire
+
+
+
+                                                                  • De sécurité
+                     Les filtres           •• RestreintDes règlesladelecturecontrôleet l’applicationd’accès pourdeaccorderGPO.  ou ôter des privilèges.
+                                                                  • WMI : limiter l’application grâce aux requêtes WMI
+
+
+                                                                                          12
+
+
+12</pre></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>La mise en œuvre des stratégies</h4>
+<p class="tssr-source-paragraph">Les domaines impactés</p>
+<p class="tssr-source-paragraph">Les domaines impactés sont représentés ci-dessous, nous les verrons par la suite en détail</p>
+<p class="tssr-source-paragraph">Déploiement applicatif</p>
+<p class="tssr-source-paragraph">Scripts</p>
+<p class="tssr-source-paragraph">Sécurité</p>
+<p class="tssr-source-paragraph">Configuration<br>• Système<br>• De composants <br>intégrés<br>• D’applications tierces</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>La mise en œuvre des stratégies</h4>
+<p class="tssr-source-paragraph">Les paramètres de stratégie de groupe</p>
+<p class="tssr-source-paragraph">Un point de configuration est associé à un paramètre de GPO et dispose des caractéristiques <br>suivantes</p>
+<p class="tssr-source-paragraph">Nom<br>Etat<br>Support<br>Description<br>Commentaire</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>_5J Stratégie Fond_ecran [CDOT.ENI.LOCAL<br>Yl Configuration ordinateur<br>v 18 Configuration utilisateur<br>VI Stratégies<br>v D<br>Stratégies</p><p>[i Installation de logiciel<br>[ij Installation de logiciel<br>v LS Paramètres Windows<br>Y [I Paramètres Windows</p><p>IE Scripts (démarrage/arrét)<br>&gt;<br>iB Paramètres de sécurité</p><p>&gt; ti Imprimantes déployées<br>&gt; ( Redirection de dossiers<br>&gt; Eh Paramètres de sécurité<br>&gt; alu QoS basée sur la stratégie<br>&gt; all Qos basée sur la stratégie<br>&gt; ti Imprimantes déployées<br>v I Modèles d&#x27;administration<br>: définitions de stratégies |<br>D Modèles d&#x27;administration<br>: définitions de stratégies<br>&gt; 1 Composants Windows<br>&gt; [ Bureau<br>Imprimantes<br>&gt; I Composants Windows<br>&gt; [M Menu Démarrer et barre des tâches<br>Dossiers partagés<br>&gt; [3 Panneau<br>de configuration<br>&gt; Di Menu Démarrer et barre des tâches<br>&gt; [I Réseau<br>&gt; [ Panneau</p><p>de configuration<br>Serveur<br>&gt; Gi Réseau<br>&gt;</p><p>[ Système<br>&gt; D Système<br>ey)<br>IE Tousles paramètres<br>Ti Tous les paramètres</p><p>TE Stratégie Fond ecran [CDOLENILOCAU<br>Creer,<br>CE:<br>2 Configuration ordinateur<br>naine<br>en<br>VE<br>Srtégies<br>se<br>&gt;<br>1 Paramètredu logiciel<br>Le<br>&gt; 2 Paramètres Windows<br>en =</p><p>&gt; El Composants Windows<br>Activer l&#x27;impression Internet<br>Paramètre<br>2] imprimantes<br>EM<br>Active impression Intemet<br>1<br>-<br>LI<br>as<br>ae<br>Rion<br>ce<br>Modifier</p><p>Lepxamêtre de tégie<br>5) Assistant Ajout d&#x27;imprimante - Page d analyze réseau (rze..<br>RE<br>_—<br>Windows 2000 uniquement<br>IE) Autoriser la publication des imprimantes<br>ee<br>LE Autoriser le nettoyage des imprimantes publiées<br>acorn</p><p>End</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>La mise en œuvre des stratégies</h4>
+<p class="tssr-source-paragraph">Les modèles d’administration</p>
+<p class="tssr-source-paragraph">Ils permettent de configurer</p>
+<p class="tssr-source-paragraph">• Le système d’exploitation</p>
+<p class="tssr-source-paragraph">• Des composants système</p>
+<p class="tssr-source-paragraph">• Des outils Microsoft</p>
+<p class="tssr-source-paragraph">Fichiers stockés dans le partage SYSVOL</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>% 1) Modèles d&#x27;administration : définitions de stratégies</p><p>. Imprimantes<br>&gt;<br>Menu Démarrer et barre des tâches</p><p>&gt; Ii Microsoft Office 2016 (ordinateur)</p><p>&gt; ©) Microsoft PowerPoint<br>2016 (ordinateur)<br>&gt; 15 Panneau<br>de configuration<br>&gt; © Réseau</p><p>Serveur</p><p>&gt;<br>(5) Skype Entreprise 2016</p><p>&gt; © Système<br>mm ——_ © Tous les paramètres</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-fbaa1f4ad3907687e3d2df99d2121fb5227e6a14f54b57bf5b45d69cf760ecf9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fbaa1f4ad3907687e3d2df99d2121fb5227e6a14f54b57bf5b45d69cf760ecf9.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="7775"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>La redirection des dossiers</h4>
+<p class="tssr-source-paragraph">Principe de redirection</p>
+<p class="tssr-source-paragraph">Les dossiers du profil utilisateur sont stockés sur un emplacement réseau.</p>
+<p class="tssr-source-paragraph">Profil utilisateur</p>
+<p class="tssr-source-paragraph">Documents</p>
+<p class="tssr-source-paragraph">Serveur <br>de fichiers</p>
+<p class="tssr-source-paragraph">Bureau</p>
+<p class="tssr-source-paragraph">Menu démarrer</p>
+<p class="tssr-source-paragraph">Contacts</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>La redirection des dossiers</h4>
+<p class="tssr-source-paragraph">Stratégie de redirection des dossiers</p>
+<p class="tssr-source-paragraph">Les redirections s’appliquent aux objets utilisateurs.</p>
+<p class="tssr-source-paragraph">Paramètres<br>Options</p>
+<p class="tssr-source-paragraph">Redirection vers le répertoire d’accueil de l’utilisateur<br>• Les nouveaux utilisateurs ne bénéficieront pas de redirection <br>de dossiers.</p>
+<p class="tssr-source-paragraph">De base :<br>Les dossiers redirigés de l’ensemble des utilisateurs seront <br>stockés dans un même emplacement réseau</p>
+<p class="tssr-source-paragraph">Rediriger vers l’emplacement suivant<br>• Les dossiers redirigés des utilisateurs se trouveront dans le <br>même sous-dossier</p>
+<p class="tssr-source-paragraph">Créer un dossier pour chaque utilisateur sous le chemin <br>d’accès racine.<br>• Chaque utilisateur disposera de son propre sous-dossier.<br>Avancé :<br>En fonction de leur appartenance à des groupes, les <br>dossiers des utilisateurs seront stockés dans des <br>emplacements réseau différents</p>
+<p class="tssr-source-paragraph">Redirection vers l’emplacement du profil local<br>• Arrêt de la redirection</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p><p>para dugosse&quot;one 3</p><p>°<br>payee</p><p>powcr Oe total pour es<br>sree ese D&gt;</p><p>o yi oee Rise</p><p>. use au</p><p>gosse&quot; &amp;no aedose aan£</p><p>vt gosse&quot;eyes</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Paramètres</td><td>Options</td></tr><tr><td>Debase:<br>Lesdossiersredirigésdel’ensembledesutilisateursseront<br>stockésdansunmêmeemplacementréseau</td><td>Redirectionverslerépertoired’accueildel’utilisateur<br>• Lesnouveauxutilisateursnebénéficierontpasderedirection<br>de dossiers.</td></tr><tr><td></td><td>Créerundossierpourchaqueutilisateursouslechemin<br>d’accès racine.<br>• Chaque utilisateur disposera de son propre sous-dossier.</td></tr><tr><td>Avancé:<br>Enfonctiondeleurappartenanceàdesgroupes les<br>,<br>dossiersdesutilisateursserontstockésdansdes<br>emplacementsréseaudifférents</td><td></td></tr><tr><td></td><td>Redirigerversl’emplacementsuivant<br>• Lesdossiersredirigésdesutilisateurssetrouverontdansle<br>même sous-dossier</td></tr><tr><td></td><td>Redirectionversl’emplacementduprofillocal<br>• Arrêtdelaredirection</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Le déploiement d’imprimantes par GPO</h4>
+<p class="tssr-source-paragraph">• Depuis le Gestionnaire d’impression, il est possible de déployer des imprimantes par GPO.</p>
+<p class="tssr-source-paragraph">•<br>Les informations à renseigner <br>seront :</p>
+<p class="tssr-source-paragraph">•<br>La stratégie existante ou <br>nouvelle à utiliser.<br>•<br>Le type d’objet ciblé par le <br>déploiement</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>i</p><p>Fir<br>scion<br>Mme?<br>COEL-EEL<br>TE)</p><p>‘Wp<br>Gesondetmpresion[nom aeinmate<br>Senadeefi.<br>Twas<br>Nomassenea Nem pase<br>Vern<br>dopit<br>2 epee<br>[es Microsoft Prat to POF<br>Pré<br>o<br>CDOI (local)<br>Microsoft<br>Print To PDF<br>100.1763.<br>©</p><p>Hsevantinrsion |ict<br>25 comet<br>iter<br>©<br>Coole) Mom FSDecament<br>tered MA<br>Pie<br>eee<br>2 Fomars<br>Dyer aca mipede prupe<br>x<br>À<br>pore<br>9e Impnmantes<br>=<br>Eee<br>Da ot amer<br>]<br>Comteseni ge<br>Dcore<br>ce poe!<br>eee<br>mereamet<br>Uitaateurs auxquels s&#x27;applique cet objet de sratége degroupe (par utter)<br>De<br>Gras</p><p>rch ctcbt eaedepue Eu artes)<br>sarin<br>Contorate oe<br>es<br>scone<br>semeot</p><p>env</p><p>env</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Les stratégies de groupe</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous connaissez les stratégies de groupe (GPO)</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5f67c97d2d5ea40c013a1adeab75ff1794c6527484c4ba544aaaa93020bf60b9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5f67c97d2d5ea40c013a1adeab75ff1794c6527484c4ba544aaaa93020bf60b9.webp" alt="Illustrations du support source, pages 9 à 11" loading="lazy" width="992" height="4336"></a><figcaption>Illustrations du support Drive — pages 9 à 11. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

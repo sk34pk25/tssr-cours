@@ -1,0 +1,46 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 3 - Boucle while-read.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M7 - Solution du TP 3 - Boucle while-read</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle while/read </h4>
+<p class="tssr-source-paragraph">Solution – TP3 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une structure de boucle while/read. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Le fichier /etc/passwd gère les comptes utilisateurs créés sur le système, un par ligne. On y trouve <br>dans l’ordre : le login, le champ ‘x’ (indiquant qu’un mot de passe est présent), l’UID, le GID du groupe <br>principal, le champ commentaire, le rép. d’accueil puis le shell par défaut. </p>
+<p class="tssr-source-paragraph">Seuls nous intéresse donc, le 1er et 3ème champ de chaque ligne, sachant que le séparateur est le <br>symbole “:”. </p>
+<p class="tssr-source-paragraph">Il faut ainsi demander un traitement ligne par ligne en ne récupérant que le 1er et 3ème champ de <br>chaque ligne et les afficher à l’écran. </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP3.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP3.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M7 - Solution du TP3 – Boucle while/read </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">#!/bin/bash </pre>
+<pre class="tssr-source-code">while read login c2 uid </pre>
+<pre class="tssr-source-code">  do </pre>
+<pre class="tssr-source-code">  echo &quot;-------------------------&quot; </pre>
+<pre class="tssr-source-code">  echo &quot;Identifiant :  $id&quot; </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">  echo &quot;-  -  -  -  -&quot; </pre>
+<pre class="tssr-source-code">  echo &quot;UID : $uid  </pre>
+<pre class="tssr-source-code">done &lt; &lt; (cat /etc/passwd | tr -s &quot;:&quot; &quot; &quot;) </pre>
+
+
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,77 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - Utilisation des systèmes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 1 - Utilisation des systèmes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+<h4>Utilisation des systèmes </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir <br>effectué le TP précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans <br>$HOME/process/daemons.txt. </p>
+<pre class="tssr-source-code">mkdir $HOME/process </pre>
+<pre class="tssr-source-code"> 
+ps -e | grep d$ &gt; $HOME/process/daemons.txt </pre>
+<pre class="tssr-source-code"> 
+cat process/daemons.txt </pre>
+
+<p class="tssr-source-paragraph">2. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette <br>recherche ne devra être effectuée que sur le système de fichier racine. Le résultat <br>sera <br>affiché <br>à <br>l&#x27;écran <br>tout <br>en <br>étant <br>stocké <br>dans <br>le <br>fichier </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RE</p><p>user30Ë6srv-formateur:-$ mkdir $HOME/process<br>user30Ësrv-formateur:-$ ps<br>-e<br>|<br>grep<br>dS<br>&gt; SHOME/process/daemons.txt<br>user30@srv—formateur:~$<br>cat process/daemons.txt<br>1?<br>00:00:01<br>systemd<br>27<br>00:00:00<br>kthreadd</p><p>6<br>?<br>00:00:00<br>kworker/0:0H-kblockd<br>10<br>?<br>00:00:04 rcu_sched<br>17<br>?<br>00:00:00<br>kauditd<br>18?<br>00:00:00<br>khungtaskd</p><p>35<br>7<br>00:00:00<br>kintegrityd<br>26<br>7<br>00:00:00<br>kblockd</p><p>29<br>7<br>00:00:00 watchdogd</p><p>183<br>7<br>00:00:00<br>kworker/0:1H-kblockd<br>288<br>7<br>00:00:00<br>systemd-udevd<br>ve<br>=<br>TTL<br>seve<br>ile<br>uns</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+<p class="tssr-source-paragraph">$HOME/resultats/fichiers.conf. </p>
+<pre class="tssr-source-code"> 
+mkdir $HOME/resultats </pre>
+<pre class="tssr-source-code"> 
+find 
+/ 
+-mount 
+-type 
+f 
+-name 
+&quot;*.conf&quot; 
+2&gt;/dev/null 
+| 
+tee 
+resultats/fichiers.conf </pre>
+<pre class="tssr-source-code"> 
+cat resultats/fichiers.conf </pre>
+
+<p class="tssr-source-paragraph">3. L’exécution de la commande précédente a duré un certain temps ; comment <br>connaître le temps exact d’exécution de celle-ci ? </p>
+<pre class="tssr-source-code">time 
+find / 
+-mount 
+-type f 
+-name 
+&quot;*.conf&quot; 
+2&gt;/dev/null | 
+tee 
+resultats/fichiers.conf </pre>
+
+<p class="tssr-source-paragraph">4. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le <br>nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat <br>devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts). </p>
+<pre class="tssr-source-code"> 
+find / -mount 
+-type f -name &quot;*.conf&quot; 2&gt;/dev/null | wc 
+-l &gt; 
+resultats/compteur.txt </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ser30@srv—formateur:~$<br>find /<br>-mount<br>-type<br>£ -name<br>&quot;*.conf&quot; 2&gt;/dev/null<br>|<br>tee<br>res<br>1tats/fichiers.conf<br>fetc/ld.so.conf.d/libc.conf<br>fetc/ld.so.conf.d/x86 64-linux-gnu.conf<br>fetc/ldap/ldap.conf<br>/etc/host .cont<br>fetc/ca-certificates.cont<br>fetc/nsswitch.conf<br>fetc/discover-modprobe.conf<br>fetc/bind/forwaders.conf<br>fetc/bind/named.conf<br>fetc/deluser.conf</p><p>usr/share/doc/procps/examples/sysctil.con<br>‘usr/share/doc/adduser/examples/adduser.local.conf.examples/addus<br>fusr/share/doc/adduser/examples/adduser.local.cont<br>fusr/share/doc/apt-utils/examples/apt-ftparchive.conf<br>fusr/share/doc/apt-utils/examples/ftp-archive.conf<br>fusr/share/doc/rsyslog/examples/rsyslog.d/console.con£f<br>fusr/share/doc/rsyslog/examples/rsyslog.d/xconsole.con£<br>fusr/share/doc/rsyslog/examples/tmpfiles.d/xconsole,.conf<br>‘usr/share/doc/apt/examples/apt.con£<br>#usr/share/libc-bin/nsswitch.conf</p><p>real<br>OmO,072s<br>user<br>OmO,045s<br>sys<br>OmO,021s<br>user306srv-formateur:-$ |</p><p>ED</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:~$<br>find<br>/<br>-mount -type<br>£<br>-name<br>&quot;*.conf&quot;<br>2&gt;/dev/null<br>we<br>-l<br>&gt;</p><p>|<br>resultats/compteur.txt<br>user30@srv-formateur:~$<br>cat resultats/compteur.txt</p><p>user30@srv-formateur:~$ | |</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5eabacfa8f0926e4131c3474519180c1c57821c209c269b3879b36cd74be4a2f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5eabacfa8f0926e4131c3474519180c1c57821c209c269b3879b36cd74be4a2f.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2236"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,110 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M8 - Solution du TP 1 - Fonctions.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M8 - Solution du TP 1 - Fonctions</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Fonctions </h4>
+<p class="tssr-source-paragraph">Solution - TP du Module 08 – Les fonctions </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">• <br>Appréhender l’utilisation de fonctions. </p>
+<p class="tssr-source-paragraph">• <br>Créer un script pour répondre à des besoins fonctionnels. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">L’objectif ici, est de créer un script principal dont le simple rôle est d’afficher le menu indiquant les <br>actions possibles, et de prévoir les choix possibles de saisie utilisateur. Un fichier externe de <br>fonctions l’accompagnera et contiendra les actions réelles à réaliser sur le système de fichiers. </p>
+<pre class="tssr-source-code">Le code contenu dans le script principal sera composé majoritairement de commandes echo, d’une 
+structure de choix case, tout cela « encadré » par une structure de type boucle while. </pre>
+<p class="tssr-source-paragraph">Le fichier de fonctions, quant à lui, sert à déclarer 3 fonctions : </p>
+<pre class="tssr-source-code">- 
+Copie des fichiers .sh en .sh.save </pre>
+<pre class="tssr-source-code">Il faut ici, chercher tous les fichiers terminant par .sh, puis pour chacun d’entre eux, avec une 
+boucle for, réaliser une copie de fichiers en ajoutant l’extension .save </pre>
+<pre class="tssr-source-code">- 
+Suppression des fichiers .save </pre>
+<pre class="tssr-source-code">Une simple commande rm suffira dans notre cas </pre>
+<pre class="tssr-source-code">- 
+Lister les fichiers .sh possédant une copie en .save et ceux n’en possédant pas (avec des 
+couleurs) </pre>
+<pre class="tssr-source-code">Il faut ici, encore une fois, chercher tous les fichiers terminant par .sh, puis pour chacun d’entre 
+eux, avec une boucle for, vérifier s‘il existe leur équivalent avec l’extension .save </pre>
+
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M8TP1.sh </pre>
+<pre class="tssr-source-code">vim script_M8TP1.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#!/bin/bash 
+# Appel du fichier de fonctions 
+. ./fonctions.fct 
+# Début boucle perpétuelle 
+while true 
+# Affichage du menu principal 
+do  echo &quot;-------------------------------------------------&quot; 
+    echo &quot; Gestion de copie de sauvegarde de fichiers &#x27;.sh&#x27;&quot; 
+    echo &quot;-------------------------------------------------&quot; 
+    echo &quot; S : Copies immédiates de sauvegarde&quot; 
+    echo &quot; D : Suppression des fichiers de sauvegarde&quot; 
+    echo &quot; L : Lister les fichiers&quot; 
+    echo &quot; Q : Quitter&quot; 
+    echo &quot;&quot; 
+# Invite de saisie utilisateur 
+    read -p &quot;Choisissez une action [S/D/L ou Q] : &quot; rep 
+# Gestion saisie utilisateur =&gt; choix et appel des fonctions 
+     case $rep in 
+       S) sauvegarde ;; 
+       D) suppression ;; 
+       L) listing ;; 
+       Q) echo &quot;Vous avez demandé à sortir&quot; &amp;&amp; exit 0 ;; 
+       *) echo -e &quot;\033[31mErreur de saisie ! \033[0m&quot; ;; 
+     esac 
+done 
+ </pre>
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier fonctions.fct </pre>
+<pre class="tssr-source-code">vim fonctions.fct 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : </pre>
+<pre class="tssr-source-code"># Fonctions du script script_M8TP1.sh  # 
+######################################## 
+ 
+# Fonction de sauvegarde des fichiers *.sh en *.sh.save 
+sauvegarde() { 
+for i in $(ls *.sh) # Traitement de chaque fichier *.sh trouvé </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">do cp -p $i $i.save 
+done 
+} 
+ 
+# Fonction de suppression des fichiers sauvegardés *.save 
+suppression() { 
+rm -f *.save 
+} 
+ 
+# Fonction de listing des fichiers sauvegardés ou non 
+listing() { 
+for i in $(ls *.sh) # Traitement de chaque fichier *.sh trouvé 
+do 
+ if [[ -f $i.save ]]; then # Vérification existence fichier .save 
+  echo -e &quot;\033[1;32m$i\033[0m&quot; # Affichage des fichiers avec sauvegarde 
+en vert 
+  else 
+    echo -e &quot;\033[1;31m$i\033[0m&quot; # Affichage des fichiers sans sauvegarde 
+en rouge 
+ fi 
+done 
+} </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e26b429b3a14296371b5c3ab121f17575a033c2ac5fc3a8fa8fd5f947c179acd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e26b429b3a14296371b5c3ab121f17575a033c2ac5fc3a8fa8fd5f947c179acd.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="561"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -7,7 +7,7 @@ from markdown_security import MarkdownSecurityExtension
 from parcours_catalog import model, reorder_courses
 from parcours_render import render_parcours, render_msp
 from kahoot_catalog import catalog as kahoot_catalog, card as kahoot_card, render_library, MARKER
-from source_catalog import load_catalog as load_source_catalog, project_page as project_source_page, label_auxiliary
+from source_catalog import load_catalog as load_source_catalog, project_page as project_source_page, label_auxiliary, rewrite_source_links
 
 KAHOOTS = []
 SOURCE_CATALOG = {}
@@ -25,6 +25,7 @@ def on_page_markdown(markdown, *, page, config, files):
     """Render libraries without overwriting the editable historical curriculum."""
     if page.file.src_uri == "kahoot/bibliotheque.md":
         return render_library(KAHOOTS)
+    markdown = rewrite_source_links(markdown, page.file.src_uri, SOURCE_CATALOG)
     markdown = project_source_page(markdown, page.file.src_uri, SOURCE_CATALOG)
     markdown = label_auxiliary(markdown, page.file.src_uri)
     if page.file.src_uri.startswith(("modules/", "kahoot/")):

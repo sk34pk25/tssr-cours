@@ -1,173 +1,92 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Les pilotes et imprimantes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Les pilotes et imprimantes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Les pilotes et les
-imprimantes
-TP du Module 09 – Les pilotes et les imprimantes
-
-Proposition de solution
-
-Sur Win10-XX
-
-    •  Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
-
-        o  Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des
-               pilotes
-
-        o  Pilotes_signature.csv contenant les informations sur la signature des pilotes
-
-                  ▪  Vous pourrez ouvrir et convertir ces fichiers avec Excel
-
-driverquery /v /fo CSV &gt; pilotes_details.csv
-
-driverquery /si /fo CSV &gt; pilotes_signatures.csv
-
-Possibilités d&#x27;ouvrir les fichiers CSV avec Excel
-
-Sélectionner la colonne A
-
-Menu Données
-
-Convertir
-
-Délimité &gt; Suivant
-
-Cocher Virgule
-
-Terminer
-
-    •  Avec l&#x27;interface graphique
-
-        o  Affichez les informations détaillées sur le pilote graphique avec la console
-        MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
-
-Rechercher &gt; devmgmt.msc
-
-Déployez le nœud Cartes graphiques
-
-Clic droit sur VMware SVGA 3D &gt; Propriétés
-
-Onglet Détails
-
-
-
- Page 1/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
-
-Propriété ID compatibles
-
-Le VENDOR_ID est 15AD
-
-Le DEVICE_ID est 0405
-
-Il est possible de se rendre sur le site www.pcilookup.com et d&#x27;y renseigner ces ID pour
-retrouver des informations sur le matériel en question.
-
-Gestion des imprimantes
-
-Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez-
-vous dans la console MMC adaptée ?
-
-Panneau de configuration
-
-Matériel et audio
-
-Périphériques et imprimantes
-
-Les imprimantes disponibles par défaut sont FAX, Microsoft Print to PDF, Microsoft XPS
-Document Writer
-
-
-
-
-
-Dans la console Gestionnaire de périphérique
-
-Nœud Files d&#x27;attente à l&#x27;impression, nous retrouvons nos imprimantes.
-•  Éditez les propriétés de l&#x27;imprimante Microsoft Print to PDF
-
-        o  Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par
-             défaut. Sans configuration particulière, l&#x27;imprimante sortira des documents en
-              orientation paysage. Imprimez une page de test pour vérification.
-
-Clic droit sur l&#x27;imprimante Microsoft Print to PDF &gt; Définir comme imprimante par défaut
-
-Clic droit sur l&#x27;imprimante Microsoft Print to PDF &gt; Propriétés de l&#x27;imprimante
-
-Préférence
-
-Orientation : Paysage
-
-OK
-
-Imprimer une page de test
-
-
-
-
-
- Page 2/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-Cette imprimante est virtuelle et va sortir un document numérique au format PDF.
-
-Indiquer le nom et l&#x27;emplacement du futur document (par exemple sur le bureau) et vérifiez
-qu&#x27;il est bien au format paysage
-
-    •  Depuis   votre  VM   Win10-XX,  connectez-vous  à   l&#x27;imprimante  partagée
-      HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery
-
-        o  Attendez quelques minutes le temps que le pilote s&#x27;installe puis vérifier sa
-           présence dans le panneau de configuration et dans la console MMC adaptée
-
-Avec votre explorateur Windows, dans la barre de navigation, entrez le chemin UNC suivant
-\\@ ip de Discovery\HP_LaserJet_Accueil_RDC_Bât2
-
-Renseigner les login / mdp de l&#x27;utilisateur adm lorsque vous êtes challengé.
-
-Faites un clic droit sur HP_LaserJet_Accueil_RDC_Bât &gt; Connecter…
-
-Au bout d&#x27;un certain temps, la nouvelle imprimante partagée apparaît dans la liste des
-imprimantes dans le panneau de configuration.
-
-
-
-
-
-Sur Discovery
-
-Gestion de configurations personnalisées
-
-    •  À l&#x27;aide de PowerShell, afficher les informations par défaut concernant l&#x27;imprimante
-      &quot;HP LaserJet&quot;
-
-Get-Printer -name &quot;HP LaserJet&quot;
-
-    •  Affichez maintenant les informations suivantes concernant &quot;HP LaserJet&quot; :
-
-        o  Son nom
-
-        o   Si elle est partagée ou non
-
-
-
-
-
- Page 3/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-        o  Le nom du partage
-
-        o  Le nom du port
-
-        o  Son emplacement
-
-        o  Sa priorité
-
-Get-Printer -Name &quot;HP LaserJet&quot; | select Name,Shared,ShareName,PortName,Location,
-Priority
-
-
-
-
-
- Page 4/4
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Les pilotes et imprimantes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Les pilotes et imprimantes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Les pilotes et les <br>imprimantes </h4>
+<p class="tssr-source-paragraph">TP du Module 09 – Les pilotes et les imprimantes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :  </p>
+<pre class="tssr-source-code">o Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des </pre>
+<p class="tssr-source-paragraph">pilotes </p>
+<pre class="tssr-source-code">o Pilotes_signature.csv contenant les informations sur la signature des pilotes </pre>
+<p class="tssr-source-paragraph">▪ <br>Vous pourrez ouvrir et convertir ces fichiers avec Excel </p>
+<pre class="tssr-source-code">driverquery /v /fo CSV &gt; pilotes_details.csv </pre>
+<pre class="tssr-source-code">driverquery /si /fo CSV &gt; pilotes_signatures.csv </pre>
+<p class="tssr-source-paragraph">Possibilités d&#x27;ouvrir les fichiers CSV avec Excel </p>
+<p class="tssr-source-paragraph">Sélectionner la colonne A </p>
+<p class="tssr-source-paragraph">Menu Données </p>
+<p class="tssr-source-paragraph">Convertir </p>
+<p class="tssr-source-paragraph">Délimité &gt; Suivant </p>
+<p class="tssr-source-paragraph">Cocher Virgule </p>
+<p class="tssr-source-paragraph">Terminer </p>
+<p class="tssr-source-paragraph">• <br>Avec l&#x27;interface graphique </p>
+<pre class="tssr-source-code">o Affichez les informations détaillées sur le pilote graphique avec la console </pre>
+<p class="tssr-source-paragraph">MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique. </p>
+<p class="tssr-source-paragraph">Rechercher &gt; devmgmt.msc </p>
+<p class="tssr-source-paragraph">Déployez le nœud Cartes graphiques </p>
+<p class="tssr-source-paragraph">Clic droit sur VMware SVGA 3D &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Détails </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Propriété ID compatibles <br> </p>
+<p class="tssr-source-paragraph">Le VENDOR_ID est 15AD </p>
+<p class="tssr-source-paragraph">Le DEVICE_ID est 0405 </p>
+<p class="tssr-source-paragraph">Il est possible de se rendre sur le site www.pcilookup.com et d&#x27;y renseigner ces ID pour <br>retrouver des informations sur le matériel en question. </p>
+<p class="tssr-source-paragraph">Gestion des imprimantes </p>
+<p class="tssr-source-paragraph">Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez-<br>vous dans la console MMC adaptée ? </p>
+<p class="tssr-source-paragraph"> Panneau de configuration </p>
+<p class="tssr-source-paragraph">Matériel et audio </p>
+<p class="tssr-source-paragraph">Périphériques et imprimantes </p>
+<p class="tssr-source-paragraph">Les imprimantes disponibles par défaut sont FAX, Microsoft Print to PDF, Microsoft XPS <br>Document Writer </p>
+<p class="tssr-source-paragraph">Dans la console Gestionnaire de périphérique </p>
+<p class="tssr-source-paragraph">Nœud Files d&#x27;attente à l&#x27;impression, nous retrouvons nos imprimantes. </p>
+<p class="tssr-source-paragraph">• <br>Éditez les propriétés de l&#x27;imprimante Microsoft Print to PDF </p>
+<pre class="tssr-source-code">o Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par </pre>
+<p class="tssr-source-paragraph">défaut. Sans configuration particulière, l&#x27;imprimante sortira des documents en <br>orientation paysage. Imprimez une page de test pour vérification. </p>
+<p class="tssr-source-paragraph">Clic droit sur l&#x27;imprimante Microsoft Print to PDF &gt; Définir comme imprimante par défaut </p>
+<p class="tssr-source-paragraph">Clic droit sur l&#x27;imprimante Microsoft Print to PDF &gt; Propriétés de l&#x27;imprimante </p>
+<p class="tssr-source-paragraph">Préférence </p>
+<p class="tssr-source-paragraph">Orientation :  Paysage </p>
+<p class="tssr-source-paragraph">OK </p>
+<p class="tssr-source-paragraph">Imprimer une page de test </p>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fax<br>Microsoft Print<br>Microsoft<br>XPS<br>to PDF<br>Document Writer</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Cette imprimante est virtuelle et va sortir un document numérique au format PDF. </p>
+<p class="tssr-source-paragraph">Indiquer le nom et l&#x27;emplacement du futur document (par exemple sur le bureau) et vérifiez <br>qu&#x27;il est bien au format paysage </p>
+<p class="tssr-source-paragraph">• <br>Depuis <br>votre <br>VM <br>Win10-XX, <br>connectez-vous <br>à <br>l&#x27;imprimante <br>partagée <br>HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery </p>
+<pre class="tssr-source-code">o Attendez quelques minutes le temps que le pilote s&#x27;installe puis vérifier sa </pre>
+<p class="tssr-source-paragraph">présence dans le panneau de configuration et dans la console MMC adaptée </p>
+<p class="tssr-source-paragraph">Avec votre explorateur Windows, dans la barre de navigation, entrez le chemin UNC suivant <br>\\@ ip de Discovery\HP_LaserJet_Accueil_RDC_Bât2 </p>
+<p class="tssr-source-paragraph">Renseigner les login / mdp de l&#x27;utilisateur adm lorsque vous êtes challengé. </p>
+<p class="tssr-source-paragraph">Faites un clic droit sur HP_LaserJet_Accueil_RDC_Bât &gt; Connecter…  </p>
+<p class="tssr-source-paragraph">Au bout d&#x27;un certain temps, la nouvelle imprimante partagée apparaît dans la liste des <br>imprimantes dans le panneau de configuration. </p>
+<p class="tssr-source-paragraph">Sur Discovery </p>
+<p class="tssr-source-paragraph">Gestion de configurations personnalisées </p>
+<p class="tssr-source-paragraph">• <br>À l&#x27;aide de PowerShell, afficher les informations par défaut concernant l&#x27;imprimante <br>&quot;HP LaserJet&quot;  </p>
+<pre class="tssr-source-code">Get-Printer -name &quot;HP LaserJet&quot; 
+ 
+ </pre>
+<p class="tssr-source-paragraph">• <br>Affichez maintenant les informations suivantes concernant &quot;HP LaserJet&quot; : </p>
+<pre class="tssr-source-code">o Son nom </pre>
+<pre class="tssr-source-code">o Si elle est partagée ou non </pre>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fax<br>HP LaserJet sur<br>Microsoft Print<br>Microsoft XPS<br>DISCOVERYXX<br>to PDF<br>Document Writer</p><p>~ M Files d&#x27;attenteà l&#x27;impression<br>:<br>= Fax<br>D File d&#x27;attente d&#x27;impression racine<br>[1 Microsoft Print to PDF<br>=) Microsoft<br>XPS Document Writer<br>+ fl Imprimantes</p><p>D \DISCOVERYXX\HP Laserlet</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<pre class="tssr-source-code">o Le nom du partage </pre>
+<pre class="tssr-source-code">o Le nom du port </pre>
+<pre class="tssr-source-code">o Son emplacement </pre>
+<pre class="tssr-source-code">o Sa priorité </pre>
+<pre class="tssr-source-code">Get-Printer -Name &quot;HP LaserJet&quot; | select Name,Shared,ShareName,PortName,Location, 
+Priority 
+ </pre>
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-728c1b26c568681d7ff589e07f3c8432c1c69af66ad1f0c78f4fc1521761b7a8.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-728c1b26c568681d7ff589e07f3c8432c1c69af66ad1f0c78f4fc1521761b7a8.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="900" height="1294"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

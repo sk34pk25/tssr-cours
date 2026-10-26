@@ -1,0 +1,131 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 06 – La sécurité NTFS et les ACL</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Objectifs<br>• Définir et découvrir les ACL<br>• Connaître le fonctionnement et les bonnes <br>pratiques<br>• Configurer les accès<br>• Vérifier leur bon fonctionnement</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">Sur un volume formaté en NTFS</p>
+<p class="tssr-source-paragraph">• Tous les répertoires et tous les fichiers sont soumis à la sécurité NTFS</p>
+<p class="tssr-source-paragraph">• Des autorisations définissent des privilèges d&#x27;accès</p>
+<p class="tssr-source-paragraph">• L&#x27;utilisateur présente son jeton d&#x27;accès, qui est filtré par la ressource</p>
+<p class="tssr-source-paragraph">• Les autorisations sont stockées dans l&#x27;index du système de fichier NTFS</p>
+<p class="tssr-source-paragraph">• Consultable, modifiable dans l&#x27;onglet sécurité de chaque objet</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">L&#x27;onglet sécurité</p>
+<p class="tssr-source-paragraph">D</p>
+<p class="tssr-source-paragraph">• Accessible via les propriétés d&#x27;un objet</p>
+<p class="tssr-source-paragraph">A</p>
+<p class="tssr-source-paragraph">C</p>
+<p class="tssr-source-paragraph">L</p>
+<p class="tssr-source-paragraph">• DACL : (Liste de contrôle d&#x27;accès discrétionnaire) <br>contient les utilisateurs et groupes</p>
+<p class="tssr-source-paragraph">A</p>
+<p class="tssr-source-paragraph">C</p>
+<p class="tssr-source-paragraph">E</p>
+<p class="tssr-source-paragraph">• Les DACL filtrent<br>• Les groupes locaux<br>• Les groupes prédéfinis<br>• Les entités de sécurité<br>• Les utilisateurs</p>
+<p class="tssr-source-paragraph">• ACE : (Access Control Entry) privilèges d&#x27;accès <br>du groupe en question</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>L O =</p><p>env</p><p>Propriétés de :Répertoire<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>BE Système</p><p>2CNE<br>BR Administrateurs (WINT0-RG\Administrateurs)</p><p>Autorisations pour voisins.<br>Autoriser<br>Refuser</p><p>Contrôle total<br>.</p><p>Écriture<br>La</p><p>Avancé.<br>i</p><p>nome<br>| RIRE</p><p>env</p></div></details>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Pour les besoins courants, les ACE de base sont utilisées et cumulatives</p>
+<p class="tssr-source-paragraph">• Configurable depuis le menu Modifier<br>• LECTURE<br>• Affichage du contenu du dossier<br>• Lecture<br>• Lecture et exécution<br>• MODIFICATION<br>• Écriture<br>• Modification<br>• CONTRÔLE TOTAL</p>
+<p class="tssr-source-paragraph">• Pour des besoins spécifiques, des autorisations spéciales peuvent être configurées<br>• Accessibles depuis le menu Avancé<br>• Affinent les privilèges (création de fichiers, suppression de sous-dossiers et fichiers, etc.)</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Permissions basées sur des règles explicites<br>• Un groupe absent de la DACL se verra l&#x27;accès refusé (refus implicite)<br>• Chaque règle peut accorder des privilèges (autoriser) ou les ôter (refuser)<br>• Plusieurs règles d’accès peuvent s’appliquer à un même utilisateur<br>• La règle la plus permissive l&#x27;emporte<br>• Le refus explicite l&#x27;emporte sur l&#x27;autorisation</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Autorisations pour voisins<br>Autoriser<br>Refuser</p><p>Contrôle total<br>gw<br>Oo<br>Modification<br>Oo<br>Lecture et exécution<br>oO</p><p>Affichage du contenu du dossier<br>oO</p><p>Lecture<br>oO<br>Ecriture<br>|</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Les mécanismes d&#x27;héritage<br>• Par défaut, un répertoire propage ses autorisations à ses objets enfants<br>• Les autorisations héritées apparaissent grisées et ne sont pas modifiables<br>• Une autorisation d&#x27;accès l&#x27;emporte sur un refus explicite hérité<br>• Pour les modifier, il faut :<br>• Modifier les autorisations sur le dossier parent (voire parfois celles du volume racine)<br>• &quot;Casser&quot; l&#x27;héritage (à effectuer avec précaution)<br>• Gestion de l&#x27;héritage depuis le menu Avancé</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Que se passe-t-il lors de la copie ? Du déplacement ?</p>
+<p class="tssr-source-paragraph">Au sein d&#x27;une même </p>
+<p class="tssr-source-paragraph">partition/volume</p>
+<p class="tssr-source-paragraph">Entre deux <br>partitions/volumes</p>
+<p class="tssr-source-paragraph">Déplacement<br>Conservation<br>Héritage</p>
+<p class="tssr-source-paragraph">Copie<br>Héritage<br>Héritage</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4ac884e2c32bfd1665ba7c28afd820c800dfddbe19fca3090bc8d0ee7c642168.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4ac884e2c32bfd1665ba7c28afd820c800dfddbe19fca3090bc8d0ee7c642168.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7827"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">Une fois les ACL configurées, que faire ?</p>
+<p class="tssr-source-paragraph">• Testez les accès avec les utilisateurs !</p>
+<p class="tssr-source-paragraph">• Ou/et vérifiez les accès depuis l&#x27;onglet Accès effectif du menu Avancé</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• À manipuler avec précaution !<br>• Bonnes pratiques pour éviter les effets de bord et les mauvaises surprises<br>• Privilégier au maximum les groupes dans les DACL<br>• Utiliser au maximum ACE de base<br>• Garder en tête les mécanismes d&#x27;héritage (attention aux copies, aux déplacements)<br>• Privilégier l&#x27;héritage<br>• Privilégier le refus implicite<br>• Toujours tester/vérifier les accès aux ressources<br>• Attention au double jeton d&#x27;accès des administrateurs !</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• La gestion des ACL est indispensable<br>• ACL = DACL + ACE</p>
+<p class="tssr-source-paragraph">•<br>Liste de contrôle d’accès</p>
+<p class="tssr-source-paragraph">•<br>Liste de contrôle d’accès discrétionnaire</p>
+<p class="tssr-source-paragraph">•<br>Entrées de contrôle d’accès<br>• Tester les accès<br>• Respecter les bonnes pratiques Microsoft</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>La sécurité NTFS et les ACL</td><td></td><td></td></tr><tr><td>C l i<br>onc us on</td><td>• La gestion des ACL est indispensable</td><td></td></tr><tr><td></td><td>• ACL = DACL + ACE</td><td></td></tr><tr><td></td><td>• Listedecontrôled’accès</td><td></td></tr><tr><td></td><td>• Listedecontrôled’accèsdiscrétionnaire</td><td></td></tr><tr><td></td><td>• Entréesdecontrôled’accès</td><td></td></tr><tr><td></td><td>• Tester les accès</td><td></td></tr><tr><td></td><td>• Respecter les bonnes pratiques Microsoft</td><td>13</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-83893025558a7ddb7a8cc9f47b7a51c86d573df2cd1c4b351c9bbf0ac81f30a1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-83893025558a7ddb7a8cc9f47b7a51c86d573df2cd1c4b351c9bbf0ac81f30a1.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="992" height="3702"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

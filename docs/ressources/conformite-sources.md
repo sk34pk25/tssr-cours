@@ -1,18 +1,18 @@
 # Supports originaux du Drive et compléments pédagogiques
 
-Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Chaque module donne accès au document intégral, à toutes ses pages illustrées et à une transcription textuelle. Les fichiers originaux ont été comparés par empreinte SHA-256 après récupération.
+Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont désormais transcrits en texte HTML, avec leurs tableaux et illustrations séparées. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF ENI et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
 
 Les fiches de synthèse et leurs schémas sont affichés séparément dans **Aide pédagogique — IA / externe**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
 
-## Périmètre vérifié le 20 octobre 2026
+## Périmètre vérifié le 26 octobre 2026
 
-**82 modules publiés · 333 documents · 2225 pages originales.** Les modules encore en attente de publication sont exclus.
+**86 modules avec supports transcrits · 353 références de documents · 2466 pages sources, plus 9 documents textuels.** Ces références correspondent à 346 fichiers sources uniques ; les doublons et leurs notices sont conservés. Le périmètre couvre les sections « Support original du Drive » du catalogue, sans prétendre compléter les sources absentes.
 
 Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est indiquée sans les attribuer à ENI. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original. Les formations datées suivent l’ordre du planning ; Administration GLPI, bloc complémentaire non daté, est regroupé avec ITIL.
 
 ## Consultation des formations et modules
 
-| Formation / module | Documents disponibles | Pages originales |
+| Formation / module | Documents transcrits | Pages sources |
 | --- | ---: | ---: |
 | [Microsoft 365 — Module 01 — Découverte de Microsoft 365](../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365.md) | 1 | 9 |
 | [Microsoft 365 — Module 02 — Connaissances des notions de base Word](../modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word.md) | 3 | 52 |
@@ -96,9 +96,21 @@ Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est i
 | [PowerShell — Module 06 — Pour aller plus loin](../modules/12-initiation-powershell/module-06.md) | 3 | 4 |
 | [Virtualisation de serveurs — Module 01 — Des concepts de la virtualisation à leur mise en œuvre](../modules/13-virtualisation-serveurs/module-01.md) | 1 | 5 |
 | [Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail](../modules/13-virtualisation-serveurs/module-02.md) | 3 | 15 |
+| [Messagerie Cloud — Module 01](../modules/14-messagerie-cloud/module-01.md) | 5 | 55 |
+| [Messagerie Cloud — Module 02](../modules/14-messagerie-cloud/module-02.md) | 5 | 73 |
+| [Messagerie Cloud — Module 03](../modules/14-messagerie-cloud/module-03.md) | 5 | 73 |
+| [Messagerie Cloud — Module 04](../modules/14-messagerie-cloud/module-04.md) | 5 | 40 |
 
 ## Lecture des sources et corrections
 
-Les originaux gardent les versions, valeurs, consignes et éventuelles erreurs du support. Les errata explicites de la fiche IA permettent de distinguer le contenu historique d’une explication corrective : limites Excel, SMTP sécurisé, stockage Teams, dimensionnement IPv4, lecture IPv6 et cycle de vie Windows 10.
+La transcription conserve les versions, valeurs, consignes et éventuelles erreurs du support ; la mise en forme est adaptée au Web. Les errata explicites de la fiche IA permettent de distinguer le contenu historique d’une explication corrective : limites Excel, SMTP sécurisé, stockage Teams, dimensionnement IPv4, lecture IPv6 et cycle de vie Windows 10.
 
 Les corrections de TP sont repliées à l’ouverture pour permettre une première tentative. Les ressources de manipulation (classeurs, scripts, documents de travail, Packet Tracer) restent reliées depuis les fiches de TP existantes.
+
+## Contrôles de transcription
+
+Les 305 531 mots du texte natif des sources ont été recherchés dans les pages HTML correspondantes : aucun mot manquant détecté. Les textes des illustrations ont aussi été relevés par OCR. Les 9 105 illustrations extraites sont toutes comptabilisées dans les planches ; leurs pixels ont été contrôlés lors du regroupement, sans redimensionnement. Les tableaux sont conservés et, lorsqu’ils sont détectés, proposés en lecture structurée.
+
+Les listes, commandes et opérateurs du texte source sont protégés contre les transformations Markdown. Les symboles des polices particulières sont reproduits à partir de petits extraits du support. Les caractères de largeur nulle déjà invisibles dans le PDF restent enregistrés dans la transcription. Le relevé OCR accompagne les illustrations ; l’illustration source reste disponible pour vérifier sa lecture.
+
+La transcription, les illustrations et leur couverture de pages sont vérifiées au build par empreinte et par séquence de pages. Les anciens liens vers les PDF ENI du catalogue pointent vers les transcriptions. Le manuel constructeur Aruba, identifié comme document non ENI, reste disponible séparément.

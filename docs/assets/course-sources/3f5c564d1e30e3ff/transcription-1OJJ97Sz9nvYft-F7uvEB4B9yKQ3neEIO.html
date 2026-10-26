@@ -1,0 +1,56 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 2 - Le réseau global.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Enoncé du TP 2 - Le réseau global</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>Le réseau global </h4>
+<p class="tssr-source-paragraph">TP du Module 04 – Le routage </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et réalisé le TP <br>précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 04. </p>
+<p class="tssr-source-paragraph">Création des VM. </p>
+<p class="tssr-source-paragraph">• <br>Deux VM Windows 10 nommées CLI-00 et CLI-01 qui feront office de postes clients. <br>• <br>Trois VM routeurs pfSense nommée RTR-00, RTR-01, RTR-02. <br> <br>Connectivité : <br> </p>
+<p class="tssr-source-paragraph">• <br>Configurer le poste client CLI-00. </p>
+<pre class="tssr-source-code">o Carte réseau : BRIDGE 
+o Adresse IP : Utiliser la deuxième IP disponible du réseau. 
+ 
+• 
+Configurer le poste client CLI-01. </pre>
+<pre class="tssr-source-code">o Carte réseau : BRIDGE 
+o Adresse IP :  Utiliser la deuxième IP disponible du réseau. </pre>
+<p class="tssr-source-paragraph"> <br>• <br>Configurer le routeur RTR-00. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. 
+o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. </pre>
+<p class="tssr-source-paragraph"> <br>• <br>Configurer le routeur RTR-01. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la dernière adresse du réseau. 
+o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. 
+o  
+• 
+Configurer le routeur RTR-02. </pre>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la dernière adresse du réseau. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<pre class="tssr-source-code">o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. </pre>
+
+<p class="tssr-source-paragraph">• <br>Vérifiez la connectivité des machines : <br> <br>Finalisation </p>
+<p class="tssr-source-paragraph">• <br>L’ensemble des routeurs et des clients doivent pouvoir communiquer entre eux. <br> <br>• <br>Votre routeur devra contenir le moins possible de routes dans sa table de routage. </p>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RTR-O1</p><p>Réseau vers CLI-00</p><p>Si</p><p>172.16.200.36/29</p><p>|<br>a=</p><p>+<br>“|</p><p>|</p><p>RTR-OO</p><p>|<br>R<br>cI<br>El6<br>oo</p><p>Réseau vers CLI-01</p><p>RTR-O2<br>192.168.0.96/29</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-0db29ee4d8e2d54fb47a0d2f1631bd2e007b49264a05b3b9321c42d92350c250.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0db29ee4d8e2d54fb47a0d2f1631bd2e007b49264a05b3b9321c42d92350c250.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1660"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

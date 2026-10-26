@@ -1,196 +1,114 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 13 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 13 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                 Module 13 – Les stratégies de groupe local
-
-
-
-
-
-                                                                                         1
-
-
-1
-
-
-
-  Les stratégies de groupe local
-
-                                            •  Les stratégies de groupe local pour  Objectifs
-                                                                 •  Personnaliser l’environnement des utilisateurs
-                                                                 •  Personnaliser Windows 10
-                                                                 •  Sécuriser le système
-
-
-
-
-
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>  Les stratégies de groupe local
- Les stratégies de groupe local
-
-
-              • La base de registre Windows
-                      • Base de données hiérarchique et centrale
-                      • Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs,
-               programmes et périphériques matériels
-                      •  Utilisée depuis Windows 98
-                      • Contient des milliers de paramètres
-              • Lors de son exécution, Windows consulte en permanence les informations contenues dans
-               le Registre
-              • Consultation et modification du registre : commande regedit
-              • À manipuler avec la plus grande précaution
-
-
-
-
-                                                                                         3
-
-
-3
-
-
-  Les stratégies de groupe local
- Les stratégies de groupe local
-
-        La base de registre Windows
-              • Paramètres regroupés sous 5 catégories (ou ruches)
-
-                                        HKEY_CLASSES_ROOT     Informations sur les applications (objets OLE, extensions)
-                                       HKEY_CURRENT_USER
-                                                                                   ( = HKEY_USERS \ SID )         Configuration relative à l&#x27;utilisateur qui a ouvert une session
-                                                                     Contient des informations de configuration spécifiques à                                       HKEY_LOCAL_MACHINE
-                                                                             l&#x27;ordinateur (pour n&#x27;importe quel utilisateur)
-                                                                     Contient tous les profils utilisateur chargés activement sur                                        HKEY_USERS
-                                                                             l&#x27;ordinateur
-                                        HKEY_CURRENT_CONFIG   Profil matériel utilisé par l&#x27;ordinateur
-
-
-
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>  Les stratégies de groupe local
- Les stratégies de groupe local
-
-        La base de registre Windows
-              • Les ruches contiennent des clés
-              • Qui peuvent elles-mêmes contenir des clés…
-              • Les clés contiennent des valeurs
-                      •  Binaires ou hexadécimales
-                      • Chaînes de caractères
-              • Chaque valeur correspond à un paramètre du système !
-
-
-
-
-
-                                                                                         5
-
-
-5
-
-
-  Les stratégies de groupe local
- LGPO
-
-
-              • Les LGPO (Local Group Policy Object)
-                     • Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :
-                              • Console mmc personnalisée composant logiciel enfichable
-                              •  Éditeur d&#x27;objets de stratégie de groupe
-                              • Console mmc Stratégie de sécurité locale (secpol.msc)
-                      • Réduire le temps consacré à la gestion du poste de travail
-                      • Agir sur la base de registre de façon plus conviviale
-
-              • Concrètement que peut-on faire par LGPO ?
-                      • Modifier les stratégies de mots de passe
-                      • Agir sur les privilèges d&#x27;administration du système
-                      • Uniformiser l&#x27;aspect du poste de travail (bureau, barre des tâches)
-                      • Restreindre l&#x27;accès à certains paramètres (panneau de configuration, ligne de commande)
-                      • Démarrer des scripts à l&#x27;ouverture, à la fermeture de session utilisateur
-
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>  Les stratégies de groupe local
- LGPO
-
-
-              • Possibilité d&#x27;agir sur le poste local ou sur un poste distant
-              • Possibilité d&#x27;agir sur différents objets de la base SAM
-
-
-
-
-
-                                                                                         7
-
-
-7
-
-
-  Les stratégies de groupe local
- LGPO
-
-       Chaque paramètre :
-              • Peut être activé ou désactivé
-              • Peut être non configuré = comportement par
-             défaut du système
-              • Peut être commenté
-              • Possède des conditions
-              • Peut posséder des options supplémentaires
-              • Possède surtout une aide précieuse, lisez-la !
-
-
-
-
-
-                                                                                         8
-
-
-8</pre></section><section><h2>Page 5</h2><pre>  Les stratégies de groupe local
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         9
-
-
-9
-
-
-  Les stratégies de groupe local
-
-
-              TP
-
-
-
-
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>  Les stratégies de groupe local
- Conclusion                                            •  Bien connaître le fonctionnement des stratégies
-                              de groupe local pour
-                                                                 •  Découvrir la base de registre
-                                                                                           •   Les paramètres utilisateurs
-                                                                                           •   Les paramètres ordinateurs
-                                                                                           •   Les stratégies de sécurité
-                                                                 •  Se préparer à l’utilisation des stratégies de groupe de domaine
-
-
-
-
-
-                                                                                          11
-
-
-11</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 13 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 13 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 13 – Les stratégies de groupe local</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Objectifs<br>• Les stratégies de groupe local pour</h4>
+<p class="tssr-source-paragraph">•<br>Personnaliser l’environnement des utilisateurs</p>
+<p class="tssr-source-paragraph">•<br>Personnaliser Windows 10</p>
+<p class="tssr-source-paragraph">•<br>Sécuriser le système</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Les stratégies de groupe local</h4>
+<p class="tssr-source-paragraph">• La base de registre Windows<br>• Base de données hiérarchique et centrale<br>• Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs, <br>programmes et périphériques matériels<br>• Utilisée depuis Windows 98<br>• Contient des milliers de paramètres</p>
+<p class="tssr-source-paragraph">• Lors de son exécution, Windows consulte en permanence les informations contenues dans <br>le Registre</p>
+<p class="tssr-source-paragraph">• Consultation et modification du registre : commande regedit</p>
+<p class="tssr-source-paragraph">• À manipuler avec la plus grande précaution</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Les stratégies de groupe local</h4>
+<p class="tssr-source-paragraph">La base de registre Windows</p>
+<p class="tssr-source-paragraph">• Paramètres regroupés sous 5 catégories (ou ruches)</p>
+<p class="tssr-source-paragraph">HKEY_CLASSES_ROOT<br>Informations sur les applications (objets OLE, extensions)</p>
+<p class="tssr-source-paragraph">HKEY_CURRENT_USER<br>( = HKEY_USERS \ SID )<br>Configuration relative à l&#x27;utilisateur qui a ouvert une session</p>
+<p class="tssr-source-paragraph">HKEY_LOCAL_MACHINE<br>Contient des informations de configuration spécifiques à <br>l&#x27;ordinateur (pour n&#x27;importe quel utilisateur)</p>
+<p class="tssr-source-paragraph">HKEY_USERS<br>Contient tous les profils utilisateur chargés activement sur <br>l&#x27;ordinateur</p>
+<p class="tssr-source-paragraph">HKEY_CURRENT_CONFIG<br>Profil matériel utilisé par l&#x27;ordinateur</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Edition<br>Affichage<br>Favoris<br>?</p><p>Ordinateur</p><p>v<br>™&amp; Ordinateur</p><p>&gt;<br>HKEY_CLASSES_ROOT</p><p>&gt;<br>HKEY_CURRENT_USER</p><p>&gt;<br>HKEY_LOCAL_MACHINE</p><p>&gt;<br>HKEY_USERS</p><p>&gt;<br>HKEY_CURRENT_CONFIG</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>HKEYCLASSESROOT<br>_ _</td><td>Informationssurlesapplications(objetsOLE extensions)<br>,</td></tr><tr><td>HKEYCURRENTUSER<br>( = HKE_Y _USERS \ SID_ )</td><td>Configurationrelativeàl&#x27;utilisateurquiaouvertunesession</td></tr><tr><td>HKEYLOCALMACHINE<br>_ _</td><td>Contientdesinformationsdeconfigurationspécifiquesà<br>l&#x27;ordinateur(pourn&#x27;importequelutilisateur)</td></tr><tr><td>HKEYUSERS<br>_</td><td>Contienttouslesprofilsutilisateurchargésactivementsur<br>l&#x27;ordinateur</td></tr><tr><td>HKEYCURRENTCONFIG<br>_ _</td><td>Profilmatérielutiliséparl&#x27;ordinateur</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Les stratégies de groupe local</h4>
+<p class="tssr-source-paragraph">La base de registre Windows</p>
+<p class="tssr-source-paragraph">• Les ruches contiennent des clés</p>
+<p class="tssr-source-paragraph">• Qui peuvent elles-mêmes contenir des clés…</p>
+<p class="tssr-source-paragraph">• Les clés contiennent des valeurs<br>• Binaires ou hexadécimales<br>• Chaînes de caractères</p>
+<p class="tssr-source-paragraph">• Chaque valeur correspond à un paramètre du système !</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>LGPO</h4>
+<p class="tssr-source-paragraph">• Les LGPO (Local Group Policy Object)<br>• Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :<br>• Console mmc personnalisée composant logiciel enfichable <br>• Éditeur d&#x27;objets de stratégie de groupe<br>• Console mmc Stratégie de sécurité locale (secpol.msc)<br>• Réduire le temps consacré à la gestion du poste de travail<br>• Agir sur la base de registre de façon plus conviviale</p>
+<p class="tssr-source-paragraph">• Concrètement que peut-on faire par LGPO ?<br>• Modifier les stratégies de mots de passe<br>• Agir sur les privilèges d&#x27;administration du système<br>• Uniformiser l&#x27;aspect du poste de travail (bureau, barre des tâches)<br>• Restreindre l&#x27;accès à certains paramètres (panneau de configuration, ligne de commande)<br>• Démarrer des scripts à l&#x27;ouverture, à la fermeture de session utilisateur</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>VD Ordinateur</p><p>&gt; EL HKEY.CLASSES ROOT<br>\<br>| HKEV_CURRENT._USER<br>&gt;<br>[M<br>appivents</p><p>&gt; El Console<br>3 LI Control Panel<br>Environment</p><p>&gt; [| upc</p><p>&gt; EL Keyboard Layout<br>3 [1 Printers<br>&gt;<br>LI Software</p><p>&gt; Li System<br>&gt; LL Volatil Environment<br>&gt; EI HKEY_LOCAL MACHINE<br>5<br>LL HKEY_USERS<br>&gt;] HKEY_CURRENT_CONFIG</p><p>Nom<br>Type<br>Données</p><p>{ab {(par défaut |<br>REG SZ<br>(valeur non définie)<br>Auto Install<br>REG DWORD<br>0:00000000 (0)<br>#Defaut Attributes<br>REG_DWORD<br>100000200 (512)</p><p>28) Driver Name<br>REG SZ<br>Lexmark XC9200 Series Class Driver<br>Set As Default<br>REG.DWORD<br>100000000 (0)<br>3Shared<br>REG DWORD<br>0:00000000 (0)<br>=)</p><p>3) Use Existing<br>REG_DWORD<br>00000000 (0)</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>LGPO</h4>
+<p class="tssr-source-paragraph">• Possibilité d&#x27;agir sur le poste local ou sur un poste distant</p>
+<p class="tssr-source-paragraph">• Possibilité d&#x27;agir sur différents objets de la base SAM</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>LGPO</h4>
+<p class="tssr-source-paragraph">Chaque paramètre :</p>
+<p class="tssr-source-paragraph">• Peut être activé ou désactivé</p>
+<p class="tssr-source-paragraph">• Peut être non configuré = comportement par <br>défaut du système</p>
+<p class="tssr-source-paragraph">• Peut être commenté </p>
+<p class="tssr-source-paragraph">• Possède des conditions </p>
+<p class="tssr-source-paragraph">• Peut posséder des options supplémentaires</p>
+<p class="tssr-source-paragraph">• Possède surtout une aide précieuse, lisez-la !</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Stletonner un objet desta de groupe<br>X<br>Rechercher un objet Stratégiede groupe<br>2<br>x</p><p>Aesstrt<br>Stratégie<br>de<br>r<br>ok<br>Sette Seeww<br>Ordinateurs | Utisateurs</p><p>Utisateurs et groupes locaux compatbles avec La stratégie de groupe locale</p><p>Les cb<br>de te de group ae ot che mr<br>Nom<br>I existedes objetsde tr.<br>—<br>Non<br>Ut<br>aden aca parecer otde<br>&amp; DefautAccourt<br>Non<br>BE Georges<br>Non</p><p>romain<br>Non<br>Oh de arte de ovine<br>&amp; Seven<br>Now<br>BE WDAGUy Account<br>Non<br>BY Aéminisrateurs<br>Non<br>{Be Non séminstræteus<br>Non<br>CiAtotera modficaton du consort got<br>Hede rage depauem eleet à<br>par del ine deComa CG ne a<br>at<br>‘vou evegateria conne<br>a<br>SESE<br>tore)<br>[Tamer<br>Annuler<br>env</p><p>1 supprimer Jeux du menu Démaner<br>ao<br>x</p><p>LEA Suprimere in Jumr Dinar<br>——<br>———</p><p>@noncontigué<br>Conmetae<br>Ou<br>Ont<br>isencharger f= Server 2008|</p><p>Windows Vis</p><p>Sica pooreae<br>et<br>me Demarer<br>matte pesteenvi oerJoa</p><p>Si ce pun espe et scie ov<br>ps configu,<br>ica Demand ren deu<br>tat chit ete pre das<br>Parme<br>Cha Man Dower</p><p>env</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-dc94a99f158c74f0f76213cc023c11710486c1a0f959f92cf872dac003b8856f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-dc94a99f158c74f0f76213cc023c11710486c1a0f959f92cf872dac003b8856f.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7881"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Bien connaître le fonctionnement des stratégies <br>de groupe local pour</p>
+<p class="tssr-source-paragraph">•<br>Découvrir la base de registre</p>
+<p class="tssr-source-paragraph">•<br>Les paramètres utilisateurs</p>
+<p class="tssr-source-paragraph">•<br>Les paramètres ordinateurs</p>
+<p class="tssr-source-paragraph">•<br>Les stratégies de sécurité</p>
+<p class="tssr-source-paragraph">•<br>Se préparer à l’utilisation des stratégies de groupe de domaine</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>•</td><td>Bien connaître le fonctionnement des stratégies<br>de groupe local pour</td></tr><tr><td></td><td>• Découvrirlabasederegistre</td></tr><tr><td></td><td>• Lesparamètresutilisateurs</td></tr><tr><td></td><td>• Lesparamètresordinateurs</td></tr><tr><td></td><td>• Lesstratégiesdesécurité</td></tr><tr><td></td><td>• Seprépareràl’utilisationdesstratégiesdegroupededomaine</td></tr><tr><td></td><td>11</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4e7b778ca18417e06036c8f7addd43eabfaf7fb82fd7ba93616fb79117ea0a14.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4e7b778ca18417e06036c8f7addd43eabfaf7fb82fd7ba93616fb79117ea0a14.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="992" height="2220"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

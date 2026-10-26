@@ -1,127 +1,82 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Gestion du r‚seau.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enonc‚ du TP - Gestion du r‚seau.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Gestion du réseau
-TP du Module 07 – La gestion du réseau et du pare-feu
-
- Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en
- place un adressage IP fixe puis effectuerez des tests (tests de communications et de
- résolution de noms entre autres). Vous parcourrez et modifierez la configuration du
- pare-feu pour l’adapter aux consignes.
-
-       Durée estimée
-
-          1 heure
-
-Énoncé
-
-Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique
-
-Sur votre VM Win10-XX, configurez vos accès réseau :
-
-
-  Connectez votre VM sur le switch Bridged (vérifier d&#x27;abord le report de 35 jours de
-   Windows Update)
-  Possédez-vous une adresse IP ? Laquelle ? Quelle est l&#x27;adresse du réseau ?
-
-
-
-
-
-  Configurez une adresse IP fixe sur l&#x27;interface réseau de votre VM :
-        o  La partie réseau de votre adresse sera la même que celle qui est configurée
-               sur l’ordinateur à votre disposition pour réaliser les TP.
-        o  La partie hôte sera composée du rang alphabétique de la première lettre
-          de votre prénom puis du rang alphabétique de la première lettre de votre
-         nom de famille
-             Exemple : Pierre-Louis Le Guervelec
-                 P = 16eme lettre de l’alphabet  l’octet n°3 de l’adresse IP
-                          sera donc 16
-
-
-
- Page 1/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
-
-                L = 12eme lettre de l’alphabet  l’octet n°4 de l’adresse IP
-                          sera donc 12
-        o  Le masque sera 255.255.0.0
-        o  La  passerelle  et  le  serveur DNS  préféré  seront  les mêmes que ceux
-             configurés sur votre VM Campus en ligne
-
-
-
-
-
-Connectivité
-   Utilisez la commande ping vers les hôtes suivants :
-        o  Adresse IP de la passerelle par défaut
-        o  Adresse IP de votre VM Discovery
-        o  www.facebook.com
-  Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.
-  À quel niveau du réseau sont-ils ? Réseau local ? Internet ?
-
-
-
-
-
-   Utilisez  la commande  tracert pour ces mêmes noms. Que nous apprend cette
-  commande ?
-
-
-
-
-
- Page 2/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-
-Résolution de noms
-
-
-   Utilisez la commande nslookup avec les noms suivants :
-        o  www.hadopi.fr
-        o  www.amendes.gouv.fr
-        o  www.facebook.com
-
-
-
-
-
-  Obtenez-vous des réponses pour chacune des requêtes ? Quelles sont les adresses
-   IPv4 de ces hôtes ?
-
-
-
-
-
-Pare-feu sur W10-XX
-
-
-   Vérifiez l&#x27;état d&#x27;activation de votre pare-feu pour chaque profil réseau.
-  Configurez le pare-feu pour les Programmes autorisés :
-        o  Autorisez le Bureau à distance uniquement pour le profil privé
-
-
-
-
-
- Page 3/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie
-   vous permettant d’autoriser le ping entre vos postes client.
-
-
-
-
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 4/4
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Gestion du r‚seau.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enonc‚ du TP - Gestion du r‚seau</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Gestion du réseau</h4>
+<p class="tssr-source-paragraph">TP du Module 07 – La gestion du réseau et du pare-feu</p>
+<p class="tssr-source-paragraph">Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en <br>place un adressage IP fixe puis effectuerez des tests (tests de communications et de <br>résolution de noms entre autres). Vous parcourrez et modifierez la configuration du <br>pare-feu pour l’adapter aux consignes.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez vos accès réseau :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Connectez votre VM sur le switch Bridged (vérifier d&#x27;abord le report de 35 jours de<br>Windows Update)</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Possédez-vous une adresse IP ? Laquelle ? Quelle est l&#x27;adresse du réseau ?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez une adresse IP fixe sur l&#x27;interface réseau de votre VM :</p>
+<pre class="tssr-source-code">o
+La partie réseau de votre adresse sera la même que celle qui est configurée
+sur l’ordinateur à votre disposition pour réaliser les TP.</pre>
+<pre class="tssr-source-code">o
+La partie hôte sera composée du rang alphabétique de la première lettre
+de votre prénom puis du rang alphabétique de la première lettre de votre
+nom de famille</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"><br>Exemple : Pierre-Louis Le Guervelec</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>P = 16eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°3 de l’adresse IP<br>sera donc 16</p>
+<p class="tssr-source-paragraph">Page 1/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>L = 12eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°4 de l’adresse IP<br>sera donc 12</p>
+<pre class="tssr-source-code">o
+Le masque sera 255.255.0.0</pre>
+<pre class="tssr-source-code">o
+La passerelle et le serveur DNS préféré seront les mêmes que ceux
+configurés sur votre VM Campus en ligne</pre>
+<p class="tssr-source-paragraph"> <br>Connectivité </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande ping vers les hôtes suivants :</p>
+<pre class="tssr-source-code">o
+Adresse IP de la passerelle par défaut </pre>
+<pre class="tssr-source-code">o
+Adresse IP de votre VM Discovery</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À quel niveau du réseau sont-ils ? Réseau local ? Internet ?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande tracert pour ces mêmes noms. Que nous apprend cette<br>commande ?</p>
+
+<p class="tssr-source-paragraph">Page 2/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Résolution de noms</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande nslookup avec les noms suivants : </p>
+<pre class="tssr-source-code">o
+www.hadopi.fr</pre>
+<pre class="tssr-source-code">o
+www.amendes.gouv.fr</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Obtenez-vous des réponses pour chacune des requêtes ? Quelles sont les adresses<br>IPv4 de ces hôtes ?</p>
+<p class="tssr-source-paragraph"> <br>Pare-feu sur W10-XX</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifiez l&#x27;état d&#x27;activation de votre pare-feu pour chaque profil réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez le pare-feu pour les Programmes autorisés :</p>
+<pre class="tssr-source-code">o
+Autorisez le Bureau à distance uniquement pour le profil privé</pre>
+
+<p class="tssr-source-paragraph">Page 3/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie<br>vous permettant d’autoriser le ping entre vos postes client.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 4/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="3294"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

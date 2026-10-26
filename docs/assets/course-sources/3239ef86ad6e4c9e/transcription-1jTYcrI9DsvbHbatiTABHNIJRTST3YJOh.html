@@ -1,0 +1,500 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 05 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration GLPI</h4>
+<p class="tssr-source-paragraph">Module 05 – Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Rappels sur les SGBD et le langage d’interrogation SQL<br>• Utilisation des commandes de bases de MySQL/MariaDB</p>
+<p class="tssr-source-paragraph">• Se connecter à une base de données et en afficher la structure<br>• Ce qu’est une table dans une base de données<br>• Effectuer une recherche d’enregistrements selon certains critères<br>• Utiliser les fonctions de base du langage SQL<br>• Afficher par des requêtes SQL, la liste des utilisateurs de GLPI<br>• Effectuer une sauvegarde de la base de données de GLPI</p>
+<p class="tssr-source-paragraph">2</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<h4>Rappels sur les SGBD</h4>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">SGBD - Système de Gestion de Bases de Données</p>
+<p class="tssr-source-paragraph">• Sert à stocker, administrer, effectuer des opérations, récolter des <br>données (data) sur un support facilement consultable.<br>• Création des SGBDR - Système de Gestion de Base de Données <br>Relationnelle (DB2, Oracle, SQL Server, PostgreSQL, MySQL…)<br>• Un SGBD est rarement utilisé seul<br>• Il est souvent utilisé par des logiciels tiers comme :<br>• Un serveur internet<br>• Des logiciels de comptabilité<br>• Les serveurs de messagerie<br>• Etc.</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">SGBD - Système de Gestion de Bases de Données</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Historique</p>
+<p class="tssr-source-paragraph">• MySQL a été créé en 1994<br>• Michael Widenius est un des co-créateurs</p>
+<p class="tssr-source-paragraph">• My (prénom de la fille de Widenius) et SQL <br>(Structured Query Language)<br>• Double licence GPL et propriétaire<br>(Oracle Corporation depuis 2009)<br>• En 2009, Widenius a créé MariaDB qui est open source<br>(Maria, prénom de sa deuxième fille)</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DB-Engines Ranking<br>= once<br>war Rank<br>mar<br>DBMS<br>Pons<br>2022<br>2022<br>2021<br>RUE Li<br>1.<br>1.<br>1.<br>Oracle<br>nn<br>2.<br>2.<br>2.<br>MySQL&amp;<br>Sf<br>ne Eee<br>3.<br>3.<br>3.<br>Microsoft SQL Server<br>ON<br>SS.<br>4.<br>4.<br>4.<br>PostgreSQL</p><p>&amp; ©<br>i LE<br>_<br>TiterDanone<br>5.<br>5.<br>5. MongoDB<br>4</p><p>\<br>1<br>D<br>6.<br>6.<br>#7.<br>Redis3</p><p>:<br>7.<br>7.<br>6.<br>IBM Db2</p><p>3<br>8.<br>8.<br>8.<br>Elasticsearch</p><p>9.<br>9.<br>#10.<br>Microsoft Access</p><p>10.<br>10.<br>#9<br>SQLite3</p><p>11.<br>11.<br>11.<br>Cassandra</p><p>5</p><p>L<br>C</p><p>ie</p><p>12.<br>12.<br>12.<br>MariaDB</p><p>we<br>Re<br>Ne<br>yao<br>ne<br>pas<br>13.<br>13<br>13.<br>Splunk</p><p>14.<br>#15.<br>#30.<br>Snowflake</p><p>15.<br>14<br>#16.<br>Microsoft Azure SQL Database</p><p>MySQL:</p><p>.<br>cn)<br>MariaDB</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Le langage</p>
+<p class="tssr-source-paragraph">• Contrairement à Bash par exemple, SQL ne s’exécute pas de <br>manière séquentielle mais analyse globalement une requète.<br>• La création d’une base de données et de sa structure (tables et clés) <br>doit être mûrement réfléchie en amont ;<br>c’est l’étape du MCD (Modèle Conceptuel de Données).</p>
+<p class="tssr-source-paragraph">• On fabrique d’abord les étagères de la bibliothèque et on organise <br>à vide avant de vouloir tout bouger une fois que les livres sont <br>dessus.</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Des commandes de base</p>
+<p class="tssr-source-paragraph">• mysql est la commande qui permet, entre autres, de se connecter à <br>MariaDB</p>
+<p class="tssr-source-paragraph">• Ici, se connecter en tant que root avec son mot de passe</p>
+<pre class="tssr-source-code">mysql –u root -p</pre>
+<p class="tssr-source-paragraph">• SHOW – commande qui permet de lister<br>• Ici, permet de voir toutes les bases de données présentes</p>
+<pre class="tssr-source-code">mysql&gt;SHOW databases;</pre>
+<p class="tssr-source-paragraph">• CONNECT – commande qui permet de se connecter à une base de <br>données</p>
+<p class="tssr-source-paragraph">• Ici, permet de se connecter à la base de données glpidata</p>
+<pre class="tssr-source-code">mysql&gt;CONNECT glpidata;</pre>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>MariaDB</p><p>ee</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-356c908e694809897454e6f471d84b1f6953b367d78dc0119777a8562c2b13d1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-356c908e694809897454e6f471d84b1f6953b367d78dc0119777a8562c2b13d1.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="7325"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Des commandes de base</p>
+<p class="tssr-source-paragraph">• DROP – commande qui permet de supprimer<br>• Ici, permet de supprimer la base de données glpidata</p>
+<pre class="tssr-source-code">mysql&gt;DROP database glpidata;</pre>
+<p class="tssr-source-paragraph">• SHOW – commande qui permet de lister<br>• Ici, permet de voir toutes les tables présentes une fois connecté à une <br>base de données</p>
+<pre class="tssr-source-code">mysql&gt;SHOW tables;</pre>
+<p class="tssr-source-paragraph">• UPDATE / INSERT – commandes qui permettent d’ajouter du <br>contenu à une base de données</p>
+<p class="tssr-source-paragraph">• Ces commandes ne seront pas vues dans ce cours.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La structure</p>
+<p class="tssr-source-paragraph">• Dans une base de données, les informations sont contenues <br>dans des tables (ou relations)<br>• Une relation est constituée de deux sous-ensembles :<br>• L’en-tête est composé d’attributs (colonnes)<br>• Le corps est composé de lignes<br>• La table clients définit cinq attributs (ID, Prénom, Nom, Ville et Age) <br>et se compose de quatre lignes (1, 2, 3 et 4)</p>
+<p class="tssr-source-paragraph">ID<br>Prénom<br>Nom<br>Ville<br>Age</p>
+<p class="tssr-source-paragraph">1<br>Fred<br>Enlefrigau<br>Stockholm<br>45</p>
+<p class="tssr-source-paragraph">2<br>François<br>Belététoi<br>Pyongyang<br>26</p>
+<p class="tssr-source-paragraph">3<br>Gilles<br>Edenotre<br>Rennes<br>32</p>
+<p class="tssr-source-paragraph">4<br>Yann<br>Apourtous<br>Caen</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB À<br>À</p><p>MariaDB</p><p>PE RE<br>ee<br>eePE</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>ID</td><td>Prénom</td><td>Nom</td><td>Ville</td><td>Age</td></tr><tr><td>1</td><td>Fred</td><td>Enlefrigau</td><td>Stockholm</td><td>45</td></tr><tr><td>2</td><td>François</td><td>Belététoi</td><td>Pyongyang</td><td>26</td></tr><tr><td>3</td><td>Gilles</td><td>Edenotre</td><td>Rennes</td><td>32</td></tr><tr><td>4</td><td>Yann</td><td>Apourtous</td><td>Caen</td><td></td></tr></tbody></table></div>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La commande SELECT</p>
+<p class="tssr-source-paragraph">• Cette commande sert à lister les données d’un ou plusieurs <br>attributs d’une table</p>
+<p class="tssr-source-paragraph">• SELECT * FROM nom_de_la_table<br>• * veut dire tous les attributs<br>• Exemple : lister tous les attributs de la table clients</p>
+<pre class="tssr-source-code">mysql&gt;SELECT * FROM clients;
++------+--------------+----------------+-----------------+-----------+
+|
+ID
+|
+Prénom
+|
+Nom
+|
+Ville
+|
+Age
+|
++------+--------------+----------------+-----------------+-----------+
+|
+1
+|
+Fred
+|
+Enlefrigau
+|
+Stockholm
+|
+45
+|
+|
+2
+|
+François
+|
+Belététoi
+|
+Pyongyang
+|
+26
+|
+|
+3
+|
+Gilles
+|
+Etdenotre
+|
+Rennes
+|
+32
+|
+|
+4
+|
+Yann
+|
+Apourtous
+|
+Caen
+|
+NULL
+|
++------+--------------+----------------+------------------+-----------+</pre>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La commande SELECT</p>
+<p class="tssr-source-paragraph">• SELECT nom_de_l’attribut, nom_d’un_deuxième_attribut<br>FROM nom_de_la_table<br>• Liste les attributs « Nom » et « Ville » de la table clients</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Nom, Ville FROM clients;
++----------------+------------------+
+|
+Nom
+|
+Ville
+|
++----------------+------------------+
+|
+Enlefrigau
+|
+Stockholm
+|
+|
+Belététoi
+|
+Pyongyang
+|
+|
+Etdenotre
+|
+Rennes
+|
+|
+Apourtous
+|
+Caen
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>ee</p><p>MariaDB</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La condition WHERE à la commande SELECT</p>
+<p class="tssr-source-paragraph">• WHERE permet de mettre une condition à notre recherche<br>• Liste les attributs « Prénom » et « Nom » de la table clients si Caen <br>est la ville</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom, Nom FROM clients WHERE Ville=&#x27;Caen&#x27;;
++----------------+------------------+
+|
+Prénom
+|
+Nom
+|
++----------------+------------------+
+|
+Yann
+|
+Apourtous
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Les opérateurs de comparaison</p>
+<p class="tssr-source-paragraph">•<br>WHERE permet d’utiliser des symboles pour définir des critères plus précis <br>de recherche</p>
+<p class="tssr-source-paragraph">• = égal<br>• &lt; inférieur<br>• &lt;= inférieur ou égal<br>• &gt; supérieur<br>• &gt;= supérieur ou égal<br>• &lt;&gt; ou != différent<br>• &lt;=&gt; égal (fonctionne aussi si la valeur est NULL)</p>
+<p class="tssr-source-paragraph">•<br>Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est strictement <br>supérieur à 3.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom, Nom FROM clients WHERE
+ID &gt; 3;
++----------------+------------------+
+|
+Prénom
+|
+Nom
+|
++----------------+------------------+
+|
+Yann
+|
+Apourtous
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>MariaDB</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La combinaison de critères</p>
+<p class="tssr-source-paragraph">• Il existe aussi des opérateurs qui permettent de combiner plusieurs <br>critères</p>
+<p class="tssr-source-paragraph">• AND et<br>• OR ou<br>• XOR ou exclusif (ou, mais pas les deux)<br>• NOT non (sauf)<br>• Liste les attributs « Prénom » et « Nom » de la table clients si l’ID <br>est supérieur ou égal à 2 et la ville est Caen.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom, Nom FROM clients WHERE ID &gt;= 2 AND ville = &#x27;Caen&#x27;;
++----------------+------------------+
+|
+Prénom
+|
+Nom
+|
++----------------+------------------+
+|
+Yann
+|
+Apourtous
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Les sélections complexes</p>
+<p class="tssr-source-paragraph">• Si vous souhaitez utiliser plusieurs opérateurs de combinaison<br>• ( ) met la priorité sur les opérateurs combinés<br>• Liste les attributs « Prénom » et « Nom » de la table clients si <br>(l’ID est supérieur ou égal à 2 et la ville est Caen) ou (l’ID est <br>strictement supérieur à 2 et la ville est Rennes).</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom, Nom FROM clients WHERE (ID &gt;= &#x27;2&#x27; AND ville = &#x27;Caen&#x27;) OR (ID 
+&gt; 2 AND ville = &#x27;Rennes&#x27;);
++----------------+------------------+
+|
+Prénom
+|
+Nom
+|
++----------------+------------------+
+|
+Yann
+|
+Apourtous
+|
+|
+Gilles
+|
+Etdenotre
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>ee</p><p>MariaDB</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-31a4d281653699d808d2b1d8ab4ec3fe5d8b9dd96e20704c7e61ef3c812aa94d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-31a4d281653699d808d2b1d8ab4ec3fe5d8b9dd96e20704c7e61ef3c812aa94d.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="994" height="6952"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Les valeurs NULL et NOT NULL</p>
+<p class="tssr-source-paragraph">• Le marqueur NULL représente qu’il n’y a pas de valeur<br>• Le marqueur NOT NULL représente qu’il existe une valeur<br>• On peut utiliser, colonne = NULL ou colonne is NULL<br>• Idem pour NOT NULL, colonne = NOT NULL ou <br>colonne is NOT NULL</p>
+<p class="tssr-source-paragraph">• Liste les attributs « Prénom » et « Nom » de la table clients si l&#x27;âge <br>n’est pas renseigné</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom, Nom FROM clients WHERE age = NULL;
++----------------+------------------+
+|
+Prénom
+|
+Nom
+|
++----------------+------------------+
+|
+Yann
+|
+Apourtous
+|
++----------------+------------------+</pre>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Le tri des données</p>
+<p class="tssr-source-paragraph">• Si vous souhaitez trier vos données en sortie<br>• ORDER BY colonne tri en fonction de la colonne choisie<br>• ASC tri par ordre croissant<br>• DESC tri par ordre décroissant<br>• Par défaut, sans préciser ASC ou DESC, c’est un ordre ascendant<br>• Liste les attributs « Prénom » de la table clients triés par âge puis <br>par nom.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom FROM clients ORDER by age, nom;
++----------------+
+|
+Prénom
+|
++----------------+
+|
+Yann
+|
+|
+François
+|
+|
+Gilles
+|
+|
+Fred
+|
++----------------+</pre>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>ee</p><p>MariaDB</p><p>ee</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Choisir le nombre de lignes récupérées</p>
+<p class="tssr-source-paragraph">• Si vous souhaitez restreindre le nombre de lignes en résultat<br>• LIMIT nombre_de_ligne OFFSET à_partir_de_quelle_ligne<br>• OFFSET est optionnel et dans ce cas, il est égal à 0<br>• OFFSET différent de 0, permet de déterminer à partir de quelle ligne on <br>compte le nombre de lignes souhaitées<br>• Liste les attributs « Prénom » de la table clients triés par âge à partir <br>de la deuxième ligne et que deux lignes.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom FROM clients ORDER by age LIMIT &#x27;2&#x27; OFFSET &#x27;1&#x27;;
++----------------+
+|
+Prénom
+|
++----------------+
+|
+François
+|
+|
+Gilles
+|
++----------------+</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Compter le nombre de lignes récupérées</p>
+<p class="tssr-source-paragraph">• Si vous souhaitez compter le nombre de lignes en résultat<br>• COUNT vous donne le nombre de lignes en résultat<br>• Un attribut NULL ne compte pas<br>• Compte le nombre d’attributs « âge » de la table clients.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT COUNT(age) FROM clients;
+3</pre>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>MariaDB</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Utilisation d&#x27;un alias</p>
+<p class="tssr-source-paragraph">• Il est possible de modifier le nom d’une colonne à l’affichage<br>• Nom_de_la_colonne as nom_d’affichage<br>• Liste les attributs « Prénom » de la table clients trier par âge en changeant le <br>nom de la colonne Prénom par Firstname.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT Prénom as Firstname FROM clients ORDER by age;
++----------------+
+|
+Firstname
+|
++----------------+
+|
+Yann
+|
+|
+François
+|
+|
+Gilles
+|
+|
+Fred
+|
++----------------+</pre>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Quelques fonctions d&#x27;agrégation</p>
+<p class="tssr-source-paragraph">• Quelques fonctions qui permettent un traitement numérique<br>• MAX(Nom_de_la_colonne) affiche la valeur maximum d’une colonne<br>• MIN(Nom_de_la_colonne) affiche la valeur maximum d’une colonne<br>• SUM(Nom_de_la_colonne) affiche la somme d’une colonne<br>• AVG(Nom_de_la_colonne) affiche la moyenne d’une colonne</p>
+<p class="tssr-source-paragraph">• Liste la moyenne des âges de la table clients.</p>
+<pre class="tssr-source-code">mysql&gt;SELECT AVG(age) FROM clients;
+34</pre>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Mari<br>aria D B</p><p>ee</p><p>Mari<br>aria D B</p><p>ED ee</p><p>peer \esyale?<br>Arr weeae</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La clé primaire (primary key)</p>
+<p class="tssr-source-paragraph">• Une clé primaire identifie de manière unique une ligne <br>(contrainte d’unicité)</p>
+<p class="tssr-source-paragraph">• Dans la table client et la table achat, il s’agit de l’ID<br>• Elle identifie une ou plusieurs colonnes (création d’index que nous ne <br>verrons pas dans ce cours)<br>• Une clé primaire ne peut pas être NULL.</p>
+<p class="tssr-source-paragraph">Table client<br>Table achat</p>
+<p class="tssr-source-paragraph">ID<br>Prénom<br>Nom<br>Ville<br>Age</p>
+<p class="tssr-source-paragraph">ID<br>Nom<br>ID_client<br>Prix<br>Pateforme</p>
+<p class="tssr-source-paragraph">1<br>Fred<br>Enlefrigau<br>Stockholm<br>45</p>
+<p class="tssr-source-paragraph">1<br>Overwatch<br>4<br>14,99<br>XBOX ONE</p>
+<p class="tssr-source-paragraph">2<br>François<br>Belététoi<br>Pyongyang<br>26</p>
+<p class="tssr-source-paragraph">2<br>Call of Duty<br>2<br>69,99<br>PS4</p>
+<p class="tssr-source-paragraph">3<br>Gilles<br>Edenotre<br>Rennes<br>32</p>
+<p class="tssr-source-paragraph">3<br>Minecraft<br>1<br>23,95<br>SWITCH</p>
+<p class="tssr-source-paragraph">4<br>League of Legends<br>4<br>0<br>PC</p>
+<p class="tssr-source-paragraph">4<br>Yann<br>Apourtous<br>Caen</p>
+<p class="tssr-source-paragraph">5<br>Mario Kart 8 DELUXE<br>4<br>43,99<br>SWITCH</p>
+<p class="tssr-source-paragraph">6<br>Civilization VI<br>3<br>29,99<br>PC</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La clé étrangère (foreign key)</p>
+<p class="tssr-source-paragraph">• Une clé étrangère permet de gérer des relations entre <br>plusieurs tables</p>
+<p class="tssr-source-paragraph">• Elle vérifie l&#x27;intégrité de notre base.<br>• Dans notre table achat, il s’agit de ID_client et vérifie que le client existe bien <br>dans la table client.<br>• Si vous indiquez un ID_client qui n’existe pas, MySQL vous indiquera une <br>erreur et c’est pour cela qu’on appelle les clés des contraintes (CONSTRAINT).<br>• À la création d’une clé étrangère, un index est automatiquement créé.<br>• La colonne ID_client est la clé étrangère de la table achat en relation avec la <br>colonne ID de la table client. La colonne ID de la table client DOIT être une <br>clé primaire.</p>
+<p class="tssr-source-paragraph">24</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>RS<br>RS RS CS REA<br>ee ee</p><p>MariaDB</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>ID</td><td>Prénom</td><td>Nom</td><td>Ville</td><td>Age</td><td></td><td>ID</td><td>Nom</td><td>ID client<br>_</td><td>Prix</td><td>Pateforme</td></tr><tr><td>1</td><td>Fred</td><td>Enlefrigau</td><td>Stockholm</td><td>45</td><td></td><td>1</td><td>Overwatch</td><td>4</td><td>1499<br>,</td><td>XBOXONE</td></tr><tr><td>2</td><td>François</td><td>Belététoi</td><td>Pyongyang</td><td>26</td><td></td><td>2</td><td>CallofDuty</td><td>2</td><td>6999<br>,</td><td>PS4</td></tr><tr><td>3</td><td>Gilles</td><td>Edenotre</td><td>Rennes</td><td>32</td><td></td><td>3</td><td>Minecraft</td><td>1</td><td>2395<br>,</td><td>SWITCH</td></tr><tr><td>4</td><td>Yann</td><td>Apourtous</td><td>Caen</td><td></td><td></td><td>4</td><td>LeagueofLegends</td><td>4</td><td>0</td><td>PC</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>5</td><td>MarioKart8DELUXE</td><td>4</td><td>4399<br>,</td><td>SWITCH</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>6</td><td>CivilizationVI</td><td>3</td><td>2999<br>,</td><td>PC</td></tr></tbody></table></div>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-04c3b63147295200421fad5f8f906a60bbbdbb5b1c8900e73cf642a0a031bc1c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-04c3b63147295200421fad5f8f906a60bbbdbb5b1c8900e73cf642a0a031bc1c.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="994" height="7167"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">Les jointures</p>
+<p class="tssr-source-paragraph">•<br>L’idée est de pouvoir associer plusieurs tables dans une même <br>requête (l’avantage des tables relationnelles)</p>
+<p class="tssr-source-paragraph">•<br>Lorsque l’on fait une jointure, on crée une table virtuelle qui réunit les 2 <br>tables avec ID de la table client qui correspond à ID_client de la table achat</p>
+<p class="tssr-source-paragraph">Table achat</p>
+<p class="tssr-source-paragraph">ID<br>Nom<br>Prix<br>Pateforme<br>ID_client</p>
+<p class="tssr-source-paragraph">1<br>Overwatch<br>14,99<br>XBOX ONE<br>4</p>
+<p class="tssr-source-paragraph">2<br>Call of Duty<br>69,99<br>PS4<br>2</p>
+<p class="tssr-source-paragraph">3<br>Minecraft<br>23,95<br>SWITCH<br>1</p>
+<p class="tssr-source-paragraph">4<br>League of Legends<br>0<br>PC<br>4</p>
+<p class="tssr-source-paragraph">5<br>Mario Kart 8 DELUXE<br>43,99<br>SWITCH<br>4</p>
+<p class="tssr-source-paragraph">6<br>Civilization VI<br>29,99<br>PC<br>3<br>Table client</p>
+<p class="tssr-source-paragraph">ID<br>Prénom<br>Nom<br>Ville<br>Age</p>
+<p class="tssr-source-paragraph">1<br>Fred<br>Enlefrigau<br>Stockholm<br>45</p>
+<p class="tssr-source-paragraph">2<br>François<br>Belététoi<br>Pyongyang<br>26</p>
+<p class="tssr-source-paragraph">3<br>Gilles<br>Edenotre<br>Rennes<br>32</p>
+<p class="tssr-source-paragraph">4<br>Yann<br>Apourtous<br>Caen</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La jointure interne</p>
+<p class="tssr-source-paragraph">•<br>INNER JOIN</p>
+<p class="tssr-source-paragraph">• Jointure interne<br>• Condition vraie dans les 2 tables</p>
+<h4>A<br>B</h4>
+<p class="tssr-source-paragraph">La jointure représente l’intersection de A et B</p>
+<p class="tssr-source-paragraph">• SELECT * FROM table_A INNER JOIN table_B ON table_A.clé = table_B.clé</p>
+<p class="tssr-source-paragraph">* Il existe d’autres jointures que nous ne verrons pas dans ce cours</p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>EE<br>ee ee<br>|</p><p>EE<br>eee eee</p><p>MariaDB</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Les bases de MySQL et MariaDB</p>
+<p class="tssr-source-paragraph">La jointure interne</p>
+<p class="tssr-source-paragraph">• Si je souhaite connaître le nom des jeux qu’a achetés Yann :<br>• SELECT achat.nom : # je sélectionne ce que je veux afficher<br>• FROM achat : # sur quelle table je travaille<br>• INNER JOIN client : # je la joins à la table client<br>• ON client.id = achat.id_client : # on fait la jointure sur la colonne ID <br>de la table client et sur la colonne ID_client de la table achat <br>• WHERE client.Prénom = ‘yann’; : # ID_client à 4 correspond à Yann</p>
+<pre class="tssr-source-code">mysql&gt;SELECT achat.nom FROM achat INNER JOIN client ON client.id = achat.id_client where 
+client.prénom = ‘yann’;
++------------------------------+
+|
+Nom
+|
++------------------------------+
+|  Overwatch
+|
+|
+League of Legends 
+|
+|
+Mario Kart 8 DELUXE
+|
++------------------------------+</pre>
+<p class="tssr-source-paragraph">27</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>MariaDB</p><p>a</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c1451b34e6d3776ec1b10fcfb43bbae4b6a9641352dad9c03e8f4e76eb6f9fa2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c1451b34e6d3776ec1b10fcfb43bbae4b6a9641352dad9c03e8f4e76eb6f9fa2.webp" alt="Illustrations du support source, pages 13 à 14" loading="lazy" width="994" height="2935"></a><figcaption>Illustrations du support Drive — pages 13 à 14. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

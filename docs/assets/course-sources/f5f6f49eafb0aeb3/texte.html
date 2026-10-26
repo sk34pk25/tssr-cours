@@ -1,319 +1,174 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 09 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 09 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                 Module 09 – Les pilotes et les imprimantes
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 09 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 09 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 09 – Les pilotes et les imprimantes</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Objectifs<br>• Définir un pilote<br>• Windows et les pilotes<br>• Windows et les imprimantes<br>• Utiliser, configurer une imprimante<br>• Partager une ressource « imprimante »</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Pilotes</h4>
+<p class="tssr-source-paragraph">• Prise en charge du matériel<br>• Plug and Play : prise en charge « à chaud »<br>• Non Plug and Play : nécessite un redémarrage (plus rare)<br>• Plusieurs modes de prise en charge<br>• Détection et installation automatique<br>• Détection et installation manuelle<br>• Affichage et paramétrage<br>• Outil Gestionnaire de périphériques<br>• Devmgmt.msc</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Gestionnaires de périphériques</h4>
+<p class="tssr-source-paragraph">• Affichage des composants pris <br>en charge et non pris en charge<br>• Mettre à jour, désactiver, <br>désinstaller<br>• Fonctionnalités avancées : <br>Restaurer le pilote, <br>informations détaillées, <br>paramètres</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p><p>Propriétés de: VMware SVGA 3D<br>x</p><p>Général Plote | Détls | Événements | Ressources</p><p>wh Gestio œ ‘VMware SVGA 30 À propriétés de:VMware<br>SVGA 3D.<br>x</p><p>Fichier | Fouriseurdupiote. | Général<br>Picte | Détais | Événements | Ressources<br>+<br>| [Date dupicte</p><p>Veron du ice<br>Dy, Ver SGAD<br>Veh Wit<br>gra rune<br>=)<br>Propriété<br>va<br>Numéros didentfication du matériel<br>v</p><p>Mare àjourle pot<br>Valeur<br>&gt;<br>PCI\VEN_15AD4DEV. 04058SUBSYS_04051SAD8REV. 00<br>&gt; ES | Pestarerie piote<br>PCI\VEN_15ADSDEV_04058SUBSYS_040515AD<br>&gt;<br>PCI\VEN_15AD4DEV. 04058CC_030000</p><p>, Q<br>Dose<br>PCIEN_15ADBDEV_04058CC_0300</p><p>&gt; Set<br>| eaten<br>&gt;=<br>&gt;a</p><p>End</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Pilotes</h4>
+<p class="tssr-source-paragraph">• Pour la gestion des composants matériel et logiciel<br>• Spécifiques à chaque architecture : 32 bits ou 64 bits<br>• Les pilotes signés sont privilégiés par Microsoft<br>• Les certificats sont délivrés par Microsoft ou générés en suivant les procédures <br>fournies par Microsoft<br>• Ils permettent de garantir la stabilité des systèmes<br>• Ils sont obligatoires pour les éditions 64 bits<br>• Les principaux fichiers<br>• *.inf : définition du pilote au format texte <br>• *.sys : pilote lui-même<br>• *.cat : certificat fourni par Microsoft ou un tiers de confiance<br>• *.exe, *.dll, *.xml… : fichiers complémentaires selon les besoins</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Pilotes</h4>
+<p class="tssr-source-paragraph">• La prise en charge se fait à partir du fichier INF<br>• Directement depuis le fichier (clic droit Installer)<br>• À partir d’un assistant d’installation (setup.exe) ou de mise à jour</p>
+<p class="tssr-source-paragraph">• Une fois installé, le pilote est mémorisé par le système<br>• Permet sa réinstallation automatique<br>• Fichiers INF dans C:\Windows\inf<br>• Chaque pilote installé manuellement génère un fichier oemXX.inf<br>• Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64</p>
+<p class="tssr-source-paragraph">• Le magasin de pilotes Windows<br>• Pour une prise en charge immédiate du matériel (installation du système)<br>• Emplacement : C:\Windows\System32\DriverStore<br>• Gestion du magasin en ligne de commande avec pnputil</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
 
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Pilotes</h4>
+<p class="tssr-source-paragraph">En complément<br>• msinfo32 pour le détail du matériel</p>
+<p class="tssr-source-paragraph">• driverquery : outil CMD pour lister les pilotes installés<br>• driverquery /SI pour lister les pilotes signés</p>
+<p class="tssr-source-paragraph">• pnputil : gestion du magasin de pilotes (ajout, suppression, information)<br>• pnputil /enum-drivers pour lister les pilotes tiers (oemXX.inf)<br>• pnputil /add-driver pilote.inf pour ajouter un pilote au magasin</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
 
 
-                                                                                         1
 
+<figure class="tssr-original-figure"><a href="../figures/atlas-a2e0a91fa787182fc1d6f6637d250d52bf746307efa3288b176720549567fe73.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a2e0a91fa787182fc1d6f6637d250d52bf746307efa3288b176720549567fe73.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7276"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Vocabulaire</p>
+<p class="tssr-source-paragraph">Périphérique <br>d&#x27;impression<br>Le matériel : moteur permettant de sortir la feuille imprimée</p>
+<p class="tssr-source-paragraph">Imprimante<br>Le logiciel : envoie l&#x27;ordre d&#x27;impression au périphérique d&#x27;impression​<br>(pilote, configuration, file d&#x27;attente d&#x27;impression, port d&#x27;impression)​</p>
+<p class="tssr-source-paragraph">File d&#x27;attente <br>d&#x27;impression</p>
+<p class="tssr-source-paragraph">Service spouleur : conversion numérique du document dans un langage <br>interprétable par le périphérique d&#x27;impression. Envoi du job vers le port <br>d&#x27;impression​</p>
+<p class="tssr-source-paragraph">Imprimante locale<br>Périphérique d&#x27;impression directement relié à l&#x27;ordinateur (via un port local)​</p>
+<p class="tssr-source-paragraph">Imprimante partagée<br>Imprimante locale partagée sur le réseau grâce à l&#x27;OS de l&#x27;ordinateur. <br>Disponible si et seulement si l&#x27;ordinateur est allumé.​</p>
+<p class="tssr-source-paragraph">Imprimante réseau<br>Imprimante indépendante. Possède son propre OS, une interface réseau, un <br>service web pour la configuration​</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Imprimante locale</p>
+<p class="tssr-source-paragraph">• Directement reconnue par le système</p>
+<p class="tssr-source-paragraph">• Utilisation d&#x27;un pilote générique du magasin de pilote</p>
+<p class="tssr-source-paragraph">• Possibilité d&#x27;installer le pilote signé du constructeur pour plus de fonctionnalités</p>
+<p class="tssr-source-paragraph">• Sécurité NTFS de l&#x27;imprimante </p>
+<p class="tssr-source-paragraph">(Propriétés de l&#x27;imprimante onglet Sécurité)</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Autorisations pour Romain GAUTIER<br>Autoriser<br>Refuser</p><p>Imprimer<br>M<br>oO<br>Gérer cette imprimante<br>A<br>o</p><p>Gestion des documents<br>4<br>Oo</p><p>Autorisations spéciales</p><p>Pour les autorisations spéciales et les paramètres avancés, cliquez sur<br>‘Avancé<br>Avancé.</p></div></details>
 
-1
 
 
 
-  Les pilotes et les imprimantes
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Imprimante locale</p>
+<p class="tssr-source-paragraph">• Disponible via le composant du <br>Panneau de configuration </p>
+<p class="tssr-source-paragraph">• Visualiser la file d&#x27;attente et autres <br>options</p>
+<p class="tssr-source-paragraph">• Éditer les propriétés de l&#x27;imprimante<br>• Informations générales<br>• Options avancées (horaire de <br>production, priorité…)</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Imprimante locale</p>
+<p class="tssr-source-paragraph">• Disponible via le composant du Panneau de <br>configuration </p>
+<p class="tssr-source-paragraph">• Visualiser la file d&#x27;attente et autres options</p>
+<p class="tssr-source-paragraph">• Éditer les propriétés de l&#x27;imprimante<br>• Informations générales<br>• Options avancées (horaire de production, priorité…)</p>
+<p class="tssr-source-paragraph">• Partager l&#x27;imprimante locale sur le réseau<br>• Disponible et utilisable via le réseau de l&#x27;entreprise<br>• Accessible depuis le chemin UNC : \\serveur\imprimante<br>• Disponible si l&#x27;ordinateur hôte est allumé<br>• Les droits NTFS s&#x27;appliquent</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>1 Propriétés de Microsoft PrinttoPDF<br>x</p><p>Général Patage Pots | Avancé Gestion des couleur | Sécurté</p><p>LL|<br>Modèle :<br>Microsoft PrintTo PDF<br>Fonctionnalités</p><p>Couleur: Oui<br>Papier disponible<br>Recto verso :Non<br>rv<br>Agrafage: Non</p><p>Vitesse:<br>Inconnu(e)</p><p>Résolution maximale : 600 ppp</p><p>|<br>Préférences.<br>| | Imprimer une page detest<br>—<br>Cor] Em]<br>Casa<br>ent</p><p>Général Patage Pots<br>Avancé Gestion des couleurs Sécurté | Options du périph</p><p>Vous pouvez partager cette imprimante avec es utilsateurs<br>SD<br>connectés à votre réseau. L&#x27;imprimante ne sera pas disponible si!<br>ordinateur est en veille ou éteint.</p><p>A Partager cette imprimante<br>Nom de partage:<br>Imprimante-RDC-Accueil</p><p>EZIRendu des travaux d&#x27;impression sur es ordinateurs clients</p><p>[Lister dans l&#x27;annuaire</p><p>Pilotes</p><p>Si cette imprimante est partagée avec des utilisateurs d&#x27;autres versions<br>de Windows, vous devrez peut-être installer des pilotes<br>supplémentaires, afin que les utilisateurs n&#x27;aient pas à rechercher le<br>pilote d&#x27;imprimante lorsqu&#x27;ils sy connectent.</p><p>Pilotes supplémentaires.</p><p>ent</p></div></details>
 
-                                            •  Définir un pilote  Objectifs
-                                            • Windows et les pilotes
-                                            • Windows et les imprimantes
-                                            •  Utiliser, configurer une imprimante
-                                            •  Partager une ressource « imprimante »
 
 
 
 
 
-                                                                                         2
 
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Imprimante réseau</p>
+<p class="tssr-source-paragraph">• Les imprimantes sont généralement raccordées au réseau de l’entreprise</p>
+<p class="tssr-source-paragraph">Réseau</p>
+<p class="tssr-source-paragraph">• Le service de rôle Serveur d’impression pour<br>• Partager plusieurs imprimantes<br>• Centraliser la gestion des imprimantes<br>• Simplifier l&#x27;accès et la gestion des imprimantes</p>
+<p class="tssr-source-paragraph">Depuis le client</p>
+<p class="tssr-source-paragraph">• Accès au serveur d&#x27;impression depuis le chemin UNC</p>
+<p class="tssr-source-paragraph">• …puis connecter…</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Imprimantes</h4>
+<p class="tssr-source-paragraph">Le spouleur d&#x27;impression<br>• Programme qui gère la file d&#x27;attente<br>• Envoie les travaux d&#x27;impression au périphérique d&#x27;impression<br>• Peut être déplacé via une clé de la base de registre</p>
+<p class="tssr-source-paragraph">Créer un pool d&#x27;impression<br>• Imprimante connectée à plusieurs périphériques d&#x27;impression<br>• Distribuer automatiquement les travaux d&#x27;impression à la <br>prochaine imprimante disponible<br>• Réduit les délais d&#x27;attente des documents pour les <br>utilisateurs.</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ofa</p><p>0]</p><p>(==,<br>[|<br>——<br>(=<br>(==</p><p>cm)<br>4<br>|_|</p></div></details>
 
-2</pre></section><section><h2>Page 2</h2><pre>  Les pilotes et les imprimantes
-  Pilotes
 
-            • Prise en charge du matériel
-                      • Plug and Play : prise en charge « à chaud »
-                      • Non Plug and Play : nécessite un redémarrage (plus rare)
-            • Plusieurs modes de prise en charge
-                      • Détection et installation automatique
-                      • Détection et installation manuelle
-            • Affichage et paramétrage
-                      •  Outil Gestionnaire de périphériques
-                      • Devmgmt.msc
 
 
 
 
-                                                                                         3
 
 
-3
 
 
-  Les pilotes et les imprimantes
- Gestionnaires de périphériques
 
-            • Affichage des composants pris
-         en charge et non pris en charge
-            • Mettre à jour, désactiver,
-            désinstaller
-            • Fonctionnalités avancées :
-           Restaurer le pilote,
-          informations détaillées,
-          paramètres
 
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
 
 
-                                                                                         4
 
+<figure class="tssr-original-figure"><a href="../figures/atlas-fdd4e341e71f7a0a943285002c44102246e0f70049bec486241efe7eb4204b22.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fdd4e341e71f7a0a943285002c44102246e0f70049bec486241efe7eb4204b22.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="8598"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Les pilotes et les imprimantes</p>
+<h4>Conclusion<br>• Les périphériques ont besoin</h4>
+<p class="tssr-source-paragraph">•<br>D’une liaison à un ordinateur</p>
+<p class="tssr-source-paragraph">•<br>Liaison locale</p>
+<p class="tssr-source-paragraph">•<br>Liaison réseau</p>
+<p class="tssr-source-paragraph">• Les ordinateurs ont besoin</p>
+<p class="tssr-source-paragraph">•<br>D’un « mode d’emploi »  du périphérique</p>
+<p class="tssr-source-paragraph">• Les imprimantes sont des ressources à part <br>entière</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Les pilotes et les imprimantes</td><td></td><td></td></tr><tr><td>C l i<br>onc us on</td><td>• Les périphériques ont besoin</td><td></td></tr><tr><td></td><td>• D’uneliaisonàunordinateur</td><td></td></tr><tr><td></td><td>• Liaisonlocale</td><td></td></tr><tr><td></td><td>• Liaisonréseau</td><td></td></tr><tr><td></td><td>• Les ordinateurs ont besoin</td><td></td></tr><tr><td></td><td>• D’un«moded’emploi» dupériphérique</td><td></td></tr><tr><td></td><td>• Les imprimantes sont des ressources à part<br>ent ière</td><td>17</td></tr></tbody></table></div>
 
-4</pre></section><section><h2>Page 3</h2><pre>  Les pilotes et les imprimantes
-  Pilotes
-
-            • Pour la gestion des composants matériel et logiciel
-            • Spécifiques à chaque architecture : 32 bits ou 64 bits
-            • Les pilotes signés sont privilégiés par Microsoft
-                      • Les certificats sont délivrés par Microsoft ou générés en suivant les procédures
-                   fournies par Microsoft
-                      •  Ils permettent de garantir la stabilité des systèmes
-                      •  Ils sont obligatoires pour les éditions 64 bits
-            • Les principaux fichiers
-                      •  *.inf : définition du pilote au format texte
-                      •  *.sys : pilote lui-même
-                      •  *.cat : certificat fourni par Microsoft ou un tiers de confiance
-                      • *.exe, *.dll, *.xml… : fichiers complémentaires selon les besoins
-
-                                                                                         5
-
-
-5
-
-
-  Les pilotes et les imprimantes
-  Pilotes
-
-
-            • La prise en charge se fait à partir du fichier INF
-                      • Directement depuis le fichier (clic droit Installer)
-                      • À partir d’un assistant d’installation (setup.exe) ou de mise à jour
-
-            • Une fois installé, le pilote est mémorisé par le système
-                      • Permet sa réinstallation automatique
-                      •  Fichiers INF dans C:\Windows\inf
-                               • Chaque pilote installé manuellement génère un fichier oemXX.inf
-                      • Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64
-
-            • Le magasin de pilotes Windows
-                      • Pour une prise en charge immédiate du matériel (installation du système)
-                      • Emplacement : C:\Windows\System32\DriverStore
-                      • Gestion du magasin en ligne de commande avec pnputil
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>  Les pilotes et les imprimantes
-  Pilotes
-
-       En complément
-            • msinfo32 pour le détail du matériel
-
-            • driverquery : outil CMD pour lister les pilotes installés
-                      • driverquery /SI pour lister les pilotes signés
-
-            • pnputil : gestion du magasin de pilotes (ajout, suppression, information)
-                      • pnputil /enum-drivers pour lister les pilotes tiers (oemXX.inf)
-                      • pnputil /add-driver pilote.inf pour ajouter un pilote au magasin
-
-
-
-                                                                                         7
-
-
-7
-
-
-  Les pilotes et les imprimantes
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         8
-
-
-8</pre></section><section><h2>Page 5</h2><pre>  Les pilotes et les imprimantes
- Imprimantes
-
-                                                    Vocabulaire
-                     Périphérique
-                     d&#x27;impression       Le matériel : moteur permettant de sortir la feuille imprimée
-                    Imprimante        Le logiciel : envoie l&#x27;ordre d&#x27;impression au périphérique d&#x27;impression​
-                                                    (pilote, configuration, file d&#x27;attente d&#x27;impression, port d&#x27;impression)​
-                          File d&#x27;attente        Service spouleur : conversion numérique du document dans un langage
-                     d&#x27;impression        interprétable par le périphérique d&#x27;impression. Envoi du job vers le port
-                                               d&#x27;impression​
-                 Imprimante locale     Périphérique d&#x27;impression directement relié à l&#x27;ordinateur (via un port local)​
-                Imprimante partagée   Imprimante locale partagée sur le réseau grâce à l&#x27;OS de l&#x27;ordinateur.
-                                            Disponible si et seulement si l&#x27;ordinateur est allumé.​
-                 Imprimante réseau    Imprimante indépendante. Possède son propre OS, une interface réseau, un
-                                              service web pour la configuration​
-
-
-                                                                                         9
-
-
-9
-
-
-  Les pilotes et les imprimantes
- Imprimantes
-
-        Imprimante locale
-              • Directement reconnue par le système
-              • Utilisation d&#x27;un pilote générique du magasin de pilote
-              • Possibilité d&#x27;installer le pilote signé du constructeur pour plus de fonctionnalités
-              • Sécurité NTFS de l&#x27;imprimante
-            (Propriétés de l&#x27;imprimante onglet Sécurité)
-
-
-
-
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>  Les pilotes et les imprimantes
- Imprimantes
-
-        Imprimante locale
-              • Disponible via le composant du
-          Panneau de configuration
-              • Visualiser la file d&#x27;attente et autres
-            options
-              • Éditer les propriétés de l&#x27;imprimante
-                      • Informations générales
-                      • Options avancées (horaire de
-                   production, priorité…)
-
-
-
-
-
-                                                                                          11
-
-
-11
-
-
-  Les pilotes et les imprimantes
- Imprimantes
-
-        Imprimante locale
-              • Disponible via le composant du Panneau de
-            configuration
-              • Visualiser la file d&#x27;attente et autres options
-              • Éditer les propriétés de l&#x27;imprimante
-                      • Informations générales
-                      • Options avancées (horaire de production, priorité…)
-              • Partager l&#x27;imprimante locale sur le réseau
-                      • Disponible et utilisable via le réseau de l&#x27;entreprise
-                      • Accessible depuis le chemin UNC : \\serveur\imprimante
-                      • Disponible si l&#x27;ordinateur hôte est allumé
-                      • Les droits NTFS s&#x27;appliquent
-
-                                                                                          12
-
-
-12</pre></section><section><h2>Page 7</h2><pre>  Les pilotes et les imprimantes
- Imprimantes
-
-       Imprimante réseau
-              • Les imprimantes sont généralement raccordées au réseau de l’entreprise
-              • Le service de rôle Serveur d’impression pour
-                     • Partager plusieurs imprimantes
-                     •  Centraliser la gestion des imprimantes                                                           Réseau
-                     •  Simplifier l&#x27;accès et la gestion des imprimantes
-
-        Depuis le client
-              • Accès au serveur d&#x27;impression depuis le chemin UNC
-              • …puis connecter…
-
-
-                                                                                          13
-
-
-13
-
-
-  Les pilotes et les imprimantes
- Imprimantes
-
-
-          Le spouleur d&#x27;impression
-               • Programme qui gère la file d&#x27;attente
-               • Envoie les travaux d&#x27;impression au périphérique d&#x27;impression
-               • Peut être déplacé via une clé de la base de registre
-
-           Créer un pool d&#x27;impression
-               • Imprimante connectée à plusieurs périphériques d&#x27;impression
-               • Distribuer automatiquement les travaux d&#x27;impression à la
-             prochaine imprimante disponible
-               • Réduit les délais d&#x27;attente des documents pour les
-                utilisateurs.
-
-
-
-
-                                                                                          14
-
-
-14</pre></section><section><h2>Page 8</h2><pre>  Les pilotes et les imprimantes
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          15
-
-
-15
-
-
-  Les pilotes et les imprimantes
-
-
-              TP
-
-
-
-
-
-                                                                                          16
-
-
-16</pre></section><section><h2>Page 9</h2><pre>  Les pilotes et les imprimantes
- Conclusion                                            •  Les périphériques ont besoin
-                                                                 •  D’une liaison à un ordinateur
-                                                                                           •   Liaison locale
-                                                                                           •   Liaison réseau
-
-                                            •  Les ordinateurs ont besoin
-                                                                 •  D’un « mode d’emploi » du périphérique
-
-                                            •  Les imprimantes sont des ressources à part
-                                      entière
-
-
-
-
-
-                                                                                          17
-
-
-17</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-d36c00b0c595cb62dcd5a41010001fe79184ee5962d818cbda74060ad960e330.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d36c00b0c595cb62dcd5a41010001fe79184ee5962d818cbda74060ad960e330.webp" alt="Illustrations du support source, pages 9" loading="lazy" width="992" height="740"></a><figcaption>Illustrations du support Drive — pages 9. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

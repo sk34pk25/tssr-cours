@@ -1,0 +1,181 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 3 - L&#x27;accès aux ressources.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Solution du TP 3 - L&#x27;accès aux ressources</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<h4>L’accès aux ressources </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Active Directory </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 et réalisé les TP <br>précédents. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 02. </p>
+
+<p class="tssr-source-paragraph">Ajout et préparation d’un nouvel espace disque </p>
+
+<p class="tssr-source-paragraph">• <br>Ajoutez deux disques de 10 Go chacun au serveur membre W19-SRV1. <br>• <br>Créez un volume en miroir de 5 Go au format NTFS. <br>• <br>Ce volume sera accessible via une lettre de lecteur et depuis C:\datasafe. <br>• <br>L’espace restant (de ces deux disques) sera accessible via le lecteur D:\. <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> </p>
+
+<p class="tssr-source-paragraph">Page 1/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>fF Gestion des disques<br>-<br>po<br>x<br>Fichier<br>Action<br>Afichage<br>7<br>¢9\m Em<br>90</p><p>= ©<br>Simple<br>Debase<br>NTFS<br>Sain (Démarrer hier d&#x27;échange Vidage sur incident Patton principale) 3140Go<br>213560<br>63%</p><p>= Recuperaton<br>Simple<br>De base<br>NTFS<br>Sain Patton OEM)<br>499 Mo<br>T2Mo<br>U%<br>BSS XGAREFRFROVO(L) Simple<br>Debate<br> UDF<br>Soin Parton principale)<br>495 Go<br>OMe<br>0%</p><p>= sce SE<br>Dynamique<br>Datasafe.<br>Data (D:)<br>998 Go<br>428 Go NTFS<br>510<br>60 NTES<br>Eniigne</p><p>Sein<br>sain</p><p>icq A<br>Ss<br>Dynamique<br>Datasafe<br>Data (D)<br>998 Go<br>428 Go NTFS<br>510<br>Go NTFS<br>En igne<br>un<br>san</p><p>&amp;<br>&gt; CePC &gt; Disque local (C)<br>vo</p><p>\ Périphériques et lecteurs (3)<br>Nom<br>Modifié te<br>Type<br>Taille<br>le<br>Disque local (C)<br>Data (D)<br>.<br>13/11/2020 1409<br>Dossierde fichiers<br>5119996<br>=<br>Nouveau dossier<br>10/11/2020 10:33<br>Dossier de fichiers<br>=<br>emente</p><p>home<br>ST<br>ae<br>es” 213 Go libres<br>sur 31,3 Go<br>es”<br>10,1 Golibres<br>sur 10,1 Go<br>CRE<br>®<br>none<br>.<br>.<br>Program Files 686)<br>22/09/2020 1442<br>Dossier de fichiers<br>#</p><p>Programmes<br>22/09/2020 14:44<br>Dossier<br>defichiers</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph"> <br>Configuration de profils itinéraires : <br> </p>
+<p class="tssr-source-paragraph">• <br>Modifier le compte modèle du service Commercial afin que chaque utilisateur du <br>service dispose d’un profil itinérant. <br> </p>
+<p class="tssr-source-paragraph">• <br>Ce profil sera stocké sur le serveur membre depuis C:\datasafe\users et accessible <br>depuis un partage intitulé « Profils ». </p>
+
+
+<p class="tssr-source-paragraph">Page 2/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Partage avancé<br>x<br>elv<br>+ | Datasafe</p><p>Accueil<br>Partage<br>Affichage<br>FPartager<br>ce dossier<br>Paramètres<br>+<br>+<br>1<br>[ye<br>&gt; CePC<br>&gt; Disque local (C)<br>&gt; Datasafe<br>&gt;<br>===</p><p>°<br>Nom<br># Accès rapide<br>Ajouter | Supprimer</p><p>a<br>EM Bureau<br>a<br>Limiter le nombre d&#x27;utiisateurs<br>simultanés à :<br>[6777/2</p><p>Commentaires :</p><p>Le $ à le fin du partage est présent afin que le patage Profi ne<br>soit pas visible sur le réseau par les uslisateus, Si le $ et en<br>enlevé. le partage sera visible</p><p>Autorisations | |Mise<br>en cache<br>CE. ve | is</p><p>Autorisations pour Profils$<br>x<br>Æ Utilisateurs<br>et ordinateurs<br>Active Directory</p><p>Fichier<br>Action<br>Affichage?<br>Atorisations du partage<br>7<br>=<br>3<br>eo am do XOeS Em teres<br>Noms de groupes ou d&#x27;utiisat:<br>*<br>oe<br>ET<br>I Utilisateurs et ordinateurs Active Directory (W1| Nom<br>Propriétés de : Modele Commercial<br>2<br>x<br>a<br>Le<br>1D Requêtes enregistrées<br>&amp; camille<br>53 monprenomlocal<br>Los<br>Envronnement Sessions |Conte<br>à disance Prof<br>des sons Bureau<br>à distance | COM<br>© Buittin<br>Leo<br>Général<br>Adresse Compte<br>Téléphones<br>Organisation Membrede Appelentrant<br>I</p><p>Computers<br>2<br>=<br>Ines<br>Profil<br>utilisateur<br>1 Domain Controllers<br>:<br>1 ForeignSecurityPrincipals<br>Æs Modele commercial<br>|<br>|chemin duprof<br>\W19-SRVI\Profis$\%usemame%<br>Aouter…</p><p>| | Suppamer<br>Hi Managed Service Accounts<br>Es d&#x27;ouverturede<br>D) Users<br>session</p><p>[Autonsations pour Tout le monde<br>Atonser<br> Refuser<br>+ fi Mon Entreprise<br>ù<br>Dossierde base<br>5<br>+ Bl Agences<br>Contrôle</p><p>total<br>A<br>oO<br>Hi Rennes<br>@ Chemin d&#x27;accès local<br>Modtier<br>4<br>Qa<br>Bi Nantes<br>Le<br>Lecture<br>4<br>oO<br>Benn<br>©<br>Connecter</p><p>+ fi Groupes</p><p>i Services<br>@ Fonctions</p><p>+ BB Ordinateurs</p><p>Informations sur le contrôle d&#x27;accès et les autorisations<br>HB Serveurs Membres<br>-<br>-<br>i] Postes Clients</p><p>[_Aeraier_| [States</p><p>— [=] +</p><p>ent</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+
+<pre class="tssr-source-code">• 
+Les comptes existants sont-ils impactés par ces modifications ? 
+□ Oui   <img class="tssr-source-glyph" data-source-codepoint="f0a2" src="../glyphs/9f717f457a46d0c1e1526d767a7b1e6811a7c3cd7657050c077d7c33ad26b4eb.webp" alt="Symbole du support" title="Symbole original du support"> Non 
+Sinon, apportez les modifications nécessaires. 
+ 
+ 
+ </pre>
+
+<p class="tssr-source-paragraph">Page 3/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Action<br>Affichage<br>?<br>e+ 2m {0<br>XO LB Em tearae<br>I Utilisateurs<br>et ordinateurs Active Directory (W1]| [Nom<br>Propriétés de: Claude<br>2<br>x</p><p>Sa monprenomloca<br>&amp; claude<br>:<br>te<br>2] Builtin<br>&amp; Corentin<br>Général Adresse Compte<br>Profil<br>Téléphones<br>Organisation Membrede Appel entrant<br>eee<br>ines<br>Profi utisateur<br>main<br>Controllers<br>1 ForeignSecurityPrincipals<br>bios. Comments<br>Chemin du profil<br>QE|<br>À Managed Service Accounts<br>‘Script d&#x27;ouverture de<br>D]<br>Users<br>session</p><p>*<br>Bi Mon Entreprise</p><p>~ El Agences<br>Dossier<br>de base<br>à) Rennes<br>‘# Chemin d&#x27;accès local<br>a) Nantes<br>Bi Vertou<br>Connecter:</p><p>+<br>El Groupes</p><p>Al Services</p><p>il<br>Fonctions</p><p>+<br>BB Ordinateurs</p><p>@) Serveurs Membres</p><p>Bi Postes Clients</p><p>[Co]<br>Annuler | DIRES<br>Aide</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">Partage de ressources </p>
+<p class="tssr-source-paragraph">Configurez le partage de ressources en respectant les contraintes indiquées </p>
+
+<p class="tssr-source-paragraph">Nom du partage <br>Localisation sur W19-SRV1 </p>
+<p class="tssr-source-paragraph">C:\datasafe\prod </p>
+<p class="tssr-source-paragraph">Production </p>
+<p class="tssr-source-paragraph">C:\datasafe\appli </p>
+<p class="tssr-source-paragraph">Applications </p>
+<p class="tssr-source-paragraph">C:\datasafe\en_cours </p>
+<p class="tssr-source-paragraph">Prospects </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1°) Gestion des accès en respectant les préconisations AGDLP de Microsoft <br> <br>Sur le contrôleur de domaine, dans la console Utilisateurs et ordinateurs Active Directory : <br> </p>
+<p class="tssr-source-paragraph">• <br>Création des Unités d’organisation pour classifier les groupes de ressources <br>correctement : <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> </p>
+<p class="tssr-source-paragraph">• <br>Création des groupes de domaine local  <br> <br>4 groupes de domaine local par ressource partagée : pour gérer les accès en lecture, en <br>modification, en contrôle total et un groupe pour les refus d’accès.  <br> <br>Il y aura donc 12 groupes de domaine local au total. <br> <br> <br> <br> <br> </p>
+<p class="tssr-source-paragraph">Page 4/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>1 Utilisateurset ordinateurs Active Directory</p><p>Fichier<br>Action<br>Affichage<br>_?<br>eo 2<br>0 5L6B Oe SLA TER<br>1 Utilisateurset ordinateurs Active Directory [W1}| Nom<br>Type<br>OA Paqultes enregistrées<br>Applications<br>Unité d&#x27;organisation<br>adnu<br>Tél Production<br>Unité d&#x27;organisation<br>3Compas<br>[il Prospects<br>Unité d&#x27;organisation<br>Hl Domain Controllers</p><p>1D ForeignSecurityPrincipals</p><p>Tl Managed Service Accounts<br>BD Users</p><p>+<br>il Mon Entreprise</p><p>+ Bl Agences</p><p>i Rennes</p><p>il Nantes</p><p>dl<br>Verto</p><p>ae</p><p>ST Applications<br>Production</p><p>il Prospects<br>+ @ Ordinateurs</p><p>IB Serveurs Membres<br>il Postes Clients</p><p>&gt;ent</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nom dupartage Localisationsur W19 -SRV1</td><td></td></tr><tr><td>Production</td><td>C:\datasafe\prod</td></tr><tr><td>Applications</td><td>C:\datasafe\appli</td></tr><tr><td>Prospects</td><td>C:\datasafe\en cours<br>_</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-7c00eccba35580e2cc66f83c1ee790721aecbf3a956b92039ace85fdf3a75909.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7c00eccba35580e2cc66f83c1ee790721aecbf3a956b92039ace85fdf3a75909.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4802"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">Voici ce que cela donne pour la ressource Applications : <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Ensuite, selon les accès à octroyer, il s’agit de gérer les appartenances aux groupes <br>de domaine local. <br> <br>Le partage Applications : <br> </p>
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Applications_M : groupe <br>GG_Informatique_Admin.  <br> <br>Les administrateurs du service informatique auront ainsi les droits de modifier le <br>contenu de la ressource Applications <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Applications_L : groupe Utilisateurs du <br>domaine <br> </p>
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Applications_R : groupe GG_Secrétaires.  </p>
+<p class="tssr-source-paragraph">Page 5/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Bd] Uiiisateurset ordinateurs Active Directory</p><p>Fichier<br>Action<br>Affichage?<br>eo<br>26h 0568 Em teerae</p><p>Li Utilisateurs et ordinateurs Active Directory W1\[ Nom<br>Type<br>Description<br>3 Requêtes enregistrées<br>8 DL Applications CT<br>Groupe de sécurité-Domaine local<br>~ #3 monprenomlocal<br>BR DL Applications M<br>Groupe de sécurité</p><p>-Domaine local<br>— La<br>BDL Applications_L<br>Groupe de sécurité<br>- Domaine local<br>a ee aes<br>BDL Applications R<br>Groupe de sécurité-Domaine local</p><p>1D ForeignSecurityPrincipals<br>[ Managed Service Accounts<br>GD Users</p><p>+ @ MonEntreprise<br>“FS</p><p>Hi Rennes<br>même schema<br>@ Nantes<br>il Vertou</p><p>+ fi Groupes</p><p>Bi Services<br>Æ Fonctions</p><p>TT<br>Ressources</p><p>TT Production<br>@ Prospects</p><p>Ed Uttisoteurs et ordinateurs Active Directory (W1]]_<br>nom<br>2 Requêtes enregistrées<br>d<br>D1<br>Avplicatio<br>ea<br>Ro meme<br>rx<br>@ Computers<br>i) Domain Controllers<br>Rov Applications R<br>:<br>mn<br>=<br>Général<br>Membres Membrede Géré par<br>2 ForeignSecurityPrincipals<br>1 Managed Service Accounts<br>-<br>Hi Users<br>Er</p><p>«$B ous<br>GG infomatque Admin<br>_monprenom local Mon Entropnse/Groupe=/Sernces<br>Bi Rennes</p><p>Hl Nantes</p><p>A2 Vertou</p><p>+<br>(fi Groupes<br>Ep<br>@ Fonctions</p><p>+ Bl Ressources</p><p>à) Applications</p><p>&amp; Production<br>A Prospects</p><p>+ 2 Ordinateurs</p><p>2 Serveurs Membres<br>Bl Postes Clients<br>Æ<br>D</p><p>CS]. vue | DRE</p><p>ent</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>Les deux autres partages suivent la même logique  <br> <br> <br>Le partage Production : </p>
+<p class="tssr-source-paragraph">• <br>Accessible uniquement aux membres du service Production et aux administrateurs <br>(ces derniers pourront tout y faire). <br> </p>
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Production_M : groupe GG_Production <br> </p>
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Applications_CT : groupe <br>GG_Informatique_Admin.  <br> <br> <br>Le partage Prospects : </p>
+<p class="tssr-source-paragraph">• <br>Accessible exclusivement aux Commerciaux. <br> </p>
+<p class="tssr-source-paragraph">• <br>Membre du groupe de domaine local DL_Prospects_M : groupe GG_Commercial <br> </p>
+
+<p class="tssr-source-paragraph">Page 6/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Action<br>Affichage<br>7<br>++ am 0 XOGS\ Em<br>1x uVYER</p><p>“Td utilisateurs<br>etordinateurs<br>Active Directory IW1]| Nom | Propriétés de :DLApplicationsR<br>rt<br>ix<br>1D) Requêtes enregistrées<br>ROWApplications.CT<br>+<br>Général Membres Membrede Géré<br>mesp<br>BOL Applications M<br>is<br>5 ads<br>#2 DL Applications_L<br>Membres<br>|<br>|<br>M Domain Controllers<br>(FR<br>oc Applications]<br>| || Nom<br>Dossier Services de domaine Active Directory<br>I ForeignSecurityPrincipals<br>GG Secretaires _monprenom localMon Entreprise/Groupes/Fonctions<br>1 Managed Service Accounts<br>BD Users</p><p>+ Bl Mon Entreprise</p><p>+<br>Bl Agences</p><p>fl Rennes<br>@ Nantes<br>@ Vertou</p><p>+ B Groupes</p><p>fi Services<br>fl Fonctions</p><p>Fichier<br>Action<br>Affichage?<br>eo 2m 40 X5LB Em<br>1% MVER<br>Æ Utilisateurs et ordinateurs Active Directory [W1]| Nom<br>Propriétés de : DL. Prospects M<br>?<br>x<br>I Requêtes enregistrées<br>Pro:<br>a<br>+ #4 monprenomlocal<br>a<br>| Général Membres Membrede Géré par<br>—<br>Bors | [ur<br>M Domain Controllers<br>AOL Prospects R<br>Nom<br>Dossier Services de domaine Active Directory<br>BD ForeignSecurityPrincipals<br>IGG_Commercial<br>_monprenom loca/Mon Entreprise/Groupes/Services<br>Bi Managed Service Accounts<br>BD Users</p><p>+ Bi Mon Entreprise</p><p>+ BD Agences</p><p>@) Rennes<br>@ Nantes<br>i) Vertou</p><p>+ fi Groupes</p><p>@ Services<br>@ Fonctions<br>+ Fi Ressources</p><p>@ Applications<br>%<br>53<br>1 Production<br>3] Prospects<br>‘Ajouter...<br>Suppimer<br>+ @ Ordinateurs</p><p>@) Serveurs Membres<br>1 Postes Clients<br>(ox)</p><p>ent</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">2°) Gestion des accès NTFS et partages réseau des dossiers  <br> </p>
+<p class="tssr-source-paragraph">a- Création des partages avec autorisation en CT pour le groupe Utilisateurs </p>
+<p class="tssr-source-paragraph">authentifiés <br> <br>Pour cela : <br> </p>
+<p class="tssr-source-paragraph">• <br>Clic droit sur chacun des dossiers concernés, puis Propriétés <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> </p>
+<p class="tssr-source-paragraph">• <br>Dans l’onglet Partage, choisir Partage avancé <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Définir les paramètres comme suit : <br> <br> <br> <br> <br> <br> <br> </p>
+
+<p class="tssr-source-paragraph">Page 7/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>F<br>+ | Datasafe</p><p>Acœuël<br>Partage<br>Affichage</p><p>+<br>+<br>=<br>&gt; CePC<br>&gt;<br>Disque local (C)<br>&gt;<br>Datasafe</p><p>Nom</p><p>°</p><p>Modifié le<br>Type<br>Taille<br>FA pce</p><p>Users<br>CS<br>issier de fichiers<br>Bureau<br>La<br>Ouvrir dans une nouvelle fenêtre<br>Prod<br>issier<br>de fichiers<br># Téléchargement: #<br>Epingler à Accès rapide<br>Appli<br>a<br>&gt; | ssier de fichiers<br>Documents<br>#<br>=<br>on<br>En cours</p><p>-<br>ssier de fichiers<br>= Images<br>*<br>Accorder l&#x27;accès à<br>&gt;<br>Restaurer les versions précédentes</p><p>Andre dans la bibliotheque<br>&gt;</p><p>Épingler à l&#x27;écran de démarrage</p><p>Envoyer vers<br>&gt;</p><p>Couper</p><p>Copier</p><p>Supprimer</p><p>Renommer</p><p>Propriétés</p><p>Partage avancé</p><p>Définir des autorisations personnalisées. créer<br>options de partage</p><p>Partage avancé...</p><p>Partage avancé<br>x</p><p>FPartager ce dossier</p><p>Paramètres</p><p>Nom du partage<br>:</p><p>Production<br>v<br>Autorisations pour Production<br>x</p><p>Ajouter<br>Supprimer<br>Autorisations du partage</p><p>Limiter le nombre d&#x27;utisateurs<br>simultanés à : | 1677712<br>None de groupes ou diuliiesieurs</p><p>lUtiisateurs authentfiés</p><p>|</p><p>Commentaires :<br>|<br>—</p><p>.</p><p>Ex]!<br>ame | MR<br>Aotsaonspour Touiemonde<br>doter | Refuer<br>Contrôle total<br>4<br>Modfier<br>4<br>Lecture<br>A</p><p>Informations sur le contrôle d&#x27;accès et<br>les autorisations</p><p>node<br>| Dis</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">Faire exactement les mêmes manipulations dans l’onglet Partage sur chacun des dossiers. </p>
+<p class="tssr-source-paragraph"> <br>Ajouter un partage Public qui donnera accès aux données se trouvant sur D:\ sur le serveur <br>membre W19-SRV1. <br>Ce partage sera accessible à tous en lecture. <br> <br>Il faudra respecter le même schéma que celui vu précédemment : Création de 4 groupes <br>de domaine local et placement des bons groupes globaux. <br> </p>
+
+
+<p class="tssr-source-paragraph">Page 8/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Versions précédentes<br>Quota<br>Personnaliser</p><p>Partage avancé<br>x</p><p>MPartager ce dossier</p><p>Paramétres</p><p>Nom du partage :</p><p>Ajouter<br>Supprimer</p><p>Limiter le nombre d&#x27;utilisateurs simultanés<br>à :<br>[ 1677712]<br>et définir</p><p>Commentaires<br>:</p><p>Mie en cache</p><p>OK<br>Annuler<br>Appliquer</p><p>OK<br>Annuler<br>Appliquer</p><p>eni</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a0562d5254f34fdfa97adecaa8284e07150b8b2d4030ce1765df194b6d95b2d9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a0562d5254f34fdfa97adecaa8284e07150b8b2d4030ce1765df194b6d95b2d9.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="5479"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">b- Application des règles d’accès NTFS </p>
+<p class="tssr-source-paragraph"> <br>La procédure qui suit vaut pour la ressource Production <br> </p>
+<p class="tssr-source-paragraph">• <br>Dans l’onglet Sécurité du dossier Prod cliquer sur Avancé <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Puis cliquer sur Désactiver l’héritage <br> </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>Et convertir les autorisations héritées en autorisations explicites <br> <br> </p>
+<p class="tssr-source-paragraph">• <br>Supprimer toutes les entrées mentionnant des groupes d’utilisateurs <br> </p>
+<p class="tssr-source-paragraph">Page 9/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés de : Prod<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>Nom de l&#x27;objet:<br> D:\Prod</p><p>Noms de groupes ou d&#x27;utilisateurs :</p><p>EM Utilisateurs authentifiés<br>8B Système<br>§2 Administrateurs (Administrateurs)<br>£B Utilisateurs (Utilisateurs),</p><p>Pour modifier</p><p>les autorisations. cliquez sur Modifier.<br>Modifier.<br>|</p><p>Autorisations pour Utilisateurs authentifiés<br>Autoriser<br>Refuser</p><p>Contrôle total<br>D</p><p>Modification<br>V4<br>Lecture et exécution<br>v</p><p>Affichage du contenu du dossier<br>v</p><p>Lecture<br>V4</p><p>Écriture<br>VA<br>Ÿ</p><p>Pour les autorisations spéciales et les paramètres avancés. cliquez sur<br>Avancé.</p><p>Informations sur le contrôle d&#x27;accès etles autorisations</p><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d&#x27;at<br>sélectionnez l&#x27;entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d&#x27;autorisations:</p><p>Type<br>Principal<br>Accès<br>Hérité :<br>8%<br>Autori.<br>Administrateurs<br>Contrôle total<br>DA</p><p>8%<br>Autori..<br>Système<br>Contrôle total<br>DA<br>SR Autori…<br>Utilisateurs authentifiés<br>Modification<br>DA<br>£R<br>Autori…<br>Utilisateurs<br>Lecture et exécution<br>DA</p><p>Ajouter<br>Supprimer<br>Afficher</p><p>ent</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Puis ajouter les groupes de domaine local concernés (DL_Production_*), créés <br>précédemment comme suit <br> </p>
+<p class="tssr-source-paragraph"> <br> <br> <br> <br> <br>Pour chaque DL, il conviendra d’appliquer les bons <br>droits les uns après les autres. <br> <br> <br> <br> <br> <br> <br> <br> <br> </p>
+<p class="tssr-source-paragraph">DL_Production_CT =&gt; cocher la case Contrôle Total dans la colonne Autoriser </p>
+<p class="tssr-source-paragraph">DL_Production_M =&gt; cocher la case Modification dans la colonne Autoriser </p>
+<p class="tssr-source-paragraph">DL_Production_L =&gt; cocher la case Lecture et exécution dans la colonne Autoriser </p>
+<p class="tssr-source-paragraph">DL_Production_R =&gt; cocher la case Contrôle Total dans la colonne Refus </p>
+<p class="tssr-source-paragraph"> <br> <br>Faire exactement les mêmes manipulations dans l’onglet Sécurité sur chacun des dossiers. <br> <br> <br>Il ne reste plus qu’à tester les accès aux partages depuis un système client via les liens <br>UNC. </p>
+<p class="tssr-source-paragraph">Page 10/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d&#x27;autoi<br>sélectionnez l&#x27;entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d&#x27;autorisations :</p><p>Type<br>Principal<br>Accès<br>Hérité de<br>8% Autor.<br>Administrateurs<br>Contrôle total<br>Aucun</p><p>82 Autori…<br>Système<br>Contrôle total<br>Aucun<br>BP autor. Uttssteurs autenties … Moditeaton<br>Aucin |<br>82% Autor.<br>Utilisateurs<br>Lecture et exécution<br>Aucun</p><p>Nowe<br>Modes</p><p>Activer l&#x27;héritage</p><p>[C]Remplacer toutes les entrées d&#x27;autorisation des objets enfants par des entrées d&#x27;at</p><p>L<br>Propriétés de: Prod<br>x</p><p>Général Patage<br>Versions précédentes _ Personnaliser<br>Nom de l&#x27;objet :<br>C:\Datasafe\Prod</p><p>DL.Productions_CT (MONPRENOM\DL_Productions_CT)<br>88 DL_Productions_M (MONPRENOM\DL_Productions_M)</p><p>‘88, DL.Productions_L (MONPRENOM\DL.Productions_L)<br>SL DL,Productions_R (MONPRENOM\DL_Productions_R)</p><p>Pour modifier les autorsatons, ciquez sur Modtier<br>Tee</p><p>Autorisations pour DL_Productions_CT<br>Atorser | Refuser</p><p>Contrôle total<br>v<br>Modfication<br>v<br>Lecture et exécution<br>v</p><p>‘Affichage du contenu du dossier<br>v<br>Lecture<br>v<br>Eorture</p><p>Pourles autorisations spéciales et les paramètres avancés, ciquez sur<br>Pas<br>Avancé.</p><p>Informations sur le contrôle d&#x27;accès et les autorisations</p><p>Lane| Ds</p><p>ent</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-1c29e4018bcc03f4a3a6df78a51758c821522ed83008c4001b7afb3ee3b86ddf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-1c29e4018bcc03f4a3a6df78a51758c821522ed83008c4001b7afb3ee3b86ddf.webp" alt="Illustrations du support source, pages 9 à 10" loading="lazy" width="900" height="2203"></a><figcaption>Illustrations du support Drive — pages 9 à 10. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

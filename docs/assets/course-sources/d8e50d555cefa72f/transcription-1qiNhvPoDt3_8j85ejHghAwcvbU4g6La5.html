@@ -1,0 +1,60 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 2 - Les liens.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 2 - Les liens</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+<h4>Les liens </h4>
+<p class="tssr-source-paragraph">TP du Module 05 – Utiliser des fichiers sous Linux </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir <br>effectué le TP précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires <br>pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Créez un lien physique du fichier Edition vers le fichier edition1.txt, vérifiez que vous <br>pouvez afficher son contenu. </p>
+<pre class="tssr-source-code">ln Edition edition1.txt </pre>
+<pre class="tssr-source-code"> 
+cat edition1.txt </pre>
+
+<p class="tssr-source-paragraph">2. Créez un lien symbolique du fichier edition1.txt vers le fichier /tmp/stagxx/edition2.txt, <br>vérifiez que vous pouvez afficher son contenu. </p>
+<pre class="tssr-source-code">mkdir /tmp/stag30 </pre>
+<pre class="tssr-source-code"> 
+ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt </pre>
+<pre class="tssr-source-code"> 
+cat /tmp/stag30/edition2.txt </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>In<br>Edition<br>editionl.txt<br>user306srv-formateur:-$<br>cat<br>editionl.txt<br>Bboaf Maurice<br>244748</p><p>Allo<br>Jean-Pierre<br>255398</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">3. Créez un lien physique du fichier edition1.txt vers le fichier edition3.txt, vérifiez que <br>vous pouvez afficher son contenu. </p>
+<pre class="tssr-source-code">ln edition1.txt edition3.txt </pre>
+
+<p class="tssr-source-paragraph">4. Affichez avec la commande ls les caractéristiques de ces 4 fichiers en mettant en <br>évidence les différences. </p>
+<pre class="tssr-source-code">ls -l edition* Edition /tmp/stag30/edition2.txt </pre>
+
+<p class="tssr-source-paragraph">5. Supprimez le fichier edition1.txt, pouvez-vous afficher le contenu de edition2.txt et <br>edition3.txt ? </p>
+<pre class="tssr-source-code">rm edition1.txt </pre>
+<pre class="tssr-source-code"> 
+cat /tmp/stag30/edition2.txt </pre>
+<pre class="tssr-source-code"> 
+cat: /tmp/stag30/edition2.txt: Aucun fichier ou dossier de ce type </pre>
+<pre class="tssr-source-code"> 
+cat edition3.txt </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:~$<br>mkdir /tmp/stag30<br>user30@srv-formateur:-$<br>In<br>-s /home/user30/editionl.txt /tmp/stag30/edition2.txt<br>user30@srv-formateur:-$<br>cat /tmp/stag30/edition2.txt<br>Aboat Maurice<br>244748<br>Adda<br>Jen<br>239234<br>Allo<br>Jean-Pierre<br>255398<br>Ben<br>Raf<br>238899</p><p>Bernard<br>Jean-Paul<br>234567</p><p>user30@srv-formateur:-$<br>In<br>editionl.txt<br>edition3.txt<br>user306srv-formateur:-$<br>cat<br>edition3.txt<br>Aboat Maurice<br>244748<br>Adda<br>Jen<br>239234<br>A11o<br>Jean-Pierre<br>255398<br>Ben<br>Raf<br>238899</p><p>Bernard<br>Jean-Paul<br>234567</p><p>user30@srv—-formateur:~$<br>ls -1 edition*<br>Edition /tmp/stag30/edition2.txt<br>-rw------—-<br>3<br>user30<br>user30<br>586<br>juil.<br>29<br>2019<br>Edition<br>-rw-------<br>3<br>user30 user30<br>586<br>juil.<br>29<br>2019 editionl.txt<br>-rw-------<br>3<br>user30<br>user30<br>586<br>juil.<br>29<br>2019<br>edition3.txt<br>lrwxrwxrwx<br>1<br>user30 user30<br>25<br>sept.<br>11<br>09:15 /tmp/stag30/edition2.txt<br>-&gt; /home/us<br>er30/editionl.txt<br>user30@srv—formateur :~$ |</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user306serv-formateur:-$<br>rm editionl.txt<br>user30@srv-formateur:-$<br>cat /tmp/stag30/edition2.txt<br>cat:<br>/tmp/stag30/edition2.txt:<br>Aucun<br>fichier<br>ou<br>dossier<br>de<br>ce<br>type<br>Juser30Ësrv-formateur:-$<br>cat edition3.txt<br>Aboaf<br>Maurice<br>244748<br>Adda<br>Jen<br>239234<br>Allo<br>Jean-Pierre<br>255398</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-242d8b7f7b3e315672fd36acc9eaa7ea689ca4fdbf4883fae90e7a33f4f15ea3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-242d8b7f7b3e315672fd36acc9eaa7ea689ca4fdbf4883fae90e7a33f4f15ea3.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2192"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

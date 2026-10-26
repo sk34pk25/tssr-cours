@@ -1,0 +1,98 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 4 - DNS délégations et redirections.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 4 - DNS délégations et redirections</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>DNS délégations et <br>redirections </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Le service DNS </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et réalisé le <br>précédent TP. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">2 à 3 heures </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 05. </p>
+<p class="tssr-source-paragraph">L’objectif est de mettre en place une hiérarchie DNS : </p>
+<p class="tssr-source-paragraph">• <br>Un domaine de 2e niveau : eni.fr </p>
+
+<p class="tssr-source-paragraph">Page 1/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DNS Manager<br>.<br>gO<br>V</p><p>File<br>Action<br>View<br>Help<br>¢9|f5|6|\Bm| i aa</p><p>e<br>&amp; DNS<br>New Zone Wizard<br>x<br>v à SRV-DNS-1</p><p>L] Forward Lookup Zones<br>Zone Type</p><p>&gt; ©) Reverse Lookup Zones<br>The DNS server supports various types of zones and storage.<br>ne<br>&gt; © Trust Points</p><p>&gt; © Conditional Forwarders<br>Select the type of zone you want to create:</p><p>© Primary zone</p><p>Creates a copy of a zone that can be updated directly on this server.</p><p>© Secondary zone</p><p>Creates a copy of a zone that exists on another server. This option helps balance</p><p>the processing load of primary servers and provides fault tolerance.<br>OStub zone</p><p>Creates a copy of a zone containing only Name Server (NS), Start of Authority<br>(SOA), and possibly glue Host (A) records. A server containing a stub zone is not<br>authoritative for that zone.</p><p>Store the zone in Active Directory (available only if DNS server is a writeable domain<br>controller)</p><p>Lens|<br>Cas|</p><p>eni</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">On crée une nouvelle zone principale <br>pour le nom de domaine ENI.FR </p>
+
+<p class="tssr-source-paragraph">• <br>Un domaine de 3e niveau : nantes.eni.fr OU rennes.eni.fr OU niort.eni.fr <br>• <br>Neuf domaines de 4e niveau : res.nantes.eni.fr OU res.rennes.eni.fr … </p>
+<p class="tssr-source-paragraph">Faites un clic droit sur la zone ENI.FR puis sur Nouvelle délégations. </p>
+<p class="tssr-source-paragraph">Page 2/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DNS Manager<br>=<br>a<br>,<br>|<br>File<br>Action<br>View<br>Help<br>¢9%|\|4n| G\|Em| i aa<br>e<br>&amp; DNS<br>New Zone Wizard<br>x<br>v à SRV-DNS-1<br>|<br>+) Forward Lookup Zones<br>Zone Name</p><p>&gt; [M Reverse Lookup Zones<br>What is the name of the new zone?<br>ne<br>&gt; © Trust Points<br>|</p><p>&gt; 1 Conditional Forwarders<br>The zone name specifies the portion of the DNS namespace for which this server is<br>’<br>authoritative. It might be your organization&#x27;s domain name (for example, microsoft.com)<br>or a portion of the domain name (for example, newzone.microsoft.com). The zone name is<br>A<br>not the name ofthe DNS server.</p><p>Zone name:<br>F</p><p>A<br>[set<br>—</p><p>eni</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">Page 3/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>À, DNS Manager<br>_<br>a<br>x</p><p>File<br>Action<br>View<br>Help<br>eo<br>| 2m/XOGB/Em<br>as</p><p>&amp;, DNS<br>Name<br>Type<br>Data<br>v Bi sons:<br>Fisame as parent folder)<br>Start ofAuthority<br>(SOA)<br>[1], srv-dns-1., host master.<br>v &amp; Forward Lookup Zones || Flcameas parent folder)<br>Name Server (NS)<br>srv-dns-1.</p><p>_ E<br>en<br>Update Server Data File<br>&gt; D Revers</p><p>&gt; i Trusth<br> Reload</p><p>&gt; © Condi<br>New Host (A or AAAA)...</p><p>New Alias (CNAME)...</p><p>New Mail Exchanger (MX)...</p><p>New Domain...<br>New Delegation...</p><p>Other New Records...</p><p>DNSSEC<br>&gt;</p><p>All Tasks<br>&gt;</p><p>View<br>&gt;</p><p>Delete</p><p>Refresh</p><p>Export List...</p><p>Properties</p><p>Create anewdele<br>Help</p><p>&amp; DNS Manager<br>-<br>o<br>x</p><p>File<br>Action<br>View<br>Help<br>@#o9\4m/\X8SS\Emli aa</p><p>&amp;, DNS<br>Name<br>Type<br>Data<br>vi sev ONS<br>‘up?<br>Fltsame as parent folder)<br>Start of Authority (SOA)<br>[1] srv-dns-1,, hostmaster.<br>I Forward Lookup Zones |! FI<br>25 parent folder)<br>Name Server (NS)<br>srv-dns-1.<br>Sl enifr</p><p>&gt; (Gi Reverse Lookup Zones || New Delegation Wizard<br>x<br>&gt; [I Trust Points</p><p>&gt; D Conditional Forwarders ||<br>Delegated Domain Name<br>Authority<br>for the DNS domain you supply will be delegated to a different zone.</p><p>Specify the name of the DNS domain you want to delegate.<br>Delegated domain:</p><p>Fully qualified domain name (FQDN):</p><p>.<br>Cam<br>Ce</p><p>ent</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">Sur le second serveur DNS, créer la zone eni.fr puis ajouter le domaine NANTES </p>
+<p class="tssr-source-paragraph">Page 4/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DNS<br>Manage<br>-<br>D<br>xPo<br>File<br>Action<br>View<br>Help<br>¢#9%\am/XOeGS\Emiaa</p><p>DNS<br>Name<br>ype<br>Data<br>vi SRV-DNS-1<br>Flisameas parent folder)<br>Start ofAuthority<br>(SOA)<br>[1], srv-dns-1.enifr, host...<br>=<br>A</p><p>Fomara bookup Zones ||](ame</p><p>as parent folder)<br>Name Server (NS)<br>srv-dns~t.enisr<br>peal Server<br>u<br>MAI Servers<br>Ù<br>ta verre Lookup Zones<br>Flsrv-dns-0<br>Host (A)<br>192.168.0.51<br>7<br>Ot<br>srv-dns-<br>lo<br>janageability<br>lanageability<br>Trust Points<br>PAsn-dns-1<br>Host (A)<br>192.168.1.51</p><p>&gt; D Conditional Forwarders<br>ents<br>Events</p><p>New<br>Delegation<br>Wizard<br>&lt; | edit Name Server Record<br>x</p><p>Name Servers<br>Enter the name of a DNS server that is authoritative for this zone.<br>You can select one or more name servers to host the delegated zone.<br>‘Server fully qualified domain name (FQDN):<br>a<br>‘Specify the names and IP addresses of the DNS servers you want to have host the<br>LT<br>eee<br>IP Addresses of this NS record:</p><p>Name servers:<br>IP Address<br>Validated<br>Delete</p><p>Server Fully Qualified Domain Name (FQON)<br>IP Address<br>&lt;Click here to add an IP Address&gt;<br>En<br>@ 2.168051<br>ox<br>w</p><p>Down</p><p>‘&lt;Back<br>Next &gt;<br>Cancel</p><p>œ<br>cancel<br>|</p><p>e<br>&amp; DNS Manager<br>—<br>oO<br>x</p><p>File<br>Action<br>View<br>Help<br>eo fAmn\Oes\|bml i EG<br>e:<br>&amp;<br>DNS<br>Name<br>Type<br>Data<br>Timestam<br>v</p><p>&amp;</p><p>SRV-DNS-1<br>-<br>El<br>_<br>Fltsame as parent folder)<br>Name Server (NS)<br>srv-dns-0.eni.fr.<br>vy © Forward Lookup Zones</p><p>v © enifr</p><p>=) nantes</p><p>&gt; [1 Reverse Lookup Zones</p><p>&gt; ON Trust Points</p><p>&gt; 1) Conditional Forwarders</p><p>&lt;<br>&gt;</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-81945a5e337824931bee47ba89efc87bdde245e52e213bbc97cb1dd3f0ae8ecb.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-81945a5e337824931bee47ba89efc87bdde245e52e213bbc97cb1dd3f0ae8ecb.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="5467"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">Créer des enregistrements de TEST. Tester la résolution de nom en envoyant la requête sur <br>l’un ou l’autre des deux serveur DNS. </p>
+<p class="tssr-source-paragraph">Page 5/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DNS Manager<br>_<br>oO<br>.</p><p>File<br>Action<br>View<br>Help<br>e+2R|<br>XE 685 aa<br>&amp; DNS<br>Name<br>Type<br>Data<br>¥ a Fe Lookup Z<br>Hisame as parent folder)<br>Start of Authority (SOA)<br>[1], srv-dns-0., hostmaster.<br>va omar<br>ookup Zones<br>Ftsame as parent folder)<br>NameServer (NS)<br>srv-dns-0.<br>=. enifr</p><p>&gt; [1 Reverse Lookup Zones</p><p>&gt; E Trust Points<br>New DNS Domain<br>x<br>&gt;<br>Conditional Forwarders</p><p>Type the new DNS domain name:<br>[wes7]</p><p>a</p><p>À, DNS Manager<br>-<br>ao<br>x</p><p>File<br>Action<br>View<br>Help<br>e9\an/\9 SBIBm|i aa</p><p>&amp; DNS<br>Type<br>Data<br>Timestamp<br>YA SRV-DNS-O<br>Host (A)<br>192.168.2.1<br>static<br>v ©) Forward Lookup Zones<br>Host (A)<br>192.168,0,25<br>static<br>v © enifr</p><p>[] nantes</p><p>&gt; 1) Reverse Lookup Zones</p><p>&gt; © Trust Points</p><p>&gt; 1 Conditional Forwarders</p><p>&lt;<br>&gt;</p><p>eni</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>Gestion des domaines : </p>
+<p class="tssr-source-paragraph"> <br>• <br>Chacun des serveurs DNS prend en charge un des domaines de la hiérarchie. <br>• <br>Le domaine est géré sur le 1er serveur DNS et la redondance est assurée. </p>
+<pre class="tssr-source-code">o Vous reportez les informations relatives au domaine (nom du domaine, </pre>
+<p class="tssr-source-paragraph">gestionnaire du domaine, adresses IP des serveurs DNS). <br> <br>• <br>Validez le bon fonctionnement de la résolution et de la redondance sur le domaine <br>pris en charge avant de passer à l’étape suivante. <br> </p>
+<p class="tssr-source-paragraph">Page 6/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\Administrator.WIN-JIJFH7121N@N&gt;<br>nslookup test.nantes.eni.fr 192.168.8.51<br>Server:<br>SRV-DNS-@. infraxx.net<br>Address:<br>192.168.6.51</p><p>Name:<br>test .nantes.eni.fr<br>Address:<br>192.168.2.1</p><p>PS C:\Users\Administrator.WIN-JIJFH7121N@N&gt;<br>nslookup test.nantes.eni.fr 192.168.1.51<br>DNS request timed<br>out.<br>timeout<br>was<br>2<br>seconds<br>Server:<br>Unknown<br>Address:<br>192.168.1.51</p><p>Non-authoritative<br>answer:<br>Name:<br>test.nantes.eni.fr<br>Address:<br>192.168.2.1</p><p>ED</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">Résolution des domaines de l’ensemble de la hiérarchie </p>
+<p class="tssr-source-paragraph">• <br>Paramétrez chacun des serveurs pour permettre la résolution de l’ensemble des <br>domaines de la hiérarchie (domaine parent, enfant...) <br> </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez le bon fonctionnement de la résolution sur l’ensemble de la hiérarchie. <br> </p>
+<p class="tssr-source-paragraph">• <br>Vous réaliserez un schéma montrant les chaînes de résolutions DNS. <br> <br> </p>
+<p class="tssr-source-paragraph">Page 7/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>À, DNS Manager<br>—<br>Oo<br>x</p><p>File<br>Action<br>View<br>Help<br>e*%|42n/\SSS\Em|i aa</p><p>&amp; DNS<br>Name<br>Type<br>Data<br>Timestam<br>v<br>qj SRV-DNS-1<br>v (55 Forward Lookup Zones<br>There are no items<br>to show in this view.<br>v El enifr</p><p>IN nantes<br>[1 Rennes<br>EX niort</p><p>&gt;<br>(9) Reverse Lookup Zones</p><p>&gt; [A Trust Points</p><p>&gt;<br>(4) Conditional Forwarders</p><p>&lt;<br>&gt;</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-748ce61f57f77f66e554b7496ee264ad2adffbc7e6380dc2f93ec5962d9f9645.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-748ce61f57f77f66e554b7496ee264ad2adffbc7e6380dc2f93ec5962d9f9645.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="965" height="2998"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

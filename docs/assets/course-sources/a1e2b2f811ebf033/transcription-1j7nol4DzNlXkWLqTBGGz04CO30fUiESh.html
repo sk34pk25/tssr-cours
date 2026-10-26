@@ -1,0 +1,95 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 2 - Utilisateurs et groupes en contexte de domaine AD.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP 2 - Utilisateurs et groupes en contexte de domaine AD</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en environnement Microsoft<br>Utilisateurs et groupes en <br>contexte de domaine AD </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Active Directory</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 et réalisé les TP<br>précédents.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 à 2 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Prérequis<br> <br>   : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avoir réalisé le TP précédent du Module 02.</p>
+<p class="tssr-source-paragraph">Recherche d’objets dans l’annuaire<br> <br>   : <br>Utilisez les fonctions de recherche de l’AD pour contrôler si les comptes locaux existants <br>existent toujours.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Si oui, où se trouvent-ils ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Où se trouve le compte d’ordinateur W19-CD1 ?</p>
+<p class="tssr-source-paragraph">Page 1/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Création de la structure de stockage des objets de l’annuaire<br> <br>   : </p>
+<p class="tssr-source-paragraph">Créez les unités d’organisation en vous basant sur les informations du tableau ci-dessous.</p>
+<p class="tssr-source-paragraph">Type<br>Nom</p>
+<p class="tssr-source-paragraph">Nantes</p>
+<p class="tssr-source-paragraph">Agence</p>
+<p class="tssr-source-paragraph">Vertou</p>
+<p class="tssr-source-paragraph">Rennes</p>
+<p class="tssr-source-paragraph">Production</p>
+<p class="tssr-source-paragraph">Services</p>
+<p class="tssr-source-paragraph">Informatique</p>
+<p class="tssr-source-paragraph">Commercial</p>
+<p class="tssr-source-paragraph">Intérimaire</p>
+<p class="tssr-source-paragraph">Fonction dans les services</p>
+<p class="tssr-source-paragraph">Secrétaire</p>
+<p class="tssr-source-paragraph">Serveurs Membres</p>
+<p class="tssr-source-paragraph">Ordinateurs</p>
+<p class="tssr-source-paragraph">Postes Clients</p>
+<p class="tssr-source-paragraph">Création des modèles et comptes utilisateurs</p>
+<p class="tssr-source-paragraph">Créez des modèles d’utilisateurs pour les services :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Informatique<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Production<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Commercial</p>
+<p class="tssr-source-paragraph">Les caractéristiques des comptes utilisateurs selon leur service d’appartenance sont <br>indiquées ci-après :</p>
+<p class="tssr-source-paragraph">Les utilisateurs du service Production</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Leur tranche horaire est soit</p>
+<pre class="tssr-source-code">o
+De 6h à 12h
+o
+De 13h à 21h
+<img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Chaque collaborateur n’est affecté qu’à une tranche horaire
+<img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Ils travaillent tous dans l’agence de Vertou
+<img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Ils font partie du groupe Production</pre>
+<p class="tssr-source-paragraph">Les utilisateurs du service Informatique</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ils disposent de l’ensemble des privilèges à l’échelle du domaine (à l’exception de <br>la secrétaire)<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ils travaillent tous à l’agence de Nantes</p>
+<p class="tssr-source-paragraph">Les utilisateurs du service Commercial</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ils ne pourront se connecter que sur les postes clients Windows 10<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ils travaillent tous dans l’agence de Rennes</p>
+<p class="tssr-source-paragraph">Page 2/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Type</td><td>Nom</td></tr><tr><td>Agence</td><td>Nantes</td></tr><tr><td></td><td>Vertou</td></tr><tr><td></td><td>Rennes</td></tr><tr><td>Services</td><td>Production</td></tr><tr><td></td><td>Informatique</td></tr><tr><td></td><td>Commercial</td></tr><tr><td>Fonction dans les services</td><td>Intérimaire</td></tr><tr><td></td><td>Secrétaire</td></tr><tr><td>Ordinateurs</td><td>Serveurs Membres</td></tr><tr><td></td><td>Postes Clients</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">En partant de vos nouveaux modèles<br> <br>   : </p>
+<p class="tssr-source-paragraph">Service Informatique<br>Service Production<br>Service Commercial</p>
+<p class="tssr-source-paragraph">Stéphane<br>Philippe<br>Camille (Secrétaire)</p>
+<p class="tssr-source-paragraph">Sophie (Secrétaire)<br>Pascal<br>Claude</p>
+<p class="tssr-source-paragraph">Samir<br>Paul<br>Corentin</p>
+<p class="tssr-source-paragraph">mon prénom<br>Isabelle (Intérimaire)<br>Ines (Intérimaire)</p>
+<p class="tssr-source-paragraph">Vous contrôlerez la bonne prise en compte des caractéristiques des comptes créés.</p>
+<p class="tssr-source-paragraph">Dépendance aux services de domaine AD<br> <br>   : <br>1.<br>Arrêtez le service DNS du contrôleur de domaine.<br>2.<br>Redémarrez le poste client puis effectuez les tests suivants.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Parvenez-vous à ouvrir une session sur le domaine avec l’utilisateur précédemment<br>utilisé ?</p>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Parvenez-vous à ouvrir une session sur le domaine avec un utilisateur qui n’a encore<br>jamais utilisé W10-CLI1 ?</p>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Après avoir relancé le service DNS, arrêtez le service Netlogon, quelle est la<br>conséquence de cet arrêt ?</p>
+<p class="tssr-source-paragraph">Pour rétablir la situation, relancez les services Services de domaine Active Directory.</p>
+<p class="tssr-source-paragraph">Page 3/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>OO<br>OO</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Service Informatique</td><td>Service Production</td><td>Service Commercial</td></tr><tr><td>Stéphane</td><td>Philippe</td><td>Camille (Secrétaire)</td></tr><tr><td>Sophie (Secrétaire)</td><td>Pascal</td><td>Claude</td></tr><tr><td>Samir</td><td>Paul</td><td>Corentin</td></tr><tr><td>é<br>mon pr nom</td><td>Isabelle (Intérimaire)</td><td>Ines (Intérimaire)</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Vous contrôlerez la bonne prise en compte des caractéristiques des comptes créés<br>.</td><td></td><td></td></tr><tr><td>Dépendance aux services de domaine AD :</td><td></td><td></td></tr><tr><td>1<br>.</td><td>Arrêtez le service DNS du contrôleur de domaine<br>.</td><td></td></tr><tr><td>2<br>.</td><td>Redémarrez leposte client puis effectuez les</td><td>tests suivants<br>.</td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"> Parvenez-vous à ouvrir une session sur le domaine avec l’utilisateur précédemment<br>utilisé ?</td><td></td></tr><tr><td></td><td>Oui Non</td><td></td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"> Parvenez-vous àouvrir une session sur le domaine avec un utilisateur qui n’aencore</td><td></td></tr><tr><td></td><td>jamais utilisé W10 -CLI1 ?</td><td></td></tr><tr><td></td><td>Oui Non</td><td></td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"> Après avoir relancé le service DNS arrêtez le service Netlogon quelle est la<br>, ,</td><td></td></tr><tr><td></td><td>conséquence decet arrêt ?</td><td></td></tr></tbody></table></div>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Page 4/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5899ce8cec6cd0532d0aff01c2f4682c89974ce9fcbb5653c0519b0981d0a9ca.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5899ce8cec6cd0532d0aff01c2f4682c89974ce9fcbb5653c0519b0981d0a9ca.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="3586"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

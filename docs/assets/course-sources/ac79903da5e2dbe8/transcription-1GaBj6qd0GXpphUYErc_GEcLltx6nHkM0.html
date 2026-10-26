@@ -1,0 +1,46 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03TP01 - Solution - Démarrer et arrêter Debian.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M03TP01 - Solution - Démarrer et arrêter Debian</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+<h4>Démarrer et arrêter Debian </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">15 à 30 minutes </p>
+<h4>Solution : Identification &amp; modification de la cible <br>par défaut : sur la station avec environnement <br>graphique </h4>
+<p class="tssr-source-paragraph">• <br>Démarrer le système, ouvrez une session avec votre utilisateur  </p>
+<p class="tssr-source-paragraph"> <br>Cliquez sur votre nom puis saisissez votre mot de passe </p>
+<p class="tssr-source-paragraph">• <br>Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la <br>machine ? </p>
+<p class="tssr-source-paragraph"> → <br> <br>Ouvrir une fenêtre de terminal puis saisir la commande attendue </p>
+<p class="tssr-source-paragraph">• <br>Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée <br>au point précédent. Lire le paragraphe correspondant et en déduire le nom de la <br>cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE   </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>e<br>Ss</p><p>Camille Garcia</p><p>4<br> essosssese)<br>@</p><p>@<br>terminal<br>a</p><p>A<br>camille@DebClient: ~</p><p>amille@DebClient:-$ systemctl get-default<br>graphical.target</p><p>srmins<br>amille@DebClient:~$</p><p>ff</p><p>(Gay</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+<p class="tssr-source-paragraph"> → <br> <br>man systemd   puis recherche  /graphical.target . <br>Le résultat de cette recherche nous permet de remarquer le choix entre graphical.target et multi-user.target </p>
+<p class="tssr-source-paragraph">• <br>Définir comme cible par défaut la cible trouvée au point précédent. </p>
+<p class="tssr-source-paragraph"> <br>Faire une élévation de droit puis saisir la commande systemctl avec ces paramètres </p>
+<p class="tssr-source-paragraph">• <br>Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, <br>l’environnement graphique a-t-il été chargé ? Est-ce normal ? </p>
+<p class="tssr-source-paragraph"> <br>Après redémarrage, le mode multi-user par défaut nous offre un mode console </p>
+<p class="tssr-source-paragraph">• <br>Exécuter la commande systemctl appropriée afin de charger l’environnement <br>graphique. </p>
+<p class="tssr-source-paragraph"> → <br> <br>Ouvrir une session avec l&#x27;utilisateur root,  saisir la commande systemctl isolate graphical.target </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>F<br>7<br>Description</p><p>ystend<br>is<br>à<br>system<br>and<br>service<br>manager<br>for<br>Linux<br>operatil</p><p>ss<br>PID<br>1),<br>it<br>acts<br>on<br>init<br>system<br>that<br>beings<br>up<br>and malt</p><p>are<br>started<br>for<br>logged-in<br>users<br>to<br>start<br>their<br>service</p><p>systend<br>is<br>usually<br>not<br>invoked directly<br>by<br>the<br>user,<br>but<br>À<br>started during early boot,<br>The user manager<br>instances<br>are<br>PETERET LANEY (For Fully orestured Boots Into]<br>user@.service(S)<br>service<br>the UI)<br>or multi-user.target<br>(for<br>limited console-only</p><p>dic<br>ee<br>a is |!<br>de GSà<br>Lied oi À<br>boots for use in embedded or server environments, or<br>tt ay<br>nace att es À<br>pSimilar; a subset of ENEBMEMEE).<br>However, it is at<br>and telinit<br>are<br>mostly equivalent when invoked from normal<br>the discretion of<br>the administrator<br>to configure<br>it as an<br>information<br>alias<br>to<br>any<br>other<br>target<br>unit.<br>See systend,special(7}<br>lucauhical.Laraetl<br>A<br>(for details about<br>these<br>target units.<br>|</p><p>camillegDebClient:-$ su<br>-<br>Mot de passe<br>:<br>root@DebClient<br>:~# systemctl set-default multi-user.target<br>Removed /etc/systemd/system/default.target.<br>Created symlink /etc/systemd/system/default.target + /lib/systemd/system/multi-user.<br>target.<br>root@DebClient :~#</p><p>ANSE<br>|<br># DebClient *</p><p>Jebian<br>GNU/Linux<br>11<br>Deb<br>nt<br>tty</p><p>ebClient<br>login</p><p>ebian<br>GNU/Linux<br>11<br>DebClient<br>ttyl</p><p>ebClient login: root<br>(a) Camille Garcia<br>assword:</p><p>inux<br>DebClient 5.10.0-9-amd64<br>#1<br>SMP Debian 5.10.70-1<br>(2021-09-30)<br>x86_64<br>PTR</p><p>12 programs<br>included<br>with<br>the Debian GNU/Linux<br>system<br>are<br>free<br>software;<br>ne<br>exact<br>distribution<br>terms<br>for<br>each<br>program<br>are<br>described<br>in<br>the<br>ndividual<br>files<br>in<br>/usr/share/doc/*/copyr ight.</p><p>ebian<br>GNU/Linux<br>comes<br>with<br>ABSOLUTELY<br>NO<br>WARRANTY,<br>to<br>the<br>extent<br>ermitted<br>by applicable<br>law.<br>rn<br>oot@DebClient:“# systemctl isolate graphical.target _<br>f<br>debian</p></div></details>
+
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3969e260e9391f9e588d4f70283f21da416ddf108fa0f44781385f0c03b1b2cc.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3969e260e9391f9e588d4f70283f21da416ddf108fa0f44781385f0c03b1b2cc.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="3987"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,45 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 2 - Gestion du stockage.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Enoncé du TP 2 - Gestion du stockage</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+
+<h4>Gestion du stockage </h4>
+<p class="tssr-source-paragraph">TP du Module 01 – Administration Windows </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 et réalisé le TP <br>précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph"> 30min / 1 heure </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Disposer des machines virtuelles installées dans le TP précédent. </p>
+<p class="tssr-source-paragraph">• <br>Modifier la lettre du lecteur CD en « L: » </p>
+
+
+<p class="tssr-source-paragraph">Ajout de disques au serveur : </p>
+<p class="tssr-source-paragraph">Ajouter trois disques SCSI de 10 Go chacun au serveur W19-SRV1. </p>
+
+<p class="tssr-source-paragraph">Besoins de stockage : </p>
+<p class="tssr-source-paragraph">En vue de stocker les documents de travail des utilisateurs, créez un volume en RAID-5 <br>pouvant héberger environ 6 Go de données appelé « Données » et accessible depuis le <br>lecteur D:\ </p>
+<p class="tssr-source-paragraph">Les membres du service informatique doivent pouvoir accéder à tout moment aux outils <br>d’administration du système. Créez un volume miroir de 4 Go monté dans C:\INFO-TOOLS <br>et reposant sur les disques 1 et 3. </p>
+<p class="tssr-source-paragraph">Une base de données SQL Server d’une taille maximale de 8 Go sera hébergée sur le <br>serveur. Créez un volume optimisé pour les performances en lecture/écriture, nommé <br>Database et accessible via le lecteur E:\ </p>
+<p class="tssr-source-paragraph">Ces partitions n’hébergeront pas de système d’exploitation. </p>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Service Réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">Configuration du stockage sur le serveur : </p>
+<p class="tssr-source-paragraph">• <br>Créez les volumes correspondant aux besoins depuis la console de Gestion des <br>disques. <br>• <br>Stockez des fichiers quelconques sur l’ensemble de vos lecteurs. <br> <br>Simulation de panne : <br>Depuis les paramètres VMware Workstation, supprimez le disque SCSI n°3 puis observez les <br>changements dans la console de Gestion des disques. <br> </p>
+<pre class="tssr-source-code">1. Pouvez-vous accéder aux données stockées sur Données ? □ Oui   □ Non </pre>
+<p class="tssr-source-paragraph">Pourquoi ? <br> <br> <br> <br> <br> <br> <br> <br> </p>
+<pre class="tssr-source-code">2. Pouvez-vous accéder aux données stockées dans C:\INFO-TOOLS ? □ Oui   □ Non </pre>
+<p class="tssr-source-paragraph">Pourquoi ? <br> <br> <br> <br> <br> <br> </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>Réparation des volumes défectueux : </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez un disque supplémentaire via les paramètres de la machine virtuelle <br>VMWare. <br>• <br>Retirez le dernier disque pour simuler une panne.  <br>• <br>Réparez les volumes défectueux depuis la console Gestion des disques. <br> </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-7e46eeb28ef2a5c55f3997f844b04e121d924c716de1d117d9852ca8f1ac96b2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7e46eeb28ef2a5c55f3997f844b04e121d924c716de1d117d9852ca8f1ac96b2.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1197"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

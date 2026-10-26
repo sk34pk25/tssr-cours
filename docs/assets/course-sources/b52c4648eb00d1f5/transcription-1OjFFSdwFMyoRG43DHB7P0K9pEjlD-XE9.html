@@ -1,0 +1,60 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 2 - Les types de variables.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 2 - Les types de variables</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les types de variables </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de découvrir comment nous pouvons lier les variables entre <br>elles, en gardant à l’esprit que les variables doivent être de type identique. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Dans le cas où nous disposons de deux variables de même type, la variable contenant le résultat <br>sera du même type que les variables d’origine. </p>
+<pre class="tssr-source-code">• 
+Voici ce qu’il est possible de faire avec des variables de type String </pre>
+
+<pre class="tssr-source-code">Les variables de type String peuvent être fusionnées pour obtenir une chaîne de caractères. </pre>
+
+<p class="tssr-source-paragraph">On récupère les valeurs des propriétés avec le « . » puis on le stocke en variable. </p>
+
+<pre class="tssr-source-code">La variable finale conserve le type SystemString et hérite des variables $e et $f. </pre>
+<pre class="tssr-source-code">Le type de variable int va interpréter les chiffres et va permettre d’utiliser les opérateurs 
+mathématiques. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>$a<br>=<br>abc<br>PS C:\&gt;<br>$b = “def”<br>PS C:\&gt; $c = $a +<br>$b<br>PS C:\&gt; $c<br>abcdef</p><p>PS C:\&gt; $d = Get-ADUser<br>-filter<br>*<br>PS C:\&gt; $e = $d.name<br>PS C:\&gt; $f = $d.givenname<br>PS C:\&gt; $g = $e + $f<br>PS C:\&gt; $g<br>Administrator</p><p>Guest</p><p>krbtgt<br>toto<br>System.Collections.Hashtable<br>Morse<br>Yang<br>Randal]</p><p>PS C:\&gt; $g.gettype(). fullname<br>System.String</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">Il est possible de récupérer une valeur de type Int sur un objet.  </pre>
+
+
+<pre class="tssr-source-code">Cette méthode appliquée à la variable $g arrondit le nombre de décimales à la valeur indiquée 
+entre les parenthèses. </pre>
+<pre class="tssr-source-code">Le troisième type de variable est le type Array qui permet de stocker des valeurs en leur attribuant 
+un index. </pre>
+
+<pre class="tssr-source-code">La variable $array est de type System.Object car les variables de type Array sont utilisées pour 
+stocker des objets sur des résultats de commande comme Get-Aduser. </pre>
+<pre class="tssr-source-code">L’avantage de ces variables est qu’il est possible de leur appliquer des méthodes (puisqu’étant de 
+type System.Object) </pre>
+
+<pre class="tssr-source-code">Attention la méthode Replace est sensible à la casse sur les valeurs entre les parenthèses. </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>$a<br>=<br>L<br>PS C:\&gt;<br>$b<br>=<br>2<br>PS C:\&gt;<br>$c<br>= $a + $b<br>PS C:\&gt;<br>$c<br>3</p><p>P<br>:\&gt;<br>$d<br>=<br>Get-Process<br>PS C:\&gt;<br>$e<br>= $d[4].id<br>PS C:\&gt; $f = $d[5].id<br>PS C:\&gt; $g = $e / $f<br>PS C:\&gt; $g<br>0.0936026936026936</p><p>PS C:\&gt;<br>[math]: :Round($g,2)<br>0.09</p><p>PS C:\&gt; $array = &quot;pcl&quot;,&quot;“pc2&quot;,&quot;pc3&quot;<br>PS C:\&gt; $array[1]<br>pc2</p><p>PS C:\&gt; $array.GetType(). fullname<br>System.Object</p><p>PS C:\&gt; $array.Replace(&quot;Pci&quot;,&quot;Pcii&quot;)<br>pci<br>pc2<br>pc3</p><p>PC4<br>PS C:\&gt; $array.Replace(&quot;pcl&quot;,<br>&quot;PCi1&quot;)<br>PC11<br>pc2<br>pc3</p><p>PC4</p><p>PS C:\&gt; Sarray[3]<br>PC4</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">Attention également à l’indexation qui débute à 0 ; ainsi la valeur d’index 3 pointe vers la <br>quatrième valeur du tableau.  </p>
+<pre class="tssr-source-code">Toutefois la variable de type array est statique ; le nombre de valeurs ne peut être diminué. </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-3060e2c710ba374b5bf2b853fd4d1a3e4060cab979d10cb0c713c5f857f6bb75.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3060e2c710ba374b5bf2b853fd4d1a3e4060cab979d10cb0c713c5f857f6bb75.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="3056"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,278 +1,183 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Installation de Windows.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Installation de Windows.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Installation de Windows 10
-TP du Module 02 – Installation du système de Windows 10
-
-Proposition de solution
-Préparer l’environnement
-•  Créer un dossier ISO, un dossier Procédures et un dossier Vms-WorkStation sur le lecteur
-   C: de votre ordinateur (ou autre volume éventuellement présent et dédié à la data).
-•  Copiez le fichier ISO, depuis les ressources à télécharger, qui correspond au système
-   d’exploitation Windows 10, dans le dossier ISO que vous venez tout juste de créer ci-
-   dessus.
-
-
-Démarrer WorkStation et procéder à la création de votre première VM
-•  Lancez VMware Workstation (icône disponible sur le bureau).
-•  Créez votre 1re VM
-
-
-
-
-
-•  Cliquez sur Create a New Virtual Machine pour entrer dans l’assistant de création de
-   votre VM
-
-
-                o  1 - Typical
-
-
-
-
- Page 1/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
-
-                o  2 - Guest operating system : Windows 10 x64
-                o  3 - Virtual Machine Name : Win10-XX (XX étant vos initiales)
-
-                         Location : C:\Vms-WorkStation\Win10-XX
-                      (Volume C: ou autre volume de données)
-
-
-
-
-
-                         Disk Capacity : 32 (GB) (Store as an single file)
-
-                    Customize Hardware
-                o  Memory : 4 GB
-                o  Processors : 1 processeur / 1 cœur de processeur
-
-
-
-
-
- Page 2/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
-
-
-
-
-
-                o  Network Adapter : Host-Only
-                o  Finish
-•  À l’issue de la création de votre VM, Win10-XX doit apparaître dans le champ Library à
-   gauche de l’écran WorkStation et la configuration de la VM doit ressembler à l’écran
-   suivant :
-
-
-
-
-
- Page 3/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Systèmes Clients Microsoft
-
-
-
-
-
-Installation du système d’exploitation
-•   Insérer l’ISO d’installation de Windows 10 dans le lecteur DVD virtuel de la VM. L’ISO se
-   trouve dans le dossier ISO de votre lecteur de données. Cliquez sur Browse… pour
-   parcourir votre lecteur et sélectionnez l’ISO Windows 10 .
-
-
-
-
-
- Page 4/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>Systèmes Clients Microsoft
-
-Dans la barre de recherche Windows 10, tapez psr puis lancer l’application Enregistreur
-d’actions utilisateur.
-
-Éditez les paramètres du logiciel en cliquant sur la flèche à gauche du bouton d’aide et
-appliquez  la configuration comme ci-dessous  puis lancez  l’enregistrement. Lorsque
-l’enregistrement est lancé, pour une meilleure lisibilité, vous réduisez la fenêtre psr dans votre
-barre des tâches.
-
-
-
-
-
-•  Démarrez votre VM Power on this virtual machine
-•   Faites le focus dans votre VM (cliquez à l’intérieur).
-•  Pour lancer la procédure d’installation depuis le DVD virtuel, appuyer sur une touche
-   lorsque vous est demandé : Press any key to boot from CD or DVD……
-
-                o  Langue à installer : Français (France)
-                o   Installer Maintenant
-                o  Activer Windows : Je n’ai pas de clé de produit
-                o  Sélectionner  le système d’exploitation à  installer : Windows 10
-                        Professionnel
-                o  Avis et conditions du contrat de licence applicables : J’accepte les
-                     termes du contrat de licence
-                o  Quel  type  d’installation  voulez-vous  effectuer ?  Personnalisé :
-                            Installer iniquement Windows (avancé)
-                o Où souhaitez-vous installer Windows ? Laissez par défaut, le système
-                   occupera les 32 Go du disque dur de votre VM pour son bon
-                     fonctionnement.
-
-
-
-
-
- Page 5/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>Systèmes Clients Microsoft
-
-
-
-
-
-Installation en cours, patientez quelques minutes
-
-Deux redémarrages surviennent jusqu’à l’apparition de la page de configuration de base
-de Windows 10. Le système est installé et est chargé pour la première fois depuis le disque
-dur de votre VM.
-Vous pouvez arrêter l’enregistrement psr en cliquant sur le bouton Arrêter l’enregistrement
-Vérifiez que le document est bien présent dans le zip du dossier Procédures
-
-Servez-vous des captures d’écran que vous considérez importantes pour ensuite construire
-votre propre procédure à l’aide d’un traitement de texte.
-
-
-Informations concernant la configuration de base suite à l&#x27;installation
-
-
-Pas à pas, suivez les instructions du tableau ci-dessous pour personnaliser le système :
-
- Région : France
-
- Disposition du clavier : Français
-
- Pas de disposition de clavier supplémentaire nécessaire
-
- Pas de connexion Internet disponible pour le moment
-
- Continuer avec l&#x27;installation limitée
-
-
-
-
-
- Page 6/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>Systèmes Clients Microsoft
-
- Nom d&#x27;utilisateur : pnom (1re lettre du prénom suivi du nom de famille) puis fixer
- un mot de passe et répondez aux questions de récupération
-
- Pas d&#x27;historique des activités
-
- Pas d&#x27;assistante numérique &quot;Cortana&quot;
-
- Ne pas utiliser la reconnaissance vocale en ligne
-
- Ne pas autoriser Microsoft et les applications à utiliser votre emplacement
-
- Ne pas localiser l&#x27;appareil
-
- Envoi basique des données de diagnostic à Microsoft
-
- Ne pas améliorer l&#x27;écriture manuscrite et la saisie
-
- Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic
-
- Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité
-
-À la fin de la personnalisation du système, le bureau Windows 10 apparaît.
-
-Finalisation de la configuration de base
-
-    •   Installation des VMware Tools :
-
-        o  Dans WorkStation faites un clic droit sur l’onglet correspondant à votre VM et
-             cliquez   sur   Install  VMware  Tools…  Cette  action  permet  d’insérer
-           automatiquement une image ISO comprenant des éléments nécessaires à
-              l’amélioration de fonctionnement de votre VM.
-
-        o  Dans votre VM, ouvrez votre Explorateur de fichiers &gt; Ce PC &gt; Double-clic sur
-             votre lecteur de DVD (D:) VMware Tools.
-
-        o  Exécutez setup64
-
-        o  Choisissez les propositions par défaut lorsque l’assistant d’installation vous le
-         demande
-
-        o  Un redémarrage de votre VM est nécessaire à l’issue de l’installation des
-          VMware Tools.
-
-    •  Depuis votre VM redémarrée, éjectez le DVD des VMware Tools en faisant un clic
-        droit sur le Lecteur de DVD (D:) &gt; Éjecter.
-
-    •   Faites un Snapshot de l’état de votre VM (éteinte = Snapshot à froid ou allumée =
-      SnapShot à chaud). Pour cela, faites un clic droit sur l’onglet de votre VM dans
-      WorkStation et cliquez sur Snapshot &gt; Take a Snapshot …
-
-         Name : TP1 terminé
-
-         Ce Snapshot vous permettra de revenir à l’état de votre VM quand vous
-              voulez.
-
-
-
-
-
- Page 7/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>Systèmes Clients Microsoft
-Importer une seconde VM
-•  Importez la VM Discovery au format OVA dans un sous-dossier créé par vos soins en
-   amont nommé Discovery dans le dossier VMs-WorkStation. L&#x27;archive OVA se trouve dans
-    les ressources à télécharger.
-                o  Sur le lecteur de données de votre espace de travail, créer un sous-
-                        dossier Discovery dans le dossier VMs-WorkStation
-                o  Depuis les ressources à télécharger, copiez le fichier Discovery.ova
-                   dans le dossier VMs-WorkStation\Discovery créé précédemment
-                o  Avec WorkStation, onglet Home &gt; Open a Virtuel Machine
-                o  Naviguez dans votre volume de données puis sélectionnez le fichier
-                     VMs-WorkStation\Discovery\Discovery.ova
-                o  Importez    la  VM   Discovery   dans    le    dossier   VMs-
-                      WorkStation\Discovery puis patientez quelques minutes
-
-
-
-
-
-Complétez le tableau suivant :
-
-  Paramètres de la VM Discovery
-            Nom de la VM  Discovery
-               Emplacement  Sous-dossier Discovery du dossier VMs-WorkStation
-          Nb Disque(s) dur(s)  4
-                   Mémoire  4 GB
-                    Processeurs  1
-                  Carte réseau  Host-Only
-
-
-
-
-
- Page 8/9
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>Systèmes Clients Microsoft
-
-
-
-
-
-•  Démarrez Discovery et ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd)
-•  Complétez le tableau suivant
-
-    Caractéristiques de Discovery
-                               Oui
-       VMware Tools présent ?  (panneau de configuration &gt; Ajout suppression de
-                            programmes : VMware Tools présent)
-
-
-
-
-
- Page 9/9
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Installation de Windows.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Installation de Windows</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Installation de Windows 10 </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation du système de Windows 10 </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Préparer l’environnement </p>
+<p class="tssr-source-paragraph">• <br>Créer un dossier ISO, un dossier Procédures et un dossier Vms-WorkStation sur le lecteur <br>C: de votre ordinateur (ou autre volume éventuellement présent et dédié à la data). </p>
+<p class="tssr-source-paragraph">• <br>Copiez le fichier ISO, depuis les ressources à télécharger, qui correspond au système <br>d’exploitation Windows 10, dans le dossier ISO que vous venez tout juste de créer ci-<br>dessus. </p>
+<p class="tssr-source-paragraph"> <br>Démarrer WorkStation et procéder à la création de votre première VM </p>
+<p class="tssr-source-paragraph">• <br>Lancez VMware Workstation (icône disponible sur le bureau). </p>
+<p class="tssr-source-paragraph">• <br>Créez votre 1re VM </p>
+<p class="tssr-source-paragraph">• <br>Cliquez sur Create a New Virtual Machine pour entrer dans l’assistant de création de <br>votre VM </p>
+
+<pre class="tssr-source-code">o 1 - Typical </pre>
+<p class="tssr-source-paragraph">Page 1/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>@ VMware Workstation<br>-<br>ao<br>xX</p><p>| File Edit View VM Tabs Help<br>| à<br>&gt;<br>|<br>|<br>Ole<br>|<br>|</p><p>Librery<br>xls<br>x]</p><p>| Q Tpeheretosearch<br>|</p><p>[Sl My Computer<br>5<br>:<br>&amp; Shared VMs<br>eebe evaluation period ends in 136<br>4, Gers teensekey<br>enters<br>re)</p><p>WORKSTATION 14 PR</p><p>‘<br>ha<br>@<br>Open a Virtual<br>Connect</p><p>to a<br>Machine<br>Remote Server<br>a<br>4<br>4</p><p>vmware<br>E À Taper ici pour rechercher<br>=i<br>Bes<br>OO B<br>1) yh, M</p><p>ent</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<pre class="tssr-source-code">o 2 - Guest operating system : Windows 10 x64 </pre>
+<pre class="tssr-source-code">o 3 - Virtual Machine Name : Win10-XX (XX étant vos initiales) </pre>
+<p class="tssr-source-paragraph">Location : C:\Vms-WorkStation\Win10-XX </p>
+<p class="tssr-source-paragraph">(Volume C: ou autre volume de données) </p>
+
+
+<p class="tssr-source-paragraph">Disk Capacity : 32 (GB) (Store as an single file) </p>
+<p class="tssr-source-paragraph">Customize Hardware </p>
+<pre class="tssr-source-code">o Memory : 4 GB </pre>
+<pre class="tssr-source-code">o Processors : 1 processeur / 1 cœur de processeur </pre>
+
+<p class="tssr-source-paragraph">Page 2/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>File<br>Edit<br>View<br>VM<br>Tabs<br>Help|<br>&gt;|<br>|<br>[| Ses<br>|</p><p>Library<br>CR<br>PS<br>x)<br>[Q Tpeheretosearch<br>|</p><p>[Sl My Computer<br>5<br>F<br>É Shared VMs<br>&amp; Your evaluation period ends in 136<br>a<br>nus<br>|. Get a licens<br>2. Enter<br>a license<br>à</p><p>1. Get a license key<br>era<br>key<br>New Virtual Machine Wizard<br>x<br>Name the Virtual Machine</p><p>What name would you tke to use for this virtual machine?<br>(</p><p>Virtual machine name:</p><p>Wanl05<br>]<br>@<br>Location:<br>[crime Wodseteniwninx<br>|<br>Connect toa<br>‘The defauit location can be changed at Edit &gt; Preferences,<br>Remote Server<br>y<br>4</p><p>&lt;Back<br>| Langefl cance!</p><p>vmware</p><p>=<br>~—~<br>a4<br>E À Taper ici pour rechercher<br>Bi<br>mm<br>ms<br>&amp;<br>B®<br>yo<br>M</p><p>ent</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+
+<pre class="tssr-source-code">o Network Adapter : Host-Only </pre>
+<pre class="tssr-source-code">o Finish </pre>
+<p class="tssr-source-paragraph">• <br>À l’issue de la création de votre VM, Win10-XX doit apparaître dans le champ Library à <br>gauche de l’écran WorkStation et la configuration de la VM doit ressembler à l’écran <br>suivant : </p>
+
+<p class="tssr-source-paragraph">Page 3/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>File<br>Edit<br>View VM Tebs Help<br>| à &gt;<br>|<br>|<br>CSSS<br>EN</p><p>Library<br>xl<br>x]<br>Q<br>Type here to search<br>LA_<br>Hardware<br>x<br>Ii My Computer</p><p>6 Shared VMs<br>eae.<br>Sr<br>Processor<br>Iter</p><p>a license key<br>‘Memory<br>408<br>Number of processors:<br>1<br>YJ<br>RE Prices oF cores per processor:<br>[1<br>¥<br>Æ)New CD/DVD (SATA)<br>Auto detect<br>Total pis<br>ee<br>5<br>ES Nebrork Adapter<br>NAT<br>ds<br>D</p><p>LSB Controller<br>Present<br>Virtualization engine<br>®) sound Card<br>‘Auto detect<br>inter<br>im<br>(Virtualize Intel VT-x/EPT</p><p>orAMD-V/RVI<br>lBbsplay<br>Auto detect<br>Cl virtualize CPU performance counters:</p><p>[Virtualze 10MMU (10 memory management unit)</p><p>, 4<br>y<br>4</p><p>a.<br>|<br>(URS</p><p>he</p><p>vmware</p><p>=<br>5<br>…<br>ce<br>#14<br>E À Taper ici pour rechercher<br>Bi<br>mm<br>pa<br>&amp;<br>B®<br>yo<br>M</p><p>ent</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph"> <br>Installation du système d’exploitation </p>
+<p class="tssr-source-paragraph">• <br>Insérer l’ISO d’installation de Windows 10 dans le lecteur DVD virtuel de la VM. L’ISO se <br>trouve dans le dossier ISO de votre lecteur de données. Cliquez sur Browse… pour <br>parcourir votre lecteur et sélectionnez l’ISO Windows 10 . </p>
+
+<p class="tssr-source-paragraph">Page 4/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>© Win10-XX - VMware Workstation<br>-<br>x</p><p>File<br>Edit<br>View<br>VM<br>Tabs<br>Help | D<br>+<br>C<br>©)<br>| io) ees</p><p>Library<br>x<br>|</p><p>|<br>Win10-XX<br>a Ml My Computer<br>=<br>Win10<br>LE] Win10-xx<br>ï<br>=<br>&amp; Shared VMs<br>Be he és<br>PRET</p><p>EB Memory<br>468<br>{Processors<br>1</p><p>(QHard Disk (SCSI)<br>32GB<br>CD/DVD (SATA)<br>Auto detect</p><p>Fa Nebwork Adapter<br>Host-only<br>USE Controller<br>Present</p><p>)) Sound Card<br>Auto detect</p><p>Display<br>Auto detect</p><p>+ Description</p><p>+ Virtual<br>Machine Details</p><p>Configuration file: C:\Vms-WorkStation\Win10-XX\Win10-XX.vmx<br>Hardware compatibility: Workstation 14x virtual machine</p><p>æ<br>mr<br>=<br>lé<br>E ies reece<br>ai<br>= à<br>0<br>œ<br>2°) we D</p><p>E)</p><p>Library<br>x<br>|<br>| Virtual Machine Settings<br>x]<br>Î</p><p>L<br>.</p><p>1<br>Hardware<br>Options<br>mmc<br>PL]<br>Wint<br>:</p><p>&amp; Shared VMs<br>pede<br>vieud | Proceaors<br>i<br>EAconnect<br>at power on</p><p>_<br>CD/DVD (SATA)<br>Auto detect<br>Correction<br>ieee<br>Fa Netrork Adapter<br>Host-only<br>OU pal chives<br>BB Memory<br>Bess Controller<br>Present<br>tert<br>M<br>ocenon)<br>Serre<br>Re<br>© Use 150 image</p><p>fie:<br>Bospay<br>Auto detect<br>SO\fr_windows_10_consumer.<br>Caowe..]<br>co(|<br>|<br>|<br>Dromepere<br>] [owe]<br>Fa Network À</p><p>=<br>Buse cont}</p><p>®)<br>Sound Ca}</p><p>M Display</p><p>OK<br>Cancel<br>Help</p><p>=</p><p>ci<br>pour<br>recl<br>if<br>Qi<br>A Bw)<br>pe<br>EL © eric<br>pour recherche<br>El<br>ac OB<br>D 4) ye,<br>C</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-39344b7b6a5ef56295c76f3ab93d8a29f50516297a94b0980c2183617dfad764.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-39344b7b6a5ef56295c76f3ab93d8a29f50516297a94b0980c2183617dfad764.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="965" height="3793"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Dans la barre de recherche Windows 10, tapez psr puis lancer l’application Enregistreur <br>d’actions utilisateur. </p>
+<p class="tssr-source-paragraph">Éditez les paramètres du logiciel en cliquant sur la flèche à gauche du bouton d’aide et <br>appliquez la configuration comme ci-dessous puis lancez l’enregistrement. Lorsque <br>l’enregistrement est lancé, pour une meilleure lisibilité, vous réduisez la fenêtre psr dans votre <br>barre des tâches. </p>
+
+<p class="tssr-source-paragraph">• <br>Démarrez votre VM Power on this virtual machine </p>
+<p class="tssr-source-paragraph">• <br>Faites le focus dans votre VM (cliquez à l’intérieur). </p>
+<p class="tssr-source-paragraph">• <br>Pour lancer la procédure d’installation depuis le DVD virtuel, appuyer sur une touche <br>lorsque vous est demandé : Press any key to boot from CD or DVD…… </p>
+
+<pre class="tssr-source-code">o Langue à installer : Français (France) </pre>
+<pre class="tssr-source-code">o Installer Maintenant </pre>
+<pre class="tssr-source-code">o Activer Windows : Je n’ai pas de clé de produit </pre>
+<pre class="tssr-source-code">o Sélectionner le système d’exploitation à installer : Windows 10 </pre>
+<p class="tssr-source-paragraph">Professionnel </p>
+<pre class="tssr-source-code">o Avis et conditions du contrat de licence applicables : J’accepte les </pre>
+<p class="tssr-source-paragraph">termes du contrat de licence </p>
+<pre class="tssr-source-code">o Quel type d’installation voulez-vous effectuer ? Personnalisé : </pre>
+<p class="tssr-source-paragraph">Installer iniquement Windows (avancé) </p>
+<pre class="tssr-source-code">o Où souhaitez-vous installer Windows ? Laissez par défaut, le système </pre>
+<p class="tssr-source-paragraph">occupera les 32 Go du disque dur de votre VM pour son bon <br>fonctionnement. </p>
+<p class="tssr-source-paragraph">Page 5/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>(Bi Enregistreur d&#x27;actions utilisateur<br>—<br>x<br>@ Commencer l&#x27;enregistrement Ô Arrêter l&#x27;enregistrement<br>Ga] Ajouter un commentaire<br>@-</p><p>Paramètres de l&#x27;Enregistreur d&#x27;actions utilisateur<br>x</p><p>Fichier de sortie<br>:</p><p>C: Procédures \psr-installWin 10.zip<br>Parcourir...</p><p>Capture d&#x27;écran</p><p>Activer la capture d&#x27;écran<br>:<br>©)Qui<br>oO Non<br>Nombre de captures d&#x27;écran récentes à stocker<br>:</p><p>Aidez-moi avec ces paramètres<br>Annuler</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+
+<p class="tssr-source-paragraph">Installation en cours, patientez quelques minutes </p>
+<p class="tssr-source-paragraph">Deux redémarrages surviennent  jusqu’à l’apparition de la page de configuration de base <br>de Windows 10. Le système est installé et est chargé pour la première fois depuis le disque <br>dur de votre VM. </p>
+<p class="tssr-source-paragraph">Vous pouvez arrêter l’enregistrement psr en cliquant sur le bouton Arrêter l’enregistrement  </p>
+<p class="tssr-source-paragraph">Vérifiez que le document est bien présent dans le zip du dossier Procédures </p>
+<p class="tssr-source-paragraph">Servez-vous des captures d’écran que vous considérez importantes pour ensuite construire <br>votre propre procédure à l’aide d’un traitement de texte. </p>
+
+<p class="tssr-source-paragraph">Informations concernant la configuration de base suite à l&#x27;installation  <br> </p>
+<p class="tssr-source-paragraph">Pas à pas, suivez les instructions du tableau ci-dessous pour personnaliser le système : </p>
+<p class="tssr-source-paragraph">Région : France </p>
+<p class="tssr-source-paragraph">Disposition du clavier : Français </p>
+<p class="tssr-source-paragraph">Pas de disposition de clavier supplémentaire nécessaire </p>
+<p class="tssr-source-paragraph">Pas de connexion Internet disponible pour le moment </p>
+<p class="tssr-source-paragraph">Continuer avec l&#x27;installation limitée </p>
+<p class="tssr-source-paragraph">Page 6/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>© Win10-XX<br>- VMware Workstation<br>Î<br>-</p><p>|<br>File<br>Edit<br>View<br>VM<br>Tabs<br>Help|]<br>Bl + | a |<br>L<br>©<br>| [ro<br>Rolls</p><p>Library<br>x TAL<br>j<br>=<br>ea</p><p>@ Girsataion<br>de windows<br>ta<br>*<br>= Il My Computer</p><p>EF Win10-XX<br>|<br>1 Shared VMs<br>Où souhaitez-vous installer Windows ?</p><p>Nom<br>Taille totale Espace libre Type</p><p>|<br>j7_ Lecteur<br>Espace non alloué<br>320 Go<br>320 Ge</p><p>[suivant à</p><p>_———..—<br>E<br>RE<br>i Collecte des informations<br>2 Installation de Windows<br>=<br>2<br>—————<br>To return to your computer, press Ctrl+ Alt<br>Wk<br>ane]<br>a<br>=<br>1450<br>E À Taper ici pour rechercher<br>Bi<br>Be 0<br>AB m0 M</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Nom d&#x27;utilisateur : pnom (1re lettre du prénom suivi du nom de famille) puis fixer <br>un mot de passe et répondez aux questions de récupération </p>
+<p class="tssr-source-paragraph">Pas d&#x27;historique des activités </p>
+<p class="tssr-source-paragraph">Pas d&#x27;assistante numérique &quot;Cortana&quot; </p>
+<p class="tssr-source-paragraph">Ne pas utiliser la reconnaissance vocale en ligne </p>
+<p class="tssr-source-paragraph">Ne pas autoriser Microsoft et les applications à utiliser votre emplacement </p>
+<p class="tssr-source-paragraph">Ne pas localiser l&#x27;appareil </p>
+<p class="tssr-source-paragraph">Envoi basique des données de diagnostic à Microsoft </p>
+<p class="tssr-source-paragraph">Ne pas améliorer l&#x27;écriture manuscrite et la saisie </p>
+<p class="tssr-source-paragraph">Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic </p>
+<p class="tssr-source-paragraph">Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité </p>
+<p class="tssr-source-paragraph">À la fin de la personnalisation du système, le bureau Windows 10 apparaît. </p>
+<p class="tssr-source-paragraph">Finalisation de la configuration de base </p>
+<p class="tssr-source-paragraph">• <br>Installation des VMware Tools :  </p>
+<pre class="tssr-source-code">o Dans WorkStation faites un clic droit sur l’onglet correspondant à votre VM et </pre>
+<p class="tssr-source-paragraph">cliquez <br>sur <br>Install <br>VMware <br>Tools… <br>Cette <br>action <br>permet <br>d’insérer <br>automatiquement une image ISO comprenant des éléments nécessaires à <br>l’amélioration de fonctionnement de votre VM. </p>
+<pre class="tssr-source-code">o Dans votre VM, ouvrez votre Explorateur de fichiers &gt; Ce PC &gt; Double-clic sur </pre>
+<p class="tssr-source-paragraph">votre lecteur de DVD (D:) VMware Tools. </p>
+<pre class="tssr-source-code">o Exécutez setup64 </pre>
+<pre class="tssr-source-code">o Choisissez les propositions par défaut lorsque l’assistant d’installation vous le </pre>
+<p class="tssr-source-paragraph">demande </p>
+<pre class="tssr-source-code">o Un redémarrage de votre VM est nécessaire à l’issue de l’installation des </pre>
+<p class="tssr-source-paragraph">VMware Tools. </p>
+<p class="tssr-source-paragraph">• <br>Depuis votre VM redémarrée, éjectez le DVD des VMware Tools en faisant un clic <br>droit sur le Lecteur de DVD (D:) &gt; Éjecter. </p>
+<p class="tssr-source-paragraph">• <br>Faites un Snapshot de l’état de votre VM (éteinte = Snapshot à froid ou allumée = <br>SnapShot à chaud). Pour cela, faites un clic droit sur l’onglet de votre VM dans <br>WorkStation et cliquez sur Snapshot &gt; Take a Snapshot … </p>
+<p class="tssr-source-paragraph">Name : TP1 terminé </p>
+<p class="tssr-source-paragraph">Ce Snapshot vous permettra de revenir à l’état de votre VM quand vous <br>voulez. </p>
+
+<p class="tssr-source-paragraph">Page 7/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Importer une seconde VM </p>
+<p class="tssr-source-paragraph">• <br>Importez la VM Discovery au format OVA dans un sous-dossier créé par vos soins en <br>amont nommé Discovery dans le dossier VMs-WorkStation. L&#x27;archive OVA se trouve dans <br>les ressources à télécharger. </p>
+<pre class="tssr-source-code">o Sur le lecteur de données de votre espace de travail, créer un sous-</pre>
+<p class="tssr-source-paragraph">dossier Discovery dans le dossier VMs-WorkStation </p>
+<pre class="tssr-source-code">o Depuis les ressources à télécharger, copiez le fichier Discovery.ova </pre>
+<p class="tssr-source-paragraph">dans le dossier VMs-WorkStation\Discovery créé précédemment </p>
+<pre class="tssr-source-code">o  Avec WorkStation, onglet Home &gt; Open a Virtuel Machine </pre>
+<pre class="tssr-source-code">o Naviguez dans votre volume de données puis sélectionnez le fichier  </pre>
+<p class="tssr-source-paragraph">VMs-WorkStation\Discovery\Discovery.ova </p>
+<pre class="tssr-source-code">o Importez 
+la 
+VM 
+Discovery 
+dans 
+le 
+dossier 
+VMs-
+WorkStation\Discovery puis patientez quelques minutes </pre>
+<p class="tssr-source-paragraph">Complétez le tableau suivant : </p>
+<p class="tssr-source-paragraph">Paramètres de la VM Discovery </p>
+<p class="tssr-source-paragraph">Nom de la VM Discovery </p>
+<p class="tssr-source-paragraph">Emplacement Sous-dossier Discovery du dossier VMs-WorkStation </p>
+<p class="tssr-source-paragraph">Nb Disque(s) dur(s) 4 </p>
+<p class="tssr-source-paragraph">Mémoire 4 GB <br>Processeurs 1 <br>Carte réseau Host-Only </p>
+
+<p class="tssr-source-paragraph">Page 8/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Import Virtual Machine<br>x</p><p>Store the new Virtual Machine</p><p>Provide a name and local storage path for the new<br>virtual machine.</p><p>Name for the new virtual machine:</p><p>Storage path for the new virtual machine:</p><p>C:Wms-WorkStation\Discovery</p><p>VMware Workstation</p><p>Importing Discovery</p><p>eni</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-37dae762f9d3d3e55f529a39ce8e6e809ff63f0daf288d40af9b2c2ca458514a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-37dae762f9d3d3e55f529a39ce8e6e809ff63f0daf288d40af9b2c2ca458514a.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="969" height="3407"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Démarrez Discovery et ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd) </p>
+<p class="tssr-source-paragraph">• <br>Complétez le tableau suivant </p>
+<p class="tssr-source-paragraph">Caractéristiques de Discovery </p>
+<p class="tssr-source-paragraph">VMware Tools présent ? </p>
+<p class="tssr-source-paragraph">Oui  <br>(panneau de configuration &gt; Ajout suppression de <br>programmes : VMware Tools présent) </p>
+
+<p class="tssr-source-paragraph">Page 9/9 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>© Discovery<br>- VMware Workstation<br>-<br>x</p><p>File<br>Edit<br>View VM<br>Tabs<br>Help | D +<br>©<br>S\[olan</p><p>Libra</p><p>2j<br>X | Grrome x || (5! wint0-xx<br>My computer<br>F1 Discovery<br>Q<br>Type<br>here</p><p>to search<br>-<br>Discove<br>= (Sl My Computer<br>4<br>y<br>FF Win10-xx<br>&amp;<br>Win<br>“<br>«<br>Power on<br>this<br>virtual machine<br>ES</p><p>pr<br>Power<br>uals<br>shared VMs<br>‘Biedit<br>virtual<br>machine settings</p><p>+ Devices</p><p>‘Memory<br>468<br>[Processors<br>1<br>(Hard Disk (SCSI)<br>30GB<br>(Hard Disk 2 (SCSI)<br>35GB<br>Hard Disk 3 (SCSI)<br>4068<br>Hard Disk (NVMe)<br>2568<br>CD/DVD (SATA)<br>Using unknown<br>Fe Network Adapter<br>Host-only<br>USB Controller<br>Present</p><p>@) Sound Card<br>Auto detect<br>Display<br>Auto detect</p><p>+ Description</p><p>Type<br>hereto enter a description of<br>this<br>virtual</p><p>+ Virtual<br>Machine Details</p><p>State: Powered off<br>Configuration file: C:\Vms-WorkStation\Discovery\Discovery.vmx<br>Hardware compatibility: Workstation 14x virtual machine</p><p>Primary IP address: Network information is not available</p><p>D</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-098dc2f36472a44a20962d86e7baf80acda3bc6fd4c3fb43e4e21bfd1ef77d75.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-098dc2f36472a44a20962d86e7baf80acda3bc6fd4c3fb43e4e21bfd1ef77d75.webp" alt="Illustrations du support source, pages 9" loading="lazy" width="969" height="978"></a><figcaption>Illustrations du support Drive — pages 9. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

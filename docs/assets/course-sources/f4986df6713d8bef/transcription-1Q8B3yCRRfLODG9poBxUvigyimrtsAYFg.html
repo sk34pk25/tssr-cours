@@ -1,0 +1,34 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 1 - Get-Member .pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 1 - Get-Member </h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Get-Member </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 2 </p>
+
+<pre class="tssr-source-code">L’objectif de cette démonstration est de présenter la commande Get-Member qui permet de 
+visualiser les informations d’un objet PowerShell. </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+Toute commande PowerShell agit sur un objet du système Windows. La commande Get-member 
+permet de connaître trois informations fondamentales sur l’objet en cours. </pre>
+
+<pre class="tssr-source-code">On obtient le type d’objet Paramètre TypeName. </pre>
+<pre class="tssr-source-code">La colonne MemberType renseigne sur les méthodes et les propriétés qui composent notre objet. </pre>
+<pre class="tssr-source-code">La commande Get-Member fait partie des trois commandes dites clés pour utiliser PowerShell </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\STAG&gt; Get-LocalUser<br>|<br>Get-Member</p><p>TypeName:<br>Microsoft.PowerShe11.Commands.LocalUser</p><p>Name<br>MemberType Definition</p><p>Clone<br>Method<br>Microsoft. PowerShel1.Commands.LocalUser<br>Clo<br>Equals<br>Method<br>bool<br>Equals(System.Object obj)<br>GetHashCode<br>Method<br>int GetHashCode()<br>GetType<br>Method<br>type GetType()<br>Tostring<br>Method<br>string ToString()<br>AccountExpires<br>Property<br> System.Nullable[datetime]<br>AccountExpires<br>{g<br>Description<br>Property<br>string Description {get;set;}<br>Enabled<br>Property<br>bool<br>Enabled {get;set;}<br>Ful 1Name<br>Property<br>string FullName {get;set;}<br>LastLogon<br>Property<br>System.Nullable[datetime]<br>LastLogon {get;se<br>Name<br>Property<br>string Name {get;set;}<br>lobjectClass<br>Property<br>string ObjectClass {get;set;}<br>PasswordChangeableDate Property<br>System.Nullable[datetime]<br>PasswordChangeab]<br>PasswordExpires<br>Property<br> System.Nullable[datetime]<br>PasswordExpires<br>{<br>PasswordLastSet<br>Property<br>System.Nullable[datetime]<br>PasswordLastSet<br>{<br>PasswordRequired<br>Property<br>bool<br>PasswordRequired<br>{get;set;}<br>PrincipalSource<br>Property<br>System.Nullable[Microsoft.PowerShel1.Comma<br>SID<br>Property<br>System.Security.Principal.SecurityIdentifie<br>UserMayChangePassword<br>Property<br>bool<br>UserMayChangePassword {get;set;}</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<p class="tssr-source-paragraph">comme langage d’administration de système. Pour rappel les commandes clés sont :  </p>
+<p class="tssr-source-paragraph">Get-Command </p>
+
+<p class="tssr-source-paragraph">Get-Help </p>
+
+<p class="tssr-source-paragraph"> Get-Member </p>
+<p class="tssr-source-paragraph">Une bonne connaissance de ces trois commandes est essentielle. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\Users\STAG&gt;<br>Get-Command<br>-name<br>“-service</p><p>CommandType<br>Name</p><p>Cmdlet<br>Get-Service<br>cmdlet<br>New-Service</p><p>|<br>cmdlet<br>Restart-Service<br>Cmdlet<br>Resume-Service<br>Cmdlet<br>Set-Service<br>cmdlet<br>Start-Service<br>cmdlet<br>Stop-Service<br>Cmdiet<br>Suspend-Service</p><p>PS C:\Users\STAG&gt;<br>Get-Help Get-Command</p><p>NAME</p><p>Get-Command</p><p>SYNOPSIS</p><p>Gets<br>all<br>commands.</p><p>SYNTAX</p><p>Get-Command<br>[[-Name]<br>&lt;System.String[]&gt;]<br>[[-ArgumentLis</p><p>|<br>Filter<br>|<br>Cmdlet<br>|<br>ExternalScript<br>|<br>Application<br>|<br>Scr<br>[-FullyQualifiedModule &lt;Microsoft.PowerShe11.Commands.<br>&lt;System.String[]&gt;]<br>[-ParameterName &lt;System.String[]&gt;]<br>[-ShowCommandinfo]<br>[-Syntax]<br>[-TotalCount &lt;System. Int3</p><p>Get-Command<br>[[-ArgumentList]<br>&lt;System.Object[]&gt;]<br>[-A11]<br>&lt;Microsoft. PowerShel1.Commands.ModuleSpecification[]&gt;]<br>&lt;System.String[]&gt;]<br>[-ParameterName &lt;System.String[]&gt;]<br>[-ShowCommandinfo]<br>[-Syntax]<br>[-TotalCount &lt;System. Int3</p><p>En</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-22d2486343a94731633caa516dfc976ed5539172f4d4e79d121cbf9c15957fa7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-22d2486343a94731633caa516dfc976ed5539172f4d4e79d121cbf9c15957fa7.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2040"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

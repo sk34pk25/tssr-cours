@@ -1,191 +1,148 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution Module-12-Atelier15-Capture&amp;Deploy.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution Module-12-Atelier15-Capture&amp;Deploy.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Cloner une VM Windows
-dans les règles de l&#x27;art
-TP du Module 12 – Introduction à la capture et au déploiement
-d&#x27;image
-
-Proposition de solution
-
- Préparation du poste de référence Win10-XX
-
-    •  Activez le compte utilisateur Administrateur et fixez-lui un mot de passe. Fermez votre
-       session actuelle et ouvrez une session avec le compte Administrateur. Assurez-vous
-       d&#x27;avoir un snapshot récent disponible avant de faire les prochaines manipulations.
-     Dans le doute, faites-en un.
-
-Ouvrez une  session avec un compte  d&#x27;utilisateur membre du groupe  prédéfini
-Administrateurs.
-Depuis le composant logiciel enfichable Utilisateurs et groupe locaux
-Nœud Utilisateurs
-Clic droit sur l&#x27;utilisateur Administrateur &gt; Propriétés
-Décocher Le compte est désactivé
-Appliquer &gt; OK
-L&#x27;icône en lien avec l&#x27;utilisateur Administrateur a changé. La flèche noire dans un rond blanc
-a disparu. Cela veut dire que nous pouvons maintenant utiliser ce compte. Mais  il faut
-encore lui fixer un mot de passe pour ouvrir une session locale
-Clic droit sur l&#x27;utilisateur Administrateur &gt; Définir le mot de passe…
-Continuer
-Fixer un mot de passe &gt; OK
-Une fenêtre apparait : Le mot de passe a été défini &gt; OK
-Fermez la session actuelle et ouvrez une nouvelle session sur la VM avec le compte
-d&#x27;utilisateur Administrateur qui est maintenant présent dans la liste des utilisateurs sur l&#x27;écran
-d&#x27;accueil
-Puisque c&#x27;est la première fois que cet utilisateur ouvre une session locale, un profil est créé
-et il faut terminer sa configuration.
-
-
-    •  Supprimez les utilisateurs que vous avez créés lors de l&#x27;atelier 08 qui traitait des
-        utilisateurs et des groupes. Supprimez  l&#x27;utilisateur que vous avez créé  lors de
-        l&#x27;installation de cette VM. Supprimez aussi leurs profils.
-
-
-
-
-
- Page 1/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
-
-Commençons par supprimer les profils des utilisateurs
-Rechercher &gt; sysdm.cpl
-Onglet Paramètres système avancés
-Encadré Profil des utilisateurs &gt; bouton Paramètres…
-Supprimez les profils pour ne laisser que celui de l&#x27;Administrateur et le Profil par défaut
-
-
-Suppression des comptes utilisateurs
-Composant logiciel enfichable Utilisateurs et groupes locaux
-Nœud Utilisateur
-Supprimer les comptes utilisateurs pnom ainsi que ceux créé lors de l&#x27;atelier 8
-
-
-    •  Procédez à un sysprep généralisé en mode OOBE suivi d&#x27;une extinction de votre
-     machine Win10-XX
-
-        o   Si sysprep échoue, consulter les journaux sysprep disponibles dans le dossier
-            Panther et corriger l(es) erreur(s). Aidez-vous d’Internet le cas échéant
-
-Lancez l&#x27;explorateur Windows
-Naviguez jusqu&#x27;au répertoire C:\Windows\System32\Sysprep
-Double clic sur sysprep.exe
-Mode OOBE
-Cochez Généraliser
-Eteindre automatiquement le système à l&#x27;issue du Sysprep
-
-
-En cas d&#x27;erreur du sysprep, vous trouverez un fichier de log dans le dossier Panther que vous
-pouvez ouvrir avec le bloc-note. &quot;Epluchez-le&quot; et aidez vous d&#x27;internet pour résoudre les
-blocages. Plusieurs pistes sont possibles :
-https://docs.microsoft.com/fr-fr/troubleshoot/windows-client/deployment/sysprep-fails-
-remove-or-update-store-apps
-
-
-
-
-Création d&#x27;un clone de la machine de référence
-
-    •  Créez un dossier Win10-XX-Clone dans votre dossier VMs-WorkStation. Utilisez la
-       fonctionnalité de clonage de WorkStation
-
-            o  Créez un &quot;Full Clone&quot; de Win10-XX depuis son état actuel
-
-            o  Cette nouvelle VM sera hébergée dans le dossier Win10-XX-Clone créé
-              précédemment
-
-
-
-
- Page 2/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
-
-
-Configuration / observation du clone
-
-    •  Appliquez son dernier snapshot puis allumez la VM Win10-XX
-
-    •  Allumez  la VM Win10-XX-Clone dès  qu&#x27;elle  est disponible et procédez à sa
-       configuration initiale
-
-    •  Remplissez les deux tableaux ci-dessous
-
-
-
-Conséquences du clonage WorkStation
-
-                          Win10-XX                 Win10-XX-Clone
-
-                                       3                         3
- Nb de disques durs
-
-
-                            6 en comptant le lecteur    6 en comptant le lecteur
-                              de DVD                de DVD Nb de volumes
-
-
-
-                                     Oui                       Oui
- Carte réseau « bridgée » ?
-
-
-                         Nombre de snapshot      Pas de snapshot présents
-                            depuis le début du module Nb de snapshots
-
-
-
-                              4Go                  4Go
- Qté RAM
-
-
-Les conséquences de sysprep
-
-                         Win10-XX                Win10-XX-Clone
-
-                                   Oui                       Oui
- Vmware tools présents ?
-
-
- Nom  de   la  machine         Win10-XX                  DESKTOP-
- configuré dans l’OS                                 &lt;chaîneDeCaratèreAléatoire&gt;
-
-
-
-
-
- Page 3/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Systèmes Clients Microsoft
-
- Nb de users dans la base    Les comptes natifs, le     Les comptes natifs ainsi que le
- SAM                      compte crée à        compte créé au premier
-                                      l&#x27;installation de la VM et      démarrage de la VM
-                              tous les comptes créés
-                                           lors de l&#x27;atelier 8
-
-                          Adresse IP fixe configurée           En DHCP
-                                           lors de l&#x27;atelier 10 Adresse IP
-
-
-
- Date et heure du premier  Date de l&#x27;installation de la  Date du démarrage du clone
- log   dans    le   journal   VM lors de l&#x27;atelier 1     après le Sysprep et le clonage
- système
-
- Nb   de    points   de  Celui de l&#x27;atelier 13 (et voir    Aucun. La protection du
- restaurations                 d&#x27;autres si vous en avez      système est désactivée
-                                              fait d&#x27;autres)
-
- Compte    administrateur  Oui (si vous avez réalisé le            non
- activé ?                      dernier snapshot après
-                                avoir activé le compte
-                                   administrateur)
-
- Pilote de l’imprimante HP              oui                     non
- LaserJet présents ?
-
-                                         oui                           oui
- Règle entrante ICMP ?
-
-
-
-
-
- Page 4/4
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution Module-12-Atelier15-Capture&amp;Deploy.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution Module-12-Atelier15-Capture&amp;Deploy</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Cloner une VM Windows <br>dans les règles de l&#x27;art </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Introduction à la capture et au déploiement <br>d&#x27;image </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph"> Préparation du poste de référence Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Activez le compte utilisateur Administrateur et fixez-lui un mot de passe. Fermez votre <br>session actuelle et ouvrez une session avec le compte Administrateur. Assurez-vous <br>d&#x27;avoir un snapshot récent disponible avant de faire les prochaines manipulations. <br>Dans le doute, faites-en un. </p>
+<p class="tssr-source-paragraph">Ouvrez une session avec un compte d&#x27;utilisateur membre du groupe prédéfini <br>Administrateurs.  </p>
+<p class="tssr-source-paragraph">Depuis le composant logiciel enfichable Utilisateurs et groupe locaux  </p>
+<p class="tssr-source-paragraph">Nœud Utilisateurs <br> </p>
+<p class="tssr-source-paragraph">Clic droit sur l&#x27;utilisateur Administrateur &gt; Propriétés <br> </p>
+<p class="tssr-source-paragraph">Décocher Le compte est désactivé </p>
+<p class="tssr-source-paragraph">Appliquer &gt; OK <br> </p>
+<p class="tssr-source-paragraph">L&#x27;icône en lien avec l&#x27;utilisateur Administrateur a changé. La flèche noire dans un rond blanc <br>a disparu. Cela veut dire que nous pouvons maintenant utiliser ce compte. Mais il faut <br>encore lui fixer un mot de passe pour ouvrir une session locale </p>
+<p class="tssr-source-paragraph">Clic droit sur l&#x27;utilisateur Administrateur &gt; Définir le mot de passe… </p>
+<p class="tssr-source-paragraph">Continuer </p>
+<p class="tssr-source-paragraph">Fixer un mot de passe &gt; OK </p>
+<p class="tssr-source-paragraph">Une fenêtre apparait : Le mot de passe a été défini &gt; OK </p>
+<p class="tssr-source-paragraph">Fermez la session actuelle et ouvrez une nouvelle session sur la VM avec le compte <br>d&#x27;utilisateur Administrateur qui est maintenant présent dans la liste des utilisateurs sur l&#x27;écran <br>d&#x27;accueil </p>
+<p class="tssr-source-paragraph">Puisque c&#x27;est la première fois que cet utilisateur ouvre une session locale, un profil est créé <br>et il faut terminer sa configuration. </p>
+
+<p class="tssr-source-paragraph">• <br>Supprimez les utilisateurs que vous avez créés lors de l&#x27;atelier 08 qui traitait des <br>utilisateurs et des groupes. Supprimez l&#x27;utilisateur que vous avez créé lors de <br>l&#x27;installation de cette VM. Supprimez aussi leurs profils. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Commençons par supprimer les profils des utilisateurs  </p>
+<p class="tssr-source-paragraph">Rechercher &gt; sysdm.cpl </p>
+<p class="tssr-source-paragraph">Onglet Paramètres système avancés </p>
+<p class="tssr-source-paragraph">Encadré Profil des utilisateurs &gt; bouton Paramètres… </p>
+<p class="tssr-source-paragraph">Supprimez les profils pour ne laisser que celui de l&#x27;Administrateur et le Profil par défaut </p>
+
+<p class="tssr-source-paragraph">Suppression des comptes utilisateurs </p>
+<p class="tssr-source-paragraph">Composant logiciel enfichable Utilisateurs et groupes locaux </p>
+<p class="tssr-source-paragraph">Nœud Utilisateur </p>
+<p class="tssr-source-paragraph">Supprimer les comptes utilisateurs pnom ainsi que ceux créé lors de l&#x27;atelier 8 </p>
+
+<p class="tssr-source-paragraph">• <br>Procédez à un sysprep généralisé en mode OOBE suivi d&#x27;une extinction de votre <br>machine Win10-XX </p>
+<pre class="tssr-source-code">o Si sysprep échoue, consulter les journaux sysprep disponibles dans le dossier </pre>
+<p class="tssr-source-paragraph">Panther et corriger l(es) erreur(s). Aidez-vous d’Internet le cas échéant </p>
+<p class="tssr-source-paragraph">Lancez l&#x27;explorateur Windows </p>
+<p class="tssr-source-paragraph">Naviguez jusqu&#x27;au répertoire C:\Windows\System32\Sysprep </p>
+<p class="tssr-source-paragraph">Double clic sur sysprep.exe </p>
+<p class="tssr-source-paragraph">Mode OOBE </p>
+<p class="tssr-source-paragraph">Cochez Généraliser </p>
+<p class="tssr-source-paragraph">Eteindre automatiquement le système à l&#x27;issue du Sysprep </p>
+
+<p class="tssr-source-paragraph">En cas d&#x27;erreur du sysprep, vous trouverez un fichier de log dans le dossier Panther que vous <br>pouvez ouvrir avec le bloc-note. &quot;Epluchez-le&quot; et aidez vous d&#x27;internet pour résoudre les <br>blocages. Plusieurs pistes sont possibles :  </p>
+<p class="tssr-source-paragraph">https://docs.microsoft.com/fr-fr/troubleshoot/windows-client/deployment/sysprep-fails-<br>remove-or-update-store-apps </p>
+
+
+<p class="tssr-source-paragraph">Création d&#x27;un clone de la machine de référence </p>
+<p class="tssr-source-paragraph">• <br>Créez un dossier Win10-XX-Clone dans votre dossier VMs-WorkStation. Utilisez la <br>fonctionnalité de clonage de WorkStation </p>
+<pre class="tssr-source-code">o Créez un &quot;Full Clone&quot; de Win10-XX depuis son état actuel </pre>
+<pre class="tssr-source-code">o Cette nouvelle VM sera hébergée dans le dossier Win10-XX-Clone créé </pre>
+<p class="tssr-source-paragraph">précédemment </p>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a<br>a</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Configuration / observation du clone </p>
+<p class="tssr-source-paragraph">• <br>Appliquez son dernier snapshot puis allumez la VM Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Allumez la VM Win10-XX-Clone dès qu&#x27;elle est disponible et procédez à sa <br>configuration initiale </p>
+<p class="tssr-source-paragraph">• <br>Remplissez les deux tableaux ci-dessous </p>
+
+<p class="tssr-source-paragraph">Conséquences du clonage WorkStation </p>
+<p class="tssr-source-paragraph"> <br>Win10-XX <br>Win10-XX-Clone </p>
+<p class="tssr-source-paragraph">3 </p>
+<p class="tssr-source-paragraph">3 </p>
+<p class="tssr-source-paragraph">Nb de disques durs </p>
+
+<p class="tssr-source-paragraph">6 en comptant le lecteur <br>de DVD </p>
+<p class="tssr-source-paragraph">6 en comptant le lecteur <br>de DVD </p>
+<p class="tssr-source-paragraph">Nb de volumes </p>
+
+
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Carte réseau « bridgée » ? </p>
+
+<p class="tssr-source-paragraph">Pas de snapshot présents </p>
+<p class="tssr-source-paragraph">Nombre de snapshot <br>depuis le début du module </p>
+<p class="tssr-source-paragraph">Nb de snapshots </p>
+
+<p class="tssr-source-paragraph">4Go </p>
+<p class="tssr-source-paragraph">4Go </p>
+<p class="tssr-source-paragraph">Qté RAM </p>
+
+<p class="tssr-source-paragraph">Les conséquences de sysprep </p>
+<p class="tssr-source-paragraph"> <br>Win10-XX <br>Win10-XX-Clone </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Vmware tools présents ? </p>
+
+<p class="tssr-source-paragraph">Nom <br>de <br>la <br>machine <br>configuré dans l’OS </p>
+<p class="tssr-source-paragraph">Win10-XX <br>DESKTOP-<br>&lt;chaîneDeCaratèreAléatoire&gt; </p>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Win10 -XX</td><td>Win10 -XX -Clone</td></tr><tr><td>Nb de disques durs</td><td>3</td><td>3</td></tr><tr><td>Nb de volumes</td><td>6 encomptantle lecteur<br>de DVD</td><td>6 encomptantle lecteur<br>de DVD</td></tr><tr><td>Carte ré seau« bridgé e » ?</td><td>Oui</td><td>Oui</td></tr><tr><td>Nb de snapshots</td><td>Nombre de snapshot<br>depuis le débutdu module</td><td>Pas de snapshotprésents</td></tr><tr><td>Qté RAM</td><td>4Go</td><td>4Go</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Win10 -XX</td><td>Win10 -XX -Clone</td></tr><tr><td>Vmware tools pré sents ?</td><td>Oui</td><td>Oui</td></tr><tr><td>Nom de la machine<br>configurédans l’OS</td><td>Win10 -XX</td><td>DESKTOP<br>-<br>&lt;chaîneDeCaratèreAléatoire&gt;</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Les comptes natifs, le </p>
+<p class="tssr-source-paragraph">Les comptes natifs ainsi que le </p>
+<p class="tssr-source-paragraph">Nb de users dans la base <br>SAM </p>
+<p class="tssr-source-paragraph">compte créé au premier </p>
+<p class="tssr-source-paragraph">compte crée à <br>l&#x27;installation de la VM et </p>
+<p class="tssr-source-paragraph">démarrage de la VM </p>
+<p class="tssr-source-paragraph">tous les comptes créés </p>
+<p class="tssr-source-paragraph">lors de l&#x27;atelier 8 </p>
+<p class="tssr-source-paragraph">Adresse IP fixe configurée </p>
+<p class="tssr-source-paragraph">En DHCP </p>
+<p class="tssr-source-paragraph">lors de l&#x27;atelier 10 </p>
+<p class="tssr-source-paragraph">Adresse IP </p>
+
+<p class="tssr-source-paragraph">Date de l&#x27;installation de la </p>
+<p class="tssr-source-paragraph">VM lors de l&#x27;atelier 1 </p>
+<p class="tssr-source-paragraph">Date du démarrage du clone <br>après le Sysprep et le clonage </p>
+<p class="tssr-source-paragraph">Date et heure du premier <br>log <br>dans <br>le <br>journal <br>système </p>
+<p class="tssr-source-paragraph">Celui de l&#x27;atelier 13 (et voir </p>
+<p class="tssr-source-paragraph">Aucun. La protection du </p>
+<p class="tssr-source-paragraph">Nb <br>de <br>points <br>de <br>restaurations </p>
+<p class="tssr-source-paragraph">d&#x27;autres si vous en avez </p>
+<p class="tssr-source-paragraph">système est désactivée </p>
+<p class="tssr-source-paragraph">fait d&#x27;autres) </p>
+<p class="tssr-source-paragraph">Oui (si vous avez réalisé le </p>
+<p class="tssr-source-paragraph">non </p>
+<p class="tssr-source-paragraph">Compte <br>administrateur <br>activé ? </p>
+<p class="tssr-source-paragraph">dernier snapshot après <br>avoir activé le compte </p>
+<p class="tssr-source-paragraph">administrateur) </p>
+<p class="tssr-source-paragraph">oui <br>non </p>
+<p class="tssr-source-paragraph">Pilote de l’imprimante HP <br>LaserJet présents ? </p>
+<p class="tssr-source-paragraph">oui </p>
+<p class="tssr-source-paragraph">oui </p>
+<p class="tssr-source-paragraph">Règle entrante ICMP ? </p>
+
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nb de users dans la base<br>SAM</td><td>Lescomptes natifs le<br>,<br>comptecrée à<br>l&#x27;installation de la VM et<br>tous les comptescréés<br>lors de l&#x27;atelier 8</td><td>Lescomptes natifs ainsi que le<br>comptecréé au premier<br>démarrage de la VM</td></tr><tr><td>AdresseIP</td><td>Adresse IPfixe configurée<br>lors de l&#x27;atelier 10</td><td>En DHCP</td></tr><tr><td>Date et heure du premier<br>log dans le journal<br>systè<br>me</td><td>Date de l&#x27;installation de la<br>VM lors de l&#x27;atelier 1</td><td>Date du démarrage du clone<br>après le Sysprep et leclonage</td></tr><tr><td>Nb de points de<br>restaurations</td><td>Celui de l&#x27;atelier 13 (et voir<br>d&#x27;autres si vous en avez<br>fait d&#x27;autres)</td><td>Aucun La protectiondu<br>.<br>systèmeestdésactivée</td></tr><tr><td>Compte administrateur<br>activé ?</td><td>Oui (sivous avezréalisé le<br>dernier snapshot aprè s<br>avoir activé le compte<br>administrateur)</td><td>non</td></tr><tr><td>Pilote de l’imprimante HP<br>LaserJet pré sents ?</td><td>oui</td><td>non</td></tr><tr><td>Rè gle entrante ICMP ?</td><td>oui</td><td>oui</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-27a22c3530f521a99535cd78ed2648222f18328ace2b8375a6e858dbe53346c0.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-27a22c3530f521a99535cd78ed2648222f18328ace2b8375a6e858dbe53346c0.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1021" height="4384"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

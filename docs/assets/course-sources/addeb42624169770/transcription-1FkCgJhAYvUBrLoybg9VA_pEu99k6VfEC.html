@@ -1,0 +1,83 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 2 - Le réseau global.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 2 - Le réseau global</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>Le réseau global </h4>
+<p class="tssr-source-paragraph">TP du Module 04 – Le routage </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et réalisé le TP <br>précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 04. </p>
+<p class="tssr-source-paragraph">Création des VM </p>
+<p class="tssr-source-paragraph">• <br>Deux VM Windows 10 nommées CLI-00 et CLI-01 qui feront office de postes clients. <br>• <br>Trois VM routeur pfSense nommée RTR-00, RTR-01, RTR-02. <br> <br>Connectivité : <br> </p>
+<p class="tssr-source-paragraph">• <br>Configurer le poste client CLI-00. </p>
+<pre class="tssr-source-code">o Carte réseau : BRIDGE 
+o Adresse IP : Utiliser la deuxième IP disponible du réseau. </pre>
+<p class="tssr-source-paragraph"> <br> <br>• <br>Configurer le poste client CLI-01. </p>
+<pre class="tssr-source-code">o Carte réseau : BRIDGE 
+o Adresse IP : utiliser la deuxième IP disponible du réseau. </pre>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ethernet<br>adapter Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description...<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>!<br>Intel(R)<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@@-@C-29-7B-90-96<br>DHCP<br>Enabled.<br>.<br>.<br>.<br>«<br>.<br>.<br>.<br>»<br>.<br>«<br>:<br>No<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>172.16.26@0.98(Preferred)}</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Configurer le routeur RTR-00. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. 
+o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. 
+ </pre>
+<p class="tssr-source-paragraph"> <br> <br>• <br>Configurer le routeur RTR-01. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la dernière adresse du réseau.  
+o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. 
+ </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ethernet<br>adapter Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Intel(R)<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: @4-@C-29-3A-DC-BD<br>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>No<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>: Yes<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.0.98(Preferred)<br>Subnet<br>Mask<br>.<br>.<br>.<br>.<br>.<br>.<br>ew<br>.<br>.<br>.<br>:<br>255.255.255.248<br>Default Gateway<br>.<br>.<br>.<br>.<br>.<br>=»<br>.<br>.<br>.<br>:<br>192.168.0.97</p><p>Starting syslog...done.<br>Starting CRON...<br>done.<br>pfSense 2.5.8-RELEASE and64 Tue Feb<br>16 48:56:29 EST 2421<br>Bootup complete</p><p>FreeBSD/and64<br>(CpfSense.home.arpa)<br>(ttyudi</p><p>UMware Virtual<br>Machine<br>- Netgate Device<br>ID:<br>deff5436b32fe9f675c6</p><p>xe Welcome to pfSense 7.5.6-RELEASE<br>Camd64)<br>on pfSense xxx</p><p>HAN<br>Chan)<br>—&gt;<br>emi<br>—&gt;<br>44:<br>6.6,6.9-34<br>LAN<br>Clan)<br>—&gt;<br>emi<br>—&gt;<br>wd:<br>4.4.4.57398</p><p>6)<br>Logout<br>(SSH only)<br>9)<br>pfTop<br>1)<br>Assign<br>Interfaces<br>14)<br>Filter Logs<br>2)<br>Set<br>interface(s)<br>IP address<br>11)<br>Restart<br>webConfigurator<br>3)<br>Reset<br>webConfigurator password<br>12)<br>PHP shell<br>+ pfSense tools<br>4)<br>Reset<br>to factory defaults<br>13) Update<br>from console<br>5)<br>Reboot systen<br>14)<br>Enable Secure Shell<br>(sshd)<br>6)<br>Halt<br>system<br>15)<br>Restore recent<br>configuration<br>7)<br>Ping host<br>16)<br>Restart<br>PHP-FPM<br>6)<br>Shell</p><p>Enter an option: |</p><p>@</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Configurer le routeur RTR-02. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge 
+o Adresse IP : utiliser la dernière adresse du réseau. 
+o 2ème carte réseau : Bridge 
+o Adresse IP : utiliser la première adresse du réseau. </pre>
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>UMnare Virtual<br>Machine<br>- Netgate<br>Device<br>ID:<br>643c15f2e461f988841b</p><p>xxx Welcome<br>to pfSense 2.5.8-RELEASE<br>(amd64)<br>on pfSense<br>**x</p><p>WAN<br>(wan)<br>—&gt;<br>emB<br>-&gt;<br>v4:<br>4.4,4.6/34<br>LAN<br>(lan)<br>—&gt;<br>emi<br>-&gt;<br>v4:<br>172.16.208.97/29</p><p>@)<br>Logout<br>(SSH only)<br>9)<br>pfTop<br>1)<br>Assign<br>Interfaces<br>18)<br>Filter<br>Logs<br>2)<br>Set<br>interface(s)<br>IP address<br>11)<br>Restart<br>webConfigurator<br>3)<br>Reset<br>webConfigurator<br>password<br>12)<br>PHP shell<br>+ pfSense<br>tools<br>4)<br>Reset<br>to<br>factory defaults<br>13)<br>Update<br>from console<br>5)<br>Reboot<br>system<br>14)<br>Enable<br>Secure<br>Shell<br>(sshd)<br>6)<br>Halt<br>system<br>15)<br>Restore<br>recent<br>configuration<br>7)<br>Ping<br>host<br>16)<br>Restart<br>PHP-FPM<br>8)<br>Shell</p><p>Enter<br>an<br>option:<br>Message<br>from syslogd@pfSense<br>at<br>Mar<br>5 49:47:37<br>...<br>php-fpm([335]:<br>“index.php:<br>Successful<br>login<br>for user<br>‘admin’<br>from:<br>172.16.200.98<br>(Local<br>Database)<br>E</p><p>Starting syslog...done.<br>Starting CRON...<br>done.<br>pfSense 2.9.8-RELEASE<br>anmd64 Tue Feb<br>16 48:56:29 EST 2421<br>Bootup complete</p><p>FreeBSl/and64<br>(CpfSense.home.arpa)<br>(ttyudi</p><p>UMware Virtual<br>Machine<br>— Netgate Device<br>ID:<br>4a181929fbbc4945cf19</p><p>xxx Welcome to pfSense 2.5.@-RELEASE<br>Camd64)<br>on pfSense xxx</p><p>HAN<br>(wan)<br>—}<br>ema<br>—}<br>v4:<br>6.6.6.18/38<br>LAN<br>Clan)<br>—&gt;<br>emi<br>—&gt;<br>wd:<br>192.168.4.97/29</p><p>6)<br>Logout<br>(SSH only)<br>9)<br>pfTop<br>1)<br>Assign<br>Interfaces<br>19)<br>Filter Logs<br>2)<br>Set<br>interface(s)<br>IP address<br>11)<br>Restart<br>webConfigurator<br>3)<br>Reset<br>webConfigurator password<br>12)<br>PHP shell<br>+ pfSense tools<br>4)<br>Reset<br>to factory defaults<br>13) Update<br>from console<br>5)<br>Reboot systen<br>14)<br>Enable Secure Shell<br>(sshd)<br>6)<br>Halt<br>system<br>15)<br>Restore recent<br>configuration<br>7)<br>Ping host<br>16)<br>Restart<br>PHP-FPM<br>6)<br>Shell</p><p>Enter an option:<br>fj</p><p>Er</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez la connectivité des machines : <br> <br>Finalisation </p>
+<p class="tssr-source-paragraph">• <br>L’ensemble des routeurs et des clients doivent pouvoir communiquer entre eux. <br>• <br>Votre routeur devra contenir le moins possible de routes dans sa table de routage. </p>
+<p class="tssr-source-paragraph"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>RTR-01 </p>
+<p class="tssr-source-paragraph">Réseau de destination <br>Masque réseau de destination <br>Adresse de tronçon suivant <br>0.0.0.0 <br>0.0.0.0 <br>4.4.4.5 <br> <br>RTR-00 </p>
+<p class="tssr-source-paragraph">Réseau de destination <br>Masque réseau de destination <br>Adresse de tronçon suivant <br>172.16.200.96 <br>255.255.255.248 <br>4.4.4.6 <br>192.168.0.96 <br>255.255.255.248 <br>8.8.8.10 <br> <br>RTR-02 </p>
+<p class="tssr-source-paragraph">Réseau de destination <br>Masque réseau de destination <br>Adresse de tronçon suivant <br>0.0.0.0 <br>0.0.0.0 <br>8.8.8.9 <br> </p>
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RTR-O1</p><p>Réseau vers CLI-00</p><p>Si</p><p>172.16.200.36/29</p><p>|<br>a=</p><p>+<br>“|</p><p>|</p><p>RTR-OO</p><p>|<br>R<br>cI<br>El6<br>oo</p><p>Réseau vers CLI-01</p><p>RTR-O2<br>192.168.0.96/29</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Réseaudedestination</td><td>Masqueréseaudedestination</td><td>Adressedetronçonsuivant</td></tr><tr><td>0000<br>. . .</td><td>0000<br>. . .</td><td>4445<br>. . .</td></tr><tr><td>RTR 00<br>-</td><td></td><td></td></tr><tr><td>Réseaudedestination</td><td>Masqueréseaudedestination</td><td>Adressedetronçonsuivant</td></tr><tr><td>1721620096<br>. . .</td><td>255255255248<br>. . .</td><td>4446<br>. . .</td></tr><tr><td>192168096<br>. . .</td><td>255255255248<br>. . .</td><td>88810<br>. . .</td></tr><tr><td>RTR 02<br>-</td><td></td><td></td></tr><tr><td>Réseaudedestination</td><td>Masqueréseaudedestination</td><td>Adressedetronçonsuivant</td></tr><tr><td>0000<br>. . .</td><td>0000<br>. . .</td><td>8889<br>. . .</td></tr></tbody></table></div>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-ef7e16f0135724fc2b8be4acf0923f2c469d16b1d65e83ffbe8e908af68d7dad.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ef7e16f0135724fc2b8be4acf0923f2c469d16b1d65e83ffbe8e908af68d7dad.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4925"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

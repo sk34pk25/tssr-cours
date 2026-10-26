@@ -1,0 +1,130 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 08 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 08 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 08 – Les fonctions</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Comprendre l&#x27;intérêt de la ré-utilisation du code et des fonctions</p>
+<p class="tssr-source-paragraph">• Écrire des fonctions en Bash<br>• Externaliser des fonctions dans des fichiers annexes</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les fonctions</p>
+<p class="tssr-source-paragraph">• Les fonctions permettent de regrouper plusieurs commandes qui pourront être <br>exécutées de façon régulière durant le script.</p>
+<pre class="tssr-source-code">• Il est conseillé d’utiliser des minuscules dans le nom des fonctions et de préfixer 
+le nom de la fonction avec le terme « function_ » ou « func_ » suivi du nom 
+réel de la fonction. </pre>
+<p class="tssr-source-paragraph">• Cela permet de lire le script plus facilement et savoir quand on fait appel à une <br>fonction ou à une commande.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les fonctions</p>
+<p class="tssr-source-paragraph">• La mise en œuvre de fonction se fait en deux étapes :</p>
+<p class="tssr-source-paragraph">• Déclaration de la fonction et de son contenu<br>• Appel de la fonction</p>
+<p class="tssr-source-paragraph">L’appel d’une fonction doit être<br>réalisé APRÈS sa déclaration.</p>
+<p class="tssr-source-paragraph">• Les déclarations de fonctions peuvent être stockées dans un fichier séparé, <br>pour rendre un script plus lisible et les réutiliser dans d’autres scripts.</p>
+<p class="tssr-source-paragraph">• Les fonctions peuvent être invoquées avec des paramètres, comme les <br>commandes et les scripts.</p>
+<p class="tssr-source-paragraph">4</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Déclaration de fonctions</h4>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell<br>Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Syntaxe de déclaration d’une fonction</p>
+<pre class="tssr-source-code">nomfonction()
+{</pre>
+<pre class="tssr-source-code">ACTIONS
+}</pre>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Scripting Shell<br>Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Déclaration et utilisation dans le script</p>
+<p class="tssr-source-paragraph">Exemple de déclaration et d’appel au sein d’un script</p>
+<pre class="tssr-source-code">#!/bin/bash</pre>
+<pre class="tssr-source-code">func_infos() {</pre>
+<pre class="tssr-source-code">echo &quot;Informations sur la distribution utilisée&quot;
+lsb_release -dric
+}</pre>
+<pre class="tssr-source-code"># Afficher les infos sur l’OS
+func_infos</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Les variables dans les fonctions</p>
+<p class="tssr-source-paragraph">Les variables traversent les fonctions de manière transparente.</p>
+<pre class="tssr-source-code">#!/bin/bash</pre>
+<pre class="tssr-source-code">nbr=50</pre>
+<pre class="tssr-source-code">func_majnbr () {</pre>
+<pre class="tssr-source-code">nbr=100
+}</pre>
+<pre class="tssr-source-code">echo &quot;variable nbr avant fonction: $nbr&quot;
+func_majnbr
+echo &quot;variable nbr après fonction : $nbr&quot;</pre>
+<p class="tssr-source-paragraph">8</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4e6c6241b09bd618ccba92c6ac63271d25c387682ca531b89a52c4549e592e8f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4e6c6241b09bd618ccba92c6ac63271d25c387682ca531b89a52c4549e592e8f.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="5927"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Passage de paramètres aux fonctions</p>
+<p class="tssr-source-paragraph">Il est possible de passer des paramètres lors de l’appel de la fonction.</p>
+<pre class="tssr-source-code">#!/bin/bash</pre>
+<pre class="tssr-source-code">func_accueil () {</pre>
+<pre class="tssr-source-code">echo &quot;Message d’accueil :&quot;
+echo &quot;Bonjour $1 $2&quot;
+echo &quot;Bienvenue sur la machine $HOSTNAME&quot;
+}</pre>
+<pre class="tssr-source-code">read -p &quot;Entrez votre prénom nom (ex Marc Dubois) : &quot; prenom nom
+func_accueil &quot;$prenom&quot; &quot;$nom&quot;</pre>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Déclaration dans un fichier indépendant</p>
+<pre class="tssr-source-code">• Les fonctions peuvent être définies dans un fichier indnt du script.
+• Il suffit ensuite d’appeler le fichier avec les commandes source
+ou « . » (point), afin que le contenu de ce fichier soit interprété 
+dans l’environnement d’exécution courant.
+• Avantages de sortir les fonctions des scripts :
+• Le script est plus lisible (… ou pas, en fonction des cas)
+• Le script est plus facile à déboguer
+• Les fonctions peuvent être utilisées par d’autres scripts</pre>
+<p class="tssr-source-paragraph">10</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Déclaration dans un fichier indépendant</p>
+<p class="tssr-source-paragraph">• Contenu du fichier de fonctions « mesfonctions »</p>
+<pre class="tssr-source-code">func_accueil () {</pre>
+<pre class="tssr-source-code">echo &quot;Message d’accueil :&quot;
+echo &quot;Bonjour $1 $2&quot;
+echo &quot;Bienvenue sur la machine $HOSTNAME&quot;
+}</pre>
+<p class="tssr-source-paragraph">• Le fichier de fonction n’a pas besoin d’être exécutable, <br>des privilèges de lecture suffisent.</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Déclaration de fonctions</p>
+<p class="tssr-source-paragraph">Déclaration dans un fichier indépendant</p>
+<p class="tssr-source-paragraph">• Contenu du script</p>
+<pre class="tssr-source-code">#!/bin/bash
+# Déclaration des fonctions
+source ~/mesfonctions</pre>
+<pre class="tssr-source-code">read -p &quot;Saisissez votre prénom et votre nom (ex Marc Dubois) : &quot; prenom nom</pre>
+<pre class="tssr-source-code"># on appelle la fonction accueil du fichier ~/mesfonctions
+func_accueil &quot;$prenom&quot; &quot;$nom&quot;</pre>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e03384c89c27a689d38ee7de3a7954f129816568bd9b914e8d26758828a3f4bb.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e03384c89c27a689d38ee7de3a7954f129816568bd9b914e8d26758828a3f4bb.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="994" height="2964"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

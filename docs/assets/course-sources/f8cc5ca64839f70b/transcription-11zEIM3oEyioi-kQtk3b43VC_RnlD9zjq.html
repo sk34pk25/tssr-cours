@@ -1,0 +1,128 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M04 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M04 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
+<h4>GNU/Linux</h4>
+<h4>Module 04 – Debian en mode maintenance</h4></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Debian en mode maintenance</h4>
+<h4>Objectifs</h4>
+<h4>• Savoir démarrer en mode maintenance depuis GRUB ou <br>depuis le CD d’installation</h4>
+<h4>Réparer Linux</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Debian en mode maintenance</h4>
+<h4>Démarrer un système en </h4>
+<h4>mode maintenance</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Démarrer un système en mode maintenance</h4>
+<h4>Passer en mode maintenance</h4>
+<p class="tssr-source-paragraph">• Il est parfois nécessaire de passer en mode maintenance sur un <br>ordinateur ou un serveur pour diverses raisons <br>• En voici quelques-unes : <br>• Le système ne démarre plus à la suite d&#x27;une mise à jour ou d’une installation<br>• Le mot de passe de l’utilisateur root est perdu<br>• Récupération de données<br>• …</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-dd874cda0d3564d96720d2754efc350a282a144eea42a09a994a5f87674bdff0.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-dd874cda0d3564d96720d2754efc350a282a144eea42a09a994a5f87674bdff0.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="900" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Debian en mode maintenance</h4>
+<h4>Mode maintenance via </h4>
+<h4>GRUB</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Mode maintenance via GRUB</h4>
+<h4>Méthode 1</h4>
+<h4>• Passer par le boot <br>manager GRUB pour <br>passer en mode <br>maintenance</h4>
+<h4>• Utiliser les flèches pour <br>choisir la ligne du noyau <br>voulu puis appuyez sur <br>la touche [e]</h4>
+<h4>Ce mode n’est pas <br>fonctionnel en <br>mode « sudo sans <br>mot de passe » <br>pour l’utilisateur. </h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>GNU GRUB<br>version 2.@2+dfs¢1-28+deblaue</p><p>Debian GNU/Linux</p><p>GNU GRUB<br>version 2.@2+dfs¢1-28+deblaue</p><p>insmod extz<br>1<br>set root=&#x27;lymid&#x27;udzihm-püux-THOT-n$20-VOgL-cnP1-+oM<br>ve,a joVeo-mPs<br>*D-D01Â-M55j-GPk1-Lphs-K@uK07&quot;<br>if<br>[&#x27;ééfeature platform search Hint<br>= #9<br>]:<br>then<br>search --no-floppy<br>--fs-uuid --set=root<br>--hint=&quot;lvmid/uzihm-ps<br>Qux-IHOJ-n520-VOgL-cnP1-toHveH/0j8%Veo-mPfD-D014-H55j-dqPk1-Lphs-K8ukD7&quot;<br>dh93a459-636f-dath-8a83-4d11658hb993</p><p>else</p><p>search --no-floppy --fs-uuid<br>--set=root dh93a439-836f-da7b-Ba8s<br>3-8d11658bb999<br>fi<br>echo<br>‘Chargement<br>de Linux 4.19.@-12-amdéd...&#x27;<br>linux<br>foootévmlinuz-4.19.4-12-amd6d root=/dev/mapper<br>“ves<br>stem-lyroot<br>ro<br>quiet<br>echo<br>‘Chargement<br>du disque mémoire<br>initial...’<br>|<br>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Mode maintenance via GRUB</h4>
+<h4>Méthode 1</h4>
+<h4>• Modifier la fin de la ligne suivante</h4>
+<pre class="tssr-source-code">linux 
+/vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro quiet</pre>
+<h4>• De cette manière</h4>
+<pre class="tssr-source-code">linux 
+/vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro single</pre>
+<p class="tssr-source-paragraph">• Valider avec [ctrl] + [x] ou [F10]. Saisissez le mot de passe root. <br>Attention le clavier est au format QWERTY en_US par défaut<br>• Après vos actions en mode maintenance, la séquence de touches <br>[ctrl] + [d] vous permettra de poursuivre vers le chargement vers la <br>cible « rescue.target »</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>d</p><p>d</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Debian en mode maintenance</h4>
+<h4>Méthode 1</h4>
+<h4>Démo</h4>
+<h4>Maintenance via GRUB avec mot de passe </h4>
+<h4>root</h4>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5ed4c692df857cc73760a0d4f48153b31141c94f801c8913ee32ad559d59506a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5ed4c692df857cc73760a0d4f48153b31141c94f801c8913ee32ad559d59506a.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1592" height="3060"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Debian en mode maintenance</h4>
+<h4>Maintenance via GRUB <br>sans mot de passe root</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Mode maintenance via GRUB</h4>
+<h4>Méthode 2</h4>
+<h4>• Passer par le boot <br>manager GRUB pour <br>passer en mode <br>maintenance</h4>
+<h4>• Utiliser les flèches pour <br>choisir la ligne du noyau <br>voulu puis appuyez sur <br>la touche [e]</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>GNU GRUB<br>version 2.62+dfs81-24+deh1ôuz</p><p>Debian GNU/Linux</p><p>GNU GRUB<br>version 2@.@2+dts_e1-2e+deblaue</p><p>insmod exte<br>1<br>set roots! lymid/uMzihm-pQux-IWOJ-nSz0-VOgL-cnPi-tqMVveM/OjeVveo-mP%<br>TO-DDIA-MSsj-gPk1-Lohs-K@uko7&#x27;</p><p>if<br>[&#x27;kéfeature platform search Hint<br>= xy<br>];<br>then<br>search --no-floppy<br>--fs-uuid --set=root<br>--hint=&#x27; lvmid¢wz1hm- ps<br>Gux- IWOT-nSz0-VOgL-cnPi-toMVeM/<br>od jeVveo-mPtD-OD1A-MSsj-qPk1l-Lphs-K@ukD7&#x27;<br>dh93a459-636f-dath-8a83-4d11658hb993</p><p>else</p><p>search --no-floppy --fs-uuid<br>--set=root dh93a439-836f-da7h-Ba8x<br>3-8d11658bb999<br>fi<br>echo<br>‘Chargement<br>de Linux 4.19.@-12-amdéd...&#x27;<br>linux<br>fboot “vmlinuz-4.19.a-12-amd64 root-/dev-mapper/vesys<br>stem-lyroot<br>ro<br>quiet<br>echo<br>‘Chargement<br>du disque mémoire initial.<br>|<br>@</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Mode maintenance via GRUB</h4>
+<h4>Méthode 2</h4>
+<h4>• Modifier la fin de la ligne de cette manière</h4>
+<pre class="tssr-source-code">linux 
+/vmlinuz-4.19.0-8 root=/dev/mapper/debian--vg-sys ro init=/bin/bash</pre>
+<h4>• Valider avec [ctrl] + [x] ou [F10]. <br>Attention le clavier est au format QWERTY en-US</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Mode maintenance via GRUB</h4>
+<h4>Méthode 2</h4>
+<h4>• Le système est démarré mais le système de fichier racine est en <br>lecture seule. Il faut lancer la commande suivante pour obtenir <br>l’accès en lecture-écriture :</h4>
+<pre class="tssr-source-code">root@(none):/# mount –o remount,rw /
+[   88.5124578] EXT4-fs (dm-0): re-mounted. Opts: errors=remount-ro
+root@(none):/#</pre>
+<pre class="tssr-source-code">• Après vos actions, synchronisez l’écriture des données en RAM vers 
+le disque avec la commande sync</pre>
+<h4>• Rappel : il n’est pas possible d’éteindre proprement l’ordinateur <br>dans ce mode<br>• Il faudra forcer l’extinction par un poweroff matériel</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D<br>|</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-990da83881a27169c17b82d478dbb9d35a2ed58cd61e7846357730ebdf3aea96.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-990da83881a27169c17b82d478dbb9d35a2ed58cd61e7846357730ebdf3aea96.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1599" height="2326"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Debian en mode maintenance</h4>
+<h4>Méthode 2</h4>
+<h4>Démo</h4>
+<h4>Maintenance via GRUB sans mot de passe </h4>
+<h4>root</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Debian en mode maintenance</h4>
+<h4>Mode maintenance </h4>
+<h4>via le CD-ROM</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Mode maintenance via le CD-ROM</h4>
+<h4>Mode maintenance via le CD d’installation</h4>
+<h4>• Une autre solution : passer par le mode maintenance inclus dans <br>chaque CD d’installation</h4>
+<h4>Inconvénient<br>Avantages</h4>
+<h4>• langue française disponible<br>• pas de besoin du mot de passe root<br>• extinction         </h4>
+<h4>• nécessité d’avoir un CD-ROM <br>disponible<br>• ou une image <br>• complexité possible en virtualisation</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Boot Menu<br>Advanced options</p><p>Back.<br>.<br>4<br>Graphical<br>expert<br>install<br>Graphical<br>rescue mode<br>3.<br>CD-ROM Drive<br>Graphical automated<br>install<br>Expert<br>install<br>( oa)<br>Rescue mode<br>en L<br>Automated<br>install<br>Speech-enabled<br>advanced<br>options<br>D</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Mode maintenance via le CD-ROM</h4>
+<h4>Démo</h4>
+<h4>Maintenance via le CD-ROM</h4>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-dc30ce85d16b95dabb1ddd72fb50d494bee6bff43aeaadb4fb6861c751fd26dd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-dc30ce85d16b95dabb1ddd72fb50d494bee6bff43aeaadb4fb6861c751fd26dd.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="921" height="3098"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Debian en mode maintenance</h4>
+<h4>Démo<br>TP</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                     Debian en mode maintenance
+
+
+
+     TPDémo</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Debian en mode maintenance</h4>
+<h4>Conclusion</h4>
+<h4>• Vous savez passer en mode maintenance au démarrage depuis <br>GRUB<br>• Vous savez démarrer sur le CD d’installation Debian en mode <br>maintenance</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-32f568043d3e75a18ec83094e1f646642b09a3c93ddaa431e1374ab6ed61e14f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-32f568043d3e75a18ec83094e1f646642b09a3c93ddaa431e1374ab6ed61e14f.webp" alt="Illustrations du support source, pages 17 à 18" loading="lazy" width="900" height="747"></a><figcaption>Illustrations du support Drive — pages 17 à 18. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

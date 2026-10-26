@@ -1,0 +1,41 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 1  - Le pipeline.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 1  - Le pipeline</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Le pipeline </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter le pipeline. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Lors de la manipulation d’un objet, il arrive que le nombre d’objets soit important, ou que l’on <br>souhaite appliquer un traitement sur l’objet ou une propriété avant de l’afficher. </p>
+<p class="tssr-source-paragraph">Pour cela, on utilise le pipe qui permet d’appliquer une commande sur le résultat d’une autre <br>commande. </p>
+<p class="tssr-source-paragraph">• <br>Le pipe est réalisé avec la combinaison de touches Alt Gr et 6 </p>
+<pre class="tssr-source-code">o Le pipe sert à mettre en forme un résultat de sortie ou générer un tri de valeurs. </pre>
+<pre class="tssr-source-code">o Nous l’avons déjà utilisé avec la commande Get-Member. </pre>
+
+<pre class="tssr-source-code">Dans ce cas, la commande Get-Member est appliquée sur la commande précédant le pipe. </pre>
+<p class="tssr-source-paragraph">Nous l’avons également utilisé pour mettre en forme les résultats de sortie de commande qui <br>disposent de nombreux résultats. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Get-Member</p><p>TypeName:<br>System.ServiceProcess.ServiceController</p><p>Name<br>MemberType<br>Definition</p><p>Name<br>AliasProperty Name = ServiceName<br>RequiredServices<br>AliasProperty RequiredServices =<br>Disposed<br>Event<br>System. EventHandler<br>Close<br>Method<br>void Close()<br>Continue<br>Method<br>void Continue()<br>CreateObjRef<br>Method<br>System.Runtime.Remo<br>Dispose<br>Method<br>void Dispose(),<br>voi<br>Equals<br>Method<br>bool<br>Equals(System.<br>ExecuteCommand<br>Method<br>void<br>ExecuteCommand<br>GetHashCode<br>Method<br>int GetHashCode()<br>GetLifetimeservice<br>Method<br>System.Object GetLi<br>GetType<br>Method<br>type GetType()<br>InitializeLifetimeService Method<br>System.Object Initi<br>Pause<br>Method<br>void Pause()<br>Refresh<br>Method<br>void Refresh()<br>Start<br>Method<br>void StartQ,<br>void<br>Stop<br>Method<br>void Stop()</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Il permet d’indiquer à la commande Format-Wide le nombre de colonnes dans lesquelles les 
+verbes seront classés. Ici la commande Format-Wide est raccourcie en Fw. </pre>
+<pre class="tssr-source-code">Le pipe dispose également d’un système d’exploration des propriétés de l’objet $PSItem. </pre>
+<p class="tssr-source-paragraph">Nous reviendrons sur les variables plus tard, mais nous pouvons voir un cas simple de l’utilisation de <br>cette variable réservée. </p>
+
+
+<pre class="tssr-source-code">Ici la variable $PSItem permet de tester la valeur de la propriété Id de chaque objet Process et 
+de n’afficher que ceux dans la valeur est supérieure à 1500. </pre>
+<p class="tssr-source-paragraph">Le pipe est utilisable à plusieurs reprises tant que l’objet dispose de suffisamment de propriétés. </p>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>Get-Verb<br>w<br>-Column<br>5<br>PEELE</p><p>Exit<br>Find<br>Format<br>Get<br>Hide<br>Join<br>Lock<br>Move<br>New<br>Open<br>Optimize<br>Pop<br>Push<br>Redo<br>Remove<br>Rename<br>Reset<br>Resize<br>Search<br>select<br>Set<br>Show<br>Skip<br>split<br>Step<br>Switch<br>Undo<br>Unlock<br>watch<br>Backup<br>Checkpoint<br>Compare<br>Compress<br>Convert<br>Convert<br>ConvertTo<br>Dismount<br>Edit<br>Expand<br>Export<br>Group<br>Import<br>Initialize<br>Limit<br>Merge<br>Mount<br>out<br>ms<br>Publish<br>Restore<br>Save</p><p>PS C:\&gt; Get-Process<br>where<br>{$PSItem.Id<br>-gt 1500</p><p>Handles<br>NPM(CK)<br>PMCK)<br>WS (K)<br>CPU(S)<br>Id<br>SI ProcessName</p><p>489<br>28<br>15144<br>0<br>3.38<br>5496<br>1 ApplicationFrameHq<br>137<br>9<br>1588<br>Q<br>0.03<br>5040<br>1 browser_broker<br>194<br>13<br>3160<br>0<br>0.20<br>4452<br>1 ClassicStartMenu<br>260<br>13<br>4128<br>0<br>0.13<br>2428<br>1 conhost<br>257<br>13<br>4348<br>6332<br>0.97<br>4648<br>1 conhost<br>416<br>15<br>3692<br>1172<br>4.50<br>4000<br>1 ctfmon</p><p>PS C:\&gt; Get-Process<br>where<br>{$PSItem.Id<br>-gt 1500<br>Format-List</p><p>Id<br>:<br>5496<br>Handles<br>:<br>489<br>CPU<br>:<br>3.375<br>SI<br>:1l<br>Name<br>:<br>App licationFrameHost</p><p>Id<br>:<br>5040<br>Handles<br>:<br>137<br>CPU<br>:<br>0.03125<br>SI<br>:<br>1<br>Name<br>:<br>browser_broker</p><p>En</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-99acd95058b3cdbff0a41355e96f84d3bfccdc7260822391f0675f7f1e902ec5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-99acd95058b3cdbff0a41355e96f84d3bfccdc7260822391f0675f7f1e902ec5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2424"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

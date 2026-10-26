@@ -1,0 +1,64 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M4 - Solution du TP1 - Les variables denvironnement.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M4 - Solution du TP1 - Les variables denvironnement</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation au scripting Bash <br> <br> <br>Variables d’environnement </h4>
+<p class="tssr-source-paragraph">Solutions – TP1 du Module 04 - Les variables dans les scripts <br> <br> </p>
+<p class="tssr-source-paragraph">1. Utiliser les commandes appropriées afin d’afficher des variables  <br> <br>• <br>Variable qui indique le chemin du fichier d’historique des commandes : </p>
+<pre class="tssr-source-code">set | grep history | grep / </pre>
+<p class="tssr-source-paragraph">ou bien :   </p>
+<pre class="tssr-source-code">set | grep HIST | grep / </pre>
+
+<p class="tssr-source-paragraph">On doit ainsi trouver la variable HISTFILE qui doit indiquer le fichier .bash_history </p>
+
+<p class="tssr-source-paragraph">• <br>Variable qui indique l’emplacement de recherche des exécutables :  </p>
+<pre class="tssr-source-code">A été étudié dans le module d’utilisation Linux, l’emplacement dans l’arborescence des binaires/exécutables 
+tels ls, cp etc. Ils sont situés dans le dossier /bin. </pre>
+<p class="tssr-source-paragraph">On peut donc rechercher cette chaîne parmi les variables d’environnement du système : </p>
+<pre class="tssr-source-code">set | grep /bin </pre>
+
+<p class="tssr-source-paragraph">Résultat : </p>
+<pre class="tssr-source-code">localhost:~# set | grep /bin </pre>
+<pre class="tssr-source-code">PATH=&#x27;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#x27; </pre>
+<p class="tssr-source-paragraph">La variable s’appelle donc PATH </p>
+<p class="tssr-source-paragraph"> <br>2. Réaliser un script <br> </p>
+<p class="tssr-source-paragraph">Créer un fichier de script ‘script_M4TP1.sh’ qui contiendra les instructions nécessaires. </p>
+
+<p class="tssr-source-paragraph">• <br>Créer et éditer un nouveau fichier : </p>
+<pre class="tssr-source-code">vim script_M4TP1.sh </pre>
+
+<p class="tssr-source-paragraph">• <br>Ajouter les lignes suivantes : </p>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M4 - Solution du TP1 </pre></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><pre class="tssr-source-code">Initiation au scripting Bash 
+ 
+ 
+ </pre>
+<pre class="tssr-source-code"># Définition des variables </pre>
+<pre class="tssr-source-code">rep=$(pwd) # Stocker le résultat de la commande ‘pwd’ dans la var ‘rep’ </pre>
+<pre class="tssr-source-code">extension=&quot;txt&quot; # Choix ici de travailler sur des fichiers de type ’txt’ </pre>
+
+<pre class="tssr-source-code"># Corps du script </pre>
+<pre class="tssr-source-code">echo &quot;Répertoire de travail : $rep &quot; # Affiche du texte + contenu var ‘rep’ </pre>
+<pre class="tssr-source-code">echo &quot;Fichiers pouvant être traités: &quot; </pre>
+<pre class="tssr-source-code">ls -l *.$extension # Affiche tous les fichiers terminant par extension </pre>
+<pre class="tssr-source-code">echo &quot;&quot; # Affiche simple ligne vide, pour la présentation </pre>
+<pre class="tssr-source-code">read -p &quot;Quel fichier pouvez-vous traiter ? : &quot; fic # Demande saisie fichier </pre>
+
+<pre class="tssr-source-code"># Utilisation de variables pour stocker les infos du fichier </pre>
+<pre class="tssr-source-code">nblign=$(cat $fic | wc -l ) # Variable stocke le nb de lignes du fichier </pre>
+<pre class="tssr-source-code">debut=$(cat $fic | head -n 2) # Variable stocke 2ères lignes du fichier </pre>
+<pre class="tssr-source-code">fin=$(cat $fic | tail -n 2 ) # Variable stocke 2 lignes fin du fichier </pre>
+
+<pre class="tssr-source-code"># Affichage final des informations à l’écran </pre>
+<pre class="tssr-source-code"># Les ‘\n’ utilisés ci-après sont des sauts de ligne pour la présentation </pre>
+<pre class="tssr-source-code">echo -e &quot;\nCARACTERISTIQUES de $fic :\n&quot; # </pre>
+<pre class="tssr-source-code">echo -e &quot;Nombres de lignes du fichier : $nblign\n&quot; </pre>
+<pre class="tssr-source-code">echo -e &quot;\&quot;Début du fichier : \n$debut\n&quot; </pre>
+<pre class="tssr-source-code">echo -e &quot;\&quot;Fin du fichier : \n$fin\n&quot; </pre>
+
+<pre class="tssr-source-code">• 
+Rendre exécutable le fichier avec la commande chmod : </pre>
+<pre class="tssr-source-code">chmod u+x script_M4TP1.sh </pre>
+
+<pre class="tssr-source-code">• 
+Ensuite, exécuter le script ./script_M4TP1.sh </pre>
+
+<p class="tssr-source-paragraph">Il faudra bien entendu disposer de fichiers avec l’extension mentionnée et contenant du texte pour obtenir des <br>résultats ! </p>
+</section><!-- SOURCE-CONTENT:END --></body></html>

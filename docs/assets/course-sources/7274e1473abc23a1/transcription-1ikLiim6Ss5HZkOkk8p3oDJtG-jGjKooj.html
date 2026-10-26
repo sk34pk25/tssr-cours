@@ -1,0 +1,49 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - Les structures - Do-While - Do-Until.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - Les structures - Do-While - Do-Until</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : Do-While et <br>Do-Until </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 4 </p>
+
+<p class="tssr-source-paragraph">La boucle nécessite une valeur de variable à tester pour commencer à boucler. Cela est parfois <br>impossible car la variable à tester peut-être déclarée à l’intérieur même de la boucle. </p>
+<pre class="tssr-source-code">L’objectif de cette démonstration est de montrer que la boucle Do-While permet un tour de 
+boucle initiale sans condition. La condition sera faite en sortie de boucle et, en fonction de la 
+réponse, d’autres tours de boucle (ou aucun) seront effectués. </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La boucle Do-While va continuer à boucler tant que le test final va répondre « Vrai » ; dès que 
+le test répond « faux », la boucle s’arrête. </pre>
+<p class="tssr-source-paragraph">• <br>La boucle tourne tant que la réponse au test est « Vraie » </p>
+
+
+<pre class="tssr-source-code">Pour le Do-until, le sens est inversé au niveau de la condition : on boucle tant que le test répond 
+« Faux ». </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>do<br>{</p><p>$x = Read-Host<br>&quot;Veuillez<br>choisir<br>une<br>lettre<br>Q pour Quitter”</p><p>} while<br>| $x -ne<br>&quot;“q&quot;)</p><p>Veuillez choisir une lettre<br>0 pour Quitter:<br>a<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>e<br>Veuillez choisir une lettre<br>0 pour Quitter:<br>r<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>q</p><p>Oo</p><p>$x = Read-Host “Veuillez choisir<br>une<br>lettre Q pour Quitter&quot;</p><p>} until<br>(€ $x -eq<br>“q&quot;)</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">Pour bien différencier les deux structures, il faut penser à certains types de tests qui ne peuvent pas <br>être inversés par des opérateurs de comparaison comme les booléens. </p>
+
+
+<pre class="tssr-source-code">Dans le premier cas $x est égale à $False. Until boucle à l’infini. Dans le second cas, Until ne 
+boucle pas. </pre>
+<pre class="tssr-source-code">Nous avons le comportement inverse avec While </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Veuillez choisir une lettre<br>Q pour Quitter:<br>z<br>veuillez choisir une lettre<br>Q pour Quitter:<br>e<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>q</p><p>$x =<br>$false<br>on boucle</p><p>.<br>&quot;<br>1<br>on boucle<br>Write-host<br>“on<br>boucle<br>on boucle</p><p>=<br>on boucle<br>} until<br>($x)<br>Son a</p><p>do<br>{<br>$x = $true<br>Write-host<br>&quot;on<br>boucle&quot;</p><p>} until<br>($x)</p><p>$x = $true<br>a<br>=<br>M<br>+<br>eon<br>Soucle<br>Write-host<br>&quot;on<br>boucle<br>on boucle</p><p>:<br>Oo<br>boucle<br>} while<br>($x)<br>on boucle</p><p>do<br>{<br>$x =<br>$False<br>Write-host<br>&quot;on<br>boucle&quot;</p><p>} while<br>($x)</p></div></details>
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bdf9672e3cbdb7b06cbbb952104c27755967640559eef846e682561b17c000dd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bdf9672e3cbdb7b06cbbb952104c27755967640559eef846e682561b17c000dd.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2804"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

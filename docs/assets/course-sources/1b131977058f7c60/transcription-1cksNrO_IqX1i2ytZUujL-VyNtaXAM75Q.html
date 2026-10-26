@@ -1,0 +1,202 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module 02 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration GLPI</h4>
+<p class="tssr-source-paragraph">Module 02 – Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Les entités dans GLPI et la visibilité des items par récursivité<br>• Les interfaces de GLPI et les profils des utilisateurs</p>
+<p class="tssr-source-paragraph">• Les intitulés et les lieux : la nomenclature de GLPI<br>• Création d’un compte local à GLPI<br>• Ajout d’une source externe d’identification (Active Directory)<br>• Gérer les habilitations des utilisateurs</p>
+<p class="tssr-source-paragraph">2</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les entités GLPI</p>
+<p class="tssr-source-paragraph">• Notion clé dans GLPI<br>• Permet de segmenter les domaines d’administration de l’application<br>• Intéressant pour une entreprise dont la gestion est hiérarchique<br>• Cloisonnement étanche entre les entités, sauf en cas de récursivité</p>
+<p class="tssr-source-paragraph">• Cas d’une société gérant plusieurs clients avec filiales : une entité <br>par client</p>
+<p class="tssr-source-paragraph">Filiale A</p>
+<p class="tssr-source-paragraph">Client1</p>
+<p class="tssr-source-paragraph">Filiale B</p>
+<p class="tssr-source-paragraph">Société</p>
+<p class="tssr-source-paragraph">Client2<br>Filiale A</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">La récursivité</p>
+<p class="tssr-source-paragraph">• Consiste à rendre visible un objet dans les sous-entités<br>• Permet de traiter la problématique des objets globaux et locaux</p>
+<p class="tssr-source-paragraph">• Exemple d’utilisation : un objet de type fournisseur<br>• Un fournisseur global à toutes les entités sera déclaré dans l’entité la plus <br>haute avec l’option de récursivité<br>• Un fournisseur local ne sera déclaré que dans l’entité à laquelle il se <br>rattache, sans option de récursivité</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>GOT (arborescence)</p><p>Sélectionnez l&#x27;entité souhai...<br>x</p><p>Sélectionnez l&#x27;entité souhaitée<br>CY pour voir l&#x27;entité et ses sous-</p><p>entités)<br>Voir tous</p><p>1<br>Rechercher</p><p>à © cor &gt;<br>ey)<br>a<br>CD currents ©<br>End<br>TES</p><p>|<br>Lovenrairs<br>==</p><p>OO cuenrev<br>RTE</p><p>Contact Dell (GOT)<br>11</p><p>Fournisseur<br>GoT<br>Sous-entités<br>. Non «|i</p><p>à<br>Non<br>ent<br>_<br>RS<br>Lou|</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les interfaces</p>
+<p class="tssr-source-paragraph">• Interface simplifiée<br>• Interface la plus restrictive<br>• Destinée aux utilisateurs finaux<br>• Permet de créer un ticket, suivre ses tickets, accéder aux réservations <br>et à la FAQ<br>• Interface standard<br>• Interface principale d’un technicien de GLPI<br>• Tous les modules y sont disponibles en fonction du profil<br>• Utilisée pour les tâches de techniciens, d’administration <br>et de configuration<br>• 3 vues de travail : personnelle, groupe et globale</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les profils GLPI</p>
+<p class="tssr-source-paragraph">• Détermine le type d’interface (standard ou simplifiée)<br>• Détermine les droits sur l’application</p>
+<p class="tssr-source-paragraph">• Propre à une entité : récursivité possible<br>• Plusieurs profils possibles pour un même utilisateur<br>• Plusieurs profils prédéfinis :<br>• Super-Admin : tous les droits sur GLPI (profil de l’utilisateur GLPI)<br>• Admin : tous les droits d’administration<br>• Technician : accès en lecture à l’inventaire et à la gestion de ticket<br>• Hotliner : saisi et suivi de ticket, mais pas d’en être attribué<br>• Observer : accès en lecture à l’inventaire et à la gestion<br>• Self-Service : profil par défaut, interface simplifiée, permet de créer un <br>ticket, suivre ses tickets, accéder aux réservations et à la FAQ</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LG |</p><p>ni</p><p>RONarowPoe<br>etspotouoieene<br>aveCreteEngyous we<br>powwecoignar</p><p>eni</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">La création de profils dans GLPI</p>
+<p class="tssr-source-paragraph">• On peut donner des droits sur différentes fonctionnalités :<br>• Parc – gestion de l’inventaire<br>• Assistance – gestion des tickets<br>• Cycles de vie – gestion du suivi des tickets<br>• Gestion – gestion des licences, fournisseurs, budgets…<br>• Outils – gestion des rapports, de la base de connaissance, des projets, des tâches…<br>• Administration – gestion des différentes règles d’automatisation, des entités, des groupes…<br>• Configuration – gestion de la configuration globale de GLPI, les lieux, les intitulés, <br>les calendriers...</p>
+<p class="tssr-source-paragraph">• Il existe différents droits :<br>• Lecture<br>• Mettre à jour<br>• Créer<br>• Supprimer<br>• Purger<br>• …</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les intitulés</p>
+<p class="tssr-source-paragraph">• Deux formats :<br>• Liste de valeurs à plat<br>• Liste de valeurs arborescente : hiérarchie entre les intitulés<br>• Il existe une liste par défaut, mais beaucoup de listes propres <br>à GLPI sont paramétrables :</p>
+<p class="tssr-source-paragraph">• Les lieux<br>• Les statuts de matériels<br>• Les fournisseurs<br>• Les constructeurs<br>• Les catégories de tickets<br>• Les noms de logiciels<br>• Les prises réseau<br>• Les calendriers<br>• …</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=<br>er<br>VON<br>NN<br>dd<br>v<br>a<br>“<br>VON<br>NN<br>oy<br>vy<br>v<br>==<br>pes<br>VON<br>ON<br>M<br>ON<br>yy<br>v<br>eni<br>—=<br>ms<br>voy<br>vy<br>vv<br>v</p><p>ener<br>Modele<br>cestion</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b336ae17bc1b922b02dca14a08e4ca4fc1b335836b11628eca34f220a7e65ec9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b336ae17bc1b922b02dca14a08e4ca4fc1b335836b11628eca34f220a7e65ec9.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="7206"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les lieux</p>
+<p class="tssr-source-paragraph">• Ils permettent de placer géographiquement les <br>différents éléments d’inventaire et les utilisateurs<br>• Liste de valeurs arborescente<br>• Une convention de nommage est OBLIGATOIRE</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<h4>Authentification AD</h4>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>e<br>as cordon<br>een whus ent<br>x<br>vesewe</p><p>3<br>=</p><p>ioe<br>Chartres de Bretagne<br>&gt; ENI école CDB</p><p>À</p><p>eee</p><p>Niort &gt; ENI école N</p><p>:<br>=</p><p>Quimper</p><p>°</p><p>7<br>e<br>Quimper &gt; ENI école Q<br>nie<br>ps</p><p>Saint Herblain</p><p>me<br>4<br>Le<br>Saint Herblain &gt; ENI école SH<br>ae<br>Le<br>=<br>Saint Herblain &gt; ENI école SH &gt; Salle F1</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Les utilisateurs – Base de comptes</p>
+<p class="tssr-source-paragraph">•<br>Base de comptes interne à GLPI : stockée dans la base de données</p>
+<p class="tssr-source-paragraph">•<br>Base de compte externe : authentification dynamique et centralisée</p>
+<p class="tssr-source-paragraph">• LDAP<br>• LDAP Active Directory<br>• Messagerie : comptes pop/imap<br>• Certificats X509</p>
+<p class="tssr-source-paragraph">•<br>Base de compte externe : nécessite l’ajout d’un serveur d’authentification</p>
+<p class="tssr-source-paragraph">•<br>Import manuel possible des utilisateurs en amont</p>
+<p class="tssr-source-paragraph">•<br>Import automatique de l’utilisateur à la première connexion</p>
+<p class="tssr-source-paragraph">•<br>Champs utilisateur GLPI automatiquement alimentés depuis les attributs AD</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Authentification AD - Habilitations</p>
+<p class="tssr-source-paragraph">Serveur d&#x27;authentification Active Directory</p>
+<p class="tssr-source-paragraph">•<br>Configuration =&gt; Authentification =&gt; Annuaires LDAP =&gt; +</p>
+<p class="tssr-source-paragraph">•<br>Choisir la préconfiguration ActiveDirectory</p>
+<p class="tssr-source-paragraph">•<br>Configuration automatique d’un filtre d’exclusion des utilisateurs désactivés</p>
+<p class="tssr-source-paragraph">•<br>Configuration obligatoire :</p>
+<p class="tssr-source-paragraph">• Nom<br>• @ip du serveur AD<br>• Base DN : DistinguishedName du domaine au format :</p>
+<p class="tssr-source-paragraph">•<br>DC=mondomaine,DC=monTLD<br>• DN du compte : DistinguishedName du compte utilisé par GLPI auprès <br>du contrôleur de domaine pour l’interroger (au minimum, un compte <br>administrateur du domaine) au format :</p>
+<p class="tssr-source-paragraph">•<br>CN=administrateur,OU=administrateurs,OU,service_Active_Directory,OU=service_informatique,OU=<br>les_utilisateurs,OU=_monentreprise,DC=mondomaine,DC=monTLD<br>• Mot de passe du compte précédemment renseigné</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Authentification AD - Habilitations<br>Serveur d&#x27;authentification Active Directory</p>
+<p class="tssr-source-paragraph">Attention : Non</p>
+<p class="tssr-source-paragraph">actif par défaut<br>@IP du serveur </p>
+<p class="tssr-source-paragraph">À cliquer pour avoir </p>
+<p class="tssr-source-paragraph">ADDS</p>
+<p class="tssr-source-paragraph">Attention : Non par défaut</p>
+<p class="tssr-source-paragraph">les bons filtres</p>
+<p class="tssr-source-paragraph">Info dans l’éditeur <br>d’attribut ADDS du </p>
+<p class="tssr-source-paragraph">compte</p>
+<p class="tssr-source-paragraph">mondomaine.TLD</p>
+<p class="tssr-source-paragraph">192.168.1.1</p>
+<p class="tssr-source-paragraph">Mot de passe de <br>l’admin du domaine</p>
+<p class="tssr-source-paragraph">DC=mondomaine,DC=TLD</p>
+<p class="tssr-source-paragraph">CN=compte_admin_du_domaine,OU=OU_ou_se_trouve_le_compte,DC=mondomaine,DC=TLD</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Présentation de l&#x27;environnement – Installation de GLPI</p>
+<p class="tssr-source-paragraph">Les habilitations</p>
+<p class="tssr-source-paragraph">• Vont déterminer les droits et leurs portées dont dispose un utilisateur<br>• Une habilitation est composée d’un profil (droits) et d’une entité</p>
+<p class="tssr-source-paragraph">• Récursivité sur les entités enfants possible<br>• Plusieurs habilitations possibles pour un même utilisateur<br>• Se gèrent de manière statique ou dynamique à l’aide de règle <br>d’habilitation</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Nouyel élément -Annuaire LDAP<br>|</p><p>Préèonfiguration<br>Active Directory / Valeurs paf défaut<br>Nom</p><p>Serveur par défaut<br>Oui<br>+<br>Actif<br>oui<br>+</p><p>Serveur<br>Port (par défaut 389) | 389</p><p>Filtre de connexion<br>(BiobjectCiass=user)(objectCategory=person)(I(userAccountControl:1.2.840. 113556. 1.4.803:=2)))</p><p>BaseDN</p><p>DN du compte (pour les connexi<br>nonymes)</p><p>Mot de passe du compte (pour les connexions non<br>proneenemeeme |<br>anonymes)</p><p>Champ de l&#x27;identifiant<br>‘samaccountname<br>Commentaires</p><p>Champ de synchronisation i<br>objeciguid</p><p>=<br>Ajouter</p></div></details>
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Présentation de l&#x27;environnement – Installation de GLPI</p>
+<p class="tssr-source-paragraph">Les habilitations statiques</p>
+<p class="tssr-source-paragraph">• Ajout manuel depuis l’application GLPI<br>• Aucune centralisation de la gestion des droits<br>• Maintenance compliquée / risque d’erreurs accru<br>• S’ajoutent pour chaque utilisateur</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Présentation de l&#x27;environnement – Installation de GLPI</p>
+<p class="tssr-source-paragraph">Les habilitations dynamiques</p>
+<p class="tssr-source-paragraph">• Attribution automatique d’habilitations<br>• Utilisation des « règles d’affectation d’habilitations à un utilisateur »</p>
+<p class="tssr-source-paragraph">• Toutes les règles sont lues à chaque connexion d’un utilisateur<br>• L’ordre de création n’a pas d’importance<br>• Une règle pour une habilitation<br>• Les critères : globaux internes GLPI ou LDAP<br>• Les actions : un profil, une entité, récursivité, refus d’import, etc.</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p><p>Gin</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-09c0206b62f13fd8070f3f400187cd95c7476fcdbb4ec054461f79131ae5511c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-09c0206b62f13fd8070f3f400187cd95c7476fcdbb4ec054461f79131ae5511c.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="994" height="9137"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Présentation de l&#x27;environnement – Installation de GLPI</p>
+<p class="tssr-source-paragraph">Les habilitations dynamiques - Critères - Actions</p>
+<p class="tssr-source-paragraph">• Les critères :<br>• Gestion des droits GLPI centralisée dans l’Active Directory<br>• Utilisation d’appartenance à des groupes AD<br>• Critère « (LDAP) MemberOf »<br>• Utilisation de la condition « Contient », moins contraignante que « est »<br>• Les actions :<br>• Deux actions minimum pour constituer une habilitation<br>• Sont exécutées si le(s) critère(s) sont vérifiés<br>• Comportement en fonction de l’opérateur logique (ET/OU)</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Présentation de l&#x27;environnement – Installation de GLPI</p>
+<p class="tssr-source-paragraph">Les habilitations – Mise en œuvre</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">4<br>Création des règles </p>
+<p class="tssr-source-paragraph">5<br>Vérification</p>
+<p class="tssr-source-paragraph">Identification des <br>différents droits des </p>
+<p class="tssr-source-paragraph">d’affectation <br>d’habilitations à un </p>
+<p class="tssr-source-paragraph">Création des <br>groupes AD pour les </p>
+<p class="tssr-source-paragraph">utilisateurs.</p>
+<p class="tssr-source-paragraph">utilisateur.</p>
+<p class="tssr-source-paragraph">Exemple :<br>vérifier le </p>
+<p class="tssr-source-paragraph">habilitations.</p>
+<p class="tssr-source-paragraph">Création des <br>utilisateurs AD, <br>assignation des <br>groupes en fonction </p>
+<p class="tssr-source-paragraph">du besoin.</p>
+<p class="tssr-source-paragraph">Exemple :<br>un technicien sur </p>
+<p class="tssr-source-paragraph">Exemple :<br>critère <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support">membre de</p>
+<p class="tssr-source-paragraph">l’entité du client </p>
+<p class="tssr-source-paragraph">GG_GLPI_technician</p>
+<p class="tssr-source-paragraph">profil et <br>l’entité des <br>techniciens <br>après import </p>
+<p class="tssr-source-paragraph">Exemple :<br>groupe global<br>GG_GLPI_technician</p>
+<p class="tssr-source-paragraph">pour le profil </p>
+<p class="tssr-source-paragraph">dans GLPI</p>
+<p class="tssr-source-paragraph">technician</p>
+<p class="tssr-source-paragraph">Exemple :<br>GG_technicien dans <br>GG_GLPI_technician</p>
+<p class="tssr-source-paragraph">action <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"><br>profil technician</p>
+<p class="tssr-source-paragraph">entité client</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-935f018f500a64ab52977ed683d560e2cb5904c8e4aaeb012ffec65f8052ddf9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-935f018f500a64ab52977ed683d560e2cb5904c8e4aaeb012ffec65f8052ddf9.webp" alt="Illustrations du support source, pages 9" loading="lazy" width="994" height="4532"></a><figcaption>Illustrations du support Drive — pages 9. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

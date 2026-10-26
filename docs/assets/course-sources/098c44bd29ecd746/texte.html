@@ -1,204 +1,107 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Installation de Windows.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Installation de Windows.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Installation de Windows 10
-TP du Module 02 – Installation de Windows 10
-
-
- Durant ce TP, vous allez être amené à créer une machine virtuelle avec VMware
- WorkStation. Vous serez ensuite amené à installer Windows 10 et à procéder à sa
- configuration initiale. Vous serez également amené à importer une VM Windows 10
- existante.
-
-
-       Durée estimée
-
-          1 heure
-
-Énoncé
-
-Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique.
-
-Préparer l&#x27;environnement
-  Créer les dossiers ISO et Procédures sur votre volume de données.
-  Copier l&#x27;image ISO de Windows 10 disponible depuis les ressources à télécharger vers
-   votre dossier ISO.
-  Créer un dossier Vms-WorkStation sur votre volume de données.   Il accueillera les
-    fichiers qui définissent vos futures VM.
-
-Création de la machine virtuelle
-
-Informations concernant la VM Windows 10
-
-        Paramètres WorkStation
-         Configuration de la VM  Typique
-   Système d&#x27;exploitation invité  Windows 10 x64
-           Nom de la VM  Win10-XX (XX étant vos initiales)
-              Emplacement  Sous-dossier Win10-XX du dossier VMs-WorkStation
-                   Disque dur  32 GB (Store Virtual disk as a single file)
-                  Mémoire  4 GB
-                   Processeurs  1 processeur – 1 coeur
-                    Réseau  Host-Only
-
-
-
-
-
- Page 1/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
-
-À l&#x27;issue de la création de la VM, sa configuration doit être la suivante :
-
-
-
-
-
-Installation du système d&#x27;exploitation Windows 10 Professionnel
-   Insérer l&#x27;image ISO du support d&#x27;installation de Windows 10 dans le lecteur de DVD
-    virtuel de la VM Win10-XX. Cette image ISO est disponible dans le dossier ISO de votre
-   lecteur de données.
-
-      Vous  créez une procédure de  l&#x27;installation du  système  d&#x27;exploitation
-     Windows 10 Professionnel. Pour cela, vous avez la possibilité d&#x27;utiliser l&#x27;outil
-        natif psr (Step Recorder ou Enregistreur d&#x27;actions utilisateur). Cet outil permet
-     de conserver les étapes de vos actions, dans le but de les mettre en forme
-      par la suite dans une procédure personnalisée.
-
-       Clic droit sur le menu Démarrer &gt; Exécuter &gt; psr
-          Fichier de sortie : Procédures\psr-install-Win10.zip
-         Activer la capture d&#x27;écran : Oui
-         Nombre de captures d&#x27;écran récentes à stocker : valeur max
-
-      Cliquez sur Commencer l&#x27;enregistrement
-
-  Démarrer la VM et procéder à l&#x27;installation en français de Windows 10 Professionnel.
-
-Informations concernant l&#x27;installation du système
-  Vous n&#x27;avez pas de clé produit à renseigner, nous utiliserons le délai de grâce durant
-    les TP.
-  Le système d&#x27;exploitation Windows 10 Professionnel sera à installer sur la totalité de
-   l&#x27;espace non alloué du disque dur de 32 Go (installation personnalisée).
-
-
-
-
-
- Page 2/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-    À  la  fin de  l&#x27;installation, lorsque  la VM redémarre,  cliquez  sur  Arrêter
-       l&#x27;enregistrement.
-
-         Utilisez ensuite les données présentes dans le fichier de sortie install-Win10.zip
-      pour vous créer votre propre procédure personnalisée (avec l&#x27;aide d&#x27;un
-        logiciel de traitement de texte par exemple, et en y insérant les images
-      capturées, vos propres commentaires…)
-
-      Sauvegardez votre procédure dans le dossier Procédures\install-Win10.docx
-
-Informations concernant la configuration de base suite à l&#x27;installation
-
-   Région : France
-
-    Disposition du clavier : Français
-
-   Pas de disposition de clavier supplémentaire nécessaire
-
-   Pas de connexion Internet disponible pour le moment
-
-   Continuer avec l&#x27;installation limitée
-
-  Nom d&#x27;utilisateur : pnom (1re lettre du prénom suivi du nom de famille)
-
-   Pas d&#x27;historique des activités
-
-   Pas d&#x27;assistante numérique &quot;Cortana&quot;
-
-   Ne pas utiliser la reconnaissance vocale en ligne
-
-   Ne pas autoriser Microsoft et les applications à utiliser votre emplacement
-
-   Ne pas localiser l&#x27;appareil
-
-   Envoi basique des données de diagnostic à Microsoft
-
-   Ne pas améliorer l&#x27;écriture manuscrite et la saisie
-
-   Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic
-
-   Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité
-
-
-Finalisation de la configuration de base
-   Installez les VMware Tools (installation typique)
-  Éjectez le DVD puis éteignez votre VM
-   Faites un snapshot TP1 terminé
-
-
-
-
-
- Page 3/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-Importer une seconde VM
-  Importez la VM Discovery au format OVA dans un sous-dossier créé par vos soins en
-   amont nommé Discovery dans le dossier VMs-WorkStation. L&#x27;archive OVA se trouve
-   dans les ressources à télécharger.
-  Complétez le tableau suivant :
-
-  Paramètres de la VM Discovery
-            Nom de la VM  Discovery
-               Emplacement  Sous-dossier Discovery du dossier VMs-WorkStation
-
-
-
-          Nb Disque(s) dur(s)
-
-
-
-
-
-                   Mémoire
-
-
-
-
-
-                    Processeurs
-
-
-
-
-
-                  Carte réseau
-
-
-
-  Démarrez Discovery et ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd).
-  Sur  le bureau,  faites un  clic  droit  sur  le  fichier  reinit.bat  puis Exécuter en  tant
-   qu’administrateur. Redémarrez ensuite la VM Discovery.
-  Complétez le tableau suivant.
-
-    Caractéristiques de Discovery
-
-
-
-       VMware Tools présents ?
-
-
-
-
-
- Page 4/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 5/5
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Installation de Windows.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP - Installation de Windows</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Installation de Windows 10</h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation de Windows 10</p>
+<p class="tssr-source-paragraph">Durant ce TP, vous allez être amené à créer une machine virtuelle avec VMware<br>WorkStation. Vous serez ensuite amené à installer Windows 10 et à procéder à sa<br>configuration initiale. Vous serez également amené à importer une VM Windows 10<br>existante.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique.</p>
+<p class="tssr-source-paragraph">Préparer l&#x27;environnement</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créer les dossiers ISO et Procédures sur votre volume de données.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Copier l&#x27;image ISO de Windows 10 disponible depuis les ressources à télécharger vers<br>votre dossier ISO.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créer un dossier Vms-WorkStation sur votre volume de données. Il accueillera les<br>fichiers qui définissent vos futures VM.</p>
+<p class="tssr-source-paragraph">Création de la machine virtuelle</p>
+<p class="tssr-source-paragraph">Informations concernant la VM Windows 10</p>
+<p class="tssr-source-paragraph">Paramètres WorkStation</p>
+<p class="tssr-source-paragraph">Configuration de la VM<br>Typique</p>
+<p class="tssr-source-paragraph">Système d&#x27;exploitation invité<br>Windows 10 x64</p>
+<p class="tssr-source-paragraph">Nom de la VM<br>Win10-XX (XX étant vos initiales)</p>
+<p class="tssr-source-paragraph">Emplacement<br>Sous-dossier Win10-XX du dossier VMs-WorkStation</p>
+<p class="tssr-source-paragraph">Disque dur<br>32 GB (Store Virtual disk as a single file)</p>
+<p class="tssr-source-paragraph">Mémoire<br>4 GB</p>
+<p class="tssr-source-paragraph">Processeurs<br>1 processeur – 1 coeur</p>
+<p class="tssr-source-paragraph">Réseau Host-Only</p>
+<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>_</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Paramètres WorkStation</td><td></td></tr><tr><td></td><td>Configuration de la VM</td><td>Typique</td></tr><tr><td></td><td>Systè me d&#x27;exploitation invité</td><td>Windows 10 x64</td></tr><tr><td></td><td>Nom de la VM</td><td>Win10 -XX(XX étant vos initiales)</td></tr><tr><td></td><td>Emplacement</td><td>Sous-dossier Win10 -XX du dossier VMs-WorkStation</td></tr><tr><td></td><td>Disque dur</td><td>32 GB(Store Virtual diskas asingle file)</td></tr><tr><td></td><td>Mé moire</td><td>4 GB</td></tr><tr><td></td><td>Processeurs</td><td>1 processeur – 1 coeur</td></tr><tr><td></td><td>Ré<br>seau</td><td>Host -Only</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">À l&#x27;issue de la création de la VM, sa configuration doit être la suivante :</p>
+<p class="tssr-source-paragraph">Installation du système d&#x27;exploitation Windows 10 Professionnel</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Insérer l&#x27;image ISO du support d&#x27;installation de Windows 10 dans le lecteur de DVD<br>virtuel de la VM Win10-XX. Cette image ISO est disponible dans le dossier ISO de votre<br>lecteur de données.</p>
+<p class="tssr-source-paragraph">Vous créez une procédure de l&#x27;installation du système d&#x27;exploitation<br>Windows 10 Professionnel. Pour cela, vous avez la possibilité d&#x27;utiliser l&#x27;outil<br>natif psr (Step Recorder ou Enregistreur d&#x27;actions utilisateur). Cet outil permet<br>de conserver les étapes de vos actions, dans le but de les mettre en forme<br>par la suite dans une procédure personnalisée.</p>
+<p class="tssr-source-paragraph">Clic droit sur le menu Démarrer &gt; Exécuter &gt; psr</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Fichier de sortie : Procédures\psr-install-Win10.zip</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Activer la capture d&#x27;écran : Oui</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Nombre de captures d&#x27;écran récentes à stocker : valeur max</p>
+<p class="tssr-source-paragraph">Cliquez sur Commencer l&#x27;enregistrement </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Démarrer la VM et procéder à l&#x27;installation en français de Windows 10 Professionnel.</p>
+<p class="tssr-source-paragraph">Informations concernant l&#x27;installation du système</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vous n&#x27;avez pas de clé produit à renseigner, nous utiliserons le délai de grâce durant<br>les TP.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le système d&#x27;exploitation Windows 10 Professionnel sera à installer sur la totalité de<br>l&#x27;espace non alloué du disque dur de 32 Go (installation personnalisée).</p>
+<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[1 win10-xx</p><p>&gt; Power on this virtual machine<br>IG Edit virtual machine settings</p><p>v Devices</p><p>Æ Memory<br>4GB<br>LE Processors<br>1<br>E)Hard Disk (NVMe)<br>32 GB</p><p>€) CD/DVD (SATA)<br>Auto detect<br>EG Network Adapter<br>Host-only</p><p>USB Controller<br>Present</p><p>di Sound Card<br>Auto detect</p><p>(I Printer<br>Present<br>CI Display<br>Auto detect</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">À la fin de l&#x27;installation, lorsque la VM redémarre, cliquez sur Arrêter<br>l&#x27;enregistrement.</p>
+<p class="tssr-source-paragraph">Utilisez ensuite les données présentes dans le fichier de sortie install-Win10.zip<br>pour vous créer votre propre procédure personnalisée (avec l&#x27;aide d&#x27;un<br>logiciel de traitement de texte par exemple, et en y insérant les images<br>capturées, vos propres commentaires…)</p>
+<p class="tssr-source-paragraph">Sauvegardez votre procédure dans le dossier Procédures\install-Win10.docx</p>
+<p class="tssr-source-paragraph">Informations concernant la configuration de base suite à l&#x27;installation </p>
+<p class="tssr-source-paragraph">Région : France</p>
+<p class="tssr-source-paragraph">Disposition du clavier : Français</p>
+<p class="tssr-source-paragraph">Pas de disposition de clavier supplémentaire nécessaire</p>
+<p class="tssr-source-paragraph">Pas de connexion Internet disponible pour le moment</p>
+<p class="tssr-source-paragraph">Continuer avec l&#x27;installation limitée</p>
+<p class="tssr-source-paragraph">Nom d&#x27;utilisateur : pnom (1re lettre du prénom suivi du nom de famille)</p>
+<p class="tssr-source-paragraph">Pas d&#x27;historique des activités</p>
+<p class="tssr-source-paragraph">Pas d&#x27;assistante numérique &quot;Cortana&quot;</p>
+<p class="tssr-source-paragraph">Ne pas utiliser la reconnaissance vocale en ligne</p>
+<p class="tssr-source-paragraph">Ne pas autoriser Microsoft et les applications à utiliser votre emplacement</p>
+<p class="tssr-source-paragraph">Ne pas localiser l&#x27;appareil</p>
+<p class="tssr-source-paragraph">Envoi basique des données de diagnostic à Microsoft</p>
+<p class="tssr-source-paragraph">Ne pas améliorer l&#x27;écriture manuscrite et la saisie</p>
+<p class="tssr-source-paragraph">Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic</p>
+<p class="tssr-source-paragraph">Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité</p>
+<p class="tssr-source-paragraph">Finalisation de la configuration de base</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Installez les VMware Tools (installation typique)</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Éjectez le DVD puis éteignez votre VM</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Faites un snapshot TP1 terminé</p>
+<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Région : France</td></tr><tr><td></td><td>Disposition du clavier : Français</td></tr><tr><td></td><td>Pas de disposition de clavier supplémentaire nécessaire</td></tr><tr><td></td><td>Pas de connexion Internet disponible pour le moment</td></tr><tr><td></td><td>Continuer avec l&#x27;installation limitée</td></tr><tr><td></td><td>Nom d&#x27;utilisateur : pnom(1re lettre du prénom suivi du nom de famille)</td></tr><tr><td></td><td>Pas d&#x27;historique des activités</td></tr><tr><td></td><td>Pas d&#x27;assistante numérique &quot;Cortana&quot;</td></tr><tr><td></td><td>Ne pas utiliser lareconnaissance vocale en ligne</td></tr><tr><td></td><td>Ne pas autoriser Microsoft et les applications àutiliser votre emplacement</td></tr><tr><td></td><td>Ne pas localiser l&#x27;appareil</td></tr><tr><td></td><td>Envoi basique des données de diagnostic à Microsoft</td></tr><tr><td></td><td>Ne pas améliorer l&#x27;écriture manuscrite et lasaisie</td></tr><tr><td></td><td>Ne pas obtenir d&#x27;expériences personnalisées avec des données de diagnostic</td></tr><tr><td></td><td>Ne pas autoriser les applications à utiliser l&#x27;identifiant de publicité</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Importer une seconde VM</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Importez la VM Discovery au format OVA dans un sous-dossier créé par vos soins en<br>amont nommé Discovery dans le dossier VMs-WorkStation. L&#x27;archive OVA se trouve<br>dans les ressources à télécharger.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Complétez le tableau suivant :</p>
+<p class="tssr-source-paragraph">Paramètres de la VM Discovery</p>
+<p class="tssr-source-paragraph">Nom de la VM<br>Discovery</p>
+<p class="tssr-source-paragraph">Emplacement<br>Sous-dossier Discovery du dossier VMs-WorkStation</p>
+<p class="tssr-source-paragraph">Nb Disque(s) dur(s)</p>
+<p class="tssr-source-paragraph">Mémoire</p>
+<p class="tssr-source-paragraph">Processeurs</p>
+<p class="tssr-source-paragraph">Carte réseau</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Démarrez Discovery et ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd).</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le bureau, faites un clic droit sur le fichier reinit.bat puis Exécuter en tant<br>qu’administrateur. Redémarrez ensuite la VM Discovery.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Complétez le tableau suivant.</p>
+<p class="tssr-source-paragraph">Caractéristiques de Discovery</p>
+<p class="tssr-source-paragraph">VMware Tools présents ?</p>
+<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>g</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3cf1da6f28f8970824365bd9a4eb9f703c6cb643209a67be5c125ae8c433df8f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3cf1da6f28f8970824365bd9a4eb9f703c6cb643209a67be5c125ae8c433df8f.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="4552"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-72ff6460e6223166eec6bf65da3d8e6c365f8b7271a45050f526477c7f267ca5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-72ff6460e6223166eec6bf65da3d8e6c365f8b7271a45050f526477c7f267ca5.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

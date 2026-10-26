@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 12 - Import des objets.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 12 - Import des objets</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Import des objets </h4>
+<p class="tssr-source-paragraph">Démonstration 12 du module 3 </p>
+
+<p class="tssr-source-paragraph">Nous venons de voir la transformation et l’exportation des objets en fichiers utilisables sur des <br>systèmes externes. L’objectif de cette démonstration est de voir comment il est possible de <br>renverser le processus en se servant de fichiers contenant des données et de les transformer en <br>objets utilisables dans notre système. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La commande Import-Csv : </pre>
+<pre class="tssr-source-code">o Dans un fichier CSV, la première ligne contient les en-têtes de colonnes. </pre>
+<p class="tssr-source-paragraph">Comparés à un objet PowerShell, ces en-têtes deviennent le nom des <br>propriétés des objets. </p>
+<pre class="tssr-source-code">o Chaque ligne du fichier CSV contient donc les valeurs des propriétés des </pre>
+<p class="tssr-source-paragraph">objets. </p>
+<pre class="tssr-source-code">o Ce qui sépare les valeurs est le délimiteur. </pre>
+
+<p class="tssr-source-paragraph">A partir des données du fichier CSV, on recrée des objets. Il ne faut surtout pas oublier d’indiquer le <br>délimiteur sans cela l’importation ne sera pas fonctionnelle. </p>
+<p class="tssr-source-paragraph">On peut profiter de cette commande d’importation pour exécuter une commande de création </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>&quot;;&quot;</p><p>DistinguishedName<br>: CN=Administrator<br>,CN=Users ,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Name<br>:<br>Administrator<br>ObjectClass<br>:<br>user<br>objectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>DistinguishedName<br>:<br>CN=Guest,OU=_CompteTest ,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Name<br>:<br>Guest<br>ObjectCclass<br>: user<br>objectGUID<br>:<br>3b8584da-5517-4204-b2c2-cd61dce60f1f<br>SamAccountName<br>:<br>Guest<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-501<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<p class="tssr-source-paragraph">d’utilisateurs Active Directory. </p>
+<pre class="tssr-source-code">Chaque objet du fichier CSV va se transformer en objet AdUser. </pre>
+
+<p class="tssr-source-paragraph">Notre annuaire va être peuplé par les objets du fichier CSV. </p>
+<p class="tssr-source-paragraph">Que faire dans le cas où les en-têtes de colonnes du fichier CSV ne correspondent pas au nom des <br>propriétés des objets ? </p>
+<p class="tssr-source-paragraph">S’il n’est pas possible de modifier les valeurs des en-têtes, alors on peut utiliser une action vue <br>précédemment. </p>
+<pre class="tssr-source-code">Cette action provient du pipe, c’est la variable $PSItem. </pre>
+<p class="tssr-source-paragraph">En effet cette variable contient les valeurs récupérées dans la première commande, il suffit de faire <br>correspondre ses valeurs avec les propriétés attendues dans les objets. </p>
+
+<pre class="tssr-source-code">Cette commande ne fonctionne pas. La cause est une particularité du fonctionnement du pipe 
+qui ne parvient pas à faire la correspondance entre les données du fichier CSV et la demande de 
+la variable $PSItem. </pre>
+<p class="tssr-source-paragraph">Dans tous les cas, il faut un fichier CSV respectant à la lettre les propriétés de l’objet. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>“;&quot;<br>|<br>New-ADUser</p><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>&quot;;&quot;<br>|<br>New-ADUser<br>-Name $PSitem.name</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-42f6edb0cb2e9992684b461c71fdcc6dd3ced679fff82cde8c968f2b2cd61fc9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-42f6edb0cb2e9992684b461c71fdcc6dd3ced679fff82cde8c968f2b2cd61fc9.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1452"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

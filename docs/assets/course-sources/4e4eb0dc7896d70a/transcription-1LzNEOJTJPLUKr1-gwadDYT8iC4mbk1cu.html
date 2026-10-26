@@ -1,0 +1,45 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 7 - Les fonctions.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 7 - Les fonctions</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les fonctions </h4>
+<p class="tssr-source-paragraph">Démonstration 07 du module 5 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter l’utilisation des fonctions. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Pour faciliter la réalisation d’un script, il est nécessaire de mettre en place des fonctions dans <br>lesquelles des commandes seront enregistrées pour les réutiliser facilement. </p>
+<p class="tssr-source-paragraph">Cela permet de ne pas répéter les lignes de commandes à plusieurs reprises dans un script. </p>
+<pre class="tssr-source-code">• 
+Une fonction se déclare avec la commande Function et le nom attribué à la fonction. </pre>
+<pre class="tssr-source-code">• 
+Le nom d’une fonction ne doit pas contenir de caractère réservé comme le $ ou autre signe 
+de ponctuation. </pre>
+
+<pre class="tssr-source-code">La fonction Hello affiche les valeurs des variables d’environnement du système. </pre>
+<p class="tssr-source-paragraph">Pour appeler cette fonction, il suffit de saisir le nom de la fonction sans commande préalable. </p>
+
+<pre class="tssr-source-code">Le caractère `n permet le saut de ligne. </pre>
+<p class="tssr-source-paragraph">Les fonctions sont capables de recevoir des paramètres et de les intégrer sous forme de variables. </p>
+<p class="tssr-source-paragraph">La valeur de ses variables sera transmise lors de l’appel de la fonction. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>function<br>Hello<br>{</p><p>Write-Host<br>‘Bonjour<br>est bienvenue<br>:&quot;<br>$env:Username<br>“ n°&quot;<br>~<br>&quot;sur l&#x27;ordinateur<br>:<br>$env:Computername&quot;</p><p>Hello</p><p>Bonjour est bienvenue<br>Administrator<br>sur l&#x27;ordinateur<br>DESKTOP-GU9SCPM2</p><p>En</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">On déclare la fonction FindUsers avec le paramètre $i qui va contenir l’utilisateur à rechercher. 
+Puis on renvoie le résultat dans la variable $r. </pre>
+<pre class="tssr-source-code">On appelle la fonction avec le paramètre Morse ; la fonction effectue la recherche et renvoie 
+l’utilisateur. </pre>
+
+<p class="tssr-source-paragraph">Si aucun utilisateur n’est trouvé, la fonction renvoie un message d’utilisateur non trouvé. </p>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>function<br>Findusers<br>{<br>param<br>($i)<br>$r=get-aduser<br>-filter<br>*<br>|<br>where name -eq<br>$7<br>if<br>($null<br>-eq $r){<br>$r = “l&#x27;utilisateur<br>$i<br>n&#x27;existe<br>pas&quot;}<br>return<br>$r</p><p>FindUsers<br>“Morse”</p><p>Runspaceld<br>:<br>OfdbTbb9-72b9-44ac—b568—-74dbc9£29317<br>DistinguishedName<br>:<br>CN—Morse, CN-Users, DC-ad01,DcC—lcl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Ferdinand<br>Name<br>:<br>Morse<br>ObjectClass<br>:<br>user</p><p>SamAccountName<br>:<br>Ferdinand Morse</p><p>Surname<br>=<br>UserPrincipalName<br>:<br>FerdinandMorse</p><p>FindUsers<br>“Antoine”</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-95171600baacea607718dff84f34ed89846c4d9e20150ce04baafba7889fc4fa.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-95171600baacea607718dff84f34ed89846c4d9e20150ce04baafba7889fc4fa.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1687"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

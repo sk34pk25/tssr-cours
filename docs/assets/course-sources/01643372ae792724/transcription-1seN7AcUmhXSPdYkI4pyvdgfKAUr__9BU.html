@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 8 - Format-List.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 8 - Format-List</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Format-List </h4>
+<p class="tssr-source-paragraph">Démonstration 08 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Format-List  </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La commande Format-List a un rôle de mise en forme des propriétés d’un objet sous forme de 
+liste. De la même manière que la commande Format-Table, elle reprend les mêmes principes. </pre>
+<p class="tssr-source-paragraph">• <br>Dans un premier temps, toutes les propriétés sont mises sous forme de liste. </p>
+
+<pre class="tssr-source-code">On peut constater que la mise en forme de type liste est la mise en forme par défaut de la 
+commande Get-AdUser. Les objets sont présentés à l’horizontale, leurs propriétés sont les unes sur 
+les autres. Chaque objet est déroulé par ordre de tri. </pre>
+<pre class="tssr-source-code">La commande Format-List permet de sélectionner les propriétés présentes dans la liste. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-List</p><p>DistinguishedName<br>:<br>CN=Administrator<br>,CN=Users,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>:<br>Name<br>:<br>Administrator<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>DistinguishedName<br>:<br>CN=Guest,OU=_CompteTest,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Name<br>:<br>Guest<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>3b8584da-5517-4204-b2c2-cd61dce60f1F<br>SamAccountName<br>:<br>Guest<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-501<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-List -Property Givenname,name, enabled</p><p>ivenname<br>:<br>ame<br>:<br>Administrator<br>enabled<br>:<br>True</p><p>ivenname<br>:<br>ame<br>:<br>Guest<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>ame<br>:<br>krbtgt<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>ame<br>:<br>toto<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>Ferdinand<br>ame<br>:<br>Morse<br>enabled<br>:<br>False</p><p>@</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bf457189d66276349ee07f614e22bfe70f6ea138635c5b5e23c45aa459177ca4.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bf457189d66276349ee07f614e22bfe70f6ea138635c5b5e23c45aa459177ca4.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1694"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

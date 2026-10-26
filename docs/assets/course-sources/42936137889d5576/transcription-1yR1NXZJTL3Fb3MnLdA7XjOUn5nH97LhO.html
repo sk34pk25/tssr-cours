@@ -1,0 +1,460 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M03 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M03 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
+<h4>GNU/Linux</h4>
+<h4>Module 03 – Démarrage d’une distribution Debian</h4></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Démarrage d’une distribution Debian</h4>
+<h4>Objectifs</h4>
+<h4>• Comprendre les diverses étapes de démarrage<br>• Apprendre à gérer le système et les services avec  <br>SystemD<br>• Arrêter ou redémarrer une machine Linux</h4>
+<h4>Démarrer Debian Linux</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Démarrage d’une distribution Debian</h4>
+<h4>Démarrage de Linux, </h4>
+<h4>services et niveaux</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Chargeur d’amorçage (Boot Loader – BL)</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
+<pre class="tssr-source-code">Sous Debian, le chargeur est le programme GRUB2. Il se divise en 
+plusieurs parties nommées stage.
+Après démarrage, le BIOS de la machine lance le chargeur 
+d’amorçage.
+Stage 1 : dans le Master Boot Record (MBR), situé sur les 512 
+premiers octets du disque dur. Ce stage se contente de charger le 
+suivant.
+Stage 1.5 : également localisé au début du disque dur contenant le 
+Boot Loader, avant les données de la première partition
+Stage 2 : d’un point de vue Linux, la fin de GRUB est placée dans le 
+répertoire /boot/grub/</pre>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
+                                   Chargeur d’amorçage (Boot Loader – BL)
+
+
+
+1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
+
+  Sous Debian, le chargeur est le programme GRUB2. Il se divise en
+  plusieurs parties nommées stage.
+  Après démarrage, le BIOS de la machine lance le chargeur
+  d’amorçage.
+  Stage 1 : dans le Master Boot Record (MBR), situé sur les 512
+  premiers octets du disque dur. Ce stage se contente de charger le
+  suivant.
+  Stage 1.5 : également localisé au début du disque dur contenant le
+  Boot Loader, avant les données de la première partition
+  Stage 2 : d’un point de vue Linux, la fin de GRUB est placée dans le
+  répertoire /boot/grub/</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=<br>&gt;SO<br>— EE</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9bef6d41829e74821d6e7059ef327ba394b1ac180c7a0e111050e2b981f5dcb9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9bef6d41829e74821d6e7059ef327ba394b1ac180c7a0e111050e2b981f5dcb9.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1477" height="897"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Configuration de GRUB</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
+<pre class="tssr-source-code">• Le fichier de configuration de grub se trouve dans 
+/boot/grub/grub.cfg</pre>
+<h4>Il ne faut pas éditer ce fichier.</h4>
+<h4>• Il est ainsi conseillé de procéder aux modifications de la <br>configuration de GRUB à partir de :</h4>
+<pre class="tssr-source-code">• /etc/default/grub, contenant les paramètres et options globales
+• scripts présents dans le dossier /etc/grub.d/</pre>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
+                                                     Configuration de GRUB
+
+
+1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
+
+  • Le fichier de configuration de grub se trouve dans
+   /boot/grub/grub.cfg
+
+                               Il ne faut pas éditer ce fichier.
+
+
+  •  Il est ainsi conseillé de procéder aux modifications de la
+   configuration de GRUB à partir de :
+        • /etc/default/grub, contenant les paramètres et options globales
+        • scripts présents dans le dossier /etc/grub.d/</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BR — D — QU — VU — DS — EE</p><p>A</p><p>End</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Configuration de GRUB</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
+<pre class="tssr-source-code">Pour la prise en compte de ces modifications, deux commandes 
+permettent de regénérer le fichier /boot/grub/grub.cfg :
+grub-mkconfig et update-grub. </pre>
+<pre class="tssr-source-code">root@deb:~# update-grub
+Création du fichier de configuration GRUB…
+Image Linux trouvée : /boot/vmlinuz-4.19.0-12-amd64
+Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-12-amd64
+Image Linux trouvée : /boot/vmlinuz-4.19.0-11-amd64
+Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-11-amd64
+fait</pre>
+<pre class="tssr-source-code">root@deb:~# grub-mkconfig -o /boot/grub/grub.cfg
+Création du fichier de configuration GRUB…
+Image Linux trouvée : /boot/vmlinuz-4.19.0-12-amd64
+Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-12-amd64
+Image Linux trouvée : /boot/vmlinuz-4.19.0-11-amd64
+Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-11-amd64
+fait</pre>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
+                                                     Configuration de GRUB
+
+
+1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
+
+
+  Pour la prise en compte de ces modifications, deux commandes
+  permettent de regénérer le fichier /boot/grub/grub.cfg :
+ grub-mkconfig et update-grub.
+
+
+
+
+         root@deb:~#root@deb:~# update-grubgrub-mkconfig -o /boot/grub/grub.cfg
+          CréationCréation dudu fichierfichier dede configurationconfiguration GRUB…GRUB…
+          ImageImage LinuxLinux trouvéetrouvée :: /boot/vmlinuz-4.19.0-12-amd64/boot/vmlinuz-4.19.0-12-amd64
+          ImageImage mémoiremémoire initialeinitiale trouvéetrouvée :: /boot/initrd.img-4.19.0-12-amd64/boot/initrd.img-4.19.0-12-amd64
+          ImageImage LinuxLinux trouvéetrouvée :: /boot/vmlinuz-4.19.0-11-amd64/boot/vmlinuz-4.19.0-11-amd64
+          ImageImage mémoiremémoire initialeinitiale trouvéetrouvée :: /boot/initrd.img-4.19.0-11-amd64/boot/initrd.img-4.19.0-11-amd64
+          faitfait</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N<br>=<br>a<br>- En</p><p>M<br>—</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>GRUB au démarrage</h4>
+<p class="tssr-source-paragraph">Selon la configuration de <br>GRUB, il est possible de <br>paramétrer l’affichage du <br>menu au démarrage. Sera <br>alors offerte la possibilité <br>de sélectionner l’une des <br>entrées qui y figurent afin <br>de choisir un noyau ou un <br>mode de démarrage <br>particulier.</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>GNU GRUB<br>version 2.42+dfs¢1-26+deblau2</p><p>Debian GNU/Linux</p><p>Options avancees pour Debian GNU/Linux</p><p>Utilisez les touches T et | pour sélectionner une entrée.<br>Apouyez sur Entrée pour démarrer le systeme sélectionné,<br># € #<br>pour éditer les commandes avant de démarrer ou # c<br># pour<br>obtenir une invite de commandes.<br>L&#x27;entrée sélectionnée sera exécutée automatiquement dans 23 s.</p><p>ene</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Le noyau Linux</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
+<h4>Application(s)</h4>
+<h4>Shell</h4>
+<h4>Noyau</h4>
+<p class="tssr-source-paragraph">• Le noyau (kernel) d’un système <br>d’exploitation a pour but principal <br>de mettre en relation le matériel <br>(via le BIOS) et les interfaces <br>utilisateurs et applications. <br>• Le kernel est dit modulaire, car il <br>est constitué de plusieurs fichiers.</p>
+<h4>Matériel</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
+                                                          Le noyau Linux
+
+
+
+1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
+
+  • Le noyau (kernel) d’un système
+    d’exploitation a pour but principal
+                                                   Application(s)   de mettre en relation le matériel
+    (via le BIOS) et les interfaces                                                           Shell
+    utilisateurs et applications.
+  • Le kernel est dit modulaire, car il
+                                       Noyau   est constitué de plusieurs fichiers.
+
+
+                                                    Matériel</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D<br>— D<br>— DU<br>— QU — DRE — ER</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f41085ab0b4b43d7758c4ad6149fb6990631ab80befac1a78f7b856065e04f1d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f41085ab0b4b43d7758c4ad6149fb6990631ab80befac1a78f7b856065e04f1d.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1478" height="3225"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Fichiers du moyau</h4>
+<h4>• Deux fichiers sont indispensables pour le démarrage minimum du <br>système d’exploitation Debian :</h4>
+<pre class="tssr-source-code">• vmlinuz-4.19.0-12-amd64 : fichier principal du noyau avec sa 
+version dans le nom.
+• initrd.img-4.19.0-12-amd64:fichier secondaire généré à chaque 
+mise à jour. 
+Il contient la configuration spécifique au matériel et les options importantes 
+du système d’exploitation (ex : gestion du raid, chiffrement, pilote des 
+systèmes de fichiers, etc.)</pre>
+<pre class="tssr-source-code">root@deb:~# ls -l /boot/
+total 72280
+-rw-r--r-- 1 root root   206143 oct.  18 10:43 config-4.19.0-12-amd64
+drwxr-xr-x 5 root root     4096 nov.  19 12:00 grub
+-rw-r--r-- 1 root root 28097458 nov.  18 12:04 initrd.img-4.19.0-12-amd64
+-rw-r--r-- 1 root root  3415048 oct.  18 10:43 System.map-4.19.0-12-amd64
+-rw-r--r-- 1 root root  5278960 oct.  18 10:43 vmlinuz-4.19.0-12-amd64</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>a</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Relation GRUB / Noyau</h4>
+<h4>• Lors du démarrage, on <br>peut passer des <br>paramètres au lancement <br>du noyau par Grub. <br>• Pour cela, il faudra <br>appuyer sur la touche <br>« e » pour passer en <br>mode édition.</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>GNU<br>GRUB<br>version<br>2.92&quot;beta3-5+deb9u1</p><p>Debian GNU/Linux<br>Options<br>avancées<br>pour<br>Debian GNU/Linux</p><p>Utilisez<br>les touches<br>|<br>et<br>|<br>pour<br>sélectionner<br>une entrée.<br>Appuyez<br>sur Entrée pour démarrer<br>le<br>système sélectionné,<br>«<br>e<br>»<br>pour<br>éditer<br>les<br>commandes avant<br>de démarrer<br>ou<br>«<br>©<br>*<br>pour<br>obten ir<br>ne<br>invite<br>de<br>commandes.<br>L&#x27;entrée<br>sélectionnée<br>sera exécutée<br>automatiquement<br>dans<br>5<br>5.</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Relation GRUB / Noyau</h4>
+<h4>La ligne dans laquelle il est possible d’apporter des modifications est :</h4>
+<pre class="tssr-source-code">linux /vmlinuz-4.9.0-8-amd64 root=/dev/mapper/debian--vg-root ro 
+quiet</pre>
+<p class="tssr-source-paragraph">• /vmlinuz-4.9.0-8-amd64 : nom de l’image noyau à charger.<br>• root=/dev/mapper/debian--vg-root : déclaration du système de fichier <br>contenant la racine du système d’exploitation (/).<br>• ro : indique que la racine du système d’exploitation sera montée en lecture <br>seule. Il est important de ne pas changer ce paramètre (si l’intégrité du <br>système de fichier doit être vérifiée, celui-ci doit être en lecture seule).<br>• quiet : indique que le noyau se lancera de façon non verbeuse.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Démarrage de Linux, services et niveaux</h4>
+<h4>Démo</h4>
+<h4>BIOS, Grub et grub.cfg</h4>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-27e7195fcc8a45c59b0d856ff3ac963228ec292026803855444455d2161c6a12.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-27e7195fcc8a45c59b0d856ff3ac963228ec292026803855444455d2161c6a12.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1411" height="2797"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Démarrage d’une distribution Debian</h4>
+<h4>Gestion du système </h4>
+<h4>avec SystemD</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Le gestionnaire système : SystemD</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>1| BIOS</p>
+<p class="tssr-source-paragraph">• System D est le gestionnaire système, le premier programme lancé <br>par le noyau (PID 1).<br>• Il est en charge de lancer tous les programmes suivants afin <br>d’obtenir un système opérationnel pour l’utilisateur. <br>• Le démarrage des programmes (services) est parallèle avec des <br>dépendances entres services. <br>• La gestion des services est matérialisée dans des fichiers <br>spécifiques au sein du dossier /lib/systemd/system. </p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                    Gestion du système avec SystemD
+                                         Le gestionnaire système : SystemD
+
+
+1|1| BIOSBIOS          2|2| MBRMBR          3| GRUB         4| Noyau         5| SystemD           5.1| Cible
+
+   • System D est le gestionnaire système, le premier programme lancé
+    par le noyau (PID 1).
+   •  Il est en charge de lancer tous les programmes suivants afin
+    d’obtenir un système opérationnel pour l’utilisateur.
+   • Le démarrage des programmes (services) est parallèle avec des
+   dépendances entres services.
+   • La gestion des services est matérialisée dans des fichiers
+    spécifiques au sein du dossier /lib/systemd/system.</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=)<br>=)<br>=)<br>om)</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Les cibles : SystemD</h4>
+<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>1| BIOS</p>
+<h4>SystemD utilise des cibles (target) pour savoir quels sont les <br>programmes à exécuter ou arrêter suivant l’objet de la cible.</h4>
+<h4>Nom de la cible<br>Objet de la cible<br>Equiv. SysV</h4>
+<h4>poweroff.target<br>Arrêt du système<br>0</h4>
+<h4>rescue.target<br>Passer en mode maintenance<br>1</h4>
+<h4>multi-user.target<br>Système d’exploitation en mode console (CLI) avec session </h4>
+<h4>multi-utilisateur<br>3</h4>
+<h4>graphical.target<br>Système d’exploitation en mode graphique (GUI) si installé<br>5</h4>
+<h4>reboot.target<br>Redémarrage du système<br>6</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                     Gestion du système avec SystemD
+                                                          Les cibles : SystemD
+
+
+ 1|1| BIOSBIOS          2|2| MBRMBR          3| GRUB         4| Noyau         5| SystemD           5.1| Cible
+
+  SystemD utilise des cibles (target) pour savoir quels sont les
+  programmes à exécuter ou arrêter suivant l’objet de la cible.
+
+
+
+Nom de la cible                      Objet de la cible                       Equiv. SysV
+ poweroff.target                         Arrêt du système                       0
+
+  rescue.target                   Passer en mode maintenance                  1
+                 Système d’exploitation en mode console (CLI) avec sessionmulti-user.target                                                         3                                            multi-utilisateur
+graphical.target   Système d’exploitation en mode graphique (GUI) si installé      5
+  reboot.target                  Redémarrage du système                    6</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>= = D<br>mue DIN mu CN mu RE</p><p>RSSE<br>ET<br>_</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>N d l ibl<br>om e a c e</td><td>Obj et d e l a cibl e</td><td>E qui v S ysV<br>.</td></tr><tr><td>powerofftarget<br>.</td><td>A rrêt d systè<br>u me</td><td>0</td></tr><tr><td>rescue target<br>.</td><td>P asser en mod e mai ntenance</td><td>1</td></tr><tr><td>multi -user target<br>.</td><td>S ystè d’ expl oitati mod consol (CLI) sessi<br>me on en e e avec on<br>multi utili sateur<br>-</td><td>3</td></tr><tr><td>graphi cal target<br>.</td><td>S ystè d’ expl oitati mod graphi (GUI) si i nstallé<br>me on en e que</td><td>5</td></tr><tr><td>reb oot target<br>.</td><td>R edé d systè<br>marrage u me</td><td>6</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Gestion du système avec SystemD</h4>
+<h4>La commande systemctl</h4>
+<pre class="tssr-source-code">Une commande pour les gouverner tous :
+systemctl &lt;action&gt; [cible/service/unit]</pre>
+<pre class="tssr-source-code">systemctl est LA commande par laquelle nous pourrons, entre autres : </pre>
+<h4>• afficher la cible par défaut </h4>
+<h4>• changer de cible par défaut</h4>
+<h4>• changer de cible directement</h4>
+<h4>• gérer les services</h4>
+<h4>• lister les cibles, services, et autres éléments de SystemD</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-9359fb59cf6dc1e53c76aa955a1c33cefb076ba37eb7c4816fc903d85974d9a3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9359fb59cf6dc1e53c76aa955a1c33cefb076ba37eb7c4816fc903d85974d9a3.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1549" height="1551"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Gérer les cibles</h4>
+<h4>Connaître la cible par défaut</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl get-default
+graphical.target</pre>
+<h4>Changer la cible par défaut</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl set-default multi-user.target
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target /lib/systemd/system/multi-
+user.target</pre>
+<h4>Changer de cible  </h4>
+<pre class="tssr-source-code">root@deb:~# systemctl isolate rescue.target</pre>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Lister les unités SystemD</h4>
+<h4>Lister les divers éléments (units) de SystemD</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl list-units
+…
+networking.service 
+ 
+loaded active exited    Raise network interfaces
+rsyslog.service 
+ 
+loaded active running   System Logging Service
+…
+multi-user.target 
+ 
+loaded active active    Multi-User System
+network.target 
+ 
+loaded active active    Network
+…</pre>
+<h4>Lister tous les units</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl list-units --all
+getty-pre.target 
+ 
+loaded    inactive dead      Login Prompts (Pre)
+getty.target  
+ 
+loaded    active   active    Login Prompts
+graphical.target 
+ 
+loaded    inactive dead      Graphical Interface
+local-fs-pre.target 
+ 
+loaded    active   active    Local File Systems (Pre)</pre>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Gérer les services avec systemctl</h4>
+<h4>Voir le statut d’un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl status cron.service
+● cron.service - Regular background program processing daemon
+   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2020-11-20 11:18:33 CET; 3h 29min ago
+     Docs: man:cron(8)
+ Main PID: 403 (cron)
+    Tasks: 1 (limit: 2327)
+   Memory: 1.1M
+   CGroup: /system.slice/cron.service
+           └─403 /usr/sbin/cron -f</pre>
+<pre class="tssr-source-code">nov. 20 11:18:33 SRV-DEB-01 cron[403]: (CRON) INFO (Running @reboot jobs)
+nov. 20 12:17:01 SRV-DEB-01 CRON[760]: pam_unix(cron:session): session opened for user root by 
+(uid=0)
+nov. 20 12:17:01 SRV-DEB-01 CRON[761]: (root) CMD (   cd / &amp;&amp; run-parts --report 
+/etc/cron.hourly)
+nov. 20 12:17:01 SRV-DEB-01 CRON[760]: pam_unix(cron:session): session closed for user root</pre>
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Gérer les services avec systemctl</h4>
+<h4>Démarrer un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl start cron.service
+root@deb:~# systemctl status cron.service
+● cron.service - Regular background program processing daemon
+   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2020-11-20 16:58:53 CET; 2s ago
+     Docs: man:cron(8)
+ Main PID: 885 (cron)
+    Tasks: 1 (limit: 2327)
+   Memory: 488.0K
+   CGroup: /system.slice/cron.service
+           └─885 /usr/sbin/cron -f</pre>
+<pre class="tssr-source-code">nov. 20 16:58:53 SRV-DEB-01 systemd[1]: Started Regular background program processing 
+daemon.
+nov. 20 16:58:53 SRV-DEB-01 cron[885]: (CRON) INFO (pidfile fd = 3)
+nov. 20 16:58:53 SRV-DEB-01 cron[885]: (CRON) INFO (Skipping @reboot jobs -- not system 
+startup)</pre>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-98ace73511bbcf4c9ffdd4286764e46a7f431230701ffb264e5b10de4c273508.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-98ace73511bbcf4c9ffdd4286764e46a7f431230701ffb264e5b10de4c273508.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1572" height="2421"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Gérer les services avec systemctl</h4>
+<h4>Arrêter un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl stop cron.service
+root@deb:~# systemctl status cron.service
+● cron.service - Regular background program processing daemon
+   Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
+   Active: inactive (dead) since Fri 2020-11-20 16:47:53 CET; 58s ago
+     Docs: man:cron(8)
+  Process: 403 ExecStart=/usr/sbin/cron -f $EXTRA_OPTS (code=killed, signal=TERM)
+ Main PID: 403 (code=killed, signal=TERM)</pre>
+<h4>Redémarrer un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl restart cron.service
+root@deb:~#</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Gérer les services avec systemctl</h4>
+<h4>Activer un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl enable networking
+Synchronizing state of networking.service with SysV service script with 
+/lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable networking
+Created symlink /etc/systemd/system/multi-user.target.wants/networking.service → 
+/lib/systemd/system/networking.service.
+Created symlink /etc/systemd/system/network-online.target.wants/networking.service → 
+/lib/systemd/system/networking.service.</pre>
+<h4>Désactiver un service</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl disable networking
+Synchronizing state of networking.service with SysV service script with 
+/lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable networking
+Removed /etc/systemd/system/network-online.target.wants/networking.service.
+Removed /etc/systemd/system/multi-user.target.wants/networking.service.</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Gestion du système avec SystemD</h4>
+<h4>Démo</h4>
+<h4>La commande systemctl</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Démarrage d’une distribution Debian</h4>
+<h4>Arrêter / redémarrer le </h4>
+<h4>système</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-6b1e4917d4ae66cd0b61bbcdcaf47c23d3136d5e164e3a3200f590968efbca17.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6b1e4917d4ae66cd0b61bbcdcaf47c23d3136d5e164e3a3200f590968efbca17.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1544" height="2436"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Arrêter / redémarrer le système</h4>
+<h4>La commande shutdown</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown [-rhc] &lt;heure&gt; &lt;message&gt;</pre>
+<h4>Arrêter le système maintenant</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown -h now</pre>
+<h4>Arrêter le système dans 10 minutes avec un avertissement</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown -h +10 &quot;Arrêt du serveur dans 10mn !&quot;</pre>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><h4>Arrêter / redémarrer le système</h4>
+<h4>La commande shutdown</h4>
+<h4>Redémarrer immédiatement</h4>
+<pre class="tssr-source-code">root@deb:~# reboot</pre>
+<h4>ou</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown -r now</pre>
+<h4>Redémarrer le système à 16h30</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown -r 16:30 &quot;reboot à 16h30&quot;</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Arrêter / redémarrer le système</h4>
+<h4>La commande shutdown</h4>
+<h4>• Annuler une commande shutdown en attente. <br>• Ne fonctionne pas avec l’option now ou une fois l’heure <br>programmée atteinte.</h4>
+<pre class="tssr-source-code">root@deb:~# shutdown -c</pre>
+
+</section>
+<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Arrêter / redémarrer le système</h4>
+<h4>TP<br>Démarrer et arrêter Debian</h4>
+<h4>Démo</h4>
+<h4>Gérer les services</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                               Arrêter / redémarrer le système
+
+
+
+     TP                             Démarrer et arrêter DebianDémo
+
+
+
+                                                  Gérer les services</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9f0b7de5c9d363caf72b68527a2d4ee307107257cab64f17e2647cf47d67be15.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9f0b7de5c9d363caf72b68527a2d4ee307107257cab64f17e2647cf47d67be15.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="1382" height="2486"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Démarrage d’une distribution Debian</h4>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous connaissez les principales étapes du démarrage de Debian <br>GNU/Linux.<br>• Vous savez gérer les services et cibles SystemD.<br>• Vous savez arrêter ou redémarrer un ordinateur sous Linux.</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-7f93482d22a2ffc761790814301f563690b2fd75165948099b48331d890de911.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7f93482d22a2ffc761790814301f563690b2fd75165948099b48331d890de911.webp" alt="Illustrations du support source, pages 29" loading="lazy" width="900" height="183"></a><figcaption>Illustrations du support Drive — pages 29. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

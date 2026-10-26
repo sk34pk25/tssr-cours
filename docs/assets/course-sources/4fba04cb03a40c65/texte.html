@@ -1,414 +1,228 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 11 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 11 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                  Module 11 – Plus loin avec PowerShell
-
-
-
-
-
-                                                                                         1
-
-
-1
-
-
-
-   Plus loin avec PowerShell
-
-                                            •  Savoir rediriger les flux des cmdlets  Objectifs
-                                            •  Utiliser le pipeline
-                                            •  Filtrer puis formater le résultat
-
-
-
-
-
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>   Plus loin avec PowerShell
- Plus loin avec PowerShell
-
-
-              • Redirection de flux
-              • Le pipeline
-              •  Filtrer l&#x27;affichage d&#x27;un résultat
-
-
-
-
-
-                                                                                         3
-
-
-3
-
-
-   Plus loin avec PowerShell
- Redirection
-
-
-              • Une cmdlet :
-                      • Reçoit des paramètres par l&#x27;entrée standard (stdin:0) par défaut le clavier
-                      • Fournit des résultats sur la sortie standard (stdout:1) par défaut l&#x27;écran
-                      • Affiche éventuellement les erreurs sur la sortie standard (stderr:2) par défaut l&#x27;écran
-
-
-                                                                                                               Sortie
-                                                                                                   standard
-                                                                                                                Stdout:1                    Entrée                                                                                                                        (écran)
-                   standard                                                  cmdlet                        Stdin:0
-                          (clavier)                                                                                            Sortie
-                                                                                                                          erreur
-                                                                                                                                        Stderr:2
-                                                                                                                                       (écran)
-
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>   Plus loin avec PowerShell
- Redirection
-
-
-                                       Redirection du flux de sortie standard
-                 Cmdlet &gt; fichier                                    Redirige le flux de sortie standard vers ‘fichier’
-                  Cmdlet 1&gt;fichier
-                Cmdlet &gt;&gt; fichier                                    Redirige le flux de sortie standard à la fin de ‘fichier’
-                 Cmdlet 1&gt;&gt; fichier
-                                        Redirection du flux de sortie d&#x27;erreur
-             Cmdlet 2&gt; fichier.err  Redirige le flux de sortie d&#x27;erreur vers fichier.err
-            Cmdlet 2&gt;&gt; fichier.err  Redirige le flux de sortie d&#x27;erreur à la fin de fichier.err
-
-                                                Redirection des flux
-            Cmdlet &gt; fichier 2&gt;&amp;1  Redirige le flux de sortie standard et le flux de sortie d&#x27;erreur dans ‘fichier’
-                  Cmdlet 2&gt;$null  Redirige le flux de sortie d&#x27;erreur &quot;dans le vide&quot;
-
-                                                                                         5
-
-
-5
-
-
-   Plus loin avec PowerShell
- Redirection
-
-
-              • Exemple de redirection dans un fichier
-                      • Get-LocalUser &gt; c:\temp\LocalUserList.txt
-              • Lecture du fichier
-                      • Get-Content c:\temp\LocalUserList.txt
-
-
-
-
-
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>   Plus loin avec PowerShell
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         7
-
-
-7
-
-
-   Plus loin avec PowerShell
- Pipeline
-
-
-              • Déjà utilisé avec Select-Object, le pipeline transmet le résultat de la sortie standard d&#x27;une
-            cmdlet dans l&#x27;entrée standard d&#x27;une autre cmdlet
-              • Enchaînement de cmdlet possible
-
-
-
-            cmdlet1                       cmdlet2                       cmdlet3
-
-
-
-                     stdout                          stdin    stdout                          stdin
-
-
-
-
-                                                                                         8
-
-
-8</pre></section><section><h2>Page 5</h2><pre>   Plus loin avec PowerShell
- Pipeline
-
-
-              • Utilisé pour fournir un jeu restreint de propriétés
-                      • exemple avec Get-NetAdapter (sans paramètre ni argument) qui affiche certaines propriétés
-
-
-
-
-
-                      • Get-NetAdapter | Select Name,Status,LinkSpeed
-
-
-
-
-
-                                                                                         9
-
-
-9
-
-
-   Plus loin avec PowerShell
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>   Plus loin avec PowerShell
-  Filtrage
-
-
-              • Les objets fournis par le pipeline sont parfois nombreux
-              • Mettre en place le filtrage pour ne garder que les propriétés nécessaires
-              • Prérequis : connaître les opérateurs de comparaisons
-                      • Par défaut insensible à la casse
-                      • Les préfixer de &quot;c&quot; pour les rendre sensibles...
-                      • … Get-Help About_Comparison_Operator …
-
-
-
-
-
-                                                                                          11
-
-
-11
-
-
-   Plus loin avec PowerShell
-  Filtrage
-
-
-                  Comparaison                Insensibilité à la casse       Sensibilité à la casse
-                                Egalité                            -eq                        -ceq
-                               Inégalité                           -ne                         -cne
-                          Supérieur à                             -gt                           -cgt
-                      Supérieur ou égal à                      -ge                         -cge
-                               Inférieur à                                       -lt                                  -clt
-                           Inférieur ou égal à                              -le                              -cle
-             Comparaison d&#x27;égalité d&#x27;expression                   -like                             -clike
-             Comparaison d&#x27;inégalité d&#x27;expression               -notlike                       -cnotlike
-
-
-
-                                                                                          12
-
-
-12</pre></section><section><h2>Page 7</h2><pre>   Plus loin avec PowerShell
-  Filtrage basique
-
-
-              • Ne peut filtrer qu&#x27;une seule propriété
-              • Nécessite la cmdlet Where-Object
-              • Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-
-
-
-
-
-              • Get-Netadapter | Select Name,Status,LinkSpeed | Where Status –like Up
-
-
-
-
-
-                                                                                          13
-
-
-13
-
-
-   Plus loin avec PowerShell
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          14
-
-
-14</pre></section><section><h2>Page 8</h2><pre>   Plus loin avec PowerShell
-  Filtrage
-
-        Le filtrage avancé
-              • Pour filtrer plusieurs propriétés
-              • Nécessite aussi la cmdlet Where-Object
-              • Nécessite un script de filtrage –FilterScript {} dans la cmdlet Where-Object
-              • Possibilité d&#x27;utiliser la variable $PSITEM (ou $_) pour être plus productif
-              • $_ contient tous les objets transmis à Where-Object
-
-
-
-
-
-                                                                                          15
-
-
-15
-
-
-   Plus loin avec PowerShell
-  Filtrage
-
-
-              • Exemple Get-NetAdapter | select Name,Status,LinkSpeed
-
-
-
-
-
-              • Get-NetAdapter | select Name,Status,LinkSpeed | Where –FilterScript
-          {$_.Status –like &quot;Up&quot; –and $_.LinkSpeed –gt &quot;100 Mbps&quot;}
-
-
-
-
-
-                                                                                          16
-
-
-16</pre></section><section><h2>Page 9</h2><pre>   Plus loin avec PowerShell
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          17
-
-
-17
-
-
-   Plus loin avec PowerShell
- Formatage
-
-
-              • Par défaut, PowerShell &quot;formate&quot; les résultats des cmdlets avant de les afficher à l&#x27;écran
-              • Le format des résultats peut être modifié à l&#x27;aide des cmdlets
-                      • Format-List
-                      • Format-Table
-                      • Format-Wide
-
-              • Les cmdlets Format-* sont à réaliser en dernier lieu, &quot;après avoir terminé le travail&quot;
-
-
-
-
-
-                                                                                          18
-
-
-18</pre></section><section><h2>Page 10</h2><pre>   Plus loin avec PowerShell
- Formatage
-
-
-              • Affichage sous forme de liste
-                      • Get-Service | format-List
-                      • Get-Service | format-List –Property *
-                      • Get-service | FL –Property Name,Status,DisplayName
-                               •  Équivalent à Get-Service | select Name,Status,DisplayName | FL
-
-              • Affichage sous forme de tableau
-                      • Get-TimeZone | Format-Table
-                      • Get-TimeZone | Format-Table –Property *
-                      • Get-TimeZone | FT –Property StandardName,BaseUtcOffset -autosize
-
-
-
-
-                                                                                          19
-
-
-19
-
-
-   Plus loin avec PowerShell
- Formatage
-
-
-              • Affichage sous forme de liste élargie
-                      •  Afficher une liste sur une ou plusieurs colonnes
-                      • Une seule propriété de la collection d&#x27;objets est sélectionnée
-
-                      • Get-Process | Format-Wide
-                      • Get-Process | Format-Wide –Property ID
-                      • Get-Process | FW –Property ID –column 5
-                      • Get-Process | FW –Property ID -autosize
-
-
-
-
-
-                                                                                          20
-
-
-20</pre></section><section><h2>Page 11</h2><pre>   Plus loin avec PowerShell
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          21
-
-
-21
-
-
-   Plus loin avec PowerShell
-
-
-              TP
-
-
-
-
-
-                                                                                          22
-
-
-22</pre></section><section><h2>Page 12</h2><pre>   Plus loin avec PowerShell
- Conclusion                                            •  Maîtriser PowerShell, l’essence même d’un
-                                     technicien moderne
-                                            •  Aller plus loin, être curieux
-                                            •  S’éveiller au scripting PowerShell
-
-
-
-
-
-                                                                                          23
-
-
-23</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 11 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 11 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 11 – Plus loin avec PowerShell</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Objectifs<br>• Savoir rediriger les flux des cmdlets<br>• Utiliser le pipeline<br>• Filtrer puis formater le résultat</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Plus loin avec PowerShell</h4>
+<p class="tssr-source-paragraph">• Redirection de flux</p>
+<p class="tssr-source-paragraph">• Le pipeline</p>
+<p class="tssr-source-paragraph">• Filtrer l&#x27;affichage d&#x27;un résultat</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Redirection</h4>
+<p class="tssr-source-paragraph">• Une cmdlet :<br>• Reçoit des paramètres par l&#x27;entrée standard (stdin:0) par défaut le clavier<br>• Fournit des résultats sur la sortie standard (stdout:1) par défaut l&#x27;écran<br>• Affiche éventuellement les erreurs sur la sortie standard (stderr:2) par défaut l&#x27;écran</p>
+<p class="tssr-source-paragraph">Sortie <br>standard</p>
+<p class="tssr-source-paragraph">Stdout:1</p>
+<p class="tssr-source-paragraph">(écran)</p>
+<p class="tssr-source-paragraph">Entrée <br>standard</p>
+<p class="tssr-source-paragraph">cmdlet</p>
+<p class="tssr-source-paragraph">Stdin:0<br>(clavier)</p>
+<p class="tssr-source-paragraph">Sortie<br>erreur<br>Stderr:2</p>
+<p class="tssr-source-paragraph">(écran)</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Redirection</h4>
+<p class="tssr-source-paragraph">Redirection du flux de sortie standard</p>
+<p class="tssr-source-paragraph">Cmdlet &gt; fichier<br>Cmdlet 1&gt;fichier Redirige le flux de sortie standard vers ‘fichier’</p>
+<p class="tssr-source-paragraph">Cmdlet &gt;&gt; fichier<br>Cmdlet 1&gt;&gt; fichier Redirige le flux de sortie standard à la fin de ‘fichier’</p>
+<p class="tssr-source-paragraph">Redirection du flux de sortie d&#x27;erreur</p>
+<p class="tssr-source-paragraph">Cmdlet 2&gt; fichier.err<br>Redirige le flux de sortie d&#x27;erreur vers fichier.err</p>
+<p class="tssr-source-paragraph">Cmdlet 2&gt;&gt; fichier.err<br>Redirige le flux de sortie d&#x27;erreur à la fin de fichier.err</p>
+<p class="tssr-source-paragraph">Redirection des flux</p>
+<p class="tssr-source-paragraph">Cmdlet &gt; fichier 2&gt;&amp;1<br>Redirige le flux de sortie standard et le flux de sortie d&#x27;erreur dans ‘fichier’</p>
+<p class="tssr-source-paragraph">Cmdlet 2&gt;$null Redirige le flux de sortie d&#x27;erreur &quot;dans le vide&quot;</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Redirection</h4>
+<pre class="tssr-source-code">• Exemple de redirection dans un fichier
+• Get-LocalUser &gt; c:\temp\LocalUserList.txt</pre>
+<pre class="tssr-source-code">• Lecture du fichier
+• Get-Content c:\temp\LocalUserList.txt</pre>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=</p><p>Name<br>Enabled Description</p><p>Administrateur<br>False<br>Compte d’utilisateur d’ administration<br>Alfred<br>True<br>DefaultAccount<br>False<br>Compte utilisateur géré par le système.<br>Georges<br>True<br>Invité<br>False<br>Compte d’utilisateur invité<br>Martin<br>True<br>romain<br>True<br>Ron<br>True<br>Stanley<br>True<br>End<br>WDAGUtilityAccount False<br>Compte d’utilisateur géré et utilisé par<br>env</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Pipeline</h4>
+<p class="tssr-source-paragraph">• Déjà utilisé avec Select-Object, le pipeline transmet le résultat de la sortie standard d&#x27;une <br>cmdlet dans l&#x27;entrée standard d&#x27;une autre cmdlet</p>
+<p class="tssr-source-paragraph">• Enchaînement de cmdlet possible</p>
+<p class="tssr-source-paragraph">cmdlet1<br>cmdlet2</p>
+<p class="tssr-source-paragraph">cmdlet3</p>
+<p class="tssr-source-paragraph">stdout<br>stdin</p>
+<p class="tssr-source-paragraph">stdout<br>stdin</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CE<br>us<br>—</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-76f95f25c4f6fadf5d7c909706bfdf049940eebf9e2f3be287186cef9c966fad.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-76f95f25c4f6fadf5d7c909706bfdf049940eebf9e2f3be287186cef9c966fad.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="6198"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Pipeline</h4>
+<p class="tssr-source-paragraph">• Utilisé pour fournir un jeu restreint de propriétés<br>• exemple avec Get-NetAdapter (sans paramètre ni argument) qui affiche certaines propriétés</p>
+<pre class="tssr-source-code">• Get-NetAdapter | Select Name,Status,LinkSpeed</pre>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Name<br>InterfaceDescription<br>iflndex Status<br>MacAddress<br>LinkSpeed</p><p>Viware Network Adapte...1 VMware Virtual Ethernet Adapter for<br>...<br>23 Up<br>@0-50-56-C0-20-01<br>10 Mbps<br>Wi-Fi<br>Intel(R) Dual Band Wireless-AC 7260<br>21 Disconnected 80-19-34-B1-CB-05<br>@ bps<br>Viware Network Adapte...7 VMware Virtual Ethernet Adapter for<br>...<br>15 Up<br>@0-50-56-C0-20-07<br>10 Mbps<br>Ethernet 2<br>Fortinet Virtual Ethernet Adapter (N...<br>14 Disconnected @0-09-0F-FE-0-01<br>100 Mbps<br>Viware Network Adapte...8 VMware Virtual Ethernet Adapter for<br>...<br>12 Up<br>0-50-56-C0-20-08<br>100 Mbps<br>Ethernet 3<br>Remote NDIS based Internet Sharing D...<br>9 Up<br>e2-06-63-35-30-64<br>426. Mbps<br>Connexion au réseau local PPPoP WAN Adapter<br>5 Disconnected 00-8-28-00-00-00<br>© bps<br>Ethernet<br>Intel(R) Ethernet Connection 1218-LM<br>3 Disconnected 34-E6-D7-09-FE-03<br>@ bps</p><p>Name<br>Status<br>Linkspeed</p><p>Vwware Network Adapter Viinet1 Up<br>108 Mbps<br>Wi-Fi<br>Disconnected @ bps<br>VMware Network Adapter VMnet7 Up<br>108 Mbps<br>Ethernet 2<br>Disconnected 188 Mbps<br>Viware Network Adapter VHnet Up<br>108 Mbps<br>Ethernet 3<br>up<br>426.0 Mbps</p><p>Z<br>Connexion au réseau local<br> Disconnected @ bps<br>ER)<br>Ethernet<br>Disconnected @ bps</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Filtrage</h4>
+<p class="tssr-source-paragraph">• Les objets fournis par le pipeline sont parfois nombreux</p>
+<p class="tssr-source-paragraph">• Mettre en place le filtrage pour ne garder que les propriétés nécessaires</p>
+<p class="tssr-source-paragraph">• Prérequis : connaître les opérateurs de comparaisons<br>• Par défaut insensible à la casse<br>• Les préfixer de &quot;c&quot; pour les rendre sensibles...<br>• … Get-Help About_Comparison_Operator …</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Filtrage</h4>
+<p class="tssr-source-paragraph">Comparaison<br>Insensibilité à la casse<br>Sensibilité à la casse</p>
+<p class="tssr-source-paragraph">Egalité<br>-eq<br>-ceq</p>
+<p class="tssr-source-paragraph">Inégalité<br>-ne<br>-cne</p>
+<p class="tssr-source-paragraph">Supérieur à<br>-gt<br>-cgt</p>
+<p class="tssr-source-paragraph">Supérieur ou égal à<br>-ge<br>-cge</p>
+<p class="tssr-source-paragraph">Inférieur à<br>-lt<br>-clt</p>
+<p class="tssr-source-paragraph">Inférieur ou égal à<br>-le<br>-cle</p>
+<p class="tssr-source-paragraph">Comparaison d&#x27;égalité d&#x27;expression <br>-like<br>-clike</p>
+<p class="tssr-source-paragraph">Comparaison d&#x27;inégalité d&#x27;expression<br>-notlike<br>-cnotlike</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Inégalité</td><td>-ne</td><td>-cne</td></tr><tr><td>Supérieurà</td><td>-gt</td><td>-cgt</td></tr><tr><td>Supérieurouégalà</td><td>-ge</td><td>-cge</td></tr><tr><td>Inférieurà</td><td>-lt</td><td>-clt</td></tr><tr><td>Inférieurouégalà</td><td>-le</td><td>-cle</td></tr><tr><td>Comparaisond&#x27;égalitéd&#x27;expression</td><td>-like</td><td>-clike</td></tr><tr><td>Comparaisond&#x27;inégalitéd&#x27;expression</td><td>-notlike</td><td>-cnotlike</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Filtrage basique</h4>
+<p class="tssr-source-paragraph">• Ne peut filtrer qu&#x27;une seule propriété</p>
+<p class="tssr-source-paragraph">• Nécessite la cmdlet Where-Object</p>
+<pre class="tssr-source-code">• Exemple Get-NetAdapter | select Name,Status,LinkSpeed</pre>
+<pre class="tssr-source-code">• Get-Netadapter | Select Name,Status,LinkSpeed | Where Status –like Up</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Name<br>Status<br>LinkSpeed</p><p>Viware Network Adapter VMnet1 Up<br>100 Mbps<br>Wi-Fi<br>Disconnected @ bps<br>VMware Network Adapter VMnet7 Up<br>108 Mbps<br>Ethernet 2<br>Disconnected 198 Mbps<br>VMware Network Adapter VMnet8 Up<br>108 Mbps<br>Ethernet 3<br>Up<br>426.8 Mbps<br>Connexion au réseau local<br> Disconnected © bps<br>Ethernet<br>Disconnected @ bps</p><p>Name<br>Status LinkSpeed</p><p>Viuare Network Adapter Vnet1 Up<br>180 Mbps<br>Vuare Network Adapter Vinet7 Up<br>180 Mbps</p><p>Vmware Network Adapter VMnet8 Up<br>180 Mbps<br>Ga)<br>Ethernet 3<br>Up<br>426.0 Mbps<br>ent</p><p>énd</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Filtrage</h4>
+<p class="tssr-source-paragraph">Le filtrage avancé</p>
+<p class="tssr-source-paragraph">• Pour filtrer plusieurs propriétés</p>
+<p class="tssr-source-paragraph">• Nécessite aussi la cmdlet Where-Object</p>
+<p class="tssr-source-paragraph">• Nécessite un script de filtrage –FilterScript {} dans la cmdlet Where-Object</p>
+<p class="tssr-source-paragraph">• Possibilité d&#x27;utiliser la variable $PSITEM (ou $_) pour être plus productif</p>
+<p class="tssr-source-paragraph">• $_ contient tous les objets transmis à Where-Object</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Filtrage</h4>
+<pre class="tssr-source-code">• Exemple Get-NetAdapter | select Name,Status,LinkSpeed</pre>
+<pre class="tssr-source-code">• Get-NetAdapter | select Name,Status,LinkSpeed | Where –FilterScript
+{$_.Status –like &quot;Up&quot; –and $_.LinkSpeed –gt &quot;100 Mbps&quot;}</pre>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Name<br>Status<br>LinkSpeed</p><p>Viware Network Adapter VMnet1 Up<br>198 Mbps<br>Wi-Fi<br>Disconnected @ bps<br>Véware Network Adapter VMnet7 Up<br>190 Mbps<br>Ethernet 2<br>Disconnected 190 Mbps<br>Vware Network Adapter Vnet8 Up<br>100 Mbps<br>Ethernet<br>3<br>Up<br>426.0 Mbps<br>Connexion au réseau local<br>Disconnected @ bps<br>Ethernet<br>Disconnected @ bps</p><p>Name<br>Status LinkSpeed</p><p>Ethernet 3 Up<br>426.0 Mbps</p><p>End</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d4a202eeb530bb5fbcd7aa717e4ec455aa58e0670f4b5168de94bd019a6f6c83.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d4a202eeb530bb5fbcd7aa717e4ec455aa58e0670f4b5168de94bd019a6f6c83.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="6891"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Formatage</h4>
+<p class="tssr-source-paragraph">• Par défaut, PowerShell &quot;formate&quot; les résultats des cmdlets avant de les afficher à l&#x27;écran</p>
+<p class="tssr-source-paragraph">• Le format des résultats peut être modifié à l&#x27;aide des cmdlets<br>• Format-List<br>• Format-Table<br>• Format-Wide</p>
+<p class="tssr-source-paragraph">• Les cmdlets Format-* sont à réaliser en dernier lieu, &quot;après avoir terminé le travail&quot; </p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Formatage</h4>
+<pre class="tssr-source-code">• Affichage sous forme de liste
+• Get-Service | format-List
+• Get-Service | format-List –Property *
+• Get-service | FL –Property Name,Status,DisplayName
+• Équivalent à Get-Service | select Name,Status,DisplayName | FL</pre>
+<pre class="tssr-source-code">• Affichage sous forme de tableau
+• Get-TimeZone | Format-Table
+• Get-TimeZone | Format-Table –Property *
+• Get-TimeZone | FT –Property StandardName,BaseUtcOffset -autosize</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Formatage</h4>
+<p class="tssr-source-paragraph">• Affichage sous forme de liste élargie<br>• Afficher une liste sur une ou plusieurs colonnes<br>• Une seule propriété de la collection d&#x27;objets est sélectionnée</p>
+<pre class="tssr-source-code">• Get-Process | Format-Wide
+• Get-Process | Format-Wide –Property ID
+• Get-Process | FW –Property ID –column 5
+• Get-Process | FW –Property ID -autosize</pre>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Plus loin avec PowerShell</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Maîtriser PowerShell, l’essence même d’un <br>technicien moderne<br>• Aller plus loin, être curieux<br>• S’éveiller au scripting PowerShell</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Plus loin avec PowerShell</td><td></td><td></td></tr><tr><td>C l i<br>onc us on</td><td>Maîtriser PowerShell l’essence même d’un<br>•<br>,<br>technicien moderne</td><td></td></tr><tr><td></td><td>Aller plus loin être curieux<br>•<br>,</td><td></td></tr><tr><td></td><td>• S’é veiller au scripting PowerShell</td><td>23</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-77137c729fac38bd0d70c1b0cc0286f914f56393ec63f177f0e77099cb020da5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-77137c729fac38bd0d70c1b0cc0286f914f56393ec63f177f0e77099cb020da5.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="5183"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

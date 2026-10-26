@@ -1,0 +1,389 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 – Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module 01 – Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en <br>environnement Microsoft</h4>
+<h4>Module 01 – Administration Windows</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Administration Windows</h4>
+<h4>Objectifs</h4>
+<h4>• Connaître Microsoft Server et son biotope<br>• Gérer le stockage du serveur et le RAID</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>Administration Windows
+
+                                         •  Connaître Microsoft Server et son biotopeObjectifs
+                                         •  Gérer le stockage du serveur et le RAID</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SertRés&quot;<br>Undone</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Administration Windows</h4>
+<h4>Version des systèmes d’exploitation Microsoft</h4>
+<h4>Les deux familles</h4>
+<h4>• Les systèmes d’exploitation serveur</h4>
+<p class="tssr-source-paragraph">Windows 2008</p>
+<p class="tssr-source-paragraph">Windows 2012</p>
+<p class="tssr-source-paragraph">&amp; R2</p>
+<p class="tssr-source-paragraph">&amp; R2<br>Windows 2016<br>Windows 2019<br>Windows 2022<br>Windows 2025</p>
+<h4>Ces versions ont la capacité de fournir un ensemble de services au sein d’une infrastructure</h4>
+<h4>• Les systèmes d’exploitation client</h4>
+<p class="tssr-source-paragraph">Windows 7<br>Windows 8 &amp; 8.1<br>Windows 10<br>Windows 11</p>
+<h4>Ces systèmes sont en règle générale utilisés en tant que station de travail par les utilisateurs</h4>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Administration Windows</h4>
+<h4>Version des systèmes d’exploitation Microsoft</h4>
+<h4>Les différentes éditions Windows Server</h4>
+<h4>Standard<br>Datacenter<br>Essentials</h4>
+<p class="tssr-source-paragraph">512 Mo de RAM en mode Core</p>
+<p class="tssr-source-paragraph">2 Go de RAM</p>
+<p class="tssr-source-paragraph">Prise en charge matérielle </p>
+<p class="tssr-source-paragraph">2 Go de RAM avec expérience utilisateur</p>
+<p class="tssr-source-paragraph">CPU 1,4 GHz 64 bits – 1 sock.</p>
+<p class="tssr-source-paragraph">CPU 1,4 GHz 64 bits</p>
+<p class="tssr-source-paragraph">160 Go de stockage avec une </p>
+<p class="tssr-source-paragraph">(minimum)</p>
+<p class="tssr-source-paragraph">32 Go de stockage disque</p>
+<p class="tssr-source-paragraph">partition système de 60 Go</p>
+<p class="tssr-source-paragraph">Droits à la virtualisation</p>
+<p class="tssr-source-paragraph">Pas de licence pour virtualiser</p>
+<p class="tssr-source-paragraph">2 VMs<br>Nombre illimité de VMs</p>
+<p class="tssr-source-paragraph">et spécificités</p>
+<p class="tssr-source-paragraph">Pas de CALs</p>
+<p class="tssr-source-paragraph">Mode de licence<br>Basé sur les cœurs CPU (16 cœurs / 1 licence)<br>Licence serveur</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-73c51fd07dcedb747c6d53fa18e5c8b5ada8c95fa36b28c54cc23d50243c5fde.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-73c51fd07dcedb747c6d53fa18e5c8b5ada8c95fa36b28c54cc23d50243c5fde.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1666" height="2069"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Administration Windows</h4>
+<h4>Version des systèmes d’exploitation Microsoft</h4>
+<h4>Quelques rappels sur les licences</h4>
+<p class="tssr-source-paragraph">Licence d’Accès </p>
+<p class="tssr-source-paragraph">Licence du Système </p>
+<p class="tssr-source-paragraph">Client SE</p>
+<p class="tssr-source-paragraph">d’Exploitation (SE)</p>
+<p class="tssr-source-paragraph">Licence du SE du </p>
+<p class="tssr-source-paragraph">client</p>
+<p class="tssr-source-paragraph">Installation du produit<br>Mise en œuvre des services</p>
+<p class="tssr-source-paragraph">Accès aux services depuis </p>
+<p class="tssr-source-paragraph">d’autres postes</p>
+<p class="tssr-source-paragraph">Certains services peuvent </p>
+<p class="tssr-source-paragraph">nécessiter des CAL <br>supplémentaires (RDS)</p>
+<p class="tssr-source-paragraph">Accès aux rôles</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>S</p><p>=&gt;</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Administration Windows</h4>
+<h4>Les services pris en charge par Windows Server</h4>
+<h4>• L’ajout d’un serveur dans un contexte d’entreprise permet de fournir des <br>services spécifiques.</h4>
+<h4>• Un ensemble de services est nativement pris en charge par les systèmes <br>d’exploitation Windows Server. Ceux-ci seront présentés ci-après.</h4>
+<p class="tssr-source-paragraph">• Bien d’autres solutions, outils, applications, non présentés ici, peuvent être <br>mis en œuvre sur les systèmes d’exploitation serveur (serveur de messagerie <br>Exchange, serveur de bases de données Microsoft SQL).</p>
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Administration Windows</h4>
+<h4>Les services pris en charge par Windows Server</h4>
+<h4>Les services de domaine pris en charge<br>Les systèmes d’exploitation serveur prennent en charge les composantes de services <br>Active Directory suivants :</h4>
+<h4>Services<br>Description</h4>
+<h4>Services de domaine Active Directory (AD DS)<br>Ce rôle fournit la gestion de contextes de domaine Active <br>Directory.</h4>
+<h4>Service de fédération AD (AD FS)*<br>Services fédérés de gestion des identités.</h4>
+<h4>Services de gestion des droits Active Directory </h4>
+<p class="tssr-source-paragraph">Protection des ressources contre une utilisation non autorisée, <br>basée sur l’utilisation de certificats (permet notamment <br>d’interdire la copie ou l’impression d’un fichier).</p>
+<h4>(AD RMS)*</h4>
+<h4>Services de certificat Active Directory (AD CS)*<br>Service de gestion d’une autorité de certification (fournit une <br>infrastructure à clef publique).</h4>
+<p class="tssr-source-paragraph">* Non vus pendant ce cours.</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Administration Windows</h4>
+<h4>Les services pris en charge par Windows Server</h4>
+<h4>Les autres services pris en charge (liste non exhaustive) :</h4>
+<h4>Services<br>Description</h4>
+<p class="tssr-source-paragraph">DNS<br>Service de résolution de noms d&#x27;hôtes</p>
+<p class="tssr-source-paragraph">DHCP<br>Service de gestion de l&#x27;adressage IP</p>
+<p class="tssr-source-paragraph">Hyper-V</p>
+<p class="tssr-source-paragraph">Permet de créer un environnement informatique virtualisé dans lequel vous <br>pouvez créer et gérer des machines virtuelles.</p>
+<p class="tssr-source-paragraph">Service de déploiement WDS<br>Service de déploiement de systèmes d’exploitation Windows à travers le réseau.</p>
+<p class="tssr-source-paragraph">WSUS<br>Fournit une prise en charge centralisée des mises à jour des produits Microsoft.</p>
+<p class="tssr-source-paragraph">Services d’impression et de <br>numérisation de document<br>Permet d’avoir une gestion centralisée de vos périphériques d’impressions.</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>S i<br>erv ces</td><td>D i ti<br>escr p on</td></tr><tr><td>DNS</td><td>Servi d ré sol uti d d&#x27;hôtes<br>ce e on e noms</td></tr><tr><td>DHCP</td><td>Servi ce d e gesti on d e l&#x27;ad ressage IP</td></tr><tr><td>H yper-V</td><td>Permet d e cré er un envi ronnement i nf ormati que vi rtuali sé d ans l equel vous<br>pouvez cré er et gé rer d es machi nes vi rtuell es<br>.</td></tr><tr><td>S ervi ce d e dé pl oi ement WDS</td><td>Servi ce d e dé pl oi ement d e systè mes d’expl oitati on Wi nd ows à travers l e ré seau<br>.</td></tr><tr><td>WSUS</td><td>Fournit pri ch centrali sé d mi à j d prod uits Mi crosoft<br>une se en arge e es ses our es<br>.</td></tr><tr><td>S ervi ces d’i mpressi on et d e<br>numé ri sati on d e d ocument</td><td>Permet d’avoi r une gesti on centrali sé e d e vos pé ri phé ri ques d’i mpressi ons<br>.</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-88ef4ed501326e3df2ca5ecabc9f78a18168c5a1cbd1551bcea9b99990acc2df.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-88ef4ed501326e3df2ca5ecabc9f78a18168c5a1cbd1551bcea9b99990acc2df.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1704" height="3132"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Administration Windows</h4>
+<h4>Installation du système et composants</h4>
+<h4>Les modes d’installation</h4>
+<h4>• Installation minimale / Server Core :</h4>
+<p class="tssr-source-paragraph">• Sans environnement graphique</p>
+<p class="tssr-source-paragraph">• Depuis Windows Server 2008</p>
+<p class="tssr-source-paragraph">• Mode d’installation par défaut</p>
+<p class="tssr-source-paragraph">• Les commandes PowerShell peuvent être utilisées pour gérer un serveur Core</p>
+<h4>• Installation graphique ( « Expérience de bureau »)</h4>
+<p class="tssr-source-paragraph">• Avec environnement graphique (GUI : Graphical User Interface)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Installer Windows Server 2019 Standard</h4>
+<h4>Démonstration</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Administration Windows</h4>
+<h4>Installation du système et composants</h4>
+<h4>Les rôles et fonctionnalités</h4>
+<h4>• Des composants peuvent être ajoutés par :<br>• Le gestionnaire de serveur<br>• Des commandes PowerShell</h4>
+<p class="tssr-source-paragraph">• Deux types de composants :<br>• Les rôles : correspond généralement à un service que l’on fournit à des clients<br>• Les fonctionnalités : correspond généralement à un outil/composant utile sur l’élément sur <br>lequel on l’ajoute</p>
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Administration Windows</h4>
+<h4>Installation du système et composants</h4>
+<h4>Les outils de gestion de Windows Server</h4>
+<h4>Les différents outils sont :</h4>
+<h4>• Le Gestionnaire de serveur :<br>• Élément central d’administration du ou des serveurs</h4>
+<p class="tssr-source-paragraph">• Les consoles de gestion des services :<br>• Disponibles suite à l’ajout d’un rôle sur un serveur<br>• Peuvent être ajoutées sur un poste d’administration ne disposant pas du rôle à gérer</p>
+<h4>• La console PowerShell</h4>
+<h4>• Ligne de commande (CMD)</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-6fe1025fa0353326538b3665173319601511d80188146a14a5762bf46846b2c3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6fe1025fa0353326538b3665173319601511d80188146a14a5762bf46846b2c3.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="900" height="728"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Démonstration</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Démonstration</p><p>Gnd</p></div></details>
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>M01TP01 - Installation et configuration initiale</h4>
+<h4>TP</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Administration Windows</h4>
+<h4>Gestion du stockage</h4>
+<h4>Les outils</h4>
+<h4>Ce que nous allons voir</h4>
+<h4>Les tables <br>de partition</h4>
+<h4>Gestion des </h4>
+<h4>Les ensembles </h4>
+<h4>disques</h4>
+<h4>de stockage</h4>
+<h4>Les types de <br>configuration </h4>
+<h4>RAID</h4>
+<h4>de disques</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Administration Windows</h4>
+<h4>La table de partitionnement</h4>
+<h4>• Stockée en début de disque (et fin de disque si GPT)</h4>
+<h4>• Détermine les caractéristiques des partitions créées sur un disque<br>• Nombre<br>• Taille<br>• Position</h4>
+<h4>• Héberge un chargeur d’amorçage</h4>
+<h4>• 2 formats existent:<br>• MBR (années 80)<br>• GPT (années 2000)<br>•<br>BIOS UEFI obligatoire</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-b27a6f77769b4021d3ec07520be857eb25a9b508a0cb19bb5beb5590d1332fef.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b27a6f77769b4021d3ec07520be857eb25a9b508a0cb19bb5beb5590d1332fef.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1132" height="1659"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Administration Windows</h4>
+<h4>Les formats de tables de partition</h4>
+<h4>Caractéristiques de formats de partitionnement</h4>
+<h4>• Le partitionnement MBR<br>• 4 partitions physiques (dont 1 étendue) max<br>• Limite de taille d’une partition à 2,2 To max</h4>
+<h4>• Le partitionnement GPT<br>• Meilleure tolérance aux pannes (Données dupliquées en fin de disque)<br>•<br>Possibilité de reconstruction<br>• 128 partitions physiques</h4>
+<h4>• Possibilité de conversion</h4>
+<p class="tssr-source-paragraph">MBR<br>Conversion OK avant que le disque ne contienne des données<br>GPT</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Sms)</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Administration Windows</h4>
+<h4>Les types de configuration des disques</h4>
+<h4>Les configurations de disques sous Windows</h4>
+<h4>2 types de configurations :</h4>
+<h4>• Configuration de base<br>• Simplifie la gestion du disque<br>• Toutes les données sont inscrites dans des partitions physiques<br>• Sur un seul disque physique</h4>
+<h4>• Configuration dynamique<br>• La gestion se fait par ensemble de disques<br>• Les données sont inscrites dans des volumes<br>• Nécessaire pour le RAID logiciel</h4>
+<p class="tssr-source-paragraph">De <br>base<br>Sans incidence pour les données<br>Dynamique</p>
+<h4>• Conversion</h4>
+<p class="tssr-source-paragraph">De <br>base<br>Nécessite la suppression préalable des volumes<br>Dynamique</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CDSf<br>S™<br>»</p><p>—<br>ee)<br>Es</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Administration Windows</h4>
+<h4>Partitionnement physique (MBR)</h4>
+<h4>Partition étendue</h4>
+<p class="tssr-source-paragraph">Lecteur logique</p>
+<h4>Partition principale 1<br>Partition principale 2<br>Partition principale 3<br>Lecteur logique</h4>
+<h4>Partitionnement d’un disque de base</h4>
+<p class="tssr-source-paragraph">• Sur un disque de base, on peut créer au maximum soit :<br>• 4 partitions principales<br>• 3 partitions principales et 1 partition étendue dans laquelle on crée des lecteurs logiques<br>•<br>Les lecteurs logiques seront formatés</p>
+<h4>• Les partitions peuvent être étendues ou réduites sur l’espace contigu du même <br>disque.</h4>
+<h4>• Le lancement d’un OS à partir d’un lecteur logique n’est pas possible.</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>S</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Partitionnement d’un disque dynamique</h4>
+<p class="tssr-source-paragraph">• Il est composé de volumes qui peuvent être de plusieurs types :<br>• Volume simple<br>• Volume fractionné<br>• Volume agrégé par bandes<br>• Volume en miroir<br>• Volume agrégé par bandes avec parité</p>
+<h4>• RAID (Redundancy Array of Inexpensive Disk)</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-2d1800b0c1475145af9eb4cd2f63f4f961b2f642bd5f2b80a329136a87aa49bf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2d1800b0c1475145af9eb4cd2f63f4f961b2f642bd5f2b80a329136a87aa49bf.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1784" height="1440"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Le volume simple</h4>
+<h4>On parlera d’espace disque.</h4>
+<h4>• C’est le seul type de volume qui utilise un seul disque physique</h4>
+<h4>Volume simple 1<br>Volume simple 2<br>Espace libre</h4>
+<h4>• Il peut être étendu au sein du même disque</h4>
+<h4>Volume simple 1<br>Volume simple 2<br>Volume simple 1<br>Espace libre</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=&gt;<br>S=</p><p>=&gt;<br>S<br>—</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Le volume fractionné</h4>
+<h4>Un volume fractionné utilise plusieurs espaces sur plusieurs disques physiques.</h4>
+<h4>• Situation initiale</h4>
+<h4>Volume simple 1<br>Volume simple 2<br>Espace libre</h4>
+<h4>Espace libre</h4>
+<h4>• Extension du volume simple 2 sur le disque dynamique 2</h4>
+<h4>Volume simple 1<br>Volume simple 2<br>Espace libre</h4>
+<h4>Volume simple 2</h4>
+<h4>Espace libre</h4>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2<br>Disque 1<br>Disque 2</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=&gt;<br>Ss<br>is</p><p>=&gt;<br>S<br>is</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Le volume agrégé par bandes</h4>
+<h4>Le RAID-0 ou volume agrégé par bandes en est un type :</h4>
+<p class="tssr-source-paragraph">Volume simple 1<br>100 Go</p>
+<p class="tssr-source-paragraph">Volume agrégé par bandes<br>200 Go</p>
+<p class="tssr-source-paragraph">Vue logique</p>
+<p class="tssr-source-paragraph">Vue physique</p>
+<p class="tssr-source-paragraph">100 Go<br>Espace libre</p>
+<p class="tssr-source-paragraph">RAID 0</p>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">A1</p>
+<p class="tssr-source-paragraph">A2</p>
+<p class="tssr-source-paragraph">A3</p>
+<p class="tssr-source-paragraph">A4</p>
+<p class="tssr-source-paragraph">A5</p>
+<p class="tssr-source-paragraph">A6</p>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">• La taille des bandes doit être identique sur chaque disque<br>• Réparti sur 2 à x disques<br>• Rapidité de lecture/écriture accrue<br>• Aucune tolérance de panne<br>• Tout l’espace disque alloué est utilisable</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume agrégé par bandes
+       Le RAID-0 ou volume agrégé par bandes en est un type :
+
+
+
+
+
+      1
+                     physique           Disque           Volume simple 1         Volume agrégé100parGobandes                                                  logique                             200 Go
+      2                                                                                                           Vue        Vue                             100 Go           Espace libre                                      Disque                                                                                                                                 RAID 0
+
+                                                                    A1           A2                 • La taille des bandes doit être identique sur chaque disque
+                 • Réparti sur 2 à x disques                                   A3           A4
+                 • Rapidité de lecture/écriture accrue
+                                                                        A5            A6                 • Aucune tolérance de panne
+                 • Tout l’espace disque alloué est utilisable                                                     Disque 1                          Disque 2</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Le volume en miroir</h4>
+<h4>Le RAID-1 ou volume miroir en est un type :</h4>
+<p class="tssr-source-paragraph">Volume simple 1<br>100 Go</p>
+<p class="tssr-source-paragraph">Volume en miroir<br>100 Go</p>
+<p class="tssr-source-paragraph">Vue logique</p>
+<p class="tssr-source-paragraph">Vue physique</p>
+<p class="tssr-source-paragraph">100 Go<br>Espace libre</p>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">RAID 1</p>
+<p class="tssr-source-paragraph">A1</p>
+<p class="tssr-source-paragraph">A1</p>
+<p class="tssr-source-paragraph">A2</p>
+<p class="tssr-source-paragraph">A2</p>
+<p class="tssr-source-paragraph">A3</p>
+<p class="tssr-source-paragraph">A3</p>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">• Réparti sur 2 disques<br>• L’espace alloué sur les 2 disques doit être identique<br>• Les mêmes données sont écrites simultanément sur les 2 disques<br>• Tolérances aux pannes accrues, un des disques peut être perdu<br>sans impact sur les données<br>• La moitié de l’espace disque alloué n’est pas directement utilisable</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>Administration Windows
+Partitionnement et RAID
+
+      Le volume en miroir
+       Le RAID-1 ou volume miroir en est un type :
+
+
+
+
+         1
+                                     physique           Disque           Volume simple 1             Volume100en miroirGo                                                             logique                             100 Go
+         2                                                                                                                 Vue              Vue                                 100 Go           Espace libre                                                      Disque
+                                                                                                                                           RAID 1
+                 • Réparti sur 2 disques                                                                            A1           A1
+                 • L’espace alloué sur les 2 disques doit être identique
+                                                                            A2           A2                 • Les mêmes données sont écrites simultanément sur les 2 disques
+                 • Tolérances aux pannes accrues, un des disques peut être perdu                                                                                 A3            A3
+             sans impact sur les données
+                 • La moitié de l’espace disque alloué n’est pas directement utilisable                  Disque 1                          Disque 2</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>— —<br>se</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-8256f2f0b8b31e0df62abec02807d2d903c7405cdd04dd3292eddffdc9344135.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-8256f2f0b8b31e0df62abec02807d2d903c7405cdd04dd3292eddffdc9344135.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1794" height="4239"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Administration Windows</h4>
+<h4>Partitionnement et RAID</h4>
+<h4>Le volume agrégé par bandes avec parité</h4>
+<h4>Le RAID-5 ou volume agrégé par bandes avec parité en est un type :</h4>
+<p class="tssr-source-paragraph">Volume simple 1<br>100 Go</p>
+<p class="tssr-source-paragraph">200 Go</p>
+<p class="tssr-source-paragraph">Volume en miroir</p>
+<p class="tssr-source-paragraph">Vue logique</p>
+<p class="tssr-source-paragraph">RAID 5</p>
+<p class="tssr-source-paragraph">100 Go<br>Espace libre</p>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">Volume agrégé par bandes avec parité</p>
+<p class="tssr-source-paragraph">Vue physique</p>
+<p class="tssr-source-paragraph">A1</p>
+<p class="tssr-source-paragraph">A2</p>
+<p class="tssr-source-paragraph">Ap</p>
+<p class="tssr-source-paragraph">100 Go</p>
+<p class="tssr-source-paragraph">Espace libre</p>
+<p class="tssr-source-paragraph">Disque 3</p>
+<h4>B1</h4>
+<h4>Bp</h4>
+<h4>B2</h4>
+<p class="tssr-source-paragraph">Cp</p>
+<p class="tssr-source-paragraph">C1</p>
+<p class="tssr-source-paragraph">C2</p>
+<h4>• 3 disques minimum<br>• 1 disque (espace d’une bande) est alloué à la tolérance de panne<br>• RAID offrant un compromis tolérance panne / coûts</h4>
+<p class="tssr-source-paragraph">Disque 1<br>Disque 2</p>
+<p class="tssr-source-paragraph">Disque 3</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><h4>Administration Windows</h4>
+<h4>Formatage et outils</h4>
+<h4>Formatage</h4>
+<p class="tssr-source-paragraph">Partitionnement</p>
+<h4>• Les partitions principales, lecteurs logiques et volumes <br>doivent être formatés avant d’être utilisables.</h4>
+<p class="tssr-source-paragraph">Formatage</p>
+<h4>• Le formatage est l’installation d’un système de fichier <br>(hébergement des données).</h4>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f094" src="../glyphs/5eb7353385f7203a16d58c08625acb06c89629f51848b9452d685d649d52ab29.webp" alt="Symbole du support" title="Symbole original du support"></p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f094" src="../glyphs/5eb7353385f7203a16d58c08625acb06c89629f51848b9452d685d649d52ab29.webp" alt="Symbole du support" title="Symbole original du support"></p>
+<h4>• Les systèmes de fichiers disponibles sont :</h4>
+<p class="tssr-source-paragraph">FAT32 / exFAT</p>
+<p class="tssr-source-paragraph">NTFS<br>Depuis Windows NT</p>
+<p class="tssr-source-paragraph">ReFS</p>
+<p class="tssr-source-paragraph">Depuis Windows 2012<br>(pour les espaces de stockage)</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a<br>TZ<br>=</p><p>=<br>= DS<br>=</p><p>&gt;<br>= EN<br>=</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Administration Windows</h4>
+<h4>Formatage et outils</h4>
+<h4>Les outils</h4>
+<h4>• La console de Gestion des disques (diskmgmt.msc)</h4>
+<h4>• La commande (CMD) diskpart</h4>
+<h4>• Les commandes PowerShell</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>fF Gestion des disques<br>-<br>D<br>x</p><p>Fichier<br>Action<br>Affichage?<br>emma</p><p>Seles<br>_<br>.<br>=@<br>Siig<br>Done<br>MR<br>Sain (Dem<br>5946 Go<br>4617Go<br>78%<br>ES Administrateur: Invite de commandes - diskpart<br>SReseréausystime</p><p>Simple<br>Debase<br>NTFS<br>Sain (Syste...<br>549 Mo<br>5I7Mo MX<br>ticrosoft Windows [version 10.0.17763.475]</p><p>(c)<br>2018<br>Microsoft<br>Corporation.<br>Tous<br>droits<br>réservés.<br>ane ec<br>at<br>EN Administrateur<br>: Windows PowerShell</p><p>Windows<br>PowerShell<br>ticrosoft DiskPart<br>version<br>10.0.17763.1<br>opyright<br>(C)<br>Microsoft Corporation.<br>Tous droits réservés.<br>EE<br>CPyright<br>(C)<br>Microsoft Corporation.<br>5 C:\Users\Administrateur&gt; Get-Command<br>Storage<br>Debase<br>Réservéau<br>système<br>;<br>on<br>1?<br>inat<br>…<br>WIN-GLMUCVKAF 26</p><p>En ligne<br>Sain (Système Acti, Partition principle ||Sain (Démarrer Fichier d&#x27;échange. Videge sur incident, Parton principe</p><p>= qe<br>Oo<br>Debase</p><p>50060<br>50060<br>@</p><p>Enligne<br>Non alloué</p><p>I Non alloué Il Partition principale</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Gestion du stockage</h4>
+<h4>Démonstration</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<figure class="tssr-original-figure"><a href="../figures/atlas-4922b1ee12f8a9eca6333c11c464c54468a50d44023163e3c3b5173468838e7a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4922b1ee12f8a9eca6333c11c464c54468a50d44023163e3c3b5173468838e7a.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="900" height="3669"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>M01TP02 - Gestion du stockage</h4>
+<h4>TP</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-29a4ebf2e95e2b4569425dd2a91bda3f649a9c44087f2e05a13dca2aaff0f9c7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-29a4ebf2e95e2b4569425dd2a91bda3f649a9c44087f2e05a13dca2aaff0f9c7.webp" alt="Illustrations du support source, pages 29" loading="lazy" width="900" height="182"></a><figcaption>Illustrations du support Drive — pages 29. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

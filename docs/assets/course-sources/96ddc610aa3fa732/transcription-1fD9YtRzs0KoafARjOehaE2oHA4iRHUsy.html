@@ -1,0 +1,26 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - La protection.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - La protection</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>La protection </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 1 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la protection contre l’exécution des <br>scripts indésirables. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Par défaut l’exécution de scripts PowerShell est restreinte aux scripts signés numériquement. </p>
+<pre class="tssr-source-code">o Afin d’exécuter des scripts de test non signés, il faut modifier la règle de restriction des </pre>
+<p class="tssr-source-paragraph">scripts du système Windows. </p>
+<pre class="tssr-source-code">o Pour obtenir le niveau de restriction actuelle du système, on utilise la commande Get-</pre>
+<pre class="tssr-source-code">ExecutionPolicy. </pre>
+
+<p class="tssr-source-paragraph"> Set-ExecutionPolicy nécessite une console PowerShell avec les droits <br>d’administration. </p>
+
+<pre class="tssr-source-code">Pour modifier la restriction, on passe par la commande Set-ExecutionPolicy. </pre>
+
+<p class="tssr-source-paragraph">Une confirmation est demandée car il s’agit d’un paramètre de sécurité. </p>
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Windows\system32&gt; Get-ExecutionPolicy<br>Restricted</p><p>P<br>:\&gt;<br>Set-ExecutionPolicy -ExecutionPolicy Unrestricted</p><p>Execution Policy Change</p><p>he execution policy helps protect you from scripts that you do not trust.<br>Changing the execution<br>policy might expose you to the security risks described<br>in the about_Execution_Policies<br>help topic at<br>ttps:/go.microsoft.com/fwlink/?LinkID=135170.<br>Do you want to change the execution policy?<br>[Y]<br>Yes<br>[A]<br>Yes to A11<br>[N]<br>No<br>[L]<br>No to All<br>[S]<br>Suspend<br>[?]<br>Help<br>(default is &quot;N&quot;):<br>a</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bc73116ef7d54aaabd22e968768616cf358e9cf69b251d938e1dbf7c7e4127f5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bc73116ef7d54aaabd22e968768616cf358e9cf69b251d938e1dbf7c7e4127f5.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1091" height="936"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

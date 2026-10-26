@@ -1,0 +1,92 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M12TP03 - Solution - Informations sur le système.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M12TP03 - Solution - Informations sur le système</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Informations sur le système </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d&#x27;un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">20 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Relevé d’informations : sur le serveur sans environnement <br>graphique </p>
+<p class="tssr-source-paragraph">• <br>Afficher les informations sur la mémoire </p>
+<pre class="tssr-source-code">o Combien de mémoire RAM est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire SWAP est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire RAM est réellement libre ? </pre>
+<p class="tssr-source-paragraph"> <br>117 MO de ram sont ici utilisés. 975 MO de swap le sont également (mais partagé). <br>Ici pour connaitre la totalité de la ram disponible, il faut additionner la valeur de la colonne libre avec la <br>valeur de la colonne tamp/cache (utilisation système pour améliorer les performances, libérable si besoin)  </p>
+<p class="tssr-source-paragraph">• <br>Afficher les informations détaillées sur le processeur et la mémoire </p>
+<p class="tssr-source-paragraph"> <br>lscpu donne de nombreuses informations sur les processeurs <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p><p>rootédeb-camille-01:-#<br>free<br>-m<br>total<br>utilisé<br>libre<br>partagé<br>tamp/ cache<br>disponible<br>Mem:<br>1951<br>117<br>1729<br>a<br>104<br>1708<br>Partition d&#x27;échange:<br>975<br>a<br>975</p><p>root@deb-camille-O1:~#<br>lscpu<br>Architecture<br>:<br>x66<br>64<br>Mode(s)<br>opératoire(s)<br>des processeurs<br>:<br>32-bit,<br>64-bit<br>Boutisme<br>:<br>Little<br>Endian<br>Tailles<br>des<br>adresses:<br>43<br>bits<br>physical,<br>48 hits virtual<br>Processeur(s)<br>:<br>1<br>Liste<br>de<br>processeur(s)<br>en<br>ligne<br>:<br>(el<br>Thread(s)<br>par<br>cœur<br>:<br>1<br>Cœur (s)<br>par<br>socket<br>:<br>1<br>Socket (s])<br>:<br>1<br>Neud(s)<br>NUMA<br>:<br>1<br>Identifiant<br>constructeur<br>:<br>Genuinelntel</p><p>Famille<br>de<br>processeur<br>:<br>6<br>Modèle<br>:<br>94<br>Nom<br>de modèle<br>:<br>InteliR)<br>Core(TM)<br>i5-6600<br>CPU<br>@<br>3.30GHz<br>Révision<br>:<br>3<br>Vitesse<br>du<br>processeur<br>en<br>MHz<br>:<br>3312.000</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph"> <br>Lsmemavec l&#x27;option -a  donne des informations complète sur la mémoire </p>
+
+<pre class="tssr-source-code">o Quel type de processeur a été détecté ? </pre>
+
+<p class="tssr-source-paragraph">• <br>Afficher tous les processus relatifs à des démons (dont le nom finit par un &quot;d&quot;) </p>
+<p class="tssr-source-paragraph"> <br>ps -ef permet de lister tous les processus. <br>grep avec l&#x27;option -e répétée permet de donner plusieurs informations de filtre (fonction logique OU) </p>
+<p class="tssr-source-paragraph">-e &#x27;d &#x27; valide la lettre d suivi d&#x27;un espace ; -e &#x27;d$&#x27; valide la lettre suivie du caractère fin de ligne. </p>
+<p class="tssr-source-paragraph">A noter la dernière grep qui est ici un &quot;faux positif&quot; de la sortie <br>Alternatives : </p>
+<pre class="tssr-source-code">• 
+Meilleure commande compacte et sûre (compte des processus dont le nom se termine par d) : 
+ps -eo comm --no-headers | awk &#x27;/d$/ {count++} END{print count+0}&#x27; 
+ </pre>
+<pre class="tssr-source-code">• 
+Si vous voulez aussi PID et utilisateur (plus utile pour un TP) : 
+ps -eo pid,user,comm --no-headers | awk &#x27;3 /d/ {print $0}&#x27; 
+ </pre>
+<pre class="tssr-source-code">• 
+Si vous tenez à wc -l mais sans faux positifs : 
+ps -eo comm --no-headers | grep -E &#x27;d$&#x27; | wc -l </pre>
+
+<pre class="tssr-source-code">o Afficher leur nombre </pre>
+<p class="tssr-source-paragraph"> <br>Reprenant la ligne précédent, on ajout un grep -v grep pour supprimer le &quot;faux positif&quot; </p>
+<p class="tssr-source-paragraph">Puis on compte le tout avec la commande wc. </p>
+
+<p class="tssr-source-paragraph">Page 2/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>roothdeb-camille-Ol:~#<br>lsmem -a<br>RANGE<br>SIZE<br>STATE<br>REMOVABLE<br>BLOCK<br>OxO000000000000000-0x0000000007Éfffff<br>126M en<br>ligne<br>oui<br>a<br>Ox*O0000000008000000-0XO00000000FFÉFÉÉE<br>128M en<br>ligne<br>oui<br>1<br>oxoooooooo Looo00000-Oox00000000LTLELELEE<br>126M en<br>ligne<br>oui<br>2<br>OxOO0000001s000000-Oxo00000001ffftfff<br>128M en<br>ligne<br>oui<br>3<br>Ox*0000000020000000-0x000000002%€£fffff<br>128M en<br>ligne<br>oui<br>4</p><p>lox ooo000002 B000000-Ox00000000zZffEffff<br>128M en ligne<br>oui<br>5<br>OxO0000000030000000-0*0000000037££Éf{{f<br>1268M en<br>ligne<br>oui<br>6<br>OxO0000000036000000-0xO000000003ÉÉÉ£ffff<br>126M en<br>ligne<br>oui<br>7<br>OxO0000000040000000-0KO000000004TÉÉITÉÉT<br>1£SM en<br>ligne<br>qui<br>5<br>Ox*O0000000048000000-0XO000000004ÉÉÉFÉCE<br>128M en<br>ligne<br>oui<br>9<br>OxO0000000050000000-0xXO0000000057ÉÉÉÉÉÉ<br>128M en<br>ligne<br>oui<br>10<br>OxOoooooooSsso000000-Ox000000005ffffffFfF<br>1268M en<br>ligne<br>oui<br>11<br>Ox*0000000060000000-0x0000000067££ffff<br>128M en<br>ligne<br>oui<br>12<br>Ox OO0o00000s6so000000-Ox000000006fffffff<br>128M en<br>ligne<br>oui<br>13<br>oxoooooooo FO000000-Ox00000000FTLELLFE<br>1268M en<br>ligne<br>oui<br>14<br>OxO0000000078000000-0xO000000007ÉfÉFÉCÉ<br>128M en<br>ligne<br>oui<br>15</p><p>Taille<br>du bloc mémoire<br>:<br>126M<br>Mémoire partagée totale<br>:<br>2G<br>Mémoire<br>hors<br>ligne totale<br>:<br>OB</p><p>root@deb-camille-O1:~#<br>ps<br>-ef<br>|grep<br>-e<br>&#x27;d<br>&#x27;<br>-e<br>&#x27;df$&#x27;<br>root<br>247<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-journald<br>root<br>268<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-udevd<br>systemd+<br>462<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-timesyncd<br>root<br>472<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/usr/sbin/rsyslogd<br>-n -iNONE<br>root<br>473<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-logind<br>root<br>477<br>1<br>0<br>13:54<br>?<br>00:00:13<br>/usr/bin/vmtoolsd<br>root<br>565<br>1<br>O<br>13:54<br>?<br>00:00:00<br>sshd:<br>/usr/sbin/sshd<br>-D<br>[listener]<br>root<br>609<br>1<br>0<br>13:56<br>?<br>00:00:00<br>/lib/systemd/systemd<br>--user<br>camille<br>621<br>1<br>0<br>13:57<br>?<br>00:00:00<br>/lib/systemd/systemd --user<br>Pig aes</p><p>=</p><p>En</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph">II. <br>Intervention sur les processus  </p>
+<p class="tssr-source-paragraph">• <br>Ouvrez une session SSH avec le login utilisateur (pas le compte root) </p>
+
+<pre class="tssr-source-code">o Lister tous les processus relatifs à votre login de façon détaillée </pre>
+<p class="tssr-source-paragraph"> <br>ps -fux est une des méthodes pour lister tous les processus de l&#x27;utilisateur. Il en existe plusieurs autres avec ps. </p>
+
+<p class="tssr-source-paragraph">• <br>Lister dans un fichier tous les processus correspondant aux connexions Putty </p>
+<p class="tssr-source-paragraph"> <br>Un classique enchainement de ps et grep avant de transférerle résultat dans un fichier </p>
+
+<p class="tssr-source-paragraph">• <br>Arrêter un processus lancé </p>
+<pre class="tssr-source-code">o Lancer une seconde session Putty et ouvrir une session avec votre login utilisateur </pre>
+<pre class="tssr-source-code">o Repérer le n° de processus (PID) relatif au shell de cette seconde session Putty </pre>
+<p class="tssr-source-paragraph"> <br>ps sans options ni arguments affiche, entre autre, le processus du shell actuel et son PID, ici 954 </p>
+<pre class="tssr-source-code">o Depuis votre 1ere session, tenter d&#x27;arrêter votre second shell (avec le signal par </pre>
+<p class="tssr-source-paragraph">défaut) </p>
+<p class="tssr-source-paragraph"> <br>La commande kill lancée sans argument via la première session n&#x27;arrête pas la session.  </p>
+<pre class="tssr-source-code">o Depuis votre 1ere session, arrêter définitivement votre second shell (avec le signal </pre>
+<p class="tssr-source-paragraph">adapté) </p>
+<p class="tssr-source-paragraph"> <br>En ajoutant l&#x27;option forçant le signal 1 (SIGHUP) la session est coupée <br> <br> </p>
+<p class="tssr-source-paragraph">Page 3/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>#R PUTTY Configuration<br>?<br>x</p><p>Category:</p><p>Session<br>Basic options for your PuTTY session</p><p>T<br>roasing<br>Specify the destination you want to connect to<br>=</p><p>erminal<br>Host Name (or IP address]<br>Port<br>Keyboard<br>Bel<br>{camile@10.49.222.1<br>[22</p><p>Features<br>Connection type:</p><p>Gr Window<br>@SSH<br>OSerial<br>O Other: | Telnet<br>v<br>Appearance</p><p>camilletdeb-camille-Ol:~§<br>ps<br>-rux<br>USER<br>PID<br>%CPU<br>%MEM<br>VSZ<br>RSS<br>TTY<br>STAT<br>START<br>TIME<br>COMMAND<br>camille<br>913<br>0.0<br>0.3<br>14652<br>6124<br>?<br>5<br>15:51<br>0:00<br>sshd:<br>camille@pts/O<br>camille<br>914<br>0.0<br>0.2<br>7840<br>4600<br>pts/0<br>$s<br>15:51<br> O:00<br>\_<br>-bash<br>camille<br>925<br>0.0<br>O.1<br>10136<br>3608 pts/0<br>R+<br>15:53<br>0:00<br>\_ ps -fux<br>camille<br>903<br>0.0<br>0.4<br>15140<br>8208<br>?<br>Ss<br>15:51<br>0:00<br>/lib/systemd/systemd<br>--user<br>camille<br>904<br>0.0<br>O.1<br>101292<br>2668<br>?<br>$s<br>15:51<br>0:00<br>\_<br>(sa-pam)</p><p>camillefdeb-camille-Ol:i~§<br>ps -ef<br>[grep sshd<br>[grep -¥ grep<br>&gt;<br>liste-putty.txt</p><p>camillefdeb-camille-Oi:~§<br>ps<br>PIL<br>TTY<br>TIME<br>CHD<br>954 pte/i<br>00:00:00 bash<br>957 pts/l<br>00:00:00<br>ps<br>camilleldeh-camille-01:-$</p><p>La<br>8 camille@deb-camille-01: ~<br>camillefdeb-camille-01:-$<br>kill<br>954<br>Me<br>camille@deb-camille-01:~$<br>1s<br>cami lle@deb-camille-01:~$<br>liste-putty.txt<br>camillefdeh-camille-01:-$</p><p>8 camille@deb-camille-01: ~<br>-<br>Oo<br>x<br>cami lle@deb-camille-O1:~$ kill 954<br>A<br>camillefdeb-camille-01:-$<br>kill<br>-1<br>954<br>camille@deb-camille-01:~$</p><p>+<br>en</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph">Autre proposition : </p>
+<p class="tssr-source-paragraph">1. <br>Ouvrir la 2e session PuTTY et se connecter sous votre même compte. <br>2. <br>Dans la 2e session, repérer le PID du shell : </p>
+<p class="tssr-source-paragraph">• <br>Exécuter : ps -o pid,tty,cmd -u (whoami)−−no−headers∣grep&quot;(tty)&quot; ou plus simplement :  <br>ps -o pid= -p $ # affiche le PID du shell courant <br>3. <br>Depuis la 1re session, envoyer le signal par défaut (SIGTERM) au PID trouvé : </p>
+<p class="tssr-source-paragraph">• <br>Commande : kill <br>• <br>Effet : demande poliment au processus de se terminer. Le shell peut ignorer ou intercepter SIGTERM <br>(ex : shell interactif). Vérifier si le processus a disparu : ps -p &amp;&amp; echo &quot;toujours actif&quot; || echo &quot;terminé&quot; <br>4. <br>Si le shell ne se termine pas, envoyer SIGKILL pour forcer l’arrêt : <br>• <br>Commande : kill -9 ou kill -KILL <br>• <br>Effet : terminaison immédiate et non interceptable. Vérifier la disparition : ps -p || echo &quot;terminé <br>définitivement&quot; </p>
+<p class="tssr-source-paragraph">Remarques pratiques : </p>
+<p class="tssr-source-paragraph">• <br>Préférez toujours SIGTERM (kill) puis, si nécessaire, SIGKILL (kill -9). <br>• <br>Pour éviter d’envoyer les signaux au mauvais processus, vérifiez le PID et le tty (ps -o pid,tty,cmd). Exemple <br>de vérification complète depuis la 1re session : ps -u $(whoami) -o pid,tty,cmd --no-headers | grep pts/1 <br>• <br>Ne tuez pas de processus système ni un shell que vous n’avez pas prévu d’interrompre. <br> </p>
+<p class="tssr-source-paragraph">Page 4/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-f2fd28a58dac1731bf8e4c8f55228bdf7d0aa37330ebcfa43157d5e2b42fabec.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f2fd28a58dac1731bf8e4c8f55228bdf7d0aa37330ebcfa43157d5e2b42fabec.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1004" height="3384"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

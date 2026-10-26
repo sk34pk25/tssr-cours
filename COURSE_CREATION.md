@@ -19,10 +19,24 @@ La mutation passe par l’Edge Function existante `change-requests` avec l’act
 
 ### Ingestion depuis le Drive TSSR
 
-Chaque nouveau module issu du Drive conserve ses fichiers originaux et les captures
-de toutes leurs pages, avec empreintes SHA-256 et références Drive. Les originaux
-et l’aide pédagogique IA/externe sont affichés dans deux onglets distincts.
-Le lecteur commun ne propose pas de bouton « Texte accessible ».
+Chaque nouveau module issu du Drive est transcrit intégralement en HTML, page par
+page : texte natif, texte des illustrations relevé par OCR, tableaux et illustrations
+séparées. Les sources PDF sont lues et vérifiées dans le Drive TSSR puis conservées
+uniquement dans le dossier de travail privé pour les contrôles. Aucun PDF ENI ni
+capture d’une page entière n’est déployé. Les transcriptions et l’aide pédagogique
+IA/externe restent dans deux onglets distincts. Le lecteur ne propose ni lecteur
+PDF, ni téléchargement PDF, ni bouton « Texte accessible ».
+
+Le catalogue de sources utilise le schéma 2 : empreinte du document source,
+empreinte de la transcription, liste exhaustive des pages et empreintes des
+illustrations. Vérifier la couverture du texte et des illustrations avant de
+remplacer les anciens fichiers ; contrôler ensuite l’absence des PDF retirés
+dans la construction et sur le site public.
+
+Les caractères Markdown présents dans les commandes et listes doivent rester
+littéraux après le build. Reproduire les symboles des polices particulières à partir
+du support, avec leur empreinte dans le catalogue (`glyphs`), et contrôler aussi le
+texte du HTML construit, y compris les relevés OCR et les tableaux.
 
 Les associations préparées sont enregistrées dans `data/staged-course-sources.json`.
 La préparation des ressources ne valide aucun cours : tant qu’une page contient

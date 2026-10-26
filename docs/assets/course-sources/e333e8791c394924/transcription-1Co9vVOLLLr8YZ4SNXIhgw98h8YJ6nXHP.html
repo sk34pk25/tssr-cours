@@ -1,0 +1,98 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 3 - DNS hébergeur et redondance.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP 3 - DNS hébergeur et redondance</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en environnement Microsoft<br>DNS hébergeur et <br>redondance</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Le service DNS</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et réalisé le<br>précédent TP.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 à 2 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Prérequis<br> <br>   : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avoir réalisé le TP précédent du Module 05.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Un serveur DNS sera à mettre en place dans le réseau 192.168.0.0/24 ainsi que dans<br>le réseau 192.168.1.0/24. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le routage entre les deux réseaux doit être fonctionnel.</p>
+<p class="tssr-source-paragraph">Enregistrements dynamiques<br> <br>   : <br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le serveur DNS hébergeur, configurez les zones principales pour permettre<br>l’enregistrement dynamique des clients.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur les postes clients, configurez le suffixe DNS principal.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifiez la présence des nouveaux enregistrements DNS :</p>
+<pre class="tssr-source-code">o
+avec la console DNS sur le serveur DNS hébergeur</pre>
+<pre class="tssr-source-code">o
+avec la commande nslookup</pre>
+<pre class="tssr-source-code">o
+quels types d’enregistrements sont créés ?</pre>
+<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Mise en œuvre de la redondance DNS<br> <br>   : <br>Vérifiez au préalable que le routage est opérationnel entre les deux réseaux.<br>Vous réaliserez un schéma des infrastructures.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le serveur DNS hébergeur du réseau 192.168.0.0/24 :</p>
+<pre class="tssr-source-code">o
+Configurez les zones principales, et le transfert de zone pour permettre le 
+transfert à partir du serveur DNS hébergeur du réseau 192.168.1.0/24.</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le serveur DNS du réseau 192.168.1.0/24 :</p>
+<pre class="tssr-source-code">o
+Configurez les zones secondaires et le transfert de zone pour permettre le 
+transfert à partir du serveur DNS du réseau 192.168.0.0/24.</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifiez que le transfert est fonctionnel en créant un nouvel enregistrement dans la <br>zone principale :</p>
+<pre class="tssr-source-code">o
+Le nouvel enregistrement est-il créé ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Sinon, consultez le journal d’évènements DNS, vérifiez les connexions…</pre>
+<p class="tssr-source-paragraph">Validation de la redondance DNS</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Paramétrez les clients de chacune des infrastructures :</p>
+<pre class="tssr-source-code">o
+Pour les clients du réseau 192.168.0.0/24 :</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"><br>DNS préféré = Serveur DNS hébergeur du réseau d’appartenance.<br><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"><br>DNS auxiliaire = Serveur DNS hébergeur du second réseau.</p>
+<pre class="tssr-source-code">o
+Pouvez-vous configurer les suffixes DNS de deux domaines sur tous les 
+clients ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Comment procéder ?</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Arrêtez le service DNS hébergeur du 1er réseau et testez la résolution depuis <br>l’infrastructure du 2e réseau.</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms du 1er Réseau ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms du 2e réseau ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms DNS publics ?</pre>
+<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>OO</p><p>OO</p><p>OO<br>OO</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Services réseau</td><td></td><td>en environnement</td><td></td><td>Microsoft</td></tr><tr><td>Miseen œuvre de laredondance DNS :</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Sur le serveur DNS hébergeur du réseau 192 168 0 0/24 :<br>. . .<br>o Configurez les zones principales et le transfert de zone pour permettre le<br>,</td></tr><tr><td></td><td>transfert àpartir du serveur DNS hébergeur du réseau 192 168 1 0/24<br>. . . .</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Sur le serveur DNS du réseau 192 168 1 0/24 :<br>. . .<br>o Configurez les zones secondaires et le transfert de zone pour permettre le</td></tr><tr><td></td><td>transfert àpartir du serveur DNS du réseau 192 168 0 0/24<br>. . . .</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Vérifiez que letransfert est fonctionnel en créant un nouvel enregistrement dans la</td><td></td></tr><tr><td></td><td></td><td>zone principale :</td><td></td></tr><tr><td></td><td></td><td>Le nouvel enregistrement est -il créé ?<br>o</td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td></tr><tr><td></td><td></td><td>Sinon consultez le journal d’évènements DNS vérifiez les connexions<br>o<br>, , …</td><td></td></tr><tr><td>Validation de laredondance DNS</td><td></td><td></td><td></td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Paramétrez les clients de chacune des infrastructures :</td><td></td></tr><tr><td></td><td></td><td>o Pour les clients du réseau 192 168 0 0/24 :<br>. . .</td><td></td></tr><tr><td></td><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"> DNS préféré = Serveur DNS hébergeur du réseau d’appartenance<br>.</td><td></td></tr><tr><td></td><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"> DNS auxiliaire = Serveur DNS hébergeur du second réseau<br>.</td><td></td></tr><tr><td></td><td></td><td>o Pouvez-vous configurer les suffixes DNS de deux domaines sur tous les</td><td></td></tr><tr><td></td><td></td><td>clients ?</td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td></tr><tr><td></td><td></td><td>Comment procéder ?<br>o</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Arrêtez le service DNS hébergeur du 1er réseau et testez la résolution depuis</td><td></td></tr><tr><td></td><td></td><td>l’infrastructure du 2e réseau<br>.<br>o Peut -on résoudre les noms du 1erRéseau ?</td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td></tr><tr><td></td><td></td><td>o Peut -on résoudre les noms du 2eréseau ?</td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td></tr><tr><td></td><td></td><td>o Peut -on résoudre les noms DNS publics ?</td><td></td></tr><tr><td>Page2/3<br>©ENI</td><td></td><td></td><td>– Tous droits réservés</td></tr></tbody></table></div>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Redémarrez le service DNS hébergeur du 1er réseau.</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms du 1er Réseau ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms du 2e réseau ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<pre class="tssr-source-code">o
+Peut-on résoudre les noms DNS publics ?</pre>
+<p class="tssr-source-paragraph">Oui<br>Non</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vous réaliserez un schéma montrant les chaînes de résolutions DNS.</p>
+<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>OO<br>OO</p><p>LO<br>O</p><p>O<br>O</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td><td>Services réseau</td><td></td><td>en environnement</td><td></td><td>Microsoft</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Redémarrez le service DNS hébergeur du 1erréseau<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>.</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>o</td><td>Peut -on résoudre les noms du 1erRéseau ?</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>o</td><td>Peut -on résoudre les noms du 2eréseau ?</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>o</td><td>Peut -on résoudre les noms DNS publics ?</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>Oui</td><td>Non</td><td></td><td></td><td></td><td></td></tr><tr><td></td><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"> Vous</td><td>réaliserez un schéma montrant les chaînes de résolutions DNS<br>.</td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-8dd312f396f289dc1f2dff193cde922c423df3d11d197cbfdfc7184a551f3769.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-8dd312f396f289dc1f2dff193cde922c423df3d11d197cbfdfc7184a551f3769.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1019" height="2638"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

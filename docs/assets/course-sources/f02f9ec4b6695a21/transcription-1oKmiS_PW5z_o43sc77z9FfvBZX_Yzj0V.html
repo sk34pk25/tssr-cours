@@ -1,0 +1,274 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M3 - Enoncé du TP - Gestion de parc.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M3 - Enoncé du TP - Gestion de parc</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">GLPI </p>
+<h4>Gestion de parc </h4>
+<p class="tssr-source-paragraph">TP du Module 3 – Gestion de parc – Inventaire informatique </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
+
+<h4>Enoncé </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Inventorier son parc informatique <br>Prérequis  </p>
+<p class="tssr-source-paragraph">• <br>Application GLPI fonctionnelle <br>Contexte </p>
+<p class="tssr-source-paragraph">• <br>ENI école vient de recevoir un ensemble de matériel qu’on vous demande d’inventorier <br>Principales tâches à réaliser </p>
+<p class="tssr-source-paragraph">Pour toutes les demandes qui suivront, utiliser si possible des gabarits. </p>
+<p class="tssr-source-paragraph">Création d’un centre de données (Datacenter) </p>
+<p class="tssr-source-paragraph">• <br>Datacenter dans « la salle des trésors » nommé « Olympus datacenter ». </p>
+<p class="tssr-source-paragraph">• <br>Créez la salle serveur avec deux emplacements de baies (1 ligne et 1 colonne) nommée <br>« Salle serveur 1 ».  </p>
+
+<p class="tssr-source-paragraph">Page 1/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">Création de 2 serveurs Proliant DL380 GEN </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-Proliant-DL380-GEN » </p>
+<pre class="tssr-source-code">o Nom « Proliant-DL380-GEN », mais avec incrémentation à quatre chiffres. </pre>
+<pre class="tssr-source-code">o Lieu : créez une « salle de stock »et une « salle serveur » dans la salle des </pre>
+<p class="tssr-source-paragraph">trésors puis affecter le gabarit dans cette salle. </p>
+<pre class="tssr-source-code">o Créez un statut « en stock » pour ce gabarit. </pre>
+<pre class="tssr-source-code">o Créez un type « Rack » pour ce gabarit. </pre>
+<pre class="tssr-source-code">o Créez le fabricant « HP » pour ce gabarit. </pre>
+<pre class="tssr-source-code">o Créez le modèle « Proliant-DL380 » pour ce gabarit : </pre>
+<p class="tssr-source-paragraph">▪ <br>15 kilos. </p>
+<p class="tssr-source-paragraph">▪ <br>2 Unités. </p>
+<p class="tssr-source-paragraph">▪ <br>2 alimentations. </p>
+<p class="tssr-source-paragraph">▪ <br>Ajouter les images « HP DL 380 Gen avant.png » et « HP DL 380 Gen <br>arrière.png » fournies par le formateur. </p>
+<p class="tssr-source-paragraph">• <br>Créez 1 port réseau : </p>
+<pre class="tssr-source-code">o Numéro 0. </pre>
+<pre class="tssr-source-code">o Nom « Port- ». </pre>
+<pre class="tssr-source-code">o Type de port « RJ45 ». </pre>
+<pre class="tssr-source-code">o Vitesse 10 Gbit/s. </pre>
+<p class="tssr-source-paragraph">• <br>Créez 8 ports réseau : </p>
+<pre class="tssr-source-code">o Numéro 1 à 8. </pre>
+<pre class="tssr-source-code">o Nom « Port- ». </pre>
+<pre class="tssr-source-code">o Type de port « RJ45 ». </pre>
+<pre class="tssr-source-code">o Vitesse 1Gbit/s. </pre>
+<p class="tssr-source-paragraph">• <br>Créez le système d’exploitation « HPE iLO » pour ce gabarit et Architecture 64 bits. </p>
+<p class="tssr-source-paragraph">• <br>Créez deux processeurs pour ce gabarit : </p>
+<pre class="tssr-source-code">o Fabricant « Intel ». </pre>
+<pre class="tssr-source-code">o Fréquence à 3.9 GHz. </pre>
+<pre class="tssr-source-code">o 28 cœurs. </pre>
+<p class="tssr-source-paragraph">• <br>Créez 6To (12 fois 512 Go) de mémoire pour ce gabarit : </p>
+<pre class="tssr-source-code">o Fabricant « HP ». </pre>
+<pre class="tssr-source-code">o Fréquence « 2666 MHz ». </pre>
+<pre class="tssr-source-code">o Type « DDR4 ». </pre>
+<pre class="tssr-source-code">o Modèle « HPE ».  </pre>
+
+<p class="tssr-source-paragraph">Page 2/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">Création d’une baie </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-Baie-HPE ». </p>
+<pre class="tssr-source-code">o Nom « Baie-HPE-1 ». </pre>
+<pre class="tssr-source-code">o Lieu « salle serveur ». </pre>
+<pre class="tssr-source-code">o Salle serveur « Salle serveur 1 ». </pre>
+<pre class="tssr-source-code">o Orientation de la porte « Nord ». </pre>
+<pre class="tssr-source-code">o Nombre d’unités « 42U ». </pre>
+<pre class="tssr-source-code">o Fabricant « HP ». </pre>
+<pre class="tssr-source-code">o Modèle « G2 Enterprise Pallet Rack ». </pre>
+<pre class="tssr-source-code">o Type « 42U Rack ». </pre>
+<pre class="tssr-source-code">o Statut « En stock ». </pre>
+<pre class="tssr-source-code">o Largeur « 59.78cm ». </pre>
+<pre class="tssr-source-code">o Hauteur « 200.66 cm ». </pre>
+<pre class="tssr-source-code">o Profondeur « 112.52 cm ». </pre>
+<pre class="tssr-source-code">o Poids max « 1361 kg ». </pre>
+<pre class="tssr-source-code">o Couleur d’arrière-plan « noir ». </pre>
+<p class="tssr-source-paragraph">• <br>Ajoutez la baie. </p>
+<pre class="tssr-source-code">o Position « colonne A, ligne 1 ». </pre>
+<pre class="tssr-source-code">o Statut « en place ». </pre>
+<p class="tssr-source-paragraph">• <br>Ajoutez les serveurs « Proliant-DL380-GEN-0001-0002 » dans la baie sur les U41-42 pour le <br>0001 et U16-17 pour le 0002.  </p>
+<p class="tssr-source-paragraph">Création d’un PDU </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-PDU-HPE-G2-3.6kva ». </p>
+<pre class="tssr-source-code">o Lieu « salle de stock ». </pre>
+<pre class="tssr-source-code">o Statut « En stock ». </pre>
+<pre class="tssr-source-code">o Type « HPE-G2-Horizontale ». </pre>
+<pre class="tssr-source-code">o Fabricant « HP ». </pre>
+<pre class="tssr-source-code">o Modèle « PDU-HPE-G2-3.6kVA ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Poids « 3.9kg ». </p>
+<p class="tssr-source-paragraph">▪ <br>Unités requises « 1 U ». </p>
+<p class="tssr-source-paragraph">▪ <br>Profondeur « 1 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Connexions d’alimentation « 8 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Puissance max. « 4 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Commentaires « 3,6 kVA ». </p>
+<p class="tssr-source-paragraph">▪ <br>Ajoutez les images « PDU G2 Avant.png » et « PDU G2 Arriere.png » </p>
+<p class="tssr-source-paragraph">Page 3/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">fournies par le formateur. </p>
+<p class="tssr-source-paragraph">• <br>Créez 2 PDU « PDU-HPE-G2-3.6kva-1 et -2 ». </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez les 2 PDU -1 en U30 et -2 en U15-42 dans la baie avec le statut « En place » et le <br>lieu « salle serveur ». </p>
+<p class="tssr-source-paragraph">Création des commutateurs </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-48P » . </p>
+<pre class="tssr-source-code">o Nom «  JL356A-ARUBA-2540-48P », mais avec incrémentation à quatre </pre>
+<p class="tssr-source-paragraph">chiffres. </p>
+<pre class="tssr-source-code">o Statut « En stock ». </pre>
+<pre class="tssr-source-code">o Type « Switch-48P ». </pre>
+<pre class="tssr-source-code">o Lieu « Salle de stock ». </pre>
+<pre class="tssr-source-code">o 4 ports 0 à 3. </pre>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Vitesse « 100 Gbit/s ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « RJ45 ». </p>
+<pre class="tssr-source-code">o 44 ports 4 à 47. </pre>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Vitesse « 10 Gbit/s ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « RJ45 ». </p>
+<pre class="tssr-source-code">o Modèle « Switch-JL356A-48P ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Nom « Switch-JL356A-aruba-48P ». </p>
+<p class="tssr-source-paragraph">▪ <br>Poids « 4 kg ». </p>
+<p class="tssr-source-paragraph">▪ <br>Unités requises « 1 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Puissance consommée « 459 Watts ». </p>
+<p class="tssr-source-paragraph">▪ <br>Ajoutez l’image « JL356A-aruba-48P-Avant.png » fournie par le <br>formateur. </p>
+<p class="tssr-source-paragraph">• <br>Créez 4 «  JL356A-ARUBA-2540-48P-0001, 0002, 0003 et 0004 ». </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez les Switchs 0001 en U40, 0002 en U29 et 0003 en U14 dans la baie avec le statut <br>« En place » et le lieu « salle serveur ».  </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-JL356A-ARUBA-2540-24P » . </p>
+<pre class="tssr-source-code">o Nom «  JL356A-ARUBA-2540-24P », mais avec incrémentation à quatre </pre>
+<p class="tssr-source-paragraph">chiffres. </p>
+<pre class="tssr-source-code">o Statut « En stock ». </pre>
+<pre class="tssr-source-code">o Type « Switch-24P ». </pre>
+<pre class="tssr-source-code">o Lieu « Salle de stock ». </pre>
+<pre class="tssr-source-code">o 4 ports 0 et 3. </pre>
+<p class="tssr-source-paragraph">Page 4/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6876f849c58f5700f3d5b54abc959ff6be58506e626933a61d3362013c20b4e0.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6876f849c58f5700f3d5b54abc959ff6be58506e626933a61d3362013c20b4e0.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="719"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Vitesse « 10 Gbit/s ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « RJ45 ». </p>
+<pre class="tssr-source-code">o 20 ports 4 à 23. </pre>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Vitesse « 1 Gbit/s ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « RJ45 ». </p>
+<pre class="tssr-source-code">o Modèle « Switch-JL356A-24P ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Nom « Switch-JL356A-aruba-24P ». </p>
+<p class="tssr-source-paragraph">▪ <br>Poids « 4 kg ». </p>
+<p class="tssr-source-paragraph">▪ <br>Unités requises « 1 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Puissance consommée « 370 Watts ». </p>
+<p class="tssr-source-paragraph">▪ <br>Ajoutez l’image « JL356A-aruba-24P-Avant.png » fournie par le <br>formateur. </p>
+<pre class="tssr-source-code">o Ajoutez le fichier « manuel Aruba 24 ports.pdf » du manuel en document dans </pre>
+<p class="tssr-source-paragraph">la rubrique Manuel.  </p>
+<p class="tssr-source-paragraph">• <br>Créez 6 «  JL356A-ARUBA-2540-24P-0001 à 0006 ».  </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le switch «  JL356A-ARUBA-2540-24P-0001 » et le «  JL356A-ARUBA-2540-24P-<br>0002 » dans le lieu « Temple de Zeus » avec le statut « En place ». </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le switch « JL356A-ARUBA-2540-24P-0003 » dans le lieu « Salle des trésors » avec <br>le statut « En place ». </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le switch « JL356A-ARUBA-2540-24P-0004 » dans le lieu « Temple d’Héra » avec <br>le statut « En place ». </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le switch « JL356A-ARUBA-2540-24P-0005 » dans le lieu « Hôtellerie » avec le statut <br>« En place ».  </p>
+<p class="tssr-source-paragraph">• <br>Connectez le port-0001 de «  JL356A-ARUBA-2540-24P-0001 » et de «  JL356A-ARUBA-<br>2540-24P-0002 » au port-0001 et port-0002 du switch « JL356A-ARUBA-2540-48P-0001 ». </p>
+<p class="tssr-source-paragraph">• <br>Connectez le port-0001 de «  JL356A-ARUBA-2540-24P-0003 » et de «  JL356A-ARUBA-<br>2540-24P-0004 » au port-0001 et port-0002 du switch « JL356A-ARUBA-2540-48P-0002 ». </p>
+<p class="tssr-source-paragraph">• <br>Connectez le port-0001 de «  JL356A-ARUBA-2540-24P-0005 » au port-0001 du switch <br>« JL356A-ARUBA-2540-48P-0003 ».  </p>
+<p class="tssr-source-paragraph">Création d’ordinateurs </p>
+<p class="tssr-source-paragraph">• <br>Créez un gabarit nommé « GAB-Alienware-M17 » </p>
+<pre class="tssr-source-code">o Nom « Alienware-M17 », mais avec incrémentation à trois chiffres. </pre>
+<pre class="tssr-source-code">o Lieu « salle de stock ». </pre>
+<pre class="tssr-source-code">o Statut « en stock ». </pre>
+<pre class="tssr-source-code">o Créez un type « Portable » pour ce gabarit. </pre>
+<pre class="tssr-source-code">o Créez le fabricant « DELL » pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">Page 5/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">GLPI </p>
+<pre class="tssr-source-code">o Créez le modèle « Alienware-M17 » pour ce gabarit : </pre>
+<p class="tssr-source-paragraph">▪ <br>3 kilos. </p>
+<p class="tssr-source-paragraph">▪ <br>250 Watts.  </p>
+<p class="tssr-source-paragraph">• <br>Avec les composants : </p>
+<pre class="tssr-source-code">o 1 processeur « I7-10750H » pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Intel ». </p>
+<p class="tssr-source-paragraph">▪ <br>Fréquence par défaut « 2.6 MHz ». </p>
+<p class="tssr-source-paragraph">▪ <br>Fréquence « 5 GHz ». </p>
+<p class="tssr-source-paragraph">▪ <br>Six cœurs et douze threads. </p>
+<p class="tssr-source-paragraph">▪ <br>Modèle « 10750H ». </p>
+<pre class="tssr-source-code">o 1 carte réseau « RJ45-Killer-E3000 » pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Killer Networking ». </p>
+<p class="tssr-source-paragraph">▪ <br>Débit « 10/100/1000 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Modèle « E3000 ». </p>
+<pre class="tssr-source-code">o 1 carte réseau « Killer-WIFI-6-AX1650 ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Killer Networking ». </p>
+<p class="tssr-source-paragraph">▪ <br>Débit « 2.4 Gbit/s ». </p>
+<p class="tssr-source-paragraph">▪ <br>Modèle « AX1650 » </p>
+<pre class="tssr-source-code">o 1 carte graphique « GeForce-RTX-2070 ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Nvidia ». </p>
+<p class="tssr-source-paragraph">▪ <br>Mémoire « 8096 Mio ». </p>
+<p class="tssr-source-paragraph">▪ <br>Interface « PCIe ». </p>
+<p class="tssr-source-paragraph">▪ <br>Modèle « RTX-2070 ». </p>
+<pre class="tssr-source-code">o 2 disques durs « SSD-PCIe-M2 » et 1 volume pour la taille totale de chaque </pre>
+<p class="tssr-source-paragraph">disque C : et D :. </p>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Intel ». </p>
+<p class="tssr-source-paragraph">▪ <br>Capacité « 488281 Mio ». </p>
+<p class="tssr-source-paragraph">▪ <br>Interface « PCIe ». </p>
+<pre class="tssr-source-code">o 2 barrettes de mémoires « Corsaire-8Go-2666 ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Fabricant « Corsair ». </p>
+<p class="tssr-source-paragraph">▪ <br>Taille « 7629Mio ». </p>
+<p class="tssr-source-paragraph">▪ <br>Fréquence « 2666 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « DDR4 ».  </p>
+<pre class="tssr-source-code">o Créez 1 port réseau Ethernet pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">▪ <br>Numéro 0. </p>
+<p class="tssr-source-paragraph">Page 6/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type de port « RJ45 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Vitesse 1 Gbit/s. </p>
+<p class="tssr-source-paragraph">▪ <br>Carte réseau « RJ45-Killer-E3000 ». </p>
+<pre class="tssr-source-code">o Créez 1 port réseau WIFI pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">▪ <br>Numéro 0. </p>
+<p class="tssr-source-paragraph">▪ <br>Nom « Port- ». </p>
+<p class="tssr-source-paragraph">▪ <br>Carte réseau « Killer-WIFI-6-AX1650 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Mode WIFI « Géré ». </p>
+<p class="tssr-source-paragraph">▪ <br>Version du protocole « a/b/g/n/y ». </p>
+<pre class="tssr-source-code">o Créez le système d’exploitation « Windows 10 » pour ce gabarit. </pre>
+<p class="tssr-source-paragraph">▪ <br>Architecture « 64 bits. ». </p>
+<p class="tssr-source-paragraph">▪ <br>Noyau « Hybride ». </p>
+<p class="tssr-source-paragraph">▪ <br>Version « 20H2 ». </p>
+<p class="tssr-source-paragraph">▪ <br>Edition « PRO ». </p>
+<pre class="tssr-source-code">o Créez un logiciel « Office365-ProPlus ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Éditeur « Microsoft ». </p>
+<p class="tssr-source-paragraph">▪ <br>Catégorie « Bureautique ». </p>
+<p class="tssr-source-paragraph">▪ <br>Version « ProPlus ». </p>
+<pre class="tssr-source-code">o Créez 60 licences « Office365-Proplus ». </pre>
+<p class="tssr-source-paragraph">▪ <br>Éditeur « Microsoft ». </p>
+<p class="tssr-source-paragraph">▪ <br>Statut « attribué ». </p>
+<p class="tssr-source-paragraph">▪ <br>Type « volume ». </p>
+<p class="tssr-source-paragraph">▪ <br>Version utilisée « ProPlus – en stock ». </p>
+<p class="tssr-source-paragraph">▪ <br>Version d’achat « ProPlus – en stock ». </p>
+<p class="tssr-source-paragraph">▪ <br>Autorisez le dépassement de quota « non ». </p>
+<pre class="tssr-source-code">o Installez le logiciel « Office365-ProPlus » et affectez une licence sur ce gabarit. </pre>
+<p class="tssr-source-paragraph">• <br>Créez autant de prise réseau que d’utilisateur dans chaque lieu. </p>
+<pre class="tssr-source-code">o Nom « Prise-1 », « Prise-2 », etc. </pre>
+<pre class="tssr-source-code">o Quatre en « salle des trésors ». </pre>
+<pre class="tssr-source-code">o Deux à « l’Hôtellerie ». </pre>
+<pre class="tssr-source-code">o Quatre au « Temple d’Héra ». </pre>
+<pre class="tssr-source-code">o Deux au « temple de Zeux ».  </pre>
+<p class="tssr-source-paragraph">• <br>Créez 12 Portables Alienware et affectez chaque ordinateur à un utilisateur d’Olympus. </p>
+<p class="tssr-source-paragraph">• <br>Connectez chaque Portable à un port de switch disponible dans le lieu où ils se trouvent </p>
+<p class="tssr-source-paragraph">Page 7/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>▪</td><td>Nom « Port - » .</td></tr><tr><td></td><td>▪</td><td>Type de port« RJ45 »<br>.</td></tr><tr><td></td><td>▪</td><td>Vitesse 1 Gbit/s<br>.</td></tr><tr><td></td><td>▪</td><td>Carte réseau « RJ45 -Killer-E3000 »<br>.</td></tr><tr><td></td><td>o Créez1 portréseau WIFI pour ce gabarit<br>.</td><td></td></tr><tr><td></td><td>▪</td><td>Numéro0<br>.</td></tr><tr><td></td><td>▪</td><td>Nom « Port - » .</td></tr><tr><td></td><td>▪</td><td>Carte réseau « Killer-WIFI -6 -AX1650 »<br>.</td></tr><tr><td></td><td>▪</td><td>Mode WIFI « Géré »<br>.</td></tr><tr><td></td><td>▪</td><td>Version du protocole «a/b/g/n/y »<br>.</td></tr><tr><td></td><td>o Créez lesystème d’exploitation « Windows 10 »pour ce gabarit<br>.</td><td></td></tr><tr><td></td><td>▪</td><td>Architecture « 64 bits »<br>. .</td></tr><tr><td></td><td>▪</td><td>Noyau « Hybride »<br>.</td></tr><tr><td></td><td>▪</td><td>Version « 20H2 »<br>.</td></tr><tr><td></td><td>▪</td><td>Edition « PRO »<br>.</td></tr><tr><td></td><td>o Créez un logiciel « Office365 -ProPlus »<br>.</td><td></td></tr><tr><td></td><td>▪</td><td>Éditeur «Microsoft »<br>.</td></tr><tr><td></td><td>▪</td><td>Catégorie« Bureautique »<br>.</td></tr><tr><td></td><td>▪</td><td>Version « ProPlus »<br>.</td></tr><tr><td></td><td>o Créez 60 licences « Office365 -Proplus »<br>.</td><td></td></tr><tr><td></td><td>▪</td><td>Éditeur «Microsoft »<br>.</td></tr><tr><td></td><td>▪</td><td>Statut « attribué »<br>.</td></tr><tr><td></td><td>▪</td><td>Type « volume»<br>.</td></tr><tr><td></td><td>▪</td><td>Version utilisée « ProPlus – en stock » .</td></tr><tr><td></td><td>▪</td><td>Version d’achat « ProPlus – en stock » .</td></tr><tr><td></td><td>▪</td><td>Autorisezle dépassement de quota « non »<br>.</td></tr><tr><td></td><td>o Installez le logiciel « Office365 -ProPlus » et affectez une licence sur ce gabarit<br>.</td><td></td></tr><tr><td>•</td><td>Créezautantde prise réseau que d’utilisateur dans chaque lieu<br>.</td><td></td></tr><tr><td></td><td>o Nom « Prise-1 » « Prise-2 » etc<br>, , .</td><td></td></tr><tr><td></td><td>o Quatre en « salle des trésors »<br>.</td><td></td></tr><tr><td></td><td>o Deux à « l’Hôtellerie »<br>.</td><td></td></tr><tr><td></td><td>o Quatre au « Temple d’Héra »<br>.</td><td></td></tr><tr><td></td><td>o Deux au « temple de Zeux »<br>.</td><td></td></tr></tbody></table></div>
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">par les prises situées dans ces lieux. </p>
+<p class="tssr-source-paragraph">Réservation </p>
+<p class="tssr-source-paragraph">• <br>Créez deux Portables Alienware supplémentaires et les rendre réservables. </p>
+<pre class="tssr-source-code">o En réserver un, pour un mois, au nom de Zeus pour ses virées nocturnes sur </pre>
+<p class="tssr-source-paragraph">terres. </p>
+<p class="tssr-source-paragraph">Écrans </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez deux écrans E 1913 S 19 et en lien un avec un optiplex et un en stock. </p>
+<p class="tssr-source-paragraph">Imprimantes </p>
+<p class="tssr-source-paragraph">• <br>5 imprimantes Aficio MP C5502AD avec les cartouches et le papier correspondant (1 <br>dans le hall et les autres dans des salles au choix). Vous prévoirez 1 jeu de tonner <br>supplémentaire pour spare ainsi que du papier d’avance. </p>
+<p class="tssr-source-paragraph">Autre </p>
+<p class="tssr-source-paragraph">• <br>1 BlackBerry Z30 assigné au directeur </p>
+<p class="tssr-source-paragraph">• <br>1 webcam Logitech C920 assignée au Hall </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger, accompagnée de captures d’écran pour vous guider. </p>
+
+<p class="tssr-source-paragraph">Page 8/8 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3930cac0ddc071c1c283e847a8aac31cc1d8f14363809638c233c562a9d2fdc1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3930cac0ddc071c1c283e847a8aac31cc1d8f14363809638c233c562a9d2fdc1.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="528"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

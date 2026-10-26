@@ -1,0 +1,22 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 11 - Get-Content.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 11 - Get-Content</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Get-Content </h4>
+<p class="tssr-source-paragraph">Démonstration 12 du module 3 </p>
+
+<p class="tssr-source-paragraph"> L’objectif de cette démonstration est de vous présenter la commande Get-Content </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Il est possible d’afficher le contenu d’un fichier dans la console PowerShell.  </p>
+<p class="tssr-source-paragraph">Toutefois, ce n’est possible que sur un fichier au format lisible par la console. </p>
+<p class="tssr-source-paragraph">• <br>Prenons l’exemple d’un fichier CSV : </p>
+<pre class="tssr-source-code">o On utilise la commande Get-Content suivie du chemin du fichier. </pre>
+
+<p class="tssr-source-paragraph">Les données apparaissent ligne par ligne. </p>
+<pre class="tssr-source-code">Pour sélectionner certaines lignes, on utilise le paramètre tail puis une valeur pour indiquer le 
+nombre de lignes sélectionnées en fin de fichier. </pre>
+
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt; Get-Content<br>C:\FIC2.csv<br>“DistinguishedName&quot;; &quot;Enabled&quot;;&quot;GivenName&quot;; &quot;Name&quot;; “&quot;ObjectClass&quot;;<br>ame&quot;; &quot;UserPrincipalName&quot;</p><p>“CN=Administrator ,CN=Users,DC=ad01,DC=1c1&quot;;&quot;True&quot;;;&quot;Administrat<br>508e63c&quot;; &quot;Administrator&quot;; &quot;S-1-5-21-1966697812-3989974639-362139<br>“CN=Guest ,OU=_CompteTest<br>, DC=ad01,DC=1c1&quot;; &quot;False&quot;;<br>; &quot;Guest&quot;; “user<br>&quot;Guest&quot;; &quot;S-1-5-21-1966697812-3989974639-3621391846-501&quot;;;<br>&quot;CN=krbtgt,CN=Users,DC=ad01,DC=1c1&quot;;<br>&quot;False&quot;; ; &quot;krbtgt&quot;;&quot;user&quot;;&quot;4<br>tat&quot;;:&quot;S-1-5-21-1966697812-3989974639-3621391846-502&quot;;::</p><p>PS C:\&gt; Get-Content C:\FIC2.csv -Tail 5<br>“CN=Craft,OU=_CompteTest ,DC=ad01,DC=1c1&quot;; &quot;False&quot;; &quot;Linus&quot;; “Craf<br>9ff6c&quot;;&quot;Linus Craft&quot;; &quot;S-1-5-21-1966697812-3989974639-3621391844<br>“CN=Cameron ,OU=_CompteTest<br>, DC=ad01,DC=1c1&quot;; &quot;False&quot;; &quot;Judah&quot;; &quot;Ca<br>0a821b697&quot;;&quot;Judah<br>Cameron&quot;; “S-1-5-21-1966697812-3989974639-362<br>“CN=Pugh ,OU=_CompteTest , DC=ad01,DC=1c1&quot;; &quot;False&quot;; “Adara™; “Pugh”<br>Saa&quot;;&quot;Adara Pugh&quot;; &quot;S-1-5-21-1966697812-3989974639-3621391846-1<br>“CN=D7 xon ,OU=_CompteTest ,DC=ad01,DC=1c1&quot;;<br>&quot;False&quot;; &quot;Drew&quot;; &quot;Dixon’&#x27;<br>033d&quot;; &quot;Drew Dixon&quot;; &quot;S-1-5-21-1966697812-3989974639-3621391846-<br>“CN=Robertson ,OU=_CompteTest<br>, DC=ad01 ,DC=1c1&quot;; &quot;True&quot;; &quot;Joelle&quot;; &quot;F<br>-bc2536b895ed&quot;: &quot;Joelle<br>Robertson&quot;: &quot;S-1-5-21-1966697812-39899744</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-732310e0ea48d6d37963745a897588cb7564cb998cd17d2605afd896d251d734.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-732310e0ea48d6d37963745a897588cb7564cb998cd17d2605afd896d251d734.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="944"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

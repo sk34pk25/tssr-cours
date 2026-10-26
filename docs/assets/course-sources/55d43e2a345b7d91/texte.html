@@ -1,115 +1,90 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Devenir autonome avec PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Devenir autonome avec PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Devenir autonome avec
-PowerShell
-TP du Module 03 – Interagir avec Windows 10
-
-Proposition de solution
-
-Sur Win10-XX, recherchez les commandes adaptées pour les besoins suivants
-
-•  À l&#x27;aide d&#x27;une console PowerShell, afficher les commandes disponibles sur le système
-
-Get-Command
-
-•  À l&#x27;aide de la commande précédente, n&#x27;afficher que les cmdlets
-
-Get-Command -CommandType Cmdlet
-
-•   N&#x27;afficher que les cmdlets dont le verbe est Get
-
-Get-Command -CommandType Cmdlet -Name Get-*
-
-ou
-
-Get-Command -Type Cmdlet Get-*
-
-•  Quelle cmdlet permet d&#x27;afficher la liste des groupes locaux présents sur le système ?
-
-Get-LocalGroup
-
-On peut trouver cette commande en faisant un Get-Command Get-*group*
-•  Quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut ?
-Les deux propriétés sont Name et Description
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Devenir autonome avec PowerShell.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Devenir autonome avec PowerShell</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Devenir autonome avec <br>PowerShell </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10 </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur Win10-XX, recherchez les commandes adaptées pour les besoins suivants <br> </p>
+<p class="tssr-source-paragraph">• <br>À l&#x27;aide d&#x27;une console PowerShell, afficher les commandes disponibles sur le système </p>
+<p class="tssr-source-paragraph">Get-Command </p>
+<p class="tssr-source-paragraph">• <br>À l&#x27;aide de la commande précédente, n&#x27;afficher que les cmdlets </p>
+<p class="tssr-source-paragraph">Get-Command -CommandType Cmdlet </p>
+<p class="tssr-source-paragraph">• <br>N&#x27;afficher que les cmdlets dont le verbe est Get </p>
+<p class="tssr-source-paragraph">Get-Command -CommandType Cmdlet -Name Get-* </p>
+<p class="tssr-source-paragraph">ou </p>
+<p class="tssr-source-paragraph">Get-Command -Type Cmdlet Get-* </p>
+<p class="tssr-source-paragraph">• <br>Quelle cmdlet permet d&#x27;afficher la liste des groupes locaux présents sur le système ? </p>
+<p class="tssr-source-paragraph">Get-LocalGroup </p>
+<p class="tssr-source-paragraph">On peut trouver cette commande en faisant un Get-Command Get-*group* </p>
+<p class="tssr-source-paragraph">• <br>Quelles sont les 2 propriétés des groupes locaux que le système affiche par défaut ? </p>
+<p class="tssr-source-paragraph">Les deux propriétés sont Name et Description </p>
 
 
 
 
 
- Page 1/3
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
+
+
+
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>|<br>|<br>|<br>|</p></div></details>
 
 
 
 
 
-•  Quelles sont les autres propriétés des groupes locaux qui ne sont pas affichés par le
-   système ?
-
-Get-LocalGroup | select *
-
-Il y a trois autres propriétés non affichées par défaut par le système : SID, PrincipalSource et
-ObjectClass
-•  Afficher le SID et la source principale du groupe Utilisateurs du bureau à distance
-
-Get-LocalGroup -name &quot;Utilisateurs du Bureau*&quot; | Select SID,PrincipalSource
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
 
 
+<p class="tssr-source-paragraph">• <br>Quelles sont les autres propriétés des groupes locaux qui ne sont pas affichés par le <br>système ? </p>
+<p class="tssr-source-paragraph">Get-LocalGroup | select * </p>
+<p class="tssr-source-paragraph">Il y a trois autres propriétés non affichées par défaut par le système : SID, PrincipalSource et <br>ObjectClass </p>
+<p class="tssr-source-paragraph">• <br>Afficher le SID et la source principale du groupe Utilisateurs du bureau à distance </p>
+<p class="tssr-source-paragraph">Get-LocalGroup -name &quot;Utilisateurs du Bureau*&quot; | Select SID,PrincipalSource </p>
+
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EJ Windows PowerShell<br>—<br>=]<br>X</p><p>PS C:\Users\Ateliers&gt;<br>get-LocalGroup<br>a</p><p>ame<br>Description</p><p>Administrateurs<br>Les membres<br>du groupe Administrateurs<br>disposent<br>d’un<br>accès complet<br>et<br>il..<br>Administrateurs<br>Hyper-V<br>Les membres<br>de<br>ce groupe disposent<br>d’un<br>accès complet<br>et<br>illimité<br>à tout...<br>Duplicateurs<br>Prend en charge<br>la<br>réplication des fichiers dans<br>le<br>domaine<br>IIS_IUSRS<br>Groupe intégré<br>utilisé par<br>les services<br>Internet<br>(IIS).<br>Invités<br>Les membres<br>du groupe Invités disposent<br>par défaut<br>du même accès<br>que les..<br>Lecteurs des journaux d&#x27;événements<br>Des membres<br>de<br>ce groupe peuvent<br>lire les journaux des événements<br>à part.<br>Opérateurs d&#x27;assistance<br>de contrôle d&#x27;accès<br>Les membres<br>de<br>ce groupe peuvent interroger<br>à distance<br>les attributs d’a...<br>Opérateurs<br>de chiffrement<br>Les membres<br>sont autorisés<br>à effectuer<br>des opérations<br>de chiffrement.<br>Opérateurs<br>de configuration réseau<br>Les membres<br>de<br>ce groupe peuvent disposer<br>de certaines autorisations<br>d’a..<br>Opérateurs<br>de sauvegarde<br>Les membres<br>du groupe Opérateurs<br>de sauvegarde peuvent passer<br>outre<br>les<br>...<br>Propriétaires d&#x27;appareils<br>Les membres<br>de<br>ce groupe peuvent modifier<br>les paramètres<br>à l&#x27;échelle du<br>..<br>system Managed Accounts Group<br>Les membres<br>de<br>ce groupe sont gérés<br>par<br>le systéme<br>Utilisateurs<br>Les<br>utilisateurs<br>ne peuvent<br>pas effectuer de modifications accidentelles...<br>Utilisateurs avec<br>pouvoir<br>Les<br>utilisateurs avec<br>pouvoir<br>sont<br>inclus pour des<br>raisons<br>de compatibil..<br>Utilisateurs<br>de gestion<br>à distance<br>Les membres<br>de<br>ce groupe ont<br>accès aux<br>ressources<br>WMI<br>via des protocoles.<br>Utilisateurs<br>de l’Analyseur de performances<br>Les membres<br>de<br>ce groupe peuvent accéder<br>aux<br>données<br>de compteur<br>de perf...<br>Utilisateurs<br>du Bureau<br>à distance<br>Les membres<br>de<br>ce groupe disposent<br>des<br>droits nécessaires pour<br>ouvrir un..<br>Utilisateurs<br>du journal<br>de performances<br>Les membres<br>de<br>ce groupe peuvent planifier la journalisation des<br>compteu..<br>Utilisateurs<br>du modèle COM distribué<br>Les membres<br>sont autorisés<br>à<br>lancer,<br>à<br>activer<br>et<br>à utiliser sur<br>cet ord...</p><p>PS C:\Users\Ateliers&gt; L</p><p>E3 Windows PowerShell<br>—<br>o<br>x</p><p>PS C:\Users\Ateliers&gt; Get-LocalGroup<br>|<br>select SID,PrincipalSource<br>a</p><p>SID<br>PrincipalSource</p><p>IS-1-5-32-555<br>Local</p><p>PS C:\Users\Ateliers&gt; .</p></div></details>
 
 
 
- Page 2/3
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
-Sur Discovery, recherchez les commandes adaptées pour les besoins
-suivants
-•  Quelle commande permet d&#x27;afficher les disques durs de la VM Discovery ? Combien de
-   disques durs possède la VM ?
 
-Get-Disk
-
-La VM possède 4 disques durs
-•  Afficher le numéro et le modèle des disques durs présent sur la VM Discovery
-
-Get-Disk | select Number,Model
-
-Pour la propriété Model, qui n&#x27;est pas une propriété affichée par défaut, nous pouvons la
-trouver en faisant la commande Get-Disk | select * en amont.
-•   N&#x27;afficher que le nom, le type de bus et le fabricant du disque numéro 2
-
-Get-Disk -Number 2 | Select FriendlyName,BusType,ManuFacturer
-
-Nous pouvons trouver les propriétés Nom, type de bus et fabricant à l&#x27;aide de la commande
-Get-Disk | select * en amont.
-•  Afficher le nom, le statut et la description du pilote de l&#x27;adaptateur réseau de la VM
-
-Get-NetAdapter | select Name,Status,DriverDescription
-
-•  Afficher les membres du groupe local Administrateurs de la VM Discovery
-
-Get-LocalGroupMember -Name &quot;Administrateurs&quot;
-
-Ou
-
-Get-LocalGroupMember Administrateurs
-
-•  Afficher les membres du groupe local Administrateurs de la VM Discovery, mais cette
-    fois-ci, le résultat devra être redirigé dans le fichier AdminMembers.txt, lui-même
-   contenu dans le dossier C:\Users
-
-Get-LocalGroupMember -Name &quot;Administrateurs&quot; &gt; C:\Users\AdminMembers.txt
-
-pour vérifier la présence du fichier et de son contenu
-
-Get-ChildItem c:\Users
-
-pour lister le contenu du dossier C:\Users (AdminMembers.txt doit être présent)
-
-Get-Content c:\Users\AdminMembers.txt
-
-pour afficher le contenu du fichier texte à l&#x27;écran
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Sur Discovery, recherchez les commandes adaptées pour les besoins <br>suivants </p>
+<p class="tssr-source-paragraph">• <br>Quelle commande permet d&#x27;afficher les disques durs de la VM Discovery ? Combien de <br>disques durs possède la VM ? </p>
+<p class="tssr-source-paragraph">Get-Disk </p>
+<p class="tssr-source-paragraph">La VM possède 4 disques durs </p>
+<p class="tssr-source-paragraph">• <br>Afficher le numéro et le modèle des disques durs présent sur la VM Discovery </p>
+<p class="tssr-source-paragraph">Get-Disk | select Number,Model </p>
+<p class="tssr-source-paragraph">Pour la propriété Model, qui n&#x27;est pas une propriété affichée par défaut, nous pouvons la <br>trouver en faisant la commande Get-Disk | select * en amont. </p>
+<p class="tssr-source-paragraph">• <br>N&#x27;afficher que le nom, le type de bus et le fabricant du disque numéro 2 </p>
+<p class="tssr-source-paragraph">Get-Disk -Number 2 | Select FriendlyName,BusType,ManuFacturer </p>
+<p class="tssr-source-paragraph">Nous pouvons trouver les propriétés Nom, type de bus et fabricant à l&#x27;aide de la commande <br>Get-Disk | select * en amont. </p>
+<p class="tssr-source-paragraph">• <br>Afficher le nom, le statut et la description du pilote de l&#x27;adaptateur réseau de la VM  </p>
+<p class="tssr-source-paragraph">Get-NetAdapter | select Name,Status,DriverDescription </p>
+<p class="tssr-source-paragraph">• <br>Afficher les membres du groupe local Administrateurs de la VM Discovery </p>
+<p class="tssr-source-paragraph">Get-LocalGroupMember -Name &quot;Administrateurs&quot;  </p>
+<p class="tssr-source-paragraph">Ou </p>
+<p class="tssr-source-paragraph">Get-LocalGroupMember Administrateurs </p>
+<p class="tssr-source-paragraph">• <br>Afficher les membres du groupe local Administrateurs de la VM Discovery, mais cette <br>fois-ci, le résultat devra être redirigé dans le fichier AdminMembers.txt, lui-même <br>contenu dans le dossier C:\Users </p>
+<p class="tssr-source-paragraph">Get-LocalGroupMember -Name &quot;Administrateurs&quot; &gt; C:\Users\AdminMembers.txt </p>
+<p class="tssr-source-paragraph">pour vérifier la présence du fichier et de son contenu </p>
+<p class="tssr-source-paragraph">Get-ChildItem c:\Users  </p>
+<p class="tssr-source-paragraph">pour lister le contenu du dossier C:\Users (AdminMembers.txt doit être présent) </p>
+<p class="tssr-source-paragraph">Get-Content c:\Users\AdminMembers.txt  </p>
+<p class="tssr-source-paragraph">pour afficher le contenu du fichier texte à l&#x27;écran </p>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|</p></div></details>
 
 
 
 
 
- Page 3/3
-                                      © ENI – Tous droits réservés</pre></section></html>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f7bfbfe3c99e2235f8fad1152e0c12f87c1e85bacd41e46c7ccf2dbc67d3c7a1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f7bfbfe3c99e2235f8fad1152e0c12f87c1e85bacd41e46c7ccf2dbc67d3c7a1.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1021" height="3001"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

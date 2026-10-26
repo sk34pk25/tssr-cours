@@ -1,0 +1,47 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 2 - Les propri‚t‚s.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 2 - Les propri‚t‚s</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Les propriétés </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 2 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter les propriétés. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Chaque objet PowerShell contient des propriétés. La liste de ses propriétés est définie par le type <br>d’objet auquel il appartient. </p>
+<pre class="tssr-source-code">• 
+Le type de propriétés est indiqué par la commande Get-Member dans la colonne Definition. </pre>
+<p class="tssr-source-paragraph">• <br>Connaître le type de propriété est essentiel pour pouvoir la manipuler. </p>
+
+<pre class="tssr-source-code">La propriété Description est de type String ; elle n’accepte donc que les chaînes de 
+caractères. </pre>
+<pre class="tssr-source-code">La propriété PasswordRequired est type Bool ; elle n’accepte que les valeurs de type booléen.  </pre>
+<p class="tssr-source-paragraph">Pour modifier les valeurs d’une propriété, on va dans un premier temps choisir l’objet sur lequel on <br>souhaite modifier la valeur de la propriété. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\STAG&gt; Get-LocalUser<br>|<br>Get-Member</p><p>TypeName:<br>Microsoft.PowerShe11.Commands.LocalUser</p><p>Name<br>MemberType Definition</p><p>Clone<br>Method<br>Microsoft. PowerShel1.Commands.LocalUser<br>Clo<br>Equals<br>Method<br>bool<br>Equals(System.Object obj)<br>GetHashCode<br>Method<br>int GetHashCode()<br>GetType<br>Method<br>type GetType()<br>Tostring<br>Method<br>string ToString()<br>AccountExpires<br>Property<br> System.Nullable[datetime]<br>AccountExpires<br>{g<br>Description<br>Property<br>string Description {get;set;}<br>Enabled<br>Property<br>bool<br>Enabled {get;set;}<br>Ful 1Name<br>Property<br>string FullName {get;set;}<br>LastLogon<br>Property<br>System.Nullable[datetime]<br>LastLogon {get;se<br>Name<br>Property<br>string Name {get;set;}<br>lobjectClass<br>Property<br>string ObjectClass {get;set;}<br>PasswordChangeableDate Property<br>System.Nullable[datetime]<br>PasswordChangeab]<br>PasswordExpires<br>Property<br> System.Nullable[datetime]<br>PasswordExpires<br>{<br>PasswordLastSet<br>Property<br>System.Nullable[datetime]<br>PasswordLastSet<br>{<br>PasswordRequired<br>Property<br>bool<br>PasswordRequired<br>{get;set;}<br>PrincipalSource<br>Property<br>System.Nullable[Microsoft.PowerShel1.Comma<br>SID<br>Property<br>System.Security.Principal.SecurityIdentifie<br>UserMayChangePassword<br>Property<br>bool<br>UserMayChangePassword {get;set;}</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">On indique à la commande Get-Service que l’on souhaite uniquement les services contenant 
+search en fin de nom de service. </pre>
+<pre class="tssr-source-code">On obtient la valeur de la propriété DisplayName ici Windows Search. </pre>
+<pre class="tssr-source-code">Pour modifier la valeur, il faut disposer de l’objet de la propriété et de la valeur. On utilise en suite 
+la commande permettant de modifier les valeurs de propriété de l’objet Service. </pre>
+<pre class="tssr-source-code">La commande Set-Service est associée au nom de l’objet service puis à la propriété à modifier 
+et enfin à la valeur de la propriété souhaitée. </pre>
+<pre class="tssr-source-code">La propriété DisplayName est de type String ; nous lui indiquons donc une chaîne de caractères 
+encadrée par les symboles ‘’ ou double quote. </pre>
+
+
+<p class="tssr-source-paragraph">La commande   <br>L’objet  <br>La propriété  La valeur de type « String » </p>
+
+<p class="tssr-source-paragraph">On vérifie la bonne prise en compte de la modification. </p>
+
+<p class="tssr-source-paragraph">La modification d’un objet système nécessite une console avec les droits d’administration </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\Users\STAG&gt;<br>Get-Service<br>-ServiceName<br>*searc</p><p>Status<br>Name<br>DisplayName</p><p>Running<br>WSearch<br>Windows Search</p><p>rr<br>rs a<br>ay<br>ae</p><p>PS C:\&gt; Get-Service -ServiceName “search</p><p>Status<br>Name<br>Disp layName</p><p>Running<br>WSearch<br>Service<br>de<br>recherche Windows</p><p>En</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a2e7eef05683c285cfbbc1439d29879e6ade16105af1c792d482df5c74c9cc19.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a2e7eef05683c285cfbbc1439d29879e6ade16105af1c792d482df5c74c9cc19.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1090" height="1820"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,650 +1,473 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03-04-TP-Sous-réseaux_Correction.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M03-04-TP-Sous-réseaux_Correction.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Calcul des sous-réseaux
-TP du Module 03.04
-
-
- Pour effectuer ce TP,  il faut avoir suivi la partie sur le découpage en sous-réseau du
- module 3 sur l’adressage IPv4
-  En vidéo pour les stagiaires du campus en ligne
-
- Diaporama et explications pour les stagiaires en présence d’un formateur
-
-
-           Durée estimée
-
-              3 heures
-
-Énoncé
-
-A.  Validité des adresses en notation CIDR
-Indiquez si les adresses sont valides pour des hôtes.
-
-Transformez la notation CIDR en notation standard.
-
-      Adresse        Valide     @Réseau / @Diffusion               Standard
-
-                                              12.0.0.0                           12.1.1.1
-      12.1.1.1 /8       OUI
-                                       12.255.255.255                      255.0.0.0
-                                                     ..... 209.207.177.100 (réseau) .....   ............ 209.207.177.100 .............
- 209.207.177.100 /30  NON
-                                                     ............. 209.207.177.103 .............   ............ 255.255.255.252 .............
-                                                     .................. 192.0.35.0..................   ................ 192.0.35.12 .................
-    192.0.35.12 /26     OUI
-                                                     ................. 192.0.35.63.................   ............ 255.255.255.192 .............
-                                                     ................ 120.146.80.0................   ............... 120.146.80.1 ................
-   120.146.80.1 /20     OUI
-                                                     .............. 120.146.95.255 ..............   .............. 255.255.240.0 ...............
-                                                     .................. 120.64.0.0..................   ................. 120.80.1.0 ..................
-    120.80.1.0 /11      OUI
-                                                     .............. 120.95.255.255 ..............   ................ 255.224.0.0 .................
-                                                     ............... 211.104.16.16 ...............   .............. 211.104.16.17 ...............
-   211.104.16.17 /29    OUI
-                                                     ............... 211.104.16.23 ...............   ............ 255.255.255.248 .............
-                                                     ................. 172.168.0.0.................   ................ 172.168.0.1 .................
-    172.168.0.1 /24     OUI
-                                                     ............... 172.168.0.255 ...............   .............. 255.255.255.0 ...............
-                                                     ............... 109.168.248.0 ...............   ............. 109.168.248.32 ..............
-  109.168.248.32 /21    OUI
-                                                     ............. 109.168.255.255 .............   .............. 255.255.248.0 ...............
-
-
-
-
-
- Page 1/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                   ................. 96.139.80.0.................   ............... 96.139.84.12 ................
-  96.139.84.12 /21     OUI
-                                                   ............... 96.139.87.255 ...............   .............. 255.255.248.0 ...............
-                                                   ......... 172.16.32.0 (Réseau) ........   ................ 172.16.32.0 .................
-   172.16.32.0 /25    NON
-                                                   ............... 172.16.32.127 ...............   ............ 255.255.255.128 .............
-                                                   .................. 172.16.0.0..................   ............... 172.16.0.127 ................
-  172.16.0.127 /25   NON
-                                                   ..... 172.16.0.127 ( broadcast) ....   ............ 255.255.255.128 .............
-
-                                                   ............... 192.168.19.80 ...............   .............. 192.168.19.87 ...............
-  192.168.19.87 /29   NON
-                                                   .... 192.168.19.87 (broadcast) ....   ............ 255.255.255.248 .............
-                                                   .................. 172.16.0.0..................   ................ 172.16.32.1 .................
-   172.16.32.1 /18     OUI
-                                                   ............... 172.16.63.255 ...............   .............. 255.255.192.0 ...............
-                                                   ....... 210.71.10.128 (Réseau) ......   .............. 210.71.10.128 ...............
-  210.71.10.128 /28   NON
-                                                   ............... 210.71.10.143 ...............   ............ 255.255.255.240 .............
-
-
-
-
-
-Page 2/13
-                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>B.  Calculs de masque
-Calculez le masque approprié et complétez l&#x27;adresse en notation CIDR afin d&#x27;obtenir la
-quantité d&#x27;hôtes ou de sous-réseaux requis.
-Le masque de sous-réseau de départ est le masque par défaut associé à la classe.
-
-                  PARAMETRES REQUIS                   Notation CIDR
-
-      Au moins 120 sous-réseaux :                           172.16.0.0/ ... 23 ...
-
-        2 adresses par sous-réseau (liaisons pt à pt)          192.168.1.0/ ... 30 ...
-
-      Au moins 31 sous-réseaux                            185.221.0.0/ ... 21 ...
-
-      Au moins 15 sous-réseaux                            131.107.0.0/ ... 20 ...
-
-      A peu près 500 sous-réseaux                          140.10.0.0/ ... 25 ...
-
-       Exactement 8 sous-réseaux                        192.168.10.0/ ... 27 ...
-
-        10 sous-réseaux d&#x27;au moins 17 hôtes                 214.12.33.0/ .... X ....
-
-         Environ 2020 sous-réseaux                                 10.0.0.0/ ... 19 ...
-
-        127 sous-réseaux                                      188.23.0.0/ ... 23 ...
-
-C.  Calculs de masques, nombre de réseaux et hôtes
-Calculez le masque adapté aux exigences du scénario.
-Indiquez le nombre de sous-réseaux créés.
-Indiquez le nombre d&#x27;hôtes par sous-réseau.
-LE RESEAU DE DEPART COMPORTE TOUJOURS UN MASQUE DE CLASSE A, B ou C standard
-
- Scénario 1
- Nombre de segments physiques requis :                5             3 bits + 1
- Nombre maximum d&#x27;hôtes par segment :              25            5 bits - 1
- Adresse de réseau :                                 192.177.4.0
- Masque de sous-réseau proposé :                255.255.255.240
- Nombre de sous-réseaux créés :                        24 = 16
- Nombre maximum d&#x27;adresses par segment :          24-2 = 14
-
- Scénario 2
- Nombre de segments physiques requis :               100            7 bits + 1
- Nombre maximum d&#x27;hôtes par segment :              88.000           17 bits - 1
- Adresse de réseau :                                     39.0.0.0
- Masque de sous-réseau proposé :                   255.255.0.0
- Nombre de sous-réseaux créés :                       28 = 256
- Nombre maximum d&#x27;adresses par segment :        216-2 = 65534
-
-
-
-
- Page 3/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Scénario 3
-Nombre de segments physiques requis :               100           7 bits + 1
-Nombre maximum d&#x27;hôtes par segment :              350           9 bits - 1
-Adresse de réseau :                                 171.133.0.0
-Masque de sous-réseau proposé :                  255.255.255.0
-Nombre de sous-réseaux créés :                       28 = 256
-Nombre maximum d&#x27;adresses par segment :         28-2 = 254
-
-Scénario 4
-Nombre de segments physiques requis :               16            4 bits + 1 + 1
-Nombre maximum d&#x27;hôtes par segment :             1 500           11 bits - 1
-Adresse de réseau :                                 128.199.0.0
-Masque de sous-réseau proposé :                  255.255.252.0
-Nombre de sous-réseaux créés :                        26 = 64
-Nombre maximum d&#x27;adresses par segment :         210-2 = 1022
-
-Scénario 5
-Nombre de segments physiques requis :               250            8 bits + 1 + 1
-Nombre maximum d&#x27;hôtes par segment :              100            7 bits - 1
-Adresse de réseau :                                 191.254.0.0
-Masque de sous-réseau proposé :                255.255.255.192
-Nombre de sous-réseaux créés :                        210 = 1024
-Nombre maximum d&#x27;adresses par segment :          26-2 = 62
-
-Scénario 6
-Nombre de segments physiques requis :               12             4 bits + 1
-Nombre maximum d&#x27;hôtes par segment :              12             4 bits - 1
-Adresse de réseau :                                216.121.44.0
-Masque de sous-réseau proposé :                255.255.255.248
-Nombre de sous-réseaux créés :                        25 = 32
-Nombre maximum d&#x27;adresses par segment :          23-2= 6
-
-Scénario 7
-Nombre de segments physiques requis :               50            6 bits + 1
-Nombre maximum d&#x27;hôtes par segment :              600            10 bits - 1
-Adresse de réseau :                                 134.119.0.0
-Masque de sous-réseau proposé :                  255.255.254.0
-Nombre de sous-réseaux créés :                       27 = 128
-Nombre maximum d&#x27;adresses par segment :         29-2= 510
-
-
-
-
-Page 4/13
-                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>D. Découpage en sous-réseau
-On découpe le bloc 199.210.15.0 /24 selon le schéma suivant :
-
-
-
-
-
-Donnez les adresses des 7 segments définis (par ordre croissant) :
-
-Segment 1 ............ 199.210.15.0 /25 ............................................................................................
-
-Segment 2 .......... 199.210.15.128 /26 ..........................................................................................
-
-Segment 3 .......... 199.210.15.192 /27 ..........................................................................................
-
-Segment 4 .......... 199.210.15.224 /29 ..........................................................................................
-
-Segment 5 .......... 199.210.15.232 /29 ..........................................................................................
-
-Segment 6 .......... 199.210.15.240 /29 ..........................................................................................
-
-Segment 7 .......... 199.210.15.248 /29 ..........................................................................................
-
-
-
-
-
- Page 5/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>E.  Découpage en sous-réseau
-    •  Vous êtes chargé planifier l&#x27;adressage de plusieurs réseaux.
-    •  Vous subdivisez successivement les blocs d&#x27;adresses et vous conservez toujours les
-      blocs supérieurs et divisez le dernier bloc.
-    •  Indiquez les numéros de réseau en notation CIDR
-    •  Schématisez les divisions des blocs.
-    •  Indiquez le nombre d&#x27;adresses valides par segment et le nombre d&#x27;adresses global.
-
-    1.  Premier réseau à découper : 195.220.12.0 /24
-    •  Segments à définir
-        o  1 segment contenant 115 postes
-        o  1 segment contenant 58 postes
-        o  1 segment contenant 25 machines
-        o  1 segment contenant d&#x27;une douzaine d&#x27;hôtes
-        o  2 segments contenant 5 machines
-    •   Listez les segments dans le tableau :
-
-            / 24                / 25                / 26                / 27                / 28                / 29
-                                                                                                       195.220.12.0
-                                                                                    195.220.12.0
-                                                                                                       195.220.12.8
-                                                                 195.220.12.0
-                                                                                                      195.220.12.16
-                                                                                   195.220.12.16
-                                                                                                      195.220.12.24
-                                              195.220.12.0
-                                                                                                      195.220.12.32
-                                                                                   195.220.12.32
-                                                                                                      195.220.12.40
-                                                                195.220.12.32
-                                                                                                      195.220.12.48
-                                                                                   195.220.12.48
-                                                                                                      195.220.12.56
-                           195.220.12.0
-                                                                                                      195.220.12.64
-                                                                                   195.220.12.64
-                                                                                                      195.220.12.72
-                                                                195.220.12.64
-                                                                                                      195.220.12.80
-                                                                                   195.220.12.80
-                                                                                                      195.220.12.88
-                                             195.220.12.64
-                                                                                                      195.220.12.96
-                                                                                   195.220.12.96
-                                                                                                    195.220.12.104
-                                                                195.220.12.96
-                                                                                                    195.220.12.112
-                                                                                 195.220.12.112
-                                                                                                    195.220.12.120
-       195.220.12.0
-                                                                                                    195.220.12.128
-                                                                                 195.220.12.128
-                                                                                                    195.220.12.136
-                                                               195.220.12.128
-                                                                                                      195.22.12.144
-                                                                                   195.22.12.144
-                                                                                                      195.22.12.152
-                                            195.220.12.128
-                                                                                                    195.220.12.160
-                                                                                 195.220.12.160
-                                                                                                    195.220.12.168
-                                                               195.220.12.160
-                                                                                                    195.220.12.176
-                                                                                 195.220.12.176
-                                                                                                    195.220.12.184
-                         195.220.12.128
-                                                                                                    195.220.12.192
-                                                                                 195.220.12.192
-                                                                                                    195.220.12.200
-                                                               195.220.12.192
-                                                                                                    195.220.12.208
-                                                                                 195.220.12.208
-                                                                                                    195.220.12.216
-                                            195.220.12.192
-                                                                                                    195.220.12.224
-                                                                                 195.220.12.224
-                                                                                                    195.220.12.232
-                                                               195.220.12.224
-                                                                                                    195.220.12.240
-                                                                                 195.220.12.240
-                                                                                                    195.220.12.248
-       # adresses           126              62               30               14               6
-
-
-
-
-
- Page 6/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>   2. Deuxième réseau à découper : 192.168.10.0 /24
-  •  Segments à définir
-       o  3 segments contenant d&#x27;une soixantaine d&#x27;hôtes
-       o  1 segment contenant d&#x27;une trentaine de postes
-       o  2 segments contenant d&#x27;au moins 11 machines
-  •   Listez les segments dans le tableau :
-                               / 24                / 26                / 27                / 28
-                                                                                   192.168.10.0
-                                                                192.168.10.0
-                                                                                  192.168.10.16
-                                            192.168.10.0
-                                                                                  192.168.10.32
-                                                               192.168.10.32
-                                                                                  192.168.10.48
-                                                                                  192.168.10.64
-                                                               192.168.10.64
-                                                                                  192.168.10.80
-                                           192.168.10.64
-                                                                                  192.168.10.96
-                                                               192.168.10.96
-                                                                                192.168.10.112
-                         192.168.10.0
-                                                                                192.168.10.128
-                                                             192.168.10.128
-                                                                                192.168.10.144
-                                          192.168.10.128
-                                                                                192.168.10.160
-                                                             192.168.10.160
-                                                                                192.168.10.176
-                                                                                192.168.10.192
-                                                             192.168.10.192
-                                                                                192.168.10.208
-                                          192.168.10.192
-                                                                                192.168.10.224
-                                                             192.168.10.224
-                                                                                192.168.10.240
-                     # adresses           62               30               14
-
-
-   3.  Troisième réseau à découper : 222.8.15.0 /24
-  •  Segments à définir
-       o  1 segments contenant d&#x27;une centaine d&#x27;hôtes
-       o  4 segments contenant 28 hôtes environ
-  •   Listez les segments dans le tableau :
-                                         / 24                / 25                / 27
-                                                                             222.8.15.0
-                                                                           222.8.15.32
-                                                         222.8.15.0
-                                                                           222.8.15.64
-                                                                           222.8.15.96
-                                     222.8.15.0
-                                                                         222.8.15.128
-                                                                         222.8.15.160
-                                                      222.8.15.128
-                                                                         222.8.15.192
-                                                                         222.8.15.224
-                             # adresses           126              30
-
-
-
-
-
-Page 7/13
-                                     © ENI – Tous droits réservés</pre></section><section><h2>Page 8</h2><pre>F.  Recherche de sous-réseaux inutilisés
-    •  Vous auditez plusieurs réseaux.
-    •  On vous demande de rechercher les segments inutilisés.
-
-
-    1.  Premier réseau à étudier :
-        o  112.19.0.0 /16
-    •   Liste de réseaux actuellement utilisés :
-        o  112.19.0.0 /18
-        o  112.19.64.0 /18
-        o  112.19.128.0 /19
-        o  112.19.160.0 /20
-        o  112.19.176.0 /20
-        o  112.19.224.0 /20
-        o  112.19.240.0 /20
-Existe-t-il une ou plusieurs plages d&#x27;adresses inutilisées ?
-Détaillez votre calcul :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-           /16                 /17                 /18                 /19                 /20
-                                                                                                    112.19.0.0                                                                             112.19.0.0                                                                                                  112.19.16.0
-                                                       112.19.0.0                                                                                                  112.19.32.0
-                                                                           112.19.32.0
-                                                                                                  112.19.48.0
-                                112.19.0.0                                                                                                  112.19.64.0
-                                                                           112.19.64.0
-                                                                                                  112.19.80.0
-                                                     112.19.64.0
-                                                                                                  112.19.96.0
-                                                                           112.19.96.0
-                                                                                                112.19.112.0
-         112.19.0.0                                                                                                112.19.128.0
-                                                                          112.19.128.0
-                                                                                                112.19.144.0
-                                                    112.19.128.0
-                                                                                                112.19.160.0
-                                                                          112.19.160.0
-                                                                                                112.19.176.0
-                              112.19.128.0
-                                                                                                112.19.192.0
-                                                                          112.19.192.0
-                                                                                                112.19.208.0
-                                                    112.19.192.0
-                                                                                                112.19.224.0
-                                                                          112.19.224.0
-                                                                                                112.19.240.0
-
-
-
-
-
- Page 8/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 9</h2><pre>    2. Deuxième réseau à étudier :
-        o  192.168.10.0 /24
-    •   Liste de réseaux actuellement utilisés :
-        o  192.168.10.0 /25
-        o  192.168.10.128 /27
-        o  192.168.10.160 /27
-        o  192.168.10.224 /28
-
-Indiquer les segments inutilisés :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-                    / 24               / 25               / 26               / 27               / 28
-                                                                                           192.168.10.0
-                                                                         192.168.10.0
-                                                                                          192.168.10.16
-                                                      192.168.10.0
-                                                                                          192.168.10.32
-                                                                       192.168.10.32
-                                                                                          192.168.10.48
-                                   192.168.10.0
-                                                                                          192.168.10.64
-                                                                       192.168.10.64
-                                                                                          192.168.10.80
-                                                     192.168.10.64
-                                                                                          192.168.10.96
-                                                                       192.168.10.96
-                                                                                        192.168.10.112
-                 192.168.10.0
-                                                                                        192.168.10.128
-                                                                      192.168.10.128
-                                                                                        192.168.10.144
-                                                   192.168.10.128
-                                                                                        192.168.10.160
-                                                                      192.168.10.160
-                                                                                        192.168.10.176
-                                 192.168.10.128
-                                                                                        192.168.10.192
-                                                                      192.168.10.192
-                                                                                        192.168.10.208
-                                                   192.168.10.192
-                                                                                        192.168.10.224
-                                                                      192.168.10.224
-                                                                                        192.168.10.240
-              # adresses          126             62              30              14
-
-
-
-
-
- Page 9/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 10</h2><pre>    3.  Troisième réseau à étudier :
-        o  199.1.1.0 /24
-    •   Liste de réseaux actuellement utilisés :
-        o  199.1.1.0 /26
-        o  199.1.1.128 /27
-        o  199.1.1.160 /27
-        o  199.1.1.192 /28
-        o  199.1.1.224 /28
-        o  199.1.1.240 /28
-
-Indiquer les segments inutilisés :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-                                 / 24                / 26                / 27                / 28
-                                                                                          199.1.1.0
-                                                                      199.1.1.0
-                                                                                        199.1.1.16
-                                                  199.1.1.0
-                                                                                        199.1.1.32
-                                                                    199.1.1.32
-                                                                                        199.1.1.48
-                                                                                        199.1.1.64
-                                                                    199.1.1.64
-                                                                                        199.1.1.80
-                                                199.1.1.64
-                                                                                        199.1.1.96
-                                                                    199.1.1.96
-                                                                                      199.1.1.112
-                              199.1.1.0
-                                                                                      199.1.1.128
-                                                                  199.1.1.128
-                                                                                      199.1.1.144
-                                               199.1.1.128
-                                                                                      199.1.1.160
-                                                                  199.1.1.160
-                                                                                      199.1.1.176
-                                                                                      199.1.1.192
-                                                                  199.1.1.192
-                                                                                      199.1.1.208
-                                               199.1.1.192
-                                                                                      199.1.1.224
-                                                                  199.1.1.224
-                                                                                      199.1.1.240
-                      # adresses           62               30               14
-
-
-
-
-
- Page 10/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 11</h2><pre>    4. Quatrième réseau à étudier :
-        o  Réseau de classe C
-    •   Liste de réseaux actuellement utilisés :
-        o  1 segment de 62 postes
-        o  3 segments de 30 postes
-        o  4 segments de 14 postes
-
-Indiquer les segments inutilisés :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-
-
-                              / 24               / 26               / 27               / 28
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                          Réseau                                            SR
-                             Global                                             SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                      # adresses           62              30              14
-
-
-
-
-
- Page 11/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 12</h2><pre>    5. Cinquième réseau à étudier :
-        o  Réseau de classe C
-    •   Liste de réseaux actuellement utilisés :
-        o  3 segments de 30 postes
-        o  3 segments de 14 postes
-
-Indiquer les segments inutilisés :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-                              / 24               / 26               / 27               / 28
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                          Réseau                                            SR
-                             Global                                             SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                      # adresses           62              30              14
-
-
-
-
-
- Page 12/13
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 13</h2><pre>    6.  Sixième réseau à étudier :
-        o  Réseau de classe C
-    •   Liste de réseaux actuellement utilisés :
-        o  1 segment de 62 postes
-        o  1 segment de 14 postes
-
-Indiquer les segments inutilisés :
-En rouge les réseaux utilisés
-En vert les réseaux disponibles
-
-                              / 24               / 26               / 27               / 28
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                          Réseau                                            SR
-                             Global                                             SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                                          SR
-                                                                          SR
-                                                          SR
-                                                                          SR
-                      # adresses           62              30              14
-
-
-
-
-
- Page 13/13
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03-04-TP-Sous-réseaux_Correction.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>M03-04-TP-Sous-réseaux_Correction</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Calcul des sous-réseaux </h4>
+<p class="tssr-source-paragraph">TP du Module 03.04 </p>
+
+<p class="tssr-source-paragraph">Pour effectuer ce TP, il faut avoir suivi la partie sur le découpage en sous-réseau du <br>module 3 sur l’adressage IPv4 </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0c4" src="../glyphs/3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a.webp" alt="Symbole du support" title="Symbole original du support"> En vidéo pour les stagiaires du campus en ligne </p>
+<p class="tssr-source-paragraph">Diaporama et explications pour les stagiaires en présence d’un formateur </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">3 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">A. Validité des adresses en notation CIDR </p>
+<p class="tssr-source-paragraph">Indiquez si les adresses sont valides pour des hôtes. </p>
+<p class="tssr-source-paragraph">Transformez la notation CIDR en notation standard. </p>
+<p class="tssr-source-paragraph">Adresse <br>Valide <br>@Réseau / @Diffusion <br>Standard </p>
+<p class="tssr-source-paragraph">12.1.1.1 /8 <br>OUI <br>12.0.0.0 <br>12.255.255.255 <br>12.1.1.1 <br>255.0.0.0 </p>
+<p class="tssr-source-paragraph">............ 209.207.177.100 .............  </p>
+<p class="tssr-source-paragraph">209.207.177.100 /30 <br>NON ..... 209.207.177.100 (réseau) .....  </p>
+<p class="tssr-source-paragraph">............. 209.207.177.103 .............  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.252 .............  </p>
+<p class="tssr-source-paragraph">................ 192.0.35.12 .................  </p>
+<p class="tssr-source-paragraph">192.0.35.12 /26 <br>OUI <br>.................. 192.0.35.0..................  </p>
+<p class="tssr-source-paragraph">................. 192.0.35.63.................  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.192 .............  </p>
+<p class="tssr-source-paragraph">............... 120.146.80.1 ................  </p>
+<p class="tssr-source-paragraph">120.146.80.1 /20 <br>OUI <br>................ 120.146.80.0................  </p>
+<p class="tssr-source-paragraph">.............. 120.146.95.255 ..............  </p>
+<p class="tssr-source-paragraph">.............. 255.255.240.0 ...............  </p>
+<p class="tssr-source-paragraph">................. 120.80.1.0 ..................  </p>
+<p class="tssr-source-paragraph">120.80.1.0 /11 <br>OUI <br>.................. 120.64.0.0..................  </p>
+<p class="tssr-source-paragraph">.............. 120.95.255.255 ..............  </p>
+<p class="tssr-source-paragraph">................ 255.224.0.0 .................  </p>
+<p class="tssr-source-paragraph">.............. 211.104.16.17 ...............  </p>
+<p class="tssr-source-paragraph">211.104.16.17 /29 <br>OUI <br>............... 211.104.16.16 ...............  </p>
+<p class="tssr-source-paragraph">............... 211.104.16.23 ...............  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.248 .............  </p>
+<p class="tssr-source-paragraph">................ 172.168.0.1 .................  </p>
+<p class="tssr-source-paragraph">172.168.0.1 /24 <br>OUI <br>................. 172.168.0.0.................  </p>
+<p class="tssr-source-paragraph">............... 172.168.0.255 ...............  </p>
+<p class="tssr-source-paragraph">.............. 255.255.255.0 ...............  </p>
+<p class="tssr-source-paragraph">............. 109.168.248.32 ..............  </p>
+<p class="tssr-source-paragraph">109.168.248.32 /21 <br>OUI <br>............... 109.168.248.0 ...............  </p>
+<p class="tssr-source-paragraph">............. 109.168.255.255 .............  </p>
+<p class="tssr-source-paragraph">.............. 255.255.248.0 ...............  <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Adresse</td><td>Valide</td><td>@Ré seau / @Diffusion</td><td>Standard</td></tr><tr><td>12 1 1 1 /8<br>. . .</td><td>OUI</td><td>12 0 0 0<br>. . .<br>12 255 255 255<br>. . .</td><td>12 1 1 1<br>. . .<br>255 0 0 0<br>. . .</td></tr><tr><td>209 207 177 100 /30<br>. . .</td><td>NON</td><td>209 207 177 100 (ré seau)<br>..... . . . .....</td><td>209 207 177 100<br>............ . . . .............</td></tr><tr><td></td><td></td><td>209 207 177 103<br>............. . . . .............</td><td>255 255 255 252<br>............ . . . .............</td></tr><tr><td>192 0 35 12 /26<br>. . .</td><td>OUI</td><td>192 0 35 0<br>.................. . . . ..................</td><td>192 0 35 12<br>................ . . . .................</td></tr><tr><td></td><td></td><td>192 0 35 63<br>................. . . . .................</td><td>255 255 255 192<br>............ . . . .............</td></tr><tr><td>120 146 80 1 /20<br>. . .</td><td>OUI</td><td>120 146 80 0<br>................ . . . ................</td><td>120 146 80 1<br>............... . . . ................</td></tr><tr><td></td><td></td><td>120 146 95 255<br>.............. . . . ..............</td><td>255 255 240 0<br>.............. . . . ...............</td></tr><tr><td>120 80 1 0 /11<br>. . .</td><td>OUI</td><td>120 64 0 0<br>.................. . . . ..................</td><td>120 80 1 0<br>................. . . . ..................</td></tr><tr><td></td><td></td><td>120 95 255 255<br>.............. . . . ..............</td><td>255 224 0 0<br>................ . . . .................</td></tr><tr><td>211 104 16 17 /29<br>. . .</td><td>OUI</td><td>211 104 16 16<br>............... . . . ...............</td><td>211 104 16 17<br>.............. . . . ...............</td></tr><tr><td></td><td></td><td>211 104 16 23<br>............... . . . ...............</td><td>255 255 255 248<br>............ . . . .............</td></tr><tr><td>172 168 0 1 /24<br>. . .</td><td>OUI</td><td>172 168 0 0<br>................. . . . .................</td><td>172 168 0 1<br>................ . . . .................</td></tr><tr><td></td><td></td><td>172 168 0 255<br>............... . . . ...............</td><td>255 255 255 0<br>.............. . . . ...............</td></tr><tr><td>109 168 248 32 /21<br>. . .</td><td>OUI</td><td>109 168 248 0<br>............... . . . ...............</td><td>109 168 248 32<br>............. . . . ..............</td></tr><tr><td></td><td></td><td>109 168 255 255<br>............. . . . .............</td><td>255 255 248 0<br>.............. . . . ...............</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">............... 96.139.84.12 ................  </p>
+<p class="tssr-source-paragraph">96.139.84.12 /21 <br>OUI <br>................. 96.139.80.0.................  </p>
+<p class="tssr-source-paragraph">............... 96.139.87.255 ...............  </p>
+<p class="tssr-source-paragraph">.............. 255.255.248.0 ...............  </p>
+<p class="tssr-source-paragraph">................ 172.16.32.0 .................  </p>
+<p class="tssr-source-paragraph">172.16.32.0 /25 <br>NON ......... 172.16.32.0 (Réseau) ........  </p>
+<p class="tssr-source-paragraph">............... 172.16.32.127 ...............  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.128 .............  </p>
+<p class="tssr-source-paragraph">.................. 172.16.0.0..................  </p>
+<p class="tssr-source-paragraph">............... 172.16.0.127 ................  </p>
+<p class="tssr-source-paragraph">172.16.0.127 /25 <br>NON </p>
+<p class="tssr-source-paragraph">..... 172.16.0.127 ( broadcast) ....  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.128 .............  </p>
+<p class="tssr-source-paragraph">.............. 192.168.19.87 ...............  </p>
+<p class="tssr-source-paragraph">192.168.19.87 /29 <br>NON ............... 192.168.19.80 ...............  </p>
+<p class="tssr-source-paragraph">.... 192.168.19.87 (broadcast) ....  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.248 .............  </p>
+<p class="tssr-source-paragraph">................ 172.16.32.1 .................  </p>
+<p class="tssr-source-paragraph">172.16.32.1 /18 <br>OUI <br>.................. 172.16.0.0..................  </p>
+<p class="tssr-source-paragraph">............... 172.16.63.255 ...............  </p>
+<p class="tssr-source-paragraph">.............. 255.255.192.0 ...............  </p>
+<p class="tssr-source-paragraph">.............. 210.71.10.128 ...............  </p>
+<p class="tssr-source-paragraph">210.71.10.128 /28 <br>NON ....... 210.71.10.128 (Réseau) ......  </p>
+<p class="tssr-source-paragraph">............... 210.71.10.143 ...............  </p>
+<p class="tssr-source-paragraph">............ 255.255.255.240 .............  <br> <br> </p>
+<p class="tssr-source-paragraph">Page 2/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>96 139 84 12 /21<br>. . .</td><td>OUI</td><td>96 139 80 0<br>................. . . . .................</td><td>96 139 84 12<br>............... . . . ................</td></tr><tr><td></td><td></td><td>96 139 87 255<br>............... . . . ...............</td><td>255 255 248 0<br>.............. . . . ...............</td></tr><tr><td>172 16 32 0 /25<br>. . .</td><td>NON</td><td>172 16 32 0 (Ré seau)<br>......... . . . ........</td><td>172 16 32 0<br>................ . . . .................</td></tr><tr><td></td><td></td><td>172 16 32 127<br>............... . . . ...............</td><td>255 255 255 128<br>............ . . . .............</td></tr><tr><td></td><td></td><td>172 16 0 0<br>.................. . . . ..................</td><td>172 16 0 127<br>............... . . . ................</td></tr><tr><td>172 16 0 127 /25<br>. . .</td><td>NON</td><td>172 16 0 127 ( broadcast)<br>..... . . . ....</td><td>255 255 255 128<br>............ . . . .............</td></tr><tr><td>192 168 19 87 /29<br>. . .</td><td>NON</td><td>192 168 19 80<br>............... . . . ...............</td><td>192 168 19 87<br>.............. . . . ...............</td></tr><tr><td></td><td></td><td>192 168 19 87 (broadcast)<br>.... . . . ....</td><td>255 255 255 248<br>............ . . . .............</td></tr><tr><td>172 16 32 1 /18<br>. . .</td><td>OUI</td><td>172 16 0 0<br>.................. . . . ..................</td><td>172 16 32 1<br>................ . . . .................</td></tr><tr><td></td><td></td><td>172 16 63 255<br>............... . . . ...............</td><td>255 255 192 0<br>.............. . . . ...............</td></tr><tr><td>210 71 10 128 /28<br>. . .</td><td>NON</td><td>210 71 10 128 (Ré seau)<br>....... . . . ......</td><td>210 71 10 128<br>.............. . . . ...............</td></tr><tr><td></td><td></td><td>210 71 10 143<br>............... . . . ...............</td><td>255 255 255 240<br>............ . . . .............</td></tr></tbody></table></div>
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">B. Calculs de masque </p>
+<p class="tssr-source-paragraph">Calculez le masque approprié et complétez l&#x27;adresse en notation CIDR afin d&#x27;obtenir la <br>quantité d&#x27;hôtes ou de sous-réseaux requis. <br>Le masque de sous-réseau de départ est le masque par défaut associé à la classe. </p>
+<p class="tssr-source-paragraph">PARAMETRES REQUIS <br>Notation CIDR </p>
+<p class="tssr-source-paragraph">Au moins 120 sous-réseaux : <br> <br>172.16.0.0/ ... 23 ... </p>
+<p class="tssr-source-paragraph">2 adresses par sous-réseau (liaisons pt à pt) <br> <br>192.168.1.0/ ... 30 ... </p>
+<p class="tssr-source-paragraph">Au moins 31 sous-réseaux <br> <br>185.221.0.0/ ... 21 ... </p>
+<p class="tssr-source-paragraph">Au moins 15 sous-réseaux <br> <br>131.107.0.0/ ... 20 ... </p>
+<p class="tssr-source-paragraph">A peu près 500 sous-réseaux <br> <br>140.10.0.0/ ... 25 ... </p>
+<p class="tssr-source-paragraph">Exactement 8 sous-réseaux <br> 192.168.10.0/ ... 27 ... </p>
+<p class="tssr-source-paragraph">10 sous-réseaux d&#x27;au moins 17 hôtes <br> <br>214.12.33.0/ .... X .... </p>
+<p class="tssr-source-paragraph">Environ 2020 sous-réseaux <br> <br>10.0.0.0/ ... 19 ... </p>
+<p class="tssr-source-paragraph">127 sous-réseaux <br> <br>188.23.0.0/ ... 23 ... </p>
+<p class="tssr-source-paragraph">C. Calculs de masques, nombre de réseaux et hôtes </p>
+<p class="tssr-source-paragraph">Calculez le masque adapté aux exigences du scénario. <br>Indiquez le nombre de sous-réseaux créés. <br>Indiquez le nombre d&#x27;hôtes par sous-réseau. </p>
+<p class="tssr-source-paragraph">LE RESEAU DE DEPART COMPORTE TOUJOURS UN MASQUE DE CLASSE A, B ou C standard </p>
+<p class="tssr-source-paragraph">Scénario 1 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>5 </p>
+<p class="tssr-source-paragraph">3 bits + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>25 </p>
+<p class="tssr-source-paragraph">5 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>192.177.4.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.255.240 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>24 = 16 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>24-2 = 14 </p>
+
+<p class="tssr-source-paragraph">Scénario 2 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>100 </p>
+<p class="tssr-source-paragraph">7 bits + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>88.000 </p>
+<p class="tssr-source-paragraph">17 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>39.0.0.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.0.0 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>28 = 256 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>216-2 = 65534 </p>
+<p class="tssr-source-paragraph">Page 3/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ee</p><p>ee|<br>||<br>ee<br>RE<br>EE<br>|</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario1</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>5</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>25</td></tr><tr><td>Adressederé<br>seau:</td><td>192 177 4 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 255 240<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>24 =16</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>24 -2 =14</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario2</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>100</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>88 000<br>.</td></tr><tr><td>Adressederé<br>seau:</td><td>39 0 0 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 0 0<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>28 =256</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>216 -2 =65534</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>PARAMETRES REQUIS</td><td>NotationCIDR</td></tr><tr><td>Au moins 120 sous-réseaux :</td><td>172 16 00/ 23<br>. . . ... ...</td></tr><tr><td>2 adresses par sous-réseau (liaisons pt à pt)</td><td>192 168 1 0/ 30<br>. . . ... ...</td></tr><tr><td>Au moins 31 sous-réseaux</td><td>185 221 0 0/ 21<br>. . . ... ...</td></tr><tr><td>Au moins 15 sous-réseaux</td><td>131 107 0 0/ 20<br>. . . ... ...</td></tr><tr><td>A peu près 500 sous-réseaux</td><td>140 10 00/ 25<br>. . . ... ...</td></tr><tr><td>Exactement8 sous-réseaux</td><td>192 168 10 0/ 27<br>. . . ... ...</td></tr><tr><td>10 sous-réseaux d&#x27;aumoins 17 hôtes</td><td>214 12 33 0/ X<br>. . . .... ....</td></tr><tr><td>Environ 2020 sous-réseaux</td><td>10 000/ 19<br>. . . ... ...</td></tr><tr><td>127 sous-réseaux</td><td>188 23 00/ 23<br>. . . ... ...</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3>
+<p class="tssr-source-paragraph">Scénario 3 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>100 </p>
+<p class="tssr-source-paragraph">7 bits + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>350 </p>
+<p class="tssr-source-paragraph">9 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>171.133.0.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.255.0 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>28 = 256 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>28-2 = 254 </p>
+
+<p class="tssr-source-paragraph">Scénario 4 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>16 </p>
+<p class="tssr-source-paragraph">4 bits + 1 + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>1 500 </p>
+<p class="tssr-source-paragraph">11 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>128.199.0.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.252.0 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>26 = 64 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>210-2 = 1022 </p>
+
+<p class="tssr-source-paragraph">Scénario 5 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>250 </p>
+<p class="tssr-source-paragraph">8 bits + 1 + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>100 </p>
+<p class="tssr-source-paragraph">7 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>191.254.0.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.255.192 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>210 = 1024 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>26-2 = 62 </p>
+
+<p class="tssr-source-paragraph">Scénario 6 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>12 </p>
+<p class="tssr-source-paragraph">4 bits + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>12 </p>
+<p class="tssr-source-paragraph">4 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>216.121.44.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.255.248 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>25 = 32 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>23-2= 6 </p>
+
+<p class="tssr-source-paragraph">Scénario 7 </p>
+<p class="tssr-source-paragraph">Nombre de segments physiques requis : <br>50 </p>
+<p class="tssr-source-paragraph">6 bits + 1 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;hôtes par segment : <br>600 </p>
+<p class="tssr-source-paragraph">10 bits - 1 </p>
+<p class="tssr-source-paragraph">Adresse de réseau : <br>134.119.0.0 </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau proposé : <br>255.255.254.0 </p>
+<p class="tssr-source-paragraph">Nombre de sous-réseaux créés : <br>27 = 128 </p>
+<p class="tssr-source-paragraph">Nombre maximum d&#x27;adresses par segment : <br>29-2= 510 </p>
+<p class="tssr-source-paragraph">Page 4/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE</p><p>|<br>—_—<br>ns<br>—<br>——_,<br>oe<br>ns</p><p>—<br>—<br>Po<br>ee</p><p>eee<br>$$<br>——_<br>Po</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario3</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>100</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>350</td></tr><tr><td>Adressederé<br>seau:</td><td>171 133 0 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 255 0<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>28 =256</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>28 -2 =254</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario 4</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>16</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>1 500</td></tr><tr><td>Adressederé<br>seau:</td><td>128 199 0 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 252 0<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>26 =64</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>210 -2 = 1022</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario 5</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>250</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>100</td></tr><tr><td>Adressederé<br>seau:</td><td>191 254 0 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 255 192<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>210 =1024</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>26 -2 = 62</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario 6</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>12</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>12</td></tr><tr><td>Adressederé<br>seau:</td><td>216 121 44 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 255 248<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>25 =32</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>23 -2=6</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Scé nario 7</td><td></td></tr><tr><td>Nombre de segments physiques requis :</td><td>50</td></tr><tr><td>Nombre maximum d&#x27;hôtes parsegment :</td><td>600</td></tr><tr><td>Adressederé<br>seau:</td><td>134 119 0 0<br>. . .</td></tr><tr><td>Masquede sous-ré seau proposé :</td><td>255 255 254 0<br>. . .</td></tr><tr><td>Nombre de sous-ré seaux créé s :</td><td>27 =128</td></tr><tr><td>Nombre maximum d&#x27;adresses parsegment :</td><td>29 -2=510</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-672599e4b4845f216d6e98068b5535eb82a9656d3a3586dcb761d91d6bf24448.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-672599e4b4845f216d6e98068b5535eb82a9656d3a3586dcb761d91d6bf24448.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4307"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">D. Découpage en sous-réseau </p>
+<p class="tssr-source-paragraph">On découpe le bloc 199.210.15.0 /24 selon le schéma suivant :</p>
+
+<p class="tssr-source-paragraph">Donnez les adresses des 7 segments définis (par ordre croissant) : </p>
+<p class="tssr-source-paragraph">Segment 1 ............ 199.210.15.0 /25 ............................................................................................ </p>
+<p class="tssr-source-paragraph">Segment 2 .......... 199.210.15.128 /26 .......................................................................................... </p>
+<p class="tssr-source-paragraph">Segment 3 .......... 199.210.15.192 /27 .......................................................................................... </p>
+<p class="tssr-source-paragraph">Segment 4 .......... 199.210.15.224 /29 .......................................................................................... </p>
+<p class="tssr-source-paragraph">Segment 5 .......... 199.210.15.232 /29 .......................................................................................... </p>
+<p class="tssr-source-paragraph">Segment 6 .......... 199.210.15.240 /29 .......................................................................................... </p>
+<p class="tssr-source-paragraph">Segment 7 .......... 199.210.15.248 /29 .......................................................................................... <br> <br> </p>
+<p class="tssr-source-paragraph">Page 5/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ODE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">E. <br>Découpage en sous-réseau </p>
+<p class="tssr-source-paragraph">• <br>Vous êtes chargé planifier l&#x27;adressage de plusieurs réseaux. <br>• <br>Vous subdivisez successivement les blocs d&#x27;adresses et vous conservez toujours les <br>blocs supérieurs et divisez le dernier bloc. <br>• <br>Indiquez les numéros de réseau en notation CIDR <br>• <br>Schématisez les divisions des blocs. <br>• <br>Indiquez le nombre d&#x27;adresses valides par segment et le nombre d&#x27;adresses global. </p>
+<p class="tssr-source-paragraph">1. Premier réseau à découper : 195.220.12.0 /24 </p>
+<p class="tssr-source-paragraph">• <br>Segments à définir </p>
+<pre class="tssr-source-code">o 1 segment contenant 115 postes 
+o 1 segment contenant 58 postes 
+o 1 segment contenant 25 machines 
+o 1 segment contenant d&#x27;une douzaine d&#x27;hôtes 
+o 2 segments contenant 5 machines </pre>
+<p class="tssr-source-paragraph">• <br>Listez les segments dans le tableau : </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 25 <br>/ 26 <br>/ 27 <br>/ 28 <br>/ 29 </p>
+<p class="tssr-source-paragraph">195.220.12.0 <br>195.220.12.0 <br>195.220.12.0 <br>195.220.12.8 </p>
+<p class="tssr-source-paragraph">195.220.12.16 <br>195.220.12.16 <br>195.220.12.24 </p>
+<p class="tssr-source-paragraph">195.220.12.0 </p>
+<p class="tssr-source-paragraph">195.220.12.32 <br>195.220.12.32 <br>195.220.12.32 <br>195.220.12.40 </p>
+<p class="tssr-source-paragraph">195.220.12.48 <br>195.220.12.48 <br>195.220.12.56 </p>
+<p class="tssr-source-paragraph">195.220.12.0 </p>
+<p class="tssr-source-paragraph">195.220.12.64 <br>195.220.12.64 <br>195.220.12.64 <br>195.220.12.72 </p>
+<p class="tssr-source-paragraph">195.220.12.80 <br>195.220.12.80 <br>195.220.12.88 </p>
+<p class="tssr-source-paragraph">195.220.12.64 </p>
+<p class="tssr-source-paragraph">195.220.12.96 <br>195.220.12.96 <br>195.220.12.96 <br>195.220.12.104 </p>
+<p class="tssr-source-paragraph">195.220.12.112 <br>195.220.12.112 <br>195.220.12.120 </p>
+<p class="tssr-source-paragraph">195.220.12.0 </p>
+<p class="tssr-source-paragraph">195.220.12.128 <br>195.220.12.128 <br>195.220.12.128 <br>195.220.12.136 </p>
+<p class="tssr-source-paragraph">195.22.12.144 <br>195.22.12.144 <br>195.22.12.152 </p>
+<p class="tssr-source-paragraph">195.220.12.128 </p>
+<p class="tssr-source-paragraph">195.220.12.160 <br>195.220.12.160 <br>195.220.12.160 <br>195.220.12.168 </p>
+<p class="tssr-source-paragraph">195.220.12.176 <br>195.220.12.176 <br>195.220.12.184 </p>
+<p class="tssr-source-paragraph">195.220.12.128 </p>
+<p class="tssr-source-paragraph">195.220.12.192 <br>195.220.12.192 <br>195.220.12.192 <br>195.220.12.200 </p>
+<p class="tssr-source-paragraph">195.220.12.208 <br>195.220.12.208 <br>195.220.12.216 </p>
+<p class="tssr-source-paragraph">195.220.12.192 </p>
+<p class="tssr-source-paragraph">195.220.12.224 <br>195.220.12.224 <br>195.220.12.224 <br>195.220.12.232 </p>
+<p class="tssr-source-paragraph">195.220.12.240 <br>195.220.12.240 <br>195.220.12.248 <br># adresses <br>126 <br>62 <br>30 <br>14 <br>6 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 6/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Po<br>|||||||||||||||||||||||<br>[|||||||||<br>GG<br>PS</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/25</td><td>/26</td><td>/27</td><td>/28</td><td>/29</td></tr><tr><td>195220120<br>. . .</td><td>195220120<br>. . .</td><td>195220120<br>. . .</td><td>195220120<br>. . .</td><td>195220120<br>. . .</td><td>195220120<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>195220128<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1952201216<br>. . .</td><td>1952201216<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952201224<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1952201232<br>. . .</td><td>1952201232<br>. . .</td><td>1952201232<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952201240<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1952201248<br>. . .</td><td>1952201248<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952201256<br>. . .</td></tr><tr><td></td><td></td><td>1952201264<br>. . .</td><td>1952201264<br>. . .</td><td>1952201264<br>. . .</td><td>1952201264<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952201272<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1952201280<br>. . .</td><td>1952201280<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952201288<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1952201296<br>. . .</td><td>1952201296<br>. . .</td><td>1952201296<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012104<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19522012112<br>. . .</td><td>19522012112<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012120<br>. . .</td></tr><tr><td></td><td>19522012128<br>. . .</td><td>19522012128<br>. . .</td><td>19522012128<br>. . .</td><td>19522012128<br>. . .</td><td>19522012128<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012136<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1952212144<br>. . .</td><td>1952212144<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1952212152<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19522012160<br>. . .</td><td>19522012160<br>. . .</td><td>19522012160<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012168<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19522012176<br>. . .</td><td>19522012176<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012184<br>. . .</td></tr><tr><td></td><td></td><td>19522012192<br>. . .</td><td>19522012192<br>. . .</td><td>19522012192<br>. . .</td><td>19522012192<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012200<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19522012208<br>. . .</td><td>19522012208<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012216<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19522012224<br>. . .</td><td>19522012224<br>. . .</td><td>19522012224<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012232<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19522012240<br>. . .</td><td>19522012240<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>19522012248<br>. . .</td></tr><tr><td>#adresses</td><td>126</td><td>62</td><td>30</td><td>14</td><td>6</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3>
+<p class="tssr-source-paragraph">2. Deuxième réseau à découper : 192.168.10.0 /24 </p>
+<p class="tssr-source-paragraph">• <br>Segments à définir </p>
+<pre class="tssr-source-code">o 3 segments contenant d&#x27;une soixantaine d&#x27;hôtes 
+o 1 segment contenant d&#x27;une trentaine de postes 
+o 2 segments contenant d&#x27;au moins 11 machines </pre>
+<p class="tssr-source-paragraph">• <br>Listez les segments dans le tableau : </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">192.168.10.0 <br>192.168.10.0 <br>192.168.10.0 <br>192.168.10.16 </p>
+<p class="tssr-source-paragraph">192.168.10.32 <br>192.168.10.32 <br>192.168.10.48 </p>
+<p class="tssr-source-paragraph">192.168.10.64 <br>192.168.10.64 <br>192.168.10.64 <br>192.168.10.80 </p>
+<p class="tssr-source-paragraph">192.168.10.96 <br>192.168.10.96 <br>192.168.10.112 </p>
+<p class="tssr-source-paragraph">192.168.10.0 </p>
+<p class="tssr-source-paragraph">192.168.10.128 <br>192.168.10.128 <br>192.168.10.128 <br>192.168.10.144 </p>
+<p class="tssr-source-paragraph">192.168.10.160 <br>192.168.10.160 <br>192.168.10.176 </p>
+<p class="tssr-source-paragraph">192.168.10.192 <br>192.168.10.192 <br>192.168.10.192 <br>192.168.10.208 </p>
+<p class="tssr-source-paragraph">192.168.10.224 <br>192.168.10.224 <br>192.168.10.240 <br># adresses <br>62 <br>30 <br>14 </p>
+
+<p class="tssr-source-paragraph">3.  Troisième réseau à découper : 222.8.15.0 /24 </p>
+<p class="tssr-source-paragraph">• <br>Segments à définir </p>
+<pre class="tssr-source-code">o 1 segments contenant d&#x27;une centaine d&#x27;hôtes 
+o 4 segments contenant 28 hôtes environ </pre>
+<p class="tssr-source-paragraph">• <br>Listez les segments dans le tableau : </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 25 <br>/ 27 </p>
+<p class="tssr-source-paragraph">222.8.15.0 </p>
+<p class="tssr-source-paragraph">222.8.15.0 <br>222.8.15.32 <br>222.8.15.64 <br>222.8.15.96 </p>
+<p class="tssr-source-paragraph">222.8.15.0 </p>
+<p class="tssr-source-paragraph">222.8.15.128 </p>
+<p class="tssr-source-paragraph">222.8.15.128 <br>222.8.15.160 <br>222.8.15.192 <br>222.8.15.224 <br># adresses <br>126 <br>30 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 7/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE:</p><p>TE</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/25</td><td>/27</td></tr><tr><td>2228150<br>. . .</td><td>2228150<br>. . .</td><td>2228150<br>. . .</td></tr><tr><td></td><td></td><td>22281532<br>. . .</td></tr><tr><td></td><td></td><td>22281564<br>. . .</td></tr><tr><td></td><td></td><td>22281596<br>. . .</td></tr><tr><td></td><td>222815128<br>. . .</td><td>222815128<br>. . .</td></tr><tr><td></td><td></td><td>222815160<br>. . .</td></tr><tr><td></td><td></td><td>222815192<br>. . .</td></tr><tr><td></td><td></td><td>222815224<br>. . .</td></tr><tr><td>#adresses</td><td>126</td><td>30</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">F. <br>Recherche de sous-réseaux inutilisés </p>
+<p class="tssr-source-paragraph">• <br>Vous auditez plusieurs réseaux. <br>• <br>On vous demande de rechercher les segments inutilisés. </p>
+
+<pre class="tssr-source-code">1. Premier réseau à étudier :  
+o 112.19.0.0 /16 </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 112.19.0.0 /18 
+o 112.19.64.0 /18 
+o 112.19.128.0 /19 
+o 112.19.160.0 /20 
+o 112.19.176.0 /20 
+o 112.19.224.0 /20 
+o 112.19.240.0 /20 </pre>
+<p class="tssr-source-paragraph">Existe-t-il une ou plusieurs plages d&#x27;adresses inutilisées ? </p>
+<p class="tssr-source-paragraph">Détaillez votre calcul : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+<p class="tssr-source-paragraph">/16 <br>/17 <br>/18 <br>/19 <br>/20 </p>
+<p class="tssr-source-paragraph">112.19.0.0 <br>112.19.0.0 <br>112.19.0.0 <br>112.19.16.0 </p>
+<p class="tssr-source-paragraph">112.19.32.0 <br>112.19.32.0 <br>112.19.48.0 </p>
+<p class="tssr-source-paragraph">112.19.0.0 </p>
+<p class="tssr-source-paragraph">112.19.64.0 <br>112.19.64.0 <br>112.19.64.0 <br>112.19.80.0 </p>
+<p class="tssr-source-paragraph">112.19.96.0 <br>112.19.96.0 <br>112.19.112.0 </p>
+<p class="tssr-source-paragraph">112.19.0.0 </p>
+<p class="tssr-source-paragraph">112.19.128.0 <br>112.19.128.0 <br>112.19.128.0 <br>112.19.144.0 </p>
+<p class="tssr-source-paragraph">112.19.160.0 <br>112.19.160.0 <br>112.19.176.0 </p>
+<p class="tssr-source-paragraph">112.19.128.0 </p>
+<p class="tssr-source-paragraph">112.19.192.0 <br>112.19.192.0 <br>112.19.192.0 <br>112.19.208.0 </p>
+<p class="tssr-source-paragraph">112.19.224.0 <br>112.19.224.0 <br>112.19.240.0 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 8/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/16</td><td>/17</td><td>/18</td><td>/19</td><td>/20</td></tr><tr><td>1121900<br>. . .</td><td>1121900<br>. . .</td><td>1121900<br>. . .</td><td>1121900<br>. . .</td><td>1121900<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>11219160<br>. . .</td></tr><tr><td></td><td></td><td></td><td>11219320<br>. . .</td><td>11219320<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>11219480<br>. . .</td></tr><tr><td></td><td></td><td>11219640<br>. . .</td><td>11219640<br>. . .</td><td>11219640<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>11219800<br>. . .</td></tr><tr><td></td><td></td><td></td><td>11219960<br>. . .</td><td>11219960<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>112191120<br>. . .</td></tr><tr><td></td><td>112191280<br>. . .</td><td>112191280<br>. . .</td><td>112191280<br>. . .</td><td>112191280<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>112191440<br>. . .</td></tr><tr><td></td><td></td><td></td><td>112191600<br>. . .</td><td>112191600<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>112191760<br>. . .</td></tr><tr><td></td><td></td><td>112191920<br>. . .</td><td>112191920<br>. . .</td><td>112191920<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>112192080<br>. . .</td></tr><tr><td></td><td></td><td></td><td>112192240<br>. . .</td><td>112192240<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>112192400<br>. . .</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-51cf98ad9276a85898a38632e0e0fdcfa9cc6f01663c42c41864e8f928d11a54.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-51cf98ad9276a85898a38632e0e0fdcfa9cc6f01663c42c41864e8f928d11a54.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="959" height="3371"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><pre class="tssr-source-code">2. Deuxième réseau à étudier : 
+o 192.168.10.0 /24 </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 192.168.10.0 /25 
+o 192.168.10.128 /27 
+o 192.168.10.160 /27 
+o 192.168.10.224 /28 </pre>
+<p class="tssr-source-paragraph">Indiquer les segments inutilisés : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 25 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">192.168.10.0 <br>192.168.10.0 <br>192.168.10.0 <br>192.168.10.16 </p>
+<p class="tssr-source-paragraph">192.168.10.32 <br>192.168.10.32 <br>192.168.10.48 </p>
+<p class="tssr-source-paragraph">192.168.10.0 </p>
+<p class="tssr-source-paragraph">192.168.10.64 <br>192.168.10.64 <br>192.168.10.64 <br>192.168.10.80 </p>
+<p class="tssr-source-paragraph">192.168.10.96 <br>192.168.10.96 <br>192.168.10.112 </p>
+<p class="tssr-source-paragraph">192.168.10.0 </p>
+<p class="tssr-source-paragraph">192.168.10.128 <br>192.168.10.128 <br>192.168.10.128 <br>192.168.10.144 </p>
+<p class="tssr-source-paragraph">192.168.10.160 <br>192.168.10.160 <br>192.168.10.176 </p>
+<p class="tssr-source-paragraph">192.168.10.128 </p>
+<p class="tssr-source-paragraph">192.168.10.192 <br>192.168.10.192 <br>192.168.10.192 <br>192.168.10.208 </p>
+<p class="tssr-source-paragraph">192.168.10.224 <br>192.168.10.224 <br>192.168.10.240 <br># adresses <br>126 <br>62 <br>30 <br>14 </p>
+
+
+<p class="tssr-source-paragraph">Page 9/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/25</td><td>/26</td><td>/27</td><td>/28</td></tr><tr><td>192168100<br>. . .</td><td>192168100<br>. . .</td><td>192168100<br>. . .</td><td>192168100<br>. . .</td><td>192168100<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1921681016<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1921681032<br>. . .</td><td>1921681032<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1921681048<br>. . .</td></tr><tr><td></td><td></td><td>1921681064<br>. . .</td><td>1921681064<br>. . .</td><td>1921681064<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>1921681080<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1921681096<br>. . .</td><td>1921681096<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19216810112<br>. . .</td></tr><tr><td></td><td>19216810128<br>. . .</td><td>19216810128<br>. . .</td><td>19216810128<br>. . .</td><td>19216810128<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19216810144<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19216810160<br>. . .</td><td>19216810160<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19216810176<br>. . .</td></tr><tr><td></td><td></td><td>19216810192<br>. . .</td><td>19216810192<br>. . .</td><td>19216810192<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19216810208<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19216810224<br>. . .</td><td>19216810224<br>. . .</td></tr><tr><td></td><td></td><td></td><td></td><td>19216810240<br>. . .</td></tr><tr><td>#adresses</td><td>126</td><td>62</td><td>30</td><td>14</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><pre class="tssr-source-code">3. Troisième réseau à étudier : 
+o 199.1.1.0 /24 </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 199.1.1.0 /26 
+o 199.1.1.128 /27 
+o 199.1.1.160 /27 
+o 199.1.1.192 /28 
+o 199.1.1.224 /28 
+o 199.1.1.240 /28 </pre>
+<p class="tssr-source-paragraph">Indiquer les segments inutilisés : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">199.1.1.0 <br>199.1.1.0 <br>199.1.1.0 <br>199.1.1.16 </p>
+<p class="tssr-source-paragraph">199.1.1.32 <br>199.1.1.32 <br>199.1.1.48 </p>
+<p class="tssr-source-paragraph">199.1.1.64 <br>199.1.1.64 <br>199.1.1.64 <br>199.1.1.80 </p>
+<p class="tssr-source-paragraph">199.1.1.96 <br>199.1.1.96 <br>199.1.1.112 </p>
+<p class="tssr-source-paragraph">199.1.1.0 </p>
+<p class="tssr-source-paragraph">199.1.1.128 <br>199.1.1.128 <br>199.1.1.128 <br>199.1.1.144 </p>
+<p class="tssr-source-paragraph">199.1.1.160 <br>199.1.1.160 <br>199.1.1.176 </p>
+<p class="tssr-source-paragraph">199.1.1.192 <br>199.1.1.192 <br>199.1.1.192 <br>199.1.1.208 </p>
+<p class="tssr-source-paragraph">199.1.1.224 <br>199.1.1.224 <br>199.1.1.240 <br># adresses <br>62 <br>30 <br>14 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 10/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/26</td><td>/27</td><td>/28</td></tr><tr><td>199110<br>. . .</td><td>199110<br>. . .</td><td>199110<br>. . .</td><td>199110<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1991116<br>. . .</td></tr><tr><td></td><td></td><td>1991132<br>. . .</td><td>1991132<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1991148<br>. . .</td></tr><tr><td></td><td>1991164<br>. . .</td><td>1991164<br>. . .</td><td>1991164<br>. . .</td></tr><tr><td></td><td></td><td></td><td>1991180<br>. . .</td></tr><tr><td></td><td></td><td>1991196<br>. . .</td><td>1991196<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19911112<br>. . .</td></tr><tr><td></td><td>19911128<br>. . .</td><td>19911128<br>. . .</td><td>19911128<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19911144<br>. . .</td></tr><tr><td></td><td></td><td>19911160<br>. . .</td><td>19911160<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19911176<br>. . .</td></tr><tr><td></td><td>19911192<br>. . .</td><td>19911192<br>. . .</td><td>19911192<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19911208<br>. . .</td></tr><tr><td></td><td></td><td>19911224<br>. . .</td><td>19911224<br>. . .</td></tr><tr><td></td><td></td><td></td><td>19911240<br>. . .</td></tr><tr><td>#adresses</td><td>62</td><td>30</td><td>14</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><pre class="tssr-source-code">4. Quatrième réseau à étudier : 
+o Réseau de classe C </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 1 segment de 62 postes 
+o 3 segments de 30 postes 
+o 4 segments de 14 postes </pre>
+<p class="tssr-source-paragraph">Indiquer les segments inutilisés : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+
+<p class="tssr-source-paragraph">/ 24 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">Réseau </p>
+<p class="tssr-source-paragraph">Global </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR <br># adresses <br>62 <br>30 <br>14 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 11/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/26</td><td>/27</td><td>/28</td></tr><tr><td>Réseau<br>Global</td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td>#adresses</td><td>62</td><td>30</td><td>14</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><pre class="tssr-source-code">5. Cinquième réseau à étudier : 
+o Réseau de classe C </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 3 segments de 30 postes 
+o 3 segments de 14 postes </pre>
+<p class="tssr-source-paragraph">Indiquer les segments inutilisés : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">Réseau </p>
+<p class="tssr-source-paragraph">Global </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR <br># adresses <br>62 <br>30 <br>14 <br> <br> </p>
+<p class="tssr-source-paragraph">Page 12/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/26</td><td>/27</td><td>/28</td></tr><tr><td>Réseau<br>Global</td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td>#adresses</td><td>62</td><td>30</td><td>14</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-515f8e44f26ef0505a60ee21248a26e92a3e1d5cfbff64a6a1118829216f4ea9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-515f8e44f26ef0505a60ee21248a26e92a3e1d5cfbff64a6a1118829216f4ea9.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="900" height="2496"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><pre class="tssr-source-code">6. Sixième réseau à étudier : 
+o Réseau de classe C </pre>
+<p class="tssr-source-paragraph">• <br>Liste de réseaux actuellement utilisés : </p>
+<pre class="tssr-source-code">o 1 segment de 62 postes 
+o 1 segment de 14 postes </pre>
+<p class="tssr-source-paragraph">Indiquer les segments inutilisés : </p>
+<p class="tssr-source-paragraph">En rouge les réseaux utilisés </p>
+<p class="tssr-source-paragraph">En vert les réseaux disponibles </p>
+<p class="tssr-source-paragraph">/ 24 <br>/ 26 <br>/ 27 <br>/ 28 </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">Réseau </p>
+<p class="tssr-source-paragraph">Global </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR </p>
+<p class="tssr-source-paragraph">SR </p>
+<p class="tssr-source-paragraph">SR <br>SR <br>SR <br># adresses <br>62 <br>30 <br>14 </p>
+
+<p class="tssr-source-paragraph">Page 13/13 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>/24</td><td>/26</td><td>/27</td><td>/28</td></tr><tr><td>Réseau<br>Global</td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td>SR</td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td></td><td></td><td>SR</td><td>SR</td></tr><tr><td></td><td></td><td></td><td>SR</td></tr><tr><td>#adresses</td><td>62</td><td>30</td><td>14</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9a69fef6fa345bc3e151183a9b2f0905371642895047e7534caa0d14ee44bc03.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9a69fef6fa345bc3e151183a9b2f0905371642895047e7534caa0d14ee44bc03.webp" alt="Illustrations du support source, pages 13" loading="lazy" width="900" height="624"></a><figcaption>Illustrations du support Drive — pages 13. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

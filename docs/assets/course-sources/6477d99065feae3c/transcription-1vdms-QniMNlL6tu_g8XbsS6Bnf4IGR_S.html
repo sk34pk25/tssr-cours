@@ -1,0 +1,748 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 – Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 02 – Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en <br>environnement Microsoft</h4>
+<p class="tssr-source-paragraph">Module 02 – Active Directory</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Objectifs</h4>
+<p class="tssr-source-paragraph">• Appréhender le rôle Active Directory<br>• Gérer les ressources partagées avec AGDLP<br>• Connaître la gestion des imprimantes</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire-Présentation et installation</h4>
+<p class="tssr-source-paragraph">Domaine Active Directory</p>
+<p class="tssr-source-paragraph">• Pour quoi faire ?<br>•<br>Centraliser la gestion de l’authentification.<br>•<br>Centraliser les informations relatives aux utilisateurs et ressources.<br>•<br>Centraliser la gestion des paramètres utilisateurs et ordinateurs.<br>•<br>Fournir une base de fonctionnement aux services et outils Microsoft.</p>
+<p class="tssr-source-paragraph">• Utilisation de protocoles standardisés : DNS / LDAP / Kerberos<br>•<br>DNS : Résolution des noms de machines et localisation de services.<br>•<br>LDAP : Norme pour les systèmes d’annuaires avec une structure de base de données arborescente.<br>•<br>Kerberos : Protocole d’authentification reposant sur un mécanisme de clés secrètes et l’utilisation de <br>tickets.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">La forêt Active Directory</p>
+<p class="tssr-source-paragraph">Une forêt</p>
+<p class="tssr-source-paragraph">Domaine racine </p>
+<p class="tssr-source-paragraph">de la forêt</p>
+<p class="tssr-source-paragraph">Comprend un ou plusieurs domaine </p>
+<p class="tssr-source-paragraph">AD partageant le même schéma, les </p>
+<p class="tssr-source-paragraph">mêmes informations de configuration </p>
+<p class="tssr-source-paragraph">et de recherche.</p>
+<p class="tssr-source-paragraph">Relation parent / enfant</p>
+<p class="tssr-source-paragraph">Relation<br>de domaine</p>
+<p class="tssr-source-paragraph">Les domaines d’une même forêt sont </p>
+<p class="tssr-source-paragraph">Domaine</p>
+<p class="tssr-source-paragraph">enfant</p>
+<p class="tssr-source-paragraph">liés par une relation d’approbation </p>
+<p class="tssr-source-paragraph">transitive bidirectionnelle.</p>
+<p class="tssr-source-paragraph">Forêt</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>   Active Directory
+ Les services d’annuaire-Présentation et installation
+
+
+       Domaine Active Directory
+             • Pour quoi faire ?
+                      •  Centraliser la gestion de l’authentification.
+                      •  Centraliser les informations relatives aux utilisateurs et ressources.
+                      •  Centraliser la gestion des paramètres utilisateurs et ordinateurs.
+                      •  Fournir une base de fonctionnement aux services et outils Microsoft.
+
+             •  Utilisation de protocoles standardisés : DNS / LDAP / Kerberos
+                      • DNS : Résolution des noms de machines et localisation de services.
+                      • LDAP : Norme pour les systèmes d’annuaires avec une structure de base de données arborescente.
+                      •  Kerberos : Protocole d’authentification reposant sur un mécanisme de clés secrètes et l’utilisation de
+                        tickets.
+
+
+                                                                                         3
+
+
+3
+
+
+   Active Directory
+ Les services d’annuaire - Présentation et installation
+
+
+        La forêt Active Directory
+             Une forêt
+                                                                                             Domaine racine
+            Comprend un ou plusieurs domaine                                           de la forêt
+          AD partageant le même schéma, les
+          mêmes informations de configuration
+                et de recherche.                                                                                    Relation parent / enfant
+              Les domaines d’une même forêt sont                                                                          Relationde domaine
+                                                                        Domaine
+                   liés par une relation d’approbation                      enfant
+                 transitive bidirectionnelle.
+                                                          Forêt
+
+
+                                                                                         4
+
+
+4</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>4<br>is</p><p>a<br>Ky</p><p>\<br>4<br>i</p><p>End</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Un domaine Active Directory</p>
+<p class="tssr-source-paragraph">Poste en<br>WorkGroup</p>
+<p class="tssr-source-paragraph">Les composantes <br>de domaine : <br>le domaine</p>
+<p class="tssr-source-paragraph">Ensemble d’ordinateurs en réseau qui partagent <br>une base de donnée commune.</p>
+<p class="tssr-source-paragraph">Un domaine est administré comme un ensemble, <br>régi par des règles et procédures communes.</p>
+<p class="tssr-source-paragraph">Poste client<br>membre du domaine</p>
+<p class="tssr-source-paragraph">Domaine Active Directory</p>
+<p class="tssr-source-paragraph">Serveur<br>autonome</p>
+<p class="tssr-source-paragraph">Le contrôleur de domaine</p>
+<p class="tssr-source-paragraph">CD1<br>Contrôleur de domaine</p>
+<p class="tssr-source-paragraph">ADDS</p>
+<p class="tssr-source-paragraph">Serveur membre</p>
+<p class="tssr-source-paragraph">Les contrôleurs d’un domaine AD sont les <br>serveurs qui assurent la gestion du domaine. Ils <br>assurent les tâches d’hébergement et de gestion <br>de la base AD, ainsi que l’authentification.</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Les composantes de domaine : les sites</p>
+<p class="tssr-source-paragraph">Nantes<br>10.44.0.0 /16<br>Rennes<br>10.35.0.0 /16<br>Sites</p>
+<p class="tssr-source-paragraph">Site Active Directory</p>
+<p class="tssr-source-paragraph">Est une composante logique du domaine utilisée afin d’optimiser :<br>• La réplication.<br>• L’accès aux ressources. <br>Il est composé d’un ou de plusieurs sous-réseaux TCP/IP.</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LL</p><p>EIEE<br>is</p><p>aa<br>es</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Prérequis pour un contexte de domaine<br>Avant de promouvoir un serveur en Contrôleur de Domaine, ces prérequis doivent <br>être respectés :</p>
+<p class="tssr-source-paragraph">Prérequis<br>Description</p>
+<p class="tssr-source-paragraph">Nom d’hôte du poste<br>Le nom d’hôte et le suffixe DNS doivent être correctement définis.</p>
+<p class="tssr-source-paragraph">Configuration réseau et adressage IP<br>Ces paramètres doivent être opérationnels.</p>
+<p class="tssr-source-paragraph">Composants Windows<br>Les composants relatifs aux services ADDS doivent être installés.</p>
+<p class="tssr-source-paragraph">Prise en compte de l’existant<br>Analyser l’infrastructure existante et déterminer les points essentiels.</p>
+<p class="tssr-source-paragraph">Préparation de l’AD<br>La forêt ou le domaine peut être préparé lors de l’ajout d’un DC.</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Versions Active Directory<br>• Pour une forêt ou un domaine ciblé, les niveaux fonctionnels déterminent les <br>fonctionnalités fournies au sein de la forêt et du domaine.</p>
+<p class="tssr-source-paragraph">•<br>Par exemple depuis W2008 R2 : Corbeille AD</p>
+<p class="tssr-source-paragraph">• Le choix des niveaux est contraint par les versions des contrôleurs présents au <br>sein du domaine et de la forêt.</p>
+<p class="tssr-source-paragraph">NF de domaine<br>2008 R2<br>2012 R2<br>2016</p>
+<p class="tssr-source-paragraph">2008 R2</p>
+<p class="tssr-source-paragraph">2012 R2<br>2012 R2</p>
+<p class="tssr-source-paragraph">Version des CD</p>
+<p class="tssr-source-paragraph">2016<br>2016<br>2016</p>
+<p class="tssr-source-paragraph">2019<br>2019<br>2019</p>
+<p class="tssr-source-paragraph">NF de la forêt<br>2008 R2<br>2012 R2<br>2016</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Prérequis</td><td>Description</td></tr><tr><td>Nomd’hôteduposte</td><td>Le nom d’hôte et le suffixe DNS doivent être correctement définis.</td></tr><tr><td>ConfigurationréseauetadressageIP</td><td>Ces paramètres doivent être opérationnels.</td></tr><tr><td>ComposantsWindows</td><td>Les composants relatifs aux services ADDS doivent être installés.</td></tr><tr><td>Priseencomptedel’existant</td><td>Analyser l’infrastructure existante et déterminer les points essentiels.</td></tr><tr><td>Préparationdel’AD</td><td>La forêt ou le domaine peut être préparé lors de l’ajout d’un DC .</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>NFdedomaine</td><td>2008R2</td><td>2012R2</td><td>2016</td></tr><tr><td>VersiondesCD</td><td>2008R2</td><td></td><td></td></tr><tr><td></td><td>2012R2</td><td>2012R2</td><td></td></tr><tr><td></td><td>2016</td><td>2016</td><td>2016</td></tr><tr><td></td><td>2019</td><td>2019</td><td>2019</td></tr><tr><td>NFdelaforêt</td><td>2008R2</td><td>2012R2</td><td>2016</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bbb32d566e05a105d50b33987796ab0e93b26f386f08dde828d9883b50d23039.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bbb32d566e05a105d50b33987796ab0e93b26f386f08dde828d9883b50d23039.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="5926"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Rétrograder / promouvoir un CD</p>
+<p class="tssr-source-paragraph">• L’ajout et la suppression d’un contrôleur de domaine sont des actions qui <br>impactent tous les contrôleurs de domaine de la forêt.</p>
+<p class="tssr-source-paragraph">• Avant de rétrograder un contrôleur de domaine, on s’assurera qu’il ne dispose plus <br>de rôles FSMO.</p>
+<p class="tssr-source-paragraph">• Notions abordées dans la slide suivante.</p>
+<p class="tssr-source-paragraph">• Sous Windows 2016 et ultérieur, afin de rétrograder un CD, utiliser la commande <br>suivante :</p>
+<p class="tssr-source-paragraph">PS C:\Windows\System32&gt; Uninstall-AddsDomainController</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les services d’annuaire - Présentation et installation</h4>
+<p class="tssr-source-paragraph">Les composants de domaine : les 5 rôles FSMO</p>
+<p class="tssr-source-paragraph">Rôles<br>Description</p>
+<p class="tssr-source-paragraph">Maître de nom de domaine</p>
+<p class="tssr-source-paragraph">Contacté :<br>•<br>Lors de l’ajout de la suppression d’un domaine dans un forêt<br>•<br>En cas de renommage de domaine (Attention)</p>
+<p class="tssr-source-paragraph">Forêt</p>
+<p class="tssr-source-paragraph">Maître de schéma</p>
+<p class="tssr-source-paragraph">Peut modifier le schéma. <br>Dans le schéma sont stockées les caractéristiques des objets. Les autres CD ont accès en L au schéma.</p>
+<p class="tssr-source-paragraph">Maître RID</p>
+<p class="tssr-source-paragraph">Alloue les « bloc d’IDentificateurs Relatifs » aux autres CD.<br>Ces derniers puisent dans le bloc pour attribuer les SID aux objets.</p>
+<p class="tssr-source-paragraph">Maître d’infrastructure<br>Responsable des objets des autres domaines de la forêt qui sont membres d’objets de son domaine.</p>
+<p class="tssr-source-paragraph">Domaine</p>
+<p class="tssr-source-paragraph">Maître émulateur PDC</p>
+<p class="tssr-source-paragraph">Il gère :<br>MAJ des mots de passe.<br>MAJ des GPO.<br>Synchronisation des horloges.<br>Explorateur principal de domaine.</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Rôles</td><td>Description</td></tr><tr><td>Forêt</td><td>Maîtredenomdedomaine</td><td>Contacté:<br>• L Eo nr s d se l’ ea j ro eu nt od me mla as gu ep p dr ee s ds oio mn ad i’ nu en (d Ao tm tea ni tn ie nd )ans un forêt<br>• c a d o</td></tr><tr><td></td><td>Maîtredeschéma</td><td>P De au nt m leo sd ci hfi ée mr l ae ss och né m sta o.<br>s t c kées les caractéristiques des objets. Les autres CD ont accès en L au schéma.</td></tr><tr><td>Domaine</td><td>MaîtreRID</td><td>A Cello u de rl nes « b plo uc d en’I tD de an nti sf ic lea t be lu or cs pR oe ula t aif ts r» a uu ex a leu st r Se Is C aD u.<br>s e ie rs is r t ib r D x objets.</td></tr><tr><td></td><td>Maîtred’infrastructure</td><td>Responsable des objets des autres domaines de la forêt qui sont membres d’objets de son domaine.</td></tr><tr><td></td><td>MaîtreémulateurPDC</td><td>Ilgère:<br>M yA lcJ hd e ts m ao pt ios nd ce pep asa ls ds oe er.<br>M A J d e s G rP tO r.<br>S pn rr o n i us n d h l do og mes a.<br>Ex o a e i i ine.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Objets de l’annuaire et outils de gestion</p>
+<p class="tssr-source-paragraph">• Dans un contexte de domaine AD, les tâches courantes de gestion sont liées à <br>l’administration des principaux objets de l’annuaire.</p>
+<p class="tssr-source-paragraph">Entités de sécurité</p>
+<p class="tssr-source-paragraph">Conteneurs</p>
+<p class="tssr-source-paragraph">Utilisateur</p>
+<p class="tssr-source-paragraph">Unité d’organisation</p>
+<p class="tssr-source-paragraph">Ordinateur</p>
+<p class="tssr-source-paragraph">Conteneur système</p>
+<p class="tssr-source-paragraph">Groupe</p>
+<p class="tssr-source-paragraph">• La gestion de ces objets peut se faire :<br>• Depuis la console Utilisateurs et ordinateurs Active Directory<br>• Depuis le Centre d’administration Active Directory<br>• En PowerShell</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les caractéristiques de l’objet utilisateur</p>
+<p class="tssr-source-paragraph">• Ces dernières sont regroupées graphiquement avec un ensemble de catégories.</p>
+<p class="tssr-source-paragraph">• Elles sont relatives :<br>• aux paramètres de l’utilisateur pour l’utilisation des services de bureau distant</p>
+<p class="tssr-source-paragraph">Contrôle à distance<br>Environnement<br>Profil des services de bureau à distance<br>Sessions</p>
+<p class="tssr-source-paragraph">• aux informations générales concernant l’utilisateur</p>
+<p class="tssr-source-paragraph">Adresse<br>Général<br>Organisation<br>Téléphones</p>
+<p class="tssr-source-paragraph">• aux informations nécessaires à sa connexion</p>
+<p class="tssr-source-paragraph">Compte<br>Profil</p>
+<p class="tssr-source-paragraph">• à l’appartenance aux groupes et aux paramètres utilisateur des connexions entrantes</p>
+<p class="tssr-source-paragraph">Membres de<br>Appel entrant</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Environnement<br>Sessions | Contrôle<br>à distance | Profil des services Bureau à distance COM+<br>Général<br>Adresse<br>Compte<br>Profil<br>Téléphones<br>Organisation<br>Membrede Appel entrant</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les modèles utilisateur</p>
+<p class="tssr-source-paragraph">Il est conseillé d’utiliser des modèles de comptes pour simplifier la création de <br>nouveaux comptes utilisateurs.</p>
+<p class="tssr-source-paragraph">Un nom clair</p>
+<p class="tssr-source-paragraph">Le plus grand </p>
+<p class="tssr-source-paragraph">Dupliquer le compte modèle<br>Compte </p>
+<p class="tssr-source-paragraph">nombre de <br>caractéristiques</p>
+<p class="tssr-source-paragraph">Nouvel <br>utilisateur</p>
+<p class="tssr-source-paragraph">modèle </p>
+<p class="tssr-source-paragraph">Le compte est </p>
+<p class="tssr-source-paragraph">inactif</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les profils utilisateurs</p>
+<p class="tssr-source-paragraph">Par défaut, les utilisateurs du domaine peuvent ouvrir une session sur les ordinateurs <br>du domaine.</p>
+<p class="tssr-source-paragraph">Ses propres fichiers / répertoires</p>
+<p class="tssr-source-paragraph">Des fichiers de configuration logiciels personnalisés</p>
+<p class="tssr-source-paragraph">Utilisateur</p>
+<p class="tssr-source-paragraph">Possède</p>
+<p class="tssr-source-paragraph">Un environnement de travail personnalisé</p>
+<p class="tssr-source-paragraph">AD</p>
+<p class="tssr-source-paragraph">Des dossiers personnels</p>
+<p class="tssr-source-paragraph">Profil</p>
+<p class="tssr-source-paragraph">%systemdrive%\Utilisateurs\%username%</p>
+<p class="tssr-source-paragraph">Stockés dans</p>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-1d98da20dc6a0e25950b12993028ae999902516ebec959d4f063399fdd7ca310.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-1d98da20dc6a0e25950b12993028ae999902516ebec959d4f063399fdd7ca310.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="6204"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les profils itinérants</p>
+<p class="tssr-source-paragraph">Utilisé pour les utilisateurs ayant besoin d’un accès à leur profil depuis n’importe quel <br>ordinateur. C’est ici qu’interviennent les profils itinérants.</p>
+<p class="tssr-source-paragraph">• Le profil est copié du partage vers l’ordinateur<br>• Synchronisation du profil à chaque fermeture de session</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Le profil est chargé sur l’ordinateur.</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">L’utilisateur travaille.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">À la fermeture de session, le profil est synchronisé.</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les ordinateurs</p>
+<p class="tssr-source-paragraph">• Dans un contexte de domaine, les membres s’authentifient afin de disposer d’un <br>jeton d’accès permettant l’accès aux ressources du domaine.</p>
+<p class="tssr-source-paragraph">• Ce processus est commun aux utilisateurs et aux ordinateurs.</p>
+<p class="tssr-source-paragraph">• Ceux-ci doivent donc disposer d’un compte dans le domaine.</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les caractéristiques de l’objet ordinateur</p>
+<p class="tssr-source-paragraph">• Au même titre que l’objet utilisateur, l’objet ordinateur dispose de caractéristiques <br>qui lui sont propres.</p>
+<p class="tssr-source-paragraph">• Les principales caractéristiques d’un objet ordinateur sont :<br>• Son nom et sa description<br>• La version du SE<br>• Ses groupes d’appartenance<br>• …</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les groupes</p>
+<p class="tssr-source-paragraph">• Les groupes sont des objets de l’annuaire.</p>
+<p class="tssr-source-paragraph">• Tout groupe est caractérisé par un type et une étendue.<br>• Il en existe deux types :</p>
+<p class="tssr-source-paragraph">De sécurité<br>De distribution</p>
+<p class="tssr-source-paragraph">Dispose d’un identifiant de sécurité (SID).<br>Ne dispose pas d’identifiant de sécurité.</p>
+<p class="tssr-source-paragraph">Peut être utilisé pour répondre à un ensemble de besoins.<br>N’est utilisable qu’à des fins de messagerie.</p>
+<p class="tssr-source-paragraph">• L’étendue du groupe détermine le périmètre d’appartenance des membres ainsi que celui d’utilisation.</p>
+<p class="tssr-source-paragraph">Global<br>Universel<br>De Domaine Local<br>Local</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés de : W10-Client<br>2?<br>xX</p><p>Emplacement<br>Géré par<br>Appel entrant<br>Général<br>Système d&#x27;exploitation<br>Membre de<br>Délégation<br>a<br>MA<br>WioGien</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les groupes globaux</p>
+<p class="tssr-source-paragraph">Caractéristiques des GG</p>
+<p class="tssr-source-paragraph">Regrouper des objets qui possèdent </p>
+<p class="tssr-source-paragraph">GG_Commerciaux_Nantes</p>
+<p class="tssr-source-paragraph">Utilité</p>
+<p class="tssr-source-paragraph">des caractéristiques communes.</p>
+<p class="tssr-source-paragraph">Ils ne peuvent contenir que des </p>
+<p class="tssr-source-paragraph">Contraintes </p>
+<p class="tssr-source-paragraph">objets utilisateur, ordinateur ou </p>
+<p class="tssr-source-paragraph">d’appartenance</p>
+<p class="tssr-source-paragraph">groupe global du même domaine.</p>
+<p class="tssr-source-paragraph">Ils peuvent être utilisés sur toute </p>
+<p class="tssr-source-paragraph">Contrainte </p>
+<p class="tssr-source-paragraph">ressource du domaine ou approuvée </p>
+<p class="tssr-source-paragraph">d’utilisation</p>
+<p class="tssr-source-paragraph">(forêt).</p>
+<p class="tssr-source-paragraph">Exemple de nom<br>GG_Commerciaux_Nantes</p>
+<p class="tssr-source-paragraph">Membres</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les groupes de domaines locaux</p>
+<p class="tssr-source-paragraph">Caractéristiques des DL</p>
+<p class="tssr-source-paragraph">Ressource partagée</p>
+<p class="tssr-source-paragraph">Privilèges<br>Groupe de Domaine Local</p>
+<p class="tssr-source-paragraph">Regrouper des objets qui requièrent un </p>
+<p class="tssr-source-paragraph">même privilège d’accès pour une ressource </p>
+<p class="tssr-source-paragraph">Utilité</p>
+<p class="tssr-source-paragraph">DL_Marketing_Sur_SRVFIC_CT</p>
+<p class="tssr-source-paragraph">CT</p>
+<p class="tssr-source-paragraph">donnée.</p>
+<p class="tssr-source-paragraph">Ils peuvent contenir des objets utilisateur, </p>
+<p class="tssr-source-paragraph">DL_Marketing_Sur_SRVFIC_M</p>
+<p class="tssr-source-paragraph">Contraintes </p>
+<p class="tssr-source-paragraph">M</p>
+<p class="tssr-source-paragraph">ordinateur ou groupe de tout domaine de </p>
+<p class="tssr-source-paragraph">Marketing</p>
+<p class="tssr-source-paragraph">d’appartenance</p>
+<p class="tssr-source-paragraph">la forêt.</p>
+<p class="tssr-source-paragraph">L</p>
+<p class="tssr-source-paragraph">DL_Marketing_Sur_SRVFIC_L</p>
+<p class="tssr-source-paragraph">Contrainte </p>
+<p class="tssr-source-paragraph">Ils peuvent être utilisés uniquement sur les </p>
+<p class="tssr-source-paragraph">DL_Marketing_Sur_SRVFIC_R</p>
+<p class="tssr-source-paragraph">R</p>
+<p class="tssr-source-paragraph">ressources de leur domaine de création.</p>
+<p class="tssr-source-paragraph">d’utilisation</p>
+<p class="tssr-source-paragraph">Exemple de nom<br>DL_Comptabilite_Sur_SRVFIC_L</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CR</p><p>æ</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les groupes locaux</p>
+<p class="tssr-source-paragraph">• Ils peuvent être utilisés.<br>• Les membres du domaine conservent leur base SAM.</p>
+<p class="tssr-source-paragraph">• L’utilisation de ce type de groupe est limitée et limitante.<br>• Ils ne peuvent être utilisés que sur leur poste d’appartenance.</p>
+<p class="tssr-source-paragraph">• Cette limite peut être un atout pour certains besoins en termes de sécurité.</p>
+<p class="tssr-source-paragraph">• C’est le seul type de groupe qui peut être utilisé hors domaine.</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les conteneurs système</p>
+<p class="tssr-source-paragraph">• Les objets de l’annuaire AD sont stockés dans des conteneurs.</p>
+<p class="tssr-source-paragraph">• Ces conteneurs système sont définis par défaut dans tout domaine AD.</p>
+<p class="tssr-source-paragraph">Nom de l’objet<br>Fonction</p>
+<p class="tssr-source-paragraph">Builtin</p>
+<p class="tssr-source-paragraph">Élements (utilisateurs et groupes locaux) présents dans la base SAM des CD avant leur promotion. Une fois la promotion <br>faite, ces derniers sont déplacés dans ce conteneur.</p>
+<p class="tssr-source-paragraph">Computers<br>Emplacement de stockage par défaut des comptes ordinateurs.</p>
+<p class="tssr-source-paragraph">System<br>Emplacement de stockage des éléments nécessaires aux fonctionnement de l’AD et aux composants associés.</p>
+<p class="tssr-source-paragraph">Users<br>Emplacement de stockage des groupes et utilisateurs existant par défaut dans un AD.</p>
+<p class="tssr-source-paragraph">• Attention :<br>• Il n’est pas conseillé de conserver les comptes ordinateurs du domaine dans le conteneur <br>Computer, il en va de même pour les comptes utilisateurs dans le conteneur Users.</p>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nom del’objet</td><td>Fonction</td></tr><tr><td>Builtin</td><td>É fale itm e,e cn et ss d(u et ri nli is ea rt se su ors te t ég pro lau cp ée ss l ao nca u cx e) cp oré ns te en nt es d r.ans la base SAM des CD avant leur promotion. Une fois la promotion<br>n d d s u</td></tr><tr><td>Computers</td><td>Emplacement de stockage par défaut des comptes ordinateurs.</td></tr><tr><td>System</td><td>Emplacement de stockage des éléments nécessaires aux fonctionnement de l’AD et aux composants associés.</td></tr><tr><td>Users</td><td>Emplacement de stockage des groupes et utilisateurs existant par défaut dans un AD .</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f1155b51847c2f86e3c6229d3844936122feb5e319d78f717ace8f67644a2b3a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f1155b51847c2f86e3c6229d3844936122feb5e319d78f717ace8f67644a2b3a.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="6410"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3>
+
+
+
+
+
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Les unités d’organisation</p>
+<p class="tssr-source-paragraph">• Des conteneurs supplémentaires peuvent être créés : <br>• OU Organizational Unit / UO Unité d’Organisation</p>
+<p class="tssr-source-paragraph">• L’élaboration d’une structure organisationnelle doit prendre en considération les besoins <br>suivants :</p>
+<p class="tssr-source-paragraph">• Les stratégies de groupe (GPO Group Policy Object)<br>• Les délégations administratives<br>• L’organisation des objets dans l’arborescence</p>
+<p class="tssr-source-paragraph">• Tout objet de l’annuaire ne peut être positionné directement que dans un seul conteneur.</p>
+<p class="tssr-source-paragraph">• Attention :<br>• Sur les CD, les UO sont protégées contre toute suppression accidentelle (il est possible de <br>modifier cela).</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Active_Directory</p>
+<p class="tssr-source-paragraph">Builtin</p>
+<p class="tssr-source-paragraph">Les unités d’organisation</p>
+<p class="tssr-source-paragraph">Computers</p>
+<p class="tssr-source-paragraph">Domain_Controllers</p>
+<p class="tssr-source-paragraph">ForeignSecurityPrincipals</p>
+<p class="tssr-source-paragraph">Manage_Security_Accounts</p>
+<p class="tssr-source-paragraph">Users</p>
+<p class="tssr-source-paragraph">Mon_Entreprise</p>
+<p class="tssr-source-paragraph">Groupes</p>
+<p class="tssr-source-paragraph">NANTES</p>
+<p class="tssr-source-paragraph">Stagiaires</p>
+<p class="tssr-source-paragraph">Ordinateurs</p>
+<p class="tssr-source-paragraph">Administration</p>
+<p class="tssr-source-paragraph">Direction</p>
+<p class="tssr-source-paragraph">Formateurs</p>
+<p class="tssr-source-paragraph">Ordinateur_Administration</p>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>si=<br>a<br>a 2<br>i</p><p>End<br>ds</p></div></details>
+
+
+
+<details class="tssr-source-continuous"><summary>Lecture continue du texte source</summary><pre>   Active Directory
+ Les bases de gestion d’un domaine
+
+        Les unités d’organisation
+              • Des conteneurs supplémentaires peuvent être créés :
+                      • OU Organizational Unit / UO Unité d’Organisation
+              • L’élaboration d’une structure organisationnelle doit prendre en considération les besoins
+             suivants :
+                      • Les stratégies de groupe (GPO Group Policy Object)
+                      • Les délégations administratives
+                      •  L’organisation des objets dans l’arborescence
+              • Tout objet de l’annuaire ne peut être positionné directement que dans un seul conteneur.
+              • Attention :
+                      • Sur les CD, les UO sont protégées contre toute suppression accidentelle (il est possible de
+                 modifier cela).
+
+                                                                                          25
+
+
+25
+
+
+   Active Directory
+ Les bases de gestion d’un domaine
+
+                                                                                          Active_Directory
+        Les unités d’organisation                            Builtin
+                                                                               Computers
+                                                                                         Domain_Controllers
+                                                                                                  ForeignSecurityPrincipals
+                                                                                      Manage_Security_Accounts
+                                                                                         Users
+                                                                                        Mon_Entreprise
+                                                                                        Groupes
+                                                                            NANTES
+                                                                                                                      Stagiaires
+                                                                                                         Ordinateurs
+                                                                                                          Administration
+                                                                                                                      Direction
+                                                                                                         Formateurs
+                                                                                                         Ordinateur_Administration              <span class="tssr-source-zero-width" data-source-codepoint="f094" aria-hidden="true"></span>
+                                                                                          26
+
+
+26</pre></details></section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>Les bases de gestion d’un domaine</h4>
+<p class="tssr-source-paragraph">Importation et exportation de comptes</p>
+<p class="tssr-source-paragraph">• Quand un nombre important de comptes utilisateurs doit être créé, l’utilisation <br>d’outils permet de fiabiliser et réduire la durée de la tâche.</p>
+<p class="tssr-source-paragraph">• Des outils dédiés existent (PowerShell ou Csvde par exemple).</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>TP</h4>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Les ressources</p>
+<p class="tssr-source-paragraph">• Le partage de ressource est un service nécessaire aux utilisateurs.</p>
+<p class="tssr-source-paragraph">• Sa mise en œuvre et sa gestion incombent à l’administrateur système qui doit <br>respecter les exigences de disponibilités et de sécurité.</p>
+<p class="tssr-source-paragraph">• Nous parlerons d’espace disque partagé.</p>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Utilité des autorisations NTFS</p>
+<p class="tssr-source-paragraph">Sur un espace disque formaté en NTFS ou ReFS :</p>
+<p class="tssr-source-paragraph">• Les autorisations NTFS permettent de définir quels sont les privilèges d’accès</p>
+<p class="tssr-source-paragraph">• Tous les dossiers et fichiers d’un volume formaté y sont soumis</p>
+<p class="tssr-source-paragraph">Sécurité NTFS</p>
+<p class="tssr-source-paragraph">• Elles sont visualisables et/ou modifiables depuis l’onglet Sécurité des éléments</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Les caractéristiques des autorisations NTFS</p>
+<p class="tssr-source-paragraph">• Deux niveaux de gestions sont disponibles :<br>• Les autorisations de base<br>• Les autorisations avancées</p>
+<p class="tssr-source-paragraph">• La gestion des permissions est basée sur des règles explicites.</p>
+<p class="tssr-source-paragraph">• Plusieurs règles d’accès peuvent s’appliquer à un même utilisateur.</p>
+<p class="tssr-source-paragraph">• Chaque règle peut accorder des privilèges ou les ôter.</p>
+<p class="tssr-source-paragraph">• Le mécanisme d’héritage s’applique aux autorisations positionnées sur des <br>dossiers et s’appliquent aux objets enfants.</p>
+<p class="tssr-source-paragraph">• Une règle de refus peut être explicite ou implicite.</p>
+<p class="tssr-source-paragraph">32</p>
+<p class="tssr-source-paragraph">32</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-177905e6e8f5acb681a5bf2ddd3c61b8bb27a7ddc5e0c53f36e3864bd8b3d4b3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-177905e6e8f5acb681a5bf2ddd3c61b8bb27a7ddc5e0c53f36e3864bd8b3d4b3.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="992" height="5926"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Les autorisations NTFS de base et avancées</p>
+<p class="tssr-source-paragraph">• Pour répondre aux besoins courants, les autorisations de base permettent <br>d’accorder les privilèges suivants :</p>
+<p class="tssr-source-paragraph">Lecture<br>Liste de contenu<br>Lecture + exécution<br>Écriture<br>Modification<br>Contrôle Total</p>
+<p class="tssr-source-paragraph">• Les privilèges complémentaires suivants peuvent être attribués, par les <br>autorisations avancées.</p>
+<p class="tssr-source-paragraph">Appropriation<br>Création de fichiers<br>Création de dossiers<br>Écriture des attributs étendus</p>
+<p class="tssr-source-paragraph">Lecture des attributs étends<br>Modifier les autorisations<br>Suppression<br>Suppression de sous-dossiers et fichiers</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Cumul d’autorisations</p>
+<p class="tssr-source-paragraph">• Chaque autorisation s’applique à un objet utilisateur ou groupe de sécurité. Il est <br>cependant préférable de n’appliquer des autorisations qu’aux groupes.</p>
+<p class="tssr-source-paragraph">• Pour chaque entrée de contrôle d’accès, l’autorisation peut être appliquée :<br>• Autoriser afin d’accorder le privilège correspondant<br>• Refuser afin d’ôter le privilège correspondant</p>
+<p class="tssr-source-paragraph">• À défaut de règle d’autorisation (explicite) le concernant, l’utilisateur est soumis à un refus <br>implicite.</p>
+<p class="tssr-source-paragraph">• Les autorisations sont cumulatives, la résultante des autorisations affectant un utilisateur <br>correspond au cumul des autorisations le concernant.</p>
+<p class="tssr-source-paragraph">• En cas de conflit, le refus l’emporte.</p>
+<p class="tssr-source-paragraph">34</p>
+<p class="tssr-source-paragraph">34</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Lecture</td><td>Listedecontenu Lecture+exécution Écriture</td><td>Modification</td><td>ContrôleTotal</td></tr><tr><td>•</td><td>Lesprivilèges<br>autorisations</td><td>complémentairessuivants peuventêtreattribués parles<br>,<br>avancées<br>.</td><td></td><td></td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Appropriation</td><td>Créationdefichiers</td><td>Créationdedossiers</td><td>Écriture des attributs étendus</td></tr><tr><td>Lecture des attributs étends</td><td>Modifier les autorisations</td><td>Suppression</td><td>Suppression de sous-dossiers et fichiers</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">L’héritage des autorisations NTFS</p>
+<p class="tssr-source-paragraph">• L’héritage s’applique par défaut aux autorisations NTFS positionnées sur des dossiers.</p>
+<p class="tssr-source-paragraph">• Il est conseillé d’affecter ces autorisations en partant de la racine d’une arborescence afin de bénéficier <br>de l’héritage.</p>
+<p class="tssr-source-paragraph">• L’héritage peut être rompu sur un point d’arborescence ou repropagé à partir d’un élément.</p>
+<p class="tssr-source-paragraph">• Il y a néanmoins des contraintes :</p>
+<p class="tssr-source-paragraph">Au sein d’une même </p>
+<p class="tssr-source-paragraph">Entre deux partitions </p>
+<p class="tssr-source-paragraph">partition</p>
+<p class="tssr-source-paragraph">ou disques</p>
+<p class="tssr-source-paragraph">Déplacement<br>Conservation<br>Héritage</p>
+<p class="tssr-source-paragraph">Copie<br>Héritage<br>Héritage</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Le partage de fichiers</p>
+<p class="tssr-source-paragraph">• Le partage vient en complément des autorisations NTFS.</p>
+<p class="tssr-source-paragraph">• Un poste disposant de partages joue le rôle de serveur de fichiers.</p>
+<p class="tssr-source-paragraph">Partage</p>
+<p class="tssr-source-paragraph">Réseau</p>
+<p class="tssr-source-paragraph">Sécurité NTFS</p>
+<p class="tssr-source-paragraph">36</p>
+<p class="tssr-source-paragraph">36</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>#<br>|<br>—</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>•</td><td>Ilyanéanmoinsdescontraintes:</td><td></td><td>Auseind’unemême<br>partition</td><td>Entredeuxpartitions<br>oudisques</td></tr><tr><td></td><td></td><td>Déplacement</td><td>Conservation</td><td>Héritage</td></tr><tr><td></td><td></td><td>Copie</td><td>Héritage</td><td>Héritage</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Les autorisations de partage</p>
+<p class="tssr-source-paragraph">• Les autorisations permettent de définir :<br>• Quels seront les privilèges<br>• S’ils autoriseront ou interdiront<br>• Pour qui</p>
+<p class="tssr-source-paragraph">• Les trois types de privilèges de partage sont les suivants :</p>
+<p class="tssr-source-paragraph">Lecture<br>Modification<br>Contrôle Total</p>
+<p class="tssr-source-paragraph">• Pour chaque niveau, les privilèges correspondants pourront être :</p>
+<p class="tssr-source-paragraph">Autorisé<br>Refusé</p>
+<p class="tssr-source-paragraph">• Chaque règle cible une ou plusieurs entités.</p>
+<p class="tssr-source-paragraph">• Les règles de contrôles d’accès sont cumulatives et les refus prioritaires.</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Autorisations résultantes</p>
+<p class="tssr-source-paragraph">Quand l’utilisateur accède depuis son poste de travail à une ressource partagée :</p>
+<p class="tssr-source-paragraph">• Il est d’abord soumis aux autorisations du partage</p>
+<p class="tssr-source-paragraph">• Puis aux autorisations NTFS</p>
+<p class="tssr-source-paragraph">Partage<br>Sécurité NTFS</p>
+<p class="tssr-source-paragraph">• Les privilèges les plus restrictifs prévalent.</p>
+<p class="tssr-source-paragraph">38</p>
+<p class="tssr-source-paragraph">38</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Es</p><p>s—</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Les publications de partage</p>
+<p class="tssr-source-paragraph">• Une fois créé, il est possible de le <br>publier dans l’AD.</p>
+<p class="tssr-source-paragraph">• L’objet Partage est soit lié à : <br>• L’objet ordinateur auquel il est associé.<br>• Indépendant et peut être déplacé dans <br>un UO dédié.<br>• La publication de partage facilite la <br>recherche pour les utilisateurs depuis <br>leur poste client avec la fonction <br>Rechercher dans Active Directory.</p>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>L’accès aux ressources</h4>
+<p class="tssr-source-paragraph">Stratégie d’imbrication des groupes</p>
+<p class="tssr-source-paragraph">Afin de gérer efficacement l’accès aux ressources, Microsoft préconise l’imbrication <br>des Groupes Globaux et de Domaines Locaux.</p>
+<p class="tssr-source-paragraph">• Cf. Slide sur les groupes de Domaines Locaux</p>
+<p class="tssr-source-paragraph">A<br>Le compte utilisateur est créé.</p>
+<p class="tssr-source-paragraph">G<br>Il est affecté aux Groupes Globaux.</p>
+<p class="tssr-source-paragraph">Gestion des utilisateurs</p>
+<p class="tssr-source-paragraph">Gestion de la ressource</p>
+<p class="tssr-source-paragraph">DL<br>Un groupe de Domaine Local est créé par type de privilège pour chaque ressource.</p>
+<p class="tssr-source-paragraph">P<br>Des autorisations NTFS sont attribuées pour ce groupe de domaine local sur la ressource.</p>
+<p class="tssr-source-paragraph">40</p>
+<p class="tssr-source-paragraph">40</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>mi<br>+ | Réseau<br>HE ee<br>ete<br>M<br>a<br>=<br>&amp;</p><p>we<br>ee</p><p>~<br>=</p><p>=<br>—<br>3———=</p><p>Qoee ee</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-239ba808ea3a02f4d9ded96d31afa47740280c22d6b84aaddcfb274cf81fb78f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-239ba808ea3a02f4d9ded96d31afa47740280c22d6b84aaddcfb274cf81fb78f.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="992" height="6429"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">41</p>
+<p class="tssr-source-paragraph">41</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">42</p>
+<p class="tssr-source-paragraph">42</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>La gestion des impressions</h4>
+<p class="tssr-source-paragraph">Le service d’impression</p>
+<p class="tssr-source-paragraph">• L’ajout du service de rôle Serveur d’impression permet de partager des imprimantes <br>et centraliser la gestion de l’impression.</p>
+<p class="tssr-source-paragraph">• Les imprimantes sont des ressources généralement raccordées au réseau de <br>l’entreprise.</p>
+<p class="tssr-source-paragraph">Réseau<br>Réseau</p>
+<p class="tssr-source-paragraph">• Cependant la mise en place d’un serveur d’impression permet de centraliser et d’en <br>simplifier la gestion.</p>
+<p class="tssr-source-paragraph">43</p>
+<p class="tssr-source-paragraph">43</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>La gestion des impressions</h4>
+<p class="tssr-source-paragraph">Point de vocabulaire</p>
+<p class="tssr-source-paragraph">Vocabulaire<br>Définition</p>
+<p class="tssr-source-paragraph">Port d’impression<br>Lien qui permet la communication entre le périphérique d’impression et le serveur (ou à un poste client).</p>
+<p class="tssr-source-paragraph">File d’attente<br>Liste des documents en attente de traitement par l’imprimante.</p>
+<p class="tssr-source-paragraph">Imprimante locale<br>Imprimante directement (physiquement) connectée à un serveur ou à un poste client.</p>
+<p class="tssr-source-paragraph">Imprimante partagée</p>
+<p class="tssr-source-paragraph">Imprimante accessible sur le réseau<br>• Elle peut être du type imprimante réseau<br>• Elle peut être du type imprimante locale mais il faut que le poste ou le serveur qui la partage soit <br>allumé pour qu’elle soit accessible</p>
+<p class="tssr-source-paragraph">Imprimante réseau<br>Imprimante indépendante qui possède sa propre carte réseau, parfois un écran de configuration ou/et <br>un petit serveur web embarqué pour l’administration à distance.</p>
+<p class="tssr-source-paragraph">44</p>
+<p class="tssr-source-paragraph">44</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>-_=<br>—=3</p><p>EI 1</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Vocabulaire</td><td>Définition</td></tr><tr><td>Portd’impression</td><td>Lien qui permet la communication entre le périphérique d’impression et le serveur (ou à un poste client) .</td></tr><tr><td>Filed’attente</td><td>Liste des documents en attente de traitement par l’imprimante.</td></tr><tr><td>Imprimantelocale</td><td>Imprimante directement (physiquement) connectée à un serveur ou à un poste client .</td></tr><tr><td>Imprimantepartagée</td><td>Imprimanteaccessiblesurleréseau<br>• Ellepeutêtredutypeimprimanteréseau<br>• Ellepeutêtredutypeimprimantelocalemaisilfautqueleposteouleserveurquilapartagesoit<br>allumépourqu’ellesoitaccessible</td></tr><tr><td>Imprimanteréseau</td><td>Imprimante indépendante qui possède sa propre carte réseau, parfois un écran de configuration ou/et<br>un petit serveur web embarqué pour l’administration à distance.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>La gestion des impressions</h4>
+<p class="tssr-source-paragraph">Les tâches de gestion et outils</p>
+<p class="tssr-source-paragraph">Vue de l’état des <br>imprimantes</p>
+<p class="tssr-source-paragraph">• L’ajout du service de rôle Serveur <br>d’impression fournit la console de <br>gestion Gestionnaire d’impression.</p>
+<p class="tssr-source-paragraph">• Cette console rassemble les <br>composants de gestion nécessaire :</p>
+<p class="tssr-source-paragraph">Configuration des <br>services <br>d’impression</p>
+<p class="tssr-source-paragraph">Gestion du <br>déploiement par <br>stratégies</p>
+<p class="tssr-source-paragraph">45</p>
+<p class="tssr-source-paragraph">45</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>La gestion des impressions</h4>
+<p class="tssr-source-paragraph">La gestion des périphériques</p>
+<p class="tssr-source-paragraph">• Comme pour les ressources disque, une imprimante doit être partagée pour être accessible via le réseau.</p>
+<p class="tssr-source-paragraph">• L’attribution des privilèges se configure depuis les paramètres de sécurité :</p>
+<p class="tssr-source-paragraph">Autorisation de base<br>Autorisation étendue</p>
+<p class="tssr-source-paragraph">Imprimer</p>
+<p class="tssr-source-paragraph">Gérer l’imprimante</p>
+<p class="tssr-source-paragraph">Gérer les documents</p>
+<p class="tssr-source-paragraph">Autorisation de lecture</p>
+<p class="tssr-source-paragraph">Modifier les autorisations</p>
+<p class="tssr-source-paragraph">46</p>
+<p class="tssr-source-paragraph">46</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>| Gestion de l&#x27;impression</p><p>4 GP Filtres personnalisés<br>[] Toutes les imprimantes (6)<br>D] Imprimantes<br>avec travaux<br>F1 Imprimantes non prêtes</p><p>ŒF1 Tous les pilotes (12)<br>4 à Serveurs d&#x27;impression</p><p>|=<br>f= Imprimantes déployées</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><p class="tssr-source-paragraph">Active Directory</p>
+<h4>La gestion des impressions</h4>
+<p class="tssr-source-paragraph">La gestion du déploiement</p>
+<p class="tssr-source-paragraph">Plusieurs méthodes peuvent être utilisées pour déployer les imprimantes :</p>
+<p class="tssr-source-paragraph">• Le déploiement manuel</p>
+<p class="tssr-source-paragraph">• L’utilisation de scripts</p>
+<p class="tssr-source-paragraph">• Le déploiement par stratégies de groupe</p>
+<p class="tssr-source-paragraph">47</p>
+<p class="tssr-source-paragraph">47</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">48</p>
+<p class="tssr-source-paragraph">48</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-cf612d459bb890675cf1f9ff09255417379480eefd3b6ef940e3af01dc52c94a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-cf612d459bb890675cf1f9ff09255417379480eefd3b6ef940e3af01dc52c94a.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="992" height="6249"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>TP</h4>
+<p class="tssr-source-paragraph">49</p>
+<p class="tssr-source-paragraph">49</p>
+<p class="tssr-source-paragraph">Active Directory</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous connaissez le rôle Active Directory<br>• Vous savez gérer les ressources partagées avec <br>AGDLP<br>• Vous connaissez la gestion des imprimantes</p>
+<p class="tssr-source-paragraph">50</p>
+<p class="tssr-source-paragraph">50</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-256a549e0673993a90fd04d40cc0f237da21802354ec216c57fa4df589a34fff.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-256a549e0673993a90fd04d40cc0f237da21802354ec216c57fa4df589a34fff.webp" alt="Illustrations du support source, pages 25" loading="lazy" width="992" height="1480"></a><figcaption>Illustrations du support Drive — pages 25. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

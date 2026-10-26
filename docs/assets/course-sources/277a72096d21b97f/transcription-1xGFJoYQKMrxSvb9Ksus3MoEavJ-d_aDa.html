@@ -1,0 +1,66 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M04TP02 - Solution - Métacaractères.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M04TP02 - Solution - Métacaractères</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+<h4>Les métacaractères </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6. </p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, <br>b, c ou d du répertoire /etc. </p>
+<p class="tssr-source-paragraph">ls -d /etc/[a-d]* </p>
+
+<p class="tssr-source-paragraph">2. Créer l&#x27;arborescence suivante dans votre répertoire de travail ($HOME) en une seule <br>ligne de commande : </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user3086srv-formateur:-$<br>ls -d /etc/[a-d]*<br>fetc/adduser.conf<br>fetc/cron.daily</p><p>fetc/apparmor<br>fetc/crontab</p><p>/etc/bash.bashre<br>fetc/debconf.conf<br>fetc/bash completion<br>fetc/debian version</p><p>fetc/bindresvport.blacklist<br>/etc/deluser.conf</p><p>fetc/ca-certificates.conf<br>fetc/discover.conf.d<br>fetc/calendar<br>fetc/discover-modprobe.con£f</p><p>user30@srv-formateur:-$ | |</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+
+<p class="tssr-source-paragraph"> <br>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}} </p>
+
+<p class="tssr-source-paragraph">3. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui <br>comporte, dans son nom, un astérisque. </p>
+<p class="tssr-source-paragraph">cd Tp/Divers/Sources/ </p>
+<p class="tssr-source-paragraph"> <br>touch fic*ier </p>
+
+<p class="tssr-source-paragraph">4. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources <br>en utilisant la commande rmdir. Que constatez-vous ? </p>
+<pre class="tssr-source-code">Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
+répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
+non vides ainsi que leurs contenus, si l&#x27;option -r (récursive) est utilisée. </pre>
+<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/ </p>
+
+<p class="tssr-source-paragraph"> <br>On constate que même positionné dans un répertoire nous pouvons le supprimer </p>
+<p class="tssr-source-paragraph">5. Supprimer le répertoire Divers en utilisant la commande rm. </p>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SHOME</p><p>bin<br>Th</p><p>Bourne<br>KornShell<br>Divers</p><p>Sources<br>lik:<br>Executables</p><p>user30@srv-formateur:~$ mkdir -p bin Tp/ {Bourne, KornShell, Divers/{Sources,lib,Exec<br>tuables}}</p><p>user30@srv-formateur:-/Tp/Divers/Sources$<br>touch fic*ier</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+<p class="tssr-source-paragraph">rm -r ../../Divers/ </p>
+
+
+<p class="tssr-source-paragraph">6. Après vous être positionné dans votre répertoire d&#x27;accueil, afficher la liste détaillée <br>des fichiers répondants aux critères suivants : </p>
+<p class="tssr-source-paragraph">- ils sont présents directement dans /etc </p>
+<p class="tssr-source-paragraph"> <br>- leurs noms finissent par l&#x27;extension .conf </p>
+<p class="tssr-source-paragraph"> <br>- la première lettre est une consonne, celle précédant l&#x27;extension est comprise entre <br>f et s </p>
+<p class="tssr-source-paragraph"> <br>- ils comportent exactement 6 lettres (hors extension). </p>
+<pre class="tssr-source-code"> 
+ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv—-formateur:~/Tp/Divers/Sources$<br>rm -r<br>../../Divers/<br>user30@srv-formateur:-/Tp/Divers/Sources$<br>| |</p><p>user30@srv-formateur:~/Tp/Divers/Sources$<br>cd ~<br>user30@srv-formateur:~$<br>ls -ld /etc/[&#x27;aeiouv][a-zA-7][a-zA-7][a-zA-7][a-zA-7][£-s]<br>cont</p><p>-rFw-r--r--<br>1<br>root<br>root<br>5060<br>oct.<br>26<br>2018<br>/etc/hdparm.conf<br>-rw-r--r--<br>1<br>root<br>root<br>2350<br>août<br>2<br>2019 fetc/sysctl.cont<br>user30@srv-formateur:~$ |</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b7b352be2f5ca162137fd958033fc6ae892e9e01490916e7fe56c3615abcfa5b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b7b352be2f5ca162137fd958033fc6ae892e9e01490916e7fe56c3615abcfa5b.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2578"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

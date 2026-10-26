@@ -1,0 +1,369 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 04 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 04 – Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Comprendre l&#x27;intérêt des variables</p>
+<p class="tssr-source-paragraph">• Utiliser des variables dans ses scripts<br>• Manipuler les variables<br>• Récupérer une saisie utilisateur dans une variable</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">• Les variables sont des éléments essentiels à la réalisation <br>de scripts. <br>• Elles permettent de stocker temporairement des informations <br>au cours du déroulement du script. <br>• Ce contenu peut être affiché ou réutilisé par d’autres commandes.</p>
+<p class="tssr-source-paragraph">Il est important de bien appréhender<br>les mécanismes régissant les variables.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell<br>Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">rappel<br>Fonctionnement d’une variable</p>
+<p class="tssr-source-paragraph">Etape 2  <br>Etape 3  <br>Etape 4  <br>Etape 5  <br>Etape 1  </p>
+<p class="tssr-source-paragraph">Lecture de la variable prenom<br>z<br>Modification de la variable prenom<br>Lecture de la variable prenom<br>Libérer la mémoire une fois la variable inutile<br>Création de la variable avec le nom du premier utilisateur</p>
+<pre class="tssr-source-code">Romain
+Sofia</pre>
+<p class="tssr-source-paragraph">prenom=Sofia</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+
+                      • Les variables sont des éléments essentiels à la réalisation
+               de scripts.
+                      • Elles permettent de stocker temporairement des informations
+                au cours du déroulement du script.
+                      • Ce contenu peut être affiché ou réutilisé par d’autres commandes.
+
+                                                                                  Il est important de bien appréhender
+                                                     les mécanismes régissant les variables.
+
+
+
+
+
+3
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                 Les variables dans les scripts
+
+ rappel  Fonctionnement d’une variable
+
+                EtapeEtapeEtapeEtape 23451                                                     CréationLectureLectureModificationLibérer ladededemémoirelalaladevariablevariablevariablela variableuneprenomprenomavecfoiszprenomlela RomainSofianomvariabledu premierinutile  utilisateur       Etape
+
+
+
+
+
+                                                 prenom=Sofia
+
+
+
+
+
+4</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>WE<br>ENAS</p><p>SOM ME</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">Les variables peuvent être classées en 4 catégories.</p>
+<p class="tssr-source-paragraph">Les constantes</p>
+<p class="tssr-source-paragraph">Les variables </p>
+<p class="tssr-source-paragraph">réservées<br>Les variables </p>
+<p class="tssr-source-paragraph">locales</p>
+<p class="tssr-source-paragraph">Les variables <br>d’environnement</p>
+<p class="tssr-source-paragraph">(variables<br>en lecture seule)</p>
+<p class="tssr-source-paragraph">Variable en lecture seule</p>
+<p class="tssr-source-paragraph">Les noms doivent être en </p>
+<p class="tssr-source-paragraph">minuscule (utilisation de </p>
+<p class="tssr-source-paragraph">Variable système<br>(comme HOME) ou</p>
+<p class="tssr-source-paragraph">Il est impossible <br>d’utiliser leurs noms</p>
+<p class="tssr-source-paragraph">doubles quotes “ pour </p>
+<p class="tssr-source-paragraph">variable exportée</p>
+<p class="tssr-source-paragraph">pour des variables </p>
+<p class="tssr-source-paragraph">séparer les mots)</p>
+<pre class="tssr-source-code">via 
+declare –r &lt;var&gt;. 
+Leurs noms doivent être en
+majuscule (utilisation de “_” </pre>
+<p class="tssr-source-paragraph">locales ou<br>d’environnement</p>
+<p class="tssr-source-paragraph">pour séparer les mots</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">Affectation d’un contenu</p>
+<p class="tssr-source-paragraph">Les principales actions <br>réalisées sur les variables</p>
+<p class="tssr-source-paragraph">Utilisation de son contenu</p>
+<p class="tssr-source-paragraph">Exportation de la variable</p>
+<p class="tssr-source-paragraph">Réaffectation de son contenu</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D<br>ES</p><p>DE<br>DE<br>DE)<br>#0<br>Lia:</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Utilisation de variables locales</h4>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Utilisation de variables locales</p>
+<pre class="tssr-source-code">Une variable locale est utilisable dans l’environnement courant.
+• Pour affecter un contenu à une variable : nom=valeur</pre>
+<pre class="tssr-source-code">errormsg=&quot;une erreur est survenue, contactez votre administrateur système&quot;
+logdir=&quot;/var/log/&quot;</pre>
+<p class="tssr-source-paragraph">• Pour utiliser le contenu d’une variable, on préfixe son nom par le <br>caractère dollar $ , généralement entouré de doubles quotes.</p>
+<pre class="tssr-source-code">[...]
+echo &quot;$errormsg&quot;
+mkdir –p &quot;$logdir&quot; 2&gt;/dev/null</pre>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>(wr)</p><p>nay</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c4e52209436240fb2ef09955c7dd2cecce7a1108669737903e0134f242da96ff.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c4e52209436240fb2ef09955c7dd2cecce7a1108669737903e0134f242da96ff.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="6435"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Les variables réservées</h4>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables réservées</p>
+<pre class="tssr-source-code">$$
+Numéro du processus en cours</pre>
+<pre class="tssr-source-code">$?
+Code retour (0 si vrai, different de 0 si faux)
+exit 2 -&gt;  provoque la sortie avec le code retour “2”</pre>
+<pre class="tssr-source-code">$!
+Numéro du dernier processus lancé en arrière-plan</pre>
+<p class="tssr-source-paragraph">• Ce sont des variables <br>dont le nom est réservé <br>par le Shell qui en gère <br>le contenu. </p>
+<pre class="tssr-source-code">$#
+Nombre de paramètres reçus par le script</pre>
+<pre class="tssr-source-code">$1 à $9
+Paramètres de la commande (1 pour le premier, 2 pour le 
+deuxième, etc.)</pre>
+<pre class="tssr-source-code">$0
+Nom de la commande ou du script</pre>
+<p class="tssr-source-paragraph">• Elles sont très utilisées <br>dans les scripts et les <br>enchaînements de <br>commandes.</p>
+<p class="tssr-source-paragraph">Valeurs des paramètres reçus encadrés par “ “ .<br>Certaines versions Unix concatènent les valeurs avec *.</p>
+<pre class="tssr-source-code">$@ ou
+$*</pre>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
+
+
+    Les variables réservées
+
+
+
+
+
+9
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                      Les variables réservées
+
+
+                      • Ce sont des variables        $$       Numéro du processus en cours
+                dont le nom est réservé     $?        Code retour (0 si vrai, different de 0 si faux)
+                  par le Shell qui en gère                exit 2 -&gt; provoque la sortie avec le code retour “2”
+                      le contenu.                   $!       Numéro du dernier processus lancé en arrière-plan
+                                                    $#       Nombre de paramètres reçus par le script
+                                                    $1 à $9  Paramètres de la commande (1 pour le premier, 2 pour le                      • Elles sont très utilisées
+                dans les scripts et les                       deuxième, etc.)                                                    $0      Nom de la commande ou du script
+                enchaînements de
+               commandes.                 $@$* ou     ValeursCertainesdesversionsparamètresUnix reçusconcatènentencadréslesparvaleurs“ “ . avec *.
+
+
+
+
+
+10</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>$$</td><td>Numérodu processusencours</td></tr><tr><td>$?</td><td>Code retour (0 sivrai, different de 0 sifaux)<br>exit 2 -&gt; provoquela sortie avec le code retour “2”</td></tr><tr><td>$!</td><td>Numérodu dernier processuslancéenarrière-plan</td></tr><tr><td>$#</td><td>Nombrede paramètresreçuspar le script</td></tr><tr><td>$1 à $9</td><td>Paramètresde la commande(1 pour le premier, 2 pour le<br>deuxième, etc.)</td></tr><tr><td>$0</td><td>Nom de la commandeoudu script</td></tr><tr><td>$@ ou<br>$*</td><td>Valeursdes paramètresreçusencadréspar “ “ .<br>Certainesversions Unix concatènentles valeursavec *.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables réservées</p>
+<p class="tssr-source-paragraph">Exemple</p>
+<pre class="tssr-source-code">$ ./monscript.sh  valun valdeux valtrois</pre>
+<pre class="tssr-source-code">$#
+$0</pre>
+<pre class="tssr-source-code">$1
+$2
+$3</pre>
+<pre class="tssr-source-code">$@</pre>
+<p class="tssr-source-paragraph">Variables <br>affectées</p>
+<pre class="tssr-source-code">$# 3          Trois paramètres reçus
+$0 ./monscript.sh
+$1 valun
+$2 valdeux
+$3 valtrois
+$@ valun valdeux valtrois</pre>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Modification du contenu d’une</h4>
+<h4>variable d’environnement</h4>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
+                                                                      Les variables réservées
+
+               Exemple
+  $1$ ./monscript.sh$0       valun valdeux$2   valtrois$3    $#
+
+
+                                                           $@
+                  Variables                 $# 3       Trois paramètres reçus
+                  affectées                 $0$1  ./monscript.shvalun
+                                              $2  valdeux
+                                              $3  valtrois
+                                              $@  valun valdeux valtrois
+
+
+
+
+
+11
+
+
+
+
+
+                                                                                                   Scripting Shell
+
+ Modification du contenu d’une
+    variable d’environnement
+
+
+
+
+
+12</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>$#</td><td>3 Trois paramètresreçus</td></tr><tr><td>$0</td><td>./monscript.sh</td></tr><tr><td>$1</td><td>valun</td></tr><tr><td>$2</td><td>valdeux</td></tr><tr><td>$3</td><td>valtrois</td></tr><tr><td>$@</td><td>valunvaldeuxvaltrois</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Modification du contenu d’une variable d’environnement</p>
+<p class="tssr-source-paragraph">Une variable d’environnement est une variable qui est héritée dans <br>tous les sous-Shell.<br>• Pour créer une variable d’environnement, on peut :<br>• Soit exporter une variable locale</p>
+<pre class="tssr-source-code">export NOMVAR</pre>
+<p class="tssr-source-paragraph">• Soit créer (ou modifier) et exporter directement une nouvelle variable</p>
+<pre class="tssr-source-code">export NOMVAR=valeur</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande set</pre>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>NY<br>©)<br>©</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande set</pre>
+<pre class="tssr-source-code">• La commande set permet notamment d’affecter des valeurs 
+aux variables réservées 1, 2 ...</pre>
+<pre class="tssr-source-code">$ set &quot;$LOGNAME&quot; $(uname -n)
+$ echo &quot;$1 $2&quot;
+user20 serveur102 </pre>
+<p class="tssr-source-paragraph">• Si aucun argument n’est donné, toutes les variables du Shell <br>sont affichées.</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande read</pre>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>i&gt;<br>(2)</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e5da3fc54369f1b3b17cd27188175d1d39c8beaa32cc6754d5064ce4526d17de.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e5da3fc54369f1b3b17cd27188175d1d39c8beaa32cc6754d5064ce4526d17de.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="994" height="6252"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande read</pre>
+<pre class="tssr-source-code">• La commande read est utilisée pour affecter un contenu saisi 
+par l’utilisateur à une variable.</pre>
+<pre class="tssr-source-code">Read [options] &lt;variable(s)&gt;
+Syntaxe</pre>
+<p class="tssr-source-paragraph">• Cette commande génère l’attente de saisie clavier validée <br>(par Entrée) et procède au stockage de cette saisie dans la (ou les) <br>variable(s) spécifiée(s).</p>
+<pre class="tssr-source-code">echo &quot;Veuillez entrer votre nom : &quot;
+read nom
+echo &quot;Bonjour $nom&quot;</pre>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande read</pre>
+<pre class="tssr-source-code">• Il est possible de substituer la commande echo par 
+l’option –p de read.</pre>
+<pre class="tssr-source-code">read –p &quot;Veuillez entrer votre nom : &quot; nom</pre>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LS |</p><p>(6— &gt;)\</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3>
+
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande read</pre>
+<pre class="tssr-source-code">• Si plusieurs paramètres séparés par des espaces sont fournis à 
+read, alors chaque mot saisi est affecté à la variable correspondante. 
+Les saisies en surnombre sont affectées au dernier nom de 
+variable indiqué. </pre>
+<pre class="tssr-source-code">read –p &quot; Saisissez votre nom et prénom : &quot; nom prenom</pre>
+<pre class="tssr-source-code">Thouin Frédéric dit penthium
+echo &quot;Nom saisi : $nom &quot;
+Nom saisi : Thouin
+echo &quot;Prénom saisi : $prenom &quot;
+Prénom saisi : Frédéric dit penthium</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">Commande read</pre>
+<p class="tssr-source-paragraph">• Pour éviter ce type de désagrément, il est possible de déclarer <br>une variable tampon non utilisée.</p>
+<pre class="tssr-source-code">read –p &quot; Saisissez votre nom et prénom : &quot; nom prenom tampon</pre>
+<pre class="tssr-source-code">Thouin frédéric dit penthium
+[…]
+echo &quot;Prénom saisi : $prenom &quot;
+Prénom saisi : frédéric</pre>
+<p class="tssr-source-paragraph">• Il est éventuellement possible ultérieurement de détruire cette <br>variable tampon</p>
+<pre class="tssr-source-code">unset tampon</pre>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>NN<br>(2)</p><p>=)</p><p>aan</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les variables dans les scripts</p>
+<p class="tssr-source-paragraph">Démo</p>
+<h4>Les variables</h4>
+<p class="tssr-source-paragraph">21</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>7<br>|<br>©</p><p>eni</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4845095394374b298d3f89e49c27030cfd8bcde36cb7c0f89993387e70669eb0.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4845095394374b298d3f89e49c27030cfd8bcde36cb7c0f89993387e70669eb0.webp" alt="Illustrations du support source, pages 9 à 11" loading="lazy" width="994" height="4110"></a><figcaption>Illustrations du support Drive — pages 9 à 11. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,85 +1,60 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Prise en  main de la cmd.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Prise en  main de la cmd.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Prise en main de la cmd
-TP du Module 03 – Interagir avec Windows 10
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Prise en  main de la cmd.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Prise en  main de la cmd</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Prise en main de la cmd </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10 </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX, à l&#x27;aide de votre interface graphique </p>
+<p class="tssr-source-paragraph">Pour une meilleure lisibilité, personnalisez votre fenêtre cmd </p>
+<p class="tssr-source-paragraph">• <br>Changez la police en consolas taille 24 </p>
+<p class="tssr-source-paragraph">• <br>Changez les couleurs de la police et de l&#x27;arrière-plan </p>
+<p class="tssr-source-paragraph">Clic gauche en haut à gauche de la fenêtre cmd &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Police, onglet Couleurs … </p>
+<p class="tssr-source-paragraph">Sinon il faut faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir <br>la taille de la fenêtre et la taille de la police en même temps </p>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX, une fois votre fenêtre cmd.exe prête, interagissez avec votre <br>système à l&#x27;aide de la ligne de commande  </p>
+<p class="tssr-source-paragraph">• <br>Affichez les commandes internes disponibles </p>
+<p class="tssr-source-paragraph">Dans l’interface en ligne de commande, tapez help </p>
+<p class="tssr-source-paragraph">• <br>Affichez l&#x27;aide de la commande cd. Quelle est son utilité ? </p>
+<p class="tssr-source-paragraph">help cd </p>
+<p class="tssr-source-paragraph">--- ou --- </p>
+<p class="tssr-source-paragraph">cd / ? </p>
+<p class="tssr-source-paragraph">Pour connaître l&#x27;utilité d&#x27;une commande, il suffit de lire la première ligne de l&#x27;aide (que l&#x27;on <br>appelle le synopsis) </p>
+<p class="tssr-source-paragraph">help cd <br>Affiche le nom ou change le répertoire en cours. <br> <br>CHDIR [/D] [lecteur:][chemin] <br>CHDIR [..] <br>CD [/D] [lecteur:][chemin] <br>CD [..] <br>[…] </p>
 
-Proposition de solution
-
-Sur la VM Win10-XX, à l&#x27;aide de votre interface graphique
-
-Pour une meilleure lisibilité, personnalisez votre fenêtre cmd
-
-    •  Changez la police en consolas taille 24
-
-    •  Changez les couleurs de la police et de l&#x27;arrière-plan
-
-Clic gauche en haut à gauche de la fenêtre cmd &gt; Propriétés
-Onglet Police, onglet Couleurs …
-Sinon il faut faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir
-la taille de la fenêtre et la taille de la police en même temps
-
-Sur la VM Win10-XX, une fois votre fenêtre cmd.exe prête, interagissez avec votre
-système à l&#x27;aide de la ligne de commande
-
-    •  Affichez les commandes internes disponibles
-
-Dans l’interface en ligne de commande, tapez help
-
-    •  Affichez l&#x27;aide de la commande cd. Quelle est son utilité ?
-help cd
-
---- ou ---
-cd / ?
-
-Pour connaître l&#x27;utilité d&#x27;une commande,  il suffit de lire la première ligne de l&#x27;aide (que l&#x27;on
-appelle le synopsis)
-help cd
-Affiche le nom ou change le répertoire en cours.
-
-CHDIR [/D] [lecteur:][chemin]
-CHDIR [..]
-CD [/D] [lecteur:][chemin]
-CD [..]
-[…]
-
-
-
-    •  Placez-vous à la racine du lecteur C
-cd c:\
-
-
-
-
- Page 1/2
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
-
-    •  Créez un répertoire CommandList à la racine du lecteur C
-md CommandList
-
---- ou ---
-mkdir Commandlist
-
-    •  Dans le répertoire c:\CommandList, créez un fichier InternalCommands.txt qui
-      recense la liste des commandes internes disponible.
-help &gt; c:\CommandList\InternalCommands.txt
-
-    •  Pour vérification, affichez le contenu du fichier InternalCommands.txt
-type c:\CommandList\InternalCommands.txt
-
-    •  Copiez ce fichier sur le bureau (indice : votre bureau est un sous-répertoire présent
-      dans c:\users)
-copy c:\CommandList\InternalList.txt c:\users\pnom\Desktop
-pnom est l’utilisateur que vous avez créé lors de l’installation de Windows 10
-Possibilité d&#x27;utiliser xcopy et robocopy en lieu et place de copy
-
-    •  Affichez la liste de tous les fichiers et sous-répertoires contenus dans votre dossier
-      bureau. Le résultat devra afficher la liste triée par la taille (ordre croissant)
-dir /A /OS c:\users\prenom\Desktop
-
-       Faites un snapshot TP03 terminé
+<p class="tssr-source-paragraph">• <br>Placez-vous à la racine du lecteur C </p>
+<p class="tssr-source-paragraph">cd c:\ </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LT</p><p>LT</p></div></details>
 
 
 
 
 
- Page 2/2
-                                      © ENI – Tous droits réservés</pre></section></html>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Créez un répertoire CommandList à la racine du lecteur C </p>
+<p class="tssr-source-paragraph">md CommandList </p>
+<p class="tssr-source-paragraph">--- ou --- </p>
+<p class="tssr-source-paragraph">mkdir Commandlist   </p>
+<p class="tssr-source-paragraph">• <br>Dans le répertoire c:\CommandList, créez un fichier InternalCommands.txt qui <br>recense la liste des commandes internes disponible. </p>
+<p class="tssr-source-paragraph">help &gt; c:\CommandList\InternalCommands.txt  </p>
+<p class="tssr-source-paragraph">• <br>Pour vérification, affichez le contenu du fichier InternalCommands.txt </p>
+<p class="tssr-source-paragraph">type c:\CommandList\InternalCommands.txt </p>
+<p class="tssr-source-paragraph">• <br>Copiez ce fichier sur le bureau (indice : votre bureau est un sous-répertoire présent <br>dans c:\users) </p>
+<p class="tssr-source-paragraph">copy c:\CommandList\InternalList.txt c:\users\pnom\Desktop  </p>
+<p class="tssr-source-paragraph">pnom est l’utilisateur que vous avez créé lors de l’installation de Windows 10 </p>
+<p class="tssr-source-paragraph">Possibilité d&#x27;utiliser xcopy et robocopy en lieu et place de copy </p>
+<p class="tssr-source-paragraph">• <br>Affichez la liste de tous les fichiers et sous-répertoires contenus dans votre dossier <br>bureau. Le résultat devra afficher la liste triée par la taille (ordre croissant) </p>
+<p class="tssr-source-paragraph">dir /A /OS c:\users\prenom\Desktop </p>
+<p class="tssr-source-paragraph"> <br>Faites un snapshot TP03 terminé </p>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>|<br>|<br>|<br>|</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e825860a0d00ac9bd35925e92363a1dd79373fa0d847ac7cbcc3d36d3b6c2230.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e825860a0d00ac9bd35925e92363a1dd79373fa0d847ac7cbcc3d36d3b6c2230.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1021" height="2025"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

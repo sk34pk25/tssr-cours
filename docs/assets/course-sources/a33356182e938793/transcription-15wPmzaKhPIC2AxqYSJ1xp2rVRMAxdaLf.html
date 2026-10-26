@@ -1,0 +1,591 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 – Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 06 – Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en <br>environnement Microsoft</h4>
+<p class="tssr-source-paragraph">Module 06 – Le service DNS</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Objectifs</h4>
+<p class="tssr-source-paragraph">• Comprendre et configurer le rôle DNS</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>La résolution de noms</h4>
+<p class="tssr-source-paragraph">La machine et l’humain, les chiffres ou les lettres</p>
+<p class="tssr-source-paragraph">Quand nous sollicitons un service ou une ressource, nous indiquons :</p>
+<p class="tssr-source-paragraph">• Le service sollicité</p>
+<p class="tssr-source-paragraph">• Le nom de la machine qui fournit le service</p>
+<p class="tssr-source-paragraph">http://www.google.com</p>
+<p class="tssr-source-paragraph">172.18.0.0/16</p>
+<p class="tssr-source-paragraph">\\SRVFIC01\Partage</p>
+<p class="tssr-source-paragraph">SRVFIC01</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>La résolution de noms</h4>
+<p class="tssr-source-paragraph">La résolution de noms d’hôtes</p>
+<p class="tssr-source-paragraph">Afin de résoudre les noms d’hôtes en adresses IP, plusieurs mécanismes peuvent être<br>utilisés.</p>
+<p class="tssr-source-paragraph">Mécanismes<br>Utilité</p>
+<p class="tssr-source-paragraph">Le cache DNS</p>
+<p class="tssr-source-paragraph">Il contient des correspondances entre des noms d’hôtes déjà résolus et les adresses IP <br>correspondantes.<br>Il conserve aussi les réponses négatives aux requêtes du client.<br>Il se gère avec la commande ipconfig.</p>
+<p class="tssr-source-paragraph">Le service DNS<br>Les clients DNS interrogent leur(s) serveur(s) DNS pour leurs requêtes de résolution.</p>
+<p class="tssr-source-paragraph">Le fichier hosts</p>
+<p class="tssr-source-paragraph">Les modifications effectuées dans ce fichier (ajout et suppression d’entrées) sont <br>reportées dans le cache DNS dès l’enregistrement du fichier.</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Mécanismes</td><td>Utilité</td></tr><tr><td>LecacheDNS</td><td>Ilcontientdescorrespondancesentredesnomsd’hôtesdéjàrésolusetlesadressesIP<br>correspondantes<br>.<br>Ilconserveaussilesréponsesnégativesauxrequêtesduclient<br>.<br>Ilsegèreaveclacommandeipconfig<br>.</td></tr><tr><td>LeserviceDNS</td><td>LesclientsDNSinterrogentleur(s)serveur(s)DNSpourleursrequêtesderésolution<br>.</td></tr><tr><td>Lefichierhosts</td><td>Lesmodificationseffectuéesdanscefichier(ajoutetsuppressiond’entrées)sont<br>reportéesdanslecacheDNSdèsl’enregistrementdufichier<br>.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>La résolution de noms</h4>
+<p class="tssr-source-paragraph">Structure du fichier hosts</p>
+<p class="tssr-source-paragraph">• Le fichier de configuration local C:\Windows\System32\drivers\etc\hosts permet de <br>renseigner des correspondances entre des noms et les adresses IP <br>correspondantes.</p>
+<p class="tssr-source-paragraph">• La syntaxe de ce fichier est la suivante : </p>
+<p class="tssr-source-paragraph">Adresse_IP<br>Nom</p>
+<p class="tssr-source-paragraph">172.16.255.254<br>rtsiege.monentreprise.local</p>
+<p class="tssr-source-paragraph">172.17.0.0<br>srv01,srv01.monentreprise.local</p>
+<p class="tssr-source-paragraph">Les informations contenues dans le fichier hosts sont prioritaires à <br>l’interrogation du service DNS, s’il trouve une correspondance pour un nom <br>donné dans ce fichier, le poste n’ira pas requêter le service DNS configuré.</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Le service DNS</h4>
+<p class="tssr-source-paragraph">Qu’est-ce que DNS ?<br>• Domain Name System est un service de résolution de noms.</p>
+<p class="tssr-source-paragraph">Un service <br>pour un espace </p>
+<p class="tssr-source-paragraph">de noms en </p>
+<p class="tssr-source-paragraph">Il permet de </p>
+<p class="tssr-source-paragraph">nom de </p>
+<p class="tssr-source-paragraph">résoudre</p>
+<p class="tssr-source-paragraph">serveur <br>l’hébergeant</p>
+<p class="tssr-source-paragraph">Un nom en </p>
+<p class="tssr-source-paragraph">Une adresse</p>
+<p class="tssr-source-paragraph">adresse IP</p>
+<p class="tssr-source-paragraph">IP en nom</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Le service DNS</h4>
+<p class="tssr-source-paragraph">Il est défini par des RFCs.</p>
+<p class="tssr-source-paragraph">L’espace de </p>
+<p class="tssr-source-paragraph">Ses principales <br>caractéristiques</p>
+<p class="tssr-source-paragraph">nom qu’il <br>couvre est <br>hiérarchique</p>
+<p class="tssr-source-paragraph">La gestion de <br>son espace de </p>
+<p class="tssr-source-paragraph">Il est le <br>mécanisme de </p>
+<p class="tssr-source-paragraph">résolutions de </p>
+<p class="tssr-source-paragraph">nom est <br>distribuée</p>
+<p class="tssr-source-paragraph">noms <br>d’Internet</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Noms d’hôtes et de domaine</h4>
+<p class="tssr-source-paragraph">Les noms d’hôtes</p>
+<p class="tssr-source-paragraph">• DNS permet la résolution de noms d’hôtes pleinement qualifiés (ou FQDN pour Fully<br>Qualified Domain Name) en adresse IP.</p>
+<p class="tssr-source-paragraph">• Voici un exemple :</p>
+<p class="tssr-source-paragraph">Séparateur hôte / domaine</p>
+<p class="tssr-source-paragraph">Nom de domaine pleinement qualifié (FQDN)<br>www . google.fr.</p>
+<p class="tssr-source-paragraph">• La première partie du nom identifie le poste au sein de son espace de nom, on parlera de <br>partie hôte du nom.</p>
+<p class="tssr-source-paragraph">• La deuxième partie identifie l’espace de nom auquel appartient l’hôte, on parlera de la <br>partie domaine du nom.</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b812259f63dbdd495c3fa24e353c433815bfda345f94342fa09f580db293be3d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b812259f63dbdd495c3fa24e353c433815bfda345f94342fa09f580db293be3d.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="8179"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Noms d’hôtes et de domaine</h4>
+<p class="tssr-source-paragraph">Les noms de domaines</p>
+<p class="tssr-source-paragraph">• Qu’est-ce que le domaine DNS ?<br>• C’est la partie commune à plusieurs hôtes d’un espace de noms.</p>
+<p class="tssr-source-paragraph">• Pour être résolvable, tout hôte doit être identifiable par d’autre(s) poste(s) <br>appartenant à d’autres espaces de noms. Pour cela, il dispose d’un nom <br>pleinement qualifié unique à l’échelle mondiale.</p>
+<p class="tssr-source-paragraph">• Il y a deux manières d’utiliser les espaces de noms :<br>• Usage privé : pour un espace de nom interne uniquement.<br>• Usage public : référencé sur Internet.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>La hiérarchisation des espaces de noms</h4>
+<p class="tssr-source-paragraph">• L’espace de noms DNS est hiérarchique. </p>
+<p class="tssr-source-paragraph">• Chaque espace de nom respecte cette hiérarchisation.</p>
+<p class="tssr-source-paragraph">La racine<br>Domaine </p>
+<p class="tssr-source-paragraph">racine</p>
+<p class="tssr-source-paragraph">.fr<br>.com<br>.de<br>.net</p>
+<p class="tssr-source-paragraph">Les TLD (Top Level<br>Domain) (1er niveau)</p>
+<p class="tssr-source-paragraph">Domaines de niveau </p>
+<p class="tssr-source-paragraph">.gouv</p>
+<p class="tssr-source-paragraph">inférieur (2e niveau)</p>
+<p class="tssr-source-paragraph">éducation<br>défense</p>
+<p class="tssr-source-paragraph">(3e niveau)</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>westgost grass”<br>des espace dewowspres</p><p>aeya egeronot® ourcone</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>La hiérarchisation des espaces de noms</h4>
+<p class="tssr-source-paragraph">Un serveur DNS comment ? Pour faire quoi ?</p>
+<p class="tssr-source-paragraph">La mise en place d’un </p>
+<p class="tssr-source-paragraph">La résolution de noms </p>
+<p class="tssr-source-paragraph">service de nommage </p>
+<p class="tssr-source-paragraph">Fournir des <br>correspondances entre </p>
+<p class="tssr-source-paragraph">externes à l’entreprise </p>
+<p class="tssr-source-paragraph">noms d’hôtes et </p>
+<p class="tssr-source-paragraph">nécessite un serveur </p>
+<p class="tssr-source-paragraph">interne (AD par <br>exemple) nécessite un </p>
+<p class="tssr-source-paragraph">adresse(s) IP </p>
+<p class="tssr-source-paragraph">DNS résolveur.</p>
+<p class="tssr-source-paragraph">serveur DNS </p>
+<p class="tssr-source-paragraph">associée(s).</p>
+<p class="tssr-source-paragraph">hébergeur.</p>
+<p class="tssr-source-paragraph">Le résolveur et <br>l’hébergeur peuvent </p>
+<p class="tssr-source-paragraph">En premier lieu, il faut </p>
+<p class="tssr-source-paragraph">identifier les besoins </p>
+<p class="tssr-source-paragraph">de résolutions de </p>
+<p class="tssr-source-paragraph">être assurés sur 2 <br>serveurs distincts ou <br>cumulés sur le même </p>
+<p class="tssr-source-paragraph">noms.</p>
+<p class="tssr-source-paragraph">serveur.</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Le rôle du DNS résolveur</h4>
+<p class="tssr-source-paragraph">C’est le <br>partenaire <br>désigné des <br>équipements </p>
+<p class="tssr-source-paragraph">Le DNS résolveur</p>
+<p class="tssr-source-paragraph">clients du <br>service de <br>résolution de </p>
+<p class="tssr-source-paragraph">noms</p>
+<p class="tssr-source-paragraph">Il ne gère pas </p>
+<p class="tssr-source-paragraph">d’espace de </p>
+<p class="tssr-source-paragraph">Il effectue des <br>requêtes auprès <br>d’autres serveurs </p>
+<p class="tssr-source-paragraph">noms</p>
+<p class="tssr-source-paragraph">DNS afin de <br>résoudre les <br>requêtes de ses </p>
+<p class="tssr-source-paragraph">clients</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mécanismes d’interrogation</h4>
+<p class="tssr-source-paragraph">Mécanismes d’interrogation des serveurs DNS</p>
+<p class="tssr-source-paragraph">Deux types de requêtes peuvent être adressés à un serveur DNS :</p>
+<p class="tssr-source-paragraph">• Les requêtes récursives :<br>• Le serveur répondant doit fournir une réponse complète à la question posée.</p>
+<p class="tssr-source-paragraph">Ce type de requête est fréquemment utilisé par un client pour son serveur DNS.</p>
+<p class="tssr-source-paragraph">• Les requêtes itératives :<br>• Le serveur qui envoie la requête accepte une réponse partielle à la question posée.<br>• La réponse sera une indication lui permettant d’avancer dans son processus de résolution.</p>
+<p class="tssr-source-paragraph">Ce type de requête est fréquemment utilisé lors de l’exploration de l’arborescence DNS à partir de la racine</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mécanismes d’interrogation</h4>
+<p class="tssr-source-paragraph">Les requêtes récursives</p>
+<p class="tssr-source-paragraph">Quelle est l’adresse IP de www.google.com. ?</p>
+<p class="tssr-source-paragraph">IP de www.google.com. = 172.217.18.196</p>
+<p class="tssr-source-paragraph">DNS</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mécanismes d’interrogation</h4>
+<p class="tssr-source-paragraph">Les requêtes itératives</p>
+<p class="tssr-source-paragraph">.</p>
+<p class="tssr-source-paragraph">Quelle est l’adresse IP</p>
+<p class="tssr-source-paragraph">fr.</p>
+<p class="tssr-source-paragraph">de www.amendes.gouv.fr. ?</p>
+<p class="tssr-source-paragraph">A de www.amendes.gouv.fr. <br>= 160.92.178.39</p>
+<p class="tssr-source-paragraph">gouv.fr.</p>
+<p class="tssr-source-paragraph">amendes.gouv.fr.</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les redirections</h4>
+<p class="tssr-source-paragraph">La redirection non conditionnelle</p>
+<p class="tssr-source-paragraph">• Sans configuration particulière, un serveur DNS ira interroger les serveurs racine afin de <br>résoudre les requêtes de ses clients.</p>
+<p class="tssr-source-paragraph">• Si un serveur est configuré de telle sorte à utiliser la redirection, il demandera à son serveur <br>redirecteur de trouver les réponses aux requêtes de ses clients.</p>
+<p class="tssr-source-paragraph">Résolveur interne</p>
+<p class="tssr-source-paragraph">Quelle est l’adresse IP de www.google.com. ?</p>
+<p class="tssr-source-paragraph">Réseau interne<br>DNS FAI</p>
+<p class="tssr-source-paragraph">IP de www.google.com. = 172.217.18.196 </p>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PRE SC</p><p>es ;ere<br>À</p><p>2 nn AUK<br>xo<br>ec<br>ee<br>pceques ae fue<br>1<br>tu<br>gi<br>ces<br>G<br>\<br>prowl ae resco&quot;<br>eni</p><p>IP de<br>orme)<br>re<br>Mwgon<br>H<br>LE<br>29e cop &gt;</p><p>i<br>Le</p><p>:<br>L<br>MOoogie ne... ee, po</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c72fadfa6cc87309ef21a799c86618d8ce879b92ffd165825cdee5e6e4c8c70b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c72fadfa6cc87309ef21a799c86618d8ce879b92ffd165825cdee5e6e4c8c70b.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1005" height="8318"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les redirections</h4>
+<p class="tssr-source-paragraph">Le redirecteur conditionnel</p>
+<p class="tssr-source-paragraph">• Un serveur DNS peut être configuré pour faire appel à des redirecteurs ciblés pour des espaces de <br>noms identifiés. Il s’agit de redirecteurs conditionnels.</p>
+<p class="tssr-source-paragraph">• Cette configuration permet de :<br>• Résoudre des espaces de noms privés non référencés et non résolvables dans l’arborescence d’espaces de <br>noms publics.<br>• D’optimiser la résolution d’espaces de noms qui sont souvent sollicités.</p>
+<p class="tssr-source-paragraph">Serveur faisant autorité pour enigme.lcl.</p>
+<p class="tssr-source-paragraph">Redirection conditionnelle</p>
+<p class="tssr-source-paragraph">Pour le domaine enigme.lcl.</p>
+<p class="tssr-source-paragraph">Zone enigme.lcl.</p>
+<p class="tssr-source-paragraph">Résolveur interne</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les redirections</h4>
+<p class="tssr-source-paragraph">La mise en cache</p>
+<p class="tssr-source-paragraph">• Chaque fois qu’un serveur DNS fait appel à d’autres serveurs pour ses demandes de résolutions, il <br>enregistre dans le cache DNS les résultats obtenus.</p>
+<p class="tssr-source-paragraph">• La durée de conservation en cache est propre à chaque enregistrement (TTL).</p>
+<p class="tssr-source-paragraph">• Les réponses négatives (enregistrement inexistant par exemple) sont aussi conservées en cache.</p>
+<p class="tssr-source-paragraph">• Lorsque le serveur reçoit une requête d’un client, il détermine si cette dernière est relative à une zone <br>pour laquelle il fait autorité. Si ce n’est pas le cas, il consulte son cache.</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>S</p><p>Leseeur&amp;\eent<br>Repost<br>ae oacne<br>wero</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>DNS résolveur</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Le DNS hébergeur</h4>
+<p class="tssr-source-paragraph">Le rôle du DNS hébergeur</p>
+<p class="tssr-source-paragraph">Il a pour mission de </p>
+<p class="tssr-source-paragraph">répondre aux <br>requêtes relatives à </p>
+<p class="tssr-source-paragraph">l’espace de nom </p>
+<p class="tssr-source-paragraph">qu’il gère</p>
+<p class="tssr-source-paragraph">Le DNS <br>hébergeur</p>
+<p class="tssr-source-paragraph">Il fait autorité pour </p>
+<p class="tssr-source-paragraph">le ou les espace(s) </p>
+<p class="tssr-source-paragraph">de nom(s) qu’il </p>
+<p class="tssr-source-paragraph">Il gère un ou <br>plusieurs espaces </p>
+<p class="tssr-source-paragraph">gère</p>
+<p class="tssr-source-paragraph">de noms</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">• Correspondent au conteneur de l’ensemble des données d’un espace de nom.</p>
+<p class="tssr-source-paragraph">• Elle contient un ensemble d’enregistrements.</p>
+<p class="tssr-source-paragraph">• Le contenu de chaque zone est stocké dans un fichier de zone qui lui est propre <br>(habituellement stocké dans %windir%\system32\dns*).</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PCMrat géraut<br>porn \esowes<br>syst re anne</p><p>pP-</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Zone directe</p>
+<p class="tssr-source-paragraph">• À chaque espace de nom correspond une zone.<br>• Un serveur faisant autorité est en mesure de répondre directement aux requêtes concernant l’espace <br>de noms correspondant.</p>
+<p class="tssr-source-paragraph">• S’il fait autorité sur une zone directe, il peut résoudre un nom en adresse IP.</p>
+<p class="tssr-source-paragraph">Résolveur interne</p>
+<p class="tssr-source-paragraph">Quelle est l’adresse IP de srvfic.masociete.lcl. ?</p>
+<p class="tssr-source-paragraph">Héberge la zone masociete.lcl.</p>
+<p class="tssr-source-paragraph">Réseau interne</p>
+<p class="tssr-source-paragraph">IP de srvfic.masociete.lcl. = 192.168.0.1</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Zone inverse</p>
+<p class="tssr-source-paragraph">S’il fait autorité sur une zone inverse, il peut résoudre une adresse IP en nom.</p>
+<p class="tssr-source-paragraph">Résolveur interne</p>
+<p class="tssr-source-paragraph">Héberge la zone inverse pour le réseau 192.168.0.0<br>Quel est le nom de 192.168.0.1 ?</p>
+<p class="tssr-source-paragraph">Réseau interne</p>
+<p class="tssr-source-paragraph">Nom de 192.168.0.1 = srvfic.masociete.lcl.</p>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b4126a2b4d3020221771011ae37663aef30ed3bae8d03f81b59508b9458ad663.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b4126a2b4d3020221771011ae37663aef30ed3bae8d03f81b59508b9458ad663.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="7585"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Zone principale et zone secondaire</p>
+<p class="tssr-source-paragraph">Serveur maître<br>Serveur esclave</p>
+<p class="tssr-source-paragraph">Type de zone hébergée<br>Zone principale<br>Zone secondaire</p>
+<p class="tssr-source-paragraph">Autorisation d’accès<br>Lecture / écriture<br>Lecture</p>
+<p class="tssr-source-paragraph">Fait autorité pour la zone<br>Oui<br>Oui</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Le contenu d’une zone</p>
+<p class="tssr-source-paragraph">• Une zone contient un ensemble d’enregistrements.</p>
+<p class="tssr-source-paragraph">• Dans une zone directe ou inverse, il y a :<br>• Un SOA : (Start Of Authority) nom FQDN du serveur DNS disposant de la zone en écriture.<br>• Un ou des NS : (Name Server) serveur(s) faisant autorité pour la zone.</p>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Le contenu d’une zone</p>
+<p class="tssr-source-paragraph">• Les enregistrements présents dans des zones directes</p>
+<p class="tssr-source-paragraph">Type d’enregistrement<br>Contenu</p>
+<p class="tssr-source-paragraph">SOA<br>nom FQDN du serveur DNS disposant de la zone en écriture</p>
+<p class="tssr-source-paragraph">NS<br>serveur(s) faisant autorité pour la zone</p>
+<p class="tssr-source-paragraph">A<br>Hôte IPv4</p>
+<p class="tssr-source-paragraph">AAAA<br>Hôte IPv6</p>
+<p class="tssr-source-paragraph">CNAME<br>Alias</p>
+<p class="tssr-source-paragraph">MX<br>Serveur de messagerie</p>
+<p class="tssr-source-paragraph">SRV<br>Services</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Le contenu d’une zone</p>
+<p class="tssr-source-paragraph">• Les enregistrements présents dans des zones inverses </p>
+<p class="tssr-source-paragraph">Type d’enregistrement<br>Contenu</p>
+<p class="tssr-source-paragraph">SOA<br>nom FQDN du serveur DNS disposant de la zone en écriture</p>
+<p class="tssr-source-paragraph">NS<br>serveur(s) faisant autorité pour la zone</p>
+<p class="tssr-source-paragraph">PTR<br>Pointeur</p>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les zones</h4>
+<p class="tssr-source-paragraph">Récapitulatif des étapes de résolution</p>
+<p class="tssr-source-paragraph">Demande de résolution du<br>client pour www.hadopi.fr.</p>
+<p class="tssr-source-paragraph">Le serveur cherche la réponse dans sa zone et répond au client</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Le serveur interrogé fait-il<br>autorité pour la zone hadopi.fr. </p>
+<p class="tssr-source-paragraph">?</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Le serveur répond au client</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">réponse en cache ?</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Le serveur interroge le redirecteur configuré </p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Le serveur est-il configuré pour </p>
+<p class="tssr-source-paragraph">1 – redirecteur conditionnel<br>2 – redirecteur non-conditionnel</p>
+<p class="tssr-source-paragraph">faire appel aux redirecteurs ?</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Le serveur interroge un serveur racine </p>
+<p class="tssr-source-paragraph">Le serveur interroge les racines</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Le serveur a-t-il obtenu la <br>réponse à la requête de son  </p>
+<p class="tssr-source-paragraph">Le serveur interroge un serveur indiqué par </p>
+<p class="tssr-source-paragraph">client ? </p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">la réponse à la précédente requête</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BCE</p><p>mn: =—.</p><p>CRE</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>DNS hébergeur</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mises à jour</h4>
+<p class="tssr-source-paragraph">Les enregistrements dynamiques</p>
+<p class="tssr-source-paragraph">Dans une zone sont inscrites des correspondances entre des noms et des adresses IP.</p>
+<p class="tssr-source-paragraph">• Parfois, ces enregistrements doivent être maintenus statiquement.</p>
+<p class="tssr-source-paragraph">mail1</p>
+<p class="tssr-source-paragraph">www</p>
+<p class="tssr-source-paragraph">edition-eni.fr.<br>www = 2001:0DB8:1234::1<br>mail1 = 2001:0DB8:1234::5</p>
+<p class="tssr-source-paragraph">• Dans d’autres cas, pour une zone principale, l’enregistrement dynamique sera autorisé.</p>
+<p class="tssr-source-paragraph">Cli-1</p>
+<p class="tssr-source-paragraph">Cli-2</p>
+<p class="tssr-source-paragraph">Réseau <br>interne<br>Zone mondomaine.lcl.<br>Cli-1 = 192.168.0.20<br>Cli-2 = 192.168.0.21</p>
+<p class="tssr-source-paragraph">32</p>
+<p class="tssr-source-paragraph">32</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>fa</p><p>LJsa</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-fcd3c889f32ff8929b05de540b9a5e0177737b09c81af6ef02d66eeb7366c0f1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fcd3c889f32ff8929b05de540b9a5e0177737b09c81af6ef02d66eeb7366c0f1.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="992" height="5926"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mises à jour</h4>
+<p class="tssr-source-paragraph">Le transfert de zone</p>
+<p class="tssr-source-paragraph">Le transfert de zone est le processus d’échanges de données d’une zone entre un <br>serveur maître et un serveur esclave.</p>
+<p class="tssr-source-paragraph">DNS maitre<br>DNS esclave</p>
+<p class="tssr-source-paragraph">1- Le serveur DNS esclave interroge le maître pour obtenir le <br>numéro de version de la zone </p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.<br>@ IN SOA […]<br>@ IN A 192[…]</p>
+<p class="tssr-source-paragraph">2- Le serveur DNS maître fournit en retour le numéro de <br>version de la zone</p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.<br>Serial 120<br>Cli-1 = 192.168.0.20<br>Cli-2 = 192.168.0.21</p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.<br>Serial 123<br>Cli-1 = 192.168.0.20<br>Cli-2 = 192.168.0.21<br>Cli-3 = 192.168.0.22</p>
+<p class="tssr-source-paragraph">3- Si le numéro de version reçu est supérieur au numéro de <br>version connu, le serveur esclave initie alors une requête IXFR<br>(incrémentale) ou AXFR (complet)</p>
+<p class="tssr-source-paragraph">Requête IXFR ou AXFR pour mon domaine.lcl.</p>
+<p class="tssr-source-paragraph">SOA de mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">SOA de mondomaine.lcl. […]<br>Serial 123</p>
+<p class="tssr-source-paragraph">4- Si le transfert de zone est autorisé vers celui qui lui a <br>adressé la requête, le serveur DNS maître répond alors en <br>fournissant les mises à jour de la zone ou toute celle-ci</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les mises à jour</h4>
+<p class="tssr-source-paragraph">Le transfert de zone</p>
+<p class="tssr-source-paragraph">• C’est au serveur esclave d’aller interroger son serveur maître afin d’obtenir les mises <br>à jour.</p>
+<p class="tssr-source-paragraph">• Néanmoins, le serveur maître a la possibilité de prévenir le ou les serveur(s) <br>esclave(s).</p>
+<p class="tssr-source-paragraph">• Quand une modification est effectuée dans sa zone, le numéro de série de celle-ci <br>est incrémenté et le serveur maître émet une requête DNS de type Notify à <br>destination des serveurs esclaves.</p>
+<p class="tssr-source-paragraph">• Suite à la réception de cette requête, le serveur esclave initiera le processus de <br>transfert de zone précédemment décrit.</p>
+<p class="tssr-source-paragraph">34</p>
+<p class="tssr-source-paragraph">34</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  Le service DNS
+ Les mises à jour
+
+     Le transfert de zone
+      Le transfert de zone est le processus d’échanges de données d’une zone entre un
+      serveur maître et un serveur esclave.
+
+           1- Le serveur DNS esclave interroge le maître pour obtenir le
+                                                                           DNS maitre                          DNS esclave               numéro de version de la zone                                                                                                    Zone mondomaine.lcl.
+                                                              @ IN SOA […]
+              2- Le serveur DNS maître fournit en retour le numéro de                      Zone mondomaine.lcl.@ IN A 192[…]                 Zone mondomaine.lcl.
+                        version de la zone                                                                        Serial 123                                            Serial 120
+                                                                                                                                Cli-1 = 192.168.0.20                                     Cli-1 = 192.168.0.20
+                                                                                                                                Cli-2 = 192.168.0.21                                     Cli-2 = 192.168.0.21
+                  3- Si le numéro de version reçu est supérieur au numéro de                  Cli-3 = 192.168.0.22
+                                version connu, le serveur esclave initie alors une requête IXFR
+                                (incrémentale) ou AXFR (complet)                                              Requête IXFR ou AXFR pour mon domaine.lcl.
+
+                                                     Si le                                                       transfert                                                de                                                     zone                                                                       est                                                                         autorisé                                                                                 vers                                                                                             celui qui                                                                                                                        lui                                                                                     a                        4-
+                                                                                         SOASOAdedemondomaine.lcl.mondomaine.lcl.[…]                                        adressé                                                           la                                                    requête,                                                                       le                                                             serveur                                                DNS                                                                         maître                                                                       répond                                                                                                 alors                                                                               en
+                                          fournissant les mises à jour de la zone ou toute celle-ci                                Serial 123
+
+                                                                                          33
+
+
+33
+
+
+  Le service DNS
+ Les mises à jour
+
+        Le transfert de zone
+             • C’est au serveur esclave d’aller interroger son serveur maître afin d’obtenir les mises
+          à jour.
+
+             • Néanmoins, le serveur maître a la possibilité de prévenir le ou les serveur(s)
+             esclave(s).
+
+             • Quand une modification est effectuée dans sa zone, le numéro de série de celle-ci
+            est incrémenté et le serveur maître émet une requête DNS de type Notify à
+            destination des serveurs esclaves.
+
+             • Suite à la réception de cette requête, le serveur esclave initiera le processus de
+             transfert de zone précédemment décrit.
+
+                                                                                          34
+
+
+34</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>po<br>e<br>LE io</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>DNS hébergeur et redondance</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">36</p>
+<p class="tssr-source-paragraph">36</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les sous-domaines</h4>
+<p class="tssr-source-paragraph">Ils permettent d’organiser un espace de noms en regroupant des <br>enregistrements par leur appartenance à une même entité (site, service).</p>
+<p class="tssr-source-paragraph">Fait autorité pour mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Fait autorité pour mondomaine.lcl.<br>Et pour les espaces de noms enfants</p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Srv1.nantes = 10.0.0.1<br>Cli1.nantes = 10.0.20.1</p>
+<p class="tssr-source-paragraph">Nantes-Srv1 = 10.0.0.1<br>Nantes-Cli1 = 10.0.20.1<br>Brest-Srv1 = 10.1.0.1<br>Brest-Cli1 = 10.1.20.1<br>Rennes-Srv1 = 10.2.0.1<br>Rennes-Cli1 = 10.2.20.1</p>
+<p class="tssr-source-paragraph">Srv1.brest = 10.1.0.1<br>Cli1.brest = 10.1.20.1</p>
+<p class="tssr-source-paragraph">Srv1.rennes=10.2.0.1<br>Cli1.rennes = 10.2.20.1</p>
+<p class="tssr-source-paragraph">Sous-domaines intégrés </p>
+<p class="tssr-source-paragraph">dans la zone</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Les sous-domaines</h4>
+<p class="tssr-source-paragraph">Les délégations<br>La gestion des espaces de noms enfants peut être assurée par d’autre(s) <br>serveur(s) DNS si une délégation de zone est faite.</p>
+<p class="tssr-source-paragraph">Zone mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Fait autorité pour mondomaine.lcl.<br>Mais ne fait pas autorité pour les <br>espaces enfants Nantes, Brest et <br>Rennes<br>Délégations pour<br>nantes<br>brest<br>rennes</p>
+<p class="tssr-source-paragraph">Zone rennes.mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Zone nantes.mondomaine.lcl.</p>
+<p class="tssr-source-paragraph">Zone brest.mondomaine.lcl.<br>Srv1 = 10.35.0.1<br>Cli1 = 10.35.20.1</p>
+<p class="tssr-source-paragraph">Srv1 = 10.44.0.1<br>Cli1 = 10.44.20.1</p>
+<p class="tssr-source-paragraph">Srv1 = 10.29.0.1<br>Cli1 = 10.29.20.1</p>
+<p class="tssr-source-paragraph">38</p>
+<p class="tssr-source-paragraph">38</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>L</p><p>End</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">Le service DNS</p>
+<h4>DNS délégations et redirections</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">40</p>
+<p class="tssr-source-paragraph">40</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5565edf886b545ec5f648243f29916c2d5d07e315ef6e4478940d20904336afd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5565edf886b545ec5f648243f29916c2d5d07e315ef6e4478940d20904336afd.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="992" height="5924"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><p class="tssr-source-paragraph">Le service DNS</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous comprenez et savez configurer le rôle DNS</p>
+<p class="tssr-source-paragraph">41</p>
+<p class="tssr-source-paragraph">41</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-632c734efa5ed14a1061de3c85a1958c7ec1c122ef66d05510c28c784a6613a2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-632c734efa5ed14a1061de3c85a1958c7ec1c122ef66d05510c28c784a6613a2.webp" alt="Illustrations du support source, pages 21" loading="lazy" width="992" height="740"></a><figcaption>Illustrations du support Drive — pages 21. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

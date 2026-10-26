@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - Recherches et regex.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 1 - Recherches et regex</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+<h4>Recherches et regex </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Fichiers et dossiers sous Linux </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir <br>effectué le TP précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires <br>pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Recherchez toutes les lignes contenant Dupont dans le fichier Edition. </p>
+<pre class="tssr-source-code">grep Dupont Edition </pre>
+
+<p class="tssr-source-paragraph">2. Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier <br>Edition. </p>
+<pre class="tssr-source-code">grep -i dupont Edition </pre>
+
+<p class="tssr-source-paragraph">3. Affichez toutes les lignes non vides du fichier Edition. </p>
+<pre class="tssr-source-code"> 
+grep -v &#x27;^$&#x27; Edition </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>grep Dupont Edition<br>Dupont<br>Jean 111111<br>Dupont<br>Jean 111111<br>Dupont<br>Patrice<br>222222<br>Dupont<br>Jojo<br>399959<br>Dupont<br>Pierre<br>222222<br>user30@sryv—formateur:~$ |</p><p>user30@srv-formateur:-$<br>grep<br>-i dupont Edition<br>Dupont<br>Jeam<br>111111<br>Dupont<br>Jean<br>111111<br>Dupont<br>Patrice<br>222222<br>Dupont<br>Jojo<br>999999<br>Dupont<br>Pierre<br>222222<br>user308srv-formateur:-$ [|</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">4. Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-<br>répertoires. </p>
+<pre class="tssr-source-code"> 
+grep -sl localhost /etc/* </pre>
+
+<p class="tssr-source-paragraph">5. Recherchez tous les fichiers standards commençant par ho à partir du répertoire <br>/etc. </p>
+<pre class="tssr-source-code"> 
+find /etc -type f -name &quot;ho*&quot; </pre>
+
+<p class="tssr-source-paragraph">6. Recherchez tous les répertoires depuis votre répertoire personnel. </p>
+<pre class="tssr-source-code"> 
+find ~ -type d </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>grep<br>-v<br>&#x27;*$!<br>Edition<br>Aboaf<br>Maurice<br>244748<br>Adda<br>Jen<br>239234<br>Allo<br>Jean-Pierre<br>255398<br>Ben<br>Raf<br>238999<br>Bernard<br>Jean-Paul<br>234567<br>ChasserAt<br>Paul<br>245678<br>Cousin<br>Pascal<br>222222<br>Froideceaux<br>Michel<br>252423<br>Gros<br>Lucien<br>212121<br>Cayrol<br>Patrice<br>123456<br>Beux<br>Leon<br>567891<br>Dupont<br>Jean<br>111111</p><p>user30@srv-formateur:-$<br>grep -sl localhost /etc/*<br>fetc/hosts<br>fete/reportbug.<br>cont<br>user30@srv—formateur:~$ |</p><p>user30@srv-formateur:-$<br>find fetc -type<br>£ -name<br>&quot;ho*&quot;™<br>fetc/host.cont<br>fetc/hosts<br>find:<br>‘/etc/ssl/private&#x27;:<br>Permission<br>non accordée<br>fetc/apparmor.d/tunables/home<br>fetc/hosts.allow<br>find:<br>‘/etc/lvm/backup’:<br>Permission<br>non accordée<br>fetc/fhosts.deny<br>fetc/hostname<br>user30@srv—formateur: ~$ |</p><p>ED</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">7. Recherchez tous les fichiers standards de votre répertoire personnel se terminant par <br>txt et en faire une copie avec l&#x27;extension .save. </p>
+<pre class="tssr-source-code"> 
+find ~ -type f -name &quot;*txt&quot; -exec cp {} {}.save \; </pre>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>find ~ -type<br>d<br>fhome/user30<br>fhome/user30/Tp<br>#home/user30/Tp/KornShell<br>fhome/user30/Tp/Bourne<br>fhome/user30/bin<br>user30@srv-formateur:~$ |</p><p>user30@srv—formateur:~$<br>find ~ -type<br>£ -name<br>&quot;*txt™<br>-exec<br>cp<br>{}<br>{}-save<br>\:<br>user30@srv-formateur:-$<br>1s<br>bin<br>editions .txt<br>fichier2+3<br>MonPremierFichier<br>TE<br>Edition<br>edition3.txt.save<br>MonDeuxiemeFichier<br>MonTroisiemeFichier<br>user30@srv-formateur:-$ |</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-55489002ab01e2b1f3929fd90e7c1978dfa2c7d0b68af0da03b7df629b2b95d3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-55489002ab01e2b1f3929fd90e7c1978dfa2c7d0b68af0da03b7df629b2b95d3.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2766"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M1 - Solution du TP 1 - Adapter une reponse à des contraintes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M1 - Solution du TP 1 - Adapter une reponse à des contraintes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<h4>Adapter une réponse à <br>des contraintes </h4>
+<p class="tssr-source-paragraph">TP du Module 01 – Les composantes du Cloud et de Microsoft 365 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 et d’avoir réalisé <br>les TP proposés. </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Adapter une réponse à un besoin donné </p>
+<p class="tssr-source-paragraph">En fonction des besoins exprimés, déterminez s’il est préférable de placer l’infrastructure <br>dans un Cloud privé, un Cloud public ou du On-Premise. <br> <br>Contexte 1 </p>
+<p class="tssr-source-paragraph">• <br>Vous êtes prestataire de service, vous avez un contrat d’infogérance avec une <br>entreprise située à l’étranger. </p>
+<p class="tssr-source-paragraph">• <br>Cette entreprise vous montre des besoins de très haute disponibilité de l’infrastructure <br>avec des délais courts d’intervention en cas de panne. </p>
+<p class="tssr-source-paragraph">• <br>Cette entreprise dispose d’une ligne Internet fiable et garantie. </p>
+<p class="tssr-source-paragraph">• <br>Cette entreprise a des besoins de confidentialité. </p>
+<p class="tssr-source-paragraph">Une migration dans un Cloud privé peut être envisagée. La confidentialité des données <br>pourra être assurée, la haute disponibilité pourra être envisagée (réplication sur un autre <br>datacenter par exemple). Dans l’absolu, en tant que prestataire, ce datacenter doit être <br>situé proche de vos locaux afin qu’en cas d’incident matériel, vous puissiez être en mesure <br>d’intervenir rapidement. </p>
+<p class="tssr-source-paragraph">La ligne étant garantie, une infrastructure On Premise peut éventuellement être envisagée, <br>avec une hybridation de l’infrastructure pour la partie haute disponibilité (et PRA). Attention <br>néanmoins à la partie matérielle, bien qu’assurée par les constructeurs dans le cadre des <br>garanties sur les équipements (serveurs par exemple), l’hypothèse d’une intervention sur site <br>n’est pas à écarter. Pour cela, il faudra anticiper un accord/contrat de service avec un <br>partenaire de confiance proche du site client. </p>
+<p class="tssr-source-paragraph">Dans le cas présent, ces divers scénarios doivent être présentés au client à qui reviendra le <br>choix final. </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<p class="tssr-source-paragraph">Contexte 2 </p>
+<p class="tssr-source-paragraph">• <br>Vous êtes technicien dans une chaîne de magasins de meubles. </p>
+<p class="tssr-source-paragraph">• <br>Vous disposez d’une infrastructure éclatée sur 25 sites géographiques avec en moyenne <br>3 postes informatiques par magasin, la majorité d’entre eux étant au siège. </p>
+<p class="tssr-source-paragraph">• <br>Sur chaque site vous disposez d’une connexion Internet de type ADSL. </p>
+<p class="tssr-source-paragraph">• <br>Les salariés doivent être en mesure de fournir des simulations 3D aux clients. </p>
+<p class="tssr-source-paragraph">• <br>Vous avez principalement des besoins d’application métier et de bureautique. </p>
+<p class="tssr-source-paragraph">Il est parfois complexe de trouver la bonne réponse technique dans ce type de contexte. </p>
+<p class="tssr-source-paragraph">Les besoins sont importants : </p>
+<p class="tssr-source-paragraph">• <br>Besoin de centraliser la donnée métier. </p>
+<p class="tssr-source-paragraph">• <br>L’apport d’outils Cloud peut s’avérer être une « fausse bonne idée » en raison des liens <br>Internet faibles. </p>
+<p class="tssr-source-paragraph">• <br>Fournir des rendus 3D peut être très consommateur en bande passante. </p>
+<p class="tssr-source-paragraph">Plusieurs scénarios peuvent être envisagés : </p>
+<p class="tssr-source-paragraph">• <br>Infrastructure en Cloud public  </p>
+<p class="tssr-source-paragraph">• <br>Problématiques à anticiper  </p>
+<pre class="tssr-source-code">o Quid des applications métier ? Si elles fonctionnent en base de données, </pre>
+<p class="tssr-source-paragraph">l’apport de technologies comme RDS ou Citrix semble indispensable. </p>
+<pre class="tssr-source-code">o Microsoft 365 et éventuellement SharePoint peuvent être consommateurs en </pre>
+<p class="tssr-source-paragraph">bande passante lors des phases d’upload et de download. Il est fort probable <br>que cela engendre des lenteurs/coupures réseau. </p>
+<pre class="tssr-source-code">o Les rendus 3D sont difficilement compatibles avec la situation actuelle, </pre>
+<p class="tssr-source-paragraph">plusieurs possibilités peuvent être à explorer : </p>
+<p class="tssr-source-paragraph">▪ <br>Utilisation d’un logiciel de simulation en SaaS. </p>
+<p class="tssr-source-paragraph">▪ <br>Utilisation de stations graphiques en local (attention aux sauvegardes <br>des données, avec souvent une volumétrie importante qui risque <br>d’être incompatible avec le faible débit). </p>
+<p class="tssr-source-paragraph">▪ <br>Mise en place d’une infrastructure VDI avec cartes graphiques pour <br>une utilisation de stations graphiques à distance. Attention encore une <br>fois à la stabilité du lien. </p>
+<p class="tssr-source-paragraph">Globalement, l’utilisation de machines déportées type RDS/Citrix peut tout à fait convenir, <br>la fiabilité des liens restant un problème qu’il faudra corriger, avec potentiellement la <br>redondance de liens avec une éventuelle 4G, ou un autre lien ADSL/SDSL qui permettront <br>de limiter l’impact d’une coupure. <br>Contexte 3 </p>
+<p class="tssr-source-paragraph">• <br>Vous disposez d’une infrastructure relativement modeste hébergée dans vos locaux (2 <br>hyperviseurs et une baie de stockage / 40VM). </p>
+<p class="tssr-source-paragraph">• <br>Vous avez des serveurs de fichiers avec une volumétrie relativement importante (5To à </p>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<p class="tssr-source-paragraph">ce jour). </p>
+<p class="tssr-source-paragraph">• <br>Vous avez des applications métier avec un fort besoin de performance. </p>
+<p class="tssr-source-paragraph">Un hébergement des données en Cloud privé ou public peut être envisagé. Attention aux <br>volumétries et aux besoins car les coûts monteront rapidement dans ce contexte. <br>L’entreprise peut cependant tout à fait faire ce choix et assumer les contraintes financières <br>grâce aux bénéfices du cloud (haute disponibilité électrique, réseau, climatisation, <br>systèmes anti-incendie…). Il est également possible d’optimiser les coûts liés au volume de <br>stockage en démarrant une campagne d’archivage suite à quoi, les données archivées <br>pourraient être archivées localement et donc limiter l’espace occupé dans le Cloud et <br>réaliser des économies non négligeables. </p>
+<p class="tssr-source-paragraph">Il est également possible de choisir un renouvellement de l’infrastructure On-Premise, et <br>rester à ISO périmètre, tout dépend de la stratégie de l’entreprise et des compétences de <br>l’équipe IT sur place. </p>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-7c2b74c9bec6a0b12e4160e85699ecdedd84b667baaf3300f684e5a3d5c91c3c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7c2b74c9bec6a0b12e4160e85699ecdedd84b667baaf3300f684e5a3d5c91c3c.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="588"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,211 +1,117 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Manipuler l&#x27;aide de PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Manipuler l&#x27;aide de PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Manipuler l’aide de
-PowerShell
-TP du Module 03 – Interagir avec Windows 10
-
-Proposition de solution
-
-Sur Discovery, à l’aide de PowerShell
-
-
-Affichez l&#x27;aide complète de la cmdlet Get-Alias
-•  Quelle cmdlet avez-vous utilisée ?
-
-Get-Help -Full Get-Alias
-
-Un Get-Help Get-Alias -ShowWindow est aussi possible
-
-
-Sur Win10-XX, à l&#x27;aide de PowerShell
-
-Affichez l&#x27;aide complète de la cmdlet Get-Alias
-•  Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux
-  VMs ?
-
-Après avoir effectué la commande sur Win10-XX, nous remarquons qu’elle semble moins
-fournie. Les exemples ne sont pas présents. On observe surtout la présence d’une section
-REMARQUES à la fin, qui indique qu’il faut télécharger les fichiers d’aide.
-
-
-•  Mettez à jour l&#x27;aide de PowerShell
-        o  Vérifiez, à l&#x27;aide de votre interface graphique, que les mises à jour Windows
-           Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant.
-
-Rechercher &gt; Options avancées de Windows Update &gt; Options avancées &gt; Interrompre les
-mises à jour jusqu’à la date maximale
-        o  Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-
-           XX aura besoin d&#x27;être connectée au switch virtuel Bridge
-
-Dans WorkStation, xlic droit sur l’onglet de votre VM Win10-XX &gt; Settings
-
-Network Adapter
-
-Cochez Bridged
-
-
-
-
-
- Page 1/6
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
-
-
-
-
-
-La VM détecte un nouveau réseau.
-
-Pour mettre en place l’emplacement réseau privé, cliquez sur Oui
-
-
-
-
-
- Page 2/6
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>Systèmes Clients Microsoft
-
-Une connexion internet est découverte, Windows 10 en profite pour vous demander de
-terminer la configuration de votre profil utilisateur. Cliquer sur Me le rappeler plus tard
-
-
-
-
-
-        o  Identifiez-vous auprès du serveur à l&#x27;aide de vos identifiants / mot de passe du
-          domaine
-
-Pour mettre à jour les fichiers d’aide PowerShell, lancer une invite PowerShell en tant
-qu’administrateur.
-
-Update-help
-
-La mise à jour se lance et est symbolisée par une barre d’avancement comme ci-dessous.
-
-
-
-
-
- Page 3/6
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>Systèmes Clients Microsoft
-
-Si la barre d’avancement n’apparaît pas, c’est que vous avez fait une erreur de syntaxe
-dans votre commande.
-
-
-
-
-
-Au bout de quelques minutes, la mise à jour est terminée. Un message d’erreur peut
-éventuellement apparaître, vous indiquant une mise à jour impossible pour certains
-modules. Ceci  n’est pas bloquant. Vous pouvez continuer  le  TP, cela correspond
-généralement à des modules qui ne sont pas installés sur votre ordinateur ou à des modules
-non disponibles dans la langue demandée.
-
-
-
-
-
-Pour vérifier la bonne mise à jour de l’aide, effectuez la commande suivante sur votre VM
-Win10-xx :
-
-Get-Help -Full Get-Alias
-
-Vous devez obtenir l’aide complète (avec des exemples, des liens connexes …)
-
-
-
-
-
-Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only.
-•  Quelle cmdlet permet d&#x27;obtenir les exemples de la cmdlet Get-Help ?
-
-Get-Help Get-Help -Example
-
-
-•  À l&#x27;aide de ces exemples, recherchez et testez la cmdlet qui permet d&#x27;afficher la liste de
-   tous les concepts disponible et utilisable dans PowerShell
-
-Voir l’exemple 8 de la commande précédente Get-Help
-
-Get-Help about_*
-
-
-•  Quelle cmdlet nous permet d&#x27;en apprendre plus sur le concept d&#x27;alias PowerShell ?
-
-
-
-
- Page 4/6
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>Systèmes Clients Microsoft
-
-        o  Affichez le résultat de cette cmdlet dans une fenêtre d&#x27;aide séparée
-
-Get-Help about_Aliases -ShowWindow
-
-
-•  Les alias configurés sont-ils conservés si la session PowerShell est fermée ? Quelle section
-  de l’aide faut-il consulter pour savoir comment les sauvegarder ?
-
-Les alias configurés ne sont pas conservés si la session PowerShell est fermée. La section de
-l’aide qu’il faut consulter pour savoir comment les configurer est la section SAVING ALIASES
-
-SAVING ALIASES
-
-The aliases that you create are saved only in the current session. To use the
-aliases in a different session, add the alias to your Windows PowerShell profile.
-Or, use the Export-Alias cmdlet to save the aliases to a file.
-
-For more information, type:
-
-Get-Help about_Profiles
-
-
-•  PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le
-  nom de la variable qui définit le nombre de commandes qui sont conservées dans
-    l’historique. (indice : une variable commence par le caractère $)
-
-Get-Help about_History
-
-[…]
-
-MaximumHistoryCount
-
-The $MaximumHistoryCount preference variable determines the maximum number of
-commands that PowerShell saves in the command history. The default value is 4096.
-
-
-
-
-For  example,  the  following  command  lowers  the  $MaximumHistoryCount  to  100
-commands:
-
-
-
-
-    $MaximumHistoryCount = 100
-
-
-
-
-To apply the setting, restart PowerShell.
-
-
-•  Quelle est la valeur par défaut contenue dans cette variable ? Cette valeur peut-elle
-   être modifiée ?
-
-Selon le résultat de la commande précédente, la valeur par défaut contenue dans cette
-variable est 4096. Elle peut être modifiée grâce à la commande
-
-
-
- Page 5/6
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>Systèmes Clients Microsoft
-
-$MaximumHistoryCount = nb
-
-
-
-
-
- Page 6/6
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Manipuler l&#x27;aide de PowerShell.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Manipuler l&#x27;aide de PowerShell</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Manipuler l’aide de <br>PowerShell </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10 </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur Discovery, à l’aide de PowerShell <br> </p>
+<p class="tssr-source-paragraph">Affichez l&#x27;aide complète de la cmdlet Get-Alias </p>
+<p class="tssr-source-paragraph">• <br>Quelle cmdlet avez-vous utilisée ? </p>
+<p class="tssr-source-paragraph">Get-Help -Full Get-Alias </p>
+<p class="tssr-source-paragraph">Un Get-Help Get-Alias -ShowWindow est aussi possible </p>
+
+<p class="tssr-source-paragraph">Sur Win10-XX, à l&#x27;aide de PowerShell </p>
+<p class="tssr-source-paragraph">Affichez l&#x27;aide complète de la cmdlet Get-Alias </p>
+<p class="tssr-source-paragraph">• <br>Pourquoi existe-t-il une si grande différence entre les résultats des cmdlets de ces deux <br>VMs ? </p>
+<p class="tssr-source-paragraph">Après avoir effectué la commande sur Win10-XX, nous remarquons qu’elle semble moins <br>fournie. Les exemples ne sont pas présents. On observe surtout la présence d’une section <br>REMARQUES à la fin, qui indique qu’il faut télécharger les fichiers d’aide.  </p>
+
+<p class="tssr-source-paragraph">• <br>Mettez à jour l&#x27;aide de PowerShell </p>
+<pre class="tssr-source-code">o Vérifiez, à l&#x27;aide de votre interface graphique, que les mises à jour Windows </pre>
+<p class="tssr-source-paragraph">Update sont bien reportées à 35 jours au moins. Reportez-les le cas échéant. </p>
+<p class="tssr-source-paragraph">Rechercher &gt; Options avancées de Windows Update &gt; Options avancées &gt; Interrompre les <br>mises à jour jusqu’à la date maximale </p>
+<pre class="tssr-source-code">o Pour communiquer avec le serveur de mise à jour de l’aide, votre VM Win10-</pre>
+<p class="tssr-source-paragraph">XX aura besoin d&#x27;être connectée au switch virtuel Bridge </p>
+<p class="tssr-source-paragraph">Dans WorkStation, xlic droit sur l’onglet de votre VM Win10-XX &gt; Settings </p>
+<p class="tssr-source-paragraph">Network Adapter </p>
+<p class="tssr-source-paragraph">Cochez Bridged  </p>
+
+<p class="tssr-source-paragraph">Page 1/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">La VM détecte un nouveau réseau. </p>
+<p class="tssr-source-paragraph">Pour mettre en place l’emplacement réseau privé, cliquez sur Oui </p>
+
+<p class="tssr-source-paragraph">Page 2/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Virtual Machine Settings<br>x</p><p>Hardware<br>Options</p><p>Device<br>Summary<br>Device status<br>ll Memory<br>468<br>Moconnected<br>processors<br>1<br>FA Connect at power on<br>Bard Disk (SCSI)<br>32GB</p><p>;<br>€)co/pvo (SATA)<br>Using file C:\ISO\fr_windows_1.,. | Network connection<br>| Network Adapter<br>Bridged (Automatic)<br>@ Bridged: Connected directly to the physical network</p><p>USB Controller<br>Present<br>LReplicate physical network connection state<br>&amp;) Sound Card<br>Auto detect<br>Printer<br>Present<br>ONAT: Used to share the host&#x27;s IP address<br>M Display<br>Auto detect<br>OHost-only: A private network shared with the host<br>© Custom: Specific virtual network</p><p>VMnetO<br>v<br>© LAN segment:</p><p>Réseaux</p><p>5)<br>ad.campus-eni.fr</p><p>Voulez-vous autoriser les autres PC et</p><p>appareils de ce réseau a détecter votre<br>PC?</p><p>N<br>.<br>.<br>Nous vous recommandons de le faire<br>Nous allons terminer la configuration<br>sur vos réseaux domestiques et</p><p>.<br>,<br>professionnels, mais pas sur les<br>Vous</p><p>aes désormais connecté au réseau et vous pouvez terminer la configurati<br>Re ttes<br>appareil</p><p>eni</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Une connexion internet est découverte, Windows 10 en profite pour vous demander de <br>terminer la configuration de votre profil utilisateur. Cliquer sur Me le rappeler plus tard </p>
+
+
+<pre class="tssr-source-code">o Identifiez-vous auprès du serveur à l&#x27;aide de vos identifiants / mot de passe du </pre>
+<p class="tssr-source-paragraph">domaine </p>
+<p class="tssr-source-paragraph">Pour mettre à jour les fichiers d’aide PowerShell, lancer une invite PowerShell en tant <br>qu’administrateur. </p>
+<p class="tssr-source-paragraph">Update-help </p>
+<p class="tssr-source-paragraph">La mise à jour se lance et est symbolisée par une barre d’avancement comme ci-dessous. </p>
+<p class="tssr-source-paragraph">Page 3/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Vous êtes désormais connecté au réseau et vous pouvez terminer la configuration de votre</p><p>appareil.</p><p>Votre appareil doit se connecter à d&#x27;autres services Microsoft pour vous permettre de travailler plus facilement et en toute sécurité sur tous vos appareils.</p><p>Sélectionnez Continuer pour commencer en quelques clics.</p><p>ee<br>Windows Hello vous aide à vous<br>Gagnez en productivité avec un<br>“/<br>connecter rapidement<br>py abonnement a Microsoft 365<br>Déverrouillez votre appareil de façon<br>Obtenez les applications Office<br>sécurisée avec une interaction tactile ou<br>Premium et 1 To de stockage en ligne,<br>un sourire.<br>des fonctionnalités de sécurité avancée,</p><p>et bien plus encore.</p><p>Associer votre téléphone et votre PC<br>&amp;<br>Protégez vos fichiers dans le Cloud<br>Accédez aux photos, SMS, etc. de votre<br>avec OneDrive<br>téléphone directement sur votre PC.<br>Soyez rassuré en sachant qu&#x27;ils sont<br>sauvegardés et accessibles.</p><p>Me le rappeler plus tard<br>Continuer</p><p>|</p><p>&amp;<br>4</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Si la barre d’avancement n’apparaît pas, c’est que vous avez fait une erreur de syntaxe <br>dans votre commande. </p>
+
+<p class="tssr-source-paragraph">Au bout de quelques minutes, la mise à jour est terminée. Un message d’erreur peut <br>éventuellement apparaître, vous indiquant une mise à jour impossible pour certains <br>modules. Ceci n’est pas bloquant. Vous pouvez continuer le TP, cela correspond <br>généralement à des modules qui ne sont pas installés sur votre ordinateur ou à des modules <br>non disponibles dans la langue demandée. </p>
+
+<p class="tssr-source-paragraph">Pour vérifier la bonne mise à jour de l’aide, effectuez la commande suivante sur votre VM <br>Win10-xx :  </p>
+<p class="tssr-source-paragraph">Get-Help -Full Get-Alias </p>
+<p class="tssr-source-paragraph">Vous devez obtenir l’aide complète (avec des exemples, des liens connexes …) </p>
+
+
+<p class="tssr-source-paragraph">Une fois la mise à jour effectuée, rebasculez votre VM sur le switch Host-Only. </p>
+<p class="tssr-source-paragraph">• <br>Quelle cmdlet permet d&#x27;obtenir les exemples de la cmdlet Get-Help ? </p>
+<p class="tssr-source-paragraph">Get-Help Get-Help -Example </p>
+
+<p class="tssr-source-paragraph">• <br>À l&#x27;aide de ces exemples, recherchez et testez la cmdlet qui permet d&#x27;afficher la liste de <br>tous les concepts disponible et utilisable dans PowerShell </p>
+<p class="tssr-source-paragraph">Voir l’exemple 8 de la commande précédente Get-Help  </p>
+<p class="tssr-source-paragraph">Get-Help about_* </p>
+
+<p class="tssr-source-paragraph">• <br>Quelle cmdlet nous permet d&#x27;en apprendre plus sur le concept d&#x27;alias PowerShell ? </p>
+<p class="tssr-source-paragraph">Page 4/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Mise à jour de l’aide pour le module Microsoft .PowerShell .Management</p><p>Téléchargement<br>du contenu de<br>l’aide...<br>[oooooooooooooooo0000000000000000000000000000<br>]</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d00898928db4e00c1fccf4ceaac2210c89a58c166a71da9cf2955136dee4c6be.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d00898928db4e00c1fccf4ceaac2210c89a58c166a71da9cf2955136dee4c6be.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="965" height="3137"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<pre class="tssr-source-code">o Affichez le résultat de cette cmdlet dans une fenêtre d&#x27;aide séparée </pre>
+<p class="tssr-source-paragraph">Get-Help about_Aliases -ShowWindow </p>
+
+<p class="tssr-source-paragraph">• <br>Les alias configurés sont-ils conservés si la session PowerShell est fermée ? Quelle section <br>de l’aide faut-il consulter pour savoir comment les sauvegarder ? </p>
+<p class="tssr-source-paragraph">Les alias configurés ne sont pas conservés si la session PowerShell est fermée. La section de <br>l’aide qu’il faut consulter pour savoir comment les configurer est la section SAVING ALIASES </p>
+<pre class="tssr-source-code">SAVING ALIASES </pre>
+<pre class="tssr-source-code">The aliases that you create are saved only in the current session. To use the 
+aliases in a different session, add the alias to your Windows PowerShell profile. 
+Or, use the Export-Alias cmdlet to save the aliases to a file. </pre>
+<pre class="tssr-source-code">For more information, type: </pre>
+<pre class="tssr-source-code">Get-Help about_Profiles </pre>
+
+<p class="tssr-source-paragraph">• <br>PowerShell réalise un historique des commandes saisies. Utilisez l’aide pour déterminer le <br>nom de la variable qui définit le nombre de commandes qui sont conservées dans <br>l’historique. (indice : une variable commence par le caractère $) </p>
+<pre class="tssr-source-code">Get-Help about_History </pre>
+<pre class="tssr-source-code">[…] </pre>
+<pre class="tssr-source-code">MaximumHistoryCount </pre>
+<pre class="tssr-source-code">The $MaximumHistoryCount preference variable determines the maximum number of 
+commands that PowerShell saves in the command history. The default value is 4096. </pre>
+
+<pre class="tssr-source-code">For example, the following command lowers the $MaximumHistoryCount to 100 
+commands: </pre>
+
+<pre class="tssr-source-code">    $MaximumHistoryCount = 100 </pre>
+
+<pre class="tssr-source-code">To apply the setting, restart PowerShell. </pre>
+
+<p class="tssr-source-paragraph">• <br>Quelle est la valeur par défaut contenue dans cette variable ? Cette valeur peut-elle <br>être modifiée ? </p>
+<p class="tssr-source-paragraph">Selon le résultat de la commande précédente, la valeur par défaut contenue dans cette <br>variable est 4096. Elle peut être modifiée grâce à la commande  </p>
+<p class="tssr-source-paragraph">Page 5/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">$MaximumHistoryCount = nb </p>
+
+<p class="tssr-source-paragraph">Page 6/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-fca21304e67fbc44d614efb7a6fc77eb2818a21587a569011255623778db3239.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fca21304e67fbc44d614efb7a6fc77eb2818a21587a569011255623778db3239.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="900" height="264"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

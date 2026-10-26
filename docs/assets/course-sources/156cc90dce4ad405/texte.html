@@ -1,289 +1,188 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 03 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                  Module 03 – Interagir avec Windows 10
-
-
-
-
-
-                                                                                         1
-
-
-1
-
-
-
-   Interagir avec Windows 10
-
-                                            •  Interagir avec le système  Objectifs
-                                            •  Découvrir l’interface graphique
-                                            •  Administrer le système avec la ligne de
-                           commande
-                                            •  Démarrer avec PowerShell
-
-
-
-
-
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>   Interagir avec Windows 10
- Tour d’horizon
-
-            • Système d&#x27;exploitation multi-utilisateur
-                      • Le bureau personnalisable
-                      • Le menu démarrer
-                                   •  Clic gauche : les tuiles
-                                   •  Clic droit : les principaux raccourcis
-                      • Les bureaux supplémentaires
-                      • TimeLine (ou l&#x27;historique de vos actions)
-
-            • Système d&#x27;exploitation multitâche
-                      • La barre des tâches et ses raccourcis
-                      • Windows + Tab
-                      • Le gestionnaire des tâches
-
-
-                                                                                         3
-
-
-3
-
-
-   Interagir avec Windows 10
- Tour d’horizon graphique
-
-        La zone de notification
-            • Accès à la configuration
-          réseau
-            • Configuration rapide de la
-           connectivité
-            • Mode Tablette
-            • &quot;Tous les paramètres&quot;
-
-
-
-
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>   Interagir avec Windows 10
- Tour d’horizon graphique
-
-            •  La zone de recherche indexée
-            •  Le panneau de configuration
-            •  Les consoles MMC
-                   •  Préconfigurées
-                   •  Personnalisées
-
-
-
-
-
-                                                                                         5
-
-
-5
-
-
-   Interagir avec Windows 10
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>   Interagir avec Windows 10
-
-
-              TP
-
-
-
-
-
-                                                                                         7
-
-
-7
-
-
-   Interagir avec Windows 10
- Tour d’horizon – La CLI
-
-            • Généralement, les OS disposent d&#x27;un (ou plusieurs) Shell(s)
-            • Microsoft Windows : Historiquement orienté GUI
-            • Pour certaines actions spécifiques : CLI requise
-            • Automatisation de tâches d&#x27;administration (scripts) : CLI requise
-            • Les Shells de Microsoft :
-                    • command.com pour les OS basés sur MS-DOS (avant Win9X)
-                    • cmd.exe pour les OS basés sur WinNT (Windows NT, 2000 et plus)
-                   • PowerShell nativement présent sur 2008 Server et suivant
-
-
-
-
-                                                                                         8
-
-
-8</pre></section><section><h2>Page 5</h2><pre>   Interagir avec Windows 10
- Tour d’horizon – La CLI
-
-        Outre L&#x27;interface graphique (GUI), l&#x27;interface ligne de commande (CLI)
-              • Le shell cmd.exe (command prompt) pour &quot;aiguiser&quot; le système de manière plus
-             &quot;pointue&quot;
-              • Évolution de command.com présent nativement avec MS-DOS
-              • Interagir avec l&#x27;OS grâce aux commandes internes au shell
-              • … et grâce à des commandes externes
-              • Interpréter des fichiers batch (script)
-
-
-
-
-
-                                                                                         9
-
-
-9
-
-
-   Interagir avec Windows 10
- Tour d’horizon – La CLI
-
-         Principe d&#x27;utilisation de la ligne de commande
-
-
-                C:\windows\system32&gt; help
-
-                         prompt   commande seule
-
-                C:\windows\system32&gt; help shutdown
-
-                         prompt     commande
-
-                                               paramètre
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>   Interagir avec Windows 10
- Tour d’horizon – La CLI
-
-         Principe d&#x27;utilisation de la ligne de commande
-
-
-
-               C:\windows\system32&gt; shutdown /r /t 0
-
-                       prompt       commande
-                                                   option
-                                                       seule
-
-                                                option et son paramètre
-
-
-                                                                                          11
-
-
-11
-
-
-   Interagir avec Windows 10
- Tour d’horizon – La CLI
-
-         Principe d&#x27;utilisation de la ligne de commande
-              • Le premier mot est toujours une commande
-              • Une option est identifiable par un /
-              • Chaque mot est séparé par un espace
-                      • L&#x27;espace est un caractère spécial interprété par le système
-              • Le prompt est dynamique et personnalisable
-              • Les quotes permettent de convertir les caractères spéciaux en caractères alphanumériques
-                      • Exemple &#x27;Mes Documents&#x27;
-              • Par défaut, le résultat d&#x27;une commande s&#x27;affiche à l&#x27;écran. Possibilité de rediriger le résultat
-           dans un fichier à l&#x27;aide des simples chevrons &gt; et/ou des doubles chevrons &gt;&gt;
-                      • Exemple help shutdown &gt; aide.txt enregistre l&#x27;aide détaillée de la commande shutdown
-                dans le fichier aide.txt au lieu d&#x27;afficher l&#x27;aide détaillée à l&#x27;écran
-                                                                                          12
-
-
-12</pre></section><section><h2>Page 7</h2><pre>   Interagir avec Windows 10
- La syntaxe de l’aide
-
-            • À l&#x27;aide ! La commande help [&lt;commande&gt;] est indispensable
-
-              C:\windows\system32&gt; help copy
-
-              COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source
-              [/A | /B] [+ source [/A | /B] [+ ...]] [cible [/A | /B]]
-
-            • Comprendre la syntaxe d&#x27;une commande
-                Notation                                 Description
-                      Texte sans crochet ou accolades                  Élément obligatoire que vous devez taper ou choisir une valeur
-                         [texte entre crochet]                              Éléments facultatifs
-                        {Texte entre accolades}                                Choisir un des éléments parmi ceux présents
-                      Barre verticale ou &quot;pipeline&quot; |                     Séparateur d&#x27;éléments
-                      Points de suspension …                          Éléments qui peuvent être répétés et utilisés plusieurs fois
-
-                                                                                          13
-
-
-13
-
-
-   Interagir avec Windows 10
- La syntaxe de l’aide
-
-       Exemple
-
-              C:\windows\system32&gt; help copy
-
-              COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source
-              [/A | /B] [+ source [/A | /B] [+ ...]] [cible [/A | /B]]
-            • COPY et source obligatoire
-            • Possibilité de choisir 0, 1 ou des options seules (/D, /N, /A ou /B car il y a un |)
-            • Possibilité de choisir plusieurs sources
-            • Pour plus de détails et exemples, consultez l&#x27;aide en ligne
-
-                    https://docs.microsoft.com/fr-fr/windows-server/administration/windows-commands/windows-
-                commands
-
-                                                                                          14
-
-
-14</pre></section><section><h2>Page 8</h2><pre>   Interagir avec Windows 10
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          15
-
-
-15
-
-
-   Interagir avec Windows 10
-
-
-              TP
-
-
-
-
-
-                                                                                          16
-
-
-16</pre></section><section><h2>Page 9</h2><pre>   Interagir avec Windows 10
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 03 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 03 – Interagir avec Windows 10</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Objectifs<br>• Interagir avec le système<br>• Découvrir l’interface graphique<br>• Administrer le système avec la ligne de <br>commande<br>• Démarrer avec PowerShell</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon</h4>
+<p class="tssr-source-paragraph">• Système d&#x27;exploitation multi-utilisateur<br>• Le bureau personnalisable<br>• Le menu démarrer</p>
+<p class="tssr-source-paragraph">•<br>Clic gauche : les tuiles<br>•<br>Clic droit : les principaux raccourcis<br>• Les bureaux supplémentaires<br>• TimeLine (ou l&#x27;historique de vos actions)</p>
+<p class="tssr-source-paragraph">• Système d&#x27;exploitation multitâche<br>• La barre des tâches et ses raccourcis<br>• Windows + Tab<br>• Le gestionnaire des tâches</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon graphique</h4>
+<p class="tssr-source-paragraph">La zone de notification<br>• Accès à la configuration <br>réseau</p>
+<p class="tssr-source-paragraph">• Configuration rapide de la <br>connectivité<br>• Mode Tablette</p>
+<p class="tssr-source-paragraph">• &quot;Tous les paramètres&quot;</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ew</p><p>[<br>a<br>&amp;<br>LA</p><p>Tous les<br>Réseau<br>paramètres<br>Mode Avion</p><p>Assistant de<br>concentration<br>Plus sombre<br>Bluetooth</p><p>æ<br>=)<br>Fa</p><p>VPN<br>Projeter<br>Connecter</p><p>“p<br>Be<br>Point d&#x27;accès<br>Éclairage<br>sans fil mobile<br>nocturne</p><p>a<br>12:28</p><p>À<br>A<br>ch)<br>À<br>BY<br>3707208 |<br>Ew</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon graphique</h4>
+<p class="tssr-source-paragraph">• La zone de recherche indexée<br>• Le panneau de configuration<br>• Les consoles MMC<br>•<br>Préconfigurées<br>•<br>Personnalisées</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a<br>a non<br>ao se<br>ome<br>tte<br>:<br>PE<br>&gt;|<br>ni)<br>| 8m<br>RATES<br>[om<br>=</p><p>Aucun élément à afficher dans cet aperu<br>Pace</p><p>de conte +<br>-Ayouter ou upgremer ds composant logiciels enfichabies<br>x<br>an<br>SRsee<br>annererenpen<br>faenppeun<br>meme<br>sd<br>(eee<br>a<br>ES<br>ET =<br>—<br>Boies<br>San<br>Oe<br>~<br>Eine me<br>tee<br>Renan Due<br>FEES ET.<br>=<br>=<br>————<br>———</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon – La CLI</h4>
+<p class="tssr-source-paragraph">• Généralement, les OS disposent d&#x27;un (ou plusieurs) Shell(s)<br>• Microsoft Windows : Historiquement orienté GUI<br>• Pour certaines actions spécifiques : CLI requise<br>• Automatisation de tâches d&#x27;administration (scripts) : CLI requise<br>• Les Shells de Microsoft : <br>• command.com pour les OS basés sur MS-DOS (avant Win9X)<br>• cmd.exe pour les OS basés sur WinNT (Windows NT, 2000 et plus)<br>• PowerShell nativement présent sur 2008 Server et suivant</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-ab84f3959add5c3bb5567769e2a0bfe76be37b064c3ed3ec58284334d420652e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ab84f3959add5c3bb5567769e2a0bfe76be37b064c3ed3ec58284334d420652e.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7925"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon – La CLI</h4>
+<p class="tssr-source-paragraph">Outre L&#x27;interface graphique (GUI), l&#x27;interface ligne de commande (CLI)</p>
+<p class="tssr-source-paragraph">• Le shell cmd.exe (command prompt) pour &quot;aiguiser&quot; le système de manière plus <br>&quot;pointue&quot;</p>
+<p class="tssr-source-paragraph">• Évolution de command.com présent nativement avec MS-DOS</p>
+<p class="tssr-source-paragraph">• Interagir avec l&#x27;OS grâce aux commandes internes au shell</p>
+<p class="tssr-source-paragraph">• … et grâce à des commandes externes</p>
+<p class="tssr-source-paragraph">• Interpréter des fichiers batch (script)</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon – La CLI</h4>
+<p class="tssr-source-paragraph">Principe d&#x27;utilisation de la ligne de commande</p>
+<pre class="tssr-source-code">C:\windows\system32&gt; help </pre>
+<p class="tssr-source-paragraph">prompt<br>commande seule</p>
+<pre class="tssr-source-code">C:\windows\system32&gt; help shutdown</pre>
+<p class="tssr-source-paragraph">prompt<br>commande</p>
+<p class="tssr-source-paragraph">paramètre</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EM Administrateur: C:\Windows\System32\cmd.exe<br>Microsoft Windows<br>[version 10.0.17134.1]<br>(c)<br>2018 Microsoft Corporation.<br>Tous droits<br>réservés.</p><p>IC: \Windows\system32&gt;,,<br>eni</p><p>eni</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon – La CLI</h4>
+<p class="tssr-source-paragraph">Principe d&#x27;utilisation de la ligne de commande</p>
+<pre class="tssr-source-code">C:\windows\system32&gt; shutdown /r /t 0 </pre>
+<p class="tssr-source-paragraph">prompt<br>commande</p>
+<p class="tssr-source-paragraph">option</p>
+<p class="tssr-source-paragraph">seule</p>
+<p class="tssr-source-paragraph">option et son paramètre</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Tour d’horizon – La CLI</h4>
+<p class="tssr-source-paragraph">Principe d&#x27;utilisation de la ligne de commande</p>
+<p class="tssr-source-paragraph">• Le premier mot est toujours une commande</p>
+<p class="tssr-source-paragraph">• Une option est identifiable par un /</p>
+<p class="tssr-source-paragraph">• Chaque mot est séparé par un espace<br>• L&#x27;espace est un caractère spécial interprété par le système</p>
+<p class="tssr-source-paragraph">• Le prompt est dynamique et personnalisable</p>
+<p class="tssr-source-paragraph">• Les quotes permettent de convertir les caractères spéciaux en caractères alphanumériques <br>• Exemple &#x27;Mes Documents&#x27;</p>
+<p class="tssr-source-paragraph">• Par défaut, le résultat d&#x27;une commande s&#x27;affiche à l&#x27;écran. Possibilité de rediriger le résultat <br>dans un fichier à l&#x27;aide des simples chevrons &gt; et/ou des doubles chevrons &gt;&gt;</p>
+<pre class="tssr-source-code">• Exemple help shutdown &gt; aide.txt enregistre l&#x27;aide détaillée de la commande shutdown
+dans le fichier aide.txt au lieu d&#x27;afficher l&#x27;aide détaillée à l&#x27;écran </pre>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>La syntaxe de l’aide</h4>
+<p class="tssr-source-paragraph">• À l&#x27;aide ! La commande help [&lt;commande&gt;] est indispensable</p>
+<pre class="tssr-source-code">C:\windows\system32&gt; help copy</pre>
+<pre class="tssr-source-code">COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source 
+[/A | /B] [+ source [/A | /B] [+ ...]] [cible [/A | /B]]</pre>
+<p class="tssr-source-paragraph">• Comprendre la syntaxe d&#x27;une commande</p>
+<p class="tssr-source-paragraph">Notation<br>Description</p>
+<p class="tssr-source-paragraph">Texte sans crochet ou accolades<br>Élément obligatoire que vous devez taper ou choisir une valeur</p>
+<p class="tssr-source-paragraph">[texte entre crochet]<br>Éléments facultatifs</p>
+<p class="tssr-source-paragraph">{Texte entre accolades}<br>Choisir un des éléments parmi ceux présents </p>
+<p class="tssr-source-paragraph">Barre verticale ou &quot;pipeline&quot; |<br>Séparateur d&#x27;éléments</p>
+<p class="tssr-source-paragraph">Points de suspension …<br>Éléments qui peuvent être répétés et utilisés plusieurs fois</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>La syntaxe de l’aide</h4>
+<p class="tssr-source-paragraph">Exemple</p>
+<pre class="tssr-source-code">C:\windows\system32&gt; help copy</pre>
+<pre class="tssr-source-code">COPY [/D] [/V] [/N] [/Y | /-Y] [/Z] [/L] [/A | /B ] source 
+[/A | /B] [+ source [/A | /B] [+ ...]] [cible [/A | /B]]</pre>
+<p class="tssr-source-paragraph">• COPY et source obligatoire<br>• Possibilité de choisir 0, 1 ou des options seules (/D, /N, /A ou /B car il y a un |)<br>• Possibilité de choisir plusieurs sources<br>• Pour plus de détails et exemples, consultez l&#x27;aide en ligne</p>
+<p class="tssr-source-paragraph">https://docs.microsoft.com/fr-fr/windows-server/administration/windows-commands/windows-<br>commands</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Notation</td><td>Description</td></tr><tr><td>Textesanscrochetouaccolades</td><td>Élémentobligatoirequevousdeveztaperouchoisirunevaleur</td></tr><tr><td>[texteentrecrochet]</td><td>Élémentsfacultatifs</td></tr><tr><td>{Texteentreaccolades}</td><td>Choisirundesélémentsparmiceuxprésents</td></tr><tr><td>Barreverticaleou&quot;pipeline&quot;|</td><td>Séparateurd&#x27;éléments</td></tr><tr><td>Points de suspension<br>…</td><td>Élémentsquipeuventêtrerépétésetutilisésplusieursfois</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5d7b269f7693b374184925329d701ed2c94562d5c784c954c4338cce2e1785ea.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5d7b269f7693b374184925329d701ed2c94562d5c784c954c4338cce2e1785ea.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="6236"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">• Dernier shell en date chez Microsoft<br>• Interpréteur de commande<br>• Langage de script<br>• Orienté objet<br>• S&#x27;appuie sur les bibliothèques .NET Framework</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">Date<br>Version<br>Version de Windows<br>Versions <br>disponibles</p>
+<p class="tssr-source-paragraph">Windows XP SP2 et +<br>Windows Server 2003 SP1 et +</p>
+<p class="tssr-source-paragraph">Novembre 2006<br>PowerShell 1.0<br>Windows Server 2008</p>
+<p class="tssr-source-paragraph">Windows Server 2003R2</p>
+<p class="tssr-source-paragraph">Windows Vista SP1 et +</p>
+<p class="tssr-source-paragraph">Windows XP SP3<br>Windows Server 2003 SP2</p>
+<p class="tssr-source-paragraph">Octobre 2009<br>PowerShell 2.0<br>Windows 7<br>Windows server 2008 R2</p>
+<p class="tssr-source-paragraph">Windows Vista SP1 et +<br>Windows Server 2008 SP1 et +</p>
+<p class="tssr-source-paragraph">Windows 7 SP1<br>Windows Server 2008 SP2<br>Windows Server 2008R2 SP1</p>
+<p class="tssr-source-paragraph">Septembre 2012<br>PowerShell 3.0 (.NET 4.0 requis)<br>Windows 8<br>Windows server 2012</p>
+<p class="tssr-source-paragraph">Windows 7 SP1<br>Windows Server 2008R2 SP1</p>
+<p class="tssr-source-paragraph">Windows Server 2012</p>
+<p class="tssr-source-paragraph">Octobre 2013<br>PowerShell 4.0 (.NET 4.5 requis)<br>Windows 8.1<br>Windows Server 2012R2</p>
+<p class="tssr-source-paragraph">Septembre 2014<br>PowerShell 5.0 (.NET 4.5 requis)<br>Windows 10</p>
+<p class="tssr-source-paragraph">Windows 8.1<br>Windows Server 2012R2</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>   Interagir avec Windows 10
  Présentation de PowerShell
 
             • Dernier shell en date chez Microsoft
@@ -325,390 +224,192 @@
                                                                                           18
 
 
-18</pre></section><section><h2>Page 10</h2><pre>   Interagir avec Windows 10
- Présentation de PowerShell
-
-            • La console texte native
-                      •  Possibilité d&#x27;ouvrir la console avec les droits administrateurs
-            • Console graphique ISE (Integrated Scripting
-          Environment)
-                      • Pour manipuler les scripts
-            • Des outils tiers existent et rassemblent différentes
-          consoles dans le même environnement
-                      • Windows terminal
-                      • VSCode
-
-
-
-
-                                                                                          19
-
-
-19
-
-
-   Interagir avec Windows 10
- Présentation de PowerShell
-
-        $PSVersionTable : variable tableau
-        des versions de Powershell
-              • PSVersion : version de PowerShell
-             disponible sur le système d&#x27;exploitation
-              • PSCompatibleVersions  :
-             Retrocompatibilité
-
-
-
-
-
-                                                                                          20
-
-
-20</pre></section><section><h2>Page 11</h2><pre>   Interagir avec Windows 10
- Présentation de PowerShell
-
-            • Les commandes PowerShell : les cmdlets
-                    • Constituées d&#x27;un verbe et d&#x27;un nom séparé par un –
-                    • Verbes les plus courants : Get, Set, Remove, Add, New
-                    • Les noms dépendent du contexte d&#x27;utilisation : LocalUser, NetAdapter, Alias, variable…
-            • Exemple de cmdlet
-                    • Get-Alias
-                           • Affiche la liste des Alias PowerShell
-                    • New-LocalUser
-                           • Crée un nouvel utilisateur local dans l&#x27;ordinateur
-
-
-
-
-                                                                                          21
-
-
-21
-
-
-   Interagir avec Windows 10
- Présentation de PowerShell
-
-         Les commandes PowerShell : les cmdlets
-            • Conçues pour remplir des tâches spécifiques
-            • Ne sont pas sensibles à la casse
-            • Comportent des paramètres (obligatoires ou optionnels)…
-            • … avec des arguments (aucun ou plusieurs)
-            • Peuvent posséder un ou plusieurs alias
-
-                   Get-ChildItem –path c:\users
-
-                                          cmdlet         paramètre  argument
-
-                                                                                          22
-
-
-22</pre></section><section><h2>Page 12</h2><pre>   Interagir avec Windows 10
- Présentation de PowerShell
-
-
-            Touche                                   Description
-               [Tab]/[Maj][Tab] Complétion d&#x27;un chemin, du nom de la commande, d&#x27;un paramètre et d&#x27;une valeur de paramètre
-                  [Ctrl][Espace]  Liste des différentes propositions de la complétion (flèches directionnelles et [Entrée] pour choisir)
-                       [Echap]  Efface la ligne de commande en cours de frappe
-                  [Haut]/[Bas] Défilement de l&#x27;historique des commandes
-            [Gauche]/[Droite] Déplace le curseur sur la ligne de commande en cours
-                [Home]/[Fin] Déplace le curseur en début/fin de ligne
-                            [Ctrl]c Met fin à l&#x27;exécution de l&#x27;instruction courante
-                                cls  clear screen
-                              exit Ferme la console PowerShell
-
-
-                                                                                          23
-
-
-23
-
-
-   Interagir avec Windows 10
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          24
-
-
-24</pre></section><section><h2>Page 13</h2><pre>   Interagir avec Windows 10
-
-
-              TP
-
-
-
-
-
-                                                                                          25
-
-
-25
-
-
-   Interagir avec Windows 10
- Aide de PowerShell
-
-            • Système d&#x27;aide intégré très complet pour :
-                    • Obtenir des informations sur l&#x27;usage des commandes
-                    • Obtenir des informations sur les concepts de PowerShell
-            • PowerShell v1 et v2
-                    • Aide intégrée nativement
-            • PowerShell v3 et plus
-                    • Aide téléchargeable (sur internet, sur un serveur local) en anglais
-                    • Avantage : mettre à jour l&#x27;aide, obtenir les dernières sections actualisées.
-
-
-
-
-
-                                                                                          26
-
-
-26</pre></section><section><h2>Page 14</h2><pre>   Interagir avec Windows 10
- Aide de PowerShell
-
-         Indispensable : mettre à jour l&#x27;aide
-            • Posséder les privilèges d&#x27;administration
-
-            • Mise à jour par internet : Update-Help
-                      • -force pour outrepasser la limite d&#x27;une MAJ/j
-
-            • Mise à jour pour un système déconnecté
-                      • Prérequis : posséder un dépôt local
-                      • Update-help –SourcePath \\chemin\vers\aide\PowerShell -UIculture en-US -credential
-                 &lt;login&gt;
-
-
-                                                                                          27
-
-
-27
-
-
-   Interagir avec Windows 10
- Aide de PowerShell
-
-            • L&#x27;aide est accessible depuis
-                      • La cmdlet Get-Help &lt;recherche&gt;
-                      • Help &lt;recherche&gt; affiche l&#x27;aide page par page
-                      • Man &lt;recherche&gt; (alias de Help)
-                      • &lt;recherche&gt; -? (disponible depuis toutes les cmdlets)
-
-            • Exemples
-                      • Get-help Disable-LocalUser
-                                   •  Affiche l&#x27;aide de la cmdlet Disable-LocalUser
-                      • Help help
-                                   •  Affiche &quot;l&#x27;aide de l&#x27;aide&quot; page par page
-                      • Man about_Variables
-                                   •  Affiche le manuel d&#x27;utilisation des variables PowerShell, page par page
-                                   •  Help about_* affiche la liste des concepts disponibles
-
-                                                                                          28
-
-
-28</pre></section><section><h2>Page 15</h2><pre>   Interagir avec Windows 10
- Aide de PowerShell
-
-        Astuces
-              • Get-help –Examples &lt;recherche&gt;
-                      •  N&#x27;affiche que les exemples d&#x27;utilisation de la cmdlet
-              • Get-Help –ShowWindow &lt;recherche&gt;
-                      • Affiche l&#x27;aide complète dans une fenêtre séparée
-              • Get-Help –Online &lt;recherche&gt;
-                      • Affiche l&#x27;aide à jour détaillée disponible sur les serveurs Internet Microsoft (navigateur
-                    internet requis)
-
-
-
-
-
-                                                                                          29
-
-
-29
-
-
-   Interagir avec Windows 10
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          30
-
-
-30</pre></section><section><h2>Page 16</h2><pre>   Interagir avec Windows 10
-
-
-              TP
-
-
-
-
-
-                                                                                          31
-
-
-31
-
-
-   Interagir avec Windows 10
- Cmdlets de base et objets
-
-            • La notion d&#x27;objet
-                    • Provient du monde de la programmation
-                    • Quelques objets PowerShell
-                               • Une carte réseau
-                               • Un disque dur
-                               • Un utilisateur
-                               • Un fichier
-                           •  Etc.
-            • Constitution d&#x27;un objet
-                    • Des propriétés (des caractéristiques)
-                    • Des méthodes (des actions)
-
-
-
-
-                                                                                          32
-
-
-32</pre></section><section><h2>Page 17</h2><pre>   Interagir avec Windows 10
- Cmdlets de base et objets
-
-            • Un objet PowerShell s&#x27;apparente à un objet du monde réel
-            • Exemple : l&#x27;objet monBallon
-                    • Objet qui possède des caractéristiques
-                               • Une forme (sphérique, ovale, cubique …)
-                               • Des dimensions (diamètre en cm)
-                               • Une masse (en kg)
-                               •  Etc.
-                    • Des actions sont réalisables sur cet objet
-                               •  Lancer
-                              •  Gonfler
-                               •  Faire rebondir
-                               •  Etc.
-
-
-                                                                                          33
-
-
-33
-
-
-   Interagir avec Windows 10
- Cmdlets de base et objets
-
-       Comment afficher des caractéristiques de l&#x27;objet monBallon ?
-              • Get-monBallon
-                        •  Affiche certaines propriétés (les caractéristiques) de l&#x27;objet monBallon et leurs valeurs associées
-                        •  Toutes les autres propriétés sont présentes mais cachées pour faciliter la lecture à l&#x27;écran
-              • Get-monBallon | select *
-                        •  Affiche toutes les propriétés de l&#x27;objet monBallon et leurs valeurs associées
-              • Get-monBallon | select diamètre,forme,couleur
-                        •  N&#x27;affiche seulement que les propriétés demandées et leurs valeurs associées
-              • (get-monBallon).description
-                        •  Affiche la propriété description de l&#x27;objet monBallon et sa valeur
-                        •  Équivaut à Get-monBallon | select description
-
-
-
-                                                                                          34
-
-
-34</pre></section><section><h2>Page 18</h2><pre>   Interagir avec Windows 10
-  Interagir avec un objet PowerShell
-
-            • Get-Command
-                    • Cmdlet la plus importante à connaître
-                    • Permet de découvrir toutes les commandes disponibles
-                    • Get-command (sans paramètres ni arguments) liste toutes les commandes de PowerShell !
-                    • Get-Command get-*
-                               •  Affiche toutes les commandes commençant par le verbe get
-                    • Get-Command *printer*
-                               •  Affiche toutes les commandes contenant la chaîne de caractères printer
-                   • Get-Command new-*user*
-                               •  Affiche toutes les cmdlets commençant par new ET contenant la chaîne de caractères user
-            • Une fois la commande trouvée, utilisez get-help pour vous l&#x27;approprier
-
-
-                                                                                          35
-
-
-35
-
-
-   Interagir avec Windows 10
-  Interagir avec un objet PowerShell
-
-            • Comment modifier / faire évoluer l&#x27;objet monBallon ?
-
-            • Mon ballon de basket possède une valeur erronée pour la propriété
-          Description, je veux modifier la valeur
-                     • Set-monBallon –Nom &quot;Basket&quot; –Description &quot;Ballon de Basket&quot;
-
-            • Je veux un nouveau ballon de rugby blanc
-                     • New-monBallon –Nom &quot;Rugby&quot; –Forme &quot;ovale&quot; –Couleur &quot;blanc&quot; –Description
-                 &quot;Ballon de rugby&quot;
-
-            • Je n&#x27;ai plus besoin de mon ballon de football
-                     • Remove-monBallon –Nom &quot;Football&quot;
-
-                                                                                          36
-
-
-36</pre></section><section><h2>Page 19</h2><pre>   Interagir avec Windows 10
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          39
-
-
-39
-
-
-   Interagir avec Windows 10
-
-
-              TP
-
-
-
-
-
-                                                                                          40
-
-
-40</pre></section><section><h2>Page 20</h2><pre>   Interagir avec Windows 10
- Conclusion                                            •  Différentes façons de piloter un système
-                                       d’exploitation
-                                                                 •  Avec l’interface graphique
-                                                                 •  Avec la ligne de commande
-                                                                 •  Avec PowerShell
-                                            •  L’aide précieuse pour s’en sortir
-                                            •  Utiliser les ressources
-                                            •  Modifier le système
-
-
-
-
-
-                                                                                          41
-
-
-41</pre></section></html>
+18</pre></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Date</td><td>Version</td><td>VersiondeWindows</td><td>Versions<br>disponibles</td></tr><tr><td>Novembre2006</td><td>PowerShell10<br>.</td><td>WindowsServer2008</td><td>WdW nwi dn od wo wew s eX rP eS SP P2 e et t+<br>Win io ds S sr Sv e isr t2 0 0 3 S P 1 2et +<br>W in s v r 2 0 0 3 R<br>o V a 1 +</td></tr><tr><td>Octobre2009</td><td>PowerShell20<br>.</td><td>Windows7<br>Windowsserver2008R2</td><td>wW sowi n Swsd ro vVew iss 2X 0P PS 8P S3<br>WiW din oind do sS er rv e ar S2 0 10 3 tS +P e2<br>nW t e<br>e 0 P 1 t +</td></tr><tr><td>Septembre2012</td><td>PowerShell 3 .0 ( .NET 4 .0 requis)</td><td>Windows8<br>Windowsserver2012</td><td>oW sin Sd eSo vw evs 7 02S 00P 801<br>WW ini dnd o ww s re r re r R8 2S P S2<br>2 P1</td></tr><tr><td>Octobre2013</td><td>PowerShell 4 .0 ( .NET 4 .5 requis)</td><td>Windows81<br>.<br>WindowsServer2012R2</td><td>inW dsi on wd so Sw es 7 0S r0P 281<br>Win Wdo w S e r v e r v2 0R 12 SP1<br>r e 2</td></tr><tr><td>Septembre2014</td><td>PowerShell 5 .0 ( .NET 4 .5 requis)</td><td>Windows10</td><td>WindoW wi sn d Seo rw vs r8 2.1<br>e 012R2</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">• La console texte native<br>• Possibilité d&#x27;ouvrir la console avec les droits administrateurs<br>• Console graphique ISE (Integrated Scripting <br>Environment)</p>
+<p class="tssr-source-paragraph">• Pour manipuler les scripts<br>• Des outils tiers existent et rassemblent différentes <br>consoles dans le même environnement</p>
+<p class="tssr-source-paragraph">• Windows terminal<br>• VSCode</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">$PSVersionTable : variable tableau <br>des versions de Powershell</p>
+<p class="tssr-source-paragraph">• PSVersion : version de PowerShell <br>disponible sur le système d&#x27;exploitation</p>
+<p class="tssr-source-paragraph">• PSCompatibleVersions : <br>Retrocompatibilité</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=<br>©<br>D<br>©<br>Filtres</p><p>AM<br>Meilleur résultat<br>a</p><p>Windows PowerShell</p><p>+ ES<br>Exécuter en tant qu&#x27;administrateur</p><p>D<br>Ouvrir l&#x27;emplacement du fichier</p><p>|<br>+4<br>Épingler au menu Démarrer</p><p>++<br>Épingler à la barre des tâches</p><p>|<br>Désinstaller</p><p>|<br>Æ#<br>Exécuter en tant qu&#x27;administrateur<br>&gt;</p><p>| Æ<br>Exécuter ISE en tant qu&#x27;administrateur<br>Æ Windows PowerShell ISE</p><p>ent</p><p>EY Windows PowerShell</p><p>PS<br>C:\Users\Ron&gt;</p><p>ame<br>Value</p><p>SVersion<br>5.1.17134.228<br>SEdition<br>Desktop<br>SCompatibleVersions<br>{1.0,<br>2.0,<br>3.0,<br>4.0...}<br>uildVersion<br>10.0.17134.228<br>CLRVersion<br>4.0.30319.42000<br>WSManStackVersion<br>3.0<br>&#x27;SRemotingProtocolVersion<br>2.3<br>SerializationVersion<br>1.1.0.1</p><p>ent</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">• Les commandes PowerShell : les cmdlets<br>• Constituées d&#x27;un verbe et d&#x27;un nom séparé par un –<br>• Verbes les plus courants : Get, Set, Remove, Add, New<br>• Les noms dépendent du contexte d&#x27;utilisation : LocalUser, NetAdapter, Alias, variable…<br>• Exemple de cmdlet<br>• Get-Alias<br>• Affiche la liste des Alias PowerShell<br>• New-LocalUser<br>• Crée un nouvel utilisateur local dans l&#x27;ordinateur</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">Les commandes PowerShell : les cmdlets<br>• Conçues pour remplir des tâches spécifiques<br>• Ne sont pas sensibles à la casse<br>• Comportent des paramètres (obligatoires ou optionnels)…<br>• … avec des arguments (aucun ou plusieurs)<br>• Peuvent posséder un ou plusieurs alias</p>
+<p class="tssr-source-paragraph">Get-ChildItem –path c:\users</p>
+<p class="tssr-source-paragraph">cmdlet<br>paramètre<br>argument</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Présentation de PowerShell</h4>
+<p class="tssr-source-paragraph">Touche<br>Description</p>
+<p class="tssr-source-paragraph">[Tab]/[Maj][Tab] Complétion d&#x27;un chemin, du nom de la commande, d&#x27;un paramètre et d&#x27;une valeur de paramètre</p>
+<p class="tssr-source-paragraph">[Ctrl][Espace] Liste des différentes propositions de la complétion (flèches directionnelles et [Entrée] pour choisir)</p>
+<p class="tssr-source-paragraph">[Echap] Efface la ligne de commande en cours de frappe</p>
+<p class="tssr-source-paragraph">[Haut]/[Bas] Défilement de l&#x27;historique des commandes</p>
+<p class="tssr-source-paragraph">[Gauche]/[Droite] Déplace le curseur sur la ligne de commande en cours</p>
+<p class="tssr-source-paragraph">[Home]/[Fin] Déplace le curseur en début/fin de ligne</p>
+<p class="tssr-source-paragraph">[Ctrl]c Met fin à l&#x27;exécution de l&#x27;instruction courante</p>
+<p class="tssr-source-paragraph">cls clear screen </p>
+<p class="tssr-source-paragraph">exit Ferme la console PowerShell</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Touche</td><td>Description</td></tr><tr><td>[Tab]/[Maj][Tab]</td><td>Complétiond&#x27;unchemin dunomdelacommande d&#x27;unparamètreetd&#x27;unevaleurdeparamètre<br>, ,</td></tr><tr><td>[Ctrl][Espace]</td><td>Listedesdifférentespropositionsdelacomplétion(flèchesdirectionnelleset[Entrée]pourchoisir)</td></tr><tr><td>[Echap]</td><td>Effacelalignedecommandeencoursdefrappe</td></tr><tr><td>[Haut]/[Bas]</td><td>Défilementdel&#x27;historiquedescommandes</td></tr><tr><td>[Gauche]/[Droite]</td><td>Déplacelecurseursurlalignedecommandeencours</td></tr><tr><td>[Home]/[Fin]</td><td>Déplacelecurseurendébut/findeligne</td></tr><tr><td>[Ctrl]c</td><td>Metfinàl&#x27;exécutiondel&#x27;instructioncourante</td></tr><tr><td>cls</td><td>clearscreen</td></tr><tr><td>exit</td><td>FermelaconsolePowerShell</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f1db72f6b41c1ec7044acb2a9b2bd37b6c4d673f6ef8bc27c61c8c6451062e1d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f1db72f6b41c1ec7044acb2a9b2bd37b6c4d673f6ef8bc27c61c8c6451062e1d.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="6617"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Aide de PowerShell</h4>
+<p class="tssr-source-paragraph">• Système d&#x27;aide intégré très complet pour :<br>• Obtenir des informations sur l&#x27;usage des commandes<br>• Obtenir des informations sur les concepts de PowerShell<br>• PowerShell v1 et v2<br>• Aide intégrée nativement<br>• PowerShell v3 et plus<br>• Aide téléchargeable (sur internet, sur un serveur local) en anglais<br>• Avantage : mettre à jour l&#x27;aide, obtenir les dernières sections actualisées.</p>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Aide de PowerShell</h4>
+<p class="tssr-source-paragraph">Indispensable : mettre à jour l&#x27;aide<br>• Posséder les privilèges d&#x27;administration</p>
+<p class="tssr-source-paragraph">• Mise à jour par internet : Update-Help<br>• -force pour outrepasser la limite d&#x27;une MAJ/j</p>
+<p class="tssr-source-paragraph">• Mise à jour pour un système déconnecté<br>• Prérequis : posséder un dépôt local<br>• Update-help –SourcePath \\chemin\vers\aide\PowerShell -UIculture en-US -credential<br>&lt;login&gt;</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Aide de PowerShell</h4>
+<p class="tssr-source-paragraph">• L&#x27;aide est accessible depuis<br>• La cmdlet Get-Help &lt;recherche&gt;<br>• Help &lt;recherche&gt; affiche l&#x27;aide page par page<br>• Man &lt;recherche&gt; (alias de Help)<br>• &lt;recherche&gt; -? (disponible depuis toutes les cmdlets)</p>
+<p class="tssr-source-paragraph">• Exemples<br>• Get-help Disable-LocalUser</p>
+<p class="tssr-source-paragraph">•<br>Affiche l&#x27;aide de la cmdlet Disable-LocalUser<br>• Help help</p>
+<p class="tssr-source-paragraph">•<br>Affiche &quot;l&#x27;aide de l&#x27;aide&quot; page par page<br>• Man about_Variables</p>
+<p class="tssr-source-paragraph">•<br>Affiche le manuel d&#x27;utilisation des variables PowerShell, page par page<br>•<br>Help about_* affiche la liste des concepts disponibles</p>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EX Administrateur:Windows PowerShell<br>Windows PowerShell<br>Copyrigt<br>C)<br>Microsoft Corporation. Tous droits réservés.</p><p>Mise<br>à<br>jour<br>de l’aide<br>pour<br>le module ScheduledTasks<br>Recherche<br>du<br>contenu<br>de<br>l’aide</p><p>Ew</p><p>Ew</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Aide de PowerShell</h4>
+<p class="tssr-source-paragraph">Astuces</p>
+<p class="tssr-source-paragraph">• Get-help –Examples &lt;recherche&gt; <br>• N&#x27;affiche que les exemples d&#x27;utilisation de la cmdlet</p>
+<p class="tssr-source-paragraph">• Get-Help –ShowWindow &lt;recherche&gt; <br>• Affiche l&#x27;aide complète dans une fenêtre séparée</p>
+<p class="tssr-source-paragraph">• Get-Help –Online &lt;recherche&gt; <br>• Affiche l&#x27;aide à jour détaillée disponible sur les serveurs Internet Microsoft (navigateur <br>internet requis)</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Cmdlets de base et objets</h4>
+<p class="tssr-source-paragraph">• La notion d&#x27;objet<br>• Provient du monde de la programmation<br>• Quelques objets PowerShell<br>• Une carte réseau<br>• Un disque dur<br>• Un utilisateur<br>• Un fichier<br>• Etc.<br>• Constitution d&#x27;un objet<br>• Des propriétés (des caractéristiques)<br>• Des méthodes (des actions)</p>
+<p class="tssr-source-paragraph">32</p>
+<p class="tssr-source-paragraph">32</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d81360e873eac470af7be35ca88ef7e5b0ab9ea1bb5f3c83e4eb3f7c83d6e595.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d81360e873eac470af7be35ca88ef7e5b0ab9ea1bb5f3c83e4eb3f7c83d6e595.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="992" height="6100"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Cmdlets de base et objets</h4>
+<p class="tssr-source-paragraph">• Un objet PowerShell s&#x27;apparente à un objet du monde réel<br>• Exemple : l&#x27;objet monBallon<br>• Objet qui possède des caractéristiques<br>• Une forme (sphérique, ovale, cubique …)<br>• Des dimensions (diamètre en cm)<br>• Une masse (en kg)<br>• Etc.<br>• Des actions sont réalisables sur cet objet<br>• Lancer<br>• Gonfler<br>• Faire rebondir<br>• Etc.</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Cmdlets de base et objets</h4>
+<p class="tssr-source-paragraph">Comment afficher des caractéristiques de l&#x27;objet monBallon ?</p>
+<p class="tssr-source-paragraph">• Get-monBallon<br>• Affiche certaines propriétés (les caractéristiques) de l&#x27;objet monBallon et leurs valeurs associées<br>• Toutes les autres propriétés sont présentes mais cachées pour faciliter la lecture à l&#x27;écran</p>
+<p class="tssr-source-paragraph">• Get-monBallon | select *<br>• Affiche toutes les propriétés de l&#x27;objet monBallon et leurs valeurs associées</p>
+<p class="tssr-source-paragraph">• Get-monBallon | select diamètre,forme,couleur<br>• N&#x27;affiche seulement que les propriétés demandées et leurs valeurs associées</p>
+<p class="tssr-source-paragraph">• (get-monBallon).description<br>• Affiche la propriété description de l&#x27;objet monBallon et sa valeur<br>• Équivaut à Get-monBallon | select description</p>
+<p class="tssr-source-paragraph">34</p>
+<p class="tssr-source-paragraph">34</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Interagir avec un objet PowerShell</h4>
+<p class="tssr-source-paragraph">• Get-Command<br>• Cmdlet la plus importante à connaître<br>• Permet de découvrir toutes les commandes disponibles<br>• Get-command (sans paramètres ni arguments) liste toutes les commandes de PowerShell !<br>• Get-Command get-*<br>• Affiche toutes les commandes commençant par le verbe get<br>• Get-Command *printer*<br>• Affiche toutes les commandes contenant la chaîne de caractères printer<br>• Get-Command new-*user*<br>• Affiche toutes les cmdlets commençant par new ET contenant la chaîne de caractères user<br>• Une fois la commande trouvée, utilisez get-help pour vous l&#x27;approprier</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Interagir avec un objet PowerShell</h4>
+<p class="tssr-source-paragraph">• Comment modifier / faire évoluer l&#x27;objet monBallon ?</p>
+<p class="tssr-source-paragraph">• Mon ballon de basket possède une valeur erronée pour la propriété <br>Description, je veux modifier la valeur  </p>
+<p class="tssr-source-paragraph">• Set-monBallon –Nom &quot;Basket&quot; –Description &quot;Ballon de Basket&quot;</p>
+<p class="tssr-source-paragraph">• Je veux un nouveau ballon de rugby blanc<br>• New-monBallon –Nom &quot;Rugby&quot; –Forme &quot;ovale&quot; –Couleur &quot;blanc&quot; –Description <br>&quot;Ballon de rugby&quot;</p>
+<p class="tssr-source-paragraph">• Je n&#x27;ai plus besoin de mon ballon de football<br>• Remove-monBallon –Nom &quot;Football&quot;</p>
+<p class="tssr-source-paragraph">36</p>
+<p class="tssr-source-paragraph">36</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">40</p>
+<p class="tssr-source-paragraph">40</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><p class="tssr-source-paragraph">Interagir avec Windows 10</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Différentes façons de piloter un système <br>d’exploitation</p>
+<p class="tssr-source-paragraph">•<br>Avec l’interface graphique</p>
+<p class="tssr-source-paragraph">•<br>Avec la ligne de commande</p>
+<p class="tssr-source-paragraph">•<br>Avec PowerShell<br>• L’aide précieuse pour s’en sortir</p>
+<p class="tssr-source-paragraph">• Utiliser les ressources<br>• Modifier le système</p>
+<p class="tssr-source-paragraph">41</p>
+<p class="tssr-source-paragraph">41</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4aeaffaae11caf4fcd0c0442e57bf88fb376e28ec5df56e296b51321d10d5740.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4aeaffaae11caf4fcd0c0442e57bf88fb376e28ec5df56e296b51321d10d5740.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="992" height="5184"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

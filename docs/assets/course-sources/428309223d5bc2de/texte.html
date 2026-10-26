@@ -1,97 +1,46 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Premiers pas avec PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Premiers pas avec
-PowerShell
-TP du Module 03 – Interagir avec Windows 10
-
- Le but de ce TP est de découvrir la base de l&#x27;utilisation de PowerShell. Vous allez pouvoir
- interagir de manière simple avec le système.
-
-       Durée estimée
-
-         30 minutes
-
-Énoncé
-
-Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique.
-
-Sur la VM Win10-XX
-
-Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell :
-  Changez la police et la taille de la police
-  Agrandissez votre fenêtre
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP - Premiers pas avec PowerShell</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Premiers pas avec <br>PowerShell</h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10</p>
+<p class="tssr-source-paragraph">Le but de ce TP est de découvrir la base de l&#x27;utilisation de PowerShell. Vous allez pouvoir <br>interagir de manière simple avec le système. </p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">30 minutes</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique.</p>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX</p>
+<p class="tssr-source-paragraph">Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Changez la police et la taille de la police</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Agrandissez votre fenêtre</p>
+<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
-
-
-
- Page 1/3
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
-
-Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez
-avec votre système à l&#x27;aide des cmdlets
-
-
-  Quelle version de PowerShell est installée sur votre système ?
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez<br>avec votre système à l&#x27;aide des cmdlets </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle version de PowerShell est installée sur votre système ?</p>
+<p class="tssr-source-paragraph">Affichez le contenu du répertoire courant .</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Affichez le contenu du répertoire c:\users.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Affichez la liste des alias PowerShell.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Getchild-Item ?</p>
+<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
 
-
-
-Affichez le contenu du répertoire courant .
-  Quelle cmdlet avez-vous utilisée ?
-
-
-
-
-
-Affichez le contenu du répertoire c:\users.
-  Quelle cmdlet avez-vous utilisée ?
-
-
-
-
-
-Affichez la liste des alias PowerShell.
-  Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Getchild-Item ?
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Faites un snapshot TP04 terminé</p>
+<p class="tssr-source-paragraph">Sur la VM DiscoveryXX</p>
+<p class="tssr-source-paragraph">Ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre système<br>à l&#x27;aide des cmdlets.</p>
+<p class="tssr-source-paragraph">Affichez le contenu du fichier C:\PowerShell\Intro.txt.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
 
-
-
- Page 2/3
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-
-
-
-
-   Faites un snapshot TP04 terminé
-
-Sur la VM DiscoveryXX
-
-Ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre système
-à l&#x27;aide des cmdlets.
-Affichez le contenu du fichier C:\PowerShell\Intro.txt.
-  Quelle cmdlet avez-vous utilisée ?
-
-
-
-
-
-Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\.
-
-
-
-
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 3/3
-                                      © ENI – Tous droits réservés</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-2c91b46ed1af860c36d2b27a82d5613f68dc38639b39b54032ab757920e9d4df.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2c91b46ed1af860c36d2b27a82d5613f68dc38639b39b54032ab757920e9d4df.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="998" height="2800"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

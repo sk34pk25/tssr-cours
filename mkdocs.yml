@@ -78,6 +78,8 @@ plugins:
   - search:
       lang: fr
   - glightbox:
+      skip_classes:
+        - tssr-source-glyph
       touchNavigation: true
       loop: false
       effect: zoom

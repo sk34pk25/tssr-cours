@@ -1,0 +1,40 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - Le Try Catch Finally.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - Le Try Catch Finally</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Le Try Catch Finally </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 5 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la structure dédiée à la gestion des <br>erreurs. Cette structure exécute des commandes en fonction du résultat d’un test initial. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La première étape est le try qui va exécuter une commande. Si la commande réussit, le résultat 
+est affiché, sinon c’est la commande contenue dans le catch qui est exécutée à la place. </pre>
+
+
+<pre class="tssr-source-code">Le paramètre ErrorAction avec la valeur Stop permet à la valeur contenue dans la structure 
+Catch de s’exécuter sans afficher le message d’erreur. </pre>
+
+
+<pre class="tssr-source-code">Sans le paramètre ErrorAction la structure Catch n’est pas exécutée et le message d’erreur 
+apparaît en sortie. </pre>
+<pre class="tssr-source-code">La structure Try-Catch-Finally s’utilise pour effectuer des tests sur des objets ou des valeurs de 
+propriétés des objets. Pour faciliter ces tests, il est courant de coupler la structure avec le Foreach. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>try {Get-childitem<br>c:\Test<br>-ErrorAction Stop<br>}<br>catch {write-Host<br>“Le dossier<br>n&#x27;éxiste pas&quot;}<br>Finally<br>{ Write-Host<br>&quot;Fin<br>du test&quot;}</p><p>Le dossier n&#x27;éxiste pas<br>Fin du test</p><p>try {Get-childitem<br>c:\Test<br>}<br>catch {Write-Host<br>&quot;Le dossier n&#x27;éxiste pas&quot;}<br>Finally<br>{ Write-Host<br>&quot;Fin<br>du<br>test&quot;}<br>PILES.<br>in du test</p><p>En</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">On utilise uniquement la structure Try pour effectuer le test sur une propriété. </pre>
+<p class="tssr-source-paragraph">A chaque utilisateur testé, on affiche un message de fin de test. </p>
+
+<p class="tssr-source-paragraph">Pour les utilisateurs qui n’ont pas de prénom, la réponse du test est « Vraie », pour les autres, la <br>réponse « Faux » est envoyée. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$users= Get-AdUser<br>-filter<br>*<br>foreach<br>(<br>$i<br>in fusers){<br>try { ($i.givenname -eq<br>$nu11)<br>|}</p><p>Finally<br>{ Write-Host<br>&quot;Fin<br>du<br>test pour<br>l&#x27;utilisateur<br>&quot; $i.name<br>}</p><p>}</p><p>True<br>Fin du test pour l&#x27;utilisateur<br>Administrator<br>True<br>Fin du test pour l&#x27;utilisateur<br>Guest<br>True<br>Fin du test pour l&#x27;utilisateur<br>krbtgt<br>True<br>Fin du test pour l&#x27;utilisateur<br>toto<br>True<br>Fin du test pour l&#x27;utilisateur<br>System.Collections.Hashtable<br>False<br>Fin du test pour l&#x27;utilisateur<br>Morse</p><p>En</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-fae3ea4be6399fd57a75546e0c194aaa6f5bee4bc1e53d64ff306b000542cc98.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fae3ea4be6399fd57a75546e0c194aaa6f5bee4bc1e53d64ff306b000542cc98.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1705"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

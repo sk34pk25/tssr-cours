@@ -1,0 +1,967 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module 02 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Cloud et Microsoft 365</h4>
+<p class="tssr-source-paragraph">Module 02 – Administration Microsoft 365</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Créer et gérer des objets dans la console Microsoft 365<br>• Gérer des licences Microsoft 365<br>• Comprendre les connexions clientes<br>• Synchroniser un annuaire local vers le Cloud</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Groupes et utilisateurs </h4>
+<h4>Microsoft 365</h4>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">La console web Microsoft 365</p>
+<p class="tssr-source-paragraph">L’écran d’accueil</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p><p>Bonjour!</p><p>Applications<br>installer Office</p><p>Li<br>a<br>@<br>Œ<br>&amp;<br>€<br>g<br>[ri<br>Y:<br>ff</p><p>Documents<br>hangeret<br>ouvre ES</p><p>eni</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">L’Admin Center</p>
+<p class="tssr-source-paragraph">Dashboard</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Les différents types de comptes</p>
+<p class="tssr-source-paragraph">• Utilisateur Microsoft 365<br>• L’utilisateur n’existe que dans Microsoft 365</p>
+<p class="tssr-source-paragraph">Galettes.lcl</p>
+<p class="tssr-source-paragraph">• Un utilisateur synchronisé<br>• Créé dans un AD DS local<br>• Géré par un AD DS local<br>• Mot de passe peut être synchronisé</p>
+<p class="tssr-source-paragraph">Serveur AD<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>.<br>a<br>= 2<br>; _</p><p>oo</p><p>ne<br>cs</p><p>&gt; |</p><p>DANS<br>-<br>à<br>nm<br>CA</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Les différents types de comptes</p>
+<p class="tssr-source-paragraph">Méthode de création<br>• Un par un dans l&#x27;Admin Center<br>• Plusieurs utilisateurs avec un fichier .csv<br>• En PowerShell<br>• Synchronisé via Azure AD Connect</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Création d’un utilisateur O365</p>
+<p class="tssr-source-paragraph">Bonne idée de s&#x27;envoyer le nouveau <br>compte avec le nouveau mot de passe <img class="tssr-source-glyph" data-source-codepoint="f04a" src="../glyphs/b754aaecb1cfcbb2156a87fd30bf83903fa41baeb994808c63d9b70e7eba405e.webp" alt="Symbole du support" title="Symbole original du support">!</p>
+<p class="tssr-source-paragraph">• Choisissez un domaine pour l&#x27;adresse mail<br>• Sélectionnez un emplacement<br>• Plus vous renseignerez d&#x27;informations sur le contact et plus votre <br>gestion sera granulaire<br>• Vous pouvez :<br>• Soit laisser O365 générer un mot de passe<br>• Soit créer votre propre mot de passe</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Accueil &gt; Utilisateurs actifs</p><p>Oo<br>Non|<br>+ Importer plusieurs utilisateurs<br>À</p><p>Supprimer un utilisateur<br>oO<br>aoû<br>@<br>Supp<br>k</p><p>Oo<br>Abi|<br>&amp; Réinitialiser un mot de passe<br>Le<br>oO<br>Adg<br>© Actualiser<br>q<br>Oo<br>Ada<br>.<br>@ Configuration de l&#x27;authentificati…<br>cr</p><p>R<br>Oo<br>Aid<br>k<br>eni<br>TL Synchronisation d&#x27;annuaires<br>Oo<br>Alid<br>bi</p><p>&gt;<br>|</p><p>À<br>Mot de passe<br>Créé par un administrateur</p><p>©<br>Mot de passe généré automatiquement</p><p>©<br>Me laisser créer le mot de passe</p><p>Mot de passe</p><p>à<br>eee<br>Fort<br>ent</p><p>Fi<br>Demander</p><p>à cet utilisateur de modifier son mot de passe lors de<br>sa première connexion</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-45821cd77f33222f111c4d142244bf070ed916f67cce06577768a111e2f04c5c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-45821cd77f33222f111c4d142244bf070ed916f67cce06577768a111e2f04c5c.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="993" height="7049"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Création d’un utilisateur O365</p>
+<p class="tssr-source-paragraph">• Différents rôles peuvent être <br>attribués à un nouvel utilisateur</p>
+<p class="tssr-source-paragraph">• Utilisateur simple<br>• Administrateur général<br>• Administrateur personnalisé<br>• Délégation via les RBAC <br>(Role Based Access Control)</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Création d’un utilisateur O365</p>
+<p class="tssr-source-paragraph">Administrateur personnalisé</p>
+<p class="tssr-source-paragraph">Une stratégie de délégation doit être bien pensée.</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[Rôles<br>Utilisateur (sans accès a<br>|</p><p>You can assign different roles to people in your organization. Learn<br>more about admin roles</p><p>©<br>Utilisateur (sans accès administrateur)</p><p>Cet<br>utilisateur<br>ne<br>disposera<br>pas<br>d&#x27;autorisations<br>sur<br>le<br>Centre</p><p>d&#x27;administration Office 365 ou<br>les tâches d&#x27;administration.</p><p>©<br>Administrateur général</p><p>Cet<br>utilisateur<br>aura<br>accès<br>à<br>toutes<br>les<br>fonctionnalités<br>du<br>centre</p><p>d&#x27;administration et pourra effectuer toutes les tâches dans le Centre</p><p>d&#x27;administration Office 365.</p><p>©<br>Administrateur personnalisé</p><p>Vous pouvez affecter un ou plusieurs rôles à cet utilisateur pour gérer</p><p>des domaines spécifiques d&#x27;Office 365.</p><p>©<br>Administrateur personnalisé</p><p>Vous pouvez affecter un ou plusieurs rôlesà cet utiisateur pour gérer</p><p>C1<br>Administrateur de facturation</p><p>CI<br>Administrateur du service Dynamics 365</p><p>C1<br>Approbateur des accès Customer Lockbox</p><p>D Administrateur Exchange</p><p>[Administrateurde mots de passe</p><p>CI<br>Administrateur<br>de licences</p><p>D Administrateur Skype Entreprise<br>D<br>| no<br>C1<br>Administrateur du service Power BI</p><p>D<br>Lecteurde rapports</p><p>CO<br>Administrateur<br>de services fédérés</p><p>C1<br>Administrateur SharePoint</p><p>D<br>Administrateur<br>descommunications Teams</p><p>C1<br>ingénieur du support des communications Teams<br>ER)<br>C1 Spécialiste du support des communications Teams</p><p>D<br>Administrateur de gestion des utilisateurs</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Se connecter en PowerShell</p>
+<p class="tssr-source-paragraph">1. Installer le module nécessaire MSOnline</p>
+<p class="tssr-source-paragraph">2. Vérifier que le module est bien installé</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Se connecter en PowerShell</p>
+<p class="tssr-source-paragraph">$acctName=&quot;&lt;UPN of the account, such as belindan@litwareinc.onmicrosoft.com&gt;&quot;<br>$orgName=&quot;&lt;for example, litwareinc for litwareinc.onmicrosoft.com&gt;&quot;<br>#Azure Active Directory<br>Connect-MsolService<br>#SharePoint Online<br>Connect-SPOService -Url https://$orgName-admin.sharepoint.com<br>#Skype for Business Online<br>Import-Module MicrosoftTeams<br>Connect-MicrosoftTeams<br>#Exchange Online<br>Import-Module ExchangeOnlineManagement<br>Connect-ExchangeOnline -UserPrincipalName $acctName -ShowProgress $true<br>#Security &amp; Compliance Center<br>Connect-IPPSSession -UserPrincipalName $acctName<br>#Teams<br>Import-Module MicrosoftTeams<br>Connect-MicrosoftTeams</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\WINDOWS\system32&gt;[<br>Install-Module msonline</p><p>Le fournisseur NuGet est requis<br>pour continuer<br>PowerShellGet requiert<br>le fournisseur NuGet,<br>version 2.8.5.2@1 ou ultérieure,<br>pour interagir<br>avec<br>les référentiels<br>NuGet. Le fournisseur NuGet doit être disponible dans « C:\Program Files\PackageManagement \ProviderAssemblies » ou<br>Ic:<br>\Users\ygrohan\AppData\Local\PackageManagement\ProviderAssemblies<br>».<br>Vous pouvez également<br>installer<br>le fournisseur<br>NuGet en exécutant la commande « Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force<br>». Voulez-vous<br>que PowerShellGet<br>installe<br>et<br>importe<br>le fournisseur<br>NuGet maintenant<br>?<br>[0] Oui<br>EN] Non<br>[S] Suspendre<br>[?] Aide (1a valeur par défaut est « O<br>»)<br>: 0</p><p>Répertoire : C:\Program Files\WindowsPowerShell\Modules</p><p>ModuleType Version<br>Name<br>ExportedCommands</p><p>:<br>Script<br>3.4.0<br>Pester<br>(Describe,<br>Context,<br>It,<br>Should.<br>en<br>Script<br> 1.0.0.1<br> PonerShel1Get<br>{Install-Module, Find-Module,<br>Save-Module, Update-Module...}<br>Script<br>2.0.0<br>PSReadline<br>{Get-PSReadLinekeyHandler,<br>Set-PSReadLineKeyHandler,<br>Remov...</p><p>en</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Se connecter en PowerShell</p>
+<p class="tssr-source-paragraph">3. Se connecter à Microsoft 365</p>
+<p class="tssr-source-paragraph">Cette fenêtre s&#x27;ouvre.<br>Renseigner nom d&#x27;utilisateur : <br>votreprénom@tenant.onmicrosoft.com</p>
+<p class="tssr-source-paragraph">4. Vérifier si vous êtes connecté</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Groupes et utilisateurs Microsoft 365</p>
+<p class="tssr-source-paragraph">Création d’un utilisateur O365</p>
+<p class="tssr-source-paragraph">• Créer un nouvel utilisateur</p>
+<p class="tssr-source-paragraph">New-MsolUser -UserPrincipalName jpetit@eni-ecole.ovh -DisplayName Jean Petit -FirstName Jean -<br>LastName Petit -Password Pa55w.rd -ForceChangePassword $true -UsageLocation fr</p>
+<p class="tssr-source-paragraph">• Supprimer un utilisateur, il sera gardé dans la corbeille Azure AD <br>pendant 30 jours</p>
+<p class="tssr-source-paragraph">Remove-MsolUser –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot;</p>
+<p class="tssr-source-paragraph">• Restaurer un utilisateur de la corbeille</p>
+<p class="tssr-source-paragraph">Restore-MsolUser –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot;</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BA Microsoft</p><p>Se connecter</p><p>|</p><p>ene</p><p>ene</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Gestion des licences</h4>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">Les fonctionnalités Exchange Online</p>
+<p class="tssr-source-paragraph">• Boîtes aux lettres et archivage<br>• Calendrier<br>• Visualisation et modification de pièces jointes online<br>• Dossiers publics<br>• Stratégie de message et de conformité<br>• Antivirus et antispam<br>• Configuration du flux de messagerie</p>
+<p class="tssr-source-paragraph">• Gestion d&#x27;appareils mobile<br>• Déploiement hybride<br>• Outils de migration</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D</p><p>End</p><p>4 Exchange<br>E Online”</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d51110d9d72c1cc425499c141ece5e61711d61e16763515da3be93da0a62514f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d51110d9d72c1cc425499c141ece5e61711d61e16763515da3be93da0a62514f.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="993" height="7542"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Gestion des licences<br>Les plans Exchange Online</p>
+<p class="tssr-source-paragraph">M365 Business </p>
+<p class="tssr-source-paragraph">M365 Business </p>
+<p class="tssr-source-paragraph">M365 Business </p>
+<p class="tssr-source-paragraph">Fonctionnalité <br>Exchange Online</p>
+<p class="tssr-source-paragraph">Exchange <br>Online Plan 1</p>
+<p class="tssr-source-paragraph">Exchange <br>Online Plan 2</p>
+<p class="tssr-source-paragraph">Basic</p>
+<p class="tssr-source-paragraph">Standard</p>
+<p class="tssr-source-paragraph">Premium<br>M365 E3<br>M365 E5</p>
+<p class="tssr-source-paragraph">Boîte aux lettres</p>
+<p class="tssr-source-paragraph">100 Go + <br>Archivage </p>
+<p class="tssr-source-paragraph">50 Go + 50 Go <br>d’archivage</p>
+<p class="tssr-source-paragraph">50 Go + 50 Go <br>d’archivage</p>
+<p class="tssr-source-paragraph">50 Go + 50 Go <br>d’archivage</p>
+<p class="tssr-source-paragraph">100 Go + <br>Archivage illimité</p>
+<p class="tssr-source-paragraph">100 Go + <br>Archivage illimité</p>
+<p class="tssr-source-paragraph">50 Go + 50 <br>Go <br>d’archivage</p>
+<p class="tssr-source-paragraph">illimité</p>
+<p class="tssr-source-paragraph">Idem Business </p>
+<p class="tssr-source-paragraph">Pack Office<br>Idem Business </p>
+<p class="tssr-source-paragraph">Premium</p>
+<p class="tssr-source-paragraph">Premium</p>
+<p class="tssr-source-paragraph">Moins de <br>sécurité que </p>
+<p class="tssr-source-paragraph">Ensemble des <br>fonctionnalités </p>
+<p class="tssr-source-paragraph">Services <br>supplémentaires</p>
+<p class="tssr-source-paragraph">M365 + VOIP </p>
+<p class="tssr-source-paragraph">Business <br>Premium</p>
+<p class="tssr-source-paragraph">inclus</p>
+<p class="tssr-source-paragraph">Coût<br>3,40 € /m<br>6,70 € /m<br>4,20 € /m<br>10,50 € /m<br>16,90 € /m<br>31,50 € /m<br>53,70 € /m</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">• Vous pouvez  :<br>• Ajouter une licence<br>• Remplacer une licence<br>• Nombre de licences restantes :<br>• Nombre de licences utilisées<br>• Nombre d&#x27;utilisateurs sans licence</p>
+<p class="tssr-source-paragraph">Vous devez sélectionner obligatoirement un emplacement <img class="tssr-source-glyph" data-source-codepoint="f04a" src="../glyphs/b754aaecb1cfcbb2156a87fd30bf83903fa41baeb994808c63d9b70e7eba405e.webp" alt="Symbole du support" title="Symbole original du support">!</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE<br>DE<br>EE DE d<br>ae<br>.<br>x<br>ete<br>Ts To<br>x<br>OH<br>ghee<br>RBS Voze<br>Lei</p><p>Licences de produits</p><p>A REMARQUE: une fois es nouveou utilisateurs configurés pour utiliser l&#x27;offre</p><p>Tact<br>HE<br>ova</p><p>ft<br>Forms<br>(pian<br>LI<br>Désactivé<br>pee<br>tear<br>ff<br>LI<br>Désactivé</p><p>3<br>menaces<br>sur<br>it<br>1<br>Detecting</p><p>ft<br>St<br>Li<br>Désactivé<br>=<br>tor<br>Otice<br>BD<br>oécé<br>én v<br>wh<br>i<br>HET<br>eae</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Fonctionnalité<br>Exchange Online</td><td>Exchange<br>Online Plan 1</td><td>Exchange<br>Online Plan 2</td><td>M365 Business<br>Basic</td><td>M365 Business<br>Standard</td><td>M365 Business<br>Premium</td><td>M365 E3</td><td>M365 E5</td></tr><tr><td>Boîteaux lettres</td><td>50 Go + 50<br>Go<br>d’archivage</td><td>100 Go +<br>Archivage<br>illimité</td><td>50 Go + 50 Go<br>d’archivage</td><td>50 Go + 50 Go<br>d’archivage</td><td>50 Go + 50 Go<br>d’archivage</td><td>100 Go +<br>Archivage illimité</td><td>100 Go +<br>Archivage illimité</td></tr><tr><td>Pack Office</td><td></td><td></td><td></td><td></td><td></td><td>Idem Business<br>Premium</td><td>Idem Business<br>Premium</td></tr><tr><td>Services<br>supplémentaires</td><td></td><td></td><td></td><td></td><td></td><td>Moins de<br>sécurité que<br>Business<br>Premium</td><td>Ensemble des<br>fonctionnalités<br>M365 + VOIP<br>inclus</td></tr><tr><td>Coût</td><td>3,40 € /m</td><td>6,70 € /m</td><td>4,20 € /m</td><td>10,50 € /m</td><td>16,90 € /m</td><td>31,50 € /m</td><td>53,70 € /m</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">La gestion Exchange Online</p>
+<p class="tssr-source-paragraph">• Vous pouvez gérer Exchange Online<br>• Dans le menu Centres d&#x27;administration / Exchange Online<br>• En PowerShell<br>• Pour vous connecter en PowerShell à Exchange Online</p>
+<p class="tssr-source-paragraph">Find-module ExchangeOnlineManagement | install-module<br>Connect-ExchangeOnline</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">• Vérifier son nombre de licences totales et consommées</p>
+<p class="tssr-source-paragraph">L’accountSkuId est nécessaire pour <br>toutes les manipulations de licences.</p>
+<p class="tssr-source-paragraph">• Assigner une licence à un utilisateur</p>
+<p class="tssr-source-paragraph">Set-MsolUserLicense –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot; –AddLicenses &quot;Adatum201812345:ENTERPRISEPREMIUM&quot;</p>
+<p class="tssr-source-paragraph">• Enlever une licence à un utilisateur</p>
+<p class="tssr-source-paragraph">Set-MsolUserLicense –UserPrincipalName &quot;jpetit@eni-ecole.ovh&quot; –RemoveLicenses &quot;Adatum201812345:ENTERPRISEPREMIUM&quot;</p>
+<p class="tssr-source-paragraph">• Assigner une licence à tous les comptables suisses</p>
+<p class="tssr-source-paragraph">Get-MsolUser -all -Department Account -UsageLocation CH -UnlicensedUsersOnly | ForEach-<br>Object {Set-MsolUserLicense -UserPrincipalName $PSITEM.UserPrincipalName -AddLicenses<br>&quot; Adatum201812345:ENTERPRISEPREMIUM &quot;}</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Exch<br>Gis<br>Exchange<br>ni<br>Online</p><p>PS E:\&gt; Get-MsolAccountSku</p><p>Adatum201812345 :ENTERPRISEPREMIUM<br>25<br>0<br>14</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Destinataires et permissions </h4>
+<h4>Exchange Online</h4>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online<br>La console Exchange Online ECP (Exchange Control Panel)</p>
+<p class="tssr-source-paragraph">22</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les différents types de destinataires</p>
+<p class="tssr-source-paragraph">lucie@eni-ecole.ovh</p>
+<p class="tssr-source-paragraph">Boîtes aux lettres Utilisateur<br>• Envoi / Réception de mails<br>• Attribution de stratégies<br>• Gestion des restrictions<br>• Gestion des redirections<br>• Délégations</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Options de remise<br>• Ces options sont applicables à tous les types de destinataires</p>
+<p class="tssr-source-paragraph">24</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Lucie</p><p>FERRIER</p><p>.<br>-</p><p>FERRIER Lucie</p><p>terrier</p><p>[Werier@eniecotwovh</p><p>2</p><p>en</p><p>Adresse<br>de transfert<br>Transférerle courrierau destinataire suivant. En savoir plus</p><p>Parcourir.</p><p>aux<br>lettres</p><p>Limite de<br>destinataire</p><p>Nombre maximal<br>de destinataires</p><p>500</p><p>en</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f13e241c62a8887452e1d8ed64b1291bf9df5535a887ea5f0c084321ef80c7a5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f13e241c62a8887452e1d8ed64b1291bf9df5535a887ea5f0c084321ef80c7a5.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="993" height="7797"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Restriction de taille des messages et de remise de message.</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Les adresses de courrier</p>
+<p class="tssr-source-paragraph">• Éviter de les modifier ici</p>
+<p class="tssr-source-paragraph">Les Infos courrier apparaissent lors <br>de la création d&#x27;un nouveau message </p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>estrictions de remise de messages</p><p>© Tous les expéditeurs<br>rictions<br>de<br>taille<br>d<br>ages<br>O Uniquement les expéditeurs de a iste<br>suivante<br>restrictions detaille des messages<br>juement<br>les<br>expéditeurs de la<br>liste suivante</p><p>NOM DAFFICHAGE<br>A<br>Définissez une taille maximale pour les messages échangés avec cette boîte aux lettres. En</p><p>Messages envoyés</p><p>Taille maximale du message (Ko)</p><p>35840<br>Messages recus<br>C1 Bxiger tauthentfcation de tous les expéditeurs</p><p>Taille maximale du message (Ko)<br>©<br>haces ewesnens<br>36864<br>O Bpéditeurs dans la liste suivante</p><p>NOM DAFFICHAGE<br>à<br>ene</p><p>» adresse de courrier<br>+4-</p><p>foncuonnalites de<br>poke<br>TPE<br>ADRESSE DE COURRIER<br>tiisat<br>pouvez<br>créer<br>une<br>info<br>courrier<br>àafich<br>M</p><p>f<br>4<br>errier@eniecole.ovh<br>:</p><p>Info courrier</p><p>% FERRIER<br>Lucie X : “je suis parti faire une course je reviens dans<br>1 heure<br>a<br>À<br>| [FERRIER Lucie<br>ent<br>ca</p><p>ce<br>=<br>Envoyer</p><p>Objet</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Gestion IMAP4 et POP3<br>• Cela veut dire que vous autorisez ou non l&#x27;accès à vos utilisateurs <br>par n&#x27;importe quel programme prend en charge les protocoles <br>POP et IMAP<br>• Type : Outlook, Outlook Express, Thunderbird, Eudora<br>• Si vous utilisez ces protocoles, vous ne pourrez plus accéder à :<br>• Vos calendriers<br>• La gestion des contacts<br>• …<br>• Dans le cadre de messagerie M365 ou Exchange, peu d’intérêt <br>d’utiliser ces protocoles</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Quota<br>• Contrairement à un Exchange sur site, la gestion des quotas se fait <br>uniquement en PowerShell</p>
+<p class="tssr-source-paragraph">Get-Mailbox jpetit@eni-ecole.ovh | fl *quota*</p>
+<p class="tssr-source-paragraph">• Paramétrer un avertissement à 49 Gb, un arrêt des envois de courriel à <br>49,5 Gb et un arrêt des envois/réceptions à 50 Gb</p>
+<p class="tssr-source-paragraph">Set-Mailbox –Identity &quot;Jean Petit&quot; –IssueWarningQuota 49gb –ProhibitSendQuota 49.5gb <br>–ProhibitSendReceiveQuota 50gb –UseDatabaseQuotaDefaults $false</p>
+<p class="tssr-source-paragraph">28</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ene</p><p>PS C:\WINDOWS\system32&gt;</p><p>ProhibitSendQuota<br>: 99 GB (106,300,440,576 bytes)<br>ProhibitSendReceiveQuota<br>: 100 GB (107,374,182,400 bytes)<br>RecoverableItemsQuota<br>:<br>30 GB<br>(32,212,254,720 bytes)<br>RecoverableltemsWarningQuota<br>:<br>20 GB<br>(21,474,836,480 bytes)<br>CalendarLoggingQuota<br>: 6 GB (6,442,450,944 bytes)<br>UseDatabaseQuotaDefaults<br>: False<br>IssueWarningQuota<br>: 98 GB (105,226,698,752 bytes)<br>RulesQuota<br>:<br>256 KB (262,144<br>bytes)<br>ArchiveQuota<br>: 100 GB (107,374,182,400 bytes)<br>ArchiveWarningQuota<br>:<br>90 GB<br>(96,636,764,160 bytes)</p><p>= Fo</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">• Durée de rétention des éléments supprimés pour une boîte aux lettres</p>
+<p class="tssr-source-paragraph">Get-Mailbox jpetit@eni-ecole.ovh | fl *retain*</p>
+<p class="tssr-source-paragraph">• Paramétrer la durée de rétention des éléments supprimés pour 30 jours</p>
+<p class="tssr-source-paragraph">Set-Mailbox –Identity &quot;Jean Petit&quot; –RetainDeletedItemsFor 30</p>
+<p class="tssr-source-paragraph">• Lister les boîtes aux lettres supprimées présentes dans la corbeille </p>
+<p class="tssr-source-paragraph">Get-Mailbox -SoftDeletedMailbox</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les différents types de destinataires</p>
+<p class="tssr-source-paragraph">• Boîte aux lettres de ressources<br>• Boîte aux lettres de salle<br>• Permet de gérer les demandes de réservation d&#x27;un emplacement physique</p>
+<p class="tssr-source-paragraph">New-Mailbox –Name &quot;votre nom de salle&quot; –DiplayName &quot;votre nom de salle&quot; -Room</p>
+<p class="tssr-source-paragraph">• Boîte aux lettres d&#x27;équipement<br>• Permet de gérer les demandes de réservation d&#x27;un matériel physique</p>
+<p class="tssr-source-paragraph">New-Mailbox –Name &quot;vidéoproj_1&quot; –DiplayName &quot;vidéoproj_1&quot; -equipment</p>
+<p class="tssr-source-paragraph">30</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\WINDOWS\system32&gt;</p><p>RetainDeletedItemsUntilBackup<br>:<br>False<br>RetainDeletedItemsFor<br>: 14.00:00:00</p><p>en</p><p>en</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les différents types de destinataires</p>
+<p class="tssr-source-paragraph">Boîte aux lettres </p>
+<p class="tssr-source-paragraph">de ressource<br>Option <br>d&#x27;invitation</p>
+<p class="tssr-source-paragraph">• Demande de réunion</p>
+<p class="tssr-source-paragraph">Boîte aux <br>lettres de salle</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les différents types de destinataires</p>
+<p class="tssr-source-paragraph">• Boîte aux lettres partagées<br>• Plusieurs utilisateurs peuvent accéder à une Boîte aux <br>lettres partagée<br>• Gain de licence (attention à bien respecter les CGU…)<br>• Possibilité de fixer un mot de passe (accès <br>smartphone)<br>• Attention aux délégations<br>• « Accès total » permet aux utilisateurs de voir les <br>messages<br>• « Envoyer en tant que » permet d&#x27;envoyer des messages <br>en tant que cette boîte aux lettres<br>• Attention à la gestion des mails (éléments envoyés)</p>
+<p class="tssr-source-paragraph">New-Mailbox –Shared –Name &quot;support&quot; –DiplayName &quot;support&quot; –Alias &quot;support&quot; | Set-Mailbox –GrantSendOnBehalfTo<br>jpetit@eni-ecole.ovh | Add-MailboxPermission –User &quot;Jean Petit&quot; –AccesRights FullAccess –InheritanceType All</p>
+<p class="tssr-source-paragraph">32</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>“Envoyer Iignorer<br>Q Joindre<br>@ Ajouter uneréunion<br>Skype SymboleV … Catégorser<br>iy</p><p>Détails<br>Micreais\<br>Contacts<br>a= 3 |<br>Planifier</p><p>ven. 23/1/2018<br>B)<br>1530<br>+<br>Participants<br>&amp;</p><p>ve<br>@)<br>Le<br>~<br>3.10<br>x</p><p>-<br>.<br>@ TRAMELL Catherine<br>x<br>© vidéoprojecteur 3:10<br>x</p><p>eni<br>BO|crsyK eA<br>REY<br>=</p><p>support</p><p>]</p><p>support<br>eni-ecoleovh<br>]</p><p>+-</p><p>Lucie Ferrier<br>VIDOR Denis</p><p>ene Lo</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-686e6c3961d889fb0a83e90eff73acb6f5aa54a35795d63d2cc7a2f7a0610101.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-686e6c3961d889fb0a83e90eff73acb6f5aa54a35795d63d2cc7a2f7a0610101.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="993" height="8365"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les différents types de destinataires</p>
+<p class="tssr-source-paragraph">• Les contacts<br>• C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe<br>• Cela permet d&#x27;enregistrer, des fournisseurs par exemple, dans les carnets <br>d&#x27;adresses<br>• Les utilisateurs de messagerie<br>• Tout comme les contacts, ils ont une adresse de messagerie externe<br>• Contrairement aux contacts, ils peuvent s&#x27;authentifier sur une session (par <br>exemple, une société de service)</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">Destinataires et permissions Exchange Online</p>
+<p class="tssr-source-paragraph">Les fonctionnalités d’une boîte aux lettres</p>
+<p class="tssr-source-paragraph">• Conservation pour litige<br>• Désactivé par défaut<br>• Liée à un aspect juridique, elle permet de conserver les éléments d&#x27;une <br>boîte aux lettres et enregistre les modifications apportées à ces éléments<br>• Archivage<br>• Permet d&#x27;activer une boîte aux lettres d&#x27;archive</p>
+<p class="tssr-source-paragraph">34</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>+<br>PB<br>wm</p><p>JAucun</p><p>*Quota d&#x27;archivage (Go<br>100</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><p class="tssr-source-paragraph">Destinataires et permissions Exchange Online<br>Résumé : les différents types de destinataires</p>
+<p class="tssr-source-paragraph">Boîte aux lettres d’utilisateur<br>Fonction</p>
+<p class="tssr-source-paragraph">Boîte aux lettres Exchange Online<br>Boîte aux lettres créée avec tout compte Microsoft 365 ayant une licence.</p>
+<p class="tssr-source-paragraph">Boîte aux lettres de ressource<br>Boîte aux lettres de salle ou d’équipement qui permet de gérer un calendrier.</p>
+<p class="tssr-source-paragraph">Boîte aux lettres partagées<br>Plusieurs utilisateurs peuvent accéder à une Boîte aux lettres (une seule copie du mail).</p>
+<p class="tssr-source-paragraph">Boîte aux lettres de contact<br>C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe (ex : pour un fournisseur).</p>
+<p class="tssr-source-paragraph">Boîte aux lettres d’utilisateurs de <br>messagerie</p>
+<p class="tssr-source-paragraph">C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe mais contrairement aux <br>contacts, ils peuvent s&#x27;authentifier sur une session (par exemple, une société de service).</p>
+<p class="tssr-source-paragraph">Boîte aux lettres de groupe<br>Fonction</p>
+<p class="tssr-source-paragraph">Liste de distribution ou groupe <br>Outlook<br>Permet d&#x27;envoyer des messages à un groupe de destinataires (plusieurs copies du mails).</p>
+<p class="tssr-source-paragraph">Liste de distribution dynamique<br>Comme la liste de distribution, permet d&#x27;envoyer des messages à un groupe de destinataires <br>(plusieurs copies du mails) mais ce groupe est créé suivant une requête LDAP.</p>
+<p class="tssr-source-paragraph">Groupe de sécurité à extension de <br>courrier<br>Il permet d&#x27;accorder des accès à des ressources tout en ayant une adresse de messagerie.</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Les groupes</h4>
+<p class="tssr-source-paragraph">36</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ee<br>po<br>Po<br>PO<br>Po<br>[|<br>es<br>fFLd<br>Pe</p><p>&gt;</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Boîte aux lettres d’utilisateur</td><td>Fonction</td></tr><tr><td>Boîte aux lettres Exchange Online</td><td>Boîte aux lettres créée avec tout compte Microsoft 365 ayant une licence.</td></tr><tr><td>Boîte aux lettres de ressource</td><td>Boîte aux lettres de salle ou d’équipement qui permet de gérer un calendrier.</td></tr><tr><td>Boîte aux lettres partagées</td><td>Plusieurs utilisateurs peuvent accéder à une Boîte aux lettres (une seule copie du mail).</td></tr><tr><td>Boîte aux lettres de contact</td><td>C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe (ex : pour un fournisseur).</td></tr><tr><td>Boîte aux lettres d’utilisateurs de<br>messagerie</td><td>C&#x27;est un type de boîte aux lettres avec une adresse de messagerie externe mais contrairement aux<br>contacts, ils peuvent s&#x27;authentifier sur une session (par exemple, une société de service).</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Boîte aux lettres de groupe</td><td>Fonction</td></tr><tr><td>Liste de distribution ou groupe<br>Outlook</td><td>Permet d&#x27;envoyer des messages à un groupe de destinataires (plusieurs copies du mails).</td></tr><tr><td>Liste de distribution dynamique</td><td>Comme la liste de distribution, permet d&#x27;envoyer des messages à un groupe de destinataires<br>(plusieurs copies du mails) mais ce groupe est créé suivant une requête LDAP.</td></tr><tr><td>Groupe de sécurité à extension de<br>courrier</td><td>Il permet d&#x27;accorder des accès à des ressources tout en ayant une adresse de messagerie.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">Les différents groupes dans Microsoft 365</p>
+<p class="tssr-source-paragraph">• Groupe Microsoft 365<br>• Collaboration entre utilisateurs<br>• Gestion dynamique possible par une règle LDAP Azure AD<br>• Boîte de réception Outlook partagée<br>• Un calendrier partagé<br>• Une bibliothèque de documents SharePoint<br>• Un planificateur<br>• Un bloc-notes OneNote<br>• Groupe de distribution<br>• Envoi de mail à un groupe de personnes<br>• Groupe de sécurité<br>• Gestion de droit sur des ressources SharePoint</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">Les groupes<br>Les différents types de groupes</p>
+<p class="tssr-source-paragraph">La création d’un groupe Microsoft 365 créé un site SharePoint</p>
+<p class="tssr-source-paragraph">38</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ene</p><p>©<br>Microsoft 365 (recommandé)</p><p>O distribution</p><p>O sécurité</p><p>Microsoft 365.</p><p>a<br>NES</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><p class="tssr-source-paragraph">Les groupes</p>
+<p class="tssr-source-paragraph">Les différents types de groupes</p>
+<p class="tssr-source-paragraph">• Groupe Microsoft 365</p>
+<p class="tssr-source-paragraph">39</p>
+<p class="tssr-source-paragraph">Les groupes</p>
+<p class="tssr-source-paragraph">Les différents types de groupes</p>
+<p class="tssr-source-paragraph">• Liste de distribution</p>
+<p class="tssr-source-paragraph">40</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Groupe<br>Groupe1<br>Groupe Public + 1 propriétaire<br>1 membre<br>Paramètres généraux<br>Groupe Public<br>»<br>1 propriétaire<br>+<br>1 membre<br>i<br>Autoriser<br>les<br>expéiteursextemes<br>à envoyer un courir<br>à ce grou<br>Ü<br>PE<br>ve<br>groupe</p><p>Envoyer des copies des conversations et événement de groupe aux<br>Général<br>Membres<br>Paramètres<br>Microsoft Teams<br>membres</p><p>du groupe<br>=~</p><p>Général<br>Membres<br>Paramètres<br>Microsoft Teams<br>—<br>Masquer dans a liste d&#x27;adresses globale de mon organisation<br>informations de base</p><p>Nom<br>Propriétaires (D<br>Confidentialité</p><p>Description<br>Maxime test<br>Orne<br>Groupet<br>© ravie</p><p>Afficher<br>tout et gérer les propriétaires<br>Gestion des remises</p><p>Principal<br>Membres (D)<br>Refuser les messages provenant de: Aucun expéditeur</p><p>Alas<br>Powershell User</p><p>Gérer es délégués</p><p>Afficher tout etgérer les membres<br>eni<br>06/05/2001, 1023 PM</p><p>Options de l&#x27;expéditeur</p><p>Par défaut, saules es personnes au sein de votre organisation peuvent envoyer des<br>messages à ce groupe. Vous pouvez également autoriser les personnes extemnes à</p><p>l&#x27;organisation à envoyer des invitations à ce groupe.<br>Groupes<br>fautoriser<br>isation<br>P<br>LD_Compte<br>© Nauorseraueies messes de membresau sein demon organisa<br>Groupe Liste de distrib<br>© autoriser les messages en provenance de contacts interes et externes à mon</p><p>x<br>organisation<br>Microsoft365 Liste de distibution<br>Sécurité<br>à extent<br>8</p><p>Général<br>Membres<br>Paramètres<br>Expéditeur spécifiés</p><p>Pour imiter les utilisateurs autorisés à envoyer des messages au groupe, ajoutez ci<br>cp<br>a<br>dessous les expéditeur spécifiés Seuls ces utilisateursou groupes seront autorisésà<br>méga<br>nr<br>“envoyer un courrier<br>au groupe.</p><p>Rejoindre le groupe<br>©<br>1comptes<br>Informations de base<br>Recherchez par nom ou par adresse de courrier<br>Nom<br>© ouvert</p><p>Compe</p><p>Seuls les propriétaires du groupe peuvent ajouter des membres.<br>Toutes les</p><p>O approbation du propriétaire</p><p>Adresses e-mail<br>Tout le monde peut demander à rejoindre ce groupe et les propriétaires doivent<br>Principal<br>approuver la demande.</p><p>Awe<br>Quittez le groupe</p><p>:<br>© owert</p><p>A<br>Tout</p><p>lemonde peut quitter ce groupe sans approbation<br>du propriétaire<br>du<br>enti<br>Date de création<br>we<br>peur<br>au<br>F<br>°<br>cu<br>proprétare<br>c</p><p>ou<br>groupe<br>mes<br>O Ferme</p></div></details>
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-62efa15f1c2c388e32327b162349033fe94aa5e04849a49ae05e45e60cdb9dbf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-62efa15f1c2c388e32327b162349033fe94aa5e04849a49ae05e45e60cdb9dbf.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="993" height="8767"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><p class="tssr-source-paragraph">Les groupes</p>
+<p class="tssr-source-paragraph">Les différents types de groupes</p>
+<p class="tssr-source-paragraph">• Liste de distribution dynamique</p>
+<p class="tssr-source-paragraph">41</p>
+<p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Administrer Exchange Online</h4>
+<p class="tssr-source-paragraph">42</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Options de l&#x27;expéditeur</p><p>test<br>messages à ce groupe. Vous pouvez également autoriser les personnes externes à</p><p>organisation à envoyer des invitations à ce groupe.<br>O Nautorser que les messages de membres au sein de mon organisation</p><p>&lt;i<br>aac</p><p>Pour limiter les utiisateurs autorisés à envoyer des messages au groupe, ajouterci</p><p>a<br>L<br>|</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les domaines acceptés</p>
+<p class="tssr-source-paragraph">• Il s&#x27;agit d&#x27;un domaine dans le sens DNS.<br>• Il permet aux utilisateurs de ce domaine d&#x27;envoyer et recevoir <br>des messages pour ce domaine DNS.<br>• Il en existe 2 types :<br>• Faisant autorité : c&#x27;est un domaine géré par votre office 365.<br>• Relais interne : le courrier peut être relayé par vos serveurs, mais vous <br>aurez alors besoin des connecteurs de réception et d&#x27;envoi.</p>
+<p class="tssr-source-paragraph">43</p>
+<p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Le suivi des messages</p>
+<p class="tssr-source-paragraph">• En tant qu&#x27;administrateur, il peut vous être demandé d&#x27;effectuer <br>un suivi des messages</p>
+<p class="tssr-source-paragraph">44</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ene</p><p>Rechercher les messages qui ont été envoyés :</p><p>a<br>mn<br>Par ces<br>personnes<br>Résultats de recherche de suivi de message<br>pom</p><p>ees conter<br>sn<br>L<br>ue<br>aa<br>=<br>mt<br>tpmsonecuot<br>‘<br>Dans cette plage de temps (UTC+01:00) (<br>Curseur<br>2 derniers) jours)</p><p>1<br>2<br>wimiroso.<br>holy @adatunz20181234<br>x<br>count<br>ink<br>90<br>30<br>15<br>10<br>7<br>2<br>tjour<br>“12h<br>6h<br>0</p><p>V<br>Autres<br>options<br>de recherche</p><p>DRE<br>meer<br>___—<br>Dee<br>© rapport<br>de synthèse<br>Accès immédiat<br>en igne<br>©</p><p>2<br>© Rapport de synthèse amélioré<br>Fichier<br>CSV téléchargeable<br>eni<br>uniquement<br>—<br>©<br>Rapport détaillé<br>Fichier<br>CSV téléchargeable<br>uniquement</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les règles de transport</p>
+<p class="tssr-source-paragraph">• Vous pouvez implémenter des stratégies et de la conformité de <br>messagerie en appliquant des règles de transport aux messages<br>• Les règles de transport :<br>• Limitent les flux de messages<br>• Modifient le contenu des messages en transit<br>• Empêchent les utilisateurs spécifiés d&#x27;échanger des courriers électroniques <br>avec d&#x27;autres utilisateurs définis<br>• Bloquent tout contenu inapproprié entrant ou sortant<br>• Peuvent contourner les règles de filtrage antispam<br>• Permettent de suivre ou journaliser les messages échangés avec certaines <br>personnes<br>• Redirigent les messages entrants ou sortants pour les examiner avant <br>leur remise</p>
+<p class="tssr-source-paragraph">45</p>
+<p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les règles de transport</p>
+<p class="tssr-source-paragraph">• Leurs caractéristiques :<br>• Appliquées par les serveurs de boîte aux lettres<br>• Appliquer les exigences de conformité<br>• Leurs configurations :<br>• Conditions (les attributs, en-têtes, destinataires, expéditeurs ou autres <br>parties du message électronique)<br>• Actions<br>• Exceptions</p>
+<p class="tssr-source-paragraph">46</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les règles de transport</p>
+<p class="tssr-source-paragraph">• Les conditions et exceptions peuvent se chevaucher et ainsi créer <br>des règles que vous ne souhaitez pas (modifier ou supprimer des <br>messages)<br>• La priorité et l’ordre des règles sont capitaux à la bonne application <br>de vos contraintes de conformité<br>• La règle en haut de liste est traitée en premier (priorité 0)<br>• Utiliser les expressions régulières pour vérifier le contenu des <br>messages</p>
+<p class="tssr-source-paragraph">• Recherche d’un numéro de téléphone du type « \d\d\d(-|.)\d\d\d\d »</p>
+<p class="tssr-source-paragraph">47</p>
+<p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les connecteurs</p>
+<p class="tssr-source-paragraph">• Par défaut, aucun connecteur ne sera à créer, votre messagerie <br>est fonctionnelle.<br>• Les connecteurs auront de multiples fonctions :<br>• Faire le lien avec un serveur Exchange On Premise<br>• Autoriser des sites web, copieurs, logiciels à envoyer de mails à partir de <br>votre entreprise<br>• D’appliquer un comportement différent en fonction du ou des domaines <br>cibles (application de chiffrement par exemple)<br>• Accepter du courrier entrant d’une organisation partenaire</p>
+<p class="tssr-source-paragraph">48</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9be4969e2d7b938135ec856333a2963ba0f1f6aaeacfff11a30b7771c35eafdf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9be4969e2d7b938135ec856333a2963ba0f1f6aaeacfff11a30b7771c35eafdf.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="993" height="7287"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><p class="tssr-source-paragraph">Administrer Exchange Online</p>
+<p class="tssr-source-paragraph">Les connecteurs</p>
+<p class="tssr-source-paragraph">• L’une des utilisations les plus <br>communes est d’utiliser un relais SMTP <br>en interne :</p>
+<p class="tssr-source-paragraph">Réseau de votre organisation</p>
+<p class="tssr-source-paragraph">Vos boîtes aux <br>lettres Office 365</p>
+<p class="tssr-source-paragraph">Imprimante multifonction ou <br>périphérique (par exemple, <br>numérisation vers la messagerie)</p>
+<p class="tssr-source-paragraph">Internet</p>
+<p class="tssr-source-paragraph">Service Web hébergé localement <br>(par exemple, un service de paie) </p>
+<p class="tssr-source-paragraph">Authentification à l’aide des <br>informations d’identification<br>De boîte aux lettres Office 365</p>
+<p class="tssr-source-paragraph">Site Web hébergé localement (par <br>exemple, un site intranet des RH) </p>
+<p class="tssr-source-paragraph">Message envoyé à </p>
+<p class="tssr-source-paragraph">Smtp.office365.com </p>
+<p class="tssr-source-paragraph">des destinataires </p>
+<p class="tssr-source-paragraph">sur le port 587</p>
+<p class="tssr-source-paragraph">externes</p>
+<p class="tssr-source-paragraph">Destinataires <br>extérieurs à votre </p>
+<p class="tssr-source-paragraph">• Simplifier la configuration des <br>équipements (authentification non <br>obligatoire en interne)<br>• Limiter le nombre de machines pouvant <br>exploiter le protocole SMTP et ainsi <br>limiter la surface d’attaque<br>• Établir une configuration sécurisée <br>entre votre relais SMTP interne et <br>Microsoft 365 (pas toujours possible sur <br>les équipements)<br>• Limiter le nombre d’entrées dans le SPF</p>
+<p class="tssr-source-paragraph">société</p>
+<p class="tssr-source-paragraph">49</p>
+<p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Connectivité des clients </h4>
+<h4>de messagerie</h4>
+<p class="tssr-source-paragraph">50</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                             Administrer Exchange Online
+                                                                             Les connecteurs
+
+
+
+                         • L’une des utilisations les plus
+                communes est d’utiliser un relais SMTP
+                  en interne :
+                                 •  Simplifier la configuration des
+                        équipements (authentification non
+                             obligatoire en interne)                                                  Réseau de votre organisation                                         Vos boîtes aux
+
+                                                                                                                                                                                                      multifonction                                                                                                                                                                      ou                                 •  Limiter le nombre de machines pouvant             Imprimantepériphérique                                                                                      lettres Office 365                                                                                                                                                                                                             (par exemple,
+                                                                                                                                                                                numérisation vers la messagerie)                              exploiter le protocole SMTP et ainsi
+                                                                                                                                                                                                                                                               Internet                                                                                                                                 Web hébergé                                                                                                                                                                                                   localement
+                                                                                                                                                                                                                                                                                                                            Authentification                                                                                                                                                                                                                                                                                              à l’aide des                                limiter la surface d’attaque                                                  Service(par exemple,                                                                                                                                                                  un service                                                                                                                                                                           de paie)                                                                                                                                                                                                                                                                                                       informations d’identification
+                                 •  Établir une configuration sécurisée                                                                                         De boîte aux lettres Office 365
+
+                                                                                                                                                                                                                                                                        Message                                                                                                                                                                                                                                                                                                envoyé à                            entre votre relais SMTP interne et                                  Siteexemple,Web unhébergésite intranetlocalementdes RH)(par                           Smtp.office365.com                                                                                                                                                                                                                                                                                                des destinataires
+                                                                                                                                                                                                                                                                                                sur le port 587                               externes                           Microsoft 365 (pas toujours possible sur
+                                les équipements)
+                                 •  Limiter le nombre d’entrées dans le SPF                                                                                                                       extérieursDestinatairesà votre
+                                                                                                                                                                                                                                                                                                                               société
+
+
+
+
+
+49
+
+
+
+                                                                             Administration Microsoft 365
+
+    Connectivité des clients
+       de messagerie
+
+
+
+
+
+50</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ces . —_</p><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Prérequis pour l’infrastructure réseau</p>
+<p class="tssr-source-paragraph">• Ports et protocoles<br>• Assurez-vous que tous les ports sont bien ouverts</p>
+<p class="tssr-source-paragraph">Le port 25 (SMTP) est très souvent bloqué par les FAI (Fournisseur d’Accès Internet).</p>
+<p class="tssr-source-paragraph">Protocole<br>Port non sécurisé<br>Port TLS/SSL<br>HTTP<br>80<br>443<br>POP3<br>110<br>995<br>IMAP4<br>143<br>993<br>MAPI / HTTPS<br>443<br>ActiveSync / HTTPS<br>443<br>SMTP<br>25<br>Soumission client SMTP<br>2525<br>587 / 465</p>
+<p class="tssr-source-paragraph">51</p>
+<p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Quelles connexions choisir ?</p>
+<p class="tssr-source-paragraph">• Les connexions IMAP et POP sont de plus en plus rarement <br>utilisées avec Microsoft 365 mais restent possibles.<br>• Les clients Outlook utiliseront MAPI/HTTPS.<br>• Les clients mobiles utiliseront ActiveSync.</p>
+<p class="tssr-source-paragraph">52</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RE<br>ee</p><p>&gt;</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Protocole</td><td>Port non sécurisé</td><td>Port TLS/SSL</td></tr><tr><td>HTTP</td><td>80</td><td>443</td></tr><tr><td>POP3</td><td>110</td><td>995</td></tr><tr><td>IMAP4</td><td>143</td><td>993</td></tr><tr><td>MAPI / HTTPS</td><td></td><td>443</td></tr><tr><td>ActiveSync / HTTPS</td><td></td><td>443</td></tr><tr><td>SMTP</td><td>25</td><td></td></tr><tr><td>Soumission client SMTP</td><td>2525</td><td>587 / 465</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Autodiscover</p>
+<p class="tssr-source-paragraph">• Découverte automatique du serveur de messagerie<br>• « Tester la configuration automatique de la messagerie » permet <br>de valider vos paramètres Autodiscover pour la configuration <br>automatique des profils.</p>
+<p class="tssr-source-paragraph">• Vous pouvez aussi utiliser le Remote Connectivity Analyser Tool.<br>• Il doit exister des enregistrements dans votre zone DNS publique <br>pour les clients externes.</p>
+<p class="tssr-source-paragraph">Pour Outlook</p>
+<p class="tssr-source-paragraph">Enregistrement DNS<br>Valeur</p>
+<p class="tssr-source-paragraph">CNAME<br>Alias : Autodiscover<br>Cible : autodiscover.outlook.com</p>
+<p class="tssr-source-paragraph">En cas d&#x27;utilisation de AD </p>
+<p class="tssr-source-paragraph">Alias : Autodiscover.service.eni-ecole.ovh</p>
+<p class="tssr-source-paragraph">FS (optionnel)</p>
+<p class="tssr-source-paragraph">Cible : autodiscover.outlook.com</p>
+<p class="tssr-source-paragraph">CNAME</p>
+<p class="tssr-source-paragraph">53</p>
+<p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Rappel Autodiscover</p>
+<p class="tssr-source-paragraph">• Processus de la découverte automatique<br>• L&#x27;utilisateur entre son adresse mail à l&#x27;ouverture d&#x27;Outlook<br>• Outlook cherche puis se connecte au serveur de messagerie de l’utilisateur<br>• Le client envoie son adresse SMTP pour avoir les options de configuration <br>de cette adresse<br>• Un fichier .xml est téléchargé par le client avec les paramètres du serveur<br>• Outlook se connecte au serveur Exchange Online dans Office 365 et peut <br>recevoir ses mails</p>
+<p class="tssr-source-paragraph">SMTP</p>
+<p class="tssr-source-paragraph">Internet</p>
+<p class="tssr-source-paragraph">web.xml</p>
+<p class="tssr-source-paragraph">Micheline@campus-eni.fr<br>MAPI/HTTPS</p>
+<p class="tssr-source-paragraph">Serveur de <br>messagerie <br>de Micheline</p>
+<p class="tssr-source-paragraph">54</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>es</p><p>à</p><p>CA</p><p>=</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Enregistrement DNS</td><td>Valeur</td></tr><tr><td>CNAME</td><td>Alias : Autodiscover<br>Cible : autodiscover.outlook.com</td></tr><tr><td>En cas d&#x27;utilisation de AD<br>FS (optionnel)<br>CNAME</td><td>Alias : Autodiscover.service.eni-ecole.ovh<br>Cible : autodiscover.outlook.com</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Micheline@campus-eni.fr</td><td></td></tr><tr><td></td><td>Micheline@campus-eni.fr</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Les fichiers Outlook .pst, .ost et spscoll.dat</p>
+<p class="tssr-source-paragraph">• .pst « Personal Storage Table » : fichier contenant les informations <br>pour un compte POP3 par exemple.<br>• .ost « Offline Storage Table » : fichier contenant vos données <br>lorsque vous êtes hors connexion pour les comptes IMAP4 et <br>Exchange.<br>• .nst est l’extension des fichiers GST « Group Storage Table » : <br>fichier contenant les conversations de groupe.<br>• spscoll.dat « Outlook Social Connector » : fichier qui contient les <br>adresses mail suggérées lors de l’écriture d’une adresse (ouverture <br>possible avec notepad).</p>
+<p class="tssr-source-paragraph">55</p>
+<p class="tssr-source-paragraph">Connectivité des clients de messagerie</p>
+<p class="tssr-source-paragraph">Réparer les fichiers .pst, .nst et .ost</p>
+<p class="tssr-source-paragraph">• Utilisation de l’outil natif au système pour les .pst : scanpst.exe<br>• Supprimer le .ost afin qu’il soit régénéré<br>• Utilisation d’outil tiers comme :</p>
+<p class="tssr-source-paragraph">56</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p><p>SysTools”<br>Ver</p><p>Stellar<br>7<br>OST TO PST<br>@<br>CONVERTER</p><p>A<br>syste<br>ene<br>OST Recovery<br>+<br>ne<br>oes</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e41c95c1c246b9f8b1023bad4a815b831a8ac93b0f62bf827add043e7a96239f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e41c95c1c246b9f8b1023bad4a815b831a8ac93b0f62bf827add043e7a96239f.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="993" height="6470"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Gestion des mobiles</h4>
+<p class="tssr-source-paragraph">57</p>
+<p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">EMM (Enterprise Managing Mobile)</p>
+<p class="tssr-source-paragraph">• Gestion des appareils mobiles de l’entreprise<br>• Représente une suite de service qui permet de gérer les appareils <br>mobiles et la sécurité des données<br>• Différents acteurs du marché :</p>
+<p class="tssr-source-paragraph">58</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DA mobileiron<br>‘5:BlackBerry</p><p>vant<br>airwatch</p><p>by vmware</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-30"><h3>Page 30</h3><p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices</p>
+<p class="tssr-source-paragraph">• MDM<br>• Ce service représente 16,29 milliards de dollars de CA en 2020.<br>• Module de gestion des appareils mobiles.<br>• Mobile<br>• Tablette<br>• Smartphone<br>• Permet de gérer :<br>• Les applications<br>• Le réseau<br>• Les données<br>• La sécurité</p>
+<p class="tssr-source-paragraph">59</p>
+<p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">BYOD, CYOD et COPE</p>
+<p class="tssr-source-paragraph">• BYOD (Bring Your Own Device)<br>• Les utilisateurs peuvent utiliser les matériels personnels pour le travail.<br>• Permet une meilleure productivité puisqu’ils connaissent déjà le fonctionnement.<br>• Diminution des coûts pour l’entreprise (possibilité de prise en charge de tout ou <br>partie des coûts d’achat et de maintenance).</p>
+<p class="tssr-source-paragraph">• CYOD (Choose Your Own Device)<br>• Les utilisateurs peuvent choisir un modèle parmi une liste préétablie par l’entreprise.<br>• Permet d’éviter un parc de matériels trop hétérogène.</p>
+<p class="tssr-source-paragraph">• COPE (Corporate Owned Personally Enabled)<br>• Les utilisateurs utilisent le matériel choisi par l’entreprise, mais ils peuvent l’utiliser à <br>des fins personnelles.<br>• Ils peuvent installer les applications qu’ils veulent, mais la gestion reste à l’entreprise.</p>
+<p class="tssr-source-paragraph">60</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-31"><h3>Page 31</h3><p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices dans Microsoft 365</p>
+<p class="tssr-source-paragraph">• MDM pour Microsoft 365 permet de gérer des appareils mobiles.<br>• Windows phone<br>• Android<br>• iPhone et iPad<br>• Pour une gestion avancée des appareils mobiles pour un domaine <br>personnalisé, des enregistrements DNS sont nécessaires.</p>
+<p class="tssr-source-paragraph">Enregistrement DNS<br>Valeur</p>
+<p class="tssr-source-paragraph">CNAME<br>Hôte : EnterpriseEnrollment<br>Adresse : EnterpriseEnrollment.manage.microsoft.com</p>
+<p class="tssr-source-paragraph">CNAME<br>Hôte : EnterpriseRegistration<br>Adresse : EnterpriseRegistration.windows.net</p>
+<p class="tssr-source-paragraph">61</p>
+<p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices dans Microsoft 365</p>
+<p class="tssr-source-paragraph">• Activer la gestion mobile</p>
+<p class="tssr-source-paragraph">https://admin.microsoft.com/EAdmin/Device/IntuneInventory.aspx</p>
+<p class="tssr-source-paragraph">62</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p><p>G<br> &amp;<br>https//adminmicrosoft.com/EAdmin/Device/intunelnventory.aspx</p><p>Configurer la gestiondes appareils mobiles pour Office 365</p><p>eni<br>End<br>Allons-y @</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Enregistrement DNS</td><td>Valeur</td></tr><tr><td>CNAME</td><td>Hôte : EnterpriseEnrollment<br>Adresse : EnterpriseEnrollment.manage.microsoft.com</td></tr><tr><td>CNAME</td><td>Hôte : EnterpriseRegistration<br>Adresse : EnterpriseRegistration.windows.net</td></tr></tbody></table></div>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-32"><h3>Page 32</h3><p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices</p>
+<p class="tssr-source-paragraph">• Une fois activé, vous pouvez créer une stratégie</p>
+<p class="tssr-source-paragraph">63</p>
+<p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices</p>
+<p class="tssr-source-paragraph">• Options de stratégie<br>• Empêcher les mots de <br>passe simples<br>• Longueur minimale de <br>mot de passe<br>• Nombre d&#x27;échecs avant <br>effacement de l&#x27;appareil<br>• Temps d&#x27;inactivité avant <br>verrouillage<br>• Expiration du mot de <br>passe et historique<br>• Exiger le chiffrement de <br>l&#x27;appareil<br>• Bloquer ou autoriser <br>l&#x27;accès à un appareil</p>
+<p class="tssr-source-paragraph">64</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE<br>Centre de sécurité et conformité Office 365</p><p>’</p><p>En<br>savoir plus</p><p>Ci</p><p>à propos des appareils et scénarios pris en charge<br>À Alertes<br>Gérer les paramètres d&#x27;accès<br>aux<br>appareils<br>à l&#x27;échelle<br>del&#x27;organisation</p><p>[&amp; Protection contre la perte<br>A</p><p>Ds<br>Quelle condition requise voulez-vous appliquer aux appareils ?</p><p>.<br>@ Nommez<br>votre strategie<br>:</p><p>Z<br>.</p><p>a</p><p>eni<br>as</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-8a9ec5ee1ec57850345ab989bceb636a8ab4cc8870ce43cbe1a21ff133d51080.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-8a9ec5ee1ec57850345ab989bceb636a8ab4cc8870ce43cbe1a21ff133d51080.webp" alt="Illustrations du support source, pages 29 à 32" loading="lazy" width="993" height="7695"></a><figcaption>Illustrations du support Drive — pages 29 à 32. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices</p>
+<p class="tssr-source-paragraph">• Options de stratégie<br>• Bloquer la synchronisation <br>de photos<br>• Bloquer la capture d&#x27;écran<br>• Bloquer ou gérer l&#x27;accès <br>au magasin d&#x27;application<br>• Bloquer la connexion au <br>stockage amovible</p>
+<p class="tssr-source-paragraph">65</p>
+<p class="tssr-source-paragraph">Gestion des mobiles</p>
+<p class="tssr-source-paragraph">Managing Mobile Devices</p>
+<p class="tssr-source-paragraph">• Appliquez la stratégie au groupe de sécurité</p>
+<p class="tssr-source-paragraph">66</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[1 Exiger le chiffrement des sauvegardes</p><p>[1 Bloquer la sauvegarde sur le cloud</p><p>[1 Bloquer la synchronisation de documents</p><p>EZ Bloquer la synchronisation de photos</p><p>Bloquer la capture d&#x27;écran</p><p>[1 Bloquer la vidéoconférence sur les appareils</p><p>[1 Bloquer l&#x27;envoi de données de diagnostic à partir des appareils</p><p>4 Demanderun mot de passe lors de l&#x27;accès au magasin d&#x27;applications</p><p>EZ Bloquer la connexion au stockage amovible</p><p>[1 Bloquer la connexion Bluetooth</p><p>Les paramètres ci-dessus seront configurés sur les appareils des utilisateurs et les violations seront signalées</p><p>ent</p><p>Sélectionner un groupe</p><p>Voulez-vous appliquer cette stratégie maintenant ?</p><p>Choisissez le, la ou les groupes à ajouter dans la liste ci-dessous.</p><p>Filtrer par Alias<br>v<br>© ow</p><p>spécialement pour cette stratégie.</p><p>2<br>Groupes (5)</p><p>[1 Alas<br>Nom complet<br>0:<br>:<br>[1 Managers<br>Managers<br>Non<br>Marketi<br>Marketi<br>Nous allons enregistrer cette stratégie, mais celle-ci ne sera pas appliquée aux appareils au sein<br>o<br>9<br>°<br>de votre organisation.<br>on<br>m<br>(ail 1<br>[CL<br>Development<br>Development</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-34"><h3>Page 34</h3><p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>Azure AD</h4>
+<p class="tssr-source-paragraph">67</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Présentation</p>
+<p class="tssr-source-paragraph">• C&#x27;est un service cloud de gestion des identités et des annuaires<br>• Il est utilisé par Microsoft 365 pour identifier les utilisateurs<br>• Vous pourrez :<br>• Gérer des utilisateurs<br>• Gérer des appareils<br>• Vous connecter à un domaine Active Directory local</p>
+<p class="tssr-source-paragraph">68</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-35"><h3>Page 35</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Authentification</p>
+<p class="tssr-source-paragraph">• Indépendant de votre Active Directory local<br>• Nécessite 2 mots de passe gérés dans 2 annuaires différents :<br>• 1 compte Active directory local<br>• 1 compte Azure AD dans Office 365</p>
+<p class="tssr-source-paragraph">Galettes.lcl</p>
+<p class="tssr-source-paragraph">Serveur AD<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">69</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">• Azure AD Connect va permettre de faire une synchronisation <br>entre Microsoft 365 et votre AD DS On-Premise<br>• Tous les attributs utilisateurs, groupes ou contacts modifiés, <br>désactivés ou supprimés dans votre AD sur site seront modifiés <br>dans Microsoft 365<br>• Vous pouvez filtrer sur votre forêt, un domaine, une OU, un <br>attribut…</p>
+<p class="tssr-source-paragraph">70</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p><p>= À<br>CA</p><p>End</p><p>&gt;</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-36"><h3>Page 36</h3><p class="tssr-source-paragraph">Azure AD<br>Azure AD Connect</p>
+<p class="tssr-source-paragraph">Après avoir installé Azure AD Connect, les utilisateurs de votre AD local </p>
+<p class="tssr-source-paragraph">sont synchronisés avec Azure AD dans le cloud.</p>
+<p class="tssr-source-paragraph">Serveur AD<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">Azure AD </p>
+<p class="tssr-source-paragraph">Connect</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Galettes.lcl</p>
+<p class="tssr-source-paragraph">71</p>
+<p class="tssr-source-paragraph">Azure AD<br>Authentification Cloud avec mot de passe hashé</p>
+<p class="tssr-source-paragraph">Azure AD Connect récupère les mots de passe hashés puis les <br>envoie dans Azure AD en SHA256 afin de les synchroniser. Un <br>utilisateur peut ainsi s’identifier dans le cloud avec son mot de <br>passe AD local</p>
+<p class="tssr-source-paragraph">Avec la méthode d’authentification Cloud, la synchronisation <br>ne se fait que de l’AD local vers Azure AD Office 365.</p>
+<p class="tssr-source-paragraph">Serveur AD<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">Azure AD </p>
+<p class="tssr-source-paragraph">Connect</p>
+<p class="tssr-source-paragraph">Mot de passe hashé en SHA256</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Galettes.lcl</p>
+<p class="tssr-source-paragraph">72</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+
+
+                       Après avoir installé Azure AD Connect, les utilisateurs de votre AD local
+                                   sont synchronisés avec Azure AD dans le cloud.
+
+
+
+
+
+                                                                                                                                        Serveur AD
+                                                              Azure AD              Serveur DNS
+                                                            Connect
+
+                                       Azure AD                                                                       Galettes.lcl
+
+
+
+
+
+71
+
+
+
+                                                                                     Azure AD
+                                                Authentification Cloud avec mot de passe hashé
+
+
+               Azure AD Connect récupère les mots de passe hashés puis les
+                envoie dans Azure AD en SHA256 afin de les synchroniser. Un
+                   utilisateur peut ainsi s’identifier dans le cloud avec son mot de
+                passe AD local
+
+                                                                               Avec la méthode d’authentification Cloud, la synchronisation
+                                                                           ne se fait que de l’AD local vers Azure AD Office 365.
+
+
+
+
+
+                                                              Azure AD                   ServeurServeurDNSAD
+                                                             Connect
+
+                                                               Mot de passe hashé en SHA256
+                                        Azure AD                                                                          Galettes.lcl
+
+
+
+
+
+72</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>on<br>a</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></div>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bf473b7edf601760741544f57a5e65f912d87173169dacde9bbfe026650717a9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bf473b7edf601760741544f57a5e65f912d87173169dacde9bbfe026650717a9.webp" alt="Illustrations du support source, pages 33 à 36" loading="lazy" width="993" height="7235"></a><figcaption>Illustrations du support Drive — pages 33 à 36. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><p class="tssr-source-paragraph">Azure AD<br>Azure AD Writeback (réécriture du mot de passe)</p>
+<p class="tssr-source-paragraph">Avec Azure Ad Writeback, la synchronisation se fait dans les deux sens.</p>
+<p class="tssr-source-paragraph">Nécessite Azure AD premium P1 ou Business Premium.</p>
+<p class="tssr-source-paragraph">Serveur AD<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">Azure AD </p>
+<p class="tssr-source-paragraph">Connect</p>
+<p class="tssr-source-paragraph">Mot de passe hashé en SHA256</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Galettes.lcl</p>
+<p class="tssr-source-paragraph">73</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">• La synchronisation entre votre Office 365 et votre AD DS se <br>fait toutes les 30 minutes par défaut</p>
+<p class="tssr-source-paragraph">74</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                     Azure AD
+                                         Azure AD Writeback (réécriture du mot de passe)
+
+
+
+
+                  Avec Azure Ad Writeback, la synchronisation se fait dans les deux sens.
+                            Nécessite Azure AD premium P1 ou Business Premium.
+
+
+
+
+
+                                                              Azure AD                   ServeurServeurDNSAD
+                                                            Connect
+
+                                                              Mot de passe hashé en SHA256
+                                       Azure AD                                                                          Galettes.lcl
+
+
+
+
+
+73
+
+
+
+                                                                                     Azure AD
+                                                                    Azure AD Connect
+
+
+
+                    • La synchronisation entre votre Office 365 et votre AD DS se
+                       fait toutes les 30 minutes par défaut
+
+
+
+
+
+74</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D<br>—_.</p><p>PE<br>oS<br>S</p><p>ene</p><p>PS C:\Windows\system32&gt;<br>Import-Module ADsync<br>PS Cz\Windows\system32&gt;<br>Get-ADSyncScheduler</p><p>Al lowedSyncCycle Interval<br>:<br>00:30:00<br>CurrentlyEffectiveSyncCyclelnterval<br>:<br>00:30:00<br>CustonizedSyncCyclelnterval<br>B<br>HextSyncCyclePolicyType<br>:<br>Delta<br>NextSyncCycleStart Time InUTC<br>=<br>21/11/2018<br>09:37:17<br>Purgefunkistory Interval<br>&gt;<br>7.00:00:00<br>SyncCycleEnabled<br>:<br>True<br>jaintenanceEnab led<br>: True<br>StagingModeEnab led<br>:<br>False<br>SchedulerSuspended<br>:<br>False<br>SyncCycleInProgress<br>:<br>False</p><p>ene</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-38"><h3>Page 38</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">1. Créez un nouveau suffixe <br>UPN dans votre Active <br>Directory</p>
+<p class="tssr-source-paragraph">2. Puis remplacez le suffixe <br>UPN pour chaque utilisateur <br>dans votre AD DS</p>
+<p class="tssr-source-paragraph">75</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">3.<br>Créez un compte de service pour la synchronisation<br>• Il est indispensable de dédier un compte à la synchronisation AD, <br>comme pour tout service.<br>• L’utilisation de comptes génériques ou des comptes administrateur <br>est à bannir des pratiques</p>
+<p class="tssr-source-paragraph">• Limite la possibilité de réinitialisation de mots de passe (impacts larges et <br>souvent mal maîtrisés qui entraîneront des interruptions de service)<br>• Permet d’avoir un mot de passe dédié par service et donc de renforcer la <br>sécurité : un compte compromis ne donnera pas accès à l’ensemble des <br>services de l’entreprise<br>• Pour une délégation fine, référez-vous à cet article :</p>
+<p class="tssr-source-paragraph">https://docs.microsoft.com/fr-fr/azure/active-directory/hybrid/reference-connect-accounts-permissions</p>
+<p class="tssr-source-paragraph">76</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>al<br>Active Directory Domains and Trusts<br>Fal<br>Acta<br>Vier<br>sa<br>¢9| al G8| a</p><p>138 fete Det Domains endTa<br>| Active Directory Domainsand Trusts |WIN-U80. [7]</p><p>UPN Sues</p><p>The names ofthe cuert doman andthe rot domain are he defaut ver<br>parcel mene (UPN) aus Adan stemsive conan names provdee<br>Ra logon secu aed sles user lopo ree.</p><p>you wart atematve UPH siefo appear dungusec, add<br>them oe folowing it.<br>Aero UPN soos</p><p>deb yann Properties<br>a|</p><p>Pblshed Cesficates<br>| MenberOF<br>| Password Rscston<br>| Dan<br>| Obect<br>‘Securty<br>Environment<br>Sessions<br>Remote control<br>Remote Desktop Services Profile<br>Attribute Editor</p><p>General | Address | Account | Profile | Telephones | Organization</p><p>User logon name:<br>=a)</p><p>OK<br>Caneel<br>=<br>Hep</p><p>;<br>2ent<br>User logon name(pre Windows 2000)</p><p>ENIECOLE\<br>[debyann</p><p>ene</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-39"><h3>Page 39</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">4.<br>Utilisez l’assistant d’installation</p>
+<p class="tssr-source-paragraph">5.<br>Utilisez l&#x27;utilisateur créé avec votre tenant</p>
+<p class="tssr-source-paragraph">6.<br>Utilisez un compte de service <br>administrateur de l’entreprise</p>
+<p class="tssr-source-paragraph">77</p>
+<p class="tssr-source-paragraph">Azure AD<br>Azure AD Connect</p>
+<p class="tssr-source-paragraph">Début de la synchronisation</p>
+<p class="tssr-source-paragraph">Azure AD vérifie si votre domaine est routable sur internet</p>
+<p class="tssr-source-paragraph">78</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CY</p><p>See</p><p>Connect to Azure AD</p><p>Enter your Azure AD global administrator credentials. @</p><p>, =<br>°</p><p>PASSWORD</p><p>Connect to AD DS</p><p>eni</p><p>|<br>tings<br>Azure AD sign-in configuration<br>Bresse<br>Ready to configure</p><p>ere<br>Not dde ©<br>charente</p><p>‘match vd oman um more</p><p>eni</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-40"><h3>Page 40</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">• Vérifiez dans votre Admin Center que vos utilisateurs sont bien <br>synchronisés</p>
+<p class="tssr-source-paragraph">• Attention, vos utilisateurs n&#x27;ont pas encore de licences assignées</p>
+<p class="tssr-source-paragraph">79</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Azure AD Connect</p>
+<p class="tssr-source-paragraph">• Des outils de gestion sont mis à votre disposition dans les applications <br>du serveur sur lequel vous avez installé AzureADConnect.msi<br>• Azure AD Connect <br>• Relancer la configuration<br>• Synchronization Rules Editor<br>• Gérer les règles de synchronisation<br>• Synchronization Service<br>• Vérifier l&#x27;état de votre synchronisation<br>• Synchronization Service Web<br>• Lancer la console Web Service Configuration Tool</p>
+<p class="tssr-source-paragraph">80</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Accueil &gt; Utilisateurs actifs</p><p>[<br>deb yann<br>debyann@eni-ecole.ovh<br>Sans licence<br>Synchronisé</p><p>ene</p><p>&amp; Azure AD Connect<br>&gt;<br>Synchronization Rules Editor<br>&gt;<br>syrctronization Service<br>&amp;<br>Synchronization Service We...<br>NEW</p><p>ene</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f7438d7de2aaf0dcbe0fce721a279a69e2c3739b1807e1448f054079bc22293a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f7438d7de2aaf0dcbe0fce721a279a69e2c3739b1807e1448f054079bc22293a.webp" alt="Illustrations du support source, pages 37 à 40" loading="lazy" width="993" height="8543"></a><figcaption>Illustrations du support Drive — pages 37 à 40. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Synchronization Service Manager</p>
+<p class="tssr-source-paragraph">• Opérations<br>• Vous pouvez voir le statut de vos dernières synchronisations</p>
+<p class="tssr-source-paragraph">81</p>
+<p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Synchronization Rules Editor</p>
+<p class="tssr-source-paragraph">• Cette console permet de <br>créer des règles de <br>synchronisation <br>spécifiques<br>• Vous pouvez modifier ou <br>créer de nouvelles règles<br>• Attention lorsque vous <br>modifiez les règles par <br>défaut</p>
+<p class="tssr-source-paragraph">82</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=<br>‘Synchronization Service Manager on WIN-U80OU9MONQI</p><p>File<br>Tools<br>Actions<br>Help<br>[ao ae]</p><p>Operations<br>li) Connectors | iB Metaverse Designer<br>{M Metaverse Search</p><p>[Name] Profie Name<br>[Status<br>StatTime<br>[EndTime<br>]<br>EE EEEE<br>ZUNE TOS<br>envecole lel<br>Exot<br>success<br>2/11/2018 103748<br>2/11/2018 103749<br>ervecoe el<br>Deta Synchronization<br>success<br>21/11/2018 10:37:20<br>21/11/2018 10:37:20<br>envecoe lel<br>Deta Inport<br>success<br>21/11/2018 103718<br>nan 10:37:19<br>ren ecole il<br>Exot<br>success<br>21/11/2018 100745<br>21/11/2018 100746<br>Profle Name: Ful impot User Name: ENHECOLE Administrator<br>Step Type:<br>Ful impot (Stage On)<br>Partiéon: _ DC-anrecale DC-cl<br>StartTime:<br>21/11/2018 105229<br>EndTime:<br>21/11/2018 105231<br>Status: succes<br>Sychrorization Statics<br>Connection Save<br>Staging<br>WIN-J800U9MONG|<br>en-ecole<br>388<br>success<br>Unchanged<br>2<br>Aad<br>0<br>Sirchoniaton Eros<br>Updates<br>0<br>Renames<br>0<br>Deletes<br>187<br>Discovery</p><p>9<br>Fitered Objects<br>4<br>ent</p><p>©<br>‘Synchronization Rules Editor<br>Lo</p><p>Infrom AD - User Join<br>:<br>ne<br>~</p><p>CS oe pou</p><p>ent</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-42"><h3>Page 42</h3><p class="tssr-source-paragraph">Azure AD</p>
+<p class="tssr-source-paragraph">Forcer une synchronisation AD Connect</p>
+<p class="tssr-source-paragraph">• Lancer la réplication initiale</p>
+<p class="tssr-source-paragraph">Start-ADSyncSyncCycle -PolicyType Initial</p>
+<p class="tssr-source-paragraph">• Lancer une réplication différentielle</p>
+<p class="tssr-source-paragraph">Start-ADSyncSyncCycle -PolicyType Delta</p>
+<p class="tssr-source-paragraph">83</p>
+<p class="tssr-source-paragraph">Administration Microsoft 365</p>
+<h4>RBAC</h4>
+<p class="tssr-source-paragraph">84</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE<br>EE</p><p>A</p><p>End</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-43"><h3>Page 43</h3><p class="tssr-source-paragraph">RBAC</p>
+<p class="tssr-source-paragraph">Délégation de privilèges</p>
+<p class="tssr-source-paragraph">• Pour une gestion fine de l’attribution de droits d’administration <br>Exchange, il existe une console nommée RBAC (Role Based Access <br>Control)<br>• Basé sur des rôles prédéfinis, vous pourrez attribuer à des <br>utilisateurs ou techniciens des privilèges pour administrer la partie <br>Exchange Online de Microsoft 365<br>• L’affectation de permissions devra se faire au travers de comptes <br>administrateurs spécifiques et avec le principe du privilège <br>minimum</p>
+<p class="tssr-source-paragraph">85</p>
+<p class="tssr-source-paragraph">Gestion des licences<br>Les différents rôles administrateur Microsoft 365</p>
+<p class="tssr-source-paragraph">Nom dans l&#x27;admin <br>center de Office365</p>
+<p class="tssr-source-paragraph">Nom<br>Dans PowerShell<br>Rôle</p>
+<p class="tssr-source-paragraph">Administrateur général<br>Company<br>administrator</p>
+<p class="tssr-source-paragraph">Il a accès à toutes les fonctionnalités. Celui qui a acheté Microsoft 365 a <br>ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</p>
+<p class="tssr-source-paragraph">Administrateur de </p>
+<p class="tssr-source-paragraph">facturation</p>
+<p class="tssr-source-paragraph">Billing<br>administrator</p>
+<p class="tssr-source-paragraph">Il effectue les achats, gère les abonnements et les tickets support. Il <br>surveille l&#x27;état des services.</p>
+<p class="tssr-source-paragraph">Administrateur de mot </p>
+<p class="tssr-source-paragraph">de passe</p>
+<p class="tssr-source-paragraph">Helpdesk <br>administrator</p>
+<p class="tssr-source-paragraph">Il réinitialise les mots de passe. Il gère les tickets support et surveille <br>l&#x27;état des services.</p>
+<p class="tssr-source-paragraph">Administrateur de </p>
+<p class="tssr-source-paragraph">Service support </p>
+<p class="tssr-source-paragraph">Il gère les tickets support et surveille l&#x27;état des services.</p>
+<p class="tssr-source-paragraph">service</p>
+<p class="tssr-source-paragraph">administrator</p>
+<p class="tssr-source-paragraph">Administrateur de <br>gestion des utilisateurs</p>
+<p class="tssr-source-paragraph">User account<br>administrator</p>
+<p class="tssr-source-paragraph">Il créé et supprime des utilisateurs et des groupes, réinitialise les mots <br>de passe, gère les tickets support et surveille l&#x27;état des services.</p>
+<p class="tssr-source-paragraph">86</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>End</p><p>eee</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nom dans l&#x27;admin<br>center de Office365</td><td>Nom<br>Dans PowerShell</td><td>Rôle</td></tr><tr><td>Administrateur général</td><td>Company<br>administrator</td><td>Il a accès à toutes les fonctionnalités. Celui qui a achetéMicrosoft 365 a<br>ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</td></tr><tr><td>Administrateur de<br>facturation</td><td>Billing<br>administrator</td><td>Il effectue les achats, gère les abonnements et les tickets support. Il<br>surveille l&#x27;état des services.</td></tr><tr><td>Administrateur de mot<br>de passe</td><td>Helpdesk<br>administrator</td><td>Il réinitialise les mots de passe. Il gère les ticketssupport et surveille<br>l&#x27;état des services.</td></tr><tr><td>Administrateur de<br>service</td><td>Service support<br>administrator</td><td>Il gère les ticketssupport et surveille l&#x27;état des services.</td></tr><tr><td>Administrateur de<br>gestion des utilisateurs</td><td>User account<br>administrator</td><td>Il créé et supprime des utilisateurset des groupes, réinitialise les mots<br>de passe, gère les ticketssupport et surveille l&#x27;état des services.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-44"><h3>Page 44</h3><p class="tssr-source-paragraph">Gestion des licences</p>
+<p class="tssr-source-paragraph">Les différents rôles administrateur Microsoft 365</p>
+<p class="tssr-source-paragraph">Quelques commandes PowerShell</p>
+<p class="tssr-source-paragraph">Quels sont les rôles</p>
+<p class="tssr-source-paragraph">Get-MsolRole</p>
+<p class="tssr-source-paragraph">Quels sont les rôles assignés à un utilisateur</p>
+<p class="tssr-source-paragraph">Get-MsolUserRole</p>
+<p class="tssr-source-paragraph">Add-MsolRoleMember</p>
+<p class="tssr-source-paragraph">Ajouter des membres à un rôle</p>
+<p class="tssr-source-paragraph">remove-<br>MsolRoleMember</p>
+<p class="tssr-source-paragraph">Supprimer des membres à un rôle</p>
+<p class="tssr-source-paragraph">87</p>
+<p class="tssr-source-paragraph">RBAC</p>
+<p class="tssr-source-paragraph">Délégation de privilèges</p>
+<p class="tssr-source-paragraph">• Chaque rôle possède une liste d’actions</p>
+<p class="tssr-source-paragraph">88</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Compliance Management</p><p>Discovery Management</p><p>Help Desk</p><p>Organization Management</p><p>Recipient Management</p><p>Records<br>Management</p><p>Security Administrator</p><p>Security Reader</p><p>TenantAdmins_-2066172001</p><p>View-Only Organization Management</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-66cd2ceb65eda1a1a5f30747991cb525c4c006f3d2d2fb2519dbbe39fa6279c2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-66cd2ceb65eda1a1a5f30747991cb525c4c006f3d2d2fb2519dbbe39fa6279c2.webp" alt="Illustrations du support source, pages 41 à 44" loading="lazy" width="993" height="7855"></a><figcaption>Illustrations du support Drive — pages 41 à 44. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-45"><h3>Page 45</h3><p class="tssr-source-paragraph">RBAC</p>
+<p class="tssr-source-paragraph">Rôles personnalisés</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">• Créez vos <br>propres <br>rôles</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">89</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EH<br>Centre d&#x27;administration Exchange</p><p>Rôles d&#x27;administrateur<br>@<br>Accu</p><p>.</p><p>HE<br>Centre d&#x27;administration Exchange</p><p>=Ù<br>Rôles d&#x27;administrateur &gt;Ajouter<br>un groupe de rôles</p><p>a<br>—</p><p>2<br>eet<br>Configurer les informations de base</p><p>D Rôtes dadminstr</p><p>mms<br>D<br>en.<br>CAS<br>D<br>ie<br>deu<br>re<br>Be»<br>©<br>He</p><p>Portée d&#x27;écriture ©<br>sco<br>oo<br>à</p><p>Affecter des administrateurs<br>FT<br>-</p><p>ene<br>a</p><p>to<br>Sach<br>ae<br>-</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f4eec68b2040fddbee980d09e25cf16c96ea55d4ffffe0b434daf4bf5f6bb71e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f4eec68b2040fddbee980d09e25cf16c96ea55d4ffffe0b434daf4bf5f6bb71e.webp" alt="Illustrations du support source, pages 45" loading="lazy" width="993" height="1845"></a><figcaption>Illustrations du support Drive — pages 45. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

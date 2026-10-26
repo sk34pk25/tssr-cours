@@ -1,0 +1,356 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module 03 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration GLPI</h4>
+<p class="tssr-source-paragraph">Module 03 – Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Découvrir la notion d’inventaire dans GLPI<br>• L’importance d’un plan de nommage</p>
+<p class="tssr-source-paragraph">• L’ordinateur, un assemblage de composants<br>• Le logiciel, un item qui associe une licence<br>• Connecter un équipement au réseau<br>• Gérer les consommables avec GLPI<br>• Création d’un gabarit d’inventaire</p>
+<p class="tssr-source-paragraph">2</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<h4>Les éléments d&#x27;inventaire</h4>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Fonctionnalités gestion de parc</p>
+<p class="tssr-source-paragraph">Inventaire matériel</p>
+<p class="tssr-source-paragraph">Composants internes</p>
+<p class="tssr-source-paragraph">Vue détaillée, connexions, etc.</p>
+<p class="tssr-source-paragraph">Composants et cartographie réseau</p>
+<p class="tssr-source-paragraph">Historique sur les éléments</p>
+<p class="tssr-source-paragraph">Cycle de vie des matériels</p>
+<p class="tssr-source-paragraph">Systèmes d’exploitation</p>
+<p class="tssr-source-paragraph">Réservation de matériel</p>
+<p class="tssr-source-paragraph">Informations administratives et financières</p>
+<p class="tssr-source-paragraph">Logiciels et licences</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élaborer un plan de nommage</p>
+<p class="tssr-source-paragraph">• Un plan de nommage est une nomenclature<br>• Définir l’information importante pour retrouver un item</p>
+<p class="tssr-source-paragraph">Date achat<br>Index</p>
+<p class="tssr-source-paragraph">Type<br>Service<br>Organisation</p>
+<p class="tssr-source-paragraph">PC<br>DIR<br>202203<br>012</p>
+<p class="tssr-source-paragraph">Ordinateur fixe<br>Direction<br>Mars 2022<br>N° 012</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément ordinateur</p>
+<p class="tssr-source-paragraph">• Se gèrent depuis le menu Parc =&gt; ordinateurs<br>• Utilisables pour les ordinateurs fixes, portables, serveurs, etc.</p>
+<p class="tssr-source-paragraph">• Champ « type » très important pour les différencier<br>• Utilisation possible des gabarits<br>• Utilisation possible d’un outil d’inventaire automatique</p>
+<p class="tssr-source-paragraph">6</p>
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : composants</p>
+<p class="tssr-source-paragraph">• Ne sont pas des intitulés<br>• Doivent être créés depuis configuration =&gt; composants<br>• Sont caractérisés par plusieurs champs qui eux sont des intitulés<br>• La liste des différents composants est fixe</p>
+<p class="tssr-source-paragraph">• Peuvent être gérés dynamiquement par un outil d’inventaire<br>• Portée limitée à l’entité de création, récursivité possible</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : logiciels</p>
+<p class="tssr-source-paragraph">• Gérer quels sont les logiciels installés sur l’ordinateur<br>• Triés par catégories et caractérisés par un nom, leur version <br>et le statut</p>
+<p class="tssr-source-paragraph">• Possibilité de choisir la catégorie à afficher<br>• Possibilité de définir si une licence a été installée sur le poste</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ordinateur</p><p>=<br>Ajouter<br>un<br>nouveau composant<br>Systèmes d&#x27;exploitati..<br>1</p><p>Composants<br>‘<br>Almentation</p><p>Volumes<br>Autre<br>composant</p><p>i<br>Tune de ramn)<br>Batterie<br>ene<br>—</p><p>Nom<br>Statut<br>Version<br>Licence<br>Date d&#x27;installation<br>Catégorie de logiciels<br>Licence valide</p><p>Pack Office<br>Déployé<br>2016 Standard<br>2016 Standard- (Volume)<br>Bureautique<br>Oui</p><p>vic<br>10<br>Bureautique<br>oui<br>|<br>Nom<br>Statut<br>Version<br>Licence<br>Date d&#x27;installation<br>Catégorie de logiciels<br>Licence valide<br>|<br>en<br>ee</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6350256a253f031c48f3969bf263ac18c56554c7d798ff15820aad33a63b90f9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6350256a253f031c48f3969bf263ac18c56554c7d798ff15820aad33a63b90f9.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="993" height="7791"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : logiciels</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">Créer une catégorie </p>
+<p class="tssr-source-paragraph">À partir du logiciel, </p>
+<p class="tssr-source-paragraph">Créer les licences.</p>
+<p class="tssr-source-paragraph">de logiciel.</p>
+<p class="tssr-source-paragraph">Créer le logiciel.<br>Exemple : Office</p>
+<p class="tssr-source-paragraph">créer la version.</p>
+<p class="tssr-source-paragraph">Renseigner le nombre, </p>
+<p class="tssr-source-paragraph">Associer ce logiciel</p>
+<p class="tssr-source-paragraph">le logiciel et l’éditeur.</p>
+<p class="tssr-source-paragraph">Exemple :<br>bureautique</p>
+<p class="tssr-source-paragraph">Exemple :<br>365 ProPlus</p>
+<p class="tssr-source-paragraph">à un éditeur et <br>à une catégorie.</p>
+<p class="tssr-source-paragraph">Puis affecter la licence </p>
+<p class="tssr-source-paragraph">Renseigner le système </p>
+<p class="tssr-source-paragraph">à un ordinateur. </p>
+<p class="tssr-source-paragraph">d’exploitation.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : connexion</p>
+<p class="tssr-source-paragraph">• Va permettre de gérer les connexions directes avec d’autres <br>éléments<br>• Représentation de la liaison physique (USB, série, HDMI…) <br>entre un ordinateur et un autre élément<br>• Connexion possible : imprimantes, périphériques, moniteurs <br>et téléphones</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p><p>Type<br>Nom<br>Entité<br>Numéro de série<br>Numéro d&#x27;inventaire</p><p>|<br>monteur<br>Dei 24 SE2410n<br>cor<br>mon 0001</p></div></details>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : port réseau</p>
+<p class="tssr-source-paragraph">• Connexions réseau entre les différents éléments<br>• Modélisation de la sortie d’une interface réseau sur un <br>élément matériel<br>• Plusieurs types : Ethernet, wifi, fibre, agrégation, etc.<br>• L’ajout de plusieurs ports en même temps est possible<br>• Il est caractérisé par un nom et un numéro (convention de <br>nommage)<br>• Peut être associé à un composant de type carte réseau<br>• Information réseau (@IP, domaine, nom et vlan)</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Ordinateur : connexion d&#x27;un port réseau</p>
+<p class="tssr-source-paragraph">• Connecter les ports réseau des éléments va permettre une <br>représentation physique de tout son réseau<br>• Connexion réseau possible à tout autre élément disposant d’un <br>port réseau<br>• Le raccordement préalable à une prise réseau pourra être renseigné<br>• Les intitulés « prises réseau » seront associés à un lieu</p>
+<p class="tssr-source-paragraph">Le port réseau « 1 » de mon ordinateur est raccordé à la prise « p001 » <br>en S331 qui ensuite est raccordée au port réseau « eth01 » d’un switch cisco</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ti<br>pot<br>eth01 i sur Switch cisco catalyst WS-C2960L-48PS-LL<br>P001 (GOT &gt; RENNES &gt; BAT1 &gt; SERVICE-INFO<br>Déconnecter<br>&gt; $331)</p><p>Gin</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Ordinateur : les autres onglets<br>Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">• Système d’exploitation<br>• Contrats<br>• Volumes<br>• Virtualisation</p>
+<p class="tssr-source-paragraph">• Antivirus<br>• Liens externes<br>• Certificats</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément moniteur</p>
+<p class="tssr-source-paragraph">• Informations de gestion de l’élément (responsable, statut, lieu, etc.)<br>• Caractéristiques générales (fabricant, modèle, type, etc.)</p>
+<p class="tssr-source-paragraph">• Usagers du moniteur (connu ou non, groupes, etc.)<br>• Spécifications techniques (taille, connectiques, etc.)<br>• Son type de gestion : globale ou unitaire</p>
+<p class="tssr-source-paragraph">14</p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément matériel réseau</p>
+<p class="tssr-source-paragraph">• Permettre la représentation de tout matériel qui gère, transmet <br>et route le réseau entre plusieurs autres éléments matériels<br>• Ils devront être différenciables par l’intitulé type<br>• Switch, routeur, firewall, borne wifi, etc.<br>• Utilisation possible d’un gabarit<br>• Grand nombre de paramètres communs aux autres éléments<br>• Ports réseau importants pour les connexions réseau avec les <br>autres éléments</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément imprimante</p>
+<p class="tssr-source-paragraph">• Représenter toutes les imprimantes présentes sur le parc <br>informatique<br>• Utilisation possible d’un gabarit</p>
+<p class="tssr-source-paragraph">• Champs : caractéristiques générales, gestion, usagers et <br>spécifications<br>• Gestion unitaire ou globale<br>• Connexion directe ou réseau<br>• Gestion des cartouches installées</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ni<br>e</p><p>——<br>LL</p></div></details>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-efbcfec7e67a3202d02b8ef045660fab286a85f0dff10470c138e176a0cb802b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-efbcfec7e67a3202d02b8ef045660fab286a85f0dff10470c138e176a0cb802b.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="993" height="10519"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément cartouches et consommables</p>
+<p class="tssr-source-paragraph">• Définitions des modèles<br>• Importation en masse<br>• Modèles d’imprimantes compatibles<br>• Installation sur les imprimantes</p>
+<p class="tssr-source-paragraph">• Fin de vie des cartouches<br>• Seuils d’alerte (avec supervision)</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Gérer les cartouches</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">Créer un modèle </p>
+<p class="tssr-source-paragraph">Créer un modèle </p>
+<p class="tssr-source-paragraph">d’imprimante.</p>
+<p class="tssr-source-paragraph">de cartouche.</p>
+<p class="tssr-source-paragraph">Ajouter des <br>cartouches à votre </p>
+<p class="tssr-source-paragraph">Installer la ou les <br>cartouches sur votre </p>
+<p class="tssr-source-paragraph">modèle.</p>
+<p class="tssr-source-paragraph">imprimante.</p>
+<p class="tssr-source-paragraph">Exemple : <br>Cart-impr-HP.</p>
+<p class="tssr-source-paragraph">Exemple :<br>imprimante USB HP</p>
+<p class="tssr-source-paragraph">L’imprimante doit </p>
+<p class="tssr-source-paragraph">Exemple :<br>50 cartouches neuves</p>
+<p class="tssr-source-paragraph">Puis associer le <br>modèle de cartouche </p>
+<p class="tssr-source-paragraph">être du même <br>modèle d’imprimante </p>
+<p class="tssr-source-paragraph">à votre modèle </p>
+<p class="tssr-source-paragraph">que les cartouches.</p>
+<p class="tssr-source-paragraph">d’imprimante.</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément téléphones</p>
+<p class="tssr-source-paragraph">• Fixe, portable, combiné<br>• Spécifications<br>• Usagers<br>• Gestion des composants</p>
+<p class="tssr-source-paragraph">• Connexion directe et réseau<br>• Associable à un ticket</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément périphérique</p>
+<p class="tssr-source-paragraph">• Tout ce qui n’est pas implémenté nativement dans GLPI<br>• Connexion directe et réseau</p>
+<p class="tssr-source-paragraph">• Réservation possible<br>• Usagers<br>• Associable à un ticket</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Æ</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Élément centre de données</p>
+<p class="tssr-source-paragraph">Datacenter</p>
+<p class="tssr-source-paragraph">• Représentation de ses centres de données (Datacenters)<br>• Salles serveur<br>• Baie<br>• Équipements</p>
+<p class="tssr-source-paragraph">• Onduleurs (PDU)</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Baie</p>
+<p class="tssr-source-paragraph">Salle 1<br>Salle 2</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Réservations</p>
+<p class="tssr-source-paragraph">• Un grand nombre d’éléments peuvent être réservés</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">Rendre un élément réservable<br>Autoriser les réservations</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">Plus de nouvelles réservations possibles<br>Rendre indisponible</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">Rétablir la possibilité de réserver<br>Rendre disponible</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">Désactiver les réservations<br>Ne pas autoriser</p>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>HE</p></div></details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<h4>Les gabarits</h4>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Le gabarit</p>
+<p class="tssr-source-paragraph">• Applicables à plusieurs éléments<br>• Définition d’un élément standard, généralement identifié <br>par son modèle</p>
+<p class="tssr-source-paragraph">• Pré-remplissage de certains champs communs à un même <br>modèle d’élément<br>• Simplifie l’ajout de plusieurs éléments de même modèle</p>
+<p class="tssr-source-paragraph">24</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-cc43d36595bbaf3247e7a0282a1131a5e67911713805d56d7c90ba22521574b9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-cc43d36595bbaf3247e7a0282a1131a5e67911713805d56d7c90ba22521574b9.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="993" height="11709"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Le gabarit</p>
+<p class="tssr-source-paragraph">•<br>Certains champs peuvent bénéficier d’un système d’incrémentation</p>
+<p class="tssr-source-paragraph">•<br>Champs identifiables par une baguette</p>
+<p class="tssr-source-paragraph">•<br>Le champ est rempli automatiquement selon un format défini</p>
+<p class="tssr-source-paragraph">•<br>Format sous la forme &lt;XXX####&gt;</p>
+<p class="tssr-source-paragraph">• &lt; et &gt; pour indiquer le début et la fin d’un format à interpréter<br>•<br>X pour un caractère quelconque fixe<br>• # pour un numéro à incrémenter. Nombre de chiffres égaux <br>au nombre de #<br>• \Y pour y inscrire l’année courante sur 4 chiffres<br>• \y pour l’année sur 2 chiffres<br>• \m pour le mois<br>• \d pour le jour</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Champs récurrents</p>
+<p class="tssr-source-paragraph">•<br>Peu importe l’élément d’inventaire, plusieurs champs sont identiques</p>
+<p class="tssr-source-paragraph">•<br>Intitulés du champ à créer en amont ou « sur place »</p>
+<p class="tssr-source-paragraph">•<br>Liste des principaux</p>
+<p class="tssr-source-paragraph">• Nom<br>• Lieu<br>• Statut<br>• Type<br>• Fabricant<br>• Modèle<br>• Numéro d’inventaire<br>• Responsable et groupe techniques<br>• Utilisateur et groupe<br>• Commentaire</p>
+<p class="tssr-source-paragraph">Le    permet l’ajout d’un intitulé sans <br>quitter la fiche de l’élément</p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Numéro d&#x27;inventaire 7</p><p>Numéro<br>d&#x27;inventaire</p><p>LAPTOP-0001</p><p>LAPTOP-0002</p><p>ee ee ee<br>LAPTOP-0003</p><p>3<br>Numéro d&#x27;inventaire<br># | &lt;LAPTOP-##&gt;<br>&gt;<br>ent<br>_<br>LAPTOP-0004</p><p>Statut<br>Déployé<br>vy<br>i ©</p><p>Type<br>Laptop<br>¥<br>i©</p><p>Fabricant<br>Dell<br>y<br>iO</p><p>Modéle<br>Latitude 3590<br>y¥ | i ©</p><p>A<br>©<br>ene</p></div></details>
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<h4>Les différentes étapes</h4>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Gestion de parc – Inventaire informatique</p>
+<p class="tssr-source-paragraph">Étapes de création d&#x27;un Datacenter</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">Créer un centre de </p>
+<p class="tssr-source-paragraph">Créer le matériel avec </p>
+<p class="tssr-source-paragraph">données.</p>
+<p class="tssr-source-paragraph">Créer une salle <br>serveur dans votre </p>
+<p class="tssr-source-paragraph">Créer la baie dans <br>votre salle serveur</p>
+<p class="tssr-source-paragraph">datacenter</p>
+<p class="tssr-source-paragraph">les images dans le <br>modèle de matériel.</p>
+<p class="tssr-source-paragraph">Exemple :<br>Datacenter L.A.</p>
+<p class="tssr-source-paragraph">Puis indiquer la taille </p>
+<p class="tssr-source-paragraph">puis indiquer le <br>nombre d’unités</p>
+<p class="tssr-source-paragraph">de l’emplacement </p>
+<p class="tssr-source-paragraph">pour la baie.</p>
+<p class="tssr-source-paragraph">Exemple :</p>
+<p class="tssr-source-paragraph">42 U</p>
+<p class="tssr-source-paragraph">Exemple :<br>2 colonnes<br>2 lignes</p>
+<p class="tssr-source-paragraph">28</p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-017a75e86898bb46f7ffd33359d450b75fcbf683760ca14fe64b91e7666ead28.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-017a75e86898bb46f7ffd33359d450b75fcbf683760ca14fe64b91e7666ead28.webp" alt="Illustrations du support source, pages 13 à 14" loading="lazy" width="993" height="6663"></a><figcaption>Illustrations du support Drive — pages 13 à 14. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

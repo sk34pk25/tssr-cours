@@ -1,0 +1,373 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 05 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell </h4>
+<p class="tssr-source-paragraph">Module 05 – Réalisation d’un script</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Objectifs<br>• Mettre en place un script fonctionnel</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Comment structurer un script</h4>
+<p class="tssr-source-paragraph">• Avant d’entreprendre la rédaction d’un script, il est nécessaire de : <br>• Déterminer son utilité<br>• Décrire le mode de fonctionnement attendu <br>• Formaliser un algorithme de son fonctionnement</p>
+<p class="tssr-source-paragraph">• L’algorithmique est la clé de voûte du Scripting. La diapositive suivante <br>illustre l’approche algorithmique de la préparation des pâtes.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Comment structurer un script</h4>
+<p class="tssr-source-paragraph">Algorithme de préparation des pâtes :</p>
+<p class="tssr-source-paragraph">Proposition 1 :</p>
+<p class="tssr-source-paragraph">Remplir une casserole d&#x27;eau<br>La mettre sur le feu<br>Mettre les pâtes dans la casserole<br>Les laisser cuire 10 à 15 minutes<br>Les égoutter</p>
+<p class="tssr-source-paragraph">1.<br>Remplir une casserole d’eau<br>2.<br>Mettre du sel<br>3.<br>La mettre sur le feu<br>4.<br>Laisser bouillir<br>5.<br>Mettre les pâtes dans la casserole<br>6.<br>En fonction du type de pâtes<br>7.<br>Définir la durée de la cuisson<br>8.<br>Les égoutter</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>   Réalisation d’un script
+ Comment structurer un script
+
+            • Avant d’entreprendre la rédaction d’un script, il est nécessaire de :
+                    • Déterminer son utilité
+                    • Décrire le mode de fonctionnement attendu
+                    • Formaliser un algorithme de son fonctionnement
+
+            • L’algorithmique est la clé de voûte du Scripting. La diapositive suivante
+              illustre l’approche algorithmique de la préparation des pâtes.
+
+
+
+
+
+                                                                                         3
+
+
+3
+
+
+   Réalisation d’un script
+ Comment structurer un script
+
+        AlgorithmeProposition de1 : préparation des pâtes :
+
+           1.RemplirRemplirune unecasserolecasseroled&#x27;eaud’eau
+           2.La mettreMettresurduleselfeu
+           3.MettreLa mettreles pâtessurdansle feula casserole
+           4.Les laisserLaisser cuirebouillir10 à 15 minutes
+           5.Les égoutterMettre les pâtes dans la casserole
+           6.  En fonction du type de pâtes
+           7.  Définir la durée de la cuisson
+           8.  Les égoutter
+
+                                                                                         4
+
+
+4</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Lean wepout 77°’ we<br>cevep&gt; de C “250W est<br>Se</p><p>amw“les so<br>redes Eyes<br>te<br>Cre<br>|</p><p>puree exact ewFoner”<br>qucyre gepace? 2</p><p>|</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Comment structurer un script</h4>
+<p class="tssr-source-paragraph">• Il est très rare de réaliser dès le premier essai et la première réflexion le <br>script parfait (surtout sur des scripts un peu avancés…).<br>• C’est la phase de tests qui nous permettra d’avancer dans notre réflexion et <br>d’améliorer l’algorithme initial.</p>
+<p class="tssr-source-paragraph">• Il faut donc y aller étape par étape et tester ligne par ligne notre script.<br>• Et surtout, commentez votre script !</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Comment structurer un script</h4>
+<p class="tssr-source-paragraph">• Il est généralement pertinent d’écrire sur papier la structure de notre script :<br>• Actions à réaliser<br>• Tests à effectuer<br>• Vérifications<br>• Boucles<br>• Le tout dans une logique chronologique</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>prepare soworereava ae<br>ecrve estouteau une</p><p>N<br>pert aeLee</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Comment structurer un script : le départ</h4>
+<p class="tssr-source-paragraph">• La réalisation d’un script peut se faire à l’aide d’un IDE compatible avec <br>PowerShell.</p>
+<p class="tssr-source-paragraph">• Un IDE est un logiciel dédié à l’écriture de code informatique en y ajoutant <br>des fonctions de correction ou de vérification du code.</p>
+<p class="tssr-source-paragraph">• ISE est un logiciel qui propose un environnement d’écriture des commandes <br>PowerShell, et également une console permettant de tester le script en <br>temps réel.</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>PowerShell ISE</h4>
+<p class="tssr-source-paragraph">ISE : Integrated Scripting Environment</p>
+<p class="tssr-source-paragraph">• C’est une application adaptée pour <br>travailler avec PowerShell</p>
+<p class="tssr-source-paragraph">• Présent par défaut depuis PowerShell <br>version 3</p>
+<p class="tssr-source-paragraph">• Présente de nombreuses fonctionnalités <br>orientées Scripting</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BdAint Windows Pomerhel SE<br>Fle<br>Gat<br>View<br>Tole<br>Debug<br>Add-ons<br>Help<br>S@b4g0a\9¢\|&gt;<br>esse<br>8 Fmolmæ.<br>[unitastgutt<br>| Micoso PoweShaiS proepet | routagepst | Unesspar&quot;X<br>1<br>write-Host &quot;Powershell<br>c&#x27;est bien!&quot;</p><p>PS C:\&gt; Write-Host &quot;PowerShell<br>c&#x27;est bien!&quot;<br>Powershell<br>c&#x27;est<br>bien!</p><p>Ps C:\&gt;</p><p>Competed</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-58f2c1d6326627ec4a2d9f2d1a2f36fbb1d0f4002c46285f07ff2790aa9f1571.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-58f2c1d6326627ec4a2d9f2d1a2f36fbb1d0f4002c46285f07ff2790aa9f1571.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7033"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>PowerShell ISE : fonctionnalités</h4>
+<p class="tssr-source-paragraph">IntelliSense : complétion graphique<br>Permet de rechercher et utiliser des <br>paramètres plus rapidement</p>
+<p class="tssr-source-paragraph">Coloration syntaxique</p>
+<p class="tssr-source-paragraph">Snippets : syntaxe des structures de <br>scripting</p>
+<p class="tssr-source-paragraph">Détection des erreurs en temps <br>réel</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Æ Administrateur :Windows PowerShell ISE<br>—<br>Oo<br>x</p><p>Fichier<br>Modifier<br>Afficher<br>Outils<br>Déboguer<br>Composants additionnels<br>Aide<br>&amp; H<br>4<br>on»<br>49<br>Se<br>@iAoao|&amp;,.</p><p>Sans titrel.ps1* X<br>©</p><p>1</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Visual Studio Code (VS Code)</h4>
+<p class="tssr-source-paragraph">• Windows PowerShell ISE n&#x27;est disponible que sur les systèmes Windows.<br>• VS Code : interface de développement open source<br>• Disponible notamment pour Linux, MacOS et Windows<br>• Légère et fluide<br>• Multilingue (Shell, Python, Perl…)<br>• Possibilité d&#x27;ajout d&#x27;extensions (nouveaux langages, fonctionnalités, GitHub…)<br>• Débogueur<br>• Outil de recherche<br>• …</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Virtual Studio Code (VSCode)</h4>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3 – Extension <br>PowerShell</p>
+<p class="tssr-source-paragraph">1 – Environnement <br>de travail</p>
+<p class="tssr-source-paragraph">4 – Navigation</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2 – Console <br>interactive</p>
+<p class="tssr-source-paragraph">5 – Infos et <br>notifications</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>POWERSHELL 2<br>magnon<br>rows. © À &gt; untitied-1<br>©<br>CE<br>©<br>=<br>1<br>function Get-ComputerDetails<br>«<br>‘Add-ADCentrataccessPokcyMember<br>2<br>{<br>b</p><p>Add-ADComputersenceAccount<br>.<br>”<br>f<br>Add-ADOomainControlerPessmordRaphca.<br>This script {s used to get useful information from à computer.</p><p>Add-ApprCentConnectionGru<br>D CM<br>ee<br>Add-ApprChentPactage<br>12<br>This script is used to get useful information from @ computer.<br>Cure:<br>Add-AppPétlshingserees<br>13<br>-Explicit Credential Logons (Event ID 4648)</p><p>BIN<br>Bretons<br>16<br>CrovershelL Logs to find Powershell scripts which hove boon executed</p><p>cs gpcustemroute</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les commentaires</h4>
+<p class="tssr-source-paragraph">1 – Commentaire <br>simple</p>
+<p class="tssr-source-paragraph">3 – Commentaire <br>après une commande</p>
+<p class="tssr-source-paragraph">5 – 7 Il est possible de <br>commenter une </p>
+<p class="tssr-source-paragraph">structure ou un <br>ensemble de lignes </p>
+<p class="tssr-source-paragraph">en utilisant les <br>chevrons et le dièze.</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les enchaînements de commande</h4>
+<p class="tssr-source-paragraph">Lors de la réalisation d’un script, il est utile de pouvoir enchaîner plusieurs <br>commandes sur une seule ligne du script.</p>
+<p class="tssr-source-paragraph">• À la différence du Pipe, chaque commande ne sera pas dépendante du résultat de la <br>commande précédente.</p>
+<p class="tssr-source-paragraph">• On utilise le caractère ; pour exécuter deux commandes sur une ligne de script.</p>
+<p class="tssr-source-paragraph">• Il est également possible de répartir les paramètres d’une commande sur plusieurs lignes.</p>
+<p class="tssr-source-paragraph">Le « Backtick » ou « Anti-Quotte » </p>
+<p class="tssr-source-paragraph">s’obtient avec « Alt Gr », « 7 » </p>
+<p class="tssr-source-paragraph">puis « espace ».</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Get-LocalUser<br>-Name<br>; Get-LocalGroup<br>-Name</p><p>$x=Read-Host</p><p>($x<br>-gt<br>10)</p><p>Wirite-Host</p><p>ForegroundColor<br>red</p><p>ÿ</p><p>}<br>($x-1t<br>10)</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9b318b0eab0bb0a32e195c1329e68b83834e202308c8370502de4b8e75fead58.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9b318b0eab0bb0a32e195c1329e68b83834e202308c8370502de4b8e75fead58.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="7278"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>La gestion des erreurs</h4>
+<pre class="tssr-source-code">• Toutes les erreurs générées dans le Shell courant sont stockées dans la variable de type 
+tableau $Error.</pre>
+<pre class="tssr-source-code">• Pour obtenir la dernière erreur survenue $Error[0].</pre>
+<p class="tssr-source-paragraph">Il est possible pour une commande ciblée, à son lancement, de redéfinir le <br>nom de la variable qui consignera ses erreurs</p>
+<pre class="tssr-source-code">PS &gt; Get-ChildItem C:\Dossier –ErrorVariable Erreurs</pre>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>La gestion des erreurs</h4>
+<p class="tssr-source-paragraph">• Quand une erreur survient lors de l’exécution d’une commande, deux <br>comportements sont possibles :</p>
+<p class="tssr-source-paragraph">• La commande s’interrompt (erreur bloquante)<br>• L’erreur est remontée au Shell mais la commande poursuit son exécution (erreur non <br>bloquante)</p>
+<pre class="tssr-source-code">• Le comportement du Shell en cas d’erreurs non bloquantes peut être géré :
+• Pour la commande, via le paramètre –ErrorAction
+• Pour l’environnement d’exécution courant, via la variable $ErrorActionPreference</pre>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>La gestion des erreurs</h4>
+<pre class="tssr-source-code">Valeurs pouvant être affectées à la variable $ErrorActionPreference
+et au paramètre –ErrorAction</pre>
+<p class="tssr-source-paragraph">Valeur<br>Comportement résultant</p>
+<p class="tssr-source-paragraph">Continue<br>Affiche l’erreur mais continue (niveau par défaut)</p>
+<p class="tssr-source-paragraph">Ignore<br>Ignore l’erreur (celle-ci n’est pas stockée dans la variable d’erreur)</p>
+<p class="tssr-source-paragraph">Inquire<br>Interaction avec l’utilisateur pour savoir l’action a réaliser</p>
+<p class="tssr-source-paragraph">SilentlyContinue<br>Ignore l’erreur mais la consigne dans la variable d’erreur</p>
+<p class="tssr-source-paragraph">Stop<br>Arrêt de la commande</p>
+<p class="tssr-source-paragraph">Suspend<br>Suspend le workflow en cours</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>La gestion des erreurs : Try Catch (Finally…)</h4>
+<pre class="tssr-source-code">Couramment appelée Try Catch, la structure Try Catch Finally permet de gérer 
+efficacement les erreurs.</pre>
+<p class="tssr-source-paragraph">• Si le dossier existe, son contenu sera affiché.</p>
+<pre class="tssr-source-code">• Si le dossier n’existe pas, le message contenu dans la commande catch s’affichera.</pre>
+<pre class="tssr-source-code">• Dans tous les cas, le message contenu dans la commande finally s’affichera.</pre>
+<p class="tssr-source-paragraph">L’avantage est qu’en cas de dossier non présent,<br>le script continue son exécution sans arrêter la totalité du script.</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>{ Get-ChildItem c:\test<br>-ErrorAction Stop}<br>{write-host<br>}<br>{write-host<br>}</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Valeur</td><td>Comportement résultant</td></tr><tr><td>Continue</td><td>Affichel’erreurmaiscontinue(niveaupardéfaut)</td></tr><tr><td>Ignore</td><td>Ignore l’erreur (celle-ci n’est pas stockée dans la variable d’erreur)</td></tr><tr><td>Inquire</td><td>Interactionavecl’utilisateurpoursavoirl’actionaréaliser</td></tr><tr><td>SilentlyContinue</td><td>Ignorel’erreurmaislaconsignedanslavariabled’erreur</td></tr><tr><td>Stop</td><td>Arrêtdelacommande</td></tr><tr><td>Suspend</td><td>Suspendleworkflowencours</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les fonctions : présentation</h4>
+<p class="tssr-source-paragraph">• Les fonctions sont des structures très utiles à la réalisation de scripts.<br>• Elles permettent :<br>• D’éviter la réécriture de code<br>• D’alléger et de clarifier la lecture du code<br>• De simplifier la maintenance</p>
+<p class="tssr-source-paragraph">• Créer une fonction revient à créer une nouvelle commande.</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les fonctions : utilisation</h4>
+<p class="tssr-source-paragraph">• Une fonction doit être déclarée avant de pouvoir être appelée.<br>• La déclaration de fonctions est généralement faite en début de script.</p>
+<p class="tssr-source-paragraph">Donner des noms explicites </p>
+<pre class="tssr-source-code">PS &gt; Function NomDeLaFonction</pre>
+<p class="tssr-source-paragraph">à vos fonctions !</p>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Code à intégrer dans la fonction
+}</pre>
+<p class="tssr-source-paragraph">• Une fonction est appelée comme une commande. </p>
+<pre class="tssr-source-code">PS &gt; NomDeLaFonction</pre>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les fonctions : les paramètres</h4>
+<p class="tssr-source-paragraph">• Les fonctions acceptent des paramètres comme n’importe quelle commande.<br>• Les paramètres de fonction sont à déclarer en même temps que la fonction.</p>
+<p class="tssr-source-paragraph">1-Déclaration de la fonction <br>« Adition »</p>
+<p class="tssr-source-paragraph">4-Valeur renvoyée par la fonction </p>
+<p class="tssr-source-paragraph">2-Déclaration des <br>paramètres dans la fonction</p>
+<p class="tssr-source-paragraph">3-Commande exécutée par <br>la fonction</p>
+<p class="tssr-source-paragraph">7-Appel de la fonction avec les <br>paramètres à utiliser. <br>Ici 1 est la valeur de $a<br>et 2 et la valeur de $b .<br>La valeur de $c va être renvoyée </p>
+<p class="tssr-source-paragraph">par la fonction.</p>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>——<br>Pe</p><p>1<br>5</p><p>adition<br>;</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-2868edb5c22746dc44a8ef46a655aa8fa6b4d36157b9d29d406c13700fbd3276.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2868edb5c22746dc44a8ef46a655aa8fa6b4d36157b9d29d406c13700fbd3276.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="5576"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Les fonctions : les paramètres avancés</h4>
+<pre class="tssr-source-code">Param(</pre>
+<p class="tssr-source-paragraph">Option permettant de rendre </p>
+<p class="tssr-source-paragraph">le paramètre obligatoire</p>
+<pre class="tssr-source-code">[Parameter(Mandatory=$True)]
+[String]$Monparametre</pre>
+<pre class="tssr-source-code">)</pre>
+<p class="tssr-source-paragraph">Nom du paramètre </p>
+<p class="tssr-source-paragraph">Le paramètre utilisera <br>uniquement des chaînes </p>
+<p class="tssr-source-paragraph">de caractères</p>
+<pre class="tssr-source-code">PS &gt; ./Monscript.ps1 –Monparametre toto
+PS &gt; Ma-Fonction –Monparametre toto</pre>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Le Remoting</h4>
+<p class="tssr-source-paragraph">• La fonctionnalité PowerShell Remoting permet : <br>• D’accéder au Shell d’une machine distante<br>• D’exécuter des commandes sur des machines distantes</p>
+<p class="tssr-source-paragraph">• Elle s’appuie sur le protocole WS-MAN pour son fonctionnement.<br>• Le service WinRM est utilisé.</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Le Remoting</h4>
+<p class="tssr-source-paragraph">• Pour pouvoir utiliser le Remoting PowerShell, cette fonctionnalité doit<br>être active sur la machine cible (la machine distante)</p>
+<p class="tssr-source-paragraph">• C’est le cas (par défaut) sur les OS Serveurs depuis Windows 2012<br>• Cette fonctionnalité est désactivée (par défaut) sur les postes clients</p>
+<pre class="tssr-source-code">• La fonctionnalité Remoting est activable 
+• Au moyen de la commande Enable-PSRemoting
+• Par stratégie de groupe</pre>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>PSSession : ouverture de session à distance</h4>
+<p class="tssr-source-paragraph">• Il est possible d’ouvrir un Shell à distance (similaire à SSH).</p>
+<pre class="tssr-source-code">PS &gt; Enter-PSSession -Computername DC01
+PS [DC01] &gt;</pre>
+<p class="tssr-source-paragraph">• Le prompt change, on peut y voir le nom du serveur distant.<br>• Pour sortir de la session :</p>
+<pre class="tssr-source-code">PS &gt; Exit-PSSession</pre>
+<p class="tssr-source-paragraph">À l’issue de la commande de sortie, la session existe toujours.</p>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>PSSession</h4>
+<p class="tssr-source-paragraph">• On peut stocker une PSSession dans une variable, afin de la rappeler plus <br>facilement par la suite.<br>• Une PSSession peut être persistante.</p>
+<pre class="tssr-source-code">PS &gt; $Session = New-PSSession -Computername DC01
+PS &gt; Disconnect-PSSession -Session $Session
+PS &gt; Get-PSSession -Computername DC01
+PS &gt; Get-PSSession -Computername DC01 | Connect-PSSession
+PS &gt; $Session
+PS &gt; Get-PSSession | Remove-PSSession</pre>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>MultiHop</h4>
+<p class="tssr-source-paragraph">Il n’est, par défaut, pas possible d’utiliser une machine pour faire un « rebond » <br>sur une autre avec les PSSessions.</p>
+<p class="tssr-source-paragraph">1<br>2</p>
+<p class="tssr-source-paragraph">32</p>
+<p class="tssr-source-paragraph">32</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6b425a0546bf3f98ceebfef2b5955da810ca4f5e7a662aeb062b3930899998d6.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6b425a0546bf3f98ceebfef2b5955da810ca4f5e7a662aeb062b3930899998d6.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="992" height="4990"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>PSSession et import de modules</h4>
+<p class="tssr-source-paragraph">On peut importer des modules d’une session distante pour utiliser ses <br>commandes dans la session locale. Cela permet de limiter l’installation de <br>modules sur le parc.</p>
+<pre class="tssr-source-code">PS &gt; $Session = Enter-PSSession -Computername DC01</pre>
+<pre class="tssr-source-code">PS &gt; Get-Module -PSSession $Session -ListAvailable</pre>
+<pre class="tssr-source-code">PS &gt; Import-Module -PSSession $Session –name ActiveDirectory –Prefix DC</pre>
+<pre class="tssr-source-code">PS &gt; Help Get-DCADUser</pre>
+<pre class="tssr-source-code">PS &gt; Get-DCADUser –Filter *</pre>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Invoke-Command</h4>
+<p class="tssr-source-paragraph">• Commande permettant de demander l’exécution d’une commande à <br>plusieurs machines en même temps :</p>
+<pre class="tssr-source-code">PS &gt; Invoke-Command -Computername DC01,SRV01 –ScriptBlock { 
+Get-Process PowerShell* }</pre>
+<pre class="tssr-source-code">• On peut également passer des variables locales dans une session à 
+distance en utilisant le $Using:Variable</pre>
+<pre class="tssr-source-code">$Process = ‘’Powershell*’’</pre>
+<pre class="tssr-source-code">PS &gt; Invoke-Command -Computername DC01,SRV01 –ScriptBlock { 
+Get-Process $Using:Process}</pre>
+<p class="tssr-source-paragraph">34</p>
+<p class="tssr-source-paragraph">34</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">Réalisation d’un script</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous savez mettre en place un script fonctionnel</p>
+<p class="tssr-source-paragraph">36</p>
+<p class="tssr-source-paragraph">36</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a4545be2c5e361c73d62ffadfa56eaa684bb222026eb1a298f805442a44390a7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a4545be2c5e361c73d62ffadfa56eaa684bb222026eb1a298f805442a44390a7.webp" alt="Illustrations du support source, pages 17 à 18" loading="lazy" width="992" height="2494"></a><figcaption>Illustrations du support Drive — pages 17 à 18. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

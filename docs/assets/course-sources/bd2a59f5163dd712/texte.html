@@ -1,191 +1,91 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Maintenance du syst確e.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Maintenance du syst確e.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Maintenance du système
-TP du Module 10 – La maintenance du système
-
-Proposition de solution
-
-Sur Win10-XX
-
-    •  Affichez et analysez les problèmes majeurs survenus sur votre système :
-
-        o  Depuis le démarrage de votre VM et de manière synthétique
-
-        o De manière détaillée sur le dernier évènement critique (au cas où aucun
-          évènement critique n&#x27;est survenu depuis le début du module, procédez à un
-              arrêt brutal de votre VM WorkStation : PowerOFF)
-
-Rechercher &gt; Afficher l&#x27;historique de fiabilité
-
-
-
-
-
-L&#x27;indice de fiabilité a chuté le jour où des échecs divers sont survenus (symbolisé par la croix
-blanche dans le cercle rouge) puis est remonté petit à petit les jours suivants.
-
-Double clic sur l&#x27;évènement critique
-
-
-
-
-
- Page 1/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
-
-
-
-
-
-Analyse en temps réel
-
-    •  Lancez plusieurs tâches : copiez un gros fichier disponible sur le partage [CHEMIN A
-      INDIQUER], démarrez les applications console PowerShell, Gestionnaire des tâches,
-     Edge…
-
-    •  Avec les outils adaptés et en temps réel, recherchez les processus qui consomment
-        le plus de performances sur les 4 composants principaux.
-
-    •  Remplissez le tableau suivant, indiquez les ressources utilisées lors du traitement des
-       différentes tâches en cours
-
-A l&#x27;aide du Gestionnaire de tâches et du moniteur de ressources, vous pouvez lire, trier les
-informations puis les indiquer dans le tableau ci-dessous. Il n&#x27;existe pas de correction typique
-ici puisque les informations varient en fonctions des ressources matérielles et de l&#x27;utilisation
-de la bande passante.
-
- Ressources
-
- Processeurs
-
- Mémoire
-
- Réseau
-
- Disque dur
-
-
-
-Sauvegarde de l&#x27;état du système et des données
-
-    •  Préparation :
-
-        o  Vérifiez la configuration de la Protection du système
-
-        o  Vérifiez les points de restauration disponibles
-
-        o  Créez si nécessaire un point de restauration manuel
-
-        o  Créez des fichiers dans le répertoire &quot;Documents&quot; de l&#x27;utilisateur en cours
-
-
-
-
- Page 2/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-                d&#x27;utilisation
-
-        o  Désactivez ou désinstallez des fonctionnalités Windows de votre système
-             (Lecteur Windows Media, IE11)
-
-Rechercher &gt; sysdm.cpl
-
-Onglet Protection du système
-
-Par défaut, la protection du système n&#x27;est activée sur aucun volume.  Il n&#x27;y a donc aucun
-point de restauration disponible.
-
-Pour créer un point de restauration manuel :
-
-Sélectionnez Disque local (C:) (Système)
-
-Configurer…
-
-Cocher Activer la protection du système
-
-Déplacer le curseur vers la gauche d&#x27;obtenir environ 5% d&#x27;espace disque dédié au
-stockage des points de restaurations système.
-
-Appliquer &gt; OK
-
-La protection du système est maintenant activée sur le volume qui héberge le système.
-
-Créer…
-
-Donner un nom au point de restauration : Atelier13
-
-Dans  le dossier Document de  l&#x27;utilisateur en cours, créer quelques  fichiers,  dossiers,
-documents facilement identifiables (par exemple Rep-Atelier13, FicAtelier13.txt…)
-
-Le lecteur Windows Media et Internet Explorer 11 sont des fonctionnalités Windows. Pour les
-désinstaller :
-
-Paramètres Windows &gt; Gérer les fonctionnalités facultatives
-
-Cliquer sur Internet Explorer 11 puis désinstaller
-
-Cliquer sur Lecteur Windows Media puis désinstaller
-
-Il est ensuite possible de les réinstaller en cliquant sur Ajouter une fonctionnalité
-
-Pour simplement désactiver ces  fonctionnalités,    il  faut passer par  le panneau de
-configuration &gt; Programmes &gt; Activer ou désactiver des fonctionnalités Windows
-
-    •  À l&#x27;aide de WinRE, vous restaurez l&#x27;état du système grâce au dernier point de
-       restauration disponible puis démarrez Windows normalement
-
-    •  Retrouvez-vous les fichiers dans le dossier Documents du dernier utilisateur ? Pouvez-
-      vous lancer IE11 ? Le lecteur Windows Media ? Pourquoi ?
-
-
-
-
- Page 3/4
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-Clic droit sur le menu Démarrer &gt; Arrêter ou se déconnecter &gt; Maintenir le bouton SHIFT puis
-cliquer sur Redémarrer
-
-Des informations apparaissent à l&#x27;écran et concernent la désinstallation ou la désactivation
-des fonctionnalités Windows IE11 et le lecteur Windows Media.
-
-Le système d&#x27;exploitation de secours WinRE démarre  (il est indépendant du système
-Windows)
-
-Dépannage
-
-Options avancées
-
-Restauration du système
-
-Choisissez un compte administrateur pour continuer puis indiquez son mot de passe.
-
-L&#x27;assistant Restauration du système se lance.
-
-Suivant
-
-Sélectionnez votre point de restauration.
-
-Terminer
-
-Oui
-
-Attendez quelques secondes puis cliquez sur Redémarrer
-
-Un message d&#x27;information indique que la restauration du système s&#x27;est correctement
-exécutée.
-
-Nous retrouvons nos fonctionnalités Windows IE11 et le lecteur Windows Media ; cela est
-logique puisque nous les avions désinstallées ou désactivées après avoir créé le point de
-restauration.
-
-Nous retrouvons nos fichiers dans le dossier Documents de l&#x27;utilisateur alors que nous avons
-effectué le point de restauration avant la création de ceux-ci. Cela prouve que le point de
-restauration n&#x27;affecte pas les données utilisateurs.
-
-
-
-
-
- Page 4/4
-                                      © ENI – Tous droits réservés</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Maintenance du syst確e.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Solution du TP - Maintenance du syst確e</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Maintenance du système </h4>
+<p class="tssr-source-paragraph">TP du Module 10 – La maintenance du système </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Affichez et analysez les problèmes majeurs survenus sur votre système : </p>
+<pre class="tssr-source-code">o Depuis le démarrage de votre VM et de manière synthétique </pre>
+<pre class="tssr-source-code">o De manière détaillée sur le dernier évènement critique (au cas où aucun </pre>
+<p class="tssr-source-paragraph">évènement critique n&#x27;est survenu depuis le début du module, procédez à un <br>arrêt brutal de votre VM WorkStation : PowerOFF) </p>
+<p class="tssr-source-paragraph">Rechercher &gt; Afficher l&#x27;historique de fiabilité </p>
+
+<p class="tssr-source-paragraph">L&#x27;indice de fiabilité a chuté le jour où des échecs divers sont survenus (symbolisé par la croix <br>blanche dans le cercle rouge) puis est remonté petit à petit les jours suivants. </p>
+<p class="tssr-source-paragraph">Double clic sur l&#x27;évènement critique </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt; Moniteurde fiabilité<br>_<br>o<br>x</p><p>4<br>« Systèmeet sécurité<br>&gt; Sécuritéetmaintenance<br>&gt; Moniteur<br>de fiabilité<br>vo<br>P</p><p>Examiner l&#x27;historique de fiabilité et des problèmes de votre ordinateur</p><p>L&#x27;indice de stabilité indique la stabilité globale de votre système sur une échelle de 1 à 10. En sélectionnant une période spécifique, vous pouvez examiner les problèmes particuliers d&#x27;ordre matériel ou logiciel<br>qui affectent votre système.</p><p>Afficher<br>par: Jours | Semaines<br>Dernièremise</p><p>à jour :<br>10)</p><p>=<br>—<br>-—<br>[|</p><p>5</p><p>al<br>|<br>|<br>|<br>|<br>|<br>I<br>I<br>»<br>|Echecs des applications</p><p>|<br>|<br>|<br>|<br>|<br>|<br>|<br>Echecs Windows<br>o<br>Échecs divers<br>Avertissements<br>Informations</p><p>Détails de fiabilité pour : 01/04/2021</p><p>Source<br>Résumé<br>Date<br>Action<br>@Evénements d&#x27;information (6)<br>a<br>[©] Mise à jour intelligente de la sécur.... Windows Update a réussi<br>Afficher les détail.<br>[Microsoft enhanced Point and Pri...<br>Installation correcte du pilote<br>Afficher les détail.<br>[Microsoft enhanced Point and Pr.<br>Installation correcte du pilote<br>Afficher les détail.</p><p>[FTHP LaserJet M101-M106 PCLm-S<br>Installation correcte du pilote<br>Afficher les détail.</p><p>[FTHP - Printer- 7/19/2018 12:00:00 A... Windows Updatea réussi<br>Afficher les détail.<br>[FI9WZDNCRFHWLH-AD2F1837.HPP... Windows Update a réussi<br>Afficher les détail</p><p>Oy Enregistrer l&#x27;historique de fiabilité...<br>Afficher tous les rapports de problèmes<br>[ox]</p><p>ent</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Analyse en temps réel </p>
+<p class="tssr-source-paragraph">• <br>Lancez plusieurs tâches : copiez un gros fichier disponible sur le partage [CHEMIN A <br>INDIQUER], démarrez les applications console PowerShell, Gestionnaire des tâches, <br>Edge…  </p>
+<p class="tssr-source-paragraph">• <br>Avec les outils adaptés et en temps réel, recherchez les processus qui consomment <br>le plus de performances sur les 4 composants principaux. </p>
+<p class="tssr-source-paragraph">• <br>Remplissez le tableau suivant, indiquez les ressources utilisées lors du traitement des <br>différentes tâches en cours  </p>
+<p class="tssr-source-paragraph">A l&#x27;aide du Gestionnaire de tâches et du moniteur de ressources,  vous pouvez lire, trier les <br>informations puis les indiquer dans le tableau ci-dessous. Il n&#x27;existe pas de correction typique <br>ici puisque les informations varient en fonctions des ressources matérielles et de l&#x27;utilisation <br>de la bande passante. </p>
+<p class="tssr-source-paragraph">Ressources </p>
+<p class="tssr-source-paragraph">Processeurs <br> </p>
+<p class="tssr-source-paragraph">Mémoire <br> </p>
+<p class="tssr-source-paragraph">Réseau <br> </p>
+<p class="tssr-source-paragraph">Disque dur <br> </p>
+
+<p class="tssr-source-paragraph">Sauvegarde de l&#x27;état du système et des données </p>
+<p class="tssr-source-paragraph">• <br>Préparation : </p>
+<pre class="tssr-source-code">o Vérifiez la configuration de la Protection du système </pre>
+<pre class="tssr-source-code">o Vérifiez les points de restauration disponibles </pre>
+<pre class="tssr-source-code">o Créez si nécessaire un point de restauration manuel </pre>
+<pre class="tssr-source-code">o Créez des fichiers dans le répertoire &quot;Documents&quot; de l&#x27;utilisateur en cours </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>© Détails du problème</p><p>€<br>+ 4 « Sécurité etmaintenance<br>» Détails du problème<br>v<br>&amp;</p><p>FE Windows</p><p>Problème<br>Date<br>Windows n&#x27;a pas été arrêté correctement<br>1327</p><p>Description</p><p>L&#x27;arrêt système précédant à 14:58:42 le<br>n&#x27;était pas prévu</p><p>ent</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">d&#x27;utilisation </p>
+<pre class="tssr-source-code">o Désactivez ou désinstallez des fonctionnalités Windows de votre système </pre>
+<p class="tssr-source-paragraph">(Lecteur Windows Media, IE11) </p>
+<p class="tssr-source-paragraph">Rechercher &gt; sysdm.cpl </p>
+<p class="tssr-source-paragraph">Onglet Protection du système </p>
+<p class="tssr-source-paragraph">Par défaut, la protection du système n&#x27;est activée sur aucun volume. Il n&#x27;y a donc aucun <br>point de restauration disponible. </p>
+<p class="tssr-source-paragraph">Pour créer un point de restauration manuel :  </p>
+<p class="tssr-source-paragraph">Sélectionnez Disque local (C:) (Système) </p>
+<p class="tssr-source-paragraph">Configurer… </p>
+<p class="tssr-source-paragraph">Cocher Activer la protection du système </p>
+<p class="tssr-source-paragraph">Déplacer le curseur vers la gauche d&#x27;obtenir environ 5% d&#x27;espace disque dédié au <br>stockage des points de restaurations système. </p>
+<p class="tssr-source-paragraph">Appliquer &gt; OK </p>
+<p class="tssr-source-paragraph">La protection du système est maintenant activée sur le volume qui héberge le système. </p>
+<p class="tssr-source-paragraph">Créer… </p>
+<p class="tssr-source-paragraph">Donner un nom au point de restauration : Atelier13 </p>
+<p class="tssr-source-paragraph">Dans le dossier Document de l&#x27;utilisateur en cours, créer quelques fichiers, dossiers, <br>documents facilement identifiables (par exemple Rep-Atelier13, FicAtelier13.txt…) </p>
+<p class="tssr-source-paragraph">Le lecteur Windows Media et Internet Explorer 11 sont des fonctionnalités Windows. Pour les <br>désinstaller : </p>
+<p class="tssr-source-paragraph">Paramètres Windows &gt; Gérer les fonctionnalités facultatives </p>
+<p class="tssr-source-paragraph">Cliquer sur Internet Explorer 11 puis désinstaller </p>
+<p class="tssr-source-paragraph">Cliquer sur Lecteur Windows Media puis désinstaller </p>
+<p class="tssr-source-paragraph">Il est ensuite possible de les réinstaller en cliquant sur Ajouter une fonctionnalité </p>
+<p class="tssr-source-paragraph">Pour simplement désactiver ces fonctionnalités, il faut passer par le panneau de <br>configuration &gt; Programmes &gt; Activer ou désactiver des fonctionnalités Windows </p>
+<p class="tssr-source-paragraph">• <br>À l&#x27;aide de WinRE, vous restaurez l&#x27;état du système grâce au dernier point de <br>restauration disponible puis démarrez Windows normalement </p>
+<p class="tssr-source-paragraph">• <br>Retrouvez-vous les fichiers dans le dossier Documents du dernier utilisateur ? Pouvez-<br>vous lancer IE11 ? Le lecteur Windows Media ? Pourquoi ? </p>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Clic droit sur le menu Démarrer &gt; Arrêter ou se déconnecter &gt; Maintenir le bouton SHIFT puis <br>cliquer sur Redémarrer </p>
+<p class="tssr-source-paragraph">Des informations apparaissent à l&#x27;écran et concernent la désinstallation ou la désactivation <br>des fonctionnalités Windows IE11 et le lecteur Windows Media. </p>
+<p class="tssr-source-paragraph">Le système d&#x27;exploitation de secours WinRE démarre (il est indépendant du système <br>Windows) </p>
+<p class="tssr-source-paragraph">Dépannage </p>
+<p class="tssr-source-paragraph">Options avancées </p>
+<p class="tssr-source-paragraph">Restauration du système </p>
+<p class="tssr-source-paragraph">Choisissez un compte administrateur pour continuer puis indiquez son mot de passe. </p>
+<p class="tssr-source-paragraph">L&#x27;assistant Restauration du système se lance. </p>
+<p class="tssr-source-paragraph">Suivant </p>
+<p class="tssr-source-paragraph">Sélectionnez votre point de restauration. </p>
+<p class="tssr-source-paragraph">Terminer </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Attendez quelques secondes puis cliquez sur Redémarrer </p>
+<p class="tssr-source-paragraph">Un message d&#x27;information indique que la restauration du système s&#x27;est correctement <br>exécutée. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support">Nous retrouvons nos fonctionnalités Windows IE11 et le lecteur Windows Media ; cela est <br>logique puisque nous les avions désinstallées ou désactivées après avoir créé le point de <br>restauration.  </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support">Nous retrouvons nos fichiers dans le dossier Documents de l&#x27;utilisateur alors que nous avons <br>effectué le point de restauration avant la création de ceux-ci. Cela prouve que le point de <br>restauration n&#x27;affecte pas les données utilisateurs. </p>
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-8cf757500ba76970d4070df67bffe8bd8c9facd39c69ad814fe52d203ef42c5e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-8cf757500ba76970d4070df67bffe8bd8c9facd39c69ad814fe52d203ef42c5e.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="969" height="1868"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

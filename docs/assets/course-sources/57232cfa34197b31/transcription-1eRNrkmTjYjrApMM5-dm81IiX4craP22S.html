@@ -1,0 +1,256 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 05 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 05 – Les caractères spéciaux du script</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Savoir enchaîner plusieurs commandes</p>
+<p class="tssr-source-paragraph">• Conditionner une commande au résultat d&#x27;une autre<br>• Regrouper les commandes<br>• Colorier la console</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Enchaînement de </h4>
+<h4>commandes</h4>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement de commandes</p>
+<p class="tssr-source-paragraph">2 types d’enchaînement de commandes</p>
+<p class="tssr-source-paragraph">Inconditionnel<br>Conditionnel</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement inconditionnel</p>
+<pre class="tssr-source-code">;
+L’enchaînement sans condition</pre>
+<pre class="tssr-source-code">Pour enchaîner des commandes quel que soit le résultat de leur 
+exécution, on utilise le « ; » entre celles-ci.</pre>
+<pre class="tssr-source-code">$ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
+mkdir: cannot create directory `./data&#x27;: Permission denied
+touch: cannot touch `./data/file1&#x27;: No such file or directory
+Bonjour le monde !</pre>
+<p class="tssr-source-paragraph">• Dans cet exemple, l’utilisateur n’a pas le droit de créer un répertoire à la racine <br>(mkdir en erreur). <br>• La commande de création d’un fichier dans le répertoire échoue aussi <br>(touch en erreur).<br>• La dernière commande (sans lien avec les  précédentes) aboutit.</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement inconditionnel</p>
+<pre class="tssr-source-code">;
+L’enchaînement sans condition</pre>
+<pre class="tssr-source-code">Dans un script, le traitement des commandes est séquentiel.
+Le « ; » est substitué par un retour à la ligne.  </pre>
+<pre class="tssr-source-code">$ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt</pre>
+<p class="tssr-source-paragraph">Traitement</p>
+<p class="tssr-source-paragraph">séquentiel</p>
+<pre class="tssr-source-code">mkdir /data
+touch /data/file1
+cat /home/bonjour.txt</pre>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
+                                                         Enchaînement inconditionnel
+
+  ;     L’enchaînement sans condition
+
+               Pour enchaîner des commandes quel que soit le résultat de leur
+                 exécution, on utilise le « ; » entre celles-ci.
+
+                                $ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
+                                   mkdir: cannot create directory `./data&#x27;: Permission denied
+                                   touch: cannot touch `./data/file1&#x27;: No such file or directory
+                                   Bonjour le monde !
+                          • Dans cet exemple, l’utilisateur n’a pas le droit de créer un répertoire à la racine
+                     (mkdir en erreur).
+                          • La commande de création d’un fichier dans le répertoire échoue aussi
+                     (touch en erreur).
+                          • La dernière commande (sans lien avec les précédentes) aboutit.
+
+
+
+
+
+5
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                         Enchaînement inconditionnel
+
+  ;     L’enchaînement sans condition
+
+              Dans un script, le traitement des commandes est séquentiel.
+               Le « ; » est substitué par un retour à la ligne.
+
+                     $ mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
+
+      Traitementmkdirtouch /data/data/file1                           séquentiel
+                              cat /home/bonjour.txt
+
+
+
+
+
+6</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Po</p><p>Pe</p><p>=</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement conditionnel</p>
+<pre class="tssr-source-code">&amp;&amp;
+Le “et” logique</pre>
+<pre class="tssr-source-code">L’opérateur « &amp;&amp; » conditionne l’enchaînement de commandes 
+au résultat d’exécution positif de la commande précédente.</pre>
+<p class="tssr-source-paragraph">• Cette structure peut se traduire par : </p>
+<p class="tssr-source-paragraph">Si la commande aboutit alors je fais la suivante.</p>
+<pre class="tssr-source-code">$ mkdir /data &amp;&amp; touch /data/file1
+mkdir: cannot create directory `./data&#x27;: Permission denied</pre>
+<pre class="tssr-source-code">$ mkdir ./data &amp;&amp; touch ./data/file1
+$ ls -l ./data/
+-rw-r--r-- 1 Gilles Gilles 0 2021-12-26 02:12 file1</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement conditionnel</p>
+<pre class="tssr-source-code">&amp;&amp;
+Le “et” logique</pre>
+<pre class="tssr-source-code">Le système s’appuie sur le code retour de la commande 
+précédente (variable réservée $?) :</pre>
+<pre class="tssr-source-code">• Si $? = 0 (pas d’erreur) : alors la commande suivante est exécutée</pre>
+<pre class="tssr-source-code">• Si $? ≠ 0 (erreur) : alors la commande suivante n’est pas exécutée</pre>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[</p><p>[</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-ea3d7a07cdae5444828a3d9f2dae3e5fb705f8b4e506543cdabeb2ad82f269f7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ea3d7a07cdae5444828a3d9f2dae3e5fb705f8b4e506543cdabeb2ad82f269f7.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="6251"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement conditionnel</p>
+<pre class="tssr-source-code">||
+Le “ou” logique</pre>
+<pre class="tssr-source-code">• L’opérateur « || » conditionne l’enchaînement de commandes 
+à l’échec d’exécution de la commande précédente.</pre>
+<p class="tssr-source-paragraph">• Cette structure peut se traduire par : <br>Si la commande n’a pas abouti alors je fais la suivante.</p>
+<pre class="tssr-source-code">mkdir ./data 2&gt;/dev/null || echo &quot;Erreur de création du répertoire &#x27;data&#x27;&quot;
+Erreur de création du répertoire &#x27;data&#x27;</pre>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Enchaînement conditionnel</p>
+<pre class="tssr-source-code">&amp;&amp;
+Le “et” logique</pre>
+<pre class="tssr-source-code">Le système s’appuie sur le code retour de la commande précédente 
+(variable réservée $?) :</pre>
+<pre class="tssr-source-code">• Si $? = 0 (pas d’erreur) : alors la commande suivante n’est pas exécutée</pre>
+<pre class="tssr-source-code">• Si $? ≠ 0 (erreur) : alors la commande suivante est exécutée</pre>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>pa|</p><p>ja|</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Scripting Shell<br>Les caractères spéciaux du script</p>
+<p class="tssr-source-paragraph">Démo</p>
+<p class="tssr-source-paragraph">Enchaînement conditionnel et <br>inconditionnel de commandes</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Regroupements</h4>
+<h4>de commandes</h4>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les regroupements de commandes</p>
+<p class="tssr-source-paragraph">• Les regroupements de commandes peuvent être utilisés pour :<br>• Exécuter plusieurs commandes dans un même environnement.<br>• Rediriger le résultat de plusieurs commandes vers un fichier <br>ou un tube.</p>
+<pre class="tssr-source-code">• Deux syntaxes de regroupement de commandes sont utilisables : 
+(« regroupement ») et {« regroupement »}.</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les regroupements de commandes</p>
+<p class="tssr-source-paragraph">Regroupement avec création de sous-shell</p>
+<p class="tssr-source-paragraph">• Pour regrouper dans un environnement enfant l’exécution de plusieurs <br>commandes, on utilise la syntaxe suivante :</p>
+<pre class="tssr-source-code">$ (cmd1 ; cmd2)</pre>
+<p class="tssr-source-paragraph">• Dans un script, pour plus de lisibilité, le regroupement sera écrit ainsi :</p>
+<pre class="tssr-source-code">(</pre>
+<pre class="tssr-source-code">cmd1
+cmd2
+)</pre>
+<pre class="tssr-source-code">$ (ls /bin/ ; ls /usr/bin) | wc –l</pre>
+<p class="tssr-source-paragraph">Exemple : <br>pour afficherle nombretotal de fichiers<br>contenusdans /bin et /usr/bin</p>
+<p class="tssr-source-paragraph">14</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les regroupements de commandes</p>
+<p class="tssr-source-paragraph">Regroupement sans création de sous-shell</p>
+<p class="tssr-source-paragraph">• Pour regrouper dans un environnement enfant l’exécution de plusieurs <br>commandes, on utilise la syntaxe suivante :</p>
+<pre class="tssr-source-code">$ { cmd1 ; cmd2 ; cmd3 ; }</pre>
+<pre class="tssr-source-code">À la difference de la syntaxe du (), un “;” doit être mis juste avant l’accolade fermante. Ne pas 
+oublier le point-virgule suivant la dernière commande et les espaces après et avant les accolades.</pre>
+<p class="tssr-source-paragraph">• Dans un script, pour plus de lisibilité, le regroupement sera écrit ainsi :</p>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">cmd1
+cmd2
+}</pre>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Utiliser les couleurs </h4>
+<h4>dans le Shell</h4>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>(ca)</p><p>iS)<br>(©)</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-20bb443c158779ad482351704f1fe4568d8114de91ea603fe220994af94afd0d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-20bb443c158779ad482351704f1fe4568d8114de91ea603fe220994af94afd0d.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="994" height="6251"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Utiliser les couleurs dans le Shell</p>
+<p class="tssr-source-paragraph">• Il est possible d’utiliser quelques couleurs dans le Shell <br>ou dans les scripts. <br>• Elles peuvent être utiles pour mettre en valeur des <br>informations importantes.</p>
+<p class="tssr-source-paragraph">Attribut des caractères<br>0 : aucun<br>1 : gras<br>4 : souligné<br>7 : inversé<br>8 : invisible<br>9 : barré</p>
+<p class="tssr-source-paragraph">Couleur<br>Caractères<br>Fond<br>Noir<br>30<br>40<br>Rouge<br>31<br>41<br>Vert<br>32<br>42<br>Jaune<br>33<br>43<br>Bleu<br>34<br>44<br>Magenta<br>35<br>45<br>Cyan<br>36<br>46<br>Gris clair<br>37<br>47</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Utiliser les couleurs dans le Shell</p>
+<p class="tssr-source-paragraph">• Pour coloriser une information, les codes couleur seront <br>à encadrer pour :</p>
+<pre class="tssr-source-code">• Annoncer la couleur : \033[ ou \e[
+• Finir la définition de couleur : m
+• Remettre la valeur initiale : \033[0m </pre>
+<pre class="tssr-source-code">Exemple
+$ echo -e &quot;voici du \033[1;32mvert\033[0m&quot;
+voici du vert</pre>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE CE</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Scripting Shell<br>Les caractères spéciaux du script</p>
+<p class="tssr-source-paragraph">Démo</p>
+<p class="tssr-source-paragraph">Les couleurs dans le shell</p>
+<p class="tssr-source-paragraph">19</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>7<br>|<br>©</p><p>eni</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bdda88146c25e3b69b374b6ffd9e3a9aaff707a338ddb4d242d6a4030234479a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bdda88146c25e3b69b374b6ffd9e3a9aaff707a338ddb4d242d6a4030234479a.webp" alt="Illustrations du support source, pages 9 à 10" loading="lazy" width="994" height="2223"></a><figcaption>Illustrations du support Drive — pages 9 à 10. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,79 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 5 - Where-Object.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 5 - Where-Object</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Where-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 05 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter la commande Where-Object. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Une des commandes les plus utilisées permet d’appliquer une ou plusieurs conditions sur une ou <br>plusieurs propriétés d’un objet. </p>
+<p class="tssr-source-paragraph">Le conditionnement permet de définir des listes d’objets précises et de pouvoir obtenir un résultat <br>correspondant au besoin exprimé.  </p>
+<pre class="tssr-source-code">• 
+La commande Where-Object s’utilise en complément de la commande Select-Object </pre>
+<p class="tssr-source-paragraph">• <br>Dans un premier temps, nous allons voir une condition simple. </p>
+
+<p class="tssr-source-paragraph">La commande utilisée permet de chercher un ou plusieurs utilisateurs dans la base de données <br>Active Directory.  </p>
+<pre class="tssr-source-code">La condition Where-Object permet de trouver le ou les objets utilisateurs pour laquelle la propriété 
+Name est égale à Oneal. </pre>
+<pre class="tssr-source-code">La condition Where-Object utilise les opérateurs de comparaison ici le -eq indique l’égalité.  </pre>
+<p class="tssr-source-paragraph">Nous allons voir qu’il est possible de tester une propriété sans connaître le contenu exact. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\Administrator&gt; Get-ADUser -filter<br>*<br>|<br>where-object -Property Name -eq Oneal</p><p>DistinguishedName<br>:<br>CN=Oneal ,OU=_CompteTest ,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Sharon<br>Name<br>:<br>Oneal<br>objectclass<br>:<br>user<br>lob jectGUID<br>: 622f3902-4ee9-415f-b818-f4ccce087417<br>SamAccountName<br>:<br>Sharon<br>Oneal<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1146<br>Surname<br>:<br>UserPrincipalName<br>:<br>SharonOneal</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Pour cela, on utilise l’opérateur de comparaison Like avec le caractère  * , ce qui nous permet 
+d’obtenir tous les utilisateurs dont le nom débute par Ro. </pre>
+<pre class="tssr-source-code">o Pour rappel, les opérateurs de comparaison par défaut sont insensibles à la </pre>
+<p class="tssr-source-paragraph">casse. </p>
+<pre class="tssr-source-code">o Pour les rendre sensibles à la casse, il faut les préfixer par un c. </pre>
+<pre class="tssr-source-code">La commande Where-Object est également utilisable sur des propriétés de type booléen. </pre>
+
+<pre class="tssr-source-code">Dans ce cas, la propriété est comparée à la variable $True ou $False selon si l’on souhaite tester 
+la validation ou non. </pre>
+<p class="tssr-source-paragraph">Dans le cas de notre commande, on affiche uniquement les comptes Active Directory actifs. </p>
+<pre class="tssr-source-code">Where-Object permet également d’utiliser les opérateurs logiques and et or. </pre>
+<pre class="tssr-source-code">Dans ce cas, il faut vérifier plusieurs propriétés. On se sert de la variable réservée $PSItem vu 
+précédemment. </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\Administrator&gt; Get-ADUser<br>-filter<br>*<br>| where-object -Property Name -like<br>&quot;Ro*&quot;</p><p>DistinguishedName<br>:<br>CN=Romero,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>objectClass<br>:<br>user<br>objectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott<br>Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>Surname<br>:<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>DistinguishedName<br>: CN=Robertson,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Joelle<br>Name<br>:<br>Robertson<br>objectClass<br>:<br>user<br>objectGUID<br>:<br>b99c9ca0-3930-4610-ab07-bc2536b895ed<br>SamAccountName<br>:<br>Joelle<br>Robertson<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1153<br>Surname<br>:<br>UserPrincipalName<br>:<br>JoelleRobertson</p><p>PS C:\Users\Administrator&gt; Get-ADUser -filter<br>*<br>| where-object -Property Enabled -eq $true</p><p>DistinguishedName<br>: CN=Administrator<br>,CN=Users ,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>8<br>Name<br>:<br>Administrator<br>objectcClass<br>: user<br>objectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>à<br>UserPrincipalName<br>:</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+
+<pre class="tssr-source-code">On utilise le paramètre FisterScript indiqué par l’utilisation des accolades de la commande 
+Where-Object puis, on utilise la variable réservée $PSItem suivie d’un point puis le nom de la 
+propriété à tester.  </pre>
+
+<p class="tssr-source-paragraph">Le test est ensuite répété sur la seconde propriété ; entre les deux on place l’opérateur logique.  </p>
+<pre class="tssr-source-code">Dans le cas d’un And, les deux propriétés doivent répondre « vrai » à la condition pour que l’objet 
+soit affiché dans le résultat. </pre>
+<pre class="tssr-source-code">Dans notre test, il faut que l’utilisateur « Active Directory » soit actif et que son nom commence par 
+un R. </pre>
+<pre class="tssr-source-code">Voyons maintenant le cas d’un Or. </pre>
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser<br>-filter<br>*<br>|<br>where-object {$PSItem.Enabled<br>-eq $true -and<br>$PSItem.Name<br>-like &quot;R*&quot;}</p><p>DistinguishedName<br>: CN=Randal1,OU=_CompteTest ,DC=ad01,0C=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Reese<br>Name<br>:<br>Randall<br>lOobjectClass<br>: user<br>lob jectGUID<br>: 4b4aae4b-a5f8-47b6-986c-f593c9a55ac6<br>SamAccountName<br>:<br>Reese<br>Randall<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1107<br>Surname<br>8<br>UserPrincipalName<br>:<br>ReeseRandall</p><p>DistinguishedName<br>: CN=Romero,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>Surname<br>8<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>DistinguishedName<br>:<br>CN=Rios ,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Axel<br>Name<br>:<br>Rios<br>lobjectClass<br>: user<br>lob jJectGUID<br>: 329243f8-18b8-45cd-8ddf-58a111bccc61<br>SamAccountName<br>:<br>Axel<br>Rios<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1126<br>Surname<br>8<br>UserPrincipalName<br>:<br>AxelRios</p><p>&gt;&gt; Get-ADUser -filter<br>*<br>|<br>where-object {$PSItem.name -like &quot;S*&quot;<br>-or $PSItem.Name -like &quot;R*&quot;}</p><p>En</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Avec l’opérateur Or, il faut que l’une ou l’autre des propriétés testées répondre « vrai » pour que 
+l’objet soit sélectionné. </pre>
+<pre class="tssr-source-code">Ici on obtient les utilisateurs dont le nom commence par un R ou par un  S  </pre>
+<p class="tssr-source-paragraph">Il est également possible de faire cohabiter les deux opérateurs de comparaison. </p>
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DistinguishedName<br>:<br>CN=Rivas ,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>:<br>Lucius<br>Name<br>:<br>Rivas<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>9d41e67e-9b98-4b92-8467-6d03c85a4238<br>SamAccountName<br>:<br>Lucius<br>Rivas<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1129<br>surname<br>.<br>=<br>.<br>.<br>UserPrincipalName<br>:<br>Luci1usRivas</p><p>DistinguishedName<br>:<br>CN=Simmons ,OU=_CompteTest,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Brent<br>Name<br>:<br>Simmons<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>7b873e0f-62d0-4530-ba65-ea19becb0537<br>SamAccountName<br>:<br>Brent Simmons<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1144<br>Surname<br>=<br>UserPrincipalName<br>:<br>BrentSimmons</p><p>&gt;&gt; Get-ADUser<br>-filter<br>*<br>|<br>where-object<br>{$PSItem.Enabled<br>-eq<br>$true<br>-and<br>C$PSItem.Name<br>-like<br>“R*&quot;-or<br>$PSItem.name<br>-like<br>&quot;“S*&quot;)}</p><p>DistinguishedName<br>:<br>CN=Randall,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Reese<br>Name<br>:<br>Randall<br>iObjectclass<br>:<br>user<br>ObjectGUID<br>:<br>4b4aae4b-a5f8-47b6-986c-F593c9a55ac6<br>SamAccountName<br>:<br>Reese<br>Randall<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1107<br>Surname<br>5<br>UserPrincipalName<br>:<br>ReeseRandall</p><p>DistinguishedName<br>:<br>CN=Romero,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>Objectclass<br>:<br>user<br>ObjectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott<br>Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>surname<br>:<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>En</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4e0af002f353966b1878efd7cc88aeeaefbe68901f49de812783189fe34c4903.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4e0af002f353966b1878efd7cc88aeeaefbe68901f49de812783189fe34c4903.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1079" height="5307"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

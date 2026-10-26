@@ -1,0 +1,55 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 1 - Le routeur.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP 1 - Le routeur</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en environnement Microsoft<br>Le routeur</h4>
+<p class="tssr-source-paragraph">TP du Module 04 – Le routage</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">30 minutes à 1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Prérequis<br> <br>   : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Déployer la machine virtuelle CLI-01-TP8-OK.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Identifiant : Admineni - Mot de passe : Pa$$w0rd</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Déployer la machine virtuelle RTR-01-TP8-OK sur VMware Workstation.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Identifiant : admin - Mot de passe : Pa$$w0rd</p>
+<p class="tssr-source-paragraph">Création des VMs.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Une VM Windows 10 nommée CLI-00 qui fera office de poste client.<br><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Une VM routeur pfSense nommée RTR-00.</p>
+<p class="tssr-source-paragraph">Connectivité<br> <br>   : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurer le poste client CLI-00.</p>
+<pre class="tssr-source-code">o
+Carte réseau : VMNET10
+o
+Adresse IP : 192.168.0.10/24.</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurer le routeur RTR-00.</p>
+<pre class="tssr-source-code">o
+1ère carte réseau : Bridge.
+o
+Adresse IP : utiliser l’adressage dynamique.
+o
+2ème carte réseau : Bridge.
+o
+Utiliser l’adresse IP 172.16.0.1/16</pre>
+<pre class="tssr-source-code">o
+3ème carte réseau : VMNET10
+o
+Adresse IP : utiliser la dernière adresse d’hôte du réseau privé défini 
+précédemment.</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifier la connectivité des machines :</p>
+<pre class="tssr-source-code">o
+Du poste CLI-00 vers le routeur RTR-00.
+o
+Du routeur RTR-01 vers le routeur RTR-00.
+o
+Du poste CLI-00 vers le poste CLI-01.</pre>
+<p class="tssr-source-paragraph">Page 1/2</p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Routes</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Indiquer ci-dessous les opérations que vous avez réalisées sur votre routeur pfSense :</p>
+<p class="tssr-source-paragraph">Documentation</p>
+<p class="tssr-source-paragraph">·<br>Vous réaliserez un schéma et reporterez les paramètres IP de chacun de vos <br>postes.</p>
+<p class="tssr-source-paragraph">Page 2/2</p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-7ca8dbe2caa4ec733e1173ebc924cac136f75afb64fa16c8ac04df7b37c226bd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7ca8dbe2caa4ec733e1173ebc924cac136f75afb64fa16c8ac04df7b37c226bd.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="998" height="1062"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,108 +1,60 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 1 - OS, Windows 10 &amp; Modèle OSI V2</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Synthèse Module 1 - OS, Windows 10 &amp; Modèle OSI V2</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Synthèse - Module 1 : Les Systèmes
-d&#x27;Exploitation, Windows 10 et le Modèle
-OSI (V2)
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 1 - OS, Windows 10 &amp; Modèle OSI V2</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Synthèse Module 1 - OS, Windows 10 &amp; Modèle OSI V2</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Synthèse - Module 1 : Les Systèmes <br>d&#x27;Exploitation, Windows 10 et le Modèle <br>OSI (V2) </h4>
+<h4>1. Introduction aux Systèmes d&#x27;Exploitation (OS) </h4>
+<p class="tssr-source-paragraph">Un système d&#x27;exploitation (Operating System - OS) est un ensemble de programmes qui gère <br>les ressources matérielles d&#x27;un ordinateur et fournit aux applications des services pour <br>fonctionner. </p>
+<p class="tssr-source-paragraph">Composants principaux d&#x27;un OS </p>
+<p class="tssr-source-paragraph">●​ Noyau (Kernel) : Cœur du système gérant le processeur (CPU), la mémoire vive (RAM) <br>et la communication matérielle. <br>●​ Interpréteur de commandes (Shell / CLI) : Interface en ligne de commande permettant <br>à l&#x27;utilisateur ou aux scripts de donner des instructions. <br>●​ Interface Graphique (GUI) : Environnement visuel facilitant l&#x27;interaction utilisateur. <br>●​ Système de Fichiers (File System) : Organisation et structuration des données sur le <br>stockage. </p>
+<h4>2. Évolution, Modèle WaaS et Éditions de Windows 10 </h4>
+<p class="tssr-source-paragraph">Windows as a Service (WaaS) </p>
+<p class="tssr-source-paragraph">Microsoft met à jour Windows 10 de manière continue à travers le modèle WaaS : </p>
+<p class="tssr-source-paragraph">●​ Feature Updates : Mises à jour majeures de fonctionnalités diffusées deux fois par an <br>(Canal semi-annuel). <br>●​ Quality Updates : Patchs de sécurité et correctifs distribués mensuellement (Patch <br>Tuesday). <br>●​ Windows Insider : Programme de bêta-test pour essayer les builds en avant-première. </p>
+<p class="tssr-source-paragraph">Comparatif des Éditions et Licences </p>
+<p class="tssr-source-paragraph">Édition / Licence <br>Caractéristiques clés <br>Usage cible <br>  </p>
+<p class="tssr-source-paragraph">Famille (Home) <br>Fonctionnalités de base, <br>Usage domestique </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Édition / Licence</td><td>Caractéristiques clés</td><td>Usage cible</td></tr><tr><td>Famille (Home)</td><td>Fonctionnalités de base<br>,</td><td>Usage domestique</td></tr></tbody></table></div>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Édition / Licence <br>Caractéristiques clés <br>Usage cible <br>  </p>
+<p class="tssr-source-paragraph">Cortana, OneDrive, Edge. <br>Pas de jonction de domaine. </p>
+<p class="tssr-source-paragraph">Entreprises et TPE/PME </p>
+<p class="tssr-source-paragraph">Professionnelle (Pro) <br>Jonction au domaine Active <br>Directory, stratégies de <br>groupe (GPO), chiffrement <br>EFS, Hyper-V. </p>
+<p class="tssr-source-paragraph">Grands comptes </p>
+<p class="tssr-source-paragraph">Entreprise <br>BitLocker, AppLocker, <br>DirectAccess, BranchCache, <br>Windows To Go. </p>
+<p class="tssr-source-paragraph">Postes individuels </p>
+<p class="tssr-source-paragraph">OEM / Retail <br>OEM liée à la carte mère ; <br>Retail transférable d&#x27;un PC à <br>un autre. </p>
+<p class="tssr-source-paragraph">Déploiement massif </p>
+<p class="tssr-source-paragraph">MAK / VLK (KMS) <br>Licenciement en volume pour <br>déploiement d&#x27;entreprise <br>(KMS exige &gt; 25 postes). </p>
+<h4>3. Modèle OSI et Communication Réseau </h4>
+<p class="tssr-source-paragraph">Le modèle OSI (Open Systems Interconnection) comporte 7 couches théoriques définissant les <br>étapes de la communication réseau : </p>
+<p class="tssr-source-paragraph">N° <br>Couche <br>Unité de données <br>(PDU) </p>
+<p class="tssr-source-paragraph">Protocoles / <br>Équipements <br>  </p>
+<p class="tssr-source-paragraph">7 <br>Application <br>Données <br>HTTP, HTTPS, FTP, <br>SMTP, DNS, DHCP </p>
+<p class="tssr-source-paragraph">6 <br>Présentation <br>Données <br>SSL/TLS, ASCII, <br>JPEG </p>
+<p class="tssr-source-paragraph">5 <br>Session <br>Données <br>NetBIOS, RPC </p>
+<p class="tssr-source-paragraph">4 <br>Transport <br>Segment <br>TCP, UDP (Ports 80, <br>443, 22, 53) </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Édition / Licence</td><td>Caractéristiques clés</td><td>Usage cible</td></tr><tr><td></td><td>Cortana OneDrive Edge<br>, , .<br>Pas de jonction de domaine<br>.</td><td></td></tr><tr><td>Professionnelle (Pro)</td><td>Jonction au domaine Active<br>Directory stratégies de<br>,<br>groupe (GPO) chiffrement<br>,<br>EFS Hyper-V<br>, .</td><td>Entreprises et TPE/PME</td></tr><tr><td>Entreprise</td><td>BitLocker AppLocker<br>, ,<br>DirectAccess BranchCache<br>, ,<br>Windows To Go<br>.</td><td>Grands comptes</td></tr><tr><td>OEM / Retail</td><td>OEM liée à la carte mère ;<br>Retail transférable d&#x27;un PC à<br>un autre<br>.</td><td>Postes individuels</td></tr><tr><td>MAK / VLK (KMS)</td><td>Licenciement en volume pour<br>déploiement d&#x27;entreprise<br>(KMS exige &gt; 25 postes)<br>.</td><td>Déploiement massif</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>N°</td><td>Couche</td><td>Unité de données<br>(PDU)</td><td>Protocoles /<br>É quipements</td></tr><tr><td>7</td><td>Application</td><td>Données</td><td>HTTP HTTPS FTP<br>, , ,<br>SMTP DNS DHCP<br>, ,</td></tr><tr><td>6</td><td>Présentation</td><td>Données</td><td>SSL/TLS ASCII<br>, ,<br>JPEG</td></tr><tr><td>5</td><td>Session</td><td>Données</td><td>NetBIOS RPC<br>,</td></tr><tr><td>4</td><td>Transport</td><td>Segment</td><td>TCP UDP (Ports 80<br>, ,<br>443 22 53)<br>, ,</td></tr></tbody></table></div>
 
-1. Introduction aux Systèmes d&#x27;Exploitation (OS)
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">N° <br>Couche <br>Unité de données <br>(PDU) </p>
+<p class="tssr-source-paragraph">Protocoles / <br>Équipements <br>  </p>
+<p class="tssr-source-paragraph">3 <br>Réseau <br>Paquet <br>IP (IPv4/IPv6), ICMP, <br>ARP, Routeurs </p>
+<p class="tssr-source-paragraph">2 <br>Liaison de données <br>Trame <br>Ethernet, Wi-Fi, <br>Commutateurs <br>(Switches), MAC </p>
+<p class="tssr-source-paragraph">1 <br>Physique <br>Bits <br>Câbles RJ45, Fibre <br>optique, Signal radio </p>
+<h4>4. Commandes Réseau de Base </h4>
+<pre class="tssr-source-code"># Afficher la configuration réseau complète​</pre>
+<pre class="tssr-source-code">ipconfig /all​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code"># Tester la connectivité vers la passerelle​</pre>
+<pre class="tssr-source-code">ping 192.168.1.1​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code"># Tracer la route vers un serveur distant​</pre>
+<pre class="tssr-source-code">tracert google.com​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code"># Résoudre un nom de domaine via le DNS​</pre>
+<pre class="tssr-source-code">nslookup campus-eni.fr​</pre>
 
-Un système d&#x27;exploitation (Operating System - OS) est un ensemble de programmes qui gère
-les ressources matérielles d&#x27;un ordinateur et fournit aux applications des services pour
-fonctionner.
-
-Composants principaux d&#x27;un OS
-
-  ●​ Noyau (Kernel) : Cœur du système gérant le processeur (CPU), la mémoire vive (RAM)
-       et la communication matérielle.
-  ●​  Interpréteur de commandes (Shell / CLI) : Interface en ligne de commande permettant
-     à l&#x27;utilisateur ou aux scripts de donner des instructions.
-  ●​  Interface Graphique (GUI) : Environnement visuel facilitant l&#x27;interaction utilisateur.
-  ●​ Système de Fichiers (File System) : Organisation et structuration des données sur le
-      stockage.
-
-2. Évolution, Modèle WaaS et Éditions de Windows 10
-
-Windows as a Service (WaaS)
-
-Microsoft met à jour Windows 10 de manière continue à travers le modèle WaaS :
-  ●​ Feature Updates : Mises à jour majeures de fonctionnalités diffusées deux fois par an
-      (Canal semi-annuel).
-  ●​  Quality Updates : Patchs de sécurité et correctifs distribués mensuellement (Patch
-      Tuesday).
-  ●​ Windows Insider : Programme de bêta-test pour essayer les builds en avant-première.
-
-Comparatif des Éditions et Licences
-
-
- Édition / Licence               Caractéristiques clés        Usage cible
-
-
- Famille (Home)                Fonctionnalités de base,      Usage domestique</pre></section><section><h2>Page 2</h2><pre> Édition / Licence               Caractéristiques clés        Usage cible
-
-
-                               Cortana, OneDrive, Edge.
-                          Pas de jonction de domaine.
-
- Professionnelle (Pro)         Jonction au domaine Active    Entreprises et TPE/PME
-                                   Directory, stratégies de
-                            groupe (GPO), chiffrement
-                           EFS, Hyper-V.
-
- Entreprise                     BitLocker, AppLocker,        Grands comptes
-                               DirectAccess, BranchCache,
-                         Windows To Go.
-
- OEM / Retail           OEM liée à la carte mère ;     Postes individuels
-                                   Retail transférable d&#x27;un PC à
-                          un autre.
-
- MAK / VLK (KMS)            Licenciement en volume pour  Déploiement massif
-                              déploiement d&#x27;entreprise
-                        (KMS exige &gt; 25 postes).
-
-3. Modèle OSI et Communication Réseau
-
-Le modèle OSI (Open Systems Interconnection) comporte 7 couches théoriques définissant les
-étapes de la communication réseau :
-
-        N°         Couche               Unité de données      Protocoles /
-                                       (PDU)               Équipements
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>N°</td><td></td><td></td><td></td><td>Couche</td><td></td><td></td><td>Unité de données</td><td></td><td></td><td></td><td></td><td>Protocoles /</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>(PDU)</td><td></td><td></td><td></td><td></td><td>É quipements</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>3</td><td></td><td></td><td></td><td>Réseau</td><td></td><td></td><td>Paquet</td><td></td><td></td><td></td><td></td><td>IP (IPv4/IPv6) ICMP<br>, ,</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ARP Routeurs<br>,</td></tr><tr><td></td><td>2</td><td></td><td></td><td></td><td>Liaison de données</td><td></td><td></td><td>Trame</td><td></td><td></td><td></td><td></td><td>Ethernet Wi -Fi<br>, ,</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Commutateurs</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>(Switches) MAC<br>,</td></tr><tr><td></td><td>1</td><td></td><td></td><td></td><td>Physique</td><td></td><td></td><td>Bits</td><td></td><td></td><td></td><td></td><td>Câbles RJ45 Fibre<br>,</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>optique Signal radio<br>,</td></tr><tr><td>4 C d Ré d B<br>omman es seau e ase<br>.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td># Afficher la configuration réseau complète</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ipconfig /all</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td># Tester la connectivité vers la passerelle</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>ping 192 168 1 1<br>. . .</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td># Tracer la route</td><td></td><td></td><td>vers un serveur distant</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>tracert google com<br>.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td># Résoudre un nom</td><td></td><td></td><td>de domaine via le DNS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td>nslookup campus-eni .fr</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
 
 
-         7             Application          Données            HTTP, HTTPS, FTP,
-                                                       SMTP, DNS, DHCP
-
-         6            Présentation         Données            SSL/TLS, ASCII,
-                                                  JPEG
-
-         5           Session            Données             NetBIOS, RPC
-
-         4            Transport           Segment            TCP, UDP (Ports 80,
-                                                                   443, 22, 53)</pre></section><section><h2>Page 3</h2><pre>        N°         Couche               Unité de données      Protocoles /
-                                       (PDU)               Équipements
 
 
-         3          Réseau              Paquet                IP (IPv4/IPv6), ICMP,
-                                                           ARP, Routeurs
-
-         2            Liaison de données   Trame                 Ethernet, Wi-Fi,
-                                                           Commutateurs
-                                                                        (Switches), MAC
-
-         1           Physique                Bits                 Câbles RJ45, Fibre
-                                                                         optique, Signal radio
-
-4. Commandes Réseau de Base
-
- # Afficher la configuration réseau complète​
- ipconfig /all​
-   ​
-
- # Tester la connectivité vers la passerelle​
- ping 192.168.1.1​
-   ​
-
- # Tracer la route vers un serveur distant​
- tracert google.com​
-   ​
-
- # Résoudre un nom de domaine via le DNS​
- nslookup campus-eni.fr​</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-52c188117cb103266f069056965b9a4bfe24927b54ed82e80c4dff21d1e9554e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-52c188117cb103266f069056965b9a4bfe24927b54ed82e80c4dff21d1e9554e.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="969" height="2649"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
