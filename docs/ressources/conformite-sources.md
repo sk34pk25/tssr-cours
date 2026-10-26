@@ -1,6 +1,6 @@
 # Supports originaux du Drive et compléments pédagogiques
 
-Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont désormais transcrits en texte HTML, avec leurs tableaux et illustrations séparées. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF ENI et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
+Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont transcrits en texte HTML et tableaux. Les reproductions de pages et de diapositives ENI, y compris sous forme de planches d’images, sont exclues. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF ENI et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
 
 Les fiches de synthèse et leurs schémas sont affichés séparément dans **Aide pédagogique — IA / externe**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
 
@@ -109,8 +109,10 @@ Les corrections de TP sont repliées à l’ouverture pour permettre une premiè
 
 ## Contrôles de transcription
 
-Les 305 531 mots du texte natif des sources ont été recherchés dans les pages HTML correspondantes : aucun mot manquant détecté. Les textes des illustrations ont aussi été relevés par OCR. Les 9 105 illustrations extraites sont toutes comptabilisées dans les planches ; leurs pixels ont été contrôlés lors du regroupement, sans redimensionnement. Les tableaux sont conservés et, lorsqu’ils sont détectés, proposés en lecture structurée.
+Les 305 531 mots du texte natif des sources sont contrôlés dans les transcriptions. Le texte des éléments graphiques est aussi relevé par OCR et conservé en texte. Les tableaux détectés disposent d’une lecture structurée.
 
-Les listes, commandes et opérateurs du texte source sont protégés contre les transformations Markdown. Les symboles des polices particulières sont reproduits à partir de petits extraits du support. Les caractères de largeur nulle déjà invisibles dans le PDF restent enregistrés dans la transcription. Le relevé OCR accompagne les illustrations ; l’illustration source reste disponible pour vérifier sa lecture.
+Les planches reproduisant les diapositives sont retirées. Un croquis du réseau GLPI est conservé après recadrage et contrôle visuel, sans en-tête, pied de page ni logo de diapositive. Tout nouveau visuel doit être isolé et vérifié ; aucune page de PDF ne peut être réintroduite comme illustration.
+
+Les listes, commandes et opérateurs restent littéraux après le build. Les petits symboles des polices particulières restent reproduits séparément.
 
 La transcription, les illustrations et leur couverture de pages sont vérifiées au build par empreinte et par séquence de pages. Les anciens liens vers les PDF ENI du catalogue pointent vers les transcriptions. Le manuel constructeur Aruba, identifié comme document non ENI, reste disponible séparément.

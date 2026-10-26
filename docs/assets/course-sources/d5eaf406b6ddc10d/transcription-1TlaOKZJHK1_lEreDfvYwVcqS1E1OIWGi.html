@@ -5,7 +5,7 @@
 <h4>Objectifs</h4>
 <h4>• Découvrir des systèmes de fichiers Linux<br>• Appliquer des FS sur l’espace de stockage<br>• Gérer les systèmes de fichiers<br>• Monter les systèmes de fichiers</h4>
 <h4>Préparer le stockage à recevoir des données</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des espaces de stockage – File System</h4>
@@ -14,7 +14,7 @@
 <section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
 <h4>Considérations générales</h4>
 <p class="tssr-source-paragraph">• Tous les systèmes de fichiers de type Unix sont basés sur le <br>même principe et les mêmes éléments élémentaires. Les <br>systèmes de fichiers Unix sont segmentés en blocs de données, <br>actuellement à 4 Ko par défaut<br>• Chaque bloc pourra avoir différentes structures :<br>• Superbloc : bloc contenant les informations vitales du système de fichiers<br>• Inode : bloc contenant les inodes contenant les informations d’un fichier<br>• Bloc d’indirection : bloc redirigeant vers d’autres blocs (cf. plus loin dans <br>ce chapitre)<br>• Bloc de données : bloc contenant les données réelles du fichier<br>• Table des inodes : bloc contenant la liste des blocs d’inodes<br>• Table des inodes libres : bloc contenant la liste des inodes libres<br>• Table des blocs libres : bloc contenant la liste des blocs de données libres</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-41d14b1002d74b1caf75fc671e36d778017f454bb58b28100757685086751f3d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-41d14b1002d74b1caf75fc671e36d778017f454bb58b28100757685086751f3d.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1359" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
 <h4>Le Superbloc</h4>
 <p class="tssr-source-paragraph">• Le superbloc contient les informations vitales du système de <br>fichiers. Donc par mesure de sécurité, il est dupliqué à différents <br>endroits du système de fichiers. Il contient les informations <br>suivantes :</p>
@@ -29,13 +29,13 @@
 <h4>Inodes et bloc d’indirection</h4>
 <p class="tssr-source-paragraph">• Taille du fichier : en octets<br>• Champs date : atime (dernier accès au fichier), ctime (dernier changement <br>des informations de l’inode), mtime (dernier changement de données réelles <br>du fichier)<br>• 15 adresses : pointant vers les blocs de données réelles du fichier</p>
 <h4>L’inode ne possède pas le nom du fichier, celui-ci est renseigné <br>dans le répertoire contenant ce fichier.</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>À =</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>À =</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Gestion des espaces de stockage – File System</h4>
 <h4>Systèmes de fichiers </h4>
 <h4>Linux</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-9d3e83b192622b4e572a079be687360b1b9acda1c5431f0fd8c6b231bcf609d2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9d3e83b192622b4e572a079be687360b1b9acda1c5431f0fd8c6b231bcf609d2.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1198" height="909"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Systèmes de fichiers Linux</h4>
 <h4>Systèmes de fichiers EXT</h4>
 <p class="tssr-source-paragraph">• L’ext2, l’ext3 et l’ext4 sont implémentés sur un système Debian<br>• La différence entre ext2 et ext3 est la journalisation, améliorant la <br>récupération du système de fichier en cas de crash (extinction <br>brutale du PC par exemple)<br>• Le système de fichier ext4 est une amélioration de l’ext3 mais <br>réécrit de zéro<br>• ext4 est le système de fichier par défaut sur Debian 10.<br>• Son avantage est qu’il est peu sujet à la fragmentation grâce à la <br>préallocation des blocs de données contigus</p>
@@ -59,10 +59,10 @@ ou un volume logique (ex : /dev/vgsys/lvroot ou /dev/mapper/vgsys-
 lvhome)</pre>
 <h4>ext4<br>ext4<br>ext4</h4>
 <h4>/dev/sdc<br>vgsys<br>lvroot<br>lvhome<br>/dev/sdc1</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[2<br>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>[2<br>|</p></div></details>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-bbf7805682a688595e2293229ba875e88dd02e10630fe153215012728672bda5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bbf7805682a688595e2293229ba875e88dd02e10630fe153215012728672bda5.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="900" height="1716"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Outils de gestion des systèmes de fichiers</h4>
 <h4>Création de systèmes de fichiers</h4>
 <pre class="tssr-source-code">• mkfs.[fstype] &lt;options&gt; [périphérique de stockage]</pre>
@@ -109,7 +109,7 @@ vérification</pre>
 <h4>• La vérification d’un système de fichiers permet de contrôler l’intégrité des données <br>présentes sur celui-ci</h4>
 <h4>• Il est possible de le faire manuellement tout comme il est possible de l’automatiser <br>au démarrage</h4>
 <h4>• Comme pour les commandes de formatage, la vérification peut facilement se faire <br>avec les commandes fsck.&lt;fstype&gt;</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-6968968ee848d4eeb9af90261e8d1cb4ad4131f867c1bddb6858f362e60e4459.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6968968ee848d4eeb9af90261e8d1cb4ad4131f867c1bddb6858f362e60e4459.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1452" height="1320"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Outils de gestion des systèmes de fichiers</h4>
 <h4>Prise d’information</h4>
 <pre class="tssr-source-code">• blkid &lt;options&gt; [périphérique de stockage]</pre>
@@ -122,7 +122,7 @@ tous les périphériques formatés</pre>
 /dev/sr0: UUID=&quot;2021&quot; LABEL=&quot;Deb10&quot; TYPE=&quot;iso9660 PTUUID=&quot;49506c1e&quot; PTTYPE=&quot;dos&quot;
 /dev/mapper/vgsys-lvroot: UUID=&quot;bffe9183-34a3&quot; TYPE=&quot;ext4&quot;
 /dev/mapper/vgsys-lvswap_1: UUID=&quot;d5d6cc72-21ed&quot; TYPE=&quot;swap&quot;</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>pO</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>pO</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Outils de gestion des systèmes de fichiers</h4>
@@ -185,7 +185,7 @@ sr0
 0 
 rom 
 /media/cdrom0</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ee<br>ene</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ee<br>ene</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Outils de gestion des systèmes de fichiers</h4>
@@ -242,7 +242,7 @@ iso9660 Deb10 2021-02-16
 <h4>Démo</h4>
 <h4>Les systèmes de fichiers</h4>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-f2ac3356dd0e7d13eb9b879f2ff8d4669205ba7005c4fd61aff3558ae0727871.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f2ac3356dd0e7d13eb9b879f2ff8d4669205ba7005c4fd61aff3558ae0727871.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1637" height="2000"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Gestion des espaces de stockage – File System</h4>
 <h4>Monter des systèmes de </h4>
 <h4>fichiers</h4>
@@ -261,7 +261,7 @@ répertoire</pre>
 <section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Monter des systèmes de fichiers</h4>
 <h4>Montage manuel avec mount</h4>
 <p class="tssr-source-paragraph">• Options possibles suite :<br>•<br>exec/noexec <br>Active la possibilité d’exécuter des fichiers <br> <br>  <br> <br>exécutables présents sur le système de fichiers. <br>  <br> <br>Par défaut : exec<br>•<br>ro/rw <br> <br>Monte le système de fichiers en lecture seule ou  <br>  <br> <br>en lecture/écriture. <br>  <br> <br>Par défaut : rw<br>•<br>suid/nosuid <br>Active la possibilité d’exécuter les binaires avec  <br>  <br> <br>l’interprétation du SUID positionné dessus. <br>  <br> <br>Par défaut : suid<br>•<br>remount <br>Permet de changer une ou des options de <br> <br>  <br> <br>montage sans démonter le système de fichiers.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-5581f53ce039e41bc07d7146fb6fc0f4c72253772deaed9ced073f90fff49e3c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5581f53ce039e41bc07d7146fb6fc0f4c72253772deaed9ced073f90fff49e3c.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="900" height="732"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Monter des systèmes de fichiers<br>Montage manuel avec mount</h4>
 <pre class="tssr-source-code">root@deb:~# ls /mnt
 root@deb:~# mount –t ext4 /dev/sdc1 /mnt
@@ -279,7 +279,7 @@ root@deb:~#</pre>
  /mnt
  /var
 [...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=</p></div></details>
 
 
 </section>
@@ -301,7 +301,7 @@ tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
 /dev/mapper/vgsys/lvhome on /home type ext4 (rw,relatime,data=ordered)
 /dev/sdc1 on /mnt type ext4 (rw,relatime,data=ordered)
 /dev/sr0 on /media/cdrom0 type iso9660 (ro,nosuid,nodev,noexec,relatime,user)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Monter des systèmes de fichiers</h4>
@@ -338,7 +338,7 @@ ext4
 rw,relatime,data=ordered
 └─ /media/cdrom0 
 /dev/sr0 iso9660 ro,nosuid,nodev,noexec,relatime</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Monter des systèmes de fichiers</h4>
@@ -351,9 +351,9 @@ SOURCE FSTYPE OPTIONS
 /dev/sdc1 
 ext4 
 rw,relatime,data=ordered</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-04d7d0ad5adbe0421d8a3ef701259266a1d57e28a6b54d1b49ac90a6d2a9818d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-04d7d0ad5adbe0421d8a3ef701259266a1d57e28a6b54d1b49ac90a6d2a9818d.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="1457" height="2229"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Monter des systèmes de fichiers</h4>
 <h4>Démonter un volume</h4>
 <pre class="tssr-source-code">• umount [périphérique de stockage] </pre>
@@ -361,7 +361,7 @@ rw,relatime,data=ordered</pre>
 • umount [point de montage] </pre>
 <h4>• À faire par exemple pour retirer une clé USB ou disque externe<br>• Attention, il ne faudra pas qu’un utilisateur utilise le volume monté <br>pour permettre sa déconnexion.</h4>
 <pre class="tssr-source-code">root@deb:~# umount /mnt</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-30"><h3>Page 30</h3><h4>Monter des systèmes de fichiers</h4>
@@ -422,10 +422,10 @@ udf,iso9660
 user,noauto 
 0 
 0</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eo<br>Cr</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eo<br>Cr</p></div></details>
 <div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td># / etc/f stab : stati c fil e system i nf ormati on<br>.</td><td></td><td></td><td></td><td></td></tr><tr><td># &lt;fil e system&gt; &lt;mount poi nt&gt;</td><td>&lt;type&gt;</td><td>&lt;opti ons&gt;</td><td>&lt;d ump&gt;</td><td>&lt;pass&gt;</td></tr><tr><td>/d ev/ mapper/ vgsys -l vroot /</td><td>ext4</td><td>errors=remount -ro</td><td>0</td><td>1</td></tr><tr><td># /b oot was on /d ev/ sd a1 d uri ng i nstall ati on</td><td></td><td></td><td></td><td></td></tr><tr><td>UUID =32a0cf22 -548810a16c45 /b oot</td><td>ext2</td><td>d ef aults</td><td>0</td><td>2</td></tr><tr><td>/d / /l h /h<br>ev vgsys v ome ome</td><td>ext4</td><td>d ef aults0</td><td>2</td><td></td></tr><tr><td>/d / / l<br>ev mapper vgsys vswap none<br>-</td><td>swap</td><td>sw</td><td>0</td><td>0</td></tr><tr><td>/d ev/ sr0 / medi a/ cd rom0</td><td>udf i so9660<br>,</td><td>user noauto<br>,</td><td>0</td><td>0</td></tr></tbody></table></div>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-86c1d9bc4972b5f094c779ebcb768cc5d0d3aed92809540616006b316756de5b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-86c1d9bc4972b5f094c779ebcb768cc5d0d3aed92809540616006b316756de5b.webp" alt="Illustrations du support source, pages 29 à 32" loading="lazy" width="1459" height="1509"></a><figcaption>Illustrations du support Drive — pages 29 à 32. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><h4>Montage automatique des systèmes de fichiers</h4>
 <h4>Montage automatique</h4>
 <h4>• La section &lt;file system&gt; :<br>• Cette colonne déclare le système à monter. Cette source peut être exprimée de <br>plusieurs façons :</h4>
@@ -451,7 +451,7 @@ mount: impossible de trouver /srv/data dans /etc/fstab</pre>
 <h4>Démo</h4>
 <h4>Montage automatique</h4>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-7aa0d2b16bb950c64aa873b5414118d98116f4ff40c792c55058cd07cf7efa79.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7aa0d2b16bb950c64aa873b5414118d98116f4ff40c792c55058cd07cf7efa79.webp" alt="Illustrations du support source, pages 33 à 36" loading="lazy" width="1508" height="1333"></a><figcaption>Illustrations du support Drive — pages 33 à 36. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><h4>Gestion des espaces de stockage – File System</h4>
 <h4>Commandes </h4>
 <h4>informatives</h4>
@@ -498,7 +498,7 @@ tmpfs
   13G 26% 
 /
 [...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DO<br>env</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>DO<br>env</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-40"><h3>Page 40</h3><h4>Commandes informatives</h4>
@@ -513,9 +513,9 @@ du &lt;options&gt; [/point/de/montage]</pre>
 6,9M 
  
 /etc</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;<br>env</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>&gt;<br>env</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-4695b26b303a0bfdc73728ac7e7849c9732cfe80838f03e4be05cc3efe6c89c2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4695b26b303a0bfdc73728ac7e7849c9732cfe80838f03e4be05cc3efe6c89c2.webp" alt="Illustrations du support source, pages 37 à 40" loading="lazy" width="1653" height="1368"></a><figcaption>Illustrations du support Drive — pages 37 à 40. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><h4>Commandes informatives</h4>
 <h4>Démo</h4>
 <h4>Prises d’informations sur les FS</h4>
@@ -532,10 +532,10 @@ du &lt;options&gt; [/point/de/montage]</pre>
      TPDémo
 
                                            Préparation des systèmes de fichiers</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-43"><h3>Page 43</h3><h4>Gestion des espaces de stockage – File System</h4>
 <h4>Conclusion</h4>
 <h4>• Vous savez créer et manipuler des systèmes de fichiers Linux<br>• Vous savez monter ceux-ci en manuel<br>• Vous savez automatiser un montage au démarrage du système <br>d’exploitation</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-b8a3f8cda90739140637b622b644845f257ef3a67f57a1d4350d5b654cd701c7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b8a3f8cda90739140637b622b644845f257ef3a67f57a1d4350d5b654cd701c7.webp" alt="Illustrations du support source, pages 41 à 43" loading="lazy" width="900" height="1315"></a><figcaption>Illustrations du support Drive — pages 41 à 43. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
+</section><!-- SOURCE-CONTENT:END --></body></html>

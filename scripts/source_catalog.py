@@ -31,6 +31,14 @@ def load_catalog(root=ROOT, *, staged=False):
         if not re.fullmatch(r'[a-f0-9]{64}', doc['transcriptionSha256']):
             raise ValueError('Empreinte de transcription invalide')
         images = [*doc['figures'], *doc.get('glyphs', [])]
+        for figure in doc['figures']:
+            crop, size = figure.get('sourceCrop', []), figure.get('sourcePageSize', [])
+            if (figure.get('reviewedIsolation') is not True or figure.get('kind') not in {'croquis', 'illustration', 'capture-ui'}
+                    or not figure['path'].startswith('assets/course-sources/isolated/')
+                    or len(crop) != 4 or len(size) != 2
+                    or not (0 <= crop[0] < crop[2] <= size[0] and 0 <= crop[1] < crop[3] <= size[1])
+                    or (crop[2]-crop[0])*(crop[3]-crop[1]) > .35*size[0]*size[1]):
+                raise ValueError('Reproduction de page interdite : seul un visuel isolé vérifié est admis')
         for asset in [doc['transcript'], *[s['path'] for s in images]]:
             target = (root / 'docs' / asset).resolve()
             if not asset.startswith('assets/course-sources/') or Path(asset).suffix not in {'.html', '.webp', '.png'} or not target.is_relative_to((root / 'docs/assets/course-sources').resolve()) or not target.is_file():
@@ -116,7 +124,8 @@ def render_originals(refs, page, data):
     out = ['<div class="tssr-original-reader">',
            '<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>',
            '<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. '
-           'Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. '
+           'Les textes et tableaux sont intégrés à la page Web. Aucun PDF ENI, diapositive ou reproduction de page n’est affiché. '
+           'Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. '
            'Les versions et les consignes restent celles des supports de formation. '
            'Les compléments IA sont conservés dans leur onglet distinct.</p>']
     for i, ref in enumerate(refs):

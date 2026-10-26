@@ -30,6 +30,14 @@ def transcription_fixture(root):
 
 
 class OriginalSourcesTests(unittest.TestCase):
+    def test_source_reader_rejects_unreviewed_page_reproductions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'data').mkdir();doc=transcription_fixture(root)
+            image=root/'docs/assets/course-sources/a/slide.png';image.write_bytes(b'example')
+            doc['figures']=[dict(path='assets/course-sources/a/slide.png',sha256=hashlib.sha256(b'example').hexdigest())]
+            (root/'data/course-sources.json').write_text(json.dumps(dict(schemaVersion=2,documents={'source':doc},pages={})),encoding='utf8')
+            with self.assertRaisesRegex(ValueError,'Reproduction de page interdite'):load_catalog(root)
+
     def test_configured_image_plugin_keeps_inline_source_symbols(self):
         config=load_config(str(ROOT/'mkdocs.yml'))
         plugin=config.plugins['glightbox']
@@ -138,6 +146,7 @@ class OriginalSourcesTests(unittest.TestCase):
             covered=[p['number'] for p in doc['pages']]
             self.assertEqual(covered,list(range(1,(doc['pageCount'] or 1)+1)))
         self.assertFalse(list((ROOT/'docs/assets/course-sources').rglob('*.pdf')))
+        self.assertFalse(list((ROOT/'docs/assets/course-sources').rglob('atlas-*.webp')))
 
     def test_available_tp_is_not_incorrectly_reported_as_missing(self):
         data=load_catalog()

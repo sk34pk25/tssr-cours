@@ -5,7 +5,7 @@
 <h4>Objectifs</h4>
 <h4>• Comprendre le fonctionnement de LVM<br>• Préparer le stockage pour LVM<br>• Créer et modifier des groupes de volumes et volumes logiques</h4>
 <h4>Créer des partitions en mode « moderne »</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des espaces de stockage avancée - LVM</h4>
@@ -14,14 +14,14 @@
 <section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Présentation de LVM</h4>
 <h4>LVM : Logical Volume Manager</h4>
 <p class="tssr-source-paragraph">• Le LVM permet de s’affranchir des limites physiques des <br>périphériques. LVM implémente une couche logique pour une <br>gestion plus souple et plus évolutive des volumes de stockage<br>• On gère plusieurs types d’éléments :<br>• Les volumes physiques (PV) : désignent les périphériques intégrés dans LVM <br>• Les groupes de volumes (VG) : permettent de regrouper les volumes <br>physiques <br>• Les volumes logiques (LV) : désignent les unités définies au sein des groupes <br>de volumes</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-3bbdbd7bce08071b527aca39ba3c5a4cd6697ab455fd438afa1e7bf04e27d62f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3bbdbd7bce08071b527aca39ba3c5a4cd6697ab455fd438afa1e7bf04e27d62f.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1359" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Présentation de LVM</h4>
 <h4>LVM : Logical Volume Manager</h4>
 <p class="tssr-source-paragraph">• La création d’un ou plusieurs groupes de volumes sera faite à <br>partir des volumes physiques (partitions) disponibles. <br>Les groupes de volumes seront ensuite découpés en volumes <br>logiques <br>• Ces volumes logiques pourront alors être utilisés comme n&#x27;importe <br>quel volume de stockage</p>
 <h4>ext4<br>ext4<br>xfs</h4>
 <h4>/dev/sdb1<br>/dev/sdc1<br>PV<br>PV</h4>
 <h4>VG-System<br>LV-root<br>LV-home<br>LV-var</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
 
 
 
@@ -46,16 +46,16 @@ blocks Id System
  3903763+ 
  
 8e Linux LVM</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Cs)</p><p>env</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Cs)</p><p>env</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-cf78686405dbf632c4f2a37e21bf9e65130e994b372c92294ac63c41cf64e3fd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-cf78686405dbf632c4f2a37e21bf9e65130e994b372c92294ac63c41cf64e3fd.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1453" height="1930"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Créer des LVM</h4>
 <h4>Créer des partitions LVM</h4>
 <pre class="tssr-source-code">Créer des volumes physiques : pvcreate</pre>
 <pre class="tssr-source-code">root@deb:~# pvcreate /dev/sdb1 /dev/sdb2 /dev/sdc1 /dev/sdd</pre>
 <h4>/dev/sdc1<br>/dev/sdd<br>PV<br>PV</h4>
 <h4>/dev/sdb1<br>/dev/sdb2<br>PV<br>PV</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>8<br>8<br>0O</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>8<br>8<br>0O</p></div></details>
 
 
 
@@ -68,7 +68,7 @@ blocks Id System
 <pre class="tssr-source-code">root@deb:~# vgcreate vggroup1 /dev/sdb1 /dev/sdb2 /dev/sdc1</pre>
 <h4>/dev/sdb1<br>/dev/sdb2<br>PV<br>PV</h4>
 <h4>/dev/sdc1<br>/dev/sdd<br>PV<br>PV<br>vggroup1</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 
 
@@ -94,7 +94,7 @@ root@deb:~# lvcreate -n lv2 -L 512M vggroup1</pre>
 <pre class="tssr-source-code">/dev/mapper/vgsystem-lvhome</pre>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-6e56c342f5c6d1b5935b1efab2121d9b8f9ad9ef0a9d21ce3aefd56dd95801f5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6e56c342f5c6d1b5935b1efab2121d9b8f9ad9ef0a9d21ce3aefd56dd95801f5.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1464" height="4574"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Créer des LVM</h4>
 <h4>Démo</h4>
 <h4>Créer des LVM</h4>
@@ -110,7 +110,7 @@ root@deb:~# lvcreate -n lv2 -L 512M vggroup1</pre>
 <h4>/dev/sdc1<br>/dev/sdd<br>PV<br>PV</h4>
 <h4>/dev/sdb1<br>/dev/sdb2<br>PV<br>PV</h4>
 <h4>vggroup1<br>vggroup1</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 
 
@@ -126,10 +126,10 @@ root@deb:~# lvextend –r -L 1G /dev/vggroup1/lv2</pre>
 
 <h4>-r : invoque <br>automatiquement resize2fs<br>-L : [+]&lt;taille&gt;K|M|G|T|E</h4>
 <h4>vggroup1<br>lv1<br>lv2<br>lv1<br>lv2</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-7a66159fe95c89f6691c00520cfcc88f14fc3cdc6928662db1e1429908cf61fa.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7a66159fe95c89f6691c00520cfcc88f14fc3cdc6928662db1e1429908cf61fa.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1407" height="3601"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Modifier des LVM</h4>
 <h4>Agrandir des LV</h4>
 <pre class="tssr-source-code">• De la même façon, lvreduce permet de réduire la taille d&#x27;un 
@@ -156,7 +156,7 @@ informations sur les volumes LVM configurés
 • Informations résumées avec « s » : pvs, vgs, lvs  
 • Informations détaillées avec « display » : pvdisplay, vgdisplay, 
 lvdisplay</pre>
-<figure class="tssr-original-figure"><a href="../figures/atlas-afd5f39367c71e7a09ffd666e8461f3acedf2c4c770d16fca36fb53fa4d10a60.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-afd5f39367c71e7a09ffd666e8461f3acedf2c4c770d16fca36fb53fa4d10a60.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="900" height="1117"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Afficher les informations</h4>
 <h4>Afficher les informations LVM</h4>
 <h4>• Afficher les informations résumées sur tous les groupes de volumes :</h4>
@@ -205,7 +205,7 @@ wz--n-
   Alloc PE / Size       256 / 1 GiB
   Free  PE / Size       20224 / 5056,00 MiB
   VG UUID               sJd23F-75eY-fdsJ-Gp2w-ezfQ-PLy1-jmQjVb</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Afficher les informations</h4>
@@ -227,7 +227,7 @@ vggroup1
 1,00g</pre>
 <h4>• Afficher les informations détaillées sur tous les Volumes Logiques :</h4>
 <pre class="tssr-source-code">root@deb:~# lvdisplay</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>_</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>_</p></div></details>
 
 
 </section>
@@ -247,7 +247,7 @@ vggroup1
 <pre class="tssr-source-code">• Toutes les commandes LVM sont également disponibles dans un 
 shell dédié, accessible avec la commande lvm</pre>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-0d78544b7984e6988cdfbb5df49b53d41f0eeaaee24ccb5b9d531b38152282c5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0d78544b7984e6988cdfbb5df49b53d41f0eeaaee24ccb5b9d531b38152282c5.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1553" height="2463"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Afficher les informations</h4>
 <h4>Démo</h4>
 <h4>Afficher les informations LVM</h4>
@@ -264,10 +264,10 @@ shell dédié, accessible avec la commande lvm</pre>
      TPDémo
 
                                                  Manipuler LVM</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Gestion des espaces de stockage avancée - LVM</h4>
 <h4>Conclusion</h4>
 <h4>• Vous savez préparer des disques et partitions pour LVM<br>• Vous savez créer et modifier des Volumes Groups<br>• Vous savez créer et modifier des Logical Volumes</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-ff3bf58b84abdb7f8a3724ec20a3a841e33f24e68ee05513395d385bd887445e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ff3bf58b84abdb7f8a3724ec20a3a841e33f24e68ee05513395d385bd887445e.webp" alt="Illustrations du support source, pages 25 à 27" loading="lazy" width="900" height="1315"></a><figcaption>Illustrations du support Drive — pages 25 à 27. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
+</section><!-- SOURCE-CONTENT:END --></body></html>

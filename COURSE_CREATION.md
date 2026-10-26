@@ -33,6 +33,13 @@ illustrations. Vérifier la couverture du texte et des illustrations avant de
 remplacer les anciens fichiers ; contrôler ensuite l’absence des PDF retirés
 dans la construction et sur le site public.
 
+Les reproductions de diapositives, même regroupées en images, sont interdites.
+Ne conserver que des croquis ou visuels utiles isolés, contrôlés visuellement sans
+en-tête, pied de page, logo ni texte de diapositive autour. Chaque visuel doit
+porter `reviewedIsolation: true`, son type, son rectangle d’extraction et les
+dimensions de la page source. Le lecteur refuse les planches et les grands
+recadrages de pages. Les éléments graphiques exclus restent transcrits en texte.
+
 Les caractères Markdown présents dans les commandes et listes doivent rester
 littéraux après le build. Reproduire les symboles des polices particulières à partir
 du support, avec leur empreinte dans le catalogue (`glyphs`), et contrôler aussi le
