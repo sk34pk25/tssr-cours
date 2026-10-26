@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 1 - L’authentification.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche démo 1 - L’authentification</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>L’authentification </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 6 </p>
+
+<pre class="tssr-source-code">La gestion des droits est essentielle dans la gestion des scripts. PowerShell autorise la gestion des 
+droits avec la commande Get-Credentials. Cette commande masque le champ mot de 
+passe pour éviter de transmettre des mots de passe en clair dans le script. </pre>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Cette commande va afficher un pop-up à l’écran pour capturer les credential utilisateur. </p>
+<p class="tssr-source-paragraph">• <br>Ces credential sont ensuite traités par le script ou la commande puis disparaissent à la fin de la <br>commande ou du script. </p>
+
+<p class="tssr-source-paragraph">A l’exécution de la commande, l’utilisateur est <br>invité à saisir son nom d’utilisateur ainsi que son <br>mot de passe qui est masqué. </p>
+<p class="tssr-source-paragraph">Si on affiche la variable contenant les <br>credentials, on ne voit pas les credential mais <br>le type de variable. </p>
+
+<pre class="tssr-source-code">Pour personnaliser le message, on utilise le paramètre Message suivi de la chaîne de caractères 
+souhaitée. </pre>
+
+
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$cred = get-credential<br>$cred</p><p>PowerShell credential re quest<br>Enter your credentials.<br>User:<br>administrator<br>Password for user administrator: “és</p><p>UserName<br>Password</p><p>administrator System.Security.SecureString</p><p>$cred = get-credential<br>-message<br>‘Veuillez sasir vos crédenciales&quot;<br>$cred</p><p>PowerShell credential request<br>Weuillez<br>sasir<br>vos<br>crédenciales<br>User:<br>Administrator<br>Password for user Administrator:<br>**+44444</p><p>UserName<br>Password</p><p>Administrator System.Security.SecureString</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b87fa56efb939acfa574666d3a1a8ec87d34e67b2e3bde5a62c7f40325c18cef.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b87fa56efb939acfa574666d3a1a8ec87d34e67b2e3bde5a62c7f40325c18cef.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="1094"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12818,19 +12818,165 @@
 
 
 <h1 id="corrections-module-12-introduction-a-la-capture-et-au-deploiement-dimage">Corrections — Module 12 — Introduction à la capture et au déploiement d’image<a class="headerlink" href="#corrections-module-12-introduction-a-la-capture-et-au-deploiement-dimage" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · Solution Module-12-Atelier15-Capture&amp;Deploy.pdf · 4 pages</summary>
+<summary>Correction · Solution Module-12-Atelier15-Capture&amp;Deploy · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/5fc1f0a57215154a/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/5fc1f0a57215154a/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/5fc1f0a57215154a/pages-001-004.webp" alt="Source Drive — Solution Module-12-Atelier15-Capture&amp;Deploy.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution Module-12-Atelier15-Capture&amp;Deploy.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Cloner une VM Windows <br>dans les règles de l'art </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Introduction à la capture et au déploiement <br>d'image </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph"> Préparation du poste de référence Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Activez le compte utilisateur Administrateur et fixez-lui un mot de passe. Fermez votre <br>session actuelle et ouvrez une session avec le compte Administrateur. Assurez-vous <br>d'avoir un snapshot récent disponible avant de faire les prochaines manipulations. <br>Dans le doute, faites-en un. </p>
+<p class="tssr-source-paragraph">Ouvrez une session avec un compte d'utilisateur membre du groupe prédéfini <br>Administrateurs.  </p>
+<p class="tssr-source-paragraph">Depuis le composant logiciel enfichable Utilisateurs et groupe locaux  </p>
+<p class="tssr-source-paragraph">Nœud Utilisateurs <br> </p>
+<p class="tssr-source-paragraph">Clic droit sur l'utilisateur Administrateur &gt; Propriétés <br> </p>
+<p class="tssr-source-paragraph">Décocher Le compte est désactivé </p>
+<p class="tssr-source-paragraph">Appliquer &gt; OK <br> </p>
+<p class="tssr-source-paragraph">L'icône en lien avec l'utilisateur Administrateur a changé. La flèche noire dans un rond blanc <br>a disparu. Cela veut dire que nous pouvons maintenant utiliser ce compte. Mais il faut <br>encore lui fixer un mot de passe pour ouvrir une session locale </p>
+<p class="tssr-source-paragraph">Clic droit sur l'utilisateur Administrateur &gt; Définir le mot de passe… </p>
+<p class="tssr-source-paragraph">Continuer </p>
+<p class="tssr-source-paragraph">Fixer un mot de passe &gt; OK </p>
+<p class="tssr-source-paragraph">Une fenêtre apparait : Le mot de passe a été défini &gt; OK </p>
+<p class="tssr-source-paragraph">Fermez la session actuelle et ouvrez une nouvelle session sur la VM avec le compte <br>d'utilisateur Administrateur qui est maintenant présent dans la liste des utilisateurs sur l'écran <br>d'accueil </p>
+<p class="tssr-source-paragraph">Puisque c'est la première fois que cet utilisateur ouvre une session locale, un profil est créé <br>et il faut terminer sa configuration. </p>
+
+<p class="tssr-source-paragraph">• <br>Supprimez les utilisateurs que vous avez créés lors de l'atelier 08 qui traitait des <br>utilisateurs et des groupes. Supprimez l'utilisateur que vous avez créé lors de <br>l'installation de cette VM. Supprimez aussi leurs profils. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Commençons par supprimer les profils des utilisateurs  </p>
+<p class="tssr-source-paragraph">Rechercher &gt; sysdm.cpl </p>
+<p class="tssr-source-paragraph">Onglet Paramètres système avancés </p>
+<p class="tssr-source-paragraph">Encadré Profil des utilisateurs &gt; bouton Paramètres… </p>
+<p class="tssr-source-paragraph">Supprimez les profils pour ne laisser que celui de l'Administrateur et le Profil par défaut </p>
+
+<p class="tssr-source-paragraph">Suppression des comptes utilisateurs </p>
+<p class="tssr-source-paragraph">Composant logiciel enfichable Utilisateurs et groupes locaux </p>
+<p class="tssr-source-paragraph">Nœud Utilisateur </p>
+<p class="tssr-source-paragraph">Supprimer les comptes utilisateurs pnom ainsi que ceux créé lors de l'atelier 8 </p>
+
+<p class="tssr-source-paragraph">• <br>Procédez à un sysprep généralisé en mode OOBE suivi d'une extinction de votre <br>machine Win10-XX </p>
+<pre class="tssr-source-code">o Si sysprep échoue, consulter les journaux sysprep disponibles dans le dossier </pre>
+<p class="tssr-source-paragraph">Panther et corriger l(es) erreur(s). Aidez-vous d’Internet le cas échéant </p>
+<p class="tssr-source-paragraph">Lancez l'explorateur Windows </p>
+<p class="tssr-source-paragraph">Naviguez jusqu'au répertoire C:\Windows\System32\Sysprep </p>
+<p class="tssr-source-paragraph">Double clic sur sysprep.exe </p>
+<p class="tssr-source-paragraph">Mode OOBE </p>
+<p class="tssr-source-paragraph">Cochez Généraliser </p>
+<p class="tssr-source-paragraph">Eteindre automatiquement le système à l'issue du Sysprep </p>
+
+<p class="tssr-source-paragraph">En cas d'erreur du sysprep, vous trouverez un fichier de log dans le dossier Panther que vous <br>pouvez ouvrir avec le bloc-note. "Epluchez-le" et aidez vous d'internet pour résoudre les <br>blocages. Plusieurs pistes sont possibles :  </p>
+<p class="tssr-source-paragraph">https://docs.microsoft.com/fr-fr/troubleshoot/windows-client/deployment/sysprep-fails-<br>remove-or-update-store-apps </p>
+
+
+<p class="tssr-source-paragraph">Création d'un clone de la machine de référence </p>
+<p class="tssr-source-paragraph">• <br>Créez un dossier Win10-XX-Clone dans votre dossier VMs-WorkStation. Utilisez la <br>fonctionnalité de clonage de WorkStation </p>
+<pre class="tssr-source-code">o Créez un "Full Clone" de Win10-XX depuis son état actuel </pre>
+<pre class="tssr-source-code">o Cette nouvelle VM sera hébergée dans le dossier Win10-XX-Clone créé </pre>
+<p class="tssr-source-paragraph">précédemment </p>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a<br>a</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Configuration / observation du clone </p>
+<p class="tssr-source-paragraph">• <br>Appliquez son dernier snapshot puis allumez la VM Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Allumez la VM Win10-XX-Clone dès qu'elle est disponible et procédez à sa <br>configuration initiale </p>
+<p class="tssr-source-paragraph">• <br>Remplissez les deux tableaux ci-dessous </p>
+
+<p class="tssr-source-paragraph">Conséquences du clonage WorkStation </p>
+<p class="tssr-source-paragraph"> <br>Win10-XX <br>Win10-XX-Clone </p>
+<p class="tssr-source-paragraph">3 </p>
+<p class="tssr-source-paragraph">3 </p>
+<p class="tssr-source-paragraph">Nb de disques durs </p>
+
+<p class="tssr-source-paragraph">6 en comptant le lecteur <br>de DVD </p>
+<p class="tssr-source-paragraph">6 en comptant le lecteur <br>de DVD </p>
+<p class="tssr-source-paragraph">Nb de volumes </p>
+
+
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Carte réseau « bridgée » ? </p>
+
+<p class="tssr-source-paragraph">Pas de snapshot présents </p>
+<p class="tssr-source-paragraph">Nombre de snapshot <br>depuis le début du module </p>
+<p class="tssr-source-paragraph">Nb de snapshots </p>
+
+<p class="tssr-source-paragraph">4Go </p>
+<p class="tssr-source-paragraph">4Go </p>
+<p class="tssr-source-paragraph">Qté RAM </p>
+
+<p class="tssr-source-paragraph">Les conséquences de sysprep </p>
+<p class="tssr-source-paragraph"> <br>Win10-XX <br>Win10-XX-Clone </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Oui </p>
+<p class="tssr-source-paragraph">Vmware tools présents ? </p>
+
+<p class="tssr-source-paragraph">Nom <br>de <br>la <br>machine <br>configuré dans l’OS </p>
+<p class="tssr-source-paragraph">Win10-XX <br>DESKTOP-<br>&lt;chaîneDeCaratèreAléatoire&gt; </p>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Win10 -XX</td><td>Win10 -XX -Clone</td></tr><tr><td>Nb de disques durs</td><td>3</td><td>3</td></tr><tr><td>Nb de volumes</td><td>6 encomptantle lecteur<br>de DVD</td><td>6 encomptantle lecteur<br>de DVD</td></tr><tr><td>Carte ré seau« bridgé e » ?</td><td>Oui</td><td>Oui</td></tr><tr><td>Nb de snapshots</td><td>Nombre de snapshot<br>depuis le débutdu module</td><td>Pas de snapshotprésents</td></tr><tr><td>Qté RAM</td><td>4Go</td><td>4Go</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Win10 -XX</td><td>Win10 -XX -Clone</td></tr><tr><td>Vmware tools pré sents ?</td><td>Oui</td><td>Oui</td></tr><tr><td>Nom de la machine<br>configurédans l’OS</td><td>Win10 -XX</td><td>DESKTOP<br>-<br>&lt;chaîneDeCaratèreAléatoire&gt;</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Les comptes natifs, le </p>
+<p class="tssr-source-paragraph">Les comptes natifs ainsi que le </p>
+<p class="tssr-source-paragraph">Nb de users dans la base <br>SAM </p>
+<p class="tssr-source-paragraph">compte créé au premier </p>
+<p class="tssr-source-paragraph">compte crée à <br>l'installation de la VM et </p>
+<p class="tssr-source-paragraph">démarrage de la VM </p>
+<p class="tssr-source-paragraph">tous les comptes créés </p>
+<p class="tssr-source-paragraph">lors de l'atelier 8 </p>
+<p class="tssr-source-paragraph">Adresse IP fixe configurée </p>
+<p class="tssr-source-paragraph">En DHCP </p>
+<p class="tssr-source-paragraph">lors de l'atelier 10 </p>
+<p class="tssr-source-paragraph">Adresse IP </p>
+
+<p class="tssr-source-paragraph">Date de l'installation de la </p>
+<p class="tssr-source-paragraph">VM lors de l'atelier 1 </p>
+<p class="tssr-source-paragraph">Date du démarrage du clone <br>après le Sysprep et le clonage </p>
+<p class="tssr-source-paragraph">Date et heure du premier <br>log <br>dans <br>le <br>journal <br>système </p>
+<p class="tssr-source-paragraph">Celui de l'atelier 13 (et voir </p>
+<p class="tssr-source-paragraph">Aucun. La protection du </p>
+<p class="tssr-source-paragraph">Nb <br>de <br>points <br>de <br>restaurations </p>
+<p class="tssr-source-paragraph">d'autres si vous en avez </p>
+<p class="tssr-source-paragraph">système est désactivée </p>
+<p class="tssr-source-paragraph">fait d'autres) </p>
+<p class="tssr-source-paragraph">Oui (si vous avez réalisé le </p>
+<p class="tssr-source-paragraph">non </p>
+<p class="tssr-source-paragraph">Compte <br>administrateur <br>activé ? </p>
+<p class="tssr-source-paragraph">dernier snapshot après <br>avoir activé le compte </p>
+<p class="tssr-source-paragraph">administrateur) </p>
+<p class="tssr-source-paragraph">oui <br>non </p>
+<p class="tssr-source-paragraph">Pilote de l’imprimante HP <br>LaserJet présents ? </p>
+<p class="tssr-source-paragraph">oui </p>
+<p class="tssr-source-paragraph">oui </p>
+<p class="tssr-source-paragraph">Règle entrante ICMP ? </p>
+
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nb de users dans la base<br>SAM</td><td>Lescomptes natifs le<br>,<br>comptecrée à<br>l'installation de la VM et<br>tous les comptescréés<br>lors de l'atelier 8</td><td>Lescomptes natifs ainsi que le<br>comptecréé au premier<br>démarrage de la VM</td></tr><tr><td>AdresseIP</td><td>Adresse IPfixe configurée<br>lors de l'atelier 10</td><td>En DHCP</td></tr><tr><td>Date et heure du premier<br>log dans le journal<br>systè<br>me</td><td>Date de l'installation de la<br>VM lors de l'atelier 1</td><td>Date du démarrage du clone<br>après le Sysprep et leclonage</td></tr><tr><td>Nb de points de<br>restaurations</td><td>Celui de l'atelier 13 (et voir<br>d'autres si vous en avez<br>fait d'autres)</td><td>Aucun La protectiondu<br>.<br>systèmeestdésactivée</td></tr><tr><td>Compte administrateur<br>activé ?</td><td>Oui (sivous avezréalisé le<br>dernier snapshot aprè s<br>avoir activé le compte<br>administrateur)</td><td>non</td></tr><tr><td>Pilote de l’imprimante HP<br>LaserJet pré sents ?</td><td>oui</td><td>non</td></tr><tr><td>Rè gle entrante ICMP ?</td><td>oui</td><td>oui</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-27a22c3530f521a99535cd78ed2648222f18328ace2b8375a6e858dbe53346c0.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-27a22c3530f521a99535cd78ed2648222f18328ace2b8375a6e858dbe53346c0.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1021" height="4384"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1xc_WjKIiXqmXNPfoE8iP4JArQud4P_Jo · <span title="Empreinte SHA-256 du fichier source">SHA-256 5fc1f0a57215154a…</span></p>
 </div>
 </details>
@@ -12839,7 +12985,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Les résultats ci-dessous sont ceux du laboratoire source. Ils servent à comparer le master et le clone ; ils ne décrivent pas un comportement universel.</p>
 <h2 id="etat-initial-et-preparation">État initial et préparation<a class="headerlink" href="#etat-initial-et-preparation" title="Permanent link">¶</a></h2>
@@ -13019,11 +13165,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

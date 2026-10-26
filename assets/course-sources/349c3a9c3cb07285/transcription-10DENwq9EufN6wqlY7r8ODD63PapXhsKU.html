@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nonc  du TP - Outils pour le scripting.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>nonc  du TP - Outils pour le scripting</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell<br>Outils pour le scripting</h4>
+<p class="tssr-source-paragraph">TP du Module 05</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Objectifs : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Comprendre les fonctions, modules et la gestion des erreurs</p>
+<p class="tssr-source-paragraph">Consignes : </p>
+<p class="tssr-source-paragraph">Les manipulations sont à réaliser sur la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.</p>
+<p class="tssr-source-paragraph">Réalisez un script permettant de tester la présence d’un service. Le nom du service sera<br>variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais<br>il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront<br>testés.</p>
+<p class="tssr-source-paragraph">Indiquez les lignes de commandes de votre script.</p>
+<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Transformez ce script en fonction ; le nom du service sera un paramètre.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ouvrez une session depuis votre machine client vers votre serveur CD01.</p>
+<p class="tssr-source-paragraph">Stocker votre session dans une variable</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à<br>condition que la machine ne soit pas un contrôleur de domaine, le script lancera<br>l’extinction de la machine.</p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées.</p>
+<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre. </p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Modifiez durablement le comportement de votre Ise pour que les erreurs des<br>commandes soient stockées dans une variable. Puis modifiez le comportement de la<br>console pour que les messages d’erreur ne soient pas affichés. </p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3238fd9ccedf825e7713263bd1e2e29156e826e73b15e16b9649c13cc4d52d6b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3238fd9ccedf825e7713263bd1e2e29156e826e73b15e16b9649c13cc4d52d6b.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1006" height="3128"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,103 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - Le routeur.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 1 - Le routeur</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>Le routeur </h4>
+<p class="tssr-source-paragraph">TP du Module 04 – Le routage </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 minutes à 1 heure </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Déployer la machine Virtuelle CLI-01-TP8-OK. </p>
+<p class="tssr-source-paragraph">• <br>Identifiant : Admineni - Mot de passe : Pa$$w0rd </p>
+<p class="tssr-source-paragraph">• <br>Déployer la machine virtuelle RTR-01-TP8-OK sur VMware Workstation. </p>
+<p class="tssr-source-paragraph">• <br>Identifiant : admin - Mot de passe : Pa$$w0rd </p>
+<p class="tssr-source-paragraph">Création des VM </p>
+<p class="tssr-source-paragraph">• <br>Une VM Windows 10 nommée CLI-00 qui fera office de poste client. <br>• <br>Une VM routeur pfSense nommée RTR-00. <br> <br> <br>Connectivité  <br> </p>
+<p class="tssr-source-paragraph">• <br>Configurer le poste client CLI-00. </p>
+<pre class="tssr-source-code">o Carte réseau : VMnet 10 
+o Adresse IP : 192.168.0.10/24. 
+ 
+ 
+ 
+ 
+ 
+ 
+ </pre>
+<p class="tssr-source-paragraph">• <br>Configurer le routeur RTR-00. </p>
+<pre class="tssr-source-code">o 1ère carte réseau : Bridge. 
+o Adresse IP : utiliser l’adressage dynamique. 
+o 2ème carte réseau : Bridge. 
+o Utiliser l’adresse IP 172.16.0.1/16 
+o 3ème carte réseau : VMNET10 </pre>
+<p class="tssr-source-paragraph">Page 1/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ethernet<br>adapter<br>Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:</p><p>Subnet<br>Mask<br>.<br>|...<br>2<br>2<br>.<br>ew<br>ew<br>we<br>.<br>2<br>255.255.255.686</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<pre class="tssr-source-code">o Adresse IP : utiliser la dernière adresse d’hôte du réseau privé défini </pre>
+<p class="tssr-source-paragraph">précédemment. <br> <br> <br> </p>
+<p class="tssr-source-paragraph">• <br>Vérifier la connectivité des machines : <br> </p>
+<pre class="tssr-source-code">o Du poste CLI-00 vers le routeur RTR-00. 
+ 
+ </pre>
+
+<p class="tssr-source-paragraph">Page 2/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Starting CRON...<br>done.<br>pfrSense 2.5.8-RELEASE and64 Tue Feb<br>16 48:56:29 EST 2421<br>Bootup complete</p><p>FreeBSD/amd64<br>(RTR-@8.ad.campus-eni.fr)<br>(ttyva)</p><p>UMhare Virtual<br>Machine<br>- Netgate Device<br>ID:<br>5Se@5b3c4?2dcb38ddi145</p><p>xxx Welcome to pfSense 2.5.@-RELEASE<br>(Camd64)<br>on RTR-H4 xxx</p><p>HAN<br>Chan)<br>—}<br>em?<br>—&gt;<br>W4/DHCP4:<br>172.26.2.44/16<br>LAN<br>Clan)<br>—&gt;<br>enl<br>—&gt;<br>wd:<br>192.168.4.254/24<br>OPT1<br>Copti)<br>—&gt; en<br>—&gt; wd:<br>172.16.8.1716</p><p>8)<br>Logout<br>(SSH only)<br>9)<br>pfTop<br>1)<br>Assign<br>Interfaces<br>16)<br>Filter Logs<br>2)<br>Set<br>interface(s)<br>IP address<br>11)<br>Restart<br>webConfigurator<br>3)<br>Reset<br>webConfigurator password<br>12)<br>PHP shell<br>+ pfSense tools<br>4)<br>Reset<br>to<br>factory defaults<br>13)<br>Update<br>from console<br>5)<br>Reboot system<br>14)<br>Enable Secure Shell<br>(sshd)<br>6)<br>Halt system<br>15)<br>Restore recent configuration<br>7)<br>Ping host<br>16)<br>Restart<br>PHP-FPM<br>8)<br>Shell</p><p>Enter an option:</p><p>Pinging 192.168.0.254 with<br>32 bytes of data:<br>Reply from 192.168.0.254:<br>bytes=32 time&lt;1ms TTL=64<br>Reply from 192.168.8.254:<br>bytes=32 time&lt;ims TTL=64<br>Reply from 192.168.9.254:<br>bytes=32 time&lt;ims TTL=64<br>Reply from 192.168.0.254:<br>bytes=32 time&lt;1ms TTL=64</p><p>Ping statistics for 192.168.@.254:</p><p>Packets:<br>Sent<br>= 4,<br>Received<br>= 4,<br>Lost<br>= @<br>(@% lass),<br>Approximate round trip times<br>in milli-seconds:<br>Minimum =<br>@ms,<br>Maximum<br>=<br>@ms,<br>Average<br>= @ms</p><p>@</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Du routeur RTR-01 vers le routeur RTR-00 <br> <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Du poste CLI-00 vers le poste CLI-01. <br> <br> </p>
+
+<p class="tssr-source-paragraph">Page 3/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A Certificate error | https://192.168.1.254/diag_ping.php<br>oo</p><p>Hostname<br>{172 16.0.1</p><p>IP Protocol<br>IPv4<br>Vv</p><p>Source address<br>Automatically selected (default)<br>v</p><p>Select source address for the ping</p><p>Maximum number of<br>3<br>v</p><p>ings<br>=<br>-<br>ping<br>Select the maximum number of pings</p><p>Seconds between pings<br>1<br>v</p><p>Select the number of seconds to wait between pings</p><p>À Ping</p><p>PING 172.16.@.1 (172.16.@.1):<br>56 data bytes<br>64 bytes from 172.16.0.1:<br>icmp_seq=@ ttl=64 time=0.687 ms<br>64 bytes from 172.16.0.1:<br>icmp_seq=1 ttl-64 time=0.664 ms<br>64 bytes from 172.16.0.1:<br>icmp_seq=2 ttl=64 time=0.519 ms</p><p>--- 172.16.0.1 ping statistics<br>---</p><p>3 packets transmitted,<br>3 packets received,<br>@.0% packet loss</p><p>round-trip min/avg/max/stddev<br>= @.519/0.623/0.687/0.074 ms</p><p>Pinging 192.168.1.16<br>with<br>32 bytes of data:<br>Reply from 192.168.1.16:<br>bytes=32 time=2ms TTL=126<br>Reply from 192.168.1.1@:<br>bytes=32 time=lms TTL=126<br>Reply from 192.168.1.16:<br>bytes=32 time=lms TTL=126<br>Reply from 192.168.1.16:<br>bytes=32 time=4ms TTL=126</p><p>Ping statistics for 192.168.1.1@:</p><p>Packets:<br>Sent<br>= 4,<br>Received<br>= 4,<br>Lost<br>=<br>@<br>(@% loss),<br>Approximate round trip times<br>in milli-seconds:<br>Minimum<br>= 1ms,<br>Maximum<br>= 4ms,<br>Average<br>= 2ms</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">Routes  <br>  </p>
+<p class="tssr-source-paragraph">• <br>Indiquer ci-dessous les opérations que vous avez réalisées sur votre routeur PfSense : <br> </p>
+<p class="tssr-source-paragraph">1. Mise en place d’une adresse IP fixe sur l’interface WAN du PfSense (la même <br>adresse que celle obtenue via le DHCP). <br>2. Mise en place d’une adresse IP fixe sur l’interface LAN. <br>3. Connexion sur l’interface web PfSense depuis le client Windows 10 (NB : par défaut <br>le login est admin et le mot de passe Pa$$w0rd). <br>4. Désactivation du « Block private networks and loopback adresses » pour les <br>interfaces WAN et LAN : <br> </p>
+
+
+<p class="tssr-source-paragraph">5. Suppression des règles superflues : <br> </p>
+
+
+<p class="tssr-source-paragraph">6. Suppression et création de la gateway adéquate (par où vous souhaitez passer <br>pour atteindre le réseau cible). </p>
+<p class="tssr-source-paragraph">Page 4/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>sense<br>System +<br>‘Interfaces +<br>Firewall»<br>Services»<br>VPN+<br>Status»<br>Diagnostics +<br>Help +<br>COMMUNITY EDITION</p><p>Assignments<br>WARNING: The ‘admin’ acca<br>&gt; default value. Change the password in the User Manager</p><p>LAN<br>Interfaces/ WAN</p><p>Reserved Networks</p><p>Block private [o_]<br>networks and |<br>“Blocks traffic<br>from IP addresses that are reserved for private networks per RFC 1918 (10/8,<br>172.16/12, 192.168/16) and<br>loopback addresses |<br>unique local addresses per RFC 4193 (fc00::/7) as well as loopback addresses<br>(127/8). This option should generally be<br>turned on, unless this network<br>interface resides in such<br>a private address space, too</p><p>Fjsense<br>System &gt;<br>Interfaces<br>[Firewall + | Services +<br>VPN+<br>Status-<br>Diagnostics ~<br>Help +<br>COMMUNITY EDITION</p><p>Aliases<br>WARNING: The ‘admin’ account password<br>i<br>Change the password in the User Manager<br>NAT</p><p>Floating<br>WAN<br>LAN<br>—</p><p>Rules (Drag to Change Order)</p><p>oO<br>States<br>Protocol<br>Source<br>Port<br>Destination<br>Port Gateway Queue Schedule<br>Description<br>Actions</p><p>%<br>o/0B<br>*<br>Reserved<br>=<br>=<br>=<br>=<br>2<br>Block bogon networks<br>#+<br>Not assigned by IANA</p><p>O #<br>1/4KiB<br>IPv4*<br>*<br>*<br>x<br>*<br>x<br>none<br>+#0oû</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-8327791b5d287e84f841c00098c9e88730c32135e03d3a7d9ecf3dff8c0cbe97.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-8327791b5d287e84f841c00098c9e88730c32135e03d3a7d9ecf3dff8c0cbe97.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4290"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">7. Création de la route vers le réseau distant en passant par la Gateway créée <br> </p>
+
+<p class="tssr-source-paragraph">Page 5/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eJjSense<br>!Sÿstem-<br>Linterfaces+<br>F<br>COMMUNITY<br>EDITION</p><p>Advanced<br>WARNING: The<br>dis se<br>Cert. Manager</p><p>General Setup</p><p>Firewall /!<br>High avail. sync</p><p>Logout (admin)</p><p>Floating<br>WAN<br>Package Manager<br>=</p><p>System/ Routing / Gateways<br>C© 1 E Q</p><p>Gateways<br>Static Routes<br>Gateway Groups</p><p>Name<br>Default<br>Interface<br>Gateway<br>Monitor IP<br>Description<br>Actions<br>©<br>wav oHcp&amp;<br>Default (IPv4)<br>WAN<br>172.28.0.254<br>172.28.0.254<br>Interface WAN_DHCP Gateway<br>o<br>&amp;<br>©<br>rtroi<br>opti<br>172.16.1.1<br>172.16.1.1<br>7OOT</p><p>System/ Routing / Static Routes<br>ut © @</p><p>Gateways<br> StaticRoutes<br>Gateway Groups</p><p>Network<br>Gateway<br>Interface<br>Description<br>Actions<br>©<br>192.168.1.0/24<br>RTRO1 - 172.16.1.1<br>oPT1<br>JOC</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-0a312cfd55934097a1f8c8c37efe8bf9319833e351908d5ec66804b0c473d397.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0a312cfd55934097a1f8c8c37efe8bf9319833e351908d5ec66804b0c473d397.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="965" height="1065"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

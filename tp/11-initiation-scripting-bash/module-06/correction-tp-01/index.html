@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12586,19 +12586,62 @@
 
 
 <h1 id="correction-tp-01-arguments-et-refus-de-root">Correction TP 01 — Arguments et refus de root<a class="headerlink" href="#correction-tp-01-arguments-et-refus-de-root" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M6 - Solutions du TP 1 - Enchaînements conditionnels.pdf · 2 pages</summary>
+<summary>Correction · M6 - Solutions du TP 1 - Enchaînements conditionnels · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/16f4cc33b4946bf7/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/16cYCyItRy67yMDgG_4l0QDll7f3yKU4S/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/16f4cc33b4946bf7/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/16f4cc33b4946bf7/pages-001-002.webp" alt="Source Drive — M6 - Solutions du TP 1 - Enchaînements conditionnels.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3976"></a><figcaption>Source Drive — M6 - Solutions du TP 1 - Enchaînements conditionnels.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-16cYCyItRy67yMDgG_4l0QDll7f3yKU4S-page-1"><h3>Page 1</h3><h4>Initiation au scripting Bash <br> <br> <br>Enchaînements conditionnels </h4>
+<p class="tssr-source-paragraph">Solutions - TP1 du Module 06 - Les caractères spéciaux du Shell <br> <br> </p>
+<p class="tssr-source-paragraph">A partir de l’analyse des besoins, réaliser un script Shell permettant d’y répondre </p>
+<p class="tssr-source-paragraph">Dans les étapes d’élaboration du script, il faudra commencer par vérifier si un nom a été saisi directement <br>après le fichier de script lors de son exécution. S’il y a bien un seul argument, le conserver durablement dans <br>une variable, si plus d’un : sortie du script. S’il n’y en a aucun, le script doit le demander et le stocker dans une <br>variable. </p>
+<p class="tssr-source-paragraph">Ensuite, si le nom est ‘root’, le script doit afficher une interdiction et sortir du script. Sinon pour tout autre nom <br>doit afficher un message de bienvenue. </p>
+
+<pre class="tssr-source-code">Les variables réservées sont ici utilisées : $# pour le nombre d’arguments fournis lors du lancement du script et 
+$1 pour le 1er argument fourni (cf module sur variables réservées) </pre>
+
+<pre class="tssr-source-code">• 
+Créer et éditer un nouveau fichier script, par exemple, nommé script_M6TP1.sh </pre>
+<pre class="tssr-source-code">vim script_M6TP1.sh </pre>
+
+<p class="tssr-source-paragraph">• <br>Y ajouter les lignes suivantes : </p>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M6 - Solution du TP1  </pre>
+<pre class="tssr-source-code"># Utilisation : ./script_M6TP1.sh  &lt;id utilisateur&gt; </pre>
+<pre class="tssr-source-code">#Déclaration des variables </pre>
+<pre class="tssr-source-code">rouge=’\033[1;31m’ </pre>
+<pre class="tssr-source-code">vert=’\033[1;32m’ </pre>
+<pre class="tssr-source-code">noir=’\033[0m’ </pre>
+<pre class="tssr-source-code"># Etapes de vérification de saisie d’un nom d’utilisateur </pre>
+<pre class="tssr-source-code">[ $# -eq 1 ] &amp;&amp; name=$1 # Si 1 argument alors stockage de sa val. dans ‘name’ </pre>
+<pre class="tssr-source-code">[ $# -gt 1 ] &amp;&amp; echo -e "$rouge Le nombre d'arguments est invalide !$noir" &amp;&amp; exit 1 # 
+Si plusieurs arguments =&gt; sortie </pre>
+<pre class="tssr-source-code">[ $# -eq 0 ] &amp;&amp; read -p "Veuillez saisir votre nom d'utilisateur : " name # Si 0 
+argument fourni, invite de saisie </pre>
+<pre class="tssr-source-code"># Si le nom saisi est ‘root’, interdiction en rouge + sortie </pre>
+<pre class="tssr-source-code">[[ $name = root ]] &amp;&amp; echo -e "$rouge Interdit de se connecter en $name $noir" &amp;&amp; exit 
+2 </pre>
+<pre class="tssr-source-code"># Si la variable name contient bien une valeur, affichage du message de bienvenue </pre></section>
+<section class="tssr-transcribed-page" id="source-16cYCyItRy67yMDgG_4l0QDll7f3yKU4S-page-2"><h3>Page 2</h3><pre class="tssr-source-code">Initiation au scripting Bash 
+ 
+ 
+[[ -n $name ]] &amp;&amp; echo -e "$vert Bonjour $name, bienvenue sur la machine 
+$HOSTNAME.$noir" </pre>
+<pre class="tssr-source-code"># Message de fin de script </pre>
+<pre class="tssr-source-code">echo "--- Fin du script ---" </pre>
+
+<pre class="tssr-source-code">• 
+Rendre exécutable le fichier à l’aide de la commande chmod utilisée dans d’autres modules 
+précédents 
+• 
+Lancer le script en testant différents scénarios (avec 0, puis 1 et enfin 2 arguments) et avec différents 
+noms dont root </pre></section>
 <p class="tssr-original-proof">Référence du document : 16cYCyItRy67yMDgG_4l0QDll7f3yKU4S · <span title="Empreinte SHA-256 du fichier source">SHA-256 16f4cc33b4946bf7…</span></p>
 </div>
 </details>
@@ -12607,7 +12650,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>La correction source contrôle le nombre d’arguments avec <code>[ $# -eq 1 ] &amp;&amp; name=$1</code>, <code>[[ $# -gt 1 ]]</code> et <code>[[ $# -eq 0 ]]</code>, puis utilise <code>read -p ...</code>, <code>[[ $name = root ]]</code>, <code>echo -e ...</code>, <code>exit 1</code> et <code>exit 2</code>.</p>
 <h2 id="points-a-relire">Points à relire<a class="headerlink" href="#points-a-relire" title="Permanent link">¶</a></h2>
@@ -12676,11 +12719,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M6 - Solutions du TP 2 - Compte utilisateur.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M6 - Solutions du TP 2 - Compte utilisateur</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Compte utilisateur </h4>
+<p class="tssr-source-paragraph">Solutions – TP2 du Module 06 – Exécution conditionnelle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un algorithme de solution en réponse à un besoin et cahier des charges donné. </p>
+<p class="tssr-source-paragraph">Créer un script à partir d’un algorithme. </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph"> <br>Pour créer ce script, il faut travailler par étape. </p>
+<p class="tssr-source-paragraph">Tout d’abord, il faut commencer par demander la saisie du compte utilisateur sur lequel agir. <br>Ensuite, il faut afficher le menu à l’écran et inviter à choisir une proposition dans la liste. Enfin, il <br>faudra gérer chaque choix possible en indiquant la/les commande(s) Shell à passer. </p>
+<pre class="tssr-source-code">• Créer et éditer un nouveau fichier script script_M6TP2.sh </pre>
+<pre class="tssr-source-code">vim script_M6TP2.sh </pre>
+<p class="tssr-source-paragraph">• Ajouter les lignes suivantes : </p>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M6 - Solution du TP2 - Script de gestion des utilisateurs locaux </pre>
+<pre class="tssr-source-code"># Demande de saisie du compte sur lequel agir </pre>
+<pre class="tssr-source-code">read -p &quot; Saisir l&#x27;identifiant utilisateur souhaité : &quot; nom </pre>
+<pre class="tssr-source-code"># Affichage du menu </pre>
+<pre class="tssr-source-code">echo &quot;GESTION DES UTILISATEURS : $nom &quot; </pre>
+<pre class="tssr-source-code">echo &quot;----------------------------------&quot; </pre>
+<pre class="tssr-source-code">echo &quot;C - Créer le compte utilisateur&quot; </pre>
+<pre class="tssr-source-code">echo &quot;M - Modifier le mot de passe de l&#x27;utilisateur &quot; </pre>
+<pre class="tssr-source-code">echo &quot;S - Supprimer le compte utilisateur&quot; </pre>
+<pre class="tssr-source-code">echo &quot;V - Vérifier si le compte utilisateur existe&quot; </pre>
+<pre class="tssr-source-code">echo &quot;Q - quitter&quot; </pre>
+<pre class="tssr-source-code">echo &quot;&quot; </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code"># Demander à choisir parmi la liste </pre>
+<pre class="tssr-source-code">read -p &quot;Votre choix  : &quot; rep </pre>
+<pre class="tssr-source-code"># Gestion choix =&gt; action(s) </pre>
+<pre class="tssr-source-code">case $rep in </pre>
+<pre class="tssr-source-code">        c|C ) echo &quot;Création du compte&quot; </pre>
+<pre class="tssr-source-code">  useradd -m  -s /bin/bash $nom ;; </pre>
+<pre class="tssr-source-code">        m|M ) echo &quot;Modification du mot de passe&quot; </pre>
+<pre class="tssr-source-code">  passwd $nom ;; </pre>
+<pre class="tssr-source-code">        s|S ) echo &quot;Suppression du compte&quot; </pre>
+<pre class="tssr-source-code">  userdel $nom ;; </pre>
+<pre class="tssr-source-code">        v|V ) echo &quot;Vérification de l’existence du compte&quot; </pre>
+<pre class="tssr-source-code">        userpresent=$(grep $nom &quot;/etc/passwd&quot;) </pre>
+<pre class="tssr-source-code">              if [[ -z $userpresent ]]; then </pre>
+<pre class="tssr-source-code">                 echo &quot;Compte utilisateur de $nom INEXISTANT&quot; </pre>
+<pre class="tssr-source-code">              else echo &quot;Compte utilisateur de $nom EXISTANT&quot; </pre>
+<pre class="tssr-source-code">              fi ;; </pre>
+<pre class="tssr-source-code">        q|Q ) exit 0 ;; </pre>
+<pre class="tssr-source-code">        *) echo &quot;Erreur de saisie&quot; </pre>
+<pre class="tssr-source-code">             exit 1 ;; </pre>
+<pre class="tssr-source-code">esac </pre>
+
+<pre class="tssr-source-code">• Rendre exécutable le script à l’aide de chmod </pre>
+<p class="tssr-source-paragraph">En supplément, on pourrait avant toute action de création ou suppression, vérifier l’existence du <br>compte et ainsi éviter des erreurs système de se produire en cas d’échec. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a1851a8360337cb786ea2fc364d9b66a31302cc0e9f990fb28bc266e9ec1580d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a1851a8360337cb786ea2fc364d9b66a31302cc0e9f990fb28bc266e9ec1580d.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

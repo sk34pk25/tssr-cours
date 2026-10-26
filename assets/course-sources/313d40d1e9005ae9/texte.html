@@ -1,279 +1,143 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 08 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 08 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                   Module 08 – Le partage de ressources
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 08 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 08 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 08 – Le partage de ressources</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Objectifs<br>• Utiliser le réseau pour accéder aux informations <br>de l’entreprise<br>• Accéder aux documents via des partages<br>• Accéder aux ordinateurs grâce au bureau à <br>distance</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
 
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partages</h4>
+<p class="tssr-source-paragraph">Les principes du partage<br>• Permet d&#x27;accéder à une ressource <br>• hébergée par un serveur<br>• depuis un client<br>• à travers le réseau</p>
+<p class="tssr-source-paragraph">RÉSEAU</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partages</h4>
+<p class="tssr-source-paragraph">• Les ressources ?<br>• Des fichiers (via le partage de dossier, d&#x27;arborescence entière ou de volume)<br>• Des imprimantes</p>
+<p class="tssr-source-paragraph">• Les serveurs ?<br>• Tout type de système connecté au réseau de l&#x27;entreprise peut potentiellement partager ses <br>ressources</p>
+<p class="tssr-source-paragraph">•<br>Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…</p>
+<p class="tssr-source-paragraph">• Les clients ?<br>• Tout type de système connecté au réseau peut accéder aux ressources partagées de l&#x27;entreprise</p>
+<p class="tssr-source-paragraph">•<br>Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>e( }</p><p>an</p></div></details>
 
 
-                                                                                         1
 
 
-1
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partages</h4>
+<p class="tssr-source-paragraph">• Qui peut partager ?<br>• Des droits administratifs sont requis ! Partager, c&#x27;est modifier le système !<br>• Qui a accès au partage ?<br>• Une authentification est requise (compte local, du domaine)<br>• 3 niveaux d&#x27;accès sont définis sur la ressource partagée<br>• Lecture, Modifier, Contrôle total<br>• 2 vérifications d&#x27;identités sont effectuées<br>• 1 – Au niveau du partage<br>• 2 – Puis au niveau des droits NTFS<br>• Les autorisations du partage sont restrictives</p>
+<p class="tssr-source-paragraph">RÉSEAU</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partage de fichiers</h4>
+<p class="tssr-source-paragraph">Comment accéder aux fichiers partagés depuis <br>Windows 10 ?</p>
+<p class="tssr-source-paragraph">• De façon momentanée, depuis l&#x27;explorateur avec le <br>chemin UNC \\serveur\partage</p>
+<p class="tssr-source-paragraph">• Durablement, avec la fonctionnalité Connecter un <br>lecteur réseau</p>
+<p class="tssr-source-paragraph">•<br>Les lecteurs mappés sont mémorisés avec le profil utilisateur</p>
+<p class="tssr-source-paragraph">• En ligne de commande avec net use</p>
+<p class="tssr-source-paragraph">•<br>Exemple net use z: \\serveur\partage<br>•<br>La commande net view liste les partages</p>
+<p class="tssr-source-paragraph">• En PowerShell avec la cmdlet New-SmbMapping<br>•<br>Exemple <br>New-SmbMapping -LocalPath &#x27;R:&#x27; -RemotePath &#x27;\\SRV-FIC\Compta&#x27;</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[4<br>\</p><p>sy!<br>ty<br>=n<br>|<br>2<br>ayo</p><p>\<br>/<br>LL<br>End</p><p>n<br>+<br>| Explorateur<br>de fichiers</p><p>AREA<br>serveur partage|<br>—</p><p>Soo<br>—<br>=<br>_<br>—<br>——<br>RE</p><p>End</p></div></details>
 
-  Le partage de ressources
 
-                                            •  Utiliser le réseau pour accéder aux informations  Objectifs                              de l’entreprise
-                                            •  Accéder aux documents via des partages
-                                            •  Accéder aux ordinateurs grâce au bureau à
-                                     distance
 
 
 
 
 
-                                                                                         2
 
 
-2</pre></section><section><h2>Page 2</h2><pre>  Le partage de ressources
- Partages
 
-        Les principes du partage
-            • Permet d&#x27;accéder à une ressource
-                      • hébergée par un serveur
-                      • depuis un client
-                      • à travers le réseau
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partage de fichiers</h4>
+<p class="tssr-source-paragraph">Comment partager des fichiers ?</p>
+<p class="tssr-source-paragraph">• Depuis l&#x27;explorateur Windows<br>• Ouverture du partage sur le conteneur<br>• Partage de base : partage simplifié <br>orienté utilisateur (à éviter)<br>• Partage avancé : onglet Partage depuis <br>les propriétés du conteneur<br>• Par défaut, l&#x27;entité Tout le monde est en <br>Lecture</p>
+<p class="tssr-source-paragraph">• Bonne pratique : préférez l&#x27;entité de <br>sécurité Utilisateurs Authentifiés</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Partage de fichiers</h4>
+<p class="tssr-source-paragraph">• Depuis le composant MMC Dossiers partagés (fsmgmt.msc)<br>• Visualisation des partages actifs<br>• Assistant de création de partages<br>• Vues Sessions et Fichiers ouverts<br>• Affichage des partages administratifs<br>générés par le système</p>
+<p class="tssr-source-paragraph">• Depuis l&#x27;invite de commande<br>• net share pour lister et configurer les partages<br>• Exemple : net share commun=d:\Note_de_service /grant:&quot;utilisateurs authentifiés&quot;,FULL<br>• En PowerShell avec la cmdlet New-SmbShare</p>
+<p class="tssr-source-paragraph">•<br>New-SmbShare -Name &quot;VMSFiles&quot; -Path &quot;C:\ClusterStorage\Volume1\VMFiles&quot; -FullAccess &quot;Authenticated<br>Users&quot;</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés de<br>: Doc_Communs<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>Pattage defichiers et de dossiers Î M Autorisations pour Doc Communs<br>x</p><p>Doc_Communs<br>‘Atorisations du partage<br>Non partagé</p><p>a<br>éseau<br>Noms de groupesou d&#x27;utilisateurs<br>Non partagé<br>SA Utlisateurs authenttiés</p><p>Pastager</p><p>Partage avancé</p><p>Définir des autorisations personne</p><p>d&#x27;autres options de partage<br>Aouter.<br>Supprimer<br>Don |seen<br>=</p><p>Partage<br>avancé.<br>fee<br>Autoriser<br>R</p><p>Protection par mot de passe<br>Contréle total<br>a<br>Qo<br>Les utiisateurs doivent posséder<br>Modiier<br>E7<br>D<br>cet ordinateur pour accéderaux à | Lecture<br>E<br>Oo<br>Pour modtier ce paramètre,<br>sel</p><p>Informations surle cortrôle d&#x27;accès et les autorsations<br>=<br>[Arner<br>_] | Aopiœuer<br>ent</p><p>® Dossiers partagés<br>-<br>ag<br>x</p><p>Fichier<br>Action<br>Affichage?<br>CET<br>MENEola<br>A Dossiers partagés local| Nom du partage Chemin<br>du dossier<br>Type<br>Nb deconnesons</p><p>cient |Description<br>a<br>Pattages<br>IADMINS<br> CiWindons<br>Windows<br>0<br>Administration<br>à distance<br>@</p><p>Sessions<br>Bacs<br>a<br>Windows<br>0<br>Partage par défaut<br>1B<br>Fichiers ouverts<br>sans<br>DA<br>Windows<br>0<br>Partage<br>par défaut<br>[Bl DocCommuns<br>Dee Commune<br>Windows<br>0<br>ges<br>BN<br>Windows<br>0<br>Partage par défaut<br>sics<br>Windows<br>0<br>IPC distant</p><p>ent</p></div></details>
 
-                                                  RÉSEAU
 
 
 
 
 
-                                                                                         3
+<figure class="tssr-original-figure"><a href="../figures/atlas-7108a0a4dd75c2152144dcd7930061b7ff0b1f91caefa63c39cc55405cdfcdd9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7108a0a4dd75c2152144dcd7930061b7ff0b1f91caefa63c39cc55405cdfcdd9.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="8459"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Le partage de ressources </p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Session à distance</h4>
+<p class="tssr-source-paragraph">• Accès distant au poste<br>• Possible grâce à la fonctionnalité Bureau à distance<br>• Authentification avec un compte valide (local ou de domaine)<br>• Nécessite des privilèges spécifiques<br>• Même niveau de fonctionnement qu&#x27;une session locale<br>• Utilisation courante<br>• Maintenir des postes (1 seule session locale ou distante)<br>• Accéder à distance aux serveurs (2 sessions simultanées depuis Windows 2008)<br>• Accéder à son environnement de travail depuis l&#x27;extérieur (VPN)<br>• Les limites<br>• Mode maintenance sur un poste client (pas d&#x27;interaction possible avec l&#x27;utilisateur)<br>• Sur les serveurs, 2 sessions avec des comptes différents<br>•<br>Blocage (à distance) si les sessions restent ouvertes</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
 
 
-3
 
-
-  Le partage de ressources
- Partages
-
-            • Les ressources ?
-                      • Des fichiers (via le partage de dossier, d&#x27;arborescence entière ou de volume)
-                      • Des imprimantes
-
-            • Les serveurs ?
-                      • Tout type de système connecté au réseau de l&#x27;entreprise peut potentiellement partager ses
-                   ressources
-                                   •  Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
-
-            • Les clients ?
-                      • Tout type de système connecté au réseau peut accéder aux ressources partagées de l&#x27;entreprise
-                                   •  Serveur, poste client fixe ou portable, copieur, tablette, Smartphone…
-
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>  Le partage de ressources
- Partages
-
-            • Qui peut partager ?
-                      • Des droits administratifs sont requis ! Partager, c&#x27;est modifier le système !
-            • Qui a accès au partage ?
-                      • Une authentification est requise (compte local, du domaine)
-                      • 3 niveaux d&#x27;accès sont définis sur la ressource partagée
-                               •  Lecture, Modifier, Contrôle total
-                      • 2 vérifications d&#x27;identités sont effectuées
-                               • 1 – Au niveau du partage
-                               • 2 – Puis au niveau des droits NTFS
-                      • Les autorisations du partage sont restrictives
-                                                          RÉSEAU
-
-
-
-                                                                                         5
-
-
-5
-
-
-  Le partage de ressources
- Partage de fichiers
-
-
-        Comment accéder aux fichiers partagés depuis
-        Windows 10 ?
-              • De façon momentanée, depuis l&#x27;explorateur avec le
-          chemin UNC \\serveur\partage
-              • Durablement, avec la fonctionnalité Connecter un
-             lecteur réseau
-                          •  Les lecteurs mappés sont mémorisés avec le profil utilisateur
-              • En ligne de commande avec net use
-                          •  Exemple net use z: \\serveur\partage
-                          •  La commande net view liste les partages
-              • En PowerShell avec la cmdlet New-SmbMapping
-                          •  Exemple
-                 New-SmbMapping -LocalPath &#x27;R:&#x27; -RemotePath &#x27;\\SRV-FIC\Compta&#x27;
-
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>  Le partage de ressources
- Partage de fichiers
-
-      Comment partager des fichiers ?
-              • Depuis l&#x27;explorateur Windows
-                     • Ouverture du partage sur le conteneur
-                     • Partage de base : partage simplifié
-                   orienté utilisateur (à éviter)
-                     • Partage avancé : onglet Partage depuis
-                      les propriétés du conteneur
-                     • Par défaut, l&#x27;entité Tout le monde est en
-                 Lecture
-                              • Bonne pratique : préférez l&#x27;entité de
-                            sécurité Utilisateurs Authentifiés
-
-
-
-
-                                                                                         7
-
-
-7
-
-
-  Le partage de ressources
- Partage de fichiers
-
-            • Depuis le composant MMC Dossiers partagés (fsmgmt.msc)
-                      •  Visualisation des partages actifs
-                      •  Assistant de création de partages
-                      • Vues Sessions et Fichiers ouverts
-                      • Affichage des partages administratifs
-                 générés par le système
-
-            • Depuis l&#x27;invite de commande
-                     • net share pour lister et configurer les partages
-                              • Exemple : net share commun=d:\Note_de_service /grant:&quot;utilisateurs authentifiés&quot;,FULL
-            • En PowerShell avec la cmdlet New-SmbShare
-                                   •  New-SmbShare -Name &quot;VMSFiles&quot; -Path &quot;C:\ClusterStorage\Volume1\VMFiles&quot; -FullAccess &quot;Authenticated
-                             Users&quot;
-
-                                                                                         8
-
-
-8</pre></section><section><h2>Page 5</h2><pre>  Le partage de ressources
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         9
-
-
-9
-
-
-  Le partage de ressources
- Session à distance
-
-            • Accès distant au poste
-                      • Possible grâce à la fonctionnalité Bureau à distance
-                      • Authentification avec un compte valide (local ou de domaine)
-                      • Nécessite des privilèges spécifiques
-                      • Même niveau de fonctionnement qu&#x27;une session locale
-            • Utilisation courante
-                      • Maintenir des postes (1 seule session locale ou distante)
-                      • Accéder à distance aux serveurs (2 sessions simultanées depuis Windows 2008)
-                      • Accéder à son environnement de travail depuis l&#x27;extérieur (VPN)
-            • Les limites
-                      • Mode maintenance sur un poste client (pas d&#x27;interaction possible avec l&#x27;utilisateur)
-                      • Sur les serveurs, 2 sessions avec des comptes différents
-                                   •  Blocage (à distance) si les sessions restent ouvertes
-
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>  Le partage de ressources
- Session à distance
-
-            • Comment se connecter à distance sur un poste Windows 10 ?
-                      • Nativement, avec l&#x27;outil Connexion Bureau à distance
-                               • Ensemble d&#x27;onglets pour personnaliser la connexion
-                               •  Sauvegarder les paramètres
-                               • Mappez vos ressources locales sur le poste distant !
-
-                      • En ligne de commande avec mstsc
-                               • Exemple : mstsc /v:serveur
-
-
-
-
-
-                                                                                          11
-
-
-11
-
-
-  Le partage de ressources
- Session à distance
-
-
-          Configuration du poste cible ?
-                • Rubrique Système du panneau de configuration
-                • Menu Paramètres système avancés
-                • Onglet Utilisation à distance
-                • Nativement désactivé
-                • 2 niveaux d&#x27;authentification
-                        •  Authentification standard
-                        •  Authentification NLA
-                • Par défaut, accès autorisé aux administrateurs
-         Fonctionnement
-                • Protocole RDP (port 3389)
-                • Configuration automatique du pare-feu
-                        •  Attention aux emplacements réseau
-
-                                                                                          12
-
-
-12</pre></section><section><h2>Page 7</h2><pre>  Le partage de ressources
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          17
-
-
-17
-
-
-  Le partage de ressources
-
-
-              TP
-
-
-
-
-
-                                                                                          18
-
-
-18</pre></section><section><h2>Page 8</h2><pre>  Le partage de ressources
- Conclusion                                            •  Les réseaux sont les fondations des systèmes
-                                    d’informations des entreprises.
-                                            •  Les systèmes d’exploitation tirent profit du réseau
-                                pour organiser et sécuriser l’accès aux
-                                    informations
-
-
-
-
-
-                                                                                          19
-
-
-19</pre></section></html>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Session à distance</h4>
+<p class="tssr-source-paragraph">• Comment se connecter à distance sur un poste Windows 10 ?<br>• Nativement, avec l&#x27;outil Connexion Bureau à distance<br>• Ensemble d&#x27;onglets pour personnaliser la connexion<br>• Sauvegarder les paramètres<br>• Mappez vos ressources locales sur le poste distant !</p>
+<p class="tssr-source-paragraph">• En ligne de commande avec mstsc<br>• Exemple : mstsc /v:serveur</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Session à distance</h4>
+<p class="tssr-source-paragraph">Configuration du poste cible ?<br>• Rubrique Système du panneau de configuration<br>• Menu Paramètres système avancés<br>• Onglet Utilisation à distance<br>• Nativement désactivé<br>• 2 niveaux d&#x27;authentification<br>• Authentification standard<br>• Authentification NLA</p>
+<p class="tssr-source-paragraph">• Par défaut, accès autorisé aux administrateurs</p>
+<p class="tssr-source-paragraph">Fonctionnement</p>
+<p class="tssr-source-paragraph">• Protocole RDP (port 3389)</p>
+<p class="tssr-source-paragraph">• Configuration automatique du pare-feu</p>
+<p class="tssr-source-paragraph">• Attention aux emplacements réseau</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>M Conoion Bureau à<br>sta<br>L Connexion Bureau<br>&gt;) A distance</p><p>Général Mtchage Ressouces locales Exéience | Avancé</p><p>Parambres d&#x27;ouveture de session</p><p>By rs renélec<br>itt<br>Orinatew:<br>[Ecroecompusaiemem<br>©</p><p>Non distur</p><p>Le chan du nom deodnateuret<br>vide. Entrez<br>un nom<br>comple oct dare</p><p>Paramères de comen</p><p>Eregatez lea paramètres de conexon actus ana un<br>h<br>ere</p><p>Envegiter | |Evegéter sous<br>Our<br>=<br>Cu<br>crea]<br>[ae]<br>env</p><p>Propriétés système<br>x</p><p>Nom de l&#x27;oinateur<br>Matériel</p><p>Paramètres système avancés<br>Protection du systéme<br>Ltsation à distance</p><p>Assistance à distance</p><p>Fi Atorser les connexions d assistance à distance vers cet ordinateur</p><p>Que se passe lorsque<br>active Assistance à<br>distance ?</p><p>Options avancées.</p><p>Bureau à dstance</p><p>Choisissez une option, puis spécfiez qu peut se connecter<br>ONe pas autoriser les connexionsà dstance à cet ocinateur<br>© Atorserles connexions à distance à cet ordinateur</p><p>EZN&#x27;autoñser que la connesion des ornateurs exécutant le Bureau</p><p>à distance avec authentfication NLA fecommandé)</p><p>Comment chose?<br>Sélectionnez des utiisteurs.</p><p>2)<br>[oT] amis<br>| ins<br>env</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Le partage de ressources </p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Le partage de ressources</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Les réseaux sont les fondations des systèmes <br>d’informations des entreprises.<br>• Les systèmes d’exploitation tirent profit du réseau <br>pour organiser et sécuriser l’accès aux <br>informations  </p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>•</td><td>Les réseaux sont les fondations des systèmes<br>d’informations des entreprises<br>.</td></tr><tr><td>•</td><td>Les systèmes d’exploitation tirent profit du réseau<br>pour organiser et sécuriser l’accès aux<br>informations</td></tr><tr><td></td><td>19</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-41cb0c158f7703d5c8712ae101bd9383d095f22ec3fc4e8e1aa1b6f79c601bc3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-41cb0c158f7703d5c8712ae101bd9383d095f22ec3fc4e8e1aa1b6f79c601bc3.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="5973"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

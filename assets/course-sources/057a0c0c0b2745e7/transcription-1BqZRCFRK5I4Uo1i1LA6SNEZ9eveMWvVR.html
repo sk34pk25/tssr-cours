@@ -1,0 +1,51 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03TP02 - Solution - Gérer les services.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M03TP02 - Solution - Gérer les services</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+<h4>Gérer les services </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">25 à 45 minutes </p>
+<h4>Solution : Gestion des services : sur le serveur sans <br>environnement graphique </h4>
+<p class="tssr-source-paragraph">I. <br>Gestion du service SSHD (connexions SSH) </p>
+<p class="tssr-source-paragraph">Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) : </p>
+<p class="tssr-source-paragraph"> <br>Ouvrir une session avec votre utilisateur standard </p>
+<p class="tssr-source-paragraph">• <br>Fichier de configuration systemd du service <br>• <br>Démon ou fichier binaire du serveur ssh </p>
+<p class="tssr-source-paragraph"> <br>Conf systemd ligne &#x27;Loaded&#x27; </p>
+<p class="tssr-source-paragraph">Binaire en ligne Process </p>
+<p class="tssr-source-paragraph">• <br>Fichier de configuration du serveur sshd </p>
+<p class="tssr-source-paragraph"> <br>find dans le dossier /etc qui contient les paramètres du système et de ses services </p>
+<p class="tssr-source-paragraph">type f car nous cherchons un fichier, pas un dossier <br>*sshd*conf* cherche un fichier dont le nom contient à la fois le nom du service  <br>et le mot conf, habituel dans des fichiers de ce type. </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>debsrv01<br>login:<br>camille<br>Password:</p><p>camilleëdebsrv01:&quot;$<br>systemctl<br>status<br>sshd</p><p>e<br>ssh.service<br>-<br>OpenBSD Secure Shell<br>server<br>Loaded:<br>loaded<br>lib/systemd/system/ssh.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>active<br>(running)<br>since<br>Tue 2021-10-19<br>16:19:37<br>CEST;<br>4min<br>42s<br>ago<br>Docs:<br>man:sshd(8)<br>man:sshd_conf ig(5)<br>Process:<br>517<br>ExecStartPre=/usr/sbin/sshd<br>-t<br>(code=exited,<br>status=0/SUCCESS)<br>Main<br>PID:<br>523<br>(sshd)<br>Tasks:<br>1<br>(limit:<br>2300<br>Memory:<br>3. 7M<br>CPU:<br>36ms<br>CGroup:<br>/system.slice/ssh.service</p><p>L5e3<br>sshd:<br>/usr/shin/sshd<br>-D<br>[listener]<br>0 of<br>10-100<br>startups</p><p>camille@debsrvoi:~$<br>find<br>/etc/<br>-type<br>f<br>-name<br>&#x27;xsshd«xconfx&#x27; 2&gt;/dev/null<br>etc/ssh/sshd_conf<br>ig<br>camille@debsrv01:“$</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+<p class="tssr-source-paragraph">II. <br>Gestion du service CRON (planification de tâches) </p>
+<p class="tssr-source-paragraph">• <br>Le service sera-t-il lancé automatiquement au démarrage de la machine ?  </p>
+<p class="tssr-source-paragraph"> <br>Lister les services avec systemctl puis filtrer sur le mot cron.  </p>
+<p class="tssr-source-paragraph">Le résultat montre un service activé </p>
+<p class="tssr-source-paragraph">• <br>Arrêter le service cron </p>
+<p class="tssr-source-paragraph"> <br>Arrêt du service avec la commande systemctl stop. </p>
+<p class="tssr-source-paragraph">Vérification du résultat avec systemctl status . </p>
+<p class="tssr-source-paragraph">• <br>Redémarrer le serveur. Le service cron est-il actif après redémarrage </p>
+<p class="tssr-source-paragraph"> <br>systemctl stop ne fait qu&#x27;arrêter un service temporairement.  <br>Le service est de nouveau actif après redémarrage du système </p>
+<p class="tssr-source-paragraph">• <br>Arrêter à nouveau le service manuellement </p>
+
+<p class="tssr-source-paragraph">• <br>Désactiver totalement le démarrage automatique du démon cron au démarrage <br>du système </p>
+<p class="tssr-source-paragraph"> <br>Désactivation d&#x27;un service au prochain démarrage avec l&#x27;option disable de systemctl </p>
+<p class="tssr-source-paragraph">Restaurer les paramètres par défaut de démarrage du démon cron </p>
+<p class="tssr-source-paragraph"> <br>systemctl enable pour activer au démarrage, <br> systemctl start pour démarrer manuellement le service sans devoir redémarrer le serveur. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>camille@debsrvo1:&quot;#$<br>systemctl<br>list-units<br>grep cron<br>cron.service<br>loaded<br>a<br>ctive running<br>Regular<br>background program processing<br>daemon<br>camille@debsrv01:&quot;$</p><p>root@debsrvoi:°#%<br>systemctl<br>stop cron.service<br>root@debsrvo1:“#<br>systemctl<br>status<br>cron.service<br>e<br>cron.service<br>- Regular<br>background program processing<br>daemon<br>Loaded:<br>loaded<br>(/lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>inactive<br>(dead)<br>since<br>Wed<br>2021-10-20<br>09:24:16<br>CEST;<br>10s<br>ago</p><p>root@debsryv01:&quot;#<br>systemctl<br>status cron.service</p><p>e<br>cron.service<br>- Regular<br>background program processing daemon<br>Loaded:<br>loaded<br>(/lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>active<br>(running)<br>since<br>Wed 2021-10-20 09:27:16<br>CEST;<br>5s<br>ago</p><p>root@debsrvo1i:&quot;#<br>systemctl stop cron.service</p><p>root@debsrv01:~# systemctl disable cron.service<br>Synchronizing<br>state<br>of<br>cron.service<br>with SysV service<br>script<br>with<br>/lib/systemd/systemd-sysv-install.<br>Executing:<br>/lib/systemd/systemd-sysv-install<br>disable cron<br>Removed<br>/etc/systemd/system/multi-user.target.wants/cron.service.</p><p>root@debsryv01:“#<br>systemctl<br>enable cron.service<br>Synchronizing<br>state<br>of<br>cron.service<br>with<br>SysV service<br>script<br>with<br>/lib/systemd/systemd-sysv-install.<br>Executing:<br>/lib/systemd/systemd-sysv-install enable<br>cron<br>Created<br>symlink<br>/etc/systemd/system/multi-user.target.wants/cron.service<br>+<br>/lib/systemd/system/cron.</p><p>root@debsrv01:“#<br>systemctl<br>start<br>cron<br>root@debsryvo1:&quot;#<br>systemctl<br>status<br>cron<br>¢<br>cron.service<br>- Regular<br>background<br>program<br>processing daemon<br>Loaded:<br>loaded<br>lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled<br>Active:<br>active<br>(running)<br>since<br>Wed 2021-10-20<br>09:35:02 CEST;<br>11s ago</p><p>+<br>Cail</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c0931f7cacb26779a968104b0b0b921ef211a29d317f2570f85211de7662e96c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c0931f7cacb26779a968104b0b0b921ef211a29d317f2570f85211de7662e96c.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1911"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

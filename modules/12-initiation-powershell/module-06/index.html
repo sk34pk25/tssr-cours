@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12850,34 +12850,111 @@
 
 
 <h1 id="module-06-pour-aller-plus-loin">Module 06 — Pour aller plus loin<a class="headerlink" href="#module-06-pour-aller-plus-loin" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Support · Module 06 - Support de cours.pdf · 2 pages</summary>
+<summary>Support · Module 06 - Support de cours · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/135ae8437059066d/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1G13m58rOo6jBKcQFzsctXG2Pj1XfKmaS/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/135ae8437059066d/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/135ae8437059066d/pages-001-002.webp" alt="Source Drive — Module 06 - Support de cours.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3750"></a><figcaption>Source Drive — Module 06 - Support de cours.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1G13m58rOo6jBKcQFzsctXG2Pj1XfKmaS-page-1"><h3>Page 1</h3><h4>Initiation à PowerShell </h4>
+<p class="tssr-source-paragraph">Module 06 – Pour aller plus loin</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Pour aller plus loin</p>
+<h4>S’authentifier avec PowerShell</h4>
+<p class="tssr-source-paragraph">• Pour des raisons de sécurité, nous travaillerons avec des comptes possédant <br>des privilèges réduits.</p>
+<p class="tssr-source-paragraph">• Cela peut être problématique pour la réalisation de certaines actions.</p>
+<p class="tssr-source-paragraph">• Afin de contourner cette problématique, il est possible de lancer le script <br>avec un compte utilisateur, puis demander une authentification à son <br>lancement.</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1G13m58rOo6jBKcQFzsctXG2Pj1XfKmaS-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Pour aller plus loin</p>
+<h4>S’authentifier avec PowerShell</h4>
+<p class="tssr-source-paragraph">• Une commande est dédiée à cet usage.</p>
+<pre class="tssr-source-code">PS &gt; $Cred = Get-Credential</pre>
+<p class="tssr-source-paragraph">• Les logins et mots de passe renseignés <br>sont stockés dans la variable et <br>réutilisables dans le script.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Pour aller plus loin</p>
+<h4>S’authentifier avec PowerShell</h4>
+<p class="tssr-source-paragraph">On peut personnaliser la fenêtre.</p>
+<pre class="tssr-source-code">PS &gt; $Cred = Get-Credential -Message "Entrez votre 
+login Admin du Domaine" -UserName eni\Administrator</pre>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>applet de commande Get-Credential à I...<br>?<br>x</p><p>Fournissez des valeurs pour les paramétres suivants<br>:</p><p>Nom d'utilisateur :<br> |£|<br>+ | Ms</p><p>Mot de passe :<br>|</p><p>Demande d'informations d'identification.<br> ?<br>x</p><p>Entrez votre login Admin du Domaine</p><p>Nom diutilisateur: © eni\Administrator<br>a</p><p>Mot de passe<br>:</p><p>[a]<br>pee</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-8e8fe7398eede7523cc4617c1d0a2a1b4126ad6242e6f4e64f09150a058224ee.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-8e8fe7398eede7523cc4617c1d0a2a1b4126ad6242e6f4e64f09150a058224ee.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="992" height="3117"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1G13m58rOo6jBKcQFzsctXG2Pj1XfKmaS · <span title="Empreinte SHA-256 du fichier source">SHA-256 135ae8437059066d…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche démo 1 - L’authentification.pdf · 1 pages</summary>
+<summary>Démonstration · Fiche démo 1 - L’authentification · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/aef1cc439e5b4969/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1kOpSxGLzrh9-b7m5MxFUtLav3uWCwZfs/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/aef1cc439e5b4969/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/aef1cc439e5b4969/pages-001-001.webp" alt="Source Drive — Fiche démo 1 - L’authentification.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — Fiche démo 1 - L’authentification.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1kOpSxGLzrh9-b7m5MxFUtLav3uWCwZfs-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>L’authentification </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 6 </p>
+
+<pre class="tssr-source-code">La gestion des droits est essentielle dans la gestion des scripts. PowerShell autorise la gestion des 
+droits avec la commande Get-Credentials. Cette commande masque le champ mot de 
+passe pour éviter de transmettre des mots de passe en clair dans le script. </pre>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Cette commande va afficher un pop-up à l’écran pour capturer les credential utilisateur. </p>
+<p class="tssr-source-paragraph">• <br>Ces credential sont ensuite traités par le script ou la commande puis disparaissent à la fin de la <br>commande ou du script. </p>
+
+<p class="tssr-source-paragraph">A l’exécution de la commande, l’utilisateur est <br>invité à saisir son nom d’utilisateur ainsi que son <br>mot de passe qui est masqué. </p>
+<p class="tssr-source-paragraph">Si on affiche la variable contenant les <br>credentials, on ne voit pas les credential mais <br>le type de variable. </p>
+
+<pre class="tssr-source-code">Pour personnaliser le message, on utilise le paramètre Message suivi de la chaîne de caractères 
+souhaitée. </pre>
+
+
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$cred = get-credential<br>$cred</p><p>PowerShell credential re quest<br>Enter your credentials.<br>User:<br>administrator<br>Password for user administrator: “és</p><p>UserName<br>Password</p><p>administrator System.Security.SecureString</p><p>$cred = get-credential<br>-message<br>‘Veuillez sasir vos crédenciales"<br>$cred</p><p>PowerShell credential request<br>Weuillez<br>sasir<br>vos<br>crédenciales<br>User:<br>Administrator<br>Password for user Administrator:<br>**+44444</p><p>UserName<br>Password</p><p>Administrator System.Security.SecureString</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-b87fa56efb939acfa574666d3a1a8ec87d34e67b2e3bde5a62c7f40325c18cef.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-b87fa56efb939acfa574666d3a1a8ec87d34e67b2e3bde5a62c7f40325c18cef.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="1094"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1kOpSxGLzrh9-b7m5MxFUtLav3uWCwZfs · <span title="Empreinte SHA-256 du fichier source">SHA-256 aef1cc439e5b4969…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · nonc du TP - Activits pour aller plus loin.pdf · 1 pages</summary>
+<summary>Énoncé · nonc du TP - Activits pour aller plus loin · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/d9e664d2434fc942/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1wMRZpRfs6pzVbt6PchU0pJUVHhmGuaNK/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/d9e664d2434fc942/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/d9e664d2434fc942/pages-001-001.webp" alt="Source Drive — nonc du TP - Activits pour aller plus loin.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — nonc du TP - Activits pour aller plus loin.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1wMRZpRfs6pzVbt6PchU0pJUVHhmGuaNK-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Activités pour aller plus loin </h4>
+<p class="tssr-source-paragraph">TP du Module 06 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 de ce cours. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">4 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Objectifs :  </p>
+<p class="tssr-source-paragraph">• <br>Démarrer avec le scripting PowerShell </p>
+<p class="tssr-source-paragraph"> <br>Activité 1 - Comprendre et commenter un script <br> <br> <br>Difficulté * </p>
+<p class="tssr-source-paragraph">Vous devez analyser un script fourni, le comprendre et le commenter un maximum de <br>lignes.  </p>
+<p class="tssr-source-paragraph"> <br>Activité 2 - Correction de bugs  <br> <br> <br> <br> <br> <br>Difficulté *** </p>
+<p class="tssr-source-paragraph">Vous avez trouvé un script sur Internet qui répond totalement à vos besoins. Sont dissimulées <br>dans ce script de (très) nombreuses erreurs de syntaxe, vous devez le corriger pour qu'il <br>fonctionne. </p>
+<p class="tssr-source-paragraph">L'objectif de ce script est de gérer la création de zones DNS primaire et secondaire. </p>
+<p class="tssr-source-paragraph"> <br>Activité 3 - Écriture de scripts <br> <br> <br> <br> <br> <br> <br>Difficulté *** </p>
+<p class="tssr-source-paragraph">Vous avez le choix entre l’écriture 2 scripts : la gestion complète de la configuration réseau <br>d’une machine ou la mise en place d’un menu de choix pour réaliser la gestion des <br>utilisateurs Active directory. </p>
+
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-5217083dcda531eefcd0197e95b7d6fed2049f0284ba3ff21f749d2867393a6e.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-5217083dcda531eefcd0197e95b7d6fed2049f0284ba3ff21f749d2867393a6e.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="999" height="392"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1wMRZpRfs6pzVbt6PchU0pJUVHhmGuaNK · <span title="Empreinte SHA-256 du fichier source">SHA-256 d9e664d2434fc942…</span></p>
 </div>
 </details>
@@ -12886,7 +12963,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Ce module prolonge l'initiation au scripting PowerShell à partir des sources
 TSSR du module 06. Il présente une demande d'authentification dans un script et
@@ -13055,11 +13132,11 @@ ces objets n'est ajouté avant leur présence sur le site.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

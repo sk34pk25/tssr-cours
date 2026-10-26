@@ -1,161 +1,65 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Redirection, pipeline,
-filtrage, formatage
-TP du Module 11 – Plus loin avec PowerShell
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Redirection, pipeline, <br>filtrage, formatage</h4>
+<p class="tssr-source-paragraph">TP du Module 11 – Plus loin avec PowerShell</p>
+<p class="tssr-source-paragraph">Concernant ce TP, l&#x27;objectif sera de répondre aux consignes, notamment en traduisant <br>les consignes du français en langage PowerShell. </p>
+<p class="tssr-source-paragraph">Pour arriver à vos fins, n&#x27;oubliez pas les bonnes pratiques. <br>Utilisez get-command pour rechercher la bonne cmdlet.<br>Utilisez get-help, pour savoir comment elle fonctionne.<br>Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le <br>pipeline.<br>Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et <br>éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs <br>ou plus.<br>Utiliser les commandes de formatage si la consigne le précise.<br>Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell, <br>investissez du temps de lecture du get-help. </p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">2 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur Win10-XX, recherchez les commandes adaptées pour les besoins <br>suivants </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la date du jour, puis, à l&#x27;aide de la même commande, affichez le quantième<br>de l&#x27;année (le numéro du jour de l’année)</p>
+<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
- Concernant ce TP, l&#x27;objectif sera de répondre aux consignes, notamment en traduisant
- les consignes du français en langage PowerShell.
 
- Pour arriver à vos fins, n&#x27;oubliez pas les bonnes pratiques.
- Utilisez get-command pour rechercher la bonne cmdlet.
- Utilisez get-help, pour savoir comment elle fonctionne.
- Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le
- pipeline.
- Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et
- éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs
- ou plus.
- Utiliser les commandes de formatage si la consigne le précise.
- Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell,
- investissez du temps de lecture du get-help.
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des évènements ayant été enregistrés dans le journal security </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À l&#x27;aide de la commande précédente, affichez les évènements dont l&#x27;EventID est 4624</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste précédente en ne montrant que l’EventID, la date d’écriture de<br>l’évènement et le message</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des règles de pare-feu activées</p>
+<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-       Durée estimée
 
-          2 heures
 
-Énoncé
 
-Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Parmi ces règles de pare-feu activées, n&#x27;affichez que leurs noms, le profil réseau à<br>laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l&#x27;accès</p>
+<p class="tssr-source-paragraph"> <br>Afficher des propriétés selon plusieurs critères</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur Discovery, affichez la liste des volumes disques :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :</p>
+<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-Sur Win10-XX, recherchez les commandes adaptées pour les besoins
-suivants
-  Affichez la date du jour, puis, à l&#x27;aide de la même commande, affichez le quantième
-  de l&#x27;année (le numéro du jour de l’année)
 
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8Go d&#x27;espace libre et dont la taille<br>maximale ne dépasse pas 25Go</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le résultat de la commande précédente ne devra afficher que le nom, la lettre de<br>lecteur et le type de système de fichier… le tout sous forme de liste</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les noms et statuts des services qui sont actuellement démarrés et qui<br>démarrent automatiquement au lancement du système d’exploitation.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les membres (et leur SID) du groupe L_HA_Ventes.</p>
+<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
- Page 1/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
 
 
-  Affichez la liste des évènements ayant été enregistrés dans le journal security
+<figure class="tssr-original-figure"><a href="../figures/atlas-89e420dbc773c5eea0e07262e3752ba04241ed3746070ca1a15d6756ce89c800.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-89e420dbc773c5eea0e07262e3752ba04241ed3746070ca1a15d6756ce89c800.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="5250"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom et le chemin des partages administratifs sous forme de liste</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont<br>l’état est sain et de type CD-ROM :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP<br>LaserJet. Le résultat sera affiché sous la forme d&#x27;une liste.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
 
-
-
-  À l&#x27;aide de la commande précédente, affichez les évènements dont l&#x27;EventID est 4624
-
-
-
-
-
-  Affichez la  liste précédente en ne montrant que l’EventID, la date d’écriture de
-   l’évènement et le message
-
-
-
-
-
-  Affichez la liste des règles de pare-feu activées
-
-
-
-
-
- Page 2/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-
-  Parmi ces règles de pare-feu activées, n&#x27;affichez que leurs noms, le profil réseau à
-   laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l&#x27;accès
-
-
-
-
-
-Afficher des propriétés selon plusieurs critères
-   Sur Discovery, affichez la liste des volumes disques :
-
-
-
-
-
-  Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre :
-
-
-
-
-
-  Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :
-
-
-
-
-
- Page 3/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Affichez la liste des volumes qui possèdent plus de 8Go d&#x27;espace libre et dont la taille
-   maximale ne dépasse pas 25Go
-
-
-
-
-
-  Le résultat de la commande précédente ne devra afficher que le nom, la lettre de
-   lecteur et le type de système de fichier… le tout sous forme de liste
-
-
-
-
-
-  Affichez  les noms et  statuts des services qui sont actuellement démarrés et qui
-   démarrent automatiquement au lancement du système d’exploitation.
-
-
-
-
-
-  Affichez les membres (et leur SID) du groupe L_HA_Ventes.
-
-
-
-
-
- Page 4/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Affichez le nom et le chemin des partages administratifs sous forme de liste
-
-
-
-
-
-  Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont
-    l’état est sain et de type CD-ROM :
-
-
-
-
-
-  Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP
-   LaserJet. Le résultat sera affiché sous la forme d&#x27;une liste.
-
-
-
-
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 5/5
-                                      © ENI – Tous droits réservés</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-b803582b595698303e7d7c27de5b512e9767bb29822473a29c0853445b05d074.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b803582b595698303e7d7c27de5b512e9767bb29822473a29c0853445b05d074.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="963" height="1078"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

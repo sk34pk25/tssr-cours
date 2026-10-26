@@ -1,208 +1,133 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M3 - Solution du TP - Utilisation d&#x27;Excel.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>M3 - Solution du TP - Utilisation d&#x27;Excel.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                                     Microsoft 365 - Outils
-Utilisation d’Excel
-TP du Module 3 - Notions de base sur Excel
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M3 - Solution du TP - Utilisation d&#x27;Excel.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M3 - Solution du TP - Utilisation d&#x27;Excel</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
+<h4>Utilisation d’Excel </h4>
+<p class="tssr-source-paragraph">TP du Module 3 - Notions de base sur Excel </p>
 
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module .. </p>
 
- Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module ..
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">60 à 90 minutes </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Code clients </p>
+<p class="tssr-source-paragraph">• <br>L’ensemble du code client devant être en majuscules, on utilisera en premier lieu la <br>fonction MAJUSCULE(). </p>
+<p class="tssr-source-paragraph">• <br>Il faut ensuite isoler les colonnes qui contiennent les informations à concaténer : </p>
 
+<p class="tssr-source-paragraph">• <br>La fonction GAUCHE() permet d’isoler les premiers caractères d’une cellule en en <br>spécifiant le nombre après un « ; ». On peut maintenant commencer à dessiner le <br>squelette de notre formule : </p>
+<p class="tssr-source-paragraph">=MAJUSCULE(GAUCHE(D6;3)&amp;GAUCHE(E6;3)&amp;GAUCHE(H6;3)&amp;GAUCHE(I6;3)) </p>
+<p class="tssr-source-paragraph">• <br>Il ne reste qu’à étirer la formule sur les cases en dessous. </p>
+<p class="tssr-source-paragraph">Page 1/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-           Durée estimée
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>8<br>c<br>F<br>G<br>J</p><p>Le tableau est nommé</p><p>Clients</p><p>Code clients<br>|Nom [Prénom|<br>Adresse1<br>| cP Ville=~]Pays [Total Achats<br>Madame<br>IBEUKELAERE<br>0<br>avenue de la Reine Astrid<br>1000<br>BRUXELLES<br>BELGIQUE<br>Monsieur<br>BINOCHE<br>56, place de la Victoire<br>06100<br>INICE<br>[FRANCE<br>CAINE<br>12, rue des Capucins<br>35000<br>RENNES JrrancE<br>[CAINE pue|<br>PENNES __JFRANCE_|</p><p>[Madame __[DESVENTS<br>{sophie<br>[3.ruedesRoches<br>{35000 (RENNES<br>(FRANCE<br>|<br>[Monsieur<br>[pupois<br>[Jean<br>[10 impasse des Margueries<br>[44000<br>__|NANTES _|</p><p>FRANCE</p><p>ent</p></div></details>
 
-           60 à 90 minutes
 
-Solution
-Code clients
-•  L’ensemble du code client devant être en majuscules, on utilisera en premier lieu la
-   fonction MAJUSCULE().
-•     Il faut ensuite isoler les colonnes qui contiennent les informations à concaténer :
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
+<p class="tssr-source-paragraph"> <br> <br> <br> <br>Code ouvrage </p>
 
+<p class="tssr-source-paragraph">• <br>Même méthode que pour l’exercice précédent. L’ensemble des données doivent être <br>en majuscules en récupérant les 3 ou 4 premiers caractères. Dans le cas de la colonne <br>Tome, il ne faudra récupérer que le dernier caractère. </p>
+<p class="tssr-source-paragraph">=MAJUSCULE(GAUCHE(F7;3)&amp;GAUCHE(G7;3)&amp;GAUCHE(C7;4)&amp;DROITE(E7;1)) </p>
+<p class="tssr-source-paragraph">• <br>Il ne reste qu’à étirer la formule sur les cases en dessous. </p>
+<p class="tssr-source-paragraph">Page 2/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Code clients</p><p>Mac<br>Code clients<br>[gt [Mor<br>BEUODEBRUBEL<br>[Mor<br>BINJULNICFRA<br>vs<br>CAIMICRENFRA</p><p>|<br>f<br>mx<br>CURARTLYOFRA</p><p>|<br>Mot<br>DESSOPRENFRA<br>ee (oo<br>DUBJEANANFRA<br>Mon<br>HOLSHENANFRA<br>CMa<br>HOUSÉBMARFRA<br>fo Mac<br>IRVAMYNANFRA<br>ee ma<br>IZGBERLONGRA<br>Sr<br>LAPMAXNANFRA<br>DS (0<br>LEVMARANGFRA<br>Sr<br>PORJULNANFRA<br>EE (ct<br>PREJEARENFRA<br>A<br>{7<br>REGOTAGENSUI</p><p>L<br>WALEVANANFRA</p></div></details>
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
+<p class="tssr-source-paragraph"> <br>Numéros de commande </p>
+<p class="tssr-source-paragraph">On peut utiliser les fonctions ANNEE, MOIS et JOUR afin de pouvoir les reconstituer en date <br>inversée. </p>
+<p class="tssr-source-paragraph">On peut utiliser la formule simple : </p>
+<p class="tssr-source-paragraph">=DROITE(ANNEE(C6);2)&amp;MOIS(C6)&amp;JOUR(C6)&amp;D6 </p>
+<p class="tssr-source-paragraph">On s’aperçoit que le résultat n’est pas satisfaisant : les mois et jours inférieurs à 10 ne <br>remontent qu’un seul chiffre. Il faudra donc utiliser des conditions pour tester la valeur et <br>éventuellement ajouter un 0 pour les chiffres inférieurs ou égaux à 9. </p>
+<p class="tssr-source-paragraph">=DROITE(ANNEE(C6);2)&amp;SI(MOIS(C6)&gt;9;MOIS(C6);&quot;0&quot;&amp;MOIS(C6))&amp;SI(JOUR(C6)&gt;9;JOUR(C6);&quot;0&quot;&amp;JOUR(C6))&amp;D6 </p>
+<p class="tssr-source-paragraph">• <br>En cas de case vide, une erreur se produira. Il est possible de « fermer » la formule en <br>ajoutant un test de case vide : </p>
+<p class="tssr-source-paragraph">=SI(OU(C8=&quot;&quot;;D8=&quot;&quot;);&quot;&quot;;DROITE(ANNEE(C8);2)&amp;SI(MOIS(C8)&gt;9;MOIS(C8);&quot;0&quot;&amp;MOIS(C8))&amp;SI(J</p>
+<p class="tssr-source-paragraph">OUR(C8)&gt;9;JOUR(C8);&quot;0&quot;&amp;JOUR(C8))&amp;D8) </p>
+<p class="tssr-source-paragraph">• <br>Il ne reste qu’à étirer la formule sur les cases en dessous. </p>
 
-•  La fonction GAUCHE() permet d’isoler les premiers caractères d’une cellule en en
-   spécifiant le nombre après un « ; ». On peut maintenant commencer à dessiner le
-   squelette de notre formule :
+<p class="tssr-source-paragraph">Page 3/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-      =MAJUSCULE(GAUCHE(D6;3)&amp;GAUCHE(E6;3)&amp;GAUCHE(H6;3)&amp;GAUCHE(I6;3))
-•     Il ne reste qu’à étirer la formule sur les cases en dessous.
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Code</p><p>COLSUZHUNG1</p><p>Env)</p></div></details>
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
+<p class="tssr-source-paragraph">Noms et prénoms </p>
 
+<p class="tssr-source-paragraph">• <br>Sur la feuille Liste des clients, il faut identifier le tableau Clients en cliquant sur le menu <br>suivant : </p>
 
+<p class="tssr-source-paragraph">• <br>Nous pouvons maintenant faire référence à ce tableau dans la fonction recherchev() </p>
+<p class="tssr-source-paragraph">• <br>D6 symbolise la valeur de la recherche (code client), à comparer avec notre tableau <br>Clients en récupérant la 3ème colonne du tableau (nom) puis la 4ème (prénom). </p>
+<p class="tssr-source-paragraph">• <br>Il faudra ajouter un espace symbolisé par &amp;&quot; &quot;&amp; qui permettent de concaténer les <br>champs nom et prénom avec un espace entre eux. </p>
+<p class="tssr-source-paragraph">=RECHERCHEV(D6;Clients;3;FAUX)&amp;&quot; &quot;&amp;RECHERCHEV(D6;Clients;4;FAUX) <br>Titre et Tome </p>
+<p class="tssr-source-paragraph">• <br>Même procédé que pour la question précédente : </p>
+<p class="tssr-source-paragraph">• <br>Dans la feuille Liste des produits vendus, on va rechercher dans la colonne F6, à <br>comparer avec la 2e colonne du tableau Ouvrage, ajouter un espace, et englober dans <br>la fonction DROITE(), qui ne récupérera que le dernier caractère, une recherche toujours <br>basée sur le code produit mais cette fois sur la 4ème colonne du tableau Ouvrage. </p>
+<p class="tssr-source-paragraph">=RECHERCHEV(&#x27;Liste des produits vendus &#x27;!F6;Ouvrage;2;FAUX)&amp;&quot; <br>&quot;&amp;DROITE(RECHERCHEV(&#x27;Liste des produits vendus &#x27;!F6;Ouvrage;4;FAUX);1) <br>Montant TTC </p>
+<p class="tssr-source-paragraph">• <br>Il faut effectuer une recherchev() basée sur le code produit au sein de la 7ème colonne <br>du tableau Ouvrage. </p>
+<p class="tssr-source-paragraph">=RECHERCHEV(F6;Ouvrage;7;FAUX) </p>
+<p class="tssr-source-paragraph">Page 4/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Accueil<br>Insertion<br>Mise en page<br>Formules<br>ch x<br>Cambria<br>14<br>v == æ&amp;<br>‘Standan<br>v<br>INA<br>=<br>=<br>+<br>v6<br>coter Là<br>ls) 7 8<br>AA =ÈzE<br>&amp;<br>~<br>$<br>|H,<br>à. A.<br>| B= Y<br>8$8</p><p>Presse-papiers<br>[S<br>Police<br>BS<br>Alignement<br>8<br>Nombi</p><p>&gt;<br>&amp;<br> Y<br>fx<br> Codeclients</p><p>Clients</p><p>Commande</p><p>Montant<br>|<br>Ouvrage<br>ts |</p><p>produits</p><p>tableau</p><p>Total</p><p>Vendus</p><p>Zone_d_impre.</p></div></details>
 
- Page 1/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                                     Microsoft 365 - Outils
+<figure class="tssr-original-figure"><a href="../figures/atlas-3c5c89bc0cc1bf8d5def14ed2c24b68e614c7a8ea53a602feaf718c6b924be0a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3c5c89bc0cc1bf8d5def14ed2c24b68e614c7a8ea53a602feaf718c6b924be0a.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1048" height="3439"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
+<p class="tssr-source-paragraph">On peut ajouter un SIERREUR() avec comme valeur &quot;&quot; afin d’éviter des erreurs de fonction. </p>
+<p class="tssr-source-paragraph">=SIERREUR(RECHERCHEV(F6;Ouvrage;7;FAUX);&quot;&quot;) <br>Total de la commande </p>
+<p class="tssr-source-paragraph">• <br>Il faut dans un premier temps vérifier que la cellule supérieure est identique, ou si la <br>cellule montante est vide. </p>
+<p class="tssr-source-paragraph">• <br>Si ce test est validé, le contenu de la cellule Montant de la commande devrait être vide. </p>
+<p class="tssr-source-paragraph">• <br>On va ensuite additionner les montants en fonction du nombre d’occurrences trouvées <br>du numéro de commande grâce à la fonction SOMME.SI.ENS </p>
+<p class="tssr-source-paragraph">=SI(OU(B7=B8;H7=&quot;&quot;);&quot;&quot;;SOMME.SI.ENS(Montant;Commande;B7)) <br>Nombre d’articles vendus </p>
+<p class="tssr-source-paragraph">• <br>En faisant référence à la feuille Liste de produits vendus, il faut compter le nombre <br>d’occurrences dans le tableau des différentes références produit. </p>
+<p class="tssr-source-paragraph">• <br>La fonction NB.SI.ENS permet d’effectuer ces actions et de les reporter en les comparant <br>au code produit de la colonne B. </p>
+<p class="tssr-source-paragraph">=NB.SI.ENS(produits;B7) <br>Pourcentage des ventes </p>
+<p class="tssr-source-paragraph">• <br>Il suffit de diviser le nombre de ventes de chaque ouvrage par le total des ventes : </p>
+<p class="tssr-source-paragraph">=I7/SOMME($I$7:$I$33) <br>Achats par client </p>
+<p class="tssr-source-paragraph">• <br>Sur la feuille Total des ventes par clients, créer un tableau croisé dynamique : </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>Indiquez Vendus </p>
+<p class="tssr-source-paragraph">Page 5/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Accueil<br>Insertion<br>Mise en page<br>Foi<br>=<br>_<br>F</p><p>| Champs de tableau croisé.<br>-<br> *<br>m<br>8 aos</p><p>:</p><p>‘</p><p>4<br>Choisissez les champs à inclure dans le rapport : &amp; ’<br>PivotTable| Tableaux croisés Tableau | Images Formes Icônes<br>el<br>v<br>recommandés<br>Le<br>¥<br>fRechercherD</p><p>A</p><p>à<br>di<br>“<br>Illustré<br>À<br>partir d&#x27;un tableau ou<br>d&#x27;une<br>plage<br>5<br>P<br>“<br>2<br>[] Code clients<br>iB A partir de External Data Source<br>[] Nom et Prénom<br>a<br>[] Produits<br>.<br>[1 Titre et Tome</p><p>1<br>[¥] Montant TTC</p><p>2<br>J<br>Plus de tableaux...</p><p>Faites glisser les champs dans les zones voulues<br>ci-dessous:</p><p>T<br>Filtres<br>I<br>Colonnes</p></div></details>
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
 
+<p class="tssr-source-paragraph">Cliquez sur Nombre de Montant puis modifiez les paramètres des champs </p>
 
-Code ouvrage
 
-• Même méthode que pour l’exercice précédent. L’ensemble des données doivent être
-   en majuscules en récupérant les 3 ou 4 premiers caractères. Dans le cas de la colonne
-   Tome, il ne faudra récupérer que le dernier caractère.
 
-      =MAJUSCULE(GAUCHE(F7;3)&amp;GAUCHE(G7;3)&amp;GAUCHE(C7;4)&amp;DROITE(E7;1))
-•     Il ne reste qu’à étirer la formule sur les cases en dessous.
 
 
 
 
 
- Page 2/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                                     Microsoft 365 - Outils
 
 
 
+<p class="tssr-source-paragraph"> <br>Graphique dynamique croisé </p>
 
+<p class="tssr-source-paragraph">• <br>Cliquez sur votre tableau croisé dynamique et allez dans Insertion - Graphique croisé <br>dynamique. </p>
+<p class="tssr-source-paragraph">Page 6/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-Numéros de commande
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Tableau croisé dynamique à partir d&#x27;une table ou d&#x27;un...<br>?<br>x</p><p>Sélectionner un tableau ou une plage</p><p>Tableau/Plage :<br>Vendus<br>t</p><p>Choisissez l&#x27;emplacement où vous voulez placer le tableau croisé dynamique</p><p>O<br>Nouvelle feuille de calcul<br>© Feuille de calcul existante</p><p>Emplacement:<br>‘Total des ventes par clients&#x27;!$B$3<br>t</p><p>Indiquez si vous souhaitez analyser plusieurs tables</p><p>Oo Ajouter ces données au modèle de données</p><p>lo Paramètres des champs de valeurs a<br>one denon.<br>| 28<br>30</p><p>Paramètres des champs de valeu<br>?<br>x</p><p>Nom de la source<br>:<br>Montant TTC</p><p>Nom personnalisé :<br>Somme de Montant TTC</p><p>Synthèse des valeurs par<br>Afficher les valeurs</p><p>Résumer le champ de valeur par</p><p>Choisissez le type de calcul que vous souhaitez utiliser pour résumer</p><p>données du champ sélectionné</p><p>a</p><p>Nombre</p><p>Moyenne<br>Max.</p><p>Min.<br>Produit<br>M</p><p>Format de nombre<br>Annuler</p><p>ent</p></div></details>
 
-On peut utiliser les fonctions ANNEE, MOIS et JOUR afin de pouvoir les reconstituer en date
-inversée.
 
-On peut utiliser la formule simple :
 
-                 =DROITE(ANNEE(C6);2)&amp;MOIS(C6)&amp;JOUR(C6)&amp;D6
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Microsoft 365 - Outils </p>
 
-On s’aperçoit que le résultat n’est pas satisfaisant  : les mois et jours inférieurs à 10 ne
-remontent qu’un seul chiffre.  Il faudra donc utiliser des conditions pour tester la valeur et
-éventuellement ajouter un 0 pour les chiffres inférieurs ou égaux à 9.
+<p class="tssr-source-paragraph">• <br>Sélectionnez l’histogramme groupé 3D. </p>
+<p class="tssr-source-paragraph"> <br>Total achats par client </p>
+<p class="tssr-source-paragraph">• <br>En basant la recherche sur la concaténation des Noms et prénoms de la feuille Liste des <br>Clients, il faut comparer cela aux résultats de notre tableau croisé dynamique pour <br>reporter les valeurs dans la colonne J de la liste des clients. </p>
+<p class="tssr-source-paragraph">=SIERREUR((RECHERCHEV(D6&amp;&quot; &quot;&amp;E6;&#x27;Total des ventes par clients&#x27;!$B$3:$C$19;2;FAUX));&quot;&quot;) </p>
+<p class="tssr-source-paragraph">Page 7/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
- =DROITE(ANNEE(C6);2)&amp;SI(MOIS(C6)&gt;9;MOIS(C6);&quot;0&quot;&amp;MOIS(C6))&amp;SI(JOUR(C6)&gt;9;JOUR(C6);&quot;0&quot;&amp;JOUR(C6))&amp;D6
-•  En cas de case vide, une erreur se produira.  Il est possible de « fermer » la formule en
-   ajoutant un test de case vide :
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Accueil<br>Insertion<br>Miseenpage<br>Formules<br>Données<br>Révision<br>Affichage<br>Aide<br>Analyse du tableau croisé dynamique<br>Création<br>Be<br>=<br>Br<br>+<br>JB<br>Smartart<br>isi<br>izer<br>~<br>B-<br>A</p><p>[<br>i<br>FA<br>gems<br>am<br>EH Télécharger des compléments &quot;9° Visio Data Visualize<br>i’<br>d-E-&quot; @<br>a<br>Be<br>ju<br>BG icônes<br>fal Capture+<br>Ei cartes Bing<br>Ke th» iy<br>A<br>:<br>Images<br>”<br>Sn<br>©<br>Graphiques<br>Le<br>Cartes |Graphique croisé|<br> 3D | Courbe Histogramm<br>+<br>@hModëles3D »<br>6.<br>pl<br>I People Graph<br>recommandés @<br>Ls:v<br>+ | dynamiques || Maps</p><p>-<br>Tableaux<br>Mustrations<br>Compléments<br>Graphiques<br>aan<br>era<br>=<br>e<br>.<br>v<br>Somme de Montant<br>TTC<br>ty<br>4<br>A<br>B<br>€<br>D<br>€<br>F<br>G<br>H<br>1<br>J<br>K<br>L<br>&#x27;<br>1<br>2|<br>‘Somme<br>de Montant TTC<br>3<br>BEUKELAERE Odette<br>31<br>4<br>BINOCHE Julien<br>39<br>5<br>CURT Arthur<br>245</p><p>6<br>DESVENTS Sophie<br>34,5<br>7<br>DUBOIS Jean<br>32,5<br>8<br>HOLMES Sherlock<br>57,5</p><p>9<br>IRVING Amy<br>63,5<br>10<br>IZGOUD Bernadette<br>79<br>n<br>LAPORTE Maxime<br>33,5</p><p>12<br>PORTE Juliette<br>26<br>3<br>PREFFER Jeanne<br>19,5<br>4<br>REGION Otalie<br>42</p><p>15<br>WALKEN Eva<br>55</p><p>16<br>CAINE Mickaël<br>165<br>7<br>LEVASSEUR Marthe<br>19<br>18<br>Total général<br>573<br>10</p><p>Insérer un graphique</p><p>Tous les graphiques</p><p>©<br>Récents<br>ET<br>Modèles</p><p>lio Histogramme</p><p>P&amp;<br>Courbe<br>Histogramme groupé 3D<br>@<br>Secteurs<br>Total<br>F<br>Barres<br>=</p><p>NA Aires<br>:<br>|<br>|<br>| |<br>[22 XY (nuage de points)<br>r | ill<br>iT<br>ii<br>RAR<br>RAR RAR RL<br>RÉ<br>©</p><p>Carte<br>SPSESE CASESSSRS<br>ji</p><p>e<br>5<br>lik<br>Boursier<br>Æ<br>Surface</p><p>ent</p></div></details>
 
- =SI(OU(C8=&quot;&quot;;D8=&quot;&quot;);&quot;&quot;;DROITE(ANNEE(C8);2)&amp;SI(MOIS(C8)&gt;9;MOIS(C8);&quot;0&quot;&amp;MOIS(C8))&amp;SI(J
-                     OUR(C8)&gt;9;JOUR(C8);&quot;0&quot;&amp;JOUR(C8))&amp;D8)
-•     Il ne reste qu’à étirer la formule sur les cases en dessous.
 
-
-
-
-
- Page 3/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                                     Microsoft 365 - Outils
-Noms et prénoms
-
-•  Sur la feuille Liste des clients,  il faut identifier le tableau Clients en cliquant sur le menu
-   suivant :
-
-
-
-
-
-•  Nous pouvons maintenant faire référence à ce tableau dans la fonction recherchev()
-•  D6 symbolise la valeur de la recherche (code client), à comparer avec notre tableau
-    Clients en récupérant la 3ème colonne du tableau (nom) puis la 4ème (prénom).
-•     Il faudra ajouter un espace symbolisé par &amp;&quot; &quot;&amp; qui permettent de concaténer les
-  champs nom et prénom avec un espace entre eux.
-
-         =RECHERCHEV(D6;Clients;3;FAUX)&amp;&quot; &quot;&amp;RECHERCHEV(D6;Clients;4;FAUX)
-Titre et Tome
-• Même procédé que pour la question précédente :
-•  Dans la feuille Liste des produits vendus, on va rechercher dans la colonne F6, à
-   comparer avec la 2e colonne du tableau Ouvrage, ajouter un espace, et englober dans
-    la fonction DROITE(), qui ne récupérera que le dernier caractère, une recherche toujours
-   basée sur le code produit mais cette fois sur la 4ème colonne du tableau Ouvrage.
-
-            =RECHERCHEV(&#x27;Liste des produits vendus &#x27;!F6;Ouvrage;2;FAUX)&amp;&quot;
-        &quot;&amp;DROITE(RECHERCHEV(&#x27;Liste des produits vendus &#x27;!F6;Ouvrage;4;FAUX);1)
-Montant TTC
-•     Il faut effectuer une recherchev() basée sur le code produit au sein de la 7ème colonne
-   du tableau Ouvrage.
-
-                       =RECHERCHEV(F6;Ouvrage;7;FAUX)
-
-
-
-
-
- Page 4/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                                     Microsoft 365 - Outils
-
-On peut ajouter un SIERREUR() avec comme valeur &quot;&quot; afin d’éviter des erreurs de fonction.
-
-                   =SIERREUR(RECHERCHEV(F6;Ouvrage;7;FAUX);&quot;&quot;)
-Total de la commande
-•     Il faut dans un premier temps vérifier que la cellule supérieure est identique, ou si la
-    cellule montante est vide.
-•   Si ce test est validé, le contenu de la cellule Montant de la commande devrait être vide.
-•  On va ensuite additionner les montants en fonction du nombre d’occurrences trouvées
-   du numéro de commande grâce à la fonction SOMME.SI.ENS
-
-             =SI(OU(B7=B8;H7=&quot;&quot;);&quot;&quot;;SOMME.SI.ENS(Montant;Commande;B7))
-Nombre d’articles vendus
-•  En faisant référence à la feuille Liste de produits vendus,  il faut compter le nombre
-   d’occurrences dans le tableau des différentes références produit.
-•  La fonction NB.SI.ENS permet d’effectuer ces actions et de les reporter en les comparant
-   au code produit de la colonne B.
-
-                                  =NB.SI.ENS(produits;B7)
-Pourcentage des ventes
-•     Il suffit de diviser le nombre de ventes de chaque ouvrage par le total des ventes :
-
-                                =I7/SOMME($I$7:$I$33)
-Achats par client
-•  Sur la feuille Total des ventes par clients, créer un tableau croisé dynamique :
-
-
-
-
-
-Indiquez Vendus
-
-
-
-
-
- Page 5/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                                     Microsoft 365 - Outils
-
-
-
-
-
-Cliquez sur Nombre de Montant puis modifiez les paramètres des champs
-
-
-
-
-
-Graphique dynamique croisé
-
-•  Cliquez sur votre tableau croisé dynamique et allez dans Insertion - Graphique croisé
-   dynamique.
-
-
-
-
-
- Page 6/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                                     Microsoft 365 - Outils
-
-
-
-
-
-•  Sélectionnez l’histogramme groupé 3D.
-
-
-
-
-
-Total achats par client
-•  En basant la recherche sur la concaténation des Noms et prénoms de la feuille Liste des
-    Clients,  il faut comparer cela aux résultats de notre tableau croisé dynamique pour
-   reporter les valeurs dans la colonne J de la liste des clients.
-
- =SIERREUR((RECHERCHEV(D6&amp;&quot; &quot;&amp;E6;&#x27;Total des ventes par clients&#x27;!$B$3:$C$19;2;FAUX));&quot;&quot;)
-
-
-
-
-
- Page 7/7
-                                      © ENI – Tous droits réservés</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-fb79d932e3baa0c41468d6a85ed5bb2dec6b67b4dc6f824337b21143b9193c17.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fb79d932e3baa0c41468d6a85ed5bb2dec6b67b4dc6f824337b21143b9193c17.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="1048" height="3496"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

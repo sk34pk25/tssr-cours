@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12630,99 +12630,638 @@
 
 
 <h1 id="tp-01-variables-et-structures">TP 01 — Variables et structures<a class="headerlink" href="#tp-01-variables-et-structures" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Démonstration · Fiche d‚mo 1 - Les variables.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 1 - Les variables · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/3ea1f706e7f2d3a6/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1TVcJwMjiSWdewednfJRSYM6Xkq15PPAy/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/3ea1f706e7f2d3a6/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/3ea1f706e7f2d3a6/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 1 - Les variables.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 1 - Les variables.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1TVcJwMjiSWdewednfJRSYM6Xkq15PPAy-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les variables </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de découvrir en quoi, comme tout langage-objet, <br>PowerShell utilise les variables qui permettent de stocker des données dans la mémoire vive de <br>l’ordinateur puis de les réutiliser dans d’autre commande. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La console PowerShell dispose de variables réservées comme nous avons pu le voir avec 
+$PSItem. Nous allons étudier les façons de travailler avec les variables. </pre>
+<pre class="tssr-source-code">• 
+La commande Get-Variable permet de connaître toutes les variables disponibles 
+actuellement dans la console PowerShell. </pre>
+
+<pre class="tssr-source-code">• 
+Pour déclarer une nouvelle variable, on utilise le caractère $ suivi du symbole = puis de la valeur 
+à attribuer à la variable. </pre>
+
+<pre class="tssr-source-code">Attention au type de variable ! Le fait d’attribuer la valeur 1 type la variable en INT.  </pre>
+<pre class="tssr-source-code">Pour obtenir le type de variable, on utilise la méthode getType() </pre>
+
+<pre class="tssr-source-code">Le paramètre FullName permet d’afficher le type complet de la variable. </pre>
+<pre class="tssr-source-code">Lorsque l’on souhaite déclarer une variable de type String qui va contenir une chaîne de 
+caractères, il faut encadrer les caractères avec des doubles quotes. </pre>
+
+<pre class="tssr-source-code">La variable $b est de type SystemString car la valeur 1 est encadrée avec des doubles quotes.  </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Variable<br>|fw -Column<br>5,</p><p>$<br>?<br>A<br>args<br>ConfirmPreference<br>ConsoleFileName<br>DebugPreference<br>Error<br>ErrorActionPrefe...<br>Errorview<br>Executioncontext<br>false<br>FormatEnumeration...<br>HOME<br>Host<br>InformationPrefer...<br>input<br>MaximumAliasCount<br>MaximumDrivecount<br>MaximumErrorCount<br>MaximumFunctionCount MaximumHistoryCount<br>MaximumVariableCount MyInvocation<br>NestedPromptLevel<br>null<br>OutputEncoding<br>PID<br>PROFILE<br>ProgressPreference<br>PsBoundParameters<br>PSCommandPath<br>Psculture<br>PsDefaultParamet...<br>PSEdition<br>PSEmai 1Server<br>PSHOME<br>PsScriptRoot<br>PSSessionApplica...<br>PSSessionConfigu..<br>Pssessionoption<br>PSUICuIture<br>PsVersionTable<br>PwD<br>ShellId<br>StackTrace<br>StorageHistoryCharts true<br>VerbosePreference<br>warningPreference<br>WhatifPreference</p><p>PS C:\&gt; $a = 1</p><p>PS C:\&gt; $a.GetType().fullname<br>System. Int32</p><p>=<br>_ Mu<br>PS C:\&gt; $b=<br>"1<br>PS C:\&gt; $b.GetType().FullName<br>System.string</p><p>@</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1TVcJwMjiSWdewednfJRSYM6Xkq15PPAy-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">Les variables vont contenir également des objets, qui par la suite vont être réutilisés dans d’autres <br>traitements. </p>
+<p class="tssr-source-paragraph">Pour contenir des objets dans une variable, on déclare la variable puis on assigne un résultat de <br>commande à cette variable. </p>
+
+<pre class="tssr-source-code">On obtient une variable de type System.Object qui contient le résultat de la commande Get-
+Aduser. </pre>
+<p class="tssr-source-paragraph">Lorsque la variable est déclarée, elle est utilisable dans la console. </p>
+<pre class="tssr-source-code">Pour visualiser son contenu, il suffit de saisir son nom précédé du $. </pre>
+
+<pre class="tssr-source-code">La variable peut également servir de conteneur à une saisie dans la console. Elle va être combinée 
+à la commande Read-Host </pre>
+
+<pre class="tssr-source-code">La variable peut être utilisable avec la commande Write-Host pour afficher le contenu dans une 
+chaîne de caractères avec des outils de mise en forme. </pre>
+
+<pre class="tssr-source-code">La valeur de la variable $choix est affichée dans la chaîne de caractères. </pre>
+<pre class="tssr-source-code">Les variables de type System.Object peuvent être utilisées pour afficher une ou plusieurs propriétés 
+d’un ou des objets qu’elles contiennent.  </pre>
+<p class="tssr-source-paragraph">On utilise le . à la suite de la variable pour indiquer le nom de la propriété à afficher. </p>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; $u=Get-ADUser<br>-Filter<br>*<br>PS C:\&gt; $u.GetType().ful1lname<br>Ssystem.Object[]</p><p>PS<br>C:\&gt;<br>$u</p><p>DistinguishedName<br>: CN=Administrator<br>, CN=Users ,DC=ad01,DC=1cl<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Name<br>:<br>Administrator<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>ecf41ce8-afa0-447f-81Ff5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>PS C:\&gt; $choix = Read-Host “Veuillez saisir votre choix"<br>Veuillez saisir votre choix: choixl</p><p>PS C:\&gt; $choix<br>choixl</p><p>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1TVcJwMjiSWdewednfJRSYM6Xkq15PPAy-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">Il est possible de sélectionner un seul objet dans la variable en lui indiquant une valeur d’index. </p>
+
+<p class="tssr-source-paragraph">On sélectionne un seul objet avec les [] puis on sélectionne une seule propriété avec le . </p>
+<p class="tssr-source-paragraph">Avec les variables de type Objet on peut également se servir des méthodes contenues dans le <br>type d’objet. </p>
+
+<pre class="tssr-source-code">La variable $d utilise la méthode de conversion ToString pour convertir une valeur de type 
+DateTime renvoyée par la commande Get-Date. </pre>
+<pre class="tssr-source-code">En fin de conversion, on obtient une valeur de type string utilisable dans une commande Write-
+Host. </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; $s= Get-Service<br>PS C:\&gt; write-host “Voici<br>les nom des services $s.servicename<br>"<br>Voici<br>les nom des services AarSvc_128d85 AJRouter ALG AppIDSvc<br>AppxSvc AssignedAccessManagerSvc AudioEndpointBuilder<br>Audiosrv</p><p>PS C:\&gt; $s[4].name</p><p>Appinfo<br>PS C:\&gt; $s[41</p><p>Status<br>Name<br>Disp layName</p><p>Running<br>Appinfo<br>Application<br>Information</p><p>PS C:\&gt; $d=(get-date).ToStringC"yyyyMMdd")<br>PS C:\&gt;<br>$d<br>20200924<br>PS C:\&gt; $d.GetType()</p><p>IsPublic<br>IsSerial<br>Name<br>BaseType</p><p>True<br>True<br>string<br>System.Object</p><p>PS C:\&gt; $d.GetType()<br>. ful Iname<br>System.String<br>PS C:\&gt; write-host “nous somme<br>le<br>:<br>$d"<br>nous<br>somme<br>le<br>:<br>20200924</p><p>@</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-a7278af5e191c0808f3fd3fb7d84a70bac03c2fa76d550a6eb5bc4b10a903dc3.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-a7278af5e191c0808f3fd3fb7d84a70bac03c2fa76d550a6eb5bc4b10a903dc3.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="3807"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1TVcJwMjiSWdewednfJRSYM6Xkq15PPAy · <span title="Empreinte SHA-256 du fichier source">SHA-256 3ea1f706e7f2d3a6…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 2 - Les types de variables.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 2 - Les types de variables · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/b52c4648eb00d1f5/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1OjFFSdwFMyoRG43DHB7P0K9pEjlD-XE9/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b52c4648eb00d1f5/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b52c4648eb00d1f5/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 2 - Les types de variables.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 2 - Les types de variables.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1OjFFSdwFMyoRG43DHB7P0K9pEjlD-XE9-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les types de variables </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de découvrir comment nous pouvons lier les variables entre <br>elles, en gardant à l’esprit que les variables doivent être de type identique. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Dans le cas où nous disposons de deux variables de même type, la variable contenant le résultat <br>sera du même type que les variables d’origine. </p>
+<pre class="tssr-source-code">• 
+Voici ce qu’il est possible de faire avec des variables de type String </pre>
+
+<pre class="tssr-source-code">Les variables de type String peuvent être fusionnées pour obtenir une chaîne de caractères. </pre>
+
+<p class="tssr-source-paragraph">On récupère les valeurs des propriétés avec le « . » puis on le stocke en variable. </p>
+
+<pre class="tssr-source-code">La variable finale conserve le type SystemString et hérite des variables $e et $f. </pre>
+<pre class="tssr-source-code">Le type de variable int va interpréter les chiffres et va permettre d’utiliser les opérateurs 
+mathématiques. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>$a<br>=<br>abc<br>PS C:\&gt;<br>$b = “def”<br>PS C:\&gt; $c = $a +<br>$b<br>PS C:\&gt; $c<br>abcdef</p><p>PS C:\&gt; $d = Get-ADUser<br>-filter<br>*<br>PS C:\&gt; $e = $d.name<br>PS C:\&gt; $f = $d.givenname<br>PS C:\&gt; $g = $e + $f<br>PS C:\&gt; $g<br>Administrator</p><p>Guest</p><p>krbtgt<br>toto<br>System.Collections.Hashtable<br>Morse<br>Yang<br>Randal]</p><p>PS C:\&gt; $g.gettype(). fullname<br>System.String</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1OjFFSdwFMyoRG43DHB7P0K9pEjlD-XE9-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">Il est possible de récupérer une valeur de type Int sur un objet.  </pre>
+
+
+<pre class="tssr-source-code">Cette méthode appliquée à la variable $g arrondit le nombre de décimales à la valeur indiquée 
+entre les parenthèses. </pre>
+<pre class="tssr-source-code">Le troisième type de variable est le type Array qui permet de stocker des valeurs en leur attribuant 
+un index. </pre>
+
+<pre class="tssr-source-code">La variable $array est de type System.Object car les variables de type Array sont utilisées pour 
+stocker des objets sur des résultats de commande comme Get-Aduser. </pre>
+<pre class="tssr-source-code">L’avantage de ces variables est qu’il est possible de leur appliquer des méthodes (puisqu’étant de 
+type System.Object) </pre>
+
+<pre class="tssr-source-code">Attention la méthode Replace est sensible à la casse sur les valeurs entre les parenthèses. </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>$a<br>=<br>L<br>PS C:\&gt;<br>$b<br>=<br>2<br>PS C:\&gt;<br>$c<br>= $a + $b<br>PS C:\&gt;<br>$c<br>3</p><p>P<br>:\&gt;<br>$d<br>=<br>Get-Process<br>PS C:\&gt;<br>$e<br>= $d[4].id<br>PS C:\&gt; $f = $d[5].id<br>PS C:\&gt; $g = $e / $f<br>PS C:\&gt; $g<br>0.0936026936026936</p><p>PS C:\&gt;<br>[math]: :Round($g,2)<br>0.09</p><p>PS C:\&gt; $array = "pcl","“pc2","pc3"<br>PS C:\&gt; $array[1]<br>pc2</p><p>PS C:\&gt; $array.GetType(). fullname<br>System.Object</p><p>PS C:\&gt; $array.Replace("Pci","Pcii")<br>pci<br>pc2<br>pc3</p><p>PC4<br>PS C:\&gt; $array.Replace("pcl",<br>"PCi1")<br>PC11<br>pc2<br>pc3</p><p>PC4</p><p>PS C:\&gt; Sarray[3]<br>PC4</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1OjFFSdwFMyoRG43DHB7P0K9pEjlD-XE9-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">Attention également à l’indexation qui débute à 0 ; ainsi la valeur d’index 3 pointe vers la <br>quatrième valeur du tableau.  </p>
+<pre class="tssr-source-code">Toutefois la variable de type array est statique ; le nombre de valeurs ne peut être diminué. </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-3060e2c710ba374b5bf2b853fd4d1a3e4060cab979d10cb0c713c5f857f6bb75.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-3060e2c710ba374b5bf2b853fd4d1a3e4060cab979d10cb0c713c5f857f6bb75.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="3056"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1OjFFSdwFMyoRG43DHB7P0K9pEjlD-XE9 · <span title="Empreinte SHA-256 du fichier source">SHA-256 b52c4648eb00d1f5…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 3 - La variable ArrayList.pdf · 1 pages</summary>
+<summary>Démonstration · Fiche d‚mo 3 - La variable ArrayList · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/86f631bd04c6cc53/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ANjHIeqY1XBCbpnrZkrdUBHgJm6D5nBp/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/86f631bd04c6cc53/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/86f631bd04c6cc53/pages-001-001.webp" alt="Source Drive — Fiche d‚mo 3 - La variable ArrayList.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — Fiche d‚mo 3 - La variable ArrayList.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ANjHIeqY1XBCbpnrZkrdUBHgJm6D5nBp-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>La variable ArrayList </h4>
+<p class="tssr-source-paragraph">Démonstration 03 du module 4 </p>
+
+<pre class="tssr-source-code">Pour pallier le problème de taille fixe des variables de type Array, il existe un autre type de 
+variable, le type ArrayList, qui permet plus de liberté dans la gestion des valeurs qu’elle 
+contient. </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+Une variable de type ArrayList doit être déclarée de la sorte : </pre>
+<pre class="tssr-source-code">o Elle ne peut pas se déclarer en fonction de la valeur qu’elle reçoit. </pre>
+
+
+<pre class="tssr-source-code">o Maintenant que nous disposons d’une variable de type ArrayList nous lui </pre>
+<p class="tssr-source-paragraph">indiquons les valeurs à prendre en compte </p>
+
+
+<p class="tssr-source-paragraph">Le chiffre indiqué est celui de l’index de la valeur ajoutée. </p>
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$machines = New-Object System.Collections.ArrayList<br>$machines.gettype()</p><p>IsPublic IsSerial Name<br>BaseType</p><p>True<br>True<br>ArrayList<br>System.Object</p><p>[System.collections.ArrayList]$machines<br>= "PC1","PC2","PC3"<br>$machines. Add("PCc4")<br>$machines.Remove("PC1")<br>$machines</p><p>PS C:\Users\Administrator&gt;<br>[System.Collections.ArrayList]Smachines = "PC1","PC2","PC3"<br>PS C:\Users\Administrator&gt; $machines.Add("PC4")</p><p>PS C:\Users\Administrator&gt; Smachines.Remove ("PC1")<br>PS C:\Users\Administrator&gt; $machines</p><p>Pc3<br>EC4</p><p>_</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-f8434fea9b309ed6c3ea33b19f355b6f695b8489faf5b0e376838d0f112d034a.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-f8434fea9b309ed6c3ea33b19f355b6f695b8489faf5b0e376838d0f112d034a.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="1319"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ANjHIeqY1XBCbpnrZkrdUBHgJm6D5nBp · <span title="Empreinte SHA-256 du fichier source">SHA-256 86f631bd04c6cc53…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 4 - Les structures - If - Else - ElseIf.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 4 - Les structures - If - Else - ElseIf · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/7e59feafc016da3d/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1CEt9g9piknHUSPHvnsJ5EhyDDhyHRIIz/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/7e59feafc016da3d/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/7e59feafc016da3d/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 4 - Les structures - If - Else - ElseIf.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 4 - Les structures - If - Else - ElseIf.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1CEt9g9piknHUSPHvnsJ5EhyDDhyHRIIz-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : If, Else, ElseIf </h4>
+<p class="tssr-source-paragraph">Démonstration 04 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de montrer comment les variables permettent de <br>manipuler des objets, des valeurs de propriétés à l’aide de conditions appliquées à ces variables <br>pour déclencher ou non d’autres commandes ou méthodes. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La structure If est essentielle, car elle conditionne l’exécution d’une commande en fonction 
+de la réponse à un test. </pre>
+<p class="tssr-source-paragraph">• <br>Le résultat du test peut être soit « Vrai » soit « Faux », mais aucune autre valeur. </p>
+
+<pre class="tssr-source-code">• 
+Le test est effectué entre les parenthèses. Dans notre exemple on teste la valeur de la variable 
+$x. </pre>
+<p class="tssr-source-paragraph">Si la valeur est supérieure à 0 alors le test répond « Vrai ». Dans ce cas, la commande entre les <br>accolades est exécutée. </p>
+
+
+<pre class="tssr-source-code">Dans cet exemple $x n’est pas supérieur à 0, donc le test répond « Faux » : aucune commande ne 
+sera exécutée. </pre>
+<pre class="tssr-source-code">Si l’on souhaite exécuter une commande lorsque le test est « Faux », alors il faut ajouter le paramètre 
+Else à la structure If. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x =<br>1</p><p>if<br>($x -gt 0)</p><p>Write-Host "X est supérieur<br>a 0"</p><p>}</p><p>$x = 0</p><p>if<br>($x -gt 0)<br>{<br>Write-Host "X est supérieur<br>à 0"</p><p>}</p><p>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1CEt9g9piknHUSPHvnsJ5EhyDDhyHRIIz-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+
+<pre class="tssr-source-code">Dans le cas où le test initial est « Faux », il est possible de faire un test secondaire via l’utilisation du 
+paramètre ElseIf. </pre>
+
+<p class="tssr-source-paragraph">Le test secondaire peut vérifier une autre variable que la variable présente dans le test initial. </p>
+<pre class="tssr-source-code">Si le second test répond « Vrai », alors la commande entre les accolades du ElseIf sera exécutée. </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x = 0<br>if<br>($x -gt 0)<br>{<br>Write-Host "X est supérieur<br>à 0"</p><p>telse<br>{</p><p>Write-Host "X n'est pas<br>supérieur<br>a 0"</p><p>}</p><p>X n'est pas supérieur à 0</p><p>$x = 0</p><p>if<br>($x -gt<br>0)<br>{<br>Write-Host "X est supérieur<br>à 0"</p><p>selseif<br>( $x -eq 0)<br>f{</p><p>Write-Host "X est égale à 0"<br>telse<br>f</p><p>Write-Host<br>"X n'est ni<br>égale ni<br>supérieur<br>à 0”</p><p>}</p><p>X est égale à 0</p><p>E</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1CEt9g9piknHUSPHvnsJ5EhyDDhyHRIIz-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">Avec une valeur négative, les deux tests répondent « Faux ». C’est donc la valeur du Else qui sera 
+prise en compte. </pre>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x = -4</p><p>if<br>($x -gt 0)<br>{<br>Write-Host "X est supérieur<br>à 0"</p><p>yelseif<br>C $x -eq 0)<br>f{</p><p>Write-Host<br>"X est égale<br>a 0"<br>else<br>{</p><p>Write-Host<br>"X n'est ni<br>égale<br>ni<br>supérieur<br>à 0”</p><p>}</p><p>@</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-bfbda90cf859fb3965c2aaf347ca71ad20ea7e1fe3518efda4b80e9b8e77ad94.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-bfbda90cf859fb3965c2aaf347ca71ad20ea7e1fe3518efda4b80e9b8e77ad94.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2858"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1CEt9g9piknHUSPHvnsJ5EhyDDhyHRIIz · <span title="Empreinte SHA-256 du fichier source">SHA-256 7e59feafc016da3d…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 5 - Les structures - While.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 5 - Les structures - While · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/b4d4318541db71cf/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1PQk0Fu-Ogyu2Am_36GonkntA7jSlrP2q/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b4d4318541db71cf/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b4d4318541db71cf/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 5 - Les structures - While.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 5 - Les structures - While.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1PQk0Fu-Ogyu2Am_36GonkntA7jSlrP2q-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : While </h4>
+<p class="tssr-source-paragraph">Démonstration 05 du module 4 </p>
+
+<pre class="tssr-source-code">Les boucles sont des structures essentielles dans un langage et PowerShell n’y échappe pas. 
+L’objectif de cette démonstration est de montrer comment la boucle While exécute des 
+commandes, sous réserve que son test renvoie une réponse « Vrai » (si la réponse au test passe à 
+« Faux », la boucle s’arrête). </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La boucle While commence par un test, puis si la réponse est « Vraie », elle boucle une série 
+de commandes. </pre>
+<p class="tssr-source-paragraph">• <br>La boucle tourne tant que la réponse au test est « Vraie » </p>
+
+
+<p class="tssr-source-paragraph">Pour déterminer un nombre de tours de boucle maximum, on va initier une variable dite de <br>« Comptage » qui à chaque tour de boucle va s’incrémenter. </p>
+<p class="tssr-source-paragraph">Lorsque la valeur de la variable de comptage atteint la limite, la boucle s’arrête. </p>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x =<br>1<br>while<br>($x -eq 1 ){<br>write-host<br>"le<br>test<br>est vraie<br>la boucle<br>tourne<br>a<br>l'infinie”</p><p>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l'infinie</p><p>$x =<br>1<br>while<br>($x -1e 10<br>Dit<br>write-host<br>"Voici<br>la valeur<br>du compteur<br>$x"<br>$X++</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1PQk0Fu-Ogyu2Am_36GonkntA7jSlrP2q-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">Lorsque la variable atteint la valeur « 10 » la boucle s’arrête.  </p>
+<p class="tssr-source-paragraph">La boucle s’utilise beaucoup comme vérificateur de valeur saisie par un utilisateur. En effet, tant <br>que la valeur souhaitée n’est pas atteinte, la boucle ne s’arrête pas. </p>
+<pre class="tssr-source-code">Combiné à la commande Read-Host, la valeur saisie est testée à chaque tour de boucle, si la 
+valeur est conforme, on sort de la boucle. </pre>
+
+
+<p class="tssr-source-paragraph">Tant que la lettre est différente de « Q » on boucle.  </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Voici la valeur du compteur<br>1<br>Voici la valeur du compteur 2<br>Voici la valeur du compteur 3<br>Voici la valeur du compteur 4<br>Voici la valeur du compteur 5<br>Voici la valeur du compteur<br>6<br>Voici la valeur du compteur 7<br>Voici la valeur du compteur 4<br>Voici la valeur du compteur<br>9<br>Voici la valeur du compteur 10</p><p>$x = Read-Host<br>“Veuillez<br>saisir<br>la lettre<br>de<br>votre<br>choix<br>Q<br>pour<br>quitter<br>while ($x -ne<br>"q"<br>)if<br>|<br>write-host<br>"Vous<br>avez<br>choisi<br>la<br>lettre<br>:<br>$x"</p><p>$x = Read-Host<br>“Veuillez<br>saisir<br>la lettre<br>de<br>votre<br>choix<br>Q pour<br>quitter"</p><p>Veuillez saisir la lettre<br>de votre choix © pour quitter: A<br>Wous<br>avez<br>choisi<br>la lettre<br>:<br>A<br>Veuillez saisir la lettre<br>de votre choix © pour quitter:<br>E<br>Wous<br>avez<br>choisi<br>la lettre<br>:<br>E<br>Veuillez saisir la lettre<br>de votre choix © pour quitter:<br>q<br>ES C:\Users\Administrator&gt;</p><p>En</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-82e2b07bf61f8112f2287fcf647b337089d237718383fe72f301795f4e324466.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-82e2b07bf61f8112f2287fcf647b337089d237718383fe72f301795f4e324466.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1988"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1PQk0Fu-Ogyu2Am_36GonkntA7jSlrP2q · <span title="Empreinte SHA-256 du fichier source">SHA-256 b4d4318541db71cf…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 6 - Les structures - Do-While - Do-Until.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 6 - Les structures - Do-While - Do-Until · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/7274e1473abc23a1/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ikLiim6Ss5HZkOkk8p3oDJtG-jGjKooj/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/7274e1473abc23a1/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/7274e1473abc23a1/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 6 - Les structures - Do-While - Do-Until.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 6 - Les structures - Do-While - Do-Until.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ikLiim6Ss5HZkOkk8p3oDJtG-jGjKooj-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : Do-While et <br>Do-Until </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 4 </p>
+
+<p class="tssr-source-paragraph">La boucle nécessite une valeur de variable à tester pour commencer à boucler. Cela est parfois <br>impossible car la variable à tester peut-être déclarée à l’intérieur même de la boucle. </p>
+<pre class="tssr-source-code">L’objectif de cette démonstration est de montrer que la boucle Do-While permet un tour de 
+boucle initiale sans condition. La condition sera faite en sortie de boucle et, en fonction de la 
+réponse, d’autres tours de boucle (ou aucun) seront effectués. </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La boucle Do-While va continuer à boucler tant que le test final va répondre « Vrai » ; dès que 
+le test répond « faux », la boucle s’arrête. </pre>
+<p class="tssr-source-paragraph">• <br>La boucle tourne tant que la réponse au test est « Vraie » </p>
+
+
+<pre class="tssr-source-code">Pour le Do-until, le sens est inversé au niveau de la condition : on boucle tant que le test répond 
+« Faux ». </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>do<br>{</p><p>$x = Read-Host<br>"Veuillez<br>choisir<br>une<br>lettre<br>Q pour Quitter”</p><p>} while<br>| $x -ne<br>"“q")</p><p>Veuillez choisir une lettre<br>0 pour Quitter:<br>a<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>e<br>Veuillez choisir une lettre<br>0 pour Quitter:<br>r<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>q</p><p>Oo</p><p>$x = Read-Host “Veuillez choisir<br>une<br>lettre Q pour Quitter"</p><p>} until<br>(€ $x -eq<br>“q")</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ikLiim6Ss5HZkOkk8p3oDJtG-jGjKooj-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">Pour bien différencier les deux structures, il faut penser à certains types de tests qui ne peuvent pas <br>être inversés par des opérateurs de comparaison comme les booléens. </p>
+
+
+<pre class="tssr-source-code">Dans le premier cas $x est égale à $False. Until boucle à l’infini. Dans le second cas, Until ne 
+boucle pas. </pre>
+<pre class="tssr-source-code">Nous avons le comportement inverse avec While </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Veuillez choisir une lettre<br>Q pour Quitter:<br>z<br>veuillez choisir une lettre<br>Q pour Quitter:<br>e<br>Veuillez choisir une lettre<br>Q pour Quitter:<br>q</p><p>$x =<br>$false<br>on boucle</p><p>.<br>"<br>1<br>on boucle<br>Write-host<br>“on<br>boucle<br>on boucle</p><p>=<br>on boucle<br>} until<br>($x)<br>Son a</p><p>do<br>{<br>$x = $true<br>Write-host<br>"on<br>boucle"</p><p>} until<br>($x)</p><p>$x = $true<br>a<br>=<br>M<br>+<br>eon<br>Soucle<br>Write-host<br>"on<br>boucle<br>on boucle</p><p>:<br>Oo<br>boucle<br>} while<br>($x)<br>on boucle</p><p>do<br>{<br>$x =<br>$False<br>Write-host<br>"on<br>boucle"</p><p>} while<br>($x)</p></div></details>
+
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-bdf9672e3cbdb7b06cbbb952104c27755967640559eef846e682561b17c000dd.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-bdf9672e3cbdb7b06cbbb952104c27755967640559eef846e682561b17c000dd.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2804"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ikLiim6Ss5HZkOkk8p3oDJtG-jGjKooj · <span title="Empreinte SHA-256 du fichier source">SHA-256 7274e1473abc23a1…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 7 - Les structures - Foreach.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 7 - Les structures - Foreach · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/9e3f186cbd71d16e/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/18m5Utae9SKmg9nacgq7o0-8yJ-pQLr8Z/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/9e3f186cbd71d16e/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/9e3f186cbd71d16e/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 7 - Les structures - Foreach.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 7 - Les structures - Foreach.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-18m5Utae9SKmg9nacgq7o0-8yJ-pQLr8Z-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : Foreach </h4>
+<p class="tssr-source-paragraph">Démonstration 07 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous montrer le fonctionnement la boucle Foreach. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La boucle Foreach est la boucle qui s’utilise avec des variables de type Array et ArrayList. </pre>
+<p class="tssr-source-paragraph">En effet la boucle fonctionne avec un index qui va parcourir les variables et traiter les valeurs <br>contenues dans chaque index du tableau. </p>
+<p class="tssr-source-paragraph">Le nombre de tours de boucle dépend du nombre de valeurs contenues dans la variable. </p>
+<pre class="tssr-source-code">• 
+La structure Foreach est employée pour exprimer les propriétés d’un ou de plusieurs objets 
+contenus dans une variable. </pre>
+<pre class="tssr-source-code">• 
+Reprenons l’exemple de la variable Array : </pre>
+
+
+<pre class="tssr-source-code">Trois index sont présents dans la variable $array donc trois tours de boucle. </pre>
+<pre class="tssr-source-code">A chaque tour de boucle, la valeur de l’index $i prend la valeur de l’index suivant dans le tableau. </pre>
+<pre class="tssr-source-code">Avec une variable de type ArrayList, nous allons explorer des objets. </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$array = "PCL","PC2","PC3"<br>Foreach<br>€<br>$i<br>in $array){<br>write-host<br>"Voici<br>la valeur<br>de<br>l'index $7"</p><p>}</p><p>Voici<br>la valeur de<br>l'index<br>PCI<br>Voici<br>la valeur de<br>l'index<br>PC2<br>Voici<br>la valeur de<br>l'index<br>PC3</p><p>$fusers = Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users)i{<br>Write-Host “Bonjour” $i.givenname<br>$i.name</p><p>}</p><p>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-18m5Utae9SKmg9nacgq7o0-8yJ-pQLr8Z-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">A chaque tour de boucle, l’index contient un objet, ici un utilisateur Active Directory. On spécifie <br>les propriétés de l’objet avec le « . ». </p>
+<pre class="tssr-source-code">La structure Foreach accepte des commandes « action ». Ces actions sont décidées la plupart du 
+temps pour donner suite à un test venant d’une structure If. </pre>
+
+<pre class="tssr-source-code">Avec l’action BREAK la boucle s’arrête si elle détecte un des quatre comptes indiqués dans la 
+condition du If. </pre>
+
+<pre class="tssr-source-code">Avec l’action CONTINUE la boucle continue sans traiter l’objet qui a répondu « Vrai » au test. 
+ </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Bonjour Ferdinand Morse<br>Bonjour Britanney Yang<br>Bonjour Reese Randall<br>Bonjour Adele Pena<br>Bonjour Keiko Huber</p><p>$users<br>= Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users){<br>if<br>(( $i-name<br>-in<br>"Administrator",<br>"krbtgt", "guest", “toto")<br>{BREAK}<br>Write-Host<br>“Bonjour”<br>$i.givenname<br>$i.name</p><p>}</p><p>$users<br>= Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users){<br>if<br>( $i.name -in "Administrator", "krbtgt", "guest", “toto")</p><p>{CONTINUE}<br>Write-Host<br>“Bonjour”<br>$i.givenname $i.name</p><p>}</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-29a2dc9e42a866a66973743b7502acaa0162a1ec915baee0e27a99bee6f541ca.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-29a2dc9e42a866a66973743b7502acaa0162a1ec915baee0e27a99bee6f541ca.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1767"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 18m5Utae9SKmg9nacgq7o0-8yJ-pQLr8Z · <span title="Empreinte SHA-256 du fichier source">SHA-256 9e3f186cbd71d16e…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 8 - Les structures - Switch.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 8 - Les structures - Switch · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/242ea33e6c9c0d19/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ci0EpL_sZg3PtmUJ3ogC65yHpgr7jaWg/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/242ea33e6c9c0d19/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/242ea33e6c9c0d19/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 8 - Les structures - Switch.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 8 - Les structures - Switch.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ci0EpL_sZg3PtmUJ3ogC65yHpgr7jaWg-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : Switch </h4>
+<p class="tssr-source-paragraph">Démonstration 08 du module 4 </p>
+
+<pre class="tssr-source-code">La condition If permet de tester et de définir des commandes à exécuter en fonction d’un 
+résultat « Vrai » ou « Faux ». Le If se limite à un ou deux tests maximum, au-delà il faut passer par 
+la structure Switch. L’objectif de cette démonstration est de voir que le Switch permet de définir 
+une action précise en fonction de la saisie d’une valeur. </pre>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+Pour utiliser un Switch, il faut définir la variable qui va être testée. </pre>
+<p class="tssr-source-paragraph">• <br>Ensuite, on déclare les valeurs ainsi que les actions à effectuer en fonction de la valeur.  </p>
+
+
+
+<pre class="tssr-source-code">Le Switch teste, au moyen d’expressions régulières, la variable $choix. Pour cela, il faut ajouter le 
+paramètre Regex à la commande Switch. </pre>
+<p class="tssr-source-paragraph">En cas de caractère non identifié par les deux premières conditions, c’est la sortie par défaut qui <br>est exécutée. </p>
+
+<pre class="tssr-source-code">La structure Switch accède, comme la structure Foreach, les actions Continue et Break. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$choix = Read-Host<br>“Veuillez<br>faire<br>votre<br>choix"</p><p>Switch<br>-Regex<br>($choix)<br>{<br>"[a-zA-Z]'<br>{Write-Host<br>"Vous avez choisi<br>une<br>lettre"<br>}<br>"[0-9]'<br>{write-Host<br>"Vous<br>avez choisi<br>un<br>chiffre"<br>}<br>Default<br>{ Write-Host<br>"Vous<br>avez<br>fait<br>un<br>autre<br>choix"<br>}</p><p>}</p><p>Veuillez faire votre<br>choix:<br>e<br>Veuillez<br>faire<br>votre<br>choix:<br>5<br>Vous avez choisi<br>une lettre<br>Vous<br>avez choisi un chiffre</p><p>Veuillez<br>faire<br>votre<br>choix:<br>?<br>Vous<br>avez<br>fait<br>un autre<br>choix</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ci0EpL_sZg3PtmUJ3ogC65yHpgr7jaWg-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">Si le groupe est User, il sera non testé. Les autres groupes seront testés ensuite. </pre>
+
+<pre class="tssr-source-code">La structure Switch est largement utilisée pour constituer des menus à choix multiple. </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$adgroup = Get-ADGroup -Filter<br>*</p><p>switch<br>-regex ($adgroup)<br>{i<br>"User"<br>{ CONTINUE}<br>"Administrators'<br>{Write-Host<br>“Le groupe<br>est Admins”<br>}<br>Default<br>{ Write-Host<br>“Le groupe n'est<br>pas valide”<br>}</p><p>}</p><p>Le groupe est Admins<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide<br>Le groupe n'est pas valide</p><p>Write-Host<br>"Le choix<br>1"<br>Write-Host<br>"Le<br>choix<br>2"<br>Write-Host<br>“Le<br>choix<br>3"<br>$choix = Read-Host<br>"Veuillez<br>faire votre choix"<br>switch<br>-regex ($choix)<br>{<br>"1"<br>{ Write-Host<br>‘vous<br>avez fait<br>le choix<br>1"<br>}</p><p>"2"<br>{ Write-Host<br>"vous avez fait<br>le choix<br>2"<br>}</p><p>"3"<br>{| Write-Host<br>“vous<br>avez fait<br>le choix<br>3"<br>}<br>‘[qQ]'<br>{BREAK}</p><p>}</p><p>Le<br>choix<br>1<br>Le<br>choix<br>2<br>Le<br>choix<br>3<br>Veuillez<br>faire<br>votre<br>choix:<br>3<br>vous<br>avez<br>fait<br>le<br>choix<br>3</p><p>En</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-0bc225a3b509ae1358a0237fd1ca78f43be28db870386409db9fa895d337204e.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-0bc225a3b509ae1358a0237fd1ca78f43be28db870386409db9fa895d337204e.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2498"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ci0EpL_sZg3PtmUJ3ogC65yHpgr7jaWg · <span title="Empreinte SHA-256 du fichier source">SHA-256 242ea33e6c9c0d19…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 9 - L'imbrication.pdf · 1 pages</summary>
+<summary>Démonstration · Fiche d‚mo 9 - L'imbrication · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/a81cef7bd65e2076/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/18XS11dIOrl1c15hmDq6Vw-OnN01TASLm/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/a81cef7bd65e2076/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/a81cef7bd65e2076/pages-001-001.webp" alt="Source Drive — Fiche d‚mo 9 - L'imbrication.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — Fiche d‚mo 9 - L'imbrication.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-18XS11dIOrl1c15hmDq6Vw-OnN01TASLm-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>L’imbrication </h4>
+<p class="tssr-source-paragraph">Démonstration 09 du module 4 </p>
+
+<p class="tssr-source-paragraph">Les structures sont faites pour être imbriquées les unes avec les autres afin de répondre à un <br>besoin. L’objectif de cette démonstration est de vous donner un exemple. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Nous allons combiner plusieurs structures afin de créer un menu interactif. </p>
+<p class="tssr-source-paragraph">• <br>Ce menu doit être intégré dans une boucle qui s’arrêtera lorsque l’utilisateur appuiera sur une <br>touche assignée à la sortie du menu.  </p>
+
+
+<p class="tssr-source-paragraph">• <br>La variable « choix » est réinitialisée à chaque tour de boucle. Cela permet de ne pas garder <br>en mémoire la valeur du choix précédent.   </p>
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>do{</p><p>Write-host<br>"Choix<br>1<br>Write-host<br>"Choix<br>2<br>Write-host<br>“Choix<br>3<br>Write-host<br>"Choix<br>q<br>pour<br>quitter<br>$choix = Read-Host<br>"Veuillez<br>faire<br>votre<br>choix</p><p>if<br>($choix<br>-in 1,2,3,"q","Q"){<br>switch<br>-regex<br>($choix){</p><p>"1'<br>{write-Host<br>"Vous<br>avez fait<br>le<br>choix<br>1"}</p><p>'2'<br>{write-Host<br>"Vous<br>avez fait<br>le<br>choix<br>2"}<br>"3"<br>{Write-Host<br>"Vous<br>avez fait<br>le<br>choix<br>3"}<br>}}else{Wwrite-Host<br>"Vous<br>n'avez<br>pas<br>fait<br>le<br>bon<br>choix"}<br>en</p><p>Choix<br>Choix<br>2<br>Choix<br>3<br>Choix q pour quitter</p><p>Veuillez<br>faire<br>votre<br>choix:<br>1<br>Vous<br>avez<br>fait<br>le<br>choix<br>1<br>Choix<br>1<br>Choix<br>2<br>Choix<br>3<br>Choix q pour quitter</p><p>Veuillez<br>faire<br>votre<br>choix:<br>2<br>Vous<br>avez<br>fait<br>le<br>choix<br>2<br>Choix<br>1<br>Choix<br>2<br>Choix<br>3<br>Choix q pour quitter</p><p>Veuillez faire votre choix:<br>q</p><p>En</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-29c2e91c61ac7f30a80da5ca72db7faa498e015466b262252653ed08a5417af5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-29c2e91c61ac7f30a80da5ca72db7faa498e015466b262252653ed08a5417af5.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="1154"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 18XS11dIOrl1c15hmDq6Vw-OnN01TASLm · <span title="Empreinte SHA-256 du fichier source">SHA-256 a81cef7bd65e2076…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · nonc TP - Variables et structures.pdf · 3 pages</summary>
+<summary>Énoncé · nonc TP - Variables et structures · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/f0d6685dbc44dec9/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/f0d6685dbc44dec9/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/f0d6685dbc44dec9/pages-001-003.webp" alt="Source Drive — nonc TP - Variables et structures.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5972"></a><figcaption>Source Drive — nonc TP - Variables et structures.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2-page-1"><h3>Page 1</h3><h4>Initiation à PowerShell<br>Variables et structures</h4>
+<p class="tssr-source-paragraph">TP du Module 04</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 de ce cours.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">4 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Objectifs : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utiliser les variables dans le langage de commande PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Intégrer les structures de commandes dans des scripts de base</p>
+<p class="tssr-source-paragraph">Consignes :</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Stocker dans une variable le résultat de la commande Get-EventLog system.</pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Affichez l’entrée de journal numéro 10. </p>
+<p class="tssr-source-paragraph">Quelle est la valeur de l’Index du journal ?</p>
+<p class="tssr-source-paragraph">Créer une variable qui stockera l’addition de l’index de journal numéro 10 et 20. Quelles<br>commandes avez-vous utilisées ?</p>
+<p class="tssr-source-paragraph">Page 1/3<br>     <br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pour répondre au besoin, vous utiliserez les structures If et DoWhile.</p>
+<p class="tssr-source-paragraph">Créer un script qui dans un premier temps demande la saisie de la date de naissance<br>d’un utilisateur, puis dans un second temps demande à l’utilisateur de trouver cette date<br>de naissance en indiquant si la valeur saisie est supérieure ou inférieure. </p>
+<p class="tssr-source-paragraph">Si la date saisie est correcte, la boucle s’arrête et l’utilisateur est félicité. </p>
+<p class="tssr-source-paragraph">BONUS&nbsp;:  indiquez le nombre d’essais effectués par l’utilisateur.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pour répondre au besoin, vous utiliserez les structures If et ForEach.</p>
+<pre class="tssr-source-code">Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;
+dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active
+Directory.</pre>
+<p class="tssr-source-paragraph">Indiquez le nombre d’utilisateurs actif et inactif.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisation de While / If ou Switch</p>
+<p class="tssr-source-paragraph">Réalisez un menu à choix multiples, voici l'affichage attendu :</p>
+<p class="tssr-source-paragraph">Bienvenue dans l'outil d'inventaire, faites votre choix parmi les menus <br>suivants :<br>1) Affichage des ordinateurs du domaine.<br>2) Affichage des groupes de domaines  locaux<br>3) Importation des utilisateurs «&nbsp;AD&nbsp;» à partir d’un fichier «&nbsp;CSV&nbsp;»<br>4) Quitter</p>
+<p class="tssr-source-paragraph">Entrez votre choix :</p>
+<p class="tssr-source-paragraph">Page 2/3<br>     <br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">Si la saisie de l'utilisateur est incorrecte, la saisie doit être proposée à nouveau en<br>indiquant l'erreur.</p>
+<p class="tssr-source-paragraph">Indiquez les lignes de commandes utilisées.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Chargez dans une variable les objets utilisateurs Active Directory.</p>
+<p class="tssr-source-paragraph">Pour chaque utilisateur, réinitialisez le mot de passe puis vérifiez si l’utilisateur est inactif.<br>Activer leurs comptes.</p>
+<p class="tssr-source-paragraph">Quelles commandes avez-vous utilisées ?</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 3/3<br>     <br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-c5e7c1412a156808a31330f6065895504fd023ecabcdd1c019b87adead042aca.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-c5e7c1412a156808a31330f6065895504fd023ecabcdd1c019b87adead042aca.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1009" height="3050"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2 · <span title="Empreinte SHA-256 du fichier source">SHA-256 f0d6685dbc44dec9…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP - Variables et structures.pdf · 4 pages</summary>
+<summary>Correction · Solution du TP - Variables et structures · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/093b0952e91c8ab2/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/093b0952e91c8ab2/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/093b0952e91c8ab2/pages-001-004.webp" alt="Source Drive — Solution du TP - Variables et structures.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Variables et structures.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Variables et structures </h4>
+<p class="tssr-source-paragraph">TP du Module 04 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 de ce cours. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">4 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Objectifs :  </p>
+<p class="tssr-source-paragraph">• <br>Utiliser les variables dans le langage de commande PowerShell </p>
+<p class="tssr-source-paragraph">• <br>Intégrer les structures de commandes dans des scripts de base </p>
+<p class="tssr-source-paragraph">Consignes : </p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<pre class="tssr-source-code">• 
+Stocker dans une variable le résultat de la commande Get-EventLog system. </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+
+<p class="tssr-source-paragraph">Affichez l’entrée de journal numéro 10.  </p>
+
+<p class="tssr-source-paragraph">Quelle est la valeur de l’Index du journal ? </p>
+
+<p class="tssr-source-paragraph">Créer une variable qui stockera l’addition de l’index de journal numéro 10 et 20. Quelles <br>commandes avez-vous utilisées ? </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p><p>EN Administrator: Windows PowerShell<br>q<br>PS<br>C:\&gt;<br>Get-EventLo<br>System</p><p>EX Select Administrator: Windows PowerShell<br>PS C:\&gt;<br>10].<br>index<br>3775</p><p>EX Administrator: Windows PowerShell<br>| = 4<br>PS C:\&gt;<br>10]<br>.1ndex<br>20]<br>.1ndex<br>PS C:\&gt;<br>7540</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">• <br>Pour répondre au besoin, vous utiliserez les structures If et DoWhile. </p>
+<p class="tssr-source-paragraph">Créer un script qui dans un premier temps demande la saisie de la date de naissance d’un <br>utilisateur, puis dans un second temps demande à l’utilisateur de trouver cette date de <br>naissance en indiquant si la valeur saisie est supérieure ou inférieure.  </p>
+<p class="tssr-source-paragraph">Si la date saisie est correcte, la boucle s’arrête et l’utilisateur est félicité.  </p>
+<p class="tssr-source-paragraph">BONUS :  indiquez le nombre d’essais effectués par l’utilisateur. </p>
+
+<p class="tssr-source-paragraph">• <br>Pour répondre au besoin, vous utiliserez les structures If et ForEach. </p>
+<pre class="tssr-source-code">Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ; 
+dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active 
+Directory. </pre>
+<p class="tssr-source-paragraph">Indiquez le nombre d’utilisateurs actifs et inactifs. </p>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EX Administrator: Windows PowerShell<br>| = 4<br>PS C:\&gt;<br>10]<br>.1ndex<br>20]<br>.1ndex<br>eMSind<br>7540</p><p>¢compteur=0</p><p>|<br>[int]$date=Read-Host<br>"Indiquez<br>une date<br>"<br>if<br>($date<br>-gt $n){<br>write-host "La valeur<br>saisie<br>est<br>trop grande”<br>}elseif($date -1t $n)<br>{</p><p>$compteur++<br>}while(<br>$date -ne $n)</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">• <br>Utilisation de While / If ou Switch </p>
+<p class="tssr-source-paragraph">Réalisez un menu à choix multiples, voici l'affichage attendu : </p>
+<p class="tssr-source-paragraph">Bienvenue dans l'outil d'inventaire, Faites votre choix parmi les menus <br>suivants : <br>1) Affichage des ordinateurs du domaine. <br>2) Affichage des groupes de domaines locaux <br>3) Importation des utilisateurs AD à partir d’un fichier CSV <br>4) Quitter <br> <br>Entrez votre choix : </p>
+<p class="tssr-source-paragraph">Si la saisie de l'utilisateur est incorrecte, la saisie doit être proposée à nouveau en indiquant <br>l'erreur. </p>
+<p class="tssr-source-paragraph">Indiquez les lignes de commandes utilisées. </p>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>1<br>$users = get-aduser -filter<br>*</p><p>&gt;<br> $UserActif = New-Object system.collections.arraylist<br>$UserInActif<br>= New-Object system.collections.arraylist</p><p>4<br> Foreach($i<br>in $users){</p><p>5<br>if ($i.enabled<br>-eq $true){</p><p>6<br>$UserActif.add($i)</p><p>7<br>else<br>1</p><p>B<br>$UserInActif.add($i) |<br>9<br>}</p><p>19<br>Ÿ}</p><p>1<br>Write-Host<br>"VOici<br>le<br>nombre d'utilisateur<br>actif<br>:<br>“</p><p>12<br>-NoNewline<br>;<br>($UserActif<br>|<br>measure).count<br>Write-Host<br>"Voici<br>le<br>nombre d'utilisateur<br>inactifs<br>:<br>"</p><p>l<br>-NoNewline ;($UserInActif<br>|<br>measure).count</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">• <br>Chargez dans une variable les objets utilisateurs Active Directory. </p>
+<p class="tssr-source-paragraph">Pour chaque utilisateur, réinitialisez le mot de passe puis vérifiez si l’utilisateur est inactif. <br>Activer leurs comptes. </p>
+<p class="tssr-source-paragraph">Quelles commandes avez-vous utilisées ? </p>
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>do<br>{</p><p>3)<br>Importation<br>des<br>utilisateurs<br>AD<br>partir<br>d'un<br>fichier CSV</p><p>E<br>$choix<br>= read-host<br>"Veuillez<br>faire<br>un<br>choix"</p><p>if<br>($choix<br>-notin 1,2,3,4<br>){<br>Write-Host<br>"votre<br>choix<br>est<br>incorecte"</p><p>}</p><p>"1"<br>{ $computer<br>= get-adcomputer -filter<br>*<br>;<br>Write-host<br>"Voici<br>les ordinateurs du domaine<br>:<br>“<br>$computer.name<br>~<br>-foregroundcolor green<br>}<br>2"<br>{ $group = get-adgroup<br>-filter<br>*<br>|<br>where groupscope<br>-eq domainlocal<br>Write-host<br>"Voici<br>les groupes de domaine<br>locaux<br>:<br>" $group.name<br>~</p><p>E<br>-foregroundcolor yellow}<br>"3"<br>{$path<br>=<br>read-host<br>"Veuillez<br>indiquer<br>le<br>chemin<br>du<br>fichier CSV<br>";<br>import-csv<br>-path $path -delimiter<br>";"<br>|<br>new-aduser}<br>4"<br>{ Write-Host<br>"Sortie<br>du programme}</p><p>F<br>} while<br>(<br>$choix<br>-ne 4)</p><p>1<br>$user<br>= get-aduser -filter *<br>foreach ($i<br>in $user){<br>$p<br>= convertto-securestring<br>-asplaintext<br>-force<br>‘Pa$$w@rd'<br>set-adaccountpassword<br>-newpassword $p -identity $i.distinguishedname<br>if ($i.enabled<br>-eq $false){<br>enable-adaccount<br>-Identity $i.distinguishedname</p><p>}</p><p>}</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-9ba754fb8426893aff1aaeedb288ec4f1aca43e5fb66370aa110a2cc98511709.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-9ba754fb8426893aff1aaeedb288ec4f1aca43e5fb66370aa110a2cc98511709.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="3714"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h · <span title="Empreinte SHA-256 du fichier source">SHA-256 093b0952e91c8ab2…</span></p>
 </div>
 </details>
@@ -12731,7 +13270,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="reperes">Repères<a class="headerlink" href="#reperes" title="Permanent link">¶</a></h2>
 <ul>
@@ -12827,11 +13366,11 @@ exécutées hors de ce contexte.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

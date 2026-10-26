@@ -1,0 +1,370 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 – Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 04 – Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en <br>environnement Microsoft</h4>
+<p class="tssr-source-paragraph">Module 04 – Le routage</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Objectifs</h4>
+<p class="tssr-source-paragraph">• Comprendre et configurer le routage</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Le mécanisme du routage</p>
+<p class="tssr-source-paragraph">• Il permet la communication entre différents réseaux logiques.</p>
+<p class="tssr-source-paragraph">• Les types de routage :<br>• Statique<br>• Dynamique<br>• Constitution d’une route :<br>• Adresse de réseau de destination<br>• Masque de sous-réseau du réseau de destination<br>• Adresse de passerelle</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Communication au sein d’un même réseau logique</p>
+<p class="tssr-source-paragraph">•<br>Si ping de A vers B</p>
+<p class="tssr-source-paragraph">Poste A<br>Poste B</p>
+<p class="tssr-source-paragraph">Ping 1A vers 1B</p>
+<p class="tssr-source-paragraph">Domaine de diffusion</p>
+<p class="tssr-source-paragraph">Réseau identique</p>
+<p class="tssr-source-paragraph">Envoi de la requête ping</p>
+<p class="tssr-source-paragraph">@MAC : Phy1B<br>@IP : 1B</p>
+<p class="tssr-source-paragraph">@MAC : Phy1A<br>@IP : 1A</p>
+<p class="tssr-source-paragraph">Poste C</p>
+<p class="tssr-source-paragraph">Poste A<br>Poste B</p>
+<p class="tssr-source-paragraph">•<br>Si ping de A vers C</p>
+<p class="tssr-source-paragraph">Domaine de diffusion</p>
+<p class="tssr-source-paragraph">Ping 1A vers 2C</p>
+<p class="tssr-source-paragraph">Réseau différent</p>
+<p class="tssr-source-paragraph">@MAC : Phy1A<br>@IP : 1A</p>
+<p class="tssr-source-paragraph">@MAC : Phy1B<br>@IP : 1B</p>
+<p class="tssr-source-paragraph">@MAC : Phy2C<br>@IP : 2C</p>
+<p class="tssr-source-paragraph">Pas d’envoi de requête ping</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Communication au sein d’un même réseau logique</p>
+<p class="tssr-source-paragraph">192.168.1.20<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">Poste B</p>
+<p class="tssr-source-paragraph">Retour erreur ICMP</p>
+<p class="tssr-source-paragraph">FF:FF:FF:FF:FF:FF<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Poste A</p>
+<p class="tssr-source-paragraph">Ping 192.168.1.20</p>
+<p class="tssr-source-paragraph">Arp B</p>
+<p class="tssr-source-paragraph">Ping 127.0.0.1</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Requête ARP @mac B ?</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1B<br>192.168.1.20/24</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Réponse </p>
+<p class="tssr-source-paragraph">Adresse <br>locale ?</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1A<br>192.168.1.10/24</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">ARP ?</p>
+<p class="tssr-source-paragraph">Mise en attente du ping</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">192.168.1.20<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1B<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Réponse Arp B</p>
+<p class="tssr-source-paragraph">Table ARP</p>
+<p class="tssr-source-paragraph">Calcul de réseau logique A<br>@IPA :<br>192.168.1.10<br>Mask A :<br>255.255.255.0<br>Réseau A : 192.168.1.0</p>
+<p class="tssr-source-paragraph">Oui<br>Mise à jour </p>
+<p class="tssr-source-paragraph">@IP = <br>@MAC ?<br>Oui</p>
+<p class="tssr-source-paragraph">table ARP</p>
+<p class="tssr-source-paragraph">Adresse </p>
+<p class="tssr-source-paragraph">Calcul de réseau logique B </p>
+<p class="tssr-source-paragraph">192.168.1.20<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">réseau <br>identique ?</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1B<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Ping B</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Retour erreur ICMP ou<br>Utilisation GW si renseignée</p>
+<p class="tssr-source-paragraph">pour A<br>@IPB :<br>192.168.1.20<br>Mask A :<br>255.255.255.0<br>Réseau A : 192.168.1.0</p>
+<p class="tssr-source-paragraph">Envoi du ping vers Poste B</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Communication au sein de réseaux logiques différents</p>
+<p class="tssr-source-paragraph">Poste A</p>
+<p class="tssr-source-paragraph">Poste D</p>
+<p class="tssr-source-paragraph">1R<br>2R</p>
+<p class="tssr-source-paragraph">Domaine de diffusion 1<br>Domaine de diffusion 2</p>
+<p class="tssr-source-paragraph">Poste C</p>
+<p class="tssr-source-paragraph">@MAC : Phy2D<br>@IP : 2D</p>
+<p class="tssr-source-paragraph">Poste B<br>@MAC : Phy1A<br>@IP : 1A<br>@GW : 1R</p>
+<p class="tssr-source-paragraph">@MAC : Phy2R<br>@IP : 2R</p>
+<p class="tssr-source-paragraph">@MAC : Phy1R<br>@IP : 1R</p>
+<p class="tssr-source-paragraph">@MAC : Phy1B<br>@IP : 1B</p>
+<p class="tssr-source-paragraph">@MAC : Phy2C<br>@IP : 2C</p>
+<p class="tssr-source-paragraph">•<br>Si ping de A vers D<br>Ping 1A vers 2D</p>
+<p class="tssr-source-paragraph">Réponse du routeur​</p>
+<p class="tssr-source-paragraph">Réponse de D</p>
+<p class="tssr-source-paragraph">MacD<br>MacS<br>IPD<br>IPS<br>DATA</p>
+<p class="tssr-source-paragraph">MacD<br>MacS<br>IPD<br>IPS<br>DATA</p>
+<p class="tssr-source-paragraph">Réseau différent<br>Envoi de la requête ping si passerelle par défaut configurée</p>
+<p class="tssr-source-paragraph">Phy1A<br>Phy1R<br>1A<br>1R<br>Réponse ARP</p>
+<p class="tssr-source-paragraph">Phy2R<br>Phy2D<br>2R<br>2D<br>Réponse ARP</p>
+<p class="tssr-source-paragraph">Recherche de l’adresse de physique de R​</p>
+<p class="tssr-source-paragraph">Recherche de l’adresse  physique de D</p>
+<p class="tssr-source-paragraph">Adresse physique<br>Adresse logique</p>
+<p class="tssr-source-paragraph">Adresse physique<br>Adresse logique</p>
+<p class="tssr-source-paragraph">Destinataire<br>Source<br>Destinataire<br>Source</p>
+<p class="tssr-source-paragraph">Envoie de la trame Ping à D</p>
+<p class="tssr-source-paragraph">Envoie de la trame Ping au routeur</p>
+<p class="tssr-source-paragraph">Destinataire<br>Source<br>Destinataire<br>Source</p>
+<p class="tssr-source-paragraph">FF:FF:FF:FF:FF:FF<br>Phy1A<br>1R<br>1A<br>Requête ARP</p>
+<p class="tssr-source-paragraph">FF:FF:FF:FF:FF:FF<br>Phy2R<br>2D<br>2R<br>Requête ARP</p>
+<p class="tssr-source-paragraph">MacD<br>MacS<br>IPD<br>IPS<br>DATA</p>
+<p class="tssr-source-paragraph">MacD<br>MacS<br>IPD<br>IPS<br>DATA</p>
+<p class="tssr-source-paragraph">Phy2D<br>Phy2R<br>2D<br>1A<br>Ping D</p>
+<p class="tssr-source-paragraph">Phy1R<br>Phy1A<br>2D<br>1A<br>Ping D</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  Le routage
+ Concept du routage
+
+       Communication au sein d’un même réseau logique
+
+                                                                                                    192.168.1.20       192.168.1.10                             Poste B
+               Poste A    Ping 192.168.1.20                                       FF:FF:FF:FF:FF:FF   00:29:0C:1E:30:1A          Retour erreur ICMP
+                                                                                                 Arp B
+                                                           Ping 127.0.0.1                                          Non
+                                                                                                                                                                00:29:0C:1E:30:1B
+                 00:29:0C:1E:30:1A        Adresse     Oui                              Requête ARP @mac B ?                                        192.168.1.20/24
+                  192.168.1.10/24          locale ?                                                                     Réponse          Oui                                                                Mise en attente du ping                           ARP ?
+                           Non                                                                                                               192.168.1.20       192.168.1.10
+                                                        Non                                                                  00:29:0C:1E:30:1B   00:29:0C:1E:30:1A                    Calcul de réseau logique A
+               @IPA :       192.168.1.10                                                                                                      Réponse Arp B
+               Mask A :     255.255.255.0                              Table ARP
+                Réseau A : 192.168.1.0                 Oui         @IP =        Oui                                                     Mise à jour                                            @MAC ?                                                                                                                                                                  table ARP
+                                                       Adresse
+                    Calcul de réseau logique B              réseau                                                                               192.168.1.20         192.168.1.10
+                         pour A                      identique ?                                                                            00:29:0C:1E:30:1B    00:29:0C:1E:30:1A
+              @IPB :       192.168.1.20
+               Mask A :     255.255.255.0           Non           Retour erreur ICMP ou                                                      Ping B
+                Réseau A : 192.168.1.0                                     Utilisation GW si renseignée
+                                                                                                                                              Envoi du ping vers Poste B
+
+                                                                                         5
+
+
+5
+
+
+  Le routage
+ Concept du routage
+
+       Communication au sein de réseaux logiques différents
+
+
+              Poste A                                                   1R              2R                                       Poste D
+                     Domaine de diffusion 1                     Domaine de diffusion 2
+            @MAC : Phy1A                                                                                @MAC : Phy2D
+               @IP : 1A                  Poste B                                               Poste C                @IP : 2D
+           @GW : 1R
+                                                 @MAC : Phy1R     @MAC : Phy2R
+                          •  Si ping de A vers D     @MAC : Phy1B            @IP : 1R           @IP : 2R              @MAC : Phy2C
+                   Ping 1A vers 2D            @IP : 1B                                                          @IP : 2C
+                                                                                          RéponseRéponse dude Drouteur​                 Réseau différent
+                  Envoi de la requête ping si passerelle par défaut configurée                 MacDMacD   MacSMacS    IPDIPD    IPSIPS DATADATA
+                                     RechercheRecherchededel’adressel’adressedephysiquephysiquededeDR​                      Phy2RPhy1A  Phy2DPhy1R   2R1A   2D 1R RéponseRéponseARPARP
+                           AdresseAdresse physiquephysique        AdresseAdresse logiquelogique
+                                DestinataireDestinataire    SourceSource  DestinataireDestinataire   SourceSource                                  EnvoieEnvoie dede lala trametrame PingPing àauDrouteur
+                               FF:FF:FF:FF:FF:FFFF:FF:FF:FF:FF:FF  Phy1APhy2R     1R2D       1A2R         RequêteRequêteARPARP            MacDMacD   MacSMacS    IPDIPD    IPSIPS  DATADATA
+                                                                                     Phy2DPhy1R   Phy2RPhy1A   2D2D    1A1A   PingPingDD
+
+                                                                                         6
+
+
+6</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>- SS x</p><p>LI g TOR q<br>bl</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Communication au sein de réseaux logiques différents</p>
+<p class="tssr-source-paragraph">192.168.1.254<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">Poste D</p>
+<p class="tssr-source-paragraph">Retour erreur ICMP</p>
+<p class="tssr-source-paragraph">FF:FF:FF:FF:FF:FF<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Poste A</p>
+<p class="tssr-source-paragraph">Ping 192.168.2.140</p>
+<p class="tssr-source-paragraph">Arp R</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Ping 127.0.0.1</p>
+<p class="tssr-source-paragraph">Requête ARP @mac gw ?</p>
+<p class="tssr-source-paragraph">MAC 00:29:0C:1E:30:2D<br>IPv4 192.168.2.140/26<br>GW 192.168.2.254</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Réponse </p>
+<p class="tssr-source-paragraph">Adresse <br>locale ?</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">MAC 00:29:0C:1E:30:1A<br>IPv4 192.168.1.10/24<br>GW 192.168.1.254</p>
+<p class="tssr-source-paragraph">ARP ?</p>
+<p class="tssr-source-paragraph">Mise en attente du ping</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">192.168.1.254<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1R<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Réponse Arp B</p>
+<p class="tssr-source-paragraph">Table ARP</p>
+<p class="tssr-source-paragraph">Calcul de réseau logique A<br>@IPA :<br>192.168.1.10<br>Mask A :<br>255.255.255.0<br>Réseau A : 192.168.1.0</p>
+<p class="tssr-source-paragraph">Oui<br>Mise à jour </p>
+<p class="tssr-source-paragraph">@IP = <br>@MAC ?<br>Oui</p>
+<p class="tssr-source-paragraph">table ARP</p>
+<p class="tssr-source-paragraph">Adresse </p>
+<p class="tssr-source-paragraph">Calcul de réseau logique D </p>
+<p class="tssr-source-paragraph">192.168.2.140<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">réseau <br>identique ?</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1R<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Adresse </p>
+<p class="tssr-source-paragraph">Ping D</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">GW ?</p>
+<p class="tssr-source-paragraph">pour A<br>@IPD :<br>192.168.2.140<br>Mask A :<br>255.255.255.0<br>Réseau A : 192.168.2.0</p>
+<p class="tssr-source-paragraph">Envoi du ping vers le routeur</p>
+<p class="tssr-source-paragraph">Calcul adresse réseau de la GW pour A</p>
+<p class="tssr-source-paragraph">Retour erreur ICMP</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Communication au sein de réseaux logiques différents</p>
+<p class="tssr-source-paragraph">Poste D</p>
+<p class="tssr-source-paragraph">192.168.2.140<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:1R<br>00:29:0C:1E:30:1A</p>
+<p class="tssr-source-paragraph">Réponse </p>
+<p class="tssr-source-paragraph">Non<br>Poste A</p>
+<p class="tssr-source-paragraph">ARP ?<br>192.168.2.140<br>192.168.2.254</p>
+<p class="tssr-source-paragraph">Ping D</p>
+<p class="tssr-source-paragraph">FF:FF:FF:FF:FF:FF<br>00:29:0C:1E:30:2R</p>
+<p class="tssr-source-paragraph">Requête ARP D</p>
+<p class="tssr-source-paragraph">MAC 00:29:0C:1E:30:2D<br>IPv4192.168.2.140/26<br>GW 192.168.2.254</p>
+<p class="tssr-source-paragraph">Retour <br>erreur ICMP</p>
+<p class="tssr-source-paragraph">Oui<br>Routeur reçoit le ping</p>
+<p class="tssr-source-paragraph">MAC 00:29:0C:1E:30:1A<br>IPv4 192.168.1.10/24<br>GW 192.168.1.254</p>
+<p class="tssr-source-paragraph">Requête ARP</p>
+<p class="tssr-source-paragraph">192.168.2.140<br>192.168.2.254</p>
+<p class="tssr-source-paragraph">Désencapsulation<br>jusqu’à la couche 3</p>
+<p class="tssr-source-paragraph">@MAC D ?</p>
+<p class="tssr-source-paragraph">Mise à jour </p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:2D<br>00:29:0C:1E:30:2R</p>
+<p class="tssr-source-paragraph">Table ARP</p>
+<p class="tssr-source-paragraph">Réponse ARP D</p>
+<p class="tssr-source-paragraph">Mise en attente du ping</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Réseau présent <br>table de routage ?</p>
+<p class="tssr-source-paragraph">Réencapsulation couche 2</p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Retour </p>
+<p class="tssr-source-paragraph">192.168.2.140<br>192.168.1.10</p>
+<p class="tssr-source-paragraph">erreur </p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">Table ARP<br>@IP = @MAC ?</p>
+<p class="tssr-source-paragraph">00:29:0C:1E:30:2D<br>00:29:0C:1E:30:2R</p>
+<p class="tssr-source-paragraph">Réseau </p>
+<p class="tssr-source-paragraph">Oui</p>
+<p class="tssr-source-paragraph">ICMP</p>
+<p class="tssr-source-paragraph">local ?</p>
+<p class="tssr-source-paragraph">Ping D</p>
+<p class="tssr-source-paragraph">Envoi du ping au </p>
+<p class="tssr-source-paragraph">Non</p>
+<p class="tssr-source-paragraph">routeur suivant</p>
+<p class="tssr-source-paragraph">Envoi du ping au poste D</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LS =</p><p>=————<br>Li<br>ey<br>D<br>Co</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f6955817c183388427cb92459654359e6342a09ccfd1e85aa9cd4b389fb3a473.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f6955817c183388427cb92459654359e6342a09ccfd1e85aa9cd4b389fb3a473.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="5926"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept du routage</h4>
+<p class="tssr-source-paragraph">Principe de fonctionnement du routage</p>
+<p class="tssr-source-paragraph">À chaque saut</p>
+<p class="tssr-source-paragraph">Le routeur vérifie les <br>informations de <br>transfert dans la <br>table de routage.</p>
+<p class="tssr-source-paragraph">Est traité de manière <br>indépendante dans <br>chaque routeur le <br>long du chemin.</p>
+<p class="tssr-source-paragraph">Le routeur examine <br>l’adresse IP de <br>destination pour <br>chaque paquet.</p>
+<p class="tssr-source-paragraph">Chaque paquet</p>
+<p class="tssr-source-paragraph">Est vérifié</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept de la traduction d’adresse</h4>
+<p class="tssr-source-paragraph">La traduction d’adresse : sans NAT</p>
+<p class="tssr-source-paragraph">Internet</p>
+<p class="tssr-source-paragraph">80.87.128.67</p>
+<p class="tssr-source-paragraph">90.83.78.224</p>
+<p class="tssr-source-paragraph">192.168.20.0 /24</p>
+<p class="tssr-source-paragraph">192.168.20.13</p>
+<p class="tssr-source-paragraph">192.168.20.254</p>
+<p class="tssr-source-paragraph">Source : <br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">Source : <br>192.168.20.13:3008</p>
+<p class="tssr-source-paragraph">Destination :<br>192.168.20.13:3008</p>
+<p class="tssr-source-paragraph">Destination :<br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>\{ aa</p><p>LeoukepeuteteKur?eo</p><p>aver Lequa 3</p><p>o anse aueon&quot;una<br>outeran teanopenne</p><p>7 aando</p><p>aà<br>1</p><p>=]</p><p>1</p><p>1</p><p>1<br>S</p><p>1</p><p>=</p><p>—</p><p>tee</p><p>!<br>Gi</p><p>=</p><p>én i</p><p>_</p><p>1<br>|</p><p>=</p><p>1</p><p>1<br>a<br>| ; =<br>Lu<br>je</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Concept de la traduction d’adresse</h4>
+<p class="tssr-source-paragraph">La traduction d’adresse : avec NAT</p>
+<p class="tssr-source-paragraph">Source : <br>90.83.78.224:49010</p>
+<p class="tssr-source-paragraph">Source : <br>192.168.20.13:3008</p>
+<p class="tssr-source-paragraph">Destination :<br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">Destination :<br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">Internet<br>80.87.128.67</p>
+<p class="tssr-source-paragraph">192.168.20.0 /24</p>
+<p class="tssr-source-paragraph">192.168.20.254<br>90.83.78.224</p>
+<p class="tssr-source-paragraph">192.168.20.13</p>
+<p class="tssr-source-paragraph">Source : <br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">Source : <br>80.87.128.67:80</p>
+<p class="tssr-source-paragraph">Destination :<br>192.168.20.13:3008</p>
+<p class="tssr-source-paragraph">Destination :<br>90.83.78.224 : 49010</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EE<br>=<br>Si<br>ES</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Le routeur et la traduction d&#x27;adresses</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Le routage</p>
+<h4>Le réseau global</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Le routage</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous comprenez et savez configurer le routage</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-36532eec4937a85458448c1da423bc63935fdc18357a023151a423561a821018.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-36532eec4937a85458448c1da423bc63935fdc18357a023151a423561a821018.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="5556"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

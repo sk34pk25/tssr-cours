@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12586,20 +12586,193 @@
 
 
 <h1 id="correction-source-tp-01-partie-1-vendredi-13">Correction source — TP 01, partie 1 — Vendredi 13<a class="headerlink" href="#correction-source-tp-01-partie-1-vendredi-13" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M7 - Solution du TP 1 - Boucle until.pdf · 5 pages</summary>
+<summary>Correction · M7 - Solution du TP 1 - Boucle until · 5 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/7922ba4446f79a2a/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/7922ba4446f79a2a/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/7922ba4446f79a2a/pages-001-004.webp" alt="Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/7922ba4446f79a2a/pages-005-005.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/7922ba4446f79a2a/pages-005-005.webp" alt="Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 5. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 5. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle until </h4>
+<p class="tssr-source-paragraph">Solution – TP1 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes <br>conditionnels. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">1- Analyse d’un script existant </p>
+<pre class="tssr-source-code"> 
+ 
+#!/bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">annee=$1 </pre>
+<pre class="tssr-source-code">nummois=1 </pre>
+<pre class="tssr-source-code">###annee=2011 </pre>
+<pre class="tssr-source-code">rouge='\033[31m' </pre>
+<pre class="tssr-source-code">orange='\033[33m' </pre>
+<pre class="tssr-source-code">vert='\033[32m' </pre>
+<pre class="tssr-source-code">noir='\033[0m' </pre>
+<pre class="tssr-source-code"># Début du script # </pre>
+<pre class="tssr-source-code"># Vérification qu'un argument a été passé # </pre>
+<pre class="tssr-source-code">[[ -z $1 ]] &amp;&amp; { echo -e "Syntaxe d'utilisation : $0 $rouge &lt;annee&gt; $noir"; 
+exit 13; } </pre>
+
+<pre class="tssr-source-code">echo "###################" </pre>
+<pre class="tssr-source-code">echo "##  ANNEE $annee   ##" </pre>
+<pre class="tssr-source-code">echo "###################" </pre>
+<pre class="tssr-source-code"># Corps du script # </pre>
+<pre class="tssr-source-code"># On boucle pour tous les mois </pre>
+<pre class="tssr-source-code">until [[ $nummois -eq 13 ]] </pre>
+<p class="tssr-source-paragraph">Page 1/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">        do </pre>
+<pre class="tssr-source-code">        ligne13=`cal $nummois $annee | grep 13` </pre>
+<pre class="tssr-source-code"> 
+# format du retour de la commande precedente incorrect </pre>
+<pre class="tssr-source-code"> 
+ligne13=$(echo $ligne13) </pre>
+<pre class="tssr-source-code">        if [[ $ligne13 = *13\ 14 ]] </pre>
+<pre class="tssr-source-code">                then </pre>
+<pre class="tssr-source-code">                nommois=`date --date "$nummois/01" +%B` </pre>
+<pre class="tssr-source-code">                listmois="$listmois $nommois," </pre>
+<pre class="tssr-source-code">                nbremois=`expr $nbremois + 1` </pre>
+<pre class="tssr-source-code">        fi </pre>
+<pre class="tssr-source-code">        nummois=`expr $nummois + 1` </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># On affiche la liste des mois concernés # </pre>
+<pre class="tssr-source-code">echo -e "En $rouge $listmois $noir surveiller les paraskaviedekatriaphobes 
+" </pre>
+<pre class="tssr-source-code"># On catégorise l'année en fonction du nombre d'occurence(s) et choix 
+couleur </pre>
+<pre class="tssr-source-code">case $nbremois in </pre>
+<pre class="tssr-source-code">        1) </pre>
+<pre class="tssr-source-code">        niveau="calme" </pre>
+<pre class="tssr-source-code">        color="$vert" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        2) </pre>
+<pre class="tssr-source-code">        niveau="moyenne" </pre>
+<pre class="tssr-source-code">        color="$orange" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        *) </pre>
+<pre class="tssr-source-code">        ### Test avec 2009 </pre>
+<pre class="tssr-source-code">        niveau="a forte vigilance" </pre>
+<pre class="tssr-source-code">        color="$rouge" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">esac </pre>
+
+<pre class="tssr-source-code"># On résume l'état de l'année </pre>
+<pre class="tssr-source-code">echo -e "$annee sera une annee ${color}$niveau $noir( $nbremois )" </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<p class="tssr-source-paragraph">2- Rédaction d’un nouveau script </p>
+<pre class="tssr-source-code">L’objectif ici, est de trouver quelles sont, dans l’intervalle donnée, les années bissextiles. On se 
+focalise chaque année sur le mois de février seulement. Nous aurons besoin pour cela de la 
+commande cal qui affiche le calendrier mensuel, permettant d’identifier l’existence d’un 29ème 
+jour, ou pas, au mois de février. </pre>
+<pre class="tssr-source-code">Dans ce script, il y aura 3 compteurs à incrémenter : celui qui indiquera le nombre d’années 
+bissextiles trouvées nbannées, celui qui stockera les années réelles listannees et enfin celui qui 
+mettra fin à la boucle until lorsque toutes les années ont été analysées. </pre>
+<pre class="tssr-source-code">Pour ce dernier compteur, qui conditionne l’arrêt ou continuation de la boucle until, il s’agit de 
+rajouter ‘+1’ à l’année de début, pour chaque boucle effectuée. La condition à respecter est : la date 
+de fin de période fournie doit être supérieure au compteur (année de début + nb de boucle 
+effectuée). Ainsi, si on débute la plage à 2024 avec une fin en 2029, voici ce qui se passe : </pre>
+<pre class="tssr-source-code">1er tour de boucle : vérification de la condition : annecourante (2024) est &gt; à 2029 ? NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2024 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">2ème tour de boucle : vérification de la condition : anneecourante (2025) est &gt; à 2029 ? NON 
+donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2025 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">3ème tour de boucle : vérification de la condition : anneecourante (2026) est &gt; à 2029 ? 
+NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2026 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<p class="tssr-source-paragraph">Et ainsi de suite … </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP1.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP1.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">anneedeb=$1 # Stockage de la première année de la plage </pre>
+<p class="tssr-source-paragraph">Page 3/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">anneefin=$2 # Stockage de la dernière année de la plage </pre>
+<pre class="tssr-source-code">anneecourante=$anneedeb # Création d'une variable année courante à partir 
+du début </pre>
+<pre class="tssr-source-code">nbannees=0 # Compteur nombre d’années bissextiles initialisé à zéro </pre>
+
+<pre class="tssr-source-code"># Debut du script # </pre>
+<pre class="tssr-source-code"># Si arguments fournis au script ne sont pas = à 2 =&gt; Sortie </pre>
+<pre class="tssr-source-code">if [[ $# -ne 2 ]] </pre>
+<pre class="tssr-source-code">  then echo "Syntaxe utilisation : script_M6TP2.sh &lt;annee_debut&gt; 
+&lt;annee_fin&gt;" </pre>
+<pre class="tssr-source-code">  exit 3 </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">echo "##########################################" </pre>
+<pre class="tssr-source-code">echo -e "##  Période considérée de $anneedeb a $anneefin   ##" </pre>
+<pre class="tssr-source-code">echo "##########################################" </pre>
+
+<pre class="tssr-source-code"># Bouclage pour chaque année sur le mois de février </pre>
+<pre class="tssr-source-code">until [[ $anneecourante -gt $anneefin ]] </pre>
+<pre class="tssr-source-code"> do fevrier=$(cal 02 $anneecourante) # Recup du calendrier du mois de 
+février de l'année courante </pre>
+<pre class="tssr-source-code">    echo "$fevrier" | grep "29" | grep -v "[0-9][0-9]29" &gt;/dev/null 2&gt;&amp;1 
+# On cherche dans ce calendrier la présence du 29ème jour </pre>
+<pre class="tssr-source-code">if [[ $? -eq 0 ]] # Si la valeur 29 est trouvée (code retour = 0) </pre>
+<pre class="tssr-source-code"> then nbannees=`expr $nbannees + 1` # Ajout +1 au nombre d'années 
+bissextiles </pre>
+<pre class="tssr-source-code">   listannees="$listannees $anneecourante," # Ajout de l’année au listing 
+des années concernées </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">anneecourante=`expr $anneecourante + 1` # Incrément de 1 du compteur 
+d'année courante afin de vérifier si condition de la boucle until toujours 
+vraie </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># Résumé des années bissextiles trouvées (ou pas) </pre>
+<pre class="tssr-source-code">if [[ $nbannees -gt 0 ]]; then # Si plus d'une année </pre>
+<pre class="tssr-source-code">  echo -e "Il y a $nbannees année(s) bissextile(s) dans la plage donnée"  </pre>
+<pre class="tssr-source-code">  echo -e "Année(s) : $listannees" </pre>
+<pre class="tssr-source-code">else # Si pas d’année bissextile dans la plage </pre>
+<pre class="tssr-source-code">  echo -e "Il n'y a aucune année bissextile dans la plage donnée"  </pre>
+<pre class="tssr-source-code">fi </pre>
+
+<p class="tssr-source-paragraph">Page 4/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="692"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 5/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3 · <span title="Empreinte SHA-256 du fichier source">SHA-256 7922ba4446f79a2a…</span></p>
 </div>
 </details>
@@ -12608,7 +12781,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <blockquote>
 <p>Script source en CRLF, lu comme texte et jamais exécuté. Cette page documente le scénario fourni ; elle ne valide pas son exécution.</p>
@@ -12688,11 +12861,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

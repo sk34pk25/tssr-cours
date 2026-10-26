@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12567,19 +12567,95 @@
 
 
 <h1 id="correction-tp01-gestion-de-la-journalisation">Correction — TP01 — Gestion de la journalisation<a class="headerlink" href="#correction-tp01-gestion-de-la-journalisation" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M12TP01 - Solution - Gestion de la journalisation.pdf · 3 pages</summary>
+<summary>Correction · M12TP01 - Solution - Gestion de la journalisation · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../../assets/course-sources/007acbf389de4f7f/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../../assets/course-sources/007acbf389de4f7f/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../../assets/course-sources/007acbf389de4f7f/pages-001-003.webp" alt="Source Drive — M12TP01 - Solution - Gestion de la journalisation.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M12TP01 - Solution - Gestion de la journalisation.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Gestion de la journalisation </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Recherche d’informations : sur le serveur sans <br>environnement graphique </p>
+<p class="tssr-source-paragraph">• <br>Trouver dans les journaux les différentes ouvertures de sessions </p>
+<p class="tssr-source-paragraph"> <br>Dans le dossier des journaux, /var/log, la commande ls -lrt permet d’afficher les derniers fichiers utilisés </p>
+<p class="tssr-source-paragraph">Remarquons le fichier auth.log. Il contient bien des informations concernant les ouvertures de sessions </p>
+
+<p class="tssr-source-paragraph"> <br>1Dans ce fichier, en filtrant sur le mot "opened", je récupère des ouvertures de sessions pour les utilisateurs <br>ex : login de l'utilisateur root en première ligne.  <br>Mais il s'y trouve aussi des informations de services comme cron. </p>
+
+<p class="tssr-source-paragraph"> <br>En ajoutant un grep -v CRON, nous filtrons les résultats en ne retenant pas ce motif.  </p>
+
+<p class="tssr-source-paragraph">Page 1/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>rootédeb-camille-01:/var/log#<br>grep<br>opened<br>auth.log<br>[head<br>-n5</p><p>Oct<br>22<br>13:23:47<br>deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session<br>opened<br>for<br>user<br>root(uid=0)<br>by LOGIN(uid=0)<br>Oct<br>22<br>13:23:47<br>deb-camille-O1<br>systemd:<br>pam_unix(systemd-user:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0)<br>Oct<br>22<br>14:17:01<br>deb-camille-O1 CRON[769]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0<br>Oct<br>22<br>15:17:01<br>deb-camille-01 CRON[788]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0<br>Oct<br>22<br>16:17:01<br>deb-camille-01 CRON[808]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<pre class="tssr-source-code">o Les reporter dans un fichier /adm/sessions.txt </pre>
+<p class="tssr-source-paragraph"> <br>Il ne reste plus qu'à rediriger ce résultat dans /adm/sessions.txt,  </p>
+<p class="tssr-source-paragraph">en ayant pris soin de créer le dossier au préalable. </p>
+<p class="tssr-source-paragraph">• <br>Rechercher dans les journaux des informations sur le disque sda, (dont le nombre <br>de secteurs et la taille du disque) </p>
+
+<p class="tssr-source-paragraph"> <br>Un appel à la commande journalctl suivie d'un grep filtrant le résultat sur sda nous renvoie ces résultats. </p>
+<p class="tssr-source-paragraph">On trouve sur la première ligne l'information du nombre de secteurs du disque et de sa taille globale </p>
+
+<p class="tssr-source-paragraph"> <br>En bonus, il est possible de filtrer ces résultats en précisant l'option --dmesg qui va limiter les résultats aux logs </p>
+<p class="tssr-source-paragraph">du noyau. </p>
+<p class="tssr-source-paragraph">II. <br>Configuration de rsyslog  </p>
+<p class="tssr-source-paragraph">• <br>Activer la journalisation pour le service cron </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier /etc/rsyslog.conf , décommenter la ligne concernant la facility cron. </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">Page 2/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>root@deb-camille-O1:/var/log# mkdir<br>-p<br>/adm<br>root@deb-camille-O1:/var/log#<br>grep<br>opened<br>auth.log<br>[grep<br>-v CRON<br>&gt;&gt;<br>/adm/sessions.txt<br>root@deb-camille-O1:/var/log#<br>head<br>-n<br>3<br>/adm/sessions.txt<br>Oct<br>22<br>13:23:47 deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session opened<br>for<br>user<br>root (uid=0)<br>by LOGIN(uid=0)<br>Oct<br>22<br>13:23:47 deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session opened for<br>user<br>root(uid=0)<br>by LOGIN(uid=0)<br>Oct 22 13:23:47 deb-camille-01 systemd: pam unix(systemd-user:session): session opened for user root (uid=0) by (uid=0<br>root@deb-camille-01:/var/<br>log#</p><p>roottdeb-camille-O1:/var/log#<br>journaletl<br>[grep<br>sda<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>20971520<br>512-byte<br>logical<br>blocks:<br>(10.7<br>GB/10.0<br>GiB)<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Write<br>Protect<br>is<br>off<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Mode<br>Sense:<br>61<br>00<br>00<br>O0<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Cache<br>data unavailable<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Assuming drive<br>cache:<br>write<br>through<br>oct. 22 13:21:03 deb-camille-01 kernel:<br>sda: sdal sda2 &lt; sdaS<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Attached SCSI<br>disk<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>lvm[294]:<br> pvscan(294]<br>PV<br>/dev/sdaS<br>online,<br>VG deb-camille-01-vg<br>is<br>complete.<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>systemd-fsck[319]:<br>/dev/sdal:<br>clean,<br>347/124928<br>files,<br>66763/498688 blocks<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounting<br>ext2<br>file<br>system<br>using<br>the<br>ext4<br>subsystem<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounted filesystem<br>without<br>journal.<br>Opts:<br>(null)</p><p>root@deb-camille-O1:/var/log#<br>journalctl<br>--dmesg<br>|grep<br>sda<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>20971520<br>512-byte<br>logical<br>blocks:<br>(10.7<br>GB/10.0<br>GiB)<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Write<br>Protect<br>is<br>off<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Mode<br>Sense:<br>61<br>00<br>00<br>00<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Cache<br>data unavailable<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Assuming<br>drive<br>cache:<br>write<br>through<br>oct. 22 13:21:03 deb-camille-01 kernel:<br>sda: sdal sda2 &lt; sdaS<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Attached<br>SCSI<br>disk<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounting<br>ext2<br>file<br>system using<br>the<br>ext4<br>subsystem<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounted filesystem<br>without<br>journal.<br>Opts:<br>(null)<br>rootfdeb—camille-O1:/var/<br>log#</p><p>auth, authpriv.*<br>fvar/ log/auth. log<br>*,*;auth, authpriv.none<br>-/var/ log/syslog<br>cron. *<br>f/var/ log/cron. log<br>daemon. *<br>-/var/ log/daemon. log<br>ern. *<br>-/var/log/kern. log<br>lpr.*<br>-/var/log/lpr.log<br>fail. *<br>-f/var/ log/mail. log<br>user.*<br>-f/var/log/user.log</p><p>roothdeb-camille-Oi:~#<br>systemetl restart reyslog</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">• <br>Stocker les informations relatives au démon cron dans le fichier /adm/logs/cron.log </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier rsyslog.conf modifier le chemin du fichier réceptacle des logs. </p>
+
+<p class="tssr-source-paragraph"> <br>Création du dossier qui devra recevoir ce fichier. </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">• <br>Définir <br>comme <br>fichier <br>contenant <br>tous <br>les <br>évènements <br>d'avertissement <br>/adm/logs/warnings.log </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier rsyslog.conf ajouter cette ligne pour récupérer tous les fichiers utilisantlal priorité warn </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">III. <br>Générer des messages de type avertissement </p>
+<p class="tssr-source-paragraph">• <br>A l’aide de logger, créer des messages de niveau avertissement. </p>
+<p class="tssr-source-paragraph"> <br>La commande logger permet d'envoyer un message test. Ici on utilise la facility kern et la priorité warn </p>
+<p class="tssr-source-paragraph">• <br>Vérifier le bon fonctionnement des étapes précédentes. </p>
+
+<p class="tssr-source-paragraph"> <br>Création de deux messages tests pour la facility cron, avec des priorités warning et info. <br>Le premier message apparait dans les deux logs (validation de warning et validation de cron) </p>
+<p class="tssr-source-paragraph">Le second message de priorité info n'apprait que dans la log de cron. </p>
+<p class="tssr-source-paragraph">Page 3/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>cron, *<br>‘adm logs; cron. log</p><p>rootédeb-camille-01:-# mkdir /adm/ logs</p><p>roothdeb-camille-Oi:~#<br>systemetl restart reyslog</p><p>* =warn<br>‘adm logs/ warning. log</p><p>roottdeb-camille-Ol:-#<br>systemctl restart reyslog</p><p>root@deb-camille-O1:~#<br>logger<br>-p<br>kern.warn<br>"TEST Message Noyau niveau Avertissement"<br>root@deb-camille-O1:~#<br>ls<br>/adm/logs/<br>cron.log<br>warning.log<br>root@deb-camille-O1:~#<br>cat<br>/adm/ logs/ warning. log<br>Oct<br>26<br>09:30:35<br>debh-camille-01<br>camille:<br>TEST Message Noyau niveau divertissement</p><p>rootédeb-camille-01:-#<br>logger<br>-p<br>cron.warn<br>"TEST Message<br>Cron niveau Avertissement"<br>root@deb-camille-O1:~#<br>logger<br>-p<br>cron.info<br>"TEST Message<br>Cron niveau<br>Info"<br>root@deb-camille-O1:~#<br>cat<br>/adm/ logs/warning. log<br>Oct<br>26<br>09:30:35<br>deb-camille-01<br>camille:<br>TEST<br>Message<br>Noyau niveau Avertissement<br>Oct<br>26<br>09:34:16<br>deb-camille-01<br>camille:<br>TEST<br>Message<br>Cron<br>niveau<br>Avertissement<br>root@deb-camille-O1:~#<br>cat<br>/adm/logs/cron. log<br>Oct<br>26<br>09:25:08<br>deb-camille-O1<br>systemd-timesynca(417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:19<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:29<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:39<br>deb-camille-01<br>systemd-timesyncda[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:26:20<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Initial<br>synchronization<br>to<br>time<br>Oct<br>26<br>09:34:16<br>deb-camille-O1<br>camille:<br>TEST Message<br>Cron niveau Avertissement<br>Oct<br>26<br>09:34:31<br>deb-camille-O1<br>camille:<br>TEST Message<br>Cron niveau<br>Info</p><p>+<br>en</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../../../assets/course-sources/figures/atlas-b7d40e044c03e3644b19cf8fb924957616e2c0a577eb3975a72a23806d4cc6c3.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../../assets/course-sources/figures/atlas-b7d40e044c03e3644b19cf8fb924957616e2c0a577eb3975a72a23806d4cc6c3.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="3176"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs · <span title="Empreinte SHA-256 du fichier source">SHA-256 007acbf389de4f7f…</span></p>
 </div>
 </details>
@@ -12588,7 +12664,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p><strong>Sources originales (A) :</strong> solution M12TP01 et support M12 Drive. <strong>Correction (B) :</strong> synthèse contrôlable.</p>
 <p>La solution consulte <code>/var/log/auth.log</code>, filtre les ouvertures de session et exclut les événements <code>CRON</code> avant la redirection. <code>journalctl</code>, éventuellement avec <code>--dmesg</code>, fournit les informations sur <code>sda</code>.</p>
@@ -12657,11 +12733,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../../assets/javascripts/collaboration-config.js"></script>
       

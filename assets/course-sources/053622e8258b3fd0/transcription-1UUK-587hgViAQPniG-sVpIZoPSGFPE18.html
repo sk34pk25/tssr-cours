@@ -1,0 +1,49 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>création_utilisateur.txt</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>création_utilisateur.txt</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Document texte</h3><pre class="tssr-source-code">###############################################################
+# Script de création des utilisateurs dans windows 10 client  #
+# Tracer Lexton                                               #
+# créé le 20 octobre 2020                                     #
+# Mis à jour le 20 octobre 2020                               #
+# Mis à jour par Jesse MacCree                                #
+# le 20 octobre 2020                                          #
+# Fonctionnel sous Windows 10 entreprise build 2004           #
+###############################################################
+
+# Indiquer l&#x27;adresse complète du fichier utilisateurs .csv
+# Indiquer le délimiteur pour le fichier .csv
+# Indiquer les noms d&#x27;en-têtes
+
+$datasource=Import-CSV -Path &quot;C:\Users\fx\Desktop\utilisateurs.csv&quot; -Delimiter &quot;;&quot; -Header Prénom,Nom,login,mail,password,description
+
+#Boucle d&#x27;alimentation 
+
+Foreach($data in $datasource) { 
+# Nom et prénom de famille
+$Nom=$data.Nom 
+$prenom=$data.Prénom
+$FullName=$nom + &quot; &quot; + $prenom
+
+# Affichage de l&#x27;utilisateur
+$affich=$FullName
+
+# Nom de famille
+$login=$data.login
+
+#le mot de passe
+$password=$data.password
+
+#la description
+$description=$data.description
+
+#creation utilisateur avec les toutes les données renseignées
+New-LocalUser -FullName &quot;$FullName&quot; -Description &quot;$description&quot; -Name &quot;$login&quot; -Password (ConvertTo-SecureString -AsPlainText &quot;$password&quot; -Force)
+
+# Fait une liste
+    $nomliste=$affich
+
+    $liste = $liste + $nomliste + &quot;,&quot;
+}
+
+# Affiche le résultat des imports
+write-host &quot;Les utilisateurs : &quot; -ForegroundColor Black
+write-host &quot;$liste&quot; -foregroundcolor red
+write-host &quot;ont été créés&quot; -ForegroundColor Black</pre></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 03 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 03 – Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Découvrir les commandes intégrées à Bash</p>
+<p class="tssr-source-paragraph">• Afficher des informations sur la console<br>• Sortir du programme<br>• Trouver de l&#x27;aide</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell<br>Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">Les commandes abordées dans cette partie sont des <br>commandes internes (ou fonctionnalités du Shell).</p>
+<p class="tssr-source-paragraph">Aucun fichier binaire dédié ne leur est associé.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">echo<br>affichage écran </p>
+<pre class="tssr-source-code">echo permet d’afficher du texte</pre>
+<pre class="tssr-source-code">echo [option] &quot;expression&quot;
+Syntaxe</pre>
+<pre class="tssr-source-code">Si « expression » contient des caractères spéciaux, il faut la protéger avec des 
+doubles quotes et lui ajouter l’option –e. </pre>
+<p class="tssr-source-paragraph">On peut de plus utiliser des options de mise en forme</p>
+<pre class="tssr-source-code">\c
+inhibe le changement de ligne en fin de commande</pre>
+<pre class="tssr-source-code">\n
+nouvelle ligne</pre>
+<pre class="tssr-source-code">\t
+tabulation horizontale</pre>
+<pre class="tssr-source-code">\\
+le caractère \</pre>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EN</p><p>[</p><p>CSA|</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">clear<br>effacement de l’écran</p>
+<pre class="tssr-source-code">clear
+Syntaxe</pre>
+<p class="tssr-source-paragraph">Commande simple sans argument, permettant d’afficher <br>une page écran vierge</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">exit<br>sortie du Shell courant</p>
+<pre class="tssr-source-code">exit [ n ]
+Syntaxe</pre>
+<pre class="tssr-source-code">• n est la valeur retournée au Shell père dans la variable $?</pre>
+<pre class="tssr-source-code">• Un script est généralement exécuté dans un environnement enfant
+• Celui-ci peut se terminer par la commande « exit 0 » ou non 
+(dans ce cas, celle-ci est implicite)</pre>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>VE</p><p>er,</p><p>VE</p><p>[7</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">help<br>affiche la liste des commandes internes au Shell</p>
+<p class="tssr-source-paragraph">Lorsqu’une commande interne est spécifiée en argument, <br>affiche l’aide de la commande.</p>
+<pre class="tssr-source-code">help
+Syntaxe</pre>
+<p class="tssr-source-paragraph">• Afficher les commandes internes au Shell</p>
+<pre class="tssr-source-code">help wait
+Syntaxe</pre>
+<pre class="tssr-source-code">• Afficher l’aide de la commande interne wait</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">Démo</p>
+<h4>Premières commandes</h4>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LE|</p><p>RS<br>|<br>|</p><p>End</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-9d1f1a1bfa81c1f10d2040c4e6f423032e419aac937e9122e89fc81a24a8afb6.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9d1f1a1bfa81c1f10d2040c4e6f423032e419aac937e9122e89fc81a24a8afb6.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="5927"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

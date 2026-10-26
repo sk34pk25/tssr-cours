@@ -1,0 +1,105 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M09TP01 - Solution - Préparation des systèmes de fichiers.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M09TP01 - Solution - Préparation des systèmes de fichiers</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Préparation des systèmes <br>de fichiers </h4>
+<p class="tssr-source-paragraph">TP du Module 09 – Gestion des espaces de stockage – File Systems </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Gestion des systèmes de fichier </p>
+<p class="tssr-source-paragraph">A partir du volume logique var, configurer un système de fichier ext4 avec une étiquette <br>VAR </p>
+<p class="tssr-source-paragraph"> <br>La commande mkfs permet de préciser directement le type avec .ext4. </p>
+<p class="tssr-source-paragraph">l’option -L affecte le label au FS. <br>NB : il est aussi possible de modifier l’étiquette d’un FS existant avec tune2fs </p>
+
+<p class="tssr-source-paragraph"> <br>Vérifier avec blkid </p>
+<p class="tssr-source-paragraph">Agrandir le système de fichier présent dans le volume logique home afin qu’il utilise toute la <br>place du volume logique. </p>
+<p class="tssr-source-paragraph"> <br>resize2fs permet d’étendre le FS existant après avoir étendu le LV lors du précèdent TP </p>
+
+<p class="tssr-source-paragraph"> <br>NB : il est possible que le FS soit déjà à la taille maximale si l’option -r avait été utilisé avec lvextend </p>
+<p class="tssr-source-paragraph">Page 1/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ee</p><p>Des nappes/vasystes:Lwar: LABELS ARS WID=n3431Cd7-3400 sees n24c 57ac643&quot;c1)t™BLOCK St7E=&quot;4096% Trenet&quot; |</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">II. <br>Migration du répertoire /var  </p>
+<p class="tssr-source-paragraph">Migrer le répertoire /var vers le volume logique var tout en préservant les données <br>existantes. </p>
+<p class="tssr-source-paragraph">Conseils de mise en œuvre : </p>
+<p class="tssr-source-paragraph">• <br>Faites un snapshot de votre VM </p>
+<p class="tssr-source-paragraph"> → <br> <br>Ce snapshot permettra un retour arrière en cas d&#x27;erreur </p>
+<p class="tssr-source-paragraph">• <br>Vérifier l&#x27;utilisation de /var avant de copier les fichiers (lsof). </p>
+
+<p class="tssr-source-paragraph"> <br>La commande lsof (List Open Files) permet de dénombrer les fichiers en cours d&#x27;utilisation par des processus. </p>
+<p class="tssr-source-paragraph">En filtrant (grep) sur le répertoire /var, on dénombre plusieurs centaines de lignes </p>
+<p class="tssr-source-paragraph">• <br>Prendre toutes les précautions nécessaires pour éviter l’écriture dans l’arborescence de <br>/var afin de pouvoir copier correctement les fichiers </p>
+<p class="tssr-source-paragraph"> → <br> <br>La méthode la plus simple pour stopper les nombreux processus utilisant des fichiers présents sous /var est de </p>
+<p class="tssr-source-paragraph">passer en mode rescue. </p>
+
+<p class="tssr-source-paragraph"> <br>Si un service tel systemd-journald utilise encore des fichiers,  </p>
+<p class="tssr-source-paragraph">vous pouvez le stopper avec la commande adéquat </p>
+
+<p class="tssr-source-paragraph">• <br>Utiliser un montage temporaire pour pouvoir copier les données de l&#x27;ancien vers le <br>nouveau volume </p>
+<p class="tssr-source-paragraph"> <br>La création d&#x27;un sous dossier dans /mnt est optionnelle <br>La commande mount permet ensuite d’effectuer le montage temporaire <br> <br> </p>
+<p class="tssr-source-paragraph">Page 2/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>© DebChent - Witesre Workstation</p><p>DebClen<br>-<br>lace Snagshot<br>x<br>File<br>Edt<br>View<br>YM<br>Tabs<br>Help<br>ff<br>-<br>à<br>D<br>I<br>aaa<br>D<br>Breasnes at ts you gro<br>sdeul be<br>rad<br>rome<br>3</p><p>x</p><p>.<br>Deacons sarthat sun<br>car<br>return the marre ni<br>ae</p><p>Parceene Devil<br>CPE<br>ee grein Jeu<br>Pause<br>Corl + Shift P<br>TS<br>ET242<br>|<br>TT<br>Derrgton:<br>Le sncpste, CZ pré overt<br>o wegen<br>du dose: sur</p><p>Grab Input<br>Ctl+G</p><p>SH</p><p>Fe<br>Srapshot<br>:<br>Take Snapshot</p><p>oot@debclient:~#<br>systemctl<br>stop<br>systemd- jx<br>Poot@debclient:“#<br>lsof<br>|grep<br>/var</p><p>rootédebclient: &quot;#4 mkdir “mnt/var</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+
+<p class="tssr-source-paragraph"> <br>La commande findmnt affiche bien l&#x27;utilisation de /mnt/var comme point de montage pour lvvar </p>
+
+<p class="tssr-source-paragraph">• <br>Copier les données en préservant les permissions </p>
+<p class="tssr-source-paragraph"> <br>Les options utiles de la commande cp ici sont : <br>-p : préserver les permissions et groups et utilisateurs propriétaires des fichiers </p>
+<p class="tssr-source-paragraph">-r : la récursivité permet de copier tous les sous-dossiers et leurs contenus </p>
+<p class="tssr-source-paragraph">-v pour avoir un affichage verbeux. </p>
+
+<p class="tssr-source-paragraph"> <br>Une fois l&#x27;opération achevée on peut démonter le LV </p>
+
+<p class="tssr-source-paragraph"> <br>Une fois cela fait, on remonte le volume logique immédiatement sur /var </p>
+
+<p class="tssr-source-paragraph"> <br>Puis relancer la cible graphique pour verifier le bon fonctionnement du système. </p>
+
+<p class="tssr-source-paragraph"> <br>On s’assure que le LV est bien monté sur /var </p>
+
+<p class="tssr-source-paragraph"> <br>Il est possible de vérifier le bon fonctionnement par exemple avec les fichiers journaux dans /var/log </p>
+<p class="tssr-source-paragraph">III. <br>Automatisation du montage au démarrage : sur la <br>station avec environnement graphique </p>
+<p class="tssr-source-paragraph">Activer le montage automatique au démarrage du volume logique lvvar vers /var </p>
+<p class="tssr-source-paragraph"> <br>Editer le fichier /etc/fstab <br>En dernière ligne, le LV est appelé par le LABEL apposé sur le file-system </p>
+
+<p class="tssr-source-paragraph"> →  <br>On repasse en mode rescue pour tester AVANT de redémarrer </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de stopper les éventuels process encore consommateurs de fichiers sur /var </p>
+
+<p class="tssr-source-paragraph">Page 3/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>root@édebclient:&quot;#<br>findmnt<br>TARGET<br>SOURCE<br>FSTYPE<br>OPTIONS<br>dev/mapper/vgsystem-lvroot</p><p>ext4<br>ru,<br>relatime,errors=remount-ro<br>sys<br>sysfs<br>systs<br>ru nosuid,nodev,noexec,relatime</p><p>mt/var<br>dev/mapper/vesystem-lvvar</p><p>ext4<br>ru,<br>relatime</p><p>root@debe lient:&quot;#<br>umount<br>“mnt “var</p><p>root@depclient:&quot;# systemctl<br>isolate graphical</p><p>/var<br>#dev/mapper/vgsystem-lvvar</p><p>1</p><p>e<br>ie<br>P<br>e<br>i<br>eede<br>ek<br>em-<br>ebcli<br>k</p><p>25<br>1<br>7<br>i<br>r<br>mi</p><p>€<br>£<br>J<br>te<br>t<br>ext4</p><p>(</p><p>[<br>|<br>t<br>ome<br>ext4<br>defaults</p><p>ë<br>=<br>te<br>inc<br>i<br>vfat</p><p>(<br>1<br>5 LE<br>swap<br>sw</p><p>€</p><p>i<br>irom<br>udf,iso9660<br>user,noauto</p><p>LABEL<br>ext4<br>auto</p><p>root@debclient:“#<br>systemctl<br>stop<br>systemd-jx<br>root@debclient:“#<br>lsof<br>|grep<br>/var</p></div></details>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>On défait le montage manuel qui avait été fait sur /var </p>
+
+<p class="tssr-source-paragraph"> <br>On relance le montage de /var, mais ce coup-ci sans options ni autre argument, </p>
+<p class="tssr-source-paragraph"> ce qui implique la lecture des informations du fichier /etc/fstab </p>
+<p class="tssr-source-paragraph"> <br>Si tout cela fonctionne bien, on peut enfin redémarrer le système en guise de dernière vérification.  </p>
+<p class="tssr-source-paragraph">En cas d’erreur, reprendre ces étapes, avec retour sur le snapshot préalablement pris si besoin. </p>
+
+<p class="tssr-source-paragraph">Page 4/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>root@debclient:&quot;#<br>umount<br>“var</p><p>root@debeclient:&quot;4<br>mount<br>“var</p></div></details>
+<figure class="tssr-original-figure"><a href="../figures/atlas-77a6b29951c0ebf339b2df19d6f4553f7022d502915af5824cd9ff58509d7949.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-77a6b29951c0ebf339b2df19d6f4553f7022d502915af5824cd9ff58509d7949.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="3623"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

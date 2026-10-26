@@ -1,0 +1,50 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 2 - Select-Object.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 2 - Select-Object</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Select-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 3 </p>
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter la commande Select-Object. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La commande Select-Object permet de sélectionner des propriétés d’un ou de tous les objets 
+renvoyés par la commande initiale. De cette façon, l’affichage du résultat sera constitué des 
+propriétés sélectionnées. Si une commande est indiquée à la suite du Select-Object elle pourra 
+travailler uniquement sur les propriétés sélectionnées précédemment. </pre>
+<p class="tssr-source-paragraph">• <br>À la suite d’une commande renvoyant un ou des objets </p>
+<pre class="tssr-source-code">o Le Select va disposer les propriétés dans l’ordre souhaité par l’utilisateur. </pre>
+<pre class="tssr-source-code">o Il va également proposer de n’afficher qu’un certain nombre d’objets en fonction de </pre>
+<p class="tssr-source-paragraph">leur classement. </p>
+
+<pre class="tssr-source-code">On indique avec la commande Select-Object suivie du paramètre Property les propriétés que 
+l’on afficha dans le résultat. Lorsque l’on souhaite indiquer plusieurs propriétés, le séparateur est la 
+virgule.  </pre>
+<pre class="tssr-source-code">L’ordre d’affichage est fonction de l’ordre des propriétés indiqué dans la commande Select-
+Object. </pre>
+<p class="tssr-source-paragraph">La commande permet également de préciser un nombre d’objets. </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object -Property Name,status</p><p>Name<br>Status</p><p>AarSvc_7ad9e<br>Stopped<br>AJRouter<br>Stopped<br>ALG<br>Stopped<br>AppIDSvc<br>Stopped<br>Appinfo<br>Running<br>AppMgmt<br>Stopped<br>AppReadiness<br>Stopped<br>AppVvClient<br>Stopped<br>AppXSVC<br>Stopped<br>AssignedAccessManagersvc<br>Stopped<br>Audi oEndpointBui Ider<br>Running</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Last permet d’indiquer le nombre d’objets présent dans le résultat en commençant 
+par la fin. L’ordre de classement est alphabétique sur la première propriété indiquée. </pre>
+<pre class="tssr-source-code">Le paramètre Unique regroupe les objets qui partagent une valeur de propriété identique. </pre>
+<pre class="tssr-source-code">Dans l’exemple d’un process, la propriété ID a une valeur commune pour plusieurs process. </pre>
+
+<pre class="tssr-source-code">Sans le paramètre Unique on obtient 91 objets dont certains ont une valeur de propriété identique. </pre>
+<pre class="tssr-source-code">Avec le paramètre Unique, les objets ont tous des valeurs de propriétés uniques. </pre>
+<pre class="tssr-source-code">Le paramètre ExpandProperty permet de ne garder que la valeur sans le nom de la propriété,  </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object -Property Name,status -Last<br>5</p><p>Name<br>Status</p><p>WwanSvc<br>Stopped<br>Xb1AuthManager Stopped<br>Xb1GameSave<br>Stopped<br>XboxGipSvc<br>Stopped<br>XboxNetApiSvc<br>Stopped</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object<br>|<br>Measure-Object</p><p>count<br>:<br>91<br>Average<br>:<br>sum.<br>:<br>Maximum<br>:<br>Minimum<br>:<br>Property<br>:</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object -Unique<br>|<br>Measure-Object</p><p>Count<br>:<br>53<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">A l’affichage du résultat, l’en-tête de propriété n’apparaît plus dans le résultat. </p>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object<br>-ExpandProperty name<br>AarSvc_7adge<br>AJRouter<br>ALG<br>AppIDSvc<br>Appinfo<br>AppMgmt<br>AppReadiness<br>AppVClient<br>AppXSVvc<br>AssignedAccessManagersvc<br>Audi oEndpointBui<br>Ider<br>Audiosrv<br>autotimesvc</p><p>AXINSTSV<br>BcastDVRUserService_/adge</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a9f51a3066f173afba77fcf96972a3187f73ad535994d283bbd8da5545d8732e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a9f51a3066f173afba77fcf96972a3187f73ad535994d283bbd8da5545d8732e.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2563"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

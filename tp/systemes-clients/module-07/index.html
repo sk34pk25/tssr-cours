@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12716,29 +12716,268 @@
 
 
 <h1 id="tp-module-07-la-gestion-du-reseau-et-du-pare-feu">TP — Module 07 — La gestion du réseau et du pare-feu<a class="headerlink" href="#tp-module-07-la-gestion-du-reseau-et-du-pare-feu" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · Enonc‚ du TP - Gestion du r‚seau.pdf · 4 pages</summary>
+<summary>Énoncé · Enonc‚ du TP - Gestion du r‚seau · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/c236aadd3eb7bc01/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/c236aadd3eb7bc01/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/c236aadd3eb7bc01/pages-001-004.webp" alt="Source Drive — Enonc‚ du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7968"></a><figcaption>Source Drive — Enonc‚ du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Gestion du réseau</h4>
+<p class="tssr-source-paragraph">TP du Module 07 – La gestion du réseau et du pare-feu</p>
+<p class="tssr-source-paragraph">Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en <br>place un adressage IP fixe puis effectuerez des tests (tests de communications et de <br>résolution de noms entre autres). Vous parcourrez et modifierez la configuration du <br>pare-feu pour l’adapter aux consignes.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l'ensemble de ce TP avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez vos accès réseau :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Connectez votre VM sur le switch Bridged (vérifier d'abord le report de 35 jours de<br>Windows Update)</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Possédez-vous une adresse IP ? Laquelle ? Quelle est l'adresse du réseau ?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez une adresse IP fixe sur l'interface réseau de votre VM&nbsp;:</p>
+<pre class="tssr-source-code">o
+La partie réseau de votre adresse sera la même que celle qui est configurée
+sur l’ordinateur à votre disposition pour réaliser les TP.</pre>
+<pre class="tssr-source-code">o
+La partie hôte sera composée du rang alphabétique de la première lettre
+de votre prénom puis du rang alphabétique de la première lettre de votre
+nom de famille</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../../../assets/course-sources/glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"><br>Exemple&nbsp;: Pierre-Louis Le Guervelec</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>P = 16eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°3 de l’adresse IP<br>sera donc 16</p>
+<p class="tssr-source-paragraph">Page 1/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>L = 12eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°4 de l’adresse IP<br>sera donc 12</p>
+<pre class="tssr-source-code">o
+Le masque sera 255.255.0.0</pre>
+<pre class="tssr-source-code">o
+La passerelle et le serveur DNS préféré seront les mêmes que ceux
+configurés sur votre VM Campus en ligne</pre>
+<p class="tssr-source-paragraph"> <br>Connectivité </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande ping vers les hôtes suivants&nbsp;:</p>
+<pre class="tssr-source-code">o
+Adresse IP de la passerelle par défaut </pre>
+<pre class="tssr-source-code">o
+Adresse IP de votre VM Discovery</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ces hôtes sont-ils joignables&nbsp;? S’ils ne le sont pas, vérifier la configuration réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À quel niveau du réseau sont-ils ? Réseau local&nbsp;? Internet&nbsp;?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande tracert pour ces mêmes noms. Que nous apprend cette<br>commande ?</p>
+
+<p class="tssr-source-paragraph">Page 2/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Résolution de noms</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande nslookup avec les noms suivants&nbsp;: </p>
+<pre class="tssr-source-code">o
+www.hadopi.fr</pre>
+<pre class="tssr-source-code">o
+www.amendes.gouv.fr</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Obtenez-vous des réponses pour chacune des requêtes&nbsp;? Quelles sont les adresses<br>IPv4 de ces hôtes&nbsp;?</p>
+<p class="tssr-source-paragraph"> <br>Pare-feu sur W10-XX</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifiez l'état d'activation de votre pare-feu pour chaque profil réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez le pare-feu pour les Programmes autorisés&nbsp;:</p>
+<pre class="tssr-source-code">o
+Autorisez le Bureau à distance uniquement pour le profil privé</pre>
+
+<p class="tssr-source-paragraph">Page 3/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie<br>vous permettant d’autoriser le ping entre vos postes client.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 4/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="3294"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_ · <span title="Empreinte SHA-256 du fichier source">SHA-256 c236aadd3eb7bc01…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP - Gestion du r‚seau.pdf · 10 pages</summary>
+<summary>Correction · Solution du TP - Gestion du r‚seau · 10 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/9cb17ec8495d3204/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/9cb17ec8495d3204/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/9cb17ec8495d3204/pages-001-004.webp" alt="Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/9cb17ec8495d3204/pages-005-008.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/9cb17ec8495d3204/pages-005-008.webp" alt="Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 5 à 8. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 5 à 8. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/9cb17ec8495d3204/pages-009-010.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/9cb17ec8495d3204/pages-009-010.webp" alt="Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 9 à 10. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Solution du TP - Gestion du r‚seau.pdf — pages 9 à 10. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Gestion du réseau </h4>
+<p class="tssr-source-paragraph">TP du Module 07 – La gestion du réseau et du pare-feu </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez vos accès réseau : </p>
+<p class="tssr-source-paragraph">• <br>Connectez votre VM sur le switch Bridged (vérifier d'abord le report de 35 jours de <br>Windows Update) </p>
+<p class="tssr-source-paragraph">Rechercher &gt; Windows Update &gt; Options avancées de Windows Update </p>
+<p class="tssr-source-paragraph">Vérifier le report des mises à jour </p>
+<p class="tssr-source-paragraph">Dans le cas contraire, reportez les mises à jour depuis le menu Options avancées </p>
+
+<p class="tssr-source-paragraph">Dans VMware WorkStation &gt; Clic droit sur votre VM Win10-XX &gt; Settings </p>
+<p class="tssr-source-paragraph">Network Adapter &gt; cocher Bridged </p>
+<p class="tssr-source-paragraph">• <br>Possédez-vous une adresse IP ? Laquelle ? Quelle est l'adresse du réseau ? </p>
+<p class="tssr-source-paragraph">Ouvrez une fenêtre de ligne de commande cmd.exe </p>
+<pre class="tssr-source-code">ipconfig (attention, votre adresse IP sera différente de celle de l'encadré ci-dessous). </pre>
+<p class="tssr-source-paragraph">Page 1/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Windows Update<br>[a Mises a jour interrompues<br>Cu<br>Votre appareil ne sera pas à jour tant que les mises à jour</p><p>sont interrompues.<br>Les mises à jour reprendront le</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Ici, l'adresse IP est 172.28.2.5 </p>
+<p class="tssr-source-paragraph">L'adresse du réseau est 172.28.0.0 (résultat de l'opération du &amp; entre l'adresse IP et le <br>masque de sous-réseau). </p>
+<p class="tssr-source-paragraph">• <br>Configurez une adresse IP fixe sur l'interface réseau de votre VM </p>
+<pre class="tssr-source-code">o La partie réseau de votre adresse sera la même que celle de votre VM </pre>
+<p class="tssr-source-paragraph">Campus en ligne </p>
+<pre class="tssr-source-code">o La partie hôte sera composée du rang alphabétique de la première lettre de </pre>
+<p class="tssr-source-paragraph">votre prénom puis du rang alphabétique de la première lettre de votre nom <br>de famille </p>
+<p class="tssr-source-paragraph">▪ <br>Exemple : Pierre-Louis Le Guervelec </p>
+<p class="tssr-source-paragraph">• <br>P = 16eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°3 de l’adresse ip sera <br>donc 16 </p>
+<p class="tssr-source-paragraph">• <br>L = 12eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°4 de l’adresse ip sera <br>donc 12 </p>
+<pre class="tssr-source-code">o Le masque sera 255.255.0.0 </pre>
+<pre class="tssr-source-code">o La passerelle et le serveur DNS préféré seront les mêmes que ceux configurés </pre>
+<p class="tssr-source-paragraph">sur votre VM Campus en ligne </p>
+<p class="tssr-source-paragraph">Ouvrez une fenêtre de ligne de commande cmd.exe sur l'environnement de travail de <br>l'école </p>
+<pre class="tssr-source-code">ipconfig /all </pre>
+<p class="tssr-source-paragraph">Notez les informations concernant la partie réseau, la passerelle par défaut et le serveur <br>DNS préféré. </p>
+<p class="tssr-source-paragraph">Page 2/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Carte<br>Ethernet<br>Ethernet@<br>:</p><p>Suffixe DNS propre<br>à la connexion.<br>.<br>.<br>:<br>ad.campus-eni.fr<br>Adresse<br>IPv6<br>de<br>liaison<br>locale.<br>.<br>.<br>.<br>.:<br>fe8B::acfb:8349:ce77:6976%10<br>Adresse<br>IPv4.<br>.......<br>.<br>.<br>.<br>.<br>.<br>.:<br>172.28.2.5<br>Masque de sous-réseau.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>255.255.0.0<br>Passerelle par défaut.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>172.28.0.254</p><p>C:\Users\Ateliers&gt;</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX (faites bien attention de faire les manipulations sur votre VM Win10-<br>XX) </p>
+<p class="tssr-source-paragraph">Rechercher &gt; ncpa.cpl </p>
+<p class="tssr-source-paragraph">Clic droit sur la carte Ethernet0 &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Sélectionnez Protocole Internet version 4 (TCP/IPv4) puis Propriétés </p>
+<p class="tssr-source-paragraph">Cochez Utiliser l'adresse IP suivante : </p>
+<p class="tssr-source-paragraph">Adresse IP : 172.28.18.7 (attention : ici 18.7 correspond à la partie hôte. 18 pour R et 7 pour <br>G. Votre partie hôte sera donc différente). </p>
+<p class="tssr-source-paragraph">Masque de sous-réseau : 255.255.0.0 </p>
+<p class="tssr-source-paragraph">Passerelle par défaut : 172.28.0.254 </p>
+<p class="tssr-source-paragraph">Cochez Utiliser l'adresse de serveur DNS suivante </p>
+<p class="tssr-source-paragraph">Serveur DNS préféré : 172.28.0.4 </p>
+<p class="tssr-source-paragraph">Page 3/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>:\Users\Ateliers&gt;ipconfig /all</p><p>onfiguration IP de Windows</p><p>Nom de l’hôte<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Win10-XX<br>Suffixe DNS principal<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Type de noeud.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Hybride<br>Routage IP activé<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Non<br>Proxy WINS activé<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Non<br>Liste de recherche du suffixe DNS.:<br>ad.campus-eni.fr</p><p>arte<br>Ethernet Ethernet®<br>:</p><p>Suffixe DNS propre à la connexion.<br>.<br>.<br>:<br>ad.campus-eni.fr<br>Description.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Intel(R) 82574L Gigabit Network Connection<br>Adresse physique<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: @@-@C-29-B@-3D-41<br>DHCP activé.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Oui<br>Configuration automatique activée.<br>.<br>.<br>: Oui<br>Adresse IPv6 de liaison locale.<br>.<br>.<br>.<br>.: fe80::acfb:8349:ce77:6976%10(préféré)<br>Adresse IPv4.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.:<br>172.28. 2.5(préféré)<br>Masque de sous-réseau.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>255.255.0.0<br>Bail obtenu.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>mercredi<br>31 mars<br>2021 10:00:12<br>Bail expirant.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: jeudi 8 avril 2021 10:00:13<br>Passerelle par défaut.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: M72-28-0-254<br>Serveur DHCP<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>172.28.0.4<br>IAID DHCPv6<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>1080666409<br>DUID de client<br>DHCPv6.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@0-01-08-01-27-E3-C2-9D-68-@C-29-B@-3D-41<br>Serveurs DNS...<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>172-2802<br>10.100.6.3<br>NetBIOS sur Tcpip.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: Activé</p><p>:\Users\Ateliers&gt;,</p><p>Er</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">OK </p>
+<p class="tssr-source-paragraph">Connectivité  </p>
+<p class="tssr-source-paragraph">• <br>Utilisez la commande ping vers les hôtes suivants : </p>
+<pre class="tssr-source-code">o Adresse IP de la passerelle par défaut  </pre>
+<pre class="tssr-source-code">o Adresse IP de votre VM Discovery </pre>
+<pre class="tssr-source-code">o www.facebook.com </pre>
+<p class="tssr-source-paragraph">• <br>Ces hôtes sont-ils joignables ? S’ils ne le sont pas, vérifier la configuration réseau. </p>
+<p class="tssr-source-paragraph">• <br>À quel niveau du réseau sont-ils ? Réseau local ? Internet ? </p>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX </p>
+<p class="tssr-source-paragraph">Ouvrez une fenêtre de commande cmd.exe </p>
+<p class="tssr-source-paragraph">Page 4/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés de: Protocole Internet version 4 (TCP/1Pv4)<br>x</p><p>Général</p><p>Les paramètres IP peuvent être déterminés automatiquement si votre<br>réseau le permet. Sinon, vous devez demander les paramètres IP<br>appropriés à votre administrateur réseau.</p><p>© Obtenir une adresse IP automatiquement</p><p>(© Utiliser l'adresse IP suivante<br>:</p><p>Adresse IP<br>:<br>172.28<br>.18.<br>7</p><p>Masque de sous-réseau<br>:<br>255,255, 0.0</p><p>Passerelle par défaut<br>:<br>172, 28<br>,<br>0<br>.254</p><p>Obtenir les adresses des serveurs DNS automatiquement</p><p>(@) Utiliser l'adresse de serveur DNS suivante<br>:</p><p>Serveur DNS préféré<br>:<br>172.28 .0.4</p><p>Serveur DNS auxiliaire :<br>[.<br>| ]</p><p>[] Valider les paramètres en quittant<br>CET</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-0984975cfdc1f96b4140f725ae22cbf3668d27318712702b2d099938b532e9f5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-0984975cfdc1f96b4140f725ae22cbf3668d27318712702b2d099938b532e9f5.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="965" height="2635"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<pre class="tssr-source-code">ping 172.28.0.254 </pre>
+<p class="tssr-source-paragraph">La VM Win10-XX obtient une réponse ICMP de la passerelle. La VM Win10-XX et la passerelle <br>par défaut communiquent bien. </p>
+<p class="tssr-source-paragraph">Pour retrouver l'adresse IP de la VM Discovery, ouvrez une session avec l'utilisateur adm puis <br>ouvrez une fenêtre de ligne de commande cmd.exe  </p>
+<pre class="tssr-source-code">ipconfig </pre>
+<p class="tssr-source-paragraph">Si l'adresse IP de la VM Discovery est au format APIPA, c'est que la Discovery ne possède <br>pas d'informations IP fournies par le service DHCP. Pour remédier à cela, il faut que la VM <br>Discovery puisse d'abord communiquer avec le serveur DHCP. Pour cela, il faut donc la <br>"brancher" sur le switch "Bridged" </p>
+<p class="tssr-source-paragraph">À l'issue de la bascule sur le switch "Bridged", attendez quelques secondes, votre VM <br>obtiendra les informations IP adéquates pour communiquer sur le réseau </p>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX </p>
+<pre class="tssr-source-code">Ping &lt;adresse ip de votre VM Discovery&gt; </pre>
+<p class="tssr-source-paragraph">La VM Win10-XX et Discovery communiquent ensemble sur le même réseau local. </p>
+<pre class="tssr-source-code">ping www.facebook.com </pre>
+<p class="tssr-source-paragraph">Page 5/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>C:\Users\Ateliers&gt;ping 172.28.8.254</p><p>Envoi d’une requête<br>‘Ping'<br>172.28.0.254 avec 32 octets de données<br>:<br>Réponse de 172.28.0.254<br>:<br>octets=32 temps&lt;ims TTL=255<br>Réponse de 172.28.0.254<br>:<br>octets=32 temps&lt;ims TTL=255<br>Réponse de 172.28.0.254<br>:<br>octets=32 temps&lt;ims TTL=255<br>Réponse de 172.28.@.254<br>:<br>octets=32 temps&lt;ims TTL=255</p><p>Statistiques Ping pour 172.28.6.254:</p><p>Paquets<br>:<br>envoyés<br>= 4,<br>recus<br>= 4,<br>perdus<br>= @ (perte 6%),<br>Durée approximative des boucles en millisecondes<br>:<br>Minimum = ms, Maximum = @ms, Moyenne<br>= Gms</p><p>C:\Users\Ateliers&gt;ping 172.28.2.5</p><p>Envoi d’une requête<br>‘Ping’<br>172.28.2.5 avec 32 octets de données<br>:<br>Réponse de 172.28.2.5<br>:<br>octets=32 temps=6 ms TTL=128<br>Réponse de 172.28.2.5<br>:<br>octets=32 temps=2 ms TTL=128<br>Réponse de 172.28.2.5<br>:<br>octets=32 temps=1 ms TTL=128<br>Réponse de 172.28.2.5<br>:<br>octets=32 temps&lt;ims TTL=128</p><p>Statistiques Ping pour 172.28.2.5:</p><p>Paquets<br>:<br>envoyés<br>= 4,<br>reçus<br>= 4,<br>perdus<br>= @ (perte 6%),<br>Durée approximative des boucles en millisecondes<br>:<br>Minimum = ms, Maximum = 6ms, Moyenne<br>= 2ms</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">La communication entre votre VM Win10-XX et ce serveur web est possible grâce au fait <br>que vous avez configuré une passerelle par défaut. Cette passerelle par défaut correspond <br>à une interface réseau du routeur connecté au réseau. Ce routeur vous permet de <br>communiquer avec des hôtes disponibles dans d'autres réseaux et notamment internet. </p>
+<p class="tssr-source-paragraph">• <br>Utiliser la commande tracert pour ces mêmes noms. Que nous apprend cette <br>commande ? </p>
+<p class="tssr-source-paragraph">Cette commande nous apprend que la passerelle par défaut ainsi que la VM Discovery <br>sont joignables directement. La communication est directe, sans que le paquet ne traverse <br>des routeurs, ne passe par différents réseaux. </p>
+<p class="tssr-source-paragraph">Page 6/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>C:\Users\Ateliers&gt;ping www.facebook.com</p><p>Envoi d’une requête<br>‘ping’<br>sur star-mini.c10r.facebook.com<br>[185.68.216.35]<br>avec 32 octets de données<br>:<br>Réponse de 185.68.216.35<br>: octets=32 temps=14 ms TTL=53<br>Réponse de 185.60.216.35<br>: octets=32 temps=14 ms TTL=53<br>Réponse de 185.60.216.35<br>: octets=32 temps=18 ms TTL=54<br>Réponse de 185.60.216.35<br>: octets=32 temps=15 ms TTL=54</p><p>Statistiques Ping pour 185.60.216.35:</p><p>Paquets<br>:<br>envoyés = 4,<br>reçus = 4,<br>perdus = @ (perte 0%),<br>Durée approximative des boucles en millisecondes<br>:<br>Minimum = 14ms, Maximum = 18ms, Moyenne = 15ms</p><p>C:\Users\Ateliersètracert<br>172.28.0.254</p><p>Détermination<br>de<br>l'itinéraire<br>vers<br>172.28.6.254<br>avec<br>un<br>maximum de<br>36 sauts.</p><p>1<br>&lt;1<br>ms<br>&lt;1<br>ms<br>&lt;1<br>ms<br>172.28.0.254</p><p>Itinéraire<br>déterminé.</p><p>C:\Users\Ateliersètracert<br>172.28.2.5</p><p>Détermination de l'itinéraire vers DiscoveryXX.ad.campus-eni.fr<br>[172.28.2.5]<br>avec<br>un<br>maximum<br>de<br>38<br>sauts<br>:</p><p>1<br>3 ms<br>&lt;1 ms<br>&lt;i ms<br>DiscoveryXX.ad.campus-eni.fr [172.28.2.5]</p><p>Itinéraire<br>déterminé.</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">La commande nous apprend ici que le serveur web de Facebook est joignable et se trouve <br>dans un réseau différent de celui dans lequel se trouve la VM Win10-XX. La communication <br>est donc possible en passant par des routeurs (nous avons même l'information de leur <br>adresse IP et même parfois de leur nom). </p>
+<p class="tssr-source-paragraph">La ligne délai de la demande dépassé indique simplement que le routeur en question ne <br>"souhaite pas" communiquer son adresse IP, mais cela ne bouscule ne rien le processus de <br>routage. </p>
+<p class="tssr-source-paragraph">Il faut que le paquet traverse 10 routeurs différents (10 sauts) avant d'atteindre la destination <br>finale. </p>
+<p class="tssr-source-paragraph">Résolution de noms </p>
+<p class="tssr-source-paragraph">• <br>Utilisez la commande nslookup avec les noms suivants :  </p>
+<pre class="tssr-source-code">o www.hadopi.fr </pre>
+<pre class="tssr-source-code">o www.amendes.gouv.fr </pre>
+<pre class="tssr-source-code">o www.facebook.com </pre>
+<p class="tssr-source-paragraph">Depuis la VM Win10-XX </p>
+<p class="tssr-source-paragraph">Page 7/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>:\Users\Ateliers&gt;tracert www.facebook.com</p><p>Détermination de l’itinéraire vers star-mini.c10r.facebook.com [185.60.216.35]<br>lavec<br>un maximum de 3@ sauts<br>:</p><p>1<br>&lt;1<br>ms<br>&lt;1<br>ms<br>&lt;1 ms<br>172.28.0.254<br>2<br>&lt;1<br>ms<br>&lt;1 ms<br>&lt;1 ms<br>185.42.28.129<br>=<br>&lt;1 ms<br>&lt;1 ms<br>&lt;1 ms<br>185.42.31.82<br>4<br>5 ms<br>5 ms<br>5 ms<br>par-v127.eq3.r1.bsocom.net<br>[89.30.3.94]<br>5<br>7 ms<br>7 ms<br>7 ms<br>icri.th2.par.fr.bsonetwork.net [89.30.15.23]<br>6<br>18 ms<br>20 ms<br>16 ms<br>icri.ixn1.fra.de.bsonetwork.net [89.30.15.9]<br>7<br>*<br>*<br>*<br>Délai d’attente de la demande dépassé.<br>8<br>14 ms<br>14 ms<br>14 ms<br>po131.asw01.fra2.tfbnu.net<br>[204.15.21.98]<br>9<br>14 ms<br>14 ms<br>14 ms<br>po213.pswe4.fraS.tfbnw.net<br>[157.240.43.123]<br>18<br>14 ms<br>14 ms<br>14 ms<br>173.252.67.173<br>11<br>14 ms<br>15 ms<br>14 ms<br>edge-star-mini-shv-01-frx5.facebook.com<br>[185.60.216.35]</p><p>Itinéraire déterminé.</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Obtenez-vous des réponses pour chacune des requêtes ? Quelles sont les adresses <br>ipv4 de ces hôtes ? </p>
+<p class="tssr-source-paragraph">Nous obtenons plusieurs informations suite à ces commandes nslookup. </p>
+<p class="tssr-source-paragraph">La commande nslookup permet d'obtenir l'adresse IP d'un hôte lorsque nous connaissons <br>son nom. C'est le principe du service DNS. nslookup permet de consulter le service DNS. </p>
+<p class="tssr-source-paragraph">Ici, nous pouvons observer que le service DNS est hébergé par l'hôte dont le nom est <br>dceel.ad.campus-eni.fr et que son adresse IP est 172.28.0.4. C'est justement l'adresse que <br>nous avons renseignée comme serveur DNS préféré dans la configuration de notre carte <br>réseau. </p>
+<p class="tssr-source-paragraph">L'adresse IP de l'hôte www.hadopi.fr est 217.115.114.160 </p>
+<p class="tssr-source-paragraph">L'adresse IP de l'hôte www.amendes.gouv.fr est 90.102.115.80 </p>
+<p class="tssr-source-paragraph">L'adresse IPv4 l'hôte www.facebook.com est 185.60.216.35. Il possède aussi une adresse IPv6 <br>(2a03:2880:f12d:83:face:booc:0:25de) </p>
+<p class="tssr-source-paragraph">www.facebook.com est un alias (un surnom). Son nom d'hôte DNS est en réalité : </p>
+<p class="tssr-source-paragraph">star-mini.c10r.facebook.com </p>
+
+<p class="tssr-source-paragraph">Page 8/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>C:\Users\rgautier&gt;nslookup wuw.hadopi.fr<br>Serveur<br>:<br>dceel .ad.campus-eni.fr<br>Address:<br>172.28.0.4</p><p>Réponse ne faisant pas autorité<br>:<br>Nom<br>:<br>hadopi.fr<br>Address:<br>217.115.160.114<br>Aliases:<br>www.hadopi.fr</p><p>C:\Users\rgautier&gt;nslookup www.amendes.gouv.fr<br>Serveur<br>:<br>dceel.ad.campus-eni.fr<br>Address:<br>172.28.0.4</p><p>Réponse ne faisant pas autorité<br>:<br>Nom<br>:<br>www. amendes.gouv.fr<br>Address:<br>90@.102.115.80</p><p>C:\Users\rgautier&gt;nslookup www.facebook.com<br>Serveur<br>:<br>dceel.ad.campus-eni.fr<br>Address:<br>172.28.0.4</p><p>Réponse ne faisant pas autorité<br>:<br>Nom<br>:<br>star-mini.cl@r.facebook.<br>com<br>Addresses:<br>2a03:2888:f11c:8083:face:b@8c:8:25de<br>185.66.216.35<br>Aliases:<br>www.facebook.<br>com</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-c50337cf1fb2b79d6d4b9281ed4502289a424596b5be897faad90520c27d4707.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-c50337cf1fb2b79d6d4b9281ed4502289a424596b5be897faad90520c27d4707.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="965" height="3158"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Pare-feu sur W10-XX </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez l'état d'activation de votre pare-feu pour chaque profil réseau. </p>
+<p class="tssr-source-paragraph">Avec la VM Win10-XX </p>
+<p class="tssr-source-paragraph">Rechercher &gt; Pare-feu Windows Defender </p>
+<p class="tssr-source-paragraph">La VM se trouve sur l'emplacement Réseaux privés, le pare-feu est activé. Si, par mobilité, <br>vous basculez dans un réseau public ou invités, le pare-feu sera activé automatiquement.  </p>
+<p class="tssr-source-paragraph">La VM n'étant pas jointe à un domaine, aucune indication sur l'emplacement de domaine. </p>
+<p class="tssr-source-paragraph">• <br>Configurez le pare-feu pour les Programmes autorisés : </p>
+<pre class="tssr-source-code">o Autorisez le Bureau à distance uniquement pour le profil privé </pre>
+<p class="tssr-source-paragraph">Rechercher &gt; Autoriser une application via le Pare-feu Windows <br> </p>
+<p class="tssr-source-paragraph">Cocher Bureau à distance pour le profil Privé <br> </p>
+<p class="tssr-source-paragraph">Page 9/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Protégez votre ordinateur avec le Pare-feu Windows Defender</p><p>Le Pare-feu Windows Defender a pour but d'empêcher les pirates ou les logiciels malveillants d'accéder à<br>votre ordinateur<br>via Internet ou via un réseau.<br>E g Réseaux privés<br>Connecté (*)</p><p>Réseaux à domicile ou sur un lieu de travail, où vous faites confiance aux personnes et aux périphériques<br>présents sur le réseau</p><p>Etat du Pare-feu Windows Defender:<br>Activé</p><p>Connexions entrantes<br>:<br>Bloquer toutes les connexions aux applications ne<br>figurant pas dans la liste des applications autorisées</p><p>Réseaux privés actifs:<br>D<br>Réseau</p><p>État de notification<br>:<br>M'avertir lorsque le Pare-feu Windows Defender<br>bloque une nouvelle application<br>a g Réseaux publics ou invités<br>Non connecté ()</p><p>Réseaux dans des lieux publics, tels qu'un aéroport ou un cybercafé</p><p>Etat du Pare-feu Windows Defender:<br>Activé</p><p>Connexions entrantes<br>:<br>Bloquer toutes les connexions aux applications ne<br>figurant pas dans la liste des applications autorisées</p><p>Réseaux publics actifs:<br>Aucun</p><p>État de notification<br>:<br>M'avertir lorsque le Pare-feu Windows Defender<br>bloque une nouvelle application</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs-page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie vous <br>permettant d’autoriser le ping entre vos postes client. </p>
+<p class="tssr-source-paragraph">Rechercher &gt; Pare-feu Windows Defender avec fonctions avancées de sécurité </p>
+<p class="tssr-source-paragraph">Sélectionner Règles de trafic entrant </p>
+<p class="tssr-source-paragraph">Clic droit sur Partage de fichiers et d'imprimantes (Demande d'écho – Trafic entrant ICMPv4) <br>Activer la règle </p>
+<p class="tssr-source-paragraph">Il y a deux lignes qui portent le même intitulé, activez celle dont le profil correspond à Privé, <br>Public  </p>
+<p class="tssr-source-paragraph">Pour s'assurer du bon fonctionnement, faites un ping depuis la VM Discovery vers votre VM <br>Win10-XX, la communication doit être maintenant possible. </p>
+<p class="tssr-source-paragraph">Page 10/10 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-ed68ace4db340059e89551985f81def0eae85be214eb5dd83689969808bc020c.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-ed68ace4db340059e89551985f81def0eae85be214eb5dd83689969808bc020c.webp" alt="Illustrations du support source, pages 9 à 10" loading="lazy" width="900" height="1122"></a><figcaption>Illustrations du support Drive — pages 9 à 10. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1GDEIMZpmyo9qDiGPky7WFfen6C9ncRXs · <span title="Empreinte SHA-256 du fichier source">SHA-256 9cb17ec8495d3204…</span></p>
 </div>
 </details>
@@ -12747,7 +12986,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="scenario">Scénario<a class="headerlink" href="#scenario" title="Permanent link">¶</a></h2>
 <p>Ce TP met en pratique la configuration réseau d’une VM Windows : adressage IPv4 fixe, contrôles de connectivité et de résolution de noms, puis adaptation du pare-feu Windows aux consignes du scénario.</p>
@@ -12882,11 +13121,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

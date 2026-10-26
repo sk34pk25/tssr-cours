@@ -1,0 +1,590 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 06 – Exécution conditionnelle (test, if, case)</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Comprendre les structures conditionnelles</p>
+<p class="tssr-source-paragraph">• Écrire des tests<br>• Comparer des nombres, des chaînes</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Contextes outils et structures </h4>
+<h4>de conditionnement</h4>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Contextes outils et structures de conditionnement</p>
+<p class="tssr-source-paragraph">Dans de nombreux cas pratiques, la réalisation d’actions est conditionnée.</p>
+<p class="tssr-source-paragraph">OUI</p>
+<pre class="tssr-source-code">Dans cet exemple, la valeur de la 
+variable nb est conditionnée</pre>
+<p class="tssr-source-paragraph">La variable nb<br>prend la valeur de </p>
+<p class="tssr-source-paragraph">nombre<br>d’argument = </p>
+<p class="tssr-source-paragraph">l’argument</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">NON</p>
+<p class="tssr-source-paragraph">•<br>Au nombre d’arguments passé <br>au script</p>
+<p class="tssr-source-paragraph">(nb est nulle)</p>
+<p class="tssr-source-paragraph">OUI</p>
+<p class="tssr-source-paragraph">La variable nb<br>prend la valeur de </p>
+<p class="tssr-source-paragraph">OU<br>(nb pas un entier)</p>
+<p class="tssr-source-paragraph">la variable <br>nbdefault</p>
+<p class="tssr-source-paragraph">•<br>Puis à la présence ou non de <br>contenu dans cette variable.</p>
+<p class="tssr-source-paragraph">NON</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Contextes outils et structures de conditionnement</p>
+<pre class="tssr-source-code">• En Scripting Shell, pour traduire cet algorithme, nous utiliserons :
+• Une structure de contrôle comme la structure if
+• Une expression de test (qui sera intégrée) à la structure de contrôle.
+• Ainsi, la première condition serait traduite ainsi :</pre>
+<p class="tssr-source-paragraph">Structure de contrôle if<br>Test de la condition<br>Structure complète</p>
+<pre class="tssr-source-code">if condition ;then</pre>
+<pre class="tssr-source-code">[[ $nbarg –eq 1 ]]
+if [[ $nbarg –eq 1 ]] ; then</pre>
+<pre class="tssr-source-code">nb=$1
+fi</pre>
+<pre class="tssr-source-code">nb=$1
+fi</pre>
+<pre class="tssr-source-code">• Dans ce module seront successivement abordées la structure if
+puis les expressions de tests.</pre>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Structure de contrôleif</td><td>Test de la condition</td><td>Structure complète</td></tr><tr><td>if condition ;then<br>nb=$1<br>fi</td><td>[[ $nbarg –eq 1 ]]</td><td>if [[ $nbarg –eq 1 ]] ; then<br>nb=$1<br>fi</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">L’instruction if est utilisée pour structurer la réalisation 
+conditionnée de commandes.</pre>
+<p class="tssr-source-paragraph">if</p>
+<p class="tssr-source-paragraph">Si</p>
+<p class="tssr-source-paragraph">else<br>then</p>
+<pre class="tssr-source-code">[[$var=foo]]</pre>
+<p class="tssr-source-paragraph">la condition est remplie</p>
+<p class="tssr-source-paragraph">alors je fais telle action</p>
+<pre class="tssr-source-code">echo &quot;Contenu
+($var) different </pre>
+<p class="tssr-source-paragraph">sinon je fais telle action</p>
+<pre class="tssr-source-code">echo &quot;La 
+variable saisie
+est égale à foo&quot;</pre>
+<pre class="tssr-source-code">de foo&quot;</pre>
+<p class="tssr-source-paragraph">fin</p>
+<p class="tssr-source-paragraph">Fin du si</p>
+<p class="tssr-source-paragraph">fi</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">• Cette instruction requiert au minimum :
+• Un début : if
+• L’exécution d’une commande (un test de condition par exemple)
+• L’exécution d’au moins une action si la condition est vérifiée : then
+• Une fin : fi</pre>
+<pre class="tssr-source-code">• Cette instruction peut être complétée par :
+• L’exécution d’autres actions si la condition est vérifiée
+• L’exécution d’actions à réaliser si la condition n’est pas vérifiée : else</pre>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
+                                                                                     L’instruction if
+
+
+                   L’instruction if est utilisée pour structurer la réalisation
+                conditionnée de commandes.
+                           Si                                                                                                              if
+                                                                              then                             else
+                           la condition est remplie                            [[$var=foo]]
+
+                          alors je fais telle action         echo &quot;La                            echo &quot;Contenu
+                       sinon je fais telle action     estvariableégale saisieà foo&quot;                      ($var)de differentfoo&quot;
+
+                     Fin du si                                                                                                   fin
+                                                                                                                                                       fi
+
+
+
+
+
+7
+
+
+
+
+
+                                                                                                   Scripting Shell
+                                                                                     L’instruction if
+
+
+                      • Cette instruction requiert au minimum :
+                                • Un début : if
+                                         • L’exécution d’une commande (un test de condition par exemple)
+                                         • L’exécution d’au moins une action si la condition est vérifiée : then
+                                • Une fin : fi
+
+                      • Cette instruction peut être complétée par :
+                                • L’exécution d’autres actions si la condition est vérifiée
+                                • L’exécution d’actions à réaliser si la condition n’est pas vérifiée : else
+
+
+
+
+
+8</pre></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3a7b1141faa73eced11b1acf6ee487b2b6d5fcfa15e4a384427ce406ee826e43.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3a7b1141faa73eced11b1acf6ee487b2b6d5fcfa15e4a384427ce406ee826e43.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="5927"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">Convention de structure de la boucle if</pre>
+<pre class="tssr-source-code">• Il existe 2 syntaxes pour l’écriture de la structure if :</pre>
+<p class="tssr-source-paragraph">Moderne<br>Classique</p>
+<pre class="tssr-source-code">if condition ; then</pre>
+<pre class="tssr-source-code">if condition
+then</pre>
+<pre class="tssr-source-code">Action1
+else</pre>
+<pre class="tssr-source-code">action1
+else</pre>
+<pre class="tssr-source-code">Action2
+fi</pre>
+<pre class="tssr-source-code">action2
+fi</pre>
+<p class="tssr-source-paragraph">• Dans ce support, la forme moderne de la structure sera prise pour les exemples. <br>• Mais vous pouvez choisir la méthode de votre choix.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">Utilisation minimale de if</pre>
+<p class="tssr-source-paragraph">• Dans l’exemple ci-dessous, la condition de réalisation de l’action <br>d’affichage est conditionnée par le résultat du test.</p>
+<pre class="tssr-source-code">if [[ &quot;$LOGNAME&quot; = root ]] ; then</pre>
+<pre class="tssr-source-code">echo &quot;Ne pas se connecter en root&quot;
+fi</pre>
+<pre class="tssr-source-code">• Autre exemple d’utilisation conditionné par le code retour d’une 
+commande (ls) :</pre>
+<pre class="tssr-source-code">if ls /tmp ; then</pre>
+<pre class="tssr-source-code">echo &quot;/tmp existe&quot;
+fi</pre>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D<br>D</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">Utilisation de if avec else</pre>
+<pre class="tssr-source-code">if s’utilise souvent avec else pour choisir une action ou une autre</pre>
+<pre class="tssr-source-code">if [[ &quot;$LOGNAME&quot; = root ]] ; then</pre>
+<pre class="tssr-source-code">echo &quot;Ne pas se connecter en root&quot;
+else</pre>
+<pre class="tssr-source-code">echo &quot;Bienvenue sur la machine $HOSTNAME&quot;
+fi</pre>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">Utilisation de if avec else</pre>
+<pre class="tssr-source-code">Il est possible de stipuler plusieurs actions dans une structure if :</pre>
+<pre class="tssr-source-code">if [[ &quot;$LOGNAME&quot; = root ]] ; then</pre>
+<pre class="tssr-source-code">echo &quot;Ne pas se connecter en root&quot;
+echo &quot;Le script va quitter&quot;
+exit 1
+else</pre>
+<pre class="tssr-source-code">echo &quot;Bienvenue sur la machine $HOSTNAME&quot;
+echo &quot;Le script continue&quot;
+fi</pre>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">L’instruction if</pre>
+<pre class="tssr-source-code">Imbrication de structures if</pre>
+<pre class="tssr-source-code">• Il est possible d’imbriquer des structures if entre elles. Dans l’exemple ci-dessous, 
+on fait d’autres tests si le premier n’est pas rempli.
+• Dans le cas d’imbrication d’un if dans un else, on peut utiliser la structure 
+imbriquée elif.</pre>
+<pre class="tssr-source-code">Imbrication de structures if</pre>
+<pre class="tssr-source-code">Utilisation du elif</pre>
+<pre class="tssr-source-code">if &lt;condition&gt; ; then </pre>
+<pre class="tssr-source-code">if &lt;condition&gt; ; then </pre>
+<pre class="tssr-source-code">&lt;action&gt;
+elif &lt;condition&gt; ; then</pre>
+<pre class="tssr-source-code">&lt;action&gt;
+else</pre>
+<pre class="tssr-source-code">if &lt;condition&gt; ; then</pre>
+<pre class="tssr-source-code">&lt;action&gt;
+else</pre>
+<pre class="tssr-source-code">&lt;action&gt;
+else</pre>
+<pre class="tssr-source-code">&lt;action&gt;
+fi
+# fin commune des 2 if</pre>
+<pre class="tssr-source-code">&lt;action&gt;
+fi
+# fin du second if
+fi
+# fin du premier if</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Démo</p>
+<p class="tssr-source-paragraph">L&#x27;instruction if</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PC<br>hs</p><p>|</p><p>K</p><p>©</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<h4>Évaluation des conditions</h4>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les commandes de tests</p>
+<p class="tssr-source-paragraph">• Le conditionnement de commandes s’appuie sur l’évaluation de <br>conditions.<br>• Afin d’évaluer une ou plusieurs conditions, il est possible d’utiliser les <br>commandes suivantes :</p>
+<pre class="tssr-source-code">test condition
+Commande externe de test utilisable quel que soit le Shell</pre>
+<pre class="tssr-source-code">[ condition ]
+Identique à la commande test</pre>
+<pre class="tssr-source-code">[[ condition ]]
+Commande interne à certains Shells (dont le Bash) qui prend 
+en charge des fonctionnalités supplémentaires
+(( condition ))
+Commande réservée à l’utilisation de tests arithmétiques</pre>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>test condition</td><td>Commandeexternede test utilisablequelque soitle Shell</td></tr><tr><td>[ condition ]</td><td>Identique à la commande test</td></tr><tr><td>[[ condition ]]</td><td>Commande interne à certains Shells (dont le Bash) qui prend<br>en charge des fonctionnalités supplémentaires</td></tr><tr><td>(( condition ))</td><td>Commanderéservéeà l’utilisationde tests arithmétiques</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6cec95b9605374fec812bfc1f8567a0f1bab3c5dcb44cc56d45473f713566f7b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6cec95b9605374fec812bfc1f8567a0f1bab3c5dcb44cc56d45473f713566f7b.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="994" height="6252"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les commandes de tests</p>
+<p class="tssr-source-paragraph">• Suite à l’exécution de ces commandes, leur code retour peut avoir <br>pour valeur :</p>
+<p class="tssr-source-paragraph">• 0 : l’expression est vraie<br>• 1 : l’expression est fausse</p>
+<pre class="tssr-source-code">• Dans ce cours, les tests sont réalisés au moyen de [[ ]]. </pre>
+<p class="tssr-source-paragraph">• Certains éléments abordés ne sont pas pris en charge par les <br>autres commandes de tests. [ ] et test</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Critères d’évaluation</p>
+<p class="tssr-source-paragraph">• Lors de l’évaluation d’une condition, les critères d’évaluation <br>sont liés au type d’élément à évaluer, celui-ci pouvant être :</p>
+<p class="tssr-source-paragraph">• Un entier (chiffre ou nombre)</p>
+<p class="tssr-source-paragraph">• Une chaîne (mot ou phrase)</p>
+<p class="tssr-source-paragraph">• Une composante du système de fichier (fichier, répertoire, etc.)</p>
+<p class="tssr-source-paragraph">• Les principaux opérateurs de tests sont présentés dans ce cours.</p>
+<p class="tssr-source-paragraph">18</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3>
+
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Critères d’évaluation</p>
+<p class="tssr-source-paragraph">Opérateurs de comparaison sur les entiers</p>
+<pre class="tssr-source-code">• Prendre garde à ce que la variable testée soit déclarée en type entier 
+(typeset –i variable).</pre>
+<pre class="tssr-source-code">-eq
+égalité</pre>
+<pre class="tssr-source-code">if [[ $nbre –eq 2 ]] ; then</pre>
+<pre class="tssr-source-code">echo &#x27;nombre choisi : 2&#x27;
+fi</pre>
+<pre class="tssr-source-code">-ne
+différence
+-gt
+supérieur
+-ge
+supérieur ou égal
+-lt
+inférieur
+-le
+inférieur ou égal</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Scripting Shell<br>Critères d’évaluation</p>
+<p class="tssr-source-paragraph">Opérateurs de comparaison sur les chaînes</p>
+<pre class="tssr-source-code">if [[ $prenom = sofia ]] ; then</pre>
+<pre class="tssr-source-code">echo &#x27;Bienvenue Sofia&#x27;
+fi</pre>
+<pre class="tssr-source-code">if [[ -z $prenom ]] ; then</pre>
+<pre class="tssr-source-code">=
+égalité
+!=
+différence
+-n $nomvar
+variable non nulle
+-z $nomvar
+variable nulle</pre>
+<pre class="tssr-source-code">echo &#x27;Merci de saisir 
+votre prénom&#x27;
+fi</pre>
+<p class="tssr-source-paragraph">20</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>-eq</td><td>égalité</td></tr><tr><td>-ne</td><td>différence</td></tr><tr><td>-gt</td><td>supérieur</td></tr><tr><td>-ge</td><td>supérieurouégal</td></tr><tr><td>-lt</td><td>inférieur</td></tr><tr><td>-le</td><td>inférieurouégal</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>=</td><td>égalité</td></tr><tr><td>!=</td><td>différence</td></tr><tr><td>-n $nomvar</td><td>variablenonnulle</td></tr><tr><td>-z $nomvar</td><td>variablenulle</td></tr></tbody></table></div>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3>
+
+
+<p class="tssr-source-paragraph">Scripting Shell<br>Critères d’évaluation</p>
+<p class="tssr-source-paragraph">Opérateurs de comparaison sur les fichiers</p>
+<pre class="tssr-source-code">if [[ -d $rep ]] ; then</pre>
+<pre class="tssr-source-code">-d nomrep
+répertoire
+-f nomfic
+fichier ordinaire</pre>
+<pre class="tssr-source-code">ls -l $rep
+fi</pre>
+<pre class="tssr-source-code">-w nomfic
+droit d’écriture</pre>
+<pre class="tssr-source-code">if [[ -f $fic ]] ; then</pre>
+<pre class="tssr-source-code">-r nomfic
+droit de lecture</pre>
+<pre class="tssr-source-code">-x nomfic
+droit d’exécution</pre>
+<pre class="tssr-source-code">cat $fic
+else</pre>
+<pre class="tssr-source-code">-s nomfic
+taille de nomfich &gt; 0</pre>
+<pre class="tssr-source-code">echo &quot;$fic absent&quot;
+fi</pre>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Combinaison de critères</p>
+<p class="tssr-source-paragraph">Combinaison de critères</p>
+<pre class="tssr-source-code">&amp;&amp;
+et logique</pre>
+<p class="tssr-source-paragraph">• Il est possible de cumuler plusieurs critères au sein d’un même test.<br>• On utilise alors les options suivantes :</p>
+<pre class="tssr-source-code">||
+ou logique
+!
+négation
+( ) regroupement</pre>
+<pre class="tssr-source-code">if [[ -f fic1 &amp;&amp; ( -d rep1 || -d rep2 ) ]] ; then</pre>
+<pre class="tssr-source-code">echo &quot;fic1 est présent, ainsi que rep1 ou rep2&quot;
+Fi </pre>
+<p class="tssr-source-paragraph">22</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>-d nomrep</td><td>répertoire</td></tr><tr><td>-f nomfic</td><td>fichier ordinaire</td></tr><tr><td>-w nomfic</td><td>droitd’écriture</td></tr><tr><td>-r nomfic</td><td>droitdelecture</td></tr><tr><td>-x nomfic</td><td>droitd’exécution</td></tr><tr><td>-s nomfic</td><td>tailledenomfich &gt;0</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>&amp;&amp;</td><td>et logique</td></tr><tr><td>||</td><td>oulogique</td></tr><tr><td>!</td><td>négation</td></tr><tr><td>( )</td><td>regroupement</td></tr></tbody></table></div>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les caractères spéciaux dans les chaînes</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Les caractères spéciaux dans les chaînes</p>
+<p class="tssr-source-paragraph">Métacaractères du Shell</p>
+<p class="tssr-source-paragraph">• Les expressions de test sont interprétées par le Shell. </p>
+<p class="tssr-source-paragraph">• Il est donc possible d’utiliser des caractères spéciaux dans celles-ci.<br>• Rappel :</p>
+<pre class="tssr-source-code">*
+0 à n caractères
+?
+1 caractère quelconque
+[…]
+1 caractère parmi ceux entre crochets
+[^…]
+1 caractère autre que ceux indiqués entre crochets (ou [!...])</pre>
+<p class="tssr-source-paragraph">24</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>*</td><td>0 à n caractères</td></tr><tr><td>?</td><td>1 caractère quelconque</td></tr><tr><td>[…]</td><td>1 caractère parmi ceux entre crochets</td></tr><tr><td>[^…]</td><td>1 caractère autreque ceuxindiqués entre crochets (ou[!...])</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-edae6719b1042bcc33fb605dbd245880f3d65b867d7b533a844d071745e2ab6e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-edae6719b1042bcc33fb605dbd245880f3d65b867d7b533a844d071745e2ab6e.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="994" height="6434"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Facteurs d’occurrence</p>
+<p class="tssr-source-paragraph">Facteurs d’occurence</p>
+<pre class="tssr-source-code">?(…)
+0 à 1 fois l’expression</pre>
+<pre class="tssr-source-code">chaine=+123
+if [[ &quot;$chaine&quot; = ?([+-])+([0-9]) ]] ; then</pre>
+<pre class="tssr-source-code">*(…) 
+0 à n fois l’expression</pre>
+<pre class="tssr-source-code">+(…)
+1 à n fois l’expression</pre>
+<pre class="tssr-source-code">echo &quot;$chaine est un nombre valide&quot;
+fi</pre>
+<pre class="tssr-source-code">@(…)
+1 fois l’expression</pre>
+<pre class="tssr-source-code">!(…)
+0 fois l’expression</pre>
+<pre class="tssr-source-code">Pour la prise en compte de facteurs d’occurrences, 
+l’option extglob doit être activée dans le Shell 
+d’interprétation du script.</pre>
+<pre class="tssr-source-code">*(…|…
+)</pre>
+<p class="tssr-source-paragraph">De 0 à n fois l’expression 1 <br>ou l’expression 2. <br>Valable également pour les <br>caractères ? * + @ !</p>
+<pre class="tssr-source-code">$ shopt
+$ shopt -s extglob</pre>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Illustration d’un cas pratique</p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>End</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>?(…)</td><td>0 à 1 foisl’expression</td></tr><tr><td>*(…)</td><td>0 à n foisl’expression</td></tr><tr><td>+(…)</td><td>1 à n foisl’expression</td></tr><tr><td>@(…)</td><td>1 foisl’expression</td></tr><tr><td>!(…)</td><td>0 foisl’expression</td></tr><tr><td>*(…|…<br>)</td><td>De 0 à n foisl’expression1<br>oul’expression2.<br>Valableégalementpour les<br>caractères? * + @ !</td></tr></tbody></table></div>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3>
+
+<p class="tssr-source-paragraph">Scripting Shell<br>Illustration d’un cas pratique</p>
+<p class="tssr-source-paragraph">• Illustration de test valide ou non une expression :</p>
+<pre class="tssr-source-code">[[ -d /data ]] &amp;&amp; {</pre>
+<pre class="tssr-source-code">mkdir /data/perso
+cp -a /home/penthium/documents/* /data/perso
+}</pre>
+<pre class="tssr-source-code">• Dans cet exemple, le test [[ -d /data ]] vérifie l’existence ou non 
+du répertoire /data</pre>
+<p class="tssr-source-paragraph">• Si le répertoire existe, le code retour de test est égal à 0. <br>Le regroupement de commandes qui suit est alors effectué.</p>
+<p class="tssr-source-paragraph">• S’il n’existe pas, le code de sortie test diffère de 0. <br>Le regroupement de commandes est ignoré.</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Scripting Shell<br>Illustration d’un cas pratique</p>
+<pre class="tssr-source-code">• Cet exemple pourrait être intégré dans une instruction if :</pre>
+<pre class="tssr-source-code">if [[ -d /data ]] ; then</pre>
+<pre class="tssr-source-code">mkdir /data/perso
+cp -a /home/penthium/documents/* /data/perso
+fi</pre>
+<p class="tssr-source-paragraph">28</p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Scripting Shell<br>L&#x27;instruction if</p>
+<p class="tssr-source-paragraph">Démo</p>
+<p class="tssr-source-paragraph">Les opérateurs de tests</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">La structure case</pre>
+<p class="tssr-source-paragraph">30</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">La structure case</pre>
+<pre class="tssr-source-code">La structure de contrôle case est adaptée au test d’un contenu 
+(généralement stocké dans une variable) pouvant contenir un 
+ensemble de valeurs et des actions liées à ces valeurs.</pre>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<pre class="tssr-source-code">La structure case</pre>
+<p class="tssr-source-paragraph">Algorithme d’illustration</p>
+<pre class="tssr-source-code">La variable var ($var) peut contenir les valeurs : « foo », « bar » ou toute 
+autre chaîne. </pre>
+<pre class="tssr-source-code">foo
+Une action de création de fichiers est réalisée
+bar
+Une action d’affichage est réalisée
+Toute autre valeur (*)
+Sortie du script avec un code d&#x27;erreur</pre>
+<p class="tssr-source-paragraph">Début du case</p>
+<p class="tssr-source-paragraph">case</p>
+<p class="tssr-source-paragraph">bar<br>foo</p>
+<p class="tssr-source-paragraph">$var in</p>
+<pre class="tssr-source-code">On compare la valeur de $var 
+à &quot;foo&quot; ou à &quot;bar&quot; ou à &quot;*&quot;</pre>
+<p class="tssr-source-paragraph">*</p>
+<pre class="tssr-source-code">Si la valeur est &quot;foo&quot; je fais une action</pre>
+<pre class="tssr-source-code">exit 5</pre>
+<pre class="tssr-source-code">touch $file
+echo “L’abus
+d’alcool est</pre>
+<pre class="tssr-source-code">dangereux…”</pre>
+<pre class="tssr-source-code">Si la valeur est &quot;bar&quot; je fais une autre action</pre>
+<pre class="tssr-source-code">Si la valeur est &quot;*&quot; je fais une troisième action</pre>
+<p class="tssr-source-paragraph">fin</p>
+<p class="tssr-source-paragraph">esac</p>
+<p class="tssr-source-paragraph">Fin du case</p>
+<p class="tssr-source-paragraph">32</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>foo</td><td>Une action de créationde fichiers est réalisée</td></tr><tr><td>bar</td><td>Une action d’affichageest réalisée</td></tr><tr><td>Toute autre valeur (*)</td><td>Sortie du script avec un code d&#x27;erreur</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c84734657f980489b5f522cf0349ec9cc946aea23ff4d1b3f98896ddd9110661.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c84734657f980489b5f522cf0349ec9cc946aea23ff4d1b3f98896ddd9110661.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="994" height="6257"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3>
+
+<pre class="tssr-source-code">Scripting Shell
+La structure case</pre>
+<p class="tssr-source-paragraph">Syntaxe d’utilisation</p>
+<pre class="tssr-source-code">case $nomvar in</pre>
+<pre class="tssr-source-code">expr)</pre>
+<pre class="tssr-source-code">action1
+action2
+;;
+expr2)</pre>
+<pre class="tssr-source-code">action
+;;
+esac</pre>
+<p class="tssr-source-paragraph">33</p>
+<pre class="tssr-source-code">Scripting Shell
+La structure case</pre>
+<p class="tssr-source-paragraph">Exemple d’utilisation</p>
+<pre class="tssr-source-code">case $saisie in</pre>
+<pre class="tssr-source-code">p)</pre>
+<pre class="tssr-source-code">echo &quot;la lettre est p&quot;
+;;
+[0-9])</pre>
+<p class="tssr-source-paragraph">La liste de valeurs possibles est<br>interprétée par le Shell, ce qui autorise<br>l’utilisation de métacaractères ou<br>d’expressions complexes.</p>
+<pre class="tssr-source-code">echo &quot;un chiffre&quot;
+;;
+a|b)</pre>
+<p class="tssr-source-paragraph">Pour le premier des cas verifiés, les <br>actions qui lui sont associées sont<br>effectuées suivi de la sortie <br>immédiate de la structure. Aucun<br>autre cas ne sera appliqué.</p>
+<pre class="tssr-source-code">echo &quot;a  ou  b&quot;
+echo &quot;\?&quot;
+;;
+*)
+echo &quot;n’importe quel autre caractère&quot;
+;;
+esac</pre>
+<p class="tssr-source-paragraph">34</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>x</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><pre class="tssr-source-code">Scripting Shell
+La structure case</pre>
+<p class="tssr-source-paragraph">Démo</p>
+<p class="tssr-source-paragraph">La structure case</p>
+<p class="tssr-source-paragraph">35</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>7<br>|<br>©</p><p>eni</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5d0bfac4f8ea62ba34b061f1f3d8d81b47fa92633572ac40c6456145f0dbfc4c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5d0bfac4f8ea62ba34b061f1f3d8d81b47fa92633572ac40c6456145f0dbfc4c.webp" alt="Illustrations du support source, pages 17 à 18" loading="lazy" width="994" height="2389"></a><figcaption>Illustrations du support Drive — pages 17 à 18. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12608,133 +12608,1028 @@
 
 
 <h1 id="module-03-manipuler-des-objets">Module 03 — Manipuler des objets<a class="headerlink" href="#module-03-manipuler-des-objets" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Démonstration · Fiche d‚mo 1  - Le pipeline.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 1  - Le pipeline · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/1430d01933d23f6d/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1hPZ8GBo1zPcMJPAwhx8y8uEkdmXrR3Am/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/1430d01933d23f6d/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/1430d01933d23f6d/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 1  - Le pipeline.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 1  - Le pipeline.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1hPZ8GBo1zPcMJPAwhx8y8uEkdmXrR3Am-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Le pipeline </h4>
+<p class="tssr-source-paragraph">Démonstration 01 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter le pipeline. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Lors de la manipulation d’un objet, il arrive que le nombre d’objets soit important, ou que l’on <br>souhaite appliquer un traitement sur l’objet ou une propriété avant de l’afficher. </p>
+<p class="tssr-source-paragraph">Pour cela, on utilise le pipe qui permet d’appliquer une commande sur le résultat d’une autre <br>commande. </p>
+<p class="tssr-source-paragraph">• <br>Le pipe est réalisé avec la combinaison de touches Alt Gr et 6 </p>
+<pre class="tssr-source-code">o Le pipe sert à mettre en forme un résultat de sortie ou générer un tri de valeurs. </pre>
+<pre class="tssr-source-code">o Nous l’avons déjà utilisé avec la commande Get-Member. </pre>
+
+<pre class="tssr-source-code">Dans ce cas, la commande Get-Member est appliquée sur la commande précédant le pipe. </pre>
+<p class="tssr-source-paragraph">Nous l’avons également utilisé pour mettre en forme les résultats de sortie de commande qui <br>disposent de nombreux résultats. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Get-Member</p><p>TypeName:<br>System.ServiceProcess.ServiceController</p><p>Name<br>MemberType<br>Definition</p><p>Name<br>AliasProperty Name = ServiceName<br>RequiredServices<br>AliasProperty RequiredServices =<br>Disposed<br>Event<br>System. EventHandler<br>Close<br>Method<br>void Close()<br>Continue<br>Method<br>void Continue()<br>CreateObjRef<br>Method<br>System.Runtime.Remo<br>Dispose<br>Method<br>void Dispose(),<br>voi<br>Equals<br>Method<br>bool<br>Equals(System.<br>ExecuteCommand<br>Method<br>void<br>ExecuteCommand<br>GetHashCode<br>Method<br>int GetHashCode()<br>GetLifetimeservice<br>Method<br>System.Object GetLi<br>GetType<br>Method<br>type GetType()<br>InitializeLifetimeService Method<br>System.Object Initi<br>Pause<br>Method<br>void Pause()<br>Refresh<br>Method<br>void Refresh()<br>Start<br>Method<br>void StartQ,<br>void<br>Stop<br>Method<br>void Stop()</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1hPZ8GBo1zPcMJPAwhx8y8uEkdmXrR3Am-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Il permet d’indiquer à la commande Format-Wide le nombre de colonnes dans lesquelles les 
+verbes seront classés. Ici la commande Format-Wide est raccourcie en Fw. </pre>
+<pre class="tssr-source-code">Le pipe dispose également d’un système d’exploration des propriétés de l’objet $PSItem. </pre>
+<p class="tssr-source-paragraph">Nous reviendrons sur les variables plus tard, mais nous pouvons voir un cas simple de l’utilisation de <br>cette variable réservée. </p>
+
+
+<pre class="tssr-source-code">Ici la variable $PSItem permet de tester la valeur de la propriété Id de chaque objet Process et 
+de n’afficher que ceux dans la valeur est supérieure à 1500. </pre>
+<p class="tssr-source-paragraph">Le pipe est utilisable à plusieurs reprises tant que l’objet dispose de suffisamment de propriétés. </p>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>Get-Verb<br>w<br>-Column<br>5<br>PEELE</p><p>Exit<br>Find<br>Format<br>Get<br>Hide<br>Join<br>Lock<br>Move<br>New<br>Open<br>Optimize<br>Pop<br>Push<br>Redo<br>Remove<br>Rename<br>Reset<br>Resize<br>Search<br>select<br>Set<br>Show<br>Skip<br>split<br>Step<br>Switch<br>Undo<br>Unlock<br>watch<br>Backup<br>Checkpoint<br>Compare<br>Compress<br>Convert<br>Convert<br>ConvertTo<br>Dismount<br>Edit<br>Expand<br>Export<br>Group<br>Import<br>Initialize<br>Limit<br>Merge<br>Mount<br>out<br>ms<br>Publish<br>Restore<br>Save</p><p>PS C:\&gt; Get-Process<br>where<br>{$PSItem.Id<br>-gt 1500</p><p>Handles<br>NPM(CK)<br>PMCK)<br>WS (K)<br>CPU(S)<br>Id<br>SI ProcessName</p><p>489<br>28<br>15144<br>0<br>3.38<br>5496<br>1 ApplicationFrameHq<br>137<br>9<br>1588<br>Q<br>0.03<br>5040<br>1 browser_broker<br>194<br>13<br>3160<br>0<br>0.20<br>4452<br>1 ClassicStartMenu<br>260<br>13<br>4128<br>0<br>0.13<br>2428<br>1 conhost<br>257<br>13<br>4348<br>6332<br>0.97<br>4648<br>1 conhost<br>416<br>15<br>3692<br>1172<br>4.50<br>4000<br>1 ctfmon</p><p>PS C:\&gt; Get-Process<br>where<br>{$PSItem.Id<br>-gt 1500<br>Format-List</p><p>Id<br>:<br>5496<br>Handles<br>:<br>489<br>CPU<br>:<br>3.375<br>SI<br>:1l<br>Name<br>:<br>App licationFrameHost</p><p>Id<br>:<br>5040<br>Handles<br>:<br>137<br>CPU<br>:<br>0.03125<br>SI<br>:<br>1<br>Name<br>:<br>browser_broker</p><p>En</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-99acd95058b3cdbff0a41355e96f84d3bfccdc7260822391f0675f7f1e902ec5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-99acd95058b3cdbff0a41355e96f84d3bfccdc7260822391f0675f7f1e902ec5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2424"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1hPZ8GBo1zPcMJPAwhx8y8uEkdmXrR3Am · <span title="Empreinte SHA-256 du fichier source">SHA-256 1430d01933d23f6d…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 10 - ConvertTo.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 10 - ConvertTo · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/a15e93e3b6bee417/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1wE9qF_IeceXC9qtml-dDiFcqX8I3QToG/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/a15e93e3b6bee417/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/a15e93e3b6bee417/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 10 - ConvertTo.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 10 - ConvertTo.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1wE9qF_IeceXC9qtml-dDiFcqX8I3QToG-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>ConvertTo </h4>
+<p class="tssr-source-paragraph">Démonstration 11 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande ConvertTo. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Comme nous venons de le voir pour les formats pris en charge, l’export se fait directement depuis <br>la console. Pour les autres formats, il est nécessaire de passer par une étape de conversion des <br>données. </p>
+<p class="tssr-source-paragraph">• <br>Pour les formats HTML et JSON on doit : </p>
+<pre class="tssr-source-code">o Convertir dans un premier temps les données au format souhaité </pre>
+<pre class="tssr-source-code">o Exporter les données converties dans un fichier. </pre>
+
+<p class="tssr-source-paragraph">Les données sont converties en balises HTML compatibles avec un navigateur web. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser<br>-filter<br>*<br>|<br>ConvertTo-Html<br>|<br>Out-File c:\aduser.html<br>a F3 HTML TABLE<br>x f+ Vv<br>=<br>Oo<br>x</p><p>&lt;<br>&gt;<br>oO<br>Al<br>© | file:///C:/aduser.html<br>À<br>=<br>L<br>ae<br>ve</p><p>DistinguishedName<br>Enabled GivenName<br>Name<br>ObjectClass ObjectGUID SamAcc</p><p>ecf41ce8-afa0-<br>CN=Administrator CN=Users DC=ad01 DC=Ici<br>True<br>Administrator user<br>447£-81f5-<br>Adminis<br>ae41c508e63c</p><p>3b8584da-</p><p>+<br>5517-4204-<br>CN=Guest.0U=_CompteTest.DC=ad01.DC=lel<br>False<br>Guest<br>user<br>b2c2-<br>Guest<br>cd6ldce60f1f</p><p>46874b7c-</p><p>CN=krbtgt, CN=Users DC=ad01,DC=lel<br>False<br>krbtgt<br>user<br>sa<br>krbtgt<br>bf26df07fb26</p><p>d1aa9368-</p><p>-4d07-<br>CN=toto, CN=Users DC=ad01,DC=lel<br>False<br>toto<br>user<br>OT<br>toto<br>1fac79493f12</p><p>870d356c-</p><p>CN=Morse OU= CompteTest DC=ad01.DC=Icl<br>False<br>Ferdinand<br>Morse<br>user<br>RS<br>Ferdinar<br>1e1980b4557f</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1wE9qF_IeceXC9qtml-dDiFcqX8I3QToG-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">Pour le format JSON, la procédure est identique mais la lecture se fera indirectement par une <br>application prenant en charge le fichier JSON. </p>
+
+<pre class="tssr-source-code">Pour éviter l’écrasement des données, on ajoute le paramètre Append à la commande Out-File. </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser<br>-filter<br>*<br>|<br>ConvertTo-Json<br>|<br>Out-File c:\aduser.json<br>EX C:\aduser.json - Notepad++ [Administrator]</p><p>File<br>Edit<br>Search<br>View<br>Encoding<br>Language<br>Settings<br>Tools<br>Macro<br>Run<br>Plugins<br>Window<br>?<br>ARR<br>4e 02e<br>a sIBGR|=1E8BPSe2| STE</p><p>Ed aduserjson £3</p><p>1<br>Et<br>2<br>E<br>{<br>3<br>"GivenName":<br>null 4<br>a<br>"Surname":<br>null,</p><p>5<br>"UserPrincipalName":<br>null,</p><p>6<br>"Enabled":<br>true,<br>7<br>"SamAccountName":<br>"Administrator",</p><p>8<br>E<br>"SID":<br>{</p><p>2<br>"BinaryLength":<br>28,<br>10<br>"AccountDomainSid":<br>"S-1-5-21-1966697812-3989974639-3621391846",<br>ul<br>"Value":<br>"S-1-5-21-1966697812-3989974639-3621391846-500"</p><p>12<br>},<br>13<br>"DistinguishedName":<br>"CN=Administrator, CN=Users, DC=ad01,DC=1cl",<br>14<br>"Name":<br>"Administrator",<br>15<br>"ObjectClass":<br>"user",<br>16<br>"ObjectGuid":<br>"ecfälce8-afa0-447f-81f5-ae4lc508e63c",<br>17<br>=<br>"PropertyNames":<br>[<br>18<br>"DistinguishedName",<br>19<br>"Enabled",<br>20<br>"GivenName",<br>21<br>"Name",<br>22<br>"ObjectClass",<br>23<br>"ObjectGUID",<br>22<br>"SamAccountName",<br>25<br>"SID",<br>26<br>"Surname",<br>27<br>"UserPrincipalName"</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-9154ce271885828ecaf328a6b70a7e49aefd7bdc0dea005919e226c87d3ca319.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-9154ce271885828ecaf328a6b70a7e49aefd7bdc0dea005919e226c87d3ca319.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1936"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1wE9qF_IeceXC9qtml-dDiFcqX8I3QToG · <span title="Empreinte SHA-256 du fichier source">SHA-256 a15e93e3b6bee417…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 11 - Get-Content.pdf · 1 pages</summary>
+<summary>Démonstration · Fiche d‚mo 11 - Get-Content · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/b834dad0e1d8c38c/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/123mTRkoU8p08hLgEFA7PpadhfsFFKVSN/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b834dad0e1d8c38c/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b834dad0e1d8c38c/pages-001-001.webp" alt="Source Drive — Fiche d‚mo 11 - Get-Content.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — Fiche d‚mo 11 - Get-Content.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-123mTRkoU8p08hLgEFA7PpadhfsFFKVSN-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Get-Content </h4>
+<p class="tssr-source-paragraph">Démonstration 12 du module 3 </p>
+
+<p class="tssr-source-paragraph"> L’objectif de cette démonstration est de vous présenter la commande Get-Content </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Il est possible d’afficher le contenu d’un fichier dans la console PowerShell.  </p>
+<p class="tssr-source-paragraph">Toutefois, ce n’est possible que sur un fichier au format lisible par la console. </p>
+<p class="tssr-source-paragraph">• <br>Prenons l’exemple d’un fichier CSV : </p>
+<pre class="tssr-source-code">o On utilise la commande Get-Content suivie du chemin du fichier. </pre>
+
+<p class="tssr-source-paragraph">Les données apparaissent ligne par ligne. </p>
+<pre class="tssr-source-code">Pour sélectionner certaines lignes, on utilise le paramètre tail puis une valeur pour indiquer le 
+nombre de lignes sélectionnées en fin de fichier. </pre>
+
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt; Get-Content<br>C:\FIC2.csv<br>“DistinguishedName"; "Enabled";"GivenName"; "Name"; “"ObjectClass";<br>ame"; "UserPrincipalName"</p><p>“CN=Administrator ,CN=Users,DC=ad01,DC=1c1";"True";;"Administrat<br>508e63c"; "Administrator"; "S-1-5-21-1966697812-3989974639-362139<br>“CN=Guest ,OU=_CompteTest<br>, DC=ad01,DC=1c1"; "False";<br>; "Guest"; “user<br>"Guest"; "S-1-5-21-1966697812-3989974639-3621391846-501";;<br>"CN=krbtgt,CN=Users,DC=ad01,DC=1c1";<br>"False"; ; "krbtgt";"user";"4<br>tat";:"S-1-5-21-1966697812-3989974639-3621391846-502";::</p><p>PS C:\&gt; Get-Content C:\FIC2.csv -Tail 5<br>“CN=Craft,OU=_CompteTest ,DC=ad01,DC=1c1"; "False"; "Linus"; “Craf<br>9ff6c";"Linus Craft"; "S-1-5-21-1966697812-3989974639-3621391844<br>“CN=Cameron ,OU=_CompteTest<br>, DC=ad01,DC=1c1"; "False"; "Judah"; "Ca<br>0a821b697";"Judah<br>Cameron"; “S-1-5-21-1966697812-3989974639-362<br>“CN=Pugh ,OU=_CompteTest , DC=ad01,DC=1c1"; "False"; “Adara™; “Pugh”<br>Saa";"Adara Pugh"; "S-1-5-21-1966697812-3989974639-3621391846-1<br>“CN=D7 xon ,OU=_CompteTest ,DC=ad01,DC=1c1";<br>"False"; "Drew"; "Dixon’'<br>033d"; "Drew Dixon"; "S-1-5-21-1966697812-3989974639-3621391846-<br>“CN=Robertson ,OU=_CompteTest<br>, DC=ad01 ,DC=1c1"; "True"; "Joelle"; "F<br>-bc2536b895ed": "Joelle<br>Robertson": "S-1-5-21-1966697812-39899744</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-732310e0ea48d6d37963745a897588cb7564cb998cd17d2605afd896d251d734.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-732310e0ea48d6d37963745a897588cb7564cb998cd17d2605afd896d251d734.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="1079" height="944"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 123mTRkoU8p08hLgEFA7PpadhfsFFKVSN · <span title="Empreinte SHA-256 du fichier source">SHA-256 b834dad0e1d8c38c…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 12 - Import des objets.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 12 - Import des objets · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/69cc31a1a2fca91c/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1HKcnE-tbSeypD8UeCEoGoIsknm6pM8k8/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/69cc31a1a2fca91c/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/69cc31a1a2fca91c/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 12 - Import des objets.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 12 - Import des objets.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1HKcnE-tbSeypD8UeCEoGoIsknm6pM8k8-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Import des objets </h4>
+<p class="tssr-source-paragraph">Démonstration 12 du module 3 </p>
+
+<p class="tssr-source-paragraph">Nous venons de voir la transformation et l’exportation des objets en fichiers utilisables sur des <br>systèmes externes. L’objectif de cette démonstration est de voir comment il est possible de <br>renverser le processus en se servant de fichiers contenant des données et de les transformer en <br>objets utilisables dans notre système. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La commande Import-Csv : </pre>
+<pre class="tssr-source-code">o Dans un fichier CSV, la première ligne contient les en-têtes de colonnes. </pre>
+<p class="tssr-source-paragraph">Comparés à un objet PowerShell, ces en-têtes deviennent le nom des <br>propriétés des objets. </p>
+<pre class="tssr-source-code">o Chaque ligne du fichier CSV contient donc les valeurs des propriétés des </pre>
+<p class="tssr-source-paragraph">objets. </p>
+<pre class="tssr-source-code">o Ce qui sépare les valeurs est le délimiteur. </pre>
+
+<p class="tssr-source-paragraph">A partir des données du fichier CSV, on recrée des objets. Il ne faut surtout pas oublier d’indiquer le <br>délimiteur sans cela l’importation ne sera pas fonctionnelle. </p>
+<p class="tssr-source-paragraph">On peut profiter de cette commande d’importation pour exécuter une commande de création </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>";"</p><p>DistinguishedName<br>: CN=Administrator<br>,CN=Users ,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Name<br>:<br>Administrator<br>ObjectClass<br>:<br>user<br>objectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>DistinguishedName<br>:<br>CN=Guest,OU=_CompteTest ,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Name<br>:<br>Guest<br>ObjectCclass<br>: user<br>objectGUID<br>:<br>3b8584da-5517-4204-b2c2-cd61dce60f1f<br>SamAccountName<br>:<br>Guest<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-501<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1HKcnE-tbSeypD8UeCEoGoIsknm6pM8k8-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<p class="tssr-source-paragraph">d’utilisateurs Active Directory. </p>
+<pre class="tssr-source-code">Chaque objet du fichier CSV va se transformer en objet AdUser. </pre>
+
+<p class="tssr-source-paragraph">Notre annuaire va être peuplé par les objets du fichier CSV. </p>
+<p class="tssr-source-paragraph">Que faire dans le cas où les en-têtes de colonnes du fichier CSV ne correspondent pas au nom des <br>propriétés des objets ? </p>
+<p class="tssr-source-paragraph">S’il n’est pas possible de modifier les valeurs des en-têtes, alors on peut utiliser une action vue <br>précédemment. </p>
+<pre class="tssr-source-code">Cette action provient du pipe, c’est la variable $PSItem. </pre>
+<p class="tssr-source-paragraph">En effet cette variable contient les valeurs récupérées dans la première commande, il suffit de faire <br>correspondre ses valeurs avec les propriétés attendues dans les objets. </p>
+
+<pre class="tssr-source-code">Cette commande ne fonctionne pas. La cause est une particularité du fonctionnement du pipe 
+qui ne parvient pas à faire la correspondance entre les données du fichier CSV et la demande de 
+la variable $PSItem. </pre>
+<p class="tssr-source-paragraph">Dans tous les cas, il faut un fichier CSV respectant à la lettre les propriétés de l’objet. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>“;"<br>|<br>New-ADUser</p><p>PS C:\&gt; Import-Csv -Path c:\fic2.csv -Delimiter<br>";"<br>|<br>New-ADUser<br>-Name $PSitem.name</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-42f6edb0cb2e9992684b461c71fdcc6dd3ced679fff82cde8c968f2b2cd61fc9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-42f6edb0cb2e9992684b461c71fdcc6dd3ced679fff82cde8c968f2b2cd61fc9.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1452"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1HKcnE-tbSeypD8UeCEoGoIsknm6pM8k8 · <span title="Empreinte SHA-256 du fichier source">SHA-256 69cc31a1a2fca91c…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 13 - Les propri‚t‚s calcul‚es.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 13 - Les propri‚t‚s calcul‚es · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/531d46bbcfcfb759/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1-dGKNfkxuPAohf4cUVqwe0jRnWDFfMsM/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/531d46bbcfcfb759/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/531d46bbcfcfb759/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 13 - Les propri‚t‚s calcul‚es.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 13 - Les propri‚t‚s calcul‚es.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1-dGKNfkxuPAohf4cUVqwe0jRnWDFfMsM-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Les propriétés calculées </h4>
+<p class="tssr-source-paragraph">Démonstration 13 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de découvrir les propriétés calculées. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">La modification d’une propriété peut être effectuée de plusieurs manières : soit par l’utilisation <br>d’une commande Set, soit par l’utilisation d’une variable intermédiaire. Dans certains cas, il va être <br>nécessaire de créer une propriété pour la durée d’une commande. </p>
+<p class="tssr-source-paragraph">Comme la traduction du nom de la propriété ou la gestion des décimales, après l’exécution de la <br>commande la propriété ne sera plus accessible. </p>
+<p class="tssr-source-paragraph">• <br>Les propriétés dites calculées servent très souvent pour traduire les noms des propriétés. </p>
+<p class="tssr-source-paragraph">• <br>Dans un premier temps, on va créer une propriété, puis on va lui assigner les valeurs de la <br>propriété d’origine que l’on souhaite traduire. </p>
+
+
+
+<pre class="tssr-source-code">On récupère les valeurs de la propriété Name pour les intégrer dans une nouvelle propriété dont le </pre>
+<pre class="tssr-source-code">label est Nom. </pre>
+<p class="tssr-source-paragraph">Cela va permettre de créer de nouvelles propriétés qui vont parfaitement correspondre aux <br>propriétés des objets à importer. </p>
+<p class="tssr-source-paragraph">Si notre fichier CSV contient une propriété dont le nom ne correspond pas à une propriété de <br>l’objet, alors on doit passer par la propriété calculée pour faire correspondre les valeurs de la <br>propriété du fichier CSV avec la propriété de l’objet. </p>
+
+
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; import-csv C:\FIC2.CSV -Delimiter<br>";"<br>|<br>Select-Object Givenname,@{n='Nom';e={$PSItem.Name}}</p><p>GivenName<br>Nom</p><p>Administrator<br>Guest</p><p>krbtgt<br>toto<br>Ferdinand<br>Morse<br>Britanney<br>Yang<br>Reese<br>Randall</p><p>| *Users| - Notepad</p><p>File<br>Edit<br>Format<br>Wi<br>Help<br>Givenname<br>; No#G samaccountname;UserPrincipalname;<br>Description; company;City; Department; title</p><p>En</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1-dGKNfkxuPAohf4cUVqwe0jRnWDFfMsM-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+
+<p class="tssr-source-paragraph">Pour réaliser ces lignes de commandes plus longues, nous utilisons le logiciel Visual Studio Code </p>
+<p class="tssr-source-paragraph">dans sa version 1.49.1 avec le complément PowerShell </p>
+
+<pre class="tssr-source-code">La commande Select-Object permet de créer la propriété Name avec les valeurs du fichier CSV 
+Nom puis de les envoyer dans la propriété Name de l’objet ADUser. </pre>
+<p class="tssr-source-paragraph">Une deuxième utilité des propriétés calculées est de permettre de modifier les valeurs de la <br>propriété. </p>
+
+<pre class="tssr-source-code">On modifie le nombre de décimales, puis on divise la valeur de la propriété Length pour obtenir un 
+résultat lisible.  </pre>
+<p class="tssr-source-paragraph">Les propriétés calculées sont disponibles à plusieurs reprises dans une ligne de commande. </p>
+
+
+<p class="tssr-source-paragraph">Nous avons traduit toutes les propriétés et transformé leurs valeurs dans un format plus lisible et <br>exportable. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>import-csv C:\Users1.csv -Delimiter<br>";"<br>| Select-Object Givenname,@fn=<br>"Name" ;e={$PSItem.Nom}}</p><p>| New-ADUser -Name $PSItem.name -GivenName $PSItem.Givenname</p><p>PS C:\&gt; Get-ChildItem -File<br>|Select-Object name,@{n='Taille';e={"{O:N2}"<br>-f ($PSItem. length / 1MB)}}</p><p>Name<br>Taille</p><p>aduser.html<br>0.06<br>aduser.json 0.15<br>ficl.csv<br>0.01<br>FIC2.CSV<br>0.02<br>FIC3.xml<br>0.09<br>install.wim 3,913.09<br>Usersl.csv<br>0.01</p><p>Get-Volume<br>|<br>Select-Object<br>~<br>i{n="Lettre<br>de lecteur";e={$PSItem.DriveLetter}},<br>af{n="Taille<br>(GB)";<br>e={'{0:N2}<br>GB'-f<br>($PSItem.Size /1GB)}},<br>i{n="Espace<br>Libre<br>(GB)";<br>e={'{0:N2}<br>GB'<br>-f ($PSItem.SizeRemaining /1GB)}}</p><p>Lettre<br>de lecteur Taille<br>(GB)<br>Espace Libre<br>(GB)</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-6c75f1c663e3b17b010ae13834b90f88d737f03dac08363530dc607ebafee3d0.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-6c75f1c663e3b17b010ae13834b90f88d737f03dac08363530dc607ebafee3d0.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1095" height="2359"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1-dGKNfkxuPAohf4cUVqwe0jRnWDFfMsM · <span title="Empreinte SHA-256 du fichier source">SHA-256 531d46bbcfcfb759…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 2 - Select-Object.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 2 - Select-Object · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/88661c6ea7711b5b/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/17PeQA7NPkv5tN6N6ilTPSlmlbMlts7Ga/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/88661c6ea7711b5b/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/88661c6ea7711b5b/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 2 - Select-Object.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 2 - Select-Object.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-17PeQA7NPkv5tN6N6ilTPSlmlbMlts7Ga-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Select-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 3 </p>
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter la commande Select-Object. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La commande Select-Object permet de sélectionner des propriétés d’un ou de tous les objets 
+renvoyés par la commande initiale. De cette façon, l’affichage du résultat sera constitué des 
+propriétés sélectionnées. Si une commande est indiquée à la suite du Select-Object elle pourra 
+travailler uniquement sur les propriétés sélectionnées précédemment. </pre>
+<p class="tssr-source-paragraph">• <br>À la suite d’une commande renvoyant un ou des objets </p>
+<pre class="tssr-source-code">o Le Select va disposer les propriétés dans l’ordre souhaité par l’utilisateur. </pre>
+<pre class="tssr-source-code">o Il va également proposer de n’afficher qu’un certain nombre d’objets en fonction de </pre>
+<p class="tssr-source-paragraph">leur classement. </p>
+
+<pre class="tssr-source-code">On indique avec la commande Select-Object suivie du paramètre Property les propriétés que 
+l’on afficha dans le résultat. Lorsque l’on souhaite indiquer plusieurs propriétés, le séparateur est la 
+virgule.  </pre>
+<pre class="tssr-source-code">L’ordre d’affichage est fonction de l’ordre des propriétés indiqué dans la commande Select-
+Object. </pre>
+<p class="tssr-source-paragraph">La commande permet également de préciser un nombre d’objets. </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object -Property Name,status</p><p>Name<br>Status</p><p>AarSvc_7ad9e<br>Stopped<br>AJRouter<br>Stopped<br>ALG<br>Stopped<br>AppIDSvc<br>Stopped<br>Appinfo<br>Running<br>AppMgmt<br>Stopped<br>AppReadiness<br>Stopped<br>AppVvClient<br>Stopped<br>AppXSVC<br>Stopped<br>AssignedAccessManagersvc<br>Stopped<br>Audi oEndpointBui Ider<br>Running</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-17PeQA7NPkv5tN6N6ilTPSlmlbMlts7Ga-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Last permet d’indiquer le nombre d’objets présent dans le résultat en commençant 
+par la fin. L’ordre de classement est alphabétique sur la première propriété indiquée. </pre>
+<pre class="tssr-source-code">Le paramètre Unique regroupe les objets qui partagent une valeur de propriété identique. </pre>
+<pre class="tssr-source-code">Dans l’exemple d’un process, la propriété ID a une valeur commune pour plusieurs process. </pre>
+
+<pre class="tssr-source-code">Sans le paramètre Unique on obtient 91 objets dont certains ont une valeur de propriété identique. </pre>
+<pre class="tssr-source-code">Avec le paramètre Unique, les objets ont tous des valeurs de propriétés uniques. </pre>
+<pre class="tssr-source-code">Le paramètre ExpandProperty permet de ne garder que la valeur sans le nom de la propriété,  </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object -Property Name,status -Last<br>5</p><p>Name<br>Status</p><p>WwanSvc<br>Stopped<br>Xb1AuthManager Stopped<br>Xb1GameSave<br>Stopped<br>XboxGipSvc<br>Stopped<br>XboxNetApiSvc<br>Stopped</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object<br>|<br>Measure-Object</p><p>count<br>:<br>91<br>Average<br>:<br>sum.<br>:<br>Maximum<br>:<br>Minimum<br>:<br>Property<br>:</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object -Unique<br>|<br>Measure-Object</p><p>Count<br>:<br>53<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-17PeQA7NPkv5tN6N6ilTPSlmlbMlts7Ga-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">A l’affichage du résultat, l’en-tête de propriété n’apparaît plus dans le résultat. </p>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object<br>-ExpandProperty name<br>AarSvc_7adge<br>AJRouter<br>ALG<br>AppIDSvc<br>Appinfo<br>AppMgmt<br>AppReadiness<br>AppVClient<br>AppXSVvc<br>AssignedAccessManagersvc<br>Audi oEndpointBui<br>Ider<br>Audiosrv<br>autotimesvc</p><p>AXINSTSV<br>BcastDVRUserService_/adge</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-a9f51a3066f173afba77fcf96972a3187f73ad535994d283bbd8da5545d8732e.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-a9f51a3066f173afba77fcf96972a3187f73ad535994d283bbd8da5545d8732e.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2563"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 17PeQA7NPkv5tN6N6ilTPSlmlbMlts7Ga · <span title="Empreinte SHA-256 du fichier source">SHA-256 88661c6ea7711b5b…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 3 - Measure-Object.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 3 - Measure-Object · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/658af100882af469/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1tiw_26jEXuOwOrFcerBrLa1u82jAoldx/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/658af100882af469/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/658af100882af469/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 3 - Measure-Object.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 3 - Measure-Object.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1tiw_26jEXuOwOrFcerBrLa1u82jAoldx-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Measure-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 03 du module 3 </p>
+
+<pre class="tssr-source-code">L’objectif de cette démonstration est de vous présenter la commande Measure-Object. </pre>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Comptabiliser le nombre d’objets est important pour identifier des défaillances, des besoins <br>d’intervention ou pour vérifier la bonne prise en compte de certaines commandes. </p>
+<pre class="tssr-source-code">• 
+La commande Measure-Object permet : </pre>
+<pre class="tssr-source-code">o De comptabiliser le nombre d’objets renvoyés par une commande </pre>
+
+<pre class="tssr-source-code">Dans ce cas et sans précision, c’est le paramètre Count qui est pris à défaut. </pre>
+<p class="tssr-source-paragraph">Il est également possible de déterminer la moyenne des valeurs renvoyées par une commande. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Process<br>|<br>Select-Object<br>|<br>Measure-Object</p><p>Count<br>:<br>91<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object -Unique<br>|<br>Measure-Object</p><p>Count<br>:<br>53<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1tiw_26jEXuOwOrFcerBrLa1u82jAoldx-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Nous indiquons à Measure-Object la propriété Id qui est de type Int et il est renvoyé la moyenne 
+des valeurs. </pre>
+<pre class="tssr-source-code">Attention, les calculs ne se font que sur les propriétés dont le type est Int. </pre>
+
+<pre class="tssr-source-code">Nous avons toutes les possibilités de la commande Measure-Object. </pre>
+<p class="tssr-source-paragraph">C’est une commande particulièrement importante pour évaluer les tailles de fichier. </p>
+
+<pre class="tssr-source-code">La propriété Length indique la taille des dossiers présents dans le répertoire Windows. </pre>
+<pre class="tssr-source-code">Measure-Object indique la taille la plus faible, la plus élevée, la taille moyenne, le nombre d’objets 
+et nous rappelle la propriété testée. </pre>
+<p class="tssr-source-paragraph">La taille est en octets à défaut. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Process<br>|<br>Select Id<br>|<br>Measure-Object -Property Id -Average</p><p>Count<br>:<br>90<br>Average<br>:<br>2897.33333333333<br>sum.<br>D<br>Maximum<br>:<br>Minimum<br>:<br>Property<br>:<br>Id</p><p>PS C:\&gt; Get-Process<br>|<br>Select Id<br>|<br>Measure-Object -Property<br>Id -Average -min -max -sum</p><p>Count<br>:<br>90<br>Average<br>:<br>2897.33333333333<br>Sum<br>:<br>260760<br>Maximum<br>:<br>7040<br>Minimum<br>:<br>O<br>Property<br>:<br>Id</p><p>PS C:\&gt; Get-ChilaItem<br>-Path<br>C:\Windows<br>Measure-Object -Property<br>length<br>-Average -Min<br>-max<br>-sum</p><p>Count<br>:<br>24<br>Average<br>:<br>303992.291666667<br>sum<br>:<br>7295815<br>Maximum<br>:<br>4625184<br>Minimum<br>:<br>©<br>Property<br>:<br>length</p><p>En</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-42e517a692d153906c223539e7143510a52465b1eddcab7916ffac96c99f2578.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-42e517a692d153906c223539e7143510a52465b1eddcab7916ffac96c99f2578.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1827"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1tiw_26jEXuOwOrFcerBrLa1u82jAoldx · <span title="Empreinte SHA-256 du fichier source">SHA-256 658af100882af469…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 4 - Sort-Object.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 4 - Sort-Object · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/2fa6bdd22bb4647d/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1J0sVqx5QD-73uZSlj2eOKbtKcbx3K02o/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/2fa6bdd22bb4647d/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/2fa6bdd22bb4647d/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 4 - Sort-Object.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 4 - Sort-Object.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1J0sVqx5QD-73uZSlj2eOKbtKcbx3K02o-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Sort-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 04 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Sort-Object. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">L’ordre d’affichage des objets dans le résultat de commande est déterminé selon le type de valeur. </p>
+<pre class="tssr-source-code">Pour une valeur de type String c’est un ordre alphabétique, pour une valeur de type Int c’est un 
+ordre croissant. La commande Sort-Object permet de modifier ses ordres. </pre>
+<pre class="tssr-source-code">La commande Sort-Object s’utilise en fin de linge de commande de manière à mettre en forme 
+le résultat final.  </pre>
+
+<pre class="tssr-source-code">• 
+A la suite d’une commande Select-Object </pre>
+<pre class="tssr-source-code">o Les objets sont affichés par état de leur statut, les statuts Stopped puis les statuts </pre>
+<pre class="tssr-source-code">Running. </pre>
+<pre class="tssr-source-code">o La 
+valeur 
+de 
+propriété 
+Status 
+étant 
+de 
+type 
+System.ServiceProcess.serviceControllerStatus, l’ordre de tri se fait 
+en premier sur les statuts arrêtés. </pre>
+<p class="tssr-source-paragraph">La commande permet aussi d’inverser l’ordre de tri standard. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object status</p><p>Name<br>Status</p><p>SensorService<br>Stopped<br>SensorDataService<br>Stopped<br>Sense<br>Stopped<br>SharedAccess<br>Stopped<br>SessionEnv<br>Stopped<br>SensrSvc<br>Stopped<br>ScDeviceEnum<br>Stopped<br>SCardsvr<br>Stopped<br>RpcLocator<br>Stopped<br>sec logon<br>Stopped<br>SDRSVC<br>Stopped<br>SCPolicySvc<br>Stopped<br>SVSVC<br>Stopped<br>stisvc<br>Stopped<br>ssh-agent<br>Stopped<br>TermService<br>Stopped<br>Tapisrv<br>Stopped</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1J0sVqx5QD-73uZSlj2eOKbtKcbx3K02o-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Descending inverse l’ordre de tri, quel que soit le type de valeurs de propriété. </pre>
+<pre class="tssr-source-code">Comme on le voit dans l’exemple précédent, seule la propriété Status subit un tri ; la propriété 
+Name est non triée. </pre>
+<pre class="tssr-source-code">La commande Sort-Object accepte plusieurs propriétés pour effectuer un tri. </pre>
+
+<pre class="tssr-source-code">Les services sont triés par leurs statuts et ensuite l’ensemble des services Stopped subissent un tri au 
+niveau de leur nom. </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object status -Descending</p><p>Name<br>Status</p><p>MSDTC<br>Running<br>UsoSvc<br>Running<br>UserManager<br>Running<br>mpssvc<br>Running<br>LSM<br>Running<br>VGAuthService<br>Running<br>VaultSvc<br>Running</p><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object -Property status,name</p><p>Name<br>Status</p><p>AarSvc_7ad9e<br>Stopped<br>AJRouter<br>Stopped<br>ALG<br>Stopped<br>AppIDSvc<br>Stopped<br>AppMgmt<br>Stopped<br>AppReadiness<br>Stopped<br>AppvClient<br>Stopped<br>AppXSVC<br>Stopped<br>AssignedAccessManagerSvc<br>Stopped<br>autotimesvc<br>Stopped<br>AxInstSv<br>Stopped<br>BcastDVRUSerService_7ad9e<br>Stopped<br>BDESVC<br>Stopped<br>B luetoothUserService_7ad9e<br>Stopped<br>BTAGService<br>Stopped<br>bthserv<br>Stopped</p><p>@</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-0a205eeb12a21848e794905756377fed5fcbbc014230b65eae600138e60bd32a.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-0a205eeb12a21848e794905756377fed5fcbbc014230b65eae600138e60bd32a.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1784"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1J0sVqx5QD-73uZSlj2eOKbtKcbx3K02o · <span title="Empreinte SHA-256 du fichier source">SHA-256 2fa6bdd22bb4647d…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 5 - Where-Object.pdf · 4 pages</summary>
+<summary>Démonstration · Fiche d‚mo 5 - Where-Object · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/95b4aeb84563e269/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/95b4aeb84563e269/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/95b4aeb84563e269/pages-001-004.webp" alt="Source Drive — Fiche d‚mo 5 - Where-Object.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Fiche d‚mo 5 - Where-Object.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Where-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 05 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter la commande Where-Object. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Une des commandes les plus utilisées permet d’appliquer une ou plusieurs conditions sur une ou <br>plusieurs propriétés d’un objet. </p>
+<p class="tssr-source-paragraph">Le conditionnement permet de définir des listes d’objets précises et de pouvoir obtenir un résultat <br>correspondant au besoin exprimé.  </p>
+<pre class="tssr-source-code">• 
+La commande Where-Object s’utilise en complément de la commande Select-Object </pre>
+<p class="tssr-source-paragraph">• <br>Dans un premier temps, nous allons voir une condition simple. </p>
+
+<p class="tssr-source-paragraph">La commande utilisée permet de chercher un ou plusieurs utilisateurs dans la base de données <br>Active Directory.  </p>
+<pre class="tssr-source-code">La condition Where-Object permet de trouver le ou les objets utilisateurs pour laquelle la propriété 
+Name est égale à Oneal. </pre>
+<pre class="tssr-source-code">La condition Where-Object utilise les opérateurs de comparaison ici le -eq indique l’égalité.  </pre>
+<p class="tssr-source-paragraph">Nous allons voir qu’il est possible de tester une propriété sans connaître le contenu exact. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\Administrator&gt; Get-ADUser -filter<br>*<br>|<br>where-object -Property Name -eq Oneal</p><p>DistinguishedName<br>:<br>CN=Oneal ,OU=_CompteTest ,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Sharon<br>Name<br>:<br>Oneal<br>objectclass<br>:<br>user<br>lob jectGUID<br>: 622f3902-4ee9-415f-b818-f4ccce087417<br>SamAccountName<br>:<br>Sharon<br>Oneal<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1146<br>Surname<br>:<br>UserPrincipalName<br>:<br>SharonOneal</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Pour cela, on utilise l’opérateur de comparaison Like avec le caractère  * , ce qui nous permet 
+d’obtenir tous les utilisateurs dont le nom débute par Ro. </pre>
+<pre class="tssr-source-code">o Pour rappel, les opérateurs de comparaison par défaut sont insensibles à la </pre>
+<p class="tssr-source-paragraph">casse. </p>
+<pre class="tssr-source-code">o Pour les rendre sensibles à la casse, il faut les préfixer par un c. </pre>
+<pre class="tssr-source-code">La commande Where-Object est également utilisable sur des propriétés de type booléen. </pre>
+
+<pre class="tssr-source-code">Dans ce cas, la propriété est comparée à la variable $True ou $False selon si l’on souhaite tester 
+la validation ou non. </pre>
+<p class="tssr-source-paragraph">Dans le cas de notre commande, on affiche uniquement les comptes Active Directory actifs. </p>
+<pre class="tssr-source-code">Where-Object permet également d’utiliser les opérateurs logiques and et or. </pre>
+<pre class="tssr-source-code">Dans ce cas, il faut vérifier plusieurs propriétés. On se sert de la variable réservée $PSItem vu 
+précédemment. </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\Administrator&gt; Get-ADUser<br>-filter<br>*<br>| where-object -Property Name -like<br>"Ro*"</p><p>DistinguishedName<br>:<br>CN=Romero,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>objectClass<br>:<br>user<br>objectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott<br>Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>Surname<br>:<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>DistinguishedName<br>: CN=Robertson,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Joelle<br>Name<br>:<br>Robertson<br>objectClass<br>:<br>user<br>objectGUID<br>:<br>b99c9ca0-3930-4610-ab07-bc2536b895ed<br>SamAccountName<br>:<br>Joelle<br>Robertson<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1153<br>Surname<br>:<br>UserPrincipalName<br>:<br>JoelleRobertson</p><p>PS C:\Users\Administrator&gt; Get-ADUser -filter<br>*<br>| where-object -Property Enabled -eq $true</p><p>DistinguishedName<br>: CN=Administrator<br>,CN=Users ,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>8<br>Name<br>:<br>Administrator<br>objectcClass<br>: user<br>objectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>à<br>UserPrincipalName<br>:</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+
+<pre class="tssr-source-code">On utilise le paramètre FisterScript indiqué par l’utilisation des accolades de la commande 
+Where-Object puis, on utilise la variable réservée $PSItem suivie d’un point puis le nom de la 
+propriété à tester.  </pre>
+
+<p class="tssr-source-paragraph">Le test est ensuite répété sur la seconde propriété ; entre les deux on place l’opérateur logique.  </p>
+<pre class="tssr-source-code">Dans le cas d’un And, les deux propriétés doivent répondre « vrai » à la condition pour que l’objet 
+soit affiché dans le résultat. </pre>
+<pre class="tssr-source-code">Dans notre test, il faut que l’utilisateur « Active Directory » soit actif et que son nom commence par 
+un R. </pre>
+<pre class="tssr-source-code">Voyons maintenant le cas d’un Or. </pre>
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser<br>-filter<br>*<br>|<br>where-object {$PSItem.Enabled<br>-eq $true -and<br>$PSItem.Name<br>-like "R*"}</p><p>DistinguishedName<br>: CN=Randal1,OU=_CompteTest ,DC=ad01,0C=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Reese<br>Name<br>:<br>Randall<br>lOobjectClass<br>: user<br>lob jectGUID<br>: 4b4aae4b-a5f8-47b6-986c-f593c9a55ac6<br>SamAccountName<br>:<br>Reese<br>Randall<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1107<br>Surname<br>8<br>UserPrincipalName<br>:<br>ReeseRandall</p><p>DistinguishedName<br>: CN=Romero,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>Surname<br>8<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>DistinguishedName<br>:<br>CN=Rios ,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Axel<br>Name<br>:<br>Rios<br>lobjectClass<br>: user<br>lob jJectGUID<br>: 329243f8-18b8-45cd-8ddf-58a111bccc61<br>SamAccountName<br>:<br>Axel<br>Rios<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1126<br>Surname<br>8<br>UserPrincipalName<br>:<br>AxelRios</p><p>&gt;&gt; Get-ADUser -filter<br>*<br>|<br>where-object {$PSItem.name -like "S*"<br>-or $PSItem.Name -like "R*"}</p><p>En</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Avec l’opérateur Or, il faut que l’une ou l’autre des propriétés testées répondre « vrai » pour que 
+l’objet soit sélectionné. </pre>
+<pre class="tssr-source-code">Ici on obtient les utilisateurs dont le nom commence par un R ou par un  S  </pre>
+<p class="tssr-source-paragraph">Il est également possible de faire cohabiter les deux opérateurs de comparaison. </p>
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DistinguishedName<br>:<br>CN=Rivas ,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>:<br>Lucius<br>Name<br>:<br>Rivas<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>9d41e67e-9b98-4b92-8467-6d03c85a4238<br>SamAccountName<br>:<br>Lucius<br>Rivas<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1129<br>surname<br>.<br>=<br>.<br>.<br>UserPrincipalName<br>:<br>Luci1usRivas</p><p>DistinguishedName<br>:<br>CN=Simmons ,OU=_CompteTest,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Brent<br>Name<br>:<br>Simmons<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>7b873e0f-62d0-4530-ba65-ea19becb0537<br>SamAccountName<br>:<br>Brent Simmons<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1144<br>Surname<br>=<br>UserPrincipalName<br>:<br>BrentSimmons</p><p>&gt;&gt; Get-ADUser<br>-filter<br>*<br>|<br>where-object<br>{$PSItem.Enabled<br>-eq<br>$true<br>-and<br>C$PSItem.Name<br>-like<br>“R*"-or<br>$PSItem.name<br>-like<br>"“S*")}</p><p>DistinguishedName<br>:<br>CN=Randall,OU=_ CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Reese<br>Name<br>:<br>Randall<br>iObjectclass<br>:<br>user<br>ObjectGUID<br>:<br>4b4aae4b-a5f8-47b6-986c-F593c9a55ac6<br>SamAccountName<br>:<br>Reese<br>Randall<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1107<br>Surname<br>5<br>UserPrincipalName<br>:<br>ReeseRandall</p><p>DistinguishedName<br>:<br>CN=Romero,OU=_CompteTest,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>GivenName<br>:<br>Prescott<br>Name<br>:<br>Romero<br>Objectclass<br>:<br>user<br>ObjectGUID<br>:<br>63814ee2-78c2-44ed-8921-273dcd515723<br>SamAccountName<br>:<br>Prescott<br>Romero<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1121<br>surname<br>:<br>UserPrincipalName<br>:<br>PrescottRomero</p><p>En</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-4e0af002f353966b1878efd7cc88aeeaefbe68901f49de812783189fe34c4903.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-4e0af002f353966b1878efd7cc88aeeaefbe68901f49de812783189fe34c4903.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1079" height="5307"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1L51B4JI2gf8z_fvz0zHlUqbJmGnlHOkQ · <span title="Empreinte SHA-256 du fichier source">SHA-256 95b4aeb84563e269…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 6 - Format-Table.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 6 - Format-Table · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/e753036abe86b7c8/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1RZTyNl8v0lgrVPdenc9H6fYOSFEOGrtL/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/e753036abe86b7c8/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/e753036abe86b7c8/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 6 - Format-Table.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 6 - Format-Table.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1RZTyNl8v0lgrVPdenc9H6fYOSFEOGrtL-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Format-Table </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Format-Table. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Lorsque les objets sont correctement sélectionnés, triés et conditionnés, il est utile de les exporter <br>dans un format adapté à un tableur par exemple. </p>
+<p class="tssr-source-paragraph">Pour cela, il va falloir mettre sous forme de tableaux les objets obtenus ainsi que leurs propriétés. </p>
+<pre class="tssr-source-code">La commande Format-Table permet d’organiser les colonnes et les valeurs de nos objets. </pre>
+<pre class="tssr-source-code">• 
+Placé en fin de ligne de commande, le Format-Table travaille à partir des propriétés. </pre>
+<pre class="tssr-source-code">• 
+Il s’accompagne pratiquement tout le temps d’un Select-Object </pre>
+
+<pre class="tssr-source-code">La commande place les en-têtes de colonne dans l’ordre indiqué au paramètre Property. </pre>
+<pre class="tssr-source-code">Le paramètre HidetableHeaders masque les en-têtes de colonnes pour ne laisser que les valeurs. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser -Filter<br>*<br>|<br>select name,enabled,Givenname</p><p>|<br>Format-Table<br>-Property Enabled,Givenname,Name</p><p>enabled Givenname<br>name</p><p>True<br>Administrator<br>False<br>Guest<br>False<br>krbtgt<br>False<br>toto<br>False<br>Ferdinand<br>Morse<br>False Britanney<br>Yang<br>True Reese<br>Randal1<br>False Adele<br>Pena<br>False<br>Keiko<br>Huber<br>False<br>Magee<br>Hard</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1RZTyNl8v0lgrVPdenc9H6fYOSFEOGrtL-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Groupby permet de regrouper des objets selon la valeur d’une propriété. </pre>
+
+<p class="tssr-source-paragraph">On retrouve les utilisateurs actifs et les inactifs. </p>
+<pre class="tssr-source-code">Le paramètre Wrap va forcer le retour à la ligne dans le cas où la valeur d’une propriété serait trop 
+longue pour l’affichage. </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser<br>-Filter<br>*<br>select name,enabled,Givenname</p><p>|<br>Format-Table -Property Enabled,Givenname,Name<br>-HideTableHeaders</p><p>True<br>Administrator<br>False<br>Guest<br>False<br>krbtgt<br>False<br>toto<br>False<br>Ferdinand<br>Morse<br>False Britanney<br>Yang<br>True<br>Reese<br>Randall<br>False Adele<br>Pena<br>False Keiko<br>Huber</p><p>&gt;&gt; Get-ADUser -Filter<br>*<br>|<br>select name,enabled,Givenname</p><p>|<br>Format-Table<br>-GroupBy Enabled</p><p>enabled:<br>True</p><p>name<br>enabled Givenname</p><p>Administrator<br>True</p><p>enabled:<br>False</p><p>name<br>enabled Givenname</p><p>Guest<br>False<br>krbtgt<br>False<br>toto<br>False</p><p>|<br>Morse<br>False<br>Ferdinand<br>Yang<br>False Britanney</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1RZTyNl8v0lgrVPdenc9H6fYOSFEOGrtL-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>Format-Table<br>-Wrap</p><p>Status<br>Name<br>Disp layName</p><p>Stopped<br>AarSvc_61a95<br>Agent Activation Runtime_61a95<br>Stopped<br>AJRouter<br>Alljoyn Router Service<br>Stopped<br>ALG<br>Application<br>Layer Gateway Service<br>Stopped<br>App IDSvc<br>Application Identity<br>Running<br>Appinfo<br>Application<br>Information<br>Stopped<br>AppMgmt<br>Application Management<br>Stopped<br>AppReadiness<br>App Readiness<br>Stopped<br>Appvclient<br>Microsoft App-V Client<br>Stopped<br>AppXSvc<br>AppX Deployment Service<br>(AppXSVC)<br>Stopped<br>AssignedAccessMana AssignedAccessManager<br>Service<br>gerSvc</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-987b59a0b1c0691ef182ebc03adc060f8661a480b8a6aa2dce2d94d27ab9428f.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-987b59a0b1c0691ef182ebc03adc060f8661a480b8a6aa2dce2d94d27ab9428f.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2546"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1RZTyNl8v0lgrVPdenc9H6fYOSFEOGrtL · <span title="Empreinte SHA-256 du fichier source">SHA-256 e753036abe86b7c8…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 8 - Format-List.pdf · 2 pages</summary>
+<summary>Démonstration · Fiche d‚mo 8 - Format-List · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/01643372ae792724/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1seN7AcUmhXSPdYkI4pyvdgfKAUr__9BU/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/01643372ae792724/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/01643372ae792724/pages-001-002.webp" alt="Source Drive — Fiche d‚mo 8 - Format-List.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fiche d‚mo 8 - Format-List.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1seN7AcUmhXSPdYkI4pyvdgfKAUr__9BU-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Format-List </h4>
+<p class="tssr-source-paragraph">Démonstration 08 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Format-List  </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La commande Format-List a un rôle de mise en forme des propriétés d’un objet sous forme de 
+liste. De la même manière que la commande Format-Table, elle reprend les mêmes principes. </pre>
+<p class="tssr-source-paragraph">• <br>Dans un premier temps, toutes les propriétés sont mises sous forme de liste. </p>
+
+<pre class="tssr-source-code">On peut constater que la mise en forme de type liste est la mise en forme par défaut de la 
+commande Get-AdUser. Les objets sont présentés à l’horizontale, leurs propriétés sont les unes sur 
+les autres. Chaque objet est déroulé par ordre de tri. </pre>
+<pre class="tssr-source-code">La commande Format-List permet de sélectionner les propriétés présentes dans la liste. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-List</p><p>DistinguishedName<br>:<br>CN=Administrator<br>,CN=Users,DC=ad01,DC=1c1<br>Enabled<br>:<br>True<br>Gi venName<br>:<br>Name<br>:<br>Administrator<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>ecf4ice8-afa0-447f-81f5-ae41c508e63c<br>SamAccountName<br>:<br>Administrator<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-500<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>DistinguishedName<br>:<br>CN=Guest,OU=_CompteTest,DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>Gi venName<br>:<br>Name<br>:<br>Guest<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>3b8584da-5517-4204-b2c2-cd61dce60f1F<br>SamAccountName<br>:<br>Guest<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-501<br>Surname<br>:<br>UserPrincipalName<br>:</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1seN7AcUmhXSPdYkI4pyvdgfKAUr__9BU-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-List -Property Givenname,name, enabled</p><p>ivenname<br>:<br>ame<br>:<br>Administrator<br>enabled<br>:<br>True</p><p>ivenname<br>:<br>ame<br>:<br>Guest<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>ame<br>:<br>krbtgt<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>ame<br>:<br>toto<br>enabled<br>:<br>False</p><p>ivenname<br>:<br>Ferdinand<br>ame<br>:<br>Morse<br>enabled<br>:<br>False</p><p>@</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-bf457189d66276349ee07f614e22bfe70f6ea138635c5b5e23c45aa459177ca4.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-bf457189d66276349ee07f614e22bfe70f6ea138635c5b5e23c45aa459177ca4.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1694"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1seN7AcUmhXSPdYkI4pyvdgfKAUr__9BU · <span title="Empreinte SHA-256 du fichier source">SHA-256 01643372ae792724…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fiche d‚mo 9 - Export-Object.pdf · 3 pages</summary>
+<summary>Démonstration · Fiche d‚mo 9 - Export-Object · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/24441a6b66fd2cf7/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/10nnSDbh474FxYYmhhOzJyzOW1eQz-tJm/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/24441a6b66fd2cf7/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/24441a6b66fd2cf7/pages-001-003.webp" alt="Source Drive — Fiche d‚mo 9 - Export-Object.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Fiche d‚mo 9 - Export-Object.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-10nnSDbh474FxYYmhhOzJyzOW1eQz-tJm-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Export-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 10 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de présenter la commande Export-Object </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Une fois la mise en forme terminée, il faut exporter les résultats de commandes vers un logiciel ou <br>une application. Selon le format choisi, il va falloir exporter ces données vers un fichier. </p>
+<p class="tssr-source-paragraph">• <br>Il existe différents types de fichiers dont le format est pris en charge nativement par la console <br>PowerShell : </p>
+<pre class="tssr-source-code">o Le format CSV qui comporte un délimiteur. La plupart du temps, ce délimiteur </pre>
+<p class="tssr-source-paragraph">est le point-virgule. </p>
+<pre class="tssr-source-code">o Certains logiciels peuvent demander la présence d’un autre délimiteur </pre>
+<p class="tssr-source-paragraph">comme la virgule.  </p>
+
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|<br>Export-Csv -Path c:\FIC1.CSV -Delimiter<br>";"<br>PS C:\&gt;</p><p>©) ficl - Notepad<br>—<br>oO<br>x</p><p>File<br>Edit<br>Format<br>View<br>Help<br>#TYPE Microsoft.ActiveDirectory.Management.ADUser<br>a<br>“DistinguishedName"; “Enabled”; "GivenName"; “Name”; “ObjectClass" ; “ObjectGUID" ; "SamAccountName”; "SID"; "Surname"<br>“CN=Administrator,CN=Users ,DC=ad@1,DC=1cl"; "True"; ; "Administrator"; “user” ; “ecf41ce8-afa0-447f-81F5-aed1c508¢<br>“CN=Guest, OU=_CompteTest, DC=ad@1,DC=1cl"; “False”; ; "Guest"; “user”; "3b8584da-5517-4204-b2c2-cd61dce60Ff1F"</p><p>; “Gue<br>“CN=krbtgt, CN=Users ,DC=ad@1,DC=1cl";<br>"False"; ;"krbtgt"; “user”;"46874b7c-7da5-4888 -922d-bf26df07Fb26"<br>;"krbtgt"<br>“CN=toto,<br>CN=Users ,DC=ad@1,DC=1cl"; "False"; ;"toto"; "user";"d1aa9368 -8013-4d07-bfa9-1fac7949312";"toto" ;"S-1-<br>“CN=Morse,OU=_CompteTest, DC=ad@1,DC=1cl"; “False”; “Ferdinand”; “Morse”; “user”; "87@d356c -3bb9-4bda-9596-1e1980t<br>“CN=Yang,OU=_CompteTest<br>, DC=ad@1,DC=1c1"; "False"; “Britanney”; “Yang”; “user”; "7bd5148e-6fe1-4813 -8242-£4a39014¢<br>“CN=Randall1,OU=_CompteTest ,DC=ad@1,DC=1c1"; "True"; "Reese"; "Randall"; “user”; "4b4aae4b-a5f8-47b6-986c-F593c9at<br>“CN=Pena,OU=_CompteTest<br>, DC=ad@1,DC=1c1"; "False"; “Adele”; “Pena”; “user”</p><p>;"e84350cc-b@7b-46b8-a613-b1b27ba7267'<br>“CN=Huber ,OU=_CompteTest, DC=ad@1,DC=1cl"; “False”; “Keiko”; “Huber”; “user”; "165ced8e-1da2-4a70-bee6-0766490bd9:<br>“CN=Hardy ,OU=_CompteTest, DC=ad@1,DC=1c1"; “False”;"Magee"; “Hardy”; “user™;"7524637b-#495 -48d0-91b9 -94be84acc2:<br>“CN=Peck,OU=_CompteTest<br>, DC=ad@1,DC=1c1"; "False"; “Nathaniel”; “Peck”; “user”;"373c96ce-3200-46f8-95e0-69621e48¢<br>“CN=Kramer ,OU=_CompteTest<br>,DC=ad@1,DC=1cl"; “False”; "Boris"; "Kramer"; “user”</p><p>;"40@c85eba-2fc6-42fb-8d7d-fb908260¢<br>“CN=Harrington ,OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; "Elmo"; "Harrington"; “user” ;"“adaf7e3d-70fb-40c5-89be-4¢<br>“CN=Carson,OU=_CompteTest, DC=ad0@1,DC=1c1"; "False"; "Coby"; “Carson”; “user” ;"4cea53a7-ad41-4d84-85bd-eb989d59b;<br>"CN=Albert ,OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; "Benedict"; "Albert"; “user” ;"95006049-4£36-4f08-9078-16812«<br>“CN=Mcintyre,OU=_CompteTest, DC=ad@1,DC=1c1"; "False"; “Adara”; “Mcintyre”; “user”</p><p>;"a46f@5f3-5d73-407b-adaa-4481&lt;<br>“CN=Ferguson ,OU=_CompteTest, DC=ad@1,DC=1c1"; “False”; “Leonard”;"Ferguson"; "user"; "3bb1c63f-1d69-43d¥-b696-e61<br>“CN=Conway ,OU=_CompteTest<br>, DC=ad@1,DC=1c1"; “False”; “Hillary”; “Conway”; “user” ;"5991fee1-1ee6-423e-9b13-fe@deds<br>“CN=Conner<br>, OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; "Jasmine"; "Conner"; "user"; “ebfd5446-571e-4aaa-9425-@ccAbet<br>“CN=Meyers ,OU=_CompteTest, DC=ad@1,DC=1cl";"False" ;"Thane"; “Meyers”; “user” ; “bb7cblaa-410a-4187-8ad7-68173b6c;<br>“CN=Romero, OU=_CompteTest , DC=ad@1,DC=1c1"; “True”; “Prescott”; “Romero”; “user”; "63814ee2-78c2-44ed-8921-273dcd!<br>“CN=Velez,OU=_CompteTest,<br>DC=ad@1,DC=1cl"; “False”; “Lamar”; "Velez"; "user"; "1535fd46-29a8-41b2-9651-878527acOat<br>“CN=Collins ,OU=_CompteTest ,DC=ad0@1,DC=1c1"; "False"; "Oscar"; "Collins"; "user"; "471le2cfa-24f2-4d2a-9d25-6d1c00<br>“CN=Barron,OU=_CompteTest, DC=ad@1,DC=1c1"; “False”; "Irma"; “Barron”; "user" ;"3475911e-7f07<br>-4ed8 -828d-fdeada742¢<br>“CNshlaI rh Oz CamntoToct M=sd01<br>NCa1e1" + "Ealco™: "Tuan" © "hlal ch"<br>"ucan" + "ACGRF1G<br>6 2d1A Aah hf 7a_a7ardataRrnc Ÿ<br>&lt;<br>&gt;</p><p>Ln 1, Col1<br>100%<br>Windows (CRLF)<br>UTF-8</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-10nnSDbh474FxYYmhhOzJyzOW1eQz-tJm-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<pre class="tssr-source-code">On peut constater que la première ligne du fichier CSV contient le TypeName de l’objet. </pre>
+<pre class="tssr-source-code">Afin de ne pas avoir le type d’objet dans le fichier CSV on ajoute le paramètre 
+NoTypeInformation. </pre>
+
+<p class="tssr-source-paragraph">Si on exécute une commande d’export sur un fichier existant, la commande va automatiquement <br>supprimer les données présentes dans le fichier. </p>
+<pre class="tssr-source-code">Pour éviter l’écrasement des données, on ajoute le paramètre Append. </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser<br>-T1lter<br>BS<br>Export-Csv<br>-Path<br>c:<br>FIC2.CSV -Delimiter<br>5<br>-NoTypeiIntormation</p><p>=] FIC2 - Notepad<br>-<br>Qo<br>x</p><p>File<br>Edit<br>Format<br>View<br>Help<br>l'DistinguishedName" ; "Enabled" ;"GivenName" ; "Name"; "ObjectClass"; "ObjectGUID" ; "SamAccountName" ; "SID"; Surname’ À</p><p>“CN=Administrator ,CN=Users ,DC=ad@1,DC=1cl"; “True”; ; “Administrator”; “user”; “ecf41ce8-afa0-447f-81f5-aed1c508¢<br>“CN=Guest ,OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; ;"Guest";"user";"3b8584da-5517-4204-b2c2-cd61dce60@f1f"<br>; "Gue<br>“CN=krbtgt, CN=Users ,DC=ad@1,DC=1cl"; "False"; ;"krbtgt"; "user"; "46874b7c-7da5 -4888-922d-bf26d07Fb26" ; "krbtgt’<br>“CN=toto, CN=Users ,DC=ad@1,DC=1cl"; "False"; ;"toto"; "user"; "d1aa9368-8013-4d07-bfa9-1fac79493F12"<br>; "toto" ;"S-1-<br>“CN=Morse ,OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; “Ferdinand”; “Morse”; “user” ;"870d356c -3bb9-4bda-9596-1e1980t<br>"“CN=Yang,OU=_CompteTest,DC=ad@1,DC=1cl"; "False"; "Britanney” ; "Yang"; “user” ;"7bd5148e-6fe1-4813-8242-£4a39014¢<br>“CN=Randall,OU=_CompteTest ,DC=ad@1,DC=1cl"; “True”; "Reese"; "Randall"; “user" ; "4b4aae4b-a5f8-47b6-986c-£593c9at<br>"CN=Pena,OU= CompteTest,DC=ad01,DC-1c1";"False";"Adele";"Pena";"user";"e84350cc-b07b-46b8-a613-b1b27ba07267"<br>“CN=Huber ,OU=_CompteTest,DC=ad01,DC=1c1";"False";"Keiko";"Huber"; "user" ;"165ced8e-1da2-4270-bee6 -0766490bd9:<br>“CN=Hardy,OU= CompteTest,DC=ad01,DC-1c1";"False";"Magee";"Hardy";"user";"7524637b-ff95-48d0-91b9-94beB4acc2:<br>"CN=Peck,OU=_CompteTest,DC=ad01,DC=1c1";"False";"Nathaniel";"Peck";"user";"373c96ce-3200-46F8-95e0-69621e48:<br>“CN=Kramer ,OU=_CompteTest , DC=ad@1,DC=1c1"; "False"; "Boris" ;"Kramer";"user";"40c85eba-2fc6-42fb-8d7d-fb908260:<br>“CN=Harrington,OU=_CompteTest, DC=ad01,DC=1cl"; "False"; "Elmo"; "Harrington"; "user" ;"adaf7e3d-70fb-40c5-89be-4e<br>"CN=Carson,0U=_CompteTest, DC=ad@1,DC=1c1"; "False"; "Coby"; "Carson"</p><p>;"user"; "4cea53a7-ad41-4d84-85bd-eb989d59b;<br>“CN=Albert ,OU=_CompteTest , DC=ad@1,DC=1c1"; “False”; “Benedict”; “Albert”; “user”;"95006049 -4£36-4f08-9078-16812¢<br>“CN-Mcintyre,OU=_CompteTest, DC=ad@1,DC=1cl"; "False"; "Adara”; "Mcintyre"; "user" ;"a46f5#3-5d73-407b-adaa-4481¢<br>"(CN=Ferguson,0U=_CompteTest, DC=ad@1,DC=1cl"; "False"; "Leonard"; "Ferguson"; "user"; "3bb1c63f-1d69-43d¥-b696-e61<br>"CN=Conway ,OU=_CompteTest,DC=ad@1,DC=1c1"; "False"; "Hillary"; “Conway”; "user" ;"5991feel-1ee6-423e-9b13-fe0de4£<br>"CN=Conner ,OU=_CompteTest<br>, DC=ad@1,DC=1cl"; "False" ; "Jasmine" ; "Conner"; "user"; “ebfd5446-571e-4aaa-9425-OccAbet<br>“CN=Meyers ,OU=_CompteTest , DC=ad@1,DC=1cl"; "False"; "Thane"; "Meyers"; "user"; "bb7cb1aa-410a-4187-8ad7-68173b6c;<br>"CN=Romero ,OU=_CompteTest , DC=ad@1,DC=1cl"; "True"; "Prescott" ; "Romero"; "user" ;"63814ee2-78c2-44ed-8921-273dcd!<br>“CN=Velez,OU=_CompteTest ,DC=ad@1,DC=1c1"; "False"; “Lamar”;“Velez”; “user” ;"1535fd46-29a8-41b2-9651-878527ac@at<br>"CN=Collins ,OU=_CompteTest<br>,DC=ad@1,DC=1cl"; "False"; "Oscar"; "Collins"; "user" ;"471le2cfa-24f2-4d2a-9d25<br>-6d1c00<br>“CN=Barron ,OU=_CompteTest , DC=ad@1,DC=1c1" ; “False”; “Irma” ; “Barron”; "user" ;"3£75911e-707-4ed8-828d-fdeada742¢<br>“CN=Welch ,OU=_CompteTest, DC=ad01,DC=1cl"; "False"; "Ivory"; "Welch"; "user"; "4c56f15c-2d14-4e35 -bf7e-e7acd01e88<br>"CM=Rinc<br>Alle CamntaToc+<br>NC=sdA1<br>D=1-1" "To": "Aval"+"Rinc™: "can" +"2IQIAER_1RhQ_AGrA_RddF_SRat1 heer hi" et Y<br>&lt;<br>&gt;</p><p>Ln 1, Col<br>100%<br>Windows (CRLF)<br>UTF-8</p><p>PS C:\&gt; get-aduser -filter * | Export-Csv -Path<br>c:\FIC2.CSV -Delimiter<br>‘;<br>-NoTypeInformation -Append<br>7 FIC2 - Notepad<br>-<br>a<br>x</p><p>File<br>Edit<br>Format<br>View<br>Help<br>“CN=Bright ,OU=_CompteTest ,DC=ad01,DC=1cl";<br>"False"; "Brittany"; “Bright”; "user" ;"39d15d8c-a103-46a4-b4c1-Sb41fe À<br>“CN=Campos ,OU=_CompteTest ,DC=ad@1,DC=1c1"<br>;"False”; "Ina"; "Campos"; “user” ;"b546a58d-5a13-4654-8efd-10d6e6bf6a!<br>“CN=Miranda,OU=_CompteTest ,DC=ad01,DC=1cl"; "False"; “Justin”; "Miranda"; “user”; "b82d¥246-4382-4416-b857-Sccc6:<br>“CN=Carney ,OU=_CompteTest ,DC=ad01,DC=1cl"; "False"; "Nissim"; "Carney"; “user” ;"46d7047f-d6c2-Acbf-9e9c-d2#13841<br>"CN=Cannon ,QU=_CompteTest ,DC=ad@1,DC=1cl" ; "False"; "Brent"; "Cannon"; "user"; "ebcal2fa-385e-4F13-874a-Beal<br>F050<br>“CN=York, OU=_CompteTest,DC=ad@1,DC=1c1"; "False" ;"Vincent"; "York"; “user” ;"@b5a17fb-7fa0-48fb-8934-c5d96b76adc<br>"CN=Figueroa,QU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; "Montana"</p><p>;"Figueroa"; "user"; "8Fe2edbb-49cb-4eb5 -bb1-e3¢<br>“CN=Gould,OU=_CompteTest ,DC=ad01,DC=1c1"; "False"; "Honorato”;"Gould"; "user"; "64bed9ec -aa20-4681-be2d-ea39b9bé<br>“CN=Simmons ,OU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; “Brent”; "Simmons" ; “user” ;"7b873e0f-62d0-4530-ba65-eal9bec<br>“CN=Stout ,OU=_CompteTest ,DC=ad@1,DC=1cl"; "False"</p><p>;"Brody"; “Stout”; “user”; "c2e4cb34-6881-4f2d-ab3a-@b2a3b083F«<br>“CN=Oneal , OU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; "Sharon"; “Oneal”</p><p>;"user" ;"622F3902-4ee9-415F-b818-FAccce087<br>“CN=Farmer ,QU=_CompteTest ,DC=ad@1,DC=1cl" ; "False"; "Cheyenne"; “Farmer”; "user"; "@Fd18148 -0621-4cc9-808e-e7282<br>“CN=Valentine,QU=_CompteTest ,DC=ad01,DC=1cl"; "False"; "Yoshi"; “Valentine”; “user”; "93d57251-b¥39-49b3-bf04-be:<br>"CN=Craft ,OU=_CompteTest<br>,DC=ad@1,DC=1cl"; "False"; "Linus"; "Craft"; "user" ;"558ef13f-cbb2-4b6a-8504-a93ab629FF¢<br>“CN=Cameron ,0U=_CompteTest<br>, DC=ad@1,DC=1cl"; "False"; "Judah";“Cameron”; "user" ;"16baf392-c005-471e-9cd4-846028:<br>"CN=Pugh ,OU=_CompteTest<br>,DC=ad@1,DC=1cl"; "False" ;"Adara” ; "Pugh" ; "user" ; "9F6f29a6 -b590-4df2-a65c-cb784Fed95aa"<br>“CN=Dixon,OU=_CompteTest ,DC=ad01,DC=1c1"; "False"; "Drew"; "Dixon"; "user"; "5f035478-ccd1 -403b-9865 -27b64755033c<br>“CN=Robertson ,QU=_CompteTest ,DC=ad@1,DC=1cl"; "True"; "Joelle"; “Robertson”; “user”</p><p>;"b99c9caQ-3930-4610-ab07-bci<br>["CN=Administrator, CN-Users ,DC-ad01,DC=1c1” ; “True” ; “Administrator” ;“user”; "ecf41ce8_afa0-447#-81f5—aed1<br>cS<br>“CN=Guest ,OU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; ; "Guest"; "user"; "3b8584da-5517-4204-b2c2-cd61dce6OF1f"; "Gue<br>“CN=krbtgt,<br>CN=Users ,DC=ad01,DC=1cl"; "False"; ;"krbtgt”; "user" ;"46874b7c-7da5-4888-922d-bf26d07Fb26";"krbtgt’<br>“CN=toto,<br>CN=Users ,DC=ad@1,DC=1cl"; "False"; ; "toto"; "user"; "d1aa9368-8013-4d07-bfa9-1Fac79493#12";"toto"; "S-1-<br>“CN=Morse ,QU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; "Ferdinand"; "Morse"</p><p>;"user" ;"870d356c-3bb9-4bda-9596-1e1980t<br>“CN=Yang, OU=_CompteTest, DC=ad@1,DC=1cl"; "False"; "Britanney”;"Yang"; “user”; "7bd5148e-6fe1-4813-8242-4a39014«<br>"CN=Randall,OU=_CompteTest ,DC=ad@1,DC=1cl"; "True"; "Reese"; "Randall"; "user"</p><p>;"4b4aaedb-a5¥8-47b6-986c-f593c9a!<br>“CN=Pena,OU=_CompteTest ,DC=ad@1,DC=1cl"; "False"; "Adele"; “Pena”; "user"; "e84350cc-b07b-46b8-a613-b1b27ba07267"<br>"CNeHuhon<br>Ollz ComnteToct NC=2dA1<br>NCa1e1"-"Calco™: "Voila": "Hihan"<br>+ "con"<br>+"165radRe-1d2?-A27A_heok-ATERAQAHAQ’ Ÿ<br>&lt;<br>&gt;</p><p>Ln 55, Col 106<br>100%<br> Windows(CRLF)<br>UTF-8</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-10nnSDbh474FxYYmhhOzJyzOW1eQz-tJm-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<p class="tssr-source-paragraph">On se retrouve avec les comptes d’utilisateur à nouveau à la suite de la première exportation. </p>
+<p class="tssr-source-paragraph">Le second format pris en charge nativement est le CliXml. Il permet l’export de données vers des <br>applications web. </p>
+<p class="tssr-source-paragraph">Les règles d’exportation sont identiques au CSV ; on élimine le délimiteur inutile dans le format CSV. </p>
+
+<p class="tssr-source-paragraph">D’autres formats peuvent être ajoutés par l’intermédiaire de l’installation de module. </p>
+<p class="tssr-source-paragraph">Il est intéressant de pouvoir exporter des données sous forme de fichiers de base de données, de <br>code PHP ou de fichier XLSX. </p>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser<br>-Tilter<br>*<br>Export-Clixmi<br>-Path<br>c:\FIC3.xm</p><p>1<br>9) FIC3<br>- Notepad<br>-<br>D<br>x</p><p>File<br>Edit<br>Format<br>View<br>Help<br>kobjs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershe11/2004/04"&gt;<br>a<br>&lt;Obj RefId="0"&gt;</p><p>&lt;TN RefId="0"&gt;</p><p>&lt;ToMicrosoft.ActiveDirectory.Management.ADUser&lt;/T&gt;<br>&lt;ToMicrosoft.ActiveDirectory.Management .ADAccount&lt;/T&gt;<br>&lt;T&gt;Microsoft.ActiveDirectory.Management.ADPrincipal&lt;/T&gt;<br>&lt;T&gt;Microsoft.ActiveDirectory.Management.ADObject&lt;/T&gt;<br>&lt;T&gt;Microsoft.ActiveDirectory.Management.ADEntity&lt;/T&gt;<br>&lt;T&gt;Microsoft.ActiveDirectory.Management .ADPropertyCollection&lt;/T&gt;<br>&lt;T&gt;System.Object&lt;/T&gt;<br>&lt;/TN&gt;<br>&lt;ToString&gt;CN=Administrator,<br>CN=Users ,DC=ad@1, DC=1cl&lt;/ToString&gt;<br>&lt;Props&gt;</p><p>&lt;S N="DistinguishedName"&gt;CN=Administrator<br>,CN=Users ,DC=ad@1,DC=1cl&lt;/S&gt;<br>&lt;B N="Enabled"&gt;true&lt;/B&gt;<br>&lt;Nil N="GivenName"<br>/&gt;<br>&lt;S N="Name"&gt;Administrator&lt;/S&gt;<br>&lt;S N="ObjectClass"&gt;user&lt;/S&gt;<br>&lt;G N="ObjectGUID"&gt;ecf41ce8-afa0-447F-81F5-ae41c508e63c&lt;/G&gt;<br>&lt;S N="SamAccountName"&gt;Administrator&lt;/S&gt;<br>&lt;Obj N="SID" RefId="1"&gt;</p><p>&lt;TN RefId="1"&gt;</p><p>&lt;T&gt;System. Security.Principal.SecurityIdentifier&lt;/T&gt;<br>&lt;T&gt;System.Security.Principal.IdentityReference&lt;/T&gt;<br>&lt;T&gt;System.Object&lt;/T&gt;<br>&lt;/TN&gt;<br>¢TAStr§ nas§_1 591-1 QKRRAA7R1 I _ARAATAKAQ_3K71 21 AAK_SADs ITaSt+ nines<br>Y</p><p>Ln1, Col1<br>100%<br>Windows (CRLF)<br>UTF-16 LE</p><p>En</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-bfc1e7426a9b2354eed702315a8554ce221f6e7d3146bf62916017a492fa33c0.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-bfc1e7426a9b2354eed702315a8554ce221f6e7d3146bf62916017a492fa33c0.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="3245"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 10nnSDbh474FxYYmhhOzJyzOW1eQz-tJm · <span title="Empreinte SHA-256 du fichier source">SHA-256 24441a6b66fd2cf7…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Démonstration · Fich‚ d‚mo 7 - Format-Wide.pdf · 2 pages</summary>
+<summary>Démonstration · Fich‚ d‚mo 7 - Format-Wide · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/8e4ab4aa3f7b9d45/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1hQEtBdFpF1oVt3rPMdBVHEW3kR2VqhIA/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/8e4ab4aa3f7b9d45/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/8e4ab4aa3f7b9d45/pages-001-002.webp" alt="Source Drive — Fich‚ d‚mo 7 - Format-Wide.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — Fich‚ d‚mo 7 - Format-Wide.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1hQEtBdFpF1oVt3rPMdBVHEW3kR2VqhIA-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Format-Wide </h4>
+<p class="tssr-source-paragraph">Démonstration 07 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Format-Wide </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">Lorsque les objets sont très nombreux, la commande Format-Wide permet de les répartir sur toute 
+la largeur de l’écran. </pre>
+<p class="tssr-source-paragraph">La première possibilité est de laisser la commande répartir les objets de façon automatique </p>
+
+<pre class="tssr-source-code">Le paramètre Autosize va répartir les résultats sur un nombre de colonnes idéal. </pre>
+<pre class="tssr-source-code">Il est possible de forcer le nombre de colonnes avec le paramètre Column puis d’indiquer la valeur 
+en int pour le nombre de colonnes. </pre>
+
+<pre class="tssr-source-code">Autre paramètre plus classique Property qui va répartir le nom d’une seule propriété à la place 
+de l’objet. </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-wide<br>-AutoSize</p><p>Administrator<br>Guest<br>krbtgt<br>toto<br>Morse<br>Yang<br>Randall<br>Pena<br>Huber<br>Hardy<br>Peck<br>Kramer<br>Harrington<br>Carson<br>Albert<br>Mcintyre<br>Ferguson<br>Conway<br>Conner<br>Meyers<br>Romero<br>Velez<br>collins<br>Barron<br>welch<br>Rios<br>Haynes<br>Cote<br>Rivas<br>Deleon<br>cruz<br>whitaker<br>Villarreal<br>Castaneda<br>Guy<br>Bright<br>Campos<br>Miranda<br>Carney<br>Cannon<br>York<br>Figueroa<br>Gou ld<br>Simmons<br>Stout<br>Oneal<br>Farmer<br>Valentine<br>craft<br>Cameron<br>Pugh<br>Dixon<br>Robertson</p><p>PS C:\&gt; get-aduser -Tilter<br>*<br>|Format-wide -Column<br>5</p><p>Administrator<br>Guest<br>krbtgt<br>toto<br>Morse<br>Yang<br>Randall<br>Pena<br>Huber<br>Hardy<br>Peck<br>Kramer<br>Harrington<br>Carson<br>Albert<br>Mcintyre<br>Ferguson<br>Conway<br>Conner<br>Meyers<br>Romero<br>Velez<br>collins<br>Barron<br>welch<br>Rios<br>Haynes<br>Cote<br>Rivas<br>Deleon<br>cruz<br>whitaker<br>Villarreal<br>Castaneda<br>Guy<br>Bright<br>Campos<br>Miranda<br>Carney<br>Cannon<br>York<br>Figueroa<br>Gould<br>Simmons<br>Stout<br>Oneal<br>Farmer<br>Valentine<br>craft<br>Cameron<br>Pugh<br>Dixon<br>Robertson</p><p>En</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1hQEtBdFpF1oVt3rPMdBVHEW3kR2VqhIA-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Il n’est pas possible de spécifier au paramètre property plusieurs propriétés, la commande 
+Format-Wide ne le prend pas en charge. </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; get-aduser -filter<br>*<br>|Format-Wide -Property Givenname -Column<br>5</p><p>Ferdinand<br>Britanney<br>Reese<br>Adele<br>Keiko<br>Magee<br>Nathaniel<br>Boris<br>Elmo<br>Coby<br>Benedict<br>Adara<br>Leonard<br>Hillary<br>Jasmine<br>Thane<br>Prescott<br>Lamar<br>Oscar<br>Irma<br>Ivory<br>Axe]<br>Quentin<br>Leila<br>Lucius<br>Tad<br>Murphy<br>John<br>Tashya<br>Fitzgerald<br>Odessa<br>Brittany<br>Ina<br>justin<br>Nissim<br>Brent<br>Vincent<br>Montana<br>Honorato<br>Brent<br>Brody<br>Sharon<br>Cheyenne<br>Yoshi<br>Linus<br>Judah<br>Adara<br>Drew<br>Joelle</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-41582b433cf5dc4a8166152c96eee423b8872cd755af7820456ca88a39d32694.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-41582b433cf5dc4a8166152c96eee423b8872cd755af7820456ca88a39d32694.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1310"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1hQEtBdFpF1oVt3rPMdBVHEW3kR2VqhIA · <span title="Empreinte SHA-256 du fichier source">SHA-256 8e4ab4aa3f7b9d45…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · nonc du TP - Manipuler des objets.pdf · 6 pages</summary>
+<summary>Énoncé · nonc du TP - Manipuler des objets · 6 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/b233ed14007424a6/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b233ed14007424a6/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b233ed14007424a6/pages-001-004.webp" alt="Source Drive — nonc du TP - Manipuler des objets.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7968"></a><figcaption>Source Drive — nonc du TP - Manipuler des objets.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b233ed14007424a6/pages-005-006.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b233ed14007424a6/pages-005-006.webp" alt="Source Drive — nonc du TP - Manipuler des objets.pdf — pages 5 à 6. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3976"></a><figcaption>Source Drive — nonc du TP - Manipuler des objets.pdf — pages 5 à 6. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-1"><h3>Page 1</h3><h4>Initiation à PowerShell<br>Manipuler des objets</h4>
+<p class="tssr-source-paragraph">TP du Module 03</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 de ce cours.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure 30</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Objectifs&nbsp;: </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Manipuler les objets leurs propriétés et leurs méthodes</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Utilisation de la commande Select-Object, Sort-Object et Where-Object.</pre>
+<p class="tssr-source-paragraph">Consignes&nbsp;:</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name,
+Enabled Department City.</pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<pre class="tssr-source-code">Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
+des propriétés Department et City ?</pre>
+<p class="tssr-source-paragraph">Indiquez la commande complète permettant l’affichage des valeurs de toutes les<br>propriétés. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les cinq premiers utilisateurs Active Directory </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Page 1/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur
+propriété Department </pre>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées.</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+ Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled,
+Department, City puis triez par la propriété City.</pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Reprenez la commande précédente puis appliquez le tri sur la propriété Department
+dans l’ordre descendant.</pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<pre class="tssr-source-code">Effectuer le tri sur les deux propriétés City et Department. </pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit<br>comporter un r.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"> <br>Bonus</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Désactiver les utilisateurs dont le nom commence par un D.</p>
+<pre class="tssr-source-code">Utiliser la commande Disable-AdAccount  </pre>
+<p class="tssr-source-paragraph">Page 2/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des utilisateurs Active Directory dont le compte est actif.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Conditionnez le résultat pour ceux qui ont un nom qui débute par un A ou un F. Quelle<br>commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Reprenez la commande précédente et ajouter la condition sur le compte actif. Quelle<br>commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>En reprenant la commande précédente, comptez le nombre d’utilisateurs actifs et le<br>nombre d’utilisateurs inactifs.</p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez tous les fichiers du répertoire \\CD01\Partage.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Reprenez la commande précédente puis affichez la taille moyenne des fichiers. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+
+<p class="tssr-source-paragraph">Affichez la valeur la plus faible et la plus élevée de taille de fichiers.</p>
+<p class="tssr-source-paragraph">Page 3/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">BONUS</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Reprenez les commandes précédentes et indiquez les fichiers dont la taille est<br>supérieure à 10 Mo et inférieure à 100 Mo.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<pre class="tssr-source-code">Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri
+descendant sur le nom.</pre>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des utilisateurs Active Directory sur cinq colonnes.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec
+les propriétés&nbsp;: Name, Enabled, Department, City </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms,<br>leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés&nbsp;:<br>Nom, NomdDns, Distinguishedname, AdresseipV4 puis regroupez-les par système<br>d’exploitation.</p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées.</p>
+<p class="tssr-source-paragraph">Page 4/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-47e01573767e63a18861006049347bc787b1027ba1a0daf08d4d2a3fd023d1ee.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-47e01573767e63a18861006049347bc787b1027ba1a0daf08d4d2a3fd023d1ee.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1027" height="4257"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez tous les événements du journal system avec les propriétés&nbsp;: Time, Index,<br>Message.</p>
+<p class="tssr-source-paragraph">Faites en sorte que le contenu du message soit affiché en totalité sur la console. Quelle<br>commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Exportez les utilisateurs Active Directory dans un fichier CSV \\CD01\Partage\Exports\<br>Csv.</p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Répétez la commande précédente mais dans le format HTML puis dans le dossier \\<br>CD01\Partage\Exports\CSV\. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ajoutez à la suite du fichier CSV les Ordinateurs Active Directory </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Modifiez le nom de la colonne Name de votre fichier CSV exporté précédemment. </p>
+<p class="tssr-source-paragraph">Faite l’importation des utilisateurs Active Directory à partir du fichier CSV modifié. </p>
+<p class="tssr-source-paragraph">Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante&nbsp;:</p>
+<pre class="tssr-source-code">Get-Aduser -filter * | Remove-aduser -confirm&nbsp;: $False </pre>
+<p class="tssr-source-paragraph">Que remarquez-vous ?</p>
+<p class="tssr-source-paragraph">Page 5/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message
+d’erreur sur la propriété Name. </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des fichiers du partage de CD01&nbsp;; pour chaque propriété vous allez<br>traduire le nom de la propriété. Chaque valeur sera exprimée en GB&nbsp;: </p>
+<p class="tssr-source-paragraph">Indiquez votre commande.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 6/6<br>                                                            </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-63f8ceaceb306c7e318d7098f4f983c81f325e66378f80ed314abf777440eeb2.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-63f8ceaceb306c7e318d7098f4f983c81f325e66378f80ed314abf777440eeb2.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="1036" height="2033"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ · <span title="Empreinte SHA-256 du fichier source">SHA-256 b233ed14007424a6…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP - Manipuler des objets.pdf · 5 pages</summary>
+<summary>Correction · Solution du TP - Manipuler des objets · 5 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/36507f9b95b90749/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/36507f9b95b90749/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/36507f9b95b90749/pages-001-004.webp" alt="Source Drive — Solution du TP - Manipuler des objets.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Manipuler des objets.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/36507f9b95b90749/pages-005-005.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/36507f9b95b90749/pages-005-005.webp" alt="Source Drive — Solution du TP - Manipuler des objets.pdf — pages 5. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — Solution du TP - Manipuler des objets.pdf — pages 5. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Manipuler des objets </h4>
+<p class="tssr-source-paragraph">TP du Module 03 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 de ce cours. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 heure 30 </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Objectifs :  </p>
+<p class="tssr-source-paragraph">• <br>Manipuler les objets leurs propriétés et leurs méthodes </p>
+<pre class="tssr-source-code">• 
+Utilisation de la commande Select-Object, Sort-Object et Where-Object. </pre>
+<p class="tssr-source-paragraph">Consignes : </p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<pre class="tssr-source-code">• 
+Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, 
+Enabled Department City. </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-AdUser 
+-Filter 
+* 
+| 
+Select-Object 
+-Property 
+GivenName,Name,Enabled,Department,City </pre>
+<pre class="tssr-source-code">Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides 
+des propriétés Department et City ? </pre>
+<pre class="tssr-source-code">Get-Help Get-ADUser -ShowWindow </pre>
+<p class="tssr-source-paragraph">Indiquez la commande complète permettant l’affichage des valeurs de toutes les <br>propriétés.  </p>
+<pre class="tssr-source-code">Get-AdUser -Filter * -Properties * </pre>
+<pre class="tssr-source-code">get-ADuser -filter * -properties City, Department | select-object -Property 
+Givenname, Name , Enabled, Department, city </pre>
+<p class="tssr-source-paragraph">• <br>Affichez les cinq premiers utilisateurs Active Directory  </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-AdUser -Filter * | Select-Object -First 5 </pre>
+
+<p class="tssr-source-paragraph">Page 1/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<pre class="tssr-source-code">• 
+Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur 
+propriété Department   </pre>
+<pre class="tssr-source-code">Indiquez les commandes utilisées. 
+Get-AdUser -Filter * | Select-Object City 
+Get-AdUser -Filter * | Select-Object Department </pre>
+<pre class="tssr-source-code">get-ADuser -filter * -properties * | select-object department,city </pre>
+<pre class="tssr-source-code">• 
+ Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, 
+City puis triez par la propriété City. </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
+| sort -property City </pre>
+<pre class="tssr-source-code">• 
+Reprenez la commande précédente puis appliquez le tri sur la propriété Department 
+dans l’ordre descendant. </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
+| sort -property Department -Descending </pre>
+<pre class="tssr-source-code">Effectuer le tri sur les deux propriétés City et Department.  </pre>
+<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
+| sort -property City,Department </pre>
+<p class="tssr-source-paragraph">• <br>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit <br>comporter un r. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
+| Where -Property Name -like "R"  </pre>
+<pre class="tssr-source-code">get-ADuser 
+-filter 
+* 
+-properties 
+* 
+| 
+select-object 
+Name,Enabled,city,department | where-object name -like "*r*" |sort-object 
+-Property department, City </pre>
+<p class="tssr-source-paragraph"> <br>Bonus </p>
+<p class="tssr-source-paragraph">• <br>Désactiver les utilisateurs dont le nom commence par un D. </p>
+<pre class="tssr-source-code">Utiliser la commande Disable-AdAccount   
+Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
+| Where -Property Name -like "R" | Disabled-ADAccount </pre>
+<pre class="tssr-source-code">get-ADuser -filter 'name -like "d*"' | Disable-ADAccount </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des utilisateurs Active Directory dont le compte est actif. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * | Where enabled -eq $True </pre>
+<p class="tssr-source-paragraph">Conditionnez le résultat pour ceux qui ont un nom qui débute par un A ou un F. Quelle <br>commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * | Where-object -filterscript { $PSItem.enabled -eq 
+$True -And ($PSItem.Name -like "a*" -or $PSItem.name "F*"} </pre>
+<pre class="tssr-source-code">#en regex </pre>
+<pre class="tssr-source-code">get-ADuser -filter * -properties * | where-object -filterscript { 
+$PSITEM.enabled -like "$true" -AND $PSITEM.name -match "^[AF]" } | select-
+object name,Enabled </pre>
+<p class="tssr-source-paragraph">• <br>En reprenant la commande précédente, comptez le nombre d’utilisateurs actifs et le <br>nombre d’utilisateurs inactifs. </p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * | Where-Object Enabled -like $True | measure </pre>
+<pre class="tssr-source-code">Get-ADUser -Filter * | Where-Object Enabled -like $False | measure </pre>
+<p class="tssr-source-paragraph">• <br>Affichez tous les fichiers du répertoire \\CD01\Partage. </p>
+<pre class="tssr-source-code">Quelle commande avez-vous utilisée ? 
+Get-ChildItem \\CD01\Partage\ -File -Recurse </pre>
+<p class="tssr-source-paragraph">• <br>Reprenez la commande précédente puis affichez la taille moyenne des fichiers.  </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
+average </pre>
+<p class="tssr-source-paragraph">Affichez la valeur la plus faible et la plus élevée de taille de fichiers. </p>
+<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
+min -max 
+BONUS </pre>
+<p class="tssr-source-paragraph">• <br>Reprenez les commandes précédentes et indiquez les fichiers dont la taille est <br>supérieure à 10 Mo et inférieure à 100 Mo. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript 
+{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 } </pre>
+<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript 
+{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 } </pre>
+<p class="tssr-source-paragraph">Page 3/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<pre class="tssr-source-code">Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript { 
+$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB } </pre>
+<pre class="tssr-source-code">Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant 
+sur le nom. </pre>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des utilisateurs Active Directory sur cinq colonnes. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * | Format-Wide -Column 5 </pre>
+<pre class="tssr-source-code">• 
+Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec 
+les propriétés : Name, Enabled, Department, City  </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Where enabled -eq $True | Format-
+Table name,enabled,Department,City </pre>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, <br>leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.  </p>
+<pre class="tssr-source-code">Quelle commande avez-vous utilisée ? 
+Get-ADGroup -Filter * -Properties * | Format-Table -Property 
+name,description,created -GroupBy GroupScope </pre>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, <br>NomdDns, <br>Distinguishedname, <br>AdresseipV4 <br>puis <br>regroupez-les <br>par <br>système <br>d’exploitation. </p>
+<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
+<pre class="tssr-source-code">Get-ADComputer 
+-Filter 
+* 
+-Properties 
+* 
+| 
+Format-List 
+name,dnshostname,distinguishedname,ipv4address -GroupBy operatingsytem </pre>
+<p class="tssr-source-paragraph">• <br>Affichez tous les événements du journal system avec les propriétés : Time, Index, <br>Message. </p>
+<pre class="tssr-source-code">Get-EventLog system | select-object time,index,message </pre>
+<p class="tssr-source-paragraph">Faites en sorte que le contenu du message soit affiché en totalité sur la console. Quelle <br>commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-EventLog system | fl -property timewritten,index,message </pre>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<p class="tssr-source-paragraph">• <br>Exportez <br>les <br>utilisateurs <br>Active <br>Directory <br>dans <br>un <br>fichier <br>CSV <br>\\CD01\Partage\Exports\Csv. </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser 
+-Filter 
+* 
+| 
+Export-CSV 
+-Path 
+\\CD01\Partage\PowerShell\Exports\CSV\Users.csv -delimiter "." </pre>
+<p class="tssr-source-paragraph">Page 4/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-65d61715a438285d6f495bec565d658d4941007f3a50383876c3e52b481f2611.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-65d61715a438285d6f495bec565d658d4941007f3a50383876c3e52b481f2611.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="788"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">• <br>Répétez la commande précédente mais dans le format HTML puis dans le dossier <br>\\CD01\Partage\Exports\CSV\.  </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADUser 
+-Filter 
+* 
+-properties 
+* 
+| 
+Export-CSV 
+-Path 
+\\CD01\Partage\Exports\CSV\Users_prop.csv -delimiter "." </pre>
+<p class="tssr-source-paragraph">• <br>Ajoutez à la suite du fichier CSV les Ordinateurs Active Directory  </p>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-ADComputer 
+-Filter 
+* 
+| 
+Export-CSV 
+-Path 
+\\CD01\Partage\PowerShell\Exports\CSV\Users.CSV -delimiter ";" -Append -
+Force </pre>
+<p class="tssr-source-paragraph">• <br>Modifiez le nom de la colonne Name de votre fichier CSV exporté précédemment.  </p>
+<p class="tssr-source-paragraph">Faite l’importation des utilisateurs Active Directory à partir du fichier CSV modifié.  </p>
+<pre class="tssr-source-code">Import-CSV -Path \\CD01\Partage\Exports\CSV\Users.CSV -delimiter ";" | 
+Select @{n="Name";e={$PSItem.Nom}} | New-ADUser </pre>
+<p class="tssr-source-paragraph">Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante : </p>
+<pre class="tssr-source-code">Get-Aduser -filter * | Remove-aduser -confirm : $False  </pre>
+<p class="tssr-source-paragraph">Que remarquez-vous ? </p>
+<p class="tssr-source-paragraph">Les utilisateurs Administrator et guest ont été conservés. </p>
+<pre class="tssr-source-code">• 
+Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message d’erreur 
+sur la propriété Name.  </pre>
+<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Import-CSV 
+-Path 
+\\CD01\Partage\PowerShell\Exports\CSV\Users.CSV 
+-
+delimiter ";" | Select @{n="Name";e={$PSItem.Nom}} | New-ADUser </pre>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des fichiers du partage de CD01 ; pour chaque propriété vous allez <br>traduire le nom de la propriété. Chaque valeur sera exprimée en GB :  </p>
+<p class="tssr-source-paragraph">Indiquez votre commande. </p>
+<pre class="tssr-source-code">Get-ChildItem 
+-path 
+\\CD01\Partage\ 
+-file 
+-recurse 
+| 
+Select 
+@{n="nom";e={$PSItem.name}},@{n="taille";e={'{0:N2} 
+KB' 
+-f 
+($PSItem.length /1KB) }} | Format-List </pre>
+<p class="tssr-source-paragraph">Page 5/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-1facfefbf8d5900a591386199c9369022b54bd7f87f1efa02c3607ec4d8e3db7.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-1facfefbf8d5900a591386199c9369022b54bd7f87f1efa02c3607ec4d8e3db7.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga · <span title="Empreinte SHA-256 du fichier source">SHA-256 36507f9b95b90749…</span></p>
 </div>
 </details>
@@ -12743,7 +13638,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="tp-unique-manipuler-des-objets">TP unique — Manipuler des objets<a class="headerlink" href="#tp-unique-manipuler-des-objets" title="Permanent link">¶</a></h2>
 <ul>
@@ -12823,11 +13718,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

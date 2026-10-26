@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12619,20 +12619,84 @@
 
 
 <h1 id="correction-tp2-specificites-du-shell-bash-metacaracteres">Correction — TP2 : Spécificités du shell Bash / métacaractères<a class="headerlink" href="#correction-tp2-specificites-du-shell-bash-metacaracteres" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M04TP02 - Solution - Métacaractères.pdf · 3 pages</summary>
+<summary>Correction · M04TP02 - Solution - Métacaractères · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/277a72096d21b97f/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.</p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/277a72096d21b97f/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/277a72096d21b97f/pages-001-003.webp" alt="Source Drive — M04TP02 - Solution - Métacaractères.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M04TP02 - Solution - Métacaractères.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+<h4>Les métacaractères </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6. </p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, <br>b, c ou d du répertoire /etc. </p>
+<p class="tssr-source-paragraph">ls -d /etc/[a-d]* </p>
+
+<p class="tssr-source-paragraph">2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule <br>ligne de commande : </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user3086srv-formateur:-$<br>ls -d /etc/[a-d]*<br>fetc/adduser.conf<br>fetc/cron.daily</p><p>fetc/apparmor<br>fetc/crontab</p><p>/etc/bash.bashre<br>fetc/debconf.conf<br>fetc/bash completion<br>fetc/debian version</p><p>fetc/bindresvport.blacklist<br>/etc/deluser.conf</p><p>fetc/ca-certificates.conf<br>fetc/discover.conf.d<br>fetc/calendar<br>fetc/discover-modprobe.con£f</p><p>user30@srv-formateur:-$ | |</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+
+<p class="tssr-source-paragraph"> <br>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}} </p>
+
+<p class="tssr-source-paragraph">3. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui <br>comporte, dans son nom, un astérisque. </p>
+<p class="tssr-source-paragraph">cd Tp/Divers/Sources/ </p>
+<p class="tssr-source-paragraph"> <br>touch fic*ier </p>
+
+<p class="tssr-source-paragraph">4. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources <br>en utilisant la commande rmdir. Que constatez-vous ? </p>
+<pre class="tssr-source-code">Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
+répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
+non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée. </pre>
+<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/ </p>
+
+<p class="tssr-source-paragraph"> <br>On constate que même positionné dans un répertoire nous pouvons le supprimer </p>
+<p class="tssr-source-paragraph">5. Supprimer le répertoire Divers en utilisant la commande rm. </p>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SHOME</p><p>bin<br>Th</p><p>Bourne<br>KornShell<br>Divers</p><p>Sources<br>lik:<br>Executables</p><p>user30@srv-formateur:~$ mkdir -p bin Tp/ {Bourne, KornShell, Divers/{Sources,lib,Exec<br>tuables}}</p><p>user30@srv-formateur:-/Tp/Divers/Sources$<br>touch fic*ier</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
+<p class="tssr-source-paragraph">rm -r ../../Divers/ </p>
+
+
+<p class="tssr-source-paragraph">6. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée <br>des fichiers répondants aux critères suivants : </p>
+<p class="tssr-source-paragraph">- ils sont présents directement dans /etc </p>
+<p class="tssr-source-paragraph"> <br>- leurs noms finissent par l'extension .conf </p>
+<p class="tssr-source-paragraph"> <br>- la première lettre est une consonne, celle précédant l'extension est comprise entre <br>f et s </p>
+<p class="tssr-source-paragraph"> <br>- ils comportent exactement 6 lettres (hors extension). </p>
+<pre class="tssr-source-code"> 
+ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv—-formateur:~/Tp/Divers/Sources$<br>rm -r<br>../../Divers/<br>user30@srv-formateur:-/Tp/Divers/Sources$<br>| |</p><p>user30@srv-formateur:~/Tp/Divers/Sources$<br>cd ~<br>user30@srv-formateur:~$<br>ls -ld /etc/['aeiouv][a-zA-7][a-zA-7][a-zA-7][a-zA-7][£-s]<br>cont</p><p>-rFw-r--r--<br>1<br>root<br>root<br>5060<br>oct.<br>26<br>2018<br>/etc/hdparm.conf<br>-rw-r--r--<br>1<br>root<br>root<br>2350<br>août<br>2<br>2019 fetc/sysctl.cont<br>user30@srv-formateur:~$ |</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-b7b352be2f5ca162137fd958033fc6ae892e9e01490916e7fe56c3615abcfa5b.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-b7b352be2f5ca162137fd958033fc6ae892e9e01490916e7fe56c3615abcfa5b.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2578"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa · <span title="Empreinte SHA-256 du fichier source">SHA-256 277a72096d21b97f…</span></p>
 </div>
 </details>
@@ -12641,7 +12705,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-d<span class="w"> </span>/etc/<span class="o">[</span>a-d<span class="o">]</span>*
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>bin<span class="w"> </span>Tp/<span class="o">{</span>Bourne,KornShell,Divers/<span class="o">{</span>Sources,lib,Executables<span class="o">}}</span>
@@ -12737,11 +12801,11 @@ contenu du répertoire au moment de l'expansion.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12840,19 +12840,109 @@
 
 
 <h1 id="correction-module-09-les-pilotes-et-les-imprimantes">Correction — Module 09 — Les pilotes et les imprimantes<a class="headerlink" href="#correction-module-09-les-pilotes-et-les-imprimantes" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP - Les pilotes et imprimantes.pdf · 4 pages</summary>
+<summary>Correction · Solution du TP - Les pilotes et imprimantes · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/baa642b049964f05/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/baa642b049964f05/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/baa642b049964f05/pages-001-004.webp" alt="Source Drive — Solution du TP - Les pilotes et imprimantes.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Les pilotes et imprimantes.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Les pilotes et les <br>imprimantes </h4>
+<p class="tssr-source-paragraph">TP du Module 09 – Les pilotes et les imprimantes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur Win10-XX </p>
+<p class="tssr-source-paragraph">• <br>Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :  </p>
+<pre class="tssr-source-code">o Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des </pre>
+<p class="tssr-source-paragraph">pilotes </p>
+<pre class="tssr-source-code">o Pilotes_signature.csv contenant les informations sur la signature des pilotes </pre>
+<p class="tssr-source-paragraph">▪ <br>Vous pourrez ouvrir et convertir ces fichiers avec Excel </p>
+<pre class="tssr-source-code">driverquery /v /fo CSV &gt; pilotes_details.csv </pre>
+<pre class="tssr-source-code">driverquery /si /fo CSV &gt; pilotes_signatures.csv </pre>
+<p class="tssr-source-paragraph">Possibilités d'ouvrir les fichiers CSV avec Excel </p>
+<p class="tssr-source-paragraph">Sélectionner la colonne A </p>
+<p class="tssr-source-paragraph">Menu Données </p>
+<p class="tssr-source-paragraph">Convertir </p>
+<p class="tssr-source-paragraph">Délimité &gt; Suivant </p>
+<p class="tssr-source-paragraph">Cocher Virgule </p>
+<p class="tssr-source-paragraph">Terminer </p>
+<p class="tssr-source-paragraph">• <br>Avec l'interface graphique </p>
+<pre class="tssr-source-code">o Affichez les informations détaillées sur le pilote graphique avec la console </pre>
+<p class="tssr-source-paragraph">MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique. </p>
+<p class="tssr-source-paragraph">Rechercher &gt; devmgmt.msc </p>
+<p class="tssr-source-paragraph">Déployez le nœud Cartes graphiques </p>
+<p class="tssr-source-paragraph">Clic droit sur VMware SVGA 3D &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Détails </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="source-124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Propriété ID compatibles <br> </p>
+<p class="tssr-source-paragraph">Le VENDOR_ID est 15AD </p>
+<p class="tssr-source-paragraph">Le DEVICE_ID est 0405 </p>
+<p class="tssr-source-paragraph">Il est possible de se rendre sur le site www.pcilookup.com et d'y renseigner ces ID pour <br>retrouver des informations sur le matériel en question. </p>
+<p class="tssr-source-paragraph">Gestion des imprimantes </p>
+<p class="tssr-source-paragraph">Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez-<br>vous dans la console MMC adaptée ? </p>
+<p class="tssr-source-paragraph"> Panneau de configuration </p>
+<p class="tssr-source-paragraph">Matériel et audio </p>
+<p class="tssr-source-paragraph">Périphériques et imprimantes </p>
+<p class="tssr-source-paragraph">Les imprimantes disponibles par défaut sont FAX, Microsoft Print to PDF, Microsoft XPS <br>Document Writer </p>
+<p class="tssr-source-paragraph">Dans la console Gestionnaire de périphérique </p>
+<p class="tssr-source-paragraph">Nœud Files d'attente à l'impression, nous retrouvons nos imprimantes. </p>
+<p class="tssr-source-paragraph">• <br>Éditez les propriétés de l'imprimante Microsoft Print to PDF </p>
+<pre class="tssr-source-code">o Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par </pre>
+<p class="tssr-source-paragraph">défaut. Sans configuration particulière, l'imprimante sortira des documents en <br>orientation paysage. Imprimez une page de test pour vérification. </p>
+<p class="tssr-source-paragraph">Clic droit sur l'imprimante Microsoft Print to PDF &gt; Définir comme imprimante par défaut </p>
+<p class="tssr-source-paragraph">Clic droit sur l'imprimante Microsoft Print to PDF &gt; Propriétés de l'imprimante </p>
+<p class="tssr-source-paragraph">Préférence </p>
+<p class="tssr-source-paragraph">Orientation :  Paysage </p>
+<p class="tssr-source-paragraph">OK </p>
+<p class="tssr-source-paragraph">Imprimer une page de test </p>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fax<br>Microsoft Print<br>Microsoft<br>XPS<br>to PDF<br>Document Writer</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Cette imprimante est virtuelle et va sortir un document numérique au format PDF. </p>
+<p class="tssr-source-paragraph">Indiquer le nom et l'emplacement du futur document (par exemple sur le bureau) et vérifiez <br>qu'il est bien au format paysage </p>
+<p class="tssr-source-paragraph">• <br>Depuis <br>votre <br>VM <br>Win10-XX, <br>connectez-vous <br>à <br>l'imprimante <br>partagée <br>HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery </p>
+<pre class="tssr-source-code">o Attendez quelques minutes le temps que le pilote s'installe puis vérifier sa </pre>
+<p class="tssr-source-paragraph">présence dans le panneau de configuration et dans la console MMC adaptée </p>
+<p class="tssr-source-paragraph">Avec votre explorateur Windows, dans la barre de navigation, entrez le chemin UNC suivant <br>\\@ ip de Discovery\HP_LaserJet_Accueil_RDC_Bât2 </p>
+<p class="tssr-source-paragraph">Renseigner les login / mdp de l'utilisateur adm lorsque vous êtes challengé. </p>
+<p class="tssr-source-paragraph">Faites un clic droit sur HP_LaserJet_Accueil_RDC_Bât &gt; Connecter…  </p>
+<p class="tssr-source-paragraph">Au bout d'un certain temps, la nouvelle imprimante partagée apparaît dans la liste des <br>imprimantes dans le panneau de configuration. </p>
+<p class="tssr-source-paragraph">Sur Discovery </p>
+<p class="tssr-source-paragraph">Gestion de configurations personnalisées </p>
+<p class="tssr-source-paragraph">• <br>À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante <br>"HP LaserJet"  </p>
+<pre class="tssr-source-code">Get-Printer -name "HP LaserJet" 
+ 
+ </pre>
+<p class="tssr-source-paragraph">• <br>Affichez maintenant les informations suivantes concernant "HP LaserJet" : </p>
+<pre class="tssr-source-code">o Son nom </pre>
+<pre class="tssr-source-code">o Si elle est partagée ou non </pre>
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fax<br>HP LaserJet sur<br>Microsoft Print<br>Microsoft XPS<br>DISCOVERYXX<br>to PDF<br>Document Writer</p><p>~ M Files d'attenteà l'impression<br>:<br>= Fax<br>D File d'attente d'impression racine<br>[1 Microsoft Print to PDF<br>=) Microsoft<br>XPS Document Writer<br>+ fl Imprimantes</p><p>D \DISCOVERYXX\HP Laserlet</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<pre class="tssr-source-code">o Le nom du partage </pre>
+<pre class="tssr-source-code">o Le nom du port </pre>
+<pre class="tssr-source-code">o Son emplacement </pre>
+<pre class="tssr-source-code">o Sa priorité </pre>
+<pre class="tssr-source-code">Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location, 
+Priority 
+ </pre>
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-728c1b26c568681d7ff589e07f3c8432c1c69af66ad1f0c78f4fc1521761b7a8.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-728c1b26c568681d7ff589e07f3c8432c1c69af66ad1f0c78f4fc1521761b7a8.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="900" height="1294"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT · <span title="Empreinte SHA-256 du fichier source">SHA-256 baa642b049964f05…</span></p>
 </div>
 </details>
@@ -12861,7 +12951,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Cette correction décrit le scénario de laboratoire de la source. Les noms de machines, de matériel, de partage, les identifiants et les résultats observés restent propres à cet environnement.</p>
 <h2 id="1-exports-csv-des-pilotes">1. Exports CSV des pilotes<a class="headerlink" href="#1-exports-csv-des-pilotes" title="Permanent link">¶</a></h2>
@@ -13014,11 +13104,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

@@ -1,0 +1,62 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - Le service DHCP.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 1 - Le service DHCP</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>Le service DHCP </h4>
+<p class="tssr-source-paragraph">TP du Module 05 – Le service DHCP </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 04. </p>
+<p class="tssr-source-paragraph">Création des machines virtuelles : </p>
+<p class="tssr-source-paragraph">• <br>Une machine virtuelle cliente Windows 10 sur le réseau VmNet10. <br>• <br>Une machine virtuelle serveur Windows 2019 Standard sur le réseau VmNet10. <br> <br>Installation du service DHCP </p>
+<p class="tssr-source-paragraph">• <br>Définir un nouveau plan d’adressage pour votre réseau VmNet10 avec : </p>
+<pre class="tssr-source-code">o Une plage de 100 adresses pour les postes clients. 
+o Les adresses statiques pour les serveurs. 
+ 
+• 
+Configurer le service DHCP sur le nouveau serveur Windows 2019 Standard pour : </pre>
+<pre class="tssr-source-code">o Fournir des adresses IP sur les postes clients. 
+o Fournir l’ensemble des paramètres IP nécessaires aux postes clients. 
+o Ne pas fournir les adresses IP prévues pour les serveurs (configuration </pre>
+<p class="tssr-source-paragraph">statique). <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph"> <br> <br>Paramétrage des clients : </p>
+<p class="tssr-source-paragraph">• <br>Adapter les paramètres clients : </p>
+<pre class="tssr-source-code">o Configurer une réservation pour le 2ème poste client avec la 1ère adresse IP de </pre>
+<p class="tssr-source-paragraph">la plage d’adresses définie. <br> </p>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DHCP<br>Contents of Scope<br>vi ~~<br>[Address Pool<br>vv<br>de<br>.<br>Addi<br>Li</p><p>v [1 Scope [192.168.0.0] 192.168.0.0/24<br>en<br>-<br>(@ Address Pool<br>Scope Options<br>Hé, Address Leases<br>IE Policies<br>&gt; El Reservations<br>Scope [192.168.0.0] 192.168.0.0/24 Properties<br>?<br>x<br>[M Scope Options</p><p>(GB) Policies<br>General<br>DNS<br>Advanced</p><p>&gt; 1 Scope [192.168.1.0] 192.168.1.0/24<br>a<br>(@ Policies<br>Scope</p><p>&gt; &amp; Filters</p><p>&gt; BIP6<br>Scope name:<br>192.168.0.0/24<br>Start<br>IP address:<br>|192.168.<br>0 . 100</p><p>End IP address:<br>| 192.168.<br>0<br>. 199]</p><p>Subnet mask<br>255 .255.<br>255.<br>0<br>Length:<br>24</p><p>Lease duration for DHCP clients</p><p>© Limited to:</p><p>Days:<br>Hours:<br>Minutes:<br>14<br>[oS]<br>[03</p><p>© Unlimited</p><p>Description:<br>reseau 192.168.0.0/24</p><p>@ DHCP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>vi ~~<br>{E003 Router<br>Standard<br>192.168.0254<br>None<br>v</p><p>(G3 Server Options<br>v D Scope [192.168.0.0] 192.168.0.0/24</p><p>1 Address Pool<br>H Address Leases<br>&gt; © Reservations</p><p>© Scope Options<br>(@ Policies</p><p>&gt; D Scope [192.168.1.0] 192.168.1.0/24</p><p>@ Policies</p><p>&gt; @ Filters</p><p>@ DHCP<br>Option Name<br>Vendor<br>Value<br>Class<br>va~~<br>(:] 003 Router<br>Standard<br>192,168,0.254<br>None<br>v<br>|<br>[3 Server Options<br>v Di Scope [192.168.0.0] 192.168.0.0/24</p><p>[Address Pool<br>Dé Address Leases<br>v El Reservations</p><p>(©) 1192.168.0.100] CLI-01</p><p>DE, Scope Options</p><p>(Gi Policies</p><p>ent</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Sur un poste client, utiliser la commande ipconfig pour : </p>
+<pre class="tssr-source-code">o Renouveler le bail DHCP (sans perdre l’adresse IP obtenue). 
+o Relâcher et obtenir une nouvelle adresse IP. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-194265e023ded5d0c963948505bf642b9b9f1166afefd6b411719b5d2c90513d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-194265e023ded5d0c963948505bf642b9b9f1166afefd6b411719b5d2c90513d.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2230"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

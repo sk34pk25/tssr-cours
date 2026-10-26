@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12828,79 +12828,595 @@
 
 
 <h1 id="module-08-mecanismes-linux-et-bash-avance">Module 08 — Mécanismes Linux et Bash avancé<a class="headerlink" href="#module-08-mecanismes-linux-et-bash-avance" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><p class="tssr-original-note">Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.</p>
 <div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · Enoncé du TP 1 - Utilisation des systèmes.pdf · 2 pages</summary>
+<summary>Énoncé · Enoncé du TP 1 - Utilisation des systèmes · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/c195b2e8d913b711/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1zGIoKu66CadvcIDDcB39xveeioWRwruw/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/c195b2e8d913b711/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/c195b2e8d913b711/pages-001-002.webp" alt="Source Drive — Enoncé du TP 1 - Utilisation des systèmes.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3976"></a><figcaption>Source Drive — Enoncé du TP 1 - Utilisation des systèmes.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-1"><h3>Page 1</h3><h4>Utilisation d'une distribution GNU/Linux<br>Utilisation des systèmes</h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir<br>effectué le TP précédent.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes<br>nécessaires pour répondre aux questions.</p>
+<p class="tssr-source-paragraph">1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans<br>$HOME/process/daemons.txt.</p>
+<p class="tssr-source-paragraph">2. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette<br>recherche ne devra être effectuée que sur le système de fichier racine. Le résultat<br>sera affiché à l'écran<br> tout en étant <br>stocké dans le fichier<br>$HOME/resultats/fichiers.conf.</p>
+<p class="tssr-source-paragraph">Page 1/2<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux</p>
+<p class="tssr-source-paragraph">3. L’exécution de la commande précédente a duré un certain temps&nbsp;; comment<br>connaître le temps exact d’exécution de celle-ci ?</p>
+<p class="tssr-source-paragraph">4. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le<br>nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat<br>devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 2/2<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-1383c2825726e20ea99c0323652ae0b3f75abce3a60919e2210806f1d6c5ae99.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-1383c2825726e20ea99c0323652ae0b3f75abce3a60919e2210806f1d6c5ae99.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="998" height="1777"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1zGIoKu66CadvcIDDcB39xveeioWRwruw · <span title="Empreinte SHA-256 du fichier source">SHA-256 c195b2e8d913b711…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M08TP02 - Enoncé - Archivages et Compression.pdf · 2 pages</summary>
+<summary>Énoncé · M08TP02 - Enoncé - Archivages et Compression · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/08975db62419d231/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/08975db62419d231/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/08975db62419d231/pages-001-002.webp" alt="Source Drive — M08TP02 - Enoncé - Archivages et Compression.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP02 - Enoncé - Archivages et Compression.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<h4>.Archivage et compression </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+
+<p class="tssr-source-paragraph">1. Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre <br>login pour le nommage du fichier, noter sa taille. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">2. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la <br>compressant avec gzip, l'opération devant être réalisée en une seule instruction. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">3. Répéter l'étape précédente en utilisant cette fois-ci une compression au format <br>bzip2. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">4. Comparer la taille des trois archives, laquelle est la moins volumineuse ? </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">5. Dans votre répertoire de connexion, créer le répertoire Restaurations. </p>
+<p class="tssr-source-paragraph"> <br>Restaurer votre sauvegarde dans ce répertoire en une seule instruction. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">6. Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">7. Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à <br>jour de votre archive avec votre répertoire d’accueil. </p>
+<p class="tssr-source-paragraph">• <br>Aidez-vous de la commande vous permettant de lister le contenu de l'archive. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-3a82bda7748c2860fafa47caf636e9fb88075416a45dfd19bccf2d6aa6da39c2.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-3a82bda7748c2860fafa47caf636e9fb88075416a45dfd19bccf2d6aa6da39c2.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="575"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU · <span title="Empreinte SHA-256 du fichier source">SHA-256 08975db62419d231…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M08TP03 - Enoncé - Redirections et Alias.pdf · 2 pages</summary>
+<summary>Énoncé · M08TP03 - Enoncé - Redirections et Alias · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/5c47e61141614e56/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/5c47e61141614e56/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/5c47e61141614e56/pages-001-002.webp" alt="Source Drive — M08TP03 - Enoncé - Redirections et Alias.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP03 - Enoncé - Redirections et Alias.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Titre exact du cours complet <br> </p>
+<h4>Redirections et Alias </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 mn </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">• <br>Lister tous les processus qui finissent par un d. <br> <br>Le résultat sera stocké dans $HOME/process/daemons.txt. </p>
+
+
+<p class="tssr-source-paragraph">• <br>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine.  <br>Cette recherche ne devra être effectuée que sur le système de fichier racine.  <br>Le <br>résultat <br>sera <br>affiché <br>à <br>l'écran <br>tout <br>en <br>étant <br>stocké <br>dans <br>le <br>fichier <br>$HOME/resultats/fichiers.conf. </p>
+
+
+<p class="tssr-source-paragraph">• <br>La commande précédente a duré un certain temps, comment connaître le temps <br>exact d’exécution de celle-ci ? </p>
+
+
+<p class="tssr-source-paragraph">• <br>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre <br>de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. </p>
+<p class="tssr-source-paragraph">Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des <br>scripts). </p>
+
+
+<p class="tssr-source-paragraph">• <br>Reproduire toutes les actions précédentes, mais avec la création d’alias… </p>
+
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les </p>
+<p class="tssr-source-paragraph">Page 1/2 <br>© ENI – Tous droits réservés <br> </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Titre exact du cours complet <br> </p>
+<p class="tssr-source-paragraph">ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br>© ENI – Tous droits réservés <br> </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-9ac7d5cf2793ef2766596f0a9da421e19aa77309ad52f8a373e3710f5b43cfaa.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-9ac7d5cf2793ef2766596f0a9da421e19aa77309ad52f8a373e3710f5b43cfaa.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="551"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S · <span title="Empreinte SHA-256 du fichier source">SHA-256 5c47e61141614e56…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M08TP04 - Enoncé - Manipuler des Variables.pdf · 2 pages</summary>
+<summary>Énoncé · M08TP04 - Enoncé - Manipuler des Variables · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/386ff594282d51a1/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/386ff594282d51a1/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/386ff594282d51a1/pages-001-002.webp" alt="Source Drive — M08TP04 - Enoncé - Manipuler des Variables.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP04 - Enoncé - Manipuler des Variables.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<h4>Manipuler des variables </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
+
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+
+<p class="tssr-source-paragraph">1. Afficher le répertoire personnel en utilisant une variable adéquate </p>
+<p class="tssr-source-paragraph"> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+
+<p class="tssr-source-paragraph">2. Afficher le contenu de la variable contenant les chemins vers les binaires usuels de <br>l’utilisateur. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+
+<p class="tssr-source-paragraph">3. Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins <br>usuels. Faire en sorte que la manipulation soit pérenne. </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<p class="tssr-source-paragraph">4. Créer une variable "monnom" contenant le login de l’utilisateur </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">5. Afficher les variables de l’utilisateurs </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">6. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. <br>Fermer le sous-shell </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">7. Transformer la variable locale de la question 4 en variable d’environnement </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph">8. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login <br>de l’utilisateur. Fermer le sous-shell </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d2d404fc3f7bfdb9e1326f337332cf8bb09fcf83bdae4255a93c47a254f3c9f5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d2d404fc3f7bfdb9e1326f337332cf8bb09fcf83bdae4255a93c47a254f3c9f5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="575"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i · <span title="Empreinte SHA-256 du fichier source">SHA-256 386ff594282d51a1…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP 1 - Utilisation des systèmes.pdf · 3 pages</summary>
+<summary>Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/22be2935f155b285/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/22be2935f155b285/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/22be2935f155b285/pages-001-003.webp" alt="Source Drive — Solution du TP 1 - Utilisation des systèmes.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Solution du TP 1 - Utilisation des systèmes.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
+<h4>Utilisation des systèmes </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir <br>effectué le TP précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+<p class="tssr-source-paragraph">1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans <br>$HOME/process/daemons.txt. </p>
+<pre class="tssr-source-code">mkdir $HOME/process </pre>
+<pre class="tssr-source-code"> 
+ps -e | grep d$ &gt; $HOME/process/daemons.txt </pre>
+<pre class="tssr-source-code"> 
+cat process/daemons.txt </pre>
+
+<p class="tssr-source-paragraph">2. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette <br>recherche ne devra être effectuée que sur le système de fichier racine. Le résultat <br>sera <br>affiché <br>à <br>l'écran <br>tout <br>en <br>étant <br>stocké <br>dans <br>le <br>fichier </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RE</p><p>user30Ë6srv-formateur:-$ mkdir $HOME/process<br>user30Ësrv-formateur:-$ ps<br>-e<br>|<br>grep<br>dS<br>&gt; SHOME/process/daemons.txt<br>user30@srv—formateur:~$<br>cat process/daemons.txt<br>1?<br>00:00:01<br>systemd<br>27<br>00:00:00<br>kthreadd</p><p>6<br>?<br>00:00:00<br>kworker/0:0H-kblockd<br>10<br>?<br>00:00:04 rcu_sched<br>17<br>?<br>00:00:00<br>kauditd<br>18?<br>00:00:00<br>khungtaskd</p><p>35<br>7<br>00:00:00<br>kintegrityd<br>26<br>7<br>00:00:00<br>kblockd</p><p>29<br>7<br>00:00:00 watchdogd</p><p>183<br>7<br>00:00:00<br>kworker/0:1H-kblockd<br>288<br>7<br>00:00:00<br>systemd-udevd<br>ve<br>=<br>TTL<br>seve<br>ile<br>uns</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
+<p class="tssr-source-paragraph">$HOME/resultats/fichiers.conf. </p>
+<pre class="tssr-source-code"> 
+mkdir $HOME/resultats </pre>
+<pre class="tssr-source-code"> 
+find 
+/ 
+-mount 
+-type 
+f 
+-name 
+"*.conf" 
+2&gt;/dev/null 
+| 
+tee 
+resultats/fichiers.conf </pre>
+<pre class="tssr-source-code"> 
+cat resultats/fichiers.conf </pre>
+
+<p class="tssr-source-paragraph">3. L’exécution de la commande précédente a duré un certain temps ; comment <br>connaître le temps exact d’exécution de celle-ci ? </p>
+<pre class="tssr-source-code">time 
+find / 
+-mount 
+-type f 
+-name 
+"*.conf" 
+2&gt;/dev/null | 
+tee 
+resultats/fichiers.conf </pre>
+
+<p class="tssr-source-paragraph">4. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le <br>nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat <br>devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts). </p>
+<pre class="tssr-source-code"> 
+find / -mount 
+-type f -name "*.conf" 2&gt;/dev/null | wc 
+-l &gt; 
+resultats/compteur.txt </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ser30@srv—formateur:~$<br>find /<br>-mount<br>-type<br>£ -name<br>"*.conf" 2&gt;/dev/null<br>|<br>tee<br>res<br>1tats/fichiers.conf<br>fetc/ld.so.conf.d/libc.conf<br>fetc/ld.so.conf.d/x86 64-linux-gnu.conf<br>fetc/ldap/ldap.conf<br>/etc/host .cont<br>fetc/ca-certificates.cont<br>fetc/nsswitch.conf<br>fetc/discover-modprobe.conf<br>fetc/bind/forwaders.conf<br>fetc/bind/named.conf<br>fetc/deluser.conf</p><p>usr/share/doc/procps/examples/sysctil.con<br>‘usr/share/doc/adduser/examples/adduser.local.conf.examples/addus<br>fusr/share/doc/adduser/examples/adduser.local.cont<br>fusr/share/doc/apt-utils/examples/apt-ftparchive.conf<br>fusr/share/doc/apt-utils/examples/ftp-archive.conf<br>fusr/share/doc/rsyslog/examples/rsyslog.d/console.con£f<br>fusr/share/doc/rsyslog/examples/rsyslog.d/xconsole.con£<br>fusr/share/doc/rsyslog/examples/tmpfiles.d/xconsole,.conf<br>‘usr/share/doc/apt/examples/apt.con£<br>#usr/share/libc-bin/nsswitch.conf</p><p>real<br>OmO,072s<br>user<br>OmO,045s<br>sys<br>OmO,021s<br>user306srv-formateur:-$ |</p><p>ED</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:~$<br>find<br>/<br>-mount -type<br>£<br>-name<br>"*.conf"<br>2&gt;/dev/null<br>we<br>-l<br>&gt;</p><p>|<br>resultats/compteur.txt<br>user30@srv-formateur:~$<br>cat resultats/compteur.txt</p><p>user30@srv-formateur:~$ | |</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-5eabacfa8f0926e4131c3474519180c1c57821c209c269b3879b36cd74be4a2f.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-5eabacfa8f0926e4131c3474519180c1c57821c209c269b3879b36cd74be4a2f.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2236"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l · <span title="Empreinte SHA-256 du fichier source">SHA-256 22be2935f155b285…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M08TP02 - Solution - Archivages et Compression.pdf · 4 pages</summary>
+<summary>Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/8702440981273989/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/8702440981273989/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/8702440981273989/pages-001-004.webp" alt="Source Drive — M08TP02 - Solution - Archivages et Compression.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M08TP02 - Solution - Archivages et Compression.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<h4>Archivage et compression </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+
+<p class="tssr-source-paragraph">1. Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre <br>login pour le nommage du fichier, noter sa taille. </p>
+<pre class="tssr-source-code"> 
+tar -cvf /tmp/$LOGNAME.tar $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar </pre>
+
+<p class="tssr-source-paragraph">2. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la <br>compressant avec gzip, l'opération devant être réalisée en une seule instruction. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SC</p><p>user30@srv—formateur:~$ tar cvf /tmp/SLOGNAME.tar<br>5SHOME<br>tar:<br>Suppression de<br>« /<br>» au début<br>des noms des membres<br>fhome/user30/<br>fhome/user30/.profile<br>fhome/user30/process/<br>fhome/user30/process/daemons.txt<br>fhome/user30/Edition.sav</p><p>fhome/user30/Edition2<br>fhome/user30/MonTroisiemeFichier<br>fhome/user30/.vimrc<br>fhome/user30/MonPremierFichier<br>fhome/user30/bin/<br>fnome/user30/.bash logout<br>fhome/user30/edition3.txt<br>user30Ësrv-formateur:-$<br>1s -lh /tmp/S$LOGNAME.tar<br>—-rw-r--r-—-<br>1 user30 user30 SOK sept.<br>11<br>11:00<br>user306srv-formateur:-$ | |</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<pre class="tssr-source-code"> 
+tar -czvf /tmp/$LOGNAME.tar.gz $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar.gz </pre>
+
+<p class="tssr-source-paragraph">3. Répéter l'étape précédente en utilisant cette fois-ci une compression au format <br>bzip2. </p>
+<pre class="tssr-source-code"> 
+tar -cjvf /tmp/$LOGNAME.tar.bz2 $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar.bz2 </pre>
+
+<p class="tssr-source-paragraph">4. Comparer la taille des trois archives, laquelle est la moins volumineuse ? </p>
+<pre class="tssr-source-code"> 
+ls -l /tmp/$LOGNAME.tar* </pre>
+
+<p class="tssr-source-paragraph">5. Dans votre répertoire de connexion, créer le répertoire Restaurations. </p>
+<p class="tssr-source-paragraph"> <br>Restaurer votre sauvegarde dans ce répertoire en une seule instruction. </p>
+<pre class="tssr-source-code"> 
+mkdir $HOME/Restaurations </pre>
+<pre class="tssr-source-code"> 
+tar -xzvf /tmp/$LOGNAME.tar.gz -C Restaurations </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>ls -lh /tmp/$LOGNAME.tar.gz<br>-rw-r--r--<br>1<br>user30<br>user30<br>6,3K sept.<br>11<br>11:08<br>user30@srv—formateur:~§ |</p><p>user30@srv—-formateur:~$<br>ls -lh /tmp/SLOGNAME.tar.bz2<br>—rw-r--r-—-<br>1 user30<br>user30<br>6,2K sept.<br>11 11:10<br>user30@srv-formateur:-$ |</p><p>Cire</p><p>Nuser30@srv-formateur:-$<br>1s<br>-1<br>/tmp/SLOGNAME.tar*<br>-rw-r--r--<br>1<br>user30<br>user30<br>51200<br>sept.<br>11<br>11:00<br>—-rw-r--r--<br>1<br>user30<br>user30<br>6326<br>sept.<br>11<br>11:10<br>4—rw-r--r--<br>1<br>user30<br>user30<br>6384<br>sept.<br>11<br>11:08<br>user30@srv-formateur:-$ |</p><p>Eni</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+
+<p class="tssr-source-paragraph">6. Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire. </p>
+<pre class="tssr-source-code"> 
+tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME </pre>
+
+<p class="tssr-source-paragraph">7. Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à <br>jour de votre archive avec votre répertoire d’accueil. </p>
+<p class="tssr-source-paragraph">• <br>Aidez-vous de la commande vous permettant de lister le contenu de l'archive. </p>
+<pre class="tssr-source-code"> 
+touch new_fichier.txt </pre>
+<pre class="tssr-source-code"> 
+tar -uvf /tmp/$LOGNAME-v2.tar ~/new_fichier.txt </pre>
+
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$ mkdir<br>Restaurations<br>user306srv-formateur:-$<br>tar mzvi /tmp/SLOGNAME.tar.gz<br>-C Restaurations<br>home/user30/<br>home/user30/.profile<br>home/user30/process/<br>home /user30/process/daemons.txt<br>home /user30/Edition.sav<br>home /user30/Tp/<br>home/user30/Tp/KornShell/<br>home/user30/Tp/Bourne/<br>home/user30/Edition<br>home/user30/.viminfo<br>home/user30/.bashre<br>home /user30/Edidtion2<br>home /user30/edition3.txt.save</p><p>bome<br>/yser30/fi<br>chiar?</p><p>user30Ësrv-formateur:-$<br>tar cv£ /tmp/SLOGNAME-v2.tar --exclude=Restaurations<br>SHOME<br>tar:<br>Suppression de « /<br>» au début des noms<br>des membres<br>fhome/user30/<br>fhome/user30/.profile<br>fhome/user30/process/<br>fhome/user30/process/daemons<br>.txt<br>fhome/user30/Edition.sav<br>fhome/user30/Tp/</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<pre class="tssr-source-code">tar -tf /tmp/$LOGNAME-v2.tar 
+/home/user30/.profile 
+/home/user30/process/ 
+/home/user30/process/daemons.txt 
+/home/user30/Edition.sav 
+/home/user30/new_fichier.txt 
+/home/user30/Tp/ 
+/home/user30/Tp/KornShell/ 
+/home/user30/Tp/Bourne/ 
+/home/user30/Edition 
+/home/user30/.viminfo 
+/home/user30/.bashrc 
+/home/user30/Edidtion2 
+/home/user30/edition3.txt.save 
+/home/user30/fichier2+3 
+/home/user30/.bash_history 
+/home/user30/MonDeuxiemeFichier 
+/home/user30/resultats/ 
+/home/user30/resultats/compteur.txt 
+/home/user30/resultats/fichiers.conf 
+/home/user30/Edition2 
+/home/user30/MonTroisiemeFichier 
+/home/user30/.vimrc 
+/home/user30/MonPremierFichier 
+/home/user30/bin/ 
+/home/user30/.bash_logout 
+/home/user30/edition3.txt </pre>
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-2a077284c59f3348e1770bb38da14576d1401602d51208b63316c379ba30ced2.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-2a077284c59f3348e1770bb38da14576d1401602d51208b63316c379ba30ced2.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="2866"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45 · <span title="Empreinte SHA-256 du fichier source">SHA-256 8702440981273989…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M08TP03 - Solution - Alias et Redirections.pdf · 2 pages</summary>
+<summary>Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/be3c60614c14cbcd/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1WnpSJp6H8sn81c2zptNez04ulEMacnMF/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/be3c60614c14cbcd/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/be3c60614c14cbcd/pages-001-002.webp" alt="Source Drive — M08TP03 - Solution - Alias et Redirections.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP03 - Solution - Alias et Redirections.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
+<h4>Redirections et Alias </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 mn </p>
+<h4>Énoncé </h4>
+<pre class="tssr-source-code">• 
+Lister tous les processus qui finissent par un d. 
+ 
+Le résultat sera stocké dans $HOME/process/daemons.txt. 
+mkdir $HOME/process 
+ps –e |grep d$ &gt; $HOME/process/daemons.txt </pre>
+<pre class="tssr-source-code">• 
+Recherchez les fichiers dont le nom se termine par .conf à partir de la racine.  
+Cette recherche ne devra être effectuée que sur le système de fichier racine.  
+Le 
+résultat 
+sera 
+affiché 
+à 
+l'écran 
+tout 
+en 
+étant 
+stocké 
+dans 
+le 
+fichier 
+$HOME/resultats/fichiers.conf. 
+mkdir $HOME/resultats  
+find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
+<pre class="tssr-source-code">• 
+La commande précédente a duré un certain temps, comment connaître le temps 
+exact d’exécution de celle-ci ? 
+time find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
+<pre class="tssr-source-code">• 
+En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre 
+de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.   
+Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des 
+scripts). 
+cat resultats/fichiers.conf |wc -l &gt; resultats/compteur.txt 
+ 
+# Alternativement 
+grep –c f$ resultats/fichiers.conf &gt; resultats/compteur.txt 
+ 
+# Alternativement sans utiliser le fichier fichier.conf 
+find / -mount -type f -name "*.conf" 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt </pre>
+
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PT<br>PO<br>LT</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
+<pre class="tssr-source-code">• 
+Reproduire toutes les actions précédentes, mais avec la création d’alias… 
+# Créer les répertoires nécessaires 
+mkdir -p $HOME/process 
+mkdir -p $HOME/resultats 
+ 
+# Définir des alias pour les commandes 
+alias lister_daemons='ps -e | grep d$ &gt; $HOME/process/daemons.txt' 
+alias rechercher_conf='find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee 
+$HOME/resultats/fichiers.conf' 
+alias compter_fichiers='find / -mount -type f -name "*.conf" 2&gt;/dev/null | wc -l &gt; 
+$HOME/resultats/compteur.txt' 
+ 
+# Lister tous les processus qui finissent par un d 
+lister_daemons 
+ 
+# Rechercher les fichiers .conf à partir de la racine 
+rechercher_conf 
+ 
+# Mesurer le temps d'exécution de la recherche 
+time rechercher_conf 
+ 
+# Compter le nombre de fichiers trouvés et stocker le résultat 
+compter_fichiers 
+ 
+# Alternative pour compter les fichiers à partir du fichier fichiers.conf 
+cat $HOME/resultats/fichiers.conf | wc -l &gt; $HOME/resultats/compteur.txt 
+ 
+# Alternative avec grep pour compter les fichiers à partir du fichier fichiers.conf 
+grep -c f$ $HOME/resultats/fichiers.conf &gt; $HOME/resultats/compteur.txt 
+ 
+# Alternative sans utiliser le fichier fichiers.conf 
+compter_fichiers </pre>
+<p class="tssr-source-paragraph">• <br>Explication des alias </p>
+<pre class="tssr-source-code">• 
+lister_daemons : Alias pour lister les processus qui se terminent par d et stocker le 
+résultat dans daemons.txt. </pre>
+<pre class="tssr-source-code">• 
+rechercher_conf : Alias pour rechercher les fichiers .conf à partir de la racine et 
+afficher le résultat à l'écran tout en le stockant dans fichiers.conf. </pre>
+<pre class="tssr-source-code">• 
+compter_fichiers : Alias pour compter le nombre de fichiers.conf trouvés et 
+stocker ce nombre dans compteur.txt. </pre>
+<p class="tssr-source-paragraph">• <br>Remarques </p>
+<p class="tssr-source-paragraph">• <br>Les alias sont définis pour simplifier l'exécution des commandes, mais ils ne sont <br>valables que pour la session actuelle. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-eafa4680f002b6099d730c0f5d25c7b9acaaaca4f3c7b0b78870327f3d30f5b1.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-eafa4680f002b6099d730c0f5d25c7b9acaaaca4f3c7b0b78870327f3d30f5b1.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1007" height="2287"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1WnpSJp6H8sn81c2zptNez04ulEMacnMF · <span title="Empreinte SHA-256 du fichier source">SHA-256 be3c60614c14cbcd…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M08TP04 - Solution - Manipuler des Variables.pdf · 2 pages</summary>
+<summary>Correction · M08TP04 - Solution - Manipuler des Variables · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/8ad17bc349e75f78/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/8ad17bc349e75f78/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/8ad17bc349e75f78/pages-001-002.webp" alt="Source Drive — M08TP04 - Solution - Manipuler des Variables.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M08TP04 - Solution - Manipuler des Variables.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<h4>Manipuler des variables </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
+
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+
+<p class="tssr-source-paragraph">1. Afficher le répertoire personnel en utilisant une variable adéquate </p>
+<pre class="tssr-source-code">ls $HOME </pre>
+<p class="tssr-source-paragraph">ou </p>
+<pre class="tssr-source-code">ls ~ </pre>
+
+<p class="tssr-source-paragraph">2. Afficher le contenu de la variable contenant les chemins vers les binaires usuels de <br>l’utilisateur. </p>
+<pre class="tssr-source-code">echo $PATH </pre>
+
+<p class="tssr-source-paragraph">3. Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins <br>usuels. Faire en sorte que la manipulation soit pérenne. </p>
+<pre class="tssr-source-code">mkdir $HOME/scripts  </pre>
+<pre class="tssr-source-code">PATH=$PATH:/$HOME/scripts  </pre>
+<pre class="tssr-source-code">echo PATH=$PATH:/$HOME/scripts &gt;&gt; ~/.bashrc </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<p class="tssr-source-paragraph">4. Créer une variable "monnom" contenant le login de l’utilisateur </p>
+<pre class="tssr-source-code">monom="$LOGNAME"  </pre>
+<p class="tssr-source-paragraph">ou </p>
+<pre class="tssr-source-code">monom=$(logname) </pre>
+<p class="tssr-source-paragraph">5. Afficher les variables de l’utilisateurs </p>
+<pre class="tssr-source-code">env </pre>
+<p class="tssr-source-paragraph">6. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. <br>Fermer le sous-shell </p>
+<pre class="tssr-source-code">bash </pre>
+<pre class="tssr-source-code">echo $monnom </pre>
+<pre class="tssr-source-code">exit </pre>
+<p class="tssr-source-paragraph">7. Transformer la variable locale de la question 4 en variable d’environnement </p>
+<pre class="tssr-source-code">export monnom </pre>
+<p class="tssr-source-paragraph">8. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login <br>de l’utilisateur. Fermer le sous-shell </p>
+<pre class="tssr-source-code">bash </pre>
+<pre class="tssr-source-code">echo $monnom </pre>
+<pre class="tssr-source-code">exit </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d2d404fc3f7bfdb9e1326f337332cf8bb09fcf83bdae4255a93c47a254f3c9f5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d2d404fc3f7bfdb9e1326f337332cf8bb09fcf83bdae4255a93c47a254f3c9f5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="575"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu · <span title="Empreinte SHA-256 du fichier source">SHA-256 8ad17bc349e75f78…</span></p>
 </div>
 </details>
@@ -12909,7 +13425,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <blockquote>
 <p><strong>Sources A :</strong> huit PDF TP M08 ; aucun support séparé n'est disponible.</p>
@@ -13081,11 +13597,11 @@ solution sont conservés à l'identique.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

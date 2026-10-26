@@ -1,0 +1,38 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M11TP01 - Solution - Gestion des permissions.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M11TP01 - Solution - Gestion des permissions</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Gestion des permissions </h4>
+<p class="tssr-source-paragraph">TP du Module 11 – Droits sur les fichiers et répertoires </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 minutes à 1 heure </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Créer une structure de stockage sur le serveur sans interface <br>graphique pour les fichiers utilisateurs. </p>
+
+<p class="tssr-source-paragraph">Trouver les solutions pour les besoins suivants : </p>
+<p class="tssr-source-paragraph">• <br>Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs </p>
+<p class="tssr-source-paragraph"> <br>Création de la structure de stockage dans le dossier /srv (Données des services hebergées, par exemple unh </p>
+<p class="tssr-source-paragraph">serveur de fichier). <br>Ajout du droit d’écriture à others . <br> </p>
+<p class="tssr-source-paragraph">• <br>Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs <br>mais dans lequel seul le propriétaire du fichier pourra le supprimer </p>
+<p class="tssr-source-paragraph"> <br>Création du dossier sans l&#x27;option -p, devenu inutile maintenant que /srv existe <br>ajout du droit w à others ainsi que du droit t , le sticky bit, qui interdit la suppression par d’autres comptes </p>
+<p class="tssr-source-paragraph">que l’utilisateur propriétaire ou root </p>
+
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SC</p><p>roothdeb-camille-Ol:~# mkdir<br>-p fsrv/public<br>roottdeb-camille-Ol:~#<br>ls -ld /srv/public<br>drwxr-xr-x<br>2<br>root root<br>4096<br>25 oct.<br>16:39 /srv/public<br>rootédeb-camille-01:-#<br>chmod ogtw /sryv/public<br>roottdeb-camille-Oi:~#<br>ls -ld /srv/public<br>arWAHOWKEWH<br>2<br>root root<br>4096<br>25 oct.<br>16:39 /srv/public</p><p>rootWdeb-camille-Oi:~-# mkdir /srv/depat<br>rootideb-camille-Ol:-#<br>chmod<br>o+twt /srv/depot<br>rootdeb-camille-Ol:~#<br>ls -ld /srv/depot/<br>drwxc-xewt<br>2<br>root root 4096 25 oct.<br>16:49 /srv/depot/</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">• <br>Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin <br>uniquement </p>
+<p class="tssr-source-paragraph"> <br>Suppression de tous les droits pour others <br>ajout du droit d’écriture pour le groupe propriétaire <br>Affection du groupe admin comme groupe propriétaire <br> </p>
+
+<p class="tssr-source-paragraph">• <br>Documentation : un répertoire documentation accessible en lecture pour tous les <br>utilisateurs et en lecture/écriture pour le groupe documentation. <br> <br>Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au <br>groupe documentation </p>
+<p class="tssr-source-paragraph"> <br>Ajout du droit d&#x27;écriture pour le groupe ainsi que du droit s qui active le SetGID . </p>
+
+
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>rootideh-cemille-0i:-# mkdir<br>/srv/admin<br>rootédeh-camille-01:-#<br>chmod o-rx<br>/secv/admin<br>rootdeb-camille-O1l:~#<br>chmod gtw /srv/admin<br>rootédeh-camille-01:-#<br>chown<br>:admin fsrv/admin<br>rootédeh-camille-01:-#<br>ls<br>-ld /srv/ admin;<br>arwxrowx---<br>2<br>root<br>admin 4096<br>25<br>oct.<br>16:54 /arv/admin/</p><p>rootldeb-camille-O1:-# mkdir<br>/srv/documentation<br>rootédeb-camille-01:-#<br>chmod gtws<br>/srv/ documentation’<br>rootédeh-camille-01!:-#<br>ls<br>-ld /arv/ documentation;<br>drwerwsr-x<br>2<br>root root<br>4096<br>25<br>oct.<br>17:00<br>/srev/ documentation;</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a4b86bdf7d5b2e810b2983e0e1fe50ceca0eaeb9685bf4ee371da27b45970a05.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a4b86bdf7d5b2e810b2983e0e1fe50ceca0eaeb9685bf4ee371da27b45970a05.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1237"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,541 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module-1.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module-1</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<h4>Mise en situation <br>professionnelle : services <br>réseau </h4>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules précédents et <br>d’avoir réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">Environ 4,5 jours </p>
+<h4>Sommaire </h4>
+<p class="tssr-source-paragraph">Table des matières </p>
+<p class="tssr-source-paragraph">1. <br>Présentation et préparation de l&#x27;infrastructure ................................................................... 3 </p>
+<p class="tssr-source-paragraph">a. Présentation de l’infrastructure ......................................................................................... 3 </p>
+<p class="tssr-source-paragraph">b. Conception du plan d’adressage IPv4 ............................................................................ 4 </p>
+<p class="tssr-source-paragraph">c. Implémentation du routeur ............................................................................................... 5 </p>
+<p class="tssr-source-paragraph">d. Ajout des serveurs à l’infrastructure .................................................................................. 6 </p>
+<p class="tssr-source-paragraph">e. Les postes clients ................................................................................................................ 7 </p>
+<p class="tssr-source-paragraph">f. <br>Routage et NAT .................................................................................................................. 7 </p>
+<p class="tssr-source-paragraph">g. Configuration cliente DNS et accès aux dépôts Debian ............................................... 8 </p>
+<p class="tssr-source-paragraph">2. <br>Implémentation du service DHCP ........................................................................................ 9 </p>
+<p class="tssr-source-paragraph">3. <br>Implémentation d’un service DNS interne .......................................................................... 9 </p>
+<p class="tssr-source-paragraph">a. Configuration d’un redirecteur inconditionnel ............................................................... 9 </p>
+<p class="tssr-source-paragraph">b. Configuration du client DNS sur votre infrastructure ..................................................... 10 </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 1/18 </p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">c. Configuration de la résolution directe d’un espace de noms interne........................ 10 </p>
+<p class="tssr-source-paragraph">d. Configuration de la résolution inverse............................................................................ 10 </p>
+<p class="tssr-source-paragraph">4. <br>Contexte de domaine Active Directory ............................................................................ 11 </p>
+<p class="tssr-source-paragraph">a. Création d&#x27;un domaine Active Directory ...................................................................... 11 </p>
+<p class="tssr-source-paragraph">b. Etude de la nouvelle zone DNS suite à la création du domaine Active Directory .... 11 </p>
+<p class="tssr-source-paragraph">c. Intégration de postes à votre domaine Active Directory ............................................ 12 </p>
+<p class="tssr-source-paragraph">d. Création des unités d’organisation, utilisateurs et groupes.......................................... 12 </p>
+<p class="tssr-source-paragraph">5. <br>Accès aux ressources du domaine .................................................................................... 13 </p>
+<p class="tssr-source-paragraph">a. Ajout et configuration d’un nouvel espace disque sous Windows ............................. 13 </p>
+<p class="tssr-source-paragraph">b. Configuration du partage de fichiers et des règles de restriction d’accès ............... 13 </p>
+<p class="tssr-source-paragraph">c. Création de documentation de la configuration réalisée au point précédant ........ 14 </p>
+<p class="tssr-source-paragraph">6. <br>Configuration de paramètres de GPO.............................................................................. 15 </p>
+<p class="tssr-source-paragraph">7. <br>Redondance des principaux services ............................................................................... 15 </p>
+<p class="tssr-source-paragraph">a. Ajout d’une nouvelle instance du service DHCP .......................................................... 15 </p>
+<p class="tssr-source-paragraph">b. Ajout d’un second serveur DNS ...................................................................................... 16 </p>
+<p class="tssr-source-paragraph">c. Modification de la configuration des clients DNS ......................................................... 17 </p>
+<p class="tssr-source-paragraph">d. Ajout d’un second contrôleur de domaine .................................................................. 17 </p>
+<p class="tssr-source-paragraph">8. <br>Administration de l&#x27;infrastructure &quot;depuis sa chaise&quot; ........................................................ 18 </p>
+<p class="tssr-source-paragraph">9. <br>Windows Admin Center ...................................................................................................... 18 </p>
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 2/18 </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">1. Présentation et préparation de l&#x27;infrastructure </p>
+<p class="tssr-source-paragraph">Le cœur de métier de la société &quot;Support-Terre&quot; est de proposer du support informatique <br>personnalisé pour les PME.  </p>
+<p class="tssr-source-paragraph"> <br>Vous intégrez l&#x27;équipe technique du projet &quot;TSSRC-Série-EU&quot;. Votre objectif est de <br>maquetter une infrastructure en respectant les contraintes imposées par l&#x27;équipe <br>architecture du projet. </p>
+<p class="tssr-source-paragraph">Prérequis </p>
+<p class="tssr-source-paragraph">• <br>Disposer d&#x27;images ISO (Windows Server, Debian, pfSense) </p>
+<p class="tssr-source-paragraph">• <br>VMware Workstation doit être installé dans votre environnement de travail </p>
+
+<p class="tssr-source-paragraph">a. Présentation de l’infrastructure </p>
+<p class="tssr-source-paragraph">Le contexte d’infrastructure sur lequel vous travaillerez est organisé autour de 3 périmètres <br>réseau : </p>
+
+
+<p class="tssr-source-paragraph">LAN Serveurs <br>Réseau d’appartenance des serveurs / services mis en place <br>pour les utilisateurs de l’entreprise </p>
+<p class="tssr-source-paragraph">LAN Clients <br>Réseau d’appartenance des postes clients des utilisateurs </p>
+
+<p class="tssr-source-paragraph">WAN <br>Réseau public, non géré par l’entreprise, destiné à fournir des <br>services aux utilisateurs </p>
+
+<p class="tssr-source-paragraph">Vous aurez à gérer l’ensemble des machines présentes dans les réseaux LAN Serveurs et <br>LAN Clients. </p>
+
+
+
+
+
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 3/18 </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>LANServeurs</td><td>Réseau d’appartenance des serveurs / services mis en place<br>pour les utilisateurs de l’entreprise</td></tr><tr><td>LANClients</td><td>Réseau d’appartenance des postes clients des utilisateurs</td></tr><tr><td>WAN</td><td>Réseau public non géré par l’entreprise destiné à fournir des<br>, ,<br>services aux utilisateurs</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">W10</p>
+<h4>LAN Clients<br>……………………………………………………………………………………………<br>.       .       .</h4>
+<p class="tssr-source-paragraph">LAN Serveurs</p>
+<h4>……………………………………………………………………………………………<br>.       .       .</h4>
+
+
+<p class="tssr-source-paragraph">b. Conception du plan d’adressage IPv4 </p>
+<p class="tssr-source-paragraph">D correspond au dernier octet de l&#x27;adresse IP du poste de travail fourni par l&#x27;ENI </p>
+<p class="tssr-source-paragraph">• <br>Un réseau 192.168.4xD.0 / 22 est attribué par stagiaire. </p>
+<p class="tssr-source-paragraph">Exemple : </p>
+<p class="tssr-source-paragraph">Le dernier octet de l&#x27;adresse IP du poste de travail fourni par l&#x27;ENI est <br>13. 13x4=52. Le réseau qui m’est alloué est le 192.168.52.0 / 22 </p>
+<p class="tssr-source-paragraph">• <br>Ce réseau est segmenté en 4 sous réseaux, chacun ayant un masque de <br>255.255.255.0 (/24) </p>
+<p class="tssr-source-paragraph">• <br>Le premier sous réseau est utilisé pour adresser le LAN Clients </p>
+<p class="tssr-source-paragraph">• <br>Le dernier sous réseau est utilisé pour adresser le LAN Serveurs </p>
+<p class="tssr-source-paragraph">• <br>Le réseau du poste de travail fourni par l&#x27;ENI est utilisé pour adresser la machine de <br>l’environnement étant sur le WAN. </p>
+
+<p class="tssr-source-paragraph">Reproduire le précédent schéma (ou équivalent) puis y reporter vos adresses de réseaux <br>locaux Clients et Serveurs. <br> <br> </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 4/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>t</p><p>:<br>Loam À</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6bb72ea749e0a6b513a9fc4608af1f9bad7dfe0931561f8dacf1bb75729ab4ac.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6bb72ea749e0a6b513a9fc4608af1f9bad7dfe0931561f8dacf1bb75729ab4ac.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="1991"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">c. Implémentation du routeur </p>
+<p class="tssr-source-paragraph">Installer une première machine virtuelle pfSense à partir d’une image ISO d’installation, elle <br>possédera les caractéristiques suivantes : </p>
+<p class="tssr-source-paragraph">Nom <br>ROUTEUR-XY (remplacer XY par vos initiales) </p>
+<p class="tssr-source-paragraph">Système d’exploitation <br>pfSense </p>
+<p class="tssr-source-paragraph">Nombre de cartes réseau associées <br>3 </p>
+<p class="tssr-source-paragraph">À l’issue de l’installation, configurer le réseau en respectant les contraintes suivantes :  </p>
+<p class="tssr-source-paragraph">• <br>Sur les réseaux LAN Clients et Serveurs, ROUTEUR-XY utilisera la dernière adresse <br>d’hôte utilisable </p>
+<p class="tssr-source-paragraph">• <br>Sur le réseau global (accessible par l&#x27;interface WAN), votre routeur aura pour <br>adresse : id_reseau.42.D </p>
+
+<p class="tssr-source-paragraph">Exemple : </p>
+<p class="tssr-source-paragraph">L&#x27;ID de réseau du poste de travail fourni par l&#x27;ENI est 10.3.0.0/16 et le <br>dernier octet de l&#x27;adresse IP du poste de travail fourni par l&#x27;ENI est <br>13. </p>
+<p class="tssr-source-paragraph">➔ L&#x27;adresse IP du routeur sera 10.3.42.13 </p>
+<p class="tssr-source-paragraph">Vous reproduirez le schéma ci-dessous (ou équivalent) et y reporterez les informations <br>correspondantes : </p>
+<p class="tssr-source-paragraph">Réseau VMWare WS : VMNET3</p>
+<p class="tssr-source-paragraph">Nom de l’interface réseau : ………………….</p>
+<p class="tssr-source-paragraph">LAN Clients</p>
+<p class="tssr-source-paragraph">Adressage IP : ……………………………………...</p>
+<p class="tssr-source-paragraph">Adressage MAC : ………………………………….</p>
+<p class="tssr-source-paragraph">ROUTEUR-XY</p>
+<p class="tssr-source-paragraph">LAN Serveurs</p>
+<p class="tssr-source-paragraph">Réseau VMWare WS : VMNET2</p>
+<p class="tssr-source-paragraph">Réseau VMWare WS : Bridged</p>
+<p class="tssr-source-paragraph">Nom de l’interface réseau : ………………….</p>
+<p class="tssr-source-paragraph">Nom de l’interface réseau : ………………….</p>
+<p class="tssr-source-paragraph">Adressage IP : ……………………………………...</p>
+<p class="tssr-source-paragraph">Adressage IP : ……………………………………...</p>
+<p class="tssr-source-paragraph">Adressage MAC : ………………………………….</p>
+<p class="tssr-source-paragraph">Adressage MAC : ………………………………….</p>
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 5/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>a<br>|<br>ofaio</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nom</td><td>ROUTEUR -XY (remplacer XY par vos initiales)</td></tr><tr><td>Systè me d’exploitation</td><td>pfSense</td></tr><tr><td>Nombre de cartes ré seau associé es</td><td>3</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+
+<p class="tssr-source-paragraph">TOUS les accès devront être autorisés depuis n’importe quel réseau. Pour cela, vous créerez <br>une règle de filtrage « any » sur chaque interface réseau de votre pfSense le nécessitant ! </p>
+<p class="tssr-source-paragraph">Après configuration, s’assurer que ROUTEUR-XY communique avec la passerelle du réseau <br>fourni par l&#x27;ENI. </p>
+
+<p class="tssr-source-paragraph">d. Ajout des serveurs à l’infrastructure </p>
+<p class="tssr-source-paragraph"> <br>Vous hébergerez trois serveurs dans votre infrastructure. Vous respecterez les contraintes <br>d’adressage réseau définies au point b. et reporterez l’adressage réseau IPv4 de chaque <br>machine dans le tableau ci-dessous. Édictez une convention de nommage à appliquer. <br>Ajouter les machines correspondantes à votre infrastructure. Pour cela, vous pouvez créer <br>de nouvelles VM ou importer des templates &quot;sysprep&quot; de votre stock personnel ou mis à <br>disposition par l&#x27;ENI. </p>
+<p class="tssr-source-paragraph">*Les rôles indiqués NE SONT PAS à installer pour le moment, ils sont donnés à titre indicatif. </p>
+<p class="tssr-source-paragraph">*Votre coach vous précisera les versions et éditions des systèmes d&#x27;exploitation. Sans <br>information de sa part, les versions et éditions des systèmes d&#x27;exploitation seront celles qui <br>ont été utilisées lors des précédents modules de cours.  </p>
+<p class="tssr-source-paragraph">Système <br>Rôles* <br>Caractéristiques </p>
+<p class="tssr-source-paragraph">Windows Server* </p>
+<p class="tssr-source-paragraph">AD <br>DNS de la zone AD </p>
+<p class="tssr-source-paragraph">1 disque dur : 60 Go </p>
+<p class="tssr-source-paragraph">Mémoire vive : 4 Go (à modifier si besoin) </p>
+<p class="tssr-source-paragraph">Réseau VMware WS : Custom – VMnet2 </p>
+<p class="tssr-source-paragraph">Serveur Windows 1 <br> <br>Nom : <br>………………….. <br>Adresse IPv4 :  <br> <br>192 . 168 .        . 101 </p>
+<p class="tssr-source-paragraph">Windows Server* </p>
+<p class="tssr-source-paragraph">1 disque dur : 60 Go </p>
+<p class="tssr-source-paragraph">Serveur de fichiers <br>DNS <br>DHCP </p>
+<p class="tssr-source-paragraph">Mémoire vive : 4 Go (à modifier si besoin) </p>
+<p class="tssr-source-paragraph">Réseau VMware WS : Custom – VMnet2 </p>
+<p class="tssr-source-paragraph">Serveur Windows 2 <br> <br>Nom : <br>………………….. <br>Adresse IPv4 :  <br> </p>
+<p class="tssr-source-paragraph">192 . 168 .        . 102 </p>
+<p class="tssr-source-paragraph">Debian* sans interface graphique </p>
+<p class="tssr-source-paragraph">1 disque dur : 20 Go </p>
+<p class="tssr-source-paragraph">DHCP <br>DNS <br> </p>
+<p class="tssr-source-paragraph">Mémoire vive : 1 Go </p>
+<p class="tssr-source-paragraph">Réseau VMware WS : Custom – VMnet2 </p>
+<p class="tssr-source-paragraph">Serveur GNU/Linux <br> <br>Nom : <br>………………….. <br>Adresse IPv4 :  <br> <br>192 . 168 .        . 111 </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 6/18 </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>S ystè<br>me</td><td>Rôl es*</td><td>C aracté ri sti<br>ques</td></tr><tr><td>ServeurWindows 1</td><td>AD</td><td>Windows Server*</td></tr><tr><td></td><td>DNS de la zone AD</td><td>1 disque dur : 60 Go</td></tr><tr><td>Nom :</td><td></td><td>Mémoire vive : 4 Go(à modifier sibesoin)</td></tr><tr><td>…………………..</td><td></td><td></td></tr><tr><td>AdresseIPv4 :</td><td></td><td>Réseau VMware WS :Custom VMnet2<br>–</td></tr><tr><td>192 168 101<br>. . .</td><td></td><td></td></tr><tr><td>ServeurWindows 2</td><td>Serveur de fichiers</td><td>Windows Server*</td></tr><tr><td></td><td>DNS</td><td>1 disque dur : 60 Go</td></tr><tr><td>Nom :</td><td>DHCP</td><td>Mémoire vive : 4 Go(à modifier sibesoin)</td></tr><tr><td>…………………..</td><td></td><td></td></tr><tr><td>AdresseIPv4 :</td><td></td><td>Réseau VMware WS :Custom VMnet2<br>–</td></tr><tr><td>192 168 102<br>. . .</td><td></td><td></td></tr><tr><td>Serveur GNU/Linux</td><td>DHCP</td><td>Debian*sans interface graphique</td></tr><tr><td></td><td>DNS</td><td>1 disque dur : 20 Go</td></tr><tr><td>Nom :</td><td></td><td>Mémoire vive : 1 Go</td></tr><tr><td>…………………..</td><td></td><td></td></tr><tr><td>AdresseIPv4 :</td><td></td><td>Réseau VMware WS :Custom VMnet2<br>–</td></tr><tr><td>192 168 111<br>. . .</td><td></td><td></td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+
+<p class="tssr-source-paragraph">Après configuration, s’assurer que  </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Les trois serveurs communiquent entre eux </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Les trois serveurs communiquent bien avec votre routeur <br> </p>
+<p class="tssr-source-paragraph">e. Les postes clients </p>
+<p class="tssr-source-paragraph"> <br>Vous utiliserez des postes clients pour tester le bon fonctionnement des services qui seront <br>mis en place. Vous devrez disposer d’un client Windows et un client Debian.  </p>
+<p class="tssr-source-paragraph">Système <br>Caractéristiques </p>
+<p class="tssr-source-paragraph">Windows 10  </p>
+<p class="tssr-source-paragraph">1 disque dur : 40 Go </p>
+<p class="tssr-source-paragraph">Mémoire vive : 2 Go </p>
+<p class="tssr-source-paragraph">Réseau VMware WS : Custom – VMnet3 </p>
+<p class="tssr-source-paragraph">Client Windows <br> <br>Nom : ………………….. <br>Adresse IPv4 :  <br> </p>
+<p class="tssr-source-paragraph">192 . 168 .        . 10 </p>
+<p class="tssr-source-paragraph">Debian - Interface graphique de votre choix </p>
+<p class="tssr-source-paragraph">1 disque dur : 20 Go </p>
+<p class="tssr-source-paragraph">Mémoire vive : 2 Go </p>
+<p class="tssr-source-paragraph">Client GNU/Linux <br> <br>Nom : ………………….. <br>Adresse IPv4 :  </p>
+<p class="tssr-source-paragraph">Réseau VMware WS : Custom – VMnet3 </p>
+<p class="tssr-source-paragraph"> <br>192 . 168 .        . 1 </p>
+<p class="tssr-source-paragraph">Installer ces machines (ou récupérer des images &quot;sysprep&quot; prêtes à l&#x27;emploi), configurer <br>statiquement leur adressage IPv4 et les nommer en respectant votre convention de <br>nommage. </p>
+
+<p class="tssr-source-paragraph">f. Routage et NAT </p>
+
+<p class="tssr-source-paragraph">Configuration de la passerelle par défaut </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Depuis l’interface web de votre pfSense, via les outils de diagnostic, <br>vérifier que celui-ci communique bien avec la machine ayant l’adresse <br>IPv4 : 9.9.9.9. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Configurer l’adresse de votre pfSense comme adresse de passerelle par <br>défaut sur les clients et sur les serveurs. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Vérifier que les clients parviennent bien à communiquer avec les serveurs </p>
+<pre class="tssr-source-code">o Au besoin vérifier / adapter la configuration des pare-feu des </pre>
+<p class="tssr-source-paragraph">systèmes d’exploitation et vérifier les règles de filtrage actives sur <br>votre routeur pfSense </p>
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 7/18 </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Systè<br>me</td><td>Caracté ristiques</td></tr><tr><td>Client Windows</td><td>Windows 10</td></tr><tr><td></td><td>1 disque dur : 40 Go</td></tr><tr><td>Nom :<br>…………………..</td><td>Mémoire vive : 2 Go</td></tr><tr><td>AdresseIPv4 :</td><td>Réseau VMware WS :Custom –VMnet3</td></tr><tr><td>192 168 10<br>. . .</td><td></td></tr><tr><td>Client GNU/Linux</td><td>Debian Interface graphique de votre choix<br>-</td></tr><tr><td></td><td>1 disque dur : 20 Go</td></tr><tr><td>Nom :<br>…………………..</td><td>Mémoire vive : 2 Go</td></tr><tr><td>AdresseIPv4 :</td><td>Réseau VMware WS :Custom –VMnet3</td></tr><tr><td>192 168 1<br>. . .</td><td></td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Vérifier que la communication entre vos différentes machines virtuelles et <br>une ressource en dehors votre organisation (l&#x27;adresse IP du proxy de l&#x27;ENI <br>par exemple) est bien fonctionnelle. </p>
+<pre class="tssr-source-code">o Au besoin, vérifier sur votre routeur si une règle de NAT s’applique </pre>
+<p class="tssr-source-paragraph">bien pour chaque contexte réseau. </p>
+
+<p class="tssr-source-paragraph">g. Configuration cliente DNS et accès aux dépôts Debian </p>
+
+<p class="tssr-source-paragraph">Pour installer des outils sur le client Debian et des services sur le serveur Debian, ces <br>machines devront être clientes DNS du serveur DNS dont le poste de travail fourni par <br>l&#x27;ENI est client.  </p>
+<p class="tssr-source-paragraph">• <br>Trouver et utiliser la commande PowerShell appropriée pour identifier le serveur DNS <br>dont est client votre poste de salle <br> <br>PS &gt; ……………………………………… <br> <br><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>S’assurer que votre client et votre serveur GNU/Linux communiquent bien <br>avec le serveur identifié à l’étape précédente.  </p>
+<p class="tssr-source-paragraph">• <br>Configurer votre client et votre serveur GNU/Linux afin qu’ils soient temporairement <br>clients DNS du serveur identifié précédemment. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Vérifier que l’hôte ftp.fr.debian.org est bien résolu en une adresse IP <br>interne à ENI École (et non pas en une adresse IP publique) </p>
+
+<p class="tssr-source-paragraph">• Vérifiez / modifiez la configuration des serveurs de dépôt du client et du <br>serveur Debian afin qu’elle respecte les contraintes suivantes :  <br> </p>
+<pre class="tssr-source-code">o Pour les mises à jour de sécurité, celles-ci devront être actives (ligne non </pre>
+<pre class="tssr-source-code">commentée) et se faire depuis l’hôte « security.debian.org » 
+o Pour les nouvelles installations et les mises à jour, celles-ci devront être </pre>
+<p class="tssr-source-paragraph">récupérées <br>depuis <br>l’hôte <br>« ftp.fr.debian.org » <br>(et <br>non <br>pas <br>deb.debian.org) <br> <br>• Mettre à jour la base des paquets logiciels. </p>
+
+
+
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 8/18 </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b3763efaf2b209ec5bf610f1fdbe68f202b81a1123925c0146bdbc66fe6c9475.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b3763efaf2b209ec5bf610f1fdbe68f202b81a1123925c0146bdbc66fe6c9475.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="999" height="2531"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">2. Implémentation du service DHCP  </p>
+
+<p class="tssr-source-paragraph">Si D (le dernier octet du poste mis à <br>disposition par l&#x27;ENI) est impair </p>
+<p class="tssr-source-paragraph"> <br>Si D (le dernier octet du poste mis à <br>disposition par l&#x27;ENI) est pair </p>
+<p class="tssr-source-paragraph">• <br>Le service DHCP sera hébergé <br>par le 2ème serveur Windows </p>
+<p class="tssr-source-paragraph">• <br>Le service DHCP sera hébergé par <br>le serveur Debian </p>
+
+<p class="tssr-source-paragraph">La configuration du service DHCP doit respecter les contraintes suivantes :  </p>
+<p class="tssr-source-paragraph">• <br>Le service DHCP ne doit distribuer des baux qu’aux postes du réseau LAN Clients.  </p>
+<p class="tssr-source-paragraph">• <br>Sur la totalité de la plage réseau configurée (en /24), seule la moitié des adresses <br>sera allouable aux clients. </p>
+<p class="tssr-source-paragraph">• <br>La passerelle par défaut doit être transmise par le service DHCP. </p>
+<p class="tssr-source-paragraph">• <br>Si un service de relais DHCP doit être mis en place, il devra être implémenté sur votre </p>
+<p class="tssr-source-paragraph">routeur. </p>
+
+<p class="tssr-source-paragraph">3. Implémentation d’un service DNS interne  </p>
+
+<p class="tssr-source-paragraph">Si D est pair <br>Si D est impair </p>
+<p class="tssr-source-paragraph">• <br>Le service DNS sera hébergé <br>par le serveur Debian </p>
+<p class="tssr-source-paragraph">• <br>Le service DNS sera hébergé par <br>le 2ème serveur Windows </p>
+<p class="tssr-source-paragraph">• <br>Vous procéderez à l’ajout du rôle ou du service sur le serveur considéré <br> </p>
+<p class="tssr-source-paragraph">a. Configuration d’un redirecteur inconditionnel </p>
+<p class="tssr-source-paragraph"> <br><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Tester la liaison depuis votre serveur DNS vers le serveur DNS de l’école <br>(identifié au g. du chapitre 1) </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Au moyen de la commande appropriée : <br>……………………………………………………………………. </p>
+<p class="tssr-source-paragraph">Requêter depuis votre serveur DNS, le serveur DNS de l’école et tester la <br>résolution d’un nom d’hôte. </p>
+<pre class="tssr-source-code">o Configurer sur votre serveur DNS un redirecteur inconditionnel vers le serveur </pre>
+<p class="tssr-source-paragraph">DNS de l’ENI. </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 9/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p><p>es</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Si D (le dernier octet du poste mis à<br>disposition par l&#x27;ENI) est pair</td><td>Si D (le dernier octet du poste mis à<br>disposition par l&#x27;ENI) est impair</td></tr><tr><td>• Le service DHCPsera hébergé<br>par le 2èmeserveur Windows</td><td>• Le service DHCPsera hébergépar<br>le serveur Debian</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Si D est pair</td><td>Si Dest impair</td></tr><tr><td>• Le service DNS sera hébergé<br>par leserveur Debian</td><td>• Le service DNS sera hébergé par<br>le 2è meserveurWindows</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+
+
+<p class="tssr-source-paragraph">b. Configuration du client DNS sur votre infrastructure </p>
+<p class="tssr-source-paragraph">• <br>Renseigner dans la configuration réseau de vos différents serveurs l’adresse de votre <br>serveur DNS <br> <br>• <br>Modifier la configuration de votre serveur DHCP afin qu’il fournisse à tous ses clients <br>l’adresse de votre serveur DNS </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>S’assurer que les postes clients et les serveurs parviennent bien à résoudre <br>des noms d’hôtes publics. </p>
+
+<p class="tssr-source-paragraph">c. Configuration de la résolution directe d’un espace de noms interne </p>
+<p class="tssr-source-paragraph">• <br>Sur votre serveur DNS, créer une zone pour prénomD.infra.tld (D le dernier octet du <br>poste mis à disposition par l&#x27;ENI), y ajouter des enregistrements pour vos 3 serveurs. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Depuis un poste client, requêter l’enregistrement du SOA de la zone créée <br>et vérifier si celui-ci est bien un FQDN résolvable. Si ce n’est pas le cas, faire <br>les modifications nécessaires. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Faites un test de résolution inverse d’un de vos serveurs. </p>
+<p class="tssr-source-paragraph">Ce test aboutit-il ? Pourquoi ? <br>……………………………………………………………………………………  </p>
+
+<p class="tssr-source-paragraph">d. Configuration de la résolution inverse </p>
+<p class="tssr-source-paragraph">• <br>Ajouter une zone inverse pour chacun de vos réseaux : LAN Client et LAN Serveur.  <br>Y créer un enregistrement pour routeur.prénomD.infra.tld ayant pour adresse IP la <br>dernière de chaque réseau. </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Depuis un client, faire un test de résolution inverse de la dernière adresse <br>de vos deux réseaux. </p>
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 10/18 </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">4. Contexte de domaine Active Directory </p>
+<h4>• <br>Votre domaine Active Directory utilise les informations d&#x27;une nouvelle zone DNS <br>prénomD . domaine . tssr <br> </h4>
+<p class="tssr-source-paragraph">a. Création d&#x27;un domaine Active Directory </p>
+<p class="tssr-source-paragraph"> <br>• Sur votre « Serveur Windows 1 », installer les composants permettant la prise en <br>charge des services de domaine Active Directory puis le promouvoir contrôleur <br>de domaine en respectant les contraintes suivantes :  </p>
+<pre class="tssr-source-code">o Il s’agit d’un nouveau domaine dans une nouvelle forêt </pre>
+<pre class="tssr-source-code">o Le nom du domaine est celui reporté dans les prérequis de cet atelier </pre>
+<pre class="tssr-source-code">o Installer le service DNS sur le contrôleur de domaine </pre>
+<pre class="tssr-source-code">o Le niveau fonctionnel du domaine et de la forêt doit être « Windows Server </pre>
+<p class="tssr-source-paragraph">2016 » </p>
+
+<p class="tssr-source-paragraph">b. Étude de la nouvelle zone DNS suite à la création du domaine Active </p>
+<p class="tssr-source-paragraph">Directory  </p>
+<p class="tssr-source-paragraph"> <br>• Afficher le contenu de la nouvelle zone DNS prénomD.domaine.tssr et observez <br>les différents enregistrements présents. </p>
+<p class="tssr-source-paragraph">• À quoi correspondent-ils et quelle est leur utilité ?  </p>
+
+<p class="tssr-source-paragraph">………………………………………………………………………………………………… </p>
+
+<p class="tssr-source-paragraph">………………………………………………………………………………………………… </p>
+
+<p class="tssr-source-paragraph">………………………………………………………………………………………………… </p>
+
+<p class="tssr-source-paragraph">………………………………………………………………………………………………… </p>
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 11/18 </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">c. Intégration de postes à votre domaine Active Directory </p>
+
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">Les clients et serveurs de votre infrastructure interrogent principalement le serveur DNS <br>que vous avez configuré au point 3. </p>
+<p class="tssr-source-paragraph">Ce serveur n&#x27;héberge pas le domaine DNS lié à votre domaine Active Directory ! </p>
+<p class="tssr-source-paragraph">Pour intégrer votre client Windows et votre serveur Windows au domaine, vous devez <br>donc configurer un redirecteur conditionnel dans le serveur configuré au point 3. </p>
+<p class="tssr-source-paragraph">• <br>zone DNS : prénomD.domaine.tssr,  </p>
+<p class="tssr-source-paragraph">• <br>Serveur DNS vers lequel rediriger les requêtes : &quot;Serveur Windows 1&quot; </p>
+
+<p class="tssr-source-paragraph"> <br>• Intégrer votre poste client Windows au domaine Active Directory </p>
+<p class="tssr-source-paragraph">• Intégrer le « Serveur Windows 2 » au domaine Active Directory <br> <br> <br><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Le client Windows et &quot;Serveur Windows 2&quot; sont bien intégrés au domaine <br>AD </p>
+
+<p class="tssr-source-paragraph">• Si D est pair, contrôler l’état de fonctionnement du service DHCP hébergé par <br>le serveur Windows, celui-ci est-il toujours fonctionnel ? Pourquoi ?  </p>
+
+<p class="tssr-source-paragraph">………………………………………………………………………………………………… </p>
+
+<p class="tssr-source-paragraph">• Au besoin, faire les modifications nécessaires pour rétablir le bon fonctionnement <br>du service DHCP. </p>
+
+<p class="tssr-source-paragraph">d. Création des unités d’organisation, utilisateurs et groupes </p>
+<p class="tssr-source-paragraph">• <br>En respectant les bonnes pratiques Microsoft, créer les utilisateurs en vous <br>basant sur le tableau ci-dessous. L’identifiant de connexion sera composé de <br>la première lettre du prénom suivi du nom de famille. </p>
+<p class="tssr-source-paragraph">• <br>Créer des unités d’organisation afin de regrouper les utilisateurs d’un même <br>service et de séparer les comptes d’ordinateur des postes clients et des <br>serveurs. </p>
+<p class="tssr-source-paragraph">• <br>Créer des groupes afin de cibler les utilisateurs de chaque service. </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 12/18 </p>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-439e96edf9208f1657d016e21b7872f0ead66ec3befbe418e03ea79d445d2c0c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-439e96edf9208f1657d016e21b7872f0ead66ec3befbe418e03ea79d445d2c0c.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="998" height="1426"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+
+
+<p class="tssr-source-paragraph">Service <br>Membres </p>
+<p class="tssr-source-paragraph">Direction <br>Christian Hef <br>Pauline Atron <br>Pascaline Résident </p>
+<p class="tssr-source-paragraph">Comptabilité <br>Bruno Ilan <br>Christelle Rédit <br>Florence Acture </p>
+<p class="tssr-source-paragraph">Secrétariat <br>Cédric Ourrier <br>Sandrine Tandard <br>Aline Genda </p>
+<p class="tssr-source-paragraph">Production  <br>Chloé Haîne <br>Ursule Sine <br>Denis Elais </p>
+<p class="tssr-source-paragraph">Support <br>Informatique <br>Clément Lavier <br>&lt;Vous-même&gt; <br>Elodie Cran </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Tester l&#x27;ouverture de session sur le domaine d&#x27;un utilisateur par service <br>depuis le client Windows  </p>
+<p class="tssr-source-paragraph">5. Accès aux ressources du domaine </p>
+<p class="tssr-source-paragraph">En partant de votre infrastructure de domaine Active Directory existante, vous allez ajouter <br>un espace disque sécurisé que vous partagerez en respectant les préconisations Microsoft. </p>
+
+<p class="tssr-source-paragraph">a. Ajout et configuration d’un nouvel espace disque sous Windows </p>
+<p class="tssr-source-paragraph"> <br>• <br>Ajouter trois disques de 1 Go (ces disques feraient 1 To en contexte réel) sur le serveur <br>« Serveur Windows 2 », à partir de ces disques, créer un volume F: tolérant aux pannes <br>(celui-ci devant permettre la perte d’un disque sans perte de données). </p>
+
+<p class="tssr-source-paragraph">b. Configuration du partage de fichiers et des règles de restriction d’accès  </p>
+
+<p class="tssr-source-paragraph">• <br>A la racine du volume F: configuré précédemment, créer un répertoire nommé DATA <br>qui contiendra un sous-dossier SERVICES et un sous dossier PUBLIC. </p>
+
+<p class="tssr-source-paragraph">• <br>Les dossiers SERVICES et PUBLIC seront partagés. </p>
+
+<p class="tssr-source-paragraph">• <br>Les restrictions d’accès aux ressources partagées sont indiquées ci-dessous. </p>
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 13/18 </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Service</td><td>Membres</td><td></td><td></td></tr><tr><td>Direction</td><td>Christian Hef</td><td>Pauline Atron</td><td>Pascaline Résident</td></tr><tr><td>Comptabilité</td><td>BrunoIlan</td><td>Christelle Rédit</td><td>Florence Acture</td></tr><tr><td>Secrétariat</td><td>Cédric Ourrier</td><td>Sandrine Tandard</td><td>Aline Genda</td></tr><tr><td>Production</td><td>ChloéHaîne</td><td>Ursule Sine</td><td>Denis Elais</td></tr><tr><td>Support<br>Informatique</td><td>ClémentLavier</td><td>&lt;Vous-même&gt;</td><td>Elodie Cran</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">Chemin <br>Privilèges d’accès </p>
+<p class="tssr-source-paragraph">F:\DATA\SERVICES\Direction </p>
+<p class="tssr-source-paragraph">Les membres de la direction et de la comptabilité <br>ont accès en modification, les secrétaires ont <br>accès en lecture. </p>
+<p class="tssr-source-paragraph">F:\DATA\SERVICES\Comptabilité Les membres de la direction et du secrétariat ont </p>
+<p class="tssr-source-paragraph">accès en lecture, les comptables en modification. </p>
+<p class="tssr-source-paragraph">F:\DATA\SERVICES\Secrétariat <br>Seuls les secrétaires ont accès en modification sur <br>ce dossier. </p>
+<p class="tssr-source-paragraph">F:\DATA\SERVICES\Support </p>
+<p class="tssr-source-paragraph">Les membres du service Support auront un accès <br>en modification ainsi que les membres du service <br>secrétariat. La direction aura un accès en lecture <br>seulement. </p>
+<p class="tssr-source-paragraph">F:\DATA\PUBLIC <br>Accessible en modification pour tous les membres <br>de la société. </p>
+<p class="tssr-source-paragraph">• <br>Pour des raisons de commodité de gestion, les membres du service informatique auront <br>un accès en contrôle total sur tous les dossiers partagés. <br> <br>• <br>Respecter les préconisations Microsoft d’imbrication des groupes de domaine que vous <br>appliquerez aux ACL des différents dossiers. Créer les groupes de domaine nécessaires <br>à vos réalisations.  </p>
+<p class="tssr-source-paragraph"> <br> <br>• <br>Mettre en place le partage suivant  </p>
+<p class="tssr-source-paragraph">Chemin <br>Privilèges d’accès </p>
+<p class="tssr-source-paragraph">F:\DATA\Informatique <br>Seuls les membres du service informatique auront un <br>accès à ce dossier </p>
+<p class="tssr-source-paragraph">• <br>Le dossier D:\DATA\Informatique sera partagé sous le nom &quot;Outils&quot;, ce partage sera <br>caché.  </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> <br>Tester depuis le client Windows les accès aux différentes ressources. </p>
+
+<p class="tssr-source-paragraph">c. Création de documentation de la configuration réalisée au point précédent  <br> </p>
+<p class="tssr-source-paragraph">Vous documenterez les aspects suivants :  </p>
+<p class="tssr-source-paragraph">- <br>Processus de configuration du nouvel espace disque (F:) </p>
+<p class="tssr-source-paragraph">- <br>Configuration <br>du <br>partage <br>et <br>des <br>autorisations <br>s’appliquant au dossier du service comptabilité </p>
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 14/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>RS</p><p>|</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Chemin</td><td>Privilèges d’accès</td></tr><tr><td>F:\DATA\SERVICES\Direction</td><td>Lesmembres de la directionetde lacomptabilité<br>ont accès en modification les secrétaires ont<br>,<br>accès en lecture<br>.</td></tr><tr><td>F:\DATA\SERVICES\Comptabilité</td><td>Les membres de la direction et du secrétariat ont<br>accèsenlecture lescomptablesenmodification<br>, .</td></tr><tr><td>F:\DATA\SERVICES\Secrétariat</td><td>Seuls les secrétaires ont accès en modification sur<br>ce dossier<br>.</td></tr><tr><td>F:\DATA\SERVICES\Support</td><td>Les membres du service Support auront un accès<br>en modification ainsi que les membres du service<br>secrétariat La direction aura un accès en lecture<br>.<br>seulement<br>.</td></tr><tr><td>F:\DATA\PUBLIC</td><td>Accessibleenmodificationpourtouslesmembres<br>de la société<br>.</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Chemin</td><td>Privilèges d’accès</td></tr><tr><td>F:\DATA\Informatique</td><td>Seuls les membres du service informatique auront un<br>accès à ce dossier</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">6. Configuration de paramètres de GPO </p>
+
+<p class="tssr-source-paragraph">Pour chaque paramètre demandé, à l’issue de sa configuration, vous testerez sa bonne <br>effectivité sur votre poste client Windows avant de passer au paramètre suivant. </p>
+<p class="tssr-source-paragraph">Vous configurerez au moyen de stratégies de groupes les aspects suivants :  </p>
+<p class="tssr-source-paragraph">• Tous les utilisateurs de votre domaine auront le même arrière-plan de bureau (de votre <br>choix) </p>
+<p class="tssr-source-paragraph">• Seuls les administrateurs du domaine auront accès au Panneau de configuration et à <br>l’outil Paramètres </p>
+<p class="tssr-source-paragraph">• Tous les utilisateurs du domaine devront changer leur mot de passe tous les 30 jours, <br>leur mot de passe aura 3 caractères minimum et ne sera pas soumis à des critères de <br>complexité </p>
+<p class="tssr-source-paragraph">• Les secrétaires verront automatiquement le partage SERVICES apparaitre dans leur <br>explorateur de fichiers </p>
+<p class="tssr-source-paragraph">• Seul un administrateur de la machine pourra installer ou mettre à jour les pilotes de <br>périphériques. </p>
+<p class="tssr-source-paragraph">• Empêcher le redémarrage automatique des postes en cours d’utilisation </p>
+<p class="tssr-source-paragraph">• Lors de recherches Windows, ne pas rechercher sur Internet  </p>
+<p class="tssr-source-paragraph">• Bloquer la remontée d’erreurs à Microsoft </p>
+<p class="tssr-source-paragraph">7. Redondance des principaux services <br> </p>
+<p class="tssr-source-paragraph">Un audit a été réalisé sur votre infrastructure de domaine Active Directory existante, celui-<br>ci a fait ressortir la problématique suivante : les services d’infrastructure critiques ne sont <br>actuellement pas tolérants aux pannes qui pourraient survenir. </p>
+<p class="tssr-source-paragraph">Les mises en œuvre à réaliser dans cet atelier visent à accroitre la disponibilité des services <br>et la tolérance de pannes de l’infrastructure précédemment mise en place. </p>
+<p class="tssr-source-paragraph">a. Ajout d’une nouvelle instance du service DHCP </p>
+<p class="tssr-source-paragraph"> <br>• <br>Au point 2, vous avez mis en œuvre le service DHCP sur un de vos serveurs. Notez ci-<br>dessous les informations relatives au service mis en œuvre. <br> <br>Serveur sur lequel le service a été implémenté : </p>
+<p class="tssr-source-paragraph"> <br>…………………………………………………………………………………………………………. </p>
+
+<p class="tssr-source-paragraph">Plage d’adresse distribuée : <br> <br> <br> <br>…………………………………………………………………………………………………………. <br> <br> <br> </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 15/18 </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph"> <br>• <br>Installer le service DHCP sur votre autre serveur (PAS LE CONTRÔLEUR DE DOMAINE).  <br> <br> </p>
+<p class="tssr-source-paragraph">Mise en œuvre initiale  </p>
+<p class="tssr-source-paragraph">Machine sur laquelle implémenter le second service DHCP </p>
+<p class="tssr-source-paragraph">du service DHCP sur </p>
+<p class="tssr-source-paragraph">Le serveur Debian <br>      Le 2ème serveur Windows </p>
+<p class="tssr-source-paragraph">Le <br>2ème <br>serveur <br>Windows <br>                 Le serveur Debian </p>
+<pre class="tssr-source-code">o Ce service DHCP devra distribuer des adresses en dehors de la plage d’adresse </pre>
+<pre class="tssr-source-code">déjà distribuée par votre premier service DHCP. 
+ 
+o Il devra fournir l’adresse de la passerelle par défaut et celle de votre serveur DNS </pre>
+<pre class="tssr-source-code">configuré au point 3. 
+ 
+o Modifier la configuration du relais DHCP de votre pfSense afin que les requêtes </pre>
+<p class="tssr-source-paragraph">clientes soient adressées à vos deux serveurs DHCP <br> </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Valider le bon fonctionnement de votre second serveur DHCP </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Contrôler le bon fonctionnement de la tolérance de panne du service </p>
+<p class="tssr-source-paragraph">après l’arrêt successif d’un puis de l’autre serveur DHCP </p>
+
+<p class="tssr-source-paragraph">b. Ajout d’un second serveur DNS </p>
+<p class="tssr-source-paragraph">Au point 3, vous avez mis en œuvre le service DNS sur un de vos serveurs, le tableau suivant <br>vous indique sur quel autre serveur implémenter votre second service DNS. </p>
+<p class="tssr-source-paragraph">• <br>Installer le service DNS sur votre autre serveur (PAS LE CONTRÔLEUR DE DOMAINE).  <br> </p>
+<p class="tssr-source-paragraph">Mise en œuvre initiale  </p>
+<p class="tssr-source-paragraph">Machine sur laquelle implémenter le second service DNS </p>
+<p class="tssr-source-paragraph">du service DNS sur </p>
+<p class="tssr-source-paragraph">Le serveur Debian <br>      Le 2ème serveur Windows </p>
+<p class="tssr-source-paragraph">Le <br>2ème <br>serveur <br>Windows <br>                 Le serveur Debian </p>
+<p class="tssr-source-paragraph">Les contraintes d’implémentation du service sont les suivantes :  </p>
+<pre class="tssr-source-code">o Ce serveur utilisera comme redirecteur inconditionnel le serveur DNS de l’école </pre>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 16/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>+</p><p>—</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td></td></tr><tr><td>Mise enœuvre initiale<br>du serviceDHCP sur</td><td>Machinesurlaquelle implémenterlesecondserviceDHCP</td></tr><tr><td>Le serveurDebian</td><td>Le 2ème serveur Windows</td></tr><tr><td>Le 2ème serveur<br>Windows</td><td>Le serveur Debian</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Mise enœuvre initiale<br>du serviceDNS sur</td><td>Machine sur laquelle implémenter le secondservice DNS</td></tr><tr><td>Le serveurDebian</td><td>Le 2ème serveur Windows</td></tr><tr><td>Le 2ème serveur<br>Windows</td><td>Le serveur Debian</td></tr></tbody></table></div>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-82fd06321d3b8a83aacd81d952a019c33a2a6cdd57a98fa433ad89ed4050dd52.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-82fd06321d3b8a83aacd81d952a019c33a2a6cdd57a98fa433ad89ed4050dd52.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="997" height="2872"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<pre class="tssr-source-code"> 
+o Ce serveur utilisera comme redirecteur conditionnel le &quot;Windows Serveur 1&quot; pour </pre>
+<pre class="tssr-source-code">répondre aux requêtes relatives au domaine prénomD.domaine.tssr 
+ 
+o Ce serveur devra disposer de la zone prénomD.infra.tld en tant que zone </pre>
+<pre class="tssr-source-code">secondaire 
+ 
+o La prise en charge de la résolution inverse n’est pas souhaitée </pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Vérifier depuis un client que la résolution de noms est bien fonctionnelle </p>
+<p class="tssr-source-paragraph">EN INTERROGEANT VOTRE SECOND SERVEUR DNS. </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Ajouter un enregistrement depuis votre premier service DNS dans </p>
+<p class="tssr-source-paragraph">chacune des 2 zones puis vérifier que cet enregistrement a bien été <br>transféré dans la zone du second service DNS. </p>
+
+<p class="tssr-source-paragraph">c. Modification de la configuration des clients DNS <br> </p>
+<pre class="tssr-source-code">o Modifiez la configuration de vos services DHCP afin qu’ils indiquent l’adresse </pre>
+<pre class="tssr-source-code">de votre nouveau serveur DNS en complément de celle de votre premier. 
+ 
+o Modifier la configuration des serveurs et leur ajouter l’adresse IP de votre </pre>
+<p class="tssr-source-paragraph">second service DNS en complément de celui déjà configuré.  </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Contrôler la configuration cliente DNS des différents postes. </p>
+
+<p class="tssr-source-paragraph">d. Ajout d’un second contrôleur de domaine </p>
+
+<p class="tssr-source-paragraph">• <br>Afin de ne pas perdre les services de domaine Active Directory en cas de <br>défaillance du serveur Windows 1, ajouter le rôle des services de domaine sur <br>le serveur Windows 2. </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Vérifier qu’il est possible de créer des objets dans la base Active Directory </p>
+<p class="tssr-source-paragraph">depuis le second contrôleur de domaine et qu’ils sont bien répliqués sur <br>le premier. </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Vérifier que les enregistrements de services (DNS) liés aux services de </p>
+<p class="tssr-source-paragraph">domaine ont bien été générés pour le second contrôleur. </p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f06f" src="../glyphs/c041a29876fded8bbe79564dd215564977a0e6ba2bf742dd95cbcb45f4c2ab3c.webp" alt="Symbole du support" title="Symbole original du support"> Arrêter successivement chacun des contrôleurs et vérifier si vos </p>
+<p class="tssr-source-paragraph">utilisateurs parviennent bien à se connecter depuis le poste client. </p>
+
+
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 17/18 </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><p class="tssr-source-paragraph"> <br> <br>MSP Services Réseaux </p>
+<p class="tssr-source-paragraph">8. Administration de l&#x27;infrastructure &quot;depuis sa chaise&quot; </p>
+<p class="tssr-source-paragraph">Les éléments de votre infrastructure étant en salle serveur sécurisée, toutes les manipulations <br>d&#x27;administration de serveurs seront effectuées depuis le poste client Windows 10.  </p>
+<p class="tssr-source-paragraph">• <br>Installer le service SSH-Server sur votre serveur Debian. Pouvez-vous vous connecter en <br>ssh depuis votre Client Windows ? En cas d&#x27;échec, faites le nécessaires pour que cela <br>soit fonctionnel. <br> <br>• <br>Configurer le service bureau à distance sur les serveurs Windows. Seuls les membres du <br>service informatique pourront ouvrir une session sur les serveurs. Faire des tests de <br>connexions à l&#x27;aide de votre client RDP du client Windows 10. <br> <br>• <br>Sur le client Windows 10, afficher la liste des &quot;Fonctionnalités facultatives&quot; disponible <br> <br>• <br>Pour plus de productivité, rechercher puis installer les outils RSAT (Outils d’administration <br>de serveur distant) du &quot;Gestionnaire de serveur&quot; et de gestion des rôles ADDS, DHCP et <br>DNS sur votre client Windows 10. <br> <br>• <br>Lancer l&#x27;outil Gestionnaire de serveur et faire en sorte de pouvoir gérer vos serveurs <br>Windows depuis cette console <br> </p>
+<pre class="tssr-source-code">o Pouvez-vous ouvrir la console &quot;Utilisateurs et ordinateurs Active Directory&quot; ? </pre>
+<pre class="tssr-source-code"> 
+o Pouvez-vous créer un enregistrement A dans la zone DNS intégrée au domaine ? </pre>
+
+<p class="tssr-source-paragraph">9. Windows Admin Center </p>
+
+
+
+
+
+
+
+
+<p class="tssr-source-paragraph">• <br>Tester cette nouvelle fonctionnalité proposée par Windows Server 2019. Renseignez-<br>vous, documentez-vous puis choisissez l&#x27;un de vos serveurs Windows pour y installer <br>WAC. <br> <br>• <br>Importer toutes les machines Microsoft dans cet outil et observer/tester le plus de <br>possibilités proposées par WAC </p>
+<p class="tssr-source-paragraph"> <br>© ENI – Tous droits réservés <br>Page 18/18 </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fa Gestionnaire de serveur<br>=</p><p>Tester la gestion de serveurs avec Windows Admin Center</p><p>Windows Admin Center regroupe des fonctionnalités nouvelles et familiéres dans une<br>application basée sur un navigateur. Il s&#x27;exécute sur un PC ou un serveuret n&#x27;est<br>associé à aucun frais supplémentaire (autres que vos licences Windows).</p><p>Obtenir plus d&#x27;informations sur aka ms/Windows AdminCenter</p><p>Ne plus afficherce message</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-6e807280840f8e7e2cc26b60bee5a27cdb84b78f9df777cda04e18798074c449.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6e807280840f8e7e2cc26b60bee5a27cdb84b78f9df777cda04e18798074c449.webp" alt="Illustrations du support source, pages 17 à 18" loading="lazy" width="900" height="1026"></a><figcaption>Illustrations du support Drive — pages 17 à 18. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

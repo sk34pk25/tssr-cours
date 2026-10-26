@@ -1,0 +1,62 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 2 - Boucle for.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M7 - Solution du TP 2 - Boucle for</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle for </h4>
+<p class="tssr-source-paragraph">Solution - TP2 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une instruction de boucle for. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Les principales difficultés du script sont d’une part lancer un traitement ligne par ligne dans un <br>fichier externe, celui portant les extensions de fichier à traiter, et d’autre part de comptabiliser le <br>nombre de fichiers de chaque type. </p>
+<pre class="tssr-source-code">Avant tout, il faudra vérifier la présence d’un argument derrière le script, et forcer la sortie s’il est 
+différent de 1. Puis, une boucle for comptabilisera et traitera les fichiers pour chaque extension 
+indiquée dans le fichier externe, avant de récapituler tout cela à l’écran. </pre>
+<pre class="tssr-source-code">• Créer et éditer un nouveau fichier script script_M7TP2.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP2.sh </pre>
+<p class="tssr-source-paragraph">• Ajouter les lignes suivantes : </p>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M7 - Solution du TP2 – Boucle for </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># Déclaration des variables </pre>
+<pre class="tssr-source-code">chemin=$1 # Récupération de la valeur de l’argument fourni </pre>
+<pre class="tssr-source-code">extfile=./ext.txt # Stockage du nom de fichier avec les extensions </pre>
+<pre class="tssr-source-code"># Vérification : si argument n’est pas = à 1 =&gt; sortie </pre>
+<pre class="tssr-source-code">if [[ $# -ne 1 ]] </pre>
+<pre class="tssr-source-code">  then echo &quot;Syntaxe utilisation : ./script_M7TP2.sh &lt;chemin&gt;&quot; </pre>
+<pre class="tssr-source-code">       exit 1 </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code"># Calcul du nombre de fichiers présents dans le dossier cible </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">nbfictotal=$(ls $chemin | wc -l ) </pre>
+<pre class="tssr-source-code">echo &quot;Nombre total de fichiers dans $chemin : $nbfictotal&quot; </pre>
+<pre class="tssr-source-code">echo &quot;&quot; </pre>
+<pre class="tssr-source-code"># Début de la boucle for pour traiter chaque extension </pre>
+<pre class="tssr-source-code">for ext in $(cat $extfile) </pre>
+<pre class="tssr-source-code"> do </pre>
+<pre class="tssr-source-code">    nbfic=$(ls $chemin/*.$ext 2&gt;/dev/null | wc -w) # Comptabiliser nb 
+fichiers trouvés portant l’extension </pre>
+<pre class="tssr-source-code">    if [[ $nbfic -gt 0 ]] # Si le nb fichiers trouvés &gt; 0 alors affichage </pre>
+<pre class="tssr-source-code"> 
+then echo &quot;--------------&quot; </pre>
+<pre class="tssr-source-code"> 
+     echo &quot;     .$ext     &quot; </pre>
+<pre class="tssr-source-code"> 
+     echo &quot;--------------&quot; </pre>
+<pre class="tssr-source-code"> 
+     echo &quot;-&gt; $nbfic fichier(s) trouvé(s)&quot;  </pre>
+<pre class="tssr-source-code">     echo &quot;&quot; </pre>
+<pre class="tssr-source-code">    fi </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code">• Rendre exécutable le script à l’aide de chmod </pre>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5f6ca3a8c2b72b27dfc0513837ab014556552cf401545f1631028aac6e181eae.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5f6ca3a8c2b72b27dfc0513837ab014556552cf401545f1631028aac6e181eae.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

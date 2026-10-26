@@ -1,0 +1,176 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 1 - Boucle until.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M7 - Solution du TP 1 - Boucle until</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle until </h4>
+<p class="tssr-source-paragraph">Solution – TP1 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes <br>conditionnels. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">1- Analyse d’un script existant </p>
+<pre class="tssr-source-code"> 
+ 
+#!/bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">annee=$1 </pre>
+<pre class="tssr-source-code">nummois=1 </pre>
+<pre class="tssr-source-code">###annee=2011 </pre>
+<pre class="tssr-source-code">rouge=&#x27;\033[31m&#x27; </pre>
+<pre class="tssr-source-code">orange=&#x27;\033[33m&#x27; </pre>
+<pre class="tssr-source-code">vert=&#x27;\033[32m&#x27; </pre>
+<pre class="tssr-source-code">noir=&#x27;\033[0m&#x27; </pre>
+<pre class="tssr-source-code"># Début du script # </pre>
+<pre class="tssr-source-code"># Vérification qu&#x27;un argument a été passé # </pre>
+<pre class="tssr-source-code">[[ -z $1 ]] &amp;&amp; { echo -e &quot;Syntaxe d&#x27;utilisation : $0 $rouge &lt;annee&gt; $noir&quot;; 
+exit 13; } </pre>
+
+<pre class="tssr-source-code">echo &quot;###################&quot; </pre>
+<pre class="tssr-source-code">echo &quot;##  ANNEE $annee   ##&quot; </pre>
+<pre class="tssr-source-code">echo &quot;###################&quot; </pre>
+<pre class="tssr-source-code"># Corps du script # </pre>
+<pre class="tssr-source-code"># On boucle pour tous les mois </pre>
+<pre class="tssr-source-code">until [[ $nummois -eq 13 ]] </pre>
+<p class="tssr-source-paragraph">Page 1/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">        do </pre>
+<pre class="tssr-source-code">        ligne13=`cal $nummois $annee | grep 13` </pre>
+<pre class="tssr-source-code"> 
+# format du retour de la commande precedente incorrect </pre>
+<pre class="tssr-source-code"> 
+ligne13=$(echo $ligne13) </pre>
+<pre class="tssr-source-code">        if [[ $ligne13 = *13\ 14 ]] </pre>
+<pre class="tssr-source-code">                then </pre>
+<pre class="tssr-source-code">                nommois=`date --date &quot;$nummois/01&quot; +%B` </pre>
+<pre class="tssr-source-code">                listmois=&quot;$listmois $nommois,&quot; </pre>
+<pre class="tssr-source-code">                nbremois=`expr $nbremois + 1` </pre>
+<pre class="tssr-source-code">        fi </pre>
+<pre class="tssr-source-code">        nummois=`expr $nummois + 1` </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># On affiche la liste des mois concernés # </pre>
+<pre class="tssr-source-code">echo -e &quot;En $rouge $listmois $noir surveiller les paraskaviedekatriaphobes 
+&quot; </pre>
+<pre class="tssr-source-code"># On catégorise l&#x27;année en fonction du nombre d&#x27;occurence(s) et choix 
+couleur </pre>
+<pre class="tssr-source-code">case $nbremois in </pre>
+<pre class="tssr-source-code">        1) </pre>
+<pre class="tssr-source-code">        niveau=&quot;calme&quot; </pre>
+<pre class="tssr-source-code">        color=&quot;$vert&quot; </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        2) </pre>
+<pre class="tssr-source-code">        niveau=&quot;moyenne&quot; </pre>
+<pre class="tssr-source-code">        color=&quot;$orange&quot; </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        *) </pre>
+<pre class="tssr-source-code">        ### Test avec 2009 </pre>
+<pre class="tssr-source-code">        niveau=&quot;a forte vigilance&quot; </pre>
+<pre class="tssr-source-code">        color=&quot;$rouge&quot; </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">esac </pre>
+
+<pre class="tssr-source-code"># On résume l&#x27;état de l&#x27;année </pre>
+<pre class="tssr-source-code">echo -e &quot;$annee sera une annee ${color}$niveau $noir( $nbremois )&quot; </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<p class="tssr-source-paragraph">2- Rédaction d’un nouveau script </p>
+<pre class="tssr-source-code">L’objectif ici, est de trouver quelles sont, dans l’intervalle donnée, les années bissextiles. On se 
+focalise chaque année sur le mois de février seulement. Nous aurons besoin pour cela de la 
+commande cal qui affiche le calendrier mensuel, permettant d’identifier l’existence d’un 29ème 
+jour, ou pas, au mois de février. </pre>
+<pre class="tssr-source-code">Dans ce script, il y aura 3 compteurs à incrémenter : celui qui indiquera le nombre d’années 
+bissextiles trouvées nbannées, celui qui stockera les années réelles listannees et enfin celui qui 
+mettra fin à la boucle until lorsque toutes les années ont été analysées. </pre>
+<pre class="tssr-source-code">Pour ce dernier compteur, qui conditionne l’arrêt ou continuation de la boucle until, il s’agit de 
+rajouter ‘+1’ à l’année de début, pour chaque boucle effectuée. La condition à respecter est : la date 
+de fin de période fournie doit être supérieure au compteur (année de début + nb de boucle 
+effectuée). Ainsi, si on débute la plage à 2024 avec une fin en 2029, voici ce qui se passe : </pre>
+<pre class="tssr-source-code">1er tour de boucle : vérification de la condition : annecourante (2024) est &gt; à 2029 ? NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2024 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">2ème tour de boucle : vérification de la condition : anneecourante (2025) est &gt; à 2029 ? NON 
+donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2025 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">3ème tour de boucle : vérification de la condition : anneecourante (2026) est &gt; à 2029 ? 
+NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2026 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<p class="tssr-source-paragraph">Et ainsi de suite … </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP1.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP1.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">anneedeb=$1 # Stockage de la première année de la plage </pre>
+<p class="tssr-source-paragraph">Page 3/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">anneefin=$2 # Stockage de la dernière année de la plage </pre>
+<pre class="tssr-source-code">anneecourante=$anneedeb # Création d&#x27;une variable année courante à partir 
+du début </pre>
+<pre class="tssr-source-code">nbannees=0 # Compteur nombre d’années bissextiles initialisé à zéro </pre>
+
+<pre class="tssr-source-code"># Debut du script # </pre>
+<pre class="tssr-source-code"># Si arguments fournis au script ne sont pas = à 2 =&gt; Sortie </pre>
+<pre class="tssr-source-code">if [[ $# -ne 2 ]] </pre>
+<pre class="tssr-source-code">  then echo &quot;Syntaxe utilisation : script_M6TP2.sh &lt;annee_debut&gt; 
+&lt;annee_fin&gt;&quot; </pre>
+<pre class="tssr-source-code">  exit 3 </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">echo &quot;##########################################&quot; </pre>
+<pre class="tssr-source-code">echo -e &quot;##  Période considérée de $anneedeb a $anneefin   ##&quot; </pre>
+<pre class="tssr-source-code">echo &quot;##########################################&quot; </pre>
+
+<pre class="tssr-source-code"># Bouclage pour chaque année sur le mois de février </pre>
+<pre class="tssr-source-code">until [[ $anneecourante -gt $anneefin ]] </pre>
+<pre class="tssr-source-code"> do fevrier=$(cal 02 $anneecourante) # Recup du calendrier du mois de 
+février de l&#x27;année courante </pre>
+<pre class="tssr-source-code">    echo &quot;$fevrier&quot; | grep &quot;29&quot; | grep -v &quot;[0-9][0-9]29&quot; &gt;/dev/null 2&gt;&amp;1 
+# On cherche dans ce calendrier la présence du 29ème jour </pre>
+<pre class="tssr-source-code">if [[ $? -eq 0 ]] # Si la valeur 29 est trouvée (code retour = 0) </pre>
+<pre class="tssr-source-code"> then nbannees=`expr $nbannees + 1` # Ajout +1 au nombre d&#x27;années 
+bissextiles </pre>
+<pre class="tssr-source-code">   listannees=&quot;$listannees $anneecourante,&quot; # Ajout de l’année au listing 
+des années concernées </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">anneecourante=`expr $anneecourante + 1` # Incrément de 1 du compteur 
+d&#x27;année courante afin de vérifier si condition de la boucle until toujours 
+vraie </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># Résumé des années bissextiles trouvées (ou pas) </pre>
+<pre class="tssr-source-code">if [[ $nbannees -gt 0 ]]; then # Si plus d&#x27;une année </pre>
+<pre class="tssr-source-code">  echo -e &quot;Il y a $nbannees année(s) bissextile(s) dans la plage donnée&quot;  </pre>
+<pre class="tssr-source-code">  echo -e &quot;Année(s) : $listannees&quot; </pre>
+<pre class="tssr-source-code">else # Si pas d’année bissextile dans la plage </pre>
+<pre class="tssr-source-code">  echo -e &quot;Il n&#x27;y a aucune année bissextile dans la plage donnée&quot;  </pre>
+<pre class="tssr-source-code">fi </pre>
+
+<p class="tssr-source-paragraph">Page 4/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="692"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 5/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

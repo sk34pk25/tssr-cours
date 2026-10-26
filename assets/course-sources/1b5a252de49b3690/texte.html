@@ -1,31 +1,71 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 07 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-              Module 07 – La gestion du réseau et du pare-feu
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 07 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 07 – La gestion du réseau et du pare-feu</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Objectifs<br>• Rappel sur les bases des réseaux<br>• Configurer la carte et l’emplacement réseau<br>• Manipuler le pare-feu Windows</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
 
 
 
-
-
-                                                                                         1
-
-
-1
-
-
-
-  La gestion du réseau et du pare-feu
-
-                                            •  Rappel sur les bases des réseaux  Objectifs
-                                            •  Configurer la carte et l’emplacement réseau
-                                            •  Manipuler le pare-feu Windows
-
-
-
-
-
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>  La gestion du réseau et du pare-feu
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Rappel</h4>
+<p class="tssr-source-paragraph">IP : 192.168.5.254/24<br>MAC : 10-11-12-13-14-15</p>
+<p class="tssr-source-paragraph">IP : 192.168.10.254/24<br>MAC : 02-46-80-13-57-90</p>
+<p class="tssr-source-paragraph">Réseau directement connecté : <br>192.168.5.0 via 192.168.5.254</p>
+<p class="tssr-source-paragraph">Réseau directement connecté : <br>203.0.113.0 via 203.113.0.2</p>
+<p class="tssr-source-paragraph">?</p>
+<p class="tssr-source-paragraph">Réseau directement connecté : <br>192.168.10.0 via 192.168.10.254</p>
+<p class="tssr-source-paragraph">Réseau directement connecté : <br>203.0.113.0 via 203.0.113.1</p>
+<p class="tssr-source-paragraph">A</p>
+<p class="tssr-source-paragraph">B</p>
+<p class="tssr-source-paragraph">Route vers le réseau<br>192.168.5.0 via 203.0.113.1<br>Nombre de sauts : 1</p>
+<p class="tssr-source-paragraph">Route vers le réseau<br>192.168.10.0 via 203.0.113.2<br>Nombre de sauts : 1</p>
+<p class="tssr-source-paragraph">IP : 192.168.5.1/24<br>MAC : 00-01-02-03-04-05</p>
+<p class="tssr-source-paragraph">IP : 192.168.10.1/24<br>MAC : AA-BB-CC-DD-EE-FF</p>
+<p class="tssr-source-paragraph">IP : 192.168.5.1/24<br>MAC : 00-01-02-03-04-05</p>
+<p class="tssr-source-paragraph">IP : 192.168.10.1/24<br>MAC : AA-BB-CC-DD-EE-FF</p>
+<p class="tssr-source-paragraph">Passerelle : 192.168.5.254</p>
+<p class="tssr-source-paragraph">Passerelle : 192.168.10.254</p>
+<p class="tssr-source-paragraph">Passerelle : 192.168.5.254</p>
+<p class="tssr-source-paragraph">IP : 203.0.113.2/30<br>MAC : 1A-2B-3C-4D-5E-6F</p>
+<p class="tssr-source-paragraph">IP : 203.0.113.1/30<br>MAC : 50-51-52-53-54-55</p>
+<p class="tssr-source-paragraph">IP : 203.0.113.2/30<br>MAC : 1A-2B-3C-4D-5E-6F</p>
+<p class="tssr-source-paragraph">Passerelle : 192.168.10.254<br>IP : 203.0.113.1/30<br>MAC : 50-51-52-53-54-55</p>
+<p class="tssr-source-paragraph">Cache ARP de la routeur 1</p>
+<p class="tssr-source-paragraph">Cache ARP de la routeur 1</p>
+<p class="tssr-source-paragraph">Cache ARP de la machine A</p>
+<p class="tssr-source-paragraph">Adresse IP </p>
+<p class="tssr-source-paragraph">Adresse MAC<br>Adresse IP</p>
+<p class="tssr-source-paragraph">Adresse MAC<br>Adresse IP</p>
+<p class="tssr-source-paragraph">Adresse MAC<br>Adresse IP</p>
+<p class="tssr-source-paragraph">AA-BB-CC-DD-EE-FF<br>MAC Source :<br>02-46-80-13-57-90</p>
+<p class="tssr-source-paragraph">MAC Destination:<br>10-11-12-13-14-15<br>MAC Source :<br>00-01-02-03-04-05</p>
+<p class="tssr-source-paragraph">MAC Destination:<br>1A-2B-3C-4D-5E-6F<br>MAC Source :<br>50-51-52-53-54-55<br>MAC Destination:</p>
+<p class="tssr-source-paragraph">Source :<br>192.168.5.1<br>Données (Payload)</p>
+<p class="tssr-source-paragraph">Adresse IP <br>Destination :<br>192.168.10.1</p>
+<p class="tssr-source-paragraph">1A-2B-3C-4D-5E-6F<br>203.0.113.2</p>
+<p class="tssr-source-paragraph">10-11-12-13-14-15<br>192.168.5.254</p>
+<p class="tssr-source-paragraph">AA-BB-CC-DD-EE-FF<br>192.168.10.1</p>
+<p class="tssr-source-paragraph">Données de couche 3<br>Données de couche 2</p>
+<p class="tssr-source-paragraph">Le routeur trouve une correspondance dans sa table de routage. Pour atteindre le réseau 192.168.10.0 </p>
+<p class="tssr-source-paragraph">La machine A souhaite envoyer un paquet à la machine B<br>La machine B est-elle dans mon réseau ?<br>La machine B est sur un autre réseau<br>Le poste A devra envoyer le paquet vers sa passerelle par défaut. Il doit trouver son adresse MAC…<br>Le poste A regarde dans son cache ARP si l’adresse MAC de la passerelle y est stockée  <br>L’adresse MAC de la passerelle a été trouvée, la machine A encapsule la trame<br>La trame est transmise au routeur<br>Le routeur reçoit le paquet, désencapsule la couche 2 et analyse l’adresse IP de destination du paquet<br>Le routeur regarde dans sa table de routage<br>Le routeur va rechercher dans son cache ARP l’adresse MAC de l’adresse du saut suivant<br>Le routeur encapsule la trame et l’envoie à destination du routeur 2 <br>Le routeur 2 désencapsule la trame et analyse l’adresse IP de destination<br>Le routeur 2 trouve une correspondance dans sa table de routage, le réseau 192.168.10.0 est </p>
+<p class="tssr-source-paragraph">il doit passer par 203.0.113.2 et que le réseau de destination se trouve juste derrière (1 saut).</p>
+<p class="tssr-source-paragraph">directement connecté à l’interface 192.168.10.254 <br>Le routeur 2 recherche dans son cache ARP l’adresse MAC du poste B<br>Le routeur encapsule et envoie la trame à destination du poste B<br>Le poste B identifie qu’il est bien le destinataire du paquet et le traite</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Configuration de la carte réseau</h4>
+<p class="tssr-source-paragraph">Le centre réseau et partage</p>
+<p class="tssr-source-paragraph">• Accessible depuis l&#x27;icône réseau de la barre de notification<br>• Paramètre réseau et Internet &gt; Centre réseau et partage</p>
+<p class="tssr-source-paragraph">• Accessible depuis le panneau de configuration<br>• Réseau et Internet &gt; Centre réseau et partage</p>
+<p class="tssr-source-paragraph">• Donne des indications sur :<br>• La connectivité du poste<br>• Les connexions réseau détectées <br>• Les profils réseau et les emplacements associés</p>
+<p class="tssr-source-paragraph">• Donne accès aux paramétrages :<br>• Des fonctionnalités de partage : découverte, partages, dossiers publics…<br>• Des cartes réseau (accès direct en lançant ncpa.cpl)<br>• Des nouvelles connexions</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  La gestion du réseau et du pare-feu
  Rappel
 
                                          IP : 192.168.5.254/24                                                     IP : 192.168.10.254/24
@@ -79,152 +119,99 @@
                                                                                          4
 
 
-4</pre></section><section><h2>Page 3</h2><pre>  La gestion du réseau et du pare-feu
- Configuration de la carte réseau
+4</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>L |<br>ù</p><p>AE Centre Réseau etpartage<br>-<br>0<br>x</p></div></details>
 
-       Une carte réseau est associée à un emplacement réseau
-              • Détermine le comportement du pare-feu
-              • Réseau privé sur un poste autonome
 
 
-              • Réseau avec domaine non modifiable si le poste est joint à un domaine
 
 
-              • Réseau public si aucune passerelle n’a été définie, si le domaine n’a pas été détecté pour les
-            postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau…
 
 
 
-                                                                                         5
 
 
-5
 
 
-  La gestion du réseau et du pare-feu
- Configuration de la carte réseau
 
 
-              • Quels paramètres pour le poste de travail ?
-                      • Adresse IP et masque
-                      •  Passerelle
-                      • Serveurs DNS préférés et auxiliaires
-              • Le type d’adressage
-                      • Statique : configuré manuellement
-                      • Dynamique : fourni par le serveur DHCP ou APIPA
-              • APIPA : communication temporaire sur le réseau local
-                      • Obtenir automatiquement une adresse grâce au système
-                    d&#x27;exploitation Windows si aucun serveur DHCP n&#x27;est joignable
-                      • Réseau 169.254.0.0/16
-                      • Communication sur le réseau local possible
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Configuration de la carte réseau</h4>
+<p class="tssr-source-paragraph">Une carte réseau est associée à un emplacement réseau</p>
+<p class="tssr-source-paragraph">• Détermine le comportement du pare-feu</p>
+<p class="tssr-source-paragraph">• Réseau privé sur un poste autonome</p>
+<p class="tssr-source-paragraph">• Réseau avec domaine non modifiable si le poste est joint à un domaine</p>
+<p class="tssr-source-paragraph">• Réseau public si aucune passerelle n’a été définie, si le domaine n’a pas été détecté pour les <br>postes en domaine, si vous refusez de rendre votre ordinateur visible sur le réseau…</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Configuration de la carte réseau</h4>
+<p class="tssr-source-paragraph">• Quels paramètres pour le poste de travail ?</p>
+<p class="tssr-source-paragraph">• Adresse IP et masque<br>• Passerelle<br>• Serveurs DNS préférés et auxiliaires</p>
+<p class="tssr-source-paragraph">• Le type d’adressage <br>• Statique : configuré manuellement<br>• Dynamique : fourni par le serveur DHCP ou APIPA</p>
+<p class="tssr-source-paragraph">• APIPA : communication temporaire sur le réseau local<br>• Obtenir automatiquement une adresse grâce au système <br>d&#x27;exploitation Windows si aucun serveur DHCP n&#x27;est joignable<br>• Réseau 169.254.0.0/16<br>• Communication sur le réseau local possible</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Réseau 2<br>Type d&#x27;accès :<br>Internet<br>Réseau privé<br>Connexions :<br>@ EthemnetO</p><p>enilocal<br>Type d&#x27;accès :<br>Pas d&#x27;accès Internet<br>Réseau avec domaine<br>Connexions<br>:<br>€ fortiss!</p><p>SamsungRomain<br>Type d&#x27;accès :<br>Internet<br>SP)<br>Réseau public<br>Connexions :<br>alll Wi-Fi (SamsungRomain<br>env</p><p>Propriétés de : Protocole Internet version 4 (TCP/IPv4)<br>x</p><p>Général</p><p>Les paramètres IP peuvent être déteminés automatiquementsivotre<br>réseau le permet. Sinon, vous devez demander les paramètres IP<br>appropriés à votre administrateur réseau.</p><p>O Obtenir une adresse IP automatiquement<br>© Utiser l&#x27;adresse IP suivante :</p><p>ae:<br>Me deusréen:<br>Passerelle<br>par défaut<br>192.168.<br>1<br>.254</p><p>Obtenr les adresses des serveurs DNS automatiquement</p><p>©Uïiser l&#x27;adresse de serveur DNS suivante:</p><p>Sera:<br>=</p><p>[I Vaider les paramètres en quittant<br>Pres|</p><p>ZED)<br>Co]<br>amer<br>env</p></div></details>
 
-                                                                                         6
 
 
-6</pre></section><section><h2>Page 4</h2><pre>  La gestion du réseau et du pare-feu
- Configuration de la carte réseau
 
 
-            • Outils graphiques
-                      • Zone de notification (état de la connexion)
-                      • Composant Connexions réseau
-                      •  Assistant Résoudre les problèmes : orienté utilisateur…
 
-            • Rappel sur les outils invite de commande : les plus précis et efficaces
-                      • ipconfig : afficher la configuration et interagir avec la pile réseau (DNS, DHCP)
-                      • ping : tester la connectivité (bloqué par défaut par le pare-feu Windows !)
-                      • tracert : tester la route empruntée par les paquets TPC/IP
-                      • nslookup : diagnostic de la résolution de noms d’hôte
 
-                                                                                         7
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Configuration de la carte réseau</h4>
+<p class="tssr-source-paragraph">• Outils graphiques</p>
+<p class="tssr-source-paragraph">• Zone de notification (état de la connexion)<br>• Composant Connexions réseau<br>• Assistant Résoudre les problèmes : orienté utilisateur…</p>
+<p class="tssr-source-paragraph">• Rappel sur les outils invite de commande : les plus précis et efficaces</p>
+<p class="tssr-source-paragraph">• ipconfig : afficher la configuration et interagir avec la pile réseau (DNS, DHCP)</p>
+<p class="tssr-source-paragraph">• ping : tester la connectivité (bloqué par défaut par le pare-feu Windows !)</p>
+<p class="tssr-source-paragraph">• tracert : tester la route empruntée par les paquets TPC/IP</p>
+<p class="tssr-source-paragraph">• nslookup : diagnostic de la résolution de noms d’hôte</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Pare-feu</h4>
+<p class="tssr-source-paragraph">• Pourquoi ?</p>
+<p class="tssr-source-paragraph">• Délimiter quels flux réseau sont autorisés en entrée et en sortie<br>• Protéger le poste contre les accès non autorisés (utilisateurs, programmes)<br>• Élément de la stratégie globale de sécurité de l’entreprise</p>
+<p class="tssr-source-paragraph">• Caractéristiques</p>
+<p class="tssr-source-paragraph">• Activé par défaut, bloque certains flux en entrée et les autorise tous en sortie<br>• Se compose de règles prédéfinies activées (ou facilement activables)<br>• S&#x27;adapte à la situation du poste (emplacements réseau)<br>• Administrable de manière centralisée (stratégies, export)</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
 
 
-7
 
+<figure class="tssr-original-figure"><a href="../figures/atlas-4e0c070d716ae047854843674ae415f4541e1eccd60c27a0d3a36b79e4bf03f4.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4e0c070d716ae047854843674ae415f4541e1eccd60c27a0d3a36b79e4bf03f4.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="8371"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Pare-feu</h4>
+<p class="tssr-source-paragraph">• 3 niveaux de configuration <br>• Utilisateur depuis le composant Vérifier l&#x27;état du <br>Pare-feu pour l’activation / la désactivation<br>• Programme avec la fonction Autoriser une <br>application via le pare-feu Windows : fournit un <br>ensemble de règles génériques activées <br>automatiquement et paramétrables<br>• Avancé avec la console Pare-feu Windows <br>Defender avec fonctions avancées de sécurité : <br>donne accès au paramétrage détaillé de l’ensemble <br>des règles, permet également d’afficher une vue <br>globale des règles activées<br>• Accessible avec la commande firewall.cpl</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CSTS</p><p>Ha tayercevrc cme<br>| Peete Mido Deda à<br>Pate<br>dans<br>| OQ Entente<br>menaenorme<br>snipe<br>Simca |<br>|e<br>DT<br>PET<br>Ds<br>ST<br>nan)</p></div></details>
 
-  La gestion du réseau et du pare-feu
- Pare-feu
 
 
-            • Pourquoi ?
-                      • Délimiter quels flux réseau sont autorisés en entrée et en sortie
-                      • Protéger le poste contre les accès non autorisés (utilisateurs, programmes)
-                      • Élément de la stratégie globale de sécurité de l’entreprise
 
-            • Caractéristiques
-                      • Activé par défaut, bloque certains flux en entrée et les autorise tous en sortie
-                      • Se compose de règles prédéfinies activées (ou facilement activables)
-                      • S&#x27;adapte à la situation du poste (emplacements réseau)
-                      • Administrable de manière centralisée (stratégies, export)
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">La gestion du réseau et du pare-feu</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Tout poste client doit communiquer sur les <br>différents réseaux de l’entreprise<br>• Tester la communication et diagnostiquer lorsqu’il <br>y a dysfonctionnement<br>• Ouvrir et fermer des accès grâce au pare-feu</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
 
-                                                                                         8
 
 
-8</pre></section><section><h2>Page 5</h2><pre>  La gestion du réseau et du pare-feu
- Pare-feu
-
-            • 3 niveaux de configuration
-                      •  Utilisateur depuis le composant Vérifier l&#x27;état du
-                 Pare-feu pour l’activation / la désactivation
-                      • Programme avec la fonction Autoriser une
-                  application via le pare-feu Windows : fournit un
-                ensemble de règles génériques activées
-                automatiquement et paramétrables
-                      • Avancé avec la console Pare-feu Windows
-                Defender avec fonctions avancées de sécurité :
-               donne accès au paramétrage détaillé de l’ensemble
-                 des règles, permet également d’afficher une vue
-                  globale des règles activées
-            • Accessible avec la commande firewall.cpl
-
-
-                                                                                         9
-
-
-9
-
-
-  La gestion du réseau et du pare-feu
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          10
-
-
-10</pre></section><section><h2>Page 6</h2><pre>  La gestion du réseau et du pare-feu
-
-
-              TP
-
-
-
-
-
-                                                                                          11
-
-
-11
-
-
-  La gestion du réseau et du pare-feu
- Conclusion                                            •  Tout poste client doit communiquer sur les
-                                        différents réseaux de l’entreprise
-                                            •  Tester la communication et diagnostiquer lorsqu’il
-                                  y a dysfonctionnement
-                                            •  Ouvrir et fermer des accès grâce au pare-feu
-
-
-
-
-
-                                                                                          12
-
-
-12</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-6f4996c96983455c071b39f684268aa063da3df27554384a047360d71b9b377d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6f4996c96983455c071b39f684268aa063da3df27554384a047360d71b9b377d.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="992" height="3923"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

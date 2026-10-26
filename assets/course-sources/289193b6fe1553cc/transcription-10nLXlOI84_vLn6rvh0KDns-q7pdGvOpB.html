@@ -1,0 +1,108 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 2 - DNS hébergeur.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 2 - DNS hébergeur</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>DNS hébergeur </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Le service DNS </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir réalisé <br>le précédent TP. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 05. </p>
+<p class="tssr-source-paragraph">• <br>Mettre en place la VM SRV-2K19-DNS-TP14.ova mise à disposition.  </p>
+<p class="tssr-source-paragraph">• <br>Identifiant : Administrator  - Mot de passe : Pa$$w0rd </p>
+<p class="tssr-source-paragraph">Configuration du serveur DNS hébergeur </p>
+<p class="tssr-source-paragraph">• <br>Installez le service DNS sur la machine virtuelle ou est hébergé le service DHCP. </p>
+
+
+<p class="tssr-source-paragraph">Page 1/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p><p>-@1I P<br>BG<br>oui<br>Afficher<br>Aïe</p><p>Ajouter des rôles et fonctionnalités</p><p>Supprimer des rôles et fonctionnalités</p><p>Ajouter des serveurs</p><p>Créer un groupe de serveurs</p><p>quement<br>àl&#x27;à | Propriétés<br>du Gestionnaire de serveur</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph"> <br>• <br>Sur ce serveur, créez les zones pour les besoins suivants : </p>
+<pre class="tssr-source-code">o Résolution directe pour un domaine infraXX.net (ou XX = vos initiales). </pre>
+<pre class="tssr-source-code"> 
+o Résolution inverse pour votre réseau VmNet10. 
+o Création de l’ensemble des enregistrements permettant la résolution des </pre>
+<p class="tssr-source-paragraph">noms et adresses IP de vos serveurs. </p>
+<p class="tssr-source-paragraph">Page 2/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fa Assistant Ajout de rôles et de fonctionnalités<br>_<br>Oo<br>x</p><p>at.<br>35<br>à<br>SERVEUR DE DESTINATION<br>Sélectionner des rôles de serveurs<br>WIN-OUU3GNHOMS<br>Kee<br>Sélectionnez un ou plusieurs rôles à installer sur le serveur sélectionné</p><p>Type d&#x27;installation<br>Réles<br>Description</p><p>Sélection du serveur<br>[1 Accèsà distance<br>n|<br>Le serveur DNS (Domain Name</p><p>,<br>[1 HyperV<br>noms sur les réseaux TCP/IP. Le<br>Fonctionnalités<br>[1] Serveur de télécopie<br>serveur DNS est plus facile à gérer<br>Serveur DNS<br>[1 Serveur DHCP<br>lorsqu&#x27;il est installé sur le même<br>serveur que les services de domaine<br>Confirmation<br>[1 Serveur Web (ls)<br>Active Directory. Si vous.<br>[1 Service Guardian hôte<br>sélectionnez le rôle Services de<br>[] Services AD DS<br>domaine Active Directory, vous<br>i Services AD LDS (Active Directory Lightweight Dire<br>pouvez installeretconfigurer le<br>[] Services AD RMS (Active Directory Rights Manage!<br>serveur DNS et les services de<br>Ll&#x27;Senizes ures §&#x27;ditsnce<br>domaine Active Directory pour les<br>[1 Services d&#x27;activation en volume<br>faire fonctionner conjointement.<br>[] Services d&#x27;impression et de numérisation de docur<br>[] Services de certificats Active Directory<br>[1 Services de déploiement Windows<br>[] Services de fédération Active Directory (AD FS)</p><p>&gt;<br>[Ml Services de fichiers et de stockage (1 sur 12 install,<br>[1 Services de stratéaie et d&#x27;accès réseau<br>v</p><p>&lt;<br>&gt;</p><p>À, Gestionnaire DNS<br>=<br>o<br>x</p><p>Fichier<br>Action<br>Affichage?<br>es fm X5 084% I aS</p><p>&amp; ons<br>Nom<br>vg WIN-LO4U3GNHGM6<br>[ilZones<br>de recherche directes<br>&gt; 1 Zones de recherche dites| &gt; de recherche inversée<br>&gt; [Mi Zones de recherche invel TEbpoints d&#x27;approbation<br>&gt; D<br>Points d&#x27;approbation<br>K = Reou ae haditionne | Lal Redirecteurs conditionnels<br>[Elindicationsde racine<br>[e]Redirecteurs</p><p>&lt;<br>E</p><p>=<br>&amp; DNS<br>Name<br>Type<br>Status<br>DNSSEC Status<br>Key Master<br>Y Hi SRV-2KI9-0<br>F0:168.192.in-adar.arpa<br>Standard Primary<br>Running<br>Not Signed<br>v D Forward Lookup Zones</p><p>&gt; EX infraam.net<br>v [I Reverse Lookup Zones</p><p>&gt; Gi 0.168.192.in-addr.arpa</p><p>&gt; © Trust Points</p><p>&gt; © Conditional Forwarders</p><p>ent</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph"> <br>• <br>Testez et validez le bon fonctionnement depuis votre serveur : </p>
+<pre class="tssr-source-code">o nslookup -q=soa &lt;votre domaine&gt; 
+o nslookup -q=ns &lt;votre domaine&gt; </pre>
+
+<p class="tssr-source-paragraph">Paramétrage du client </p>
+<p class="tssr-source-paragraph">• <br>Revoir la configuration automatique des paramètres DNS sur les clients : </p>
+<pre class="tssr-source-code">o Configurez le 2e serveur DNS comme serveur DNS préféré. </pre>
+<pre class="tssr-source-code"> 
+o Configurer le suffixe DNS relatif à votre domaine. </pre>
+
+<p class="tssr-source-paragraph">Page 3/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp;, DNS<br>Name<br>Type<br>Data<br>Ÿ<br>mi SRV-2k19-0<br>Flameas parent folder)<br>Start of Authority<br>(SOA)<br>[1] srv-2k19-0., hostmaster.<br>¥ es<br>Fisame as parent folder)<br>Name Server (NS)<br>srv-2k19-0.<br>Es infraam.net<br>Fsrv-2k19-0<br>Host (A)<br>192.168.0.1<br>v</p><p>[D Reverse Lookup Zones<br>reo<br>Host<br>(A<br>102 168.0.254<br>CA 0.168.192.in-addr.arpa<br>LE<br>7<br>ost (A)<br>1880.<br>2 Trust Points</p><p>5] Conditional Forwarders</p><p>PS C:\Users\Administrator&gt; nslookup<br>infraam.net<br>Server:<br>localhost<br>Address:<br>127.6.6.1</p><p>infraam.net</p><p>primary name server<br>= srv-2k19-@<br>responsible mail addr<br>= hostmaster<br>serial<br>=<br>3<br>refresh<br>= 990<br>(15 mins)<br>retry<br>= 688<br>(18 mins)<br>expire<br>= 66490<br>(1 day)<br>default<br>TTL<br>= 3688<br>(1 hour)<br>PS C:\Users\Administrator&gt; nslookup<br>infraam.net<br>Server:<br>localhost</p><p>infraam.net<br>nameserver<br>= srv-2k19-4</p><p>onnection-specitic<br>DNS<br>Suffix<br>.<br>:<br>Description<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>!<br>Intel(R)<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@@-@C-29-58-23-69<br>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>«<br>.<br>»<br>.<br>«<br>:<br>No<br>Autoconfiguration Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Link-local<br>IPvé Address<br>.<br>.<br>.<br>.<br>.<br>:<br>fe80::#900:#499:9abf:665c#9{Preferred)<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.100(Preferred)</p><p>Default Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.254<br>DHCPv6 IAID.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: 166666469<br>DHCPv6<br>Client<br>DUID.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>00-01-09-01-28-46-66-B1-09-9C-29-58-23-69</p><p>Primary Dns Suffix<br>......4.<br>1<br>Node Type...<br>.<br>.<br>.<br>.<br>.<br>«<br>«<br>.<br>«<br>+<br>Hybrid<br>IP Routing Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>No<br>WINS Proxy<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>No<br>DNS<br>Suffix Search<br>List.<br>.<br>.<br>.<br>.<br>.<br>:<br>infraam.net</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Testez et validez le bon fonctionnement de la résolution de vos domaines depuis le <br>poste client. </p>
+<pre class="tssr-source-code">o En utilisant le FQDN </pre>
+<pre class="tssr-source-code"> 
+o En utilisant le nom d’hôte uniquement </pre>
+
+<p class="tssr-source-paragraph">Page 4/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DHCP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>Y<br>ni SRV-2K19-0<br>[=] 003 Router<br>Standard<br>192.168.0.254<br>None<br>v ips</p><p>5<br>Opt<br>UE, 006 DNS Servers<br>Standard<br>192.168.1.1<br>None<br>à<br>Server<br>Options<br>=</p><p>=)<br>01<br>Ni<br>fraam.<br>V<br>LA Scope [192.168.0.0} 192.168,0.0/24<br>[=]015 DNS Domain<br>Name<br>Standard<br>infraam.net<br>None<br>&amp; Address Pool</p><p>@ Address Leases</p><p>i] Reservations</p><p>Scope Options<br>5] Policies</p><p>À Scope [192.168.1.0] 192.168.1.0/24<br>5 Policies<br>#<br>Filters</p><p>PS C:\Users\Administrator&gt; nslookup srv-2K19-1.infraam.net<br>DNS request timed<br>out.<br>timeout<br>was<br>2<br>seconds.<br>Server:<br>Unknown</p><p>Name :<br>srv-2K19-1.infraam.net</p><p>PS C:\Users\Administrator&gt; nslookup srv-2K19-1<br>DNS request timed<br>out.<br>timeout<br>was<br>2<br>seconds.<br>Server:<br>Unknown<br>Address:<br>192.168.8.51</p><p>Name<br>:<br>srv-2K19-1.infraam.net</p></div></details>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-fa1bf2bde7930a8eb4a42f850768e61468042ea6180d6f0e3e28581fd853bd0c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fa1bf2bde7930a8eb4a42f850768e61468042ea6180d6f0e3e28581fd853bd0c.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4503"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph"> <br>Chaîne de résolution : <br> </p>
+<p class="tssr-source-paragraph">• <br>Configurez le 2e serveur DNS pour faire appel uniquement à votre 1er serveur DNS <br>pour la résolution des noms DNS extérieurs. </p>
+
+<p class="tssr-source-paragraph">• <br>Configurez votre 2e serveur DNS pour permettre la résolution du domaine DNS mis à <br>disposition «infraXX.net » .  </p>
+
+<p class="tssr-source-paragraph">Page 5/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&amp; DNS<br>Name<br>à SRV-2K19-DNS<br>forward Lookup Zones<br>&gt; I Forward Lookup Zones | “reverse Lookup Zones<br>&gt; EI Reverse Lookup Zones |7<br>pin<br>rust<br>Poi<br>&gt; © Trust Points</p><p>&gt; Di Conditional Forwarders conor Forwarders<br>LE]<br>Root<br>Hin<br>[Forwarders<br>SRV-2K19-DNS Properties<br>?<br>x</p><p>Debug Logging<br>Event Logging<br>Monitoring<br>“Se<br>Forwarders<br>Advanced<br>Root Hints</p><p>Forwarders are DNS servers that this server can use to resolve DNS<br>queries for records that this server cannot resolve.</p><p>IP Address<br>Server FQDN</p><p>192. 168.0.1<br>&lt;Attempting to resolve... &gt;</p><p>Muse root hints if no forwarders are available<br>|<br>edit...</p><p>Note: IF conditional forwarders are defined for a given domain, they will<br>be used instead of server-evel forwarders. To create or view conditional<br>forwarders, navigate to the Conditional Forwarders node in the scope<br>tree.</p><p>[og] |cores|<br>27 ||nb|</p><p>&amp; DNS<br>Name<br>Type<br>5 SRV-2K19-DNS<br>&gt; D Forward Lookup Zones<br>There are no items to show in this view.<br>&gt; D Reverse Lookup Zones</p><p>&gt; D Trust Points</p><p>(5) Conditional Forwarders</p><p>New Conditional Forwarder<br>x</p><p>DNS Domain:</p><p>IP addresses of the master servers:</p><p>IP Address<br>Server FQDN<br>Validated<br>Delete</p><p>i)</p><p>Down</p><p>Store this conditional forwarder in Active Directory, and replicate it as follows:</p><p>All DNS servers in this forest<br>-</p><p>Number of seconds before forward queries tmeout: [5 |<br>The server FQDN will not be available if the appropriatereverse lookup zones and entries are not<br>configured.</p><p>x<br>Cancel<br>|</p><p>ent</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Testez et validez le bon fonctionnement de la résolution depuis le client. </p>
+<pre class="tssr-source-code">o Vers vos domaines DNS ? 
+□ Oui    
+ </pre>
+<pre class="tssr-source-code">o Vers les domaines DNS fournis ? 
+□ Oui    
+ </pre>
+<pre class="tssr-source-code">o Vers les domaines DNS publics ? 
+□ Oui   </pre>
+<p class="tssr-source-paragraph">Page 6/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3d5adc015f5fed770e998de92bae151c2f0547b8138bd739a291a6dd32bd8fab.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3d5adc015f5fed770e998de92bae151c2f0547b8138bd739a291a6dd32bd8fab.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="965" height="1621"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

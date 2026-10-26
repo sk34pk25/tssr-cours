@@ -1,0 +1,186 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - PremiŠres commandes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - PremiŠres commandes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Premières commandes </h4>
+<p class="tssr-source-paragraph">TP du Module 01 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 de ce cours. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">2 heures </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Objectifs :  </p>
+<p class="tssr-source-paragraph">• <br>Lancer des commandes PowerShell données </p>
+<p class="tssr-source-paragraph">• <br>Analyser les différences de résultats d’exécution entre différents environnements </p>
+<p class="tssr-source-paragraph">Prérequis :  </p>
+<p class="tssr-source-paragraph">• <br>Récupérer la maquette fournie par le formateur </p>
+<p class="tssr-source-paragraph">• <br>Avoir une connexion internet </p>
+<p class="tssr-source-paragraph">Consignes : </p>
+<p class="tssr-source-paragraph">• <br>Décompresser la maquette fournie par le formateur </p>
+<p class="tssr-source-paragraph">• <br>Intégrer les machines virtuelles dans VMware Workstation </p>
+<p class="tssr-source-paragraph">• <br>Démarrer les machines virtuelles suivantes :  </p>
+<pre class="tssr-source-code">o CLI01 </pre>
+<pre class="tssr-source-code">o CD01 </pre>
+<p class="tssr-source-paragraph">• <br>S’y connecter :  </p>
+<pre class="tssr-source-code">o identifiant : Administrator@ad01.lcl </pre>
+<pre class="tssr-source-code">o mot de passe : Pa$$w0rd </pre>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 : </p>
+<p class="tssr-source-paragraph">• <br>Lancez la console PowerShell en mode administrateur et découvrez l&#x27;interface <br>utilisateur.  </p>
+<pre class="tssr-source-code">• 
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes 
+renvoyées par la propriété Count </pre>
+<p class="tssr-source-paragraph">2855 </p>
+<p class="tssr-source-paragraph">• <br>Lancez la console PowerShell Core en mode administrateur et découvrez l&#x27;interface </p>
+<p class="tssr-source-paragraph">Page 1/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">utilisateur.  </p>
+<pre class="tssr-source-code">• 
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes 
+renvoyées par la propriété Count. </pre>
+<p class="tssr-source-paragraph">Admin 2825 / user 2796 </p>
+<p class="tssr-source-paragraph">• <br>Affichez la liste des verbes disponibles dans chaque console PowerShell. Que <br>remarquez-vous ? </p>
+<pre class="tssr-source-code">Get-Verb (| measure) </pre>
+<pre class="tssr-source-code">PS = 98 </pre>
+<pre class="tssr-source-code">PSCore = 100 </pre>
+<p class="tssr-source-paragraph">On remarque les verbes sont classés par groupe. </p>
+<pre class="tssr-source-code">• 
+Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ? </pre>
+<pre class="tssr-source-code">Get-Command -Verb New </pre>
+<pre class="tssr-source-code">• 
+Listez les commandes contenant user dans le nom. Quelle commande avez-vous 
+utilisée ? </pre>
+<pre class="tssr-source-code">Get-Command -Noun *User* </pre>
+<p class="tssr-source-paragraph">• <br>Indiquez la commande permettant de créer un nouvel utilisateur local. </p>
+<pre class="tssr-source-code">Get-command -Noun *localuser* </pre>
+<p class="tssr-source-paragraph">• <br>Listez les cinq premiers utilisateurs locaux de chaque machine virtuelle. </p>
+<pre class="tssr-source-code">o Utilisateurs de CD01 </pre>
+<pre class="tssr-source-code">Get-LocalUser | select -first 5 </pre>
+<pre class="tssr-source-code">o  Utilisateurs de CLI01 </pre>
+<p class="tssr-source-paragraph">Get-LocalUser | select -first 5 </p>
+<p class="tssr-source-paragraph"> <br>Bonus </p>
+<p class="tssr-source-paragraph">• <br>Modifiez la description d’un utilisateur local sur « SRV01 » et « CLI01 ». Quelles commandes <br>avez-vous utilisées ? </p>
+<pre class="tssr-source-code">Set-LocalUser -Name &quot;AxelRios&quot; -Description &quot;Operateur&quot; </pre>
+<pre class="tssr-source-code">Get-LocalUser -Name &quot;AxelRios&quot; </pre>
+
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<p class="tssr-source-paragraph">• <br>Affichez l’aide de la commande permettant de lister tous les services du système. </p>
+<pre class="tssr-source-code">Get-Help Get-Service </pre>
+<p class="tssr-source-paragraph">• <br>Affichez l’aide dans une nouvelle fenêtre. Indiquez la commande utilisée. </p>
+<pre class="tssr-source-code"> Get-Help Get-Service -showwindow </pre>
+
+<p class="tssr-source-paragraph">Page 2/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">• <br>Affichez la totalité de l’aide disponible. Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-Help Get-Service -full </pre>
+<p class="tssr-source-paragraph">• <br>Affichez l’aide en ligne de la commande permettant de lister les membres d’un groupe <br>d’utilisateurs locaux. Quelle commande avez-vous utilisée, quels sont les avantages de <br>l’aide en ligne ? </p>
+<pre class="tssr-source-code">Get-Help Get-LocalGroup – Online </pre>
+<p class="tssr-source-paragraph">Afficher les membres d&#x27;un groupe </p>
+<pre class="tssr-source-code">Get-LocalGroupMember -Online </pre>
+<p class="tssr-source-paragraph">• <br>Mettez à jour les fichiers d’aide de votre console PowerShell. </p>
+<pre class="tssr-source-code">o Vous allez effectuer la mise à jour de toutes vos commandes à </pre>
+<p class="tssr-source-paragraph">partir d’un dépôt local situé sur « CD01 ».  </p>
+<pre class="tssr-source-code">o Voici 
+le 
+chemin 
+« 
+UNC 
+» 
+du 
+dépôt 
+:  
+\\CD01\Partage\Depot\CLI01 </pre>
+<pre class="tssr-source-code">o Indiquez vos remarques </pre>
+<pre class="tssr-source-code">Update-Help -Sourcepath \\CD01\Partage\Depot\CLI01\ -UICulture EN-US </pre>
+<p class="tssr-source-paragraph">On remarque que certains modules n’ont pas de fichier d’aide disponible. </p>
+
+<p class="tssr-source-paragraph">• <br>Effectuez la même action mais en sélectionnant le langage « fr-FR  ». Indiquez vos <br>remarques. </p>
+<pre class="tssr-source-code">Update-Help -Sourcepath \\CD01\Partage\Depot\CLI01\ -UICulture fr-FR </pre>
+<p class="tssr-source-paragraph">On remarque que très peu de modules disposent de fichiers d’aide traduits. </p>
+
+<p class="tssr-source-paragraph">Page 3/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
+<p class="tssr-source-paragraph">• <br>Affichez les modules actuellement chargés par la console PowerShell. </p>
+<pre class="tssr-source-code">Get-Module ou Get-module -all </pre>
+
+<pre class="tssr-source-code">o Combien de modules sont actuellement disponibles ? </pre>
+<pre class="tssr-source-code">Get-Module | measure </pre>
+<pre class="tssr-source-code">o De quel module la commande Get-LocalUser est-elle issue ? </pre>
+<pre class="tssr-source-code">get-command get-localuser </pre>
+<pre class="tssr-source-code">get-command get-localuser | ft wrap </pre>
+<pre class="tssr-source-code">get-command get-localuser | select module </pre>
+
+<pre class="tssr-source-code">&gt;&gt; Microsoft.PowerShell.LocalAccounts </pre>
+<p class="tssr-source-paragraph">• <br>Affichez les emplacements disponibles pour déposer les fichiers contenant les modules. <br>Quelle commande avez-vous utilisée ? </p>
+<pre class="tssr-source-code">Get-Help about_modules -showwindow </pre>
+<pre class="tssr-source-code">On cherche &quot;Path&quot; </pre>
+<p class="tssr-source-paragraph">#variable d&#x27;environnement :  </p>
+<pre class="tssr-source-code">$env:PSModulePath </pre>
+<p class="tssr-source-paragraph">C:\Users\Administrator\Documents\WindowsPowerShell\Modules;C:\Program <br>Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Mod<br>ules </p>
+<p class="tssr-source-paragraph">• <br>Installer le module AWSPowerShell. L’archive est disponible sur le partage <br>\\CD01\Partage\Modules </p>
+<pre class="tssr-source-code">o Quelles commandes avez-vous utilisées ? </pre>
+<p class="tssr-source-paragraph">• <br>Vous allez obtenir un message d’erreur à l’importation du module </p>
+<pre class="tssr-source-code">o Quelle 
+commande 
+allez-vous 
+exécuter 
+pour 
+permettre 
+l’importation du module ? </pre>
+<pre class="tssr-source-code">Import-Module AWSPowserShell </pre>
+<pre class="tssr-source-code">o Indiquez trois commandes disponibles dans le module </pre>
+<p class="tssr-source-paragraph">AwsPowerShell </p>
+<p class="tssr-source-paragraph">Page 4/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-fa10c3a1bd7bd5af4268451a50b90653cd26dd0f22ee5beb85ea415e2fdf277d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fa10c3a1bd7bd5af4268451a50b90653cd26dd0f22ee5beb85ea415e2fdf277d.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="1412"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">• <br>Mettez en place un profil personnel sur chaque console PowerShell. </p>
+<pre class="tssr-source-code">o Vous pouvez modifier la coloration ainsi que la police. </pre>
+<pre class="tssr-source-code">o Affichez l’aide de la commande Get-Help à chaque ouverture </pre>
+<p class="tssr-source-paragraph">de la console PowerShell. </p>
+<pre class="tssr-source-code">o Quel fichier avez-vous édité ? </pre>
+<p class="tssr-source-paragraph">Microsoft.PowerShell_profile.ps1 </p>
+<p class="tssr-source-paragraph"> <br>Bonus </p>
+<p class="tssr-source-paragraph">• <br>Modifiez le prompt de votre console PowerShell. </p>
+<pre class="tssr-source-code">o En 
+vous 
+basant 
+sur 
+le 
+fichier  
+\\CD01\Partage\Aplication\Prompt.ps1 </pre>
+<pre class="tssr-source-code">o Modifiez votre prompt pour afficher l’heure ainsi que la </pre>
+<p class="tssr-source-paragraph">localisation actuelle du prompt dans le système de fichier. </p>
+<p class="tssr-source-paragraph">Vous pouvez également afficher une bannière avec le nom de l’utilisateur actuel. </p>
+<p class="tssr-source-paragraph">Page 5/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EY Administrator: Windows PowerShell<br>L = 4<br>PS C:\&gt;<br>get-comman<br>Aws Powersne<br>cma<br>let</p><p>CommandType<br>Name</p><p>Cmdiet<br>Add-AasscalableTarget<br>cmd let<br>Add-AcMCertificateTag<br>;<br>.<br>icmdlet<br>Add-ADsconfigurationItemsToApplication</p><p>EM Admniniatsatee: Winidirers Pewerthed<br>L = À<br>PS C:\&gt; New-Item<br>File<br>ROF</p><p>Directory:<br>C:\Users\Administrator\Documents \WwindowsPowershe1 1]</p><p>Mode<br>LastwriteTime<br>Length Name</p><p>-a----<br>10/14/2020<br>11:06 AM<br>0 Microsoft. PowerShell_profile.ps1</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 6/6 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>fe] Prompt.ps1 E]</p><p>function Get-Time<br>{return §(Get-Date<br>|<br>ForEach<br>($_.ToLongTimeString({)}}}</p><p>2<br>function prompt<br>{<br>Write-Host<br>&quot;[&quot;<br>=noNewLine</p><p>4<br>Write-Host<br>§(Get-Time)<br>-ForegroundColor DarkYellow -noNewLine<br>Write-Host<br>&quot;<br>-noNewLine</p><p>é<br>Write-Hose<br>§(§(Get-Location).Path.replace ($home,&quot;~&quot;))<br>-ForegroundColor<br>DarkGreen<br>-noNewLine<br>Write-Host<br>§(if<br>($nestedpromptlevel<br>-ge<br>1)<br>{<br>&#x27;<br>})<br>-noNewLine<br>return<br>&quot;</p><p>3<br>}</p><p>1<br>function<br>IsAdmin<br>1</p><p>12<br>§CurrentUser<br>=<br>(System. Security. Principal.WindowsIdentity]<br>: :GetCurrent ()</p><p>14<br>$principal =</p><p>New-Object System.5ecurity.<br>principal .windowsprincipal (§CurrentUser)<br>Lé<br>$principal.IsInkele({<br>~<br>(System. Security. Principal .WindowsBuiltInRole] ::Administrator)<br>1}<br>J<br>=|if<br>(isAdmin)<br>{</p><p>z<br>$ElevationMode<br>= &quot;Privilégiéer<br>Shost.UI.RawJI.BackGroundColor<br>=<br>&#x27;DarkRed!</p><p>22<br>Clear-Host</p><p>}</p><p>24<br>else<br>{<br>$ElevationMode<br>=<br>‘Non<br>Frivilégiée</p><p>Ze<br>$host.UI.RawUI.BackGroundColor<br>=<br>‘DarkMagenta’<br>Clear-Host<br>2}<br>;<br>$time<br>= §(Get-Time)<br>$CurrentUser =</p><p>[System. Security. Principal .Windowsldentity] ::GetCurrent()</p><p>Write-Host<br>‘penmmmmmmmmmmmmmmmmmmmmmmmmmmmmmemmmmemmmmmmmmmmhf</p><p>:<br>Write-Host<br>(&quot;+<br>n<br>&quot;<br>-£<br>($CarrentUger.Name) .splic(&quot;\f)[L])&quot;IL<br>time&quot;<br>Write-Host fpnnmmmmmmmmmmmmmmmmmmmmmmmesmmmmm$f</p><p>a<br>.<br>L=J<br>Sd</p><p>.<br>=<br>8<br>=<br>+- Bonjour Administrator<br>Il<br>est<br>11:17:05 AM<br>D<br> —<br>[11:17:05 AM]<br>&gt;</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3f4ba333069209a1f9895bd1689b2151828a65cdf0e84e85b4bafddfab8d3753.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3f4ba333069209a1f9895bd1689b2151828a65cdf0e84e85b4bafddfab8d3753.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="964" height="1716"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,41 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 3 - Les m‚thodes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 3 - Les m‚thodes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Les méthodes </h4>
+<p class="tssr-source-paragraph">Démonstration 03 du module 2 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter ce que sont les méthodes. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">De la même façon qu’un objet contient des propriétés, les méthodes qu’il contient vont permettre <br>d’effectuer des actions sur la totalité de l’objet, sur une propriété ou de faire des actions de <br>conversion par exemple. </p>
+<pre class="tssr-source-code">• 
+Les méthodes sont révélées par la commande Get-Member. </pre>
+<p class="tssr-source-paragraph">• <br>Les méthodes sont des actions à la différence des propriétés qui, elles, sont statiques. </p>
+
+<pre class="tssr-source-code">La méthode Start a une portée sur tout l’objet service.  </pre>
+<p class="tssr-source-paragraph">L’utilisation d’une méthode se fait en ayant les informations à disposition telles que l’objet sur lequel <br>on souhaite exécuter la méthode ou la propriété de l’objet sur laquelle on va exécuter cette <br>méthode. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Get-Member</p><p>TypeName:<br>System.ServiceProcess.ServiceController</p><p>Name<br>MemberType<br>Definition</p><p>Name<br>AliasProperty Name = ServiceName<br>RequiredServices<br>AliasProperty RequiredServices =<br>Disposed<br>Event<br>System. EventHandler<br>Close<br>Method<br>void Close()<br>Continue<br>Method<br>void Continue()<br>CreateObjRef<br>Method<br>System.Runtime.Remo<br>Dispose<br>Method<br>void Dispose(),<br>voi<br>Equals<br>Method<br>bool<br>Equals(System.<br>ExecuteCommand<br>Method<br>void<br>ExecuteCommand<br>GetHashCode<br>Method<br>int GetHashCode()<br>GetLifetimeservice<br>Method<br>System.Object GetLi<br>GetType<br>Method<br>type GetType()<br>InitializeLifetimeService Method<br>System.Object Initi<br>Pause<br>Method<br>void Pause()<br>Refresh<br>Method<br>void Refresh()<br>Start<br>Method<br>void Start(),<br>void<br>Stop<br>Method<br>void Stop()</p><p>En</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">L’objet System.DateTime dispose de méthodes permettant de faire varier les valeurs obtenues par 
+la commande Get-Date. </pre>
+<pre class="tssr-source-code">Pour ajouter un jour au résultat, on utilise la méthode Add-Days suivie du nombre de jours que l’on 
+souhaite ajouter. </pre>
+
+
+<p class="tssr-source-paragraph">L’objet <br>la méthode la valeur </p>
+<p class="tssr-source-paragraph">L’objet est contenu entre parenthèses ; il est suivi d’un point puis de la méthode, ce qui indique que <br>l’on utilise la méthode de cet objet. </p>
+<p class="tssr-source-paragraph">La valeur fournie entre parenthèses de la méthode doit être d’un type utilisable par la méthode. </p>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS<br>C:\&gt;<br>Get-Date<br>Get-Member</p><p>TypeName:<br>System.DateTime</p><p>Name<br>MemberType<br>Definition</p><p>add<br>Method<br>datetime Add(timespan value)<br>AddDays<br>Method<br>datetime AddDays(double value<br>AddHours<br>Method<br>datetime AddHours(double valug<br>AddMi 11iseconds<br>Method<br>datetime AddMilliseconds(doub<br>AddMinutes<br>Method<br>datetime AddMinutes(double va<br>AddMonths<br>Method<br>datetime AddMonths(int months<br>AddSeconds<br>Method<br>datetime AddSeconds(double va<br>AddTicks<br>Method<br>datetime AddTicks(long value)<br>AddYears<br>Method<br>datetime AddYears(int value)</p><p>PS C:\&gt; (get-date).AddDays(1)</p><p>Thursday,<br>September<br>24,<br>2020 11:52:17 AM</p><p>PS<br>C:\&gt;<br>Get-Date<br>Get-Member</p><p>TypeName:<br>System.DateTime</p><p>Name<br>MemberType<br>Definition</p><p>Add<br>Method<br>datetime Add(timespan value)<br>AddDays<br>Method<br>datetime AddDays(double value</p><p>En</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-f4880f0bb733df8eb45891421cfa4cb85ed38093d9630ea8853dc34c8e1e90bb.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f4880f0bb733df8eb45891421cfa4cb85ed38093d9630ea8853dc34c8e1e90bb.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2575"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

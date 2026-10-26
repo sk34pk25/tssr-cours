@@ -1,0 +1,36 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP01 - Enoncé - Manipuler les disques et LVM.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M08TP01 - Enoncé - Manipuler les disques et LVM</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Manipuler les disques et <br>LVM </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Gestion des espaces de stockage avancée - LVM </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">15 à 20 minutes </p>
+<h4>Énoncé  </h4>
+<p class="tssr-source-paragraph">I. <br>Gestion des disques sur la station avec environnement <br>graphique </p>
+<p class="tssr-source-paragraph">• <br>Ajouter un nouveau disque de 40 Go. </p>
+<pre class="tssr-source-code">o Vérifier que le disque est bien présent dans /dev </pre>
+<p class="tssr-source-paragraph">• <br>Créer 1 partition sur le nouveau disque avec fdisk : </p>
+<pre class="tssr-source-code">o Partition principale de la totalité du disque pour du LVM </pre>
+<p class="tssr-source-paragraph">• <br>Intégrer la partition au groupe de volume présent dans votre système. </p>
+<p class="tssr-source-paragraph">• <br>Créer un volume logique de 20 Go nommé lvvar. </p>
+<p class="tssr-source-paragraph">• <br>Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe <br>de volume. </p>
+<p class="tssr-source-paragraph">II. <br>Astuce  </p>
+<p class="tssr-source-paragraph">Pour détecter les disques SCSI sans redémarrer : </p>
+<p class="tssr-source-paragraph">• <br>Trouver la chaine SCSI qui gère les disques avec la commande : </p>
+<pre class="tssr-source-code">o # udevadm info --query=path --name=sda </pre>
+<pre class="tssr-source-code">o Ex. résultat 
+ : 
+/devices/pci0000:00/0000:00:10.0/host0/target0:0:0/0:0:0:0/block/sda </pre>
+<pre class="tssr-source-code">o Cela veut dire que host0 gère les disques SCSI </pre>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph">• <br>Lancer un scan de la chaine SCSI </p>
+<pre class="tssr-source-code">o # echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan </pre>
+<h4>• Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-0bab2071465887984bed3510f8d004ef95162beb23e278adc180f16f96db65de.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0bab2071465887984bed3510f8d004ef95162beb23e278adc180f16f96db65de.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="552"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

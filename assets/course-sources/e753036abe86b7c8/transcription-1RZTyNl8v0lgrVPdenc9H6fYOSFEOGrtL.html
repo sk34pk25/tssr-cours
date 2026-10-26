@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - Format-Table.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - Format-Table</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Format-Table </h4>
+<p class="tssr-source-paragraph">Démonstration 06 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Format-Table. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">Lorsque les objets sont correctement sélectionnés, triés et conditionnés, il est utile de les exporter <br>dans un format adapté à un tableur par exemple. </p>
+<p class="tssr-source-paragraph">Pour cela, il va falloir mettre sous forme de tableaux les objets obtenus ainsi que leurs propriétés. </p>
+<pre class="tssr-source-code">La commande Format-Table permet d’organiser les colonnes et les valeurs de nos objets. </pre>
+<pre class="tssr-source-code">• 
+Placé en fin de ligne de commande, le Format-Table travaille à partir des propriétés. </pre>
+<pre class="tssr-source-code">• 
+Il s’accompagne pratiquement tout le temps d’un Select-Object </pre>
+
+<pre class="tssr-source-code">La commande place les en-têtes de colonne dans l’ordre indiqué au paramètre Property. </pre>
+<pre class="tssr-source-code">Le paramètre HidetableHeaders masque les en-têtes de colonnes pour ne laisser que les valeurs. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser -Filter<br>*<br>|<br>select name,enabled,Givenname</p><p>|<br>Format-Table<br>-Property Enabled,Givenname,Name</p><p>enabled Givenname<br>name</p><p>True<br>Administrator<br>False<br>Guest<br>False<br>krbtgt<br>False<br>toto<br>False<br>Ferdinand<br>Morse<br>False Britanney<br>Yang<br>True Reese<br>Randal1<br>False Adele<br>Pena<br>False<br>Keiko<br>Huber<br>False<br>Magee<br>Hard</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Groupby permet de regrouper des objets selon la valeur d’une propriété. </pre>
+
+<p class="tssr-source-paragraph">On retrouve les utilisateurs actifs et les inactifs. </p>
+<pre class="tssr-source-code">Le paramètre Wrap va forcer le retour à la ligne dans le cas où la valeur d’une propriété serait trop 
+longue pour l’affichage. </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>&gt;&gt; Get-ADUser<br>-Filter<br>*<br>select name,enabled,Givenname</p><p>|<br>Format-Table -Property Enabled,Givenname,Name<br>-HideTableHeaders</p><p>True<br>Administrator<br>False<br>Guest<br>False<br>krbtgt<br>False<br>toto<br>False<br>Ferdinand<br>Morse<br>False Britanney<br>Yang<br>True<br>Reese<br>Randall<br>False Adele<br>Pena<br>False Keiko<br>Huber</p><p>&gt;&gt; Get-ADUser -Filter<br>*<br>|<br>select name,enabled,Givenname</p><p>|<br>Format-Table<br>-GroupBy Enabled</p><p>enabled:<br>True</p><p>name<br>enabled Givenname</p><p>Administrator<br>True</p><p>enabled:<br>False</p><p>name<br>enabled Givenname</p><p>Guest<br>False<br>krbtgt<br>False<br>toto<br>False</p><p>|<br>Morse<br>False<br>Ferdinand<br>Yang<br>False Britanney</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>Format-Table<br>-Wrap</p><p>Status<br>Name<br>Disp layName</p><p>Stopped<br>AarSvc_61a95<br>Agent Activation Runtime_61a95<br>Stopped<br>AJRouter<br>Alljoyn Router Service<br>Stopped<br>ALG<br>Application<br>Layer Gateway Service<br>Stopped<br>App IDSvc<br>Application Identity<br>Running<br>Appinfo<br>Application<br>Information<br>Stopped<br>AppMgmt<br>Application Management<br>Stopped<br>AppReadiness<br>App Readiness<br>Stopped<br>Appvclient<br>Microsoft App-V Client<br>Stopped<br>AppXSvc<br>AppX Deployment Service<br>(AppXSVC)<br>Stopped<br>AssignedAccessMana AssignedAccessManager<br>Service<br>gerSvc</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-987b59a0b1c0691ef182ebc03adc060f8661a480b8a6aa2dce2d94d27ab9428f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-987b59a0b1c0691ef182ebc03adc060f8661a480b8a6aa2dce2d94d27ab9428f.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2546"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

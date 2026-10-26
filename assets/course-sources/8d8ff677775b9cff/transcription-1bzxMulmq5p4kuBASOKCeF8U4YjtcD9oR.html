@@ -1,0 +1,95 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M01 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M01 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
+<h4>GNU/Linux</h4>
+<h4>Module 01 – Présentation de Debian GNU/Linux</h4></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Présentation de Debian GNU/Linux</h4>
+<h4>Objectifs</h4>
+<h4>• Connaître l&#x27;historique Debian<br>• Découvrir les piliers de la distribution<br>• Faire connaissance avec les diverses versions du système</h4>
+<h4>Découvrir Debian, son histoire et sa philosophie</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Présentation de Debian GNU/Linux</h4>
+<h4>Conventions typographiques</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Conventions typographiques</h4>
+<h4>Syntaxe des commandes</h4>
+<pre class="tssr-source-code">• La syntaxe des commandes est représentée ainsi : 
+Commande [options] &lt;Argument&gt;</pre>
+<h4>Rappel: L’espace est un séparateur d’expressions entre la </h4>
+<h4>commande, les options et les arguments.</h4>
+<h4>• Les exemples de commande et leur résultat sont représentés ainsi : </h4>
+<pre class="tssr-source-code">user30@deb:~$ ls -l /home/user30
+total 8
+-rw-r--r-- 1 user30 user30  36 juin  26 12:08 aFaire.txt
+-rw------- 1 user30 user30 586 avril 16 17:26 Edition
+user30@deb:~$</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>|</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-14ccca7c9b627a94358c73e93ecb46058346166bddb7b7ce550f7bd39a46176b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-14ccca7c9b627a94358c73e93ecb46058346166bddb7b7ce550f7bd39a46176b.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1355" height="1261"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Présentation de Debian GNU/Linux</h4>
+<h4>Historique de Debian</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Historique de Debian</h4>
+<h4>Version et distribution</h4>
+<p class="tssr-source-paragraph">• Depuis 1993, une quinzaine de versions majeures de Debian ont vu <br>le jour.<br>• Chaque version porte en plus de son numéro le nom d&#x27;un <br>personnage de la série de films d&#x27;animation Toy Story.<br>• La distribution Debian a été conçue dès son origine pour les <br>systèmes serveur. Elle est parfaitement adaptée à cette fonction. <br>Cette volonté implique des calendriers de sorties assez longues, et <br>un développement de l&#x27;ergonomie peu propice aux utilisateurs <br>finaux.</p>
+<h4>• Des distributions dérivées de Debian et axées sur l&#x27;utilisateur final <br>ont vu le jour, comme Ubuntu ou Linux Mint, permettant de pallier <br>ce manque.</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Historique de Debian</h4>
+<h4>Version et distribution</h4>
+<p class="tssr-source-paragraph">• Août 1993 : création de la distribution Debian<br>• Deux objectifs :<br>• Qualité<br>• Aspect non commercial<br>• Le projet Debian a défini des principes du logiciel libre, qui doivent <br>être respectés par la communauté Debian : </p>
+<h4>• Redistribution libre<br>• Disponibilité du code source <br>• Licences</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>debian</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Historique de Debian</h4>
+<h4>Contrat social Debian GNU/Linux</h4>
+<h4>Le projet Debian a établi un contrat social dont les points <br>principaux sont :</h4>
+<p class="tssr-source-paragraph">1. Debian demeurera totalement libre.<br>2. Nous donnerons nos travaux à la communauté des logiciels <br>libres.<br>3. Nous ne dissimulerons pas les problèmes.<br>4. Nos priorités sont nos utilisateurs et les logiciels libres.</p>
+<h4>5. Les travaux non conformes aux principes du logiciel libre <br>pourront être disponibles dans des sections différenciées ne <br>faisant pas partie du système Debian.</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>debian</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-0ca7be917cba378798518217266371743442208dfcd03dceee5e5bcb76c6b538.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0ca7be917cba378798518217266371743442208dfcd03dceee5e5bcb76c6b538.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="1396"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Historique de Debian</h4>
+<h4>Debian Linux 10 Buster</h4>
+<h4>• Canal Stable actuel Debian 12 Bookworm  <br>• Debian 11 Bullseye<br>• Debian 10 Buster</h4>
+<h4>• Distribution GNU/Linux libre</h4>
+<p class="tssr-source-paragraph">https://www.debian.org/social_contract.fr.html</p>
+<h4>• Basé sur un contrat social</h4>
+
+<h4>• Redistribution libre et gratuite</h4>
+<h4>• Inclusion du code source</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>debian</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Présentation de Debian GNU/Linux</h4>
+<h4>Branches et versions </h4>
+<h4>de Debian</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Historique de Debian<br>Les versions de Debian GNU/Linux</h4>
+<h4>Version 1.1<br>Buzz, le ranger de l&#x27;espace<br>Version 4.0<br>Etch, l&#x27;écran magique</h4>
+<h4>Version 1.2<br>Rex, le tyrannosaure<br>Version 5.0<br>Lenny, la paire de jumelles</h4>
+<h4>Version 1.3<br>Bo, la bergère<br>Version 6.0<br>Squeeze, l&#x27;extraterrestre</h4>
+<h4>Version 2.0<br>Hamm, le cochon tirelire<br>Version 7.0<br>Wheezy, le manchot au <br>nœud papillon rouge</h4>
+<h4>Version 2.1<br>Slink, le chien à ressort<br>Version 8.0<br>Jessie, la cowgirl</h4>
+<h4>Version 2.2<br>Potato, M. patate<br>Version 9.0<br>Stretch, la pieuvre</h4>
+<h4>Version 3.0<br>Woody, le cowboy<br>Version 10<br>Buster, le chien</h4>
+<h4>Version 3.1<br>Sarge, le chef des soldats<br>Version 11<br>Bullseye, le cheval</h4>
+<h4>Source : https://www.debian.org/releases/index.fr.html</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D PE<br>RS<br>PS</p><p>PS<br>Re<br>ee<br>ee<br>a<br>es<br>PS<br>ee PE</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>V i 1 1<br>ers on<br>.</td><td>B l d l&#x27;<br>uzz e ranger e espace<br>,</td><td>V i 4 0<br>ers on<br>.</td><td>Etch l&#x27;é magi<br>cran que<br>,</td></tr><tr><td>V i 1 2<br>ers on<br>.</td><td>R ex l e tyrannosaure<br>,</td><td>V i 5 0<br>ers on<br>.</td><td>L l i d j ll<br>enny a pa re e ume es<br>,</td></tr><tr><td>V i 1 3<br>ers on<br>.</td><td>B l b è<br>o a erg re<br>,</td><td>V i 6 0<br>ers on<br>.</td><td>S queeze l&#x27; extraterrestre<br>,</td></tr><tr><td>V i 2 0<br>ers on<br>.</td><td>H l coch ti reli<br>amm e on re<br>,</td><td>V i 7 0<br>ers on<br>.</td><td>Wh eezy l e manch ot au<br>,<br>d ill<br>nœu pap on rouge</td></tr><tr><td>V i 2 1<br>ers on<br>.</td><td>Sli nk l e chi en à ressort<br>,</td><td>V i 8 0<br>ers on<br>.</td><td>J i l i l<br>ess e a cowg r<br>,</td></tr><tr><td>V i 2 2<br>ers on<br>.</td><td>P otato M patate<br>, .</td><td>V i 9 0<br>ers on<br>.</td><td>Stretch l pi<br>a euvre<br>,</td></tr><tr><td>V i 3 0<br>ers on<br>.</td><td>W d l b<br>oo y e cow oy<br>,</td><td>V i 10<br>ers on</td><td>B uster l e chi en<br>,</td></tr><tr><td>V i 3 1<br>ers on<br>.</td><td>S arge l e ch ef d es sold ats<br>,</td><td>V i 11<br>ers on</td><td>B ll l h l<br>u seye e c eva<br>,</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Historique de Debian</h4>
+<h4>Les branches Debian</h4>
+<p class="tssr-source-paragraph">• 3 principales branches :<br>• Stable : c&#x27;est la version de production de Debian, celle qu&#x27;il est recommandé <br>d&#x27;utiliser.<br>• Testing : la branche Testing contient la future version stable de Debian.<br>• Unstable : version en constante évolution (on parle de Rolling release). La <br>distribution Unstable est toujours appelée Sid.<br>• En production, nous utilisons principalement la branche Stable ou <br>antérieure<br>• Release (en anglais) : version numérotée spécifique stable et prête <br>à être utilisée, qui a été publiée pour le public.</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-347e4a9f01caa1283792924f34285dd2edd864de89df6ca488605b5f806dbaee.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-347e4a9f01caa1283792924f34285dd2edd864de89df6ca488605b5f806dbaee.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1585" height="1910"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Historique de Debian</h4>
+<h4>Les branches Debian</h4>
+<p class="tssr-source-paragraph">• Des sous-branches OLD-STABLE et OLD-OLD-STABLE existent <br>également. <br>• Elles désignent les branches N-1 et N-2.<br>• La version stable est actuellement la version 11 Bullseye<br>• old-stable est la version 10 Buster<br>• old-old-stable est la version 9 Stretch </p>
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Présentation de Debian GNU/Linux</h4>
+<h4>Conclusion</h4>
+<h4>• Vous connaissez :<br>• les origines du système Debian,<br>• les valeurs qui sous-tendent son évolution.<br>• Vous avez des notions sur les versions de Debian et les branches. </h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-b0bdcea354619ab2c70a37e9cc44a5a91b3794cf8a67b9de0699c9e0fa8979b1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b0bdcea354619ab2c70a37e9cc44a5a91b3794cf8a67b9de0699c9e0fa8979b1.webp" alt="Illustrations du support source, pages 13 à 14" loading="lazy" width="900" height="366"></a><figcaption>Illustrations du support Drive — pages 13 à 14. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

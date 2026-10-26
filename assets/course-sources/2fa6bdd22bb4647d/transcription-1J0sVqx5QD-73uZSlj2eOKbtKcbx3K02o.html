@@ -1,0 +1,48 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 4 - Sort-Object.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 4 - Sort-Object</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+<h4>Sort-Object </h4>
+<p class="tssr-source-paragraph">Démonstration 04 du module 3 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la commande Sort-Object. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">L’ordre d’affichage des objets dans le résultat de commande est déterminé selon le type de valeur. </p>
+<pre class="tssr-source-code">Pour une valeur de type String c’est un ordre alphabétique, pour une valeur de type Int c’est un 
+ordre croissant. La commande Sort-Object permet de modifier ses ordres. </pre>
+<pre class="tssr-source-code">La commande Sort-Object s’utilise en fin de linge de commande de manière à mettre en forme 
+le résultat final.  </pre>
+
+<pre class="tssr-source-code">• 
+A la suite d’une commande Select-Object </pre>
+<pre class="tssr-source-code">o Les objets sont affichés par état de leur statut, les statuts Stopped puis les statuts </pre>
+<pre class="tssr-source-code">Running. </pre>
+<pre class="tssr-source-code">o La 
+valeur 
+de 
+propriété 
+Status 
+étant 
+de 
+type 
+System.ServiceProcess.serviceControllerStatus, l’ordre de tri se fait 
+en premier sur les statuts arrêtés. </pre>
+<p class="tssr-source-paragraph">La commande permet aussi d’inverser l’ordre de tri standard. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object status</p><p>Name<br>Status</p><p>SensorService<br>Stopped<br>SensorDataService<br>Stopped<br>Sense<br>Stopped<br>SharedAccess<br>Stopped<br>SessionEnv<br>Stopped<br>SensrSvc<br>Stopped<br>ScDeviceEnum<br>Stopped<br>SCardsvr<br>Stopped<br>RpcLocator<br>Stopped<br>sec logon<br>Stopped<br>SDRSVC<br>Stopped<br>SCPolicySvc<br>Stopped<br>SVSVC<br>Stopped<br>stisvc<br>Stopped<br>ssh-agent<br>Stopped<br>TermService<br>Stopped<br>Tapisrv<br>Stopped</p><p>@</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
+
+<pre class="tssr-source-code">Le paramètre Descending inverse l’ordre de tri, quel que soit le type de valeurs de propriété. </pre>
+<pre class="tssr-source-code">Comme on le voit dans l’exemple précédent, seule la propriété Status subit un tri ; la propriété 
+Name est non triée. </pre>
+<pre class="tssr-source-code">La commande Sort-Object accepte plusieurs propriétés pour effectuer un tri. </pre>
+
+<pre class="tssr-source-code">Les services sont triés par leurs statuts et ensuite l’ensemble des services Stopped subissent un tri au 
+niveau de leur nom. </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object status -Descending</p><p>Name<br>Status</p><p>MSDTC<br>Running<br>UsoSvc<br>Running<br>UserManager<br>Running<br>mpssvc<br>Running<br>LSM<br>Running<br>VGAuthService<br>Running<br>VaultSvc<br>Running</p><p>PS C:\&gt; Get-Service<br>|<br>Select-Object Name,status<br>|<br>Sort-Object -Property status,name</p><p>Name<br>Status</p><p>AarSvc_7ad9e<br>Stopped<br>AJRouter<br>Stopped<br>ALG<br>Stopped<br>AppIDSvc<br>Stopped<br>AppMgmt<br>Stopped<br>AppReadiness<br>Stopped<br>AppvClient<br>Stopped<br>AppXSVC<br>Stopped<br>AssignedAccessManagerSvc<br>Stopped<br>autotimesvc<br>Stopped<br>AxInstSv<br>Stopped<br>BcastDVRUSerService_7ad9e<br>Stopped<br>BDESVC<br>Stopped<br>B luetoothUserService_7ad9e<br>Stopped<br>BTAGService<br>Stopped<br>bthserv<br>Stopped</p><p>@</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-0a205eeb12a21848e794905756377fed5fcbbc014230b65eae600138e60bd32a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-0a205eeb12a21848e794905756377fed5fcbbc014230b65eae600138e60bd32a.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1784"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

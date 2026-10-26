@@ -1,0 +1,372 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 03 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell</h4>
+<p class="tssr-source-paragraph">Module 03 – Manipulation des objets</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Objectifs<br>• Employer les commandes appropriées pour les <br>objets Microsoft</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Introduction</h4>
+<p class="tssr-source-paragraph">• Comme abordé précédemment, le résultat d’exécution de commandes peut <br>être composé d’un ensemble objets.</p>
+<pre class="tssr-source-code">PS &gt; Get-Service</pre>
+<p class="tssr-source-paragraph">• Le nombre d’objets étant souvent élevé, il est important de pouvoir <br>sélectionner et mettre en forme le résultat d’une commande. </p>
+<pre class="tssr-source-code">PS &gt; Get-EventLog</pre>
+<p class="tssr-source-paragraph">• L’utilisation de redirections au moyen de pipeline (caractère | ) permet <br>d’effectuer des commandes de triage, de mise en forme, de sélection et <br>également de conditionner le résultat final.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Le pipe</h4>
+<p class="tssr-source-paragraph">• Le pipe | permet de passer un ou plusieurs objets à la commande qui suit.</p>
+<pre class="tssr-source-code">PS &gt; Get-Service | Get-Member</pre>
+<p class="tssr-source-paragraph">• Le pipe | peut être utilisé à plusieurs reprises, tant que l’on dispose d’objets à <br>traiter.</p>
+<pre class="tssr-source-code">PS &gt; Get-EventLog –LogName « System » | Select-Object Name | Format-Table</pre>
+<pre class="tssr-source-code">• Le pipe | utilise une variable réservée qui est $PSItem. Cela permet de cibler 
+une propriété d’un objet. </pre>
+<pre class="tssr-source-code">PS &gt; Get-Process | Select Name,Id | Where { $PSItem.Id –gt 1500 –and $PSItem.Id –lt 2000}</pre>
+<p class="tssr-source-paragraph">Propriété </p>
+<p class="tssr-source-paragraph">Id </p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Select-Object</h4>
+<pre class="tssr-source-code">La commande Select-Object permet de sélectionner une ou plusieurs 
+propriétés.</pre>
+<p class="tssr-source-paragraph">• À l’exécution de la commande, seules les propriétés sélectionnées seront affichées ou <br>utilisables dans une troisième commande.</p>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object –Property Name</pre>
+<pre class="tssr-source-code">• Ici, seule la propriété Name de tous les services sera affichée.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object –Property
+Name,Status</pre>
+<p class="tssr-source-paragraph">• Pour sélectionner plusieurs propriétés, on utilise la , .</p>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select   Name,Status</pre>
+<pre class="tssr-source-code">• La commande Select-Object peut se réduire.</pre>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Select-Object</h4>
+<pre class="tssr-source-code">La commande Select-Object permet de sélectionner des objets en fonction 
+de l’ordre dans lequel ils sont organisés.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object –First 5</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object –Last 5</pre>
+<p class="tssr-source-paragraph">• Dans le cas où plusieurs objets possèdent les mêmes valeurs pour la même propriété, il est <br>possible d’obtenir un seul objet. </p>
+<pre class="tssr-source-code">PS &gt; Get-Process | Select-Object -Unique Name</pre>
+<pre class="tssr-source-code">• Ici seuls plusieurs process partagent le même nom, Select n’affichera qu’un seul process.</pre>
+<pre class="tssr-source-code">• Le paramètre ExpandProperty permet de ne pas afficher le nom de la propriété, mais 
+uniquement les valeurs dans la console.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object –ExpandProperty Name </pre>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Sort-Object</h4>
+<pre class="tssr-source-code">La commande Sort-Object est une commande de tri selon un critère donné.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Select-Object Name,Status | Sort-Object Status</pre>
+<p class="tssr-source-paragraph">• On sélectionne d’abord les propriétés sur lesquelles on va appliquer le tri final des <br>objets.</p>
+<pre class="tssr-source-code">PS &gt; Get-Process | Select Name,id | Sort id -Descending</pre>
+<pre class="tssr-source-code">• Ici, on applique un tri par ordre décroissant sur la propriété Id.</pre>
+<pre class="tssr-source-code">PS &gt; Get-ChildItem -Path C:\Windows -File | Sort-Object -Property Length</pre>
+<pre class="tssr-source-code">• La propriété Length indique le poids des fichiers en octet. Ils seront classés du 
+plus faible au plus élevé.</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Measure-Object</h4>
+<pre class="tssr-source-code">La commande Measure-Object permet de compter le nombre d’objets, 
+d’établir des moyennes, etc.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Process | Measure-Object</pre>
+<pre class="tssr-source-code">• L’action par défaut de Measure-Objet est le comptage.</pre>
+<pre class="tssr-source-code">PS &gt; Get-ChildItem –File | Measure-Object –Property Length -Average</pre>
+<p class="tssr-source-paragraph">• La commande est aussi utilisable sur une propriété pour déterminer une valeur <br>moyenne.</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4d0ceda1d652ab0dce5810bd977cd1cc739185552ba3d43c22ce51340043d47d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4d0ceda1d652ab0dce5810bd977cd1cc739185552ba3d43c22ce51340043d47d.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="4990"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Measure-Object</h4>
+<pre class="tssr-source-code">La commande Measure-Object sert également à déterminer la valeur 
+minimale et maximale.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Get-ChildItem -File | Measure-Object –Property Length -Minimum -Maximum</pre>
+<p class="tssr-source-paragraph">• Comme toutes les commandes, le fonctionnement complet est décrit dans le fichier <br>d’aide de la commande.</p>
+<pre class="tssr-source-code">PS &gt; Get-Help Measure-Object</pre>
+<p class="tssr-source-paragraph">• Ne jamais oublier de vous référer à l’aide si vous doutez du fonctionnement d’une <br>commande.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commandes Where-Object</h4>
+<pre class="tssr-source-code">La commande Where-Object conditionne la présence d’un objet dans le 
+résultat de sortie.</pre>
+<p class="tssr-source-paragraph">• Les conditions sont toujours appliquées sur des valeurs de propriété. <br>• Elles peuvent être uniques ou multiples, obligatoires ou optionnelles.</p>
+<pre class="tssr-source-code">PS &gt; Get-Service | Where-Object -Property
+Status –eq ’’Running’’</pre>
+<pre class="tssr-source-code">• Dans cet exemple, ne seront affichés que les objets dont la propriété Status est 
+égale à la valeur Running.</pre>
+<p class="tssr-source-paragraph">• Les autres ne seront pas affichés.</p>
+<pre class="tssr-source-code">PS &gt; Get-Process | Where-Object –Property
+Name –like ’’Power*’’</pre>
+<pre class="tssr-source-code">• Ici la propriété nom doit débuter par Power, quelle que soit la suite. Le caractère *
+permet de ne pas tester la suite de la valeur.</pre>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Where-Object</h4>
+<p class="tssr-source-paragraph">Afin de pouvoir tester des valeurs de propriété, chaque type de valeur dispose d’un opérateur <br>de comparaison adapté.</p>
+<p class="tssr-source-paragraph">Comparaison<br>Insensibilité à la casse<br>Sensibilité à la casse</p>
+<p class="tssr-source-paragraph">Égalité<br>-eq<br>-ceq</p>
+<p class="tssr-source-paragraph">Inégalité<br>-ne<br>-cne</p>
+<p class="tssr-source-paragraph">Supérieur à<br>-gt<br>-cgt</p>
+<p class="tssr-source-paragraph">Supérieur ou égal à<br>-ge<br>-cge</p>
+<p class="tssr-source-paragraph">Inférieur à<br>-lt<br>-clt</p>
+<p class="tssr-source-paragraph">Inférieur ou égal à<br>-le<br>-cle</p>
+<p class="tssr-source-paragraph">Comparaison d’égalité d’expression<br>-like<br>-clike</p>
+<p class="tssr-source-paragraph">Comparaison d’inégalité d’expression<br>-notlike<br>-cnotlike</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Where-Object</h4>
+<pre class="tssr-source-code">Si on applique plusieurs conditions à la commande Where-Object, on va 
+utiliser les expressions logiques ET et OU.</pre>
+<pre class="tssr-source-code">• Dans le cas d’un ET logique, les deux conditions doivent être valides pour que 
+l’objet soit retenu.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Process | Select Name,Id | Where –Filterscript{$PSitem.Id–gt1500
+–and$PSItem.Id–lt2000}</pre>
+<pre class="tssr-source-code">• On peut réduire la syntaxe de $PSItem par $_.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Process | Select Name,Id | Where{$_.Name–like’’Power*’’–and$_.Id
+–eq825}</pre>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Comparaison</td><td>Insensibilitéàlacasse</td><td>Sensibilitéàlacasse</td></tr><tr><td>É galité</td><td>-eq</td><td>-ceq</td></tr><tr><td>Inégalité</td><td>-ne</td><td>-cne</td></tr><tr><td>Supérieurà</td><td>-gt</td><td>-cgt</td></tr><tr><td>Supérieurouégalà</td><td>-ge</td><td>-cge</td></tr><tr><td>Inférieurà</td><td>-lt</td><td>-clt</td></tr><tr><td>Inférieurouégalà</td><td>-le</td><td>-cle</td></tr><tr><td>Comparaisond’égalitéd’expression</td><td>-like</td><td>-clike</td></tr><tr><td>Comparaisond’inégalitéd’expression</td><td>-notlike</td><td>-cnotlike</td></tr></tbody></table></div>
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Where-Object</h4>
+<pre class="tssr-source-code">• Dans le cas d’un OU logique, l’une ou l’autre des conditions doit être valide 
+pour que l’objet soit retenu.</pre>
+<pre class="tssr-source-code">PS &gt; Get-LocalUser | Select Name,Sid | Where–Filterscript{$PSitem.Name–eq 
+« TOTO »-or$PSItem.Sid–eq S-1-5-21-3376288570-2491860933-3167967787-500}</pre>
+<p class="tssr-source-paragraph">• Il est possible de tester de multiples valeurs.</p>
+<pre class="tssr-source-code">PS &gt; Get-localuser | Select Name,Sid,Enabled | Where{$_.Name–like«Toto»-or 
+$_.Sid–eqS-1-5-21-3376288570-2491860933-3167967787-500–or$_.Enabled–eq 
+$true}</pre>
+<p class="tssr-source-paragraph">Pensez à inclure les propriétés à tester dans le Select-Object.</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Where-Object</h4>
+<p class="tssr-source-paragraph">• Il est également possible de faire collaborer les deux conditions.</p>
+<pre class="tssr-source-code">PS&gt; Get-AdUser –Filter * | Select Name,UserPrincipalName |
+Where –Filterscript {</pre>
+<p class="tssr-source-paragraph">On teste ensuite la </p>
+<p class="tssr-source-paragraph">On teste d’abord </p>
+<p class="tssr-source-paragraph">l’une ou l’autre </p>
+<pre class="tssr-source-code">($PSitem.Name –eq « Administrator » 
+-or
+$PSItem.Name –eq « Administrator » )</pre>
+<p class="tssr-source-paragraph">valeur de la <br>seconde propriété.</p>
+<p class="tssr-source-paragraph">des valeurs.</p>
+<pre class="tssr-source-code">-and $PSItem.UserPrincipalName –eq « Admin » } </pre>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Format-Table</h4>
+<p class="tssr-source-paragraph">• Une fois les objets sélectionnés, conditionnés et triés, la dernière étape est <br>de mettre en forme les propriétés et leurs valeurs.<br>• L’objectif est d’améliorer la lecture du résultat, mais également de permettre <br>l’export vers un fichier dans un ou plusieurs formats.</p>
+<pre class="tssr-source-code">PS &gt;Get-AdUser –Filter * | SelectName,GivenName,Enabled | Format-table </pre>
+<pre class="tssr-source-code">• La commande Format-Table va organiser les valeurs en colonnes.
+• Les en-têtes de colonnes correspondent au nom de propriété.</pre>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Format-Table</h4>
+<p class="tssr-source-paragraph">• L’ordre des colonnes est personnalisable.</p>
+<pre class="tssr-source-code">PS &gt; Get-AdUser –Filter * | Format-table-Property Enabled,Name,SamAccountName</pre>
+<p class="tssr-source-paragraph">• Il est également possible de regrouper les objets par valeur de propriété <br>identique.</p>
+<pre class="tssr-source-code">PS &gt; Get-AdUser –Filter * | Format-table-GroupBy Enabled</pre>
+<p class="tssr-source-paragraph">• Les utilisateurs seront regroupés selon l’état de leur compte actif ou inactif.</p>
+<p class="tssr-source-paragraph">Le Select-Object n’est pas obligatoire pour l’utilisation des commandes de format.</p>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Name<br>GivenName<br>Enabled</p><p>Administrator<br>True<br>Guest<br>False<br>krbtet<br>False</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-86d29edda1e7bca240acd11e48d5667f032924e165c21dee2a520ea94cf68471.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-86d29edda1e7bca240acd11e48d5667f032924e165c21dee2a520ea94cf68471.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="5153"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Format-Table</h4>
+<pre class="tssr-source-code">• Le paramètre HideTableHeaders masque le nom de la propriété.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Format-Table –HideTableHeaders</pre>
+<p class="tssr-source-paragraph">• Les valeurs sont affichées de manière brute dans la console.</p>
+<pre class="tssr-source-code">PS &gt; Get-Service | Format-Table –Wrap</pre>
+<pre class="tssr-source-code">• Le paramètre Wrap va forcer le retour à la ligne en fin de console pour 
+améliorer l’affichage.</pre>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Format-Wide</h4>
+<pre class="tssr-source-code">• Format-Wide permet de mettre en forme les valeurs d’une propriété en 
+colonne. Le nombre de colonnes est paramétrable. </pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Format-Wide –Column 10</pre>
+<pre class="tssr-source-code">• Avec le paramètre Autosize, le nombre de colonnes est déterminé 
+automatiquement.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Format-Wide –AutoSize</pre>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Stopped<br>diagnosticshub.sta<br>Microsoft<br>(R}<br>Diagnostics<br>Hub<br>ndardcollector.ser<br>Standard Collector Service<br>vice<br>Running<br>DiagTrack<br>Connected User Experiences<br>and<br>Telemetry</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Format-List</h4>
+<p class="tssr-source-paragraph">• Le classement des objets peut être formaté en liste. <br>• L’ordre d’affichage des propriétés dans la liste est paramétrable dans la <br>commande.</p>
+<pre class="tssr-source-code">PS &gt;Get-AdUser –Filter * | Format-List –Property Name,Enabled,SamAccountName</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Export-Object</h4>
+<p class="tssr-source-paragraph">• Les valeurs contenues dans les objets sont exportables dans des formats <br>utilisables dans les applications métiers. Les formats pris en charge nativement <br>sont : le CSV, le CLIXML, le JSON, le HTML.</p>
+<pre class="tssr-source-code">PS &gt; Get-AdUser –filter * | Export-CSVC:\ENI\ExportCSV.csv–Délimiter «;»</pre>
+<pre class="tssr-source-code">PS &gt; Get-AdUser –filter * | Export-CSVC:\ENI\ExportCSV.csv–Delimiter «;»
+NoTypeInformation</pre>
+<p class="tssr-source-paragraph">• Le type d’objet ne sera plus exporté dans le fichier CSV.</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[22:53:44]<br>&gt; Get-AdUser<br>|<br>Format-List<br>Name<br>,Enabled, SamAccountName</p><p>Name<br>:<br>Administrator<br>Enabled<br>:<br>True<br>SamAccountName<br>:<br>Administrator</p><p>Name<br>:<br>Guest<br>Enabled<br>:<br>False<br>SamAccountName<br>:<br>Guest</p><p>3 user - Notepad</p><p>File<br>Edit<br>Format<br>View<br>Help<br>HTYPE Microsoft.ActiveDirectory.Management<br>. ADUser<br>“DistinguishedName&quot;<br>;&quot;Enabled&quot; ;&quot;GivenName&quot; ; &quot;Name&quot; ;&quot;<br>“CN=Administrator,CN-Users ,DC=ad01,DC=1cl&quot;; &quot;True&quot;;<br>“CN=Guest, CN=Users ,DC=ad01,DC=1c1&quot;;&quot;False&quot;;<br>;&quot;Guest<br>“CN=krbtgt,<br>CN-Users ,DC=ad01,DC=1c1&quot;;&quot;False&quot;; ;&quot;krbt<br>“CNstoto,CN=Users,DC=ad1,DC=1c1&quot;;&quot;False&quot;;;&quot;toto&quot;;</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Export-Object</h4>
+<p class="tssr-source-paragraph">Pour les formats HTML et JSON, il faut convertir les données puis les exporter. </p>
+<pre class="tssr-source-code">PS &gt; Get-Service | ConvertTo-Html | Out-File C:\ENI\Services.html</pre>
+<p class="tssr-source-paragraph">Il existe des modules supplémentaires qui permettent de <br>manipuler plus de formats (module Import-Excel par exemple).</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Out-File</h4>
+<pre class="tssr-source-code">• Comme en Bash, les chevrons ( &gt; ; &gt;&gt; ) peuvent être utilisés pour rediriger 
+le résultat de commandes dans un fichier. 
+• Alternativement, la commande Out-File peut être utilisée. Elle prend en 
+charge un ensemble d’options :</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Out-File C:\ENI\Services.txt</pre>
+<pre class="tssr-source-code">• Pour ajouter les données à la suite de celles présentes dans le fichier, on 
+ajoute le paramètre Append.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Service | Out-File C:\ENI\Services.txt –Append
+PS &gt; Get-Service | Out-File C:\ENI\Services.txt –Width 42</pre>
+<pre class="tssr-source-code">• Le paramètre Width spécifie le nombre de caractères par ligne. Par défaut le 
+nombre de caractères est de 80.</pre>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DistinguishedName<br>Enabled GivenName<br>Name<br> ObjectClass ObjectGUID SamAccountName</p><p>ecf41ce8-</p><p>CN=Administrator,CN=Users,.DC=ad01,DC=lcl True<br>Administrator user<br>ata HE<br>Administrator<br>ae41c508e63c</p><p>3b8584da-</p><p>CN=Guest.CN=Users DC=ad01 DC=Icl<br>False<br>Guest<br>user<br>Re<br>Guest<br>cd61dce60f1f<br>D<br>«|</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Get-Content</h4>
+<pre class="tssr-source-code">Pour afficher le contenu d’un fichier dans la console, on utilise la commande 
+Get-Content.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Content C:\User.csv </pre>
+<pre class="tssr-source-code">PS &gt; Get-Content | C:\User.csv –Tail 1</pre>
+<p class="tssr-source-paragraph">Le paramètre Tail permet de sélectionner un nombre de lignes en fin de <br>fichier.</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Import-CSV</h4>
+<p class="tssr-source-paragraph">• PowerShell prend en charge l’import de données dans les formats dans <br>lesquels il permet l’export (CSV et CliXML). Cela permet leur manipulation <br>dans le Shell.</p>
+<pre class="tssr-source-code">PS &gt; Import-CSV C:\Users.csv –Delimiter « ; » | New -AdUser</pre>
+<pre class="tssr-source-code">• Pendant l’importation, les paramètres du fichier CSV vont être comparés aux 
+propriétés de l’objet AdUser. </pre>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>“DistinguishedName&quot;</p><p>; &quot;Enabled&quot; ;&quot;GivenName&quot; ;&quot;Name&quot; ; “Ob<br>“CN=Administrator, CN=Users,DC=ad@1,DC=1c1&quot;;&quot;True&quot;; ;&quot;A<br>&quot;CN=Guest , CN=Users ,DC=ad@1,DC=1cl&quot;;<br>&quot;False&quot;; ;&quot;Guest&quot;;&quot;<br>&quot;CN=krbtgt, CN-Users ,DC=ad@1,DC=1cl&quot;;<br>&quot;False&quot;; ;&quot;krbtgt&#x27;<br>&quot;CN=toto, CN=Users,DC=ad@1,DC=1cl&quot;;<br>&quot;False&quot;; ;&quot;toto&quot;; &quot;ug</p><p>[23:39:18]<br>&gt;<br>Get-Content<br>C:\user.csv<br>1<br>&quot;CN=toto, CN=Users,DC=ad@1,DC=1cl&quot;;&quot;False&quot;;;&quot;toto&quot;;</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-b8e82179b503ee95f1a4a9b7a9397f5b7a2fee3144f1d7c0ca05d9366beecaff.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b8e82179b503ee95f1a4a9b7a9397f5b7a2fee3144f1d7c0ca05d9366beecaff.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="6047"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>La commande Import-CSV</h4>
+<p class="tssr-source-paragraph">Il n’est pas possible de cibler une propriété du fichier CSV et de l’attribuer à <br>une propriété particulière d’un l’objet.</p>
+<pre class="tssr-source-code">PS &gt;Import-CSV C:\Users.csv –Delimiter « ; » | New -AdUser</pre>
+<pre class="tssr-source-code">–Name $_.nom </pre>
+<pre class="tssr-source-code">–GivenName $_.GivenName</pre>
+<p class="tssr-source-paragraph">Cette commande n’est pas fonctionnelle ! </p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Les propriétés calculées</h4>
+<p class="tssr-source-paragraph">• Lorsque les propriétés ne correspondent pas, il faut créer de nouvelles <br>propriétés et récupérer la valeur de propriété d’origine.<br>• Cela peut être utile pour mieux interpréter le résultat d’une commande, <br>notamment en assurant la traduction de la propriété.</p>
+<p class="tssr-source-paragraph">Exemple</p>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Fy Users1.csv- Bloc-notes</p><p>Fichier<br>Edition<br>Format<br>Affichage<br>Aide<br>Givenname ;nom; Name ; samaccountname ;UserPrincipalname;Description; company;City;Department;title<br>Ferdinand;Morse;Ferdinand Morse; FerdinandMorse; FerdinandMorse@eni.lcl;Utilisateur std;ENI;Rennes<br>; Administratif;Reponsable<br>Britanney;Yang;Britanney Yang;BritanneyYang;BritanneyYang@eni.lcl;Utilisateur std;ENI;Rennes ;Administratif;Reponsable<br>Reese;Randall;Reese Randall;ReeseRandall;ReeseRandall@eni.1cl;Utilisateur std;ENI;Rennes Administratif; Employe</p><p>Name<br>Length<br>Name<br>Taille</p><p>verell<br>32693432<br>verell<br>32693432<br>jack<br>12023100 MP<br>lack<br>12023100<br>Joe<br>320512<br>Joe<br>320512<br>illiam<br>3430912<br>illiam<br>3430912</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Les propriétés calculées</h4>
+<p class="tssr-source-paragraph">Syntaxe</p>
+<pre class="tssr-source-code">PS &gt; Import-CSV C:\Users.csv –Delimiter «;»|New-AdUser –Name$_.nom</pre>
+<pre class="tssr-source-code">–GivenName$_.GivenName</pre>
+<p class="tssr-source-paragraph">Nouvelle étiquette</p>
+<p class="tssr-source-paragraph">de la propriété</p>
+<p class="tssr-source-paragraph">Nom de la propriété </p>
+<pre class="tssr-source-code">PS &gt; Import-CSV C:\Users.csv –Delimiter « ; » |</pre>
+<p class="tssr-source-paragraph">dont la valeur va </p>
+<pre class="tssr-source-code">Select-Object GivenName,@{n=‘Name’; e={$_.nom}} |</pre>
+<p class="tssr-source-paragraph">être récupérée</p>
+<pre class="tssr-source-code">New-AdUser –Name $_.Name
+–GivenName $_.GivenName</pre>
+<p class="tssr-source-paragraph">Utilisation de la nouvelle </p>
+<p class="tssr-source-paragraph">propriété avec son </p>
+<p class="tssr-source-paragraph">nouveau « Label »</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Les propriétés calculées</h4>
+<pre class="tssr-source-code">• On peut également changer l’unité de mesure remontée par les 
+commandes. 
+• La propriété Length n’est pas très lisible en Octet. Essayons de transformer 
+cette valeur en Mo.</pre>
+<p class="tssr-source-paragraph">La conversion est </p>
+<pre class="tssr-source-code">PS &gt; Get-ChildItem -File | Select Name,</pre>
+<p class="tssr-source-paragraph">faite en Bytes et </p>
+<p class="tssr-source-paragraph">non en Octet</p>
+<pre class="tssr-source-code">@{</pre>
+<pre class="tssr-source-code">n=&#x27;Taille’;</pre>
+<pre class="tssr-source-code">e={ &#x27;{0:N2}&#x27; -f ( $PSItem.Length / 1MB)}</pre>
+<pre class="tssr-source-code">}</pre>
+<p class="tssr-source-paragraph">Numérique à 2 </p>
+<p class="tssr-source-paragraph">décimales</p>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Les propriétés calculées</h4>
+<p class="tssr-source-paragraph">• Et également intégrer plusieurs propriétés calculées dans une même <br>commande :</p>
+<pre class="tssr-source-code">PS &gt; Get-Volume | Select DriveLetter,</pre>
+<pre class="tssr-source-code">@{</pre>
+<pre class="tssr-source-code">n=‘ Taille (GB) ’;
+e={ &#x27;{0:N2}&#x27; -f ($PSItem.Size / 1GB)}
+} ,
+@{</pre>
+<pre class="tssr-source-code">n=‘ Espace Libre (GB) ’;
+e={ &#x27;{0:N2}&#x27; -f ($PSItem.SizeRemaining / 1GB)}
+}</pre>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Manipulation des objets</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous savez employer les commandes appropriées <br>aux objets Microsoft</p>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d57dafdadf6d543f7a62de635b3ed88ebec678fa306796e5e156efc64761552b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d57dafdadf6d543f7a62de635b3ed88ebec678fa306796e5e156efc64761552b.webp" alt="Illustrations du support source, pages 13 à 15" loading="lazy" width="992" height="4280"></a><figcaption>Illustrations du support Drive — pages 13 à 15. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

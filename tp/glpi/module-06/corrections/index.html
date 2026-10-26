@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -13294,19 +13294,74 @@
 
 
 <h1 id="corrections-module-06-plug-ins-et-inventaire">Corrections — Module 06 — Plug-ins et inventaire<a class="headerlink" href="#corrections-module-06-plug-ins-et-inventaire" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M6 - Solution du TP - Plugins.pdf · 2 pages</summary>
+<summary>Correction · M6 - Solution du TP - Plugins · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/57f74bdf13543af9/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/57f74bdf13543af9/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/57f74bdf13543af9/pages-001-002.webp" alt="Source Drive — M6 - Solution du TP - Plugins.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M6 - Solution du TP - Plugins.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">GLPI </p>
+<h4>Plugins </h4>
+<p class="tssr-source-paragraph">TP du Module 6 – Présentation des plugins – Inventaire avec <br>FusionInventory </p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir <br>réalisé les TP proposés. </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Installer le plugin FusionInventory et l’agent. <br>Prérequis </p>
+<p class="tssr-source-paragraph">• <br>Avoir un serveur GLPI fonctionnel. </p>
+<p class="tssr-source-paragraph">Contexte :  </p>
+<p class="tssr-source-paragraph">• <br>La société Olympus vous demande d’installer le plugin FusionInventory et l’agent sur <br>l’application GLPI au sein de son domaine. </p>
+
+<p class="tssr-source-paragraph">Adressage IP des VM : 192.168.1.0/24 + DHCP salle </p>
+<p class="tssr-source-paragraph">.254</p>
+<p class="tssr-source-paragraph">Réseau de salle</p>
+<p class="tssr-source-paragraph">DHCP</p>
+<p class="tssr-source-paragraph">192.168.1.0/24</p>
+<p class="tssr-source-paragraph">PFSENSE</p>
+<p class="tssr-source-paragraph">VMNET 18</p>
+<p class="tssr-source-paragraph">srv-glpi<br>srv-CD1</p>
+<p class="tssr-source-paragraph">.1<br>.2</p>
+<p class="tssr-source-paragraph"> <br>Principales tâches à réaliser </p>
+<p class="tssr-source-paragraph">Installation du Plugins FusionInventory. </p>
+<p class="tssr-source-paragraph">• <br>Récupérez depuis le serveur Debian, le fichier fusioninventory-9.5.0+1.0.tar.bz2. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>A.</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">Utilisez de WinSCP afin de récupérer le fichier. </p>
+<p class="tssr-source-paragraph">• <br>Extrayez <br>l’archive <br>fusioninventory-9.5.0+1.0.tar.bz2 <br>dans <br>le <br>répertoire <br>/var/www/glpi/plugins. </p>
+<pre class="tssr-source-code">cp 
+/home/debyann/ 
+fusioninventory-9.5.0+1.0.tar.bz2 
+/var/www/glpi/plugins/ </pre>
+<pre class="tssr-source-code">cd /var/www/glpi/plugins </pre>
+<pre class="tssr-source-code">tar xvjf fusioninventory-9.5.0+1.0.tar.bz2 </pre>
+<p class="tssr-source-paragraph">• <br>Changez l’utilisateur propriétaire pour www-data sur ce répertoire et tout son <br>contenu. </p>
+<pre class="tssr-source-code">chown -R www-data /var/www/glpi/plugins </pre>
+<p class="tssr-source-paragraph">• <br>Installez et activez le plugin dans l’interface GLPI. </p>
+<p class="tssr-source-paragraph">Menu Configuration - Plugins dans l’interface. </p>
+<p class="tssr-source-paragraph">Au bout de la ligne fusioninventory &gt; installer puis activer. </p>
+<p class="tssr-source-paragraph">• <br>Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr. </p>
+<p class="tssr-source-paragraph">Image de correction disponible dans les ressources. </p>
+<p class="tssr-source-paragraph">Bonus </p>
+<p class="tssr-source-paragraph">• <br>Activez le marketplace puis installez le plugin « Data injection ». </p>
+<p class="tssr-source-paragraph">Allez sur le site  </p>
+<p class="tssr-source-paragraph">Image de correction disponible dans les ressources. </p>
+<p class="tssr-source-paragraph">Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs. </p>
+<p class="tssr-source-paragraph">• <br>Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du <br>formateur. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-d5c8c7597259420551bdd15f7bcdb246b10809dcf2914280df067b71ebc58542.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-d5c8c7597259420551bdd15f7bcdb246b10809dcf2914280df067b71ebc58542.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="873"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9 · <span title="Empreinte SHA-256 du fichier source">SHA-256 57f74bdf13543af9…</span></p>
 </div>
 </details>
@@ -13315,7 +13370,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -13498,11 +13553,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

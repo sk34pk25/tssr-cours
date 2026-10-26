@@ -1,0 +1,46 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 7 - Les structures - Foreach.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 7 - Les structures - Foreach</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : Foreach </h4>
+<p class="tssr-source-paragraph">Démonstration 07 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous montrer le fonctionnement la boucle Foreach. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">La boucle Foreach est la boucle qui s’utilise avec des variables de type Array et ArrayList. </pre>
+<p class="tssr-source-paragraph">En effet la boucle fonctionne avec un index qui va parcourir les variables et traiter les valeurs <br>contenues dans chaque index du tableau. </p>
+<p class="tssr-source-paragraph">Le nombre de tours de boucle dépend du nombre de valeurs contenues dans la variable. </p>
+<pre class="tssr-source-code">• 
+La structure Foreach est employée pour exprimer les propriétés d’un ou de plusieurs objets 
+contenus dans une variable. </pre>
+<pre class="tssr-source-code">• 
+Reprenons l’exemple de la variable Array : </pre>
+
+
+<pre class="tssr-source-code">Trois index sont présents dans la variable $array donc trois tours de boucle. </pre>
+<pre class="tssr-source-code">A chaque tour de boucle, la valeur de l’index $i prend la valeur de l’index suivant dans le tableau. </pre>
+<pre class="tssr-source-code">Avec une variable de type ArrayList, nous allons explorer des objets. </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$array = &quot;PCL&quot;,&quot;PC2&quot;,&quot;PC3&quot;<br>Foreach<br>€<br>$i<br>in $array){<br>write-host<br>&quot;Voici<br>la valeur<br>de<br>l&#x27;index $7&quot;</p><p>}</p><p>Voici<br>la valeur de<br>l&#x27;index<br>PCI<br>Voici<br>la valeur de<br>l&#x27;index<br>PC2<br>Voici<br>la valeur de<br>l&#x27;index<br>PC3</p><p>$fusers = Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users)i{<br>Write-Host “Bonjour” $i.givenname<br>$i.name</p><p>}</p><p>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">A chaque tour de boucle, l’index contient un objet, ici un utilisateur Active Directory. On spécifie <br>les propriétés de l’objet avec le « . ». </p>
+<pre class="tssr-source-code">La structure Foreach accepte des commandes « action ». Ces actions sont décidées la plupart du 
+temps pour donner suite à un test venant d’une structure If. </pre>
+
+<pre class="tssr-source-code">Avec l’action BREAK la boucle s’arrête si elle détecte un des quatre comptes indiqués dans la 
+condition du If. </pre>
+
+<pre class="tssr-source-code">Avec l’action CONTINUE la boucle continue sans traiter l’objet qui a répondu « Vrai » au test. 
+ </pre>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Bonjour Ferdinand Morse<br>Bonjour Britanney Yang<br>Bonjour Reese Randall<br>Bonjour Adele Pena<br>Bonjour Keiko Huber</p><p>$users<br>= Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users){<br>if<br>(( $i-name<br>-in<br>&quot;Administrator&quot;,<br>&quot;krbtgt&quot;, &quot;guest&quot;, “toto&quot;)<br>{BREAK}<br>Write-Host<br>“Bonjour”<br>$i.givenname<br>$i.name</p><p>}</p><p>$users<br>= Get-ADUser<br>-Filter<br>*<br>foreach<br>($1<br>in<br>$users){<br>if<br>( $i.name -in &quot;Administrator&quot;, &quot;krbtgt&quot;, &quot;guest&quot;, “toto&quot;)</p><p>{CONTINUE}<br>Write-Host<br>“Bonjour”<br>$i.givenname $i.name</p><p>}</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-29a2dc9e42a866a66973743b7502acaa0162a1ec915baee0e27a99bee6f541ca.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-29a2dc9e42a866a66973743b7502acaa0162a1ec915baee0e27a99bee6f541ca.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1767"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

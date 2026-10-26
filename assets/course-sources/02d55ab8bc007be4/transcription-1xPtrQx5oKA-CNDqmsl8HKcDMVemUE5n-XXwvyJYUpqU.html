@@ -1,0 +1,37 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Synthèse - Module 5 : Les Utilisateurs, <br>les Groupes et le Contrôle de Comptes <br>(UAC) (V2) </h4>
+<h4>1. Concept d&#x27;Utilisateur et de Profil </h4>
+<p class="tssr-source-paragraph">Dans Windows 10, chaque collaborateur est identifié par un compte d&#x27;utilisateur associé à un <br>identifiant de sécurité unique (SID - Security Identifier). </p>
+<p class="tssr-source-paragraph">●​ Utilisateur Local : Enregistré dans la base de données locale SAM (Security Account <br>Manager) du poste. <br>●​ Utilisateur de Domaine : Enregistré dans l&#x27;annuaire Active Directory pour un accès <br>centralisé. <br>●​ Profil Utilisateur : Dossier personnel stocké dans C:\Users\&lt;nom&gt; contenant les <br>paramètres et documents de l&#x27;utilisateur. La gestion des profils se fait via sysdm.cpl. </p>
+<h4>2. Gestion des Groupes et Autorisations </h4>
+<p class="tssr-source-paragraph">Les groupes permettent de simplifier l&#x27;attribution des droits et privilèges. Un utilisateur hérite des <br>permissions accordées aux groupes auxquels il appartient. </p>
+<p class="tssr-source-paragraph">Type de Groupe <br>Exemples / Rôle <br>  </p>
+<p class="tssr-source-paragraph">Administrateurs <br>Contrôle total sur l&#x27;ordinateur et le système. <br>Compte administrateur désactivé par défaut. </p>
+<p class="tssr-source-paragraph">Utilisateurs <br>Membres standards autorisés à exécuter des <br>applications sans modifier le système. </p>
+<p class="tssr-source-paragraph">Invités (Guests) <br>Accès très restreint, désactivé par défaut. </p>
+<p class="tssr-source-paragraph">Entités intégrées <br>Tout le monde, Utilisateurs authentifiés <br>(gérées automatiquement par l&#x27;OS). </p>
+<h4>3. Contrôle de Compte d&#x27;Utilisateur (UAC) et <br>Administration </h4>
+<p class="tssr-source-paragraph">L&#x27;UAC (User Account Control) empêche les modifications système non autorisées en imposant </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Type de Groupe</td><td>Exemples / Rôle</td></tr><tr><td>Administrateurs</td><td>Contrôle total sur l&#x27;ordinateur et le système<br>.<br>Compte administrateur désactivé par défaut<br>.</td></tr><tr><td>Utilisateurs</td><td>Membres standards autorisés à exécuter des<br>applications sans modifier le système<br>.</td></tr><tr><td>Invités (Guests)</td><td>Accès très restreint désactivé par défaut<br>, .</td></tr><tr><td>Entités intégrées</td><td>Tout le monde Utilisateurs authentifiés<br>,<br>(gérées automatiquement par l&#x27;OS)<br>.</td></tr></tbody></table></div>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">une confirmation ou une saisie de mot de passe administrateur (élévation de privilèges <br>symbolisée par le bouclier). </p>
+<p class="tssr-source-paragraph">Commandes de Gestion CLI et PowerShell </p>
+<pre class="tssr-source-code">:: Gestion des utilisateurs et groupes locaux (cmd.exe)​</pre>
+<pre class="tssr-source-code">net user​</pre>
+<pre class="tssr-source-code">net user pdupond Pa$$w0rd /add​</pre>
+<pre class="tssr-source-code">net localgroup Administrateurs pdupond /add​</pre>
+<pre class="tssr-source-code">whoami /all​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code">:: Lancement des consoles de gestion MMC​</pre>
+<pre class="tssr-source-code">lusrmgr.msc​</pre>
+<pre class="tssr-source-code">compmgmt.msc​</pre>
+<pre class="tssr-source-code">secpol.msc​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code"># Cmdlets PowerShell de gestion des utilisateurs locaux​</pre>
+<pre class="tssr-source-code">Get-LocalUser​</pre>
+<pre class="tssr-source-code">New-LocalUser -Name &quot;pdupond&quot; -AccountNeverExpires​</pre>
+<pre class="tssr-source-code">Add-LocalGroupMember -Group &quot;Administrateurs&quot; -Member &quot;pdupond&quot;​</pre>
+<pre class="tssr-source-code">Disable-LocalUser -Name &quot;Guest&quot;​</pre>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-1ade18a32480a669bc2aa9353375f6dc829c8eef7ecf402c376b0a0f31900ad0.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-1ade18a32480a669bc2aa9353375f6dc829c8eef7ecf402c376b0a0f31900ad0.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="969" height="1242"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,256 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 01 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell </h4>
+<p class="tssr-source-paragraph">Module 01 – Présentation du langage PowerShell</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Objectifs<br>• Appréhender le fonctionnement des commandes <br>PowerShell</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>L’évolution de PowerShell dans le temps</h4>
+<p class="tssr-source-paragraph">• Sorti en 2006, PowerShell V1.0 était disponible sur les systèmes Windows XP Sp2, Vista et <br>Windows Server 2003 Sp1. </p>
+<p class="tssr-source-paragraph">• Cette première version apporte 129 commandes réparties sur 5 modules.</p>
+<p class="tssr-source-paragraph">Un outil flexible, performant et <br>totalement adapté aux besoins des </p>
+<p class="tssr-source-paragraph">techniciens et admins !</p>
+<p class="tssr-source-paragraph">• La version 5.1 est actuellement installée par défaut sur Windows 10 et Windows server 2019.<br>• Elle met à disposition 2855 commandes et supporte plusieurs milliers de modules par exemple <br>« Azure », « Exchange »...</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>L’évolution de PowerShell dans le temps</h4>
+<p class="tssr-source-paragraph">• Chaque montée de version apporte :</p>
+<p class="tssr-source-paragraph">• De nouvelles commandes (Cmdlets et fonctions)</p>
+<p class="tssr-source-paragraph">• Des mises à jour de commandes existantes</p>
+<p class="tssr-source-paragraph">• La disponibilité de nouveaux modules</p>
+<p class="tssr-source-paragraph">• Des mises à jour de l’interpréteur PowerShell</p>
+<p class="tssr-source-paragraph">• De grands éditeurs comme VMware, Cisco, Sonicwall, Veeam… ont développé des <br>modules permettant de piloter leurs plateformes et produits depuis PowerShell.</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>PowerShell Core</h4>
+<p class="tssr-source-paragraph">• Depuis août 2016 et dans la lignée des Frameworks .NET deux ans auparavant, PowerShell est <br>passé en Open Source.</p>
+<p class="tssr-source-paragraph">• La montée en version de PowerShell Core suit les évolutions du Framework .NET Core<br>Actuellement en version 3.0.</p>
+<p class="tssr-source-paragraph">•<br>PowerShell Core est actuellement en 7.0, les avantages de la versions Core sont :</p>
+<p class="tssr-source-paragraph">• Une prise en charge multiplateformes.<br>• La possibilité de créer des modules personnels.<br>• ...<br>• …</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>PowerShell Core</h4>
+<p class="tssr-source-paragraph">• C’est une évolution majeure de Microsoft ces dernières années, démontrant une volonté <br>d’ouverture vers d’autres environnements.</p>
+<p class="tssr-source-paragraph">Plus de rivalité, aujourd’hui tout </p>
+<p class="tssr-source-paragraph">le monde cohabite !</p>
+<p class="tssr-source-paragraph">• D’autres exemples récents d’ouverture :<br>• L’intégration du Bash dans Windows 10<br>• SQL Server porté sur Linux<br>• L’ouverture vers le monde Linux dans Azure<br>• …</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>_</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les différentes versions de PowerShell Core</h4>
+<p class="tssr-source-paragraph">Version<br>MacOS Red Hat CentOS Oracle </p>
+<p class="tssr-source-paragraph">Linux<br>Fedora<br>Debian<br>Ubuntu Open SUSE</p>
+<p class="tssr-source-paragraph">PowerShell Core 7<br>10.13<br>8<br>8<br>7<br>32<br>9,10<br>20,04<br>42.2+</p>
+<p class="tssr-source-paragraph">PowerShell Core 6.1<br>10.12+<br>7<br>7<br>-<br>27,28<br>8.7+, 9<br>18.10<br>42.2+</p>
+<p class="tssr-source-paragraph">Installable aussi sous Windows </p>
+<p class="tssr-source-paragraph">à partir des versions 7 SP1, </p>
+<p class="tssr-source-paragraph">2008 R2 et supérieur.</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les particularités PowerShell Core</h4>
+<p class="tssr-source-paragraph">• Pour les habitués de PowerShell sous Windows, Powershell Core nécessite <br>quelques points d’attention :</p>
+<p class="tssr-source-paragraph">• Pas de requêtes WMI ou CIM (propres aux systèmes Windows)</p>
+<p class="tssr-source-paragraph">•<br>Un certain nombre de commandes utilisant du WMI sont donc indisponibles</p>
+<p class="tssr-source-paragraph">• Pas de planification de tâches via cmdlets<br>• Certains alias ne sont pas disponibles<br>• Utilisation du Remoting PowerShell impossible<br>• Sous Linux, on respecte la casse !<br>• Certaines incompatibilités sur des fonctions avec des scripts Windows</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Version</td><td>MacOS</td><td>RedHat</td><td>CentOS</td><td>Oracle<br>Linux</td><td>Fedora</td><td>Debian Ubuntu OpenSUSE</td></tr><tr><td>PowerShellCore7</td><td>1013<br>.</td><td>8</td><td>8</td><td>7</td><td>32</td><td>910 2004 422+<br>, , .</td></tr><tr><td>PowerShellCore61<br>.</td><td>1012+<br>.</td><td>7</td><td>7</td><td>-</td><td>2728<br>,</td><td>87+ 9 1810 422+<br>. , . .</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>InstallableaussisousWindows</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>àpartirdesversions7SP1<br>,</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>2008R2etsupérieur<br>.</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>7</td></tr></tbody></table></div>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-3c4d68b6c4583b8dac2971072f889f4c08b9c6a53e254f103e381d2c467b5218.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3c4d68b6c4583b8dac2971072f889f4c08b9c6a53e254f103e381d2c467b5218.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="993" height="5475"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les Cmdlets</h4>
+<p class="tssr-source-paragraph">• Les commandes PowerShell sont toujours composées ainsi :</p>
+<h4>Verbe - Nom</h4>
+<pre class="tssr-source-code">Get-ChildItem</pre>
+<pre class="tssr-source-code">Get-Service</pre>
+<pre class="tssr-source-code">Get-Volume</pre>
+<pre class="tssr-source-code">Get-Process</pre>
+<pre class="tssr-source-code">Get-Item</pre>
+<pre class="tssr-source-code">Get-SMBShare</pre>
+<p class="tssr-source-paragraph">• Elles sont « parlantes », il est facile de deviner leur utilité</p>
+<p class="tssr-source-paragraph">Le nom sera toujours au singulier</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les Cmdlets</h4>
+<p class="tssr-source-paragraph">• Les commandes PowerShell disposent de paramètres nécessaires au bon <br>fonctionnement de la commande :</p>
+<pre class="tssr-source-code">PS &gt; Get-LocalUser -Name « Nom de l’utilisateur recherché »</pre>
+<p class="tssr-source-paragraph">• Le paramètre est systématiquement indiqué avec un tiret. Une commande <br>peut disposer de plusieurs paramètres. </p>
+<pre class="tssr-source-code">PS &gt; Get-LocalGroupMember –Group « Nom du groupe recherché » -
+Member « Membre du groupe recherché dans le groupe indiqué »</pre>
+<p class="tssr-source-paragraph">• Dans cet exemple, deux paramètres pour une commande.</p>
+<p class="tssr-source-paragraph">La valeur fournie aux paramètres est l’argument</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Get-Command</h4>
+<pre class="tssr-source-code">• Get-Command permet de rechercher et d’afficher les commandes 
+disponibles. La recherche se fait sur le paramètre –Name.
+• On utilise le caractère * pour substituer une chaîne de caractères.</pre>
+<p class="tssr-source-paragraph">Exemple<br>Je recherche toutes les commandes <br>relatives à la gestion des services.</p>
+<pre class="tssr-source-code">PS &gt; Get-Command -Name *-Service</pre>
+<p class="tssr-source-paragraph">Le résultat de la commande affiche toutes les <br>« cmdlets » terminées par le nom « Service »</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Get-Command</h4>
+<pre class="tssr-source-code">Get-Command permet également d’effectuer une recherche sur le 
+paramètre –Verb.</pre>
+<p class="tssr-source-paragraph">Exemple<br>Je recherche toutes les commandes<br>utilisant le verbe « Stop ».</p>
+<pre class="tssr-source-code">PS &gt; Get-Command -Verb Stop</pre>
+<p class="tssr-source-paragraph">Le résultat de la commande affiche <br>toutes les cmdlets<br>dont le verbe d’action est « Stop »</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\amariault&gt;<br>get-command<br>*-service</p><p>CommandType<br>Name<br>+<br>Cmdlet<br>Get-Service<br>Cmdlet<br>New-Service<br>Cmdiet<br>Restart-Service<br>Cmdlet<br>Resume-Service<br>Cmdlet<br>Set-Service<br>cmd let<br>Start-Service<br>icmdlet.<br>Stop-Service<br>cmd let<br>Suspend-Service</p><p>Ps C:\Users\amariault&gt;<br>get-command<br>stop.</p><p>commandType<br>Name</p><p>Function<br>stop-DscConfi guration<br>Function<br>Stop-Dtc<br>Function<br>Stop-DtcTransactionsTracesession<br>Function<br>Stop-EtwTraceSession<br>Function<br>Stop-NetEventSession<br>Function<br>Stop-PcsvDevice<br>Function<br>Stop-ScheduledTask<br>Function<br>Stop-StorageDiagnosticLog<br>Function<br>Stop-StorageJob<br>Function<br>Stop-Trace<br>cmd let<br>Stop-AppvCl ientConnectionGroup<br>cmd let<br>Stop-AppvClientPackage<br>cmd let<br>Stop-Computer</p><p>cmd let<br>Stop-DtcDiagnosticResourceManager<br>=&gt;</p><p>cmd let<br>Stop-Job<br>cmd et<br>Stop-Process<br>cmd let<br>Stop-Service<br>cmd let<br>Stop-Transcript</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Get-Help</h4>
+<pre class="tssr-source-code">• Une fois la commande trouvée, il nous 
+faut comprendre comment l’utiliser.
+• La solution est bien connue, il faut lire le 
+manuel.
+• Toute Cmdlet comporte un manuel. Il 
+est disponible avec la commande : 
+Get-Help suivi du paramètre –Name      
+« La Cmdlet concernée »</pre>
+<pre class="tssr-source-code">PS &gt; Get-Help -Name Get-Service</pre>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Get-Help</h4>
+<p class="tssr-source-paragraph">L’aide de la commande est affiché dans la console.</p>
+<p class="tssr-source-paragraph">• Nous pouvons utiliser des paramètres supplémentaires afin d’améliorer les informations <br>obtenues.</p>
+<pre class="tssr-source-code">• L’aide des commandes est répartie en catégories. Le paramètre -Full permet d’afficher 
+toutes les catégories disponibles dans l’aide d’une commande.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Help -Name Get-Service -Full</pre>
+<p class="tssr-source-paragraph">• On obtient une aide complète plus détaillée avec des exemples d’utilisation de commande, <br>une catégorie lien plus fournie.</p>
+<pre class="tssr-source-code">PS &gt; Get-Help -Name Get-Service -Full</pre>
+<pre class="tssr-source-code">• Le paramètre -Online permet de suivre le lien fourni dans l’aide et de l’ouvrir dans un 
+navigateur web. L’aide en ligne fournit la version la plus à jour avec des liens vers des 
+commandes annexes. </pre>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Now</p><p>Get-Service</p><p>Resume</p><p>YNTAXE</p><p>[-Requiredservices]<br>[&lt;ConmonParaneters&gt;]</p><p>ESCRIPTION</p><p>Restart-service</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Get-Help</h4>
+<pre class="tssr-source-code">• Le paramètre -Examples permet d’afficher uniquement les exemples 
+d’utilisation de la  commande.</pre>
+<pre class="tssr-source-code">PS &gt; Get-Help -Name Get-Service -Examples</pre>
+<p class="tssr-source-paragraph">• Pour faciliter la lecture de l’aide, PowerShell met à disposition une fenêtre <br>avec un champ de recherche. Cela permet de filtrer les catégories, copier-<br>coller des exemples, etc.</p>
+<pre class="tssr-source-code">PS &gt; Get-Help –Name Get-Service -ShowWindow</pre>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<p class="tssr-source-paragraph">Champ de recherche</p>
+<h4>Get-Help</h4>
+<p class="tssr-source-paragraph">Personnalisation des </p>
+<p class="tssr-source-paragraph">sections affichées</p>
+<p class="tssr-source-paragraph">Aide dans une <br>nouvelle fenêtre</p>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BBAide sur le rôlere<br>_<br>a<br>x</p><p>Résumé<br>a</p><p>-ComputerName &lt;String[]&gt;</p><p>Valeur<br>par, fet<br>tone</p><p>-DisplayName &lt;String[]&gt;</p><p>“x</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-a3db0e6285fc41c67eaabd85c411a12bbcbf22d942acf201ff3b771603c0291e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a3db0e6285fc41c67eaabd85c411a12bbcbf22d942acf201ff3b771603c0291e.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="993" height="6364"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Update-Help</h4>
+<p class="tssr-source-paragraph">• Il est possible de mettre à jour l’ensemble des fichiers d’aide avec la commande : </p>
+<pre class="tssr-source-code">PS &gt; Update-Help </pre>
+<p class="tssr-source-paragraph">• Sans paramètres, cette commande va tenter de chercher sur le web les mises à jour de <br>l’aide en passant par le service Windows Update</p>
+<p class="tssr-source-paragraph">• Dans le cas où le service serait inaccessible, il est possible d’indiquer une source locale <br>contenant les fichiers d’aide.</p>
+<pre class="tssr-source-code">PS &gt; Update-Help –SourcePath D:\PowerShell</pre>
+<p class="tssr-source-paragraph">• Il est également possible de choisir un langage. </p>
+<pre class="tssr-source-code">PS &gt; Update-Help –SourcePath D:\PowerShell –UICulture En-US</pre>
+<p class="tssr-source-paragraph">Ces commandes nécessitent un PowerShell avec les droits administrateur.</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>La commande de protection</h4>
+<p class="tssr-source-paragraph">• L’exécution de script est par défaut soumise à une forte restriction.</p>
+<p class="tssr-source-paragraph">• Le niveau de confiance requis pour l’exécution est modifiable :<br>• Restricted (par défaut)<br>Niveau de sécurité élevé<br>• AllSigned<br>• Remote Signed</p>
+<p class="tssr-source-paragraph">Cette commande<br>permet l’exécution<br>de tous les scripts.</p>
+<p class="tssr-source-paragraph">• Unrestricted<br>Niveau de sécurité limité<br>• Bypass</p>
+<p class="tssr-source-paragraph">• Default<br>• Undefined</p>
+<pre class="tssr-source-code">PS &gt; Set-ExecutionPolicy –ExecutionPolicy
+Unrestricted</pre>
+<p class="tssr-source-paragraph">Ces commandes nécessitent un PowerShell avec les droits administrateurs</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les modules</h4>
+<p class="tssr-source-paragraph">• Chaque Cmdlet provient d’un module PowerShell.</p>
+<p class="tssr-source-paragraph">• Les modules PowerShell sont des fichiers portant l’extension .PSM1.</p>
+<pre class="tssr-source-code">• La commande Get-Module permet de voir les modules actuellement 
+disponibles dans PowerShell.</pre>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Les modules - Ajout</h4>
+<pre class="tssr-source-code">PS &gt; $env:PsModulePath</pre>
+<p class="tssr-source-paragraph">• Après la récupération d’un fichier PSM1 pour connaître l’emplacement disponible, il <br>faut saisir la commande :</p>
+<p class="tssr-source-paragraph">• Après la copie du fichier dans l’emplacement, on importe le module dans la console :</p>
+<pre class="tssr-source-code">PS &gt; Import-Module –Name « Le nom du dossier contenant le module »</pre>
+<p class="tssr-source-paragraph">• Puis on vérifie l’importation : </p>
+<pre class="tssr-source-code">PS &gt; Get-Command –module « Le nom du module »</pre>
+<p class="tssr-source-paragraph">Ces commandes nécessitent un PowerShell avec les droits administrateurs.</p>
+<p class="tssr-source-paragraph">Il faut également modifier les droits d’exécution de script sur le système.</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\amariault&gt;<br>get-module</p><p>ModuleType Version<br>Name</p><p>Manifest<br>3.1.0.0<br>Microsoft .PowerShel1.Management<br>Manifest<br>3.1.0.0<br>Microsoft.PowerShe11.Utility<br>Script<br>2.0.0<br>PSReadline</p><p>11:17:28]<br>&gt;<br>C:\users\amariault\bocuments\wWindowsPowershe11\modules;c:\Program<br>Files\windowsPowershe11\modules;<br>ic: \WINDOWS\system32\wWindowsPowerShel1\v1.0\Modules</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>La personnalisation de la console</h4>
+<p class="tssr-source-paragraph">• Il est possible de modifier les propriétés de la <br>console PowerShell en faisant un clic droit sur le <br>bandeau puis en cliquant sur propriétés.</p>
+<p class="tssr-source-paragraph">• La console se personnalise par le choix d’une <br>police de la taille des caractères ainsi que des <br>couleurs de caractères.</p>
+<p class="tssr-source-paragraph">• Il est également possible de créer un profil <br>personnalisé en saisissant la commande :</p>
+<pre class="tssr-source-code">PS &gt; New-Item –Path $Profile –Type File -Force</pre>
+<p class="tssr-source-paragraph">• Cette commande écrit dans le dossier Documents <br>de l’utilisateur actuel un fichier PS1 qui peut <br>contenir des commandes qui seront exécutées à <br>l’ouverture de la console PowerShell.</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Découverte de PowerShell</h4>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EX Windows Powershell<br>=<br>mx<br>di<br>Restaurer<br>x</p><p>Déplacer</p><p>Taille</p><p>=<br>Réduire</p><p>a<br>Agrandir</p><p>x<br>Fermer</p><p>Modifier<br>&gt;<br>Par défaut<br>Propriétés</p><p>2 D + | Moses</p><p>€ &gt;<br>+<br>[D&gt; Mure &gt; Documents<br>» WindowPowentel</p><p>corny, Momencepe<br>9767202100988<br>Windows Powe.<br>oe</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Présentation du langage PowerShell</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">•<br>Vous connaissez le fonctionnement des <br>commandes PowerShell</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-78773d2f78446904bfcd817fbd4cde5ad4fa76bdc6bb8fd4dff6dd8a99c3e317.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-78773d2f78446904bfcd817fbd4cde5ad4fa76bdc6bb8fd4dff6dd8a99c3e317.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="993" height="4999"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,49 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M12TP02 - Solution - Gestion de la planification des tâches.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M12TP02 - Solution - Gestion de la planification des tâches</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Gestion de la planification <br>des tâches </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé : Planification de taches sur le serveur <br>sans environnement graphique </h4>
+<p class="tssr-source-paragraph">I. <br>Crontab utilisateur </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l&#x27;utilisateur &quot;François&quot; </p>
+<p class="tssr-source-paragraph"> <br>Au premier lancement choisir vim.basic </p>
+<pre class="tssr-source-code">o Périodicité : tous les jours ouvrables de la semaine à 9h15 </pre>
+<pre class="tssr-source-code">o Commande : mise à jour de l’archive de son répertoire personnel dans </pre>
+<p class="tssr-source-paragraph">l’arborescence depot de l’atelier 10 avec le nom francois.tar </p>
+<p class="tssr-source-paragraph"> <br>À la 15eme minute de la 9eme heure, tous les jours du mois, tous les mois, du 1er au 5eme jour de la semaine </p>
+<p class="tssr-source-paragraph">Se déplacer à la racine (tar en mode update) puis lancer la commande de mise à jour de l&#x27;archive </p>
+
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l’utilisateur &quot;François&quot; </p>
+<pre class="tssr-source-code">o Périodicité : tous les samedis à 10h </pre>
+<pre class="tssr-source-code">o Commande : compression de l’archive francois.tar en francois.tar.bz2, puis </pre>
+<p class="tssr-source-paragraph">création d’une nouvelle archive francois.tar </p>
+<p class="tssr-source-paragraph"> <br>À la 1ère minute de la 10eme heure, le 6eme jour de la semaine, compresser l&#x27;archive et créer une nouvelle </p>
+<p class="tssr-source-paragraph">archive hebdomadaire. </p>
+
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$<br>crontab<br>-e</p><p>no<br>crontab<br>for<br>francois<br>-<br>using<br>an<br>empty one</p><p>Select<br>an editor.<br>To<br>change<br>later,<br>run<br>&#x27;select-editor&#x27;.</p><p>1.<br>/bin/nano<br>----<br>easiest</p><p>2.<br>fusr/bin/vim.basic</p><p>3.<br>/usr/bin/vim.tiny</p><p>Choose<br>1-3<br>[1]:<br>2</p><p>cd /<br>;<br>tar<br>-uvf<br>/srv/depot/francois.tar home/francois</p><p>zip<br>rv/depot/francois.tar<br>tar<br>©<br>rv/depot/ franc<br>.ta<br>iON</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+
+<p class="tssr-source-paragraph">II. <br>Crontab système </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche de surveillance des processus système : </p>
+<pre class="tssr-source-code">o Périodicité : toutes les 30 minutes le mardi </pre>
+<pre class="tssr-source-code">o Commande : lister l&#x27;ensemble des processus de manière détaillée avec notamment </pre>
+<p class="tssr-source-paragraph">les pourcentages d&#x27;utilisation mémoire et processeur. </p>
+<pre class="tssr-source-code">o Enregistrer ces informations de façon durable dans le fichier /var/log/procstatus.log </pre>
+<p class="tssr-source-paragraph"> <br>vi /etc/crontab, ajout d&#x27;une ligne pour lancer toutes les 30 minutes, le 2eme jour, une commande ps faux. </p>
+<p class="tssr-source-paragraph">La commande date permet de dénombrer et d&#x27;horodater les diverses occurences. </p>
+
+<p class="tssr-source-paragraph"> <br>Détail de résultats après une première occurence sur le serveur. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>roo<br>‘<br>n-parts<br>--repo<br>etc/cron.<br>hourly</p><p>root@deb-camille-Ol:~#<br>head<br>-n<br>4<br>/var/log/procstatus.log<br>;<br>tail<br>-n<br>10 /var/log/procstatus.<br>log<br>mar.<br>26<br>oct.<br>2021<br>14:00:01<br>CEST</p><p>USER<br>PID<br>*CPU<br>%MEM<br>VSZ<br>RSS<br>TTY<br>STAT<br>START<br>TIME<br>COMMAND</p><p>root<br>2<br>0.0<br>0.0<br>o<br>0?<br>3<br>13:53<br>0:00<br>[kthreada]<br>root<br>3<br>0.0<br>0.0<br>0<br>0<br>?<br>I&lt;<br>13:53<br>0:00<br>\<br>[reu<br>gp]<br>root<br>618<br>0.0<br>0.4<br>14452<br>8632<br>?<br>Ss<br>13:57<br>0:00<br>\_ sshd: camille<br>[priv]<br>camille<br>631<br>0.0<br>0.3<br>14652<br>6104<br>?<br>s<br>13:57<br>0:00<br>\_<br>sshd:<br>camillefpts/0<br>camille<br>632<br>0.0<br>0.2<br>7840<br>4804<br>pts/0<br>Ss<br>13:57<br>0:00</p><p>~</p><p>\<br>-bash<br>root<br>660<br>0.0<br>0.2<br>9968<br>4684<br>pts/0<br>3<br>13:57<br>0:00<br>\_<br>su<br>-<br>root<br>661<br>0.0<br>0.2<br>7892<br>4792<br>pts/0<br>s<br>13:57<br>0:00</p><p>~</p><p>\_<br>-bash<br>root<br>704<br>0.0<br>0.4<br>14108<br>8928<br>pts/0<br>S+<br>13:59<br>0:00</p><p>7</p><p>4<br>vi<br>/etc/crontab<br>root<br>609<br>0.0<br>0.4<br>15256<br>6720<br>?<br>Ss<br>13:56<br>0:00<br>/lib/systemd/systemd --user<br>root<br>610<br>0.0<br>O.1<br>101292<br>2660<br>?<br>5<br>13:56<br>0:00<br>\<br>(sd-pam<br>camille<br>621<br>0.0<br>0.4<br>15140<br>6184<br>?<br>Ss<br>13:57<br>0:00<br>/lib/systemd/systemd<br>--user<br>camille<br>6220.0<br>0.1<br>101292<br>2668<br>?<br>s<br>13:57<br>0:00<br>\<br>(sd-pam)</p><p>:</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-4730ff893479534cf00c9f22e4278574b1c1230d8187ad5811c675a9b2b570b5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4730ff893479534cf00c9f22e4278574b1c1230d8187ad5811c675a9b2b570b5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1486"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

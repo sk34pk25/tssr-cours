@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12672,29 +12672,530 @@
 
 
 <h1 id="tp-module-01-presentation-de-lenvironnement-installation-de-glpi">TP — Module 01 — Présentation de l’environnement — Installation de GLPI<a class="headerlink" href="#tp-module-01-presentation-de-lenvironnement-installation-de-glpi" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M1 - Enoncé du TP - Installation de lenvironnement.pdf · 7 pages</summary>
+<summary>Énoncé · M1 - Enoncé du TP - Installation de lenvironnement · 7 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/e6da692355578977/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/e6da692355578977/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/e6da692355578977/pages-001-004.webp" alt="Source Drive — M1 - Enoncé du TP - Installation de lenvironnement.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M1 - Enoncé du TP - Installation de lenvironnement.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/e6da692355578977/pages-005-007.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/e6da692355578977/pages-005-007.webp" alt="Source Drive — M1 - Enoncé du TP - Installation de lenvironnement.pdf — pages 5 à 7. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M1 - Enoncé du TP - Installation de lenvironnement.pdf — pages 5 à 7. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">GLPI </p>
+<h4>Installation de <br>l’environnement </h4>
+<p class="tssr-source-paragraph">TP du Module 1 – Présentation de l’environnement – Installation de <br>GLPI </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Installer un GLPI et un domaine Active Directory <br>Prérequis </p>
+<p class="tssr-source-paragraph">• <br>VMware Workstation, ISO Debian10 NetInstall, Windows server 2019 graphique et <br>pfSense <br>Contexte </p>
+<p class="tssr-source-paragraph">• <br>La société Olympus vous demande d’installer l’application GLPI au sein de son <br>domaine. </p>
+<p class="tssr-source-paragraph">• <br>L’application GLPI sera ensuite utilisée pour de la gestion de parc et de l’assistance <br>utilisateur. </p>
+<p class="tssr-source-paragraph">Adressage IP des VM :  </p>
+<p class="tssr-source-paragraph">• <br>192.168.1.0/24 + DHCP salle </p>
+<p class="tssr-source-paragraph">Page 1/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">.254</p>
+<p class="tssr-source-paragraph">Réseau de salle</p>
+<p class="tssr-source-paragraph">DHCP</p>
+<p class="tssr-source-paragraph">192.168.1.0/24</p>
+<p class="tssr-source-paragraph">PFSENSE</p>
+<p class="tssr-source-paragraph">VMNET 18</p>
+<p class="tssr-source-paragraph">srv-glpi<br>srv-CD1</p>
+<p class="tssr-source-paragraph">.1<br>.2</p>
+<p class="tssr-source-paragraph"> <br>Principales tâches à réaliser </p>
+<p class="tssr-source-paragraph">Installation du serveur GLPI </p>
+<p class="tssr-source-paragraph">• <br>Installez une VM Debian 10 64b avec interface graphique </p>
+<pre class="tssr-source-code">o 4Go RAM, 1CPU, bridge, 40Gb de disque dur. </pre>
+<pre class="tssr-source-code">o Utilisez l’ISO NetInstall de Debian 10 disponible sur distrib. </pre>
+<pre class="tssr-source-code">o Adressage réseau : DHCP en bridge pour l’installation. </pre>
+<pre class="tssr-source-code">o Puis faites la configuration réseau une fois installée (VMNet18). </pre>
+<pre class="tssr-source-code">o Serveur DNS : srv-CD01. </pre>
+<pre class="tssr-source-code">o Uniquement le serveur SSH et l’environnement graphique de bureau seront </pre>
+<p class="tssr-source-paragraph">installés avec les utilitaires usuels du système. </p>
+<p class="tssr-source-paragraph">Installation du domaine ADDS </p>
+<p class="tssr-source-paragraph">• <br>Depuis l’image ISO Windows Server 2019 présente sur distrib, déployez le serveur pour le <br>domaine Olympus.gr. </p>
+<p class="tssr-source-paragraph">• <br>Procédez au nommage et adressage réseau comme indiqué sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Créez les domaines ADDS « Olympus.gr ». </p>
+<p class="tssr-source-paragraph">• <br>Ne créer ni OU, ni utilisateurs pour le moment. </p>
+<p class="tssr-source-paragraph">Installation d’un client W10 </p>
+<p class="tssr-source-paragraph">• <br>Depuis l’image SysPrep Windows 10 présente dans distrib, déployez un client. </p>
+<p class="tssr-source-paragraph">• <br>Procédez à la configuration réseau en vous basant sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le client dans le domaine ADDS. </p>
+<p class="tssr-source-paragraph">Installation du firewall pfSense </p>
+<p class="tssr-source-paragraph">• <br>Créez une nouvelle machine virtuelle avec les caractéristiques suivantes :  </p>
+<pre class="tssr-source-code">o OS : Other, FreeBSD 64-bit, 512 de RAM, 1 CPU, Disque 20G GB. </pre>
+<p class="tssr-source-paragraph">Page 2/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>à</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">GLPI </p>
+<pre class="tssr-source-code">o Carte réseau n°1 : bridgée en DHCP </pre>
+<pre class="tssr-source-code">o Carte réseau n°2 : VMNet18 </pre>
+<p class="tssr-source-paragraph">• <br>Depuis l’ISO présente sur Distrib, installez un pfSense avec les réglages par défaut. </p>
+<p class="tssr-source-paragraph">• <br>Laissez la carte em0 en DHCP, configurez la carte em1 sur le LAN VMNET18 comme <br>indiqué sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Accédez à l’interface web du pfSense et effectuez-y la configuration préalable qui sera <br>proposée. </p>
+<p class="tssr-source-paragraph">• <br>Créez une règle de filtrage sur toutes les interfaces qui autorise tout le trafic. </p>
+<p class="tssr-source-paragraph">• <br>Test de communication </p>
+<pre class="tssr-source-code">o Depuis srv-Cd01, vous devez pouvoir résoudre ftp.fr.debian.org (pensez au </pre>
+<p class="tssr-source-paragraph">DNS) </p>
+<pre class="tssr-source-code">o Depuis srv-glpi, ping vers ftp.fr.debian.org. </pre>
+<p class="tssr-source-paragraph">Installation de l’application GLPI </p>
+<p class="tssr-source-paragraph">Le serveur Debian doit pouvoir, à travers le pfSense, accéder au réseau extérieur, dont les <br>dépôts de l’Ecole. La mise à jour des dépôts ne doit pas provoquer d’erreurs. Inutile d’aller <br>plus loin si cette étape n’est pas vérifiée. </p>
+<p class="tssr-source-paragraph">• <br>Installez les paquets suivants : </p>
+<pre class="tssr-source-code">o Serveur WEB et le serveur de base de données : task-web-server et mariadb-</pre>
+<p class="tssr-source-paragraph">server. </p>
+<pre class="tssr-source-code">o Extensions obligatoires PHP pour GLPI : </pre>
+<p class="tssr-source-paragraph">▪ <br>Php7.3 </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-mysql </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-mbstring </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-curl </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-gd </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-xml </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-ldap </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-xmlrpc </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-imap </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-intl </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-zip </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-bz2 </p>
+<p class="tssr-source-paragraph">▪ <br>php-apcu-bc </p>
+<p class="tssr-source-paragraph">▪ <br>php-cas </p>
+<p class="tssr-source-paragraph">• <br>Redémarrez ensuite le serveur Apache </p>
+
+<p class="tssr-source-paragraph">Page 3/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Configuration de la base de données </p>
+
+
+<p class="tssr-source-paragraph">#mysql_secure_installation <br> </p>
+
+
+
+
+<p class="tssr-source-paragraph">Change the root password? [Y/n] n <br>Remove anonymous users? [Y/n] Y <br>Disallow root login remotely? [Y/n] Y <br>Remove test database and access to it? [Y/n] Y <br>Reload privilege tables now? [Y/n] Y </p>
+
+<pre class="tssr-source-code">o Connectez-vous au Shell mysql : mysql -u root -p </pre>
+<pre class="tssr-source-code">o Créez une base de données pour GLPI : </pre>
+
+<p class="tssr-source-paragraph">Mysql&gt;create database glpidb; </p>
+<p class="tssr-source-paragraph">Afin de vérifier si votre base de données a bien été créée : </p>
+
+
+<p class="tssr-source-paragraph">Mysql&gt;show databases ; <br>+----------------------------+ <br>|  Database                        | <br>+----------------------------+ <br>|  glpidata                          | <br>|  information_schema  | <br>|  mysql                              | <br>|  performance                 | <br>+----------------------------+</p>
+<p class="tssr-source-paragraph">Page 4/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-999da878d63efbb58dc11182ad1a01dd04e9c5b65544cab3b6c3ebce8d1aacb6.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-999da878d63efbb58dc11182ad1a01dd04e9c5b65544cab3b6c3ebce8d1aacb6.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="1904"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Créez un gestionnaire avec tous les droits sur cette base de données : </p>
+<p class="tssr-source-paragraph">Mysql&gt;grant all privileges on glpidata.* to root@localhost identified by ‘motdepass’; </p>
+
+<p class="tssr-source-paragraph">Afin de vérifier si cela a bien fonctionné : </p>
+
+
+
+
+
+<p class="tssr-source-paragraph">Mysql&gt;show grants for root@localhost; <br> <br>+-------------------------------------------------------------------------------------------------------<br>----------+ <br>|  Grants for root@localhost                                                                                                                 <br>| <br>+-------------------------------------------------------------------------------------------------------<br>----------+ <br>| GRANT ALL PRIVILEGES ON *.* TO ‘root’@’localhost’ IDENTIFIED BY PASSWORD <br>‘*2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19’ WITH GRANT OPTION                | </p>
+<p class="tssr-source-paragraph">• <br>Installation de GLPI </p>
+<pre class="tssr-source-code">o Récupérez l’archive de GLPI présente sur le partage formateur sur la machine </pre>
+<p class="tssr-source-paragraph">Debian avec Winscp disponible sur Distrib (attention, openssh-server doit être <br>installé et le démon sshd empêche la connexion avec l’utilisateur root…). </p>
+<pre class="tssr-source-code">o Copiez le fichier glpi-xxxx.tar.gz dans le dossier /var/www/ </pre>
+<pre class="tssr-source-code">o Utilisez la commande tar pour désarchiver et décompressez dans /var/www </pre>
+<p class="tssr-source-paragraph">puis supprimez le fichier glpi-xxxx.tar.gz. </p>
+<pre class="tssr-source-code">o Vérifiez que root est bien propriétaire et groupe propriétaire du répertoire, et </pre>
+<p class="tssr-source-paragraph">en récursif, GLPI, sinon faites le changement. <br> </p>
+<p class="tssr-source-paragraph">• <br>Modification de l’emplacement des fichiers de configuration de GLPI. </p>
+<pre class="tssr-source-code">o Créez un répertoire GLPI dans /etc. </pre>
+<pre class="tssr-source-code">o Créez le fichier local_define.php dans le répertoire /etc/glpi avec les </pre>
+<p class="tssr-source-paragraph">instructions suivantes : <br> </p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="tssr-source-paragraph">&lt;?php <br>define('GLPI_VAR_DIR', '/var/lib/glpi'); <br>define('GLPI_DOC_DIR',  <br>GLPI_VAR_DIR); <br>define('GLPI_CRON_DIR',  <br> <br>GLPI_VAR_DIR . '/_cron'); <br>define('GLPI_DUMP_DIR',  <br>GLPI_VAR_DIR . '/_dumps'); <br>define('GLPI_GRAPH_DIR',  <br> <br>GLPI_VAR_DIR . '/_graphs'); <br>define('GLPI_LOCK_DIR',   <br>GLPI_VAR_DIR . '/_lock'); <br>define('GLPI_PICTURE_DIR',  <br>GLPI_VAR_DIR . '/_pictures'); <br>define('GLPI_PLUGIN_DOC_DIR',  <br>GLPI_VAR_DIR . '/_plugins'); <br>define('GLPI_RSS_DIR',  <br> <br>GLPI_VAR_DIR . '/_rss'); <br>define('GLPI_SESSION_DIR',  <br>GLPI_VAR_DIR . '/_sessions'); <br>define('GLPI_TMP_DIR',   <br>GLPI_VAR_DIR . '/_tmp'); <br>define('GLPI_UPLOAD_DIR',  <br>GLPI_VAR_DIR . '/_uploads'); <br>define('GLPI_CACHE_DIR',  <br>GLPI_VAR_DIR . '/_cache'); <br> <br>define('GLPI_LOG_DIR', '/var/log/glpi'); <br>?&gt;</p>
+<p class="tssr-source-paragraph">Page 5/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>nn</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Donnez les droits en récursif à l’utilisateur www-data sur /etc/glpi et sur <br>/var/www/glpi/files. </p>
+<p class="tssr-source-paragraph">• <br>Créez un répertoire /var/lib/glpi. </p>
+<p class="tssr-source-paragraph">• <br>Copiez tout ce qui se trouve dans /var/ww/glpi/files vers /var/lib/glpi. </p>
+<p class="tssr-source-paragraph">• <br>Donnez les droits en récursif à l’utilisateur www-data sur /var/lib/glpi. Vérifiez. </p>
+
+<p class="tssr-source-paragraph"># ls -l /var/lib/glpi  <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _cache <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _cron <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _dumps <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _graphs <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _locales <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _lock <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _log <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _pictures <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _plugins <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _rss <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _sessions <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _tmp <br>drwxr xr x 2 www data root 4096 janv 24 10:37 uploads</p>
+
+<p class="tssr-source-paragraph">• <br>Créez un répertoire /var/log/glpi afin de gérer la journalisation de GLPI. </p>
+<p class="tssr-source-paragraph">• <br>Donnez les droits à l’utilisateur www-data sur /var/log/glpi. </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez. </p>
+<p class="tssr-source-paragraph">#ls -ld /var/log/glpi <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:33 glpi/ </p>
+
+<p class="tssr-source-paragraph">• <br>Créez un fichier /var/www/glpi/inc/downstream.php. </p>
+<p class="tssr-source-paragraph">&lt;?php <br>define('GLPI_CONFIG_DIR', '/etc/glpi/'); <br> <br>if (file_exists(GLPI_CONFIG_DIR . '/local_define.php')) { require_once <br>GLPI_CONFIG_DIR . '/local_define.php'; <br>} <br>?&gt;</p>
+
+<p class="tssr-source-paragraph">• <br>Donnez les droits à l’utilisateur www-data sur /var/www/glpi/marketplace. </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez. </p>
+
+<p class="tssr-source-paragraph">#ls -ld marketplace <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:33 marketplace/ </p>
+
+<p class="tssr-source-paragraph">• <br>Afin de publier le site web GLPI, il faut créer le fichier /etc/apache2/sites-<br>available/glpi.domaine.tld.conf. </p>
+<p class="tssr-source-paragraph">Page 6/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">GLPI </p>
+
+<p class="tssr-source-paragraph">&lt;VirtualHost *:80&gt; </p>
+<p class="tssr-source-paragraph">Documentroot /var/www/glpi <br>ServerName glpi.domaine.tld <br>&lt;Directory /var/www/glpi&gt; </p>
+<p class="tssr-source-paragraph">AllowOverride none <br>Options Indexes FollowSymLinks Multiviews <br>Require all granted <br>&lt;/Directory&gt; <br>&lt;/VirtualHost&gt;</p>
+
+<p class="tssr-source-paragraph">• <br>Enfin, publiez le site internet. </p>
+<p class="tssr-source-paragraph">• <br>Rechargez la configuration du serveur Apache. </p>
+<p class="tssr-source-paragraph">• <br>Donnez un FQDN à votre serveur GLPI en olympus.gr. </p>
+<p class="tssr-source-paragraph">• <br>Créez l’enregistrement d’hôte pour votre serveur GLPI dans le DNS de CD01. </p>
+<p class="tssr-source-paragraph">• <br>Créez un enregistrement CNAME « glpi » pour l’enregistrement A créer ci-dessus. </p>
+<p class="tssr-source-paragraph">• <br>Pour la suite des TP, depuis le client W10, faites-en sorte de pouvoir y accéder depuis <br>l’URL suivante : http://glpi.olympus.gr puis terminez la configuration. </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 7/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-071698b0ad0f79e3ccab608b118e4524ab8d9a87bdeb2df6197848981e8b0406.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-071698b0ad0f79e3ccab608b118e4524ab8d9a87bdeb2df6197848981e8b0406.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="942" height="2928"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1foBVV4Imb9lmfm50lM_R-5XxrZ3CkPik · <span title="Empreinte SHA-256 du fichier source">SHA-256 e6da692355578977…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M1 - Solution du TP - Installation de lenvironnement.pdf · 7 pages</summary>
+<summary>Correction · M1 - Solution du TP - Installation de lenvironnement · 7 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/ccae2baf972a2a87/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1NogprwJvwtn2R5UIki31K945yq2s7rZQ/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/ccae2baf972a2a87/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/ccae2baf972a2a87/pages-001-004.webp" alt="Source Drive — M1 - Solution du TP - Installation de lenvironnement.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M1 - Solution du TP - Installation de lenvironnement.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/ccae2baf972a2a87/pages-005-007.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/ccae2baf972a2a87/pages-005-007.webp" alt="Source Drive — M1 - Solution du TP - Installation de lenvironnement.pdf — pages 5 à 7. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M1 - Solution du TP - Installation de lenvironnement.pdf — pages 5 à 7. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">GLPI </p>
+<h4>Installation de <br>l’environnement </h4>
+<p class="tssr-source-paragraph">TP du Module 1 – Présentation de l’environnement – Installation de <br>GLPI </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Installer un GLPI et un domaine Active Directory <br>Prérequis </p>
+<p class="tssr-source-paragraph">• <br>VMware Workstation, ISO Debian10 NetInstall, Windows server 2019 graphique et <br>pfSense <br>Contexte </p>
+<p class="tssr-source-paragraph">• <br>La société Olympus vous demande d’installer l’application GLPI au sein de son <br>domaine. </p>
+<p class="tssr-source-paragraph">• <br>L’application GLPI sera ensuite utilisée pour de la gestion de parc et de l’assistance <br>utilisateur. </p>
+<p class="tssr-source-paragraph">Adressage IP des VM :  </p>
+<p class="tssr-source-paragraph">• <br>192.168.1.0/24 + DHCP salle </p>
+<p class="tssr-source-paragraph">Page 1/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">.254</p>
+<p class="tssr-source-paragraph">Réseau de salle</p>
+<p class="tssr-source-paragraph">DHCP</p>
+<p class="tssr-source-paragraph">192.168.1.0/24</p>
+<p class="tssr-source-paragraph">PFSENSE</p>
+<p class="tssr-source-paragraph">VMNET 18</p>
+<p class="tssr-source-paragraph">srv-glpi<br>srv-CD1</p>
+<p class="tssr-source-paragraph">.1<br>.2</p>
+<p class="tssr-source-paragraph"> <br>Principales tâches à réaliser </p>
+<p class="tssr-source-paragraph">Installation du serveur GLPI </p>
+<p class="tssr-source-paragraph">• <br>Installez une VM Debian 10 64b avec interface graphique </p>
+<pre class="tssr-source-code">o 4Go RAM, 1CPU, bridge, 40Gb de disque dur. </pre>
+<pre class="tssr-source-code">o Utilisez l’ISO NetInstall de Debian 10 disponible sur distrib. </pre>
+<pre class="tssr-source-code">o Adressage réseau : DHCP en bridge pour l’installation. </pre>
+<pre class="tssr-source-code">o Puis faites la configuration réseau une fois installée (VMNet18). </pre>
+<pre class="tssr-source-code">o Serveur DNS : srv-CD01. </pre>
+<pre class="tssr-source-code">o Uniquement le serveur SSH et l’environnement graphique de bureau seront </pre>
+<p class="tssr-source-paragraph">installés avec les utilitaires usuels du système. </p>
+<p class="tssr-source-paragraph">Installation du domaine ADDS </p>
+<p class="tssr-source-paragraph">• <br>Depuis l’image ISO Windows Server 2019 présente sur distrib, déployez le serveur pour le <br>domaine Olympus.gr. </p>
+<p class="tssr-source-paragraph">• <br>Procédez au nommage et adressage réseau comme indiqué sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Créez les domaines ADDS « Olympus.gr ». </p>
+<p class="tssr-source-paragraph">• <br>Ne créer ni OU, ni utilisateurs pour le moment. </p>
+<p class="tssr-source-paragraph">Installation d’un client W10 </p>
+<p class="tssr-source-paragraph">• <br>Depuis l’image SysPrep Windows 10 présente dans distrib, déployez un client. </p>
+<p class="tssr-source-paragraph">• <br>Procédez à la configuration réseau en vous basant sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez le client dans le domaine ADDS. </p>
+<p class="tssr-source-paragraph">Installation du firewall pfSense </p>
+<p class="tssr-source-paragraph">• <br>Créez une nouvelle machine virtuelle avec les caractéristiques suivantes :  </p>
+<pre class="tssr-source-code">o OS : Other, FreeBSD 64-bit, 512 de RAM, 1 CPU, Disque 20G GB. </pre>
+<p class="tssr-source-paragraph">Page 2/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>HE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">GLPI </p>
+<pre class="tssr-source-code">o Carte réseau n°1 : bridgée en DHCP </pre>
+<pre class="tssr-source-code">o Carte réseau n°2 : VMNet18 </pre>
+<p class="tssr-source-paragraph">• <br>Depuis l’ISO présente sur Distrib, installez un pfSense avec les réglages par défaut. </p>
+<p class="tssr-source-paragraph">• <br>Laissez la carte em0 en DHCP, configurez la carte em1 sur le LAN VMNET18 comme <br>indiqué sur le schéma. </p>
+<p class="tssr-source-paragraph">• <br>Accédez à l’interface web du pfSense et effectuez-y la configuration préalable qui sera <br>proposée. </p>
+<p class="tssr-source-paragraph">• <br>Créez une règle de filtrage sur toutes les interfaces qui autorise tout le trafic. </p>
+<p class="tssr-source-paragraph">• <br>Test de communication </p>
+<pre class="tssr-source-code">o Depuis srv-Cd01, vous devez pouvoir résoudre ftp.fr.debian.org (pensez au </pre>
+<p class="tssr-source-paragraph">DNS) </p>
+<p class="tssr-source-paragraph">Redirecteur inconditionnel vers le DNS de l’ENI </p>
+<pre class="tssr-source-code">o Depuis srv-glpi, ping vers ftp.fr.debian.org. </pre>
+<p class="tssr-source-paragraph">Installation de l’application GLPI </p>
+<p class="tssr-source-paragraph">Une <br>procédure <br>complète <br>est <br>disponible <br>ici : <br>https://campuseni.sharepoint.com/:w:/s/Cursus_TSSR/EaLk9qRHCvVMhummMhbc0ecBQG<br>XtQdB3LEB_kJAb9toKiw </p>
+<p class="tssr-source-paragraph">Le serveur Debian doit pouvoir, à travers le pfSense, accéder au réseau extérieur, dont les <br>dépôts de l’Ecole. La mise à jour des dépôts ne doit pas provoquer d’erreurs. Inutile d’aller <br>plus loin si cette étape n’est pas vérifiée. </p>
+<p class="tssr-source-paragraph">• <br>Installez les paquets suivants : </p>
+<pre class="tssr-source-code">o Serveur WEB et le serveur de base de données : task-web-server et mariadb-</pre>
+<p class="tssr-source-paragraph">server. </p>
+<pre class="tssr-source-code">o Extensions obligatoires PHP pour GLPI : </pre>
+<p class="tssr-source-paragraph">▪ <br>Php7.3 </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-mysql </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-mbstring </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-curl </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-gd </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-xml </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-ldap </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-xmlrpc </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-imap </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-intl </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-zip </p>
+<p class="tssr-source-paragraph">▪ <br>php7.3-bz2 </p>
+<p class="tssr-source-paragraph">▪ <br>php-apcu-bc </p>
+<p class="tssr-source-paragraph">Page 3/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">▪ <br>php-cas </p>
+<p class="tssr-source-paragraph">• <br>Redémarrez ensuite le serveur Apache </p>
+
+<p class="tssr-source-paragraph">• <br>Configuration de la base de données </p>
+
+
+<p class="tssr-source-paragraph">#mysql_secure_installation <br> </p>
+
+
+
+
+<p class="tssr-source-paragraph">Change the root password? [Y/n] n <br>Remove anonymous users? [Y/n] Y <br>Disallow root login remotely? [Y/n] Y <br>Remove test database and access to it? [Y/n] Y <br>Reload privilege tables now? [Y/n] Y </p>
+
+<pre class="tssr-source-code">o Connectez-vous au Shell mysql : mysql -u root -p </pre>
+<pre class="tssr-source-code">o Créez une base de données pour GLPI : </pre>
+
+<p class="tssr-source-paragraph">Mysql&gt;create database glpidb; </p>
+<p class="tssr-source-paragraph">Afin de vérifier si votre base de données a bien été créée : </p>
+
+
+<p class="tssr-source-paragraph">Mysql&gt;show databases ; <br>+----------------------------+ <br>|  Database                        | <br>+----------------------------+ <br>|  glpidata                          | <br>|  information_schema  | <br>|  mysql                              | <br>|  performance                 | <br>+----------------------------+</p>
+<p class="tssr-source-paragraph">Page 4/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Er</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-7ccf7a0f01bcafe79a23c1992c0299f10e692a11e74572cf4cb44bbdd74ba3a9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-7ccf7a0f01bcafe79a23c1992c0299f10e692a11e74572cf4cb44bbdd74ba3a9.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="1909"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Créez un gestionnaire avec tous les droits sur cette base de données : </p>
+<p class="tssr-source-paragraph">Mysql&gt;grant all privileges on glpidata.* to root@localhost identified by ‘motdepass’; </p>
+
+<p class="tssr-source-paragraph">Afin de vérifier si cela a bien fonctionné : </p>
+
+
+
+
+
+<p class="tssr-source-paragraph">Mysql&gt;show grants for root@localhost; <br> <br>+-------------------------------------------------------------------------------------------------------<br>----------+ <br>|  Grants for root@localhost                                                                                                                 <br>| <br>+-------------------------------------------------------------------------------------------------------<br>----------+ <br>| GRANT ALL PRIVILEGES ON *.* TO ‘root’@’localhost’ IDENTIFIED BY PASSWORD <br>‘*2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19’ WITH GRANT OPTION                | </p>
+<p class="tssr-source-paragraph">• <br>Installation de GLPI </p>
+<pre class="tssr-source-code">o Récupérez l’archive de GLPI présente sur le partage formateur sur la machine </pre>
+<p class="tssr-source-paragraph">Debian avec Winscp disponible sur Distrib (attention, openssh-server doit être <br>installé et le démon sshd empêche la connexion avec l’utilisateur root…). </p>
+<pre class="tssr-source-code">o Copiez le fichier glpi-xxxx.tar.gz dans le dossier /var/www/ </pre>
+<pre class="tssr-source-code">o Utilisez la commande tar pour désarchiver et décompressez dans /var/www </pre>
+<p class="tssr-source-paragraph">puis supprimez le fichier glpi-xxxx.tar.gz. </p>
+<pre class="tssr-source-code">tar xvzf /var/www/glpi-xxxx.tar.gz  </pre>
+<p class="tssr-source-paragraph">Attention, vous devez être dans le répertoire /var/www ou utiliser l’option -C </p>
+<pre class="tssr-source-code">rm glpi-xxxx.tar.gz </pre>
+<pre class="tssr-source-code">o Vérifiez que root est bien propriétaire et groupe propriétaire du répertoire, et </pre>
+<p class="tssr-source-paragraph">en récursif, GLPI, sinon faites le changement. </p>
+<pre class="tssr-source-code">chown -R root glpi  </pre>
+<p class="tssr-source-paragraph">(attention, vous devez être dans le répertoire /var/www ou utiliser le chemin <br>absolu) <br> </p>
+<p class="tssr-source-paragraph">• <br>Modification de l’emplacement des fichiers de configuration de GLPI. </p>
+<pre class="tssr-source-code">o Créez un répertoire GLPI dans /etc. </pre>
+<pre class="tssr-source-code"># mkdir /etc/glpi </pre>
+<pre class="tssr-source-code">o Créez le fichier local_define.php dans le répertoire /etc/glpi avec les </pre>
+<p class="tssr-source-paragraph">instructions suivantes : <br> </p>
+
+
+
+
+
+<p class="tssr-source-paragraph">Page 5/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<p class="tssr-source-paragraph">&lt;?php <br>define('GLPI_VAR_DIR', '/var/lib/glpi'); <br>define('GLPI_DOC_DIR',  <br>GLPI_VAR_DIR); <br>define('GLPI_CRON_DIR',  <br> <br>GLPI_VAR_DIR . '/_cron'); <br>define('GLPI_DUMP_DIR',  <br>GLPI_VAR_DIR . '/_dumps'); <br>define('GLPI_GRAPH_DIR',  <br> <br>GLPI_VAR_DIR . '/_graphs'); <br>define('GLPI_LOCK_DIR',   <br>GLPI_VAR_DIR . '/_lock'); <br>define('GLPI_PICTURE_DIR',  <br>GLPI_VAR_DIR . '/_pictures'); <br>define('GLPI_PLUGIN_DOC_DIR',  <br>GLPI_VAR_DIR . '/_plugins'); <br>define('GLPI_RSS_DIR',  <br> <br>GLPI_VAR_DIR . '/_rss'); <br>define('GLPI_SESSION_DIR',  <br>GLPI_VAR_DIR . '/_sessions'); <br>define('GLPI_TMP_DIR',   <br>GLPI_VAR_DIR . '/_tmp'); <br>define('GLPI_UPLOAD_DIR',  <br>GLPI_VAR_DIR . '/_uploads'); <br>define('GLPI_CACHE_DIR',  <br>GLPI_VAR_DIR . '/_cache'); </p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                             GLPI
+
+•  Créez un gestionnaire avec tous les droits sur cette base de données :
+
+      Mysql&gt;grant all privileges on glpidata.* to root@localhost identified by ‘motdepass’;
+
+Afin de vérifier si cela a bien fonctionné :
+
+       Mysql&gt;show grants for root@localhost;
+
+         +-------------------------------------------------------------------------------------------------------
+         ----------+
+       | Grants for root@localhost
+       |
+         +-------------------------------------------------------------------------------------------------------
+         ----------+
+       | GRANT ALL PRIVILEGES ON *.* TO ‘root’@’localhost’ IDENTIFIED BY PASSWORD
+       ‘*2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19’ WITH GRANT OPTION       |
+
+•   Installation de GLPI
+        o  Récupérez l’archive de GLPI présente sur le partage formateur sur la machine
+           Debian avec Winscp disponible sur Distrib (attention, openssh-server doit être
+                installé et le démon sshd empêche la connexion avec l’utilisateur root…).
+        o  Copiez le fichier glpi-xxxx.tar.gz dans le dossier /var/www/
+        o   Utilisez la commande tar pour désarchiver et décompressez dans /var/www
+              puis supprimez le fichier glpi-xxxx.tar.gz.
+
+           tar xvzf /var/www/glpi-xxxx.tar.gz
+
+              Attention, vous devez être dans le répertoire /var/www ou utiliser l’option -C
+
+           rm glpi-xxxx.tar.gz
+
+        o  Vérifiez que root est bien propriétaire et groupe propriétaire du répertoire, et
+          en récursif, GLPI, sinon faites le changement.
+
+           chown -R root glpi
+
+              (attention, vous devez être dans le répertoire /var/www ou utiliser le chemin
+             absolu)
+
+
+•  Modification de l’emplacement des fichiers de configuration de GLPI.
+        o  Créez un répertoire GLPI dans /etc.
+
+           # mkdir /etc/glpi
+
+        o  Créez  le  fichier local_define.php dans  le  répertoire /etc/glpi avec  les
+               instructions suivantes :
+
+     &lt;?php
+      define('GLPI_VAR_DIR', '/var/lib/glpi');
+      define('GLPI_DOC_DIR',       GLPI_VAR_DIR);
+      define('GLPI_CRON_DIR',           GLPI_VAR_DIR . '/_cron');
+      define('GLPI_DUMP_DIR',      GLPI_VAR_DIR . '/_dumps');
+      define('GLPI_GRAPH_DIR',          GLPI_VAR_DIR . '/_graphs');
+      define('GLPI_LOCK_DIR',      GLPI_VAR_DIR . '/_lock');
+      define('GLPI_PICTURE_DIR',    GLPI_VAR_DIR . '/_pictures');
+      define('GLPI_PLUGIN_DOC_DIR',     GLPI_VAR_DIR . '/_plugins');
+       define('GLPI_RSS_DIR',        GLPI_VAR_DIR . '/_rss'); Page 5/7
+      define('GLPI_SESSION_DIR', © ENI –GLPI_VAR_DIRTous droits réservés     . '/_sessions');
+      define('GLPI_TMP_DIR',        GLPI_VAR_DIR . '/_tmp');
+      define('GLPI_UPLOAD_DIR',    GLPI_VAR_DIR . '/_uploads');
+      define('GLPI_CACHE_DIR',     GLPI_VAR_DIR . '/_cache');</pre></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Donnez les droits en récursif à l’utilisateur www-data sur /etc/glpi et sur <br>/var/www/glpi/files. </p>
+<pre class="tssr-source-code"># chown -R www-data /etc/glpi </pre>
+<pre class="tssr-source-code"># chown -R www-data /var/www/glpi/files </pre>
+<p class="tssr-source-paragraph">• <br>Créez un répertoire /var/lib/glpi. </p>
+<pre class="tssr-source-code"># mkdir /var/lib/glpi </pre>
+<p class="tssr-source-paragraph">• <br>Copiez tout ce qui se trouve dans /var/ww/glpi/files vers /var/lib/glpi. </p>
+<pre class="tssr-source-code"># cp -R /var/www/glpi/files/* /var/lib/glpi </pre>
+<p class="tssr-source-paragraph">• <br>Donnez les droits en récursif à l’utilisateur www-data sur /var/lib/glpi. Vérifiez. </p>
+<pre class="tssr-source-code"># chown -R www-data /var/lib/glpi </pre>
+
+<p class="tssr-source-paragraph"># ls -l /var/lib/glpi  <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _cache <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _cron <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _dumps <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _graphs <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _locales <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _lock <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _log <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _pictures <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _plugins <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _rss <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _sessions <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:37 _tmp <br>drwxr xr x 2 www data root 4096 janv 24 10:37 uploads</p>
+
+<p class="tssr-source-paragraph">• <br>Créez un répertoire /var/log/glpi afin de gérer la journalisation de GLPI. </p>
+<pre class="tssr-source-code">#mkdir /var/log/glpi </pre>
+<p class="tssr-source-paragraph">• <br>Donnez les droits à l’utilisateur www-data sur /var/log/glpi. </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez. </p>
+<p class="tssr-source-paragraph">#ls -ld /var/log/glpi <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:33 glpi/ </p>
+
+<p class="tssr-source-paragraph">• <br>Créez un fichier /var/www/glpi/inc/downstream.php. </p>
+<pre class="tssr-source-code"># vi /var/www/glpi/inc/downstream.php </pre>
+<p class="tssr-source-paragraph">&lt;?php <br>define('GLPI_CONFIG_DIR', '/etc/glpi/'); <br> <br>if (file_exists(GLPI_CONFIG_DIR . '/local_define.php')) { require_once <br>GLPI_CONFIG_DIR . '/local_define.php'; <br>} <br>?&gt;</p>
+
+<p class="tssr-source-paragraph">Page 6/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1NogprwJvwtn2R5UIki31K945yq2s7rZQ-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">GLPI </p>
+<p class="tssr-source-paragraph">• <br>Donnez les droits à l’utilisateur www-data sur /var/www/glpi/marketplace. </p>
+<pre class="tssr-source-code">#chown -R www-data /var/ww/glpi/marketplace </pre>
+<p class="tssr-source-paragraph">• <br>Vérifiez. </p>
+
+<p class="tssr-source-paragraph">#ls -ld marketplace <br>drwxr-xr-x 2 www-data root 4096 janv. 24 10:33 marketplace/ </p>
+
+<p class="tssr-source-paragraph">• <br>Afin de publier le site web GLPI, il faut créer le fichier /etc/apache2/sites-<br>available/glpi.domaine.tld.conf. </p>
+<pre class="tssr-source-code">#vi /etc/apache2/sites-available/glpi.domaine.tld.conf </pre>
+<p class="tssr-source-paragraph">&lt;VirtualHost *:80&gt; </p>
+<p class="tssr-source-paragraph">Documentroot /var/www/glpi <br>ServerName glpi.domaine.tld <br>&lt;Directory /var/www/glpi&gt; </p>
+<p class="tssr-source-paragraph">AllowOverride none <br>Options Indexes FollowSymLinks Multiviews <br>Require all granted <br>&lt;/Directory&gt; <br>&lt;/VirtualHost&gt;</p>
+
+<p class="tssr-source-paragraph">• <br>Enfin, publiez le site internet. </p>
+<pre class="tssr-source-code">a2ensite glpi.domaine.tld.conf </pre>
+<pre class="tssr-source-code">• 
+Rechargez la configuration du serveur Apache. 
+systemctl reload apache2.service </pre>
+<p class="tssr-source-paragraph">• <br>Donnez un FQDN à votre serveur GLPI en olympus.gr. </p>
+<pre class="tssr-source-code">#hostname srv-glpi.olympus.gr </pre>
+<pre class="tssr-source-code">#vi /etc/hosts </pre>
+<pre class="tssr-source-code">127.0.1.1     srv-glpi      srv-glpi.olympus.gr </pre>
+<p class="tssr-source-paragraph">• <br>Créez l’enregistrement d’hôte pour votre serveur GLPI dans le DNS de CD01. </p>
+<p class="tssr-source-paragraph">Créez un enregistrement A  </p>
+<pre class="tssr-source-code">Debian A  
+@IP </pre>
+<p class="tssr-source-paragraph">• <br>Créez un enregistrement CNAME « glpi » pour l’enregistrement A créer ci-dessus. </p>
+<pre class="tssr-source-code">glpi  
+cname  
+debian.domaine.tld </pre>
+<p class="tssr-source-paragraph">• <br>Pour la suite des TP, depuis le client W10, faites-en sorte de pouvoir y accéder depuis <br>l’URL suivante : http://glpi.olympus.gr puis terminez la configuration. </p>
+<p class="tssr-source-paragraph">Page 7/7 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-8ea9fd001be2cb24d86d9a911b4da6056ed274993ebc9c35d23bfaa9704ed31d.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-8ea9fd001be2cb24d86d9a911b4da6056ed274993ebc9c35d23bfaa9704ed31d.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="942" height="2340"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1NogprwJvwtn2R5UIki31K945yq2s7rZQ · <span title="Empreinte SHA-256 du fichier source">SHA-256 ccae2baf972a2a87…</span></p>
 </div>
 </details>
@@ -12703,7 +13204,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="organisation">Organisation<a class="headerlink" href="#organisation" title="Permanent link">¶</a></h2>
 <p>Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.</p>
@@ -12820,11 +13321,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

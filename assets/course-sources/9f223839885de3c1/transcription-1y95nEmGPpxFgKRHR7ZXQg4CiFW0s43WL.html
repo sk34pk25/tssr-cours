@@ -1,0 +1,429 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 04 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell </h4>
+<p class="tssr-source-paragraph">Module 04 – Les structures et variables</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Objectifs<br>• Utiliser les structures fondamentales dans des <br>scripts simples</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables</h4>
+<p class="tssr-source-paragraph">• Les variables stockent des objets ou informations dans la mémoire vive afin <br>de permettre leur réutilisation.</p>
+<pre class="tssr-source-code">• Pour déclarer ou appeler une variable, on utilise le symbole $</pre>
+<pre class="tssr-source-code">PS &gt; $A = 1« La valeur 1 est de type Int donc la variable sera de type Int</pre>
+<p class="tssr-source-paragraph">• Le symbole = assigne une valeur à la variable.</p>
+<pre class="tssr-source-code">PS &gt; $A = « Bonjour » Ici la valeur est de type String
+PS &gt; $User = Get-AdUser –Filter * La variable et de type Objet</pre>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables</h4>
+<p class="tssr-source-paragraph">• Les variables conservent leurs valeurs et leurs types tant que l’on ne <br>réassigne pas de nouvelle valeur à la variable. <br>• À la fermeture de la console, les variables sont supprimées de la mémoire <br>vive.</p>
+<pre class="tssr-source-code">PS &gt; Get-Variable permet d’afficher les variables actuellement déclarées 
+dans la console.</pre>
+<pre class="tssr-source-code">• Pour connaître le type d’une variable, on utilise la fonction GetType()</pre>
+<pre class="tssr-source-code">PS &gt; $A.GetType()</pre>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : conseils</h4>
+<p class="tssr-source-paragraph">• Donner des noms explicites aux variables en fonction des valeurs que les <br>variables vont recevoir.</p>
+<pre class="tssr-source-code">PS &gt; $LogFile</pre>
+<pre class="tssr-source-code">• La commande Read-Host permet de récupérer la saisie utilisateur et de la 
+stocker dans une variable.</pre>
+<pre class="tssr-source-code">PS &gt; $a = Read-Host « Veuillez saisir votre choix »</pre>
+<pre class="tssr-source-code">• Les variables peuvent être incluses dans la commande Write-Host.</pre>
+<pre class="tssr-source-code">PS &gt; Write-Host « Voici votre choix $a »</pre>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type Objet</h4>
+<p class="tssr-source-paragraph">Quand une variable contient un objet, on peut agir sur celui-ci :<br>• Pour afficher le contenu de la variable, il suffit de saisir le nom de la variable.</p>
+<pre class="tssr-source-code">PS &gt; $Services</pre>
+<p class="tssr-source-paragraph">• Pour afficher la propriété d’un objet contenu dans une variable, on spécifie <br>le nom de la propriété à la suite de la variable avec un point de <br>concaténation entre les deux.</p>
+<pre class="tssr-source-code">PS &gt; $Services.ServiceName</pre>
+<pre class="tssr-source-code">• Si votre variable contient plusieurs objets, vous pouvez spécifier le numéro 
+de l’objet à afficher. La numérotation débute à 0.</pre>
+<pre class="tssr-source-code">PS &gt; $AdUser[2] « Affichera le troisième utilisateur »</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type Objet</h4>
+<p class="tssr-source-paragraph">Les objets sont un ensemble de propriétés et de méthodes :</p>
+<pre class="tssr-source-code">• Pour utiliser une méthode sur un objet, on spécifie le numéro de l’objet, puis on 
+ajoute la méthode. 
+• La commande Get-Member permet de connaître l’ensemble des méthodes.</pre>
+<pre class="tssr-source-code">PS &gt; $Services[3].stop() va arrêter le quatrième service. </pre>
+<p class="tssr-source-paragraph">• Beaucoup de méthodes sont des convertisseurs de valeur.</p>
+<pre class="tssr-source-code">PS &gt; $Date = (Get-Date).ToString(« yyyyMMdd »)</pre>
+<pre class="tssr-source-code">• La variable $Date contient le résultat de la commande get-date tout en étant de 
+type String.</pre>
+<pre class="tssr-source-code">PS &gt; $Date.GetType()</pre>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-ea7695faf04b404a791bf3305adbcb73d825081fc8556f530cce71d278eed997.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ea7695faf04b404a791bf3305adbcb73d825081fc8556f530cce71d278eed997.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="4989"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type String</h4>
+<pre class="tssr-source-code">Quand une variable est de type String, on peut utiliser le symbole +.</pre>
+<pre class="tssr-source-code">PS &gt; $a = « abc »
+PS &gt; $b = « def »
+PS &gt; $c = $a + $b
+PS &gt; $c
+PS &gt; abcdef</pre>
+<pre class="tssr-source-code">PS &gt; $d = Get-AdUser –Filter *
+PS &gt; $e = $d.Name
+PS &gt; $f = $d.Surname
+PS &gt; $g = $e + $f
+PS &gt; $g
+PS &gt; Nom Prénom</pre>
+<p class="tssr-source-paragraph">Il faut toujours additionner des variables de type identique.</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type Int</h4>
+<pre class="tssr-source-code">Quand une variable est de type Int, on peut utiliser les symboles + et -.</pre>
+<pre class="tssr-source-code">PS &gt; $a = 1</pre>
+<pre class="tssr-source-code">PS &gt; $d = Get-Process</pre>
+<pre class="tssr-source-code">PS &gt; $b = 2</pre>
+<pre class="tssr-source-code">PS &gt; $e = $d[1].Id</pre>
+<pre class="tssr-source-code">PS &gt; $c = $a + $b</pre>
+<pre class="tssr-source-code">PS &gt; $f = $d[2].Id</pre>
+<pre class="tssr-source-code">PS &gt; $c</pre>
+<pre class="tssr-source-code">PS &gt; $g = $e - $f</pre>
+<pre class="tssr-source-code">PS &gt; 3</pre>
+<pre class="tssr-source-code">PS &gt; $g</pre>
+<pre class="tssr-source-code">PS &gt; id  du process 1 - id du process 2</pre>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type Array</h4>
+<pre class="tssr-source-code">• Le type Array représente une variable qui stocke ses valeurs ou objets sous forme 
+de tableau.
+• Chaque valeur possède un numéro d’index initié à 0. </pre>
+<pre class="tssr-source-code">PS &gt; $array = &quot;PC1&quot;,&quot;PC2&quot;,&quot;PC3&quot;</pre>
+<pre class="tssr-source-code">PS &gt; $array[1]
+PS &gt; PC2
+Le séparateur des valeurs est la virgule</pre>
+<p class="tssr-source-paragraph">Les tableaux Array sont de taille fixe. On ne peut pas supprimer de valeur.</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type Array</h4>
+<pre class="tssr-source-code">• Le type Array permet également de gérer les valeurs présentes avec des 
+méthodes. </pre>
+<pre class="tssr-source-code">PS &gt;$array = &quot;PC1&quot;,&quot;PC2&quot;,&quot;PC3&quot;</pre>
+<pre class="tssr-source-code">PS &gt;$array = &quot;PC1&quot;,&quot;PC2&quot;,&quot;PC3&quot;</pre>
+<pre class="tssr-source-code">PS &gt;$array += &quot;PC4 </pre>
+<pre class="tssr-source-code">PS &gt;$array.Replace(« PC1 », « PC11 »)</pre>
+<pre class="tssr-source-code">PS &gt;$array</pre>
+<pre class="tssr-source-code">PS &gt;$array[0]</pre>
+<pre class="tssr-source-code">PS &gt;PC1 PC2 PC3 PC4</pre>
+<pre class="tssr-source-code">PS &gt;PC11 </pre>
+<p class="tssr-source-paragraph">La section de l’aide Get-Help about_Array vous<br>indiquera toutes les possibilités d’une variable tableau.</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type ArrayList</h4>
+<pre class="tssr-source-code">Alternativement aux tableaux de type Array, il est possible d’utiliser des tableaux à 
+taille variable, de type ArrayList :</pre>
+<p class="tssr-source-paragraph">• On doit d’abord forcer le type de variable.</p>
+<pre class="tssr-source-code">PS &gt; $machines = New-Object System.Collections.ArrayList</pre>
+<p class="tssr-source-paragraph">• Deuxième méthode pour typer une variable.</p>
+<pre class="tssr-source-code">PS &gt; [System.Collections.ArrayList]$machines = &quot;PC1&quot;,&quot;PC2&quot;</pre>
+<pre class="tssr-source-code">PS &gt; $machines.Gettype().FullName</pre>
+<p class="tssr-source-paragraph">Les tableaux de type ArrayList ont une taille variable,<br>ce qui simplifie l’ajout et la suppression de contenu.</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>[<br>]<br>-&gt;<br>GetType()<br>.fullname<br>System.Collections.ArrayList<br>D</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les variables : le type ArrayList</h4>
+<pre class="tssr-source-code">Les méthodes utilisables sont plus nombreuses que sur une variable de type Array.</pre>
+<pre class="tssr-source-code">PS &gt; [System.Collections.ArrayList] $machines
+= &quot;PC1&quot;,&quot;PC2&quot;</pre>
+<pre class="tssr-source-code">PS &gt; $machines.Add(&quot;PC3&quot;)</pre>
+<pre class="tssr-source-code">PS &gt; $machines</pre>
+<pre class="tssr-source-code">PS &gt; PC1 PC2 PC3
+PS &gt; $machines.Remove(&quot;PC2&quot;)</pre>
+<pre class="tssr-source-code">PS &gt; $machines</pre>
+<pre class="tssr-source-code">PS &gt; PC1 PC3</pre>
+<p class="tssr-source-paragraph">Ces variables vont être dédiées au stockage d’objet.</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-14290e20e765303589d706643152288b4d493956a977207623e71dbd76bd9a5c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-14290e20e765303589d706643152288b4d493956a977207623e71dbd76bd9a5c.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="5082"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures</h4>
+<pre class="tssr-source-code">Il existe plusieurs types de structures couramment utilisées dans les scripts. 
+Nous allons en explorer quelques-unes :
+• If : la condition</pre>
+<pre class="tssr-source-code">• While : la boucle infinie</pre>
+<pre class="tssr-source-code">• Foreach : la boucle dédiée aux objets</pre>
+<pre class="tssr-source-code">• Switch : le menu</pre>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : If</h4>
+<pre class="tssr-source-code">La structure If va tester des valeurs grâce à un ou plusieurs opérateurs de 
+comparaison.
+• Si la condition est validée, If renvoie le message Boolean $True. </pre>
+<pre class="tssr-source-code">If ($x –eq $y)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’
+Le test est validé $True’’
+}</pre>
+<pre class="tssr-source-code">• Dans ce cas-là, les commandes présentent entre les accolades sont exécutées.
+• Si If renvoie $False, la ou les commandes ne seront pas exécutées.</pre>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Si ça est égal à ça, Alors je fais eq!<br>‘ii,</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Else</h4>
+<pre class="tssr-source-code">Le ELSE permet l’exécution de commandes lorsque le résultat du test est $False.</pre>
+<pre class="tssr-source-code">If ($x –eq $y)</pre>
+<pre class="tssr-source-code">{
+Write-Host ’’Le test est validé $True’’
+}
+Else</pre>
+<pre class="tssr-source-code">{
+Write-Host ’’Le test n’est pas validé $False’’
+}</pre>
+<p class="tssr-source-paragraph">Si le premier test est $False, alors on effectue un second test. Si le second <br>test est $False, alors on affiche la commande contenue dans le Else.</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Else If</h4>
+<pre class="tssr-source-code">Les conditions peuvent être imbriquées afin de créer un second test sur une 
+réponse $False.</pre>
+<pre class="tssr-source-code">If ($x –eq $y)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’Le test est validé $True’’
+}
+ElseIf ($x –eq $z)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’Le test est validé’ $True’
+}
+Else</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’Le test n’est pas validé $False’’
+}</pre>
+<p class="tssr-source-paragraph">Si le premier test est $False, alors on effectue un second test. Si le second <br>test est $False alors on affiche la commande contenue dans le Else.</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : While</h4>
+<pre class="tssr-source-code">La structure While permet de boucler sur un bloc de commandes tant que la 
+condition est $True :</pre>
+<pre class="tssr-source-code">• Dès que la condition est $False, la boucle s’arrête. </pre>
+<pre class="tssr-source-code">While ($x –ne « q » )</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">$x = Read-Host « Veuillez faire un choix »</pre>
+<pre class="tssr-source-code">#Si l’utilisateur saisit la lettre « q » la boucle s’arrête.
+}</pre>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : While</h4>
+<pre class="tssr-source-code">La boucle while est utilisable à condition que la variable de test ici $x possède une 
+valeur avant le test.</pre>
+<pre class="tssr-source-code">• On doit souvent lui attribuer une valeur manuellement pour que la boucle démarre.
+• En effet si $x est égale à $Null, on n’entrera pas dans la boucle.</pre>
+<p class="tssr-source-paragraph">• Donc il faut initialiser la valeur de la variable de test avant la boucle.</p>
+<pre class="tssr-source-code">PS &gt; $x = « A »
+While ($x –ne « q » )</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">$x = Read-Host « Veuillez faire un choix »
+#Si l’utilisateur saisit la lettre « q » la boucle s’arrête.
+}</pre>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Do While</h4>
+<pre class="tssr-source-code">Une autre solution consiste à utiliser la boucle Do While.</pre>
+<pre class="tssr-source-code">• Contrairement à While, la condition se fait en fin de boucle et non pas en début 
+de boucle.</pre>
+<p class="tssr-source-paragraph">• On peut donc accéder à notre boucle et laisser l’utilisateur saisir sa première valeur <br>sans avoir à initier la valeur manuellement avant la boucle.</p>
+<pre class="tssr-source-code">Do {</pre>
+<pre class="tssr-source-code">$x = Read-Host « Veuillez faire un choix »</pre>
+<p class="tssr-source-paragraph">#Si l’utilisateur saisit la lettre « q » la boucle s’arrête.</p>
+<pre class="tssr-source-code">} While ($x –ne « q » )</pre>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-2932e79d980d2e097d460a45840e7422d750901d72931e57b01ccd962c3c8df7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2932e79d980d2e097d460a45840e7422d750901d72931e57b01ccd962c3c8df7.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="992" height="5149"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Do Until</h4>
+<pre class="tssr-source-code">Il existe une troisième structure de boucle le Do Until.</pre>
+<pre class="tssr-source-code">• À la différence du Do While, la sortie se fera lorsque la condition est vraie.</pre>
+<p class="tssr-source-paragraph">• C’est la seule différence entre les deux structures.</p>
+<pre class="tssr-source-code">Do {</pre>
+<pre class="tssr-source-code">$x = Read-Host « Veuillez faire un choix »</pre>
+<p class="tssr-source-paragraph">#Si l’utilisateur saisit la lettre « q » la boucle s’arrête.</p>
+<pre class="tssr-source-code">} Until ($x –eq « q » )</pre>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : ForEach</h4>
+<pre class="tssr-source-code">• La structure ForEach ne s’utilise que dans un seul cas.
+• Lorsque l’on dispose d’une variable de type Array ou ArrayList.</pre>
+<pre class="tssr-source-code">PS &gt; $liste = « PC1 »,
+« PC2 », « PC3 »</pre>
+<pre class="tssr-source-code">Foreach ( $i in $liste)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’Le nom de la machine est $i ’’</pre>
+<pre class="tssr-source-code">}</pre>
+<p class="tssr-source-paragraph">• Le nombre de tours de boucle est déterminé par le nombre de valeurs dans la <br>variable.</p>
+<pre class="tssr-source-code">• À chaque tour de boucle, la variable $i prend la valeur suivante dans le tableau.</pre>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">27</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Foreach</h4>
+<pre class="tssr-source-code">• La structure ForEach avec une variable Arraylist.
+• C’est le cas lorsque la variable est le résultat d’une commande. </pre>
+<pre class="tssr-source-code">PS &gt; $liste = Get-AdUser –Filter *
+Foreach ( $i in $liste)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">Write-Host ’’Le nom de l’utilisateur est $i.name ’’
+Write-Host ’’Le prénom de l’utilisateur est $i.surname ’’
+}</pre>
+<pre class="tssr-source-code">• La variable $i contient un objet différent à chaque tour de boucle.
+• On utilise le . pour indiquer la valeur de la propriété de l’objet que l’on souhaite 
+afficher.</pre>
+<p class="tssr-source-paragraph">28</p>
+<p class="tssr-source-paragraph">28</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Foreach</h4>
+<pre class="tssr-source-code">Il est possible d’interagir avec la structure de boucle pour prendre une décision sur 
+l’action à effectuer :
+• Passer à l’objet suivant sans traiter l’actuel {continue}</pre>
+<pre class="tssr-source-code">• Sortir de la boucle
+{break}</pre>
+<pre class="tssr-source-code">ForEach ($i in $liste)</pre>
+<p class="tssr-source-paragraph">On teste la valeur de $i. Si elle est égale à </p>
+<pre class="tssr-source-code">{</pre>
+<p class="tssr-source-paragraph">PC2 alors on arrête la boucle, sinon la </p>
+<p class="tssr-source-paragraph">boucle continue normalement.</p>
+<pre class="tssr-source-code">If ($i –eq ’’PC2’’)</pre>
+<pre class="tssr-source-code">{Break}</pre>
+<pre class="tssr-source-code">Write-Host ’’ Le nom de la machine est $i’’</pre>
+<pre class="tssr-source-code">}</pre>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">29</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Foreach</h4>
+<pre class="tssr-source-code">Foreach et méthode Continue</pre>
+<pre class="tssr-source-code">Foreach ( $i in $liste)</pre>
+<pre class="tssr-source-code">{</pre>
+<p class="tssr-source-paragraph">On teste la valeur de $i. Si elle est <br>égale à PC2 alors on ne traite pas </p>
+<pre class="tssr-source-code">If ($i –eq ’’PC2’’)</pre>
+<p class="tssr-source-paragraph">l’objet et on passe au suivant.</p>
+<pre class="tssr-source-code">{Continue}
+Write-Host ’’
+Le nom de la machine est $i’’
+}</pre>
+<p class="tssr-source-paragraph">30</p>
+<p class="tssr-source-paragraph">30</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Démonstration</h4>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">31</p>
+<p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Switch</h4>
+<pre class="tssr-source-code">En fonction de la valeur d’une propriété, le Switch va déclencher la ou les 
+commandes indiquée(s) pour cette valeur.
+• Le Switch est la structure permettant de créer des menus à choix multiples.</pre>
+<pre class="tssr-source-code">Switch ($AdGroup)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">’User’
+{Write-Host ’’Le groupe est Utilisateur’’}
+’Administrator’ {Write-Host ’’Le groupe est Admin’’}
+’Default’ {Write-Host ’’ Le groupe n’est pas valide’’}
+}</pre>
+<p class="tssr-source-paragraph">Si plusieurs valeurs correspondent au critère,<br>les blocs d’actions correspondants sont appliqués</p>
+<p class="tssr-source-paragraph">32</p>
+<p class="tssr-source-paragraph">32</p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e60a62e77fbfb11518a50e94d7b63c61a0095eec07257cbe900fc11f23ff8a7a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e60a62e77fbfb11518a50e94d7b63c61a0095eec07257cbe900fc11f23ff8a7a.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="992" height="4990"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Switch</h4>
+<pre class="tssr-source-code">Le Switch accepte des méthodes.</pre>
+<pre class="tssr-source-code">• Passer au test suivant sans exécuter la commande  {continue}</pre>
+<pre class="tssr-source-code">• Sortir du switch  {break}</pre>
+<pre class="tssr-source-code">Switch ($AdGroup)</pre>
+<pre class="tssr-source-code">{</pre>
+<pre class="tssr-source-code">’User’  {CONTINUE}
+’Administrator’ {Write-Host ’’Le groupe est Admin’’ } {BREAK}</pre>
+<pre class="tssr-source-code">’Default’ {Write-Host ’’ Le groupe n’est pas valide’’ }
+}</pre>
+<p class="tssr-source-paragraph">Si le groupe est user, on teste le groupe suivant sans exécuter de commande.<br>Si le groupe est Administrator, on arrête le switch.</p>
+<p class="tssr-source-paragraph">33</p>
+<p class="tssr-source-paragraph">33</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">34</p>
+<p class="tssr-source-paragraph">34</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Les structures : Imbrication</h4>
+<p class="tssr-source-paragraph">L’objectif des structures et de permettre leur imbrication. Dans ce cas, la <br>ponctuation permet de définir la portée de chaque structure.</p>
+<pre class="tssr-source-code">Do {</pre>
+<pre class="tssr-source-code">if ($x -gt 10){</pre>
+<pre class="tssr-source-code">Switch($x) {</pre>
+<pre class="tssr-source-code">‘11’ {Write-Host « La valeur est 11 »}
+‘12’ {Write-Host « La valeur est 12 »}</pre>
+<pre class="tssr-source-code">}
+}else { $x = Read-Host « Veuillez saisir une valeur supérieure à 10 »}</pre>
+<pre class="tssr-source-code">} while ($x –lt 100)</pre>
+<p class="tssr-source-paragraph">35</p>
+<p class="tssr-source-paragraph">35</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">36</p>
+<p class="tssr-source-paragraph">36</p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><p class="tssr-source-paragraph">Les structures et variables</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous savez utiliser les structures fondamentales <br>dans des scripts simples.</p>
+<p class="tssr-source-paragraph">37</p>
+<p class="tssr-source-paragraph">37</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-b4dd26308b656d6ab82857b0d753d45c27f8683ded340d41d965622ee2e9673e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b4dd26308b656d6ab82857b0d753d45c27f8683ded340d41d965622ee2e9673e.webp" alt="Illustrations du support source, pages 17 à 19" loading="lazy" width="992" height="3117"></a><figcaption>Illustrations du support Drive — pages 17 à 19. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

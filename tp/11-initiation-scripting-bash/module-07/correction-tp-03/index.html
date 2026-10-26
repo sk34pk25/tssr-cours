@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12586,19 +12586,63 @@
 
 
 <h1 id="correction-fournie-dans-la-source-tp-03-boucle-while-read">Correction fournie dans la source — TP 03 — Boucle <code>while read</code><a class="headerlink" href="#correction-fournie-dans-la-source-tp-03-boucle-while-read" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M7 - Solution du TP 3 - Boucle while-read.pdf · 2 pages</summary>
+<summary>Correction · M7 - Solution du TP 3 - Boucle while-read · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/a655da4f5623b879/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/a655da4f5623b879/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/a655da4f5623b879/pages-001-002.webp" alt="Source Drive — M7 - Solution du TP 3 - Boucle while-read.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M7 - Solution du TP 3 - Boucle while-read.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle while/read </h4>
+<p class="tssr-source-paragraph">Solution – TP3 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une structure de boucle while/read. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Le fichier /etc/passwd gère les comptes utilisateurs créés sur le système, un par ligne. On y trouve <br>dans l’ordre : le login, le champ ‘x’ (indiquant qu’un mot de passe est présent), l’UID, le GID du groupe <br>principal, le champ commentaire, le rép. d’accueil puis le shell par défaut. </p>
+<p class="tssr-source-paragraph">Seuls nous intéresse donc, le 1er et 3ème champ de chaque ligne, sachant que le séparateur est le <br>symbole “:”. </p>
+<p class="tssr-source-paragraph">Il faut ainsi demander un traitement ligne par ligne en ne récupérant que le 1er et 3ème champ de <br>chaque ligne et les afficher à l’écran. </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP3.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP3.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M7 - Solution du TP3 – Boucle while/read </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">#!/bin/bash </pre>
+<pre class="tssr-source-code">while read login c2 uid </pre>
+<pre class="tssr-source-code">  do </pre>
+<pre class="tssr-source-code">  echo "-------------------------" </pre>
+<pre class="tssr-source-code">  echo "Identifiant :  $id" </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">  echo "-  -  -  -  -" </pre>
+<pre class="tssr-source-code">  echo "UID : $uid  </pre>
+<pre class="tssr-source-code">done &lt; &lt; (cat /etc/passwd | tr -s ":" " ") </pre>
+
+
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT · <span title="Empreinte SHA-256 du fichier source">SHA-256 a655da4f5623b879…</span></p>
 </div>
 </details>
@@ -12607,7 +12651,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <blockquote>
 <p><strong>NEEDS_REVIEW — critique.</strong> La correction Drive est conservée comme document source. Ses incohérences documentaires empêchent de la présenter comme une solution techniquement validée. Aucun correctif silencieux n'est appliqué.</p>
@@ -12686,11 +12730,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

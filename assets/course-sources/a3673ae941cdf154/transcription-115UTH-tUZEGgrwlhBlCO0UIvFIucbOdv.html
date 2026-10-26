@@ -1,0 +1,70 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 2 - Le service DHCP et les réseaux.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 2 - Le service DHCP et les réseaux</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>Le service DHCP et les <br>réseaux </h4>
+<p class="tssr-source-paragraph">TP du Module 05 – Le service DHCP </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et terminé le TP <br>précédent. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 04. </p>
+<p class="tssr-source-paragraph">• <br>Avoir les deux machines virtuelles RTR-00 et RTR-01. </p>
+<p class="tssr-source-paragraph">Pouvoir distribuer des adresses IP dans un autre domaine de diffusion. </p>
+<p class="tssr-source-paragraph">• <br>Paramétrer le serveur d’un domaine de diffusion pour fournir des adresses IP à <br>plusieurs domaines de diffusion.  <br>• <br>Créer sur le serveur SRV-2K19-0 une étendue DHCP pour fournir des adresses IP dans <br>le domaine de diffusion du serveur. <br>• <br>Créer également une étendue pour le second domaine de diffusion hébergé sur le <br>routeur RTR-01.  </p>
+
+<p class="tssr-source-paragraph">• <br>Faire la même opération sur le second réseau. </p>
+<pre class="tssr-source-code">o Faire la mise en place d’un client en adressage automatique. 
+o Faire la mise en place d’un serveur Windows. 
+o Configurer deux étendues DHCP sur le serveur afin de pouvoir fournir </pre>
+<p class="tssr-source-paragraph">des adresses IP dans les deux domaines de diffusion. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>@ DHcP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>viEt<br>[F2 003 Router<br>Standard<br>192.168.0.254<br>None<br>(G3 Server Options<br>v D Scope [192.168.1.0] 192.168.1.0/24</p><p>D Address Pool<br>D Address Leases</p><p>&gt; El Reservations</p><p>1B Scope Options<br>@ Policies<br>v D Scope [192.168.0.0] 192.168.0.0/24</p><p>{i Address Pool<br>D Address Leases</p><p>Reservations</p><p>©) Scope Options<br>Hi Policies<br>Œi Policies</p><p>&gt; DA Filters</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+
+<p class="tssr-source-paragraph">• <br>Tester le bon fonctionnement. </p>
+<pre class="tssr-source-code">o Vérifier l’obtention d’une adresse IP sur les postes clients de chaque réseau. 
+o Tester la connectivité entre les clients de chaque réseau. </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SZ DHCP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>va WIN-HNGMB67Q10P<br>+=, 003 Router<br>Standard<br>192.168.1.254<br>None<br>LA pra</p><p>À Server Options<br>v<br>Scope [192.168.1.0] 192.168.1.0/24</p><p>&amp; Address Pool</p><p>i Address Leases</p><p>El<br>Reservations</p><p>©<br>Scope Options</p><p>Si<br>Policies<br>v<br>Scope [192.168.0.0] 192.168.0.0/24</p><p>&amp; Address Pool</p><p>i Address Leases</p><p>El Reservations</p><p>Scope Options</p><p>3)<br>Policies</p><p>Policies</p><p>#] Filters</p><p>Ethernet<br>adapter Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description...<br>.<br>.<br>.<br>«<br>«<br>.<br>«<br>«<br>:<br>Intel(R)<br>82574L Gigabit Network Connectio</p><p>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>: Yes<br>Link-local IPv6 Address<br>.<br>.<br>.<br>.<br>.<br>:<br>fe8@::819F:9ad:cb48:7763%8( Preferred)</p><p>Lease Obtained.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Thursday,<br>March 4,<br>2621 12:11:12 AM<br>Lease Expires<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Friday,<br>March<br>5,<br>2621 12:11:12 AM<br>Default Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.254</p><p>DNS<br>Servers<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>fecO:6:0:FFFF::1#1<br>fecO: 6:6: fff: :2%1<br>Fec@:@:<br>0:fff: :3%1<br>NetBIOS over Tcpip.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Enabled</p><p>Ethernet<br>adapter Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Intel(R)<br>82574L Gigabit Network Connectio</p><p>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>»<br>.<br>.<br>:<br>Yes<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>: Yes</p><p>Lease Obtained.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Thursday,<br>March 4,<br>2@21 12:14:14 AM<br>Lease Expires<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Friday,<br>March<br>5,<br>2421 12:14:13 AM<br>Default<br>Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.8.254</p><p>DNS<br>Servers<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>fecO:6:0:FFFF::1#1<br>fec@:6:6: FFF: :2%1<br>Fec@:6:6: FFF: :3%1<br>NetBIOS over Tcpip.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Enabled</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Mettre en place un service de relai DHCP sur les routeurs de chaque domaine de <br>diffusion afin de pallier la défaillance d’un serveur DHCP. </p>
+
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DHCP Relay Configuration</p><p>Enable<br>M] Enable DHCP relay on interface</p><p>Interface(s)<br>WAN</p><p>OPT1</p><p>Interfaces without an IP address will not be shown.</p><p>LI Append circuit ID and agent ID to requests</p><p>If this is checked, the DHCP relay will append the circuit ID (pfSense inter!</p><p>Destination server<br>192.168.1.1</p><p>This is the IPv4 address of the server to which DHCP</p><p>requests are relayed.</p><p>Services/ DHCP Relay</p><p>DHCP Relay Configuration</p><p>Enable<br>4) Enable DHCP relay on interface</p><p>Interface(s)<br>WAN</p><p>OPT1</p><p>Interfaces without an IP address will not be shown.</p><p>C1 Append circuit ID and agent ID to requests</p><p>If this is checked, the DHCP relay will append the circuit ID (pfSense inter</p><p>Destination server<br>192.168.0.1</p><p>This is the IPv4 address of the server to which DHCP</p><p>requests are relayed.</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<pre class="tssr-source-code">o Arrêter l’un des deux serveurs DHCP et vérifier l’obtention et la connectivité </pre>
+<p class="tssr-source-paragraph">des postes clients. </p>
+
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ethernet adapter<br>Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description...<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>«<br>:<br>Intel(R)<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>. ..<br>.<br>:<br>@@-@C-29-59-DC-8@6<br>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Link-local IPv6 Address<br>.<br>.<br>.<br>.<br>.<br>:<br>fe8@::819F:9ad:cb48:7763%8 (Preferred)<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.1808(Preferred)<br>Subnet<br>Mask<br>.<br>.<br>.<br>.<br>.<br>.se ew<br>w<br>st 255.255.255.8<br>Lease Obtained.<br>.<br>.<br>.<br>..<br>.<br>.<br>.<br>.<br>: Wednesday, March 3, 2921 11:52:25 PM<br>Lease Expires<br>.<br>.<br>.<br>. ..<br>«<br>.<br>.<br>«<br>: Thursday, March 4, 2821 11:52:25 PM<br>Default Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.254<br>DHCP Server...<br>.<br>.<br>.<br>.<br>=<br>=<br>=<br>«<br>:<br>192.168.6.1<br>DHCPv6<br>IAID<br>.<br>.<br>|.<br>.<br>.<br>««<br>.<br>.<br>.<br>.<br>:<br>1008666499<br>DHCPv6<br>Client<br>DUID.<br>.<br>.<br>.<br>. ..<br>.<br>: @0-@1-09-@1-27-CF-C7-4B-99-@C-29-59-DC-80<br>DNS<br>Servers<br>.<br>.<br>.<br>.<br>.<br>..<br>.<br>=<br>=<br>.<br>: fecô:@:0:FFFF::1#1</p><p>Fecô:0:0:FFFF::2#1<br>FecO:0:6:FFFF::3%1<br>NetBIOS over Tcpip.<br>.<br>.<br>.<br>.<br>. ..<br>: Enabled</p><p>Ethernet adapter<br>Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.:<br>Description<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>!<br>Intel(R}<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@@-@C-29-48-64-82<br>DHCP<br>Enabled.<br>.<br>.<br>|.<br>|.<br>|.|.<br>=<br>.<br>.<br>.<br>: Yes<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.0.162(Preferred)<br>Subnet<br>Mask<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>ew<br>ws<br>t<br>255.255.255.6<br>Lease Obtained.<br>.<br>.<br>.<br>..<br>.<br>.<br>.<br>.<br>: Thursday, March 4, 2021 12:28:28 AM<br>Lease Expires<br>.<br>.<br>.<br>. ..<br>«<br>.<br>.<br>«<br>: Friday, March 5, 2021 12:28:27 AM<br>Default Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.060.254<br>DHCP Server...<br>.<br>.<br>=.=<br>=<br>=<br>=<br>«<br>: 192.168.1.1<br>DHCPv6<br>IAID<br>.<br>.<br>|.<br>.<br>«<br>««<br>.<br>.<br>.<br>.<br>:<br>1060666499</p><p>DNS<br>Servers<br>.<br>.<br>.<br>.<br>.<br>..<br>.<br>=<br>=<br>.<br>: FecO:@:@:¢FFF::1%1</p><p>Fecô:0:0:FFFF::2#1<br>Fec0:0:6:FFFF::3%1<br>NetBIOS over Tcpip.<br>.<br>.<br>.<br>.<br>. ..<br>: Enabled</p><p>ED</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c64b926b17413f03fd5ecac5e85de6d1adab394a41bb5bb76ab94892f69aa5cd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c64b926b17413f03fd5ecac5e85de6d1adab394a41bb5bb76ab94892f69aa5cd.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="5129"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

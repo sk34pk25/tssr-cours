@@ -1,0 +1,43 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 8 - Le Remoting.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 8 - Le Remoting</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Le Remoting </h4>
+<p class="tssr-source-paragraph">Démonstration 08 du module 5 </p>
+
+<p class="tssr-source-paragraph">PowerShell utilise la gestion de session à distance pour exécuter des commandes sur un <br>ordinateur distant. Le Remoting utilise le protocole WS-Man et le service WinRM. Il est nécessaire <br>de contrôler l’état du service avant de tenter d’ouvrir une session sur un ordinateur distant. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La première commande à utiliser est Enable-PsRemonting sur la machine à contrôler à 
+distance. </pre>
+<pre class="tssr-source-code">• 
+Il est nécessaire de rajouter le paramètre SkipNetworkCheck pour éviter des refus en cas de 
+profil réseau de type public. </pre>
+
+
+<p class="tssr-source-paragraph">La commande configure le service WinRM. Elle ajoute également une exception dans le pare-feu <br>Windows puis redémarre le service WinRM. </p>
+<pre class="tssr-source-code">Pour initier une session à distance, on utilise la commande New-Pssession avec en paramètre le 
+nom ou l’adresse IP de la machine cible. </pre>
+
+
+<p class="tssr-source-paragraph">Nous avons désormais une session distante ouverte entre notre client et le serveur SRV01 ; cette <br>session possède un ID. </p>
+<pre class="tssr-source-code">Pour exécuter des commandes avec cette session distante, on utilise la commande Enter-
+Pssession puis l’Id de la session souhaitée. </pre>
+
+<p class="tssr-source-paragraph">On indique l’Id de la session ouverte précédemment. </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>enable-psremoting -skipnetworkprofile</p><p>WinRM has been updated<br>to<br>receive requests.<br>WinRM service type changed successfully.<br>WinRM<br>service<br>started.</p><p>WinRM has been updated<br>for remote management.<br>WinRM firewall exception enabled.</p><p>WARNING:<br>Waiting for service<br>‘Windows Remote Management<br>(WS-Management)<br>(winrm)&#x27;<br>to<br>stop...</p><p>new-pssession -computer srv01</p><p>Id Name<br>Transport ComputerName<br>ComputerType<br>State<br>ConfigurationName<br>Availability</p><p>10<br>Runspace10<br>WSMan<br>srv01<br>RemoteMachine<br>Opened<br>Microsoft .PowerShell<br>Available</p><p>enter-pssession -id 10</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<p class="tssr-source-paragraph">Désormais le prompt indique le nom de la machine sur laquelle les commandes seront exécutées. </p>
+<p class="tssr-source-paragraph">Il n’est pas possible de faire de saut avec le Remoting. Lorsque vous avez ouvert une session sur une <br>machine distante, il n’est pas possible d’ouvrir une session sur une autre machine à partir de cette <br>machine distante. </p>
+<p class="tssr-source-paragraph">Toute session doit être ouverte à partir de la machine cliente d’origine. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-ed767b1726b425afc3d72c01b8e93f19da579e7a25b7960314a336c7dec39a18.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-ed767b1726b425afc3d72c01b8e93f19da579e7a25b7960314a336c7dec39a18.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="1190"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

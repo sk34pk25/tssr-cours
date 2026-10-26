@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12608,62 +12608,465 @@
 
 
 <h1 id="tp-module-07-les-structures-de-boucle">TP — Module 07 — Les structures de boucle<a class="headerlink" href="#tp-module-07-les-structures-de-boucle" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M7 - Enoncé du TP 1 - Boucle until.pdf · 2 pages</summary>
+<summary>Énoncé · M7 - Enoncé du TP 1 - Boucle until · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/9dd3692207d6f261/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1epqsjaQFmY7b_36ivYpoK2lMTYJUv32D/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/9dd3692207d6f261/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/9dd3692207d6f261/pages-001-002.webp" alt="Source Drive — M7 - Enoncé du TP 1 - Boucle until.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M7 - Enoncé du TP 1 - Boucle until.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1epqsjaQFmY7b_36ivYpoK2lMTYJUv32D-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle until </h4>
+<p class="tssr-source-paragraph">TP1 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes <br>conditionnels. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">1- Analyse d’un script existant </p>
+<pre class="tssr-source-code">• Récupérer le script 13.sh puis le copier dans votre machine virtuelle GNU/Linux. Pour ce 
+faire, vous pouvez utiliser soit : </pre>
+<pre class="tssr-source-code">o La commande scp en ligne de commande. Depuis un système Windows, ouvrez une </pre>
+<p class="tssr-source-paragraph">invite « cmd » et tapez : </p>
+<pre class="tssr-source-code">scp CheminEtNomFichierACopier Utilisateurlinux@AdresseIPLinux </pre>
+
+<p class="tssr-source-paragraph">Exemple : </p>
+<pre class="tssr-source-code">scp C:\users\l.atreides\Downloads\13.sh paul@192.168.10.3 </pre>
+<pre class="tssr-source-code">o  L’utilitaire Windows gratuit Winscp disposant d’une interface graphique </pre>
+
+<p class="tssr-source-paragraph">• Rendre exécutable le script et le lancer </p>
+<p class="tssr-source-paragraph">• Editer et analyser le contenu du script afin d’en appréhender : </p>
+<pre class="tssr-source-code">o Son utilité </pre>
+<pre class="tssr-source-code">o Sa syntaxe d’utilisation </pre>
+<pre class="tssr-source-code">o Son fonctionnement </pre>
+<p class="tssr-source-paragraph">• Tâches à effectuer : remplacer les zones de commentaires identifiées &lt;A COMPLETER&gt; par <br>une explication des actions effectuées par les commandes situées en-dessous </p>
+
+<p class="tssr-source-paragraph">2- Rédaction d’un nouveau script </p>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1epqsjaQFmY7b_36ivYpoK2lMTYJUv32D-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">Créer un nouveau script nommé script_M7TP1.sh permettant sur une plage d’années donnée de 
+déterminer le nombre d’années bissextiles pour la plage considérée. Pour rappel, ce sont les années 
+qui comptent un 29ème jour au mois de février. </pre>
+<pre class="tssr-source-code">o Les années de début et de fin seront fournies en arguments au script </pre>
+<pre class="tssr-source-code">Par exemple : ./script_M7TP1.sh 2026 2029 </pre>
+<p class="tssr-source-paragraph">S’il y a plus ou moins de 2 arguments, sortie du script avec un message précisant la syntaxe <br>d’utilisation du script </p>
+<pre class="tssr-source-code">o Inspirez-vous du script 13.sh (la boucle until, la commande cal et </pre>
+<pre class="tssr-source-code">l’incrémentation d’un compteur à chaque tour de boucle notamment…) </pre>
+<p class="tssr-source-paragraph">• <br>L’objectif final est d’afficher à l’écran le nombre d’années bissextiles trouvées et les années exactes. <br>Cela pourrait donner un visuel approchant comme ci-dessous : </p>
+<pre class="tssr-source-code"> 
+./script_M7TP1.sh 2026 2029 
+########################################## </pre>
+<pre class="tssr-source-code">##  Période considérée de 2026 à 2029   ## </pre>
+<pre class="tssr-source-code">########################################## </pre>
+<pre class="tssr-source-code">Il y a 1 année(s) bissextile(s) dans la plage donnée </pre>
+<pre class="tssr-source-code">Année(s) : 2028 </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-2947d787b321e8aeca400841ffff7c472ea6c4ae6d7dcf2df8d47ce96855aa94.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-2947d787b321e8aeca400841ffff7c472ea6c4ae6d7dcf2df8d47ce96855aa94.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="428"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1epqsjaQFmY7b_36ivYpoK2lMTYJUv32D · <span title="Empreinte SHA-256 du fichier source">SHA-256 9dd3692207d6f261…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M7 - Enoncé du TP 2 - Boucle for.pdf · 1 pages</summary>
+<summary>Énoncé · M7 - Enoncé du TP 2 - Boucle for · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/76e31d3be6c07131/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/179DDjUEXzQNI2pTLlR8vacvvxQk_fQVT/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/76e31d3be6c07131/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/76e31d3be6c07131/pages-001-001.webp" alt="Source Drive — M7 - Enoncé du TP 2 - Boucle for.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M7 - Enoncé du TP 2 - Boucle for.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-179DDjUEXzQNI2pTLlR8vacvvxQk_fQVT-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle for </h4>
+<p class="tssr-source-paragraph">TP2 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une instruction de boucle for. </p>
+<h4>Énoncé </h4>
+<pre class="tssr-source-code">Créer un script Shell script_M7TP2.sh permettant pour un répertoire donné, de comptabiliser 
+les fichiers selon leurs extensions (ex : .txt, .sh, .docx etc.) </pre>
+<pre class="tssr-source-code">• Le script devra obligatoirement être lancé avec en argument le nom du dossier à traiter 
+o S’il est lancé avec 0 ou plusieurs arguments -&gt; affichage de la syntaxe d’utilisation, </pre>
+<p class="tssr-source-paragraph">puis sortie du script </p>
+<p class="tssr-source-paragraph">• Les extensions de fichiers prises en compte par le script doivent être inscrites dans un fichier <br>externe (une extension par ligne) </p>
+<pre class="tssr-source-code">o Les extensions non référencées ne sont pas prises en compte </pre>
+<pre class="tssr-source-code">  
+ 
+Conseil 
+Créez-vous quelques fichiers au préalable, avec toutes sortes d’extensions, dans le dossier que vous 
+ciblerez, avec la commande touch.  
+    </pre>
+<pre class="tssr-source-code">Exemple de résultat attendu pour le dossier /tmp 
+ 
+# ./script_M7TP2.sh /tmp 
+Nombre total de fichiers dans /tmp : 20 
+----------- 
+  .sh 
+----------- 
+-&gt; 6 fichier(s) trouvé(s) 
+----------- 
+  .txt 
+----------- 
+-&gt; 4 fichier(s) trouvé(s) </pre>
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-5616e80474f9fe169ab1fa758eac4726afee23d57244d2a5cbc6758485b774ed.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-5616e80474f9fe169ab1fa758eac4726afee23d57244d2a5cbc6758485b774ed.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="999" height="513"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 179DDjUEXzQNI2pTLlR8vacvvxQk_fQVT · <span title="Empreinte SHA-256 du fichier source">SHA-256 76e31d3be6c07131…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M7 - Enoncé du TP 3 - Boucle while-read.pdf · 1 pages</summary>
+<summary>Énoncé · M7 - Enoncé du TP 3 - Boucle while-read · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/0adc6c3467c0501e/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1OQU_jtjKVQlzf6QICICKdTjtWlZHeobJ/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/0adc6c3467c0501e/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/0adc6c3467c0501e/pages-001-001.webp" alt="Source Drive — M7 - Enoncé du TP 3 - Boucle while-read.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M7 - Enoncé du TP 3 - Boucle while-read.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1OQU_jtjKVQlzf6QICICKdTjtWlZHeobJ-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle while/read </h4>
+<p class="tssr-source-paragraph">TP3 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une structure de boucle while/read. </p>
+<h4>Énoncé </h4>
+
+<pre class="tssr-source-code">Créer un script Shell script_M7TP3.sh qui affiche pour chaque utilisateur présent dans le fichier 
+/etc/passwd, le nom et l’UID. </pre>
+<pre class="tssr-source-code">Utiliser pour cela, la structure while read </pre>
+<p class="tssr-source-paragraph">• Afin de formater correctement la base de compte utilisateur, vous pourrez vous inspirer de <br>la commande suivante :  </p>
+<pre class="tssr-source-code">tr -s ":" " "          =&gt; permet de remplacer les “:” par un espace </pre>
+
+<p class="tssr-source-paragraph">Exemple de résultat attendu </p>
+<pre class="tssr-source-code"> 
+# ./script_M7TP3.sh 
+ 
+------------------------- 
+Identifiant :    root 
+-  -  -  -  -  
+UID : 0        
+------------------------- 
+Identifiant :    daemon 
+-  -  -  -  -   
+UID : 1        
+ 
+etc.. </pre>
+<p class="tssr-source-paragraph">Page 1/1 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-6c05a407b933c318d065a00c97c394b70769579892aeb90b7a3f61adf7ce6599.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-6c05a407b933c318d065a00c97c394b70769579892aeb90b7a3f61adf7ce6599.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="999" height="297"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1OQU_jtjKVQlzf6QICICKdTjtWlZHeobJ · <span title="Empreinte SHA-256 du fichier source">SHA-256 0adc6c3467c0501e…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M7 - Solution du TP 1 - Boucle until.pdf · 5 pages</summary>
+<summary>Correction · M7 - Solution du TP 1 - Boucle until · 5 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/7922ba4446f79a2a/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/7922ba4446f79a2a/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/7922ba4446f79a2a/pages-001-004.webp" alt="Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/7922ba4446f79a2a/pages-005-005.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/7922ba4446f79a2a/pages-005-005.webp" alt="Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 5. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M7 - Solution du TP 1 - Boucle until.pdf — pages 5. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle until </h4>
+<p class="tssr-source-paragraph">Solution – TP1 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes <br>conditionnels. </p>
+
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">1- Analyse d’un script existant </p>
+<pre class="tssr-source-code"> 
+ 
+#!/bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">annee=$1 </pre>
+<pre class="tssr-source-code">nummois=1 </pre>
+<pre class="tssr-source-code">###annee=2011 </pre>
+<pre class="tssr-source-code">rouge='\033[31m' </pre>
+<pre class="tssr-source-code">orange='\033[33m' </pre>
+<pre class="tssr-source-code">vert='\033[32m' </pre>
+<pre class="tssr-source-code">noir='\033[0m' </pre>
+<pre class="tssr-source-code"># Début du script # </pre>
+<pre class="tssr-source-code"># Vérification qu'un argument a été passé # </pre>
+<pre class="tssr-source-code">[[ -z $1 ]] &amp;&amp; { echo -e "Syntaxe d'utilisation : $0 $rouge &lt;annee&gt; $noir"; 
+exit 13; } </pre>
+
+<pre class="tssr-source-code">echo "###################" </pre>
+<pre class="tssr-source-code">echo "##  ANNEE $annee   ##" </pre>
+<pre class="tssr-source-code">echo "###################" </pre>
+<pre class="tssr-source-code"># Corps du script # </pre>
+<pre class="tssr-source-code"># On boucle pour tous les mois </pre>
+<pre class="tssr-source-code">until [[ $nummois -eq 13 ]] </pre>
+<p class="tssr-source-paragraph">Page 1/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">        do </pre>
+<pre class="tssr-source-code">        ligne13=`cal $nummois $annee | grep 13` </pre>
+<pre class="tssr-source-code"> 
+# format du retour de la commande precedente incorrect </pre>
+<pre class="tssr-source-code"> 
+ligne13=$(echo $ligne13) </pre>
+<pre class="tssr-source-code">        if [[ $ligne13 = *13\ 14 ]] </pre>
+<pre class="tssr-source-code">                then </pre>
+<pre class="tssr-source-code">                nommois=`date --date "$nummois/01" +%B` </pre>
+<pre class="tssr-source-code">                listmois="$listmois $nommois," </pre>
+<pre class="tssr-source-code">                nbremois=`expr $nbremois + 1` </pre>
+<pre class="tssr-source-code">        fi </pre>
+<pre class="tssr-source-code">        nummois=`expr $nummois + 1` </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># On affiche la liste des mois concernés # </pre>
+<pre class="tssr-source-code">echo -e "En $rouge $listmois $noir surveiller les paraskaviedekatriaphobes 
+" </pre>
+<pre class="tssr-source-code"># On catégorise l'année en fonction du nombre d'occurence(s) et choix 
+couleur </pre>
+<pre class="tssr-source-code">case $nbremois in </pre>
+<pre class="tssr-source-code">        1) </pre>
+<pre class="tssr-source-code">        niveau="calme" </pre>
+<pre class="tssr-source-code">        color="$vert" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        2) </pre>
+<pre class="tssr-source-code">        niveau="moyenne" </pre>
+<pre class="tssr-source-code">        color="$orange" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">        *) </pre>
+<pre class="tssr-source-code">        ### Test avec 2009 </pre>
+<pre class="tssr-source-code">        niveau="a forte vigilance" </pre>
+<pre class="tssr-source-code">        color="$rouge" </pre>
+<pre class="tssr-source-code">        ;; </pre>
+<pre class="tssr-source-code">esac </pre>
+
+<pre class="tssr-source-code"># On résume l'état de l'année </pre>
+<pre class="tssr-source-code">echo -e "$annee sera une annee ${color}$niveau $noir( $nbremois )" </pre>
+
+
+<p class="tssr-source-paragraph">Page 2/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<p class="tssr-source-paragraph">2- Rédaction d’un nouveau script </p>
+<pre class="tssr-source-code">L’objectif ici, est de trouver quelles sont, dans l’intervalle donnée, les années bissextiles. On se 
+focalise chaque année sur le mois de février seulement. Nous aurons besoin pour cela de la 
+commande cal qui affiche le calendrier mensuel, permettant d’identifier l’existence d’un 29ème 
+jour, ou pas, au mois de février. </pre>
+<pre class="tssr-source-code">Dans ce script, il y aura 3 compteurs à incrémenter : celui qui indiquera le nombre d’années 
+bissextiles trouvées nbannées, celui qui stockera les années réelles listannees et enfin celui qui 
+mettra fin à la boucle until lorsque toutes les années ont été analysées. </pre>
+<pre class="tssr-source-code">Pour ce dernier compteur, qui conditionne l’arrêt ou continuation de la boucle until, il s’agit de 
+rajouter ‘+1’ à l’année de début, pour chaque boucle effectuée. La condition à respecter est : la date 
+de fin de période fournie doit être supérieure au compteur (année de début + nb de boucle 
+effectuée). Ainsi, si on débute la plage à 2024 avec une fin en 2029, voici ce qui se passe : </pre>
+<pre class="tssr-source-code">1er tour de boucle : vérification de la condition : annecourante (2024) est &gt; à 2029 ? NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2024 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">2ème tour de boucle : vérification de la condition : anneecourante (2025) est &gt; à 2029 ? NON 
+donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2025 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<pre class="tssr-source-code">3ème tour de boucle : vérification de la condition : anneecourante (2026) est &gt; à 2029 ? 
+NON donc </pre>
+<pre class="tssr-source-code">o Recherche sur l’année 2026 de 29 jour au mois de février </pre>
+<pre class="tssr-source-code">o Incrément du compteur pour until : anneecourante ajout + 1 </pre>
+<p class="tssr-source-paragraph">Et ainsi de suite … </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP1.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP1.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">anneedeb=$1 # Stockage de la première année de la plage </pre>
+<p class="tssr-source-paragraph">Page 3/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">anneefin=$2 # Stockage de la dernière année de la plage </pre>
+<pre class="tssr-source-code">anneecourante=$anneedeb # Création d'une variable année courante à partir 
+du début </pre>
+<pre class="tssr-source-code">nbannees=0 # Compteur nombre d’années bissextiles initialisé à zéro </pre>
+
+<pre class="tssr-source-code"># Debut du script # </pre>
+<pre class="tssr-source-code"># Si arguments fournis au script ne sont pas = à 2 =&gt; Sortie </pre>
+<pre class="tssr-source-code">if [[ $# -ne 2 ]] </pre>
+<pre class="tssr-source-code">  then echo "Syntaxe utilisation : script_M6TP2.sh &lt;annee_debut&gt; 
+&lt;annee_fin&gt;" </pre>
+<pre class="tssr-source-code">  exit 3 </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">echo "##########################################" </pre>
+<pre class="tssr-source-code">echo -e "##  Période considérée de $anneedeb a $anneefin   ##" </pre>
+<pre class="tssr-source-code">echo "##########################################" </pre>
+
+<pre class="tssr-source-code"># Bouclage pour chaque année sur le mois de février </pre>
+<pre class="tssr-source-code">until [[ $anneecourante -gt $anneefin ]] </pre>
+<pre class="tssr-source-code"> do fevrier=$(cal 02 $anneecourante) # Recup du calendrier du mois de 
+février de l'année courante </pre>
+<pre class="tssr-source-code">    echo "$fevrier" | grep "29" | grep -v "[0-9][0-9]29" &gt;/dev/null 2&gt;&amp;1 
+# On cherche dans ce calendrier la présence du 29ème jour </pre>
+<pre class="tssr-source-code">if [[ $? -eq 0 ]] # Si la valeur 29 est trouvée (code retour = 0) </pre>
+<pre class="tssr-source-code"> then nbannees=`expr $nbannees + 1` # Ajout +1 au nombre d'années 
+bissextiles </pre>
+<pre class="tssr-source-code">   listannees="$listannees $anneecourante," # Ajout de l’année au listing 
+des années concernées </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code">anneecourante=`expr $anneecourante + 1` # Incrément de 1 du compteur 
+d'année courante afin de vérifier si condition de la boucle until toujours 
+vraie </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code"># Résumé des années bissextiles trouvées (ou pas) </pre>
+<pre class="tssr-source-code">if [[ $nbannees -gt 0 ]]; then # Si plus d'une année </pre>
+<pre class="tssr-source-code">  echo -e "Il y a $nbannees année(s) bissextile(s) dans la plage donnée"  </pre>
+<pre class="tssr-source-code">  echo -e "Année(s) : $listannees" </pre>
+<pre class="tssr-source-code">else # Si pas d’année bissextile dans la plage </pre>
+<pre class="tssr-source-code">  echo -e "Il n'y a aucune année bissextile dans la plage donnée"  </pre>
+<pre class="tssr-source-code">fi </pre>
+
+<p class="tssr-source-paragraph">Page 4/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-80ab3949f7aa91db3658ec409a6fb6cebb83fc647d341ad2d6dd671c375a44cc.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="692"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 5/5 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-66f9b7b295dbf3e1fd031b01ea5e050a86b747b110778c89c005b7dc8bb58beb.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1UPOn8U2yKJx0QFYyi6snDuHrkMlsNmS3 · <span title="Empreinte SHA-256 du fichier source">SHA-256 7922ba4446f79a2a…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M7 - Solution du TP 2 - Boucle for.pdf · 2 pages</summary>
+<summary>Correction · M7 - Solution du TP 2 - Boucle for · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/df6bd2c25798c474/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1-kZ1c9EU7cu0aHtmn4SmJcErngNIj5sI/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/df6bd2c25798c474/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/df6bd2c25798c474/pages-001-002.webp" alt="Source Drive — M7 - Solution du TP 2 - Boucle for.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M7 - Solution du TP 2 - Boucle for.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1-kZ1c9EU7cu0aHtmn4SmJcErngNIj5sI-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle for </h4>
+<p class="tssr-source-paragraph">Solution - TP2 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une instruction de boucle for. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Les principales difficultés du script sont d’une part lancer un traitement ligne par ligne dans un <br>fichier externe, celui portant les extensions de fichier à traiter, et d’autre part de comptabiliser le <br>nombre de fichiers de chaque type. </p>
+<pre class="tssr-source-code">Avant tout, il faudra vérifier la présence d’un argument derrière le script, et forcer la sortie s’il est 
+différent de 1. Puis, une boucle for comptabilisera et traitera les fichiers pour chaque extension 
+indiquée dans le fichier externe, avant de récapituler tout cela à l’écran. </pre>
+<pre class="tssr-source-code">• Créer et éditer un nouveau fichier script script_M7TP2.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP2.sh </pre>
+<p class="tssr-source-paragraph">• Ajouter les lignes suivantes : </p>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M7 - Solution du TP2 – Boucle for </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># Déclaration des variables </pre>
+<pre class="tssr-source-code">chemin=$1 # Récupération de la valeur de l’argument fourni </pre>
+<pre class="tssr-source-code">extfile=./ext.txt # Stockage du nom de fichier avec les extensions </pre>
+<pre class="tssr-source-code"># Vérification : si argument n’est pas = à 1 =&gt; sortie </pre>
+<pre class="tssr-source-code">if [[ $# -ne 1 ]] </pre>
+<pre class="tssr-source-code">  then echo "Syntaxe utilisation : ./script_M7TP2.sh &lt;chemin&gt;" </pre>
+<pre class="tssr-source-code">       exit 1 </pre>
+<pre class="tssr-source-code">fi </pre>
+<pre class="tssr-source-code"># Calcul du nombre de fichiers présents dans le dossier cible </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1-kZ1c9EU7cu0aHtmn4SmJcErngNIj5sI-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">nbfictotal=$(ls $chemin | wc -l ) </pre>
+<pre class="tssr-source-code">echo "Nombre total de fichiers dans $chemin : $nbfictotal" </pre>
+<pre class="tssr-source-code">echo "" </pre>
+<pre class="tssr-source-code"># Début de la boucle for pour traiter chaque extension </pre>
+<pre class="tssr-source-code">for ext in $(cat $extfile) </pre>
+<pre class="tssr-source-code"> do </pre>
+<pre class="tssr-source-code">    nbfic=$(ls $chemin/*.$ext 2&gt;/dev/null | wc -w) # Comptabiliser nb 
+fichiers trouvés portant l’extension </pre>
+<pre class="tssr-source-code">    if [[ $nbfic -gt 0 ]] # Si le nb fichiers trouvés &gt; 0 alors affichage </pre>
+<pre class="tssr-source-code"> 
+then echo "--------------" </pre>
+<pre class="tssr-source-code"> 
+     echo "     .$ext     " </pre>
+<pre class="tssr-source-code"> 
+     echo "--------------" </pre>
+<pre class="tssr-source-code"> 
+     echo "-&gt; $nbfic fichier(s) trouvé(s)"  </pre>
+<pre class="tssr-source-code">     echo "" </pre>
+<pre class="tssr-source-code">    fi </pre>
+<pre class="tssr-source-code">done </pre>
+
+<pre class="tssr-source-code">• Rendre exécutable le script à l’aide de chmod </pre>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-5f6ca3a8c2b72b27dfc0513837ab014556552cf401545f1631028aac6e181eae.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-5f6ca3a8c2b72b27dfc0513837ab014556552cf401545f1631028aac6e181eae.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1-kZ1c9EU7cu0aHtmn4SmJcErngNIj5sI · <span title="Empreinte SHA-256 du fichier source">SHA-256 df6bd2c25798c474…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M7 - Solution du TP 3 - Boucle while-read.pdf · 2 pages</summary>
+<summary>Correction · M7 - Solution du TP 3 - Boucle while-read · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/a655da4f5623b879/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/a655da4f5623b879/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/a655da4f5623b879/pages-001-002.webp" alt="Source Drive — M7 - Solution du TP 3 - Boucle while-read.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M7 - Solution du TP 3 - Boucle while-read.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Boucle while/read </h4>
+<p class="tssr-source-paragraph">Solution – TP3 du Module 07 – Les structures de boucle </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Créer un script Shell utilisant une structure de boucle while/read. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">Le fichier /etc/passwd gère les comptes utilisateurs créés sur le système, un par ligne. On y trouve <br>dans l’ordre : le login, le champ ‘x’ (indiquant qu’un mot de passe est présent), l’UID, le GID du groupe <br>principal, le champ commentaire, le rép. d’accueil puis le shell par défaut. </p>
+<p class="tssr-source-paragraph">Seuls nous intéresse donc, le 1er et 3ème champ de chaque ligne, sachant que le séparateur est le <br>symbole “:”. </p>
+<p class="tssr-source-paragraph">Il faut ainsi demander un traitement ligne par ligne en ne récupérant que le 1er et 3ème champ de <br>chaque ligne et les afficher à l’écran. </p>
+
+<pre class="tssr-source-code">• Créer et éditer le nouveau fichier script_M7TP3.sh </pre>
+<pre class="tssr-source-code">vim script_M7TP3.sh 
+ 
+ </pre>
+<pre class="tssr-source-code">• 
+Y ajouter les lignes suivantes : 
+ </pre>
+<pre class="tssr-source-code">#! /bin/bash </pre>
+<pre class="tssr-source-code"># M7 - Solution du TP3 – Boucle while/read </pre>
+<pre class="tssr-source-code"># Definition des variables # </pre>
+<pre class="tssr-source-code">#!/bin/bash </pre>
+<pre class="tssr-source-code">while read login c2 uid </pre>
+<pre class="tssr-source-code">  do </pre>
+<pre class="tssr-source-code">  echo "-------------------------" </pre>
+<pre class="tssr-source-code">  echo "Identifiant :  $id" </pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<pre class="tssr-source-code">  echo "-  -  -  -  -" </pre>
+<pre class="tssr-source-code">  echo "UID : $uid  </pre>
+<pre class="tssr-source-code">done &lt; &lt; (cat /etc/passwd | tr -s ":" " ") </pre>
+
+
+<pre class="tssr-source-code">• Rendre le script exécutable avec chmod et tester </pre>
+
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-e0a5b7e5ea93eee97a07e6e19b5ae25eda2aeb8abd13e9987647aeec306e0cb9.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="429"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1Z3Tf96Tp7Xpt8Ex_FYMlxnpIchwCKfDT · <span title="Empreinte SHA-256 du fichier source">SHA-256 a655da4f5623b879…</span></p>
 </div>
 </details>
@@ -12672,7 +13075,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Le module comporte trois TP distincts. Le TP1 conserve ses deux parties : vendredi 13, puis années bissextiles.</p>
 <h2 id="tp-01-boucle-until">TP 01 — Boucle <code>until</code><a class="headerlink" href="#tp-01-boucle-until" title="Permanent link">¶</a></h2>
@@ -12758,11 +13161,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

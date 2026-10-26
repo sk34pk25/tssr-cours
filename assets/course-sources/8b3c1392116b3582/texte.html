@@ -1,84 +1,49 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Solution du TP - Premiers pas avec PowerShell.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>Systèmes Clients Microsoft
-Premiers pas avec
-PowerShell
-TP du Module 03 – Interagir avec Windows 10
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Premiers pas avec PowerShell</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Premiers pas avec <br>PowerShell </h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10 </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX <br> </p>
+<p class="tssr-source-paragraph">Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell  </p>
+<p class="tssr-source-paragraph">• <br>Changez la police et la taille de la police </p>
+<p class="tssr-source-paragraph">• <br>Agrandissez votre fenêtre </p>
+<p class="tssr-source-paragraph">Faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir la taille de <br>la fenêtre et la taille de la police en même temps <br> <br>Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez <br>avec votre système à l&#x27;aide des cmdlets  </p>
 
-Proposition de solution
+<p class="tssr-source-paragraph">• <br>Quelle version de PowerShell est installée sur votre système ? </p>
+<p class="tssr-source-paragraph">$PSVersionTable </p>
+<p class="tssr-source-paragraph">Ou  </p>
+<p class="tssr-source-paragraph">Get-Host </p>
 
-Sur la VM Win10-XX
+<p class="tssr-source-paragraph">• <br>Affichez le contenu du répertoire courant  </p>
+<pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
+<p class="tssr-source-paragraph">Get-ChildItem </p>
 
+<p class="tssr-source-paragraph">• <br>Affichez le contenu du répertoire c:\users </p>
+<pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
+<p class="tssr-source-paragraph">Get-ChildItem -Path C:\Users </p>
 
-Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell
-•  Changez la police et la taille de la police
-•  Agrandissez votre fenêtre
+<p class="tssr-source-paragraph">• <br>Affichez la liste des alias PowerShell </p>
+<pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Get-</pre>
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">ChildItem ? </p>
+<p class="tssr-source-paragraph">Get-Alias </p>
+<p class="tssr-source-paragraph">Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls </p>
 
-Faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir la taille de
-la fenêtre et la taille de la police en même temps
+<p class="tssr-source-paragraph">Faites un snapshot TP04 terminé </p>
 
-Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez
-avec votre système à l&#x27;aide des cmdlets
+<p class="tssr-source-paragraph">Sur la VM DiscoveryXX </p>
+<p class="tssr-source-paragraph">• <br>Ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre <br>système à l&#x27;aide des cmdlets. </p>
+<p class="tssr-source-paragraph">• <br>Affichez le contenu du fichier C:\PowerShell\Intro.txt </p>
+<pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
+<p class="tssr-source-paragraph">Avec la cmdlet Get-Content ou avec les alias gc, type ou cat </p>
+<p class="tssr-source-paragraph">On peut trouver la réponse dans le fichier texte à l&#x27;aide du bloc-notes ou en tapant dans la <br>console PowerShell &gt; notepad.exe c:\PowerShell\Intro.txt </p>
+<p class="tssr-source-paragraph">• <br>Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\ </p>
+<p class="tssr-source-paragraph">Set-location c:\ </p>
+<p class="tssr-source-paragraph">Indice pour trouver : s&#x27;aider de la liste des alias </p>
+<p class="tssr-source-paragraph">La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-location </p>
 
-•  Quelle version de PowerShell est installée sur votre système ?
-
-$PSVersionTable
-
-Ou
-
-Get-Host
-
-
-•  Affichez le contenu du répertoire courant
-        o  Quelle cmdlet avez-vous utilisée ?
-
-Get-ChildItem
-
-
-•  Affichez le contenu du répertoire c:\users
-        o  Quelle cmdlet avez-vous utilisée ?
-
-Get-ChildItem -Path C:\Users
-
-
-•  Affichez la liste des alias PowerShell
-        o  Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Get-
-
-
-
-
- Page 1/2
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>Systèmes Clients Microsoft
-
-             ChildItem ?
-
-Get-Alias
-
-Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls
-
-
-Faites un snapshot TP04 terminé
-
-
-Sur la VM DiscoveryXX
-•  Ouvrez une session avec  l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre
-   système à l&#x27;aide des cmdlets.
-•  Affichez le contenu du fichier C:\PowerShell\Intro.txt
-        o  Quelle cmdlet avez-vous utilisée ?
-
-Avec la cmdlet Get-Content ou avec les alias gc, type ou cat
-
-On peut trouver la réponse dans le fichier texte à l&#x27;aide du bloc-notes ou en tapant dans la
-console PowerShell &gt; notepad.exe c:\PowerShell\Intro.txt
-•  Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\
-
-Set-location c:\
-
-Indice pour trouver : s&#x27;aider de la liste des alias
-
-La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-location
-
-
-
-
-
- Page 2/2
-                                      © ENI – Tous droits réservés</pre></section></html>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-b00a6904093a3328d6ac4f356b4eb0bc5bcb34f217524edb8bc08d16f5a7a436.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b00a6904093a3328d6ac4f356b4eb0bc5bcb34f217524edb8bc08d16f5a7a436.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="900" height="264"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

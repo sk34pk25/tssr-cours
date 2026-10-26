@@ -1,156 +1,75 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion du stockage.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Gestion du stockage.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Gérer le stockage
-TP du Module 04 – La gestion du stockage
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion du stockage.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP - Gestion du stockage</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Gérer le stockage</h4>
+<p class="tssr-source-paragraph">TP du Module 04 – La gestion du stockage</p>
+<p class="tssr-source-paragraph">À travers ce TP, vous serez amené à ajouter des supports de stockage à votre VM puis à <br>créer des volumes sur les disques à l’aide de la console de gestion des disques et à <br>l’aide de diskpart. Enfin, vous découvrirez les volumes présents sur Discovery grâce à <br>PowerShell.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure 30 minutes</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">À l&#x27;aide de VMware WorkStation, ajoutez 2 disques durs de 60 Go <br>chacun à votre VM Win10-XX (Store virtual disk as a single file)</p>
+<p class="tssr-source-paragraph">Avec la console graphique de votre VM Windows 10</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le premier disque, créer 3 partitions principales de 15 Go chacune sans assigner de<br>lettre de lecteur et sans formater.</p>
 
- À travers ce TP, vous serez amené à ajouter des supports de stockage à votre VM puis à
- créer des volumes sur les disques à l’aide de la console de gestion des disques et à
- l’aide de diskpart. Enfin, vous découvrirez les volumes présents sur Discovery grâce à
- PowerShell.
+<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-       Durée estimée
 
-     1 heure 30 minutes
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créer une 4e partition de 7 Go sans assigner de lettre de lecteur et sans formater.</p>
 
-Énoncé
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Formater les deux premières partitions de 15 Go en NTFS. La première sera nommée<br>DATA, la seconde TOOLS.</p>
 
-Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Attribuer la lettre D au volume DATA et la lettre E au volume TOOLS.</p>
 
-À l&#x27;aide de VMware WorkStation, ajoutez 2 disques durs de 60 Go
-chacun à votre VM Win10-XX (Store virtual disk as a single file)
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Formater la partition de 7 Go restante en FAT32, que vous nommerez ARCHIVE et lui<br>attribue la lettre de votre choix.</p>
 
+<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-Avec la console graphique de votre VM Windows 10
 
-   Sur le premier disque, créer 3 partitions principales de 15 Go chacune sans assigner de
-    lettre de lecteur et sans formater.
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Étendre le volume DATA de 15 Go supplémentaire. Pour cela vous n&#x27;utiliserez que<br>l&#x27;espace libre disponible sur le disque 2.</p>
 
+<p class="tssr-source-paragraph">En ligne de commande sur votre VM Windows 10</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Formater la 3e partition de 15 Go en NTFS. Vous la nommerez COMMUN et lui<br>attribuerez la lettre de votre choix.</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Étendre le volume COMMUN en utilisant l&#x27;espace libre restant sur le disque 1.</p>
 
- Page 1/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
+<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-  Créer une 4e partition de 7 Go sans assigner de lettre de lecteur et sans formater.
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Supprimer le volume DATA.</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Recréer le volume DATA avec l&#x27;ensemble de l&#x27;espace libre des deux disques.</p>
 
+<p class="tssr-source-paragraph">Rédiger une procédure GestionDuStockage reprenant la configuration de<br>vos disques avec l&#x27;interface graphique et avec diskpart. Utilisez psr, un<br>traitement de texte ou un autre outil.</p>
+<p class="tssr-source-paragraph">Exemple : <br> - Ajoutez un disque dur supplémentaire avec VMware WorkStation<br> - Avec l’interface graphique, initialisez le disque<br> - Créez un volume formaté en NTFS avec une lettre de votre choix sur ce<br>nouveau lecteur<br> - Lancez diskpart</p>
+<p class="tssr-source-paragraph"> - Sur le nouveau disque, créez un volume supplémentaire en NTFS avec une<br>lettre de lecteur</p>
+<p class="tssr-source-paragraph">Enregistrez votre procédure GestionDuStockage dans le dossier Procédures </p>
 
-  Formater les deux premières partitions de 15 Go en NTFS. La première sera nommée
-   DATA, la seconde TOOLS.
+<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
 
+<figure class="tssr-original-figure"><a href="../figures/atlas-b4a264308f28e50b7b531479beb918a6f8548b1e747cff415a687f8221987947.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b4a264308f28e50b7b531479beb918a6f8548b1e747cff415a687f8221987947.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="4489"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Investigation sur la VM Discovery à l&#x27;aide de PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le numéro, la taille et le type de table de partitionnement des disques durs<br>présents sur la VM</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la lettre de lecteur, le nom et la taille totale des volumes qui possèdent un<br>FriendlyName</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le volume C: ne possède pas de nom. Attribuez-lui le nom &quot;System&quot;</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
-   Attribuer la lettre D au volume DATA et la lettre E au volume TOOLS.
 
-
-
-
-
-  Formater la partition de 7 Go restante en FAT32, que vous nommerez ARCHIVE et lui
-   attribue la lettre de votre choix.
-
-
-
-
-
- Page 2/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Étendre le volume DATA de 15 Go supplémentaire. Pour cela vous n&#x27;utiliserez que
-   l&#x27;espace libre disponible sur le disque 2.
-
-
-
-
-
-En ligne de commande sur votre VM Windows 10
-
-  Formater la 3e partition de 15 Go en NTFS. Vous la nommerez COMMUN et  lui
-   attribuerez la lettre de votre choix.
-
-
-
-
-
-  Étendre le volume COMMUN en utilisant l&#x27;espace libre restant sur le disque 1.
-
-
-
-
-
- Page 3/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Supprimer le volume DATA.
-
-
-
-
-
-  Recréer le volume DATA avec l&#x27;ensemble de l&#x27;espace libre des deux disques.
-
-
-
-
-
-      Rédiger une procédure GestionDuStockage reprenant la configuration de
-      vos disques avec l&#x27;interface graphique et avec diskpart.  Utilisez psr, un
-      traitement de texte ou un autre outil.
-
-
-      Exemple :
-           - Ajoutez un disque dur supplémentaire avec VMware WorkStation
-           - Avec l’interface graphique, initialisez le disque
-           - Créez un volume formaté en NTFS avec une lettre de votre choix sur ce
-     nouveau lecteur
-           - Lancez diskpart
-           - Sur le nouveau disque, créez un volume supplémentaire en NTFS avec une
-        lettre de lecteur
-
-       Enregistrez votre procédure GestionDuStockage dans le dossier Procédures
-
-
-
-
-
- Page 4/5
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
-
-Investigation sur la VM Discovery à l&#x27;aide de PowerShell
-
-
-  Affichez le numéro, la taille et le type de table de partitionnement des disques durs
-   présents sur la VM
-
-
-
-
-
-  Affichez la lettre de lecteur, le nom et la taille totale des volumes qui possèdent un
-   FriendlyName
-
-
-
-
-
-  Le volume C: ne possède pas de nom. Attribuez-lui le nom &quot;System&quot;
-
-
-
-
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 5/5
-                                      © ENI – Tous droits réservés</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-a98aab8ec827cb9782b8672226fcf3b4a4c3e3c271109de714ea2006266e8206.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a98aab8ec827cb9782b8672226fcf3b4a4c3e3c271109de714ea2006266e8206.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="921" height="1047"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

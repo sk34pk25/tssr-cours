@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12567,19 +12567,127 @@
 
 
 <h1 id="correction-tp2-archivages-et-compression">Correction — TP2 : Archivages et Compression<a class="headerlink" href="#correction-tp2-archivages-et-compression" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M08TP02 - Solution - Archivages et Compression.pdf · 4 pages</summary>
+<summary>Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/8702440981273989/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/8702440981273989/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/8702440981273989/pages-001-004.webp" alt="Source Drive — M08TP02 - Solution - Archivages et Compression.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M08TP02 - Solution - Archivages et Compression.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<h4>Archivage et compression </h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45 à 60 minutes </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
+
+<p class="tssr-source-paragraph">1. Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre <br>login pour le nommage du fichier, noter sa taille. </p>
+<pre class="tssr-source-code"> 
+tar -cvf /tmp/$LOGNAME.tar $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar </pre>
+
+<p class="tssr-source-paragraph">2. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la <br>compressant avec gzip, l'opération devant être réalisée en une seule instruction. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SC</p><p>user30@srv—formateur:~$ tar cvf /tmp/SLOGNAME.tar<br>5SHOME<br>tar:<br>Suppression de<br>« /<br>» au début<br>des noms des membres<br>fhome/user30/<br>fhome/user30/.profile<br>fhome/user30/process/<br>fhome/user30/process/daemons.txt<br>fhome/user30/Edition.sav</p><p>fhome/user30/Edition2<br>fhome/user30/MonTroisiemeFichier<br>fhome/user30/.vimrc<br>fhome/user30/MonPremierFichier<br>fhome/user30/bin/<br>fnome/user30/.bash logout<br>fhome/user30/edition3.txt<br>user30Ësrv-formateur:-$<br>1s -lh /tmp/S$LOGNAME.tar<br>—-rw-r--r-—-<br>1 user30 user30 SOK sept.<br>11<br>11:00<br>user306srv-formateur:-$ | |</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<pre class="tssr-source-code"> 
+tar -czvf /tmp/$LOGNAME.tar.gz $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar.gz </pre>
+
+<p class="tssr-source-paragraph">3. Répéter l'étape précédente en utilisant cette fois-ci une compression au format <br>bzip2. </p>
+<pre class="tssr-source-code"> 
+tar -cjvf /tmp/$LOGNAME.tar.bz2 $HOME </pre>
+<pre class="tssr-source-code"> 
+ls -lh /tmp/$LOGNAME.tar.bz2 </pre>
+
+<p class="tssr-source-paragraph">4. Comparer la taille des trois archives, laquelle est la moins volumineuse ? </p>
+<pre class="tssr-source-code"> 
+ls -l /tmp/$LOGNAME.tar* </pre>
+
+<p class="tssr-source-paragraph">5. Dans votre répertoire de connexion, créer le répertoire Restaurations. </p>
+<p class="tssr-source-paragraph"> <br>Restaurer votre sauvegarde dans ce répertoire en une seule instruction. </p>
+<pre class="tssr-source-code"> 
+mkdir $HOME/Restaurations </pre>
+<pre class="tssr-source-code"> 
+tar -xzvf /tmp/$LOGNAME.tar.gz -C Restaurations </pre>
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>ls -lh /tmp/$LOGNAME.tar.gz<br>-rw-r--r--<br>1<br>user30<br>user30<br>6,3K sept.<br>11<br>11:08<br>user30@srv—formateur:~§ |</p><p>user30@srv—-formateur:~$<br>ls -lh /tmp/SLOGNAME.tar.bz2<br>—rw-r--r-—-<br>1 user30<br>user30<br>6,2K sept.<br>11 11:10<br>user30@srv-formateur:-$ |</p><p>Cire</p><p>Nuser30@srv-formateur:-$<br>1s<br>-1<br>/tmp/SLOGNAME.tar*<br>-rw-r--r--<br>1<br>user30<br>user30<br>51200<br>sept.<br>11<br>11:00<br>—-rw-r--r--<br>1<br>user30<br>user30<br>6326<br>sept.<br>11<br>11:10<br>4—rw-r--r--<br>1<br>user30<br>user30<br>6384<br>sept.<br>11<br>11:08<br>user30@srv-formateur:-$ |</p><p>Eni</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+
+<p class="tssr-source-paragraph">6. Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire. </p>
+<pre class="tssr-source-code"> 
+tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME </pre>
+
+<p class="tssr-source-paragraph">7. Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à <br>jour de votre archive avec votre répertoire d’accueil. </p>
+<p class="tssr-source-paragraph">• <br>Aidez-vous de la commande vous permettant de lister le contenu de l'archive. </p>
+<pre class="tssr-source-code"> 
+touch new_fichier.txt </pre>
+<pre class="tssr-source-code"> 
+tar -uvf /tmp/$LOGNAME-v2.tar ~/new_fichier.txt </pre>
+
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$ mkdir<br>Restaurations<br>user306srv-formateur:-$<br>tar mzvi /tmp/SLOGNAME.tar.gz<br>-C Restaurations<br>home/user30/<br>home/user30/.profile<br>home/user30/process/<br>home /user30/process/daemons.txt<br>home /user30/Edition.sav<br>home /user30/Tp/<br>home/user30/Tp/KornShell/<br>home/user30/Tp/Bourne/<br>home/user30/Edition<br>home/user30/.viminfo<br>home/user30/.bashre<br>home /user30/Edidtion2<br>home /user30/edition3.txt.save</p><p>bome<br>/yser30/fi<br>chiar?</p><p>user30Ësrv-formateur:-$<br>tar cv£ /tmp/SLOGNAME-v2.tar --exclude=Restaurations<br>SHOME<br>tar:<br>Suppression de « /<br>» au début des noms<br>des membres<br>fhome/user30/<br>fhome/user30/.profile<br>fhome/user30/process/<br>fhome/user30/process/daemons<br>.txt<br>fhome/user30/Edition.sav<br>fhome/user30/Tp/</p><p>E</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
+<pre class="tssr-source-code">tar -tf /tmp/$LOGNAME-v2.tar 
+/home/user30/.profile 
+/home/user30/process/ 
+/home/user30/process/daemons.txt 
+/home/user30/Edition.sav 
+/home/user30/new_fichier.txt 
+/home/user30/Tp/ 
+/home/user30/Tp/KornShell/ 
+/home/user30/Tp/Bourne/ 
+/home/user30/Edition 
+/home/user30/.viminfo 
+/home/user30/.bashrc 
+/home/user30/Edidtion2 
+/home/user30/edition3.txt.save 
+/home/user30/fichier2+3 
+/home/user30/.bash_history 
+/home/user30/MonDeuxiemeFichier 
+/home/user30/resultats/ 
+/home/user30/resultats/compteur.txt 
+/home/user30/resultats/fichiers.conf 
+/home/user30/Edition2 
+/home/user30/MonTroisiemeFichier 
+/home/user30/.vimrc 
+/home/user30/MonPremierFichier 
+/home/user30/bin/ 
+/home/user30/.bash_logout 
+/home/user30/edition3.txt </pre>
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-2a077284c59f3348e1770bb38da14576d1401602d51208b63316c379ba30ced2.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-2a077284c59f3348e1770bb38da14576d1401602d51208b63316c379ba30ced2.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="2866"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45 · <span title="Empreinte SHA-256 du fichier source">SHA-256 8702440981273989…</span></p>
 </div>
 </details>
@@ -12588,7 +12696,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar -cvf /tmp/$LOGNAME.tar $HOME
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ls -lh /tmp/$LOGNAME.tar
@@ -12668,11 +12776,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

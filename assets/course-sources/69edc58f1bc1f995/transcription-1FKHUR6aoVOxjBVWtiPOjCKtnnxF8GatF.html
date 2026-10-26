@@ -1,0 +1,168 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M05 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M05 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
+<h4>GNU/Linux</h4>
+<h4>Module 05 – Gestion du réseau</h4></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion du réseau</h4>
+<h4>Objectifs</h4>
+<h4>• Prendre des informations sur le réseau<br>• Configuration réseau d’un système sans interface <br>graphique<br>• Configuration réseau d’un système avec interface <br>graphique </h4>
+<h4>Interroger et configurer le réseau sous Linux.</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion du réseau</h4>
+<h4>Prendre des informations</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Les prérequis</h4>
+<h4>Prise d’information réseau</h4>
+<p class="tssr-source-paragraph">• Pour une mise en réseau des postes client et serveur, il faut que la <br>couche IP soit correctement réalisée<br>• La configuration IP a généralement besoin :<br>• D’une adresse IP<br>• D’un masque réseau<br>• Potentiellement d’une passerelle par défaut<br>• Afin de pouvoir résoudre les noms d’hôtes, il faudra aussi <br>renseigner un ou des serveurs DNS</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-9005f3093a4e2cede7839d2f9754fbfd68028c497f77cb7a42f7ebd3cfb72def.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9005f3093a4e2cede7839d2f9754fbfd68028c497f77cb7a42f7ebd3cfb72def.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1121" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Les prérequis</h4>
+<h4>Connaître l’adresse réseau</h4>
+<pre class="tssr-source-code">• Dans un shell, commande ip avec l’argument address
+ ou son raccourci a</pre>
+<pre class="tssr-source-code">root@deb:~# ip a 
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
+qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP 
+group default qlen 1000
+    link/ether 00:0c:29:7c:ff:ba brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.50/24 brd 192.168.1.255 scope global dynamic ens33
+       valid_lft 85457sec preferred_lft 85457sec
+    inet6 fe80::20c:29ff:fe7c:ffba/64 scope link 
+       valid_lft forever preferred_lft forever</pre>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Les prérequis</h4>
+<h4>Connaître passerelle et serveur DNS</h4>
+<pre class="tssr-source-code">• Dans un shell, commande ip avec l’option route ou son raccourci 
+r</pre>
+<pre class="tssr-source-code">root@deb:~# ip r 
+default via 192.168.1.1 dev ens33 
+192.168.1.0/24 dev ens33 proto kernel scope link src 
+192.168.1.50</pre>
+<pre class="tssr-source-code">• Les informations de DNS se trouvent dans le fichier 
+/etc/resolv.conf</pre>
+<pre class="tssr-source-code">root@deb:~# cat /etc/resolv.conf 
+search mondomaine.fr
+nameserver 10.1.2.20
+nameserver 10.1.2.21</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>J<br>d</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Les prérequis</h4>
+<h4>Démo</h4>
+<h4>Informations réseau</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Gestion du réseau</h4>
+<h4>Système sans interface </h4>
+<h4>graphique</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-793c12e8d9acfa5f1322fd0385f2e23fbf384996c0eb9c2d46d857a9cedff692.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-793c12e8d9acfa5f1322fd0385f2e23fbf384996c0eb9c2d46d857a9cedff692.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1313" height="1601"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Système sans interface graphique</h4>
+<h4>Configuration IP en DHCP</h4>
+<h4>• La configuration IP et DNS sur un système sans interface graphique se fait dans <br>deux fichiers de configuration</h4>
+<h4>• Le fichier /etc/network/interfaces permet de gérer la partie IP</h4>
+<h4>• Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une <br>configuration statique</h4>
+<pre class="tssr-source-code">root@deb:~# vim /etc/network/interfaces
+# The loopback network interface
+auto lo
+iface lo inet loopback
+# Carte réseau - Ethernet ens33
+auto ens33
+allow-hotplug ens33
+iface ens33 inet dhcp </pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Système sans interface graphique</h4>
+<h4>Configuration IP statique</h4>
+<h4>• Mettre en place une configuration statique dans le fichier <br>/etc/network/interfaces</h4>
+<pre class="tssr-source-code">root@deb:~# vim /etc/network/interfaces
+# The loopback network interface
+auto lo
+iface lo inet loopback
+# Carte réseau - Ethernet ens33
+auto ens33
+iface ens33 inet static</pre>
+<pre class="tssr-source-code">address 10.1.1.10
+netmask 255.255.0.0
+gateway 10.1.255.254</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Système sans interface graphique</h4>
+<h4>Configuration serveur DNS statique</h4>
+<h4>• Mettre en place une configuration statique dans le fichier <br>/etc/resolv.conf via la directive nameserver</h4>
+<pre class="tssr-source-code">root@deb:~# vim /etc/resolv.conf
+search mondomaine.fr
+nameserver 10.1.2.20
+nameserver 10.1.2.21</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>À<br>|</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Système sans interface graphique</h4>
+<h4>Prise en compte des modifications</h4>
+<h4>On utilise la commande systemctl pour gérer le service networking<br>• Arrêter le service réseau </h4>
+<pre class="tssr-source-code">root@deb:~# systemctl stop networking.service</pre>
+<h4>• Démarrer le service réseau</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl start networking.service</pre>
+<h4>• Redémarrer le service réseau</h4>
+<pre class="tssr-source-code">root@deb:~# systemctl restart networking.service</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ZT...<br>eee</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c9b037774a4c218dca75fa39cbc79c59a90b63d3e6eb62993691cea4d277638d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c9b037774a4c218dca75fa39cbc79c59a90b63d3e6eb62993691cea4d277638d.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1495" height="2500"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Système sans interface graphique</h4>
+<h4>Démo</h4>
+<h4>Mise en place d’une adresse IP fixe sur serveur </h4>
+<h4>Debian</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Gestion du réseau</h4>
+<h4>Configuration réseau <br>d’un système graphique</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Configuration réseau d’un système graphique</h4>
+<h4>Gestion du réseau avec Network Manager</h4>
+<h4>Network Manager est utilisé dans le cas d’un système Linux avec <br>interface graphique (Desktop)</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>#<br>Bluetooth</p><p>4<br>Arrière-plan</p><p>A Notifications<br>—</p><p>|<br>Méthode IPv4<br>Automatique (DHCP)<br>Réseau<br>local seulernent</p><p>79°<br>.<br>Recherche<br>© Manuel<br>Désactiver<br>ea<br>Filaire connecté<br>~</p><p>Pays etlangue<br>ra</p><p>=<br>Adresses<br>Eteindre</p><p>© Acces universel<br>-<br>-<br>Paramètres filaire<br>172.16.0.120<br>255.255.254.0<br>172.16.1.254<br>°</p><p>cd<br>o<br>L<br>&#x27;<br>æ Comptes<br>en tigne<br>°<br>=<br>MathieuC<br>L<br>ay<br>W&amp; Confidentialite</p><p>DNS<br>Automatique</p><p>*S. Partage<br>10,1,2.20,10.1.2.21<br>|<br>az<br>1<br>“ Son<br>7e<br>&amp;<br>O</p><p>Energie<br>Routes<br>Automatique a<br>}<br>env<br>©</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Configuration réseau d’un système graphique</h4>
+<h4>Prise en compte des modifications</h4>
+<h4>On utilise la commande systemctl pour gérer le service <br>NetworkManager</h4>
+<h4>Redémarrer le service réseau </h4>
+<pre class="tssr-source-code">root@deb:~# systemctl restart NetworkManager</pre>
+<h4>Ou simplement l’interface graphique (Off, On)</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Filaire<br>+</p><p>Connecté - 1000 Mb/s<br>@)&gt;)<br>+</p><p>eni</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d5b428b0afa633e439c8d0787f5b5b6ae71ade6975950fb0339fb09d51fcc945.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d5b428b0afa633e439c8d0787f5b5b6ae71ade6975950fb0339fb09d51fcc945.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1468" height="2707"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Gestion du réseau</h4>
+<h4>Démo</h4>
+<h4>Gestion du réseau au sein d’un bureau Gnome</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Gestion du réseau</h4>
+<h4>TP</h4>
+<h4>Démo</h4>
+<h4>Gestion de la configuration réseau d’un poste</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                      Gestion du réseau
+
+
+
+     TPDémo
+
+                                     Gestion de la configuration réseau d’un poste</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Gestion du réseau</h4>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Vous savez consulter les informations réseau sur un système <br>Linux<br>• Vous pouvez configurer l’adressage IP sur un serveur<br>• Vous pouvez configurer l’adressage IP sur un poste avec <br>interface graphique</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-7621a9c97ff4a98ec2f90e2aefa75b9b5a654b5d96c75c1d792a75a37cc2e8ea.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7621a9c97ff4a98ec2f90e2aefa75b9b5a654b5d96c75c1d792a75a37cc2e8ea.webp" alt="Illustrations du support source, pages 17 à 19" loading="lazy" width="900" height="1315"></a><figcaption>Illustrations du support Drive — pages 17 à 19. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

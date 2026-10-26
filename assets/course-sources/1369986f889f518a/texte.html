@@ -1,68 +1,61 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 04 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                   Module 04 – La gestion du stockage
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 04 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 04 – La gestion du stockage</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Objectifs<br>• Découvrir le partitionnement<br>• Initialiser le stockage<br>• Installer un système de fichier<br>• Utiliser les outils de gestion du stockage</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
 
 
 
-
-
-                                                                                         1
-
-
-1
-
-
-
-  La gestion du stockage
-
-                                            •  Découvrir le partitionnement  Objectifs
-                                            •  Initialiser le stockage
-                                            •  Installer un système de fichier
-                                            •  Utiliser les outils de gestion du stockage
-
-
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>La gestion du stockage</h4>
+<p class="tssr-source-paragraph">• Partitionnement<br>• Formats de table de partition<br>• Système de fichiers<br>• Outils</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">Partitionner un disque </p>
+<p class="tssr-source-paragraph">= <br>&quot;séparer&quot; un disque en plusieurs &quot;portions&quot; logiques, étanches et </p>
+<p class="tssr-source-paragraph">indépendantes.</p>
+<p class="tssr-source-paragraph">P1<br>P2<br>P3<br>P4<br>P5<br>P6<br>P7…</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
 
 
 
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>  La gestion du stockage
- La gestion du stockage
-
-            • Partitionnement
-            • Formats de table de partition
-            • Système de fichiers
-            • Outils
-
-
-
-
-
-                                                                                         3
-
-
-3
-
-
-  La gestion du stockage
- Le partitionnement
-
-                                Partitionner un disque
-                             =
-            &quot;séparer&quot; un disque en plusieurs &quot;portions&quot; logiques, étanches et
-                                  indépendantes.
-
-
-          P1         P2       P3      P4     P5   P6     P7…
-
-
-
-
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>  La gestion du stockage
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">• Table de partition<br>• Détermine les caractéristiques des partitions du disque<br>• « Sommaire » du disque</p>
+<p class="tssr-source-paragraph">• Table de partition au format MBR<br>• Master Boot Record<br>• Format historique<br>• Lecture du MBR par le BIOS<br>• Stocké sur le premier secteur du disque (512 o)<br>• 4 partitions maximum<br>• Ne gère pas les disques de plus de 2,2 To<br>• Compatible avec les systèmes d&#x27;exploitation 32 bits et 64 bits</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">Partitionnement d&#x27;un disque<br>• DE BASE</p>
+<p class="tssr-source-paragraph">• Possibilités d&#x27;étendre une partition grâce à l&#x27;espace libre contigu<br>• 4 partitions maximum</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2<br>Espace libre</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  La gestion du stockage
  Le partitionnement
 
             • Table de partition
@@ -103,7 +96,43 @@
                                                                                          6
 
 
-6</pre></section><section><h2>Page 4</h2><pre>  La gestion du stockage
+6</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Structure du master boot record:<br>Adresse<br>Taille</p><p>Description<br>en<br>Hex | Déc<br>octets</p><p>440<br>0000 | 0 |Routine<br>(max. 446)</p><p>o188 | 440 | Signature facultative<br>4<br>cise | 444 | Habituellement nul ; 0x0000<br>2</p><p>Table des partitions primaires<br>oise | 446<br>hu<br>64<br>(Quatre entrées de 16 octets (/BM Partition Table scheme))</p><p>oire | 510<br>ssh<br>MER signature<br>2<br>our | 511<br>Aan<br>OXAASS<br>Taille totale du MBR : 440+4+2+64+2=<br>512</p><p>ent</p><p>ent</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">Partitionnement d&#x27;un disque<br>• DE BASE<br>• Possibilités d&#x27;étendre une partition grâce à l&#x27;espace libre contigu<br>• 4 partitions maximum<br>• Partition étendue et lecteurs logiques pour aller au-delà</p>
+<p class="tssr-source-paragraph">L. <br>Logique 1</p>
+<p class="tssr-source-paragraph">L. <br>Logique 2</p>
+<p class="tssr-source-paragraph">L. <br>Logique 3</p>
+<p class="tssr-source-paragraph">Espace libre<br>Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">3<br>Partition étendue</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">Partitionnement d&#x27;un disque</p>
+<p class="tssr-source-paragraph">• DYNAMIQUE (évolution du disque de base)</p>
+<p class="tssr-source-paragraph">• Attention, pour Microsoft, les partitions contenues sur un disque dynamique s&#x27;appellent des volumes</p>
+<p class="tssr-source-paragraph">• Possibilité d&#x27;étendre un volume grâce à l&#x27;espace libre disponible sur le disque source</p>
+<p class="tssr-source-paragraph">• … et disponible sur un disque supplémentaire. Permet de gérer les disques par ensemble (RAID)</p>
+<p class="tssr-source-paragraph">• Convertir un disque de base en disque dynamique ? Pas de perte de données</p>
+<p class="tssr-source-paragraph">Volume 1<br>Volume 2<br>Volume 3</p>
+<p class="tssr-source-paragraph">Volume 1<br>Volume 2<br>Volume 3<br>Volume 2</p>
+<p class="tssr-source-paragraph">Volume 2</p>
+<p class="tssr-source-paragraph">Espace libre</p>
+<p class="tssr-source-paragraph">Volume 2</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  La gestion du stockage
  Le partitionnement
 
 
@@ -144,7 +173,62 @@
                                                                                          8
 
 
-8</pre></section><section><h2>Page 5</h2><pre>  La gestion du stockage
+8</pre></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-aa1aeff5fc41124ac6d50f886563bd37b47529330d23a968aac5684b20126838.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-aa1aeff5fc41124ac6d50f886563bd37b47529330d23a968aac5684b20126838.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="6200"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Le partitionnement</h4>
+<p class="tssr-source-paragraph">GUID Partition Table Scheme</p>
+<p class="tssr-source-paragraph">LBA 0</p>
+<p class="tssr-source-paragraph">Protective MBR</p>
+<p class="tssr-source-paragraph">LBA 1</p>
+<p class="tssr-source-paragraph">Partition 1                </p>
+<p class="tssr-source-paragraph">LBA 2</p>
+<p class="tssr-source-paragraph">Entry 1 Entry 2 Entry 3 Entry 4</p>
+<p class="tssr-source-paragraph">Table de partitionnement au format GPT</p>
+<p class="tssr-source-paragraph">Entries 5-128</p>
+<p class="tssr-source-paragraph">• GUID Partition Table</p>
+<p class="tssr-source-paragraph">LBA 33</p>
+<p class="tssr-source-paragraph">LBA 34</p>
+<p class="tssr-source-paragraph">• Nouveau format qui gomme les inconvénients du MBR</p>
+<p class="tssr-source-paragraph">Partition 1</p>
+<p class="tssr-source-paragraph">• Dupliqué sur plusieurs secteurs du disque</p>
+<p class="tssr-source-paragraph">• Lecture du GPT par l&#x27;UEFI (évolution du BIOS depuis 2013)</p>
+<p class="tssr-source-paragraph">Partition 2</p>
+<p class="tssr-source-paragraph">• 128 partitions maximum</p>
+<p class="tssr-source-paragraph">• Taille maximale d&#x27;une partition : 256 To</p>
+<p class="tssr-source-paragraph">Remaining Partitions</p>
+<p class="tssr-source-paragraph">LBA -34</p>
+<p class="tssr-source-paragraph">Entry 1 Entry 2 Entry 3 Entry 4</p>
+<p class="tssr-source-paragraph">LBA -33</p>
+<p class="tssr-source-paragraph">• Seulement compatible avec les systèmes d&#x27;exploitation <br>64 bits et les puces UEFI </p>
+<p class="tssr-source-paragraph">Entries 5-128</p>
+<p class="tssr-source-paragraph">LBA -2</p>
+<p class="tssr-source-paragraph">Secondary GPT<br>Primary GPT</p>
+<p class="tssr-source-paragraph">LBA -1</p>
+<p class="tssr-source-paragraph">Secondary GPT Header</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Les systèmes de fichiers</h4>
+<p class="tssr-source-paragraph">• Après le partitionnement, le formatage<br>• Formater une partition ou un lecteur logique, c&#x27;est installer un <br>système de fichiers<br>• Le FS organise les données. Une partition ou un lecteur logique <br>formaté s&#x27;appelle un volume<br>• Plusieurs systèmes de fichiers existent</p>
+<p class="tssr-source-paragraph">I</p>
+<p class="tssr-source-paragraph">I</p>
+<p class="tssr-source-paragraph">N</p>
+<p class="tssr-source-paragraph">N</p>
+<p class="tssr-source-paragraph">D</p>
+<p class="tssr-source-paragraph">D</p>
+<p class="tssr-source-paragraph">Partition <br>principale</p>
+<p class="tssr-source-paragraph">E</p>
+<p class="tssr-source-paragraph">E</p>
+<p class="tssr-source-paragraph">X</p>
+<p class="tssr-source-paragraph">X</p>
+<p class="tssr-source-paragraph">X</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>  La gestion du stockage
  Le partitionnement                   GUID Partition Table Scheme
 
                                                                                                        LBA 0                       Protective MBR
@@ -193,155 +277,88 @@
                                                                                           10
 
 
-10</pre></section><section><h2>Page 6</h2><pre>  La gestion du stockage
- Les systèmes de fichiers
+10</pre></details>
 
-       NTFS
-            • Le système de fichiers par défaut chez Microsoft
-            • Nativement sécurisé (ACL)
-            • Chiffrement intégré (EFS)
-            • Compression intégrée
-            • Supporte des fonctionnalités supplémentaires
-            • Taille maximale du volume 256 To
 
 
 
 
-                                                                                          11
 
 
-11
 
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Les systèmes de fichiers</h4>
+<p class="tssr-source-paragraph">NTFS<br>• Le système de fichiers par défaut chez Microsoft<br>• Nativement sécurisé (ACL)<br>• Chiffrement intégré (EFS)<br>• Compression intégrée<br>• Supporte des fonctionnalités supplémentaires<br>• Taille maximale du volume 256 To</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Les systèmes de fichiers</h4>
+<p class="tssr-source-paragraph">Les autres</p>
+<p class="tssr-source-paragraph">• FAT16 / FAT32 (File Allocation Table)<br>• Historique<br>• Standard<br>• Volume de 4 Go maximum<br>• Non sécurisé nativement</p>
+<p class="tssr-source-paragraph">• ReFS (Resilient File System)<br>• Évolution de NTFS<br>• Taille des volumes quasi illimitée <br>• Correction proactive des erreurs</p>
+<p class="tssr-source-paragraph">• Les autres<br>• Ext4, VMFS, UDF… et des dizaines d&#x27;autres</p>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
 
-  La gestion du stockage
- Les systèmes de fichiers
 
-        Les autres
-              • FAT16 / FAT32 (File Allocation Table)
-                      • Historique
-                      • Standard
-                      • Volume de 4 Go maximum
-                      • Non sécurisé nativement
-              • ReFS (Resilient File System)
-                      • Évolution de NTFS
-                      •  Taille des volumes quasi illimitée
-                      • Correction proactive des erreurs
-              • Les autres
-                      •  Ext4, VMFS, UDF… et des dizaines d&#x27;autres
 
-                                                                                          12
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Les disques durs virtuels</h4>
+<p class="tssr-source-paragraph">• VHD (Virtual Hard Drive) et VHDX<br>• Bootable<br>• Taille fixe ou dynamique<br>• Créés et utilisés pour les machines virtuelles</p>
+<p class="tssr-source-paragraph">• Utilisable sur les machines physiques ! montable comme ISO ! <br>• Manipulable comme un fichier (clonage, déplacement, compression, <br>versioning…)<br>• Disques durs virtuels par défaut pour HyperV</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Stockage local et GUI</h4>
+<p class="tssr-source-paragraph">Les outils de gestion<br>• Avec la console graphique (diskmgmt.msc)</p>
+<p class="tssr-source-paragraph">14</p>
+<p class="tssr-source-paragraph">14</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ent</p><p>Fichier<br>Action<br>Affichage<br>2<br>¢9%|m\bal=4o</p><p>[votume<br>[Disposition [Type [Systemedetichiers [statu<br>Capacité [Espace bre | veibes |<br>= ©<br>Simple<br>De base NTFS<br>Sain (Démarre, Fichier d&#x27;échange Vidage sur incident, Partition principale) 23192Go 392360<br>17%<br>= Reservéausystéme Simple<br>De base NTFS<br>Sain (Système, Act, Partition principale)<br>500Mo<br>47Mo<br>93%<br>= (Disque<br>0 partition... Simple<br>Debuse<br>Sain Patton de récupération)<br>47Mo<br>47Mo<br>100%</p><p>= ie©<br>Debase<br>Réservé ausystème<br>©<br>23228 Go<br>500 Mo NTFS<br>23122 Go NTS<br>487 Mo<br>Enligne<br>Sain (Système, Act, Parton principal<br>Sain (Démarer,Fichier échange, Vidage sur incident Patton principale)<br>||Sain (Patton de récupération)</p><p>2co-romo<br>DVD (E)<br>Aucun média<br>a<br>Non alloué Il Patton principale<br>ent</p></div></details>
 
 
-12</pre></section><section><h2>Page 7</h2><pre>  La gestion du stockage
- Les disques durs virtuels
 
-            • VHD (Virtual Hard Drive) et VHDX
-            • Bootable
-            • Taille fixe ou dynamique
-            • Créés et utilisés pour les machines virtuelles
-            • Utilisable sur les machines physiques ! montable comme ISO !
-            • Manipulable comme un fichier (clonage, déplacement, compression,
-          versioning…)
-            • Disques durs virtuels par défaut pour HyperV
 
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Stockage local et cmd.exe</h4>
+<p class="tssr-source-paragraph">Les outils de gestion<br>• Avec diskpart (outil en ligne de commande très utilisé en production)</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">15</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Stockage local et PowerShell</h4>
+<p class="tssr-source-paragraph">Les outils de gestion<br>• Avec les cmdlet PowerShell<br>• Get-disk<br>• Relever le numéro du nouveau disque<br>• Initialize-disk –number &lt;numéro relevé&gt;<br>• Par défaut en GPT<br>• Il faut préciser le paramètre –PartitionStyle MBR pour la rétrocompatibilité<br>• New-partition –DiskNumber &lt;numéro relevé&gt; -UseMaximumSize –AssignDriveLetter<br>• On peut assigner la lettre après avec set-partition –DiskNumber &lt;numéro relevé&gt; -PartitonNumber<br>&lt;numéro relevé&gt; -NewDriveLetter &lt;Lettre de votre choix&gt;<br>• Format-volume –DriveLetter &lt;Lettre de lecteur&gt;<br>• Format par défaut en NTFS<br>• Votre volume est prêt à l&#x27;utilisation</p>
+<p class="tssr-source-paragraph">16</p>
+<p class="tssr-source-paragraph">16</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>1 Seection inset nite decommande Spat<br>-<br>0<br>x<br>Microsoft Windows [version 10.0.17134.1]<br>à<br>(c) 2818 Microsoft Corporation.<br>Tous droits réservés.</p><p>C:\Users\Administrateur&gt;diskpart</p><p>Microsoft DiskPart version 10.0.17134.1</p><p>Copyright (C) Microsoft Corporation.<br>Sur L&#x27;ordinateur<br>: WIN16-RG</p><p>DISKPART&gt; list disk</p><p>N° disque<br>Statut<br>Taille<br>Libre<br>Dyn<br>GPT</p><p>Disque @<br>En ligne<br>60 G octets<br>@ octets<br>Disque 1<br>En ligne<br>20 Goctets<br>11Goctets<br>*<br>Disque 2<br>En ligne<br>20 Goctets<br>19 Goctets<br>*<br>2)<br>DISKPART&gt;<br>ù<br>env</p><p>End</p></div></details>
 
 
-                                                                                          13
 
 
-13
+<figure class="tssr-original-figure"><a href="../figures/atlas-b22d787223920ed7a2cf9f2c39584657cb2fdf417bd2a4258916007850cb6ac3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b22d787223920ed7a2cf9f2c39584657cb2fdf417bd2a4258916007850cb6ac3.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="7291"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
 
 
-  La gestion du stockage
- Stockage local et GUI
 
-        Les outils de gestion
-            • Avec la console graphique (diskmgmt.msc)
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">La gestion du stockage</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Recette pour bien utiliser le stockage</p>
+<p class="tssr-source-paragraph">•<br>Installer le média dans l’ordinateur</p>
+<p class="tssr-source-paragraph">•<br>Initialiser</p>
+<p class="tssr-source-paragraph">•<br>Partitionner</p>
+<p class="tssr-source-paragraph">•<br>Installer le système de fichier</p>
+<p class="tssr-source-paragraph">•<br>Attribuer une lettre de lecteur ou un point de montage </p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>•</td><td>Recette pour bien utiliser le stockage</td><td></td></tr><tr><td></td><td>•</td><td>Installerlemédiadansl’ordinateur</td></tr><tr><td></td><td>•</td><td>Initialiser</td></tr><tr><td></td><td>•</td><td>Partitionner</td></tr><tr><td></td><td>•</td><td>Installerlesystèmedefichier</td></tr><tr><td></td><td>•</td><td>Attribuerunelettredelecteurouunpointdemontage</td></tr><tr><td></td><td></td><td>19</td></tr></tbody></table></div>
 
-
-
-
-
-                                                                                          14
-
-
-14</pre></section><section><h2>Page 8</h2><pre>  La gestion du stockage
- Stockage local et cmd.exe
-
-        Les outils de gestion
-            • Avec diskpart (outil en ligne de commande très utilisé en production)
-
-
-
-
-
-                                                                                          15
-
-
-15
-
-
-  La gestion du stockage
- Stockage local et PowerShell
-
-        Les outils de gestion
-            • Avec les cmdlet PowerShell
-                        •  Get-disk
-                               •  Relever le numéro du nouveau disque
-                        •  Initialize-disk –number &lt;numéro relevé&gt;
-                               •  Par défaut en GPT
-                               •   Il faut préciser le paramètre –PartitionStyle MBR pour la rétrocompatibilité
-                        •  New-partition –DiskNumber &lt;numéro relevé&gt; -UseMaximumSize –AssignDriveLetter
-                               • On peut assigner la lettre après avec set-partition –DiskNumber &lt;numéro relevé&gt; -PartitonNumber
-                    &lt;numéro relevé&gt; -NewDriveLetter &lt;Lettre de votre choix&gt;
-                        • Format-volume –DriveLetter &lt;Lettre de lecteur&gt;
-                               • Format par défaut en NTFS
-                               •  Votre volume est prêt à l&#x27;utilisation
-
-
-                                                                                          16
-
-
-16</pre></section><section><h2>Page 9</h2><pre>  La gestion du stockage
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          17
-
-
-17
-
-
-  La gestion du stockage
-
-
-              TP
-
-
-
-
-
-                                                                                          18
-
-
-18</pre></section><section><h2>Page 10</h2><pre>  La gestion du stockage
- Conclusion                                            •  Recette pour bien utiliser le stockage
-                                                                 •  Installer le média dans l’ordinateur
-                                                                 •   Initialiser
-                                                                 •  Partitionner
-                                                                 •  Installer le système de fichier
-                                                                 •  Attribuer une lettre de lecteur ou un point de montage
-
-
-
-
-
-                                                                                          19
-
-
-19</pre></section></html>
+<figure class="tssr-original-figure"><a href="../figures/atlas-9defc34cb51d54d8d2c42a09fff05317e63ee52293ce7904eedfffe2e77e0bdf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-9defc34cb51d54d8d2c42a09fff05317e63ee52293ce7904eedfffe2e77e0bdf.webp" alt="Illustrations du support source, pages 9 à 10" loading="lazy" width="992" height="2220"></a><figcaption>Illustrations du support Drive — pages 9 à 10. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

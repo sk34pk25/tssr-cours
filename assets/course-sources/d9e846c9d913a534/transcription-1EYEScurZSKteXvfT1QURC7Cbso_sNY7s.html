@@ -1,0 +1,249 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M06 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M06 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
+<h4>GNU/Linux</h4>
+<h4>Module 06 – Gestion des paquets logiciels</h4></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Objectifs</h4>
+<h4>• Comprendre les Releases du projet Debian<br>• Savoir gérer les fichiers des dépôts<br>• Mettre à jour la distribution <br>• Installer des paquets logiciels</h4>
+<h4>Installer des nouveaux programmes sous Debian Linux</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Les Branches Debian</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Les Branches Debian</h4>
+<h4>Les Branches, ou releases, Debian</h4>
+<h4>• 3 principales Branches, &quot;release&quot; en anglais. Stable, Testing, <br>Unstable.</h4>
+<p class="tssr-source-paragraph">• Stable : C&#x27;est la version de production de Debian, celle qu&#x27;il est recommandé <br>d&#x27;utiliser.<br>• Testing : La branche Testing contient la future version stable de Debian.<br>• Unstable : Version en constante évolution, (on parle de Rolling release).<br>La distribution Unstable est toujours appelée Sid</p>
+<h4>En production, nous utilisons principalement la branche Stable ou <br>antérieure</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-dd1e167a8177f748ce376518f06ee479b59fd131175608efb7b984648b178766.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-dd1e167a8177f748ce376518f06ee479b59fd131175608efb7b984648b178766.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1359" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Les Branches Debian</h4>
+<h4>Les Branches, ou releases, Debian</h4>
+<p class="tssr-source-paragraph">• On peut également noter les branches suivantes :<br>• Old-Stable : C&#x27;est la version de production de Debian antérieure (R -1)<br>• Old-Old-Stable : C&#x27;est la version de production encore antérieure (R-2)<br>• Experimental : cas particulier, car elle ne contient pas tous les paquets <br>constituant une distribution complète. Elle contient des paquets de logiciels <br>en cours de développement. </p>
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Gestion des dépôts</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Gestion des dépôts</h4>
+<h4>Les dépôts</h4>
+<p class="tssr-source-paragraph">• Les paquets logiciels, ainsi que leurs sources, sont disponibles sur <br>Internet dans des dépôts (repository).<br>• Lorsqu&#x27;une machine est installée, les dépôts officiels Debian sont <br>automatiquement configurés, en fonction de la version installée, <br>facilitant :</p>
+<p class="tssr-source-paragraph">• La mise à jour de toute la distribution : la mise à jour pourra être une mise à <br>jour de sécurité ou une mise à jour complète du système et de la totalité <br>des paquets la composant ;<br>• L&#x27;installation de nouveaux paquets : il n&#x27;est pas nécessaire de chercher sur <br>Internet un site de téléchargement pour l’installation des paquets, le <br>gestionnaire de paquet s&#x27;en charge tout seul.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Gestion des dépôts</h4>
+<h4>Le fichier sources.list</h4>
+<pre class="tssr-source-code">Le fichier /etc/apt/sources.list contient la configuration des 
+dépôts.</pre>
+<pre class="tssr-source-code">root@deb:~# vim /etc/apt/sources.list 
+#deb cdrom:[Debian GNU/Linux 10.0 Buster Official amd64 NETINST ]/ 
+buster main
+# dépot de base de la distribution
+deb http://ftp.fr.debian.org/debian/ buster main
+deb-src http://ftp.fr.debian.org/debian/ buster main
+# security updates – mise à jours de sécurité
+deb http://security.debian.org/ buster/updates main
+deb-src http://security.debian.org/ buster/updates main
+# buster-updates, previously known as &#x27;volatile&#x27;
+deb http://ftp.fr.debian.org/debian/ buster-updates main
+deb-src http://ftp.fr.debian.org/debian/ buster-updates main </pre>
+<h4>https://wiki.debian.org/fr/SourcesList</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-2d26059d9780eed2f80fe95cfb296b1c55daaeb42459887d3403e268bb6ad01a.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2d26059d9780eed2f80fe95cfb296b1c55daaeb42459887d3403e268bb6ad01a.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1371" height="1492"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Gestion des dépôts</h4>
+<h4>Le fichier sources.list</h4>
+<pre class="tssr-source-code">deb http://ftp.fr.debian.org/debian/ bookworm main contrib</pre>
+<h4>Le premier champ indique le type de paquet :<br>• deb : paquet binaire<br>• deb-src : paquet source</h4>
+<h4>Le deuxième champ indique le type et le chemin de la source. Il peut <br>commencer par :<br>• http:// : site web de téléchargement ;<br>• ftp:// : site FTP de téléchargement ;</h4>
+<h4>• file:// : répertoire local ;<br>• cdrom:[...] : suivi entre crochet du label du CD, indique un CD-ROM <br>ou DVD-ROM</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Gestion des dépôts</h4>
+<h4>Le fichier sources.list</h4>
+<pre class="tssr-source-code">deb http://ftp.fr.debian.org/debian/ bookworm main contrib</pre>
+<pre class="tssr-source-code">Le troisième champ spécifie la branche disponible :
+• oldstable : l&#x27;ancienne version stable
+• stable : la version officielle actuelle
+• bookworm, buster, … :
+une version spécifique, cela peut être la version officielle
+• testing : la prochaine version stable
+• unstable : c&#x27;est la version qui porte toujours le nom de Sid
+• experimental : il est préférable de la laisser aux développeurs</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Gestion des dépôts</h4>
+<h4>Le fichier sources.list</h4>
+<pre class="tssr-source-code">deb http://ftp.fr.debian.org/debian/ bookworm main contrib</pre>
+<p class="tssr-source-paragraph">Le quatrième champ et les suivants indiquent la section, dont <br>l&#x27;objectif est de filtrer les paquets à installer :<br>• main : les paquets Debian standards, ils sont tous libres ;<br>• contrib : ces paquets sont libres mais dépendants de paquets qui <br>ne le sont pas, ils présentent donc une dépendance vers non-free ;<br>• non-free : des paquets sous licence non libre</p>
+<h4>Il est également possible d’utiliser des fichiers sources indépendants <br>déposés dans le dossier /etc/apt/sources.list.d</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D)</p><p>eni</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Gestion des dépôts</h4>
+<h4>Démo</h4>
+<h4>Gestion du fichier sources.list</h4>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-e917ee80b0eb4c3f784fc66ba8124eab44537ac052c6d4d78687ee73389370b8.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e917ee80b0eb4c3f784fc66ba8124eab44537ac052c6d4d78687ee73389370b8.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1551" height="1706"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Gestion courante des </h4>
+<h4>paquets</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Gestion des dépôts</h4>
+<h4>Gestion courante des paquets</h4>
+<p class="tssr-source-paragraph">• Les opérations de gestion de base des paquets sur les systèmes <br>Debian sont réalisées en ligne de commande à l&#x27;aide de deux outils <br>différents : <br>apt-get / apt-cache et apt<br>• Les opérations de recherche et de consultation pourront être réalisées <br>avec un compte d&#x27;utilisateur standard. Les opérations altérant le <br>système seront réalisées avec les privilèges du compte root.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Gestion des dépôts</h4>
+<h4>Les commandes courantes de gestion</h4>
+<h4>• Mettre à jour la base de données des paquets disponibles</h4>
+<pre class="tssr-source-code">root@deb:~# apt update
+root@deb:~# apt-get update </pre>
+<h4>• Mettre à jour la distribution sans supprimer de paquets</h4>
+<pre class="tssr-source-code">root@deb:~# apt upgrade
+root@deb:~# apt-get upgrade </pre>
+<h4>• Mettre à jour la distribution avec éventuelle suppression de <br>paquets obsolètes</h4>
+<pre class="tssr-source-code">root@deb:~# apt full-upgrade
+root@deb:~# apt-get dist-upgrade</pre>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Gestion des dépôts</h4>
+<h4>Les commandes courantes de gestion</h4>
+<h4>• Installer des paquets</h4>
+<pre class="tssr-source-code">root@deb:~# apt install paquet1 &lt;paquet2&gt;
+root@deb:~# apt-get install paquet1 &lt;paquet2&gt;</pre>
+<h4>• Désinstaller des paquets</h4>
+<pre class="tssr-source-code">root@deb:~# apt remove paquet1 &lt;paquet2&gt;
+root@deb:~# apt-get remove paquet1 &lt;paquet2&gt;</pre>
+<h4>• Désinstaller un paquet en supprimant les fichiers de configuration</h4>
+<pre class="tssr-source-code">root@deb:~# apt purge paquet1 
+root@deb:~# apt-get purge paquet1 </pre>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-59d236d0f858212dc1d4c6012a47c8b1cd0d5065a0da07925e33f0f53af39ef9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-59d236d0f858212dc1d4c6012a47c8b1cd0d5065a0da07925e33f0f53af39ef9.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1416" height="1909"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Gestion des dépôts</h4>
+<h4>Les commandes courantes de gestion</h4>
+<h4>• Nettoyer le dépot local des fichiers téléchargés suite à mise à jour <br>et autres</h4>
+<pre class="tssr-source-code">root@deb:~# apt clean 
+root@deb:~# apt-get clean</pre>
+<h4>• Chercher un paquet correspondant à une expression rationnelle</h4>
+<pre class="tssr-source-code">root@deb:~# apt search regex 
+root@deb:~# apt-get search regex</pre>
+<h4>• Obtenir des informations détaillées sur un paquet</h4>
+<pre class="tssr-source-code">root@deb:~# apt show paquet 
+root@deb:~# apt-cache show paquet </pre>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Gestion des dépôts</h4>
+<h4>La commande dpkg</h4>
+<pre class="tssr-source-code">dpkg est la base du système de gestion des paquets Debian. Il est 
+l&#x27;équivalent de la commande rpm pour les distributions de la 
+branche RedHat. Il a été conçu pour :
+• Installer / mettre à jour des paquets Debian
+• Supprimer des paquets</pre>
+<h4>• Fournir des informations</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Gestion des dépôts</h4>
+<h4>La commande dpkg</h4>
+<pre class="tssr-source-code">En revanche, dpkg permet d&#x27;obtenir des informations précieuses sur les paquets 
+ou les fichiers installés à partir de paquets.</pre>
+<h4>Lister les paquets disponibles dans les dépôts et contenant la chaîne &quot;ftp&quot;</h4>
+<pre class="tssr-source-code">root@deb:~# dpkg –l &quot;*ftp*&quot;
+Souhait=inconnU/Installé/suppRimé/Purgé/H=à garder
+| État=Non/Installé/fichier-Config/dépaqUeté/échec-conFig/H=semi-installé/W=attend 
+Err?=(aucune)/besoin Réinstallation (État,Err: majuscule=mauvais)
+||/ Nom                 Version            Architecture Description
++++-===================-==================-============-=====================================
+ii  openssh-sftp-server 1:7.9p1-10+deb10u2 amd64        secure shell (SSH) sftp server module
+un  pure-ftpd           &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n&#x27;est disponible)
+un  sftp                &lt;aucune&gt;           &lt;aucune&gt;     (aucune description n&#x27;est disponible)</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Gestion des dépôts</h4>
+<h4>La commande dpkg</h4>
+<h4>• Lister les fichiers installés pour un paquet présent sur le système</h4>
+<pre class="tssr-source-code">root@deb:~# dpkg -L telnet
+[...]
+/usr/bin/telnet.netkit
+/usr/share
+/usr/share/doc
+/usr/share/doc/telnet
+/usr/share/doc/telnet/README
+/usr/share/doc/telnet/changelog.Debian.gz
+[...]</pre>
+<h4>• Chercher le paquet à l’origine d’un fichier</h4>
+<pre class="tssr-source-code">root@deb:~# dpkg -S /usr/bin/scp
+openssh-client: /usr/bin/scp</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-442153d38add620d74d87025a44f131791b9b984be29d0a8fb2d350a40678ba3.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-442153d38add620d74d87025a44f131791b9b984be29d0a8fb2d350a40678ba3.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1735" height="2384"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Gestion des dépôts</h4>
+<h4>Les fichiers journaux</h4>
+<h4>• Les fichiers journaux permettent de consulter l&#x27;historique des <br>installations et mises à jour. Chaque utilitaire dispose de son <br>propre fichier de logs :</h4>
+<pre class="tssr-source-code">• apt-get &amp; apt : fichier /var/log/apt/history.log
+• dpkg : fichier /var/log/dpkg.log
+• Les commandes apt-get et apt s&#x27;appuient sur dpkg pour 
+l&#x27;installation proprement dite. On doit donc retrouver dans les logs 
+de dpkg toutes les interventions réalisées sur les paquets.</pre>
+</section>
+<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Gestion des dépôts</h4>
+<h4>Démo</h4>
+<h4>Gestion des dépôts et paquets</h4>
+
+</section>
+<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Installation à partir des  </h4>
+<h4>sources</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Installation à partir des sources</h4>
+<h4>La méthode d’installation</h4>
+<p class="tssr-source-paragraph">• L’installation à partir des sources est la méthode native <br>d’installation sur des systèmes Unix/Linux. <br>• Cette technique n’est pas la plus simple, et varie énormément <br>suivant le type de source récupéré. Il y a tout de même un <br>cheminement qui reste le plus répandu.</p>
+<p class="tssr-source-paragraph">• L’environnement de compilation<br>• Il est important de faire un espace de compilation spécifique à un utilisateur <br>qui n’est pas root afin d’éviter des problématiques systèmes et sa <br>sécurisation.</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-10447be36e50b77688ec6e91f0b90d95571825c88547ac52569d48677321aa05.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-10447be36e50b77688ec6e91f0b90d95571825c88547ac52569d48677321aa05.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="900" height="1117"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Installation à partir des sources</h4>
+<h4>La méthode d’installation</h4>
+<p class="tssr-source-paragraph">• Lecture la documentation<br>• La documentation est généralement disponible sous un fichier README ou <br>INSTALL. Celui-ci contient généralement les autres étapes de la construction <br>de l’application, avec la liste des dépendances de construction de <br>fonctionnement.<br>• Préparation de la compilation<br>• Cette étape va vérifier s’il y a toutes les dépendances de compilation sur le <br>système puis générer un fichier Makefile contenant toutes les informations <br>de compilation et d’installation.</p>
+<pre class="tssr-source-code">user@deb:/opt/sources/application$ ./configure </pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>CE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><h4>Installation à partir des sources</h4>
+<h4>La méthode d’installation</h4>
+<p class="tssr-source-paragraph">• Compilation<br>• Cette étape va permettre de créer l’application compilée à partir de ses <br>sources en se basant sur le fichier Makefile contenant toutes les <br>informations de compilation.</p>
+<pre class="tssr-source-code">user@deb:/opt/sources/application$ make</pre>
+<h4>• À l’issue de cette étape, l’application n’est toujours pas installée dans le <br>système, mais elle est totalement fonctionnelle.</h4>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Installation à partir des sources</h4>
+<h4>La méthode d’installation</h4>
+<p class="tssr-source-paragraph">• Installation<br>• C’est la seule étape à réaliser avec les privilèges root car cette étape est une <br>simple copie de l’application dans les répertoires système comme /opt/bin <br>par exemple.</p>
+<pre class="tssr-source-code">root@deb:/opt/sources/application# make install</pre>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N<br>CO</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Gestion des paquets logiciels</h4>
+<h4>TP</h4>
+<h4>Démo</h4>
+<h4>Gestion des installations logicielles</h4>
+<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                            Gestion des paquets logiciels
+
+
+
+     TPDémo
+
+                                          Gestion des installations logicielles</pre></details>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-65252fd98d82e67460ad79adf79a1d734f27b70b7686ed5c7f6b40f07f51aef9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-65252fd98d82e67460ad79adf79a1d734f27b70b7686ed5c7f6b40f07f51aef9.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="1496" height="1701"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Gestion des paquets logiciels</h4>
+<h4>Conclusion</h4>
+<h4>• Vous savez gérer les dépôts d’une distribution Debian.<br>• Vous savez effectuer la mise à jour du système.<br>• Vous savez installer et supprimer de nouveaux logiciels.</h4>
+<figure class="tssr-original-figure"><a href="../figures/atlas-4f399ee59ec2132c59d35fd536b82bc8d122a8368acf5c8ea02682d91302bb2f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4f399ee59ec2132c59d35fd536b82bc8d122a8368acf5c8ea02682d91302bb2f.webp" alt="Illustrations du support source, pages 29" loading="lazy" width="900" height="183"></a><figcaption>Illustrations du support Drive — pages 29. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

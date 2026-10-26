@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12850,18 +12850,97 @@
 
 
 <h1 id="module-03-premieres-commandes-utiles-aux-scripts-shell">Module 03 — Premières commandes utiles aux scripts shell<a class="headerlink" href="#module-03-premieres-commandes-utiles-aux-scripts-shell" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Support · Module 03 - Support de cours.pdf · 4 pages</summary>
+<summary>Support · Module 03 - Support de cours · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/c9fce4502e47015f/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/c9fce4502e47015f/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/c9fce4502e47015f/pages-001-004.webp" alt="Source Drive — Module 03 - Support de cours.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="8120"></a><figcaption>Source Drive — Module 03 - Support de cours.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a-page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
+<p class="tssr-source-paragraph">Module 03 – Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Objectifs</p>
+<p class="tssr-source-paragraph">• Découvrir les commandes intégrées à Bash</p>
+<p class="tssr-source-paragraph">• Afficher des informations sur la console<br>• Sortir du programme<br>• Trouver de l'aide</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell<br>Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">Les commandes abordées dans cette partie sont des <br>commandes internes (ou fonctionnalités du Shell).</p>
+<p class="tssr-source-paragraph">Aucun fichier binaire dédié ne leur est associé.</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">echo<br>affichage écran </p>
+<pre class="tssr-source-code">echo permet d’afficher du texte</pre>
+<pre class="tssr-source-code">echo [option] "expression"
+Syntaxe</pre>
+<pre class="tssr-source-code">Si « expression » contient des caractères spéciaux, il faut la protéger avec des 
+doubles quotes et lui ajouter l’option –e. </pre>
+<p class="tssr-source-paragraph">On peut de plus utiliser des options de mise en forme</p>
+<pre class="tssr-source-code">\c
+inhibe le changement de ligne en fin de commande</pre>
+<pre class="tssr-source-code">\n
+nouvelle ligne</pre>
+<pre class="tssr-source-code">\t
+tabulation horizontale</pre>
+<pre class="tssr-source-code">\\
+le caractère \</pre>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EN</p><p>[</p><p>CSA|</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">clear<br>effacement de l’écran</p>
+<pre class="tssr-source-code">clear
+Syntaxe</pre>
+<p class="tssr-source-paragraph">Commande simple sans argument, permettant d’afficher <br>une page écran vierge</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">exit<br>sortie du Shell courant</p>
+<pre class="tssr-source-code">exit [ n ]
+Syntaxe</pre>
+<pre class="tssr-source-code">• n est la valeur retournée au Shell père dans la variable $?</pre>
+<pre class="tssr-source-code">• Un script est généralement exécuté dans un environnement enfant
+• Celui-ci peut se terminer par la commande « exit 0 » ou non 
+(dans ce cas, celle-ci est implicite)</pre>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>VE</p><p>er,</p><p>VE</p><p>[7</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Scripting Shell</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">help<br>affiche la liste des commandes internes au Shell</p>
+<p class="tssr-source-paragraph">Lorsqu’une commande interne est spécifiée en argument, <br>affiche l’aide de la commande.</p>
+<pre class="tssr-source-code">help
+Syntaxe</pre>
+<p class="tssr-source-paragraph">• Afficher les commandes internes au Shell</p>
+<pre class="tssr-source-code">help wait
+Syntaxe</pre>
+<pre class="tssr-source-code">• Afficher l’aide de la commande interne wait</pre>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
+<p class="tssr-source-paragraph">Démo</p>
+<h4>Premières commandes</h4>
+<p class="tssr-source-paragraph">8</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>LE|</p><p>RS<br>|<br>|</p><p>End</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-9d1f1a1bfa81c1f10d2040c4e6f423032e419aac937e9122e89fc81a24a8afb6.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-9d1f1a1bfa81c1f10d2040c4e6f423032e419aac937e9122e89fc81a24a8afb6.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="994" height="5927"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a · <span title="Empreinte SHA-256 du fichier source">SHA-256 c9fce4502e47015f…</span></p>
 </div>
 </details>
@@ -12870,7 +12949,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
 <p>Le support présente l’affichage d’informations, l’effacement de l’écran, la sortie du shell courant et l’aide des commandes intégrées.</p>
@@ -13032,11 +13111,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

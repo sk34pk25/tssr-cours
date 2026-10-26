@@ -1,0 +1,33 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell &amp; Excel V2</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell &amp; Excel V2</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Synthèse - Module 3 : Interagir avec <br>Windows 10 (GUI, CLI, PowerShell) et <br>Outils Collaboratifs (Excel) (V2) </h4>
+<h4>1. Interfaces d&#x27;Administration sous Windows 10 </h4>
+<p class="tssr-source-paragraph">Windows 10 propose plusieurs interfaces pour l&#x27;administration et l&#x27;interaction avec le système : </p>
+<p class="tssr-source-paragraph">●​ Interface Graphique (GUI) : Bureau, Panneau de configuration, Paramètres Windows, <br>Consoles MMC (mmc.exe). <br>●​ Invite de commande (cmd.exe) : Shell historique hérité de MS-DOS pour l&#x27;exécution <br>d&#x27;outils système et de scripts batch (.bat / .cmd). <br>●​ PowerShell : Shell moderne orienté objet basé sur .NET, permettant d&#x27;automatiser les <br>tâches complexes d&#x27;administration. </p>
+<h4>2. Commandes d&#x27;Administration CLI et PowerShell </h4>
+<p class="tssr-source-paragraph">Exemples de commandes essentielles pour interagir avec le système : </p>
+<pre class="tssr-source-code">:: Commandes de base sous Invite de commande (cmd.exe)​</pre>
+<pre class="tssr-source-code">help shutdown​</pre>
+<pre class="tssr-source-code">shutdown /r /t 0​</pre>
+<pre class="tssr-source-code">copy source.txt destination.txt​</pre>
+<pre class="tssr-source-code">help copy &gt; aide_copy.txt​</pre>
+<p class="tssr-source-paragraph">​</p>
+<pre class="tssr-source-code"># Commandes et Cmdlets PowerShell​</pre>
+<pre class="tssr-source-code">Get-Command​</pre>
+<pre class="tssr-source-code">Get-Help Get-Process -Detailed​</pre>
+<pre class="tssr-source-code">Get-Process | Where-Object {$_.CPU -gt 10}​</pre>
+<pre class="tssr-source-code">Get-Service | Where-Object {$_.Status -eq &quot;Running&quot;}​</pre>
+
+<h4>3. Notions Essentielles de Microsoft Excel </h4>
+<p class="tssr-source-paragraph">Le module couvre également les fonctionnalités de calcul et d&#x27;analyse dans Excel pour l&#x27;aide au <br>pilotage informatique : </p>
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Catégorie <br>Fonctions principales <br>Exemple d&#x27;utilisation <br>  </p>
+<p class="tssr-source-paragraph">=SOMME(A1:A10) </p>
+<p class="tssr-source-paragraph">Mathématiques <br>SOMME, ARRONDI, MOD, <br>QUOTIENT </p>
+<p class="tssr-source-paragraph">=CONCAT(A2; &quot; &quot;; B2) </p>
+<p class="tssr-source-paragraph">Texte <br>CONCAT, GAUCHE, <br>DROITE, NBCAR </p>
+<p class="tssr-source-paragraph">Recherche <br>RECHERCHEV, <br>RECHERCHEH, COLONNE </p>
+<p class="tssr-source-paragraph">=RECHERCHEV(A2; <br>TableRef; 2; FAUX) </p>
+<p class="tssr-source-paragraph">Logique <br>SI, ET, OU, SIERREUR <br>=SI(ET(A2&gt;10; B2=&quot;OK&quot;); <br>&quot;Valide&quot;; &quot;Rejeté&quot;) </p>
+
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Catégorie</td><td>Fonctions principales</td><td>Exemple d&#x27;utilisation</td></tr><tr><td>Mathématiques</td><td>SOMME ARRONDI MOD<br>, , ,<br>QUOTIENT</td><td>=SOMME(A1:A10)</td></tr><tr><td>Texte</td><td>CONCAT GAUCHE<br>, ,<br>DROITE NBCAR<br>,</td><td>=CONCAT(A2; &quot; &quot;; B2)</td></tr><tr><td>Recherche</td><td>RECHERCHEV<br>,<br>RECHERCHEH COLONNE<br>,</td><td>=RECHERCHEV(A2;<br>TableRef; 2; FAUX)</td></tr><tr><td>Logique</td><td>SI ET OU SIERREUR<br>, , ,</td><td>=SI(ET(A2&gt;10; B2=&quot;OK&quot;);<br>&quot;Valide&quot;; &quot;Rejeté&quot;)</td></tr></tbody></table></div>
+<figure class="tssr-original-figure"><a href="../figures/atlas-7de994c9cc6c4670c7483c1d5c26c20535efd726df753e8202d98b51ca2f94b7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7de994c9cc6c4670c7483c1d5c26c20535efd726df753e8202d98b51ca2f94b7.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="969" height="1052"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12608,62 +12608,441 @@
 
 
 <h1 id="tp-module-02-installation-dune-distribution-debian">TP — Module 02 — Installation d’une distribution Debian<a class="headerlink" href="#tp-module-02-installation-dune-distribution-debian" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf · 2 pages</summary>
+<summary>Énoncé · M02TP01 - Enoncé - Installation de Debian AVEC interface graphique · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/39d303359a5f97f7/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/11EQ5DumzryAnshIXxkFG1UD5rb2c-IgP/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/39d303359a5f97f7/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/39d303359a5f97f7/pages-001-002.webp" alt="Source Drive — M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-11EQ5DumzryAnshIXxkFG1UD5rb2c-IgP-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>AVEC interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Debian </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Correction </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-adm64-netinst.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau internet (Bridged) <br> <br>- Disque dur de 40 Go de taille dynamique <br> <br>- 4096 Mo de mémoire vive <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM.  </p>
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Clavier : France <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• <br>Indiquer un mot de passe pour le compte root <br>• <br>Créer un utilisateur à votre nom <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-11EQ5DumzryAnshIXxkFG1UD5rb2c-IgP-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">Point de montage </p>
+<p class="tssr-source-paragraph">2) Partitionnement des disques : <br> <br>- Méthode de partitionnement : choisir Manuel <br> <br>- Sélectionner le disque détecté puis « continuer » <br> <br>- Configurer le gestionnaire de volume logique LVM <br> <br>- Créer un groupe de volumes puis les volumes logiques indiqués ci-dessous : <br> <br> <br>Type <br>Taille <br>Système de <br>fichiers </p>
+<p class="tssr-source-paragraph">ext4 <br>/home </p>
+<p class="tssr-source-paragraph">LVM <br>2048 MB <br>SWAP <br> <br>LVM <br>20 GB <br>ext4 <br>/ <br>LVM <br>5 GB <br>FAT32 <br>/windows <br>LVM <br>L’espace <br>restant </p>
+<p class="tssr-source-paragraph">3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- Pays du miroir de l’archive Debian : France <br> <br>- Miroir de l’archive Debian : ftp.fr.debian.org  <br>- Ne pas utiliser de mandataire (proxy) <br> <br>- Popularity contest : Non <br>4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• <br>environnement de bureau Debian <br>• <br>utilitaires usuels du système <br> </p>
+<p class="tssr-source-paragraph">5) Installer le programme de démarrage GRUB : <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> <br> <br>Terminer l'installation  <br> <br>Redémarrer <br> </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans <br>les ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Type</td><td>Taille</td><td>Système de<br>fichiers</td><td>Point de montage</td></tr><tr><td>LVM</td><td>2048 MB</td><td>SWAP</td><td></td></tr><tr><td>LVM</td><td>20 GB</td><td>ext4</td><td>/</td></tr><tr><td>LVM</td><td>5 GB</td><td>FAT32</td><td>/windows</td></tr><tr><td>LVM</td><td>L’espace<br>restant</td><td>ext4</td><td>/home</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d108a4861f040027108b6e17ff2ada6de2319993cd3a169f3251785c1fa5b087.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d108a4861f040027108b6e17ff2ada6de2319993cd3a169f3251785c1fa5b087.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="852"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 11EQ5DumzryAnshIXxkFG1UD5rb2c-IgP · <span title="Empreinte SHA-256 du fichier source">SHA-256 39d303359a5f97f7…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf · 2 pages</summary>
+<summary>Énoncé · M02TP01 - Enoncé - Installation de Debian AVEC interface graphique · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/39d303359a5f97f7/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1IzfXXbFqXsHYz8iNsdGV27CwJ3-92bg8/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/39d303359a5f97f7/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/39d303359a5f97f7/pages-001-002.webp" alt="Source Drive — M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M02TP01 - Enoncé - Installation de Debian AVEC interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1IzfXXbFqXsHYz8iNsdGV27CwJ3-92bg8-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>AVEC interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Debian </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Correction </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-adm64-netinst.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau internet (Bridged) <br> <br>- Disque dur de 40 Go de taille dynamique <br> <br>- 4096 Mo de mémoire vive <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM.  </p>
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Clavier : France <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• <br>Indiquer un mot de passe pour le compte root <br>• <br>Créer un utilisateur à votre nom <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1IzfXXbFqXsHYz8iNsdGV27CwJ3-92bg8-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">Point de montage </p>
+<p class="tssr-source-paragraph">2) Partitionnement des disques : <br> <br>- Méthode de partitionnement : choisir Manuel <br> <br>- Sélectionner le disque détecté puis « continuer » <br> <br>- Configurer le gestionnaire de volume logique LVM <br> <br>- Créer un groupe de volumes puis les volumes logiques indiqués ci-dessous : <br> <br> <br>Type <br>Taille <br>Système de <br>fichiers </p>
+<p class="tssr-source-paragraph">ext4 <br>/home </p>
+<p class="tssr-source-paragraph">LVM <br>2048 MB <br>SWAP <br> <br>LVM <br>20 GB <br>ext4 <br>/ <br>LVM <br>5 GB <br>FAT32 <br>/windows <br>LVM <br>L’espace <br>restant </p>
+<p class="tssr-source-paragraph">3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- Pays du miroir de l’archive Debian : France <br> <br>- Miroir de l’archive Debian : ftp.fr.debian.org  <br>- Ne pas utiliser de mandataire (proxy) <br> <br>- Popularity contest : Non <br>4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• <br>environnement de bureau Debian <br>• <br>utilitaires usuels du système <br> </p>
+<p class="tssr-source-paragraph">5) Installer le programme de démarrage GRUB : <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> <br> <br>Terminer l'installation  <br> <br>Redémarrer <br> </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans <br>les ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Type</td><td>Taille</td><td>Système de<br>fichiers</td><td>Point de montage</td></tr><tr><td>LVM</td><td>2048 MB</td><td>SWAP</td><td></td></tr><tr><td>LVM</td><td>20 GB</td><td>ext4</td><td>/</td></tr><tr><td>LVM</td><td>5 GB</td><td>FAT32</td><td>/windows</td></tr><tr><td>LVM</td><td>L’espace<br>restant</td><td>ext4</td><td>/home</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d108a4861f040027108b6e17ff2ada6de2319993cd3a169f3251785c1fa5b087.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d108a4861f040027108b6e17ff2ada6de2319993cd3a169f3251785c1fa5b087.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="852"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1IzfXXbFqXsHYz8iNsdGV27CwJ3-92bg8 · <span title="Empreinte SHA-256 du fichier source">SHA-256 39d303359a5f97f7…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf · 2 pages</summary>
+<summary>Énoncé · M02TP02 - Enoncé - Installation de Debian SANS interface graphique · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/01b8f7b1b64e2f62/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/01b8f7b1b64e2f62/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/01b8f7b1b64e2f62/pages-001-002.webp" alt="Source Drive — M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>SANS interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Linux </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+<p class="tssr-source-paragraph">Ce TP et les suivants seront à faire sur la machine mise à votre disposition par l’ENI. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45mn à 1 heure </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-amd64-dvd.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau de la salle (Bridged) <br> <br>- Disque dur de 10 Go de taille dynamique <br> <br>- 2048 Mo de mémoire vive <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM. </p>
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique (mode par défaut) <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Disposition du clavier : Français <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• Indiquer un mot de passe pour le compte root <br>• Créer un utilisateur </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">•  <br>2) Partitionner les disques : <br> <br>- Méthode de partitionnement : Assisté - utiliser tout un disque avec LVM <br> <br>- Disque à partitionner : sélectionner le disque SCSI <br> <br>- Schéma de partitionnement : Partitions /home, /var et /tmp séparées <br> <br> <br> <br>3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- PAS D’UTILISATION DES MIROIRS <br> <br>- Popularity contest : Non <br> <br>4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• serveur SSH <br>• utilitaires usuels du système <br>•  <br>5) Installer le programme de démarrage GRUB :  <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> <br>Terminer l'installation <br>Redémarrer </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-694520b26badee4d7147725683d80ef059b11e283af11df81bb4f2e483fea1ad.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-694520b26badee4d7147725683d80ef059b11e283af11df81bb4f2e483fea1ad.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="626"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO · <span title="Empreinte SHA-256 du fichier source">SHA-256 01b8f7b1b64e2f62…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf · 2 pages</summary>
+<summary>Énoncé · M02TP02 - Enoncé - Installation de Debian SANS interface graphique · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/01b8f7b1b64e2f62/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1dbc-S71EnOhWxKfkGTxp6nWU8ygyan2P/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/01b8f7b1b64e2f62/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/01b8f7b1b64e2f62/pages-001-002.webp" alt="Source Drive — M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M02TP02 - Enoncé - Installation de Debian SANS interface graphique.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1dbc-S71EnOhWxKfkGTxp6nWU8ygyan2P-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>SANS interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Linux </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+<p class="tssr-source-paragraph">Ce TP et les suivants seront à faire sur la machine mise à votre disposition par l’ENI. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45mn à 1 heure </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-amd64-dvd.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau de la salle (Bridged) <br> <br>- Disque dur de 10 Go de taille dynamique <br> <br>- 2048 Mo de mémoire vive <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM. </p>
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique (mode par défaut) <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Disposition du clavier : Français <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• Indiquer un mot de passe pour le compte root <br>• Créer un utilisateur </p>
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1dbc-S71EnOhWxKfkGTxp6nWU8ygyan2P-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">•  <br>2) Partitionner les disques : <br> <br>- Méthode de partitionnement : Assisté - utiliser tout un disque avec LVM <br> <br>- Disque à partitionner : sélectionner le disque SCSI <br> <br>- Schéma de partitionnement : Partitions /home, /var et /tmp séparées <br> <br> <br> <br>3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- PAS D’UTILISATION DES MIROIRS <br> <br>- Popularity contest : Non <br> <br>4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• serveur SSH <br>• utilitaires usuels du système <br>•  <br>5) Installer le programme de démarrage GRUB :  <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> <br>Terminer l'installation <br>Redémarrer </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-694520b26badee4d7147725683d80ef059b11e283af11df81bb4f2e483fea1ad.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-694520b26badee4d7147725683d80ef059b11e283af11df81bb4f2e483fea1ad.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="626"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1dbc-S71EnOhWxKfkGTxp6nWU8ygyan2P · <span title="Empreinte SHA-256 du fichier source">SHA-256 01b8f7b1b64e2f62…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M02TP01 - Solution - Installation de Debian AVEC interface graphique.pdf · 8 pages</summary>
+<summary>Correction · M02TP01 - Solution - Installation de Debian AVEC interface graphique · 8 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/84deb13b4f31ad60/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/84deb13b4f31ad60/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/84deb13b4f31ad60/pages-001-004.webp" alt="Source Drive — M02TP01 - Solution - Installation de Debian AVEC interface graphique.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M02TP01 - Solution - Installation de Debian AVEC interface graphique.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/84deb13b4f31ad60/pages-005-008.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/84deb13b4f31ad60/pages-005-008.webp" alt="Source Drive — M02TP01 - Solution - Installation de Debian AVEC interface graphique.pdf — pages 5 à 8. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M02TP01 - Solution - Installation de Debian AVEC interface graphique.pdf — pages 5 à 8. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>AVEC interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Debian </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Correction </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-adm64-netinst.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph">Installer le système plus tard </p>
+
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau internet (Bridged) <br> <br>- Disque dur de 40 Go de taille dynamique </p>
+<p class="tssr-source-paragraph">Page 1/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Install operating system from:<br>WORKSTATION<br>Use à physical drive:</p><p>Use ISO image:</p><p>©1 will install the operating system later,<br>|<br>The virtual machine will be created with a blank hard disk.</p><p>Eni</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>- 4096 Mo de mémoire vive </p>
+<p class="tssr-source-paragraph"> <br>HDD 40 + 4096M de RAM + interface réseau bridge <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM.  </p>
+
+<p class="tssr-source-paragraph">Sélectionner l'iso d'installation Debian </p>
+
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Clavier : France <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• <br>Indiquer un mot de passe pour le compte root <br>• <br>Créer un utilisateur à votre noml <br> </p>
+<p class="tssr-source-paragraph">Installation en mode graphique <br> </p>
+<p class="tssr-source-paragraph">Page 2/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>The virtual machine will be created with the Following settings:</p><p>Name:<br>DebClient<br>Location:<br>/home;'<br>/vmware/DebClient<br>Version:<br>Workstation<br>Operating System: Debian 10.x 64-bit</p><p>Hard Disk:<br>40 GB, Monolithic<br>Memory:<br>4096 MB<br>Network Adapter:<br>Bridged (Automatic)<br>Other Devices:<br>CD/DVD, USB Controller, Printer, Sound Card</p><p>Hardware</p><p>Device<br>Summary<br>Device Status<br>Memory<br>4 CB</p><p>@Processors<br>1<br>Connect<br>at power on</p><p>= Network Adapter<br>Bridged (Aute Connection<br>“Sound Card<br>Auto detect<br>\sea piysicalcrve</p><p>Printer<br>Present</p><p>&amp; USB Controle:<br>Present<br>Use ISO image<br>Display<br>Auto detect<br>oct<br>Ste</p><p>Debian GNU-Linux<br>installer menu<br>(BIOS mode)</p><p>Install<br>Advanced options<br>&gt;<br>Accessible dark contrast<br>installer menu<br>&gt;<br>Help</p><p>Install with speech synthesis</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>Nommer la machine <br> </p>
+<p class="tssr-source-paragraph"> <br>Préciser le nom de domaine <br> </p>
+<p class="tssr-source-paragraph"> <br>Saisie du mot de passe root </p>
+
+<p class="tssr-source-paragraph"> <br>Saisie du nom complet du nouvel utilisateur </p>
+
+<p class="tssr-source-paragraph"> <br>Saisie du login </p>
+
+<p class="tssr-source-paragraph"> <br>Puis le mot de passe de l'utilisateur </p>
+
+<p class="tssr-source-paragraph">Page 3/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Configurer le réseau</p><p>Veuillez indiquer le nom de ce système.</p><p>Le nom de machine est un mot unique qui identifie<br>nom, demandez-le à votre administrateur réseau.<br>!<br>ce que vous voulez.</p><p>Nom de machine :</p><p>DebClient|</p><p>Configurer le réseau</p><p>Le domaine est la partie de l'adresse Internet<br>Par .com, .net, .edu, ou .org. Si vous paramét<br>mais assurez-vous d'employer le même nom st</p><p>Domaine :</p><p>ad.kampus-eni.fr</p><p>Mot de passe du superutilisateur (« root ») :</p><p>eocccccce<br>( Afficher le mot de passe en clair</p><p>Veuillez entrer à nouveau le mot de passe du superutilisateur</p><p>Confirmation du mot de passe :</p><p>L111111113<br>( Afficher le mot de passe en clair</p><p>Veuillez indiquer le nom complet du nouvel utilisateur.<br>d'origine des courriels émis ainsi que dans tout progra<br>propre nom est un bon choix.</p><p>Nom complet du nouvel utilisateur:</p><p>Camille Garcial</p><p>Veuillez choisir un identifiant (« login »)<br>identifiants doivent commencer par une<br>lettres minuscules.</p><p>Identifiant pour le compte utilisateur :</p><p>camille</p><p>Un bon mot de passe est composé de lettres, chiffres et signes de ponctuation.<br>régulièrement.</p><p>Mot de passe pour le nouvel utilisateur :<br>QU</p><p>[] Afficher le mot de passe en clair</p><p>Veuillez entrer à nouveau le mot de passe pour l'utilisateur, afin de vérifier que</p><p>Confirmation du mot de passe :</p><p>00000000</p><p>(CD Afficher le mot de passe en clair</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">Point de montage </p>
+<p class="tssr-source-paragraph">2) Partitionnement des disques : <br> <br>- Méthode de partitionnement : choisir Manuel <br> <br>- Sélectionner le disque détecté puis « continuer » <br> <br>- Configurer le gestionnaire de volume logique LVM <br> <br>- Créer un groupe de volumes puis les volumes logiques indiqués ci-dessous : <br> <br> <br>Type <br>Taille <br>Système de <br>fichiers </p>
+<p class="tssr-source-paragraph">ext4 <br>/home </p>
+<p class="tssr-source-paragraph">LVM <br>2048 MB <br>SWAP <br> <br>LVM <br>20 GB <br>ext4 <br>/ <br>LVM <br>5 GB <br>FAT32 <br>/windows <br>LVM <br>L’espace <br>restant </p>
+
+<p class="tssr-source-paragraph"> <br>Mode manuel </p>
+
+<p class="tssr-source-paragraph"> <br>Sélection du disque </p>
+
+<p class="tssr-source-paragraph"> <br>Valider le partionnement du disque </p>
+<p class="tssr-source-paragraph">Page 4/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Partitionner les disques</p><p>Le programme d'installation peut vous assister pour<br>d'organisation). Vous pouvez également effectuer ce<br>partitionnement assisté, vous aurez la possibilité de</p><p>Si vous choisissez le partitionnement assisté pour ur<br>partitionner.</p><p>Méthode de partitionnement :</p><p>Assisté - utiliser un disque entier</p><p>Assisté - utiliser tout un disque avec LVM</p><p>Assisté - utiliser tout un disque avec LVM chiffré</p><p>Partitionnement assisté</p><p>Configurer les volumes iSCSI</p><p>SCSI3 (0,0,0) (sda) - 42.9 GB VMware, VMware Virtual S</p><p>Annuler les modifications des partitions</p><p>Terminer le partitionnement et appliquer les changements</p><p>Partitionner les disques</p><p>Vous avez choisi de partitionner un disque entier. Si vous<br>partitions actuelles seront supprimées.</p><p>Veuillez noter que vous pourrez ultérieurement annuler c<br>partitions.</p><p>Faut-il créer une nouvelle table des partitions sur ce disque ?</p><p>©<br>Non</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Type</td><td>Taille</td><td>Système de<br>fichiers</td><td>Point de montage</td></tr><tr><td>LVM</td><td>2048 MB</td><td>SWAP</td><td></td></tr><tr><td>LVM</td><td>20 GB</td><td>ext4</td><td>/</td></tr><tr><td>LVM</td><td>5 GB</td><td>FAT32</td><td>/windows</td></tr><tr><td>LVM</td><td>L’espace<br>restant</td><td>ext4</td><td>/home</td></tr></tbody></table></div>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d9255c23979b3bbf084a71270a89772d299c5b58494b322d66e7fdca7e50e22c.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d9255c23979b3bbf084a71270a89772d299c5b58494b322d66e7fdca7e50e22c.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4436"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>Se rendre dans le gestionnaire LVM </p>
+
+<p class="tssr-source-paragraph"> <br>Valider les modifications </p>
+
+<p class="tssr-source-paragraph"> <br>Commencer par créer un Groupe de Volumes </p>
+
+<p class="tssr-source-paragraph"> <br>Donner un nom explicite au Groupe de Volumes </p>
+
+<p class="tssr-source-paragraph"> <br>Sélectionner le disque à utiliser </p>
+
+<p class="tssr-source-paragraph"> <br>Créer ensuite un volume logique </p>
+
+<p class="tssr-source-paragraph">Page 5/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Partitionnement assisté</p><p>Configurer le RAID avec gestion logicielle</p><p>Configurer le gestionnaire de volumes logiques (LVM)</p><p>Configurer les volumes chiffrés</p><p>Configurer les volumes iSCSI</p><p>Vv SCSI3 (0,0,0) (sda) - 42.9 GB VMware, VMware Virtual S</p><p>&gt;<br>priflog<br>42.9GB<br>Espace libre</p><p>Les tables de partitions des périphériques suivants seront modifiées :</p><p>SCSI3 (0,0,0) (sda)</p><p>Ecrire les modifications sur les disques et configurer LVM ?<br>© Non</p><p>Partitionner les disques</p><p>Synthèse de la configuration du gestionnaire de volumes logiques :</p><p>Volumes physiques libres:<br>0<br>Volumes physiques utilisés : 0<br>Groupes de volumes :<br>0<br>Volumes logiques :<br>0</p><p>Action de configuration de LVM :</p><p>Afficher les détails de configuration</p><p>Terminer</p><p>Veuillez indiquer le nom que vous souhaitez utiliser</p><p>Nom du groupe de volumes :</p><p>vgsystem|</p><p>Vous pouvez sélectionner un ou plusieurs périphériques.</p><p>Périphériques pour le nouveau groupe de volumes :</p><p>/dev/sda free #1<br>(42949MB; Espace libre)</p><p>Synthèse de la configuration du gestionnaire de volumes logiques :</p><p>Volumes physiques libres:<br>0<br>Volumes physiques utilisés : 1<br>Groupes de volumes :<br>1<br>Volumes logiques :<br>0</p><p>Action de configuration de LVM :</p><p>Afficher les détails de configuration</p><p>Créer un volume logique</p><p>Supprimer un groupe de volumes</p></div></details>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> → <br> <br>Saisir nom et taille du volume </p>
+<p class="tssr-source-paragraph"> <br>Répéter les étapes de creation des volumes en respectant les tailles demandées. <br>Terminer par la partition home de manière à lui affecter l’espace restant. <br> </p>
+<p class="tssr-source-paragraph"> <br>"Afficher les détails de configuration”  pour vérifier. </p>
+
+<p class="tssr-source-paragraph"> <br>Terminer la mise en place des Volumes <br> <br>Définir les points de montage et systèmes de fichiers. <br> </p>
+<p class="tssr-source-paragraph"> <br>Sélectionner le volume lvroot </p>
+
+<p class="tssr-source-paragraph">Page 6/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Veuillez indiquer la taille du nouveau volume<br>suivants : 10K (kilo-octets), 10M (mégaoctets)<br>Veuillez indiquer le nom que vous souhaitez<br>mégaoctet.<br>Nom du volume logique :<br>Taille du volume logique:</p><p>Ivroot|<br>20G</p><p>Volumes physiques non alloués :</p><p>* aucun</p><p>Groupes de volumes :</p><p>* vgsystem<br>(42945MB)<br>- Utilise le volume physique : /dev/sdal<br>(42945MB)<br>- Fournit le volume logique : lvhome<br>(15900MB)<br>- Fournit le volume logique : Ivroot<br>(19998MB)<br>- Fournit le volume logique : lvswap<br>(2046MB)<br>- Fournit le volume logique : lvwindow<br>(4999MB)</p><p>Volumes physiques libres:<br>0<br>Volumes physiques utilisés : 1<br>Groupes de volumes :<br>1<br>Volumes logiques :<br>4</p><p>Action de configuration de LVM :</p><p>Afficher les détails de configuration</p><p>Supprimer un volume logique</p><p>Y Groupe de volumes LVM vgsystem, volume logique lvhome - 15.9 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>15.9 GB</p><p>Y Groupe de volumes LVM vgsystem, volume logique lvroot - 20.0 GB Linux device-mapper (linear)</p><p>Y Groupe de volumes LVM vgsystem, volume logique lvswap - 2.0 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>2.0 GB<br>T Groupe de volumes LVM vgsystem, volume logique lvwindow- 5.0 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>5.0 GB</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+
+<p class="tssr-source-paragraph"> <br>Sélectionner "Utiliser comme" </p>
+
+<p class="tssr-source-paragraph"> <br>Choisir le type ext4 </p>
+<p class="tssr-source-paragraph"> → <br> <br>Définir le point de montage comme “/système de fichiers racine” </p>
+
+<p class="tssr-source-paragraph"> <br>Terminer le paramètrage de ce volume </p>
+<p class="tssr-source-paragraph"> <br>Répéter ces étapes pour les autres volumes logiques en respectant les indications .  <br>NB : la partition Swap n’a pas de point de montage. <br> </p>
+<p class="tssr-source-paragraph"> <br>Terminer la définition des partitions et volumes <br> </p>
+<p class="tssr-source-paragraph"> <br>Appliquer les modifications après avoir vérifier les informations <br> <br> </p>
+<p class="tssr-source-paragraph">Page 7/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Vous modifiez la partition n° 1 sur Groupe de volumes LVM vgsystem, volume logique lvroot.<br>de fichiers n'a été détecté sur cette partition.</p><p>Caractéristiques de la partition :</p><p>Utiliser comme:<br>ne pas utiliser</p><p>Méthode d'utilisation de cette partition :</p><p>système de fichiers journalisé ext4</p><p>système de fichiers journalisé ext3</p><p>système de fichiers ext2</p><p>Point de montage pour cette partition :</p><p>le:<br>Sri<br>il<br>I<br>itic<br>i<br>&gt;<br>.<br>.<br>eae<br>EEREEN<br>1- système de fichiers racine</p><p>Utiliser comme :<br>système de fichiers journalisé ext4<br>/boot - fichiers statiques du programme de dém:</p><p>/home - répertoires personnels des utilisateurs</p><p>Point de montage :<br>aucun<br>/tmp - fichiers temporaires</p><p>Effacer les données de cette partition</p><p>Fin du paramétrage de cette partition</p><p>Y Groupe de volumes LVM vgsystem, volume logique lvhome - 15.9 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>15.9 GB<br>f<br>ext4<br>/home</p><p>T7 Groupe de volumes LVM vgsystem, volume logique lvroot - 20.0 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>20.0 GB<br>f<br>ext4<br>!<br>Y Groupe de volumes LVM vgsystem, volume logique lvswap - 2.0 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>2.0 GB<br>f<br>swap<br>swap<br>Y Groupe de volumes LVM vgsystem, volume logique lvwindow - 5.0 GB Linux device-mapper (linear)</p><p>&gt;<br>n°1<br>5.0 GB<br>f<br> fat32<br>Iwindows<br>Y SCSI3 (0,0,0) (sda) - 42.9 GB VMware, VMware Virtual S</p><p>&gt;<br>n°1<br>primaire<br> 42.9GB<br>K<br>lm</p><p>Annuler les modifications des partitions</p><p>Terminer le partitionnement et appliquer les changements</p><p>Les tables de partitions des périphériques suivants seront modifiées :</p><p>Groupe de volumes LVM vgsystem, volume logique lvhome<br>Groupe de volumes LVM vgsystem, volume logique lvroot<br>Groupe de volumes LVM vgsystem, volume logique lvswap<br>Groupe de volumes LVM vgsystem, volume logique lvwindow</p><p>Les partitions suivantes seront formatées :</p><p>Groupe de volumes LVM vgsystem, volume logique lvhome de type ext4<br>Groupe de volumes LVM vgsystem, volume logique lvroot de type ext4<br>Groupe de volumes LVM vgsystem, volume logique lvswap de type swap<br>Groupe de volumes LVM vgsystem, volume logique lvwindow de type fat32</p><p>Faut-il appliquer les changements sur les disques ?</p><p>© Non</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd-page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- Pays du miroir de l’archive Debian : France <br> <br>- Miroir de l’archive Debian : ftp.fr.debian.org  <br>- Ne pas utiliser de mandataire (proxy) <br> <br>- Popularity contest : Non </p>
+
+<p class="tssr-source-paragraph"> → <br> <br>Attention à bien choisir le dépot ftp.fr.debian.org </p>
+
+<p class="tssr-source-paragraph">4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• <br>environnement de bureau Debian <br>• <br>utilitaires usuels du système <br> </p>
+<p class="tssr-source-paragraph"> <br>La sélection des tâches logicielles à installer <br> </p>
+<p class="tssr-source-paragraph">5) Installer le programme de démarrage GRUB : <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> </p>
+<p class="tssr-source-paragraph"> →  <br> <br> <br> <br>Terminer l'installation  <br> <br>Redémarrer <br> </p>
+<p class="tssr-source-paragraph">Page 8/8 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>EEE<br>eee<br>Généralement, deb.debian.org est ur<br>Gardezà l'esprit quelle falt dechoisir unpays<br>"oi de l'archive Debian</p><p>Pays du miroir de l'archive Debian :<br>debian. proxad.net<br>rintange<br>rence Dette<br>murol.dc.univ-lorraine.fr</p><p>Logiciels à installer :</p><p>.… GNOME</p><p>[]<br>... Xfce</p><p>[]<br>... GNOME Flashback</p><p>C]<br>... KDE Plasma</p><p>[]<br>... Cinnamon</p><p>[]<br>... MATE</p><p>[1<br>... LXDE</p><p>(0 serveur web</p><p>[] serveur SSH</p><p>utilitaires usuels du système</p><p>Installer le programme de démarrage GRUB .<br>Périphérique où sera installé le programme de démarrage :<br>© Non<br>Choix manuel du périphérique</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-ddd1b5573454444c5c95d546b844c549aa8c4a5f909c1b9dc90322e9f403e931.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-ddd1b5573454444c5c95d546b844c549aa8c4a5f909c1b9dc90322e9f403e931.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="5648"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1AfZ3HoKGgwtvLN9yZ4N49jQfsXb5lGZd · <span title="Empreinte SHA-256 du fichier source">SHA-256 84deb13b4f31ad60…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M02TP02 - Solution - Installation de Debian SANS interface graphique.pdf · 6 pages</summary>
+<summary>Correction · M02TP02 - Solution - Installation de Debian SANS interface graphique · 6 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/8448afd9585de604/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/8448afd9585de604/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/8448afd9585de604/pages-001-004.webp" alt="Source Drive — M02TP02 - Solution - Installation de Debian SANS interface graphique.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M02TP02 - Solution - Installation de Debian SANS interface graphique.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/8448afd9585de604/pages-005-006.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/8448afd9585de604/pages-005-006.webp" alt="Source Drive — M02TP02 - Solution - Installation de Debian SANS interface graphique.pdf — pages 5 à 6. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M02TP02 - Solution - Installation de Debian SANS interface graphique.pdf — pages 5 à 6. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Installation de Debian 11 <br>SANS interface graphique </h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Installation d’une distribution Linux </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2  </p>
+<p class="tssr-source-paragraph">Une solution de virtualisation doit être installée sur votre machine </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">45mn à 1 heure </p>
+<h4>Correction </h4>
+<p class="tssr-source-paragraph">I. <br>Récupérer l’image source d’installation </p>
+<p class="tssr-source-paragraph">Copier localement le fichier debian-11.x.x-amd64-dvd.iso depuis le serveur de l’ENI. <br>(avec 11.x.x = la version disponible sur le serveur) </p>
+<p class="tssr-source-paragraph">II. <br>Création de la machine virtuelle </p>
+<p class="tssr-source-paragraph">Créer une nouvelle machine virtuelle avec les paramètres suivant : </p>
+<p class="tssr-source-paragraph"> <br>- Interface réseau permettant l'accès au réseau de la salle (Bridged) <br> <br>- Disque dur de 10 Go de taille dynamique <br> <br>- 2048 Mo de mémoire vive </p>
+<p class="tssr-source-paragraph"> <br>Les paramètres de la VM </p>
+<p class="tssr-source-paragraph"> <br> <br>- Démarrer la machine virtuelle en mappant le fichier ISO comme CDROM. </p>
+<p class="tssr-source-paragraph">Page 1/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Name:<br>DebSRVO1<br>Location:<br>/home/mclaveau/vmware/DebSRV01<br>Version:<br>Workstation Beta<br>Operating System: Debian 10.x 64-bit</p><p>Hard Disk:<br>10 GB</p><p>Memory:<br>2048 MB<br>Network Adapter:<br>Bridged (Automatic)<br>Other Devices:<br>CD/DVD, USB Controller, Printer, Sound Card</p><p>ni</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>Choisir l'image d'installation DVD </p>
+<p class="tssr-source-paragraph">III. <br>Installation de Debian  </p>
+<p class="tssr-source-paragraph">1) Choisir les options suivantes :  <br> <br>- Installer Debian en mode graphique (mode par défaut) <br> <br>- Choix de la langue : French - Français <br> <br>- Emplacement géographique : France <br> <br>- Disposition du clavier : Français <br> <br>- Nom de la machine : définir un nom <br> <br>- Nom de domaine : ad.campus-eni.fr <br> <br>- Utilisateurs : </p>
+<p class="tssr-source-paragraph">• Indiquer un mot de passe pour le compte root <br>• Créer un utilisateur <br> </p>
+<p class="tssr-source-paragraph"> <br>Installation en mode graphique <br> </p>
+<p class="tssr-source-paragraph"> <br>Nommer la machine <br> </p>
+<p class="tssr-source-paragraph">Page 2/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Hardware</p><p>Device<br>Summary<br>Device Status<br>&amp;)Memory<br>2 GB</p><p>@ Processors<br>1<br>Connect at power on<br>Hard Disk (SCSI)<br>10 GB<br>.</p><p>F<br>Connection</p><p>= Network Adapter Bridged (Autot<br>Use a physical drive:<br>BiSound Card<br>Auto detect</p><p>|</p><p>pirat<br>|<br>Present<br>Use ISO image:<br>USB Controller | iRnesenk<br>iargements/debian-11.1.0-amd64-DVD-1.iso<br>+<br>Browse...<br>Display<br>Auto detect</p><p>Debian GNU/Linux<br>installer menu<br>(BIOS mode)</p><p>Install<br>Advanced options<br>&gt;<br>Accessible dark contrast<br>installer menu<br>&gt;<br>Help</p><p>Install with speech synthesis</p><p>Configurer le réseau</p><p>Veuillez indiquer le nom de ce système.</p><p>Le nom de machine est un mot unique qui identifie<br>nom, demandez-le à votre administrateur réseau. £<br>ce que vous voulez.</p><p>Nom de machine:</p><p>debsrv01</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>Préciser le nom de domaine <br> </p>
+<p class="tssr-source-paragraph"> <br>Saisie du mot de passe root </p>
+
+<p class="tssr-source-paragraph"> <br>Saisie du nom complet du nouvel utilisateur </p>
+
+<p class="tssr-source-paragraph"> <br>Saisie du login </p>
+
+<p class="tssr-source-paragraph"> <br>Puis le mot de passe de l'utilisateur </p>
+
+
+
+<p class="tssr-source-paragraph">Page 3/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Configurer le réseau</p><p>Le domaine est la partie de l'adresse Internet<br>par .com, .net, .edu, ou .org. Si vous paramét<br>mais assurez-vous d'employer le même nom st</p><p>Domaine :</p><p>ad.kampus-eni.fr</p><p>Mot de passe du superutilisateur (« root ») :<br>CL]</p><p>[] Afficher le mot de passe en clair</p><p>Veuillez entrer à nouveau le mot de passe du superutilisateur</p><p>Confirmation du mot de passe :</p><p>00000000</p><p>[1 Afficher le mot de passe en clair</p><p>Veuillez indiquer le nom complet du nouvel utilisateur.<br>d'origine des courriels émis ainsi que dans tout progra<br>propre nom est un bon choix.</p><p>Nom complet du nouvel utilisateur:</p><p>Camille Garcial</p><p>Veuillez choisir un identifiant (« login »)<br>identifiants doivent commencer par une<br>lettres minuscules.</p><p>Identifiant pour le compte utilisateur :</p><p>camille</p><p>Un bon mot de passe est composé de lettres, chiffres et signes de ponctuation.<br>réguliérement.</p><p>Mot de passe pour le nouvel utilisateur :</p><p>eecccccce<br>( Afficher le mot de passe en clair</p><p>Veuillez entrer à nouveau le mot de passe pour l'utilisateur, afin de vérifier que</p><p>Confirmation du mot de passe :</p><p>c0000000e</p><p>[] Afficher le mot de passe en clair</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">2) Partitionner les disques : <br> <br>- Méthode de partitionnement : Assisté - utiliser tout un disque avec LVM <br> <br>- Disque à partitionner : sélectionner le disque SCSI <br> <br>- Schéma de partitionnement : Partitions /home, /var et /tmp séparées <br> <br> </p>
+<p class="tssr-source-paragraph"> <br>Assisté LVM sur disque entier </p>
+
+<p class="tssr-source-paragraph"> <br>Sélection du disque </p>
+
+<p class="tssr-source-paragraph"> <br>Choix du schéma de partitiionnement </p>
+
+<p class="tssr-source-paragraph"> <br>Valider la création de ce partitionnement </p>
+
+<p class="tssr-source-paragraph"> <br>Accepter la taille par défaut (totalité du disque) </p>
+
+<p class="tssr-source-paragraph">Page 4/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Méthode de partitionnement :</p><p>Assisté - utiliser un disque entier</p><p>Assisté - utiliser tout un disque avec LVM</p><p>Assisté - utiliser tout un disque avec LVM chiffré</p><p>Manuel</p><p>Disque à partitionner :</p><p>SCSI3 (0,0,0) (sda) - 10.7 GB VMware, VMware Virtual S</p><p>Schéma de partitionnement<br>:</p><p>Tout dans une seule partition (recommandé</p><p>Partition /home séparée</p><p>Partitions /home, /var et /tmp séparées</p><p>Les tables de partitions des périphériques suivants seront modifiées :</p><p>SCSI3 (0,0,0) (sda)</p><p>Écrire les modifications sur les disques et configurer LVM ?</p><p>© Non<br>© Oui</p><p>Il est possible d'utiliser « max » comme méthode simplifiée<br>pourcentage (p. ex. « 20% ») pour utiliser ce pourcentage</p><p>Quantité d'espace sur le groupe de volumes pour le partitionnem</p><p>10.2 GB|</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-b92fa23b9d2e72eb7c150e950200d995a8c7d390443c35ac6aa1f560d039cdb8.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-b92fa23b9d2e72eb7c150e950200d995a8c7d390443c35ac6aa1f560d039cdb8.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="4068"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph"> <br>Accepter la configuration automatique </p>
+<p class="tssr-source-paragraph"> <br>3) Configurer l'outil de gestion des paquets : <br> <br>- Analyser un autre CD ou DVD : Non <br> <br>- PAS D’UTILISATION DES MIROIRS <br> <br>- Popularity contest : Non <br> </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>Répondre non à ces trois questions </p>
+
+<p class="tssr-source-paragraph"> <br>4) Choisir et installer des logiciels : <br> <br>- Logiciels à installer : sélectionner </p>
+<p class="tssr-source-paragraph">• serveur SSH <br>• utilitaires usuels du système </p>
+<p class="tssr-source-paragraph"> <br>Sélection des deux seuls groupes demandés </p>
+
+<p class="tssr-source-paragraph">Page 5/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Les tables de partitions des périphériques suivants seront modifiées :</p><p>Groupe de volumes LVM debsrv01-vg, volume logique home<br>Groupe de volumes LVM debsrv01-vg, volume logique root<br>Groupe de volumes LVM debsrv01-vg, volume logique swap_1<br>Groupe de volumes LVM debsrv01-vg, volume logique tmp<br>Groupe de volumes LVM debsrv01-vg, volume logique var<br>SCSI3 (0,0,0) (sda)</p><p>Les partitions suivantes seront formatées :</p><p>Groupe de volumes LVM debsrv01-vg, volume logique home de type ext4<br>Groupe de volumes LVM debsrv01-vg, volume logique root de type ext4<br>Groupe de volumes LVM debsrv01-vg, volume logique swap_1 de type swap<br>Groupe de volumes LVM debsrv01-vg, volume logique tmp de type ext4<br>Groupe de volumes LVM debsrv01-vg, volume logique var de type ext4<br>partition n° 1 sur SCSI3 (0,0,0) (sda) de type ext2</p><p>Faut-il appliquer les changements sur les disques ?</p><p>© Non</p><p>k</p><p>Faut-il analyser d'autres supports d'installation ? hk Faut-il utiliser un miroir sur le réseau ?<br>Souhaitez-vous participer à l'étude statistique<br>© Non<br>© Non<br>© Non</p><p>©<br>oui<br>O oui<br>© oui</p><p>Logiciels à installer:</p><p>[] environnement de bureau Debian</p><p>[]<br>... GNOME</p><p>[1<br>... Xfce</p><p>[]<br>... GNOME Flashback<br>(<br>... KDE Plasma</p><p>[]<br>... Cinnamon</p><p>[1<br>... MATE</p><p>C]<br>... LXDE</p><p>[1<br>... LxQt</p><p>[] serveur web</p><p>M] serveur SSH</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">5) Installer le programme de démarrage GRUB :  <br> <br>- Installer le programme : Oui <br> <br>- Périphérique où sera installé le programme : /dev/sda <br> </p>
+<p class="tssr-source-paragraph"> →  <br> </p>
+<p class="tssr-source-paragraph"> <br>Terminer l'installation <br>Redémarrer </p>
+
+<p class="tssr-source-paragraph">Page 6/6 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Installer le programme de démarrage GRUB .<br>Périphérique où sera installé le programme de démarrage :<br>© Non<br>Choix manuel du périphérique<br>© ‘Oui<br>Idev/sda</p><p>Enÿ</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-14969c864361c299092f691fad55fd4092607c914fa47621329c15659dd583e8.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-14969c864361c299092f691fad55fd4092607c914fa47621329c15659dd583e8.webp" alt="Illustrations du support source, pages 5 à 6" loading="lazy" width="900" height="1785"></a><figcaption>Illustrations du support Drive — pages 5 à 6. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1uiQOk1ycmba-mL9IRr-hmErYoKgLB68C · <span title="Empreinte SHA-256 du fichier source">SHA-256 8448afd9585de604…</span></p>
 </div>
 </details>
@@ -12672,7 +13051,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p><strong>Sources originales (A) :</strong> <code>M02TP01</code> et <code>M02TP02</code> TSSR, énoncés et solutions d’installation Debian, avec et sans interface graphique.
 <strong>Présentation du portail (B) :</strong> organisation des travaux pratiques et liens de navigation.</p>
@@ -12762,11 +13141,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

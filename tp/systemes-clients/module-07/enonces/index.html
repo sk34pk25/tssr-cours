@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12862,18 +12862,98 @@
 
 
 <h1 id="enonce-module-07-gestion-du-reseau">Énoncé — Module 07 — Gestion du réseau<a class="headerlink" href="#enonce-module-07-gestion-du-reseau" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · Enonc‚ du TP - Gestion du r‚seau.pdf · 4 pages</summary>
+<summary>Énoncé · Enonc‚ du TP - Gestion du r‚seau · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/c236aadd3eb7bc01/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/c236aadd3eb7bc01/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/c236aadd3eb7bc01/pages-001-004.webp" alt="Source Drive — Enonc‚ du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7968"></a><figcaption>Source Drive — Enonc‚ du TP - Gestion du r‚seau.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Gestion du réseau</h4>
+<p class="tssr-source-paragraph">TP du Module 07 – La gestion du réseau et du pare-feu</p>
+<p class="tssr-source-paragraph">Ce TP va vous permettre de configurer la carte réseau de votre VM. Vous mettrez en <br>place un adressage IP fixe puis effectuerez des tests (tests de communications et de <br>résolution de noms entre autres). Vous parcourrez et modifierez la configuration du <br>pare-feu pour l’adapter aux consignes.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l'ensemble de ce TP avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez vos accès réseau :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Connectez votre VM sur le switch Bridged (vérifier d'abord le report de 35 jours de<br>Windows Update)</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Possédez-vous une adresse IP ? Laquelle ? Quelle est l'adresse du réseau ?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez une adresse IP fixe sur l'interface réseau de votre VM&nbsp;:</p>
+<pre class="tssr-source-code">o
+La partie réseau de votre adresse sera la même que celle qui est configurée
+sur l’ordinateur à votre disposition pour réaliser les TP.</pre>
+<pre class="tssr-source-code">o
+La partie hôte sera composée du rang alphabétique de la première lettre
+de votre prénom puis du rang alphabétique de la première lettre de votre
+nom de famille</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0a7" src="../../../../assets/course-sources/glyphs/3423e6ec8110515d1baa525b19fe670c553c55a4a571e2e32b349f4ff8d02b0e.webp" alt="Symbole du support" title="Symbole original du support"><br>Exemple&nbsp;: Pierre-Louis Le Guervelec</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>P = 16eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°3 de l’adresse IP<br>sera donc 16</p>
+<p class="tssr-source-paragraph">Page 1/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>L = 12eme lettre de l’alphabet <img class="tssr-source-glyph" data-source-codepoint="f0e0" src="../../../../assets/course-sources/glyphs/7b7e7ce5195894240bdf6ba6c2f3e757155d7db93af8a7475ad8fcd25e52ca94.webp" alt="Symbole du support" title="Symbole original du support"> l’octet n°4 de l’adresse IP<br>sera donc 12</p>
+<pre class="tssr-source-code">o
+Le masque sera 255.255.0.0</pre>
+<pre class="tssr-source-code">o
+La passerelle et le serveur DNS préféré seront les mêmes que ceux
+configurés sur votre VM Campus en ligne</pre>
+<p class="tssr-source-paragraph"> <br>Connectivité </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande ping vers les hôtes suivants&nbsp;:</p>
+<pre class="tssr-source-code">o
+Adresse IP de la passerelle par défaut </pre>
+<pre class="tssr-source-code">o
+Adresse IP de votre VM Discovery</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ces hôtes sont-ils joignables&nbsp;? S’ils ne le sont pas, vérifier la configuration réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À quel niveau du réseau sont-ils ? Réseau local&nbsp;? Internet&nbsp;?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande tracert pour ces mêmes noms. Que nous apprend cette<br>commande ?</p>
+
+<p class="tssr-source-paragraph">Page 2/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">Résolution de noms</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Utilisez la commande nslookup avec les noms suivants&nbsp;: </p>
+<pre class="tssr-source-code">o
+www.hadopi.fr</pre>
+<pre class="tssr-source-code">o
+www.amendes.gouv.fr</pre>
+<pre class="tssr-source-code">o
+www.facebook.com</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Obtenez-vous des réponses pour chacune des requêtes&nbsp;? Quelles sont les adresses<br>IPv4 de ces hôtes&nbsp;?</p>
+<p class="tssr-source-paragraph"> <br>Pare-feu sur W10-XX</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vérifiez l'état d'activation de votre pare-feu pour chaque profil réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez le pare-feu pour les Programmes autorisés&nbsp;:</p>
+<pre class="tssr-source-code">o
+Autorisez le Bureau à distance uniquement pour le profil privé</pre>
+
+<p class="tssr-source-paragraph">Page 3/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Dans la console Pare-feu et fonctions avancées de sécurité, utilisez la règle prédéfinie<br>vous permettant d’autoriser le ping entre vos postes client.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 4/4<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-335f37de47725bb7cfcd8ce77d3baf95fa28046f9a1acf8510408f915b7d53af.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="3294"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1YxLnsFfNiuJdQAo4fEIHFZ2WH1_E_Bd_ · <span title="Empreinte SHA-256 du fichier source">SHA-256 c236aadd3eb7bc01…</span></p>
 </div>
 </details>
@@ -12882,7 +12962,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
 <p>Ce TP demande de configurer la carte réseau d’une VM, de mettre en place un adressage IP fixe, de tester les communications et la résolution de noms, puis de parcourir et d’adapter la configuration du pare-feu.</p>
@@ -13035,11 +13115,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

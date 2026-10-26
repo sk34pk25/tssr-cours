@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12597,20 +12597,81 @@
 
 
 <h1 id="enonce-tp-02-azure-ad-connect">Énoncé — TP 02 — Azure AD Connect<a class="headerlink" href="#enonce-tp-02-azure-ad-connect" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><p class="tssr-original-note">Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.</p>
 <div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M2 - Enoncé du TP 2 - Azure AD Connect.pdf · 2 pages</summary>
+<summary>Énoncé · M2 - Enoncé du TP 2 - Azure AD Connect · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/67cd7d118de46260/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1me6SILxxJNgD0AiCdjStFN8-rUMBQuex/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Dossier Module 3 conservé à la demande de l’utilisateur : les cinq fichiers sont des copies exactes de ceux du Module 2 (empreintes SHA-256 identiques). Le titre interne indique Module 02 — Administration Microsoft 365. Aucun support distinct du Module 3 n’a été fourni.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/67cd7d118de46260/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/67cd7d118de46260/pages-001-002.webp" alt="Source Drive — M2 - Enoncé du TP 2 - Azure AD Connect.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M2 - Enoncé du TP 2 - Azure AD Connect.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1me6SILxxJNgD0AiCdjStFN8-rUMBQuex-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<h4>Azure AD </h4>
+<p class="tssr-source-paragraph">TP 02 du Module 02 – Administration Microsoft 365 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2 et d’avoir <br>réalisé les TP proposés. </p>
+<h4>Enoncé </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">Synchroniser les utilisateurs de votre Active Directory local avec Microsoft 365 <br>Prérequis </p>
+<p class="tssr-source-paragraph">Disposer de l’ISO Windows Server 2019 en anglais. <br>Principales tâches à réaliser  </p>
+<p class="tssr-source-paragraph">• <br>Installez un serveur, contrôleur de domaine avec comme domaine cheouamXX.lcl où <br>XX est votre numéro de stagiaire. </p>
+<p class="tssr-source-paragraph">OS  <br> Windows Serveur 2019  <br> </p>
+<p class="tssr-source-paragraph">Nom  <br> CD-2k19-XX <br> </p>
+<p class="tssr-source-paragraph">RAM  <br> 4 Go <br> </p>
+<p class="tssr-source-paragraph">HDD  <br> 60 Go <br> </p>
+<p class="tssr-source-paragraph">Services <br>ADDS, DNS <br> </p>
+<p class="tssr-source-paragraph">cheouamXX.lcl <br> </p>
+<p class="tssr-source-paragraph">Nom de <br>domaine </p>
+<p class="tssr-source-paragraph">IP  <br>10.65.0.1 /24 <br>Connexion VMWare NAT </p>
+<p class="tssr-source-paragraph">• <br>Créez l’arborescence d’OU et les utilisateurs ci-dessous dans votre Active directory, en <br>respectant les bonnes pratiques (renseignez les attributs fonction et service dans l’AD). </p>
+<p class="tssr-source-paragraph">Nom et prénom <br>Fonction <br>Service <br>Nom de connexion </p>
+<p class="tssr-source-paragraph">Vous <br>Administrateur <br>Informatique <br>prenom-admin@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Lucie Fer <br>Comptable <br>Comptabilité <br>lfer@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Ella Danlos <br>Responsable </p>
+<p class="tssr-source-paragraph">Comptabilité <br>edanlos@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">comptable </p>
+<p class="tssr-source-paragraph">Paul Amploi <br>Directeur Général <br>Direction <br>pamploi@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Cécile Encieu <br>Commercial <br>Commercial <br>cencieu@cheouamXX.lcl </p>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>——</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>OS</td><td>WindowsServeur2019</td><td></td></tr><tr><td>Nom</td><td>CD 2k19 XX<br>- -</td><td></td></tr><tr><td>RAM</td><td>4Go</td><td></td></tr><tr><td>HDD</td><td>60Go</td><td></td></tr><tr><td>Services</td><td>ADDS DNS<br>,</td><td></td></tr><tr><td>Nomde<br>domaine</td><td>cheouamXXlcl<br>.</td><td></td></tr><tr><td>IP</td><td>106501/24<br>. . .</td><td>ConnexionVMWareNAT</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nometprénom</td><td>Fonction</td><td>Service</td><td>Nomdeconnexion</td></tr><tr><td>Vous</td><td>Administrateur</td><td>Informatique</td><td>prenom-admin@cheouamXX .lcl</td></tr><tr><td>LucieFer</td><td>Comptable</td><td>Comptabilité</td><td>lfer@cheouamXXlcl<br>.</td></tr><tr><td>EllaDanlos</td><td>Responsable<br>comptable</td><td>Comptabilité</td><td>edanlos@cheouamXXlcl<br>.</td></tr><tr><td>PaulAmploi</td><td>DirecteurGénéral</td><td>Direction</td><td>pamploi@cheouamXXlcl<br>.</td></tr><tr><td>CécileEncieu</td><td>Commercial</td><td>Commercial</td><td>cencieu@cheouamXXlcl<br>.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1me6SILxxJNgD0AiCdjStFN8-rUMBQuex-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<p class="tssr-source-paragraph">Pour rappel, les bonnes pratiques sont : </p>
+<p class="tssr-source-paragraph">1 UO _cheouamXX </p>
+<p class="tssr-source-paragraph"> <br>1 OU Utilisateurs </p>
+<p class="tssr-source-paragraph">1 OU Comptes de service </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU par lieu </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 OU par service </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 modèle par type de compte </p>
+<p class="tssr-source-paragraph"> <br>1 OU Groupes </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU Domaine Local </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU Groupe Global </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 GG par service </p>
+<p class="tssr-source-paragraph"> <br>1 OU Archives </p>
+
+<p class="tssr-source-paragraph">• <br>Préparez l’Active Directory à utiliser la Synchronisation AD Connect </p>
+<p class="tssr-source-paragraph">• <br>Installez AzureADConnect.msi en mode express setting pour votre domaine <br>cheouamXX.lcl. </p>
+<p class="tssr-source-paragraph">• <br>Faites une procédure et vérifiez que vos utilisateurs sont bien synchronisés. </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez, en PowerShell, l’intervalle de temps entre deux synchronisations. </p>
+<p class="tssr-source-paragraph">• <br>Modifiez votre connecteur afin de ne synchroniser que les OU groupes et utilisateurs. </p>
+<p class="tssr-source-paragraph">• <br>Créez un nouvel utilisateur et forcez immédiatement la synchronisation. </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez un alias à cet utilisateur, forcez à nouveau la synchronisation si besoin. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-2aa8d5d034b6d14d1e06b8a46b75d90bcc30700e0dcdfeecd2dec6b826a1d46d.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-2aa8d5d034b6d14d1e06b8a46b75d90bcc30700e0dcdfeecd2dec6b826a1d46d.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1016" height="1208"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1me6SILxxJNgD0AiCdjStFN8-rUMBQuex · <span title="Empreinte SHA-256 du fichier source">SHA-256 67cd7d118de46260…</span></p>
 </div>
 </details>
@@ -12619,7 +12680,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Provenance — duplication documentaire</p>
@@ -12629,7 +12690,7 @@
 <p>Lire les objectifs, les prérequis et les consignes dans l’énoncé original. Relever les valeurs propres au laboratoire, effectuer les tâches dans l’environnement prévu par le formateur et conserver les résultats des vérifications.</p>
 <p>Les noms de comptes, domaines, machines et mots de passe d’exemple du laboratoire ne constituent pas une configuration à réutiliser. Aucune commande n’a été exécutée pendant l’intégration.</p>
 <h2 id="source-originale">Source originale<a class="headerlink" href="#source-originale" title="Permanent link">¶</a></h2>
-<p><a href="https://drive.google.com/file/d/1me6SILxxJNgD0AiCdjStFN8-rUMBQuex/view?usp=drivesdk">M2 - Enoncé du TP 2 - Azure AD Connect.pdf</a> · 2 pages PDF.</p>
+<p><a href="../../../../assets/course-sources/67cd7d118de46260/transcription-1me6SILxxJNgD0AiCdjStFN8-rUMBQuex.html">M2 - Enoncé du TP 2 - Azure AD Connect.pdf</a> · 2 pages PDF.</p>
 <p>Empreinte SHA-256 : <code>67cd7d118de46260b75a3e4a78af5c3a615c3ed795a9d4e352900d24bdae74ce</code>.</p>
 <p><a href="../">Retour aux ateliers</a>.</p>
 </div>
@@ -12696,11 +12757,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

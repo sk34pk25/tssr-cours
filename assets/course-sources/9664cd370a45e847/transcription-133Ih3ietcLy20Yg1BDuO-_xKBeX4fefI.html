@@ -1,0 +1,70 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 1 - Installation et configuration initiale.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Enoncé du TP 1 - Installation et configuration initiale</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<h4>Installation et configuration <br>initiale </h4>
+<p class="tssr-source-paragraph">TP 1 du Module 01 – Administration Windows </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Copiez le fichier image ISO « Windows Server 2019 Standard » depuis le partage Réseau <br>vers votre lecteur local  </p>
+<p class="tssr-source-paragraph">Création des machines virtuelles : </p>
+<p class="tssr-source-paragraph">Nom de la machine virtuelle <br>Caractéristiques supplémentaires </p>
+<p class="tssr-source-paragraph">VM_Modele_2019 </p>
+<p class="tssr-source-paragraph">• <br>Windows Server 2019 <br>• <br>1 disque dur : 32Go <br>• <br>Mémoire vive : 2Go <br>• <br>Carte réseau : mode « bridge » </p>
+<p class="tssr-source-paragraph">• <br>Windows 10 </p>
+<p class="tssr-source-paragraph">VM_Modele_W10 </p>
+<p class="tssr-source-paragraph">• <br>1 disque dur : 32Go <br>• <br>Mémoire vive : 2Go <br>• <br>Carte réseau : mode « bridge » </p>
+<p class="tssr-source-paragraph">Les VM seront stockées sous D:\Machines_Virtuelles\Modeles\Nom_de_la_VM </p>
+<p class="tssr-source-paragraph">Les systèmes seront hébergés sur la totalité du disque. Au fur et à mesure de l’avancée du <br>cours, vous serez amené à ajouter des disques supplémentaires. </p>
+<p class="tssr-source-paragraph">Une fois les systèmes installés : </p>
+<p class="tssr-source-paragraph">• <br>Installez les VMware Tools. </p>
+<p class="tssr-source-paragraph">• <br>Procédez à un sysprep des OS puis éteignez-les. <br>• <br>Créez un Folder nommé VM MODELES – A NE PAS DEMARRER dans le volet Library de <br>Workstation puis glissez-déplacez vos VM_Modele dedans. </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nom delamachine virtuelle Caracté ristiques supplé mentaires</td><td></td></tr><tr><td>VM Modele 2019<br>_ _</td><td>Windows Server 2019<br>•<br>• 1 disque dur : 32Go<br>• Mémoire vive : 2Go<br>• Carte réseau : mode «bridge »</td></tr><tr><td>VM Modele W10<br>_ _</td><td>Windows 10<br>•<br>• 1 disque dur : 32Go<br>• Mémoire vive : 2Go<br>• Carte réseau : mode «bridge »</td></tr></tbody></table></div>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">Ces VM seront utiles pour faire évoluer l’infrastructure au fur et à mesure des modules, mais <br>aussi en cas de perte éventuelle d’un serveur ou d’un client. <br>Ces modèles ne doivent pas être démarrés et devront être conservés durant l’ensemble <br>des modules du cours Service Réseau Microsoft. <br> <br>Création de l’infrastructure : </p>
+<p class="tssr-source-paragraph">• <br>Clonez VM_Modele_2019 en W19-CD1 ainsi qu’en W19-SRV1. <br>• <br>Clonez VM_Modele_W10 en W10-CLI1. <br>• <br>Les <br>dossiers <br>d’accueil <br>de <br>ces <br>VM <br>seront <br>situés <br>dans <br>D:\Machines_Virtuelles\Nom_De_La_VM </p>
+<p class="tssr-source-paragraph"> <br>Configuration réseau : </p>
+<p class="tssr-source-paragraph">• <br>Les machines auront un adressage IPv4 statique.  <br>• <br>Le réseau à utiliser sera 172.28.10.0/16.  <br>• <br>Les systèmes d’exploitation porteront le même nom que les VM.  <br> </p>
+
+
+<p class="tssr-source-paragraph">Nom : W19-CD1 <br>Adresse IP : 172.28.10.1 </p>
+<p class="tssr-source-paragraph">Nom : W19-SRV1 <br>Adresse IP : 172.28.10.2 <br>Nom : W10-CLI1 <br>Adresse IP : 172.28.10.11 </p>
+<p class="tssr-source-paragraph">Réseau salle <br>172.28.10.0/16 </p>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|<br>D<br>o@<br>=</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">Rôle et fonctionnalités : </p>
+<p class="tssr-source-paragraph">• <br>Installez sur le serveur le service Web IIS et l’outil de Sauvegarde Windows Server. </p>
+<p class="tssr-source-paragraph">• <br>Pour tester le bon fonctionnement du service IIS, vérifiez l’accès à l’URL http://localhost <br>depuis le navigateur web du serveur (une image IIS doit s’afficher). </p>
+<p class="tssr-source-paragraph">• <br>Autorisez l’utilisation du bureau à distance pour l’administration à distance du serveur et <br>du client. </p>
+
+<p class="tssr-source-paragraph">Testez l’administration du serveur depuis W10-CLI1 : </p>
+<p class="tssr-source-paragraph">• <br>Avec l’outil graphique Connexion Bureau à distance </p>
+<p class="tssr-source-paragraph">• <br>Avec l’outil en ligne de commande mstsc (si besoin, afficher l’aide avec la <br>commande mstsc / ?) </p>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-baea72cfdaa28d77247f04558d5eb965c56809df8a26521d19ac779d77cd1399.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-baea72cfdaa28d77247f04558d5eb965c56809df8a26521d19ac779d77cd1399.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2763"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

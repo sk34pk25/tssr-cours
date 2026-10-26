@@ -1,0 +1,63 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M2 - Enoncé du TP 2 - Azure AD Connect.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M2 - Enoncé du TP 2 - Azure AD Connect</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<h4>Azure AD </h4>
+<p class="tssr-source-paragraph">TP 02 du Module 02 – Administration Microsoft 365 </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 et 2 et d’avoir <br>réalisé les TP proposés. </p>
+<h4>Enoncé </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">Synchroniser les utilisateurs de votre Active Directory local avec Microsoft 365 <br>Prérequis </p>
+<p class="tssr-source-paragraph">Disposer de l’ISO Windows Server 2019 en anglais. <br>Principales tâches à réaliser  </p>
+<p class="tssr-source-paragraph">• <br>Installez un serveur, contrôleur de domaine avec comme domaine cheouamXX.lcl où <br>XX est votre numéro de stagiaire. </p>
+<p class="tssr-source-paragraph">OS  <br> Windows Serveur 2019  <br> </p>
+<p class="tssr-source-paragraph">Nom  <br> CD-2k19-XX <br> </p>
+<p class="tssr-source-paragraph">RAM  <br> 4 Go <br> </p>
+<p class="tssr-source-paragraph">HDD  <br> 60 Go <br> </p>
+<p class="tssr-source-paragraph">Services <br>ADDS, DNS <br> </p>
+<p class="tssr-source-paragraph">cheouamXX.lcl <br> </p>
+<p class="tssr-source-paragraph">Nom de <br>domaine </p>
+<p class="tssr-source-paragraph">IP  <br>10.65.0.1 /24 <br>Connexion VMWare NAT </p>
+<p class="tssr-source-paragraph">• <br>Créez l’arborescence d’OU et les utilisateurs ci-dessous dans votre Active directory, en <br>respectant les bonnes pratiques (renseignez les attributs fonction et service dans l’AD). </p>
+<p class="tssr-source-paragraph">Nom et prénom <br>Fonction <br>Service <br>Nom de connexion </p>
+<p class="tssr-source-paragraph">Vous <br>Administrateur <br>Informatique <br>prenom-admin@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Lucie Fer <br>Comptable <br>Comptabilité <br>lfer@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Ella Danlos <br>Responsable </p>
+<p class="tssr-source-paragraph">Comptabilité <br>edanlos@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">comptable </p>
+<p class="tssr-source-paragraph">Paul Amploi <br>Directeur Général <br>Direction <br>pamploi@cheouamXX.lcl </p>
+<p class="tssr-source-paragraph">Cécile Encieu <br>Commercial <br>Commercial <br>cencieu@cheouamXX.lcl </p>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>——</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>OS</td><td>WindowsServeur2019</td><td></td></tr><tr><td>Nom</td><td>CD 2k19 XX<br>- -</td><td></td></tr><tr><td>RAM</td><td>4Go</td><td></td></tr><tr><td>HDD</td><td>60Go</td><td></td></tr><tr><td>Services</td><td>ADDS DNS<br>,</td><td></td></tr><tr><td>Nomde<br>domaine</td><td>cheouamXXlcl<br>.</td><td></td></tr><tr><td>IP</td><td>106501/24<br>. . .</td><td>ConnexionVMWareNAT</td></tr></tbody></table></div>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Nometprénom</td><td>Fonction</td><td>Service</td><td>Nomdeconnexion</td></tr><tr><td>Vous</td><td>Administrateur</td><td>Informatique</td><td>prenom-admin@cheouamXX .lcl</td></tr><tr><td>LucieFer</td><td>Comptable</td><td>Comptabilité</td><td>lfer@cheouamXXlcl<br>.</td></tr><tr><td>EllaDanlos</td><td>Responsable<br>comptable</td><td>Comptabilité</td><td>edanlos@cheouamXXlcl<br>.</td></tr><tr><td>PaulAmploi</td><td>DirecteurGénéral</td><td>Direction</td><td>pamploi@cheouamXXlcl<br>.</td></tr><tr><td>CécileEncieu</td><td>Commercial</td><td>Commercial</td><td>cencieu@cheouamXXlcl<br>.</td></tr></tbody></table></div>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Cloud et Microsoft 365 <br> </p>
+<p class="tssr-source-paragraph">Pour rappel, les bonnes pratiques sont : </p>
+<p class="tssr-source-paragraph">1 UO _cheouamXX </p>
+<p class="tssr-source-paragraph"> <br>1 OU Utilisateurs </p>
+<p class="tssr-source-paragraph">1 OU Comptes de service </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU par lieu </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 OU par service </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 modèle par type de compte </p>
+<p class="tssr-source-paragraph"> <br>1 OU Groupes </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU Domaine Local </p>
+<p class="tssr-source-paragraph"> <br> <br>1 OU Groupe Global </p>
+<p class="tssr-source-paragraph"> <br> <br> <br>1 GG par service </p>
+<p class="tssr-source-paragraph"> <br>1 OU Archives </p>
+
+<p class="tssr-source-paragraph">• <br>Préparez l’Active Directory à utiliser la Synchronisation AD Connect </p>
+<p class="tssr-source-paragraph">• <br>Installez AzureADConnect.msi en mode express setting pour votre domaine <br>cheouamXX.lcl. </p>
+<p class="tssr-source-paragraph">• <br>Faites une procédure et vérifiez que vos utilisateurs sont bien synchronisés. </p>
+<p class="tssr-source-paragraph">• <br>Vérifiez, en PowerShell, l’intervalle de temps entre deux synchronisations. </p>
+<p class="tssr-source-paragraph">• <br>Modifiez votre connecteur afin de ne synchroniser que les OU groupes et utilisateurs. </p>
+<p class="tssr-source-paragraph">• <br>Créez un nouvel utilisateur et forcez immédiatement la synchronisation. </p>
+<p class="tssr-source-paragraph">• <br>Ajoutez un alias à cet utilisateur, forcez à nouveau la synchronisation si besoin. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-2aa8d5d034b6d14d1e06b8a46b75d90bcc30700e0dcdfeecd2dec6b826a1d46d.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-2aa8d5d034b6d14d1e06b8a46b75d90bcc30700e0dcdfeecd2dec6b826a1d46d.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1016" height="1208"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

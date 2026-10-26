@@ -1,0 +1,146 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PremiŠres commandes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enonc‚ du TP - PremiŠres commandes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell<br>Premières commandes</h4>
+<p class="tssr-source-paragraph">TP du Module 01</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 de ce cours.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">2 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Objectifs : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Lancer des commandes PowerShell données</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Analyser les différences de résultats d’exécution entre différents environnements</p>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Récupérer la maquette fournie par le formateur</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avoir une connexion internet</p>
+<p class="tssr-source-paragraph">Consignes :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Décompresser la maquette fournie par le formateur</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Intégrer les machines virtuelles dans VMware Workstation</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Démarrer les machines virtuelles suivantes : </p>
+<pre class="tssr-source-code">o
+CLI01</pre>
+<pre class="tssr-source-code">o
+CD01</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>S’y connecter : </p>
+<pre class="tssr-source-code">o
+identifiant : Administrator@ad01.lcl</pre>
+<pre class="tssr-source-code">o
+mot de passe : Pa$$w0rd</pre>
+<p class="tssr-source-paragraph">Depuis la machine CLI01 :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Lancez la console PowerShell en mode administrateur et découvrez l&#x27;interface<br>utilisateur. </p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de
+commandes renvoyées par la propriété Count</pre>
+<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Lancez la console PowerShell Core en mode administrateur et découvrez l&#x27;interface<br>utilisateur. </p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de
+commandes renvoyées par la propriété Count.</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des verbes disponibles dans chaque console PowerShell. Que<br>remarquez-vous ?</p>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ?</pre>
+<pre class="tssr-source-code"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support">
+Listez les commandes contenant user dans le nom. Quelle commande avez-vous
+utilisée ?</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>  Indiquez la commande permettant de créer un nouvel utilisateur local.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Listez les cinq premiers utilisateurs locaux de chaque machine virtuelle.</p>
+<pre class="tssr-source-code">o
+Utilisateurs de CD01</pre>
+<pre class="tssr-source-code">o
+ Utilisateurs de CLI01</pre>
+<p class="tssr-source-paragraph">Bonus</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Modifiez la description d’un utilisateur local sur « SRV01 » et « CLI01 ». Quelles<br>commandes avez-vous utilisées ?</p>
+<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez l’aide de la commande permettant de lister tous les services du système.</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez l’aide dans une nouvelle fenêtre. Indiquez la commande utilisée.</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la totalité de l’aide disponible. Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez l’aide en ligne de la commande permettant de lister les membres d’un<br>groupe d’utilisateurs locaux. Quelle commande avez-vous utilisée, quels sont les<br>avantages de l’aide en ligne ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Mettez à jour les fichiers d’aide de votre console PowerShell.</p>
+<pre class="tssr-source-code">o
+Vous allez effectuer la mise à jour de toutes vos commandes à
+partir d’un dépôt local situé sur « CD01 ». </pre>
+<pre class="tssr-source-code">o
+Voici le chemin « UNC » du dépôt :  \\CD01\Partage\Depot\
+CLI01</pre>
+<pre class="tssr-source-code">o
+Indiquez vos remarques</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Effectuez la même action mais en sélectionnant le langage « fr-FR  ». Indiquez vos<br>remarques.</p>
+
+<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">Depuis la machine CLI01</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les modules actuellement chargés par la console PowerShell.</p>
+<pre class="tssr-source-code">o
+Combien de modules sont actuellement disponibles ?</pre>
+
+<pre class="tssr-source-code">o
+De quel module la commande Get-LocalUser est-elle issue ?</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br> Affichez les emplacements disponibles pour déposer les fichiers contenant les<br>modules. Quelle commande avez-vous utilisée ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Installer le module AWSPowerShell. L’archive est disponible sur le partage \\CD01\<br>Partage\Modules</p>
+<pre class="tssr-source-code">o
+Quelles commandes avez-vous utilisées ?</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vous allez obtenir un message d’erreur à l’importation du module</p>
+<pre class="tssr-source-code">o
+Quelle commande allez-vous exécuter pour permettre
+l’importation du module ?</pre>
+<pre class="tssr-source-code">o
+Indiquez trois commandes disponibles dans le module
+AwsPowerShell</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Mettez en place un profil personnel sur chaque console PowerShell.</p>
+<pre class="tssr-source-code">o
+Vous pouvez modifier la coloration ainsi que la police.</pre>
+<pre class="tssr-source-code">o
+Affichez l’aide de la commande Get-Help à chaque
+ouverture de la console PowerShell.</pre>
+<pre class="tssr-source-code">o
+Quel fichier avez-vous édité ?</pre>
+<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-985325c388e204c8138c22e1763b637441fdf1560d1fc462c0e2cd544dcf2fd7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-985325c388e204c8138c22e1763b637441fdf1560d1fc462c0e2cd544dcf2fd7.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1005" height="4139"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation à PowerShell</p>
+<p class="tssr-source-paragraph">Bonus</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Modifiez le prompt de votre console PowerShell.</p>
+<pre class="tssr-source-code">o
+En vous basant sur le fichier  \\CD01\Partage\Aplication\
+Prompt.ps1</pre>
+<pre class="tssr-source-code">o
+Modifiez votre prompt pour afficher l’heure ainsi que la
+localisation actuelle du prompt dans le système de fichier.</pre>
+<p class="tssr-source-paragraph">Vous pouvez également afficher une bannière avec le nom de l’utilisateur actuel.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-281e56bc5a5b5b66bc18d576981e990f8456637a5292f1c2db44493a060745e2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-281e56bc5a5b5b66bc18d576981e990f8456637a5292f1c2db44493a060745e2.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="900" height="132"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

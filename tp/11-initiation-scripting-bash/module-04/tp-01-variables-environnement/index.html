@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12586,18 +12586,74 @@
 
 
 <h1 id="tp-01-les-variables-denvironnement">TP 01 — Les variables d’environnement<a class="headerlink" href="#tp-01-les-variables-denvironnement" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement.pdf · 2 pages</summary>
+<summary>Énoncé · M4 - Enoncé du TP1 - Les variables denvironnement · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/14707555164a33cc/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/15KXSstg5Gyr3CKOsEJD3-HrlE2dl5rFz/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/14707555164a33cc/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/14707555164a33cc/pages-001-002.webp" alt="Source Drive — M4 - Enoncé du TP1 - Les variables denvironnement.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3976"></a><figcaption>Source Drive — M4 - Enoncé du TP1 - Les variables denvironnement.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-15KXSstg5Gyr3CKOsEJD3-HrlE2dl5rFz-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<h4>Variables d’environnement </h4>
+<p class="tssr-source-paragraph">TP1 du Module 04 - Les variables dans les scripts <br> </p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 4. </p>
+
+<h4>Objectifs </h4>
+<p class="tssr-source-paragraph">Identifier et utiliser les variables d’environnement du système afin de répondre à un besoin donné. </p>
+<p class="tssr-source-paragraph">Créer un script utilisant des variables à partir d’un algorithme. </p>
+<h4>Énoncé </h4>
+
+<p class="tssr-source-paragraph">1. Utiliser les commandes appropriées afin d’afficher des variables  </p>
+<p class="tssr-source-paragraph">De nombreuses variables sont paramétrées et manipulées par le système afin de faciliter l’accès à certaines <br>données ou informations. </p>
+<pre class="tssr-source-code">• 
+L’une d’entre-elles précise le nom du fichier qui enregistre chacune de vos saisies de commande. On 
+parle de fichier d’historique des commandes. Mais quel est le nom de cette variable ? (indice : 
+traduire ‘historique’ en anglais) 
+• 
+Une autre indique à quels emplacements le système Linux peut trouver les fichiers 
+exécutables/binaires installés sur le système, comme ls par exemple. Comment se nomme-t ’elle ? 
+(indice : a été abordée dans un module précédent l’arborescence des systèmes Linux et notamment 
+les dossiers de binaires, servez-vous en !) 
+ 
+2. Réaliser un script  </pre>
+<p class="tssr-source-paragraph">Créer un fichier de script ‘script_M4TP1.sh’ à partir du pseudo-code ci-dessous. </p>
+<p class="tssr-source-paragraph">L’objectif est d’afficher les fichiers dans votre dossier courant comportant une certaine extension (.txt, .sh, <br>.odt ou .docx par ex.). Puis, pour l’un d’entre eux, de visualiser une partie du contenu. </p>
+
+<p class="tssr-source-paragraph">Début du script </p>
+
+<p class="tssr-source-paragraph">rep <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> chemin du répertoire courant </p>
+<p class="tssr-source-paragraph">extension <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> txt  </p>
+
+<p class="tssr-source-paragraph"> <br> <br>ENI Ecole Informatique </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-15KXSstg5Gyr3CKOsEJD3-HrlE2dl5rFz-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
+<p class="tssr-source-paragraph">Afficher "Répertoire de travail : rep"   </p>
+<p class="tssr-source-paragraph">Afficher "Fichiers pouvant être traités :" </p>
+<p class="tssr-source-paragraph">Afficher la liste des fichiers de rep ayant pour extension <br>extension  </p>
+
+<p class="tssr-source-paragraph">Afficher : Quel fichier voulez-vous traiter ?  </p>
+<p class="tssr-source-paragraph">fic <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> réponse à la question posée précédemment  </p>
+<p class="tssr-source-paragraph">nblign <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> nombre de lignes que contient fic </p>
+<p class="tssr-source-paragraph">debut <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> 2 premières lignes de fic </p>
+<p class="tssr-source-paragraph">fin <img class="tssr-source-glyph" data-source-codepoint="f0e7" src="../../../../assets/course-sources/glyphs/39e9d1c2e8389e8ff7eb0a05c9a4de0e4aa73490da146ce3902f3223ad82e647.webp" alt="Symbole du support" title="Symbole original du support"> 2 dernières lignes de fic </p>
+
+<p class="tssr-source-paragraph">Afficher "CARACTERISTIQUES de fic :" </p>
+<p class="tssr-source-paragraph">Afficher "Nombre de lignes du fichier : nblign" </p>
+<p class="tssr-source-paragraph">Afficher "Début du fichier :" </p>
+<p class="tssr-source-paragraph">Afficher debut </p>
+<p class="tssr-source-paragraph">Afficher "Fin du fichier :" </p>
+<p class="tssr-source-paragraph">Afficher fin </p>
+
+<p class="tssr-source-paragraph">Fin d’exécution du script </p>
+
+<p class="tssr-source-paragraph">Sachant que : </p>
+<p class="tssr-source-paragraph">• <br>La variable extension porte le nom de l’extension de fichiers souhaitée <br>• <br>La variable rep récupère la valeur de votre position actuelle dans l’arborescence, donc le résultat <br>d’une commande <br>• <br>La variable fic contient le nom du fichier saisi par l’utilisateur qui exécute le script (il doit donc être <br>invité à saisir un nom de fichier existant) </p>
+<p class="tssr-source-paragraph"> <br> <br>ENI Ecole Informatique </p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-16a58382d47129bd9ad5b9d937b733a9cfc516f2e4f636b54789f615e00409f8.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-16a58382d47129bd9ad5b9d937b733a9cfc516f2e4f636b54789f615e00409f8.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1105"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 15KXSstg5Gyr3CKOsEJD3-HrlE2dl5rFz · <span title="Empreinte SHA-256 du fichier source">SHA-256 14707555164a33cc…</span></p>
 </div>
 </details>
@@ -12606,7 +12662,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="activites">Activités<a class="headerlink" href="#activites" title="Permanent link">¶</a></h2>
 <ol>
@@ -12681,11 +12737,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

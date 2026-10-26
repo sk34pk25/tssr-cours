@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP 1 - Mise en place d’un domaine Active Directory.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP 1 - Mise en place d’un domaine Active Directory</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Services réseau en environnement Microsoft<br>Mise en place d’un <br>domaine Active Directory</h4>
+<p class="tssr-source-paragraph">TP du Module 02 – Active Directory</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 et réalisé les TP<br>précédents.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph"> 30 minutes à 1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Prérequis<br> <br>   : </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Disposer des machines virtuelles installées dans le TP 01 du module 01.</p>
+<p class="tssr-source-paragraph">Création d’un contexte de domaine Active Directory<br> <br>   : </p>
+<p class="tssr-source-paragraph">Domaine<br>Monprenom.local</p>
+<p class="tssr-source-paragraph">W19-CD1<br>Contrôleur de domaine<br>Serveur DNS</p>
+<p class="tssr-source-paragraph">W10-CLI1<br>Client membre</p>
+<p class="tssr-source-paragraph">W19-SRV1<br>Serveur membre</p>
+<p class="tssr-source-paragraph">Page 1/2<br>                                                              </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft</p>
+<p class="tssr-source-paragraph">Analyse de différents cas d’ouverture de session<br> <br>   : </p>
+<p class="tssr-source-paragraph">Assurez-vous au préalable que les trois hôtes communiquent entre eux.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pouvez-vous ouvrir une session avec un compte local sur W10-CLI1 ?</p>
+<p class="tssr-source-paragraph"> Oui  <br> Non</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pouvez-vous ouvrir une session avec un compte du domaine sur W10-CLI1 ? </p>
+<p class="tssr-source-paragraph"> Oui  <br> Non</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avec quel(s) compte(s) utilisateur(s) ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Pouvez-vous ouvrir une session sur le contrôleur de domaine W19-CD1 ?</p>
+<p class="tssr-source-paragraph"> Oui  <br> Non</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avec quel(s) compte(s) utilisateur(s) ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Dans quelle(s) console(s) et dans quel emplacement pouvez-vous visualiser les<br>machines hôtes membres du domaine ?</p>
+<p class="tssr-source-paragraph">Page 2/2<br>                                                              </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>OO<br>OO</p><p>O<br>O</p></div></details>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td></td><td>Services réseau en environnement Microsoft</td></tr><tr><td>Analysede différents cas d’ouverture de session :</td><td></td></tr><tr><td>Assurez-vous au préalable que les trois hôtes communiquent entre eux<br>.</td><td></td></tr><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Pouvez-vous ouvrir une session avec un compte local sur W10 -CLI1 ?</td></tr><tr><td></td><td>Oui Non</td></tr><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Pouvez-vous ouvrir une session avec un compte du domaine sur W10 -CLI1 ?</td></tr><tr><td></td><td>Oui Non</td></tr><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Avec quel(s) compte(s) utilisateur(s) ?</td></tr><tr><td></td><td></td></tr><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Pouvez-vous ouvrir une session sur le contrôleur de domaine W19 -CD1 ?</td></tr><tr><td></td><td>Oui Non</td></tr><tr><td><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"></td><td>Avec quel(s) compte(s) utilisateur(s) ?</td></tr></tbody></table></div>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-55c489f25cd1bb9340750ee8f1203b1a90cbcdceee58710a64d051e68c6612ac.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-55c489f25cd1bb9340750ee8f1203b1a90cbcdceee58710a64d051e68c6612ac.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="998" height="3057"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

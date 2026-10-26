@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12567,61 +12567,363 @@
 
 
 <h1 id="tp01-gestion-de-la-journalisation">TP01 — Gestion de la journalisation<a class="headerlink" href="#tp01-gestion-de-la-journalisation" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · M12TP01 - Enoncé - Gestion de la journalisation.pdf · 1 pages</summary>
+<summary>Énoncé · M12TP01 - Enoncé - Gestion de la journalisation · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/9de609bcdec75e71/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1dNyNL2fgTVx2I8D8O_nyrH7d0f79Gv-Y/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/9de609bcdec75e71/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/9de609bcdec75e71/pages-001-001.webp" alt="Source Drive — M12TP01 - Enoncé - Gestion de la journalisation.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M12TP01 - Enoncé - Gestion de la journalisation.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1dNyNL2fgTVx2I8D8O_nyrH7d0f79Gv-Y-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Gestion de la journalisation </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Recherche d’informations : sur le serveur sans <br>environnement graphique </p>
+<p class="tssr-source-paragraph">• <br>Trouver dans les journaux les différentes ouvertures de sessions </p>
+<pre class="tssr-source-code">o  Les reporter dans un fichier /adm/sessions.txt </pre>
+<p class="tssr-source-paragraph">• <br>Rechercher dans les journaux des informations sur le disque sda, (dont le nombre <br>de secteurs et la taille du disque) </p>
+<p class="tssr-source-paragraph">II. <br>Configuration de rsyslog  </p>
+<p class="tssr-source-paragraph">• <br>Activer la journalisation pour le service cron </p>
+<p class="tssr-source-paragraph">• <br>Stocker les informations relatives au démon cron dans le fichier /adm/logs/cron.log </p>
+<p class="tssr-source-paragraph">• <br>Définir <br>comme <br>fichier <br>contenant <br>tous <br>les <br>évènements <br>d'avertissement <br>/adm/logs/warnings.log </p>
+<p class="tssr-source-paragraph">III. <br>Générer des messages de type avertissement </p>
+<p class="tssr-source-paragraph">• <br>A l’aide de logger, créer des messages de niveau avertissement. </p>
+<p class="tssr-source-paragraph">• <br>Vérifier le bon fonctionnement des étapes précédentes. </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
+<p class="tssr-source-paragraph">Page 1/1 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-99a9704cbaa45800e937cdacf2fbf0a5633d8eed2e5c82b88d51dbc212d4ce53.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-99a9704cbaa45800e937cdacf2fbf0a5633d8eed2e5c82b88d51dbc212d4ce53.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="999" height="419"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1dNyNL2fgTVx2I8D8O_nyrH7d0f79Gv-Y · <span title="Empreinte SHA-256 du fichier source">SHA-256 9de609bcdec75e71…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M12TP02 - Enoncé - Gestion de la planification des tâches.pdf · 1 pages</summary>
+<summary>Énoncé · M12TP02 - Enoncé - Gestion de la planification des tâches · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/37f92fcb9acc9c91/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1dUe09sTd-yM3OMt7m-7Bsjff47qrr4Ej/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/37f92fcb9acc9c91/pages-001-001.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/37f92fcb9acc9c91/pages-001-001.webp" alt="Source Drive — M12TP02 - Enoncé - Gestion de la planification des tâches.pdf — pages 1. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1981"></a><figcaption>Source Drive — M12TP02 - Enoncé - Gestion de la planification des tâches.pdf — pages 1. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1dUe09sTd-yM3OMt7m-7Bsjff47qrr4Ej-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Gestion de la planification <br>des tâches </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé : Planification de taches sur le serveur <br>sans environnement graphique </h4>
+<p class="tssr-source-paragraph">I. <br>Crontab utilisateur </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l'utilisateur "François" </p>
+<pre class="tssr-source-code">o Périodicité : tous les jours ouvrables de la semaine à 9h15 </pre>
+<pre class="tssr-source-code">o Commande : mise à jour de l’archive de son répertoire personnel dans </pre>
+<p class="tssr-source-paragraph">l’arborescence depot de l’atelier 10 avec le nom francois.tar </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l’utilisateur "François" </p>
+<pre class="tssr-source-code">o Périodicité : tous les samedis à 10h </pre>
+<pre class="tssr-source-code">o Commande : compression de l’archive francois.tar en francois.tar.bz2, puis </pre>
+<p class="tssr-source-paragraph">création d’une nouvelle archive francois.tar </p>
+<p class="tssr-source-paragraph">II. <br>Crontab système </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche de surveillance des processus système : </p>
+<pre class="tssr-source-code">o Périodicité : toutes les 30 minutes le mardi </pre>
+<pre class="tssr-source-code">o Commande : lister l'ensemble des processus de manière détaillée avec notamment </pre>
+<p class="tssr-source-paragraph">les pourcentages d'utilisation mémoire et processeur. </p>
+<pre class="tssr-source-code">o Enregistrer ces informations de façon durable dans le fichier /var/log/procstatus.log </pre>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
+<p class="tssr-source-paragraph">Page 1/1 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-0e936c6b01cbbf7de1ffd920c799693986a85a513edb5c978b8fbe67a885929e.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-0e936c6b01cbbf7de1ffd920c799693986a85a513edb5c978b8fbe67a885929e.webp" alt="Illustrations du support source, pages 1" loading="lazy" width="999" height="420"></a><figcaption>Illustrations du support Drive — pages 1. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1dUe09sTd-yM3OMt7m-7Bsjff47qrr4Ej · <span title="Empreinte SHA-256 du fichier source">SHA-256 37f92fcb9acc9c91…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · M12TP03 - Enoncé - Informations sur le système.pdf · 2 pages</summary>
+<summary>Énoncé · M12TP03 - Enoncé - Informations sur le système · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/73ba89bc755c4d88/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1tesYXuD9sFegjVQodQFKOR8yPm49V6x3/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/73ba89bc755c4d88/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/73ba89bc755c4d88/pages-001-002.webp" alt="Source Drive — M12TP03 - Enoncé - Informations sur le système.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M12TP03 - Enoncé - Informations sur le système.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1tesYXuD9sFegjVQodQFKOR8yPm49V6x3-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Informations sur le système </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d'un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">20 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Relevé d’informations : sur le serveur sans environnement <br>graphique </p>
+<p class="tssr-source-paragraph">• <br>Afficher les informations sur la mémoire </p>
+<pre class="tssr-source-code">o Combien de mémoire RAM est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire SWAP est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire RAM est réellement libre ? </pre>
+<p class="tssr-source-paragraph">• <br>Afficher les informations détaillées sur le processeur et la mémoire </p>
+<pre class="tssr-source-code">o Quel type de processeur a été détecté ? </pre>
+<p class="tssr-source-paragraph">• <br>Afficher tous les processus relatifs à des démons (dont le nom finit par un "d") </p>
+<pre class="tssr-source-code">o Afficher leur nombre </pre>
+<p class="tssr-source-paragraph">II. <br>Intervention sur les processus  </p>
+<p class="tssr-source-paragraph">• <br>Ouvrez une session SSH avec le login utilisateur (pas le compte root) </p>
+<pre class="tssr-source-code">o Lister tous les processus relatifs à votre login de façon détaillée </pre>
+<p class="tssr-source-paragraph">• <br>Lister dans un fichier tous les processus correspondant aux connexions Putty </p>
+<p class="tssr-source-paragraph">• <br>Arrêter un processus lancé </p>
+<pre class="tssr-source-code">o Lancer une seconde session Putty et ouvrir une session avec votre login utilisateur </pre>
+<pre class="tssr-source-code">o Repérer le n° de processus (PID) relatif au shell de cette seconde session Putty </pre>
+<pre class="tssr-source-code">o Depuis votre 1ere session, tenter d'arrêter votre second shell (avec le signal par </pre>
+<p class="tssr-source-paragraph">défaut) </p>
+<pre class="tssr-source-code">o Depuis votre 1ere session, arrêter définitivement votre second shell (avec le signal </pre>
+<p class="tssr-source-paragraph">adapté) </p>
+
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1tesYXuD9sFegjVQodQFKOR8yPm49V6x3-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-2609b5b5a9398c202f7e401cb624bd4110244b33ac6e7c7c0044bf16a78ea8e0.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-2609b5b5a9398c202f7e401cb624bd4110244b33ac6e7c7c0044bf16a78ea8e0.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="551"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1tesYXuD9sFegjVQodQFKOR8yPm49V6x3 · <span title="Empreinte SHA-256 du fichier source">SHA-256 73ba89bc755c4d88…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M12TP01 - Solution - Gestion de la journalisation.pdf · 3 pages</summary>
+<summary>Correction · M12TP01 - Solution - Gestion de la journalisation · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/007acbf389de4f7f/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/007acbf389de4f7f/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/007acbf389de4f7f/pages-001-003.webp" alt="Source Drive — M12TP01 - Solution - Gestion de la journalisation.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M12TP01 - Solution - Gestion de la journalisation.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<h4>Gestion de la journalisation </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Recherche d’informations : sur le serveur sans <br>environnement graphique </p>
+<p class="tssr-source-paragraph">• <br>Trouver dans les journaux les différentes ouvertures de sessions </p>
+<p class="tssr-source-paragraph"> <br>Dans le dossier des journaux, /var/log, la commande ls -lrt permet d’afficher les derniers fichiers utilisés </p>
+<p class="tssr-source-paragraph">Remarquons le fichier auth.log. Il contient bien des informations concernant les ouvertures de sessions </p>
+
+<p class="tssr-source-paragraph"> <br>1Dans ce fichier, en filtrant sur le mot "opened", je récupère des ouvertures de sessions pour les utilisateurs <br>ex : login de l'utilisateur root en première ligne.  <br>Mais il s'y trouve aussi des informations de services comme cron. </p>
+
+<p class="tssr-source-paragraph"> <br>En ajoutant un grep -v CRON, nous filtrons les résultats en ne retenant pas ce motif.  </p>
+
+<p class="tssr-source-paragraph">Page 1/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>rootédeb-camille-01:/var/log#<br>grep<br>opened<br>auth.log<br>[head<br>-n5</p><p>Oct<br>22<br>13:23:47<br>deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session<br>opened<br>for<br>user<br>root(uid=0)<br>by LOGIN(uid=0)<br>Oct<br>22<br>13:23:47<br>deb-camille-O1<br>systemd:<br>pam_unix(systemd-user:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0)<br>Oct<br>22<br>14:17:01<br>deb-camille-O1 CRON[769]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0<br>Oct<br>22<br>15:17:01<br>deb-camille-01 CRON[788]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0<br>Oct<br>22<br>16:17:01<br>deb-camille-01 CRON[808]:<br>pam_unix(cron:session):<br>session opened<br>for<br>user<br>root(uid=0)<br>by<br>(uid=0</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<pre class="tssr-source-code">o Les reporter dans un fichier /adm/sessions.txt </pre>
+<p class="tssr-source-paragraph"> <br>Il ne reste plus qu'à rediriger ce résultat dans /adm/sessions.txt,  </p>
+<p class="tssr-source-paragraph">en ayant pris soin de créer le dossier au préalable. </p>
+<p class="tssr-source-paragraph">• <br>Rechercher dans les journaux des informations sur le disque sda, (dont le nombre <br>de secteurs et la taille du disque) </p>
+
+<p class="tssr-source-paragraph"> <br>Un appel à la commande journalctl suivie d'un grep filtrant le résultat sur sda nous renvoie ces résultats. </p>
+<p class="tssr-source-paragraph">On trouve sur la première ligne l'information du nombre de secteurs du disque et de sa taille globale </p>
+
+<p class="tssr-source-paragraph"> <br>En bonus, il est possible de filtrer ces résultats en précisant l'option --dmesg qui va limiter les résultats aux logs </p>
+<p class="tssr-source-paragraph">du noyau. </p>
+<p class="tssr-source-paragraph">II. <br>Configuration de rsyslog  </p>
+<p class="tssr-source-paragraph">• <br>Activer la journalisation pour le service cron </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier /etc/rsyslog.conf , décommenter la ligne concernant la facility cron. </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">Page 2/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>root@deb-camille-O1:/var/log# mkdir<br>-p<br>/adm<br>root@deb-camille-O1:/var/log#<br>grep<br>opened<br>auth.log<br>[grep<br>-v CRON<br>&gt;&gt;<br>/adm/sessions.txt<br>root@deb-camille-O1:/var/log#<br>head<br>-n<br>3<br>/adm/sessions.txt<br>Oct<br>22<br>13:23:47 deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session opened<br>for<br>user<br>root (uid=0)<br>by LOGIN(uid=0)<br>Oct<br>22<br>13:23:47 deb-camille-01<br>login[500]:<br>pam_unix(login:session):<br>session opened for<br>user<br>root(uid=0)<br>by LOGIN(uid=0)<br>Oct 22 13:23:47 deb-camille-01 systemd: pam unix(systemd-user:session): session opened for user root (uid=0) by (uid=0<br>root@deb-camille-01:/var/<br>log#</p><p>roottdeb-camille-O1:/var/log#<br>journaletl<br>[grep<br>sda<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>20971520<br>512-byte<br>logical<br>blocks:<br>(10.7<br>GB/10.0<br>GiB)<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Write<br>Protect<br>is<br>off<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Mode<br>Sense:<br>61<br>00<br>00<br>O0<br>oct.<br>22<br>13:21:03<br>deb-camille-O1<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Cache<br>data unavailable<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Assuming drive<br>cache:<br>write<br>through<br>oct. 22 13:21:03 deb-camille-01 kernel:<br>sda: sdal sda2 &lt; sdaS<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Attached SCSI<br>disk<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>lvm[294]:<br> pvscan(294]<br>PV<br>/dev/sdaS<br>online,<br>VG deb-camille-01-vg<br>is<br>complete.<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>systemd-fsck[319]:<br>/dev/sdal:<br>clean,<br>347/124928<br>files,<br>66763/498688 blocks<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounting<br>ext2<br>file<br>system<br>using<br>the<br>ext4<br>subsystem<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounted filesystem<br>without<br>journal.<br>Opts:<br>(null)</p><p>root@deb-camille-O1:/var/log#<br>journalctl<br>--dmesg<br>|grep<br>sda<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>20971520<br>512-byte<br>logical<br>blocks:<br>(10.7<br>GB/10.0<br>GiB)<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Write<br>Protect<br>is<br>off<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Mode<br>Sense:<br>61<br>00<br>00<br>00<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Cache<br>data unavailable<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd 2:0:0:0:<br>[sda]<br>Assuming<br>drive<br>cache:<br>write<br>through<br>oct. 22 13:21:03 deb-camille-01 kernel:<br>sda: sdal sda2 &lt; sdaS<br>oct.<br>22<br>13:21:03<br>deb-camille-01<br>kernel:<br>sd<br>2:0:0:0:<br>[sda]<br>Attached<br>SCSI<br>disk<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounting<br>ext2<br>file<br>system using<br>the<br>ext4<br>subsystem<br>oct.<br>22<br>13:21:04<br>deb-camille-01<br>kernel:<br>EXT4-fs<br>(sdal):<br>mounted filesystem<br>without<br>journal.<br>Opts:<br>(null)<br>rootfdeb—camille-O1:/var/<br>log#</p><p>auth, authpriv.*<br>fvar/ log/auth. log<br>*,*;auth, authpriv.none<br>-/var/ log/syslog<br>cron. *<br>f/var/ log/cron. log<br>daemon. *<br>-/var/ log/daemon. log<br>ern. *<br>-/var/log/kern. log<br>lpr.*<br>-/var/log/lpr.log<br>fail. *<br>-f/var/ log/mail. log<br>user.*<br>-f/var/log/user.log</p><p>roothdeb-camille-Oi:~#<br>systemetl restart reyslog</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<p class="tssr-source-paragraph">• <br>Stocker les informations relatives au démon cron dans le fichier /adm/logs/cron.log </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier rsyslog.conf modifier le chemin du fichier réceptacle des logs. </p>
+
+<p class="tssr-source-paragraph"> <br>Création du dossier qui devra recevoir ce fichier. </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">• <br>Définir <br>comme <br>fichier <br>contenant <br>tous <br>les <br>évènements <br>d'avertissement <br>/adm/logs/warnings.log </p>
+<p class="tssr-source-paragraph"> <br>Dans le fichier rsyslog.conf ajouter cette ligne pour récupérer tous les fichiers utilisantlal priorité warn </p>
+
+<p class="tssr-source-paragraph"> <br>Ne pas oublier de redémarrer le service </p>
+
+<p class="tssr-source-paragraph">III. <br>Générer des messages de type avertissement </p>
+<p class="tssr-source-paragraph">• <br>A l’aide de logger, créer des messages de niveau avertissement. </p>
+<p class="tssr-source-paragraph"> <br>La commande logger permet d'envoyer un message test. Ici on utilise la facility kern et la priorité warn </p>
+<p class="tssr-source-paragraph">• <br>Vérifier le bon fonctionnement des étapes précédentes. </p>
+
+<p class="tssr-source-paragraph"> <br>Création de deux messages tests pour la facility cron, avec des priorités warning et info. <br>Le premier message apparait dans les deux logs (validation de warning et validation de cron) </p>
+<p class="tssr-source-paragraph">Le second message de priorité info n'apprait que dans la log de cron. </p>
+<p class="tssr-source-paragraph">Page 3/3 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>cron, *<br>‘adm logs; cron. log</p><p>rootédeb-camille-01:-# mkdir /adm/ logs</p><p>roothdeb-camille-Oi:~#<br>systemetl restart reyslog</p><p>* =warn<br>‘adm logs/ warning. log</p><p>roottdeb-camille-Ol:-#<br>systemctl restart reyslog</p><p>root@deb-camille-O1:~#<br>logger<br>-p<br>kern.warn<br>"TEST Message Noyau niveau Avertissement"<br>root@deb-camille-O1:~#<br>ls<br>/adm/logs/<br>cron.log<br>warning.log<br>root@deb-camille-O1:~#<br>cat<br>/adm/ logs/ warning. log<br>Oct<br>26<br>09:30:35<br>debh-camille-01<br>camille:<br>TEST Message Noyau niveau divertissement</p><p>rootédeb-camille-01:-#<br>logger<br>-p<br>cron.warn<br>"TEST Message<br>Cron niveau Avertissement"<br>root@deb-camille-O1:~#<br>logger<br>-p<br>cron.info<br>"TEST Message<br>Cron niveau<br>Info"<br>root@deb-camille-O1:~#<br>cat<br>/adm/ logs/warning. log<br>Oct<br>26<br>09:30:35<br>deb-camille-01<br>camille:<br>TEST<br>Message<br>Noyau niveau Avertissement<br>Oct<br>26<br>09:34:16<br>deb-camille-01<br>camille:<br>TEST<br>Message<br>Cron<br>niveau<br>Avertissement<br>root@deb-camille-O1:~#<br>cat<br>/adm/logs/cron. log<br>Oct<br>26<br>09:25:08<br>deb-camille-O1<br>systemd-timesynca(417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:19<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:29<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:25:39<br>deb-camille-01<br>systemd-timesyncda[417]:<br>Timed<br>out<br>waiting<br>for<br>reply<br>froy<br>Oct<br>26<br>09:26:20<br>deb-camille-01<br>systemd-timesyncd[417]:<br>Initial<br>synchronization<br>to<br>time<br>Oct<br>26<br>09:34:16<br>deb-camille-O1<br>camille:<br>TEST Message<br>Cron niveau Avertissement<br>Oct<br>26<br>09:34:31<br>deb-camille-O1<br>camille:<br>TEST Message<br>Cron niveau<br>Info</p><p>+<br>en</p></div></details>
+
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-b7d40e044c03e3644b19cf8fb924957616e2c0a577eb3975a72a23806d4cc6c3.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-b7d40e044c03e3644b19cf8fb924957616e2c0a577eb3975a72a23806d4cc6c3.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="3176"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1ZASpdyAucFZwKX3gWc0ooEmdZXKjGUcs · <span title="Empreinte SHA-256 du fichier source">SHA-256 007acbf389de4f7f…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M12TP02 - Solution - Gestion de la planification des tâches.pdf · 2 pages</summary>
+<summary>Correction · M12TP02 - Solution - Gestion de la planification des tâches · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/70efaeedb102f918/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1UciYH8m1mVuj_qUby0LU5oQhtODIZTtO/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/70efaeedb102f918/pages-001-002.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/70efaeedb102f918/pages-001-002.webp" alt="Source Drive — M12TP02 - Solution - Gestion de la planification des tâches.pdf — pages 1 à 2. Capture du document original, sans génération IA." loading="lazy" width="1400" height="3978"></a><figcaption>Source Drive — M12TP02 - Solution - Gestion de la planification des tâches.pdf — pages 1 à 2. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1UciYH8m1mVuj_qUby0LU5oQhtODIZTtO-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Gestion de la planification <br>des tâches </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d’un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">30 à 45 minutes </p>
+<h4>Énoncé : Planification de taches sur le serveur <br>sans environnement graphique </h4>
+<p class="tssr-source-paragraph">I. <br>Crontab utilisateur </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l'utilisateur "François" </p>
+<p class="tssr-source-paragraph"> <br>Au premier lancement choisir vim.basic </p>
+<pre class="tssr-source-code">o Périodicité : tous les jours ouvrables de la semaine à 9h15 </pre>
+<pre class="tssr-source-code">o Commande : mise à jour de l’archive de son répertoire personnel dans </pre>
+<p class="tssr-source-paragraph">l’arborescence depot de l’atelier 10 avec le nom francois.tar </p>
+<p class="tssr-source-paragraph"> <br>À la 15eme minute de la 9eme heure, tous les jours du mois, tous les mois, du 1er au 5eme jour de la semaine </p>
+<p class="tssr-source-paragraph">Se déplacer à la racine (tar en mode update) puis lancer la commande de mise à jour de l'archive </p>
+
+<p class="tssr-source-paragraph">• <br>Créer une tâche crontab utilisateur pour l’utilisateur "François" </p>
+<pre class="tssr-source-code">o Périodicité : tous les samedis à 10h </pre>
+<pre class="tssr-source-code">o Commande : compression de l’archive francois.tar en francois.tar.bz2, puis </pre>
+<p class="tssr-source-paragraph">création d’une nouvelle archive francois.tar </p>
+<p class="tssr-source-paragraph"> <br>À la 1ère minute de la 10eme heure, le 6eme jour de la semaine, compresser l'archive et créer une nouvelle </p>
+<p class="tssr-source-paragraph">archive hebdomadaire. </p>
+
+<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$<br>crontab<br>-e</p><p>no<br>crontab<br>for<br>francois<br>-<br>using<br>an<br>empty one</p><p>Select<br>an editor.<br>To<br>change<br>later,<br>run<br>'select-editor'.</p><p>1.<br>/bin/nano<br>----<br>easiest</p><p>2.<br>fusr/bin/vim.basic</p><p>3.<br>/usr/bin/vim.tiny</p><p>Choose<br>1-3<br>[1]:<br>2</p><p>cd /<br>;<br>tar<br>-uvf<br>/srv/depot/francois.tar home/francois</p><p>zip<br>rv/depot/francois.tar<br>tar<br>©<br>rv/depot/ franc<br>.ta<br>iON</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1UciYH8m1mVuj_qUby0LU5oQhtODIZTtO-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+
+<p class="tssr-source-paragraph">II. <br>Crontab système </p>
+<p class="tssr-source-paragraph">• <br>Créer une tâche de surveillance des processus système : </p>
+<pre class="tssr-source-code">o Périodicité : toutes les 30 minutes le mardi </pre>
+<pre class="tssr-source-code">o Commande : lister l'ensemble des processus de manière détaillée avec notamment </pre>
+<p class="tssr-source-paragraph">les pourcentages d'utilisation mémoire et processeur. </p>
+<pre class="tssr-source-code">o Enregistrer ces informations de façon durable dans le fichier /var/log/procstatus.log </pre>
+<p class="tssr-source-paragraph"> <br>vi /etc/crontab, ajout d'une ligne pour lancer toutes les 30 minutes, le 2eme jour, une commande ps faux. </p>
+<p class="tssr-source-paragraph">La commande date permet de dénombrer et d'horodater les diverses occurences. </p>
+
+<p class="tssr-source-paragraph"> <br>Détail de résultats après une première occurence sur le serveur. </p>
+<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>roo<br>‘<br>n-parts<br>--repo<br>etc/cron.<br>hourly</p><p>root@deb-camille-Ol:~#<br>head<br>-n<br>4<br>/var/log/procstatus.log<br>;<br>tail<br>-n<br>10 /var/log/procstatus.<br>log<br>mar.<br>26<br>oct.<br>2021<br>14:00:01<br>CEST</p><p>USER<br>PID<br>*CPU<br>%MEM<br>VSZ<br>RSS<br>TTY<br>STAT<br>START<br>TIME<br>COMMAND</p><p>root<br>2<br>0.0<br>0.0<br>o<br>0?<br>3<br>13:53<br>0:00<br>[kthreada]<br>root<br>3<br>0.0<br>0.0<br>0<br>0<br>?<br>I&lt;<br>13:53<br>0:00<br>\<br>[reu<br>gp]<br>root<br>618<br>0.0<br>0.4<br>14452<br>8632<br>?<br>Ss<br>13:57<br>0:00<br>\_ sshd: camille<br>[priv]<br>camille<br>631<br>0.0<br>0.3<br>14652<br>6104<br>?<br>s<br>13:57<br>0:00<br>\_<br>sshd:<br>camillefpts/0<br>camille<br>632<br>0.0<br>0.2<br>7840<br>4804<br>pts/0<br>Ss<br>13:57<br>0:00</p><p>~</p><p>\<br>-bash<br>root<br>660<br>0.0<br>0.2<br>9968<br>4684<br>pts/0<br>3<br>13:57<br>0:00<br>\_<br>su<br>-<br>root<br>661<br>0.0<br>0.2<br>7892<br>4792<br>pts/0<br>s<br>13:57<br>0:00</p><p>~</p><p>\_<br>-bash<br>root<br>704<br>0.0<br>0.4<br>14108<br>8928<br>pts/0<br>S+<br>13:59<br>0:00</p><p>7</p><p>4<br>vi<br>/etc/crontab<br>root<br>609<br>0.0<br>0.4<br>15256<br>6720<br>?<br>Ss<br>13:56<br>0:00<br>/lib/systemd/systemd --user<br>root<br>610<br>0.0<br>O.1<br>101292<br>2660<br>?<br>5<br>13:56<br>0:00<br>\<br>(sd-pam<br>camille<br>621<br>0.0<br>0.4<br>15140<br>6184<br>?<br>Ss<br>13:57<br>0:00<br>/lib/systemd/systemd<br>--user<br>camille<br>6220.0<br>0.1<br>101292<br>2668<br>?<br>s<br>13:57<br>0:00<br>\<br>(sd-pam)</p><p>:</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-4730ff893479534cf00c9f22e4278574b1c1230d8187ad5811c675a9b2b570b5.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-4730ff893479534cf00c9f22e4278574b1c1230d8187ad5811c675a9b2b570b5.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="999" height="1486"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1UciYH8m1mVuj_qUby0LU5oQhtODIZTtO · <span title="Empreinte SHA-256 du fichier source">SHA-256 70efaeedb102f918…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · M12TP03 - Solution - Informations sur le système.pdf · 4 pages</summary>
+<summary>Correction · M12TP03 - Solution - Informations sur le système · 4 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/c8a88d1121b5649c/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/c8a88d1121b5649c/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/c8a88d1121b5649c/pages-001-004.webp" alt="Source Drive — M12TP03 - Solution - Informations sur le système.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — M12TP03 - Solution - Informations sur le système.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<h4>Informations sur le système </h4>
+<p class="tssr-source-paragraph">TP du Module 12 – Maintenance d'un système en production </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir <br>réalisé les TP proposés. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">20 à 45 minutes </p>
+<h4>Énoncé </h4>
+<p class="tssr-source-paragraph">I. <br>Relevé d’informations : sur le serveur sans environnement <br>graphique </p>
+<p class="tssr-source-paragraph">• <br>Afficher les informations sur la mémoire </p>
+<pre class="tssr-source-code">o Combien de mémoire RAM est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire SWAP est utilisée ? </pre>
+<pre class="tssr-source-code">o Combien de mémoire RAM est réellement libre ? </pre>
+<p class="tssr-source-paragraph"> <br>117 MO de ram sont ici utilisés. 975 MO de swap le sont également (mais partagé). <br>Ici pour connaitre la totalité de la ram disponible, il faut additionner la valeur de la colonne libre avec la <br>valeur de la colonne tamp/cache (utilisation système pour améliorer les performances, libérable si besoin)  </p>
+<p class="tssr-source-paragraph">• <br>Afficher les informations détaillées sur le processeur et la mémoire </p>
+<p class="tssr-source-paragraph"> <br>lscpu donne de nombreuses informations sur les processeurs <br> <br> </p>
+<p class="tssr-source-paragraph">Page 1/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p><p>rootédeb-camille-01:-#<br>free<br>-m<br>total<br>utilisé<br>libre<br>partagé<br>tamp/ cache<br>disponible<br>Mem:<br>1951<br>117<br>1729<br>a<br>104<br>1708<br>Partition d'échange:<br>975<br>a<br>975</p><p>root@deb-camille-O1:~#<br>lscpu<br>Architecture<br>:<br>x66<br>64<br>Mode(s)<br>opératoire(s)<br>des processeurs<br>:<br>32-bit,<br>64-bit<br>Boutisme<br>:<br>Little<br>Endian<br>Tailles<br>des<br>adresses:<br>43<br>bits<br>physical,<br>48 hits virtual<br>Processeur(s)<br>:<br>1<br>Liste<br>de<br>processeur(s)<br>en<br>ligne<br>:<br>(el<br>Thread(s)<br>par<br>cœur<br>:<br>1<br>Cœur (s)<br>par<br>socket<br>:<br>1<br>Socket (s])<br>:<br>1<br>Neud(s)<br>NUMA<br>:<br>1<br>Identifiant<br>constructeur<br>:<br>Genuinelntel</p><p>Famille<br>de<br>processeur<br>:<br>6<br>Modèle<br>:<br>94<br>Nom<br>de modèle<br>:<br>InteliR)<br>Core(TM)<br>i5-6600<br>CPU<br>@<br>3.30GHz<br>Révision<br>:<br>3<br>Vitesse<br>du<br>processeur<br>en<br>MHz<br>:<br>3312.000</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph"> <br>Lsmemavec l'option -a  donne des informations complète sur la mémoire </p>
+
+<pre class="tssr-source-code">o Quel type de processeur a été détecté ? </pre>
+
+<p class="tssr-source-paragraph">• <br>Afficher tous les processus relatifs à des démons (dont le nom finit par un "d") </p>
+<p class="tssr-source-paragraph"> <br>ps -ef permet de lister tous les processus. <br>grep avec l'option -e répétée permet de donner plusieurs informations de filtre (fonction logique OU) </p>
+<p class="tssr-source-paragraph">-e 'd ' valide la lettre d suivi d'un espace ; -e 'd$' valide la lettre suivie du caractère fin de ligne. </p>
+<p class="tssr-source-paragraph">A noter la dernière grep qui est ici un "faux positif" de la sortie <br>Alternatives : </p>
+<pre class="tssr-source-code">• 
+Meilleure commande compacte et sûre (compte des processus dont le nom se termine par d) : 
+ps -eo comm --no-headers | awk '/d$/ {count++} END{print count+0}' 
+ </pre>
+<pre class="tssr-source-code">• 
+Si vous voulez aussi PID et utilisateur (plus utile pour un TP) : 
+ps -eo pid,user,comm --no-headers | awk '3 /d/ {print $0}' 
+ </pre>
+<pre class="tssr-source-code">• 
+Si vous tenez à wc -l mais sans faux positifs : 
+ps -eo comm --no-headers | grep -E 'd$' | wc -l </pre>
+
+<pre class="tssr-source-code">o Afficher leur nombre </pre>
+<p class="tssr-source-paragraph"> <br>Reprenant la ligne précédent, on ajout un grep -v grep pour supprimer le "faux positif" </p>
+<p class="tssr-source-paragraph">Puis on compte le tout avec la commande wc. </p>
+
+<p class="tssr-source-paragraph">Page 2/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>roothdeb-camille-Ol:~#<br>lsmem -a<br>RANGE<br>SIZE<br>STATE<br>REMOVABLE<br>BLOCK<br>OxO000000000000000-0x0000000007Éfffff<br>126M en<br>ligne<br>oui<br>a<br>Ox*O0000000008000000-0XO00000000FFÉFÉÉE<br>128M en<br>ligne<br>oui<br>1<br>oxoooooooo Looo00000-Oox00000000LTLELELEE<br>126M en<br>ligne<br>oui<br>2<br>OxOO0000001s000000-Oxo00000001ffftfff<br>128M en<br>ligne<br>oui<br>3<br>Ox*0000000020000000-0x000000002%€£fffff<br>128M en<br>ligne<br>oui<br>4</p><p>lox ooo000002 B000000-Ox00000000zZffEffff<br>128M en ligne<br>oui<br>5<br>OxO0000000030000000-0*0000000037££Éf{{f<br>1268M en<br>ligne<br>oui<br>6<br>OxO0000000036000000-0xO000000003ÉÉÉ£ffff<br>126M en<br>ligne<br>oui<br>7<br>OxO0000000040000000-0KO000000004TÉÉITÉÉT<br>1£SM en<br>ligne<br>qui<br>5<br>Ox*O0000000048000000-0XO000000004ÉÉÉFÉCE<br>128M en<br>ligne<br>oui<br>9<br>OxO0000000050000000-0xXO0000000057ÉÉÉÉÉÉ<br>128M en<br>ligne<br>oui<br>10<br>OxOoooooooSsso000000-Ox000000005ffffffFfF<br>1268M en<br>ligne<br>oui<br>11<br>Ox*0000000060000000-0x0000000067££ffff<br>128M en<br>ligne<br>oui<br>12<br>Ox OO0o00000s6so000000-Ox000000006fffffff<br>128M en<br>ligne<br>oui<br>13<br>oxoooooooo FO000000-Ox00000000FTLELLFE<br>1268M en<br>ligne<br>oui<br>14<br>OxO0000000078000000-0xO000000007ÉfÉFÉCÉ<br>128M en<br>ligne<br>oui<br>15</p><p>Taille<br>du bloc mémoire<br>:<br>126M<br>Mémoire partagée totale<br>:<br>2G<br>Mémoire<br>hors<br>ligne totale<br>:<br>OB</p><p>root@deb-camille-O1:~#<br>ps<br>-ef<br>|grep<br>-e<br>'d<br>'<br>-e<br>'df$'<br>root<br>247<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-journald<br>root<br>268<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-udevd<br>systemd+<br>462<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-timesyncd<br>root<br>472<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/usr/sbin/rsyslogd<br>-n -iNONE<br>root<br>473<br>1<br>O<br>13:54<br>?<br>00:00:00<br>/lib/systemd/systemd-logind<br>root<br>477<br>1<br>0<br>13:54<br>?<br>00:00:13<br>/usr/bin/vmtoolsd<br>root<br>565<br>1<br>O<br>13:54<br>?<br>00:00:00<br>sshd:<br>/usr/sbin/sshd<br>-D<br>[listener]<br>root<br>609<br>1<br>0<br>13:56<br>?<br>00:00:00<br>/lib/systemd/systemd<br>--user<br>camille<br>621<br>1<br>0<br>13:57<br>?<br>00:00:00<br>/lib/systemd/systemd --user<br>Pig aes</p><p>=</p><p>En</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph">II. <br>Intervention sur les processus  </p>
+<p class="tssr-source-paragraph">• <br>Ouvrez une session SSH avec le login utilisateur (pas le compte root) </p>
+
+<pre class="tssr-source-code">o Lister tous les processus relatifs à votre login de façon détaillée </pre>
+<p class="tssr-source-paragraph"> <br>ps -fux est une des méthodes pour lister tous les processus de l'utilisateur. Il en existe plusieurs autres avec ps. </p>
+
+<p class="tssr-source-paragraph">• <br>Lister dans un fichier tous les processus correspondant aux connexions Putty </p>
+<p class="tssr-source-paragraph"> <br>Un classique enchainement de ps et grep avant de transférerle résultat dans un fichier </p>
+
+<p class="tssr-source-paragraph">• <br>Arrêter un processus lancé </p>
+<pre class="tssr-source-code">o Lancer une seconde session Putty et ouvrir une session avec votre login utilisateur </pre>
+<pre class="tssr-source-code">o Repérer le n° de processus (PID) relatif au shell de cette seconde session Putty </pre>
+<p class="tssr-source-paragraph"> <br>ps sans options ni arguments affiche, entre autre, le processus du shell actuel et son PID, ici 954 </p>
+<pre class="tssr-source-code">o Depuis votre 1ere session, tenter d'arrêter votre second shell (avec le signal par </pre>
+<p class="tssr-source-paragraph">défaut) </p>
+<p class="tssr-source-paragraph"> <br>La commande kill lancée sans argument via la première session n'arrête pas la session.  </p>
+<pre class="tssr-source-code">o Depuis votre 1ere session, arrêter définitivement votre second shell (avec le signal </pre>
+<p class="tssr-source-paragraph">adapté) </p>
+<p class="tssr-source-paragraph"> <br>En ajoutant l'option forçant le signal 1 (SIGHUP) la session est coupée <br> <br> </p>
+<p class="tssr-source-paragraph">Page 3/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>#R PUTTY Configuration<br>?<br>x</p><p>Category:</p><p>Session<br>Basic options for your PuTTY session</p><p>T<br>roasing<br>Specify the destination you want to connect to<br>=</p><p>erminal<br>Host Name (or IP address]<br>Port<br>Keyboard<br>Bel<br>{camile@10.49.222.1<br>[22</p><p>Features<br>Connection type:</p><p>Gr Window<br>@SSH<br>OSerial<br>O Other: | Telnet<br>v<br>Appearance</p><p>camilletdeb-camille-Ol:~§<br>ps<br>-rux<br>USER<br>PID<br>%CPU<br>%MEM<br>VSZ<br>RSS<br>TTY<br>STAT<br>START<br>TIME<br>COMMAND<br>camille<br>913<br>0.0<br>0.3<br>14652<br>6124<br>?<br>5<br>15:51<br>0:00<br>sshd:<br>camille@pts/O<br>camille<br>914<br>0.0<br>0.2<br>7840<br>4600<br>pts/0<br>$s<br>15:51<br> O:00<br>\_<br>-bash<br>camille<br>925<br>0.0<br>O.1<br>10136<br>3608 pts/0<br>R+<br>15:53<br>0:00<br>\_ ps -fux<br>camille<br>903<br>0.0<br>0.4<br>15140<br>8208<br>?<br>Ss<br>15:51<br>0:00<br>/lib/systemd/systemd<br>--user<br>camille<br>904<br>0.0<br>O.1<br>101292<br>2668<br>?<br>$s<br>15:51<br>0:00<br>\_<br>(sa-pam)</p><p>camillefdeb-camille-Ol:i~§<br>ps -ef<br>[grep sshd<br>[grep -¥ grep<br>&gt;<br>liste-putty.txt</p><p>camillefdeb-camille-Oi:~§<br>ps<br>PIL<br>TTY<br>TIME<br>CHD<br>954 pte/i<br>00:00:00 bash<br>957 pts/l<br>00:00:00<br>ps<br>camilleldeh-camille-01:-$</p><p>La<br>8 camille@deb-camille-01: ~<br>camillefdeb-camille-01:-$<br>kill<br>954<br>Me<br>camille@deb-camille-01:~$<br>1s<br>cami lle@deb-camille-01:~$<br>liste-putty.txt<br>camillefdeh-camille-01:-$</p><p>8 camille@deb-camille-01: ~<br>-<br>Oo<br>x<br>cami lle@deb-camille-O1:~$ kill 954<br>A<br>camillefdeb-camille-01:-$<br>kill<br>-1<br>954<br>camille@deb-camille-01:~$</p><p>+<br>en</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
+<p class="tssr-source-paragraph">Autre proposition : </p>
+<p class="tssr-source-paragraph">1. <br>Ouvrir la 2e session PuTTY et se connecter sous votre même compte. <br>2. <br>Dans la 2e session, repérer le PID du shell : </p>
+<p class="tssr-source-paragraph">• <br>Exécuter : ps -o pid,tty,cmd -u (whoami)−−no−headers∣grep"(tty)" ou plus simplement :  <br>ps -o pid= -p $ # affiche le PID du shell courant <br>3. <br>Depuis la 1re session, envoyer le signal par défaut (SIGTERM) au PID trouvé : </p>
+<p class="tssr-source-paragraph">• <br>Commande : kill <br>• <br>Effet : demande poliment au processus de se terminer. Le shell peut ignorer ou intercepter SIGTERM <br>(ex : shell interactif). Vérifier si le processus a disparu : ps -p &amp;&amp; echo "toujours actif" || echo "terminé" <br>4. <br>Si le shell ne se termine pas, envoyer SIGKILL pour forcer l’arrêt : <br>• <br>Commande : kill -9 ou kill -KILL <br>• <br>Effet : terminaison immédiate et non interceptable. Vérifier la disparition : ps -p || echo "terminé <br>définitivement" </p>
+<p class="tssr-source-paragraph">Remarques pratiques : </p>
+<p class="tssr-source-paragraph">• <br>Préférez toujours SIGTERM (kill) puis, si nécessaire, SIGKILL (kill -9). <br>• <br>Pour éviter d’envoyer les signaux au mauvais processus, vérifiez le PID et le tty (ps -o pid,tty,cmd). Exemple <br>de vérification complète depuis la 1re session : ps -u $(whoami) -o pid,tty,cmd --no-headers | grep pts/1 <br>• <br>Ne tuez pas de processus système ni un shell que vous n’avez pas prévu d’interrompre. <br> </p>
+<p class="tssr-source-paragraph">Page 4/4 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-f2fd28a58dac1731bf8e4c8f55228bdf7d0aa37330ebcfa43157d5e2b42fabec.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-f2fd28a58dac1731bf8e4c8f55228bdf7d0aa37330ebcfa43157d5e2b42fabec.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1004" height="3384"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY · <span title="Empreinte SHA-256 du fichier source">SHA-256 c8a88d1121b5649c…</span></p>
 </div>
 </details>
@@ -12630,7 +12932,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p><strong>Sources originales (A) :</strong> énoncé et solution M12TP01 Drive. <strong>Présentation (B) :</strong> organisation pédagogique.</p>
 <ul>
@@ -12700,11 +13002,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

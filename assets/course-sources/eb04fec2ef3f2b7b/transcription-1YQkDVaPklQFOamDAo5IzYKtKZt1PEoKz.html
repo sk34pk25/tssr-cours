@@ -1,0 +1,53 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 2 - La configuration des options et le comportement du client.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche démo 2 - La configuration des options et le comportement du client</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>La configuration des options <br>et le comportement du client </h4>
+<p class="tssr-source-paragraph">Démonstration 02 du module 05 </p>
+
+<p class="tssr-source-paragraph">Cette démonstration décrit les différentes étapes relatives à la configuration des options ainsi que <br>de l’obtention du bail par un client. </p>
+<h4>Déroulement </h4>
+<p class="tssr-source-paragraph">• <br>Prérequis </p>
+<p class="tssr-source-paragraph">Avoir installé et configuré une machine virtuelle sous Windows 10, sans IP fixe. </p>
+
+<p class="tssr-source-paragraph">• <br>Ajout d’une option dans l’étendue </p>
+<p class="tssr-source-paragraph">Cliquer sur le raccourci précédemment créé afin d’ouvrir la console DHCP. Dérouler le nœud de <br>l’étendue (1) précédemment créée, faire un clic droit sur la ligne Scope Options (2) puis sur le menu <br>Configure Options (3). Se positionner sur l’option 006 (4). Indiquer l’adresse IP d’un serveur DNS de <br>votre infrastructure (5) puis cliquer sur le bouton Add (6). L’adresse IP qui est en haut de la liste sera <br>le DNS préféré des machines clientes du service DHCP (7). Une fois l’ajout de l’adresse IP terminée, <br>cliquer sur le bouton OK (8). </p>
+
+
+
+
+
+
+
+
+
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=<br>—_<br>Scope Options<br>|</p><p>Fle<br>Action<br>View<br>Help<br>@9| alm Go| ame<br>General |Advanced<br>Zoo<br>Option Name<br>Vendor<br>Value<br>Policy Nome<br>4 À client<br>|} 003 Router<br>Standard<br>192.168.1.254<br>None<br>Available Options<br>Description ~<br>eb<br>om<br>LE) 006 DNS Servers<br>Standard<br>121611<br>None<br>C1 004 Time Server<br>‘Array oftine|<br>DS rien)<br>[] 005 Name Servers<br>Array of nan<br>a<br>4<br>18 Addis Pe<br>[1 006 DNS Severs Qa|<br>Array of DN.<br>py crie<br>11007 Log Servers<br>Array of MIT v</p><p>:<br>-<br>;</p><p>TH Policies<br>=<br>5<br>Poles</p><p>Ol Fiters<br>Med<br>.<br>Data entry<br>&gt; Bie<br>Refresh<br>‘Server name:<br>port tit.<br>ce<br>Help<br>5<br>ee<br>ES,<br>6<br>oe<br>erove<br>| ol<br>Do</p><p>8<br>IRC. AIR</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Test de récupération adresse IP sur le client </p>
+<pre class="tssr-source-code">Se connecter sur la machine virtuelle Windows 10. Lancer une invite de commande, puis indiquer 
+la commande ipconfig /renew (1) afin d’interroger le serveur DHCP. Une fois le processus DORA 
+terminé, le client se voit attribuer une configuration IP via le DHCP (2). Indiquer la commande 
+ipconfig /all afin de vérifier que le serveur DNS est bien celui ou ceux configurés précédemment 
+(3). </pre>
+
+
+
+
+
+
+
+
+
+<p class="tssr-source-paragraph">• <br>Vérification sur l’étendue du serveur </p>
+<p class="tssr-source-paragraph">Se connecter sur la machine virtuelle hébergeant le serveur DHCP. Vérifier dans les baux d’adresses <br>IP (1) que le client est bien présent (2). <br> </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Nom<br>de<br>1&#x27;hôte<br>DESKTOP-VRISOU7</p><p>Serveur=<br>DHS<br>TSATEE<br>LT</p><p>3<br>DHCP</p><p>File<br>Action<br>View<br>Help<br>-+<br>aim]<br>@<br>|<br>alm<br>@ DHCP<br>2<br>lient IP Address<br>Name<br>Lease Expiration<br>Type<br>UniqueID<br>Description<br>Network Access Protection<br> Probation Expiration<br>Filter Profil<br>4<br>Gj client<br>189 192.168.1.20<br>DESKTOP-VRISSU7<br>02/10/2020 11:13:31<br>DHCP<br>000c29c43.<br>Full Access<br>N/A<br>None<br>a Dre</p><p>4 Server Options<br>4 D Scope [192.168.1.0] Etendue LAN<br>D<br>Adress Pool</p><p>Uy<br>Reservations</p><p>Scope Options</p><p>Policies<br>i<br>Policies</p><p>&gt;<br>Gl<br>Filters</p><p>&gt; pire</p></div></details>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-cdbf7738eb0a2673a5e1d47e2e5131f5e57376b0638a7b11f0b596ce68483f39.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-cdbf7738eb0a2673a5e1d47e2e5131f5e57376b0638a7b11f0b596ce68483f39.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1091" height="2010"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

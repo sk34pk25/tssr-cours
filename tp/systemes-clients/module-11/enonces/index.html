@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12840,19 +12840,81 @@
 
 
 <h1 id="enonces-module-11-plus-loin-avec-powershell">Énoncés — Module 11 — Plus loin avec PowerShell<a class="headerlink" href="#enonces-module-11-plus-loin-avec-powershell" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Énoncé · Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf · 5 pages</summary>
+<summary>Énoncé · Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage · 5 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/9ed320b7fe165ff5/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/9ed320b7fe165ff5/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/9ed320b7fe165ff5/pages-001-004.webp" alt="Source Drive — Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7968"></a><figcaption>Source Drive — Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/9ed320b7fe165ff5/pages-005-005.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/9ed320b7fe165ff5/pages-005-005.webp" alt="Source Drive — Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf — pages 5. Capture du document original, sans génération IA." loading="lazy" width="1400" height="1980"></a><figcaption>Source Drive — Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf — pages 5. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp-page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Redirection, pipeline, <br>filtrage, formatage</h4>
+<p class="tssr-source-paragraph">TP du Module 11 – Plus loin avec PowerShell</p>
+<p class="tssr-source-paragraph">Concernant ce TP, l'objectif sera de répondre aux consignes, notamment en traduisant <br>les consignes du français en langage PowerShell. </p>
+<p class="tssr-source-paragraph">Pour arriver à vos fins, n'oubliez pas les bonnes pratiques. <br>Utilisez get-command pour rechercher la bonne cmdlet.<br>Utilisez get-help, pour savoir comment elle fonctionne.<br>Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le <br>pipeline.<br>Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et <br>éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs <br>ou plus.<br>Utiliser les commandes de formatage si la consigne le précise.<br>Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell, <br>investissez du temps de lecture du get-help. </p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">2 heures</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur Win10-XX, recherchez les commandes adaptées pour les besoins <br>suivants&nbsp;</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la date du jour, puis, à l'aide de la même commande, affichez le quantième<br>de l'année (le numéro du jour de l’année)</p>
+<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des évènements ayant été enregistrés dans le journal security </p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À l'aide de la commande précédente, affichez les évènements dont l'EventID est 4624</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste précédente en ne montrant que l’EventID, la date d’écriture de<br>l’évènement et le message</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des règles de pare-feu activées</p>
+<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Parmi ces règles de pare-feu activées, n'affichez que leurs noms, le profil réseau à<br>laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l'accès</p>
+<p class="tssr-source-paragraph"> <br>Afficher des propriétés selon plusieurs critères</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur Discovery, affichez la liste des volumes disques&nbsp;:</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre&nbsp;:</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go&nbsp;:</p>
+<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8Go d'espace libre et dont la taille<br>maximale ne dépasse pas 25Go</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le résultat de la commande précédente ne devra afficher que le nom, la lettre de<br>lecteur et le type de système de fichier… le tout sous forme de liste</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les noms et statuts des services qui sont actuellement démarrés et qui<br>démarrent automatiquement au lancement du système d’exploitation.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les membres (et leur SID) du groupe L_HA_Ventes.</p>
+<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-89e420dbc773c5eea0e07262e3752ba04241ed3746070ca1a15d6756ce89c800.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-89e420dbc773c5eea0e07262e3752ba04241ed3746070ca1a15d6756ce89c800.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="5250"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom et le chemin des partages administratifs sous forme de liste</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont<br>l’état est sain et de type CD-ROM :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP<br>LaserJet. Le résultat sera affiché sous la forme d'une liste.</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-b803582b595698303e7d7c27de5b512e9767bb29822473a29c0853445b05d074.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-b803582b595698303e7d7c27de5b512e9767bb29822473a29c0853445b05d074.webp" alt="Illustrations du support source, pages 5" loading="lazy" width="963" height="1078"></a><figcaption>Illustrations du support Drive — pages 5. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1aiTSranU5ERDjDPk9aKXZKqnXCbubWxp · <span title="Empreinte SHA-256 du fichier source">SHA-256 9ed320b7fe165ff5…</span></p>
 </div>
 </details>
@@ -12861,7 +12923,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <h2 id="objectif-de-latelier">Objectif de l’atelier<a class="headerlink" href="#objectif-de-latelier" title="Permanent link">¶</a></h2>
 <p>Répondre aux consignes en traduisant le besoin exprimé en commande PowerShell. Utilisez <code>Get-Command</code> pour rechercher une cmdlet et <code>Get-Help</code> pour comprendre son emploi. Lorsque des propriétés sont demandées, placez <code>Select</code> après le pipeline. Lorsque des valeurs sont précisées, utilisez <code>Where</code> et, si plusieurs critères sont nécessaires, la syntaxe de filtrage avancé. Utilisez un formatage seulement si la consigne le demande.</p>
@@ -12996,11 +13058,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

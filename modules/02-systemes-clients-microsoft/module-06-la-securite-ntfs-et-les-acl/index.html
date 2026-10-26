@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -12982,230 +12982,648 @@
 
 
 <h1 id="module-06-la-securite-ntfs-et-les-acl">Module 06 — La sécurité NTFS et les ACL<a class="headerlink" href="#module-06-la-securite-ntfs-et-les-acl" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
-<summary>Support · Module 06 - Support de cours.pdf · 7 pages</summary>
+<summary>Support · Module 06 - Support de cours · 7 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/b0954b2cfcc92d40/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b0954b2cfcc92d40/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b0954b2cfcc92d40/pages-001-004.webp" alt="Source Drive — Module 06 - Support de cours.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7516"></a><figcaption>Source Drive — Module 06 - Support de cours.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/b0954b2cfcc92d40/pages-005-007.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/b0954b2cfcc92d40/pages-005-007.webp" alt="Source Drive — Module 06 - Support de cours.pdf — pages 5 à 7. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5633"></a><figcaption>Source Drive — Module 06 - Support de cours.pdf — pages 5 à 7. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 06 – La sécurité NTFS et les ACL</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Objectifs<br>• Définir et découvrir les ACL<br>• Connaître le fonctionnement et les bonnes <br>pratiques<br>• Configurer les accès<br>• Vérifier leur bon fonctionnement</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">Sur un volume formaté en NTFS</p>
+<p class="tssr-source-paragraph">• Tous les répertoires et tous les fichiers sont soumis à la sécurité NTFS</p>
+<p class="tssr-source-paragraph">• Des autorisations définissent des privilèges d'accès</p>
+<p class="tssr-source-paragraph">• L'utilisateur présente son jeton d'accès, qui est filtré par la ressource</p>
+<p class="tssr-source-paragraph">• Les autorisations sont stockées dans l'index du système de fichier NTFS</p>
+<p class="tssr-source-paragraph">• Consultable, modifiable dans l'onglet sécurité de chaque objet</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">L'onglet sécurité</p>
+<p class="tssr-source-paragraph">D</p>
+<p class="tssr-source-paragraph">• Accessible via les propriétés d'un objet</p>
+<p class="tssr-source-paragraph">A</p>
+<p class="tssr-source-paragraph">C</p>
+<p class="tssr-source-paragraph">L</p>
+<p class="tssr-source-paragraph">• DACL : (Liste de contrôle d'accès discrétionnaire) <br>contient les utilisateurs et groupes</p>
+<p class="tssr-source-paragraph">A</p>
+<p class="tssr-source-paragraph">C</p>
+<p class="tssr-source-paragraph">E</p>
+<p class="tssr-source-paragraph">• Les DACL filtrent<br>• Les groupes locaux<br>• Les groupes prédéfinis<br>• Les entités de sécurité<br>• Les utilisateurs</p>
+<p class="tssr-source-paragraph">• ACE : (Access Control Entry) privilèges d'accès <br>du groupe en question</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>L O =</p><p>env</p><p>Propriétés de :Répertoire<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>BE Système</p><p>2CNE<br>BR Administrateurs (WINT0-RG\Administrateurs)</p><p>Autorisations pour voisins.<br>Autoriser<br>Refuser</p><p>Contrôle total<br>.</p><p>Écriture<br>La</p><p>Avancé.<br>i</p><p>nome<br>| RIRE</p><p>env</p></div></details>
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Pour les besoins courants, les ACE de base sont utilisées et cumulatives</p>
+<p class="tssr-source-paragraph">• Configurable depuis le menu Modifier<br>• LECTURE<br>• Affichage du contenu du dossier<br>• Lecture<br>• Lecture et exécution<br>• MODIFICATION<br>• Écriture<br>• Modification<br>• CONTRÔLE TOTAL</p>
+<p class="tssr-source-paragraph">• Pour des besoins spécifiques, des autorisations spéciales peuvent être configurées<br>• Accessibles depuis le menu Avancé<br>• Affinent les privilèges (création de fichiers, suppression de sous-dossiers et fichiers, etc.)</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Permissions basées sur des règles explicites<br>• Un groupe absent de la DACL se verra l'accès refusé (refus implicite)<br>• Chaque règle peut accorder des privilèges (autoriser) ou les ôter (refuser)<br>• Plusieurs règles d’accès peuvent s’appliquer à un même utilisateur<br>• La règle la plus permissive l'emporte<br>• Le refus explicite l'emporte sur l'autorisation</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Autorisations pour voisins<br>Autoriser<br>Refuser</p><p>Contrôle total<br>gw<br>Oo<br>Modification<br>Oo<br>Lecture et exécution<br>oO</p><p>Affichage du contenu du dossier<br>oO</p><p>Lecture<br>oO<br>Ecriture<br>|</p></div></details>
+
+
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Les mécanismes d'héritage<br>• Par défaut, un répertoire propage ses autorisations à ses objets enfants<br>• Les autorisations héritées apparaissent grisées et ne sont pas modifiables<br>• Une autorisation d'accès l'emporte sur un refus explicite hérité<br>• Pour les modifier, il faut :<br>• Modifier les autorisations sur le dossier parent (voire parfois celles du volume racine)<br>• "Casser" l'héritage (à effectuer avec précaution)<br>• Gestion de l'héritage depuis le menu Avancé</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• Que se passe-t-il lors de la copie ? Du déplacement ?</p>
+<p class="tssr-source-paragraph">Au sein d'une même </p>
+<p class="tssr-source-paragraph">partition/volume</p>
+<p class="tssr-source-paragraph">Entre deux <br>partitions/volumes</p>
+<p class="tssr-source-paragraph">Déplacement<br>Conservation<br>Héritage</p>
+<p class="tssr-source-paragraph">Copie<br>Héritage<br>Héritage</p>
+<p class="tssr-source-paragraph">8</p>
+<p class="tssr-source-paragraph">8</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-4ac884e2c32bfd1665ba7c28afd820c800dfddbe19fca3090bc8d0ee7c642168.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-4ac884e2c32bfd1665ba7c28afd820c800dfddbe19fca3090bc8d0ee7c642168.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="7827"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">Une fois les ACL configurées, que faire ?</p>
+<p class="tssr-source-paragraph">• Testez les accès avec les utilisateurs !</p>
+<p class="tssr-source-paragraph">• Ou/et vérifiez les accès depuis l'onglet Accès effectif du menu Avancé</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">9</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>NTFS et les ACL</h4>
+<p class="tssr-source-paragraph">• À manipuler avec précaution !<br>• Bonnes pratiques pour éviter les effets de bord et les mauvaises surprises<br>• Privilégier au maximum les groupes dans les DACL<br>• Utiliser au maximum ACE de base<br>• Garder en tête les mécanismes d'héritage (attention aux copies, aux déplacements)<br>• Privilégier l'héritage<br>• Privilégier le refus implicite<br>• Toujours tester/vérifier les accès aux ressources<br>• Attention au double jeton d'accès des administrateurs !</p>
+<p class="tssr-source-paragraph">10</p>
+<p class="tssr-source-paragraph">10</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">11</p>
+<p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">12</p>
+<p class="tssr-source-paragraph">12</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">La sécurité NTFS et les ACL</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• La gestion des ACL est indispensable<br>• ACL = DACL + ACE</p>
+<p class="tssr-source-paragraph">•<br>Liste de contrôle d’accès</p>
+<p class="tssr-source-paragraph">•<br>Liste de contrôle d’accès discrétionnaire</p>
+<p class="tssr-source-paragraph">•<br>Entrées de contrôle d’accès<br>• Tester les accès<br>• Respecter les bonnes pratiques Microsoft</p>
+<p class="tssr-source-paragraph">13</p>
+<p class="tssr-source-paragraph">13</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>La sécurité NTFS et les ACL</td><td></td><td></td></tr><tr><td>C l i<br>onc us on</td><td>• La gestion des ACL est indispensable</td><td></td></tr><tr><td></td><td>• ACL = DACL + ACE</td><td></td></tr><tr><td></td><td>• Listedecontrôled’accès</td><td></td></tr><tr><td></td><td>• Listedecontrôled’accèsdiscrétionnaire</td><td></td></tr><tr><td></td><td>• Entréesdecontrôled’accès</td><td></td></tr><tr><td></td><td>• Tester les accès</td><td></td></tr><tr><td></td><td>• Respecter les bonnes pratiques Microsoft</td><td>13</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-83893025558a7ddb7a8cc9f47b7a51c86d573df2cd1c4b351c9bbf0ac81f30a1.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-83893025558a7ddb7a8cc9f47b7a51c86d573df2cd1c4b351c9bbf0ac81f30a1.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="992" height="3702"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1Qu0t6HJiZ5JIZtGpNhZVpWGcxs8ldDzs · <span title="Empreinte SHA-256 du fichier source">SHA-256 b0954b2cfcc92d40…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Énoncé · Enoncé du TP - Les ACL.pdf · 3 pages</summary>
+<summary>Énoncé · Enoncé du TP - Les ACL · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/bbc9c02eb9231db0/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/bbc9c02eb9231db0/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/bbc9c02eb9231db0/pages-001-003.webp" alt="Source Drive — Enoncé du TP - Les ACL.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5972"></a><figcaption>Source Drive — Enoncé du TP - Les ACL.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Les ACL</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – La sécurité NTFS et les ACL</p>
+<p class="tssr-source-paragraph">Ce TP va vous permettre de manipuler les autorisations d’accès aux dossiers disponibles<br>sur votre système.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l'ensemble de ce TP avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez les autorisations d'accès sur les <br>répertoires suivants :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le volume DATA, créer le répertoire Echange</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?</p>
+
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier<br>parent ?</p>
+<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez les autorisations d'accès au répertoire Echange&nbsp;:</p>
+<pre class="tssr-source-code">o
+Vos collègues pourront modifier tous les objets et sous-objets de ce
+répertoire
+o
+Les administrateurs auront le contrôle total
+o
+Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
+poste 
+o
+Testez le bon fonctionnement des autorisations
+ </pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation&nbsp;:</p>
+<pre class="tssr-source-code">o
+Yann et François accéderont en modifications à ces répertoires.
+o
+Les utilisateurs standard auront un accès en lecture et les administrateurs 
+posséderont un contrôle total
+o
+Testez le bon fonctionnement des autorisations</pre>
+<p class="tssr-source-paragraph"> <br>Sur la VM Discovery en PowerShell</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher la liste des droits d'accès au dossier 2022 du lecteur M:</p>
+<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet permet la modification des ACL sur un dossier&nbsp;?</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-370e37f0cee8103d9c0e55d8f62867839cf346cf5608339481bedab931dc3894.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-370e37f0cee8103d9c0e55d8f62867839cf346cf5608339481bedab931dc3894.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="998" height="2478"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt · <span title="Empreinte SHA-256 du fichier source">SHA-256 bbc9c02eb9231db0…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
 <summary>Notes du Drive · Module 6.txt · document texte</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/4856c60a24c0f3ef/original.txt" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée à ENI.</p>
-<div class="tssr-original-text"><pre>Parfait. Pour un module aussi court, 20 questions suffisent largement pour couvrir les notions essentielles. Je te propose 16 QCM + 4 Vrai/Faux, en restant strictement basé sur le cours ENI.  <p></p>
-<p>⸻</p>
-<p>Quiz Kahoot – Module 6 : La sécurité NTFS et les ACL</p>
-<p>Niveau Facile (1 à 7)</p>
-<ol>
-<li>Sur quel système de fichiers les ACL sont-elles disponibles ?</li>
-</ol>
-<p>A. FAT32
+<section class="tssr-transcribed-page" id="source-1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59-page-1"><h3>Document texte</h3><pre class="tssr-source-code">Parfait. Pour un module aussi court, 20 questions suffisent largement pour couvrir les notions essentielles. Je te propose 16 QCM + 4 Vrai/Faux, en restant strictement basé sur le cours ENI.  
+
+⸻
+
+Quiz Kahoot – Module 6 : La sécurité NTFS et les ACL
+
+Niveau Facile (1 à 7)
+
+1. Sur quel système de fichiers les ACL sont-elles disponibles ?
+
+A. FAT32
 B. NTFS ✅
 C. exFAT
-D. FAT16</p>
-<p>⸻</p>
-<ol>
-<li>Que signifie ACL ?</li>
-</ol>
-<p>A. Access Computer List
+D. FAT16
+
+⸻
+
+2. Que signifie ACL ?
+
+A. Access Computer List
 B. Access Control List ✅
 C. Active Control Link
-D. Access Configuration Level</p>
-<p>⸻</p>
-<ol>
-<li>Que signifie DACL ?</li>
-</ol>
-<p>A. Dynamic Access Control List
+D. Access Configuration Level
+
+⸻
+
+3. Que signifie DACL ?
+
+A. Dynamic Access Control List
 B. Discretionary Access Control List ✅
 C. Direct Access Control List
-D. Data Access Control List</p>
-<p>⸻</p>
-<ol>
-<li>Que représente une ACE ?</li>
-</ol>
-<p>A. Une partition
+D. Data Access Control List
+
+⸻
+
+4. Que représente une ACE ?
+
+A. Une partition
 B. Une entrée de contrôle d’accès ✅
 C. Un groupe d’utilisateurs
-D. Un système de fichiers</p>
-<p>⸻</p>
-<ol>
-<li>Quel niveau d’autorisation permet toutes les actions sur un fichier ou un dossier ?</li>
-</ol>
-<p>A. Lecture
+D. Un système de fichiers
+
+⸻
+
+5. Quel niveau d’autorisation permet toutes les actions sur un fichier ou un dossier ?
+
+A. Lecture
 B. Modification
 C. Contrôle total ✅
-D. Exécution</p>
-<p>⸻</p>
-<ol>
-<li>Où configure-t-on les autorisations NTFS de base ?</li>
-</ol>
-<p>A. Onglet Général
+D. Exécution
+
+⸻
+
+6. Où configure-t-on les autorisations NTFS de base ?
+
+A. Onglet Général
 B. Bouton Modifier ✅
 C. Invite de commandes
-D. Gestionnaire de périphériques</p>
-<p>⸻</p>
-<ol>
-<li>Où trouve-t-on les autorisations spéciales ?</li>
-</ol>
-<p>A. Modifier
+D. Gestionnaire de périphériques
+
+⸻
+
+7. Où trouve-t-on les autorisations spéciales ?
+
+A. Modifier
 B. Avancé ✅
 C. Partage
-D. Général</p>
-<p>⸻</p>
-<p>Niveau Moyen (8 à 14)</p>
-<ol>
-<li>Si un utilisateur n’est pas présent dans la DACL, que se passe-t-il ?</li>
-</ol>
-<p>A. Il obtient Lecture
+D. Général
+
+⸻
+
+Niveau Moyen (8 à 14)
+
+8. Si un utilisateur n’est pas présent dans la DACL, que se passe-t-il ?
+
+A. Il obtient Lecture
 B. Il obtient Modification
 C. Son accès est refusé implicitement ✅
-D. Il obtient Contrôle total</p>
-<p>⸻</p>
-<ol>
-<li>Une ACE peut :</li>
-</ol>
-<p>A. Seulement autoriser
+D. Il obtient Contrôle total
+
+⸻
+
+9. Une ACE peut :
+
+A. Seulement autoriser
 B. Seulement refuser
 C. Autoriser ou refuser ✅
-D. Seulement modifier</p>
-<p>⸻</p>
-<ol>
-<li>Si plusieurs autorisations “Autoriser” s’appliquent à un utilisateur, laquelle est retenue ?</li>
-</ol>
-<p>A. La plus restrictive
+D. Seulement modifier
+
+⸻
+
+10. Si plusieurs autorisations “Autoriser” s’appliquent à un utilisateur, laquelle est retenue ?
+
+A. La plus restrictive
 B. La première
 C. La plus permissive ✅
-D. Aucune</p>
-<p>⸻</p>
-<ol>
-<li>Quelle règle est prioritaire ?</li>
-</ol>
-<p>A. L’autorisation explicite
+D. Aucune
+
+⸻
+
+11. Quelle règle est prioritaire ?
+
+A. L’autorisation explicite
 B. Le refus explicite ✅
 C. Le refus implicite
-D. L’autorisation héritée</p>
-<p>⸻</p>
-<ol>
-<li>Par défaut, un dossier transmet ses autorisations à :</li>
-</ol>
-<p>A. Son propriétaire uniquement
+D. L’autorisation héritée
+
+⸻
+
+12. Par défaut, un dossier transmet ses autorisations à :
+
+A. Son propriétaire uniquement
 B. Ses fichiers et sous-dossiers ✅
 C. Son disque uniquement
-D. Aucun élément</p>
-<p>⸻</p>
-<ol>
-<li>Lors d’un déplacement dans le même volume, les autorisations NTFS sont :</li>
-</ol>
-<p>A. Supprimées
+D. Aucun élément
+
+⸻
+
+13. Lors d’un déplacement dans le même volume, les autorisations NTFS sont :
+
+A. Supprimées
 B. Conservées ✅
 C. Réinitialisées
-D. Converties</p>
-<p>⸻</p>
-<ol>
-<li>Lors d’une copie vers un autre volume, les autorisations :</li>
-</ol>
-<p>A. Sont conservées
+D. Converties
+
+⸻
+
+14. Lors d’une copie vers un autre volume, les autorisations :
+
+A. Sont conservées
 B. Héritent du dossier de destination ✅
 C. Deviennent publiques
-D. Sont supprimées</p>
-<p>⸻</p>
-<p>Niveau Difficile (15 à 16)</p>
-<ol>
-<li>Quelle cmdlet PowerShell permet d’afficher les ACL d’un dossier ?</li>
-</ol>
-<p>A. Get-Permission
+D. Sont supprimées
+
+⸻
+
+Niveau Difficile (15 à 16)
+
+15. Quelle cmdlet PowerShell permet d’afficher les ACL d’un dossier ?
+
+A. Get-Permission
 B. Get-Acl ✅
 C. Show-Acl
-D. Read-Acl</p>
-<p>⸻</p>
-<ol>
-<li>Quelle cmdlet PowerShell permet de modifier les ACL ?</li>
-</ol>
-<p>A. Update-Acl
+D. Read-Acl
+
+⸻
+
+16. Quelle cmdlet PowerShell permet de modifier les ACL ?
+
+A. Update-Acl
 B. Set-Acl ✅
 C. Edit-Acl
-D. New-Acl</p>
-<p>⸻</p>
-<p>Vrai / Faux</p>
-<ol>
-<li>Vrai ou Faux</li>
-</ol>
-<p>Microsoft recommande de privilégier les groupes plutôt que les utilisateurs dans les DACL.</p>
-<p>✅ Vrai</p>
-<p>⸻</p>
-<ol>
-<li>Vrai ou Faux</li>
-</ol>
-<p>Les autorisations héritées peuvent être modifiées directement sans action particulière.</p>
-<p>❌ Faux</p>
-<p>⸻</p>
-<ol>
-<li>Vrai ou Faux</li>
-</ol>
-<p>Après avoir configuré les ACL, il est recommandé de tester les accès ou de consulter l’onglet Accès effectif.</p>
-<p>✅ Vrai</p>
-<p>⸻</p>
-<ol>
-<li>Vrai ou Faux</li>
-</ol>
-<p>Le double jeton d’accès des administrateurs (UAC) peut influencer les autorisations effectives.</p>
-<p>✅ Vrai</p>
-<p>⸻</p>
-<p>✅ Ce quiz couvre les points essentiels du module 6 :</p>
-<ul>
-<li>ACL</li>
-<li>DACL</li>
-<li>ACE</li>
-<li>Autorisations de base (Lecture, Modification, Contrôle total)</li>
-<li>Autorisations spéciales</li>
-<li>Refus implicite et explicite</li>
-<li>Héritage</li>
-<li>Copie / Déplacement</li>
-<li>Accès effectif</li>
-<li>Bonnes pratiques Microsoft</li>
-<li>Get-Acl</li>
-<li>Set-Acl</li>
-<li>Double jeton d’accès (UAC)</li>
-</ul>
-<p>Il est suffisamment complet pour un Kahoot de révision tout en restant fidèle au contenu du module.</p></pre></div>
+D. New-Acl
+
+⸻
+
+Vrai / Faux
+
+17. Vrai ou Faux
+
+Microsoft recommande de privilégier les groupes plutôt que les utilisateurs dans les DACL.
+
+✅ Vrai
+
+⸻
+
+18. Vrai ou Faux
+
+Les autorisations héritées peuvent être modifiées directement sans action particulière.
+
+❌ Faux
+
+⸻
+
+19. Vrai ou Faux
+
+Après avoir configuré les ACL, il est recommandé de tester les accès ou de consulter l’onglet Accès effectif.
+
+✅ Vrai
+
+⸻
+
+20. Vrai ou Faux
+
+Le double jeton d’accès des administrateurs (UAC) peut influencer les autorisations effectives.
+
+✅ Vrai
+
+⸻
+
+✅ Ce quiz couvre les points essentiels du module 6 :
+
+* ACL
+* DACL
+* ACE
+* Autorisations de base (Lecture, Modification, Contrôle total)
+* Autorisations spéciales
+* Refus implicite et explicite
+* Héritage
+* Copie / Déplacement
+* Accès effectif
+* Bonnes pratiques Microsoft
+* Get-Acl
+* Set-Acl
+* Double jeton d’accès (UAC)
+
+Il est suffisamment complet pour un Kahoot de révision tout en restant fidèle au contenu du module.</pre></section>
 <p class="tssr-original-proof">Référence du document : 1SRkAloeUhQqznCjEZYEO2JNPNsJkBR59 · <span title="Empreinte SHA-256 du fichier source">SHA-256 4856c60a24c0f3ef…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
 <summary>Notes du Drive · module 5 et 6.txt · document texte</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/e3b0c44298fc1c14/original.txt" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée à ENI.</p>
+<section class="tssr-transcribed-page" id="source-1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7-page-1"><h3>Document texte</h3><pre class="tssr-source-code"></pre></section>
 <p class="tssr-original-proof">Référence du document : 1Oi75J3l2QDn53DJw1GUoxHxkXTShq3T7 · <span title="Empreinte SHA-256 du fichier source">SHA-256 e3b0c44298fc1c14…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
-<summary>Correction · Solution du TP - Les ACL.pdf · 11 pages</summary>
+<summary>Correction · Solution du TP - Les ACL · 11 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../assets/course-sources/3308a9a099283004/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1410fdahllumEPrWp3O-vvc38KyzkoCJz/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/3308a9a099283004/pages-001-004.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/3308a9a099283004/pages-001-004.webp" alt="Source Drive — Solution du TP - Les ACL.pdf — pages 1 à 4. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Les ACL.pdf — pages 1 à 4. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/3308a9a099283004/pages-005-008.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/3308a9a099283004/pages-005-008.webp" alt="Source Drive — Solution du TP - Les ACL.pdf — pages 5 à 8. Capture du document original, sans génération IA." loading="lazy" width="1400" height="7972"></a><figcaption>Source Drive — Solution du TP - Les ACL.pdf — pages 5 à 8. Capture du document original, sans génération IA.</figcaption></figure>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/3308a9a099283004/pages-009-011.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/3308a9a099283004/pages-009-011.webp" alt="Source Drive — Solution du TP - Les ACL.pdf — pages 9 à 11. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — Solution du TP - Les ACL.pdf — pages 9 à 11. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<h4>Les ACL </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – La sécurité NTFS et les ACL </p>
+<h4>Proposition de solution </h4>
+<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires <br>suivants : </p>
+<p class="tssr-source-paragraph">• <br>Sur le volume DATA, créer le répertoire Echange </p>
+<p class="tssr-source-paragraph">• <br>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ? </p>
+<p class="tssr-source-paragraph">Depuis l'explorateur Windows, explorer le lecteur d:\DATA <br> </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Nouveau &gt; Dossier <br> </p>
+<p class="tssr-source-paragraph">Nommez-le Echange </p>
+<p class="tssr-source-paragraph">Pour connaître les autorisations NTFS positionnées par défaut sur ce répertoire : </p>
+<p class="tssr-source-paragraph">Clic droit sur Echange &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">L'entité de sécurité Utilisateurs authentifiés possède des autorisations en Modification </p>
+<p class="tssr-source-paragraph">L'entité de sécurité Système possède des autorisations en Contrôle total </p>
+<p class="tssr-source-paragraph">Le groupe prédéfini Administrateurs possède des autorisations en Contrôle total </p>
+<p class="tssr-source-paragraph">Le groupe prédéfini Utilisateurs possède des autorisations en Lecture  </p>
+<p class="tssr-source-paragraph">Ces autorisations proviennent de l'héritage du volume D: (un indice du fait qu'apparaissent <br>des coches grisées). </p>
+
+
+<p class="tssr-source-paragraph">Page 1/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+
+<p class="tssr-source-paragraph">• <br>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier <br>parent ? </p>
+<p class="tssr-source-paragraph">Dans le dossier Echange </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Nouveau &gt; Document texte  </p>
+<p class="tssr-source-paragraph">Sur Nouveau document texte </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange (qui lui-<br>même hérite des autorisations du lecteur D:). </p>
+<p class="tssr-source-paragraph">Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, <br>cliquez sur le bouton Avancé. </p>
+
+<p class="tssr-source-paragraph">Page 2/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés de<br>: Echange<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>Nom de l'objet:<br> D'\Echange</p><p>Noms de groupes ou d'utilisateurs<br>:</p><p>Utilisateurs authentifiés<br>BR Système<br>BA Administrateurs (WIN10-XX\Administrateurs)</p><p>BE Utilisateurs (WIN10-\Utilisateurs)</p><p>Pour modifier les autorisations, cliquez sur Modifier.<br>Modifier.</p><p>Autorisations pour Ltilisateurs authentifiés<br>Autoriser<br>Refuser</p><p>Contréle total<br>a</p><p>Modification</p><p>Lecture et exécution</p><p>fichage du contenu du dossier</p><p>Lecture</p><p>Écriture<br>¥</p><p>Pour les autorisations spéciales et les paramètres avancés, cliquez sur<br>Here<br>Avancé.</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>Annuler<br>Appliquer</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Page 3/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>| Propriétés de<br>: Nouveau document texte<br>x</p><p>Général<br>Sécurité<br>Details<br>Versions précédentes</p><p>Nom de l'objet:<br>= D:\Echange’\Nouveau document texte txt</p><p>Noms de groupes ou d'utilisateurs<br>:<br>a Ltilisateurs authentifiés<br>ER Système<br>BE Administrateurs (WIN10-XX\Administrateurs)</p><p>BR Utilisateurs (WIN10-XX\Utlisateurs}</p><p>Pour modifier les autorisations, cliquez sur Modifier.<br>:<br>Modifier...</p><p>Autorisations pour Ltilisateurs authentifiés<br>Autoriser<br>Refuser</p><p>Contrôle total</p><p>Modification</p><p>Lecture et exécution</p><p>Lecture</p><p>Écriture</p><p>Autorisations spéciales</p><p>Pour les autorisations spéciales et les paramètres avancés, cliquez sur<br>Avancé.</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>OK<br>Annuler<br>Appliquer</p><p>Paramètres de sécurité avancés pour Nouveau document texte<br>o<br>x</p><p>Nom:<br>D:\Echange\Nouveau document texte.txt</p><p>Propriétaire :<br>francois (WIN10-XX\francois) Le Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d'autorisation. Pour modifier une entrée d'autorisation,<br>sélectionnez l'entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d'autorisations<br>:</p><p>Type<br>Principal<br>Accès<br>Hérité de<br>§% Auto...<br>Administrateurs (WIN10-XX\Administrateurs)<br>Contrôle total<br>DA<br>82 Auto...<br>Système<br>Contrôle total<br>D:<br>£2 Auto...<br>Utilisateurs authentifiés<br>Modification<br>DA<br>82 Auto...<br>Utilisateurs (WIN10-XX\Utilisateurs)<br>Lecture et exécution<br>DA</p><p>Ajouter<br>Supprimer<br>Afficher</p><p>Désactiver l'héritage</p><p>nouer | DIRE</p></div></details>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Configurez les autorisations d'accès au répertoire Echange </p>
+<pre class="tssr-source-code">o Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire </pre>
+<pre class="tssr-source-code">o Les administrateurs auront le contrôle total </pre>
+<pre class="tssr-source-code">o Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre </pre>
+<p class="tssr-source-paragraph">poste  </p>
+<pre class="tssr-source-code">o Testez le bon fonctionnement des autorisations </pre>
+<p class="tssr-source-paragraph">Ici plusieurs possibilités, en voici une en modifiant les héritages </p>
+<p class="tssr-source-paragraph">Lecteur D: </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">Modifier </p>
+<p class="tssr-source-paragraph">Sélectionnez Utilisateurs authentifiés </p>
+<p class="tssr-source-paragraph">Supprimer </p>
+<p class="tssr-source-paragraph">Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total </p>
+<p class="tssr-source-paragraph">Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne </p>
+<p class="tssr-source-paragraph">OK &gt; Appliquer &gt; OK </p>
+
+
+<p class="tssr-source-paragraph">Dossier Echange </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Page 4/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Paramètres de sécurité avancés pour DATA (D:)<br>Oo<br>x</p><p>Nom:<br>D:\</p><p>Propriétaire :<br>Système © Modifier</p><p>Autorisations<br>Audit<br>Accés effectif</p><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d'autorisation. Pour modifier une entrée d'autorisation,<br>sélectionnez l'entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d'autorisations :</p><p>Type<br>Principal<br>Accès<br>Hérité de<br> S'applique à<br>82<br>Autoriser<br>Système<br>Contrôle total<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers<br>82<br>Autoriser<br>Administrateurs (WIN10-XX\Administrateurs)<br>Contrôle total<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers<br>82<br>Autoriser<br>Utilisateurs (WIN10-XX\Utilisateurs)<br>Lecture et exécution<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-e1d6dff27626eaffa66e59e2008c71d399b8d73b3e14344f77c0ee2c9c6b130f.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-e1d6dff27626eaffa66e59e2008c71d399b8d73b3e14344f77c0ee2c9c6b130f.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="965" height="3176"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage. </p>
+<p class="tssr-source-paragraph">Modifier </p>
+<p class="tssr-source-paragraph">Ajouter… </p>
+<p class="tssr-source-paragraph">Entrez les noms des objets à sélectionner : L_Collegues </p>
+<p class="tssr-source-paragraph">Entrée </p>
+<p class="tssr-source-paragraph">Cocher Modification (vous observerez que Ecriture va se cocher automatiquement) <br> </p>
+<p class="tssr-source-paragraph">Appliquer &gt; OK <br> </p>
+<p class="tssr-source-paragraph">Les tests d'accès (important) </p>
+<p class="tssr-source-paragraph">Première solution (peut-être la plus probante) : faire des tests "grandeur réelle" </p>
+<p class="tssr-source-paragraph">Fermez votre session actuelle (logoff) puis ouvrez une session locale avec l'utilisateur <br>Romain. </p>
+<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car Romain (utilisateur) possède les <br>autorisations en Lecture). </p>
+<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (impossible car Romain n'a </p>
+<p class="tssr-source-paragraph">Page 5/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Autorisations pour Echange<br>x</p><p>Sécurité</p><p>Nom de l'objet:<br> D:\Echange</p><p>Noms de groupes ou d'utilisateurs<br>:<br>ER Système</p><p>L_Collegues (WIN10-X*\L_Collegues)<br>BA Administrateurs (WIN10-XX Administrateurs)</p><p>BE Utilisateurs (WIN10-XX\Ltilisateurs)</p><p>Ajouter.<br>Supprimer</p><p>Autorisations pour L_Collegues<br>Autoriser<br>Refuser</p><p>Contrôle total<br>oO<br>Ol<br>*<br>Modification<br>O<br>Lecture et exécution<br>oO</p><p>Affichage du contenu du dossier<br>O</p><p>Lecture<br>Cv</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>Annuler<br>Appliquer</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">pas les autorisations en Modification, il fait partie du groupe prédéfini Utilisateurs). </p>
+
+
+<p class="tssr-source-paragraph">Fermez la session de Romain et ouvrez une session avec un de vos utilisateurs <br>supplémentaires. </p>
+<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car votre utilisateur supplémentaire <br>(L_Collegues) possède les autorisations en Lecture). </p>
+<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (possible car votre utilisateur <br>possède les autorisations en Modification, par l'intermédiaire du groupe L_Collegues). </p>
+<p class="tssr-source-paragraph">Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL <br>(Impossible car l'utilisateur supplémentaire, qui fait partie du groupe L_Collegues, ne <br>possède pas les autorisations en Contrôle Total, le bouton Modifier est protégé par l'UAC). </p>
+<p class="tssr-source-paragraph">Fermer la session actuelle et ouvrez une session locale avec l'utilisateur francois. </p>
+<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car francois (Administrateurs) possède <br>les autorisations en Lecture). </p>
+<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (possible car francois <br>possède les autorisations en Modification, par l'intermédiaire du groupe prédéfini <br>Administrateurs). </p>
+<p class="tssr-source-paragraph">Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL <br>(possible car francois, qui fait partie du groupe prédéfini Administrateurs possède les <br>autorisations en Contrôle Total). </p>
+<p class="tssr-source-paragraph">Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès effectif </p>
+<p class="tssr-source-paragraph">Ouvrez une session avec un utilisateur membre du groupe Administrateurs </p>
+<p class="tssr-source-paragraph">Affichez les propriétés du dossier Echange (clic droit &gt; Propriétés) </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">Avancé </p>
+<p class="tssr-source-paragraph">Page 6/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>= Accès au dossier de destination refusé<br>—<br>x</p><p>Vous devez disposer des droits d'administrateur pour copier des éléments</p><p>dans ce dossier</p><p>Echange<br>Date de création<br>: 29/03/2021 16:30</p><p>@ Continuer<br>Ignorer<br>Annuler</p><p>Plus de détails</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Onglet Accès effectif </p>
+<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
+<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe utilisateurs </p>
+<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : Romain </p>
+<p class="tssr-source-paragraph">Entrée </p>
+<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
+<p class="tssr-source-paragraph">On observe que romain n'a que des accès en Lecture (pas de création, d'écriture et de <br>suppression possible). </p>
+
+
+
+
+
+<p class="tssr-source-paragraph">Page 7/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>| Paramètres de sécurité avancés pour Echange<br>Oo<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) @ Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>romain (WIN10-XX\romain) _ Sélectionner un utilisateur</p><p>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>x<br>Contrôle total<br>Autorisations de fichiers<br>wt<br>Parcours du dossier/exécuter le fichier<br>wt<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>x<br>Création de fichier/écriture de données<br>Autorisations defichiers<br>x<br>Création de dossier/ajout de données<br>Autorisations defichiers<br>x<br>Attributs d'écriture<br>Autorisations de fichiers<br>x<br>Écriture d'attributs étendus<br>Autorisations defichiers<br>x<br>Suppression de sous-dossier<br>et fichier<br>Autorisations de fichiers<br>x<br>Suppression<br>Autorisations de fichiers<br>wt<br>Autorisations de lecture<br>x<br>Modifier les autorisations<br>Autorisations defichiers<br>x<br>Appropriation<br>Autorisations defichiers</p><p>a</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe L_Collegues </p>
+<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
+<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : l'un de vos utilisateurs supplémentaires </p>
+<p class="tssr-source-paragraph">Entrée </p>
+<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
+<p class="tssr-source-paragraph">On observe qu'Alix possède un niveau d'autorisation plus élevé que romain car le groupe <br>L_Collegues possède des accès en Modification  </p>
+
+
+
+
+<p class="tssr-source-paragraph">Page 8/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>| à Paramètres de sécurité avancés pour Echange<br>im)<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) 8 Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>Alix (WIN10-XX\Alix)<br>Sélectionner un utilisateur</p><p>|<br>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>x<br>Contréle total<br>Autorisations de fichiers<br>wt<br>Parcours du dossier/exécuter le fichier<br>wt<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>wt<br>Création de fichier/écriture de données<br>wf<br>Création de dossier/ajout de données<br>wt<br>Attributs d'écriture<br>wt<br>Écriture d'attributs étendus<br>x<br>Suppression de sous-dossier et fichier<br>Autorisations de fichiers<br>wt<br>Suppression<br>wt<br>Autorisations de lecture<br>x<br>Modifier les autorisations<br>Autorisations de fichiers<br>x<br>Appropriation<br>Autorisations de fichiers</p><p>|<br>Annuler<br>Appliquer</p><p>ent</p></div></details>
+
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-d588639839d2453c009bd333f07c0e12d5eec4265c2ff6582e522a1ea2dd57bf.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-d588639839d2453c009bd333f07c0e12d5eec4265c2ff6582e522a1ea2dd57bf.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="3439"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs </p>
+<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
+<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : francois </p>
+<p class="tssr-source-paragraph">Entrée </p>
+<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
+<p class="tssr-source-paragraph">De par son appartenance au groupe prédéfini Administrateurs, francois possède le niveau <br>d'accès Contrôle Total </p>
+
+<p class="tssr-source-paragraph">• <br>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation </p>
+<pre class="tssr-source-code">o Yann et François accéderont en modifications à ces répertoires. </pre>
+<pre class="tssr-source-code">o Les utilisateurs standard auront un accès en lecture et les administrateurs </pre>
+<p class="tssr-source-paragraph">posséderont un contrôle total </p>
+<pre class="tssr-source-code">o Testez le bon fonctionnement des autorisations </pre>
+<p class="tssr-source-paragraph">Page 9/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Paramètres de sécurité avancés pour Echange<br>o<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) @ Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>francois (WIN10-XX\francois)<br>Sélectionner un utilisateur</p><p>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>D<br>Contrôle total<br>wt<br>Parcours du dossier/exécuter le fichier<br>“x<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>wt<br>Création de fichier/écriture de données<br>wt<br>Création de dossier/ajout de données<br>wt<br>Attributs d'écriture<br>D<br>Écriture d'attributs étendus<br>D<br>Suppression de sous-dossier<br>et fichier<br>wt<br>Suppression<br>wf<br>Autorisations de lecture<br>wt<br>Modifier les autorisations<br>wt<br>Appropriation</p><p>Annuler<br>Appliquer</p></div></details>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+
+<p class="tssr-source-paragraph">Ici plusieurs possibilités, en voici une en modifiant les héritages </p>
+<p class="tssr-source-paragraph">Lecteur e: </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">Modifier </p>
+<p class="tssr-source-paragraph">Sélectionnez Utilisateurs authentifiés </p>
+<p class="tssr-source-paragraph">Supprimer </p>
+<p class="tssr-source-paragraph">Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total </p>
+<p class="tssr-source-paragraph">Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne. </p>
+<p class="tssr-source-paragraph">OK &gt; Appliquer &gt; OK </p>
+<p class="tssr-source-paragraph">Créer les dossiers logiciels et manuels d'utilisation dans le volume TOOLS (clic droit dans le <br>volume TOOLS &gt; Nouveau &gt; Dossier). </p>
+<p class="tssr-source-paragraph">Par héritage, ces dossiers permettent au Système et aux Administrateurs d'en avoir le <br>Contrôle total. Les membres du groupe Utilisateurs, n'ont qu'un accès en Lecture </p>
+<p class="tssr-source-paragraph">Occupons-nous maintenant des autorisations d'accès de Yann et François </p>
+<p class="tssr-source-paragraph">Les DACL ne doivent contenir que des groupes. C'est la bonne pratique. </p>
+<p class="tssr-source-paragraph">Yann et François sont tous les deux membres du groupe L_Informatiques </p>
+<p class="tssr-source-paragraph">Il suffit donc de rajouter le groupe L_Informatiques dans les DACL des dossiers logiciels et <br>manuels d'utilisation </p>
+<p class="tssr-source-paragraph">Sur les dossiers logiciels et manuels d'utilisation </p>
+<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
+<p class="tssr-source-paragraph">Onglet Sécurité </p>
+<p class="tssr-source-paragraph">On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage. </p>
+<p class="tssr-source-paragraph">Modifier </p>
+<p class="tssr-source-paragraph">Ajouter… </p>
+<p class="tssr-source-paragraph">Entrez les noms des objets à sélectionner : L_Informatiques </p>
+<p class="tssr-source-paragraph">Entrée </p>
+<p class="tssr-source-paragraph">Page 10/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+</section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
+<p class="tssr-source-paragraph">Cocher Modification (vous observerez que Ecriture va se cocher automatiquement). </p>
+<p class="tssr-source-paragraph">Toujours faire les tests d'autorisation d'accès "grandeur réelle" ou bien en passant par <br>l'onglet Accès Effectif </p>
+
+<p class="tssr-source-paragraph">Sur la VM Discovery en PowerShell </p>
+<p class="tssr-source-paragraph">• <br>Afficher la liste des droits d'accès au dossier 2022 du lecteur M: </p>
+<pre class="tssr-source-code">Get-Acl m:\2022 
+ </pre>
+<p class="tssr-source-paragraph">• <br>Quelle cmdlet permet la modification des ACL sur un dossier ? </p>
+<pre class="tssr-source-code">Set-Acl 
+ 
+ </pre>
+<p class="tssr-source-paragraph">Page 11/11 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-a9a280a8af85ade750a3cdb924314f3786cbd10a78fc5801fc95ef3eadb2435f.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-a9a280a8af85ade750a3cdb924314f3786cbd10a78fc5801fc95ef3eadb2435f.webp" alt="Illustrations du support source, pages 9 à 11" loading="lazy" width="900" height="1188"></a><figcaption>Illustrations du support Drive — pages 9 à 11. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1410fdahllumEPrWp3O-vvc38KyzkoCJz · <span title="Empreinte SHA-256 du fichier source">SHA-256 3308a9a099283004…</span></p>
 </div>
 </details>
@@ -13214,7 +13632,7 @@ D. New-Acl</p>
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p><strong>Séquence :</strong> Systèmes clients Microsoft</p>
 <h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
@@ -13441,11 +13859,11 @@ D. New-Acl</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascripts/collaboration-config.js"></script>
       

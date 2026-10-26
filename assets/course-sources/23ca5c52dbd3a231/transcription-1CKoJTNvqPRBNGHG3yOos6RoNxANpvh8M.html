@@ -1,0 +1,87 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP 1 - DNS résolveur.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP 1 - DNS résolveur</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<h4>DNS résolveur </h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Le service DNS </p>
+
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6. </p>
+
+<p class="tssr-source-paragraph">Durée estimée </p>
+<p class="tssr-source-paragraph">1 à 2 heures </p>
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Prérequis : </p>
+<p class="tssr-source-paragraph">• <br>Avoir réalisé le TP précédent du Module 05. </p>
+<p class="tssr-source-paragraph">Création de la machine virtuelle : </p>
+<p class="tssr-source-paragraph">Installation du service DNS : </p>
+<p class="tssr-source-paragraph">• <br>Installer le service DNS sur W19-DNS </p>
+<p class="tssr-source-paragraph"> <br>• <br>Configurez W19-DNS afin qu’elle fasse appel à son propre service DNS. </p>
+<p class="tssr-source-paragraph">Page 1/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>is Add Roles and Features Wizard<br>-<br>oa<br>x</p><p>DESTINATION SERVER<br>Select server roles<br>SRV-2K19-DNS</p><p>Before You Begin<br>Select one or more roles to install on the selected server.</p><p>Installation Type<br>Roles<br>Description</p><p>Server Selection<br>oO<br>A]<br>Active Directory Certificate Services<br>SS<br>© Active Directory Federation Services<br>certification authorities and related<br>FE<br>Active Directory Lightweight Directory Services<br>role services that alow you D sue)<br>[] Active Directory Rights Management Services<br>te<br>[1 Device Health Attestation<br>variety of applications.<br>CO DHCP Server</p><p>) DNS Server (Installed)<br>OO Fax Server</p><p>&gt;<br>[ll] File and Storage Services (1 of 12 installed)<br>[] Host Guardian Service<br>D] Hyper-v</p><p>Network Policy and Access Services<br>(2 Print and Document Services<br>[] Remote Access<br>[] Remote Desktop Services<br>[1 Volume Activation Services<br>Co Web Server (IIS)<br>[1 Windows Deployment Services<br>[] Windows Server Update Services<br>v</p><p>ent</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+
+<p class="tssr-source-paragraph">• <br>Tester la résolution depuis W19-DNS. </p>
+<pre class="tssr-source-code">o Pouvez-vous résoudre les noms DNS publics ? 
+□ Non  
+ </pre>
+<pre class="tssr-source-code">o Pouvez-vous résoudre les noms DNS de ENI École ? (ad.campus-eni.fr) 
+□ Non </pre>
+<pre class="tssr-source-code">o Est-ce normal ? 
+Oui, car il n’y a pas de redirecteur. </pre>
+<p class="tssr-source-paragraph">• <br>Affichez les informations contenues dans le cache du service DNS </p>
+
+<p class="tssr-source-paragraph">Page 2/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Ethernet<br>adapter<br>Ethernet@:</p><p>Connection-specific<br>DNS Suffix<br>.<br>:<br>Description.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Intel(R)<br>825741 Gigabit Network<br>Connection</p><p>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>No<br>Autoconfiguration Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Link-local<br>IPv6<br>Address<br>.<br>.<br>.<br>.<br>.<br>:<br>fe80::7989:f66e:bela:b461%9(Preferred)<br>IPv4 Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.0.51(Preferred)<br>Subnet Mask.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>: 255.255.255.0<br>Default Gateway...<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.0.254<br>DHCPv6<br>IAID<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>100666409<br>DHCPv6<br>Client<br>DUID.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@0-@1-08-01-27-D1-D7-FC-00-0C-29-1E-68-E7</p><p>NetBIOS<br>over<br>Tcpip.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Enabled</p><p>C:\Users\Administrator&gt;<br>ipconfig<br>/displaydns</p><p>dindous<br>IP Configuration</p><p>ocsp.digicert.com</p><p>Record Name<br>.<br>.<br>.<br>.<br>.<br>:<br>ocsp.digicert.com<br>Record Type<br>.<br>.<br>.<br>.<br>.<br>:<br>5<br>Time<br>To<br>Live<br>.<br>.<br>.<br>.<br>:<br>2973<br>Data Length<br>.<br>.<br>.<br>.<br>. : 8<br>Section<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Answer<br>CNAME<br>Record<br>.<br>.<br>.<br>.<br>:<br>cs9.wac.phicdn.net</p><p>Record Name<br>.<br>.<br>.<br>.<br>.<br>:<br>cs9.wac.phicdn.net<br>Record Type<br>.<br>.<br>.<br>.<br>.<br>:<br>1<br>Time<br>To<br>Live<br>.<br>.<br>..<br>2973<br>Data Length<br>.<br>.<br>.<br>.<br>. : 4<br>Section<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Answer</p><p>A<br>(Host)<br>Record<br>.<br>.<br>.<br>:<br>93.184.226.29</p><p>geo-prod.do.dsp.mp.microsoft.com</p><p>Record Name<br>.<br>.<br>.<br>.<br>. : geo-prod.do.dsp.mp.microsoft.com<br>Record Type<br>.<br>.<br>.<br>.<br>.<br>:<br>5<br>Time<br>To<br>Live<br>.<br>.<br>.<br>.<br>:<br>62<br>Data Length<br>.<br>.<br>.<br>.<br>. : 8<br>Section<br>.<br>.<br>.<br>.<br>.<br>.<br>. : Answer<br>CNAME<br>Record<br>.<br>.<br>.<br>.<br>:<br>geo-prod.dodsp.mp.microsoft.com.nsatc.net</p><p>Record Name<br>.<br>.<br>.<br>.<br>.<br>:<br>geo-prod.dodsp.mp.microsoft.com.nsatc.net<br>Record Type<br>.<br>.<br>.<br>.<br>.<br>:<br>5<br>Time<br>To<br>Live<br>.<br>.<br>.<br>.<br>:<br>62<br>Data Length<br>.<br>.<br>.<br>.<br>. : 8<br>Section.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Answer<br>CNAME<br>Record<br>.<br>.<br>.<br>.<br>:<br>array603.prod.do.dsp.mp.microsoft.com</p><p>Record Name.<br>.<br>.<br>.<br>.<br>:<br>array603.prod.do.dsp.mp.microsoft.com<br>Record Type<br>.<br>.<br>.<br>.<br>.<br>:<br>1<br>Time To Live<br>.<br>.<br>.<br>. : 62<br>Data<br>Length<br>.<br>.<br>.<br>.<br>.<br>:<br>4<br>Section<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Answer</p><p>A<br>(Host)<br>Record<br>.<br>.<br>.<br>:<br>51.184.162.50</p></div></details>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<p class="tssr-source-paragraph">• <br>Vider le cache DNS du serveur. </p>
+<p class="tssr-source-paragraph"> <br>• <br>Configurer les redirecteurs </p>
+<pre class="tssr-source-code">o Vers les serveurs DNS de l’ENI, dont est cliente votre machine physique. 
+o Pouvez-vous résoudre les noms DNS publics ? 
+□ Oui </pre>
+<pre class="tssr-source-code">o Pouvez-vous résoudre les noms DNS de ENI École ? 
+□ Oui    
+ </pre>
+<p class="tssr-source-paragraph">• <br>Afficher les informations contenues dans le cache du service DNS. </p>
+<pre class="tssr-source-code">o Que pouvez-vous en déduire ? 
+Le serveur DNS résolveur renseigne le cache DNS au fur et à mesure des 
+demandes de l’utilisateur. 
+ 
+Paramétrages clients </pre>
+<p class="tssr-source-paragraph">• <br>Configurer le serveur DHCP afin qu’il fasse appel au serveur DNS de votre <br>infrastructure. </p>
+
+<p class="tssr-source-paragraph">• <br>Configurer automatiquement les clients afin qu’ils fassent appel au serveur DNS de <br>votre infrastructure. </p>
+
+
+<p class="tssr-source-paragraph">Page 3/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PS C:\Wsers\Administrator&gt; ipconfig /flushdns</p><p>Windows<br>IP Configuration</p><p>Successfully flushed the<br>DNS Resolver<br>Cache.</p><p>onnection-specitic<br>DNS<br>SUTTIX<br>.<br>:<br>Description<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Intel(R)<br>82574L Gigabit Network Connection<br>Physical Address.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>@@-@C-29-58-23-69<br>DHCP<br>Enabled.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>No<br>Autoconfiguration<br>Enabled<br>.<br>.<br>.<br>.<br>:<br>Yes<br>Link-local IPvé Address<br>.<br>.<br>.<br>.<br>.<br>:<br>fe80::#900:#490:9abf:665c#9(Preferred)</p><p>Default<br>Gateway<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>192.168.1.254</p><p>NetBIOS over Tcpip.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>Enabled</p><p>SZ DHCP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>v<br>ib SRV-2K19-1<br>[=] 003 Router<br>Standard<br>192.168.1.254<br>None<br>v pied<br>+=) 006 DNSServers<br>Standard<br>192.168.1.51<br>None<br>©<br>Server Options<br>v<br>Di Scope [192.168.0.0] 192.168.0.0/24</p><p>&amp; Address Pool</p><p>@ Address Leases</p><p>Gi) Reservations</p><p>| Scope Options<br>À<br>Policies</p><p>v<br>Gi Scope [192.168.1.0] 192.168.1.0/24</p><p>&amp; Address Pool</p><p>@ Address Leases</p><p>El] Reservations</p><p>|, Scope Options<br>Gl Policies<br>3<br>Policies<br>®<br>Filters</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Services réseau en environnement Microsoft </p>
+<pre class="tssr-source-code">o Pouvez-vous résoudre les noms DNS publics ? 
+□ Oui    
+ </pre>
+<pre class="tssr-source-code">o Pouvez-vous résoudre les noms DNS de ENI École ? 
+□ Oui    
+ </pre>
+
+<p class="tssr-source-paragraph">Page 4/4 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p> oHcP<br>Option Name<br>Vendor<br>Value<br>Policy Name<br>v<br>BE SRV-2k19-1<br>(2) 003 Router<br>Standard<br>192.168.1.254<br>None<br>v BP<br>.<br>(12 006 DNS Servers<br>Standard<br>192.168.1.51<br>None<br>Server Options<br>¥ D Scope [192.168.0.0] 192.168.0.0/24<br>( Address Pool</p><p>D Address Leases</p><p>Reservations</p><p>BF Scope Options<br>Hi Policies<br>v D Scope [192.168.1.0] 192.168.1.0/24</p><p>E Address Pool<br>( Address Leases</p><p>&gt;<br>(Bl Reservations</p><p>(5) Scope Options<br>Li Policies</p><p>(Gi Policies</p><p>&gt; D Filters</p><p>Env)</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-df1c67a08ae88939906bf067e60ba7155cec936437297d177300c554361117d5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-df1c67a08ae88939906bf067e60ba7155cec936437297d177300c554361117d5.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="999" height="3976"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,57 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 4 - Les structures - If - Else - ElseIf.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 4 - Les structures - If - Else - ElseIf</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>Les structures : If, Else, ElseIf </h4>
+<p class="tssr-source-paragraph">Démonstration 04 du module 4 </p>
+
+<p class="tssr-source-paragraph">L’objectif de cette démonstration est de montrer comment les variables permettent de <br>manipuler des objets, des valeurs de propriétés à l’aide de conditions appliquées à ces variables <br>pour déclencher ou non d’autres commandes ou méthodes. </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+La structure If est essentielle, car elle conditionne l’exécution d’une commande en fonction 
+de la réponse à un test. </pre>
+<p class="tssr-source-paragraph">• <br>Le résultat du test peut être soit « Vrai » soit « Faux », mais aucune autre valeur. </p>
+
+<pre class="tssr-source-code">• 
+Le test est effectué entre les parenthèses. Dans notre exemple on teste la valeur de la variable 
+$x. </pre>
+<p class="tssr-source-paragraph">Si la valeur est supérieure à 0 alors le test répond « Vrai ». Dans ce cas, la commande entre les <br>accolades est exécutée. </p>
+
+
+<pre class="tssr-source-code">Dans cet exemple $x n’est pas supérieur à 0, donc le test répond « Faux » : aucune commande ne 
+sera exécutée. </pre>
+<pre class="tssr-source-code">Si l’on souhaite exécuter une commande lorsque le test est « Faux », alors il faut ajouter le paramètre 
+Else à la structure If. </pre>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x =<br>1</p><p>if<br>($x -gt 0)</p><p>Write-Host &quot;X est supérieur<br>a 0&quot;</p><p>}</p><p>$x = 0</p><p>if<br>($x -gt 0)<br>{<br>Write-Host &quot;X est supérieur<br>à 0&quot;</p><p>}</p><p>@</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+
+<pre class="tssr-source-code">Dans le cas où le test initial est « Faux », il est possible de faire un test secondaire via l’utilisation du 
+paramètre ElseIf. </pre>
+
+<p class="tssr-source-paragraph">Le test secondaire peut vérifier une autre variable que la variable présente dans le test initial. </p>
+<pre class="tssr-source-code">Si le second test répond « Vrai », alors la commande entre les accolades du ElseIf sera exécutée. </pre>
+
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x = 0<br>if<br>($x -gt 0)<br>{<br>Write-Host &quot;X est supérieur<br>à 0&quot;</p><p>telse<br>{</p><p>Write-Host &quot;X n&#x27;est pas<br>supérieur<br>a 0&quot;</p><p>}</p><p>X n&#x27;est pas supérieur à 0</p><p>$x = 0</p><p>if<br>($x -gt<br>0)<br>{<br>Write-Host &quot;X est supérieur<br>à 0&quot;</p><p>selseif<br>( $x -eq 0)<br>f{</p><p>Write-Host &quot;X est égale à 0&quot;<br>telse<br>f</p><p>Write-Host<br>&quot;X n&#x27;est ni<br>égale ni<br>supérieur<br>à 0”</p><p>}</p><p>X est égale à 0</p><p>E</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+
+<pre class="tssr-source-code">Avec une valeur négative, les deux tests répondent « Faux ». C’est donc la valeur du Else qui sera 
+prise en compte. </pre>
+
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$x = -4</p><p>if<br>($x -gt 0)<br>{<br>Write-Host &quot;X est supérieur<br>à 0&quot;</p><p>yelseif<br>C $x -eq 0)<br>f{</p><p>Write-Host<br>&quot;X est égale<br>a 0&quot;<br>else<br>{</p><p>Write-Host<br>&quot;X n&#x27;est ni<br>égale<br>ni<br>supérieur<br>à 0”</p><p>}</p><p>@</p></div></details>
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-bfbda90cf859fb3965c2aaf347ca71ad20ea7e1fe3518efda4b80e9b8e77ad94.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-bfbda90cf859fb3965c2aaf347ca71ad20ea7e1fe3518efda4b80e9b8e77ad94.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="1079" height="2858"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

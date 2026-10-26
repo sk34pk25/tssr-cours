@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 5 - La gestion des erreurs.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 5 - La gestion des erreurs</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<h4>La gestion des erreurs </h4>
+<p class="tssr-source-paragraph">Démonstration 05 du module 5 </p>
+
+<p class="tssr-source-paragraph">Une erreur sur une commande peut facilement bloquer toute l’exécution d’un script. L’objectif <br>de cette démonstration est de montrer que toutes les commandes disposent d’un paramètre <br>permettant d’indiquer l’action de la console en cas d’erreur d’exécution d’une commande.  </p>
+<h4>Déroulement </h4>
+<pre class="tssr-source-code">• 
+Le paramètre ErrorAction indique le comportement de la console en cas d’erreur.  </pre>
+<pre class="tssr-source-code">Avec la valeur continue  </pre>
+
+
+<pre class="tssr-source-code">Avec la valeur SilentlyContinue, l’erreur n’apparaît plus sur la console. </pre>
+
+<p class="tssr-source-paragraph">Page 1/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>$p = convertto-securestring -AsPlainText<br>‘Pa$$wOrd&#x27;<br>Set-ADAccountPassword -NewPassword $p -Identity Barron -ErrorAction Continue<br>Get-ADUser<br>-filter<br>*<br>|<br>Where-Object name -like<br>“Barron”</p><p>Runspaceld<br>:<br>ca5373d-chcbh-4aed-9a0f-f51582e4a0a7<br>DistinguishedName<br>:<br>CN-Barron,CN-Users, DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Irma<br>Name<br>:<br>Barron<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>41cd9b99-a192-4089-b112-277£6205£89c<br>SamAccountName<br>:<br>Irma<br>Barron<br>SID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1174<br>Surname<br>:<br>UserPrincipalName<br>:<br>IrmaBarron</p><p>PS C:\Users\Administrator&gt;<br>u:\DIGITALISATIONS\Cour-Digitalisé\9-2<br>-<br>Initiation<br>au Powershell\2-Cours-doc actuel\Scrip<br>t\Errors.ps1</p><p>Runspaceld<br>:<br>c4a5373d-chch-4aed-9a0f-f51582e4a0a7<br>DistinguishedName<br>: CN=Barron,<br>CN=Users, DC=ad01,DC=1cl<br>Enabled<br>:<br>False<br>GivenName<br>:<br>Irma<br>Name<br>:<br>Barron<br>ObjectClass<br>:<br>user<br>ObjectGUID<br>:<br>41cd9b99-a192-4089-b112-277£6205£89c<br>SamAccountName<br>:<br>Irma<br>Barron<br>sID<br>:<br>S-1-5-21-1966697812-3989974639-3621391846-1174<br>Surname<br>:<br>UserPrincipalName<br>:<br>IrmaBarron</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
+<pre class="tssr-source-code">La valeur Stop arrête immédiatement l’exécution du script. </pre>
+
+<pre class="tssr-source-code">Les erreurs, même non affichées dans la console, sont stockées dans une variable $Error. </pre>
+
+<pre class="tssr-source-code">Le paramètre ErrorVariable permet de spécifier une autre variable. </pre>
+
+
+<pre class="tssr-source-code">Il est possible de déterminer le comportement général des erreurs dans la console en modifiant la 
+variable $ErrorActionPreference. </pre>
+
+<p class="tssr-source-paragraph">Toutes les erreurs seront affichées, mais ne bloqueront pas l’exécution du script. </p>
+<p class="tssr-source-paragraph">Page 2/2 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>——_—_—..</p><p>$error</p><p>$error/[2]</p><p>OBLEMS<br>©<br>DEBUG<br>CONSOLE<br>TERMINAL<br>2: PowerShell Integrate: v<br>+<br>O<br>w<br>-<br>x</p><p>PS C:\Users\Administrator&gt; u:\DIGITALISATIONS\Cour-Digitalisé\9-2<br>- Initiation au Powershell 2-Cours-doc_actuel\Scrip</p><p>C:\Users\Administrator\AppData\Local\Temp\remoteIpMoProxy ActiveDirectory 1.0.0.0 localhost<br>46<br>70646d-3£95-4c18-8621-26b690fdaeSf\remoteIpMoProxy ActiveDirectory<br>1.0.0.0 localhost_4670646d-3£95-4c18-8621-26b690fd<br>aeSf.psm1:13547:9</p><p>C:\Users\Administrator\AppData\Local\Temp\remotelpMoProxy<br>ActiveDirectory 1.0.0.0localhost_4670646d-3£95-</p><p>4c18-8621-26b690fdae5f\remotelpMoProxy<br>ActiveDirectory 1.0.0.0localhost_4670646d-3f95-4c18-8621-26b690fdaeSf.psm1:13</p><p>Get-ChildItem c:\users\eni<br>-ErrorAction<br>continue -ErrorVariable<br>$erreurs<br>$erreurs</p><p>$ErrorActionPreference = &quot;SilentlyContinue&quot;</p><p>En</p></div></details>
+
+
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-d86f9c3efc68860ec103db7578edecf9a7138262965b53e2b0e49ec56e261cee.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d86f9c3efc68860ec103db7578edecf9a7138262965b53e2b0e49ec56e261cee.webp" alt="Illustrations du support source, pages 1 à 2" loading="lazy" width="1079" height="2501"></a><figcaption>Illustrations du support Drive — pages 1 à 2. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

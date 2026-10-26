@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -30,10 +30,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -13338,19 +13338,131 @@
 
 
 <h1 id="corrections-module-05-les-bases-de-mysql-et-mariadb">Corrections — Module 05 — Les bases de MySQL et MariaDB<a class="headerlink" href="#corrections-module-05-les-bases-de-mysql-et-mariadb" title="Permanent link">¶</a></h1>
-<p>Le document original et l’aide pédagogique sont séparés pour rendre leur provenance explicite.</p>
+<p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Support original du Drive</label><label for="__tabbed_1_2">Aide pédagogique — IA / externe</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
-<p class="tssr-origin-badge">SOURCE DRIVE · DOCUMENT ORIGINAL</p>
-<p>Les pages ci-dessous reproduisent les documents du dossier TSSR, dans leur ordre original, avec leurs schémas, captures et exemples. Les liens donnent aussi accès au fichier complet. Les versions et les consignes sont celles du support de formation.</p>
+<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
-<summary>Correction · M5 - Soution du TP - Requêtes SQL.pdf · 3 pages</summary>
+<summary>Correction · M5 - Soution du TP - Requêtes SQL · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<p class="tssr-original-links"><a href="../../../../assets/course-sources/35c7ff2134c6c85a/original.pdf" target="_blank" rel="noopener noreferrer">Ouvrir le document intégral</a> <a href="https://drive.google.com/file/d/1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o/view" target="_blank" rel="noopener noreferrer">Source dans le Drive</a></p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/35c7ff2134c6c85a/pages-001-003.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/35c7ff2134c6c85a/pages-001-003.webp" alt="Source Drive — M5 - Soution du TP - Requêtes SQL.pdf — pages 1 à 3. Capture du document original, sans génération IA." loading="lazy" width="1400" height="5975"></a><figcaption>Source Drive — M5 - Soution du TP - Requêtes SQL.pdf — pages 1 à 3. Capture du document original, sans génération IA.</figcaption></figure>
+<section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">GLPI </p>
+<h4>Requêtes SQL  </h4>
+<p class="tssr-source-paragraph">TP du Module 5 – Les bases de MySQL/MariaDB </p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir <br>réalisé les TP proposés. </p>
+
+<h4>Solution </h4>
+<p class="tssr-source-paragraph">Objectifs </p>
+<p class="tssr-source-paragraph">• <br>Comprendre le fonctionnement des requêtes MySQL. <br>Prérequis </p>
+<p class="tssr-source-paragraph">• <br>Avoir fini les TP des modules précédents. </p>
+<p class="tssr-source-paragraph">Contexte : </p>
+<p class="tssr-source-paragraph">• <br>Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis <br>quelque temps et votre DSI vous demande des informations à extraire dans la base <br>de données directement. </p>
+<p class="tssr-source-paragraph">Des images de correction sont disponibles dans les ressources. <br>Principales tâches à réaliser </p>
+<p class="tssr-source-paragraph">Connexion à la base de données en ligne de commande de votre serveur GLPI </p>
+<pre class="tssr-source-code">• 
+Connectez-vous en Shell à votre base de données de GLPI avec le compte root que 
+vous 
+avez 
+configuré 
+lorsque 
+vous 
+avez 
+effectué 
+la 
+commande 
+mysql_secure_installation. </pre>
+<pre class="tssr-source-code">mysql -u root -p </pre>
+<p class="tssr-source-paragraph">• <br>Affichez toutes les bases de données présentes dans votre serveur MariaDB. </p>
+<pre class="tssr-source-code">show databases; </pre>
+<p class="tssr-source-paragraph">Attention, ne pas oublier le ; à chaque fin de ligne. </p>
+<p class="tssr-source-paragraph">• <br>Connectez-vous à la base de données glpidata puis affichez toutes les tables <br>présentes. </p>
+<pre class="tssr-source-code">connect glpidata; </pre>
+<pre class="tssr-source-code">show tables; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez tous les attributs de la table des calendriers. </p>
+<pre class="tssr-source-code">select * from glpi_calendars; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez les noms et prénoms des utilisateurs de GLPI. </p>
+<pre class="tssr-source-code">select name, firstname from glpi_users; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB). </p>
+<p class="tssr-source-paragraph">Page 1/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+
+</section>
+<section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">GLPI </p>
+<pre class="tssr-source-code">select name from glpi_users where language=’en_GB’; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez le nom et le nom complet des catégories de ticket qui sont enfants de. </p>
+<pre class="tssr-source-code">o Indice : utiliser un comparateur. </pre>
+<pre class="tssr-source-code">select 
+name, 
+completename 
+from 
+glpi_itilcatégories 
+where 
+completename&lt;&gt;name; </pre>
+<p class="tssr-source-paragraph">Ou </p>
+<pre class="tssr-source-code">select name, completename from glpi_itilcatégories where level &gt; ‘1’; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au <br>modèle GAB-JL356A-ARUBA-2540-24P. </p>
+<pre class="tssr-source-code">o Indices : </pre>
+<p class="tssr-source-paragraph">▪ <br>Utiliser les sélections complexes. </p>
+<p class="tssr-source-paragraph">▪ <br>Is_template à 1 est un gabarit. </p>
+<p class="tssr-source-paragraph">▪ <br>GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2. </p>
+<pre class="tssr-source-code">select name from glpi_networkequipments where is_template=’0’ and 
+networkequipmentmodels_id=’2’; </pre>
+<p class="tssr-source-paragraph">• <br>Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs. </p>
+<pre class="tssr-source-code">o Indice : utiliser un alias. </pre>
+<pre class="tssr-source-code">select count(name) as nb_de_SLMs from glpi_slms; </pre>
+<p class="tssr-source-paragraph">• <br>Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports. </p>
+<pre class="tssr-source-code">o Indice : utiliser une fonction d’agrégation. </pre>
+<pre class="tssr-source-code">select 
+MAX(name) 
+from_glpinetworkequipments 
+where 
+networkequipmentmodels_id=’2’; </pre>
+<p class="tssr-source-paragraph">BONUS </p>
+<p class="tssr-source-paragraph">• <br>Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est <br>utilisé pour une demande dans les catégories de ticket. </p>
+<pre class="tssr-source-code">o Indice : utiliser une jointure interne. </pre>
+<p class="tssr-source-paragraph">Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul <br>qui est de type demande rattaché à une catégorie. </p>
+<p class="tssr-source-paragraph">Une solution : </p>
+<pre class="tssr-source-code">SELECT 
+glpi_tickettemplates.name, 
+glpi_itilcategories.name 
+from 
+glpi_tickettemplates 
+INNER 
+JOIN 
+glpi_itilcategories 
+ON 
+glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id 
+where glpi_itilcategories.tickettemplates_id_demand=’3’; </pre>
+<p class="tssr-source-paragraph"> BONUS </p>
+<p class="tssr-source-paragraph">• <br>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-<br>tête « nombre de catégories qui utilise un gabarit de demande ». </p>
+<pre class="tssr-source-code">SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui 
+utilise 
+un 
+gabarit 
+de 
+demande’, 
+glpi_tickettemplates.name 
+from 
+glpi_tickettemplates 
+INNER 
+JOIN 
+glpi_itilcategories 
+ON </pre>
+<p class="tssr-source-paragraph">Page 2/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+</section>
+<section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">GLPI </p>
+<pre class="tssr-source-code">glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id 
+where glpi_itilcategories.tickettemplates_id_demand=’3’; </pre>
+<p class="tssr-source-paragraph">Page 3/3 </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+
+<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-097139e67767e4b40f3c1f94f88dc083845273003c34f059348d35a5a509f797.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-097139e67767e4b40f3c1f94f88dc083845273003c34f059348d35a5a509f797.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="587"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
 <p class="tssr-original-proof">Référence du document : 1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o · <span title="Empreinte SHA-256 du fichier source">SHA-256 35c7ff2134c6c85a…</span></p>
 </div>
 </details>
@@ -13359,7 +13471,7 @@
 <div class="tabbed-block">
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
-<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte des documents originaux du Drive et ne les remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
+<p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -13604,11 +13716,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
   
-      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../../assets/javascripts/collaboration-config.js"></script>
       

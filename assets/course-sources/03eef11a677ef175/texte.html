@@ -1,306 +1,157 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 10 - Support de cours.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Module 10 - Support de cours.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>     Systèmes clients Microsoft
-                 Module 10 – La maintenance du système
-
-
-
-
-
-                                                                                         1
-
-
-1
-
-
-
-  La maintenance du système
-
-                                            •  Découvrir des outils de diagnostics système  Objectifs
-                                            •  Activer et gérer les points de restauration
-                                            •  Récupérer un système défaillant
-
-
-
-
-
-                                                                                         2
-
-
-2</pre></section><section><h2>Page 2</h2><pre>  La maintenance du système
- Maintenance du système
-
-            • Les outils de diagnostic
-            • Points de restauration
-            • Récupération du système
-
-
-
-
-
-                                                                                         3
-
-
-3
-
-
-  La maintenance du système
- Maintenance du système
-
-        Les problématiques
-              • Performances : est-ce que le système est en mesure de réaliser les tâches ?
-        4 composants surveillés en priorité : processeur, mémoire, disque, réseau
-              • Fiabilité : est-ce que le système a le comportement attendu ?
-        Au démarrage, au lancement des services, au lancement des applications…
-
-        Les méthodes disponibles
-              • Analyse en temps réel : ce qu’il se passe en ce moment
-              • Analyse sur un historique : ce qu’il s’est passé dernièrement (ou il y a longtemps)
-              • Diagnostic automatique : proposé par Windows
-             Certains outils proposent de résoudre automatiquement les problèmes
-                 (mais sans préciser la solution qui va être appliquée !)
-
-                                                                                         4
-
-
-4</pre></section><section><h2>Page 3</h2><pre>  La maintenance du système
- Maintenance du système
-
-        Analyse en temps réel
-              • Gestionnaire de tâches : processus, services, les performances processeur et mémoire
-              • Observateur d’évènements  : contient tous les évènements enregistrés par le système
-              • Moniteur de ressources : affichage détaillé pour les 4 composants principaux
-              • Analyseur de performances : affichage des performances à partir de compteurs
-
-        Analyse sur un historique
-              • Historique de fiabilité : vue synthétique de l’état de santé du système dans le temps
-              • Observateur d’évènements  : les évènements sont mémorisés dans des journaux
-               (fichiers de 20 Mo par défaut)
-              • Analyseur de performances : permet de planifier des compteurs dans des plages
-             horaires pour une analyse a posteriori
-
-                                                                                         5
-
-
-5
-
-
-  La maintenance du système
- Maintenance du système
-
-        Diagnostic automatique
-              • Diagnostic de mémoire Windows : redémarre automatiquement le système et lance une
-              série de tests sur la mémoire physique
-              • Composant Résolution de problème : série de packs de résolution de problèmes intégrés
-            à Windows.
-                     •  Ils sont orientés utilisateur, il n’est pas possible de choisir ou consulter la solution trouvée
-
-       Dans quel but ?
-              • Trouver des indices pour comprendre les problèmes et faire des recherches
-              • Ressources : aide Windows, Technet, blogs spécialisés, moteur de recherche...
-
-
-
-                                                                                         6
-
-
-6</pre></section><section><h2>Page 4</h2><pre>  La maintenance du système
-
-
-          Démonstration
-
-
-
-
-
-                                                                                         7
-
-
-7
-
-
-  La maintenance du système
- Les points de restauration système
-
-           Tel un journal, enregistrement des modifications du système
-              • Propose de les restaurer à un état antérieur
-              • Plus rapide qu&#x27;une restauration complète
-              • Sauvegarde le registre, certains fichiers système et les programmes
-              • Ne sauvegarde pas les données
-              • Désactivé par défaut
-              • S&#x27;active sur un lecteur
-
-
-
-
-
-                                                                                          17
-
-
-17</pre></section><section><h2>Page 5</h2><pre>  La maintenance du système
- Les points de restauration système
-
-
-              • Création des points de restauration
-                      • Chaque jour
-                      • À chaque évènement important survenant sur
-                      le système
-                               •  Installation d&#x27;un pilote
-                               •  Désinstallation d&#x27;un logiciel
-                               • …
-                      • Manuellement
-              • Outil disponible via sysdm.cpl
-              • Espace protégé alloué au stockage des points
-           de restauration (méthode FIFO)
-              • Restauration possible via WinRE
-
-
-                                                                                          18
-
-
-18
-
-
-  La maintenance du système
- Récupération du système
-
-       WinRE
-              • Environnement de récupération du système d&#x27;exploitation principal de la machine
-              • Système d&#x27;exploitation, léger, de réparation du système, lorsque le principal ne peut plus
-            démarrer
-              • Embarque des outils de diagnostics
-              • Embarque des outils de réparation
-              • Possibilité de réinitialiser le PC
-                      •  Réinstallation du système, &quot;retour à la configuration d&#x27;usine&quot;
-
-
-
-
-
-                                                                                          19
-
-
-19</pre></section><section><h2>Page 6</h2><pre>  La maintenance du système
- Récupération du système
-
-
-              • Comment lancer WinRE ?
-                      • Depuis le menu démarrer : MAJ + redémarrer
-                      • En ligne de commande shutdown /r /o
-                      • Menu Paramètres &gt; Mise à jour et sécurité &gt; Récupération &gt; Redémarrer maintenant
-                      • Depuis le support d&#x27;installation, menu Réparer l&#x27;ordinateur
-
-              • Chargement automatique de WinRE
-                      • Après 2 échecs consécutifs du démarrage du système d&#x27;exploitation
-                      • Après 2 arrêts imprévus survenus moins de 2 minutes après le démarrage
-
-
-
-
-
-                                                                                          20
-
-
-20
-
-
-  La maintenance du système
- Récupération du système
-
-
-         Options avancées
-
-
-
-
-
-                                                                                          21
-
-
-21</pre></section><section><h2>Page 7</h2><pre>  La maintenance du système
- Récupération du système
-
-
-              • Restauration du système
-                      •  Utilisation d&#x27;un point de restauration système
-                      •  Privilège d&#x27;administration requis
-              • Récupération de l&#x27;image système
-                      •  Utilisation d&#x27;une sauvegarde de l&#x27;image système valide &quot;si elle existe&quot;
-                      • Média source requis (DVD, disque dur, etc.)
-              • Invite de commandes
-                      • Pour utiliser des outils de diagnostic ou de réparation
-                      • cmd executée en tant qu&#x27;administrateur
-              • Rétrograder vers la version précédente
-                      •  Si Windows 10 est une MAN, possibilité de retrouver Windows 7 ou Windows 8.1 source
-                      •  Impossibilité de rétrograder vers la build Windows 10 précédente
-
-                                                                                          22
-
-
-22
-
-
-  La maintenance du système
- Récupération du système
-
-
-              • Paramètres
-                      • Redémarrage du poste et choix de démarrage spécifique
-                               • Mode sans échec
-                               •  Activer le mode vidéo basse résolution
-                               •  Désactiver le contrôle obligatoire des signatures de pilotes
-                               • …
-              • Outil de redémarrage système
-                      • Reconstruit/répare le MBR éventuellement manquant ou corrompu
-                      • Reconstruit/répare le magasin BCD
-
-
-
-
-
-                                                                                          23
-
-
-23</pre></section><section><h2>Page 8</h2><pre>  La maintenance du système
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          24
-
-
-24
-
-
-  La maintenance du système
-
-
-              TP
-
-
-
-
-
-                                                                                          25
-
-
-25</pre></section><section><h2>Page 9</h2><pre>  La maintenance du système
- Conclusion                                            •  Le technicien doit être en mesure de s’informer
-                                     sur l’état du système
-                                                                 •  En temps réel
-                                                                 •  Sur une période passée
-                                            • En cas de dysfonctionnement, le technicien doit
-                                  pouvoir
-                                                                 •  Investiguer, enquêter
-                                                                 •  Réparer et/ou restaurer le système
-
-
-
-
-
-                                                                                          26
-
-
-26</pre></section></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 10 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Module 10 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
+<p class="tssr-source-paragraph">Module 10 – La maintenance du système</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">1</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Objectifs<br>• Découvrir des outils de diagnostics système<br>• Activer et gérer les points de restauration<br>• Récupérer un système défaillant</h4>
+<p class="tssr-source-paragraph">2</p>
+<p class="tssr-source-paragraph">2</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Maintenance du système</h4>
+<p class="tssr-source-paragraph">• Les outils de diagnostic<br>• Points de restauration</p>
+<p class="tssr-source-paragraph">• Récupération du système</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">3</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Maintenance du système</h4>
+<p class="tssr-source-paragraph">Les problématiques<br>• Performances : est-ce que le système est en mesure de réaliser les tâches ?<br><img class="tssr-source-glyph" data-source-codepoint="f0f0" src="../glyphs/e1199b5ce70ea00926ad6f9e716a5c2e0d8a6baffea2647e8d427ac96632cd77.webp" alt="Symbole du support" title="Symbole original du support">4 composants surveillés en priorité : processeur, mémoire, disque, réseau<br>• Fiabilité : est-ce que le système a le comportement attendu ?<br><img class="tssr-source-glyph" data-source-codepoint="f0f0" src="../glyphs/e1199b5ce70ea00926ad6f9e716a5c2e0d8a6baffea2647e8d427ac96632cd77.webp" alt="Symbole du support" title="Symbole original du support">Au démarrage, au lancement des services, au lancement des applications…</p>
+<p class="tssr-source-paragraph">Les méthodes disponibles</p>
+<p class="tssr-source-paragraph">• Analyse en temps réel : ce qu’il se passe en ce moment<br>• Analyse sur un historique : ce qu’il s’est passé dernièrement (ou il y a longtemps)<br>• Diagnostic automatique : proposé par Windows</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0f0" src="../glyphs/e1199b5ce70ea00926ad6f9e716a5c2e0d8a6baffea2647e8d427ac96632cd77.webp" alt="Symbole du support" title="Symbole original du support">Certains outils proposent de résoudre automatiquement les problèmes </p>
+<p class="tssr-source-paragraph">(mais sans préciser la solution qui va être appliquée !)</p>
+<p class="tssr-source-paragraph">4</p>
+<p class="tssr-source-paragraph">4</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Maintenance du système</h4>
+<p class="tssr-source-paragraph">Analyse en temps réel<br>• Gestionnaire de tâches : processus, services, les performances processeur et mémoire<br>• Observateur d’évènements : contient tous les évènements enregistrés par le système<br>• Moniteur de ressources : affichage détaillé pour les 4 composants principaux<br>• Analyseur de performances : affichage des performances à partir de compteurs</p>
+<p class="tssr-source-paragraph">Analyse sur un historique </p>
+<p class="tssr-source-paragraph">• Historique de fiabilité : vue synthétique de l’état de santé du système dans le temps<br>• Observateur d’évènements : les évènements sont mémorisés dans des journaux <br>(fichiers de 20 Mo par défaut)<br>• Analyseur de performances : permet de planifier des compteurs dans des plages <br>horaires pour une analyse a posteriori</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">5</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Maintenance du système</h4>
+<p class="tssr-source-paragraph">Diagnostic automatique</p>
+<p class="tssr-source-paragraph">• Diagnostic de mémoire Windows : redémarre automatiquement le système et lance une <br>série de tests sur la mémoire physique</p>
+<p class="tssr-source-paragraph">• Composant Résolution de problème : série de packs de résolution de problèmes intégrés <br>à Windows. </p>
+<p class="tssr-source-paragraph">• Ils sont orientés utilisateur, il n’est pas possible de choisir ou consulter la solution trouvée</p>
+<p class="tssr-source-paragraph">Dans quel but ?</p>
+<p class="tssr-source-paragraph">• Trouver des indices pour comprendre les problèmes et faire des recherches</p>
+<p class="tssr-source-paragraph">• Ressources : aide Windows, Technet, blogs spécialisés, moteur de recherche...</p>
+<p class="tssr-source-paragraph">6</p>
+<p class="tssr-source-paragraph">6</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">7</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Les points de restauration système</h4>
+<p class="tssr-source-paragraph">Tel un journal, enregistrement des modifications du système</p>
+<p class="tssr-source-paragraph">• Propose de les restaurer à un état antérieur</p>
+<p class="tssr-source-paragraph">• Plus rapide qu&#x27;une restauration complète</p>
+<p class="tssr-source-paragraph">• Sauvegarde le registre, certains fichiers système et les programmes</p>
+<p class="tssr-source-paragraph">• Ne sauvegarde pas les données</p>
+<p class="tssr-source-paragraph">• Désactivé par défaut</p>
+<p class="tssr-source-paragraph">• S&#x27;active sur un lecteur</p>
+<p class="tssr-source-paragraph">17</p>
+<p class="tssr-source-paragraph">17</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-19fe15b1e599b7b99aaf956299852461722a21d3ea86a5f88f5ddaf0fe67bb7c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-19fe15b1e599b7b99aaf956299852461722a21d3ea86a5f88f5ddaf0fe67bb7c.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="992" height="5925"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Les points de restauration système</h4>
+<p class="tssr-source-paragraph">• Création des points de restauration<br>• Chaque jour<br>• À chaque évènement important survenant sur <br>le système</p>
+<p class="tssr-source-paragraph">• Installation d&#x27;un pilote<br>• Désinstallation d&#x27;un logiciel<br>• …<br>• Manuellement</p>
+<p class="tssr-source-paragraph">• Outil disponible via sysdm.cpl</p>
+<p class="tssr-source-paragraph">• Espace protégé alloué au stockage des points <br>de restauration (méthode FIFO)</p>
+<p class="tssr-source-paragraph">• Restauration possible via WinRE</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">18</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Récupération du système</h4>
+<p class="tssr-source-paragraph">WinRE</p>
+<p class="tssr-source-paragraph">• Environnement de récupération du système d&#x27;exploitation principal de la machine</p>
+<p class="tssr-source-paragraph">• Système d&#x27;exploitation, léger, de réparation du système, lorsque le principal ne peut plus <br>démarrer</p>
+<p class="tssr-source-paragraph">• Embarque des outils de diagnostics</p>
+<p class="tssr-source-paragraph">• Embarque des outils de réparation</p>
+<p class="tssr-source-paragraph">• Possibilité de réinitialiser le PC<br>• Réinstallation du système, &quot;retour à la configuration d&#x27;usine&quot;</p>
+<p class="tssr-source-paragraph">19</p>
+<p class="tssr-source-paragraph">19</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Propriétés système<br>x<br>er<br>=<br>SS ma [ia</p><p>Unepr<br>einsr mon<br>ne</p><p>Rosso ine<br>RC</p><p>‘Vous pouvez annuler les modficationg<br>©&quot; actvanta protectiondu système, Terpower awraier es<br>(système en rétabissant l&#x27;ordinateur à<br>tons<br>restaurant<br>Sun état antérieur.<br>ere eee<br>crsmnan<br>restauration précédent.<br>@<br>Con<br>Odésactiver la protection du système<br>Pontes<br>pren<br>Laes<br>Cr<br>nee<br>Seay rea<br>RTE<br>=<br>Corre de parte de ma<br>l&#x27;espace dsque<br>et supprimez des po]<br>Utisation actucte : ©2150<br>eae<br>ues<br>U<br>Cie<br>pot de eatin<br>année<br>ce</p><p>est activée.<br>tous les<br>de restauration pour ce<br>nr<br>-<br>—<br>4<br>eo ee<br>env</p><p>env</p></div></details>
+
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Récupération du système</h4>
+<p class="tssr-source-paragraph">• Comment lancer WinRE ?<br>• Depuis le menu démarrer : MAJ + redémarrer<br>• En ligne de commande shutdown /r /o<br>• Menu Paramètres &gt; Mise à jour et sécurité &gt; Récupération &gt; Redémarrer maintenant<br>• Depuis le support d&#x27;installation, menu Réparer l&#x27;ordinateur </p>
+<p class="tssr-source-paragraph">• Chargement automatique de WinRE<br>• Après 2 échecs consécutifs du démarrage du système d&#x27;exploitation<br>• Après 2 arrêts imprévus survenus moins de 2 minutes après le démarrage</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">20</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Récupération du système</h4>
+<p class="tssr-source-paragraph">Options avancées</p>
+<p class="tssr-source-paragraph">21</p>
+<p class="tssr-source-paragraph">21</p>
+<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Restauration du<br>Outil de redémarrage<br>A<br>système<br>&lt;)&gt;<br>système<br>M<br>Utiliser un point de restauration sur<br>Corriger les problèmes qui empêchent<br>votre PC pour restaurer Windows<br>le chargement de Windows</p><p>Rétrograder vers la<br>Invite de commandes<br>version précédente<br>IA<br>Uiiiser l&#x27;invite de commandes pour un</p><p>Récupération de<br>Paramètres<br>|</p><p>l&#x27;image système<br>Changer le comportement de<br>ce</p><p>Récupérer Windows à l&#x27;aide d&#x27;un fichier<br>Windows au démarrage<br>End</p><p>image système spécifique<br>eni</p></div></details>
+
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Récupération du système</h4>
+<p class="tssr-source-paragraph">• Restauration du système<br>• Utilisation d&#x27;un point de restauration système<br>• Privilège d&#x27;administration requis</p>
+<p class="tssr-source-paragraph">• Récupération de l&#x27;image système<br>• Utilisation d&#x27;une sauvegarde de l&#x27;image système valide &quot;si elle existe&quot;<br>• Média source requis (DVD, disque dur, etc.)</p>
+<p class="tssr-source-paragraph">• Invite de commandes<br>• Pour utiliser des outils de diagnostic ou de réparation<br>• cmd executée en tant qu&#x27;administrateur</p>
+<p class="tssr-source-paragraph">• Rétrograder vers la version précédente<br>• Si Windows 10 est une MAN, possibilité de retrouver Windows 7 ou Windows 8.1 source<br>• Impossibilité de rétrograder vers la build Windows 10 précédente</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">22</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Récupération du système</h4>
+<p class="tssr-source-paragraph">• Paramètres<br>• Redémarrage du poste et choix de démarrage spécifique<br>• Mode sans échec<br>• Activer le mode vidéo basse résolution<br>• Désactiver le contrôle obligatoire des signatures de pilotes<br>• …</p>
+<p class="tssr-source-paragraph">• Outil de redémarrage système<br>• Reconstruit/répare le MBR éventuellement manquant ou corrompu<br>• Reconstruit/répare le magasin BCD</p>
+<p class="tssr-source-paragraph">23</p>
+<p class="tssr-source-paragraph">23</p>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Démonstration</h4>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">24</p>
+<p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>TP</h4>
+<p class="tssr-source-paragraph">25</p>
+<p class="tssr-source-paragraph">25</p>
+
+
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-5e31885ffb7ff80c2f26358d413dcc662bd4a52f4c7ede8ceb8b488f254f65d4.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-5e31885ffb7ff80c2f26358d413dcc662bd4a52f4c7ede8ceb8b488f254f65d4.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="992" height="7031"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">La maintenance du système</p>
+<h4>Conclusion</h4>
+<p class="tssr-source-paragraph">• Le technicien doit être en mesure de s’informer <br>sur l’état du système</p>
+<p class="tssr-source-paragraph">•<br>En temps réel</p>
+<p class="tssr-source-paragraph">•<br>Sur une période passée<br>• En cas de dysfonctionnement, le technicien doit <br>pouvoir</p>
+<p class="tssr-source-paragraph">•<br>Investiguer, enquêter</p>
+<p class="tssr-source-paragraph">•<br>Réparer et/ou restaurer le système </p>
+<p class="tssr-source-paragraph">26</p>
+<p class="tssr-source-paragraph">26</p>
+<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>La maintenance du système</td><td></td></tr><tr><td>C l i<br>onc us on</td><td>• Le technicien doit être en mesure de s’informer<br>sur l’état du système</td></tr><tr><td></td><td>• Entempsréel</td></tr><tr><td></td><td>• Surunepériodepassée</td></tr><tr><td></td><td>• En cas de dysfonctionnement le technicien doit<br>,<br>pouvoir</td></tr><tr><td></td><td>• Investiguer enquêter<br>,</td></tr><tr><td></td><td>• Répareret/ourestaurerlesystème</td></tr><tr><td></td><td>26</td></tr></tbody></table></div>
+
+<figure class="tssr-original-figure"><a href="../figures/atlas-c580c08be852bb8cdb0d3a975fdc71db30bd8bcdd0ff2a8c55763c3754072345.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-c580c08be852bb8cdb0d3a975fdc71db30bd8bcdd0ff2a8c55763c3754072345.webp" alt="Illustrations du support source, pages 9" loading="lazy" width="992" height="740"></a><figcaption>Illustrations du support Drive — pages 9. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>

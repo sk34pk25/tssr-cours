@@ -1,197 +1,97 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion des utilisateurs et des groupes.pdf</title><style>body{font:18px/1.6 system-ui;max-width:75ch;margin:2rem auto;padding:1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}section{border-top:1px solid #ccc;margin:2rem 0}a{color:#165a9d}</style><h1>Enoncé du TP - Gestion des utilisateurs et des groupes.pdf</h1><p>Source : dossier TSSR du Google Drive. Transcription technique pour la recherche et l’accessibilité ; les pages originales et le document intégral restent la référence visuelle.</p><p><a href="original.pdf">Ouvrir le document intégral</a></p><section><h2>Page 1</h2><pre>                                                         Systèmes Clients Microsoft
-Gestion des utilisateurs et
-des groupes
-TP du Module 05 – Les utilisateurs et les groupes
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enoncé du TP - Gestion des utilisateurs et des groupes.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enoncé du TP - Gestion des utilisateurs et des groupes</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Gestion des utilisateurs et <br>des groupes</h4>
+<p class="tssr-source-paragraph">TP du Module 05 – Les utilisateurs et les groupes</p>
+<p class="tssr-source-paragraph">Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les groupes. Vous<br>mettrez en place des privilèges d’administration et vous testerez leurs effets. Vous <br>parcourrez les caractéristiques des utilisateurs et des groupes. Vous effectuerez toutes <br>ses manipulations à l’aide de l’interface graphique, mais aussi par l’intermédiaire des <br>shells Microsoft.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">1 heure 30 minutes</p>
+<h4>Énoncé</h4>
+<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique</p>
+<p class="tssr-source-paragraph">À l&#x27;aide de la console de gestion des utilisateurs de la VM Win10-XX, <br>créez les objets avec les paramètres suivants :</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créez une procédure relative aux deux points suivants :</p>
+<pre class="tssr-source-code">o
+François possédera un mot de passe qui n&#x27;aura pas de date d&#x27;expiration.</pre>
+<pre class="tssr-source-code">o
+Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
+groupes en amont).</pre>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Yann fera partie des mêmes groupes que François.</p>
+<p class="tssr-source-paragraph">Page 1/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
- Au cours de ce TP, vous allez être amené à manipuler les utilisateurs et les groupes. Vous
- mettrez en place des privilèges d’administration et vous testerez leurs effets. Vous
- parcourrez les caractéristiques des utilisateurs et des groupes. Vous effectuerez toutes
- ses manipulations à l’aide de l’interface graphique, mais aussi par l’intermédiaire des
- shells Microsoft.
 
-       Durée estimée
+</section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créez deux comptes utilisateurs auxquels vous donnerez nom, prénom, login et mot de<br>passe de votre choix. Ils feront partie du groupe L_Collegues</p>
+<p class="tssr-source-paragraph">Mise en place de privilèges d&#x27;administration</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>François aura la possibilité d&#x27;administrer l&#x27;ensemble des ressources du poste Win10-XX.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Yann pourra consulter les journaux d&#x27;évènements et configurer la carte réseau.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.</p>
 
-     1 heure 30 minutes
+<p class="tssr-source-paragraph">Page 2/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
-Énoncé
 
-Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique
 
-À l&#x27;aide de la console de gestion des utilisateurs de la VM Win10-XX,
-créez les objets avec les paramètres suivants :
 
-  Créez une procédure relative aux deux points suivants :
-        o  François possédera un mot de passe qui n&#x27;aura pas de date d&#x27;expiration.
-        o     Il fera partie des groupes L_Informatiques et L_Responsables (vous créerez les
-            groupes en amont).
+</section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Retirez l&#x27;un de vos collègues du groupe utilisateurs.</p>
+<p class="tssr-source-paragraph"> <br>Informations concernant les utilisateurs et groupes</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>En naviguant dans la console graphique des utilisateurs et des groupes, listez les<br>propriétés d&#x27;un utilisateur : Nom complet, Description</p>
+<p class="tssr-source-paragraph">Listez les propriétés d&#x27;un groupe<br>  </p>
+<p class="tssr-source-paragraph">À l&#x27;aide de la ligne de commande cmd.exe</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher les informations du compte utilisateur François.</p>
 
+<p class="tssr-source-paragraph">Page 3/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
- Yann fera partie des mêmes groupes que François.
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les membres du groupe administrateurs</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions<br>de sécurité, le mot de passe que vous taperez ne devra pas être visible à l&#x27;écran !</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ajoutez Romain au groupe L_Responsables</p>
+<p class="tssr-source-paragraph">Manipulations supplémentaires avec l&#x27;interface graphique de <br>Windows 10</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Fermez la session de l&#x27;utilisateur en cours.</p>
+<p class="tssr-source-paragraph">Page 4/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
- Page 1/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 2</h2><pre>                                                         Systèmes Clients Microsoft
 
-  Créez deux comptes utilisateurs auxquels vous donnerez nom, prénom, login et mot de
-   passe de votre choix. Ils feront partie du groupe L_Collegues
 
+<figure class="tssr-original-figure"><a href="../figures/atlas-697211e82af4eaedc035801fbb989829ebbdcc72c12bc99d7aa15e74594746fc.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-697211e82af4eaedc035801fbb989829ebbdcc72c12bc99d7aa15e74594746fc.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="998" height="4540"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quels utilisateurs peuvent ouvrir une session sur le poste ?</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>L&#x27;un de vos collègues ne peut pas ouvrir de session. Pourquoi ?</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ouvrez une session avec l&#x27;utilisateur François puis affichez les profils présents sur le<br>système. Que peut-on observer ?</p>
 
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À l&#x27;aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes<br>dont il est membre.</p>
 
-Mise en place de privilèges d&#x27;administration
-  François aura la possibilité d&#x27;administrer l&#x27;ensemble des ressources du poste Win10-XX.
+<p class="tssr-source-paragraph">Page 5/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
 
 
 
+</section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<p class="tssr-source-paragraph">À l&#x27;aide de PowerShell et de la VM Discovery</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher la liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la<br>description de chacun d&#x27;eux.</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher les informations suivantes concernant l&#x27;utilisateur james : Nom complet,<br>description, classe d&#x27;objets, date de dernière connexion</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Ajouter la description Compte générique avec privilèges d&#x27;administration à l&#x27;utilisateur<br>adm</p>
+<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher le nom et le SID des membres du groupe local L_SupportInfo</p>
+<p class="tssr-source-paragraph">Page 6/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
 
- Yann pourra consulter les journaux d&#x27;évènements et configurer la carte réseau.
 
 
 
-
-
-  Vous accorderez à vos collègues la possibilité de sauvegarder votre poste Win10-XX.
-
-
-
-
-
- Page 2/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 3</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Retirez l&#x27;un de vos collègues du groupe utilisateurs.
-
-
-
-
-
-Informations concernant les utilisateurs et groupes
-      En naviguant dans la console graphique des utilisateurs et des groupes, listez les
-       propriétés d&#x27;un utilisateur : Nom complet, Description
-
-
-
-
-
-Listez les propriétés d&#x27;un groupe
-
-
-À l&#x27;aide de la ligne de commande cmd.exe
-  Afficher les informations du compte utilisateur François.
-
-
-
-
-
- Page 3/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 4</h2><pre>                                                         Systèmes Clients Microsoft
-
-  Affichez les membres du groupe administrateurs
-
-
-
-
-
-  Créez un utilisateur Romain, attribuez-lui un mot de passe. Attention, pour des questions
-  de sécurité, le mot de passe que vous taperez ne devra pas être visible à l&#x27;écran !
-
-
-
-
-
-  Ajoutez Romain au groupe L_Responsables
-
-
-
-
-
-Manipulations supplémentaires avec l&#x27;interface graphique de
-Windows 10
-
-
-  Fermez la session de l&#x27;utilisateur en cours.
-
-
-
-
-
- Page 4/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 5</h2><pre>                                                         Systèmes Clients Microsoft
-
-
-  Quels utilisateurs peuvent ouvrir une session sur le poste ?
-
-
-
-
-
-  L&#x27;un de vos collègues ne peut pas ouvrir de session. Pourquoi ?
-
-
-
-
-
-  Ouvrez une session avec l&#x27;utilisateur François puis affichez les profils présents sur le
-   système. Que peut-on observer ?
-
-
-
-
-
-  À l&#x27;aide de la ligne de commande, affichez son SID, puis affichez les SID des groupes
-   dont il est membre.
-
-
-
-
-
- Page 5/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 6</h2><pre>                                                         Systèmes Clients Microsoft
-
-À l&#x27;aide de PowerShell et de la VM Discovery
-  Afficher la  liste des utilisateurs sur le système. Vous afficherez le nom, le SID et la
-   description de chacun d&#x27;eux.
-
-
-
-
-
-  Afficher  les informations suivantes concernant  l&#x27;utilisateur james   : Nom complet,
-   description, classe d&#x27;objets, date de dernière connexion
-
-
-
-
-
-  Ajouter la description Compte générique avec privilèges d&#x27;administration à l&#x27;utilisateur
-  adm
-
-
-
-
-
-  Afficher le nom et le SID des membres du groupe local L_SupportInfo
-
-
-
-
-
- Page 6/7
-                                      © ENI – Tous droits réservés</pre></section><section><h2>Page 7</h2><pre>                                                         Systèmes Clients Microsoft
-
-Solution
-
-Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans
-les ressources à télécharger.
-
-
-
-
-
- Page 7/7
-                                      © ENI – Tous droits réservés</pre></section></html>
+</section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
+<p class="tssr-source-paragraph">Page 7/7<br>                                                   </p>
+<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<figure class="tssr-original-figure"><a href="../figures/atlas-796290c7b9ff41cc6e2ee4d50080b67c8d00d99d6aeb7b10475066a4a8579b7c.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-796290c7b9ff41cc6e2ee4d50080b67c8d00d99d6aeb7b10475066a4a8579b7c.webp" alt="Illustrations du support source, pages 5 à 7" loading="lazy" width="921" height="2836"></a><figcaption>Illustrations du support Drive — pages 5 à 7. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
