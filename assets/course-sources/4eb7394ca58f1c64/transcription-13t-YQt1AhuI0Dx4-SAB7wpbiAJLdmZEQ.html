@@ -4,7 +4,7 @@
 <section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>Objectifs</h4>
 <h4>• Créer et gérer des groupes et utilisateurs<br>• Consulter les fichiers de configuration<br>• Effectuer une élévation de privilèges en environnement <br>GNU/Linux</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 </section>
 <section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>Considérations </h4>
@@ -14,7 +14,7 @@
 <h4>Les identifiants</h4>
 <h4>• Sous Linux, les utilisateurs sont représentés par deux valeurs <br>importantes : </h4>
 <p class="tssr-source-paragraph">• L’UID : l’identifiant utilisateur<br>• Le GID : l’identifiant du groupe principal<br>• Il est possible qu’un utilisateur appartienne à plusieurs groupes. <br>Il y aura donc les notions de groupe principal et de groupe <br>secondaire<br>• Le groupe principal est le groupe attribué à l’utilisateur au moment <br>de sa connexion</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-63cc5d08e0d0b1ccd73241de16d6aec50aef53abafe8835ce686b9898a8c2c68.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-63cc5d08e0d0b1ccd73241de16d6aec50aef53abafe8835ce686b9898a8c2c68.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="900" height="549"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Considérations générales</h4>
 <h4>Les types d’utilisateurs</h4>
 <p class="tssr-source-paragraph">• Il existe trois types d’utilisateurs :<br>• root : UID=0, GID=0<br>C’est le super-administrateur du système. Il a tout pouvoir. Il est donc <br>conseillé d’être le moins possible sous cette identité, voire fortement <br>conseillé de ne pas se connecter avec mais de faire une élévation de <br>privilèges via la commande su -. <br>Sur certains systèmes, il sera impossible de se connecter en root dans <br>l’interface graphique.<br>• daemon : UID 1-999, GID 1-999<br>Les utilisateurs compris entre 1 et 999 pour leur UID/GID représentent <br>les utilisateurs applicatifs (les services). En effet sous Linux 99% des <br>services ne sont pas exécutés sous l’identité de root mais sous leur <br>propre identité à des fins de sécurité.<br>• Utilisateur : UID et GID &gt; 1000<br>Les utilisateurs « humains » sont représentés par des UID/GID supérieurs <br>à 1000.</p>
@@ -38,9 +38,9 @@ jmartin:x:1001:
 sdia:x:1002:
 abenabel:x:1101:
 informatique:x:1500:jmartin,abenabel,sdia</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DS</p><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>DS</p><p>eni</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-d3d4df612c1fce52eedda070b74cbab6a331d2378cf9e51423a8283632d57754.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d3d4df612c1fce52eedda070b74cbab6a331d2378cf9e51423a8283632d57754.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1267" height="1258"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Les fichiers liés à la gestion des groupes</h4>
 <h4>Le fichier /etc/group</h4>
 <h4>• Analyse de colonnes</h4>
@@ -66,7 +66,7 @@ sys:*:18001:0:99999:7:::
 jmartin:$6$X1URi$CDj5CU5Gl2Ex.:18153:0:99999:7:::
 sdia:$6$X0RisM$JngFdwTEmaOfH.:18592:0:99999:7:::
 abenabel:$6$gjD5IZ$EtlYhsMJngFw:18457:0:99999:7:::</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p><p>End |</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>End |</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Les fichiers liés à la gestion des groupes</h4>
@@ -74,13 +74,13 @@ abenabel:$6$gjD5IZ$EtlYhsMJngFw:18457:0:99999:7:::</pre>
 <h4>• Analyse de colonnes</h4>
 <pre class="tssr-source-code">nomgroupe:passechiffré:administrateurs:membres,du,groupe</pre>
 <p class="tssr-source-paragraph">• Si le champ du mot de passe contient les caractères « ! » ou « * », <br>les utilisateurs ne pourront pas utiliser le mot de passe pour <br>accéder au groupe. <br>• Si le champ est vide, dans ce cas seul les membres du groupe <br>pourront obtenir les permissions du groupe.<br>• Le champ administrateur contient la liste des administrateurs du <br>groupe séparé par des virgules. Les administrateurs peuvent <br>modifier le mot de passe et les membres du groupe.</p>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>Commandes de gestion </h4>
 <h4>des groupes</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-f9bd228a9141cd9ce368f297e2e2ccefef7705d80e6b4e581068e283af8c1b0b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-f9bd228a9141cd9ce368f297e2e2ccefef7705d80e6b4e581068e283af8c1b0b.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1570" height="2088"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Commandes de gestion des groupes</h4>
 <h4>groupadd</h4>
 <pre class="tssr-source-code">• groupadd &lt;options&gt; [nom du groupe]</pre>
@@ -104,7 +104,7 @@ identifiants des groupes existants est utilisé.</pre>
 <h4>gpasswd</h4>
 <pre class="tssr-source-code">• gpasswd &lt;options&gt; [nom du groupe]</pre>
 <p class="tssr-source-paragraph">• Cette commande permet d’administrer les groupes<br>• Options usuelles :<br>• -a [utilisateur] : ajoute « utilisateur » au groupe.<br>• -d [utilisateur] : supprime « utilisateur » au groupe.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-1ce08aebf9f13b117681d1ea2fd51f3ff552e792443cd0a38a9f694f837b1f9b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-1ce08aebf9f13b117681d1ea2fd51f3ff552e792443cd0a38a9f694f837b1f9b.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="900" height="732"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Commandes de gestion des groupes</h4>
 <h4>Démo</h4>
 <h4>Gérer les groupes</h4>
@@ -129,9 +129,9 @@ Logistique:/home/jmartin:/bin/bash
 sdia:x:1002:1002::/home/sdia:/bin/sh
 abenabel:x:1002:1002:Ashanti Ben 
 Abel:/home/abenabel:/bin/bash</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-a4a1cc2b80d2301e76092a1abbd46e7d033ee33de0a1840145c041c3128f3848.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a4a1cc2b80d2301e76092a1abbd46e7d033ee33de0a1840145c041c3128f3848.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1195" height="1624"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Les fichiers liés à la gestion des utilisateurs</h4>
 <h4>Le fichier /etc/passwd</h4>
 <pre class="tssr-source-code">nom:motdepassechiffré:UID:GID:nom complet:/repertoire/personnel:/shell</pre>
@@ -141,7 +141,7 @@ Abel:/home/abenabel:/bin/bash</pre>
 <p class="tssr-source-paragraph">• Le champ nom,complet comporte des informations complémentaires comme le <br>nom complet, le téléphone, etc. Ces informations peuvent être directement <br>indiquées lors de la création de l’utilisateur ou via la commande chfn.</p>
 <h4>• Le champ répertoire personnel contient le chemin du répertoire d’accueil de <br>l’utilisateur, si celui-ci a été créé.</h4>
 <h4>• Le champ shell correspond au chemin du binaire correspondant au shell de <br>l’utilisateur. Il est possible de le modifier avec la commande chsh.</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Les fichiers liés à la gestion des utilisateurs</h4>
@@ -156,7 +156,7 @@ sys:*:18001:0:99999:7:::
 jmartin:$6$X1URi$CDj5CU5Gl2Ex.:18153:0:99999:7:::
 sdia:$6$X0RisM$JngFdwTEmaOfH.:18592:0:99999:7:::
 abenabel:$6$gjD5IZ$EtlYhsMJngFw:18457:0:99999:7:::</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Les fichiers liés à la gestion des utilisateurs</h4>
@@ -172,7 +172,7 @@ deinectivité:datefinvalidité:champréservé</pre>
 einectivité:datefinvalidité:champréservé</pre>
 <p class="tssr-source-paragraph">• Troisième champ : le hash du mot de passe plus son sel. Le hash <br>est une chaîne de caractère unique généré par l’algorithme de <br>hash. Plus l’algorithme est fort plus le hash est complexe à <br>décrypter.<br>• Le fait d’utiliser un sel dans le stockage des mots de passe permet <br>d’augmenter la sécurité des mots de passe. Le principe du hash est <br>de générer une chaîne de caractère unique d’une certaine taille par <br>rapport à une chaîne de caractère donnée. Donc si deux <br>utilisateurs ont le même mot de passe, par exemple « Pa$$w0rd », <br>alors les hashs purs seront identiques. L’ajout du sel fait en sorte <br>que les hashs soient différents, pourtant les utilisateurs ont le <br>même mot de passe.</p>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-38260ea560e7da88ce44ba14c7a9025fd72912618577a7695f232f93f2d6e86e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-38260ea560e7da88ce44ba14c7a9025fd72912618577a7695f232f93f2d6e86e.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1763" height="1847"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Les fichiers liés à la gestion des utilisateurs</h4>
 <h4>Le fichier /etc/shadow</h4>
 <pre class="tssr-source-code">user:motdepasse:datedernierchangement:agemini:agemax:périodeavertis
@@ -199,7 +199,7 @@ useradd utilisera le plus petit UID disponible. </pre>
 <h4>useradd</h4>
 <p class="tssr-source-paragraph">• -g [GID] : indique le GID du groupe principal de l’utilisateur.<br>• -G [groupe1,groupe2,groupen] : indique la liste des groupes <br>secondaires de l’utilisateur séparés par des « , ».<br>• -s : indique le shell de l’utilisateur sous la forme du chemin absolu <br>du binaire.</p>
 <p class="tssr-source-paragraph">• -r : indique la création d’un utilisateur système.<br>Lors de la création d’un utilisateur, si l’option –m est passée à <br>useradd, alors useradd copiera le contenu du répertoire /etc/skel <br>dans le répertoire d’accueil de l’utilisateur.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-75dd1a626dad9eebce5431a0c43f253263e861d88a208696cd4c6d31b6d9fe72.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-75dd1a626dad9eebce5431a0c43f253263e861d88a208696cd4c6d31b6d9fe72.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="1511" height="935"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Commandes de gestion des utilisateurs</h4>
 <h4>usermod</h4>
 <pre class="tssr-source-code">• usermod &lt;options&gt; [utilisateur]</pre>
@@ -218,7 +218,7 @@ useradd utilisera le plus petit UID disponible. </pre>
 <h4>usermod</h4>
 <pre class="tssr-source-code">• usermod &lt;options&gt; [utilisateur]</pre>
 <p class="tssr-source-paragraph">• Options usuelles :<br>• -s [shell] : chemin du nouveau shell de l’utilisateur (peut être <br>configuré à l’aide de la commande chsh).<br>• -L : verrouille le mot de passe de l’utilisateur. <br>Cette option ajoute un « ! » devant le hash du mot de passe dans <br>/etc/shadow.<br>Remarque : pour verrouiller le compte (et pas seulement l&#x27;accès <br>par un mot de passe), il est également nécessaire de placer <br>DATE_FIN_VALIDITÉ à 1.<br>• -U : déverrouille le mot de passe de l’utilisateur.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-3acce8d7c191d03d877f4a7e599d13b7650eed4c88f7b268243bc40889ac526b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3acce8d7c191d03d877f4a7e599d13b7650eed4c88f7b268243bc40889ac526b.webp" alt="Illustrations du support source, pages 29 à 32" loading="lazy" width="900" height="732"></a><figcaption>Illustrations du support Drive — pages 29 à 32. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><h4>Commandes de gestion des utilisateurs</h4>
 <h4>userdel</h4>
 <pre class="tssr-source-code">• userdel &lt;options&gt; [nom du groupe]</pre>
@@ -236,7 +236,7 @@ useradd utilisera le plus petit UID disponible. </pre>
 </section>
 <section class="tssr-transcribed-page" id="page-36"><h3>Page 36</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>Changement d’identité <br>et élévation de privilèges</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-7c868ad0e8b40a5e416700916e3c9b47fb45674f2a4a3f375b919c1ee5e20c1f.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7c868ad0e8b40a5e416700916e3c9b47fb45674f2a4a3f375b919c1ee5e20c1f.webp" alt="Illustrations du support source, pages 33 à 36" loading="lazy" width="900" height="1117"></a><figcaption>Illustrations du support Drive — pages 33 à 36. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><h4>Changement d’identité et élévation de privilèges</h4>
 <h4>La commande su</h4>
 <pre class="tssr-source-code">• su &lt;options&gt; [utilisateur]
@@ -256,7 +256,7 @@ qu’il connaisse le mot de passe de l’autre utilisateur. </pre>
 [sudo] Mot de passe de jdoe
 Réception de http://deb.debian.org/debian 
 stretch-updates InRelease [91,0 kB]</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ee)<br>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ee)<br>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-39"><h3>Page 39</h3><h4>Changement d’identité et élévation de privilèges</h4>
@@ -271,7 +271,7 @@ root@deb:~#</pre>
 <h4>Démo</h4>
 <h4>Élévation de privilèges</h4>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-903de7dd218ccdc64cb99ec2b308f78989e631ed7f8101baca7997e6afe9f447.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-903de7dd218ccdc64cb99ec2b308f78989e631ed7f8101baca7997e6afe9f447.webp" alt="Illustrations du support source, pages 37 à 40" loading="lazy" width="1430" height="1833"></a><figcaption>Illustrations du support Drive — pages 37 à 40. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>TP</h4>
 <h4>Démo</h4>
@@ -283,10 +283,10 @@ root@deb:~#</pre>
      TPDémo
 
                                            Gérer les groupes et utilisateurs</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-42"><h3>Page 42</h3><h4>Gestion des utilisateurs et groupes</h4>
 <h4>Conclusion</h4>
 <p class="tssr-source-paragraph">• Vous savez créer et gérer des groupes et utilisateurs<br>• Vous savez consulter les fichiers de configuration<br>• Vous savez effectuer une élévation de privilèges en environnement <br>GNU/Linux</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-878c45ee477eb61e5e6c0f8fcf3b7670059753376bf8fd3a9420f9b1690192cf.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-878c45ee477eb61e5e6c0f8fcf3b7670059753376bf8fd3a9420f9b1690192cf.webp" alt="Illustrations du support source, pages 41 à 42" loading="lazy" width="900" height="747"></a><figcaption>Illustrations du support Drive — pages 41 à 42. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
+</section><!-- SOURCE-CONTENT:END --></body></html>

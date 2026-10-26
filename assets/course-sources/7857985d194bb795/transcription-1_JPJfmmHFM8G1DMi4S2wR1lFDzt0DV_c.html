@@ -5,7 +5,7 @@
 <p class="tssr-source-paragraph">Basé sur l’énoncé actuel, la note technique ANSSI, les ressources, les scripts et le corrigé modèle fournis.</p>
 <p class="tssr-source-paragraph">Les noms et logins personnels restent à remplacer avant exécution.</p>
 <p class="tssr-source-paragraph">Page 1</p>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>W10-&lt;INITIALES&gt;<br>DEB10-&lt;INITIALES&gt;</p><p>172.16.0.189<br>172.16.0.188</p><p>Windows 10 Pro<br>Debian 10</p><p>Réseau 172.16.0.128/26</p><p>W10-BINOME<br>DEB10-BINOME</p><p>172.16.0.187<br>172.16.0.186</p><p>Windows 10 Pro<br>Debian 10</p><p>Plage utilisable<br>: 172.16.0.129 à 172.16.0.190 - Broadcast<br>: 172.16.0.191</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>W10-&lt;INITIALES&gt;<br>DEB10-&lt;INITIALES&gt;</p><p>172.16.0.189<br>172.16.0.188</p><p>Windows 10 Pro<br>Debian 10</p><p>Réseau 172.16.0.128/26</p><p>W10-BINOME<br>DEB10-BINOME</p><p>172.16.0.187<br>172.16.0.186</p><p>Windows 10 Pro<br>Debian 10</p><p>Plage utilisable<br>: 172.16.0.129 à 172.16.0.190 - Broadcast<br>: 172.16.0.191</p></div></details>
 </section>
 <section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <h4>Sommaire</h4>
@@ -73,7 +73,7 @@
 <p class="tssr-source-paragraph">Créer un groupe supplémentaire <br>documentation et appliquer le bit setgid <br>à /services.</p>
 <p class="tssr-source-paragraph">Page 4</p>
 <div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Point</td><td>Contradiction</td><td>Décision appliquée</td></tr><tr><td>Expiration des mots de passe</td><td>« N’expirent jamais » puis politique<br>Windows avec changement tous les 25<br>jours.</td><td>Sous Windows, appliquer 25 jours car<br>cette contrainte est plus précise et<br>vérifiable. Sous Debian, conserver sans<br>expiration sauf changement initial du<br>prestataire.</td></tr><tr><td>Adresses imprimantes</td><td>Le corrigé modèle emploie des IP proches<br>des postes ; le sujet actuel impose des<br>troisièmes octets binaires 10101000 et<br>10101001.</td><td>Appliquer exactement le sujet actuel : 168<br>et 169 en décimal.</td></tr><tr><td>deb-src</td><td>Le corrigé écrit parfois « décommenter »<br>alors que le sujet demande de commenter.</td><td>Commenter les lignes deb-src et la source<br>DVD.</td></tr><tr><td>Sauvegarde Debian</td><td>Le sujet demande tous les jours ; le corrigé<br>planifie seulement du lundi au vendredi.</td><td>Cron quotidien : 30 12 * * *.</td></tr><tr><td>SMB</td><td>Le corrigé évoque l’activation d’un ancien<br>support SMB.</td><td>Utiliser SMB 3.0 avec cifs-utils ; ne pas<br>activer SMB1.</td></tr><tr><td>Groupe documentation</td><td>Le sujet le demande sans le définir dans la<br>liste des services.</td><td>Créer un groupe supplémentaire<br>documentation et appliquer le bit setgid<br>à /services.</td></tr></tbody></table></div>
-<figure class="tssr-original-figure"><a href="../figures/atlas-b84c91887cfb69fbb4fd57b0302459dd88423e86d9c5b6e6d44804a470540ef9.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b84c91887cfb69fbb4fd57b0302459dd88423e86d9c5b6e6d44804a470540ef9.webp" alt="Illustrations du support source, pages 1 à 4" loading="lazy" width="1066" height="2452"></a><figcaption>Illustrations du support Drive — pages 1 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <h4>2. Paramètres à personnaliser et plan IP</h4>
 <p class="tssr-source-paragraph">2.1 Remplacements obligatoires</p>
@@ -125,7 +125,7 @@
 <p class="tssr-source-paragraph">Elles sont explicitement annoncées comme fictives. Elles servent à créer les ports TCP/IP et à démontrer la </p>
 <p class="tssr-source-paragraph">configuration d’impression ; elles ne sont pas destinées à répondre au ping sur votre sous-réseau.</p>
 <p class="tssr-source-paragraph">Page 6</p>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>W10-&lt;INITIALES&gt;<br>DEB10-&lt;INITIALES&gt;</p><p>172.16.0.189<br>172.16.0.188</p><p>Windows 10 Pro<br>Debian 10</p><p>Réseau 172.16.0.128/26</p><p>W10-BINOME<br>DEB10-BINOME</p><p>172.16.0.187<br>172.16.0.186</p><p>Windows 10 Pro<br>Debian 10</p><p>Plage utilisable<br>: 172.16.0.129 à 172.16.0.190 - Broadcast<br>: 172.16.0.191</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>W10-&lt;INITIALES&gt;<br>DEB10-&lt;INITIALES&gt;</p><p>172.16.0.189<br>172.16.0.188</p><p>Windows 10 Pro<br>Debian 10</p><p>Réseau 172.16.0.128/26</p><p>W10-BINOME<br>DEB10-BINOME</p><p>172.16.0.187<br>172.16.0.186</p><p>Windows 10 Pro<br>Debian 10</p><p>Plage utilisable<br>: 172.16.0.129 à 172.16.0.190 - Broadcast<br>: 172.16.0.191</p></div></details>
 <div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Équipement</td><td>Adresse</td><td>Masque</td><td>Passerelle</td><td>DNS conseillé</td></tr><tr><td>W10-&lt;INITIALES&gt;</td><td>172.16.0.189</td><td>255.255.255.192</td><td>172.16.0.190</td><td>172.16.0.190 ou DNS<br>fourni</td></tr><tr><td>DEB10-&lt;INITIALES&gt;</td><td>172.16.0.188</td><td>255.255.255.192</td><td>172.16.0.190</td><td>172.16.0.190 ou DNS<br>fourni</td></tr><tr><td>W10 du binôme</td><td>172.16.0.187</td><td>255.255.255.192</td><td>172.16.0.190</td><td>idem</td></tr><tr><td>Debian du binôme</td><td>172.16.0.186</td><td>255.255.255.192</td><td>172.16.0.190</td><td>idem</td></tr></tbody></table></div>
 <div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Périphérique</td><td>Calcul</td><td>Adresse</td></tr><tr><td>HP LaserJet M9050 MFP</td><td>172.16 + 168 + dernier octet W10 (.189)</td><td>172.16.168.189</td></tr><tr><td>Xerox physique 1</td><td>172.16 + 168 + dernier octet Debian<br>(.188)</td><td>172.16.168.188</td></tr><tr><td>Xerox physique 2</td><td>172.16 + 169 + dernier octet Debian<br>(.188)</td><td>172.16.169.188</td></tr></tbody></table></div>
 
@@ -186,7 +186,7 @@ sc query wuauserv</pre>
 <p class="tssr-source-paragraph">Page 8</p>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-b4c317e5094ae9ef916f5d00a15b0ead50ef0f222dd61ee9959a9e64317d4c92.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-b4c317e5094ae9ef916f5d00a15b0ead50ef0f222dd61ee9959a9e64317d4c92.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="1066" height="3537"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <p class="tssr-source-paragraph">13. Choisir le partitionnement manuel et placer les partitions dans l’ordre indiqué ci-dessous afin que le swap soit suivi </p>
 <p class="tssr-source-paragraph">par l’espace libre.</p>
@@ -325,7 +325,7 @@ net accounts</pre>
 
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-178653c3faeaeb152291b2cd3c41039599bc0265bab3bd08c26b30d82ee006dc.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-178653c3faeaeb152291b2cd3c41039599bc0265bab3bd08c26b30d82ee006dc.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1066" height="3365"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <p class="tssr-source-paragraph">4.6 Comptes et groupes sous Debian</p>
 <p class="tssr-source-paragraph">Exécuter le script 01_utilisateurs_groupes.sh après avoir remplacé les variables. Il installe KSH, crée les six </p>
@@ -495,7 +495,7 @@ icacls D:\Support_Info /grant:r &quot;SYSTEM:(OI)(CI)F&quot; &quot;Administrateu
 
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-6fb2d83a0ea5dc72d93cd985092c475b9eb623a80fa3d637bf979a087bb57aa6.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-6fb2d83a0ea5dc72d93cd985092c475b9eb623a80fa3d637bf979a087bb57aa6.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1064" height="3733"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <p class="tssr-source-paragraph">Règle NTFS + partage</p>
 <p class="tssr-source-paragraph">Lors d’un accès réseau, le droit effectif est l’intersection des permissions de partage et NTFS. Il faut donc </p>
@@ -614,7 +614,7 @@ Get-NetTCPConnection -LocalPort 3389 -State Listen</pre>
 <p class="tssr-source-paragraph">Commandes de vérification</p>
 <pre class="tssr-source-code">netstat -ano | findstr :3389</pre>
 <p class="tssr-source-paragraph">Page 20</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-fe6909dbc824bb9aca835dbd303b0374f4c645496bc77fb93f857cac2ceed86b.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fe6909dbc824bb9aca835dbd303b0374f4c645496bc77fb93f857cac2ceed86b.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="1064" height="2452"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <h4>7. Partie 5 - Installation des applications</h4>
 <p class="tssr-source-paragraph">7.1 Installation silencieuse de 7-Zip sous Windows</p>
@@ -755,7 +755,7 @@ touch /mnt/support_info/test-debian.txt</pre>
 <p class="tssr-source-paragraph">106.Décocher la gestion automatique.</p>
 <p class="tssr-source-paragraph">Page 24</p>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-3403da176276dc48764aa1eda7ec38f04ef8222b8efc27286d9265001759dce2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-3403da176276dc48764aa1eda7ec38f04ef8222b8efc27286d9265001759dce2.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1064" height="2585"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><p class="tssr-source-paragraph">MSP Systèmes clients - Solution adaptée au réseau 172.16.0.128/26</p>
 <p class="tssr-source-paragraph">107.Sélectionner C: &gt; Aucun fichier d’échange &gt; Définir.</p>
 <p class="tssr-source-paragraph">108.Sélectionner D: &gt; Taille gérée par le système &gt; Définir.</p>
@@ -838,4 +838,4 @@ findmnt /opt</pre>
 <p class="tssr-source-paragraph">tableur/Resultats_seminaire_solution_complete.xlsx<br>Classeur complété avec toutes les formules.</p>
 <p class="tssr-source-paragraph">Page 27</p>
 <div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Fichier</td><td>Rôle</td></tr><tr><td>scripts/debian/03_lvm_opt.sh</td><td>Création LVM de 32 Go et montage sécurisé de /opt.</td></tr><tr><td>tableur/Resultats_seminaire_solution_complete.xlsx</td><td>Classeur complété avec toutes les formules.</td></tr></tbody></table></div>
-<figure class="tssr-original-figure"><a href="../figures/atlas-7d89cd07a414b4c78d993957cd5320b7dbad649d14ae6737324fcc0980a28cf7.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-7d89cd07a414b4c78d993957cd5320b7dbad649d14ae6737324fcc0980a28cf7.webp" alt="Illustrations du support source, pages 25 à 27" loading="lazy" width="1066" height="2530"></a><figcaption>Illustrations du support Drive — pages 25 à 27. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
+</section><!-- SOURCE-CONTENT:END --></body></html>

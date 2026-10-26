@@ -4,7 +4,7 @@
 <section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Maintenance d’un système en production</h4>
 <h4>Objectifs</h4>
 <h4>• Analyser le système<br>• Gérer les journaux<br>• Planifier des tâches<br>• Gérer les fichiers de logs</h4>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 </section>
 <section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Maintenance d’un système en production</h4>
 <h4>Analyser le système</h4>
@@ -12,7 +12,7 @@
 <section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Analyser le système</h4>
 <h4>Nécessité d’analyser son système</h4>
 <p class="tssr-source-paragraph">• Il est important d’analyser son système d’exploitation pour vérifier <br>que tout fonctionne correctement. Il y a des deux types d’outils <br>permettant cette analyse : les outils proactifs et réactifs.<br>• Afin d’analyser facilement son système, il est utile de lire les <br>journaux du système (les logs). <br>• Afin de préserver un bon fonctionnement, il est utile d’automatiser<br>des tâches administratives.<br>• Enfin, il est important de connaître des commandes de prise <br>d’informations du système, la RAM, le CPU, les processus, etc.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-63cc5d08e0d0b1ccd73241de16d6aec50aef53abafe8835ce686b9898a8c2c68.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-63cc5d08e0d0b1ccd73241de16d6aec50aef53abafe8835ce686b9898a8c2c68.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="900" height="549"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Analyser le système</h4>
 <h4>Gestion des journaux système et applicatif</h4>
 <h4>La gestion des journaux applicatifs est gérée sous Debian 9 par deux <br>services :<br>• Journald au travers de systemd<br>• L’ancien système rsyslog au travers de journald</h4>
@@ -47,7 +47,7 @@ port 61644 ssh2
 juin 09 15:35:20 client-linux sshd[5154]: pam_unix(sshd:session): session opened for 
 user jdoe by (uid=0)</pre>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-4969b1b5da98b3491ccac0377928ae9866a77a2f2294ee1a77fe0c17a00162f2.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-4969b1b5da98b3491ccac0377928ae9866a77a2f2294ee1a77fe0c17a00162f2.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="928"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>La commande Journalctl</h4>
 <h4>Regarder les logs complets de chaque service</h4>
 <pre class="tssr-source-code">• Puisque journald stocke les informations dans une base de données, il est 
@@ -66,7 +66,7 @@ juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly&#x27; terminated
 juin 09 15:41:22 client-linux anacron[4086]: Normal exit (2 jobs run)
 juin 09 15:41:22 client-linux systemd[1]: anacron.service: Succeeded.
 lines 4792-4839/4839 (END)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Cr</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Cr</p></div></details>
 
 
 </section>
@@ -87,7 +87,7 @@ juin 09 15:41:22 client-linux anacron[5274]: Updated timestamp for job `cron.wee
 juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly&#x27; terminated
 juin 09 15:41:22 client-linux anacron[4086]: Normal exit (2 jobs run)
 juin 09 15:41:22 client-linux systemd[1]: anacron.service: Succeeded.</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>SO<br>Cal</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>SO<br>Cal</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>La commande Journalctl</h4>
@@ -105,7 +105,7 @@ juin 03 14:30:01 client-linux CRON[1338]: (root) CMD ([ -x /etc/init.d/anacron ]
 /run/systemd/system ]; then /usr/sbin/invoke-rc.d an
 juin 03 14:30:01 client-linux CRON[1337]: pam_unix(cron:session): session closed for user root
 [...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>PO</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PO</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>La commande Journalctl</h4>
@@ -119,7 +119,7 @@ avril 21 08:53:38 debian systemd[1]: Starting Daily apt download activities...
 avril 21 08:53:45 debian systemd[1]: Started Daily apt download activities.
 avril 21 08:53:45 debian systemd[1]: apt-daily.timer: Adding 10h 23.576305s random time.</pre>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-d27da46e052496761f40aa060705006273663964cbf80b2e79b87367a97d55dd.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d27da46e052496761f40aa060705006273663964cbf80b2e79b87367a97d55dd.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="1801" height="1920"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>La commande Journalctl</h4>
 <h4>Voir les logs d’un programme</h4>
 <pre class="tssr-source-code">journalctl /usr/sbin/sshd</pre>
@@ -131,7 +131,7 @@ juin 09 15:35:20 client-linux sshd[5154]: Accepted password for jdoe from 172.19
 61644 ssh2
 juin 09 15:35:20 client-linux sshd[5154]: pam_unix(sshd:session): session opened for user jdoe
 by (uid=0)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>La commande Journalctl</h4>
@@ -149,7 +149,7 @@ not identify password for [jdoe]</pre>
 <pre class="tssr-source-code">Les différents niveaux de priorités sont du plus critique au 
 plus informatif : emerg, alert, crit, err, warning, notice, info, 
 debug.</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>La commande Journalctl</h4>
@@ -165,12 +165,12 @@ jdoe by
 (uid=0)</pre>
 <pre class="tssr-source-code">mai 06 15:48:06 debian sshd[18901]: pam_unix(sshd:session): session closed for user 
 jdoe</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Maintenance d&#x27;un système en production</h4>
 <h4>rsyslog à travers Journald</h4>
-<figure class="tssr-original-figure"><a href="../figures/atlas-d91d3e9a1433599570d918aca31bc3ee134a6a97b04b92cb1f05559bed283a05.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-d91d3e9a1433599570d918aca31bc3ee134a6a97b04b92cb1f05559bed283a05.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1801" height="2118"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Rsyslog à travers Journald</h4>
 <h4>Généralité</h4>
 <p class="tssr-source-paragraph">• Journald a certes l’avantage de stocker les logs dans une base de <br>données mais ces logs sont uniquement conservés pour le <br>démarrage en cours.<br>• Pour conserver les logs, Debian utilise rsyslog. <br>• Tous les logs de journalctl sont transférés à rsyslog.</p>
@@ -186,7 +186,7 @@ jdoe</pre>
 <section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Rsyslog à travers Journald</h4>
 <h4>Principe de fonctionnement</h4>
 <p class="tssr-source-paragraph">Les différents niveaux de priorité sont :<br>• emerg : urgence, système inutilisable<br>• alert : alerte, intervention immédiate nécessaire<br>• crit : erreur système critique<br>• err : erreur de fonctionnement<br>• warning : avertissement<br>• notice : évènements normaux devant être signalés<br>• info : pour information<br>• debug : message de débogage</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-58be52a2a9224b77868f3a4f8f934f520f37dc91c42b341730469de568280977.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-58be52a2a9224b77868f3a4f8f934f520f37dc91c42b341730469de568280977.webp" alt="Illustrations du support source, pages 17 à 20" loading="lazy" width="900" height="732"></a><figcaption>Illustrations du support Drive — pages 17 à 20. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Rsyslog à travers Journald</h4>
 <h4>Principe de fonctionnement</h4>
 <p class="tssr-source-paragraph">• Les actions correspondent généralement à l’écriture du journal <br>dans un fichier, mais il est possible de configurer rsyslog pour qu’il <br>envoie les messages à enregistrer vers un autre serveur rsyslog.<br>• Exemple de configuration des règles dans le fichier <br>/etc/rsyslog.conf :</p>
@@ -207,7 +207,7 @@ interagissent avec journald et rsyslog via la commande logger.</pre>
 <pre class="tssr-source-code">logger &lt;option&gt; [message]</pre>
 <h4>• Par exemple, pour envoyer un message cron de niveau info :</h4>
 <pre class="tssr-source-code">root@deb:~$ logger -p cron.info Message de test</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D)</p><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D)</p><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Rsyslog à travers Journald</h4>
@@ -226,9 +226,9 @@ interagissent avec journald et rsyslog via la commande logger.</pre>
      TPDémo
 
                              Gestion de la journalisation</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-627db28fc63c25e45284bec23b76231119789275be190e94e580ddb77cebea41.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-627db28fc63c25e45284bec23b76231119789275be190e94e580ddb77cebea41.webp" alt="Illustrations du support source, pages 21 à 24" loading="lazy" width="1480" height="2070"></a><figcaption>Illustrations du support Drive — pages 21 à 24. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Maintenance d’un système en production</h4>
 <h4>Planification des tâches</h4>
 </section>
@@ -252,7 +252,7 @@ Choose 1-3 [1]: 2</pre>
 <section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Planification des tâches</h4>
 <h4>Planification utilisateur</h4>
 <p class="tssr-source-paragraph">Il est possible de formater les cinq premières colonnes :<br>• Avec des listes, en utilisant le caractère « , » :<br>• Ex. : 1,3,5 dans la colonne des jours de la semaine génèrent une tâche tous les lundis, <br>mercredis et vendredis<br>• Avec des intervalles, en utilisant « - » :<br>• Ex. : 10-20 dans la colonne jours du mois génère une tâche exécutée du 10 au 20<br>• Avec un joker, en utilisant « * » :<br>• Ex. : * dans la colonne des heures indique toutes les heures<br>• Mettre un répétiteur, en utilisant « / » :<br>• Ex : */2 dans la colonne des mois génère une tâche exécutée en janvier, mars, mai, <br>juillet, septembre, novembre</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-587df781b26390f5d733c4429ba42cb3b8eb589f4f4a99933784caace011fd11.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-587df781b26390f5d733c4429ba42cb3b8eb589f4f4a99933784caace011fd11.webp" alt="Illustrations du support source, pages 25 à 28" loading="lazy" width="1514" height="1231"></a><figcaption>Illustrations du support Drive — pages 25 à 28. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Planification des tâches</h4>
 <h4>Planification utilisateur</h4>
 <h4>Exemple de configuration</h4>
@@ -278,7 +278,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 /etc/cron.weekly)
 52 6 1 * * root test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report 
 /etc/cron.monthly)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>8</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>8</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-32"><h3>Page 32</h3><h4>Planification des tâches</h4>
@@ -292,7 +292,7 @@ le répertoire /etc/cron.daily.
 <pre class="tssr-source-code">anacron –u cron.daily</pre>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-a6767543b160e27c5b2bac20aad2139adf59ff3277b548a2a44e9db2d92b434e.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-a6767543b160e27c5b2bac20aad2139adf59ff3277b548a2a44e9db2d92b434e.webp" alt="Illustrations du support source, pages 29 à 32" loading="lazy" width="1648" height="1778"></a><figcaption>Illustrations du support Drive — pages 29 à 32. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><h4>Planification des tâches</h4>
 <h4>Démo</h4>
 <h4>Planification de tâches</h4>
@@ -310,7 +310,7 @@ le répertoire /etc/cron.daily.
      TPDémo
                             Gestion de la planification des
                                        tâches</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-35"><h3>Page 35</h3><h4>Maintenance d’un système en production</h4>
@@ -320,12 +320,12 @@ le répertoire /etc/cron.daily.
 <section class="tssr-transcribed-page" id="page-36"><h3>Page 36</h3><h4>Gestion de la taille des fichiers de log</h4>
 <h4>Taille des logs avec Journald</h4>
 <p class="tssr-source-paragraph">• Nativement journald stocke ses logs dans une base de données <br>volatile dans /run/log/journal.<br>• Mais il est possible de demander à journald de garder les logs de <br>façon durable.<br>• Dans le fichier de configuration de journald <br>/etc/systemd/journald.conf, le paramètre #Storage=auto est <br>commenté, donc journald utilise sa valeur par défaut qui est auto.<br>• Le fait de créer un répertoire /var/log/journal rendra la <br>conservation des logs durable.<br>• La taille de la base de données peut vite devenir conséquente sur <br>un système fortement utilisé.</p>
-<figure class="tssr-original-figure"><a href="../figures/atlas-fbf8533d93ca3f0b5d471fcdd4763e8c48510f07bc2a6f1aa646133c7b3b9192.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-fbf8533d93ca3f0b5d471fcdd4763e8c48510f07bc2a6f1aa646133c7b3b9192.webp" alt="Illustrations du support source, pages 33 à 36" loading="lazy" width="900" height="1498"></a><figcaption>Illustrations du support Drive — pages 33 à 36. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><h4>Gestion de la taille des fichiers de log</h4>
 <h4>Taille des logs avec Journald</h4>
 <p class="tssr-source-paragraph">• Par défaut, journald utilisera un maximum de 10% du système de <br>fichier hébergeant /var/log/journald.<br>• Il est possible de définir la taille maximum utilisée sur le système <br>de fichier de la base de données avec le paramètre <br>SystemMaxUse=. De plus, il est possible de dire que la base de <br>données sera subdivisée en plusieurs fichiers de taille fixe avec le <br>paramètre SystemMaxFileSize=.<br>• Bien évidement si la décision est prise de garder les logs de <br>journald de façon définitive, il sera peut-être intéressant de <br>stopper rsyslog afin d’éviter les doublons d’information.</p>
 <pre class="tssr-source-code">root@deb:~$ systemctl disable rsyslog</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>ent</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ent</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-38"><h3>Page 38</h3><h4>Gestion de la taille des fichiers de log</h4>
@@ -339,7 +339,7 @@ delaycompress
 rotate 366
 create 640
 }</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-39"><h3>Page 39</h3><h4>Maintenance d’un système en production</h4>
@@ -356,7 +356,7 @@ Linux deb 5.2.0-8-amd64 #1 SMP Debian 5.2.0-8.1
 (2021-05-19) x86_64 GNU/Linux</pre>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-18bd5e34e4400f16a9851b8b07a0c092a9c6715f58738be5ced6599bf78b30e1.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-18bd5e34e4400f16a9851b8b07a0c092a9c6715f58738be5ced6599bf78b30e1.webp" alt="Illustrations du support source, pages 37 à 40" loading="lazy" width="1367" height="1794"></a><figcaption>Illustrations du support Drive — pages 37 à 40. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><h4>Outil d’analyse du système</h4>
 <h4>Prise d&#x27;informations sur le système</h4>
 <h4>Connaître le type de CPU</h4>
@@ -373,7 +373,7 @@ Famille de processeur : 6
 Modèle : 42
 Nom de modèle : Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz
 […]</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-42"><h3>Page 42</h3><h4>Outil d’analyse du système</h4>
@@ -426,7 +426,7 @@ BuildID[sha1]=ffe165dc8164aea2b05beda07aeda8ad71f1e7c, stripped</pre>
 
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-e233b2f2ad73416aeda7bbae5cf05eaccbd88b1f78db0eb2c435a9acde104531.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e233b2f2ad73416aeda7bbae5cf05eaccbd88b1f78db0eb2c435a9acde104531.webp" alt="Illustrations du support source, pages 41 à 44" loading="lazy" width="1669" height="2303"></a><figcaption>Illustrations du support Drive — pages 41 à 44. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-45"><h3>Page 45</h3><h4>Outil d’analyse du système</h4>
 <h4>Prise d&#x27;informations sur le système</h4>
 <pre class="tssr-source-code">La commande lsof permet de connaître l’activité des fichiers 
@@ -458,7 +458,7 @@ lsof
 root cwd DIR  254,0  4096 
    781836 
 /root</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Be</p><p>ene</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Be</p><p>ene</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-46"><h3>Page 46</h3><h4>Maintenance d’un système en production</h4>
@@ -483,20 +483,20 @@ mm_percpu_wq
      2 root      20   0       0      0      0 S   0,0   0,0   0:00.00 kthreadd
      3 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_gp
      </pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>Se</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Se</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-48"><h3>Page 48</h3><h4>Performances et processus</h4>
 <h4>Prise d&#x27;informations sur le système</h4>
 <pre class="tssr-source-code">Informations en temps réel avec htop (à installer)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>CPUT ||<br>2.7%]<br>Tasks:<br>103, 205 thr;<br>1 running<br>MemE {I} LITT ILILLEEL ET LI {| )682M/1.946]<br>Load average: 0.77 0.25 0.08<br>Swp[<br>O0K/2.00G]<br>Uptime:<br>18:53:43</p><p>3472 penthium<br>20<br>06 24548<br>3644<br>3008 R<br>0.7<br>0.2<br>0:00.05 htop<br>769 penthium<br>20<br>@<br>330M 49536 29780 S<br>0.7<br>2.4<br>0:01.99 /usr/lib/xorg/Xorg vt<br>1 root<br>20<br>©<br>136M<br>7236<br>5340S<br>0.0<br>0.4<br>0:03.69 /sbin/init<br>230 root<br>20<br>6 59640<br>6408<br>5680 S<br>0.0<br>0.3<br>0:01.57 /lib/systemd/systemd-<br>261 root<br>20<br>©<br>104M<br>1600<br>1340 S<br>0.0<br>6.1<br>0:00.00 /sbin/lvmetad<br>-f<br>264 root<br>20<br>© 46184<br>3668<br>2764S<br>0.0<br>0.2<br>0:00.39 /lLib/systemd/systemd-<br>452 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>0:00.09 /lib/systemd/systemd-<br>438 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>6:00.63 /lib/systemd/systemd-<br>462 root<br>20<br>6<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.08 /usr/sbin/rsyslogd<br>-n<br>463 root<br>20<br>@<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.00 /usr/sbin/rsyslogd<br>-n<br>464 root<br>20<br>6<br>244M<br>3064<br>2480S<br>0.0<br>0.2<br>0:00.16 /usr/sbin/rsyslogd<br>-n<br>447 root<br>20<br>©<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.28 /usr/sbin/rsyslogd<br>-n<br>465 root<br>20<br>6<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>471 root<br>20<br>0<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>448 root<br>20<br>©<br>412M<br>8896<br>7400S<br>0.0<br>0.4<br>0:00.04 /usr/sbin/ModemManage</p><p>i<br>450 avahi<br>20<br>6 47144<br>2984<br>2632 S<br>0.0<br>0.1<br>0:06.66 avahi-daemon:<br>running<br>env<br>472 rtkit<br>20<br>©<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:00.96 /usr/lLib/rtkit/rtkit-</p><p>=<br>473 rtkit<br>RT<br>1<br>181M<br>2928<br>2624S<br>06.0<br>0.1<br>6:00.16 /usr/lib/rtkit/rtkit-<br>451 rtkit<br>21<br>1<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:01.14 /usr/lib/rtkit/rtkit-<br>FF 2 SF 3 SF 4RS 5 RF 6 RE + 7 RSS F © I<br>© RR<br>1 © RSR</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>CPUT ||<br>2.7%]<br>Tasks:<br>103, 205 thr;<br>1 running<br>MemE {I} LITT ILILLEEL ET LI {| )682M/1.946]<br>Load average: 0.77 0.25 0.08<br>Swp[<br>O0K/2.00G]<br>Uptime:<br>18:53:43</p><p>3472 penthium<br>20<br>06 24548<br>3644<br>3008 R<br>0.7<br>0.2<br>0:00.05 htop<br>769 penthium<br>20<br>@<br>330M 49536 29780 S<br>0.7<br>2.4<br>0:01.99 /usr/lib/xorg/Xorg vt<br>1 root<br>20<br>©<br>136M<br>7236<br>5340S<br>0.0<br>0.4<br>0:03.69 /sbin/init<br>230 root<br>20<br>6 59640<br>6408<br>5680 S<br>0.0<br>0.3<br>0:01.57 /lib/systemd/systemd-<br>261 root<br>20<br>©<br>104M<br>1600<br>1340 S<br>0.0<br>6.1<br>0:00.00 /sbin/lvmetad<br>-f<br>264 root<br>20<br>© 46184<br>3668<br>2764S<br>0.0<br>0.2<br>0:00.39 /lLib/systemd/systemd-<br>452 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>0:00.09 /lib/systemd/systemd-<br>438 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>6:00.63 /lib/systemd/systemd-<br>462 root<br>20<br>6<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.08 /usr/sbin/rsyslogd<br>-n<br>463 root<br>20<br>@<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.00 /usr/sbin/rsyslogd<br>-n<br>464 root<br>20<br>6<br>244M<br>3064<br>2480S<br>0.0<br>0.2<br>0:00.16 /usr/sbin/rsyslogd<br>-n<br>447 root<br>20<br>©<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.28 /usr/sbin/rsyslogd<br>-n<br>465 root<br>20<br>6<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>471 root<br>20<br>0<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>448 root<br>20<br>©<br>412M<br>8896<br>7400S<br>0.0<br>0.4<br>0:00.04 /usr/sbin/ModemManage</p><p>i<br>450 avahi<br>20<br>6 47144<br>2984<br>2632 S<br>0.0<br>0.1<br>0:06.66 avahi-daemon:<br>running<br>env<br>472 rtkit<br>20<br>©<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:00.96 /usr/lLib/rtkit/rtkit-</p><p>=<br>473 rtkit<br>RT<br>1<br>181M<br>2928<br>2624S<br>06.0<br>0.1<br>6:00.16 /usr/lib/rtkit/rtkit-<br>451 rtkit<br>21<br>1<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:01.14 /usr/lib/rtkit/rtkit-<br>FF 2 SF 3 SF 4RS 5 RF 6 RE + 7 RSS F © I<br>© RR<br>1 © RSR</p></div></details>
 
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-e4d993941381e4ac3142739996d8ece049e7ee6111a78efdff28845bde7717d5.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-e4d993941381e4ac3142739996d8ece049e7ee6111a78efdff28845bde7717d5.webp" alt="Illustrations du support source, pages 45 à 48" loading="lazy" width="1801" height="2367"></a><figcaption>Illustrations du support Drive — pages 45 à 48. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="page-49"><h3>Page 49</h3><h4>Performances et processus</h4>
 <h4>Prise d&#x27;informations sur le système</h4>
 <pre class="tssr-source-code">Informations en temps réel avec glances (à installer)</pre>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>XPS13-9333<br>(Ubur<br>1<br>4 64bit<br>L<br>x<br>4.4.0-13<br>i<br>IP 192.1<br>).48/24 Pub<br>169.86<br>.2<br>Upt ime<br>1:02:4</p><p>1<br>H<br>cpu<br>7<br>e<br>tx<br>MEM<br>t<br>1G<br>SWAP<br>LOAD<br>t-co<br>F<br>I<br>1<br>e<br>sn<br>€<br>e<br>tota<br>4<br>€<br>MEM<br>1<br>2.0%<br>i<br>CES<br>i<br>i:<br>GRE<br>bof!<br>626<br>4<br>4.524</p><p>NETWORK<br>CONTAINERS<br>ed<br>t<br>ker<br>17.05.8-ce</p><p>TASKS<br>254<br>(813<br>t<br>5<br>ot<br>ted<br>autonat<br>y<br>by<br>CP<br>t<br>WIFI</p><p>cpus<br>Men<br>IAT<br>RE<br>PI<br>f<br>TIME+<br>THR<br>NI<br>sw<br>¢</p><p>DISK<br>1/0<br>Û<br>“<br>M<br>136M<br>Large<br>)<br>ate<br>3<br>t</p><p>FILE SYS<br>Tot<br>1.9<br>43&quot;<br>‘<br>c<br>‘<br>fire<br>tentr<br>pa</p><p>FOLDERS<br>|<br>(]<br>19<br>4<br>F<br>pticat</p><p>SENSORS<br>M<br>M<br>4581<br>Large<br>18<br>3<br>in<br>/terainnt</p><p>End<br>to!<br>PRES<br>Reise<br>oe<br>perlite</p><p>2<br>1<br>T<br>No warning or<br>critical<br>alert<br>detected</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>XPS13-9333<br>(Ubur<br>1<br>4 64bit<br>L<br>x<br>4.4.0-13<br>i<br>IP 192.1<br>).48/24 Pub<br>169.86<br>.2<br>Upt ime<br>1:02:4</p><p>1<br>H<br>cpu<br>7<br>e<br>tx<br>MEM<br>t<br>1G<br>SWAP<br>LOAD<br>t-co<br>F<br>I<br>1<br>e<br>sn<br>€<br>e<br>tota<br>4<br>€<br>MEM<br>1<br>2.0%<br>i<br>CES<br>i<br>i:<br>GRE<br>bof!<br>626<br>4<br>4.524</p><p>NETWORK<br>CONTAINERS<br>ed<br>t<br>ker<br>17.05.8-ce</p><p>TASKS<br>254<br>(813<br>t<br>5<br>ot<br>ted<br>autonat<br>y<br>by<br>CP<br>t<br>WIFI</p><p>cpus<br>Men<br>IAT<br>RE<br>PI<br>f<br>TIME+<br>THR<br>NI<br>sw<br>¢</p><p>DISK<br>1/0<br>Û<br>“<br>M<br>136M<br>Large<br>)<br>ate<br>3<br>t</p><p>FILE SYS<br>Tot<br>1.9<br>43&quot;<br>‘<br>c<br>‘<br>fire<br>tentr<br>pa</p><p>FOLDERS<br>|<br>(]<br>19<br>4<br>F<br>pticat</p><p>SENSORS<br>M<br>M<br>4581<br>Large<br>18<br>3<br>in<br>/terainnt</p><p>End<br>to!<br>PRES<br>Reise<br>oe<br>perlite</p><p>2<br>1<br>T<br>No warning or<br>critical<br>alert<br>detected</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="page-50"><h3>Page 50</h3><h4>Performances et processus</h4>
@@ -535,6 +535,6 @@ Swap:      975Mi          0B       975Mi2</pre>
      TPDémo
 
                               Informations sur le système</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
+<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
 
-<figure class="tssr-original-figure"><a href="../figures/atlas-72bcd679a5e9efe1ef96344ca009e2e6cc8a9e301c0f9e9cddfe935fb42d1d68.webp" target="_blank" rel="noopener noreferrer"><img src="../figures/atlas-72bcd679a5e9efe1ef96344ca009e2e6cc8a9e301c0f9e9cddfe935fb42d1d68.webp" alt="Illustrations du support source, pages 49 à 52" loading="lazy" width="1725" height="2957"></a><figcaption>Illustrations du support Drive — pages 49 à 52. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section><!-- SOURCE-CONTENT:END --></body></html>
+</section><!-- SOURCE-CONTENT:END --></body></html>

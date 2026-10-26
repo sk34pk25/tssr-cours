@@ -12790,7 +12790,7 @@
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
 <p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun PDF ENI, diapositive ou reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document" open="">
 <summary>Support · RES24_0050B - M07 - Linux Administration (Debian) · 17 pages transcrites</summary>
 <div class="tssr-original-document__body">
@@ -12801,7 +12801,7 @@
 <h4>Objectifs</h4>
 <h4>• Comprendre le fonctionnement du partitionnement sous <br>Linux<br>• Utiliser la commande fdisk<br>• Connaître les systèmes de fichiers sous Linux</h4>
 <h4>Créer des partitions en mode « legacy »</h4>
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-3"><h3>Page 3</h3><h4>Gestion des espaces de stockage</h4>
@@ -12811,7 +12811,7 @@
 <h4>La norme Intel du MBR</h4>
 <h4>• Le MBR (Master Boot Record) est constitué de 2 principaux <br>éléments :</h4>
 <p class="tssr-source-paragraph">• Le boot loader : 446 premiers octets - Sous Linux il contient le stage 1 de <br>GRUB<br>• La table de partition : 64 octets, contient la position des 4 partitions <br>primaires<br>• La partition étendue pourra quant à elle stocker les informations <br>au maximum de 56 partitions logiques<br>• La plus grosse problématique du MBR est la taille limite des <br>partitions fixée au maximum à 2,2To (espace d'adressage de 32 bits)</p>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-0ce1809ee4f93e706edd2a407fa755c963319c23215bf399b31a40cc69a701e9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-0ce1809ee4f93e706edd2a407fa755c963319c23215bf399b31a40cc69a701e9.webp" alt="Illustrations du support source, pages 2 à 4" loading="lazy" width="1359" height="745"></a><figcaption>Illustrations du support Drive — pages 2 à 4. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-5"><h3>Page 5</h3><h4>Partitionner un disque</h4>
 <h4>La norme Intel du GPT</h4>
 <p class="tssr-source-paragraph">• Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant <br>du MBR<br>• Le nombre maximum de partitions est fixé à 128 (voire 256)<br>• La limite théorique des partitions et des disques est de 9,4 Zo <br>(Zettaoctet)</p>
@@ -12829,7 +12829,7 @@
 <p class="tssr-source-paragraph">• Exemple : le deuxième disque du système est partitionné avec 2 <br>partitions principales et une partition étendue contenant 3 <br>partitions logiques. Linux présentera tout cela de cette façon :</p>
 <h4>/dev/sdb disque entier<br>/dev/sdb1 1re partition principale<br>/dev/sdb2 2e partition principale</h4>
 <h4>/dev/sdb3 partition étendue<br>/dev/sdb5 1re partition logique<br>/dev/sdb6 2e partition logique<br>/dev/sdb7 3e partition logique</h4>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-75bc0e06df801a401c6db78f6ee431561b0794266ffcefbee2e61d9541925ed9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-75bc0e06df801a401c6db78f6ee431561b0794266ffcefbee2e61d9541925ed9.webp" alt="Illustrations du support source, pages 5 à 8" loading="lazy" width="900" height="732"></a><figcaption>Illustrations du support Drive — pages 5 à 8. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-9"><h3>Page 9</h3><h4>Gestion des espaces de stockage</h4>
 <h4>Outil de <br>partitionnement</h4>
 </section>
@@ -12847,7 +12847,7 @@ Identifiant de disque : 0x732e6aa1
 Périphérique Amorçage Début Fin Secteurs Taille Id Type
 /dev/sda1 * 2048 499711 497664 243M 83 Linux
 /dev/sda2 501758 41940991 41439234 19,8G 5 Étendue </pre>
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>DO<br>ene</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>DO<br>ene</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-11"><h3>Page 11</h3><h4>Outil de partitionnement</h4>
@@ -12879,7 +12879,7 @@ Premier secteur (2048-62914559, 2048 par défaut) :
 Dernier secteur, +secteurs ou +taille{K,M,G,T,P} (2048-62914559, 
 62914559 par défaut) : +20G</pre>
 
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-80ba1565ef44127957a809cc965fd5e3f6d625724018581759bcdd4f163bd1df.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-80ba1565ef44127957a809cc965fd5e3f6d625724018581759bcdd4f163bd1df.webp" alt="Illustrations du support source, pages 9 à 12" loading="lazy" width="900" height="1321"></a><figcaption>Illustrations du support Drive — pages 9 à 12. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-13"><h3>Page 13</h3><h4>Outil de partitionnement</h4>
 <h4>La commande fdisk</h4>
 <h4>Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée. </h4>
@@ -12892,7 +12892,7 @@ Type d'étiquette de disque : dos
 Identifiant de disque : 0x0ab85bf5
 Périphérique Amorçage Début Fin Secteurs Taille Id Type
 /dev/sdb1 2048 41945087 41943040 20G 83 Linux</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>=)</p><p>eni</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=)</p><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-14"><h3>Page 14</h3><h4>Outil de partitionnement</h4>
@@ -12920,18 +12920,18 @@ La table de partitions a été altérée.
 Appel d'ioctl() pour relire la table de partitions.
 Synchronisation des disques.
 root@deb:~#</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
 
 </section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-16"><h3>Page 16</h3><h4>Outil de partitionnement</h4>
 <h4>Démo</h4>
 <h4>Les partitions avec fdisk</h4>
 
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-75fbdd9666122875af5cd35e1a3f9dc5572dcc11cd104dd5dd2a8564933bffff.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-75fbdd9666122875af5cd35e1a3f9dc5572dcc11cd104dd5dd2a8564933bffff.webp" alt="Illustrations du support source, pages 13 à 16" loading="lazy" width="1414" height="1861"></a><figcaption>Illustrations du support Drive — pages 13 à 16. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <section class="tssr-transcribed-page" id="source-1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC-page-17"><h3>Page 17</h3><h4>Gestion des espaces de stockage</h4>
 <h4>Conclusion</h4>
 <h4>• Vous comprenez le fonctionnement du partitionnement sous Linux<br>• Vous savez utiliser la commande fdisk<br>• Vous connaissez les systèmes de fichiers sous Linux</h4>
-<figure class="tssr-original-figure"><a href="../../../assets/course-sources/figures/atlas-21666cee2afc955b244b743501b5293e3d203b2de1037563e390a0751a8ab08d.webp" target="_blank" rel="noopener noreferrer"><img src="../../../assets/course-sources/figures/atlas-21666cee2afc955b244b743501b5293e3d203b2de1037563e390a0751a8ab08d.webp" alt="Illustrations du support source, pages 17" loading="lazy" width="900" height="183"></a><figcaption>Illustrations du support Drive — pages 17. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <p class="tssr-original-proof">Référence du document : 1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC · <span title="Empreinte SHA-256 du fichier source">SHA-256 41c2481ebc0b5e38…</span></p>
 </div>
 </details>

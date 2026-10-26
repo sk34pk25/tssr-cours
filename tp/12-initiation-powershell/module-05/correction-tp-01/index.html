@@ -12647,7 +12647,7 @@
 <div class="tabbed-block">
 <p></p><div class="tssr-original-reader">
 <p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>
-<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes, tableaux et illustrations sont intégrés à la page Web ; aucun PDF ENI n’est diffusé par ce lecteur. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
+<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun PDF ENI, diapositive ou reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.</p>
 <details class="tssr-original-document">
 <summary>Correction · Solution du TP - Outils pour le scripting · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
@@ -12672,7 +12672,7 @@
 <p class="tssr-source-paragraph">Page 1/3 </p>
 <p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>BE</p><p>$service<br>= read-host<br>"Indiquez<br>le service<br>tester"</p><p>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>4<br>}<br>catch<br>{</p><p>}<br>Finally{<br>$erreur</p><p>}</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p><p>$service<br>= read-host<br>"Indiquez<br>le service<br>tester"</p><p>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>4<br>}<br>catch<br>{</p><p>}<br>Finally{<br>$erreur</p><p>}</p></div></details>
 
 
 </section>
@@ -12690,7 +12690,7 @@
 <p class="tssr-source-paragraph">Page 2/3 </p>
 <p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>r<br>param<br>($service)<br>try<br>{</p><p>1<br>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>}<br>catch<br>{</p><p>}<br>finally{<br>:+<br>J<br>}<br>J<br>)<br>service wsearch</p><p>EX Administrator: Windows PowerShell<br>= J<br>PS C:\Users\Administrator&gt; Enter-PSSession<br>cD01<br>[CDO1]:<br>PS C:\Users\Administrator\Documents&gt;</p><p>EN Administrator Windows Powerthall<br>L =<br>=<br>PS C:\Users\Administrator&gt;<br>new-pssess1on<br>CD01<br>PS c:\Users\Administrator&gt;</p><p>Id Name<br>computerName<br>computerType<br>State<br>confi gurationName</p><p>_3 WinkM3<br>cD01<br> RemoteMachine<br>opened<br>Microsoft.Powershel1</p><p>1<br> $computers = get-adcomputer<br>-filter *<br>-properties<br>*</p><p>»<br>foreach<br>($i in $computers)<br>{</p><p>3<br>if<br>($i.distinguishedname -notlike "*domain controllers*"){</p><p>4<br>invoke-command<br>-computer $i.dnshostname<br>~<br>-scriptblock{stop-computer<br>-force}</p><p>&gt;<br>+}</p><p>|</p><p>@</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>r<br>param<br>($service)<br>try<br>{</p><p>1<br>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>}<br>catch<br>{</p><p>}<br>finally{<br>:+<br>J<br>}<br>J<br>)<br>service wsearch</p><p>EX Administrator: Windows PowerShell<br>= J<br>PS C:\Users\Administrator&gt; Enter-PSSession<br>cD01<br>[CDO1]:<br>PS C:\Users\Administrator\Documents&gt;</p><p>EN Administrator Windows Powerthall<br>L =<br>=<br>PS C:\Users\Administrator&gt;<br>new-pssess1on<br>CD01<br>PS c:\Users\Administrator&gt;</p><p>Id Name<br>computerName<br>computerType<br>State<br>confi gurationName</p><p>_3 WinkM3<br>cD01<br> RemoteMachine<br>opened<br>Microsoft.Powershel1</p><p>1<br> $computers = get-adcomputer<br>-filter *<br>-properties<br>*</p><p>»<br>foreach<br>($i in $computers)<br>{</p><p>3<br>if<br>($i.distinguishedname -notlike "*domain controllers*"){</p><p>4<br>invoke-command<br>-computer $i.dnshostname<br>~<br>-scriptblock{stop-computer<br>-force}</p><p>&gt;<br>+}</p><p>|</p><p>@</p></div></details>
 
 
 
@@ -12705,10 +12705,10 @@
 <p class="tssr-source-paragraph">Page 3/3 </p>
 <p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
 
-<details class="tssr-source-ocr" open=""><summary>Texte relevé dans les illustrations</summary><div class="tssr-source-ocr-text"><p>]<br>function<br>stop{<br>param( $domain)</p><p>;<br>$computers<br>= get-adcomputer<br>-filter<br>* -properties<br>*<br>~</p><p>1<br>-searchbase “cn=computers,dc=$domain,dc=lcl"</p><p>5<br>foreach<br>($i<br>in $computers)<br>{</p><p>»<br>if ($i.distinguishedname -notlike<br>"*domain controllers*"){</p><p>7<br>invoke-command<br>-computer $i.dnshostname<br>—~</p><p>8<br>-scriptblock{stop-computer -force}</p><p>}<br>L<br>-}</p><p>L<br>istop ad@1</p><p>8 Administrator: Windows PowerShell ISE</p><p>File<br>Edit<br>View<br>Tools<br>Debug<br>Add-ons<br>Help<br>Heb<br>4<br>Oo À<br>&gt;<br>œ<br>6 Em</p><p>| Untitled.ps1* X<br>|<br>1<br>$€rrorActionPreference = "SilentlyContinue”<br>2<br>$ErrorActionPreference</p></div></details>
+<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>]<br>function<br>stop{<br>param( $domain)</p><p>;<br>$computers<br>= get-adcomputer<br>-filter<br>* -properties<br>*<br>~</p><p>1<br>-searchbase “cn=computers,dc=$domain,dc=lcl"</p><p>5<br>foreach<br>($i<br>in $computers)<br>{</p><p>»<br>if ($i.distinguishedname -notlike<br>"*domain controllers*"){</p><p>7<br>invoke-command<br>-computer $i.dnshostname<br>—~</p><p>8<br>-scriptblock{stop-computer -force}</p><p>}<br>L<br>-}</p><p>L<br>istop ad@1</p><p>8 Administrator: Windows PowerShell ISE</p><p>File<br>Edit<br>View<br>Tools<br>Debug<br>Add-ons<br>Help<br>Heb<br>4<br>Oo À<br>&gt;<br>œ<br>6 Em</p><p>| Untitled.ps1* X<br>|<br>1<br>$€rrorActionPreference = "SilentlyContinue”<br>2<br>$ErrorActionPreference</p></div></details>
 
 
-<figure class="tssr-original-figure"><a href="../../../../assets/course-sources/figures/atlas-c45b14c7cd4f63e74b68a2b26ecf92f7ba00778ca21abfe357df05f43ce9e9d9.webp" target="_blank" rel="noopener noreferrer"><img src="../../../../assets/course-sources/figures/atlas-c45b14c7cd4f63e74b68a2b26ecf92f7ba00778ca21abfe357df05f43ce9e9d9.webp" alt="Illustrations du support source, pages 1 à 3" loading="lazy" width="999" height="2942"></a><figcaption>Illustrations du support Drive — pages 1 à 3. Les images sont regroupées sans redimensionnement ; aucun contenu généré par IA.</figcaption></figure></section>
+</section>
 <p class="tssr-original-proof">Référence du document : 1dDuEWHSa8J-9501HWn5abL8JkTXfz5-S · <span title="Empreinte SHA-256 du fichier source">SHA-256 e0dd2e100740ca22…</span></p>
 </div>
 </details>
