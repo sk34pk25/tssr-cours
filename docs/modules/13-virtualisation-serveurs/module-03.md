@@ -93,3 +93,7 @@ Une infrastructure de virtualisation associe une machine hôte, un hyperviseur,
 des machines virtuelles et un outil de gestion. Les exemples Hyper-V, ESX /
 ESXi, vSphere et vCenter servent ici à situer ces composants, sans introduire
 de procédure d'administration.
+
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-03](../../kahoot/13-virtualisation-serveurs-module-03.md)

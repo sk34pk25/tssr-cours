@@ -91,10 +91,14 @@ des deux hôtes sont distinctes sur le réseau /24 du laboratoire, neutralisé i
     forcée n’est pas reprise comme procédure normale. La couverture de la solution
     décrit surtout le premier hôte puis demande de reproduire sur le second.
 
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-06](../../kahoot/13-virtualisation-serveurs-module-06.md)
+
 ## Provenance
 
 A : support M06, énoncé et solution de gestion réseau, Drive TSSR en lecture seule.
 B : restructuration web fidèle, données de laboratoire neutralisées. Le support
 contient 21 diapositives sur 11 pages, l’énoncé trois pages et la solution 11 pages.
-Aucun laboratoire exécuté, ressource binaire, quiz, commande ou lien Kahoot ajouté.
+Aucun laboratoire exécuté, ressource binaire ou commande ajouté.
 Cette page reste autonome et ne dépend pas d’un objet encore non publié.

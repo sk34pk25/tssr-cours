@@ -98,6 +98,10 @@ de mémoire et de disque de l’atelier sont des paramètres de laboratoire.
 Contenu A : `Module 04 - Support de cours.pdf` et les documents de mise en situation
 Hyper-V du module 4, énoncé et solution, dans Drive TSSR en lecture seule. Contenu B :
 restructuration web limitée aux notions et aux limites observées dans ces sources.
-Aucune procédure externe, ressource binaire, question ou association Kahoot n’est ajoutée.
+Aucune procédure externe ni ressource binaire n’est ajoutée.
 Les supports d’installation et les fichiers de VM du laboratoire ne sont pas fournis
 par les trois PDF. Cette page ne dépend d’aucun objet pédagogique encore non publié.
+
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-04](../../kahoot/13-virtualisation-serveurs-module-04.md)

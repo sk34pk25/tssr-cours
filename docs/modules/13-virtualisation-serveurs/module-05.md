@@ -73,11 +73,15 @@ et des VMware Tools.
     l’exécution. Le schéma mentionne également un accès HTTP : il ne constitue pas
     une consigne générale sur le protocole ou les avertissements de certificat.
 
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-05](../../kahoot/13-virtualisation-serveurs-module-05.md)
+
 ## Provenance et limites
 
 Contenu A : support M05 et documents de mise en situation vSphere, énoncé et
 solution, du dossier TSSR Drive en lecture seule. Contenu B : restructuration web
 fidèle, avec neutralisation des adresses, noms et chemins propres au laboratoire.
 Les ISO, logiciels et fichiers de VM ne sont pas fournis par ces PDF. Les captures
-privées ne sont pas republiées. Aucun TP, commande, quiz, lien Kahoot ou complément
+privées ne sont pas republiées. Aucun TP, commande ou complément
 externe n’est inventé. Cette page ne dépend d’aucun objet encore non publié.

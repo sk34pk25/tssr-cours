@@ -92,10 +92,21 @@ def catalog(root=ROOT):
         fields = {"schemaVersion", "courseId", "moduleId", "title", "questionCount", "url", "soloAvailable", "liveAvailable", "provenance", "state", "questions"}
         if not isinstance(item, dict) or set(item) != fields or type(item["schemaVersion"]) is not int or item["schemaVersion"] != 1:
             raise ValueError("Métadonnées Kahoot invalides")
-        course = doc_path(root, item["courseId"])
-        module = doc_path(root, item["moduleId"])
-        if not course.endswith("/index.md") or posixpath.dirname(course) != posixpath.dirname(module) or course == module:
-            raise ValueError("Le module ne correspond pas au cours")
+        # A quiz can be published before its course exists. Both links stay null
+        # together; a single missing link is still rejected.
+        unbound = item["courseId"] is None and item["moduleId"] is None
+        if unbound:
+            course = module = None
+        elif item["courseId"] is None or item["moduleId"] is None:
+            raise ValueError("Cours et module Kahoot incomplets")
+        else:
+            course = doc_path(root, item["courseId"])
+            module = doc_path(root, item["moduleId"])
+            if not course.endswith("/index.md") or posixpath.dirname(course) != posixpath.dirname(module) or course == module:
+                raise ValueError("Le module ne correspond pas au cours")
+            if module in modules:
+                raise ValueError("Un seul Kahoot canonique par module")
+            modules.add(module)
         if type(item["questionCount"]) is not int or not 1 <= item["questionCount"] <= 20:
             raise ValueError("Kahoot : 1 à 20 questions par module")
         if item["provenance"] not in {"A", "B", "C", "D"} or not isinstance(item["title"], str) or not item["title"].strip():
@@ -115,9 +126,6 @@ def catalog(root=ROOT):
             raise ValueError("Kahoot vide")
         if item["state"] != ("linked" if item["url"] else "prepared") or (not item["url"] and (item["soloAvailable"] or item["liveAvailable"])):
             raise ValueError("État Kahoot incohérent")
-        if module in modules:
-            raise ValueError("Un seul Kahoot canonique par module")
-        modules.add(module)
         if item["url"]:
             identity = official_share_url(item["url"]).rstrip('/').split("/")[-1]
             if identity in urls:
@@ -131,7 +139,14 @@ def catalog(root=ROOT):
         def title_of(target):
             match = re.search(r"^# (.+)$", (root / "docs" / target).read_text(encoding="utf-8"), re.M)
             return match[1] if match else target
-        result.append({**item, "path": relative, "legacy": False, "courseTitle": title_of(course), "moduleTitle": title_of(module),
+        if unbound:
+            parsed = re.fullmatch(r"TSSR-(.+)-Module-(.+)", item["title"].strip())
+            if not parsed:
+                raise ValueError("Titre de quiz sans cours illisible")
+            course_title, module_title = parsed.group(1), f"Module {parsed.group(2)}"
+        else:
+            course_title, module_title = title_of(course), title_of(module)
+        result.append({**item, "path": relative, "legacy": False, "courseTitle": course_title, "moduleTitle": module_title,
                        "joinUrl": actions["joinUrl"], "editorUrl": editor_url})
     if configured_pages != set(actions["editorUrls"]):
         raise ValueError("Une action Kahoot cible une page absente ou non structurée")
@@ -167,11 +182,24 @@ def card(item, current):
 
 def render_library(items):
     parts = ['# Kahoot', '', 'Les quiz associés aux cours et modules. Maximum 20 questions pertinentes par module.', '']
-    courses = sorted({item.get("courseId", "") for item in items})
-    for course in courses:
-        course_title = next(item.get("courseTitle", course) for item in items if item.get("courseId", "") == course)
-        parts.append(f'<h2>{escape(course_title) if course else "Quiz historiques — associations à compléter"}</h2>')
-        parts.extend(card(item, "kahoot/bibliotheque.md") for item in items if item.get("courseId", "") == course)
+    groups = {}
+    for item in items:
+        if item.get("legacy") or (not item.get("courseId") and not item.get("courseTitle")):
+            key = (0, "")
+            title = "Quiz historiques — associations à compléter"
+        elif item.get("courseId"):
+            key = (1, item["courseId"])
+            title = item.get("courseTitle", item["courseId"])
+        else:
+            key = (2, item.get("courseTitle") or item["title"])
+            title = item.get("courseTitle") or item["title"]
+        group = groups.setdefault(key, {"title": title, "items": []})
+        group["items"].append(item)
+    for key in sorted(groups):
+        group = groups[key]
+        heading = group["title"] if key[0] == 0 else escape(group["title"])
+        parts.append(f"<h2>{heading}</h2>")
+        parts.extend(card(item, "kahoot/bibliotheque.md") for item in group["items"])
     if not items:
         parts.append("Aucun Kahoot configuré. Aucun quiz vide ne sera créé.")
     return '\n\n'.join(parts)
