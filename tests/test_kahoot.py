@@ -149,6 +149,21 @@ class KahootTests(unittest.TestCase):
         self.assertNotIn("Jouer en solo", card(item, "kahoot/bibliotheque.md"))
         self.assertNotIn("Lancer une session", card(item, "kahoot/bibliotheque.md"))
 
+    def test_quiz_without_a_course_is_listed_under_its_own_heading(self):
+        item = {**self.item, "courseId": None, "moduleId": None,
+                "title": "TSSR-Services réseau Linux-Module-01",
+                "url": f"https://create.kahoot.it/details/{self.identity}"}
+        self.save(item, name="services-reseau-linux-module-01")
+        found = catalog(self.root)[0]
+        self.assertIsNone(found["courseId"])
+        self.assertIsNone(found["moduleId"])
+        self.assertEqual(found["courseTitle"], "Services réseau Linux")
+        self.assertEqual(found["moduleTitle"], "Module 01")
+        rendered = render_library([found])
+        self.assertIn("<h2>Services réseau Linux</h2>", rendered)
+        self.assertIn("Module 01", rendered)
+        self.assertNotIn("Quiz historiques", rendered)
+
     def test_duplicate_of_legacy_quiz_is_rejected(self):
         self.save()
         (self.root / "docs/kahoot/old.md").write_text(f"# Historique\n[Jouer](https://create.kahoot.it/share/ancien-titre/{self.identity})\n", encoding="utf-8")

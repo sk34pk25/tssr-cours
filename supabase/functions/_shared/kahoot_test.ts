@@ -28,6 +28,19 @@ Deno.test("Kahoot metadata roundtrip is stable and legacy remains available", ()
   validateKahootSet([{ clientId: "legacy", kind: "kahoot" }], 0, new Set(["legacy"]));
 });
 
+Deno.test("a quiz can be read before its course exists", () => {
+  const meta = {
+    schemaVersion: 1, courseId: null, moduleId: null, title: "TSSR-Services réseau Linux-Module-01",
+    questionCount: 1, url: "https://create.kahoot.it/details/12345678-1234-1234-1234-123456789abc",
+    soloAvailable: true, liveAvailable: true, provenance: "B", state: "linked", questions: [],
+  };
+  const content = `<!-- TSSR-KAHOOT-V1:${encodeURIComponent(JSON.stringify(meta))} -->\n# Quiz\n`;
+  assertEquals(readKahoot(content)?.courseId, null);
+  assertEquals(readKahoot(content)?.moduleId, null);
+  const half = content.replace("moduleId%22%3Anull", "moduleId%22%3A%22modules%2Ftest%2Fmodule.md%22");
+  assertThrows(() => readKahoot(half));
+});
+
 Deno.test("generic Markdown proposals also validate encoded Kahoot metadata", () => {
   const content = writeKahoot("# Test\n", quiz(), "docs/modules/test/index.md", "docs/modules/test/module.md");
   validateProposedFiles([{ file_path: "docs/kahoot/test.md", change_type: "create", new_content: content }]);

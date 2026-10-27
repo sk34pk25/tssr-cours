@@ -91,9 +91,12 @@ accède à la même banque VMFS iSCSI et monte le partage NFS. Le texte parle d�
     contre le module 7 dans l’énoncé. Le mot « Bonus » final ne contient aucun
     exercice exploitable ; aucun bonus n’est créé.
 
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-07](../../kahoot/13-virtualisation-serveurs-module-07.md)
+
 ## Provenance
 
 A : support M07, énoncé de quatre pages et solution de 17 pages, Drive TSSR en
 lecture seule. B : restructuration fidèle avec lecture des captures, sans
-republication de données internes. Aucun TP exécuté, ressource binaire, quiz ou
-association Kahoot ajouté. Cette page reste indépendante des objets non publiés.
+republication de données internes. Aucun TP exécuté ou ressource binaire ajouté. Cette page reste indépendante des objets non publiés.

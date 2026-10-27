@@ -13,9 +13,10 @@ export function readKahoot(content: string): RecordValue | null {
   const item = JSON.parse(decodeURIComponent(matches[0][1]));
   const fields = ["schemaVersion", "courseId", "moduleId", "title", "questionCount", "url", "soloAvailable", "liveAvailable", "provenance", "state", "questions"];
   if (!item || typeof item !== "object" || Array.isArray(item) || Object.keys(item).length !== fields.length || fields.some((f) => !(f in item)) || item.schemaVersion !== 1) throw new Error("Métadonnées Kahoot invalides.");
-  if (!/^modules\/[a-z0-9/-]+\/index\.md$/.test(item.courseId) ||
+  const unbound = item.courseId === null && item.moduleId === null;
+  if (!unbound && (!/^modules\/[a-z0-9/-]+\/index\.md$/.test(item.courseId) ||
     !/^modules\/[a-z0-9/-]+\.md$/.test(item.moduleId) || item.courseId === item.moduleId ||
-    item.courseId.slice(0, item.courseId.lastIndexOf("/")) !== item.moduleId.slice(0, item.moduleId.lastIndexOf("/"))) throw new Error("Relations Kahoot invalides.");
+    item.courseId.slice(0, item.courseId.lastIndexOf("/")) !== item.moduleId.slice(0, item.moduleId.lastIndexOf("/")))) throw new Error("Relations Kahoot invalides.");
   if (typeof item.questionCount !== "number" || typeof item.soloAvailable !== "boolean" || typeof item.liveAvailable !== "boolean" || !Array.isArray(item.questions) ||
     item.state !== (item.url ? "linked" : "prepared") || (!item.url && (item.soloAvailable || item.liveAvailable))) throw new Error("État Kahoot incohérent.");
   validateKahoot({ ...item, kind: "kahoot", moduleIndex: 0 });

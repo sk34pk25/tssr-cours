@@ -249,7 +249,9 @@ function relatedEntry(
     const label = Object.keys(source)[0];
     if (
       !label ||
-      ["Présentation", "Tous les Kahoots", "Bibliothèque"].includes(label)
+      // Services réseau Linux is listed before that course exists. It must not
+      // be adopted by another course that merely shares some of its words.
+      ["Présentation", "Tous les Kahoots", "Bibliothèque", "Services réseau Linux"].includes(label)
     ) continue;
     const targets = flattenNav(item);
     const searchable = slugify(

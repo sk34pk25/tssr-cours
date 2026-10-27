@@ -97,10 +97,14 @@ externe ou réglage supplémentaire n’est inventé.
     résolues par invention. L’exemple de mot de passe du PDF est exclu. Les alertes
     de certificat restent des observations à examiner dans le laboratoire.
 
+## Kahoot
+
+- [TSSR-Virtualisation de serveurs-Module-08](../../kahoot/13-virtualisation-serveurs-module-08.md)
+
 ## Provenance
 
 A : support M08 et deux paires énoncé/solution, cinq PDF du Drive TSSR en lecture
 seule. B : restructuration web fidèle après lecture du texte et des images.
 Les VM, exports et appliance OVA ne sont pas fournis par ces PDF. Aucune action de
-laboratoire, commande, question, association Kahoot ou ressource externe ajoutée.
+laboratoire, commande ou ressource externe ajoutée.
 Cette page ne dépend pas des objets d’atelier encore non publiés.

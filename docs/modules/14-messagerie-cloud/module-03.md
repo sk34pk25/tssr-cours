@@ -55,6 +55,10 @@ Distinguer compte, licence, groupe et rôle ; identifier les destinataires ; exp
 
 [Ateliers, énoncés et corrections](../../tp/14-messagerie-cloud/module-03/index.md).
 
+## Kahoot
+
+- [TSSR-Messagerie Cloud-Module-03](../../kahoot/14-messagerie-cloud-module-03.md)
+
 ## Provenance
 
 Les documents originaux sont présentés séparément de cette aide IA / externe au cours. Les pages indiquées sont les pages PDF, et non les numéros de diapositives.

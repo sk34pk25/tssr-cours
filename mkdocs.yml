@@ -409,6 +409,26 @@ nav:
       - Cas pratiques transversaux: exercices/cas-pratiques.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
+      - Messagerie Cloud:
+          - Module 01: kahoot/14-messagerie-cloud-module-01.md
+          - Module 02: kahoot/14-messagerie-cloud-module-02.md
+          - Module 03: kahoot/14-messagerie-cloud-module-03.md
+          - Module 04: kahoot/14-messagerie-cloud-module-04.md
+      - Virtualisation de serveurs:
+          - Module 03: kahoot/13-virtualisation-serveurs-module-03.md
+          - Module 04: kahoot/13-virtualisation-serveurs-module-04.md
+          - Module 05: kahoot/13-virtualisation-serveurs-module-05.md
+          - Module 06: kahoot/13-virtualisation-serveurs-module-06.md
+          - Module 07: kahoot/13-virtualisation-serveurs-module-07.md
+          - Module 08: kahoot/13-virtualisation-serveurs-module-08.md
+      - Services réseau Linux:
+          - Module 01: kahoot/services-reseau-linux-module-01.md
+          - Module 02: kahoot/services-reseau-linux-module-02.md
+          - Module 03: kahoot/services-reseau-linux-module-03.md
+          - Module 04: kahoot/services-reseau-linux-module-04.md
+          - Module 05: kahoot/services-reseau-linux-module-05.md
+          - Module 06: kahoot/services-reseau-linux-module-06.md
+          - Module 07: kahoot/services-reseau-linux-module-07.md
   - Modifications: collaboration/index.md
   - Révisions:
       - Présentation: revision/index.md
