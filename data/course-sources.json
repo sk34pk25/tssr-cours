@@ -28900,7 +28900,7 @@
         "Synthèses",
         "Synthèse Module 5 - Gestion des Utilisateurs, Groupes et UAC V2"
       ],
-      "sourceNotice": "Export PDF de la synthèse Google Docs présente dans le Drive ; ce document est une synthèse, pas un support de cours ENI identifié.",
+      "sourceNotice": "Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.",
       "legacyOriginal": "assets/course-sources/02d55ab8bc007be4/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/02d55ab8bc007be4/transcription-1xPtrQx5oKA-CNDqmsl8HKcDMVemUE5n-XXwvyJYUpqU.html",
@@ -28941,7 +28941,7 @@
         "Synthèses",
         "Synthèse Module 4 - Gestion du Stockage sous Windows V2"
       ],
-      "sourceNotice": "Export PDF de la synthèse Google Docs présente dans le Drive ; ce document est une synthèse, pas un support de cours ENI identifié.",
+      "sourceNotice": "Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.",
       "legacyOriginal": "assets/course-sources/dd1c931110ca0adf/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/dd1c931110ca0adf/transcription-1HPSzTP-d7McDtFNHDKfLLzdIZlYgYOvlaTrRjec1VQM.html",
@@ -28982,7 +28982,7 @@
         "Synthèses",
         "Synthèse Module 3 - Interaction Windows 10, CLI, PowerShell & Excel V2"
       ],
-      "sourceNotice": "Export PDF de la synthèse Google Docs présente dans le Drive ; ce document est une synthèse, pas un support de cours ENI identifié.",
+      "sourceNotice": "Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.",
       "legacyOriginal": "assets/course-sources/be0063154846891d/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/be0063154846891d/transcription-1YVfR8rQcbF2RA_I23MsPVH7NZ4auK9h7bqBPOA7d4DE.html",
@@ -29023,7 +29023,7 @@
         "Synthèses",
         "Synthèse Module 2 - Installation et Configuration de Windows 10 V2"
       ],
-      "sourceNotice": "Export PDF de la synthèse Google Docs présente dans le Drive ; ce document est une synthèse, pas un support de cours ENI identifié.",
+      "sourceNotice": "Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.",
       "legacyOriginal": "assets/course-sources/ac5be3701f305a6b/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/ac5be3701f305a6b/transcription-1BIk1H_2uj3XFijQHxwvV9Ve50UrWWACE5M6AmT1L9Lk.html",
@@ -29234,6 +29234,57 @@
       ],
       "figures": [],
       "illustrationCount": 0
+    },
+    "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE": {
+      "id": "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE",
+      "title": "Synthèse Module 1 - OS, Windows 10 & Modèle OSI V2",
+      "role": "synthese-drive",
+      "sha256": "106ffa26a2c54f893bca73517ba25bdaca072a3cb73b1b0c083f0a6f3773fcbe",
+      "pageCount": 3,
+      "drivePath": [
+        "Base des réseaux",
+        "Synthèses",
+        "Synthèse Module 1 - OS, Windows 10 & Modèle OSI V2"
+      ],
+      "sourceNotice": "Les synthèses Windows 10 de ce dossier sont rattachées au cours Systèmes clients.",
+      "legacyOriginal": "assets/course-sources/106ffa26a2c54f89/original.pdf",
+      "sourceFormat": "pdf",
+      "transcript": "assets/course-sources/106ffa26a2c54f89/texte.html",
+      "transcriptionSha256": "4c2f125afdbf854d9a51eca686a10bf1d9abd227ded378a4e7a992132f54d70c",
+      "pages": [
+        {
+          "number": 1,
+          "nativeSha256": "91daa45b6b0708c0d32642fa924797f248446d6b1f479827740e3e0efb529ab7",
+          "nativeWords": 200,
+          "ocrWords": 0,
+          "tables": 1,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 1
+        },
+        {
+          "number": 2,
+          "nativeSha256": "b859c89b63270e87ac832f8b09856ef983c683d1d42d95eb482d7fa0c0fac914",
+          "nativeWords": 139,
+          "ocrWords": 0,
+          "tables": 2,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 2
+        },
+        {
+          "number": 3,
+          "nativeSha256": "42bafacead15c942e1017e899de254ebec58feb8ee05a3206bc46723b9771876",
+          "nativeWords": 82,
+          "ocrWords": 0,
+          "tables": 1,
+          "figures": 0,
+          "nativeCoverage": true,
+          "sourceGraphicsDetected": 5
+        }
+      ],
+      "figures": [],
+      "illustrationCount": 0
     }
   },
   "pages": {
@@ -29338,7 +29389,8 @@
     ],
     "modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md": [
       "17BaGNjB9AJI1XDss_Qku7u7102-L9f8g",
-      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg"
+      "1nxEVg-7mxd3jMbcAE5Kz3qCC4VNDZHhg",
+      "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE"
     ],
     "modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md": [
       "1Bk4bAsNg5iCJkSgvyLRCX5ReWFlYDxJe",
@@ -30504,19 +30556,19 @@
     "tp/10-msp-services-reseau/module-01/index.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
     "tp/11-initiation-scripting-bash/module-02/correction-tp-02.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
     "tp/12-initiation-powershell/module-06/correction-tp-01.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Le dossier de ce module ne contient pas de support de cours PDF. Il contient des activités Packet Tracer et l’installateur du logiciel : aucun de ces fichiers n’est publié. Les notes de quiz du Drive ne sont pas un support de cours et ne figurent pas dans cet onglet.",
-    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Le dossier Drive de ce cours ne contient aucun document propre à ce module. Les notes de quiz qui évoquent aussi le module 2 ne sont pas un support de cours et ne figurent pas dans cet onglet.",
-    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Le dossier de ce module ne contient pas d’énoncé PDF. Il contient une activité Packet Tracer, qui n’est pas publiée. Les notes de quiz ne sont pas un support de cours et ne figurent pas dans cet onglet.",
-    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Le dossier Drive de ce cours ne contient aucun document propre à ce module. Les notes de quiz qui évoquent aussi le module 6 ne sont pas un support de cours et ne figurent pas dans cet onglet.",
-    "tp/reseaux/module-01/index.md": "Cette fiche n’a pas d’énoncé PDF dans le dossier Drive. Les activités Packet Tracer du module ne sont pas publiées.",
-    "tp/reseaux/module-05/index.md": "Cette fiche n’a pas d’énoncé PDF dans le dossier Drive. L’activité Packet Tracer du module n’est pas publiée."
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Inexistant",
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Inexistant",
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Inexistant",
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Inexistant",
+    "tp/reseaux/module-01/index.md": "Inexistant",
+    "tp/reseaux/module-05/index.md": "Inexistant"
   },
   "verifiedAt": "2026-10-26",
   "verification": {
     "scope": "Modules déjà publiés uniquement",
     "modules": 82,
-    "documents": 328,
-    "originalPages": 2189,
+    "documents": 329,
+    "originalPages": 2192,
     "method": "Transcription du texte natif et des éléments graphiques par OCR ; aucun PDF, aucune reproduction de diapositive. Croquis facultatifs isolés et vérifiés visuellement."
   },
   "documentaryExceptions": [

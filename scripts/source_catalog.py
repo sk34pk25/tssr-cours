@@ -125,13 +125,7 @@ class LiteralSourceHTML(HTMLParser):
 
 def render_originals(refs, page, data):
     if not refs:
-        notice = (data.get('pageNotices') or {}).get(page) or (
-            'Aucun support de cours, énoncé ou correction n’est associé à cette page dans le dossier Drive.')
-        return '\n'.join([
-            '<div class="tssr-original-reader">',
-            '<p class="tssr-origin-badge">SOURCE DRIVE · AUCUN DOCUMENT OFFICIEL</p>',
-            f'<p class="tssr-original-note">{escape(notice)}</p>',
-            '</div>'])
+        return '<p>Inexistant</p>'
     out = ['<div class="tssr-original-reader">',
            '<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>',
            '<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. '
