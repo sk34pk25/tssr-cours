@@ -13314,22 +13314,33 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
-<div class="mermaid">flowchart LR
-    W["Outlook sur le web"] --&gt;|"Fonctionne"| C["Client local&lt;br/&gt;mode sans échec"] --&gt; A["Authentification et Autodiscover"] --&gt; P["Nouveau profil contrôlé"] --&gt; T["Envoi · réception · calendrier"]
-    W --&gt;|"Échoue aussi"| S["Réseau · licence · état du service · compte"]</div>
-<p class="tssr-caption">Outlook sur le web sépare rapidement un problème de boîte ou de service d’un problème propre au profil local.</p>
+<p>Démarche du module Outlook. Les noms de fichiers et d’adresses ci-dessous sont ceux du support de formation.</p>
+<p><strong>Illustration IA / externe au cours — ordre de diagnostic.</strong></p>
+<div class="mermaid">flowchart TD
+    A["testconnectivity.microsoft.com"] --&gt; B["Identifiants dans Outlook sur le web"]
+    B --&gt; C["Journalisation, puis désactivation"]
+    C --&gt; D["outlook.exe /safe"]
+    D --&gt; E["État de la connexion et MailboxId"]
+    E --&gt; F["Nouveau profil par Autodiscover"]
+    F --&gt; G["Fichier .ost ou .pst et SCANPST.EXE"]</div>
+<p class="tssr-caption">Le test distant sépare un problème d’accès Exchange d’un problème de profil local.</p>
 
 <ol>
-<li>Tester la boîte dans Outlook sur le web.</li>
-<li>Vérifier réseau, date/heure, licence et état du service Microsoft 365.</li>
-<li>Contrôler les identifiants et l’authentification multifacteur.</li>
-<li>Lancer Outlook en mode sans échec pour écarter un complément.</li>
-<li>Vérifier Autodiscover et le profil.</li>
-<li>Créer un nouveau profil avant de supprimer l’ancien.</li>
-<li>Contrôler envoi, réception, calendrier et carnet d’adresses.</li>
+<li>Ouvrir <a href="https://testconnectivity.microsoft.com/">testconnectivity.microsoft.com</a> et lancer le test de connectivité Outlook. Le TP attend un test réussi.</li>
+<li>Vérifier l’identifiant et le mot de passe dans Outlook sur le web.</li>
+<li>Activer la journalisation : Fichier, Options, Options avancées. Redémarrer. Lire <code>C:\Users\micheline\AppData\Local\Temp\Journalisation d’Outlook</code>, puis désactiver la journalisation.</li>
+<li>Lancer <code>outlook.exe /safe</code>. Le mode sans échec démarre sans les modules complémentaires. Dans le TP, les émojis ne sont plus proposés.</li>
+<li>Ctrl + clic droit sur l’icône de la zone de notification : état de la connexion. Noter le MailboxId dans « Nom du serveur ».</li>
+<li>Outlook fermé, supprimer le profil (Panneau de configuration, Mail) puis rouvrir pour laisser Autodiscover reconfigurer. Contrôler messages, calendrier et tâches.</li>
+<li>Repérer le fichier dans Fichier, Informations, Paramètres du compte. <code>.ost</code> : données hors connexion, le serveur Exchange conserve les éléments. <code>.pst</code> : stockage local, notamment sans Exchange (POP3, IMAP4).</li>
+<li>Contrôler l’intégrité avec <code>SCANPST.EXE</code>. Le support limite MaxFileSize à 50 Go et WarnFileSize à 47,5 Go.</li>
+<li>Relever le nombre d’éléments : Propriétés de la boîte de réception, Taille du dossier.</li>
 </ol>
-<p>Ne pas supprimer un fichier de données local sans en connaître le type et sans sauvegarde.</p>
+<p>Outlook Anywhere est activé par défaut : l’accès Exchange Online depuis Internet ne passe pas par un VPN. La commande citée est <code>Test-OutlookConnectivity</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Ne pas supprimer un fichier <code>.ost</code> ou <code>.pst</code> sans savoir lequel est en cause et sans copie. Le support montre aussi un fichier <code>.bak</code> de sauvegarde.</p>
+</div>
 
 
 
