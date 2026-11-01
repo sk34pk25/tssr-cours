@@ -28,6 +28,13 @@ Deno.test("Kahoot metadata roundtrip is stable and legacy remains available", ()
   validateKahootSet([{ clientId: "legacy", kind: "kahoot" }], 0, new Set(["legacy"]));
 });
 
+Deno.test("true or false questions may have two answers", () => {
+  validateKahootSet([{
+    ...quiz(1),
+    questions: [{ question: "Affirmation", answers: ["Vrai", "Faux"], correctAnswer: "Vrai", provenance: "B", source: "Support" }],
+  }], 1);
+});
+
 Deno.test("a quiz can be read before its course exists", () => {
   const meta = {
     schemaVersion: 1, courseId: null, moduleId: null, title: "TSSR-Services réseau Linux-Module-01",
