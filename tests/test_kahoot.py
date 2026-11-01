@@ -149,6 +149,13 @@ class KahootTests(unittest.TestCase):
         self.assertNotIn("Jouer en solo", card(item, "kahoot/bibliotheque.md"))
         self.assertNotIn("Lancer une session", card(item, "kahoot/bibliotheque.md"))
 
+    def test_true_false_question_keeps_two_answers(self):
+        question = {"question": "Affirmation.", "answers": ["Vrai", "Faux"], "correctAnswer": "Vrai", "provenance": "B", "source": "Support du module"}
+        self.save({**self.item, "questionCount": 1, "questions": [question]})
+        found = catalog(self.root)[0]
+        self.assertEqual(found["questions"][0]["answers"], ["Vrai", "Faux"])
+        self.assertEqual(found["questionCount"], 1)
+
     def test_quiz_without_a_course_is_listed_under_its_own_heading(self):
         item = {**self.item, "courseId": None, "moduleId": None,
                 "title": "TSSR-Services réseau Linux-Module-01",
