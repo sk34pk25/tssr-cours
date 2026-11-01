@@ -124,7 +124,7 @@ def render_originals(refs, page, data):
     out = ['<div class="tssr-original-reader">',
            '<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>',
            '<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. '
-           'Les textes et tableaux sont intégrés à la page Web. Aucun PDF ENI, diapositive ou reproduction de page n’est affiché. '
+           'Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. '
            'Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. '
            'Les versions et les consignes restent celles des supports de formation. '
            'Les compléments IA sont conservés dans leur onglet distinct.</p>']
