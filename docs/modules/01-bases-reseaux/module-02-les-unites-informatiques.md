@@ -1,83 +1,102 @@
 # Module 02 — Les unités informatiques
 
-**Séquence :** Bases des réseaux
+**Séquence :** Bases des réseaux  
+**Rôle dans le parcours :** lire et convertir les bases utilisées ensuite pour les adresses et les masques.
+
+L’onglet Cours Original indique **Inexistant**. Le dossier ne contient aucun document propre à ce module. La fiche suit la partie « unités » des notes de quiz des modules 1 et 2.
 
 ## Objectifs
 
-- distinguer bit, octet et leurs multiples ;
-- reconnaître les bases binaire, octale, décimale et hexadécimale ;
-- convertir une valeur dans les exemples explicitement traités par les sources ;
-- relier la représentation binaire aux usages réseau cités : IPv6 et adresses MAC.
+À l’issue du module, vous devez pouvoir :
+
+- distinguer bit et octet ;
+- convertir les exemples des notes entre décimal, binaire, octal et hexadécimal ;
+- regrouper les bits par 3 pour l’octal et par 4 pour l’hexadécimal ;
+- reconnaître une adresse MAC et le rôle de l’hexadécimal dans une adresse IPv6.
 
 ## 1. Bit et octet
 
-Un **bit** est un chiffre binaire. Les sources rappellent qu’un octet contient **8 bits**. Cette unité donne un premier repère avant de changer de base : en binaire, chaque position porte une puissance de deux.
+Un **bit** est un chiffre binaire, 0 ou 1. Les notes le relient aux deux états d’un circuit. Un **octet** groupe 8 bits. Les notes s’en servent pour découper une adresse IPv4 en quatre octets, chacun de 0 à 255.
 
-## 2. Bases de numération
-
-Un système de numération représente une valeur avec un ensemble de symboles et des puissances de sa base. Les sources M01/M02 présentent quatre bases :
-
-| Base | Symboles | Repère de conversion cité |
+| Base | Symboles dans les notes | Regroupement |
 |---|---|---|
-| Binaire (2) | `0`, `1` | chaque position vaut une puissance de deux ; un bit vaut `0` ou `1`. |
-| Octale (8) | `0` à `7` | un chiffre octal représente trois bits. |
-| Décimale (10) | `0` à `9` | chaque position vaut une puissance de dix. |
-| Hexadécimale (16) | `0` à `9`, `A` à `F` | un chiffre hexadécimal représente quatre bits. |
+| 2, binaire | 0, 1 | un bit, puissance de 2 |
+| 8, octal | 0 à 7 | un chiffre = 3 bits |
+| 10, décimal | 0 à 9 | puissance de 10 |
+| 16, hexadécimal | 0 à 9 puis A à F (A = 10 … F = 15) | un chiffre = 4 bits |
 
-La notation binaire correspond aux deux états utilisés par les circuits. L’hexadécimal rend une suite binaire longue plus lisible en la regroupant par blocs de quatre bits.
+## 2. Décimal et binaire
 
-## 3. Méthodes et exemples de conversion attestés
+Les notes convertissent par divisions successives. On divise par la base, on note le reste, on recommence avec le quotient, puis on lit les restes du dernier au premier.
 
-### Exemple 1 — Décimal vers binaire
-
-La source décrit la méthode des divisions successives par deux : diviser, conserver le reste, recommencer avec le quotient puis lire les restes de bas en haut.
+Décimal **25** vers le binaire :
 
 | Division | Quotient | Reste |
 |---|---:|---:|
-| `25 ÷ 2` | `12` | `1` |
-| `12 ÷ 2` | `6` | `0` |
-| `6 ÷ 2` | `3` | `0` |
-| `3 ÷ 2` | `1` | `1` |
-| `1 ÷ 2` | `0` | `1` |
+| 25 ÷ 2 | 12 | 1 |
+| 12 ÷ 2 | 6 | 0 |
+| 6 ÷ 2 | 3 | 0 |
+| 3 ÷ 2 | 1 | 1 |
+| 1 ÷ 2 | 0 | 1 |
 
-Lu de bas en haut, le résultat source est : `25` → `11001`.
+Lecture des restes de bas en haut : **11001**.
 
-### Exemple 2 — Binaire vers décimal
+Binaire **10110** vers le décimal, puissances de 2 de droite à gauche :
 
-Additionner les puissances de deux correspondant aux positions contenant `1`. Exemples cités :
+| Bit | 1 | 0 | 1 | 1 | 0 |
+|---|---:|---:|---:|---:|---:|
+| Poids | 16 | 8 | 4 | 2 | 1 |
+| Produit | 16 | 0 | 4 | 2 | 0 |
 
-- `11000000` = `128 + 64` = `192` ;
-- `1011` = `8 + 2 + 1` = `11`.
+Total : **22**.
 
-### Exemples 3 et 4 — Binaire, octal et hexadécimal
+Les notes donnent aussi **1011** : 8 + 0 + 2 + 1 = **11**.
 
-Pour passer du binaire à l’octal, former des groupes de trois bits à partir de la droite. L’exemple `110110` devient `66` en octal. Pour l’hexadécimal, former des groupes de quatre bits : `1010 1111` devient `AF`.
+## 3. Octal
 
-!!! warning "Rester dans le périmètre des sources"
-    Les sources exploitables présentent des exemples de bases et de conversions. Elles ne permettent pas de déduire ici une formule générale de capacité ou de débit : cette partie n’est donc pas enseignée dans cette page.
+Même méthode, en divisant par 8. Les notes convertissent **156** :
 
-## 4. Usages réseau cités
+| Division | Quotient | Reste |
+|---|---:|---:|
+| 156 ÷ 8 | 19 | 4 |
+| 19 ÷ 8 | 2 | 3 |
+| 2 ÷ 8 | 0 | 2 |
 
-L’hexadécimal est utilisé dans les exemples d’adresses IPv6 et d’adresses MAC parce qu’il condense les bits en groupes de quatre.
+Lecture : **234** en octal. Le retour au décimal est 2×64 + 3×8 + 4 = **156**.
 
-L’exemple d’adresse MAC `00:1A:2B:3C:4D:5E` illustre cette écriture hexadécimale. L’exemple IPv6 présenté par les sources utilise des groupes hexadécimaux. Ces représentations seront approfondies dans les modules consacrés à l’adressage ; ici, elles servent à reconnaître l’intérêt de la base 16.
+Pour passer du binaire à l’octal, les notes groupent les bits par trois depuis la droite. **110110** devient 110 110, soit 6 et 6 : **66** en octal.
 
-## 5. Vérifier et retenir
+## 4. Hexadécimal
 
-1. identifier la base de départ et la base d’arrivée ;
-2. appliquer uniquement une méthode étudiée ;
-3. écrire les groupes de bits dans le bon sens ;
-4. refaire le calcul inverse lorsque l’exemple le permet ;
-5. s’arrêter lorsqu’une règle nécessaire n’est pas enseignée par les sources disponibles.
+Les notes décomposent **2AF** : 2×256 + 10×16 + 15 = **687**.
 
-## Mise en pratique et révision
+Du binaire vers l’hexadécimal, on groupe par quatre depuis la droite. **10101111** devient 1010 1111, soit A et F : **AF**.
 
-- Aucun TP, énoncé ou correction M02 lisible n’est attesté dans Drive live.
-- [Présentation de la formation](index.md)
-- [Fiche de révision](../../revision/reseaux/module-02-les-unites-informatiques.md)
-- [Kahoot du module](../../kahoot/01-bases-reseaux-02-les-unites-informatiques.md)
+| Usage cité | Exemple des notes |
+|---|---|
+| Adresse MAC | `00:1A:2B:3C:4D:5E` |
+| Adresse IPv6 | huit groupes hexadécimaux, détaillés au module 06 |
+| Couleur d’écran | `#FF5733`, rouge FF, vert 57, bleu 33 |
 
-## Source et provenance
+!!! info "Complément externe au cours"
+    Les notes ne distinguent pas les préfixes décimaux (1 000) des préfixes binaires (1 024). Cette fiche ne leur attribue pas de règle supplémentaire.
 
-- **Sources A — TSSR Drive live :** `cours kahoot module 1 et 2.txt`, Drive `1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn`, SHA-256 `a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243` ; `Cours_Reseaux_Modules1_2_Quiz_Kahoot.pdf`, Drive `1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX`, SHA-256 `1b365671ffb9859790c7a270061aa415ada9ccf7853b4973ee7b5010664e6724`.
-- **Structuration B :** organisation des exemples et méthode de vérification, sans apport externe.
+## Résumé
+
+1. Le bit vaut 0 ou 1. L’octet en contient huit.
+2. On convertit un décimal par des divisions, et on lit les restes à l’envers.
+3. Un chiffre octal compacte 3 bits. Un chiffre hexadécimal compacte 4 bits.
+4. Les exemples à retenir sont 25 = 11001, 10110 = 22, 156 = 234 en octal, 2AF = 687, 10101111 = AF.
+
+## Mini-quiz
+
+1. Que vaut le binaire 11001 en décimal, d’après la méthode des notes ?
+2. Pourquoi groupe-t-on par quatre bits pour écrire un hexadécimal ?
+3. Quelle est l’écriture octale de 156 dans les notes ?
+4. À quoi les notes utilisent-elles l’hexadécimal sur une carte réseau ?
+
+??? note "Réponses du mini-quiz"
+    1. 25. C’est l’exemple de divisions successives par 2.
+    2. Un chiffre hexadécimal représente exactement quatre bits, de 0 à F.
+    3. 234.
+    4. Pour écrire l’adresse MAC, par exemple `00:1A:2B:3C:4D:5E`.

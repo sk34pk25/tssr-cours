@@ -43,7 +43,7 @@ Retenir la représentation IPv6, les règles d’écriture et les repères d’a
 | `::/0` | route par défaut |
 | `::/128` | adresse non spécifiée |
 
-## Multicast : exemples du support
+## Multicast : exemples des notes
 
 - `FF02::1` : tous les nœuds du lien local ;
 - `FF02::2` : tous les routeurs du lien local ;
@@ -67,5 +67,4 @@ Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-06-l-ad
 
 ## Provenance pédagogique
 
-- **A — source originale :** support TSSR « cours kahoot module 5 et 6 », partie Module 6.
-- **B — structuration pédagogique :** synthèse, tableau de révision et auto-évaluation élaborés à partir de la source A.
+- **Source :** notes de quiz des modules 5 et 6. Un passage inverse 2000::/3 et les adresses locales uniques. La fiche suit le passage qui rend 2000::/3 globale et routable. L’onglet Cours Original indique Inexistant.

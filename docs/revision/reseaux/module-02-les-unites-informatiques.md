@@ -28,5 +28,5 @@
 
 ## Provenance
 
-- **Sources A :** contenu TSSR Drive live M01/M02 vérifié.
+- **Source :** partie unités des notes de quiz des modules 1 et 2. L’onglet Cours Original indique Inexistant.
 - **Structuration B :** synthèse pédagogique sans apport externe.

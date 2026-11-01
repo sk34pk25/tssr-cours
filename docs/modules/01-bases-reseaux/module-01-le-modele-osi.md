@@ -1,87 +1,153 @@
 # Module 01 — Le modèle OSI
 
-**Séquence :** Bases des réseaux
+**Séquence :** Bases des réseaux  
+**Rôle dans le parcours :** décrire une communication couche par couche avant l’adressage, les échanges et les commandes.
+
+L’onglet Cours Original indique **Inexistant** : ce module n’a pas de support de cours PDF. La fiche suit les notes de quiz des modules 1 et 2. Le PDF homonyme est un doublon de ces notes : le même texte, mis en page. Il n’est pas repris à part.
 
 ## Objectifs
 
 À l’issue du module, vous devez pouvoir :
 
-- nommer les sept couches du modèle OSI et situer leur responsabilité ;
-- distinguer données, segment, paquet, trame et bits ;
-- expliquer l’encapsulation et la désencapsulation ;
-- associer adresse MAC, adresse IP, port et équipement réseau au bon niveau ;
-- utiliser Packet Tracer pour observer un échange dans un environnement de laboratoire.
+- nommer les sept couches et l’unité de données de chacune ;
+- expliquer PDU, SDU et PCI lors de l’encapsulation ;
+- associer un protocole, un port ou un équipement à sa couche ;
+- choisir un câble droit ou croisé, et savoir ce que fait Auto MDI-X ;
+- situer les deux modes de Packet Tracer.
 
-## 1. Pourquoi découper une communication en couches ?
+## 1. Sept couches
 
-Le modèle **OSI** (*Open Systems Interconnection*) décrit une communication réseau comme une succession de sept responsabilités. Cette séparation permet de décrire un échange de façon ordonnée et d’isoler le niveau auquel rechercher un problème : support physique, liaison locale, routage, transport ou service applicatif.
+Le modèle OSI (*Open Systems Interconnection*) décrit la communication entre deux systèmes. Chaque couche a une fonction et parle à la couche juste au-dessus et à celle juste en dessous. Ce découpage sert à construire et à dépanner les protocoles.
 
-À l’émission, les données passent des couches hautes vers les couches basses. Chaque couche utilise le résultat de la couche supérieure puis ajoute les informations dont elle a besoin. À la réception, le chemin est inverse : les informations sont interprétées et retirées au niveau correspondant.
+| Couche | Rôle dans les notes | Unité | Repères |
+|---|---|---|---|
+| 7 — Application | Services rendus aux logiciels | Données (APDU) | HTTP, FTP, SMTP, DNS |
+| 6 — Présentation | Format, compression, chiffrement | Données (PPDU) | TLS, formats multimédias |
+| 5 — Session | Ouverture, maintien, fermeture du dialogue | Données (SPDU) | RPC, NetBIOS |
+| 4 — Transport | Segmentation, ordre, ports | Segment (TPDU) | TCP, UDP |
+| 3 — Réseau | Adressage logique et chemin entre réseaux | Paquet | IPv4, IPv6, ICMP ; routeur |
+| 2 — Liaison | Trame locale, adresses MAC, erreurs du lien | Trame | Ethernet, Wi-Fi ; commutateur |
+| 1 — Physique | Bits transformés en signaux | Bits | Câble, fibre, radio ; hub, répéteur |
 
-## 2. Les sept couches et leurs repères
+**Illustration IA / externe au cours — correspondance souvent utilisée avec TCP/IP.** Les notes détaillent OSI. Le modèle TCP/IP regroupe autrement les mêmes idées : liaison et physique d’un côté, réseau, transport, puis les applications.
 
-| Couche | Responsabilité principale | Unité ou repère cité dans les sources |
+```mermaid
+flowchart LR
+    subgraph OSI["OSI"]
+        A7["7-6-5 Application, présentation, session"]
+        A4["4 Transport"]
+        A3["3 Réseau"]
+        A2["2-1 Liaison et physique"]
+    end
+    subgraph TCP["TCP/IP"]
+        B4["Application"]
+        B3["Transport"]
+        B2["Internet"]
+        B1["Accès réseau"]
+    end
+    A7 --- B4
+    A4 --- B3
+    A3 --- B2
+    A2 --- B1
+```
+
+## 2. PDU, SDU et PCI
+
+Le **PDU** (*Protocol Data Unit*) est l’unité échangée à une couche : données utiles et informations de contrôle. Le **SDU** (*Service Data Unit*) est le bloc reçu de la couche supérieure, encore sans les informations de la couche qui va le traiter. Le **PCI** (*Protocol Control Information*) est ce que la couche ajoute : adresses, numéros, contrôle d’erreur.
+
+1. Le PDU de la couche N+1 devient le SDU de la couche N.
+2. La couche N ajoute son PCI. C’est l’encapsulation.
+3. Le résultat est le PDU de la couche N, transmis à la couche N−1.
+
+Exemple des notes, du transport vers le réseau : le segment TCP (ports, numéro de séquence, données) devient le SDU du réseau. Le réseau ajoute les adresses IP. Le PDU obtenu est le paquet IP, ensuite remis à la liaison.
+
+À l’arrivée, chaque couche retire son PCI. Les bits redeviennent une trame, puis un paquet, un segment, et enfin les données de l’application. Les notes prennent l’exemple d’un courriel : APDU, PPDU, SPDU, segment, paquet, trame, bits, puis le chemin inverse.
+
+**Illustration IA / externe au cours — ordre d’encapsulation décrit par les notes.**
+
+```mermaid
+flowchart TB
+    D["Données applicatives"] --> S["Segment · ports"]
+    S --> P["Paquet · adresses IP"]
+    P --> T["Trame · adresses MAC"]
+    T --> B["Bits sur le support"]
+```
+
+## 3. Ports cités
+
+Les ports distinguent les communications à la couche transport. Les notes citent notamment :
+
+| Port | Protocole |
+|---:|---|
+| 22 | SSH |
+| 25 | SMTP |
+| 53 | DNS |
+| 80 | HTTP |
+| 443 | HTTPS |
+
+## 4. Couche physique et câbles
+
+La couche physique transmet les bits. Elle ne vérifie ni la destination ni les erreurs de contenu. Les notes lui rattachent l’encodage, la synchronisation et le débit en bits par seconde.
+
+| Câble | Branchement dans les notes | Schéma |
 |---|---|---|
-| 7 — Application | Fournir les services réseau aux applications. | Données ; HTTP/HTTPS, FTP, SMTP, DNS. |
-| 6 — Présentation | Adapter la représentation des données ; chiffrement ou compression lorsque le service le prévoit. | Données ; TLS, formats multimédias. |
-| 5 — Session | Établir, gérer et terminer le dialogue entre applications. | Données ; RPC, NetBIOS. |
-| 4 — Transport | Segmenter, réassembler, gérer les flux et distinguer les communications avec des ports. | Segment ; TCP, UDP, ports. |
-| 3 — Réseau | Identifier les réseaux et acheminer les paquets entre eux. | Paquet ; IPv4/IPv6, ICMP ; routeur. |
-| 2 — Liaison de données | Transmettre les trames sur le lien local et utiliser les adresses MAC. | Trame ; Ethernet, Wi-Fi ; commutateur. |
-| 1 — Physique | Transmettre les bits sous forme de signaux sur le support. | Bits ; câble, fibre, radio. |
+| Droit | Appareils de types différents : ordinateur vers commutateur, ordinateur vers routeur, commutateur vers routeur | Les deux extrémités en T568B : blanc-orange, orange, blanc-vert, bleu, blanc-bleu, vert, blanc-marron, marron |
+| Croisé | Deux ordinateurs, deux commutateurs ou deux routeurs | Une extrémité en T568A (blanc-vert, vert, blanc-orange, bleu, blanc-bleu, orange, blanc-marron, marron), l’autre en T568B |
 
-!!! note "Repère de diagnostic"
-    Une adresse MAC répond à une question de communication sur le lien local ; une adresse IP sert à identifier l’hôte et son réseau ; un port distingue un service ou un flux au niveau transport. Ne pas confondre ces trois repères.
+Le croisement relie l’émission d’un appareil à la réception de l’autre. Les notes signalent **Auto MDI-X** : beaucoup de cartes et de commutateurs récents reconnaissent le câble et acceptent un câble droit même entre appareils de même type.
 
-## 3. PDU, SDU et encapsulation
+Équipements cités à cette couche : câbles, connecteur RJ45, émetteurs radio, hubs et répéteurs.
 
-Une **PDU** (*Protocol Data Unit*) est l’unité traitée ou échangée à une couche donnée. Lorsqu’une couche reçoit le résultat de la couche supérieure, elle le considère comme une **SDU** (*Service Data Unit*) et lui ajoute ses propres informations de contrôle, appelées **PCI** (*Protocol Control Information*). Le résultat devient alors sa PDU.
+## 5. Liaison de données
 
-Cette logique explique l’encapsulation :
+La liaison transmet des trames entre appareils du même réseau local. Elle ajoute un en-tête et une fin de trame, porte les adresses MAC et peut détecter des erreurs (parité, CRC, codes de Hamming dans les notes).
 
-1. les données applicatives sont préparées pour le transport ;
-2. la couche transport produit un segment et y associe notamment les ports ;
-3. la couche réseau ajoute les adresses IP pour former un paquet ;
-4. la couche liaison place le paquet dans une trame adaptée au lien local, avec les informations MAC ;
-5. la couche physique transmet les bits sur le support.
+| Sous-couche | Rôle dans les notes |
+|---|---|
+| LLC | Identifie le protocole porté par la trame et permet à plusieurs protocoles de partager le support |
+| MAC | Décide qui émet (CSMA/CD sur Ethernet) et porte l’adresse physique |
 
-La **désencapsulation** suit l’ordre inverse chez le destinataire. Le message n’est remis à l’application qu’après le traitement des informations de chaque couche traversée.
+Un commutateur relaie les trames d’après les adresses MAC. Un pont relie des segments au même niveau. La liaison ne route pas vers un autre réseau : c’est le rôle de la couche réseau.
 
-## 4. Équipements et cheminement
+## 6. Réseau et transport
 
-Un **commutateur** intervient principalement à la couche 2 : il relaie une trame dans le réseau local à partir des informations de liaison. Un **routeur** intervient à la couche 3 : il examine l’adressage IP, choisit le réseau suivant puis transmet le paquet dans une nouvelle trame adaptée au lien suivant.
+La couche réseau choisit le chemin des paquets à l’aide d’adresses IP, peut fragmenter un paquet trop grand, et surveille la congestion. Les notes citent IP, ICMP (dont ping), RIP et OSPF. L’équipement associé est le routeur. IP ne garantit pas à lui seul la livraison : cette garantie, quand elle existe, est celle de TCP.
 
-Cette distinction aide à formuler un diagnostic : un problème de câble ou de signal relève d’abord de la couche physique ; une difficulté de communication locale invite à vérifier la liaison ; une destination située sur un autre réseau exige une décision de routage.
+| Transport | Ce que les notes en retiennent |
+|---|---|
+| TCP | Orienté connexion, ordre, renvoi en cas d’erreur. Adapté au transfert de fichiers et au web |
+| UDP | Sans connexion, plus léger. Adapté au temps réel, où perdre un peu de données est accepté pour aller plus vite |
 
-## 5. Transport : TCP, UDP et ports
+La couche transport segmente, numérote, contrôle le flux et multiplexe les applications grâce aux ports. Les notes la situent surtout dans le système et les logiciels. Un pare-feu peut s’en servir pour filtrer selon les ports.
 
-La couche transport fournit une communication de bout en bout entre hôtes. Les sources présentent :
+## 7. Packet Tracer
 
-- **TCP**, orienté connexion, qui assure l’ordre, le contrôle d’erreur et le contrôle de flux ;
-- **UDP**, plus léger, sans mécanisme équivalent de garantie de livraison ;
-- les **ports**, qui permettent à plusieurs communications de coexister sur un même hôte.
+Les notes présentent Packet Tracer comme un logiciel de topologie, sans matériel physique. Deux modes y sont distingués :
 
-Les exemples du support associent notamment SSH au port 22, DNS au port 53, HTTP au port 80 et HTTPS au port 443. Ces numéros sont des repères de service : ils ne remplacent ni l’adresse MAC ni l’adresse IP.
+- **Temps réel** : les paquets circulent en continu.
+- **Simulation** : on suit chaque étape, couche par couche.
 
-## 6. Observer un échange dans Packet Tracer
+Le dossier contient trois activités pour ce module. Leur contenu est binaire et illisible hors du logiciel. Elles ne sont pas publiées. Le travail se fait dans Packet Tracer, avec la consigne du formateur.
 
-Les ressources M01 fournissent des activités Packet Tracer. Leur contenu interne est binaire et n’est donc pas reconstitué dans cette page. Elles servent à observer une topologie et, en mode Simulation, le passage d’un paquet à travers les couches et les équipements.
+## Résumé
 
-Méthode de travail :
+1. OSI sépare une communication en sept responsabilités, de l’application jusqu’aux bits.
+2. Encapsuler, c’est ajouter le PCI de la couche au SDU reçu d’au-dessus. Décapsuler retire ces informations dans l’ordre inverse.
+3. MAC et trame restent sur le lien local. IP et paquet traversent les réseaux. Les ports distinguent les applications.
+4. Un câble droit relie des appareils de types différents. Un câble croisé croise émission et réception. Auto MDI-X peut s’en passer.
+5. Ce module n’a pas de support PDF. Les activités Packet Tracer ne sont pas sur le site.
 
-1. ouvrir l’activité dans Cisco Packet Tracer ;
-2. identifier l’émetteur, le destinataire et les équipements intermédiaires ;
-3. passer en mode Simulation lorsque l’activité le demande ;
-4. relever les unités de données et les informations visibles à chaque étape ;
-5. relier chaque observation à la couche OSI concernée avant de conclure.
+## Mini-quiz
 
-## Mise en pratique et révision
+1. Quelle unité les notes associent-elles à la couche transport, et laquelle à la liaison ?
+2. Que devient le PDU de la couche N+1 pour la couche N ?
+3. Citez les ports des notes pour SSH, DNS, HTTP et HTTPS.
+4. Quel câble les notes utilisent-elles entre deux ordinateurs, avant Auto MDI-X ?
+5. Quelle différence les notes font-elles entre le mode temps réel et le mode simulation ?
 
-- [TP — ressources Packet Tracer du module](../../tp/reseaux/module-01/index.md)
-- [Fiche de révision](../../revision/reseaux/module-01-le-modele-osi.md)
-- [Kahoot du module](../../kahoot/bases-reseaux-m01-modele-osi.md)
-
-## Source et provenance
-
-- **Sources A — TSSR Drive live :** `Synthèse Module 1 - OS, Windows 10 & Modèle OSI V2`, Drive `1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE`, export SHA-256 `c41debdb15fb90cc5a95f3e5853875701b1d2bf8ab51def1dcf789447b9bf993` ; `cours kahoot module 1 et 2.txt`, Drive `1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn`, SHA-256 `a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243` ; activités binaires `M01-01-TP-Packet-Tracer_Modele_OSI (1).pka`, Drive `1T7LqAvI8FqYMGu1HEKPkA7YclqvYvWkU`, SHA-256 `6a570f99b3dc223f913446c9bb1af6df1d96271bc7f3b28b82ff00d34c2bd0ef`, et `M01-02-TP-Packet-Tracer_Modele_OSI.pka`, Drive `1R6BIULkUss54s4ZrArsaaeGsVDMy4WsS`, SHA-256 `bdb9ac9fce4725b3a4dc35ec6fe6718eb81367444ea7ca6ad148825e7b805980`.
-- **Structuration B :** hiérarchisation, tableaux, méthode d’observation et formulation pédagogique fondés uniquement sur ces sources A. Les fichiers Packet Tracer restent référencés sans inférence sur leur contenu binaire.
+??? note "Réponses du mini-quiz"
+    1. Segment pour le transport, trame pour la liaison.
+    2. Il devient son SDU. La couche N y ajoute son PCI pour former son propre PDU.
+    3. 22, 53, 80 et 443.
+    4. Un câble croisé, T568A d’un côté et T568B de l’autre.
+    5. En temps réel les paquets circulent en continu. En simulation on observe chaque étape.
