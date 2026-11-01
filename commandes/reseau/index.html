@@ -13358,6 +13358,21 @@
 <td><code>nslookup nom</code> / <code>Resolve-DnsName nom</code></td>
 <td><code>getent hosts nom</code></td>
 </tr>
+<tr>
+<td>Bail DHCP</td>
+<td><code>ipconfig /release</code> puis <code>ipconfig /renew</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cache DNS Windows</td>
+<td><code>ipconfig /displaydns</code> et <code>ipconfig /flushdns</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cache ARP Windows</td>
+<td><code>arp -d *</code></td>
+<td><code>ip neigh flush all</code></td>
+</tr>
 </tbody>
 </table>
 <p><code>ifconfig</code>, <code>route</code> et <code>arp</code> existent encore dans certains environnements, mais la documentation Linux moderne privilégie la suite <code>iproute2</code> (<code>ip</code>, <code>ss</code>).</p>
