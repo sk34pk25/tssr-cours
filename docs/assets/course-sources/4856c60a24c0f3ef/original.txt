@@ -1,7 +1,3 @@
-Parfait. Pour un module aussi court, 20 questions suffisent largement pour couvrir les notions essentielles. Je te propose 16 QCM + 4 Vrai/Faux, en restant strictement basé sur le cours ENI.  
-
-⸻
-
 Quiz Kahoot – Module 6 : La sécurité NTFS et les ACL
 
 Niveau Facile (1 à 7)
@@ -203,5 +199,3 @@ Le double jeton d’accès des administrateurs (UAC) peut influencer les autoris
 * Get-Acl
 * Set-Acl
 * Double jeton d’accès (UAC)
-
-Il est suffisamment complet pour un Kahoot de révision tout en restant fidèle au contenu du module.

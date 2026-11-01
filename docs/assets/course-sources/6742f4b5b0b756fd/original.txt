@@ -632,194 +632,6 @@ Le sur-réseau est une technique de regroupement d’adresses IP qui permet de s
 
 
 
-Oui — et cette fois je vais le faire proprement **en me basant sur le fichier du module 3 et 4**, pas en improvisant.
-
-## Ce que j’ai identifié dans ton cours des modules 3 et 4
-
-Les thèmes visibles dans le fichier sont notamment :
-
-* **Adressage IPv4**
-
-  * structure d’une IPv4 sur 32 bits
-  * ID réseau / ID hôte
-  * classes IPv4
-  * adresses spéciales
-  * adresses privées
-  * APIPA
-* **Calcul réseau**
-
-  * adresse réseau
-  * broadcast
-  * plage d’hôtes
-  * calcul avec masque
-* **CIDR**
-
-  * conversion **CIDR → masque**
-  * conversion **masque → CIDR**
-  * nombre d’hôtes selon le préfixe
-* **Sous-réseaux**
-
-  * calculs de sous-réseaux
-* **Domaine de diffusion**
-
-  * rôle
-  * segmentation via routeurs / VLAN
-* **Routage**
-
-  * rôle du routeur
-  * table de routage
-  * routage statique vs dynamique
-  * passerelle par défaut
-  * protocoles RIP / OSPF / BGP
-* **Sur-réseau (supernetting)**
-
-  * principe
-  * regroupement de réseaux contigus
-  * exemple **192.168.0.0/24 à 192.168.3.0/24 → 192.168.0.0/22**     
-
-## Donc oui : je peux te faire exactement la même chose que pour les modules 1 et 2
-
-Je te propose de te produire un **quiz Kahoot complet modules 3 et 4** avec la **même logique** :
-
-### Structure
-
-* **Niveau facile** : définitions, classes, adresses privées, CIDR de base
-* **Niveau moyen** : réseau / broadcast / plage d’hôtes / rôle du routage
-* **Niveau difficile** : calculs de sous-réseaux, conversion masque↔CIDR, nombre d’hôtes, supernetting
-* **Questions pièges** : vrai/faux sur APIPA, broadcast, passerelle, routeur, etc.
-
-### Format
-
-Pour **chaque question**, je te donnerai :
-
-1. **la question Kahoot**
-2. **4 réponses**
-3. **la bonne réponse**
-4. **une explication claire**
-5. **un exemple concret**, comme je l’ai fait pour modules 1 et 2
-
----
-
-# Ce que je te propose maintenant
-
-Je peux te générer **tout de suite** un pack complet du style :
-
-## Quiz Kahoot — Modules 3 et 4
-
-* **35 questions**
-* difficulté progressive
-* **100 % basé sur ton cours**
-* avec explication + exemple pour **chaque question**
-
-### Exemple du rendu que je vais te faire :
-
-* **Question 1** — Que signifie le préfixe /24 ?
-* **Question 2** — Quelle est la plage privée de classe B ?
-* **Question 3** — Convertir 255.255.255.192 en CIDR
-* **Question 4** — Trouver l’adresse réseau de 192.168.10.100/24
-* **Question 5** — Trouver le broadcast de 172.25.192.0 avec 255.255.240.0
-* **Question 6** — Combien d’hôtes utilisables dans un /26 ?
-* **Question 7** — Quel est le rôle d’une passerelle par défaut ?
-* **Question 8** — Quelle différence entre routage statique et dynamique ?
-* **Question 9** — Quel sur-réseau regroupe 192.168.0.0/24 à 192.168.3.0/24 ?
-* etc.
-
----
-
-## Ma recommandation
-
-Vu ce que tu veux, le plus efficace est que je te livre directement **la version finale complète**, comme pour les modules 1 et 2, en un seul bloc.
-
-👉 **Si tu veux, réponds juste :**
-**“fais-moi le quiz complet modules 3 et 4”**
-
-et je te génère **tout le quiz complet maintenant** :
-
-* 35 questions
-* réponses
-* correction
-* explication
-* exemple pour chaque question
-* sans hors sujet, uniquement à partir du cours.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Oui — je te fais le **quiz complet modules 3 et 4**, en restant **strictement collé à ton cours** : IPv4, classes, adresses privées, APIPA, calcul réseau/broadcast/hôtes, CIDR, sous-réseautage, domaine de diffusion, routage et sur-réseau. Je me base sur les éléments explicitement présents dans ton fichier.      
-
-Je vais te donner le **même format que pour modules 1 et 2** :
-
-* **question Kahoot**
-* **4 réponses**
-* **bonne réponse**
-* **explication**
-* **exemple concret**
-
----
-
 # Quiz Kahoot — Modules 3 et 4
 
 ---
@@ -864,7 +676,7 @@ Avec **192.168.1.10/24**, les **24 premiers bits** sont le réseau, les **8 dern
 * D. Classe D
 
 **Pourquoi ?**
-Dans ton cours, la **classe C** est utilisée pour les **petits réseaux** et couvre **192.0.0.0 à 223.255.255.255**.
+Dans le cours, la **classe C** est utilisée pour les **petits réseaux** et couvre **192.0.0.0 à 223.255.255.255**.
 
 **Exemple :**
 192.168.1.0/24 est un cas typique de réseau de type classe C.
@@ -924,7 +736,7 @@ Dans **192.168.1.0/24**, le broadcast est **192.168.1.255**.
 * D. 127.0.0.0 à 127.255.255.255
 
 **Pourquoi ?**
-C’est l’une des trois plages privées RFC 1918 mentionnées dans ton cours.
+C’est l’une des trois plages privées RFC 1918 mentionnées dans le cours.
 
 **Exemple :**
 Un grand réseau d’entreprise peut utiliser des adresses comme **10.1.20.5**.
@@ -939,7 +751,7 @@ Un grand réseau d’entreprise peut utiliser des adresses comme **10.1.20.5**.
 * D. 224.0.0.0 à 239.255.255.255
 
 **Pourquoi ?**
-Ton cours donne explicitement cette plage privée.
+Le cours donne explicitement cette plage privée.
 
 **Exemple :**
 **172.25.192.0** fait partie de cette plage.
@@ -1371,7 +1183,7 @@ Sur un petit réseau, on ajoute à la main une route vers **10.0.0.0/8**.
 * D. 192.168.0.0/20
 
 **Pourquoi ?**
-Ton cours donne précisément cet exemple de **supernetting** :
+Le cours donne précisément cet exemple de **supernetting** :
 4 réseaux /24 contigus peuvent être regroupés en **192.168.0.0/22**.
 
 **Exemple :**
@@ -1418,7 +1230,7 @@ Le sous-réseautage permet de réduire la taille des domaines de diffusion.
 ✅ **Vrai**
 
 **Pourquoi ?**
-C’est un des objectifs du subnetting dans ton cours : **réduire le broadcast** et améliorer les performances.
+C’est un des objectifs du subnetting dans le cours : **réduire le broadcast** et améliorer les performances.
 
 ---
 
@@ -1465,50 +1277,3 @@ Le sur-réseau est l’opération inverse du sous-réseautage.
 Le cours dit explicitement que le **sur-réseau (supernetting)** est l’inverse du **subnetting**.
 
 ---
-
-# Ce que je te conseille pour ton Kahoot
-
-Si tu veux un Kahoot **efficace et pas trop long**, je te recommande de garder **25 à 30 questions** sur les 42 ci-dessus, par exemple :
-
-### À garder absolument
-
-* 1, 2, 5
-* 7, 8, 9, 10
-* 12, 13, 14, 15, 16
-* 18, 19, 20, 21, 22
-* 23, 24
-* 29, 30, 32, 33, 34, 35
-* 36, 38, 39, 40
-
-Comme ça tu couvres :
-
-* IPv4
-* classes
-* privées / APIPA
-* CIDR
-* calcul réseau/broadcast/hôtes
-* subnetting
-* broadcast domain
-* routage
-* supernetting
-
----
-
-## Ce que je peux faire maintenant
-
-Je peux enchaîner directement avec **l’étape suivante** et te préparer **la version prête à copier dans Kahoot**, c’est-à-dire un tableau propre comme ça :
-
-| Question | Réponse 1 | Réponse 2 | Réponse 3 | Réponse 4 | Bonne réponse |
-| -------- | --------: | --------: | --------: | --------: | ------------: |
-
-Donc **sans les explications**, juste le format **copier-coller Kahoot**.
-
-Si tu veux, réponds juste :
-
-**“fais-moi la version Kahoot prête à copier”**
-
-et je te la prépare pour **les modules 3 et 4**.
-
-
-
-
