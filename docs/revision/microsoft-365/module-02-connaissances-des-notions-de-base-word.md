@@ -51,5 +51,5 @@ Pour approfondir : [cours complet](../../modules/03-microsoft-365-outils-collabo
 
 ## Provenance
 
-- **Sources A :** `Module 02 - Support de cours.pdf`, Drive `1Nw7I-8Wr17r1iJIvcze8T1R2qOvO8qvP`, SHA-256 `7677971f03707dffa663fcdc13ec55278a8fa5330dfce8d78b41a87102199579` ; `Enoncé du TP - Utilisation de Word.pdf`, Drive `1cpVO66OSKeYwpzWHd6M9vMopjymmpmbP`, SHA-256 `d71a06cce8c72a7c79951cc8bb6c47f5161cdba2b0febc5dc9b927fabe4ada2c` ; `Solution du TP - Utilisation de Word.pdf`, Drive `1zm3iHXF8RS_loevQPbqj7frtV_Kf6mFj`, SHA-256 `f2e3f47a7476d825f8525abfa64fe4157bd45dbfdbf7582feb5bf5d34fa966c7`.
+- **Source :** support Word et TP du module, transcrits dans l’onglet Cours Original. Les fichiers ne sont pas publiés.
 - **Structuration B :** sélection, réorganisation et formulation de la révision à partir de ces sources seulement.

@@ -29,9 +29,7 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2.
 - Récupérer deux documents :
 
   - « Système Solaire — Document Brut.docx », document à mettre en forme
-  - « Système Solaire — Document Fini.pdf », document contenant le résultat
-
-#### attendu
+  - « Système Solaire — Document Fini.pdf », document contenant le résultat attendu
 
 #### Chaque paragraphe du document a été identifié
 
