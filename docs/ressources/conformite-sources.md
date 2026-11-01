@@ -2,11 +2,11 @@
 
 Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont transcrits en texte HTML et tableaux. Les reproductions de pages et de diapositives ENI, y compris sous forme de planches d’images, sont exclues. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF ENI et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
 
-Les fiches de synthèse et leurs schémas sont affichés séparément dans **Aide pédagogique — IA / externe**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
+Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cours Optimisé IA**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
 
 ## Périmètre vérifié le 26 octobre 2026
 
-**86 modules avec supports transcrits · 353 références de documents · 2466 pages sources, plus 9 documents textuels.** Ces références correspondent à 346 fichiers sources uniques ; les doublons et leurs notices sont conservés. Le périmètre couvre les sections « Support original du Drive » du catalogue, sans prétendre compléter les sources absentes.
+**86 modules avec supports transcrits · 353 références de documents · 2466 pages sources, plus 9 documents textuels.** Ces références correspondent à 346 fichiers sources uniques ; les doublons et leurs notices sont conservés. Le périmètre couvre les sections « Cours Original » du catalogue, sans prétendre compléter les sources absentes.
 
 Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est indiquée sans les attribuer à ENI. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original. Les formations datées suivent l’ordre du planning ; Administration GLPI, bloc complémentaire non daté, est regroupé avec ITIL.
 

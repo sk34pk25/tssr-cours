@@ -124,8 +124,9 @@ class OriginalSourcesTests(unittest.TestCase):
         page='modules/course/module-01.md'
         data=dict(documents={},pages={page:[]})
         text=project_page('# Titre\n\n## Texte\n\nContenu validé.\n',page,data)
-        self.assertIn('=== "Support original du Drive"',text)
-        self.assertIn('=== "Aide pédagogique — IA / externe"',text)
+        self.assertIn('=== "Cours Original"',text)
+        self.assertIn('=== "Cours Optimisé IA"',text)
+        self.assertLess(text.index('=== "Cours Original"'), text.index('=== "Cours Optimisé IA"'))
         self.assertIn('Complément IA / externe au cours',text)
         self.assertIn('Contenu validé.',text)
 
