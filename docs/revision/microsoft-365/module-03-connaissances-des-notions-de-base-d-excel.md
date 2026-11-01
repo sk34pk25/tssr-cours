@@ -2,7 +2,8 @@
 
 ## Repères essentiels
 
-- Un **classeur** contient des feuilles ; une cellule est repérée par sa colonne et sa ligne, par exemple `A1`.
+- Un **classeur** contient des feuilles. Le support limite le classeur à 255 feuilles, une feuille à 10 148 576 lignes et 16 384 colonnes, de A1 à XFD10148576.
+- Une cellule est repérée par sa colonne et sa ligne. La touche F4 passe une référence en absolu (`$A$1`).
 - Une référence peut être remplacée par un **nom** dans le gestionnaire de noms.
 - Les parenthèses rendent un ordre de calcul explicite.
 - La poignée de recopie reproduit une formule et peut incrémenter des valeurs.
@@ -46,5 +47,5 @@ Pour approfondir : [cours complet](../../modules/03-microsoft-365-outils-collabo
 
 ## Provenance
 
-- **Sources A :** `Module 03 - Support de cours.pdf`, Drive `1iMM4_v_Oj8W9fCRz_eZZfRFRLbyfCWKk`, SHA-256 `454b907751a8980aa3560a8af585e67e572aff0ba80dc51587332bb9c7873f22` ; `M3 - Enoncé du TP - Utilisation d'Excel.pdf`, Drive `1LBnGQASfwJWAa-v07lZ8Hig74kYlcqCq`, SHA-256 `632e56cdcd27bb7885adb0ef9b0ae09a514512f8718f9d944b39ce1d217bd4f3` ; `M3 - Solution du TP - Utilisation d'Excel.pdf`, Drive `1p8MSdBOHgRnxz8hqdreos-Lzm6ZZSilu`, SHA-256 `ac619d926498a7c21967526161e23ec8bc19a963e1397a174a53cb5bb7d372cb`.
+- **Source :** support Excel, énoncé, correction et classeur fini, transcrits dans l’onglet Cours Original. Les fichiers ne sont pas publiés.
 - **Structuration B :** sélection, réorganisation et formulation des points de révision à partir de ces sources seulement.

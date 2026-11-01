@@ -4,8 +4,8 @@ Comprendre Microsoft 365 et exploiter Word, Excel, Outlook, Teams, SharePoint et
 
 <div class="tssr-index-meta"><span>Étape 01 / 09</span><strong>8 → 12 juin 2026</strong><span>KURTULUS Hasan</span><a href="../../parcours/01-microsoft-365/">Voir dans le parcours →</a></div>
 
-!!! warning "Périmètre et versions"
-    Les interfaces et les licences Microsoft 365 évoluent régulièrement. « Office 365 ProPlus » est l’ancien nom de « Microsoft 365 Apps for enterprise » ; les chemins d’écran sont à rapprocher de la version disponible dans le tenant utilisé. Référence : [Cycle de vie Microsoft 365 Apps](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-365-apps).
+!!! info "Complément externe au cours — versions"
+    Les interfaces et les licences évoluent. « Office 365 ProPlus », nom utilisé par le support, correspond aujourd’hui à « Microsoft 365 Apps ». Les chemins d’écran se rapprochent de la version du tenant. Référence externe : [Cycle de vie Microsoft 365 Apps](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-365-apps).
 
 ## Progression officielle
 

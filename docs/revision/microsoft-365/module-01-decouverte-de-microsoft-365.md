@@ -43,7 +43,14 @@
 
 Pour approfondir : [cours complet](../../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365.md) · [Kahoot du module](../../kahoot/03-microsoft-365-outils-collaboratifs-01-decouverte-de-microsoft-365.md).
 
+## Chiffres et contrôles du support
+
+- 75 millions d’utilisateurs actifs par jour fin mai 2020, et 4 datacenters en France.
+- Concurrents affichés : Zoho, G Suite, HyperOffice, Amazon Web Services, IBM Cloud.
+- Le nom de tenant, par exemple `admin@monentreprise.onmicrosoft.com`, n’est pas modifiable.
+- Une adresse `@votreentreprise.fr` suppose un domaine loué, puis un domaine personnalisé dans Microsoft 365.
+
 ## Provenance
 
-- **Source A :** `Module 01 - Support de cours.pdf`, Drive `1ge2dZ-8TJDb2O0oL72reWf2Z1ZXGgiqk`, SHA-256 `83fd3c99e1a0c64d3f2c3fa6fcf3db97d18ab2eb8284daed34ec0e297b922380`.
-- **Structuration B :** sélection, réorganisation et formulation des points de révision à partir de ce support uniquement.
+- **Source :** support du module, transcrit dans l’onglet Cours Original. Le fichier n’est pas publié.
+- **Structuration :** sélection des points de révision à partir de ce support uniquement.
