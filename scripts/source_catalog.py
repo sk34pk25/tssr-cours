@@ -219,8 +219,8 @@ def project_page(markdown, page, data):
     def indent(value):
         return '\n'.join('    ' + line if line else '' for line in value.splitlines())
     return (title + '\n\nLa transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.\n\n'
-            '=== "Support original du Drive"\n\n' + indent(original) + '\n\n'
-            '=== "Aide pédagogique — IA / externe"\n\n' + indent(guide) + '\n')
+            '=== "Cours Original"\n\n' + indent(original) + '\n\n'
+            '=== "Cours Optimisé IA"\n\n' + indent(guide) + '\n')
 
 
 def label_auxiliary(markdown, page):
@@ -233,5 +233,5 @@ def label_auxiliary(markdown, page):
               '    Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. '
               'Ses explications et schémas sont distincts des documents originaux. '
               'Pour suivre les consignes exactes et retrouver les captures de formation, '
-              'consultez l’onglet **Support original du Drive** du module correspondant.\n\n')
+              'consultez l’onglet **Cours Original** du module correspondant.\n\n')
     return match[0] + banner + mark_ai_diagrams(markdown[match.end():])
