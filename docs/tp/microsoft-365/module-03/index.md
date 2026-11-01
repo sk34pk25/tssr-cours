@@ -16,5 +16,4 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 
 ## Ressources
 
-- [Clients - Document Brut.xlsx](../../../assets/resources/donnees/microsoft-365/clients-document-brut-xlsx.xlsx)
-- [Clients - Document Fini.xlsx](../../../assets/resources/donnees/microsoft-365/clients-document-fini-xlsx.xlsx)
+Le classeur de départ et le classeur fini ne sont pas publiés. Leur contenu est transcrit dans l’onglet **Cours Original** du module, document « Clients - Document Fini », et les consignes sont dans l’[énoncé](enonces.md).

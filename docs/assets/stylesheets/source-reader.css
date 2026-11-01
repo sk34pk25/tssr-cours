@@ -14,6 +14,11 @@
 .md-typeset .tssr-original-text pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; padding:1rem; line-height:1.65; }
 .tssr-transcribed-page { padding:1rem 0; border-top:1px solid var(--tssr-border); }
 .tssr-transcribed-page > h3 { color:var(--tssr-primary); }
+.md-typeset .tssr-transcribed-page h4 { margin:1.15rem 0 .35rem; font-size:1.05rem; }
+.md-typeset .tssr-transcribed-page h5 { margin:.85rem 0 .25rem; font-size:.95rem; }
+.md-typeset .tssr-transcribed-page ul, .md-typeset .tssr-transcribed-page ol { margin:.2rem 0 .85rem; }
+.md-typeset .tssr-transcribed-page li { margin:.15rem 0; }
+.tssr-source-table th { padding:.5rem; border:1px solid var(--tssr-border); background:var(--tssr-surface-soft); text-align:left; }
 .tssr-source-paragraph { line-height:1.65; overflow-wrap:anywhere; }
 .md-typeset .tssr-source-code, .tssr-source-reading pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.78rem; }
 .tssr-source-table { max-width:100%; overflow-x:auto; margin:1rem 0; }
