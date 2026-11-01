@@ -1,95 +1,170 @@
 # Module 04 — La communication dans un réseau
 
-**Séquence :** Bases des réseaux
+**Séquence :** Bases des réseaux  
+**Rôle dans le parcours :** décider si deux postes se parlent directement, via une passerelle, ou pas du tout.
 
-**Pré-requis :** [adressage IPv4](module-03-l-adressage-ipv4.md) et lecture d’un masque IPv4.
-**Sources de ce module :** support M03/M04, TP M04-01-01 et sa correction, TP M04-01-02 Packet Tracer.
+L’onglet Cours Original transcrit les deux énoncés et la correction. Durée indiquée du TP écrit : 2 heures. Le TP Packet Tracer indique 30 minutes. Les fichiers `.pka` ne sont pas publiés. Les notes de quiz des modules 3 et 4 complètent le vocabulaire : un commutateur diffuse dans le même VLAN, un routeur borne le domaine de diffusion.
 
 ## Objectifs
 
-- Distinguer une communication dans un même réseau logique d’une communication qui doit passer par une passerelle.
-- Lire les informations IP, masque, passerelle et MAC fournies dans un scénario.
-- Expliquer le rôle d’un routeur et de sa table de routage.
-- Identifier le rôle d’un domaine de diffusion et l’intérêt de sa segmentation.
-- Mettre en pratique une communication inter-réseau dans Packet Tracer.
+À l’issue du module, vous devez pouvoir :
 
-!!! note "Le périmètre de M04"
-    M03 traite le calcul d’adresses, de masques et de sous-réseaux. Ici, ces éléments servent seulement à décider **comment un paquet circule** : directement dans le réseau logique ou par une passerelle. Les calculs détaillés d’adressage restent dans le module précédent.
+- comparer le réseau vu par chaque masque, pas seulement l’adresse ;
+- remplir un tableau V, F ou P à partir des adresses imprimées ;
+- résumer des routes au plus court, comme la correction ;
+- agréger les blocs de la partie E avec les préfixes imprimés.
 
-## 1. Lire un scénario de communication
+## 1. Même segment, masques différents
 
-Les TP fournissent, pour chaque poste, une adresse IP, un masque, une passerelle et parfois une adresse MAC. La première question consiste à identifier le réseau logique auquel le poste rattache sa destination ; la seconde est de déterminer si l’échange peut rester local ou doit être remis à un routeur.
+La partie A place A, B, C, D, E et F sur le même segment, sans routeur. Le dialogue n’existe que si l’émetteur voit le destinataire dans son masque, et si le destinataire peut répondre dans le sien.
+
+| Poste | Adresse | Masque | Réseau qu’il considère |
+|---|---|---|---|
+| A | 172.16.10.10 | 255.255.0.0 | 172.16.0.0/16 |
+| B | 172.16.11.20 | 255.255.0.0 | 172.16.0.0/16 |
+| C | 172.16.100.30 | 255.255.0.0 | 172.16.0.0/16 |
+| D | 172.16.11.100 | 255.255.255.0 | 172.16.11.0/24 |
+| E | 172.16.100.150 | 255.255.255.0 | 172.16.100.0/24 |
+| F | 172.16.10.200 | 255.255.255.0 | 172.16.10.0/24 |
+
+| L’hôte | Contacte | Explication imprimée |
+|---|---|---|
+| A | B, C, F | A, B et C se voient dans 172.16.0.0/16. F répond dans 172.16.10.0/24 |
+| B | A, C, D | Même /16 pour A et C. D répond dans 172.16.11.0/24 |
+| C | A, B, E | Même /16 pour A et B. E répond dans 172.16.100.0/24 |
+| D | B | Tous deux dans 172.16.11.0/24 |
+| E | C | Tous deux dans 172.16.100.0/24 |
+| F | A | Tous deux dans 172.16.10.0/24 |
+
+A voit F, parce que 172.16.10.200 est dans son /16, et F voit A, parce que 172.16.10.10 est dans son /24. D ne voit pas A : 172.16.10.10 n’est pas dans 172.16.11.0/24.
+
+## 2. Tableau V, F, P
+
+V : communication directe. F : pas de communication. P : communication en passant par le routeur. La diagonale est déjà à V dans l’énoncé.
+
+### Réseau de la partie B
+
+| Poste | Adresse | Masque | Passerelle |
+|---|---|---|---|
+| A | 10.11.2.1 | 255.0.0.0 | 10.0.0.254 |
+| B | 192.168.1.35 | 255.0.0.0 | 10.0.0.254 |
+| C | 10.0.2.4 | 255.255.0.0 | 10.0.0.254 |
+| D | 192.168.1.123 | 255.255.255.0 | 192.168.1.254 |
+| E | 192.168.2.2 | 255.255.0.0 | 192.168.1.254 |
+
+Routeur X : `10.0.0.254/8`. Routeur Y : `192.168.1.254/24`. Réseau 1 côté X, réseau 2 côté Y.
+
+| De \\ vers | A | B | C | D | E |
+|---|---|---|---|---|---|
+| A | V | F | V | P | F |
+| B | F | V | F | F | F |
+| C | P | F | V | P | F |
+| D | P | F | P | V | F |
+| E | P | F | P | V | V |
+
+B annonce un masque /8 et une adresse 192.168.1.35. Sa passerelle 10.0.0.254 n’est pas dans 192.0.0.0/8. La correction le laisse isolé : une ligne de F, hors lui-même.
+
+### Réseau de la partie C
+
+| Poste | Adresse | Masque | Passerelle |
+|---|---|---|---|
+| A | 192.167.5.1 | 255.255.255.0 | 192.168.5.254 |
+| B | 192.168.5.35 | 255.255.255.0 | 172.20.0.254 |
+| C | 172.20.1.4 | 255.255.0.0 | 192.168.5.254 |
+| D | 172.20.1.123 | 255.255.255.0 | 172.20.1.254 |
+| E | 172.20.0.7 | 255.255.0.0 | 172.20.0.254 |
+| F | 172.19.2.2 | 255.0.0.0 | 172.19.0.254 |
+
+Routeur X `192.168.5.254/24`, routeur Y `172.19.0.254/16`, routeur Z `172.20.0.254/16`.
+
+| De \\ vers | A | B | C | D | E | F |
+|---|---|---|---|---|---|---|
+| A | V | F | F | F | F | F |
+| B | F | V | F | F | F | F |
+| C | F | F | V | F | F | F |
+| D | F | F | F | V | F | F |
+| E | F | P | F | V | V | P |
+| F | F | P | F | F | F | V |
+
+A, B, C et D ont une passerelle hors du réseau calculé avec leur masque, ou un voisin qui ne partage pas ce réseau. La correction ne leur laisse que la case V vers eux-mêmes. E voit D dans 172.20.0.0/16 et passe par la passerelle 172.20.0.254 vers B et F. F, masque /8, voit B dans 172.0.0.0/8 et marque P.
+
+## 3. Routes statiques minimales
+
+La consigne annonce le bloc `131.107.0.0/16`. Le schéma et les routes imprimées utilisent **13.107**. La fiche suit les adresses des routes.
+
+Neuf réseaux en gras : `13.107.0.0/20`, `13.107.16.0/20`, `13.107.32.0/19`, `13.107.64.0/19`, `13.107.96.0/19`, `13.107.128.0/19`, `13.107.160.0/19`, `13.107.192.0/19`, `13.107.224.0/19`.
+
+R1 à R4 se suivent sur la rangée haute. R5 à R8 se suivent sur la rangée basse. Chaque routeur n’ajoute que les résumés vers les autres.
+
+| Routeur | Routes imprimées |
+|---|---|
+| R1 | 13.107.32.0/19 via R2, 13.107.64.0/18 via R2, 13.107.128.0/17 via R2 |
+| R2 | 13.107.0.0/20 via R1, 13.107.64.0/18 via R3, 13.107.128.0/17 via R3 |
+| R3 | 13.107.0.0/19 via R2, 13.107.96.0/19 via R4, 13.107.128.0/17 via R4 |
+| R4 | 13.107.0.0/18 via R3, 13.107.128.0/17 via R5 |
+| R5 | 13.107.0.0/18 via R4, 13.107.64.0/19 via R4, 13.107.160.0/19 via R6, 13.107.192.0/18 via R6 |
+| R6 | 13.107.0.0/17 via R5, 13.107.192.0/18 via R7 |
+| R7 | 13.107.0.0/17 via R6, 13.107.128.0/19 via R6, 13.107.224.0/19 via R8 |
+| R8 | 13.107.0.0/17 via R7, 13.107.128.0/18 via R7 |
+
+Le format demandé est `(@_rezo, masque, routeur de destination)`.
+
+## 4. Résumés de la partie E
+
+| Blocs à agréger | Résumé imprimé |
+|---|---|
+| 212.56.132.0/24 à 212.56.135.0/24 | 212.56.132.0/22 |
+| 212.56.146.0/24 à 212.56.149.0/24 | 212.56.144.0/21 |
+| 212.1.96.0/24 jusqu’à 212.1.159.0/24, 64 réseaux | 212.1.0.0/16 |
+| Tous les réseaux de classe A | 0.0.0.0/1 |
+| Tous les réseaux de classe B | 128.0.0.0/2 |
+| Tous les réseaux de classe C | 192.0.0.0/3 |
+
+!!! info "Relecture du troisième résumé"
+    `212.1.0.0/16` est le préfixe imprimé. Il couvre tout le troisième octet, donc aussi les réseaux situés avant `.96` et après `.159`. La fiche conserve cette réponse.
+
+Les classes A, B et C occupent chacune un quart de l’espace : le premier bit distingue A, les deux premiers distinguent B, les trois premiers distinguent C. D’où /1, /2 et /3.
+
+## 5. Packet Tracer
+
+L’énoncé d’une page demande, après les vidéos du module et les TP Packet Tracer précédents :
+
+1. copier `M04-01-02–TP-Packet_Tracer-La_communication.pka` ;
+2. l’ouvrir dans Packet Tracer ;
+3. mettre en place la communication inter-réseau ;
+4. suivre les directives de l’activité.
+
+Le verbe imprimé est « Avoir réaliser les précédents TP Packet Tracer ». Le fichier et la ressource associée ne sont pas publiés. Leur contenu binaire n’a pas été relu.
+
+**Illustration IA / externe au cours — les trois issues du tableau.**
 
 ```mermaid
 flowchart TD
-    A[Destination à joindre] --> B{Réseau logique identique<br/>dans le scénario ?}
-    B -->|Oui| C[Communication locale]
-    B -->|Non| D[Remise à la passerelle]
-    D --> E[Routeur et table de routage]
+    Q["Même réseau pour les deux masques ?"] -->|Oui| V["V · direct"]
+    Q -->|Non| G{"Passerelle dans le masque de l’émetteur ?"}
+    G -->|Oui| P["P · via le routeur"]
+    G -->|Non| F["F · pas d’envoi"]
 ```
 
-<p class="tssr-caption">Schéma de synthèse B : il organise la décision demandée dans les scénarios du TP, sans ajouter de règle d’adressage au-delà des sources.</p>
+## Résumé
 
-### Dans un même segment
+1. Deux postes ne dialoguent que si chacun voit l’autre dans son propre masque.
+2. V, F et P se lisent depuis l’émetteur. Une passerelle hors masque isole le poste.
+3. Les routes de la partie D suivent les adresses 13.107 imprimées dans le schéma.
+4. Les résumés de classe sont /1, /2 et /3. Le résumé des 64 réseaux est imprimé `212.1.0.0/16`.
+5. Le TP Packet Tracer se fait dans le logiciel. Le fichier n’est pas sur le site.
 
-Le premier scénario du TP place les postes A à F sur le même segment, sans routeur. Les adresses et les masques ne produisent pas pour autant le même réseau logique pour tous les postes. La correction montre que le résultat doit être justifié poste par poste : par exemple, A dialogue avec B, C et F, mais les réponses ne s’appuient pas toutes sur le même réseau logique.
+## Mini-quiz
 
-**Méthode de vérification :** relever l’adresse et le masque du poste émetteur, relever ceux du destinataire, puis expliquer le résultat avant de remplir le tableau. Ne pas déduire une réponse de la seule proximité physique des machines.
+1. Pourquoi F répond-il à A, alors que D ne répond pas à A ?
+2. Que signifie P dans le tableau ?
+3. Pourquoi la ligne de B est-elle presque entièrement F dans la partie B ?
+4. Quelle adresse la correction utilise-t-elle pour les routes, 131.107 ou 13.107 ?
+5. Quel résumé est imprimé pour l’ensemble des réseaux de classe C ?
 
-## 2. Passerelle et communication inter-réseau
-
-Dans les scénarios B et C, les postes, routeurs et passerelles sont explicitement renseignés. Le tableau utilise les repères suivants :
-
-| Repère du TP | Signification dans le tableau |
-|---|---|
-| `V` | communication possible sans passerelle selon le scénario |
-| `F` | communication non possible selon le scénario |
-| `P` | communication passant par le routeur ou la passerelle |
-
-Un routeur relie des réseaux distincts. Il lit l’adresse de destination, consulte sa table de routage et choisit l’acheminement proposé par ses routes. Les informations du TP permettent de confronter cette décision aux masques et passerelles effectivement déclarés, plutôt que de supposer qu’une adresse privée est automatiquement joignable.
-
-### Table de routage : objectif du TP
-
-Le TP demande de compléter des tables de routage pour huit routeurs après le découpage d’un bloc en neuf segments. Il attend des routes statiques en format abrégé : réseau, masque et routeur de destination. La correction conserve ces routes comme réponses de référence.
-
-!!! tip "Contrôle avant de conclure"
-    Dans un tableau de communication, vérifiez séparément le réseau logique, la passerelle indiquée et la présence d’un itinéraire. Une route correcte ne rend pas cohérente une adresse, un masque ou une passerelle qui ne le sont pas dans le scénario.
-
-## 3. Domaine de diffusion et segmentation
-
-Un domaine de diffusion est une portion logique du réseau dans laquelle une trame de diffusion est transmise aux équipements raccordés. Le support indique qu’un commutateur transmet les diffusions aux ports d’un même VLAN, tandis qu’un routeur délimite les domaines de diffusion et ne les transmet pas d’un réseau à l’autre.
-
-Cette segmentation réduit le trafic inutile et aide à organiser les communications entre réseaux. Elle est à relier aux scénarios du TP : l’ajout d’un routeur introduit une frontière et rend la passerelle nécessaire pour atteindre un autre réseau.
-
-## 4. Routage et agrégation de routes
-
-Le routage sert à acheminer des paquets entre plusieurs réseaux. Le support distingue les routes statiques, configurées manuellement, des routes dynamiques, apprises par des protocoles de routage. Ici, le TP se concentre sur les routes statiques et sur le choix du nombre minimal d’itinéraires.
-
-Le même TP demande également de calculer des résumés de routes en notation CIDR. Le support appelle cette opération le **sur-réseau** : regrouper des réseaux contigus et alignés dans une entrée plus large pour simplifier une table de routage. Les valeurs et réponses attendues restent dans l’[énoncé](../../tp/reseaux/module-04/enonces.md) et la [correction](../../tp/reseaux/module-04/corrections.md) ; elles ne sont pas recopiées ici.
-
-## 5. Mise en pratique avec Packet Tracer
-
-Le second TP demande de copier puis d’ouvrir le fichier Packet Tracer associé, après avoir suivi les vidéos du module et les précédents TP Packet Tracer. Son objectif est de mettre en place une communication inter-réseau en suivant les directives de l’activité.
-
-!!! warning "Ressource binaire"
-    Les fichiers `.pka` sont des activités Packet Tracer attestées. Leur contenu n’est pas interprété dans la documentation : ouvrez-les dans Cisco Packet Tracer et suivez l’énoncé correspondant.
-
-## À retenir
-
-- Une communication doit être lue à partir des informations du scénario : IP, masque, passerelle et topologie.
-- Un routeur relie des réseaux et consulte une table de routage pour acheminer les paquets.
-- Un domaine de diffusion est limité par un routeur ; les VLAN et routeurs servent à segmenter les échanges.
-- Les routes statiques et les résumés CIDR sont exercés dans les activités M04.
-
-## Pour pratiquer et réviser
-
-- [TP M04 : énoncés](../../tp/reseaux/module-04/enonces.md)
-- [TP M04 : corrections](../../tp/reseaux/module-04/corrections.md)
-- [Ressources Packet Tracer](../../tp/reseaux/module-04/index.md#activites)
-- [Fiche de révision M04](../../revision/reseaux/module-04-la-communication-dans-un-reseau.md)
-- [Kahoot M04 : communication réseau](../../kahoot/bases-reseaux-m04-communication-reseau.md)
-
-## Sources et provenance
-
-- **A — sources TSSR :** `cours kahoot module 3 et 4.txt`, `M04-01-01-TP-La_communication.pdf`, `M04-01-01-TP-La_communication_Correction.pdf`, `M04-01-02-TP-Packet_Tracer-La_communication.pdf`.
-- **B — structuration pédagogique :** organisation web, tableaux, encadrés et schéma de décision, sans ajout de contenu technique externe.
+??? note "Réponses du mini-quiz"
+    1. F est dans 172.16.10.0/24, qui contient A. D est dans 172.16.11.0/24, qui ne contient pas A.
+    2. La communication passe par le routeur.
+    3. Son masque /8 ne contient pas la passerelle 10.0.0.254. La correction ne lui donne aucun destinataire.
+    4. 13.107, celle du schéma et des routes. La phrase d’introduction écrit 131.107.
+    5. 192.0.0.0/3.

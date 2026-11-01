@@ -1,151 +1,116 @@
 # Module 06 — L’adressage IPv6
 
-**Formation :** Bases des réseaux
+**Séquence :** Bases des réseaux  
+**Rôle dans le parcours :** lire une adresse de 128 bits et reconnaître son type.
 
-**Pré-requis :** connaître le rôle d’une adresse IP et la représentation binaire et hexadécimale.
-**Source pédagogique :** support TSSR « cours kahoot module 5 et 6 » — partie *Module 6 — L’adressage IPv6*.
+L’onglet Cours Original indique **Inexistant**. Le dossier ne contient aucun document propre à ce module. La fiche suit les notes de quiz des modules 5 et 6.
+
+!!! info "Choix de lecture"
+    Les notes intitulent la structure « RFC 2800 ». Un passage plus loin appelle 2000::/3 « adresses locales uniques » et FC00::/8 « multidiffusion ». Le reste du même texte dit l’inverse : 2000::/3 est la plage globale routable, FF00::/8 la multidiffusion, et FC00::/7 les adresses locales uniques, proches des adresses privées IPv4. La fiche suit ce second passage, cohérent avec le tableau des plages et avec la structure GUA.
+
+!!! info "Complément externe au cours"
+    Le texte qui décrit le format des adresses IPv6 est la RFC 4291. Les notes citent un autre numéro. [Architecture d’adressage IPv6](https://www.rfc-editor.org/rfc/rfc4291).
 
 ## Objectifs
 
 À l’issue du module, vous devez pouvoir :
 
-- décrire l’écriture d’une adresse IPv6 ;
-- réduire puis développer une écriture IPv6 sans en changer la valeur ;
-- distinguer les adresses unicast, multicast et anycast ;
-- repérer les adresses et préfixes étudiés dans le support ;
-- situer les mécanismes de coexistence IPv4/IPv6 présentés dans le cours.
+- écrire et compacter une adresse de 128 bits ;
+- classer lien-local, globale, unique locale, multidiffusion et boucle ;
+- découper une adresse globale en préfixe, sous-réseau et interface ;
+- citer les adresses multicast du lien local données par les notes.
 
-## 1. Lire une adresse IPv6
+## 1. Écriture
 
-Le support présente IPv6 comme un protocole utilisant des **adresses de 128 bits**, soit quatre fois la taille d’une adresse IPv4. Une adresse est écrite sous la forme de **huit groupes de quatre chiffres hexadécimaux**, séparés par des deux-points. Chaque groupe, ou *quartet*, représente 16 bits.
+Une adresse IPv6 a **128 bits**, huit groupes de quatre chiffres hexadécimaux.
 
-```text
-2001:0db8:85a3:0000:0000:8a2e:0370:7334
-```
+`2001:0db8:85a3:0000:0000:8a2e:0370:7334`
 
-| Élément | Lecture attendue |
-| --- | --- |
-| Nombre de groupes | 8 quartets |
-| Taille d’un quartet | 16 bits, soit 2 octets |
-| Taille totale | 128 bits |
-| Base d’écriture | hexadécimale |
+Les notes appellent chaque groupe un quartet de 16 bits. Elles compressent ainsi :
 
-Dans l’exemple du support, `2001:0db8` identifie le réseau et `8a2e:0370:7334` l’hôte. Cette décomposition sert de repère de lecture ; elle ne dispense pas de vérifier le préfixe utilisé dans une configuration réelle.
+1. retirer les zéros de tête de chaque groupe : `2001:db8:0:0:8a2e:370:7334` ;
+2. remplacer une seule suite de groupes nuls par `::`.
 
-## 2. Réduire une écriture IPv6 sans la modifier
+Exemple des notes : `2001:0db8:0000:0000:0000:ff00:0042:8329` devient `2001:db8::ff00:42:8329`.
 
-Deux règles de simplification sont utilisées dans le support.
+Les notes annoncent environ 3,4 × 10<sup>38</sup> adresses, contre environ 4,3 milliards en IPv4.
 
-1. Supprimer les zéros placés au début de chaque quartet.
-2. Remplacer **une seule fois** une suite continue de quartets nuls par `::`.
+## 2. Types retenus
 
-| Étape | Exemple source |
-| --- | --- |
-| Écriture développée | `2001:0db8:0000:0000:8a2e:0370:7334` |
-| Zéros initiaux supprimés | `2001:db8:0:0:8a2e:370:7334` |
-| Suite de zéros compressée | `2001:db8::8a2e:370:7334` |
+| Préfixe des notes | Type retenu | Repère |
+|---|---|---|
+| `::/0` | Route par défaut | Tous les réseaux, comme 0.0.0.0/0 |
+| `::/128` | Adresse non spécifiée | Avant qu’une adresse de lien local soit choisie |
+| `::1/128` | Boucle locale | Équivalent de 127.0.0.1 |
+| `FE80::/10` | Lien local | Le lien seulement, voisine d’APIPA dans les notes |
+| `FC00::/7`, dont `FD00::/8` | Locale unique | Non routée sur Internet, voisine des adresses privées |
+| `2000::/3` | Globale unicast | Routable sur Internet |
+| `FF00::/8` | Multidiffusion | Un groupe de destinataires. Les notes indiquent qu’elle remplace en grande partie la diffusion IPv4 |
 
-!!! warning "Erratum IA / externe — exemple source incomplet"
-    Les deux premières lignes de ce tableau source ne comptent que sept groupes et sont invalides sans `::`. Le développement correct de la troisième ligne est `2001:0db8:0000:0000:0000:8a2e:0370:7334`. Voir la précision sourcée RFC 4291 en fin de fiche ; le document original reste inchangé.
+Une adresse **unicast** désigne une interface. Une adresse **anycast** est partagée : le routage vise l’instance jugée la plus proche. Une adresse **multicast** vise un groupe.
 
-Autre exemple du support :
-
-```text
-2001:0db8:0000:0000:0000:ff00:0042:8329
-2001:db8::ff00:42:8329
-```
-
-### Vérifier sa lecture
-
-Avant d’utiliser une adresse dans un exercice ou une configuration, développez mentalement les groupes absents et comptez les huit quartets. Cette vérification évite de confondre une écriture abrégée avec une adresse plus courte.
-
-## 3. Types d’adresses étudiés
-
-Le support distingue trois catégories principales.
-
-| Type | Rôle présenté dans le support |
-| --- | --- |
-| **Unicast** | identifie un appareil unique sur le réseau ; |
-| **Multicast** | permet d’envoyer un paquet à plusieurs appareils d’un groupe ; |
-| **Anycast** | permet d’atteindre le nœud le plus proche parmi un groupe partageant la même adresse. |
-
-Le multicast remplace en grande partie les diffusions (*broadcast*) IPv4 dans les exemples du support.
-
-## 4. Repères d’adressage du support
-
-Les préfixes suivants sont explicitement utilisés dans le cours.
-
-| Repère | Usage présenté |
-| --- | --- |
-| `FE80::/10` | communication de lien local et autoconfiguration de lien-local ; |
-| `2000::/3` | adresses globales routables sur Internet ; |
-| `FF00::/8` | adresses de multidiffusion ; |
-| `::1` | boucle locale, utilisée pour tester la connectivité locale ; |
-| `::/0` | tous les réseaux, utilisé comme route par défaut ; |
-| `::/128` | adresse non spécifiée avant l’obtention d’une adresse lien-local. |
-
-!!! note "Lecture prudente du support"
-    Les fragments du support consacrés aux adresses locales uniques présentent des libellés contradictoires. Cette page ne déduit donc pas de règle supplémentaire de ces fragments : utilisez les repères non ambigus ci-dessus et signalez ce point à l’encadrant si l’exercice exige ce détail.
-
-## 5. Adresse globale unicast : découpage présenté
-
-Pour une adresse globale unicast, le support propose le découpage suivant :
-
-| Préfixe global | Sous-réseau | Identifiant d’interface |
-| --- | --- | --- |
-| 48 bits | 16 bits | 64 bits |
-
-Le préfixe global identifie le réseau, l’identifiant de sous-réseau permet son découpage interne et l’identifiant d’interface identifie une interface. Le support évoque notamment une dérivation EUI-64 ou une configuration manuelle pour ce dernier champ.
-
-## 6. Multicast IPv6
-
-Les adresses multicast étudiées commencent par `FF` et appartiennent à `FF00::/8`. Le support décrit leur format ainsi :
-
-| Préfixe | Flags | Scope | Identifiant de groupe |
-| --- | --- | --- | --- |
-| 8 bits | 4 bits | 4 bits | 112 bits |
-
-Exemples fournis :
-
-- `FF02::1` : tous les nœuds du réseau local ;
-- `FF02::2` : tous les routeurs du réseau local ;
-- `FF02::1:2` : serveurs et relais DHCP du lien local ;
-- `FF02::fb` : multidiffusion DNS ;
-- `FF05::1` : tous les nœuds d’un site ;
-- `FF0E::101` : exemple de multidiffusion globale spécifique.
-
-## 7. Faire coexister IPv4 et IPv6
-
-Les deux protocoles ne sont pas directement compatibles. Le support cite trois techniques de coexistence :
-
-- **double stack** : les deux protocoles sont utilisés simultanément ;
-- **tunneling** : des paquets IPv6 sont encapsulés dans des paquets IPv4 ;
-- **NAT64** : permet la communication entre appareils IPv6 et IPv4.
-
-## Pour réviser et s’entraîner
-
-- Consultez la [fiche de révision IPv6](../../revision/reseaux/module-06-l-adressage-ipv6.md).
-- Testez vos connaissances avec le [Kahoot du module 06](../../kahoot/01-bases-reseaux-06-l-adressage-ipv6.md).
-- Retournez à la [présentation de la formation Bases des réseaux](index.md).
-
-## Provenance pédagogique
-
-- **A — source originale :** support TSSR « cours kahoot module 5 et 6 », partie Module 6.
-- **B — structuration pédagogique :** organisation web, tableaux de lecture, vérifications et liens de navigation construits à partir de cette source, sans apport externe.
-
-<!-- TSSR-EXTERNAL-CLARIFICATION-20261020 -->
-
-## Complément IA / externe au cours — errata de lecture IPv6
-
-Le tableau précédent reproduit un exemple de la source dont les deux premières lignes ne comportent que sept groupes, sans `::` : ces écritures ne sont pas valides. Pour développer correctement **`2001:db8::8a2e:370:7334`**, il faut écrire **`2001:0db8:0000:0000:0000:8a2e:0370:7334`** : huit groupes. La frontière réseau/hôte dépend du préfixe, pas du seul nombre de groupes visibles. En IPv6, il n’existe pas d’adresse de broadcast ; le multicast assure les fonctions correspondantes. [Source externe — RFC 4291, sections 2 et 2.2](https://www.rfc-editor.org/rfc/rfc4291.html).
-
-Les adresses locales uniques appartiennent à **`FC00::/7`** ; la partie utilisée pour une attribution locale avec le bit L à 1 est **`FD00::/8`**. Elles ne doivent pas être confondues avec les adresses de lien local `FE80::/10`. [Source externe — RFC 4193](https://www.rfc-editor.org/rfc/rfc4193.html).
-
-**Illustration IA / externe au cours — décompression vérifiable.**
+**Illustration IA / externe au cours — les trois modes nommés par les notes.**
 
 ```mermaid
-flowchart TD
- A["2001:db8::8a2e:370:7334"] --> B["5 groupes écrits : 3 groupes nuls manquent"]
- B --> C["2001:0db8:0000:0000:0000:8a2e:0370:7334"]
- C --> D["8 groupes de 16 bits = 128 bits"]
+flowchart LR
+    U["Unicast · une interface"] --> D["Destinataire"]
+    A["Anycast · même adresse, plus proche"] --> D
+    M["Multicast · un groupe"] --> D
 ```
+
+## 3. Adresse globale
+
+Les notes découpent une GUA ainsi :
+
+| Partie | Taille | Rôle dans les notes |
+|---|---:|---|
+| Préfixe global | 48 bits | Réseau attribué par un registre |
+| Sous-réseau | 16 bits | Découpage dans l’organisation |
+| Identifiant d’interface | 64 bits | Interface, souvent dérivée de l’adresse MAC au format EUI-64, ou fixée à la main |
+
+Dans l’exemple `2001:0db8:85a3:0000:0000:8a2e:0370:7334`, les notes isolent `2001:0db8` comme repère de réseau et `8a2e:0370:7334` comme repère d’hôte.
+
+## 4. Multicast cité
+
+Toutes ces adresses commencent par FF. Les notes détaillent le préfixe, des indicateurs, une portée, puis l’identifiant de groupe.
+
+| Adresse | Portée dans les notes | Groupe |
+|---|---|---|
+| `FF02::1` | Lien | Tous les nœuds du lien |
+| `FF02::2` | Lien | Tous les routeurs du lien |
+| `FF02::1:2` | Lien | Serveurs et relais DHCP du lien |
+| `FF02::fb` | Lien | Multidiffusion DNS |
+| `FF05::1` | Site | Tous les nœuds du site |
+| `FF0E::101` | Globale | Groupe donné en exemple mondial |
+
+## 5. Ce que les notes ajoutent à IPv4
+
+- autoconfiguration sans état à partir du préfixe ;
+- IPsec prévu dans le protocole ;
+- qualité de service portée dans l’en-tête ;
+- coexistence par double pile, tunnel IPv6 dans IPv4, ou traduction NAT64.
+
+Les notes indiquent que NDP (*Neighbor Discovery Protocol*) remplace ARP en IPv6. Elles n’en décrivent pas les messages : la fiche s’arrête à ce remplacement.
+
+## Résumé
+
+1. 128 bits, huit groupes hexadécimaux, un seul `::`.
+2. `FE80::/10` reste sur le lien. `2000::/3` est globale. `FF00::/8` est multicast. `FD00::/8` joue le rôle privé.
+3. `::1` est la boucle. `::` sans longueur est l’adresse non spécifiée quand le préfixe est /128, et la route par défaut quand le préfixe est /0.
+4. Une GUA se lit 48 + 16 + 64 bits.
+5. Ce module n’a pas de document dans le dossier.
+
+## Mini-quiz
+
+1. Combien de bits et de groupes possède une adresse IPv6 dans les notes ?
+2. Quelle plage est limitée au lien local ?
+3. Quelle adresse multicast vise tous les nœuds du lien ?
+4. Quelle taille les notes donnent-elles à l’identifiant d’interface d’une GUA ?
+5. Pourquoi la fiche ne reprend-elle pas l’intitulé qui appelle 2000::/3 « locale unique » ?
+
+??? note "Réponses du mini-quiz"
+    1. 128 bits, huit groupes de quatre chiffres hexadécimaux.
+    2. `FE80::/10`.
+    3. `FF02::1`.
+    4. 64 bits.
+    5. Un autre passage des mêmes notes, aligné sur le tableau des plages, décrit 2000::/3 comme globale et routable. La fiche suit ce passage.

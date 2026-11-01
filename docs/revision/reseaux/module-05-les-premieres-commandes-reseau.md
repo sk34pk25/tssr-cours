@@ -45,5 +45,4 @@ Les sources décrivent des commandes qui modifient une adresse, une route ou un 
 
 ## Sources et provenance
 
-- **A — source TSSR :** `cours kahoot module 5 et 6.txt`.
-- **B — structuration pédagogique :** tableau, questions et checklist construits à partir de cette source.
+- **Source :** notes de quiz des modules 5 et 6. L’onglet Cours Original indique Inexistant. L’activité Packet Tracer n’est pas publiée.

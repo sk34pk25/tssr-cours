@@ -43,7 +43,7 @@ Le TP M04 comporte :
 - un exercice de 2 heures sur les communications entre hôtes, passerelles, tables de routage et résumés de routes ;
 - une activité Packet Tracer de 30 minutes pour mettre en place une communication inter-réseau.
 
-Les fichiers Packet Tracer sont des ressources binaires : ils doivent être ouverts dans Cisco Packet Tracer et ne sont pas interprétés dans cette fiche.
+Les fichiers Packet Tracer ne sont pas publiés. L’énoncé écrit demande de les ouvrir dans le logiciel après les vidéos du module.
 
 ## Questions flash
 
@@ -62,5 +62,4 @@ Les fichiers Packet Tracer sont des ressources binaires : ils doivent être ouve
 
 ## Sources et provenance
 
-- **A — sources TSSR :** support M03/M04, TP M04-01-01, correction M04-01-01 et activité Packet Tracer M04-01-02.
-- **B — structuration pédagogique :** tableau de synthèse, méthode et questions de révision formulés à partir de ces sources.
+- **Source :** énoncé, correction et énoncé Packet Tracer du module 4. La phrase d’introduction écrit 131.107.0.0/16 ; le schéma et les routes impriment 13.107. La fiche suit 13.107.

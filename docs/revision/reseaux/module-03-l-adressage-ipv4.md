@@ -35,5 +35,4 @@ Le TP demande de relier le besoin en segments et hôtes au préfixe proposé, pu
 
 ## Provenance
 
-- **Sources A :** support IPv4 M03 et énoncé/correction M03-04 TSSR Drive live.
-- **Structuration B :** synthèse pédagogique sans apport externe.
+- **Source :** énoncé et correction du TP sous-réseaux, plus les notes de quiz des modules 3 et 4. Il n’y a pas de support de cours PDF.

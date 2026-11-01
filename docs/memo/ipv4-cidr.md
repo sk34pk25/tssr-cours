@@ -19,3 +19,5 @@ Pour un `/26`, le masque vaut `255.255.255.192`, donc le pas vaut `64`. Les rés
 ## Contrôle
 
 L’adresse réseau possède tous les bits hôte à 0 ; la diffusion possède tous les bits hôte à 1.
+
+Dans le TP du module 03, plusieurs masques imprimés offrent moins d’hôtes que le scénario. La correction est conservée telle qu’elle est écrite. Le détail est dans le [cours IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md).

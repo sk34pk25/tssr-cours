@@ -29,7 +29,7 @@ Une couche reçoit une **SDU**, ajoute ses informations de contrôle (**PCI**) e
 
 ## Observer avec Packet Tracer
 
-Les activités M01 sont des fichiers binaires Packet Tracer. Ouvrez-les dans l’outil, repérez les équipements, puis utilisez le mode Simulation pour relier le trajet observé aux couches OSI. Les fichiers n’ont pas été interprétés hors de Packet Tracer.
+Les activités du module sont des fichiers Packet Tracer. Elles ne sont pas publiées. Dans le logiciel, le mode Simulation montre le trajet couche par couche. Le mode temps réel laisse les paquets circuler.
 
 ## Questions flash
 
@@ -41,5 +41,5 @@ Pour approfondir : [cours complet](../../modules/01-bases-reseaux/module-01-le-m
 
 ## Provenance
 
-- **Sources A :** synthèse M01 et contenu Kahoot M01/M02 TSSR Drive live ; activités Packet Tracer référencées comme binaires.
-- **Structuration B :** synthèse pédagogique sans apport externe.
+- **Source :** notes de quiz des modules 1 et 2. Il n’y a pas de support PDF : l’onglet Cours Original indique Inexistant. Le PDF homonyme est un doublon de ces notes.
+- **Structuration :** fiche de révision du module.
