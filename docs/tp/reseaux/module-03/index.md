@@ -14,6 +14,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md)
 
-## Ressources
+## Activité
 
-- [M03_TP05 - Ressource - Adressage IP avec Packet Tracer.pka](../../../assets/resources/packet-tracer/m03-tp05-ressource-adressage-ip-avec-packet-tracer-pka.pka)
+Le dossier contient aussi une activité Packet Tracer d’adressage IP. Le fichier n’est pas publié. Les parties écrites du TP se traitent depuis l’énoncé transcrit.

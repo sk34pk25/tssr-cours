@@ -5,7 +5,7 @@ Comprendre les modèles, l’adressage, la communication et les premiers outils 
 <div class="tssr-index-meta"><span>Étape 02 / 09</span><strong>15 → 19 juin 2026</strong><span>GUYADER Thélo</span><a href="../../parcours/02-bases-reseaux/">Voir dans le parcours →</a></div>
 
 !!! warning "Périmètre et versions"
-    Les six modules sont explicitement nommés dans les dossiers et supports Réseaux. Les activités Packet Tracer sont conservées comme ressources binaires à ouvrir avec Cisco Packet Tracer.
+    Ce dossier ne contient pas de support de cours PDF. Les énoncés et corrections de TP sont transcrits dans l’onglet Cours Original. Lorsqu’un module n’a pas de document, l’onglet indique Inexistant. Les activités Packet Tracer ne sont pas publiées. Les synthèses Windows 10 de ce dossier sont rattachées au cours [Systèmes clients](../02-systemes-clients-microsoft/index.md).
 
 ## Progression officielle
 

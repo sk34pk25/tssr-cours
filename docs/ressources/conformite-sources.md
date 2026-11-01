@@ -8,7 +8,7 @@ Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cou
 
 **86 modules avec supports transcrits · 353 références de documents · 2466 pages sources, plus 9 documents textuels.** Ces références correspondent à 346 fichiers sources uniques ; les doublons et leurs notices sont conservés. Le périmètre couvre les sections « Cours Original » du catalogue, sans prétendre compléter les sources absentes.
 
-Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est indiquée sans les attribuer à ENI. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original. Les formations datées suivent l’ordre du planning ; Administration GLPI, bloc complémentaire non daté, est regroupé avec ITIL.
+Bases des réseaux : le dossier ne contient pas de support de cours PDF. L’onglet Cours Original reprend les énoncés et corrections de TP. Les notes de quiz et la synthèse Windows rangée dans ce dossier n’y sont pas présentées comme support. Les modules publiés d’utilisation GNU/Linux disposent de TP, sans support de cours distinct dans les dossiers examinés. Les documents communs à plusieurs modules sont présentés avec leur titre original. Les formations datées suivent l’ordre du planning ; Administration GLPI, bloc complémentaire non daté, est regroupé avec ITIL.
 
 ## Consultation des formations et modules
 
@@ -19,12 +19,12 @@ Les réseaux comprennent des notes et une synthèse du Drive ; leur nature est i
 | [Microsoft 365 — Module 03 — Connaissances des notions de base d’Excel](../modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel.md) | 4 | 28 |
 | [Microsoft 365 — Module 04 — Exploiter Outlook et savoir le dépanner](../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner.md) | 5 | 57 |
 | [Microsoft 365 — Module 05 — Exploiter Teams, SharePoint et OneDrive](../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive.md) | 3 | 23 |
-| [Bases des réseaux — Module 01 — Le modèle OSI](../modules/01-bases-reseaux/module-01-le-modele-osi.md) | 3 | 36 |
-| [Bases des réseaux — Module 02 — Les unités informatiques](../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) | 2 | 33 |
-| [Bases des réseaux — Module 03 — L’adressage IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md) | 3 | 22 |
-| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 4 | 12 |
-| [Bases des réseaux — Module 05 — Les premières commandes réseau](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md) | 1 | 0 |
-| [Bases des réseaux — Module 06 — L’adressage IPv6](../modules/01-bases-reseaux/module-06-l-adressage-ipv6.md) | 1 | 0 |
+| [Bases des réseaux — Module 01 — Le modèle OSI](../modules/01-bases-reseaux/module-01-le-modele-osi.md) | 0 | 0 |
+| [Bases des réseaux — Module 02 — Les unités informatiques](../modules/01-bases-reseaux/module-02-les-unites-informatiques.md) | 0 | 0 |
+| [Bases des réseaux — Module 03 — L’adressage IPv4](../modules/01-bases-reseaux/module-03-l-adressage-ipv4.md) | 2 | 22 |
+| [Bases des réseaux — Module 04 — La communication dans un réseau](../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md) | 3 | 12 |
+| [Bases des réseaux — Module 05 — Les premières commandes réseau](../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md) | 0 | 0 |
+| [Bases des réseaux — Module 06 — L’adressage IPv6](../modules/01-bases-reseaux/module-06-l-adressage-ipv6.md) | 0 | 0 |
 | [Systèmes clients Microsoft — Module 01 — Les systèmes d’exploitation et Microsoft Windows 10](../modules/02-systemes-clients-microsoft/module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md) | 2 | 8 |
 | [Systèmes clients Microsoft — Module 02 — Installation du système d’exploitation Windows 10](../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md) | 5 | 21 |
 | [Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10](../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) | 13 | 58 |

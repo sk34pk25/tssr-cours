@@ -64,7 +64,10 @@ def load_catalog(root=ROOT, *, staged=False):
     for page, refs in data['pages'].items():
         if not re.fullmatch(r'(?:modules|tp)/[a-z0-9_/-]+\.md', page) or not (root / 'docs' / page).is_file():
             raise ValueError('Page associée au support invalide')
-        if not refs or len(refs) != len(set(refs)) or any(ref not in data['documents'] for ref in refs):
+        if not refs:
+            if not data.get('pageNotices', {}).get(page):
+                raise ValueError('Association aux sources invalide')
+        elif len(refs) != len(set(refs)) or any(ref not in data['documents'] for ref in refs):
             raise ValueError('Association aux sources invalide')
         if not staged and page.startswith('modules/') and PENDING_CONTENT in (root / 'docs' / page).read_text(encoding='utf-8'):
             raise ValueError('Un module non publié ne peut pas recevoir ces sources')
@@ -121,6 +124,8 @@ class LiteralSourceHTML(HTMLParser):
 
 
 def render_originals(refs, page, data):
+    if not refs:
+        return '<p>Inexistant</p>'
     out = ['<div class="tssr-original-reader">',
            '<p class="tssr-origin-badge">SOURCE DRIVE · TRANSCRIPTION DU SUPPORT</p>',
            '<p>Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. '
@@ -210,7 +215,7 @@ def project_page(markdown, page, data):
         raise ValueError('Titre du module attendu avant la projection des sources')
     title, body = match[1], markdown[match.end():].lstrip()
     notice = data.get('pageNotices', {}).get(page)
-    original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice else '') + render_originals(data['pages'][page], page, data)
+    original = (f'<p class="tssr-original-note">{escape(notice)}</p>\n' if notice and data['pages'][page] else '') + render_originals(data['pages'][page], page, data)
     guide = ('!!! info "Complément IA / externe au cours — fiche pédagogique du portail"\n'
              '    Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. '
              'Elle est distincte de la transcription des documents du Drive et ne la remplace pas. '

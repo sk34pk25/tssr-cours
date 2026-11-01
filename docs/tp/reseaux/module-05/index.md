@@ -12,6 +12,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Comparer avec la correction.
 - [Cours du module](../../../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md)
 
-## Ressources
+## Activité
 
-- [M05_TP01 - Ressource - Les commandes avec Packet Tracer.pka](../../../assets/resources/packet-tracer/m05-tp01-ressource-les-commandes-avec-packet-tracer-pka.pka)
+Le dossier contient une activité Packet Tracer sur les commandes. Le fichier n’est pas publié et son contenu n’est pas lisible hors du logiciel.

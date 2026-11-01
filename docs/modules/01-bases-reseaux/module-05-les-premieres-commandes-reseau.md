@@ -94,7 +94,7 @@ La ressource `M05_TP01 - Ressource - Les commandes avec Packet Tracer.pka` est a
 ## Pour réviser
 
 - [Fiche de révision M05](../../revision/reseaux/module-05-les-premieres-commandes-reseau.md)
-- [Ressource Packet Tracer M05](../../tp/reseaux/module-05/index.md#ressources)
+- [Ressource Packet Tracer M05](../../tp/reseaux/module-05/index.md#activite)
 - [Kahoot M05](../../kahoot/01-bases-reseaux-05-les-premieres-commandes-reseau.md)
 
 ## Sources et provenance

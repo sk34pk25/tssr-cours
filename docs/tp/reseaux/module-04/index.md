@@ -14,7 +14,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [Corrections](corrections.md)
 - [Cours du module](../../../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md)
 
-## Ressources
+## Activités
 
-- [M04-01-02-TP-Packet_Tracer-La_communication.pka](../../../assets/resources/packet-tracer/m04-01-02-tp-packet-tracer-la-communication-pka.pka)
-- [M04_TP02 - Ressource - La communication dans Packet Tracer.pka](../../../assets/resources/packet-tracer/m04-tp02-ressource-la-communication-dans-packet-tracer-pka.pka)
+L’énoncé Packet Tracer demande d’ouvrir l’activité « M04-01-02–TP-Packet_Tracer-La_communication » dans Cisco Packet Tracer, puis de mettre en place la communication inter-réseau. Le fichier et la ressource associée ne sont pas publiés. Les consignes écrites restent dans l’énoncé transcrit.
