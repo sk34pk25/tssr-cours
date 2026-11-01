@@ -158,8 +158,6 @@ Le double jeton d’accès des administrateurs (UAC) peut influencer les autoris
 - Set-Acl
 - Double jeton d’accès (UAC)
 
-Il est suffisamment complet pour un Kahoot de révision tout en restant fidèle au contenu du module.
-
 ## module 1 et 2 et extra
 
 ### Module 1 - Les systèmes d'exploitation et Microsoft Windows 10
@@ -792,7 +790,7 @@ A. `boot.wim` contient l’environnement de démarrage, `install.wim` contient l
 
 ---
 
-### 32. Quel est l’intérêt d’une machine virtuelle dans le cadre de ton module extra ?
+### 32. Quel est l’intérêt d’une machine virtuelle dans le cadre du module extra ?
 
 A. Remplacer définitivement le système hôte B. Tester, installer ou manipuler un OS dans un environnement isolé sans toucher directement à la machine physique ✅ C. Doubler la RAM physique D. Désactiver Windows Update
 
@@ -802,7 +800,7 @@ A. Remplacer définitivement le système hôte B. Tester, installer ou manipuler
 
 ---
 
-### 33. Quel logiciel de virtualisation apparaît dans ton support extra ?
+### 33. Quel logiciel de virtualisation apparaît dans le support extra ?
 
 A. VirtualBox B. VMware Workstation ✅ C. Hyper-V uniquement D. QEMU exclusivement
 
