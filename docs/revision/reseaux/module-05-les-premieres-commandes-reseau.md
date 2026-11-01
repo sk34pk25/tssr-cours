@@ -40,7 +40,7 @@ Les sources décrivent des commandes qui modifient une adresse, une route ou un 
 ## Ressource et liens
 
 - [Cours M05](../../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md)
-- [Ressource Packet Tracer M05](../../tp/reseaux/module-05/index.md#ressources)
+- [Ressource Packet Tracer M05](../../tp/reseaux/module-05/index.md#activite)
 - [Kahoot M05](../../kahoot/01-bases-reseaux-05-les-premieres-commandes-reseau.md)
 
 ## Sources et provenance

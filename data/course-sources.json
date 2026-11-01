@@ -2121,497 +2121,6 @@
         }
       ]
     },
-    "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE": {
-      "id": "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE",
-      "title": "Synthèse Module 1 - OS, Windows 10 & Modèle OSI V2",
-      "role": "synthese-drive",
-      "sha256": "106ffa26a2c54f893bca73517ba25bdaca072a3cb73b1b0c083f0a6f3773fcbe",
-      "pageCount": 3,
-      "drivePath": [
-        "Base des réseaux",
-        "Synthèses",
-        "Synthèse Module 1 - OS, Windows 10 & Modèle OSI V2"
-      ],
-      "sourceNotice": "Export PDF de la synthèse Google Docs présente dans le Drive ; ce document est une synthèse, pas un support de cours ENI identifié.",
-      "legacyOriginal": "assets/course-sources/106ffa26a2c54f89/original.pdf",
-      "sourceFormat": "pdf",
-      "transcript": "assets/course-sources/106ffa26a2c54f89/texte.html",
-      "transcriptionSha256": "4c2f125afdbf854d9a51eca686a10bf1d9abd227ded378a4e7a992132f54d70c",
-      "pages": [
-        {
-          "number": 1,
-          "nativeSha256": "91daa45b6b0708c0d32642fa924797f248446d6b1f479827740e3e0efb529ab7",
-          "nativeWords": 200,
-          "ocrWords": 0,
-          "tables": 1,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 1
-        },
-        {
-          "number": 2,
-          "nativeSha256": "b859c89b63270e87ac832f8b09856ef983c683d1d42d95eb482d7fa0c0fac914",
-          "nativeWords": 139,
-          "ocrWords": 0,
-          "tables": 2,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 2
-        },
-        {
-          "number": 3,
-          "nativeSha256": "42bafacead15c942e1017e899de254ebec58feb8ee05a3206bc46723b9771876",
-          "nativeWords": 82,
-          "ocrWords": 0,
-          "tables": 1,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 5
-        }
-      ],
-      "figures": [],
-      "illustrationCount": 0
-    },
-    "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT": {
-      "id": "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
-      "title": "cours kahoot module 3 et 4.txt",
-      "role": "notes",
-      "sha256": "6742f4b5b0b756fdecf31f1c9e91acbdaab2a93cca15f31b29e4c85e818b0239",
-      "pageCount": 0,
-      "drivePath": [
-        "Base des réseaux",
-        "cours kahoot",
-        "cours kahoot module 3 et 4.txt"
-      ],
-      "sourceNotice": "Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée à ENI.",
-      "legacyOriginal": "assets/course-sources/6742f4b5b0b756fd/original.txt",
-      "sourceFormat": "text",
-      "transcript": "assets/course-sources/6742f4b5b0b756fd/texte.html",
-      "transcriptionSha256": "64037eaef9b9c7e8f01c36fc79e638d48ae230816d2b4a25bac30cd92a5e0012",
-      "pages": [
-        {
-          "number": 1,
-          "nativeSha256": "6742f4b5b0b756fdecf31f1c9e91acbdaab2a93cca15f31b29e4c85e818b0239",
-          "nativeWords": 8957,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "sourceGraphicsDetected": 0
-        }
-      ],
-      "figures": [],
-      "illustrationCount": 0
-    },
-    "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5": {
-      "id": "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5",
-      "title": "cours kahoot module 5 et 6.txt",
-      "role": "notes",
-      "sha256": "62f223eb2e1b8e49a4fd4bb5c81392a5fbe4cd800b4eb26ac4cba2680c43585f",
-      "pageCount": 0,
-      "drivePath": [
-        "Base des réseaux",
-        "cours kahoot",
-        "cours kahoot module 5 et 6.txt"
-      ],
-      "sourceNotice": "Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée à ENI.",
-      "legacyOriginal": "assets/course-sources/62f223eb2e1b8e49/original.txt",
-      "sourceFormat": "text",
-      "transcript": "assets/course-sources/62f223eb2e1b8e49/texte.html",
-      "transcriptionSha256": "b654e822547170998e4b04bcd5cc998bbfc728e0bebdb99ee4401cd5faca7d91",
-      "pages": [
-        {
-          "number": 1,
-          "nativeSha256": "62f223eb2e1b8e49a4fd4bb5c81392a5fbe4cd800b4eb26ac4cba2680c43585f",
-          "nativeWords": 7169,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "sourceGraphicsDetected": 0
-        }
-      ],
-      "figures": [],
-      "illustrationCount": 0
-    },
-    "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX": {
-      "id": "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX",
-      "title": "Cours_Reseaux_Modules1_2_Quiz_Kahoot.pdf",
-      "role": "support",
-      "sha256": "1b365671ffb9859790c7a270061aa415ada9ccf7853b4973ee7b5010664e6724",
-      "pageCount": 33,
-      "drivePath": [
-        "Base des réseaux",
-        "cours kahoot",
-        "Cours_Reseaux_Modules1_2_Quiz_Kahoot.pdf"
-      ],
-      "legacyOriginal": "assets/course-sources/1b365671ffb98597/original.pdf",
-      "sourceFormat": "pdf",
-      "transcript": "assets/course-sources/1b365671ffb98597/texte.html",
-      "transcriptionSha256": "fc86c1c7e1615a70dbd41ef3d7ae36317d84bfe0706aad7e452761629cfbe973",
-      "pages": [
-        {
-          "number": 1,
-          "nativeSha256": "1ef0c5bfa7420e1f2bb9a1f06b4839325de6f77a30575ef4b4e9050b5c7fc1b3",
-          "nativeWords": 552,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 2,
-          "nativeSha256": "6d6ebc4c657a9a50e304a5d6c7b18688b6d0658be8e987623d7fbb2d7610fb6b",
-          "nativeWords": 492,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 3,
-          "nativeSha256": "b08f071a0e61ce929cf8350c359fc83d99d61b81745b2c87a66003e6c6bc190d",
-          "nativeWords": 483,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 4,
-          "nativeSha256": "f5d4bfb9dbeb2eca93527295c2188bb0dd1a019d8d87c2e7b27db970608e59c8",
-          "nativeWords": 479,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 5,
-          "nativeSha256": "88144a3f2a8fd4630c2156a1da2e01064325b75baf29b2b4ee5bf10c8421abc8",
-          "nativeWords": 579,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 6,
-          "nativeSha256": "d9c9f80bf113838c7ba1ebbb851f8246b01c0710cb85f084726a0bfb6997c148",
-          "nativeWords": 588,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 7,
-          "nativeSha256": "2444e5ecc61099661ab42ee8d6ea673f15d870fba09b97b3f5f140f2c6c2a741",
-          "nativeWords": 567,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 8,
-          "nativeSha256": "2737e3e1b81b131b377a88f9794dd7a19da3d6895545473754a3be5bad78a46f",
-          "nativeWords": 473,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 9,
-          "nativeSha256": "16378fb3c75a8079add367c3c2c4b7b8f213e87b60952868c238e8ff74f613b4",
-          "nativeWords": 234,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 10,
-          "nativeSha256": "e33bbc5d0140071da8caef2e4f98e2d24ccb68d501d632f1a8d46bfccc5e800f",
-          "nativeWords": 569,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 11,
-          "nativeSha256": "b256e8d86da083313b2a798e80032fe5515e332a12c1d777b532dc1d579d96ac",
-          "nativeWords": 590,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 12,
-          "nativeSha256": "1ecd61aa60ba16872c5e87356a1674088954a01d53e11cb6a89b074eda56a305",
-          "nativeWords": 526,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 13,
-          "nativeSha256": "67b563f654f1c5a58bc307e15696cfb1ac25d1d4ef2db42f2541343ab6e8eaa0",
-          "nativeWords": 541,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 14,
-          "nativeSha256": "d4e0236cdc7da9489777e780a62c537ff956eb9a200d2d229c27347c1caf2469",
-          "nativeWords": 460,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 15,
-          "nativeSha256": "116a0e19861624dc881d073542c8a68d36dfb2dd2a1dd86bdd4d1aa6ecec8021",
-          "nativeWords": 520,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 16,
-          "nativeSha256": "08c08ce58729b2725181393e2ed7f47da44738070563b321879f36cad7de3403",
-          "nativeWords": 348,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 17,
-          "nativeSha256": "236bd256c3aa5e8182f1db33143d17507ce3e196812c6da3b19d2b1d0a030e1b",
-          "nativeWords": 257,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 18,
-          "nativeSha256": "d55edab671ce1a3d1ca0d98dc1ec26e249e10352411822081aa3aba8120e39c8",
-          "nativeWords": 208,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 19,
-          "nativeSha256": "58cd9b09e063581d1ee0bda8c662ebd35eb0f77df45d624cfd0d2dea9f1ee9f5",
-          "nativeWords": 186,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 20,
-          "nativeSha256": "d3098dab346b99100a4e6198cc853bc7752e8b439c2eff67948ffa994bb9892f",
-          "nativeWords": 381,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 21,
-          "nativeSha256": "8dffce19408d24a849983543bac774f42c7626d7cb76f7e8abc9738ae28552bc",
-          "nativeWords": 249,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 22,
-          "nativeSha256": "02e02755bed1c3015c9d39c94a35bf4d454866663f3719cf97469da244717e40",
-          "nativeWords": 345,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 23,
-          "nativeSha256": "3a14d1eecd050c4538372342637d269a51265e888ee58f7a335782bfa77b258f",
-          "nativeWords": 86,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 24,
-          "nativeSha256": "52923ba54823b74c498eb855ad2f90f21e911f86fadc3186af5d403f1640a5d8",
-          "nativeWords": 158,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 25,
-          "nativeSha256": "3b7a135dd92603fd93bfe841109ef94bc5ddaba1095cbefd24aad1ef94022dd1",
-          "nativeWords": 320,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 26,
-          "nativeSha256": "f62671b4dda94dd829babc5be02da96317c061ced39a48d1d50d5dc13a807ab1",
-          "nativeWords": 59,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 27,
-          "nativeSha256": "e9a8130294178d2cf1f15e57b3adf3a57773b7279f9ee9eae70e85a892bb5eed",
-          "nativeWords": 395,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 28,
-          "nativeSha256": "78f3b8072df8b9487b4954420211f87cc4cb3b95975bf41725f67f2c42018e84",
-          "nativeWords": 134,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 29,
-          "nativeSha256": "76472f4088bcfb3e898ee646fbf488a33404386927a337a4d2529a21855e01a5",
-          "nativeWords": 291,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 30,
-          "nativeSha256": "2da819a47463cbb35cdcaebcb7fc694a8ec86edea287b8b22268249e222089e1",
-          "nativeWords": 286,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 31,
-          "nativeSha256": "cc13d45ad11d568487ecfdd83b6f888e78d78970efb65f98984ce0f81b2a9a22",
-          "nativeWords": 230,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 32,
-          "nativeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "nativeWords": 0,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        },
-        {
-          "number": 33,
-          "nativeSha256": "a204983d9fd5d7e4cde0ab55ac9cd3bd54dc54348518acbccbac4e1f286a3409",
-          "nativeWords": 296,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "nativeCoverage": true,
-          "sourceGraphicsDetected": 0
-        }
-      ],
-      "figures": [],
-      "illustrationCount": 0
-    },
-    "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn": {
-      "id": "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn",
-      "title": "cours kahoot module 1 et 2.txt",
-      "role": "notes",
-      "sha256": "a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243",
-      "pageCount": 0,
-      "drivePath": [
-        "Base des réseaux",
-        "cours kahoot",
-        "cours kahoot module 1 et 2.txt"
-      ],
-      "sourceNotice": "Notes textuelles présentes dans le Drive. Aucun support de cours illustré distinct n’est fourni pour ce document ; aucune illustration n’a été inventée ou attribuée à ENI.",
-      "legacyOriginal": "assets/course-sources/a962747a178b82dd/original.txt",
-      "sourceFormat": "text",
-      "transcript": "assets/course-sources/a962747a178b82dd/texte.html",
-      "transcriptionSha256": "340b9273cf3b8b25743a28ee550a9cbc81425321703cbe2930e8524e5b515423",
-      "pages": [
-        {
-          "number": 1,
-          "nativeSha256": "a962747a178b82dd0924fa20e257b41501547d8ca087cb8c8724ac44807cd243",
-          "nativeWords": 11564,
-          "ocrWords": 0,
-          "tables": 0,
-          "figures": 0,
-          "sourceGraphicsDetected": 0
-        }
-      ],
-      "figures": [],
-      "illustrationCount": 0
-    },
     "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I": {
       "id": "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
       "title": "M04-01-02-TP-Packet_Tracer-La_communication.pdf",
@@ -2626,7 +2135,7 @@
       "legacyOriginal": "assets/course-sources/b7a822e12a83ebb5/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/b7a822e12a83ebb5/texte.html",
-      "transcriptionSha256": "0d6262fe96e9fe224b129adcfa4ecc16b681a0b9b4ec341f64bb277e60d1258f",
+      "transcriptionSha256": "8cc0a0d8360b48235cfe3b8fb193da78e694d6dcb71a7151958c34911f255fb5",
       "pages": [
         {
           "number": 1,
@@ -2640,7 +2149,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI": {
       "id": "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
@@ -2656,7 +2166,7 @@
       "legacyOriginal": "assets/course-sources/43433ec88de1f253/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/43433ec88de1f253/texte.html",
-      "transcriptionSha256": "6bb660d4c8a8d8dadc3b416a7922287a9116cd67817177da87a731f3771ee316",
+      "transcriptionSha256": "3a8eef0d33a8899ce7aef445f453cd719b1ec8e6082a1f1be6b08a25fec1668d",
       "pages": [
         {
           "number": 1,
@@ -2711,14 +2221,7 @@
       ],
       "figures": [],
       "illustrationCount": 0,
-      "glyphs": [
-        {
-          "path": "assets/course-sources/glyphs/3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a.webp",
-          "sha256": "3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a",
-          "codepoint": "0xf0c4",
-          "font": "Wingdings-Regular"
-        }
-      ]
+      "glyphs": []
     },
     "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW": {
       "id": "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW",
@@ -2734,7 +2237,7 @@
       "legacyOriginal": "assets/course-sources/89b5d652cffcd2e2/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/89b5d652cffcd2e2/texte.html",
-      "transcriptionSha256": "dbe14c53fc56c16152869c92186ba195aa37da42ecd452d67bd35e69a6f17799",
+      "transcriptionSha256": "18a1f3ae074df29cab3e0e29d57f48253a1dc78f343cec75d74331e69c8218a5",
       "pages": [
         {
           "number": 1,
@@ -2799,14 +2302,7 @@
       ],
       "figures": [],
       "illustrationCount": 0,
-      "glyphs": [
-        {
-          "path": "assets/course-sources/glyphs/3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a.webp",
-          "sha256": "3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a",
-          "codepoint": "0xf0c4",
-          "font": "Wingdings-Regular"
-        }
-      ]
+      "glyphs": []
     },
     "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc": {
       "id": "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc",
@@ -2822,7 +2318,7 @@
       "legacyOriginal": "assets/course-sources/3a47c869c9c914ea/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/3a47c869c9c914ea/texte.html",
-      "transcriptionSha256": "4faa12d4d629711bf9231deabccd7b1f4d2e8a9d47b3c34c1404370028059e2d",
+      "transcriptionSha256": "217cf456300ec8358a0696352d33e66077eb60d1dccd883682b353376dd51d9f",
       "pages": [
         {
           "number": 1,
@@ -2870,7 +2366,7 @@
           "nativeWords": 84,
           "ocrWords": 1,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -2955,16 +2451,42 @@
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0,
-      "glyphs": [
+      "figures": [
         {
-          "path": "assets/course-sources/glyphs/3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a.webp",
-          "sha256": "3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a",
-          "codepoint": "0xf0c4",
-          "font": "Wingdings-Regular"
+          "path": "assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp",
+          "sha256": "ff75d86b120ba6f397d0b0a17a4055d15c017da9de62c6ac0fa7b8c39f28752a",
+          "page": 5,
+          "first": 5,
+          "last": 5,
+          "width": 1280,
+          "height": 1000,
+          "reviewedIsolation": true,
+          "sourceCrop": [
+            56.7,
+            89.7,
+            479.7,
+            420.4
+          ],
+          "sourcePageSize": [
+            595.0,
+            842.0
+          ],
+          "kind": "croquis",
+          "sourceIllustrations": [
+            {
+              "index": 0,
+              "page": 5,
+              "x": 0,
+              "y": 0,
+              "width": 1280,
+              "height": 1000,
+              "pixelSha256": "e5e06f61b217d6afda7d36f8bff4346cb10eca822ae7d574737de7dd4928ccd2"
+            }
+          ]
         }
-      ]
+      ],
+      "illustrationCount": 1,
+      "glyphs": []
     },
     "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p": {
       "id": "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
@@ -2980,7 +2502,7 @@
       "legacyOriginal": "assets/course-sources/ad726effb62af7f2/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/ad726effb62af7f2/texte.html",
-      "transcriptionSha256": "9f7488c33fead50e1caadc8eced822a41547c624a0ef72e483872f4e79e8bf7d",
+      "transcriptionSha256": "62b97ea5a8fd599fa44a4101b811b0ff1c18eb7ef6917ef3a9abd7b2e97dd44f",
       "pages": [
         {
           "number": 1,
@@ -3028,7 +2550,7 @@
           "nativeWords": 49,
           "ocrWords": 1,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -3073,16 +2595,42 @@
           "sourceGraphicsDetected": 1
         }
       ],
-      "figures": [],
-      "illustrationCount": 0,
-      "glyphs": [
+      "figures": [
         {
-          "path": "assets/course-sources/glyphs/3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a.webp",
-          "sha256": "3963f6a5fdf9c50d987c34f55679ee689345688b97a126b119f589572873280a",
-          "codepoint": "0xf0c4",
-          "font": "Wingdings-Regular"
+          "path": "assets/course-sources/isolated/reseaux-m03-decoupage-schema.webp",
+          "sha256": "ff75d86b120ba6f397d0b0a17a4055d15c017da9de62c6ac0fa7b8c39f28752a",
+          "page": 5,
+          "first": 5,
+          "last": 5,
+          "width": 1280,
+          "height": 1000,
+          "reviewedIsolation": true,
+          "sourceCrop": [
+            56.7,
+            89.7,
+            479.7,
+            420.4
+          ],
+          "sourcePageSize": [
+            595.0,
+            842.0
+          ],
+          "kind": "croquis",
+          "sourceIllustrations": [
+            {
+              "index": 0,
+              "page": 5,
+              "x": 0,
+              "y": 0,
+              "width": 1280,
+              "height": 1000,
+              "pixelSha256": "e5e06f61b217d6afda7d36f8bff4346cb10eca822ae7d574737de7dd4928ccd2"
+            }
+          ]
         }
-      ]
+      ],
+      "illustrationCount": 1,
+      "glyphs": []
     },
     "1_48SPLn3Sy6sVQ6vagYTrqeow4wX8qGt": {
       "id": "1_48SPLn3Sy6sVQ6vagYTrqeow4wX8qGt",
@@ -29760,32 +29308,19 @@
       "1o0ntHLs0ZAkg2EFWnh_bTqaSCOrgmDj7",
       "1VyzxkiTFZ_7CSqJMtHamo5EC-2x4129U"
     ],
-    "modules/01-bases-reseaux/module-01-le-modele-osi.md": [
-      "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX",
-      "1DHJRR2xe-qeYGsgp5Souf9BrNhz5-3dHTVm7EBYDRFE",
-      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn"
-    ],
-    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": [
-      "1yZg-sL1N1_IEhwcIlVPg2aBJ-PkjBrIX",
-      "1lboUfARfL1q4Oemnr9M-_vi0XpnzuRmn"
-    ],
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": [],
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": [],
     "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": [
-      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
       "1tjvGBelc6J2jftBAFjm0l2psagWX-E-p",
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
     "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": [
-      "1CzvgvyPCTzyKee2jnBfryFhcr8-MA7XT",
       "1Gb0iImzxLM0SCnPeXVXePKlsvyOI1wWI",
       "10YzbJEVSVp0M8Bvnp9BseIrVedU1WI0I",
       "1i-Qf_ZUbST6YqWne1bxUV3z_jfWGTGYW"
     ],
-    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [
-      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5"
-    ],
-    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": [
-      "1K6RxfeTNGDRc3zj_-mCuyoj1wy6mhLG5"
-    ],
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": [],
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": [],
     "tp/reseaux/module-03/corrections.md": [
       "1ioU0uTtjNzBXzO5gbMCT3bxfja9CyLIc"
     ],
@@ -30954,17 +30489,11 @@
     ],
     "tp/13-virtualisation-serveurs/module-02/tp-01-workstation.md": [
       "1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv"
-    ]
+    ],
+    "tp/reseaux/module-01/index.md": [],
+    "tp/reseaux/module-05/index.md": []
   },
   "pageNotices": {
-    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "tp/reseaux/module-01/index.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "modules/01-bases-reseaux/module-03-l-adressage-ipv4.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
-    "tp/reseaux/module-05/index.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Les sources disponibles pour ce module comprennent des notes ou synthèses du Drive, parfois communes à deux modules. Leur nature est conservée : elles ne sont pas présentées comme un support ENI distinct lorsqu’il n’est pas fourni.",
     "modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
     "modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA. Les fichiers M04TP02 stockés dans le dossier M04 du Drive portent le titre interne « TP du Module 06 » : ils sont donc consultables dans le module 06, avec cette anomalie documentaire signalée.",
     "modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md": "Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.",
@@ -30974,14 +30503,20 @@
     "tp/10-msp-services-reseau/module-01/enonces.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
     "tp/10-msp-services-reseau/module-01/index.md": "Le scénario de cette MSP est fourni dans le document global Module-1.pdf. Il est reproduit ici intégralement ; aucun énoncé séparé n’est ajouté.",
     "tp/11-initiation-scripting-bash/module-02/correction-tp-02.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
-    "tp/12-initiation-powershell/module-06/correction-tp-01.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles."
+    "tp/12-initiation-powershell/module-06/correction-tp-01.md": "Aucun document original correspondant à cette fiche n’est présent dans le dossier du module. Cette page reste une aide du portail, explicitement distincte des sources disponibles.",
+    "modules/01-bases-reseaux/module-01-le-modele-osi.md": "Le dossier de ce module ne contient pas de support de cours PDF. Il contient des activités Packet Tracer et l’installateur du logiciel : aucun de ces fichiers n’est publié. Les notes de quiz du Drive ne sont pas un support de cours et ne figurent pas dans cet onglet.",
+    "modules/01-bases-reseaux/module-02-les-unites-informatiques.md": "Le dossier Drive de ce cours ne contient aucun document propre à ce module. Les notes de quiz qui évoquent aussi le module 2 ne sont pas un support de cours et ne figurent pas dans cet onglet.",
+    "modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau.md": "Le dossier de ce module ne contient pas d’énoncé PDF. Il contient une activité Packet Tracer, qui n’est pas publiée. Les notes de quiz ne sont pas un support de cours et ne figurent pas dans cet onglet.",
+    "modules/01-bases-reseaux/module-06-l-adressage-ipv6.md": "Le dossier Drive de ce cours ne contient aucun document propre à ce module. Les notes de quiz qui évoquent aussi le module 6 ne sont pas un support de cours et ne figurent pas dans cet onglet.",
+    "tp/reseaux/module-01/index.md": "Cette fiche n’a pas d’énoncé PDF dans le dossier Drive. Les activités Packet Tracer du module ne sont pas publiées.",
+    "tp/reseaux/module-05/index.md": "Cette fiche n’a pas d’énoncé PDF dans le dossier Drive. L’activité Packet Tracer du module n’est pas publiée."
   },
   "verifiedAt": "2026-10-26",
   "verification": {
     "scope": "Modules déjà publiés uniquement",
     "modules": 82,
-    "documents": 333,
-    "originalPages": 2225,
+    "documents": 328,
+    "originalPages": 2189,
     "method": "Transcription du texte natif et des éléments graphiques par OCR ; aucun PDF, aucune reproduction de diapositive. Croquis facultatifs isolés et vérifiés visuellement."
   },
   "documentaryExceptions": [

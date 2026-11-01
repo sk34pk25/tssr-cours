@@ -2,7 +2,7 @@
 
 - [Sources officielles](sources-officielles.md)
 - [Inventaire complet et couverture](inventaire-sources.md)
-- Ressources Packet Tracer : `assets/resources/packet-tracer/`
+- Activités Packet Tracer du cours Bases des réseaux : non publiées.
 - Données de TP : `assets/resources/donnees/`
 - Scripts MSP sécurisés : `assets/resources/msp/scripts/`
 

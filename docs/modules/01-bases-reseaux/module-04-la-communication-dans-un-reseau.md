@@ -85,7 +85,7 @@ Le second TP demande de copier puis d’ouvrir le fichier Packet Tracer associé
 
 - [TP M04 : énoncés](../../tp/reseaux/module-04/enonces.md)
 - [TP M04 : corrections](../../tp/reseaux/module-04/corrections.md)
-- [Ressources Packet Tracer](../../tp/reseaux/module-04/index.md#ressources)
+- [Ressources Packet Tracer](../../tp/reseaux/module-04/index.md#activites)
 - [Fiche de révision M04](../../revision/reseaux/module-04-la-communication-dans-un-reseau.md)
 - [Kahoot M04 : communication réseau](../../kahoot/bases-reseaux-m04-communication-reseau.md)
 

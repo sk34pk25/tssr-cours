@@ -12,8 +12,6 @@ Les réponses restent séparées des questions. Commencer par l’énoncé, cons
 - [ ] Comparer avec la correction.
 - [Cours du module](../../../modules/01-bases-reseaux/module-01-le-modele-osi.md)
 
-## Ressources
+## Activités
 
-- [M01-01-TP-Packet-Tracer_Modele_OSI (1).pka](../../../assets/resources/packet-tracer/m01-01-tp-packet-tracer-modele-osi-1-pka.pka)
-- [M01-02-TP-Packet-Tracer_Modele_OSI.pka](../../../assets/resources/packet-tracer/m01-02-tp-packet-tracer-modele-osi-pka.pka)
-- [M01_TP02 - Ressource - Connexion matériels dans Packet Tracer.pka](../../../assets/resources/packet-tracer/m01-tp02-ressource-connexion-materiels-dans-packet-tracer-pka.pka)
+Le dossier du module contient trois activités Packet Tracer. Leur contenu est binaire et illisible hors du logiciel : elles ne sont pas publiées. Le travail se fait dans Cisco Packet Tracer, à partir de la consigne du formateur.
