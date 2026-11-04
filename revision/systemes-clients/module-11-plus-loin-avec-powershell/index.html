@@ -10819,6 +10819,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13419,6 +13430,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13522,9 +13544,9 @@
 </thead>
 <tbody>
 <tr>
-<td>entrée standard</td>
-<td style="text-align: right;"><code>stdin:0</code></td>
-<td>entrée de la cmdlet</td>
+<td>entrée</td>
+<td style="text-align: right;">paramètres / pipeline</td>
+<td>données reçues par la cmdlet</td>
 </tr>
 <tr>
 <td>sortie standard</td>
@@ -13577,6 +13599,34 @@
 <li><strong>A — Sources TSSR :</strong> support, énoncé et correction M11.</li>
 <li><strong>B — Structuration pédagogique :</strong> tableau de révision et regroupement des notions des sources.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Précision externe — entrée et flux PowerShell</p>
+<p>Le support utilise le repère général <code>stdin:0</code>. PowerShell numérote ses flux de sortie à partir de 1 ; son pipeline d’entrée n’est pas le flux <code>stdin</code> d’un shell natif. <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection">Référence Microsoft : redirections</a>.</p>
+</div>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Traiter des objets : obtenir, filtrer, sélectionner, puis formater en dernier.</strong></p>
+<ol>
+<li><strong>Comment écrire « ne dépasse pas 25 Go » ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Avec -le 25GB. -lt 25GB exclut exactement 25 Go.</p>
+</details>
+<ol>
+<li><strong>Pourquoi éviter Format-Table au milieu du pipeline ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Il produit des instructions de mise en forme, pas les objets métier attendus pour la suite du traitement.</p>
+</details>
+<ol>
+<li><strong>Que fait 2&gt;&amp;1 ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>La redirection joint le flux d’erreurs (2) au flux de réussite (1).</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-11/">Mettre en pratique</a></p>
 
 
 

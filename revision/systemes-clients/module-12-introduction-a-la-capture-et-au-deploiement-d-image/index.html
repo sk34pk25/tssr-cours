@@ -10825,6 +10825,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13375,6 +13386,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13476,7 +13498,7 @@
 <h2 id="sysprep">Sysprep<a class="headerlink" href="#sysprep" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>OOBE</strong> : expérience de premier démarrage.</li>
-<li><strong>Généraliser</strong> : remet à zéro les paramètres personnalisés du master.</li>
+<li><strong>Généraliser</strong> : retire des informations propres à l’installation pour qu’elles soient régénérées au déploiement ; cela ne supprime pas indistinctement toutes les personnalisations du master.</li>
 <li><strong>Arrêt</strong> : le support demande de ne pas redémarrer le master avant la capture.</li>
 <li>Journaux : répertoires Panther sous <code>C:\Windows\System32\Sysprep</code>.</li>
 </ul>
@@ -13508,6 +13530,30 @@
 <li><a href="../../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">Cours</a></li>
 <li><a href="../../../kahoot/02-systemes-clients-microsoft-12-introduction-a-la-capture-et-au-deploiement-d-image/">Kahoot</a></li>
 </ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Préparer et généraliser le master avant capture ou clonage ; tester ensuite l’unicité du poste obtenu.</strong></p>
+<ol>
+<li><strong>Faut-il redémarrer le master généralisé avant la capture ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non : le support demande de le laisser arrêté et de capturer ou cloner l’état préparé.</p>
+</details>
+<ol>
+<li><strong>Le TP réalise-t-il une capture WIM ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Il réalise un Full Clone VMware ; WIM, WinPE, DISM et WDS sont présentés dans le cours comme autres outils du déploiement.</p>
+</details>
+<ol>
+<li><strong>Un clone est-il validé dès qu’il démarre ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Comparer identité, réseau, comptes, pilotes et règles, puis documenter les différences observées.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-12/">Mettre en pratique</a></p>
 
 
 

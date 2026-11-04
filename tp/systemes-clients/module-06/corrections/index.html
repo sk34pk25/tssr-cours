@@ -6001,6 +6001,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verification-de-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13533,6 +13544,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verification-de-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13650,217 +13672,19 @@
 <summary>Correction · Solution du TP - Les ACL · 11 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<h4>Les ACL </h4>
-<p class="tssr-source-paragraph">TP du Module 06 – La sécurité NTFS et les ACL </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires <br>suivants : </p>
-<p class="tssr-source-paragraph">• <br>Sur le volume DATA, créer le répertoire Echange </p>
-<p class="tssr-source-paragraph">• <br>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ? </p>
-<p class="tssr-source-paragraph">Depuis l'explorateur Windows, explorer le lecteur d:\DATA <br> </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Nouveau &gt; Dossier <br> </p>
-<p class="tssr-source-paragraph">Nommez-le Echange </p>
-<p class="tssr-source-paragraph">Pour connaître les autorisations NTFS positionnées par défaut sur ce répertoire : </p>
-<p class="tssr-source-paragraph">Clic droit sur Echange &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">L'entité de sécurité Utilisateurs authentifiés possède des autorisations en Modification </p>
-<p class="tssr-source-paragraph">L'entité de sécurité Système possède des autorisations en Contrôle total </p>
-<p class="tssr-source-paragraph">Le groupe prédéfini Administrateurs possède des autorisations en Contrôle total </p>
-<p class="tssr-source-paragraph">Le groupe prédéfini Utilisateurs possède des autorisations en Lecture  </p>
-<p class="tssr-source-paragraph">Ces autorisations proviennent de l'héritage du volume D: (un indice du fait qu'apparaissent <br>des coches grisées). </p>
 
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-1"><h2>Les ACL</h2><h3>TP du Module 06 – La sécurité NTFS et les ACL</h3><h2>Proposition de solution</h2><p>Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires suivants :</p><ul><li>Sur le volume DATA, créer le répertoire Echange</li><li>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?</li></ul><p>Depuis l'explorateur Windows, explorer le lecteur d:\DATA</p><p>Clic droit &gt; Nouveau &gt; Dossier</p><p>Nommez-le Echange</p><p>Pour connaître les autorisations NTFS positionnées par défaut sur ce répertoire :</p><p>Clic droit sur Echange &gt; Propriétés</p><p>Onglet Sécurité</p><p>L'entité de sécurité Utilisateurs authentifiés possède des autorisations en Modification</p><p>L'entité de sécurité Système possède des autorisations en Contrôle total</p><p>Le groupe prédéfini Administrateurs possède des autorisations en Contrôle total</p><p>Le groupe prédéfini Utilisateurs possède des autorisations en Lecture</p><p>Ces autorisations proviennent de l'héritage du volume D: (un indice du fait qu'apparaissent des coches grisées).</p></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-2"><ul><li>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier parent ?</li></ul><p>Dans le dossier Echange</p><p>Clic droit &gt; Nouveau &gt; Document texte</p><p>Sur Nouveau document texte</p><p>Clic droit &gt; Propriétés</p><p>Onglet Sécurité</p><p>Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange (qui lui- même hérite des autorisations du lecteur D:).</p><p>Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, cliquez sur le bouton Avancé.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p2-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p2-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-3"><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-2.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p3-2.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-4"><ul><li>Configurez les autorisations d'accès au répertoire Echange</li></ul><p>o Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire</p><p>o Les administrateurs auront le contrôle total</p><p>o Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre</p><p>poste</p><p>o Testez le bon fonctionnement des autorisations</p><p>Ici plusieurs possibilités, en voici une en modifiant les héritages</p><p>Lecteur D:</p><p>Clic droit &gt; Propriétés</p><p>Onglet Sécurité</p><p>Modifier</p><p>Sélectionnez Utilisateurs authentifiés</p><p>Supprimer</p><p>Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total</p><p>Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne</p><p>OK &gt; Appliquer &gt; OK</p><p>Dossier Echange</p><p>Clic droit &gt; Propriétés</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p4-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p4-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-5"><p>Onglet Sécurité</p><p>On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage.</p><p>Modifier</p><p>Ajouter…</p><p>Entrez les noms des objets à sélectionner : L_Collegues</p><p>Entrée</p><p>Cocher Modification (vous observerez que Ecriture va se cocher automatiquement)</p><p>Appliquer &gt; OK</p><p>Les tests d'accès (important)</p><p>Première solution (peut-être la plus probante) : faire des tests "grandeur réelle"</p><p>Fermez votre session actuelle (logoff) puis ouvrez une session locale avec l'utilisateur Romain.</p><p>Tester l'accès au dossier Echange (lecture possible car Romain (utilisateur) possède les autorisations en Lecture).</p><p>Tester la création d'un nouveau fichier dans le dossier Echange (impossible car Romain n'a</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p5-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p5-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-6"><p>pas les autorisations en Modification, il fait partie du groupe prédéfini Utilisateurs).</p><p>Fermez la session de Romain et ouvrez une session avec un de vos utilisateurs supplémentaires.</p><p>Tester l'accès au dossier Echange (lecture possible car votre utilisateur supplémentaire (L_Collegues) possède les autorisations en Lecture).</p><p>Tester la création d'un nouveau fichier dans le dossier Echange (possible car votre utilisateur possède les autorisations en Modification, par l'intermédiaire du groupe L_Collegues).</p><p>Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL (Impossible car l'utilisateur supplémentaire, qui fait partie du groupe L_Collegues, ne possède pas les autorisations en Contrôle Total, le bouton Modifier est protégé par l'UAC).</p><p>Fermer la session actuelle et ouvrez une session locale avec l'utilisateur francois.</p><p>Tester l'accès au dossier Echange (lecture possible car francois (Administrateurs) possède les autorisations en Lecture).</p><p>Tester la création d'un nouveau fichier dans le dossier Echange (possible car francois possède les autorisations en Modification, par l'intermédiaire du groupe prédéfini Administrateurs).</p><p>Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL (possible car francois, qui fait partie du groupe prédéfini Administrateurs possède les autorisations en Contrôle Total).</p><p>Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès effectif</p><p>Ouvrez une session avec un utilisateur membre du groupe Administrateurs</p><p>Affichez les propriétés du dossier Echange (clic droit &gt; Propriétés)</p><p>Onglet Sécurité</p><p>Avancé</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p6-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p6-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-7"><p>Onglet Accès effectif</p><p>Sélectionner un utilisateur</p><p>Tests d'autorisation d'accès avec un utilisateur membre du groupe utilisateurs</p><p>Entrez le nom de l'objet à sélectionner : Romain</p><p>Entrée</p><p>Afficher l'accès effectif</p><p>On observe que romain n'a que des accès en Lecture (pas de création, d'écriture et de suppression possible).</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p7-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p7-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-8"><p>Tests d'autorisation d'accès avec un utilisateur membre du groupe L_Collegues</p><p>Sélectionner un utilisateur</p><p>Entrez le nom de l'objet à sélectionner : l'un de vos utilisateurs supplémentaires</p><p>Entrée</p><p>Afficher l'accès effectif</p><p>On observe qu'Alix possède un niveau d'autorisation plus élevé que romain car le groupe L_Collegues possède des accès en Modification</p></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-9"><p>Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs</p><p>Sélectionner un utilisateur</p><p>Entrez le nom de l'objet à sélectionner : francois</p><p>Entrée</p><p>Afficher l'accès effectif</p><p>De par son appartenance au groupe prédéfini Administrateurs, francois possède le niveau d'accès Contrôle Total</p><ul><li>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation</li></ul><p>o Yann et François accéderont en modifications à ces répertoires.</p><p>o Les utilisateurs standard auront un accès en lecture et les administrateurs</p><p>posséderont un contrôle total</p><p>o Testez le bon fonctionnement des autorisations</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p9-1.webp" data-desc-position="bottom"><img src="../../../../assets/course-sources/isolated/3308a9a099283004/g2-p9-1.webp" alt="Illustration isolée du support — Solution du TP - Les ACL" loading="lazy"></a><figcaption>Illustration isolée du support — Solution du TP - Les ACL</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-10"><p>Ici plusieurs possibilités, en voici une en modifiant les héritages</p><p>Lecteur e:</p><p>Clic droit &gt; Propriétés</p><p>Onglet Sécurité</p><p>Modifier</p><p>Sélectionnez Utilisateurs authentifiés</p><p>Supprimer</p><p>Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total</p><p>Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne.</p><p>OK &gt; Appliquer &gt; OK</p><p>Créer les dossiers logiciels et manuels d'utilisation dans le volume TOOLS (clic droit dans le volume TOOLS &gt; Nouveau &gt; Dossier).</p><p>Par héritage, ces dossiers permettent au Système et aux Administrateurs d'en avoir le Contrôle total. Les membres du groupe Utilisateurs, n'ont qu'un accès en Lecture</p><p>Occupons-nous maintenant des autorisations d'accès de Yann et François</p><p>Les DACL ne doivent contenir que des groupes. C'est la bonne pratique.</p><p>Yann et François sont tous les deux membres du groupe L_Informatiques</p><p>Il suffit donc de rajouter le groupe L_Informatiques dans les DACL des dossiers logiciels et manuels d'utilisation</p><p>Sur les dossiers logiciels et manuels d'utilisation</p><p>Clic droit &gt; Propriétés</p><p>Onglet Sécurité</p><p>On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage.</p><p>Modifier</p><p>Ajouter…</p><p>Entrez les noms des objets à sélectionner : L_Informatiques</p><p>Entrée</p></section>
+<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-11"><p>Cocher Modification (vous observerez que Ecriture va se cocher automatiquement).</p><p>Toujours faire les tests d'autorisation d'accès "grandeur réelle" ou bien en passant par l'onglet Accès Effectif</p><p>Sur la VM Discovery en PowerShell</p><ul><li>Afficher la liste des droits d'accès au dossier 2022 du lecteur M:</li></ul><pre><code>Get-Acl m:\2022</code></pre><ul><li>Quelle cmdlet permet la modification des ACL sur un dossier ?</li></ul><pre><code>Set-Acl</code></pre></section>
 
-<p class="tssr-source-paragraph">Page 1/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-
-
-<p class="tssr-source-paragraph">• <br>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier <br>parent ? </p>
-<p class="tssr-source-paragraph">Dans le dossier Echange </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Nouveau &gt; Document texte  </p>
-<p class="tssr-source-paragraph">Sur Nouveau document texte </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">Oui, les nouveaux fichiers héritent des autorisations du dossier parent Echange (qui lui-<br>même hérite des autorisations du lecteur D:). </p>
-<p class="tssr-source-paragraph">Pour s'en assurer, il suffit d'observer la présence des coches grisées. Pour plus de détail, <br>cliquez sur le bouton Avancé. </p>
-
-<p class="tssr-source-paragraph">Page 2/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Propriétés de<br>: Echange<br>x</p><p>Général<br>Partage<br>Sécurité<br>Versions précédentes<br>Personnaliser</p><p>Nom de l'objet:<br> D'\Echange</p><p>Noms de groupes ou d'utilisateurs<br>:</p><p>Utilisateurs authentifiés<br>BR Système<br>BA Administrateurs (WIN10-XX\Administrateurs)</p><p>BE Utilisateurs (WIN10-\Utilisateurs)</p><p>Pour modifier les autorisations, cliquez sur Modifier.<br>Modifier.</p><p>Autorisations pour Ltilisateurs authentifiés<br>Autoriser<br>Refuser</p><p>Contréle total<br>a</p><p>Modification</p><p>Lecture et exécution</p><p>fichage du contenu du dossier</p><p>Lecture</p><p>Écriture<br>¥</p><p>Pour les autorisations spéciales et les paramètres avancés, cliquez sur<br>Here<br>Avancé.</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>Annuler<br>Appliquer</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-
-<p class="tssr-source-paragraph">Page 3/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>| Propriétés de<br>: Nouveau document texte<br>x</p><p>Général<br>Sécurité<br>Details<br>Versions précédentes</p><p>Nom de l'objet:<br>= D:\Echange’\Nouveau document texte txt</p><p>Noms de groupes ou d'utilisateurs<br>:<br>a Ltilisateurs authentifiés<br>ER Système<br>BE Administrateurs (WIN10-XX\Administrateurs)</p><p>BR Utilisateurs (WIN10-XX\Utlisateurs}</p><p>Pour modifier les autorisations, cliquez sur Modifier.<br>:<br>Modifier...</p><p>Autorisations pour Ltilisateurs authentifiés<br>Autoriser<br>Refuser</p><p>Contrôle total</p><p>Modification</p><p>Lecture et exécution</p><p>Lecture</p><p>Écriture</p><p>Autorisations spéciales</p><p>Pour les autorisations spéciales et les paramètres avancés, cliquez sur<br>Avancé.</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>OK<br>Annuler<br>Appliquer</p><p>Paramètres de sécurité avancés pour Nouveau document texte<br>o<br>x</p><p>Nom:<br>D:\Echange\Nouveau document texte.txt</p><p>Propriétaire :<br>francois (WIN10-XX\francois) Le Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d'autorisation. Pour modifier une entrée d'autorisation,<br>sélectionnez l'entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d'autorisations<br>:</p><p>Type<br>Principal<br>Accès<br>Hérité de<br>§% Auto...<br>Administrateurs (WIN10-XX\Administrateurs)<br>Contrôle total<br>DA<br>82 Auto...<br>Système<br>Contrôle total<br>D:<br>£2 Auto...<br>Utilisateurs authentifiés<br>Modification<br>DA<br>82 Auto...<br>Utilisateurs (WIN10-XX\Utilisateurs)<br>Lecture et exécution<br>DA</p><p>Ajouter<br>Supprimer<br>Afficher</p><p>Désactiver l'héritage</p><p>nouer | DIRE</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">• <br>Configurez les autorisations d'accès au répertoire Echange </p>
-<pre class="tssr-source-code">o Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire </pre>
-<pre class="tssr-source-code">o Les administrateurs auront le contrôle total </pre>
-<pre class="tssr-source-code">o Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre </pre>
-<p class="tssr-source-paragraph">poste  </p>
-<pre class="tssr-source-code">o Testez le bon fonctionnement des autorisations </pre>
-<p class="tssr-source-paragraph">Ici plusieurs possibilités, en voici une en modifiant les héritages </p>
-<p class="tssr-source-paragraph">Lecteur D: </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">Modifier </p>
-<p class="tssr-source-paragraph">Sélectionnez Utilisateurs authentifiés </p>
-<p class="tssr-source-paragraph">Supprimer </p>
-<p class="tssr-source-paragraph">Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total </p>
-<p class="tssr-source-paragraph">Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne </p>
-<p class="tssr-source-paragraph">OK &gt; Appliquer &gt; OK </p>
-
-
-<p class="tssr-source-paragraph">Dossier Echange </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Page 4/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Paramètres de sécurité avancés pour DATA (D:)<br>Oo<br>x</p><p>Nom:<br>D:\</p><p>Propriétaire :<br>Système © Modifier</p><p>Autorisations<br>Audit<br>Accés effectif</p><p>Pour obtenir des informations supplémentaires, double-cliquez sur une entrée d'autorisation. Pour modifier une entrée d'autorisation,<br>sélectionnez l'entrée et cliquez sur Modifier (si disponible).</p><p>Entrées d'autorisations :</p><p>Type<br>Principal<br>Accès<br>Hérité de<br> S'applique à<br>82<br>Autoriser<br>Système<br>Contrôle total<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers<br>82<br>Autoriser<br>Administrateurs (WIN10-XX\Administrateurs)<br>Contrôle total<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers<br>82<br>Autoriser<br>Utilisateurs (WIN10-XX\Utilisateurs)<br>Lecture et exécution<br>Aucun<br>Ce dossier, les sous-dossiers et les fichiers</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage. </p>
-<p class="tssr-source-paragraph">Modifier </p>
-<p class="tssr-source-paragraph">Ajouter… </p>
-<p class="tssr-source-paragraph">Entrez les noms des objets à sélectionner : L_Collegues </p>
-<p class="tssr-source-paragraph">Entrée </p>
-<p class="tssr-source-paragraph">Cocher Modification (vous observerez que Ecriture va se cocher automatiquement) <br> </p>
-<p class="tssr-source-paragraph">Appliquer &gt; OK <br> </p>
-<p class="tssr-source-paragraph">Les tests d'accès (important) </p>
-<p class="tssr-source-paragraph">Première solution (peut-être la plus probante) : faire des tests "grandeur réelle" </p>
-<p class="tssr-source-paragraph">Fermez votre session actuelle (logoff) puis ouvrez une session locale avec l'utilisateur <br>Romain. </p>
-<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car Romain (utilisateur) possède les <br>autorisations en Lecture). </p>
-<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (impossible car Romain n'a </p>
-<p class="tssr-source-paragraph">Page 5/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Autorisations pour Echange<br>x</p><p>Sécurité</p><p>Nom de l'objet:<br> D:\Echange</p><p>Noms de groupes ou d'utilisateurs<br>:<br>ER Système</p><p>L_Collegues (WIN10-X*\L_Collegues)<br>BA Administrateurs (WIN10-XX Administrateurs)</p><p>BE Utilisateurs (WIN10-XX\Ltilisateurs)</p><p>Ajouter.<br>Supprimer</p><p>Autorisations pour L_Collegues<br>Autoriser<br>Refuser</p><p>Contrôle total<br>oO<br>Ol<br>*<br>Modification<br>O<br>Lecture et exécution<br>oO</p><p>Affichage du contenu du dossier<br>O</p><p>Lecture<br>Cv</p><p>Informations sur le contrôle d'accès et les autorisations</p><p>Annuler<br>Appliquer</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">pas les autorisations en Modification, il fait partie du groupe prédéfini Utilisateurs). </p>
-
-
-<p class="tssr-source-paragraph">Fermez la session de Romain et ouvrez une session avec un de vos utilisateurs <br>supplémentaires. </p>
-<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car votre utilisateur supplémentaire <br>(L_Collegues) possède les autorisations en Lecture). </p>
-<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (possible car votre utilisateur <br>possède les autorisations en Modification, par l'intermédiaire du groupe L_Collegues). </p>
-<p class="tssr-source-paragraph">Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL <br>(Impossible car l'utilisateur supplémentaire, qui fait partie du groupe L_Collegues, ne <br>possède pas les autorisations en Contrôle Total, le bouton Modifier est protégé par l'UAC). </p>
-<p class="tssr-source-paragraph">Fermer la session actuelle et ouvrez une session locale avec l'utilisateur francois. </p>
-<p class="tssr-source-paragraph">Tester l'accès au dossier Echange (lecture possible car francois (Administrateurs) possède <br>les autorisations en Lecture). </p>
-<p class="tssr-source-paragraph">Tester la création d'un nouveau fichier dans le dossier Echange (possible car francois <br>possède les autorisations en Modification, par l'intermédiaire du groupe prédéfini <br>Administrateurs). </p>
-<p class="tssr-source-paragraph">Tester l'accès à l'onglet Sécurité du dossier Echange pour tenter de modifier les ACL <br>(possible car francois, qui fait partie du groupe prédéfini Administrateurs possède les <br>autorisations en Contrôle Total). </p>
-<p class="tssr-source-paragraph">Deuxième possibilité (plus rapide) par l'intermédiaire de l'onglet Accès effectif </p>
-<p class="tssr-source-paragraph">Ouvrez une session avec un utilisateur membre du groupe Administrateurs </p>
-<p class="tssr-source-paragraph">Affichez les propriétés du dossier Echange (clic droit &gt; Propriétés) </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">Avancé </p>
-<p class="tssr-source-paragraph">Page 6/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>= Accès au dossier de destination refusé<br>—<br>x</p><p>Vous devez disposer des droits d'administrateur pour copier des éléments</p><p>dans ce dossier</p><p>Echange<br>Date de création<br>: 29/03/2021 16:30</p><p>@ Continuer<br>Ignorer<br>Annuler</p><p>Plus de détails</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">Onglet Accès effectif </p>
-<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
-<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe utilisateurs </p>
-<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : Romain </p>
-<p class="tssr-source-paragraph">Entrée </p>
-<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
-<p class="tssr-source-paragraph">On observe que romain n'a que des accès en Lecture (pas de création, d'écriture et de <br>suppression possible). </p>
-
-
-
-
-
-<p class="tssr-source-paragraph">Page 7/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>| Paramètres de sécurité avancés pour Echange<br>Oo<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) @ Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>romain (WIN10-XX\romain) _ Sélectionner un utilisateur</p><p>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>x<br>Contrôle total<br>Autorisations de fichiers<br>wt<br>Parcours du dossier/exécuter le fichier<br>wt<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>x<br>Création de fichier/écriture de données<br>Autorisations defichiers<br>x<br>Création de dossier/ajout de données<br>Autorisations defichiers<br>x<br>Attributs d'écriture<br>Autorisations de fichiers<br>x<br>Écriture d'attributs étendus<br>Autorisations defichiers<br>x<br>Suppression de sous-dossier<br>et fichier<br>Autorisations de fichiers<br>x<br>Suppression<br>Autorisations de fichiers<br>wt<br>Autorisations de lecture<br>x<br>Modifier les autorisations<br>Autorisations defichiers<br>x<br>Appropriation<br>Autorisations defichiers</p><p>a</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe L_Collegues </p>
-<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
-<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : l'un de vos utilisateurs supplémentaires </p>
-<p class="tssr-source-paragraph">Entrée </p>
-<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
-<p class="tssr-source-paragraph">On observe qu'Alix possède un niveau d'autorisation plus élevé que romain car le groupe <br>L_Collegues possède des accès en Modification  </p>
-
-
-
-
-<p class="tssr-source-paragraph">Page 8/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>| à Paramètres de sécurité avancés pour Echange<br>im)<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) 8 Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>Alix (WIN10-XX\Alix)<br>Sélectionner un utilisateur</p><p>|<br>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>x<br>Contréle total<br>Autorisations de fichiers<br>wt<br>Parcours du dossier/exécuter le fichier<br>wt<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>wt<br>Création de fichier/écriture de données<br>wf<br>Création de dossier/ajout de données<br>wt<br>Attributs d'écriture<br>wt<br>Écriture d'attributs étendus<br>x<br>Suppression de sous-dossier et fichier<br>Autorisations de fichiers<br>wt<br>Suppression<br>wt<br>Autorisations de lecture<br>x<br>Modifier les autorisations<br>Autorisations de fichiers<br>x<br>Appropriation<br>Autorisations de fichiers</p><p>|<br>Annuler<br>Appliquer</p><p>ent</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">Tests d'autorisation d'accès avec un utilisateur membre du groupe Administrateurs </p>
-<p class="tssr-source-paragraph">Sélectionner un utilisateur </p>
-<p class="tssr-source-paragraph">Entrez le nom de l'objet à sélectionner : francois </p>
-<p class="tssr-source-paragraph">Entrée </p>
-<p class="tssr-source-paragraph">Afficher l'accès effectif </p>
-<p class="tssr-source-paragraph">De par son appartenance au groupe prédéfini Administrateurs, francois possède le niveau <br>d'accès Contrôle Total </p>
-
-<p class="tssr-source-paragraph">• <br>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation </p>
-<pre class="tssr-source-code">o Yann et François accéderont en modifications à ces répertoires. </pre>
-<pre class="tssr-source-code">o Les utilisateurs standard auront un accès en lecture et les administrateurs </pre>
-<p class="tssr-source-paragraph">posséderont un contrôle total </p>
-<pre class="tssr-source-code">o Testez le bon fonctionnement des autorisations </pre>
-<p class="tssr-source-paragraph">Page 9/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Paramètres de sécurité avancés pour Echange<br>o<br>x</p><p>Nom:<br>D:\Echange</p><p>Propriétaire :<br>francois (WIN10-XX\francois) @ Modifier</p><p>Autorisations<br>Audit<br>Accès effectif</p><p>L'accès effectif vous permet d'afficher les autorisations effectives d'un compte d'utilisateur, de groupe ou de périphérique. Si le compte<br>est membre d'un domaine, vous pouvez également évaluer l'impact d'ajouts au jeton de sécurité pour le compte. Lorsque vous évaluez<br>l'impact de l'ajout d'un groupe, tout groupe dont le groupe souhaité est membre doit être ajouté séparément.</p><p>Utilisateur/Groupe:<br>francois (WIN10-XX\francois)<br>Sélectionner un utilisateur</p><p>Afficher l'accès effectif</p><p>Accès effectif<br>Autorisation<br>Accès limité par<br>D<br>Contrôle total<br>wt<br>Parcours du dossier/exécuter le fichier<br>“x<br>Liste du dossier/lecture de données<br>wt<br>Attributs de lecture<br>wt<br>Lecture des attributs étendus<br>wt<br>Création de fichier/écriture de données<br>wt<br>Création de dossier/ajout de données<br>wt<br>Attributs d'écriture<br>D<br>Écriture d'attributs étendus<br>D<br>Suppression de sous-dossier<br>et fichier<br>wt<br>Suppression<br>wf<br>Autorisations de lecture<br>wt<br>Modifier les autorisations<br>wt<br>Appropriation</p><p>Annuler<br>Appliquer</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-
-<p class="tssr-source-paragraph">Ici plusieurs possibilités, en voici une en modifiant les héritages </p>
-<p class="tssr-source-paragraph">Lecteur e: </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">Modifier </p>
-<p class="tssr-source-paragraph">Sélectionnez Utilisateurs authentifiés </p>
-<p class="tssr-source-paragraph">Supprimer </p>
-<p class="tssr-source-paragraph">Par bonne pratique Microsoft, laissez Système et Administrateurs en Contrôle total </p>
-<p class="tssr-source-paragraph">Laissez aussi Utilisateurs en Lecture car c'est ce qui est demandé dans la consigne. </p>
-<p class="tssr-source-paragraph">OK &gt; Appliquer &gt; OK </p>
-<p class="tssr-source-paragraph">Créer les dossiers logiciels et manuels d'utilisation dans le volume TOOLS (clic droit dans le <br>volume TOOLS &gt; Nouveau &gt; Dossier). </p>
-<p class="tssr-source-paragraph">Par héritage, ces dossiers permettent au Système et aux Administrateurs d'en avoir le <br>Contrôle total. Les membres du groupe Utilisateurs, n'ont qu'un accès en Lecture </p>
-<p class="tssr-source-paragraph">Occupons-nous maintenant des autorisations d'accès de Yann et François </p>
-<p class="tssr-source-paragraph">Les DACL ne doivent contenir que des groupes. C'est la bonne pratique. </p>
-<p class="tssr-source-paragraph">Yann et François sont tous les deux membres du groupe L_Informatiques </p>
-<p class="tssr-source-paragraph">Il suffit donc de rajouter le groupe L_Informatiques dans les DACL des dossiers logiciels et <br>manuels d'utilisation </p>
-<p class="tssr-source-paragraph">Sur les dossiers logiciels et manuels d'utilisation </p>
-<p class="tssr-source-paragraph">Clic droit &gt; Propriétés </p>
-<p class="tssr-source-paragraph">Onglet Sécurité </p>
-<p class="tssr-source-paragraph">On observe que l'entité de sécurité Utilisateurs authentifiés n'est plus présente, par héritage. </p>
-<p class="tssr-source-paragraph">Modifier </p>
-<p class="tssr-source-paragraph">Ajouter… </p>
-<p class="tssr-source-paragraph">Entrez les noms des objets à sélectionner : L_Informatiques </p>
-<p class="tssr-source-paragraph">Entrée </p>
-<p class="tssr-source-paragraph">Page 10/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-</section>
-<section class="tssr-transcribed-page" id="source-1410fdahllumEPrWp3O-vvc38KyzkoCJz-page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">Cocher Modification (vous observerez que Ecriture va se cocher automatiquement). </p>
-<p class="tssr-source-paragraph">Toujours faire les tests d'autorisation d'accès "grandeur réelle" ou bien en passant par <br>l'onglet Accès Effectif </p>
-
-<p class="tssr-source-paragraph">Sur la VM Discovery en PowerShell </p>
-<p class="tssr-source-paragraph">• <br>Afficher la liste des droits d'accès au dossier 2022 du lecteur M: </p>
-<pre class="tssr-source-code">Get-Acl m:\2022 
- </pre>
-<p class="tssr-source-paragraph">• <br>Quelle cmdlet permet la modification des ACL sur un dossier ? </p>
-<pre class="tssr-source-code">Set-Acl 
- 
- </pre>
-<p class="tssr-source-paragraph">Page 11/11 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-</section>
 <p class="tssr-original-proof">Référence du document : 1410fdahllumEPrWp3O-vvc38KyzkoCJz · <span title="Empreinte SHA-256 du fichier source">SHA-256 3308a9a099283004…</span></p>
 </div>
 </details>
@@ -13968,6 +13792,13 @@
 </span></code></pre></div>
 <h2 id="resultat-attendu">Résultat attendu<a class="headerlink" href="#resultat-attendu" title="Permanent link">¶</a></h2>
 <p>Les accès observés correspondent aux groupes et droits configurés dans le scénario. Les contrôles sont réalisés avec les comptes concernés ou avec Accès effectif, sans confondre les autorisations héritées, les entrées ajoutées et les droits réellement obtenus.</p>
+<h2 id="verification-de-latelier">Vérification de l’atelier<a class="headerlink" href="#verification-de-latelier" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lecture, écriture et modification des ACL sont testées séparément.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Les droits hérités et explicites sont distingués.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Accès effectif et test réel avec le compte concerné concordent.</li>
+</ul>
+<p>Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.</p>
 </div>
 </div>
 </div>

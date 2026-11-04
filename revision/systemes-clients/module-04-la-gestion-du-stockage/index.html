@@ -10602,10 +10602,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#precautions-source-faithful" class="md-nav__link">
+  <a href="#avant-une-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Précautions source-faithful
+        Avant une manipulation
       
     </span>
   </a>
@@ -10613,10 +10613,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13398,10 +13398,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#precautions-source-faithful" class="md-nav__link">
+  <a href="#avant-une-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Précautions source-faithful
+        Avant une manipulation
       
     </span>
   </a>
@@ -13409,10 +13409,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13574,7 +13574,7 @@
 </tbody>
 </table>
 <p>Les numéros, lettres et noms vus dans la correction appartiennent au laboratoire. Ils sont à contrôler dans la machine réellement manipulée.</p>
-<h2 id="precautions-source-faithful">Précautions source-faithful<a class="headerlink" href="#precautions-source-faithful" title="Permanent link">¶</a></h2>
+<h2 id="avant-une-manipulation">Avant une manipulation<a class="headerlink" href="#avant-une-manipulation" title="Permanent link">¶</a></h2>
 <p>Avant une opération de formatage, suppression ou extension :</p>
 <ol>
 <li>identifier le disque et le volume à partir des informations visibles ;</li>
@@ -13582,14 +13582,31 @@
 <li>exécuter une seule opération ;</li>
 <li>relister ou rouvrir l’outil pour vérifier le résultat.</li>
 </ol>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Quelle différence le module fait-il entre une partition, un volume et un système de fichiers ?</li>
-<li>Quel chemin la correction montre-t-elle pour GPT, et quelle alternative décrit-elle pour MBR ?</li>
-<li>Quelles informations devez-vous vérifier avant de formater ou supprimer un volume ?</li>
-<li>Quel résultat <code>Get-Disk</code> et <code>Get-Volume</code> permettent-ils de contrôler dans le TP ?</li>
-</ol>
 <p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/">cours complet</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-04-la-gestion-du-stockage/">Kahoot</a>.</p>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Identifier le disque avant de créer, formater, étendre ou supprimer un volume.</strong></p>
+<ol>
+<li><strong>MBR et GPT sont-ils des systèmes de fichiers ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non, ce sont des formats de table de partitions. NTFS et FAT32 sont des systèmes de fichiers.</p>
+</details>
+<ol>
+<li><strong>Quels volumes le TP distingue-t-il ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>DATA, TOOLS et COMMUN en NTFS ; ARCHIVE en FAT32, avec les tailles indiquées dans l’énoncé.</p>
+</details>
+<ol>
+<li><strong>Quelle preuve fournir après une manipulation ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Un état actualisé des disques et volumes : taille, lettre, libellé, système de fichiers et type de disque.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-04/">Mettre en pratique</a></p>
 
 
 

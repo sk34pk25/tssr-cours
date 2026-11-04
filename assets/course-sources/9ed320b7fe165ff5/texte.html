@@ -1,65 +1,63 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Redirection, pipeline, <br>filtrage, formatage</h4>
-<p class="tssr-source-paragraph">TP du Module 11 – Plus loin avec PowerShell</p>
-<p class="tssr-source-paragraph">Concernant ce TP, l&#x27;objectif sera de répondre aux consignes, notamment en traduisant <br>les consignes du français en langage PowerShell. </p>
-<p class="tssr-source-paragraph">Pour arriver à vos fins, n&#x27;oubliez pas les bonnes pratiques. <br>Utilisez get-command pour rechercher la bonne cmdlet.<br>Utilisez get-help, pour savoir comment elle fonctionne.<br>Si des propriétés spécifiques sont demandées dans les consignes, utiliser select après le <br>pipeline.<br>Si une ou des valeurs sont spécifiées dans les consignes, utilisez le pipe where et <br>éventuellement la syntaxe spécifique du filtrage avancé pour rechercher deux valeurs <br>ou plus.<br>Utiliser les commandes de formatage si la consigne le précise.<br>Dans tous les cas, prenez votre temps pour ce TP et, comme toujours avec PowerShell, <br>investissez du temps de lecture du get-help. </p>
-<p class="tssr-source-paragraph">Durée estimée</p>
-<p class="tssr-source-paragraph">2 heures</p>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3{color:#204b80;line-height:1.3}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body>
+<h1>Enonc‚ du TP - PowerShell  redirection, pipeline, filtrage, formatage</h1>
+<p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les compléments pédagogiques figurent dans leur onglet distinct.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Redirection, pipeline, filtrage, formatage</h3>
+<p>TP du Module 11 — Plus loin avec PowerShell. <strong>Durée estimée : 2 heures.</strong></p>
+<p>L’objectif sera de répondre aux consignes, notamment en les traduisant du français en langage PowerShell.</p>
+<p>Pour arriver à vos fins, n’oubliez pas les bonnes pratiques :</p>
+<ul>
+<li>utilisez <code>get-command</code> pour rechercher la bonne cmdlet ;</li>
+<li>utilisez <code>get-help</code> pour savoir comment elle fonctionne ;</li>
+<li>si des propriétés spécifiques sont demandées, utilisez <code>select</code> après le pipeline ;</li>
+<li>si une ou des valeurs sont spécifiées, utilisez le pipe <code>where</code> et éventuellement la syntaxe du filtrage avancé pour rechercher deux valeurs ou plus ;</li>
+<li>utilisez les commandes de formatage si la consigne le précise ;</li>
+<li>prenez votre temps et investissez du temps de lecture du <code>get-help</code>.</li>
+</ul>
 <h4>Énoncé</h4>
-<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de cet atelier avant de vous lancer dans la pratique</p>
-<p class="tssr-source-paragraph">Sur Win10-XX, recherchez les commandes adaptées pour les besoins <br>suivants </p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la date du jour, puis, à l&#x27;aide de la même commande, affichez le quantième<br>de l&#x27;année (le numéro du jour de l’année)</p>
-<p class="tssr-source-paragraph">Page 1/5<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
+<p>Lisez l’ensemble de cet atelier avant de vous lancer dans la pratique.</p>
+<p>Sur <strong>Win10-XX</strong>, recherchez les commandes adaptées : affichez la date du jour puis, à l’aide de la même commande, le quantième de l’année, c’est-à-dire le numéro du jour de l’année.</p>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des évènements ayant été enregistrés dans le journal security </p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À l&#x27;aide de la commande précédente, affichez les évènements dont l&#x27;EventID est 4624</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste précédente en ne montrant que l’EventID, la date d’écriture de<br>l’évènement et le message</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des règles de pare-feu activées</p>
-<p class="tssr-source-paragraph">Page 2/5<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-2">
+<h3>Évènements et pare-feu</h3>
+<ol>
+<li>Affichez la liste des évènements enregistrés dans le journal <strong>Security</strong>.</li>
+<li>À l’aide de la commande précédente, affichez les évènements dont l’<strong>EventID est 4624</strong>.</li>
+<li>Affichez la liste précédente en ne montrant que l’<strong>EventID</strong>, la <strong>date d’écriture de l’évènement</strong> et le <strong>message</strong>.</li>
+<li>Affichez la liste des règles de pare-feu activées.</li>
+</ol>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Parmi ces règles de pare-feu activées, n&#x27;affichez que leurs noms, le profil réseau à<br>laquelle elles appartiennent, leurs directions et si elles autorisent ou bloquent l&#x27;accès</p>
-<p class="tssr-source-paragraph"> <br>Afficher des propriétés selon plusieurs critères</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur Discovery, affichez la liste des volumes disques :</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8 Go d’espace libre :</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes dont la taille maximum ne dépasse pas 25 Go :</p>
-<p class="tssr-source-paragraph">Page 3/5<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-3">
+<h3>Pare-feu et volumes</h3>
+<p>Parmi les règles de pare-feu activées, n’affichez que leurs noms, le profil réseau auquel elles appartiennent, leurs directions et si elles autorisent ou bloquent l’accès.</p>
+<h4>Afficher des propriétés selon plusieurs critères</h4>
+<p>Sur <strong>Discovery</strong> :</p>
+<ol>
+<li>Affichez la liste des volumes disques.</li>
+<li>Affichez la liste des volumes qui possèdent <strong>plus de 8 Go</strong> d’espace libre.</li>
+<li>Affichez la liste des volumes dont la taille maximum <strong>ne dépasse pas 25 Go</strong>.</li>
+</ol>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la liste des volumes qui possèdent plus de 8Go d&#x27;espace libre et dont la taille<br>maximale ne dépasse pas 25Go</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Le résultat de la commande précédente ne devra afficher que le nom, la lettre de<br>lecteur et le type de système de fichier… le tout sous forme de liste</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les noms et statuts des services qui sont actuellement démarrés et qui<br>démarrent automatiquement au lancement du système d’exploitation.</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez les membres (et leur SID) du groupe L_HA_Ventes.</p>
-<p class="tssr-source-paragraph">Page 4/5<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-4">
+<h3>Volumes, services et groupes</h3>
+<ol>
+<li>Affichez la liste des volumes qui possèdent <strong>plus de 8 Go</strong> d’espace libre et dont la taille maximale <strong>ne dépasse pas 25 Go</strong>.</li>
+<li>Le résultat de la commande précédente ne devra afficher que le <strong>nom</strong>, la <strong>lettre de lecteur</strong> et le <strong>type de système de fichier</strong>, le tout sous forme de liste.</li>
+<li>Affichez les noms et statuts des services actuellement démarrés et qui démarrent automatiquement au lancement du système d’exploitation.</li>
+<li>Affichez les membres, et leur SID, du groupe <strong>L_HA_Ventes</strong>.</li>
+</ol>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom et le chemin des partages administratifs sous forme de liste</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont<br>l’état est sain et de type CD-ROM :</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante HP<br>LaserJet. Le résultat sera affiché sous la forme d&#x27;une liste.</p>
+<section class="tssr-transcribed-page" id="page-5">
+<h3>Partages, CD-ROM et imprimante</h3>
+<ol>
+<li>Affichez le nom et le chemin des partages administratifs sous forme de liste.</li>
+<li>Affichez la lettre de lecteur, le type de lecteur et l’état de santé des volumes dont l’état est sain et de type <strong>CD-ROM</strong>.</li>
+<li>Affichez le nom, le type, le nom du pilote et le nom du partage de l’imprimante <strong>HP LaserJet</strong>. Le résultat sera affiché sous forme de liste.</li>
+</ol>
 <h4>Solution</h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
-<p class="tssr-source-paragraph">Page 5/5<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<p>Une solution est proposée pour ce TP sous la forme d’un PDF commenté, disponible dans les ressources à télécharger.</p>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

@@ -10574,10 +10574,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13387,10 +13387,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions-flash" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions flash
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13544,14 +13544,31 @@
 <li>une modification graphique doit être visible dans le paramètre ou la console concernée ;</li>
 <li>une différence entre deux VM doit être relevée et expliquée à partir de leur aide, sans supposer qu’elle est universelle.</li>
 </ul>
-<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
-<ol>
-<li>Dans quelle situation le scénario demande-t-il l’interface graphique plutôt que <code>cmd</code> ou PowerShell ?</li>
-<li>Quelle différence faites-vous entre une cmdlet, un paramètre et un argument ?</li>
-<li>Comment trouvez-vous une cmdlet lorsque vous connaissez l’objectif mais pas son nom ?</li>
-<li>Quelle vérification confirme qu’un fichier ou une propriété est bien celui attendu ?</li>
-</ol>
 <p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/">cours complet</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-03-interagir-avec-windows-10/">Kahoot</a>.</p>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Trouver l’outil adapté, lire son aide, exécuter une action puis vérifier un résultat observable.</strong></p>
+<ol>
+<li><strong>Get-Command et Get-Help ont-ils le même rôle ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Get-Command trouve une commande ; Get-Help en explique la syntaxe, les paramètres et les exemples.</p>
+</details>
+<ol>
+<li><strong>Comment découvrir les propriétés d’un objet ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Avec Get-Member, puis Select-Object pour afficher celles demandées.</p>
+</details>
+<ol>
+<li><strong>Une redirection prouve-t-elle que le résultat est correct ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Il faut relire le fichier et contrôler son contenu, son nom et son emplacement.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-03/">Mettre en pratique</a></p>
 
 
 

@@ -10690,6 +10690,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13441,6 +13452,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13566,11 +13588,11 @@
 <p>Les autorisations spéciales se configurent depuis <strong>Avancé</strong> pour affiner certains privilèges.</p>
 <h2 id="regles-dacces">Règles d’accès<a class="headerlink" href="#regles-dacces" title="Permanent link">¶</a></h2>
 <ul>
-<li>Une entité absente de la DACL reçoit un refus implicite.</li>
+<li>Sans ACE applicable qui autorise les droits demandés, l’accès est refusé implicitement. Vérifier aussi les SID des groupes présents dans le jeton.</li>
 <li>Une règle peut autoriser ou refuser un privilège.</li>
 <li>Plusieurs règles peuvent s’appliquer au même utilisateur.</li>
 <li>La règle la plus permissive l’emporte parmi les autorisations.</li>
-<li>Un refus explicite l’emporte sur une autorisation.</li>
+<li>L’évaluation suit l’ordre des ACE. Dans une DACL canonique, les entrées explicites précèdent les entrées héritées ; à niveau comparable, les refus précèdent les autorisations.</li>
 </ul>
 <h2 id="heritage-copie-et-deplacement">Héritage, copie et déplacement<a class="headerlink" href="#heritage-copie-et-deplacement" title="Permanent link">¶</a></h2>
 <ul>
@@ -13613,8 +13635,36 @@
 </span></code></pre></div>
 <p><code>Get-Acl</code> est utilisé dans le TP pour afficher les droits du dossier indiqué. <code>Set-Acl</code> est la cmdlet identifiée par le scénario pour modifier les ACL d’un dossier.</p>
 <h2 id="ressources-de-laboratoire">Ressources de laboratoire<a class="headerlink" href="#ressources-de-laboratoire" title="Permanent link">¶</a></h2>
-<p>Le scénario mentionne une VM <code>Win10-XX</code>, une VM Discovery et les volumes <code>DATA</code> / <code>TOOLS</code>. Ces ressources ne sont pas présentes dans le dossier Drive M06 live.</p>
+<p>Le scénario mentionne une VM <code>Win10-XX</code>, une VM Discovery et les volumes <code>DATA</code> / <code>TOOLS</code>. Ces ressources ne sont pas présentes parmi les fichiers du module.</p>
 <p>Pour aller plus loin : <a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">cours du module</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl/">Kahoot M06</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Précision externe — évaluation des accès</p>
+<p>Le nom du compte peut être absent de la DACL tout en recevant des droits par un groupe. Le raccourci « le refus gagne toujours » ne couvre pas l’ordre explicite/hérité. <a href="https://learn.microsoft.com/en-us/windows/win32/secauthz/how-dacls-control-access-to-an-object">Référence Microsoft : contrôle des DACL</a>.</p>
+</div>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>L’accès dépend des SID du jeton, des ACE applicables, de leur ordre et des droits demandés.</strong></p>
+<ol>
+<li><strong>Un nom absent de la DACL signifie-t-il forcément un refus ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Une ACE visant un groupe de son jeton peut lui accorder les droits. Sans autorisation applicable pour un droit demandé, ce droit est refusé implicitement.</p>
+</details>
+<ol>
+<li><strong>Copie et déplacement conservent-ils toujours les ACL ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Dans les opérations ordinaires étudiées, seul le déplacement sur le même volume conserve les ACL ; les autres cas héritent du dossier cible.</p>
+</details>
+<ol>
+<li><strong>Comment vérifier un résultat ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Avec Accès effectif puis un test avec le compte concerné, en tenant compte de l’UAC.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-06/">Mettre en pratique</a></p>
 
 
 

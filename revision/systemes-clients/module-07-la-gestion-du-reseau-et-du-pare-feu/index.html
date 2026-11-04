@@ -10697,10 +10697,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controles-de-maitrise" class="md-nav__link">
+  <a href="#source-et-provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôles de maîtrise
+        Source et provenance
       
     </span>
   </a>
@@ -10708,10 +10708,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-et-provenance" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source et provenance
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13420,10 +13420,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#controles-de-maitrise" class="md-nav__link">
+  <a href="#source-et-provenance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contrôles de maîtrise
+        Source et provenance
       
     </span>
   </a>
@@ -13431,10 +13431,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-et-provenance" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source et provenance
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13612,20 +13612,36 @@
 <li>Utiliser la console avancée pour consulter et activer la règle entrante ICMPv4 prévue.</li>
 <li>Tester ensuite la communication entre les postes indiqués par le TP.</li>
 </ul>
-<h2 id="controles-de-maitrise">Contrôles de maîtrise<a class="headerlink" href="#controles-de-maitrise" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je peux expliquer quand une destination est transmise à la passerelle.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais relever les paramètres d’une interface avec <code>ipconfig /all</code>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je distingue un test de connectivité, un chemin réseau et une résolution DNS.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je sais relier le profil réseau aux règles du pare-feu Windows.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Je contrôle une règle ICMPv4 par un test effectué dans le laboratoire prévu.</li>
-</ul>
 <p>Pour approfondir : <a href="../../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">cours complet</a> et <a href="../../../kahoot/02-systemes-clients-microsoft-07-la-gestion-du-reseau-et-du-pare-feu/">Kahoot du module</a>.</p>
 <h2 id="source-et-provenance">Source et provenance<a class="headerlink" href="#source-et-provenance" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Sources A — TSSR Drive live :</strong> support, énoncé et correction M07.</li>
+<li><strong>Sources A — supports TSSR :</strong> support, énoncé et correction M07.</li>
 <li><strong>Structuration B :</strong> synthèse pédagogique limitée aux notions et contrôles attestés par ces sources.</li>
 </ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Distinguer adressage, routage, résolution de noms et filtrage avant de modifier la configuration.</strong></p>
+<ol>
+<li><strong>Que signifie une adresse 169.254.x.x dans le scénario ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>L’auto-configuration APIPA ; vérifier la disponibilité de DHCP et la connexion de la carte.</p>
+</details>
+<ol>
+<li><strong>Un ping sans réponse prouve-t-il que le poste est arrêté ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. ICMP peut être filtré ; vérifier le profil et les règles du pare-feu ainsi que la connectivité.</p>
+</details>
+<ol>
+<li><strong>IP distante joignable mais nom impossible à résoudre : quelle piste ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>La résolution DNS ; consulter les serveurs configurés et tester avec nslookup.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-07/">Mettre en pratique</a></p>
 
 
 

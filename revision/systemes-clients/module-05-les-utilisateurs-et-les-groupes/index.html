@@ -10651,6 +10651,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13419,6 +13430,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13560,8 +13582,32 @@
 <li>Interpréter une sortie PowerShell demandée dans le TP.</li>
 </ol>
 <h2 id="ressources-de-laboratoire">Ressources de laboratoire<a class="headerlink" href="#ressources-de-laboratoire" title="Permanent link">¶</a></h2>
-<p>Le scénario cite <code>Win10-XX</code>, VM Discovery et <code>MaConsole.msc</code>. Elles ne sont pas fournies dans le dossier Drive M05 live.</p>
+<p>Le scénario cite <code>Win10-XX</code>, VM Discovery et <code>MaConsole.msc</code>. Ces ressources ne sont pas fournies parmi les fichiers du module.</p>
 <p>Pour aller plus loin : <a href="../../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/">cours du module</a> · <a href="../../../kahoot/02-systemes-clients-microsoft-05-les-utilisateurs-et-les-groupes/">Kahoot M05</a>.</p>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Le SID identifie le compte ; les groupes et le jeton expliquent ses accès.</strong></p>
+<ol>
+<li><strong>Compte et profil sont-ils interchangeables ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Le compte porte l’identité ; le profil conserve l’environnement de cet utilisateur.</p>
+</details>
+<ol>
+<li><strong>Pourquoi affecter les droits aux groupes ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Pour gérer les accès par rôle sans multiplier les règles individuelles.</p>
+</details>
+<ol>
+<li><strong>Une appartenance modifiée est-elle forcément dans le jeton de la session ouverte ?</strong></li>
+</ol>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Non. Pour vérifier les nouveaux droits, le scénario peut nécessiter une nouvelle ouverture de session.</p>
+</details>
+<p><a href="../../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes/">Relire le cours complet</a> · <a href="../../../tp/systemes-clients/module-05/">Mettre en pratique</a></p>
 
 
 

@@ -5928,6 +5928,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verification-de-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13443,6 +13454,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#verification-de-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -13559,61 +13581,11 @@
 <details class="tssr-original-document" open="">
 <summary>Énoncé · Enoncé du TP - Les ACL · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Les ACL</h4>
-<p class="tssr-source-paragraph">TP du Module 06 – La sécurité NTFS et les ACL</p>
-<p class="tssr-source-paragraph">Ce TP va vous permettre de manipuler les autorisations d’accès aux dossiers disponibles<br>sur votre système.</p>
-<p class="tssr-source-paragraph">Durée estimée</p>
-<p class="tssr-source-paragraph">1 heure</p>
-<h4>Énoncé</h4>
-<p class="tssr-source-paragraph">Lisez l'ensemble de ce TP avant de vous lancer dans la pratique</p>
-<p class="tssr-source-paragraph">Sur votre VM Win10-XX, configurez les autorisations d'accès sur les <br>répertoires suivants :</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le volume DATA, créer le répertoire Echange</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?</p>
 
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier<br>parent ?</p>
-<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-1"><h2>Systèmes Clients Microsoft Les ACL</h2><h3>TP du Module 06 – La sécurité NTFS et les ACL</h3><p>Ce TP va vous permettre de manipuler les autorisations d’accès aux dossiers disponibles sur votre système.</p><p>Durée estimée</p><p>1 heure</p><h2>Énoncé</h2><p>Lisez l'ensemble de ce TP avant de vous lancer dans la pratique</p><h3>Sur votre VM Win10-XX, configurez les autorisations d'accès sur les répertoires suivants :</h3><ul><li>Sur le volume DATA, créer le répertoire Echange</li><li>Quelles sont les autorisations positionnées par défaut sur le répertoire Echange ?</li><li>Peuplez ce répertoire de fichiers, de dossiers. Héritent-ils des autorisations du dossier parent ?</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-2"><ul><li>Configurez les autorisations d'accès au répertoire Echange&nbsp;:</li></ul><p>o Vos collègues pourront modifier tous les objets et sous-objets de ce répertoire o Les administrateurs auront le contrôle total o Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre poste o Testez le bon fonctionnement des autorisations</p><ul><li>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation&nbsp;:</li></ul><p>o Yann et François accéderont en modifications à ces répertoires. o Les utilisateurs standard auront un accès en lecture et les administrateurs posséderont un contrôle total o Testez le bon fonctionnement des autorisations</p><h3>Sur la VM Discovery en PowerShell</h3><ul><li>Afficher la liste des droits d'accès au dossier 2022 du lecteur M:</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-3"><ul><li>Quelle cmdlet permet la modification des ACL sur un dossier&nbsp;?</li></ul><h2>Solution</h2><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
 
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Configurez les autorisations d'accès au répertoire Echange&nbsp;:</p>
-<pre class="tssr-source-code">o
-Vos collègues pourront modifier tous les objets et sous-objets de ce
-répertoire
-o
-Les administrateurs auront le contrôle total
-o
-Vous accorderez les droits en lecture sur le répertoire aux utilisateurs de votre
-poste 
-o
-Testez le bon fonctionnement des autorisations
- </pre>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Sur le volume TOOLS, créer les répertoires logiciels et manuels d'utilisation&nbsp;:</p>
-<pre class="tssr-source-code">o
-Yann et François accéderont en modifications à ces répertoires.
-o
-Les utilisateurs standard auront un accès en lecture et les administrateurs 
-posséderont un contrôle total
-o
-Testez le bon fonctionnement des autorisations</pre>
-<p class="tssr-source-paragraph"> <br>Sur la VM Discovery en PowerShell</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Afficher la liste des droits d'accès au dossier 2022 du lecteur M:</p>
-<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../../../../assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Quelle cmdlet permet la modification des ACL sur un dossier&nbsp;?</p>
-<h4>Solution</h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
-<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-</section>
 <p class="tssr-original-proof">Référence du document : 1aiD08x7K_WK6bcTRZoJKrA30Yf9_2fOt · <span title="Empreinte SHA-256 du fichier source">SHA-256 bbc9c02eb9231db0…</span></p>
 </div>
 </details>
@@ -13629,7 +13601,7 @@ Testez le bon fonctionnement des autorisations</pre>
 <p><strong>Durée estimée :</strong> 1 heure.</p>
 <div class="admonition warning">
 <p class="admonition-title">Ressources du scénario</p>
-<p>Les VM et volumes utilisés dans le TP sont des ressources de laboratoire. Ils ne sont pas fournis dans le dossier Drive M06 live ; utilisez les ressources données par le formateur.</p>
+<p>Les VM et volumes utilisés dans le TP sont des ressources de laboratoire. Ils ne sont pas fournis dans le dossier des sources du module ; utilisez les ressources données par le formateur.</p>
 </div>
 <h2 id="1-preparer-les-groupes-du-scenario">1. Préparer les groupes du scénario<a class="headerlink" href="#1-preparer-les-groupes-du-scenario" title="Permanent link">¶</a></h2>
 <p>Les activités emploient les groupes <code>L_Collegues</code> et <code>L_Informatiques</code>. Conservez ces noms tels qu’ils sont présentés dans le scénario et vérifiez les appartenances nécessaires avant les tests d’accès.</p>
@@ -13662,6 +13634,12 @@ Testez le bon fonctionnement des autorisations</pre>
 <h2 id="livrables-et-verifications">Livrables et vérifications<a class="headerlink" href="#livrables-et-verifications" title="Permanent link">¶</a></h2>
 <p>Conservez les relevés d’autorisations, les résultats des tests d’accès et les réponses aux deux questions PowerShell. Vérifiez que chaque résultat correspond à la consigne avant de consulter la <a href="../corrections/">correction</a>.</p>
 <p>La <a href="../corrections/">correction commentée</a> est séparée de cet énoncé : elle ne doit être utilisée qu’après la tentative.</p>
+<h2 id="verification-de-latelier">Vérification de l’atelier<a class="headerlink" href="#verification-de-latelier" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Lecture, écriture et modification des ACL sont testées séparément.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Les droits hérités et explicites sont distingués.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Accès effectif et test réel avec le compte concerné concordent.</li>
+</ul>
 </div>
 </div>
 </div>

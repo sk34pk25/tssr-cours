@@ -4483,10 +4483,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#avant-de-commencer" class="md-nav__link">
+  <a href="#1-lire-letat-actuel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avant de commencer
+        1. Lire l’état actuel
       
     </span>
   </a>
@@ -4494,10 +4494,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interface-graphique" class="md-nav__link">
+  <a href="#2-configurer-avec-linterface-graphique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interface graphique
+        2. Configurer avec l’interface graphique
       
     </span>
   </a>
@@ -4505,10 +4505,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#powershell" class="md-nav__link">
+  <a href="#3-exemple-powershell-complement-externe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PowerShell
+        3. Exemple PowerShell — complément externe
       
     </span>
   </a>
@@ -4516,10 +4516,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retour-arriere" class="md-nav__link">
+  <a href="#4-verifier-separement-chaque-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Retour arrière
+        4. Vérifier séparément chaque service
       
     </span>
   </a>
@@ -4527,10 +4527,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#5-revenir-a-dhcp-complement-externe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérification
+        5. Revenir à DHCP — complément externe
       
     </span>
   </a>
@@ -13341,10 +13341,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#avant-de-commencer" class="md-nav__link">
+  <a href="#1-lire-letat-actuel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avant de commencer
+        1. Lire l’état actuel
       
     </span>
   </a>
@@ -13352,10 +13352,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interface-graphique" class="md-nav__link">
+  <a href="#2-configurer-avec-linterface-graphique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interface graphique
+        2. Configurer avec l’interface graphique
       
     </span>
   </a>
@@ -13363,10 +13363,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#powershell" class="md-nav__link">
+  <a href="#3-exemple-powershell-complement-externe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PowerShell
+        3. Exemple PowerShell — complément externe
       
     </span>
   </a>
@@ -13374,10 +13374,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retour-arriere" class="md-nav__link">
+  <a href="#4-verifier-separement-chaque-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Retour arrière
+        4. Vérifier séparément chaque service
       
     </span>
   </a>
@@ -13385,10 +13385,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#5-revenir-a-dhcp-complement-externe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérification
+        5. Revenir à DHCP — complément externe
       
     </span>
   </a>
@@ -13469,34 +13469,82 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="avant-de-commencer">Avant de commencer<a class="headerlink" href="#avant-de-commencer" title="Permanent link">¶</a></h2>
-<p>Noter l’ancienne configuration et vérifier que l’adresse choisie n’est pas déjà utilisée.</p>
-<h2 id="interface-graphique">Interface graphique<a class="headerlink" href="#interface-graphique" title="Permanent link">¶</a></h2>
+<p>Le module 07 distingue adresse, masque, passerelle, DNS et profil de pare-feu. Préparer les valeurs du laboratoire avant d’intervenir et relever l’ancienne configuration pour pouvoir la rétablir.</p>
+<h2 id="1-lire-letat-actuel">1. Lire l’état actuel<a class="headerlink" href="#1-lire-letat-actuel" title="Permanent link">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ipconfig /all
+</span></code></pre></div>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Get-NetAdapter</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Get-NetIPConfiguration</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Question de contrôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interface</td>
+<td>Est-ce bien la carte reliée au réseau du scénario ?</td>
+</tr>
+<tr>
+<td>Adresse et préfixe</td>
+<td>L’adresse est-elle libre et dans le sous-réseau prévu ?</td>
+</tr>
+<tr>
+<td>Passerelle</td>
+<td>Est-elle joignable sur ce réseau et nécessaire pour les destinations distantes ?</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Quel serveur doit résoudre les noms du scénario ?</td>
+</tr>
+<tr>
+<td>Profil</td>
+<td>Public, privé ou domaine : quelles règles s’appliquent ?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-configurer-avec-linterface-graphique">2. Configurer avec l’interface graphique<a class="headerlink" href="#2-configurer-avec-linterface-graphique" title="Permanent link">¶</a></h2>
+<p>Dans le chemin Windows 10 du support : <strong>Panneau de configuration → Réseau et Internet → Centre Réseau et partage → Modifier les paramètres de la carte</strong>.</p>
 <ol>
-<li>Ouvrir <strong>Paramètres</strong>.</li>
-<li>Aller dans <strong>Réseau et Internet</strong>.</li>
-<li>Ouvrir les propriétés de l’interface Ethernet ou Wi-Fi.</li>
-<li>Repérer <strong>Affectation d’adresse IP</strong> puis choisir <strong>Modifier</strong>.</li>
-<li>Sélectionner <strong>Manuel</strong> et activer IPv4.</li>
-<li>Saisir l’adresse, la longueur de préfixe, la passerelle et les DNS.</li>
-<li>Enregistrer puis désactiver/réactiver l’interface si nécessaire.</li>
+<li>Ouvrir les propriétés de la bonne carte.</li>
+<li>Ouvrir <strong>Protocole Internet version 4 (TCP/IPv4)</strong>.</li>
+<li>Renseigner l’adresse, le masque, la passerelle et les DNS prévus.</li>
+<li>Valider puis relire les valeurs avec <code>ipconfig /all</code>.</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Sous certaines versions de Windows 10, le chemin passe par <strong>Panneau de configuration &gt; Réseau et Internet &gt; Centre Réseau et partage &gt; Modifier les paramètres de la carte &gt; Propriétés &gt; Protocole Internet version 4</strong>.</p>
-</div>
-<h2 id="powershell">PowerShell<a class="headerlink" href="#powershell" title="Permanent link">¶</a></h2>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Get-NetAdapter</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">New-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s2">"Ethernet"</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-PrefixLength</span> <span class="n">24</span> <span class="n">-DefaultGateway</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s2">"Ethernet"</span> <span class="n">-ServerAddresses</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">10</span><span class="p">,</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">11</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">Get-NetIPConfiguration</span> <span class="n">-InterfaceAlias</span> <span class="s2">"Ethernet"</span>
+<p>Selon la version de Windows, certains paramètres sont également accessibles depuis <strong>Paramètres → Réseau et Internet</strong>. Le résultat à contrôler reste la configuration effective de la carte.</p>
+<h2 id="3-exemple-powershell-complement-externe">3. Exemple PowerShell — complément externe<a class="headerlink" href="#3-exemple-powershell-complement-externe" title="Permanent link">¶</a></h2>
+<p>Les valeurs suivantes sont un <strong>exemple pédagogique externe</strong>, à remplacer par celles du laboratoire. Travailler depuis la console de la VM : changer sa carte réseau peut interrompre une session distante.</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">New-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-PrefixLength</span> <span class="n">24</span> <span class="n">-DefaultGateway</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-ServerAddresses</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">10</span><span class="p">,</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">11</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">Get-NetIPConfiguration</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span>
 </span></code></pre></div>
-<h2 id="retour-arriere">Retour arrière<a class="headerlink" href="#retour-arriere" title="Permanent link">¶</a></h2>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Set-NetIPInterface</span> <span class="n">-InterfaceAlias</span> <span class="s2">"Ethernet"</span> <span class="n">-Dhcp</span> <span class="n">Enabled</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s2">"Ethernet"</span> <span class="n">-ResetServerAddresses</span>
+<p>Ne pas relancer la création si la même adresse ou la même route existe déjà : lire l’état et adapter la configuration ciblée.</p>
+<h2 id="4-verifier-separement-chaque-service">4. Vérifier séparément chaque service<a class="headerlink" href="#4-verifier-separement-chaque-service" title="Permanent link">¶</a></h2>
+<ol>
+<li>Contrôler l’interface et les paramètres affichés.</li>
+<li>Tester la passerelle si elle autorise ICMP.</li>
+<li>Tester une destination distante prévue par le scénario.</li>
+<li>Interroger un nom avec <code>nslookup</code>.</li>
+<li>Contrôler le profil et la règle de pare-feu si le test attendu échoue.</li>
+</ol>
+<p>Une résolution DNS en échec ne se corrige pas en remplaçant arbitrairement l’adresse IP. Un ping sans réponse ne prouve pas à lui seul que la cible est arrêtée.</p>
+<h2 id="5-revenir-a-dhcp-complement-externe">5. Revenir à DHCP — complément externe<a class="headerlink" href="#5-revenir-a-dhcp-complement-externe" title="Permanent link">¶</a></h2>
+<p>Pour annuler <strong>l’exemple ci-dessus uniquement</strong>, retirer les valeurs manuelles créées sur cette interface, puis réactiver DHCP et les DNS automatiques. Vérifier chaque cible avant validation :</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Remove-NetIPAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-IPAddress</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">20</span> <span class="n">-Confirm</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Remove-NetRoute</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-DestinationPrefix</span> <span class="s1">'0.0.0.0/0'</span> <span class="n">-NextHop</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">1</span> <span class="n">-Confirm</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">Set-NetIPInterface</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-AddressFamily</span> <span class="n">IPv4</span> <span class="n">-Dhcp</span> <span class="n">Enabled</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span> <span class="n">-ResetServerAddresses</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">Get-NetIPConfiguration</span> <span class="n">-InterfaceAlias</span> <span class="s1">'Ethernet'</span>
 </span></code></pre></div>
-<h2 id="verification">Vérification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
-<p>Tester la passerelle, une adresse distante, puis un nom DNS. Une adresse correcte sans route ou sans DNS ne constitue pas une validation complète.</p>
+<p>La route peut déjà avoir disparu avec la configuration précédente ; dans ce cas, ne pas supprimer une autre route pour remplacer celle de l’exemple. Après renouvellement du bail, vérifier de nouveau adresse, passerelle et DNS.</p>
+<p>Références externes Microsoft : <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/remove-netipaddress">Remove-NetIPAddress</a>, <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/set-netipinterface">Set-NetIPInterface</a>.</p>
+<ul>
+<li><a href="../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/">Cours du module 07</a></li>
+<li><a href="../../tp/systemes-clients/module-07/">TP et correction</a></li>
+</ul>
 
 
 

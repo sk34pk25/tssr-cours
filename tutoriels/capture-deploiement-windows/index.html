@@ -4567,10 +4567,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#objectif" class="md-nav__link">
+  <a href="#choisir-la-methode-presentee-dans-le-cours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectif
+        Choisir la méthode présentée dans le cours
       
     </span>
   </a>
@@ -4578,10 +4578,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etapes" class="md-nav__link">
+  <a href="#1-preparer-le-master-du-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étapes
+        1. Préparer le master du laboratoire
       
     </span>
   </a>
@@ -4589,10 +4589,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
+  <a href="#2-generaliser-windows-et-arreter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validation
+        2. Généraliser Windows et arrêter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-realiser-le-full-clone-du-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Réaliser le Full Clone du TP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparer-puis-valider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comparer puis valider
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-situer-la-capture-dimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Situer la capture d’image
       
     </span>
   </a>
@@ -13319,10 +13352,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#objectif" class="md-nav__link">
+  <a href="#choisir-la-methode-presentee-dans-le-cours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectif
+        Choisir la méthode présentée dans le cours
       
     </span>
   </a>
@@ -13330,10 +13363,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#etapes" class="md-nav__link">
+  <a href="#1-preparer-le-master-du-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étapes
+        1. Préparer le master du laboratoire
       
     </span>
   </a>
@@ -13341,10 +13374,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
+  <a href="#2-generaliser-windows-et-arreter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validation
+        2. Généraliser Windows et arrêter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-realiser-le-full-clone-du-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Réaliser le Full Clone du TP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparer-puis-valider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comparer puis valider
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-situer-la-capture-dimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Situer la capture d’image
       
     </span>
   </a>
@@ -13425,35 +13491,106 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">¶</a></h2>
-<p>Préparer un poste de référence, le généraliser, le capturer puis appliquer l’image dans un laboratoire.</p>
-<h2 id="etapes">Étapes<a class="headerlink" href="#etapes" title="Permanent link">¶</a></h2>
+<h2 id="choisir-la-methode-presentee-dans-le-cours">Choisir la méthode présentée dans le cours<a class="headerlink" href="#choisir-la-methode-presentee-dans-le-cours" title="Permanent link">¶</a></h2>
+<p>Le module 12 présente l’industrialisation d’un poste : préparer un <strong>master</strong>, généraliser Windows, puis reproduire cet état. Son TP met en œuvre un <strong>Full Clone VMware</strong>. Les images WIM, WinPE, DISM et WDS sont des notions du support, mais leur procédure détaillée n’est pas fournie dans ce TP.</p>
+<p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
+<div class="mermaid">flowchart TD
+    A["Préparer le master"] --&gt; B["Sysprep : OOBE, généralisation, arrêt"]
+    B --&gt; C["Conserver le master arrêté"]
+    C --&gt; D["TP du cours : Full Clone VMware"]
+    C --&gt; E["Autre méthode du support : capture WIM"]
+    D --&gt; F["Premier démarrage et contrôles"]
+    E --&gt; G["Déploiement avec l’outillage prévu"]
+    G --&gt; F</div>
+<h2 id="1-preparer-le-master-du-laboratoire">1. Préparer le master du laboratoire<a class="headerlink" href="#1-preparer-le-master-du-laboratoire" title="Permanent link">¶</a></h2>
 <ol>
-<li>Installer et mettre à jour le poste de référence.</li>
-<li>Installer uniquement les applications validées.</li>
-<li>Nettoyer les données propres à l’utilisateur et créer un instantané.</li>
-<li>Généraliser et arrêter :</li>
+<li>Revenir à l’état prévu par le scénario ; noter son nom et son instantané.</li>
+<li>Ouvrir la session administrative demandée.</li>
+<li>Effectuer le nettoyage des comptes et profils prévu dans l’énoncé et la correction, sans l’étendre à une autre machine.</li>
+<li>Relever les disques, volumes, ressources, réseau, comptes et pilotes qui serviront à la comparaison finale.</li>
 </ol>
+<p>La suppression de profils utilisée dans le TP est une préparation du master de laboratoire, pas une opération à reproduire sur un poste personnel.</p>
+<h2 id="2-generaliser-windows-et-arreter">2. Généraliser Windows et arrêter<a class="headerlink" href="#2-generaliser-windows-et-arreter" title="Permanent link">¶</a></h2>
+<p>Dans le répertoire <code>C:\Windows\System32\Sysprep</code>, lancer Sysprep avec les options du support : OOBE, Généraliser et Arrêter. L’équivalent en ligne de commande est :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
 </span></code></pre></div>
+<p>Si l’opération échoue, examiner les journaux du sous-répertoire <code>Panther</code> avant une nouvelle tentative. Après réussite, <strong>ne pas redémarrer le master avant capture ou clonage</strong>.</p>
+<h2 id="3-realiser-le-full-clone-du-tp">3. Réaliser le Full Clone du TP<a class="headerlink" href="#3-realiser-le-full-clone-du-tp" title="Permanent link">¶</a></h2>
 <ol>
-<li>Ne pas redémarrer le master avant la capture.</li>
-<li>Démarrer dans WinPE ou via PXE.</li>
-<li>Capturer l’image WIM avec l’outil prévu par l’atelier.</li>
-<li>Préparer le disque cible, appliquer l’image et recréer les fichiers de démarrage.</li>
-<li>Démarrer, parcourir l’OOBE et vérifier pilotes, activation, identité et réseau.</li>
+<li>Utiliser VMware Workstation pour créer le clone demandé à partir de l’état préparé.</li>
+<li>Choisir <strong>Full Clone</strong>, selon le déroulé exact du TP.</li>
+<li>Conserver le nom <code>Win10-XX-Clone</code> et les autres repères du scénario.</li>
+<li>Démarrer le clone et réaliser sa configuration initiale.</li>
 </ol>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>DiskPart et DISM peuvent effacer ou remplacer un système. Toujours identifier le disque par sa taille et son numéro, puis tester sur une VM jetable.</p>
-</div>
-<h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Le master est généralisé et arrêté.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> L’image est stockée hors du poste master.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Le poste déployé reçoit une identité propre.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Les pilotes et applications fonctionnent.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> Le journal de déploiement est archivé.</li>
+<p>Le clone démarre pour créer son identité et ses paramètres. Ne pas confondre cette étape avec le redémarrage du master avant clonage.</p>
+<h2 id="4-comparer-puis-valider">4. Comparer puis valider<a class="headerlink" href="#4-comparer-puis-valider" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Question à résoudre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identité</td>
+<td>Le clone possède-t-il son propre nom de machine ?</td>
+</tr>
+<tr>
+<td>Ressources</td>
+<td>Disques, volumes et mémoire correspondent-ils à l’état cloné ?</td>
+</tr>
+<tr>
+<td>Réseau</td>
+<td>Quels paramètres sont conservés ou recréés ? L’adresse est-elle fixe ou fournie par DHCP ?</td>
+</tr>
+<tr>
+<td>Comptes et profils</td>
+<td>Quels comptes et profils sont réellement présents après OOBE ?</td>
+</tr>
+<tr>
+<td>Pilotes</td>
+<td>Le pilote étudié dans le scénario est-il toujours installé ?</td>
+</tr>
+<tr>
+<td>Récupération et pare-feu</td>
+<td>Que sont devenus protection du système, points de restauration et règle ICMP ?</td>
+</tr>
+</tbody>
+</table>
+<p>Les nombres et valeurs du corrigé décrivent son laboratoire. Noter les résultats de la VM utilisée et expliquer les différences au lieu de les remplacer par les valeurs de la capture.</p>
+<h2 id="5-situer-la-capture-dimage">5. Situer la capture d’image<a class="headerlink" href="#5-situer-la-capture-dimage" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Outil du support</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WinPE</td>
+<td>Environnement léger de préparation et de déploiement.</td>
+</tr>
+<tr>
+<td>DISM</td>
+<td>Maintenance d’images ; capture et application d’une image selon le scénario.</td>
+</tr>
+<tr>
+<td>WIM</td>
+<td>Format d’image Windows.</td>
+</tr>
+<tr>
+<td>WDS / PXE</td>
+<td>Déploiement réseau et amorçage d’un environnement adapté.</td>
+</tr>
+</tbody>
+</table>
+<p>Ces notions ne constituent pas une procédure WIM complète. Utiliser un atelier dédié lorsqu’une capture ou un déploiement manuel est demandé.</p>
+<ul>
+<li><a href="../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/">Cours original et cours optimisé M12</a></li>
+<li><a href="../../tp/systemes-clients/module-12/enonces/">Énoncé du TP</a></li>
+<li><a href="../../tp/systemes-clients/module-12/corrections/">Correction du TP</a></li>
 </ul>
 
 

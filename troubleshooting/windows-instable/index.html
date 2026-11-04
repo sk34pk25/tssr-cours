@@ -12924,6 +12924,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows instable
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -12940,6 +12958,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#partir-dun-symptome-observable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partir d’un symptôme observable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choisir-loutil-qui-repond-a-la-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choisir l’outil qui répond à la question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agir-puis-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agir puis tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restauration-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restauration du système
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-systeme-complement-externe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fichiers système — complément externe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13242,6 +13334,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#partir-dun-symptome-observable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partir d’un symptôme observable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choisir-loutil-qui-repond-a-la-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choisir l’outil qui répond à la question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agir-puis-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agir puis tester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restauration-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restauration du système
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fichiers-systeme-complement-externe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fichiers système — complément externe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13314,24 +13469,73 @@
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<h2 id="partir-dun-symptome-observable">Partir d’un symptôme observable<a class="headerlink" href="#partir-dun-symptome-observable" title="Permanent link">¶</a></h2>
+<p>Noter le symptôme, son heure, le compte concerné et le changement récent : installation, pilote, mise à jour ou réglage. Le module 10 distingue l’observation en temps réel, l’historique et les outils automatiques de diagnostic.</p>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
-<div class="mermaid">flowchart LR
-    A["Symptôme horodaté"] --&gt; B["Événements et fiabilité"] --&gt; C["Changement récent&lt;br/&gt;pilote · mise à jour · logiciel"] --&gt; D["Réparation ciblée"] --&gt; E["Test et documentation"]</div>
-<p class="tssr-caption">Corréler le symptôme avec l’heure et le changement observé évite de lancer des réparations générales sans hypothèse.</p>
-
+<div class="mermaid">flowchart TD
+    A["Symptôme et heure"] --&gt; B["Observer la ressource et les événements"]
+    B --&gt; C["Formuler une hypothèse"]
+    C --&gt; D["Une action ciblée avec possibilité de retour"]
+    D --&gt; E["Rejouer le test initial"]
+    E --&gt; F["Documenter cause, action et résultat"]</div>
+<h2 id="choisir-loutil-qui-repond-a-la-question">Choisir l’outil qui répond à la question<a class="headerlink" href="#choisir-loutil-qui-repond-a-la-question" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Outil du cours</th>
+<th>Preuve à conserver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quel processus consomme maintenant ?</td>
+<td>Gestionnaire des tâches, Moniteur de ressources</td>
+<td>Processus, ressource et intervalle observés.</td>
+</tr>
+<tr>
+<td>Que s’est-il passé à l’heure du défaut ?</td>
+<td>Observateur d’événements</td>
+<td>Journal, heure, identifiant et message utiles.</td>
+</tr>
+<tr>
+<td>Le défaut se répète-t-il après un changement ?</td>
+<td>Historique de fiabilité</td>
+<td>Chronologie des incidents et installations.</td>
+</tr>
+<tr>
+<td>Faut-il mesurer sur une durée ?</td>
+<td>Analyseur de performances</td>
+<td>Compteurs choisis et période de collecte.</td>
+</tr>
+<tr>
+<td>Le système ne démarre plus normalement ?</td>
+<td>WinRE et options de démarrage</td>
+<td>Option utilisée et résultat, sans multiplier les changements.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agir-puis-tester">Agir puis tester<a class="headerlink" href="#agir-puis-tester" title="Permanent link">¶</a></h2>
 <ol>
-<li>Noter l’heure et le symptôme précis.</li>
-<li>Consulter Observateur d’événements et Moniteur de fiabilité.</li>
-<li>Vérifier espace disque, mises à jour et pilotes récents.</li>
-<li>Tester les fichiers système dans une console administrateur :</li>
+<li>Confronter le symptôme à la ressource et aux événements, sans attribuer la panne au premier message rencontré.</li>
+<li>Identifier une action correspondant à l’hypothèse : vérifier un pilote, un service, l’espace disponible ou une modification récente.</li>
+<li>Prévoir le retour à l’état précédent dans le laboratoire.</li>
+<li>Effectuer une action à la fois.</li>
+<li>Rejouer le test qui reproduisait le défaut et conserver les observations.</li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DISM /Online /Cleanup-Image /RestoreHealth
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sfc /scannow
+<h2 id="restauration-du-systeme">Restauration du système<a class="headerlink" href="#restauration-du-systeme" title="Permanent link">¶</a></h2>
+<p>Vérifier la protection du volume et le point disponible avant de choisir la restauration. Un point de restauration concerne le système et certains programmes ; il ne constitue pas une sauvegarde des fichiers personnels. Après récupération, comparer le système, les applications et les données, comme dans le TP.</p>
+<h2 id="fichiers-systeme-complement-externe">Fichiers système — complément externe<a class="headerlink" href="#fichiers-systeme-complement-externe" title="Permanent link">¶</a></h2>
+<p>Lorsque les observations indiquent une corruption de composants Windows, la documentation Microsoft décrit DISM et SFC. Ces commandes complètent le support et ne constituent pas une réponse automatique à toute lenteur :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DISM /Online /Cleanup-Image /ScanHealth
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>DISM /Online /Cleanup-Image /RestoreHealth
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sfc /scannow
 </span></code></pre></div>
-<ol>
-<li>Utiliser un point de restauration uniquement après avoir évalué les changements qui seront annulés.</li>
-<li>Vérifier le retour à un état stable et documenter la cause.</li>
-</ol>
+<p>Lire le résultat et les journaux ; une réparation peut nécessiter une source adaptée. <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image">Référence externe Microsoft : réparer une image Windows</a>.</p>
+<ul>
+<li><a href="../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme/">Cours original et optimisé M10</a></li>
+<li><a href="../../tp/systemes-clients/module-10/">TP de maintenance et correction</a></li>
+</ul>
 
 
 
