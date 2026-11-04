@@ -41,17 +41,31 @@ Les adresses, noms et résultats observés dans le TP sont propres à son enviro
 - Utiliser la console avancée pour consulter et activer la règle entrante ICMPv4 prévue.
 - Tester ensuite la communication entre les postes indiqués par le TP.
 
-## Contrôles de maîtrise
-
-- [ ] Je peux expliquer quand une destination est transmise à la passerelle.
-- [ ] Je sais relever les paramètres d’une interface avec `ipconfig /all`.
-- [ ] Je distingue un test de connectivité, un chemin réseau et une résolution DNS.
-- [ ] Je sais relier le profil réseau aux règles du pare-feu Windows.
-- [ ] Je contrôle une règle ICMPv4 par un test effectué dans le laboratoire prévu.
 
 Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md) et [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-07-la-gestion-du-reseau-et-du-pare-feu.md).
 
 ## Source et provenance
 
-- **Sources A — TSSR Drive live :** support, énoncé et correction M07.
+- **Sources A — supports TSSR :** support, énoncé et correction M07.
 - **Structuration B :** synthèse pédagogique limitée aux notions et contrôles attestés par ces sources.
+
+## Retenir puis vérifier
+
+**Distinguer adressage, routage, résolution de noms et filtrage avant de modifier la configuration.**
+
+1. **Que signifie une adresse 169.254.x.x dans le scénario ?**
+
+??? success "Réponse expliquée"
+    L’auto-configuration APIPA ; vérifier la disponibilité de DHCP et la connexion de la carte.
+
+2. **Un ping sans réponse prouve-t-il que le poste est arrêté ?**
+
+??? success "Réponse expliquée"
+    Non. ICMP peut être filtré ; vérifier le profil et les règles du pare-feu ainsi que la connectivité.
+
+3. **IP distante joignable mais nom impossible à résoudre : quelle piste ?**
+
+??? success "Réponse expliquée"
+    La résolution DNS ; consulter les serveurs configurés et tester avec nslookup.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md) · [Mettre en pratique](../../tp/systemes-clients/module-07/index.md)

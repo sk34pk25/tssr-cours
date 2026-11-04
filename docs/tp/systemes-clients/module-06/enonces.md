@@ -7,7 +7,7 @@ Le TP demande de manipuler les autorisations d’accès de dossiers disponibles 
 **Durée estimée :** 1 heure.
 
 !!! warning "Ressources du scénario"
-    Les VM et volumes utilisés dans le TP sont des ressources de laboratoire. Ils ne sont pas fournis dans le dossier Drive M06 live ; utilisez les ressources données par le formateur.
+    Les VM et volumes utilisés dans le TP sont des ressources de laboratoire. Ils ne sont pas fournis dans le dossier des sources du module ; utilisez les ressources données par le formateur.
 
 ## 1. Préparer les groupes du scénario
 
@@ -48,3 +48,9 @@ Pour chaque répertoire concerné, vérifiez le résultat avec les utilisateurs 
 Conservez les relevés d’autorisations, les résultats des tests d’accès et les réponses aux deux questions PowerShell. Vérifiez que chaque résultat correspond à la consigne avant de consulter la [correction](corrections.md).
 
 La [correction commentée](corrections.md) est séparée de cet énoncé : elle ne doit être utilisée qu’après la tentative.
+
+## Vérification de l’atelier
+
+- [ ] Lecture, écriture et modification des ACL sont testées séparément.
+- [ ] Les droits hérités et explicites sont distingués.
+- [ ] Accès effectif et test réel avec le compte concerné concordent.

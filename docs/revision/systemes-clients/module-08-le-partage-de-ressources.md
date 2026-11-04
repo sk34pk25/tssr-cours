@@ -41,3 +41,24 @@ Pour approfondir : [cours](../../modules/02-systemes-clients-microsoft/module-08
 
 - **A — sources originales :** support, énoncé et correction M08 TSSR.
 - **B — structuration pédagogique :** organisation et formulation de cette fiche.
+
+## Retenir puis vérifier
+
+**Un accès réseau à un dossier doit franchir les autorisations du partage et celles de NTFS.**
+
+1. **Lecture sur le partage et Modification en NTFS permettent-elles d’écrire à distance ?**
+
+??? success "Réponse expliquée"
+    Non. Les deux niveaux doivent autoriser l’action ; le partage limite ici l’accès à Lecture.
+
+2. **À quoi ressemble un chemin UNC ?**
+
+??? success "Réponse expliquée"
+    `\\serveur\partage` : il désigne un hôte et un nom de partage.
+
+3. **Que vérifier avant une connexion RDP ?**
+
+??? success "Réponse expliquée"
+    Fonction activée sur la cible, compte autorisé, réseau et pare-feu ; tester avec l’identité prévue.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md) · [Mettre en pratique](../../tp/systemes-clients/module-08/index.md)

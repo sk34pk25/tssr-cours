@@ -1,61 +1,72 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Maintenance du systŠme.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}.tssr-source-glyph{display:inline!important;height:1.2em!important;width:auto!important;vertical-align:middle}</style></head><body><h1>Enonc‚ du TP - Maintenance du systŠme</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes Clients Microsoft<br>Maintenance du système</h4>
-<p class="tssr-source-paragraph">TP du Module 10 – La maintenance du système </p>
-<p class="tssr-source-paragraph">Lors de ce TP, vous serez amené à découvrir les tableaux de bord de diagnostics, en <br>temps réel et sur un historique. Vous observerez le comportement de votre système en <br>état de marche. Vous réaliserez un point de restauration et vous observerez les <br>conséquences d&#x27;une restauration à l&#x27;aide de WinRE.</p>
-<p class="tssr-source-paragraph">Durée estimée</p>
-<p class="tssr-source-paragraph">1 heure 30 minutes</p>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enonc‚ du TP - Maintenance du systŠme</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3{color:#204b80;line-height:1.3}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body>
+<h1>Enonc‚ du TP - Maintenance du systŠme</h1>
+<p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les compléments pédagogiques figurent dans leur onglet distinct.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Maintenance du système</h3>
+<p>TP du Module 10 — La maintenance du système. <strong>Durée estimée : 1 heure 30 minutes.</strong></p>
+<p>Lors de ce TP, vous serez amené à découvrir les tableaux de bord de diagnostics, en temps réel et sur un historique. Vous observerez le comportement de votre système en état de marche. Vous réaliserez un point de restauration et vous observerez les conséquences d’une restauration à l’aide de WinRE.</p>
 <h4>Énoncé</h4>
-<p class="tssr-source-paragraph">Lisez l&#x27;ensemble de ce TP avant de vous lancer dans la pratique</p>
-<p class="tssr-source-paragraph">Sur Win10-XX</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Affichez et analysez les problèmes majeurs survenus sur votre système :</p>
-<pre class="tssr-source-code">o
-Depuis le démarrage de votre VM et de manière synthétique</pre>
-<pre class="tssr-source-code">o
-De manière détaillée sur le dernier évènement critique
- 
-  (au cas où aucun
-évènement critique n&#x27;est survenu depuis le début du module, procédez à un
-arrêt brutal de votre VM WorkStation : PowerOFF)</pre>
-<p class="tssr-source-paragraph">Analyse en temps réel</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Lancez plusieurs tâches : copiez un gros fichier disponible sur les ressources à<br>télécharger, démarrez les applications console PowerShell, Gestionnaire des tâches,<br>Edge… </p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Avec les outils adaptés et en temps réel, recherchez les processus qui consomment le<br>plus de performances sur les 4 composants principaux.</p>
-<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
+<p>Lisez l’ensemble de ce TP avant de vous lancer dans la pratique.</p>
+<p>Sur <strong>Win10-XX</strong>, affichez et analysez les problèmes majeurs survenus sur votre système :</p>
+<ul>
+<li>depuis le démarrage de votre VM et de manière synthétique ;</li>
+<li>de manière détaillée sur le dernier évènement critique. Au cas où aucun évènement critique n’est survenu depuis le début du module, procédez à un arrêt brutal de votre VM WorkStation : <strong>PowerOFF</strong>.</li>
+</ul>
+<h4>Analyse en temps réel</h4>
+<ul>
+<li>Lancez plusieurs tâches : copiez un gros fichier disponible sur les ressources à télécharger, démarrez les applications console PowerShell, Gestionnaire des tâches, Edge…</li>
+<li>Avec les outils adaptés et en temps réel, recherchez les processus qui consomment le plus de performances sur les quatre composants principaux.</li>
+</ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Remplissez le tableau suivant, indiquez les ressources utilisées lors du traitement des<br>différentes tâches en cours </p>
-<p class="tssr-source-paragraph">Ressources</p>
-<p class="tssr-source-paragraph">Processeurs</p>
-<p class="tssr-source-paragraph">Mémoire</p>
-<p class="tssr-source-paragraph">Réseau</p>
-<p class="tssr-source-paragraph">Disque dur</p>
-<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
+<section class="tssr-transcribed-page" id="page-2">
+<h3>Analyse en temps réel — relevé</h3>
+<p>Remplissez le tableau suivant ; indiquez les ressources utilisées lors du traitement des différentes tâches en cours.</p>
+<table>
+<thead>
+<tr>
+<th>Ressources</th>
+<th>Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processeurs</td>
+<td>À compléter.</td>
+</tr>
+<tr>
+<td>Mémoire</td>
+<td>À compléter.</td>
+</tr>
+<tr>
+<td>Réseau</td>
+<td>À compléter.</td>
+</tr>
+<tr>
+<td>Disque dur</td>
+<td>À compléter.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft</p>
-<p class="tssr-source-paragraph">Sauvegarde de l&#x27;état du système et des données</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Préparation :</p>
-<pre class="tssr-source-code">o
-Vérifiez la configuration de la Protection du système</pre>
-<pre class="tssr-source-code">o
-Vérifiez les points de restauration disponibles</pre>
-<pre class="tssr-source-code">o
-Créez si nécessaire un point de restauration manuel</pre>
-<pre class="tssr-source-code">o
-Créez des fichiers dans le répertoire &quot;Documents&quot; de l&#x27;utilisateur en cours
-d&#x27;utilisation</pre>
-<pre class="tssr-source-code">o
-Désactivez ou désinstallez des fonctionnalités Windows de votre système
-(Lecteur Windows Media, IE11)</pre>
-<p class="tssr-source-paragraph">Restauration du système</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>À l&#x27;aide de WinRE, vous restaurez l&#x27;état du système grâce au dernier point de<br>restauration disponible puis démarrez Windows normalement.</p>
-<p class="tssr-source-paragraph"><img class="tssr-source-glyph" data-source-codepoint="f0b7" src="../glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp" alt="Symbole du support" title="Symbole original du support"><br>Retrouvez-vous les fichiers dans le dossier &quot;Documents&quot; du dernier utilisateur ? Pouvez-<br>vous lancer IE11 ? Le lecteur Windows Media ? Pourquoi ?</p>
-<h4>Solution</h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
-<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-3">
+<h3>Sauvegarde de l’état du système et des données</h3>
+<p>Préparation :</p>
+<ol>
+<li>Vérifiez la configuration de la <strong>Protection du système</strong>.</li>
+<li>Vérifiez les points de restauration disponibles.</li>
+<li>Créez si nécessaire un point de restauration manuel.</li>
+<li>Créez des fichiers dans le répertoire <strong>Documents</strong> de l’utilisateur en cours d’utilisation.</li>
+<li>Désactivez ou désinstallez des fonctionnalités Windows de votre système : Lecteur Windows Media, IE11.</li>
+</ol>
+<h3>Restauration du système</h3>
+<ul>
+<li>À l’aide de WinRE, vous restaurez l’état du système grâce au dernier point de restauration disponible puis démarrez Windows normalement.</li>
+<li>Retrouvez-vous les fichiers dans le dossier <strong>Documents</strong> du dernier utilisateur ? Pouvez-vous lancer IE11 ? Le lecteur Windows Media ? Pourquoi ?</li>
+</ul>
+<h3>Solution</h3>
+<p>Une solution est proposée pour ce TP sous la forme d’un PDF commenté, disponible dans les ressources à télécharger.</p>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

@@ -40,3 +40,24 @@ Le support cite la pause, les snapshots, le clonage, les dossiers partagés et l
 
 - [Cours Workstation](../../modules/02-systemes-clients-microsoft/module-additionnel-workstation.md)
 - [Kahoot Workstation](../../kahoot/02-systemes-clients-microsoft-additionnel-workstation.md)
+
+## Retenir puis vérifier
+
+**Une VM dispose de son propre système invité, mais partage les ressources physiques de l’hôte.**
+
+1. **NAT, Bridge et Host-Only donnent-ils le même réseau ?**
+
+??? success "Réponse expliquée"
+    Non : NAT traduit les accès sortants, Bridge place la VM sur le réseau physique, Host-Only la relie au réseau privé de l’hôte.
+
+2. **Snapshot et copie complète de VM sont-ils équivalents ?**
+
+??? success "Réponse expliquée"
+    Non. Le snapshot est un point de retour lié à la VM ; la copie ou l’export transporte les fichiers et la configuration selon la méthode choisie.
+
+3. **Comment rendre clavier et souris à l’hôte ?**
+
+??? success "Réponse expliquée"
+    Avec Ctrl + Alt ; Ctrl + Alt + Inser transmet la combinaison de sécurité à l’invité dans Workstation.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-additionnel-workstation.md)

@@ -36,3 +36,9 @@ Ajoutez l'Éditeur d'objets de stratégie de groupe pour l'utilisateur **Romain*
 ## 4. Vérifications
 
 Ouvrez une session avec chaque compte concerné et notez les comportements observés. Les vérifications portent sur la politique de mot de passe, les paramètres accessibles, la barre des tâches, le fond d'écran lorsque la ressource est disponible et le Gestionnaire des tâches.
+
+## Vérification de l’atelier
+
+- [ ] Le bon objet local est choisi dans MMC.
+- [ ] Les paramètres sont testés avec le compte visé.
+- [ ] Les paramètres de laboratoire ne sont pas appliqués à un poste de travail personnel.

@@ -1,105 +1,177 @@
 # Module 10 — La maintenance du système
 
 **Séquence :** Systèmes clients Microsoft  
-**Objectif :** observer l'état d'un système Windows, interpréter les indices proposés par les outils du module et restaurer un état système dans le périmètre du laboratoire.
+**Fil conducteur :** observer, comprendre, puis restaurer un état système dans la VM du laboratoire.
 
-## Objectifs pédagogiques
+## Objectifs
 
-À l'issue de ce module, vous devez pouvoir :
+- Distinguer un problème de performances d’un problème de fiabilité.
+- Choisir un outil pour analyser le présent, l’historique ou lancer un diagnostic.
+- Activer la protection système et créer un point de restauration.
+- Accéder à WinRE et interpréter les conséquences d’une restauration.
 
-- utiliser les outils de diagnostic système présentés dans le support ;
-- distinguer l'analyse en temps réel, l'analyse historique et le diagnostic automatique ;
-- activer et gérer un point de restauration système ;
-- utiliser WinRE pour récupérer un système défaillant dans le scénario étudié.
+## 1. Les deux questions de la maintenance
 
-## Diagnostiquer performances et fiabilité
+| Question | Ce qu’il faut rechercher |
+|---|---|
+| **Performances :** le système peut-il réaliser les tâches ? | Les ressources **processeur, mémoire, disque et réseau**, surveillées en priorité. |
+| **Fiabilité :** le comportement est-il celui attendu ? | Les anomalies au démarrage, au lancement des services ou des applications. |
 
-Le support relie la maintenance à deux questions complémentaires :
+Un ralentissement observé maintenant et un évènement critique survenu hier ne se recherchent pas de la même façon. Le cours distingue donc trois méthodes : **temps réel**, **historique** et **diagnostic automatique**.
 
-- **performances** : le système peut-il réaliser les tâches demandées ?
-- **fiabilité** : le système se comporte-t-il comme attendu au démarrage, lors du lancement des services ou des applications ?
+## 2. Choisir le bon outil
 
-Les quatre ressources observées en priorité sont le **processeur**, la **mémoire**, le **disque** et le **réseau**. Les valeurs relevées varient avec le matériel et la charge du laboratoire : elles sont des observations, non des résultats permanents à reproduire.
+| Méthode | Outil du support | Informations apportées |
+|---|---|---|
+| Temps réel | Gestionnaire des tâches | Processus, services, performances du processeur et de la mémoire. |
+| Temps réel | Moniteur de ressources | Vue détaillée des quatre composants principaux. |
+| Temps réel ou historique | Observateur d’évènements | Évènements enregistrés par Windows et conservés dans des journaux. Le support mentionne des fichiers de 20 Mo par défaut. |
+| Temps réel ou historique | Analyseur de performances | Compteurs ; collecte planifiée dans des plages horaires pour une analyse a posteriori. |
+| Historique | Historique de fiabilité | Vue synthétique de l’état de santé du système dans le temps. |
+| Automatique | Diagnostic de mémoire Windows | Redémarrage, puis tests de la mémoire physique. |
+| Automatique | Résolution des problèmes | Packs intégrés orientés utilisateur ; le support indique que la solution appliquée n’est pas nécessairement détaillée. |
 
-### Trois approches présentées
+La finalité est de recueillir des **indices**, puis de chercher une explication avec l’aide Windows, les ressources techniques, les blogs spécialisés ou un moteur de recherche. Une mesure seule ne constitue pas un diagnostic.
 
-| Approche | Finalité et outils cités dans le support |
-| --- | --- |
-| Analyse en temps réel | Observer ce qui se produit maintenant avec le Gestionnaire des tâches, l'Observateur d'évènements, le Moniteur de ressources et l'Analyseur de performances. |
-| Analyse historique | Comprendre ce qui s'est produit avec l'Historique de fiabilité, les journaux de l'Observateur d'évènements et des compteurs planifiés dans l'Analyseur de performances. |
-| Diagnostic automatique | Lancer les diagnostics proposés par Windows, tels que le diagnostic de mémoire ou les packs de résolution de problèmes. Le support précise que ces outils ne détaillent pas nécessairement la solution appliquée. |
+**Illustration IA / externe au cours — démarche d’investigation.**
 
-### Outils à reconnaître
+```mermaid
+flowchart TD
+    A["Symptôme observé"] --> B{"Quand ?"}
+    B -->|"Maintenant"| C["Tâches et ressources"]
+    B -->|"Dans le passé"| D["Fiabilité, évènements et compteurs"]
+    C --> E["Indices et hypothèse"]
+    D --> E
+    E --> F["Diagnostic, réparation ou restauration adaptée"]
+    F --> G["Contrôle du résultat"]
+```
 
-- **Gestionnaire des tâches** : processus, services, performances du processeur et de la mémoire.
-- **Observateur d'évènements** : évènements mémorisés par le système, utilisables en temps réel ou dans les journaux historiques.
-- **Moniteur de ressources** : vue détaillée des quatre composants principaux.
-- **Analyseur de performances** : compteurs de performance et planification de collectes pour une analyse a posteriori.
-- **Historique de fiabilité** : vue synthétique de l'état de santé du système dans le temps.
+## 3. Les points de restauration système
 
-Dans le TP, l'Historique de fiabilité sert à repérer un évènement critique récent ; le Gestionnaire des tâches et le Moniteur de ressources servent à observer une charge créée dans le laboratoire. Les mesures dépendent des tâches lancées et de la machine réellement utilisée.
+Le point de restauration mémorise un **état du système**. Le support le compare à un journal de modifications : il permet de revenir à un état antérieur plus rapidement qu’une restauration complète.
 
-## Points de restauration système
+| Il protège dans le support | Il ne remplace pas |
+|---|---|
+| Registre, certains fichiers système et programmes | Une sauvegarde des données utilisateur. |
 
-Un point de restauration enregistre des modifications du système afin de proposer un retour à un état antérieur. Le support indique qu'il protège notamment le registre, certains fichiers système et les programmes ; il **ne sauvegarde pas les données utilisateur**.
+La protection s’active **par lecteur**. Le support la présente comme désactivée par défaut ; il faut vérifier l’état réel du volume avant de compter sur un point disponible. L’espace de stockage des points est protégé et géré selon une logique FIFO : les plus anciens sont évincés quand l’espace doit être réutilisé.
 
-La protection système est activée par volume. Le support la présente comme désactivée par défaut, avec un espace protégé consacré au stockage des points selon une méthode FIFO. Des points peuvent être créés automatiquement lors d'évènements importants, chaque jour ou manuellement.
+Les créations citées sont quotidiennes, liées à un évènement important (installation de pilote, désinstallation de logiciel…) ou manuelles. L’outil se rejoint avec :
 
-### Rôle de `sysdm.cpl`
+```text
+sysdm.cpl
+```
 
-Dans la correction du TP, `sysdm.cpl` ouvre les propriétés système permettant d'accéder à l'onglet **Protection du système**, de sélectionner le volume système, d'activer la protection et de créer un point manuel. Les pourcentages, noms de points et chemins utilisés dans le laboratoire restent propres au scénario source.
+### Créer le point du TP
 
-## Récupérer avec WinRE
+1. Ouvrir **Protection du système** dans les propriétés système.
+2. Sélectionner **Disque local (C:) (Système)**, puis **Configurer**.
+3. Activer la protection du système.
+4. Le scénario réserve environ **5 %** du disque aux points ; appliquer puis valider.
+5. Cliquer sur **Créer**, puis nommer le point **Atelier13**.
 
-**WinRE** est l'environnement léger de récupération associé au système principal lorsque celui-ci ne démarre plus correctement. Le support lui attribue des outils de diagnostic et de réparation, une possibilité de réinitialisation et des options avancées.
+Le nom Atelier13 appartient à la numérotation de l’atelier source : ce n’est pas une confusion avec le module 13 sur les LGPO.
 
-### Accéder à WinRE
+![Protection du système et espace consacré aux points](../../assets/course-sources/isolated/03eef11a677ef175/g3-p5-1.webp)
 
-Le support présente plusieurs accès :
+*Capture du support — fenêtres de protection du système.*
 
-- depuis le menu Démarrer avec **Maj + Redémarrer** ;
-- en ligne de commande avec `shutdown /r /o` ;
-- depuis les paramètres de récupération ;
-- depuis le support d'installation, par l'option de réparation ;
-- automatiquement après les échecs de démarrage et arrêts imprévus décrits dans le support.
+## 4. Récupérer un système avec WinRE
 
-### Options avancées et démarrage
+**WinRE** est l’environnement léger de récupération associé à Windows. Il dispose d’outils de diagnostic et de réparation lorsque le système principal ne démarre plus correctement ; le support cite aussi la réinitialisation du PC.
 
-Les options avancées citées comprennent la restauration du système par point de restauration, la récupération d'une image système lorsqu'une image valide et son média existent, ainsi qu'une invite de commandes exécutée avec les privilèges adaptés. Le support mentionne aussi les options de démarrage, dont le mode sans échec, la vidéo basse résolution et la désactivation temporaire du contrôle obligatoire des signatures de pilotes.
+### Points d’entrée du support
 
-Au niveau présenté dans le cours, l'outil de redémarrage système peut reconstruire ou réparer un MBR manquant ou corrompu et le magasin BCD. Ces mécanismes sont cités comme fonctions de récupération ; cette page ne fournit pas de procédure de réparation détaillée.
+- Maintenir **Maj** pendant **Redémarrer** dans le menu Démarrer.
+- Lancer `shutdown /r /o`.
+- Dans Windows 10 : **Paramètres > Mise à jour et sécurité > Récupération > Redémarrer maintenant**.
+- Démarrer sur le support d’installation et choisir **Réparer l’ordinateur**.
+- Le support indique le chargement automatique après **deux échecs consécutifs de démarrage**, ou **deux arrêts imprévus dans les deux minutes après le démarrage**.
 
-## Comprendre le résultat d'une restauration
+### Options avancées à distinguer
 
-Dans le scénario source, les fonctionnalités Windows retirées ou désactivées après la création du point réapparaissent après la restauration. Les fichiers créés dans le dossier Documents après la création du point restent présents : cela illustre la limite du point de restauration concernant les données utilisateur.
+| Option | Condition ou objectif |
+|---|---|
+| Restauration du système | Un point de restauration utilisable ; compte administrateur dans le scénario Windows 10. |
+| Récupération de l’image système | Une image valide existante et son média source. |
+| Invite de commandes | Outils de diagnostic ou de réparation avec les privilèges nécessaires. |
+| Paramètres de démarrage | Mode sans échec, vidéo basse résolution ou désactivation temporaire du contrôle des signatures de pilotes. |
+| Outil de redémarrage système | Réparation du démarrage ; le support cite le MBR et le magasin BCD. |
+| Retour à une version précédente | Option historique présentée pour une mise à niveau depuis Windows 7 ou 8.1 ; le support indique qu’elle ne permet pas le retour à la build Windows 10 précédente. |
 
-Cette interprétation doit être vérifiée dans le laboratoire : elle ne transforme pas le point de restauration en sauvegarde de données personnelles.
+!!! info "Complément externe — contexte de version"
+    Les écrans, conditions de retour arrière et demandes d’identification dépendent de la version de Windows et de l’installation. La ligne historique du support n’est pas une règle valable pour toutes les versions. Les entrées WinRE sont décrites dans la [référence Microsoft](https://learn.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
 
-## Contrôles issus du TP
+## 5. TP complet : observer, modifier et restaurer
 
-1. Relever l'état synthétique et un évènement critique dans l'Historique de fiabilité.
-2. Lancer les tâches prévues par le scénario, puis observer processeur, mémoire, réseau et disque avec les outils adaptés.
-3. Vérifier l'état de la protection système et la présence d'un point de restauration avant toute restauration.
-4. Après le passage par WinRE, démarrer Windows normalement et contrôler les éléments demandés par le scénario : fonctionnalités modifiées et données du dossier Documents.
+**Durée source : 1 h 30. Machine : Win10-XX.** Lire l’énoncé avant de commencer.
 
-L'arrêt brutal **PowerOFF** n'est mentionné dans l'énoncé que comme manipulation de scénario lorsqu'aucun évènement critique n'est disponible. Ce n'est pas une procédure générale de maintenance.
+### A. Examiner les évènements passés
 
-## Synthèse
+1. Rechercher **Afficher l’historique de fiabilité**.
+2. Examiner la vue synthétique depuis le démarrage de la VM.
+3. Ouvrir le dernier évènement critique pour en lire le détail.
+4. Dans la capture de correction, l’indice baisse au moment des échecs, puis remonte progressivement les jours suivants.
 
-- La maintenance repose sur des indices observés en temps réel et dans l'historique, pas sur une valeur de performance universelle.
-- Un point de restauration protège un état du système, mais pas les données utilisateur.
-- WinRE fournit un environnement distinct pour diagnostiquer, restaurer ou sélectionner des options de démarrage lorsque le système principal est défaillant.
+!!! warning "Manipulation limitée au scénario"
+    L’énoncé propose **PowerOFF** dans Workstation si aucun évènement critique n’est disponible. C’est une simulation sur la VM du TP ; l’arrêt brutal ne constitue pas une méthode courante de maintenance.
 
-## Pour pratiquer et réviser
+### B. Examiner les ressources en temps réel
 
-- [Présentation du TP](../../tp/systemes-clients/module-10/index.md)
-- [Énoncé du TP](../../tp/systemes-clients/module-10/enonces.md)
-- [Correction du TP](../../tp/systemes-clients/module-10/corrections.md)
+1. Copier un gros fichier des ressources de l’atelier ; ouvrir PowerShell, le Gestionnaire des tâches et Edge.
+2. Avec le Gestionnaire des tâches et le Moniteur de ressources, lire et trier les processus consommateurs.
+3. Relever les ressources **processeur, mémoire, réseau et disque**.
+
+| Ressource | Relevé attendu |
+|---|---|
+| Processeur | Processus consommateur et charge observée. |
+| Mémoire | Processus et consommation observés. |
+| Réseau | Trafic pendant la copie ou l’utilisation des applications. |
+| Disque | Activité pendant les traitements. |
+
+La correction ne donne aucune valeur universelle : les résultats varient avec le matériel et la bande passante. Le texte **[CHEMIN A INDIQUER]** de la correction est un emplacement à adapter au partage du laboratoire.
+
+### C. Préparer la comparaison
+
+1. Vérifier la protection du système et les points existants ; créer **Atelier13** si nécessaire, comme indiqué plus haut.
+2. **Après** la création du point, ajouter dans **Documents** des fichiers et dossiers reconnaissables, par exemple **Rep-Atelier13** et **FicAtelier13.txt**.
+3. Désinstaller **Internet Explorer 11** et **Lecteur Windows Media** par **Paramètres > Gérer les fonctionnalités facultatives**, ou les désactiver par **Panneau de configuration > Programmes > Activer ou désactiver des fonctionnalités Windows**.
+4. La correction indique qu’une réinstallation peut se faire avec **Ajouter une fonctionnalité**. La présence de ces composants reste celle de l’image Windows 10 du TP.
+
+### D. Restaurer puis expliquer
+
+1. Clic droit sur **Démarrer > Arrêter ou se déconnecter**, maintenir **Maj/Shift**, cliquer sur **Redémarrer**.
+2. Dans WinRE : **Dépannage > Options avancées > Restauration du système**.
+3. Choisir le compte administrateur, saisir son mot de passe, puis **Suivant**.
+4. Sélectionner le point voulu, puis **Terminer > Oui**.
+5. Attendre la fin et redémarrer normalement. Contrôler le message de réussite.
+6. Tester les fonctionnalités Windows et retrouver les fichiers de Documents.
+
+| Constat de la correction | Explication |
+|---|---|
+| IE11 et Lecteur Windows Media sont retrouvés. | Leur modification est postérieure au point restauré. |
+| Les fichiers créés ensuite dans Documents restent présents. | La restauration système ne restaure pas les données personnelles à l’état du point. |
+
+## À retenir
+
+Observer avant d’agir ; confronter temps réel et historique ; séparer **état système**, **image système** et **données utilisateur** ; vérifier le résultat après la récupération.
+
+## Mini-quiz
+
+1. Quels sont les quatre composants surveillés en priorité ?
+2. Quels outils permettent une analyse historique ?
+3. Pourquoi un point de restauration ne remplace-t-il pas une sauvegarde de Documents ?
+4. Que faut-il posséder pour utiliser la récupération d’une image système ?
+5. Pourquoi les fonctionnalités réapparaissent-elles alors que les fichiers de Documents ne disparaissent pas ?
+
+??? note "Réponses"
+    1. Processeur, mémoire, disque, réseau.
+    2. Historique de fiabilité, journaux de l’Observateur d’évènements et collectes planifiées de l’Analyseur de performances.
+    3. Il concerne l’état du système, pas une sauvegarde des données utilisateur.
+    4. Une image valide et son média source.
+    5. Le point précède la modification des fonctionnalités ; il ne rétablit pas les données utilisateur dans leur état antérieur.
+
+- [Énoncé du TP](../../tp/systemes-clients/module-10/enonces.md) · [Correction](../../tp/systemes-clients/module-10/corrections.md)
 - [Fiche de révision](../../revision/systemes-clients/module-10-la-maintenance-du-systeme.md)
 - [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-10-la-maintenance-du-systeme.md)
-- [Présentation de la formation](index.md)
-
-## Provenance pédagogique
-
-- **A — Sources TSSR :** support du module 10, énoncé et solution du TP « Maintenance du système » consultés en lecture seule dans Drive.
-- **B — Structuration pédagogique :** réorganisation web des notions et contrôles explicitement présents dans les sources A, sans ajout de procédure externe.
+- [Présentation du cours](index.md)

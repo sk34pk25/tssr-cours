@@ -78,3 +78,14 @@ Les noms de volumes utilisés pour le filtrage appartiennent à la VM Discovery 
 
 !!! warning "Cibler le bon stockage"
     Le formatage, la suppression et l’extension de volumes sont des opérations destructives ou structurantes. Ne réutilisez ni numéros de disque, ni numéros de volume, ni lettres observés dans la solution sans les vérifier dans la VM concernée.
+
+## Vérification de l’atelier
+
+!!! note "Coquille dans une commande du corrigé"
+    Une ligne source regroupe `FileSystem,LabelSize`. Pour afficher la lettre, le nom du volume et sa taille, la reformulation pédagogique est `Get-Volume | Select-Object DriveLetter,FileSystemLabel,Size`. Le texte exact du corrigé reste consultable dans le document original ; `FileSystemLabel` et `Size` sont deux propriétés distinctes.
+
+- [ ] Les volumes portent les tailles, libellés et systèmes de fichiers demandés.
+- [ ] Le chemin GPT ou MBR réellement suivi est identifié.
+- [ ] Après chaque extension, suppression ou recréation, les disques et volumes sont relus.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

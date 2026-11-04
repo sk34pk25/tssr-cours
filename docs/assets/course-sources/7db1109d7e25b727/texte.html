@@ -1,114 +1,117 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 13 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 13 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Systèmes clients Microsoft</h4>
-<p class="tssr-source-paragraph">Module 13 – Les stratégies de groupe local</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Objectifs<br>• Les stratégies de groupe local pour</h4>
-<p class="tssr-source-paragraph">•<br>Personnaliser l’environnement des utilisateurs</p>
-<p class="tssr-source-paragraph">•<br>Personnaliser Windows 10</p>
-<p class="tssr-source-paragraph">•<br>Sécuriser le système</p>
-<p class="tssr-source-paragraph">2</p>
-<p class="tssr-source-paragraph">2</p>
-
-
-
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 13 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3{color:#204b80;line-height:1.3}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body>
+<h1>Module 13 - Support de cours</h1>
+<p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les compléments pédagogiques figurent dans leur onglet distinct.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Les stratégies de groupe local</h3>
+<p>Systèmes clients Microsoft — Module 13.</p>
+<h4>Objectifs</h4>
+<p>Les stratégies de groupe local pour :</p>
+<ul>
+<li>personnaliser l’environnement des utilisateurs ;</li>
+<li>personnaliser Windows 10 ;</li>
+<li>sécuriser le système.</li>
+</ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Les stratégies de groupe local</h4>
-<p class="tssr-source-paragraph">• La base de registre Windows<br>• Base de données hiérarchique et centrale<br>• Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs, <br>programmes et périphériques matériels<br>• Utilisée depuis Windows 98<br>• Contient des milliers de paramètres</p>
-<p class="tssr-source-paragraph">• Lors de son exécution, Windows consulte en permanence les informations contenues dans <br>le Registre</p>
-<p class="tssr-source-paragraph">• Consultation et modification du registre : commande regedit</p>
-<p class="tssr-source-paragraph">• À manipuler avec la plus grande précaution</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Les stratégies de groupe local</h4>
-<p class="tssr-source-paragraph">La base de registre Windows</p>
-<p class="tssr-source-paragraph">• Paramètres regroupés sous 5 catégories (ou ruches)</p>
-<p class="tssr-source-paragraph">HKEY_CLASSES_ROOT<br>Informations sur les applications (objets OLE, extensions)</p>
-<p class="tssr-source-paragraph">HKEY_CURRENT_USER<br>( = HKEY_USERS \ SID )<br>Configuration relative à l&#x27;utilisateur qui a ouvert une session</p>
-<p class="tssr-source-paragraph">HKEY_LOCAL_MACHINE<br>Contient des informations de configuration spécifiques à <br>l&#x27;ordinateur (pour n&#x27;importe quel utilisateur)</p>
-<p class="tssr-source-paragraph">HKEY_USERS<br>Contient tous les profils utilisateur chargés activement sur <br>l&#x27;ordinateur</p>
-<p class="tssr-source-paragraph">HKEY_CURRENT_CONFIG<br>Profil matériel utilisé par l&#x27;ordinateur</p>
-<p class="tssr-source-paragraph">4</p>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Fichier<br>Edition<br>Affichage<br>Favoris<br>?</p><p>Ordinateur</p><p>v<br>™&amp; Ordinateur</p><p>&gt;<br>HKEY_CLASSES_ROOT</p><p>&gt;<br>HKEY_CURRENT_USER</p><p>&gt;<br>HKEY_LOCAL_MACHINE</p><p>&gt;<br>HKEY_USERS</p><p>&gt;<br>HKEY_CURRENT_CONFIG</p></div></details>
-<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>HKEYCLASSESROOT<br>_ _</td><td>Informationssurlesapplications(objetsOLE extensions)<br>,</td></tr><tr><td>HKEYCURRENTUSER<br>( = HKE_Y _USERS \ SID_ )</td><td>Configurationrelativeàl&#x27;utilisateurquiaouvertunesession</td></tr><tr><td>HKEYLOCALMACHINE<br>_ _</td><td>Contientdesinformationsdeconfigurationspécifiquesà<br>l&#x27;ordinateur(pourn&#x27;importequelutilisateur)</td></tr><tr><td>HKEYUSERS<br>_</td><td>Contienttouslesprofilsutilisateurchargésactivementsur<br>l&#x27;ordinateur</td></tr><tr><td>HKEYCURRENTCONFIG<br>_ _</td><td>Profilmatérielutiliséparl&#x27;ordinateur</td></tr></tbody></table></div>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-2">
+<h3>La base de registre Windows</h3>
+<ul>
+<li>Base de données hiérarchique et centrale.</li>
+<li>Stocke toutes les informations de configuration du système pour un ou plusieurs utilisateurs, programmes et périphériques matériels.</li>
+<li>Utilisée depuis Windows 98.</li>
+<li>Contient des milliers de paramètres.</li>
+<li>Lors de son exécution, Windows consulte en permanence les informations contenues dans le Registre.</li>
+<li>Consultation et modification du registre : commande <code>regedit</code>.</li>
+<li>À manipuler avec la plus grande précaution.</li>
+</ul>
+<h4>Cinq catégories (ou ruches)</h4>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Informations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HKEY_CLASSES_ROOT</code></td>
+<td>Informations sur les applications : objets OLE, extensions.</td>
+</tr>
+<tr>
+<td><code>HKEY_CURRENT_USER</code> (<code>HKEY_USERS\SID</code>)</td>
+<td>Configuration relative à l’utilisateur qui a ouvert une session.</td>
+</tr>
+<tr>
+<td><code>HKEY_LOCAL_MACHINE</code></td>
+<td>Informations de configuration spécifiques à l’ordinateur, pour n’importe quel utilisateur.</td>
+</tr>
+<tr>
+<td><code>HKEY_USERS</code></td>
+<td>Tous les profils utilisateur chargés activement sur l’ordinateur.</td>
+</tr>
+<tr>
+<td><code>HKEY_CURRENT_CONFIG</code></td>
+<td>Profil matériel utilisé par l’ordinateur.</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../isolated/7db1109d7e25b727/g3-p2-1.webp" alt="Les cinq catégories affichées dans l’Éditeur du Registre" loading="lazy"><figcaption>Capture du support — Les cinq catégories affichées dans l’Éditeur du Registre.</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Les stratégies de groupe local</h4>
-<p class="tssr-source-paragraph">La base de registre Windows</p>
-<p class="tssr-source-paragraph">• Les ruches contiennent des clés</p>
-<p class="tssr-source-paragraph">• Qui peuvent elles-mêmes contenir des clés…</p>
-<p class="tssr-source-paragraph">• Les clés contiennent des valeurs<br>• Binaires ou hexadécimales<br>• Chaînes de caractères</p>
-<p class="tssr-source-paragraph">• Chaque valeur correspond à un paramètre du système !</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>LGPO</h4>
-<p class="tssr-source-paragraph">• Les LGPO (Local Group Policy Object)<br>• Gérer le comportement du poste de travail et des utilisateurs avec une seule et même console :<br>• Console mmc personnalisée composant logiciel enfichable <br>• Éditeur d&#x27;objets de stratégie de groupe<br>• Console mmc Stratégie de sécurité locale (secpol.msc)<br>• Réduire le temps consacré à la gestion du poste de travail<br>• Agir sur la base de registre de façon plus conviviale</p>
-<p class="tssr-source-paragraph">• Concrètement que peut-on faire par LGPO ?<br>• Modifier les stratégies de mots de passe<br>• Agir sur les privilèges d&#x27;administration du système<br>• Uniformiser l&#x27;aspect du poste de travail (bureau, barre des tâches)<br>• Restreindre l&#x27;accès à certains paramètres (panneau de configuration, ligne de commande)<br>• Démarrer des scripts à l&#x27;ouverture, à la fermeture de session utilisateur</p>
-<p class="tssr-source-paragraph">6</p>
-<p class="tssr-source-paragraph">6</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>VD Ordinateur</p><p>&gt; EL HKEY.CLASSES ROOT<br>\<br>| HKEV_CURRENT._USER<br>&gt;<br>[M<br>appivents</p><p>&gt; El Console<br>3 LI Control Panel<br>Environment</p><p>&gt; [| upc</p><p>&gt; EL Keyboard Layout<br>3 [1 Printers<br>&gt;<br>LI Software</p><p>&gt; Li System<br>&gt; LL Volatil Environment<br>&gt; EI HKEY_LOCAL MACHINE<br>5<br>LL HKEY_USERS<br>&gt;] HKEY_CURRENT_CONFIG</p><p>Nom<br>Type<br>Données</p><p>{ab {(par défaut |<br>REG SZ<br>(valeur non définie)<br>Auto Install<br>REG DWORD<br>0:00000000 (0)<br>#Defaut Attributes<br>REG_DWORD<br>100000200 (512)</p><p>28) Driver Name<br>REG SZ<br>Lexmark XC9200 Series Class Driver<br>Set As Default<br>REG.DWORD<br>100000000 (0)<br>3Shared<br>REG DWORD<br>0:00000000 (0)<br>=)</p><p>3) Use Existing<br>REG_DWORD<br>00000000 (0)</p></div></details>
-
-
-
-
-
-
+<section class="tssr-transcribed-page" id="page-3">
+<h3>La base de registre Windows</h3>
+<ul>
+<li>Les ruches contiennent des clés, qui peuvent elles-mêmes contenir des clés…</li>
+<li>Les clés contiennent des valeurs : binaires ou hexadécimales ; chaînes de caractères.</li>
+<li>Chaque valeur correspond à un paramètre du système.</li>
+</ul>
+<h3>LGPO</h3>
+<p>Les <strong>LGPO (Local Group Policy Object)</strong> :</p>
+<ul>
+<li>gèrent le comportement du poste de travail et des utilisateurs avec une seule et même console : console MMC personnalisée et composant logiciel enfichable Éditeur d’objets de stratégie de groupe ; console MMC Stratégie de sécurité locale (<code>secpol.msc</code>) ;</li>
+<li>réduisent le temps consacré à la gestion du poste de travail ;</li>
+<li>agissent sur la base de registre de façon plus conviviale.</li>
+</ul>
+<h4>Concrètement que peut-on faire par LGPO ?</h4>
+<ul>
+<li>Modifier les stratégies de mots de passe.</li>
+<li>Agir sur les privilèges d’administration du système.</li>
+<li>Uniformiser l’aspect du poste de travail : bureau, barre des tâches.</li>
+<li>Restreindre l’accès à certains paramètres : panneau de configuration, ligne de commande.</li>
+<li>Démarrer des scripts à l’ouverture et à la fermeture de session utilisateur.</li>
+</ul>
+<figure><img src="../isolated/7db1109d7e25b727/g3-p3-2.webp" alt="Clés et sous-clés du registre" loading="lazy"><figcaption>Capture du support — Clés et sous-clés du registre.</figcaption></figure>
+<figure><img src="../isolated/7db1109d7e25b727/g3-p3-3.webp" alt="Nom, type et données des valeurs du registre" loading="lazy"><figcaption>Capture du support — Nom, type et données des valeurs du registre.</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>LGPO</h4>
-<p class="tssr-source-paragraph">• Possibilité d&#x27;agir sur le poste local ou sur un poste distant</p>
-<p class="tssr-source-paragraph">• Possibilité d&#x27;agir sur différents objets de la base SAM</p>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>LGPO</h4>
-<p class="tssr-source-paragraph">Chaque paramètre :</p>
-<p class="tssr-source-paragraph">• Peut être activé ou désactivé</p>
-<p class="tssr-source-paragraph">• Peut être non configuré = comportement par <br>défaut du système</p>
-<p class="tssr-source-paragraph">• Peut être commenté </p>
-<p class="tssr-source-paragraph">• Possède des conditions </p>
-<p class="tssr-source-paragraph">• Peut posséder des options supplémentaires</p>
-<p class="tssr-source-paragraph">• Possède surtout une aide précieuse, lisez-la !</p>
-<p class="tssr-source-paragraph">8</p>
-<p class="tssr-source-paragraph">8</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Stletonner un objet desta de groupe<br>X<br>Rechercher un objet Stratégiede groupe<br>2<br>x</p><p>Aesstrt<br>Stratégie<br>de<br>r<br>ok<br>Sette Seeww<br>Ordinateurs | Utisateurs</p><p>Utisateurs et groupes locaux compatbles avec La stratégie de groupe locale</p><p>Les cb<br>de te de group ae ot che mr<br>Nom<br>I existedes objetsde tr.<br>—<br>Non<br>Ut<br>aden aca parecer otde<br>&amp; DefautAccourt<br>Non<br>BE Georges<br>Non</p><p>romain<br>Non<br>Oh de arte de ovine<br>&amp; Seven<br>Now<br>BE WDAGUy Account<br>Non<br>BY Aéminisrateurs<br>Non<br>{Be Non séminstræteus<br>Non<br>CiAtotera modficaton du consort got<br>Hede rage depauem eleet à<br>par del ine deComa CG ne a<br>at<br>‘vou evegateria conne<br>a<br>SESE<br>tore)<br>[Tamer<br>Annuler<br>env</p><p>1 supprimer Jeux du menu Démaner<br>ao<br>x</p><p>LEA Suprimere in Jumr Dinar<br>——<br>———</p><p>@noncontigué<br>Conmetae<br>Ou<br>Ont<br>isencharger f= Server 2008|</p><p>Windows Vis</p><p>Sica pooreae<br>et<br>me Demarer<br>matte pesteenvi oerJoa</p><p>Si ce pun espe et scie ov<br>ps configu,<br>ica Demand ren deu<br>tat chit ete pre das<br>Parme<br>Cha Man Dower</p><p>env</p></div></details>
-
-
-
-
-
-
+<section class="tssr-transcribed-page" id="page-4">
+<h3>LGPO — cibles et paramètres</h3>
+<ul>
+<li>Possibilité d’agir sur le poste local ou sur un poste distant.</li>
+<li>Possibilité d’agir sur différents objets de la base SAM.</li>
+</ul>
+<h4>Chaque paramètre</h4>
+<ul>
+<li>Peut être activé ou désactivé.</li>
+<li>Peut être non configuré : comportement par défaut du système.</li>
+<li>Peut être commenté.</li>
+<li>Possède des conditions.</li>
+<li>Peut posséder des options supplémentaires.</li>
+<li>Possède surtout une aide précieuse : lisez-la !</li>
+</ul>
+<figure><img src="../isolated/7db1109d7e25b727/g3-p4-4.webp" alt="Sélection d’un ordinateur et d’un objet utilisateur dans la console LGPO" loading="lazy"><figcaption>Capture du support — Sélection d’un ordinateur et d’un objet utilisateur dans la console LGPO.</figcaption></figure>
+<figure><img src="../isolated/7db1109d7e25b727/g3-p4-5.webp" alt="Paramètre LGPO : état, commentaire, conditions, options et aide" loading="lazy"><figcaption>Capture du support — Paramètre LGPO : état, commentaire, conditions, options et aide.</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Démonstration</h4>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>TP</h4>
-<p class="tssr-source-paragraph">10</p>
-<p class="tssr-source-paragraph">10</p>
-
-
-
+<section class="tssr-transcribed-page" id="page-5">
+<h3>Démonstration</h3>
+<h3>TP</h3>
 </section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Les stratégies de groupe local</p>
-<h4>Conclusion</h4>
-<p class="tssr-source-paragraph">• Bien connaître le fonctionnement des stratégies <br>de groupe local pour</p>
-<p class="tssr-source-paragraph">•<br>Découvrir la base de registre</p>
-<p class="tssr-source-paragraph">•<br>Les paramètres utilisateurs</p>
-<p class="tssr-source-paragraph">•<br>Les paramètres ordinateurs</p>
-<p class="tssr-source-paragraph">•<br>Les stratégies de sécurité</p>
-<p class="tssr-source-paragraph">•<br>Se préparer à l’utilisation des stratégies de groupe de domaine</p>
-<p class="tssr-source-paragraph">11</p>
-<p class="tssr-source-paragraph">11</p>
-<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>•</td><td>Bien connaître le fonctionnement des stratégies<br>de groupe local pour</td></tr><tr><td></td><td>• Découvrirlabasederegistre</td></tr><tr><td></td><td>• Lesparamètresutilisateurs</td></tr><tr><td></td><td>• Lesparamètresordinateurs</td></tr><tr><td></td><td>• Lesstratégiesdesécurité</td></tr><tr><td></td><td>• Seprépareràl’utilisationdesstratégiesdegroupededomaine</td></tr><tr><td></td><td>11</td></tr></tbody></table></div>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-6">
+<h3>Conclusion</h3>
+<p>Bien connaître le fonctionnement des stratégies de groupe local pour :</p>
+<ul>
+<li>découvrir la base de registre : paramètres utilisateurs, paramètres ordinateurs, stratégies de sécurité ;</li>
+<li>se préparer à l’utilisation des stratégies de groupe de domaine.</li>
+</ul>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

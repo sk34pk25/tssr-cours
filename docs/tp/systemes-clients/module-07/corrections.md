@@ -88,3 +88,11 @@ Pour le test ICMPv4 :
 4. lancer ensuite le `ping` demandé depuis la VM Discovery vers `Win10-XX`.
 
 Le résultat attendu stable est que la règle activée corresponde au bon profil et que le test soit exécuté entre les deux postes prévus. La réponse réseau elle-même reste dépendante du laboratoire.
+
+## Vérification de l’atelier
+
+- [ ] IP, masque, passerelle, DNS et profil réseau sont relevés.
+- [ ] Connectivité et résolution de noms sont testées séparément.
+- [ ] La règle de pare-feu agit sur le profil et le sens demandés.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

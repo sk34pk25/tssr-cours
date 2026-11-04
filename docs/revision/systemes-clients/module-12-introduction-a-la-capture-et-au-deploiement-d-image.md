@@ -9,7 +9,7 @@
 ## Sysprep
 
 - **OOBE** : expérience de premier démarrage.
-- **Généraliser** : remet à zéro les paramètres personnalisés du master.
+- **Généraliser** : retire des informations propres à l’installation pour qu’elles soient régénérées au déploiement ; cela ne supprime pas indistinctement toutes les personnalisations du master.
 - **Arrêt** : le support demande de ne pas redémarrer le master avant la capture.
 - Journaux : répertoires Panther sous `C:\Windows\System32\Sysprep`.
 
@@ -32,3 +32,24 @@ Le TP réalise un Full Clone VMware après Sysprep, pas une capture WIM ni un d�
 
 - [Cours](../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md)
 - [Kahoot](../../kahoot/02-systemes-clients-microsoft-12-introduction-a-la-capture-et-au-deploiement-d-image.md)
+
+## Retenir puis vérifier
+
+**Préparer et généraliser le master avant capture ou clonage ; tester ensuite l’unicité du poste obtenu.**
+
+1. **Faut-il redémarrer le master généralisé avant la capture ?**
+
+??? success "Réponse expliquée"
+    Non : le support demande de le laisser arrêté et de capturer ou cloner l’état préparé.
+
+2. **Le TP réalise-t-il une capture WIM ?**
+
+??? success "Réponse expliquée"
+    Non. Il réalise un Full Clone VMware ; WIM, WinPE, DISM et WDS sont présentés dans le cours comme autres outils du déploiement.
+
+3. **Un clone est-il validé dès qu’il démarre ?**
+
+??? success "Réponse expliquée"
+    Non. Comparer identité, réseau, comptes, pilotes et règles, puis documenter les différences observées.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image.md) · [Mettre en pratique](../../tp/systemes-clients/module-12/index.md)

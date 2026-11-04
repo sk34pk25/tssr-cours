@@ -66,3 +66,11 @@ Get-Printer -Name "HP LaserJet" | Select Name, Shared, ShareName, PortName, Loca
 ```
 
 Vérifiez que les propriétés demandées sont affichées : nom, partage, nom de partage, port, emplacement et priorité. Les résultats sont dépendants de la configuration de Discovery ; ne les généralisez pas à un autre environnement.
+
+## Vérification de l’atelier
+
+- [ ] Les exports de pilotes sont relus.
+- [ ] Le document imprimé et son orientation sont contrôlés.
+- [ ] L’imprimante partagée et ses propriétés sont vérifiées dans l’environnement réel.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

@@ -1,49 +1,50 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Premiers pas avec PowerShell.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Premiers pas avec PowerShell</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<h4>Premiers pas avec <br>PowerShell </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10 </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">Sur la VM Win10-XX <br> </p>
-<p class="tssr-source-paragraph">Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell  </p>
-<p class="tssr-source-paragraph">• <br>Changez la police et la taille de la police </p>
-<p class="tssr-source-paragraph">• <br>Agrandissez votre fenêtre </p>
-<p class="tssr-source-paragraph">Faire le focus dans la fenêtre puis &quot;CTRL + Scroll souris vers le haut&quot; pour agrandir la taille de <br>la fenêtre et la taille de la police en même temps <br> <br>Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez <br>avec votre système à l&#x27;aide des cmdlets  </p>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Premiers pas avec PowerShell</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem;text-align:left}figure{margin:1rem 0}figcaption{font-size:.85rem;color:#4a596d}</style></head><body><h1>Solution du TP - Premiers pas avec PowerShell</h1><p>Transcription du document de formation. Les paragraphes, listes, tableaux et visuels isolés suivent l’ordre du document ; les aides pédagogiques sont séparées.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
 
-<p class="tssr-source-paragraph">• <br>Quelle version de PowerShell est installée sur votre système ? </p>
-<p class="tssr-source-paragraph">$PSVersionTable </p>
-<p class="tssr-source-paragraph">Ou  </p>
-<p class="tssr-source-paragraph">Get-Host </p>
-
-<p class="tssr-source-paragraph">• <br>Affichez le contenu du répertoire courant  </p>
+<h4>Premiers pas avec PowerShell</h4>
+<p class="tssr-source-paragraph">TP du Module 03 – Interagir avec Windows 10</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">Sur la VM Win10-XX</p>
+<p class="tssr-source-paragraph">Pour une meilleure lisibilité, personnalisez votre fenêtre PowerShell</p>
+<ul><li> Changez la police et la taille de la police</li></ul>
+<ul><li> Agrandissez votre fenêtre</li></ul>
+<p class="tssr-source-paragraph">Faire le focus dans la fenêtre puis "CTRL + Scroll souris vers le haut" pour agrandir la taille de la fenêtre et la taille de la police en même temps Sur la VM Win10-XX, une fois votre fenêtre PowerShell prête, interagissez avec votre système à l'aide des cmdlets</p>
+<ul><li> Quelle version de PowerShell est installée sur votre système ?</li></ul>
+<pre class="tssr-source-code">$PSVersionTable</pre>
+<p class="tssr-source-paragraph">Ou</p>
+<pre class="tssr-source-code">Get-Host</pre>
+<ul><li> Affichez le contenu du répertoire courant</li></ul>
 <pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
-<p class="tssr-source-paragraph">Get-ChildItem </p>
-
-<p class="tssr-source-paragraph">• <br>Affichez le contenu du répertoire c:\users </p>
+<pre class="tssr-source-code">Get-ChildItem</pre>
+<ul><li> Affichez le contenu du répertoire c:\users</li></ul>
 <pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
-<p class="tssr-source-paragraph">Get-ChildItem -Path C:\Users </p>
-
-<p class="tssr-source-paragraph">• <br>Affichez la liste des alias PowerShell </p>
+<pre class="tssr-source-code">Get-ChildItem -Path C:\Users</pre>
+<ul><li> Affichez la liste des alias PowerShell</li></ul>
 <pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? Quels sont les alias de la cmdlet Get-</pre>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
+
+
+
+
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Systèmes Clients Microsoft </p>
-<p class="tssr-source-paragraph">ChildItem ? </p>
-<p class="tssr-source-paragraph">Get-Alias </p>
-<p class="tssr-source-paragraph">Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls </p>
+<section class="tssr-transcribed-page" id="page-2">
 
-<p class="tssr-source-paragraph">Faites un snapshot TP04 terminé </p>
-
-<p class="tssr-source-paragraph">Sur la VM DiscoveryXX </p>
-<p class="tssr-source-paragraph">• <br>Ouvrez une session avec l&#x27;utilisateur adm (Pa$$w0rd) puis interagissez avec votre <br>système à l&#x27;aide des cmdlets. </p>
-<p class="tssr-source-paragraph">• <br>Affichez le contenu du fichier C:\PowerShell\Intro.txt </p>
+<p class="tssr-source-paragraph">ChildItem ?</p>
+<pre class="tssr-source-code">Get-Alias</pre>
+<p class="tssr-source-paragraph">Les alias de la cmdlet Get-ChildItem sont : dir, gci, ls</p>
+<p class="tssr-source-paragraph">Faites un snapshot TP04 terminé</p>
+<p class="tssr-source-paragraph">Sur la VM DiscoveryXX</p>
+<ul><li> Ouvrez une session avec l'utilisateur adm (mot de passe fourni par le formateur) puis interagissez avec votre système à l'aide des cmdlets.</li></ul>
+<ul><li> Affichez le contenu du fichier C:\PowerShell\Intro.txt</li></ul>
 <pre class="tssr-source-code">o Quelle cmdlet avez-vous utilisée ? </pre>
-<p class="tssr-source-paragraph">Avec la cmdlet Get-Content ou avec les alias gc, type ou cat </p>
-<p class="tssr-source-paragraph">On peut trouver la réponse dans le fichier texte à l&#x27;aide du bloc-notes ou en tapant dans la <br>console PowerShell &gt; notepad.exe c:\PowerShell\Intro.txt </p>
-<p class="tssr-source-paragraph">• <br>Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\ </p>
-<p class="tssr-source-paragraph">Set-location c:\ </p>
-<p class="tssr-source-paragraph">Indice pour trouver : s&#x27;aider de la liste des alias </p>
-<p class="tssr-source-paragraph">La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-location </p>
+<p class="tssr-source-paragraph">Avec la cmdlet Get-Content ou avec les alias gc, type ou cat</p>
+<p class="tssr-source-paragraph">On peut trouver la réponse dans le fichier texte à l'aide du bloc-notes ou en tapant dans la console PowerShell &gt; notepad.exe c:\PowerShell\Intro.txt</p>
+<ul><li> Dans quel répertoire êtes-vous actuellement ? Déplacez-vous à la racine du lecteur C:\</li></ul>
+<pre class="tssr-source-code">Set-location c:\</pre>
+<p class="tssr-source-paragraph">Indice pour trouver : s'aider de la liste des alias</p>
+<p class="tssr-source-paragraph">La commande cd a été vue dans la correction du TP précédent : cd -&gt; set-location</p>
 
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-</section><!-- SOURCE-CONTENT:END --></body></html>
+
+
+
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

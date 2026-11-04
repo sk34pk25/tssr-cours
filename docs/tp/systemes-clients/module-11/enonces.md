@@ -40,3 +40,9 @@ Les noms et valeurs appartiennent au scénario de laboratoire : ils ne constitu
 
 - **A — Source TSSR :** énoncé du TP M11.
 - **B — Structuration pédagogique :** titres et listes permettant de restituer les consignes sans les modifier.
+
+## Vérification de l’atelier
+
+- [ ] Les propriétés finales sont celles de la consigne.
+- [ ] Les bornes des filtres sont contrôlées, notamment le cas égal à 25 Go.
+- [ ] Le formatage est placé à la fin et les coquilles de la correction sont identifiées.

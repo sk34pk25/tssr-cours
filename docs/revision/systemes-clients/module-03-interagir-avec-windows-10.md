@@ -42,11 +42,26 @@ Les TP abordent aussi les rubriques `about_*`, l’aide complète, les exemples,
 - une modification graphique doit être visible dans le paramètre ou la console concernée ;
 - une différence entre deux VM doit être relevée et expliquée à partir de leur aide, sans supposer qu’elle est universelle.
 
-## Questions flash
-
-1. Dans quelle situation le scénario demande-t-il l’interface graphique plutôt que `cmd` ou PowerShell ?
-2. Quelle différence faites-vous entre une cmdlet, un paramètre et un argument ?
-3. Comment trouvez-vous une cmdlet lorsque vous connaissez l’objectif mais pas son nom ?
-4. Quelle vérification confirme qu’un fichier ou une propriété est bien celui attendu ?
 
 Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) · [Kahoot](../../kahoot/02-systemes-clients-microsoft-03-interagir-avec-windows-10.md).
+
+## Retenir puis vérifier
+
+**Trouver l’outil adapté, lire son aide, exécuter une action puis vérifier un résultat observable.**
+
+1. **Get-Command et Get-Help ont-ils le même rôle ?**
+
+??? success "Réponse expliquée"
+    Get-Command trouve une commande ; Get-Help en explique la syntaxe, les paramètres et les exemples.
+
+2. **Comment découvrir les propriétés d’un objet ?**
+
+??? success "Réponse expliquée"
+    Avec Get-Member, puis Select-Object pour afficher celles demandées.
+
+3. **Une redirection prouve-t-elle que le résultat est correct ?**
+
+??? success "Réponse expliquée"
+    Non. Il faut relire le fichier et contrôler son contenu, son nom et son emplacement.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md) · [Mettre en pratique](../../tp/systemes-clients/module-03/index.md)

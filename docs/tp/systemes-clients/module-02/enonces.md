@@ -90,3 +90,9 @@ Vous devez pouvoir présenter :
 - le tableau de contrôle de Discovery, lorsque l’archive OVA est effectivement disponible.
 
 Après une tentative complète, consultez la [correction](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] La VM respecte les ressources et le réseau demandés.
+- [ ] L’installation, la configuration initiale et les instantanés sont contrôlés.
+- [ ] Les traces d’installation sont lisibles et placées à l’emplacement prévu.

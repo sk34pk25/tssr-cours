@@ -1,5 +1,7 @@
 # Révisions — Systèmes clients Microsoft
 
+Lire les points clés, répondre aux questions sans aide, puis ouvrir les réponses expliquées. Une hésitation indique le module ou le TP à reprendre.
+
 - [Module 01 — Les systèmes d’exploitation et Microsoft Windows 10](module-01-les-systemes-d-exploitation-et-microsoft-windows-10.md)
 - [Module 02 — Installation du système d’exploitation Windows 10](module-02-installation-du-systeme-d-exploitation-windows-10.md)
 - [Module 03 — Interagir avec Windows 10](module-03-interagir-avec-windows-10.md)
@@ -14,3 +16,9 @@
 - [Module 12 — Introduction à la capture et au déploiement d’image](module-12-introduction-a-la-capture-et-au-deploiement-d-image.md)
 - [Module 13 — Les stratégies de groupe local](module-13-les-strategies-de-groupe-local.md)
 - [Module additionnel — Workstation](module-additionnel-workstation.md)
+
+## Passer de la mémoire à la pratique
+
+- [Exercices de synthèse corrigés](../../exercices/quiz-systemes-clients.md)
+- [Les 16 TP et leurs corrections](../../tp/systemes-clients/index.md)
+- [Commandes Windows et PowerShell](../../commandes/windows-powershell.md)

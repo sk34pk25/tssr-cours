@@ -23,3 +23,9 @@ Les énoncés et les corrections restent volontairement séparés.
 - [Corrections des cinq activités](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-03-interagir-avec-windows-10.md)
+
+## Vérification de l’atelier
+
+- [ ] Les cinq activités sont réalisées dans leur ordre.
+- [ ] Chaque fichier créé ou exporté est relu.
+- [ ] Les sorties PowerShell contiennent les propriétés demandées, sans se limiter à la première vue affichée.

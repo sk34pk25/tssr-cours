@@ -37,6 +37,27 @@ L’UAC demande une validation ou une authentification lorsque l’action néces
 
 ## Ressources de laboratoire
 
-Le scénario cite `Win10-XX`, VM Discovery et `MaConsole.msc`. Elles ne sont pas fournies dans le dossier Drive M05 live.
+Le scénario cite `Win10-XX`, VM Discovery et `MaConsole.msc`. Ces ressources ne sont pas fournies parmi les fichiers du module.
 
 Pour aller plus loin : [cours du module](../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md) · [Kahoot M05](../../kahoot/02-systemes-clients-microsoft-05-les-utilisateurs-et-les-groupes.md).
+
+## Retenir puis vérifier
+
+**Le SID identifie le compte ; les groupes et le jeton expliquent ses accès.**
+
+1. **Compte et profil sont-ils interchangeables ?**
+
+??? success "Réponse expliquée"
+    Non. Le compte porte l’identité ; le profil conserve l’environnement de cet utilisateur.
+
+2. **Pourquoi affecter les droits aux groupes ?**
+
+??? success "Réponse expliquée"
+    Pour gérer les accès par rôle sans multiplier les règles individuelles.
+
+3. **Une appartenance modifiée est-elle forcément dans le jeton de la session ouverte ?**
+
+??? success "Réponse expliquée"
+    Non. Pour vérifier les nouveaux droits, le scénario peut nécessiter une nouvelle ouverture de session.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md) · [Mettre en pratique](../../tp/systemes-clients/module-05/index.md)

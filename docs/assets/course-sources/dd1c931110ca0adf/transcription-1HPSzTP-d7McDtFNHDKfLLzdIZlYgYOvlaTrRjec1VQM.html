@@ -1,37 +1,71 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 4 - Gestion du Stockage sous Windows V2</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Synthèse Module 4 - Gestion du Stockage sous Windows V2</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Synthèse - Module 4 : La Gestion du <br>Stockage sous Windows (V2) </h4>
-<h4>1. Partitionnement : MBR vs GPT </h4>
-<p class="tssr-source-paragraph">Avant de pouvoir utiliser un disque dur, celui-ci doit être initialisé avec une table de <br>partitionnement : </p>
-<p class="tssr-source-paragraph">Caractéristique <br>MBR (Master Boot Record) <br>GPT (GUID Partition Table) <br>  </p>
-<p class="tssr-source-paragraph">Firmware requis <br>BIOS traditionnel / Legacy <br>UEFI moderne </p>
-<p class="tssr-source-paragraph">Jusqu&#x27;à 128 partitions </p>
-<p class="tssr-source-paragraph">Nombre max de partitions <br>4 partitions principales (ou 3 <br>+ 1 étendue) </p>
-<p class="tssr-source-paragraph">Taille max du disque <br>2,2 To <br>256 To (et plus) </p>
-<p class="tssr-source-paragraph">Redondance <br>Aucune (secteur LBA 0 <br>unique) </p>
-<p class="tssr-source-paragraph">Entête de secours en fin de <br>disque </p>
-<h4>2. Disques de Base vs Disques Dynamiques &amp; <br>Systèmes de Fichiers </h4>
-<p class="tssr-source-paragraph">●​ Disque de Base : Organisé en partitions principales et étendues. <br>●​ Disque Dynamique : Organisé en volumes (simples, agrégés par bandes, miroir/RAID). <br>●​ NTFS : Système de fichiers standard Windows supportant les permissions de sécurité <br>(ACL), la compression et le chiffrement EFS. <br>●​ ReFS : Resilient File System, conçu pour maximiser la disponibilité des données et la <br>résilience aux pannes. <br>●​ FAT32 : Format universel mais limité à des fichiers de 4 Go max. </p>
-<h4>3. Outils de Gestion du Stockage et Commandes </h4>
-<p class="tssr-source-paragraph">Le stockage se gère via la console diskmgmt.msc, l&#x27;outil CLI diskpart ou PowerShell : </p>
-<pre class="tssr-source-code">:: Gestion du stockage via Diskpart (cmd.exe)​</pre>
-<pre class="tssr-source-code">diskpart​</pre>
-<pre class="tssr-source-code">list disk​</pre>
-<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>Caractéristique</td><td>MBR (Master Boot Record)</td><td>GPT (GUID Partition Table)</td></tr><tr><td>Firmware requis</td><td>BIOS traditionnel / Legacy</td><td>UEFI moderne</td></tr><tr><td>Nombre max de partitions</td><td>4 partitions principales (ou 3<br>+ 1 étendue)</td><td>Jusqu&#x27;à 128 partitions</td></tr><tr><td>Taille max du disque</td><td>2 2 To<br>,</td><td>256 To (et plus)</td></tr><tr><td>Redondance</td><td>Aucune (secteur LBA 0<br>unique)</td><td>Entête de secours en fin de<br>disque</td></tr></tbody></table></div>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthèse Module 4 - Gestion du Stockage sous Windows V2</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem;text-align:left}figure{margin:1rem 0}figcaption{font-size:.85rem;color:#4a596d}</style></head><body><h1>Synthèse Module 4 - Gestion du Stockage sous Windows V2</h1><p>Transcription du document de formation. Les paragraphes, listes, tableaux et visuels isolés suivent l’ordre du document ; les aides pédagogiques sont séparées.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h2>Synthèse — Module 4 : La gestion du stockage sous Windows (V2)</h2>
+<h3>1. Partitionnement : MBR vs GPT</h3>
+<p>Avant de pouvoir utiliser un disque dur, celui-ci doit être initialisé avec une table de partitionnement.</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>MBR, Master Boot Record</th>
+<th>GPT, GUID Partition Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firmware requis</td>
+<td>BIOS traditionnel / Legacy</td>
+<td>UEFI moderne</td>
+</tr>
+<tr>
+<td>Nombre max de partitions</td>
+<td>4 partitions principales, ou 3 + 1 étendue</td>
+<td>Jusqu’à 128 partitions</td>
+</tr>
+<tr>
+<td>Taille max du disque</td>
+<td>2,2 To</td>
+<td>256 To et plus</td>
+</tr>
+<tr>
+<td>Redondance</td>
+<td>Aucune, secteur LBA 0 unique</td>
+<td>En-tête de secours en fin de disque</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Disques de base vs disques dynamiques et systèmes de fichiers</h3>
+<ul>
+<li><strong>Disque de base</strong> : organisé en partitions principales et étendues.</li>
+<li><strong>Disque dynamique</strong> : organisé en volumes, simples, agrégés par bandes, miroir/RAID.</li>
+<li><strong>NTFS</strong> : système de fichiers standard Windows supportant les permissions de sécurité, ACL, la compression et le chiffrement EFS.</li>
+<li><strong>ReFS</strong> : Resilient File System, conçu pour maximiser la disponibilité des données et la résilience aux pannes.</li>
+<li><strong>FAT32</strong> : format universel mais limité à des fichiers de 4 Go max.</li>
+</ul>
+<h3>3. Outils de gestion du stockage et commandes</h3>
+<p>Le stockage se gère via la console <code>diskmgmt.msc</code>, l’outil CLI <code>diskpart</code> ou PowerShell.</p>
+<pre><code class="language-text">Gestion du stockage via DiskPart (cmd.exe)
+diskpart
+list disk
+</code></pre>
 
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><pre class="tssr-source-code">select disk 1​</pre>
-<pre class="tssr-source-code">clean​</pre>
-<pre class="tssr-source-code">convert gpt​</pre>
-<pre class="tssr-source-code">create partition primary​</pre>
-<pre class="tssr-source-code">format fs=ntfs quick​</pre>
-<pre class="tssr-source-code">assign letter=E​</pre>
-<pre class="tssr-source-code">exit​</pre>
-<p class="tssr-source-paragraph">​</p>
-<pre class="tssr-source-code"># Administration du stockage via PowerShell​</pre>
-<pre class="tssr-source-code">Get-Disk​</pre>
-<pre class="tssr-source-code">Initialize-Disk -Number 1 -PartitionStyle GPT​</pre>
-<pre class="tssr-source-code">New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter​</pre>
-<pre class="tssr-source-code">Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel </pre>
-<pre class="tssr-source-code">&quot;Donnees&quot;​</pre>
+<section class="tssr-transcribed-page" id="page-2">
+<h2>Gestion du stockage via DiskPart — suite</h2>
+<pre><code class="language-text">select disk 1
+clean
+convert gpt
+create partition primary
+format fs=ntfs quick
+assign letter=E
+exit
+</code></pre>
+<h3>Administration du stockage via PowerShell</h3>
+<pre><code class="language-powershell">Get-Disk
+Initialize-Disk -Number 1 -PartitionStyle GPT
+New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter
+Format-Volume -DriveLetter E -FileSystem NTFS -NewFileSystemLabel &quot;Donnees&quot;
+</code></pre>
 
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

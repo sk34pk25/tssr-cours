@@ -1,120 +1,150 @@
 # Module 06 — La sécurité NTFS et les ACL
 
-**Séquence :** Systèmes clients Microsoft
+**Séquence :** Systèmes clients Microsoft  
+**Fil conducteur :** traduire un besoin d’accès en permissions, puis prouver le résultat avec les comptes du scénario.
 
 ## Objectifs
 
-À l’issue du module, vous devez pouvoir :
+- Définir ACL, DACL, ACE et jeton d’accès.
+- Choisir les autorisations de base et reconnaître les permissions spéciales.
+- Expliquer l’héritage, la copie, le déplacement et les limites des raccourcis sur les refus.
+- Configurer Echange et les dossiers du volume TOOLS, puis tester les accès effectifs.
 
-- définir les ACL et repérer leur rôle sur un volume formaté en NTFS ;
-- lire les éléments principaux d’une DACL et les autorisations associées ;
-- configurer puis vérifier des accès dans un scénario de laboratoire ;
-- tenir compte des groupes, de l’héritage, des copies et des déplacements.
+## 1. Comment une ressource décide-t-elle de l’accès ?
 
-## 1. NTFS et les ACL
+Sur un volume **NTFS**, les dossiers et fichiers possèdent des informations de sécurité. Le support les situe dans l’index du système de fichiers et les rend consultables dans **Propriétés → Sécurité**. Le système compare les identités du jeton d’accès de la session aux règles de l’objet.
 
-Sur un volume formaté en **NTFS**, les répertoires et les fichiers sont soumis à la sécurité NTFS. Des autorisations définissent les privilèges d’accès. Lorsqu’un utilisateur tente d’accéder à une ressource, son **jeton d’accès** est pris en compte par cette ressource.
+| Notion | Rôle dans le contrôle |
+|---|---|
+| SID | Identifie un utilisateur ou un groupe. |
+| Jeton d’accès | Contient les identités pertinentes de la session, notamment utilisateur et groupes. |
+| DACL | Liste de contrôle d’accès discrétionnaire attachée à l’objet. |
+| ACE | Entrée de cette liste : identité concernée et droits autorisés ou refusés. |
 
-Les autorisations sont consultables et modifiables depuis l’onglet **Sécurité** des propriétés d’un objet. Le support présente cet onglet comme le point d’entrée pour lire la liste des groupes, utilisateurs et entités de sécurité auxquels des autorisations sont appliquées.
+Les règles peuvent cibler groupes locaux, groupes prédéfinis, entités intégrées de sécurité et utilisateurs. Le support conseille de privilégier les **groupes**, afin de gérer les appartenances plutôt que multiplier les exceptions individuelles.
 
-## 2. ACL, DACL et ACE
+**Illustration IA / externe au cours — le contrôle porte sur une action précise.**
 
-Une **ACL** est une liste de contrôle d’accès. Dans le contexte du module, la **DACL** (*Discretionary Access Control List*) rassemble les utilisateurs, groupes et entités de sécurité concernés par l’accès à l’objet.
-
-Chaque **ACE** (*Access Control Entry*) correspond aux privilèges accordés ou refusés à l’entité visée. Le support recommande de privilégier les groupes dans les DACL plutôt que de multiplier les utilisateurs individuels.
-
-## 3. Lire les autorisations
-
-Les autorisations de base citées sont cumulatives :
-
-| Niveau | Repères donnés par le support |
-| --- | --- |
-| Lecture | Affichage du contenu du dossier, lecture, lecture et exécution. |
-| Modification | Écriture et modification. |
-| Contrôle total | Niveau le plus étendu présenté pour les besoins courants. |
-
-Pour des besoins spécifiques, le menu **Avancé** permet d’accéder à des autorisations spéciales, par exemple la création de fichiers ou la suppression de sous-dossiers et de fichiers.
-
-## 4. Appliquer les règles d’accès
-
-Le support distingue les règles explicites et les mécanismes suivants :
-
-- une entité absente de la DACL reçoit un **refus implicite** ;
-- une règle peut autoriser un privilège ou le refuser ;
-- plusieurs règles peuvent s’appliquer à un même utilisateur ;
-- parmi les autorisations, la règle la plus permissive l’emporte ;
-- un **refus explicite** l’emporte sur une autorisation.
-
-Ces règles doivent être lues avec les appartenances aux groupes du compte testé. Dans le TP, les groupes `L_Collegues` et `L_Informatiques` servent précisément à attribuer les accès demandés sans placer directement les utilisateurs nommés dans la DACL.
-
-## 5. Comprendre l’héritage
-
-Par défaut, un répertoire propage ses autorisations à ses objets enfants. Dans l’interface, les autorisations héritées apparaissent grisées et ne sont pas modifiables directement.
-
-Pour modifier ce comportement, le support indique deux possibilités : agir sur le dossier parent — parfois sur le volume racine — ou rompre l’héritage depuis le menu **Avancé**, avec précaution. Il indique également qu’une autorisation d’accès l’emporte sur un refus explicite hérité.
-
-## 6. Copier ou déplacer
-
-Le comportement présenté dans le support dépend de l’opération et de l’emplacement :
-
-| Opération | Dans la même partition ou le même volume | Entre deux partitions ou volumes |
-| --- | --- | --- |
-| Déplacement | Conservation | Héritage |
-| Copie | Héritage | Héritage |
-
-Avant de conclure sur un résultat, vérifiez donc la ressource d’origine, la destination et les autorisations héritées par l’objet après l’opération.
-
-## 7. Vérifier un accès
-
-Le module demande de ne pas se limiter à la configuration affichée. Deux vérifications sont présentées :
-
-1. tester l’accès avec les utilisateurs concernés ;
-2. consulter l’onglet **Accès effectif** du menu **Avancé**.
-
-La correction illustre ces contrôles avec un membre du groupe prédéfini Utilisateurs, un membre de `L_Collegues` et un membre du groupe prédéfini Administrateurs. Les résultats attendus sont liés aux droits Lecture, Modification et Contrôle total réellement appliqués dans le scénario.
-
-!!! warning "Précautions liées aux ACL"
-    Le support demande de manipuler les ACL avec précaution : tenez compte de l’héritage, des copies et déplacements, privilégiez les groupes et le refus implicite, puis testez systématiquement l’accès. Il attire aussi l’attention sur le double jeton d’accès des administrateurs.
-
-## 8. Mise en pratique : DATA et TOOLS
-
-Le TP utilise deux volumes de laboratoire :
-
-- sur **DATA**, création du répertoire `Echange`, observation des droits par défaut et de l’héritage, puis attribution des accès demandés aux collègues, administrateurs et utilisateurs du poste ;
-- sur **TOOLS**, création des répertoires `logiciels` et `manuels d’utilisation`, puis application des droits prévus pour les utilisateurs, administrateurs et le groupe qui rassemble Yann et François.
-
-Les volumes et machines cités appartiennent au scénario. Ils ne sont pas fournis comme ressources téléchargeables dans le dossier Drive M06 live.
-
-## 9. PowerShell attesté par le TP
-
-Sur la VM Discovery du scénario, le TP demande d’afficher les droits du dossier `2022` du lecteur `M:` :
-
-```powershell
-Get-Acl m:\2022
+```mermaid
+flowchart LR
+    A["Session : SID utilisateur et groupes"] --> C["Évaluation des ACE de la DACL"]
+    B["Action demandée : lire, créer, supprimer…"] --> C
+    C --> D["Action autorisée ou refusée"]
 ```
 
-La cmdlet identifiée pour modifier les ACL d’un dossier est :
+## 2. Autorisations de base et autorisations spéciales
+
+Le bouton **Modifier** propose les permissions de base. Le support les regroupe de la manière suivante ; les cases peuvent se cumuler et certaines en entraînent d’autres.
+
+| Famille du support | Permissions présentées |
+|---|---|
+| Lecture | Affichage du contenu du dossier ; Lecture ; Lecture et exécution. |
+| Modification | Écriture ; Modification. |
+| Contrôle total | Ensemble des droits du niveau Contrôle total. |
+
+Pour un besoin particulier, **Avancé** donne accès aux permissions spéciales : créer des fichiers, supprimer des sous-dossiers et fichiers, etc. Accorder Modification à des collègues ne signifie pas leur confier la gestion des permissions de sécurité.
+
+### Comprendre les formulations du support
+
+Le cours indique que les autorisations s’additionnent, qu’un groupe absent ne reçoit pas de droit par cette seule identité, et qu’un refus explicite peut bloquer un accès. Ces phrases doivent se lire avec le jeton complet et l’ordre des ACE, pas avec le seul nom de l’utilisateur.
+
+!!! info "Clarification externe — refus implicite et ordre des ACE"
+    L’absence du SID personnel dans la DACL ne prouve pas le refus : une ACE applicable à un de ses groupes peut accorder les droits. Windows parcourt les ACE dans l’ordre pour les droits demandés ; si aucun ensemble d’autorisations ne satisfait la demande, l’accès est refusé implicitement. [Fonctionnement du contrôle d’accès Microsoft](https://learn.microsoft.com/en-us/windows/win32/secauthz/how-dacls-control-access-to-an-object).
+
+!!! warning "Ne pas apprendre « le refus gagne toujours » sans contexte"
+    Le support rappelle lui-même qu’une autorisation explicite peut l’emporter sur un refus hérité. Il faut examiner les règles explicites et héritées ainsi que leur ordre, puis vérifier le résultat. Les phrases plus absolues des notes de quiz sont conservées dans le document original et clarifiées ici.
+
+## 3. Héritage, copie et déplacement
+
+Par défaut, un dossier propage ses autorisations à ses enfants. Les cases héritées sont grisées : on ne les modifie pas directement sur l’enfant tant que l’héritage s’applique. Deux voies sont présentées : corriger les permissions du parent, éventuellement du volume, ou désactiver l’héritage depuis **Avancé**, avec précaution.
+
+| Opération dans le contexte du support | Même partition / volume | Entre deux partitions / volumes |
+|---|---|---|
+| Déplacement | Conservation des permissions. | Héritage à destination. |
+| Copie | Héritage à destination. | Héritage à destination. |
+
+Cette grille explique pourquoi déplacer ou copier un fichier peut produire des accès différents. Après l’opération, contrôler l’objet final plutôt que supposer que ses permissions sont restées identiques.
+
+## 4. TP : préparer une matrice d’accès
+
+Le TP dure environ **1 heure**. Il reprend les comptes et groupes du module 05. Avant toute manipulation, relever les volumes DATA et TOOLS et les appartenances effectives des comptes.
+
+| Ressource | Identité | Besoin |
+|---|---|---|
+| `DATA\Echange` | `L_Collegues` | Modification de l’objet et de ses sous-objets. |
+| `DATA\Echange` | Administrateurs | Contrôle total. |
+| `DATA\Echange` | Utilisateurs | Lecture. |
+| `TOOLS\logiciels` et `TOOLS\manuels d’utilisation` | Yann et François via `L_Informatiques` | Modification. |
+| Dossiers TOOLS | Utilisateurs | Lecture. |
+| Dossiers TOOLS | Administrateurs | Contrôle total. |
+
+### A. Observer les permissions par défaut
+
+1. Créer **Echange** sur DATA, dans le scénario `D:`.
+2. Ouvrir **Propriétés → Sécurité**.
+3. La correction montre Utilisateurs authentifiés en Modification, Système et Administrateurs en Contrôle total, Utilisateurs en Lecture.
+4. Créer un fichier et un sous-dossier, puis examiner leur sécurité : les cases grisées montrent l’héritage depuis le dossier, lui-même héritier du volume.
+
+### B. Appliquer le besoin sur Echange
+
+La correction choisit une solution en modifiant l’héritage **au niveau du lecteur D:** : retirer la permission de Modification d’Utilisateurs authentifiés, conserver Système et Administrateurs en Contrôle total et Utilisateurs en Lecture. Sur Echange, ajouter ensuite `L_Collegues` en Modification. La case Écriture se coche avec les permissions associées.
+
+!!! note "Portée du choix présenté"
+    La correction annonce plusieurs possibilités et en montre une qui modifie le volume parent. Le choix est conservé comme scénario du TP. Avant de reproduire cette méthode, identifier les autres dossiers héritiers concernés ; ne pas confondre un réglage d’Echange avec une modification sans effet sur les autres enfants du volume.
+
+### C. Prouver les accès
+
+| Session testée | Lire Echange | Créer un fichier | Modifier les ACL |
+|---|---|---|---|
+| Romain, groupe Utilisateurs | Oui. | Non. | Non dans ce scénario. |
+| Alix ou Pauline, `L_Collegues` | Oui. | Oui. | Non par la seule permission Modification. |
+| François, Administrateurs | Oui. | Oui. | Contrôle total, avec élévation si requise. |
+
+Fermer la session entre les tests. Une autre vérification s’effectue depuis **Sécurité → Avancé → Accès effectif** : choisir Romain, un membre de `L_Collegues`, puis François, et afficher les permissions correspondantes. Le support attire l’attention sur le double jeton des administrateurs : tester avec une session et une élévation cohérentes avec l’action.
+
+### D. Configurer TOOLS
+
+Sur le lecteur `E:` de la correction, appliquer le même principe aux permissions héritées de base, puis créer **logiciels** et **manuels d’utilisation**. Ajouter **`L_Informatiques`**, dont Yann et François sont membres, aux DACL des deux dossiers avec Modification. Garder les contrôles de lecture des utilisateurs et de Contrôle total des administrateurs, puis effectuer les tests réels ou les contrôles d’accès effectif.
+
+### E. Lire les ACL avec PowerShell sur Discovery
 
 ```powershell
-Set-Acl
+Get-Acl M:\2022
 ```
 
-Le module se limite à ces deux repères PowerShell ; les procédures complètes restent dans la correction du TP.
+La cmdlet demandée pour **appliquer des ACL** est `Set-Acl`. L’énoncé n’impose pas ici de construire une nouvelle ACL complète : distinguer l’identification de l’outil et une procédure de modification effectivement vérifiée.
 
-## Synthèse
+## 5. Bonnes pratiques du module
 
-La sécurité NTFS s’appuie sur des ACL constituées de DACL et d’ACE. La lecture des groupes, autorisations, refus et héritages permet d’expliquer un accès. La configuration doit être vérifiée avec le compte concerné ou avec Accès effectif, en tenant compte du comportement des copies et déplacements.
+- Attribuer les accès par groupes et privilégier les permissions de base.
+- Conserver l’héritage quand il correspond au besoin.
+- Favoriser le refus implicite plutôt que multiplier les refus explicites.
+- Vérifier les effets des copies et déplacements.
+- Tester l’action réelle avec le compte concerné et consulter les accès effectifs.
 
-## Mise en pratique
+## 6. Mini-quiz — 5 questions
+
+1. Quelle différence entre DACL et ACE ?
+2. Un utilisateur non nommé directement dans la DACL est-il forcément refusé ?
+3. Que représentent les cases grisées de permissions ?
+4. Pourquoi Modification ne suffit-elle pas à gérer les ACL ?
+5. Que prévoit le tableau du support pour une copie dans le même volume ?
+
+??? success "Réponses commentées"
+    1. La DACL est la liste ; une ACE est une règle de cette liste.
+    2. Non : examiner aussi ses groupes et les droits demandés.
+    3. Des autorisations héritées du parent.
+    4. La modification des fichiers et la gestion de leur sécurité sont des droits distincts.
+    5. Un héritage des permissions à destination.
+
+## Pour pratiquer et réviser
 
 - [TP — présentation](../../tp/systemes-clients/module-06/index.md)
-- [Énoncé du TP](../../tp/systemes-clients/module-06/enonces.md)
-- [Correction du TP](../../tp/systemes-clients/module-06/corrections.md)
+- [Énoncé complet](../../tp/systemes-clients/module-06/enonces.md) et [correction](../../tp/systemes-clients/module-06/corrections.md)
 - [Fiche de révision](../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md)
-- [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl.md)
-- [Présentation de la formation](index.md)
+- [Kahoot existant](../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl.md)
+- [Retour à la formation](index.md)
 
-## Source et provenance
+## Sources et choix éditoriaux
 
-- **Sources A — TSSR Drive live :** support `Module 06 - Support de cours.pdf`, énoncé `Enoncé du TP - Les ACL.pdf` et correction `Solution du TP - Les ACL.pdf`.
-- **Structuration B :** organisation web, tableaux et articulation pédagogique entre le support, l’énoncé et la correction, sans ajout de source externe.
+Support M06, énoncé, correction et notes `Module 6.txt` ont été consultés en lecture seule dans le Drive. Le fichier partagé `module 5 et 6.txt` est vide : **Inexistant**. Les 20 questions des notes restent dans leur transcription ; le mini-quiz ci-dessus est distinct du Kahoot existant. Les tableaux de synthèse et le schéma sont pédagogiques, les clarifications externes sont indiquées et les formulations sources demeurent dans **Cours Original**.

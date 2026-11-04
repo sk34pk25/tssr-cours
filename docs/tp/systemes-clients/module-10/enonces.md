@@ -57,3 +57,9 @@ Vérifiez les éléments demandés par le scénario :
 Expliquez l'observation à partir du rôle d'un point de restauration.
 
 Une fois votre tentative terminée, consultez la [correction](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] Une observation en temps réel et un événement historique sont distingués.
+- [ ] Le point de restauration est identifié avant récupération.
+- [ ] Les effets sur le système et sur les données utilisateur sont comparés après restauration.

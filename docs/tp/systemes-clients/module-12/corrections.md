@@ -36,4 +36,12 @@ Les comptes SAM, dates du journal système et snapshots doivent être observés 
 ## Provenance
 
 - **A — Source TSSR :** correction M12.
-- **B — Structuration pédagogique :** organisation par préparation, Sysprep, clonage et interprétation ; aucun credential n’est publié.
+- **B — Structuration pédagogique :** organisation par préparation, Sysprep, clonage et interprétation ; aucune donnée d’accès n’est publiée.
+
+## Vérification de l’atelier
+
+- [ ] Le master est généralisé et laissé arrêté avant clonage.
+- [ ] La méthode utilisée est un Full Clone dans ce TP.
+- [ ] Identité, réseau, comptes et pilotes sont comparés entre master et clone.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

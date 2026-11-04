@@ -57,6 +57,17 @@ Après la première ouverture de session de François, un profil est créé dans
 
 **Résultat attendu :** les sorties affichent les propriétés ou membres demandés dans l’activité concernée.
 
+!!! note "Deux descriptions dans les documents"
+    L’énoncé et la correction n’emploient pas la même description pour `adm`. La commande ci-dessus reproduit le corrigé. Pour le livrable, reprendre la description explicitement demandée dans l’énoncé et signaler la différence ; ne pas fusionner les deux formulations comme si elles étaient identiques.
+
 ## Ressources de laboratoire
 
-La correction mentionne `MaConsole.msc` et la VM Discovery. Ces ressources ne figurent pas dans le dossier Drive M05 live ; aucun substitut n’est fourni ici.
+La correction mentionne `MaConsole.msc` et la VM Discovery. Ces ressources ne figurent pas dans le dossier des sources du module ; aucun substitut n’est fourni ici.
+
+## Vérification de l’atelier
+
+- [ ] Les comptes et groupes sont vérifiés avec leurs SID.
+- [ ] Les appartenances correspondent au scénario.
+- [ ] Le profil et le jeton sont observés dans une session du compte concerné.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

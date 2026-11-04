@@ -9,7 +9,7 @@ Ce TP reprend le scénario TSSR de gestion du stockage sous Windows : ajout de d
 Le scénario suppose une VM Windows du laboratoire, VMware Workstation et une VM Discovery. Les PDF demandent notamment l’ajout de deux disques de 60 Go à la VM Windows.
 
 !!! info "Ressources non fournies dans le dossier Drive M04"
-    L’inventaire Drive live M04 contient le support, l’énoncé et la correction, mais aucun fichier de VM, disque virtuel, ISO, archive ou script de laboratoire. Utilisez les environnements fournis dans le cadre de la formation ; cette page ne remplace pas ces ressources.
+    Les documents du module 04 comprennent le support, l’énoncé et la correction, mais aucun fichier de VM, disque virtuel, ISO, archive ou script de laboratoire. Utilisez les environnements fournis dans le cadre de la formation ; cette page ne remplace pas ces ressources.
 
 ## Résultats attendus
 
@@ -34,3 +34,9 @@ Les consignes et les réponses restent volontairement séparées.
 - [Correction du TP](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-04-la-gestion-du-stockage.md)
+
+## Vérification de l’atelier
+
+- [ ] Les volumes portent les tailles, libellés et systèmes de fichiers demandés.
+- [ ] Le chemin GPT ou MBR réellement suivi est identifié.
+- [ ] Après chaque extension, suppression ou recréation, les disques et volumes sont relus.

@@ -10,7 +10,7 @@ Ce TP de **1 heure** s'appuie sur une machine Windows 10 de laboratoire et une s
 - une imprimante partagée et les pilotes associés ;
 - les droits nécessaires fournis pour le laboratoire.
 
-Ces ressources de laboratoire sont mentionnées dans les documents source mais **ne sont pas fournies dans le dossier Drive M09 live**. N'inventez ni machine, ni pilote, ni partage de remplacement.
+Ces ressources de laboratoire sont mentionnées dans les documents source mais **ne sont pas fournies dans l’ensemble des fichiers du module**. N'inventez ni machine, ni pilote, ni partage de remplacement.
 
 ## Objectifs
 
@@ -35,3 +35,9 @@ Le TP demande des exports CSV sur les pilotes, un contrôle du pilote graphique,
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md)
 - [Kahoot du module](../../../kahoot/02-systemes-clients-microsoft-09-les-pilotes-et-les-imprimantes.md)
+
+## Vérification de l’atelier
+
+- [ ] Les exports de pilotes sont relus.
+- [ ] Le document imprimé et son orientation sont contrôlés.
+- [ ] L’imprimante partagée et ses propriétés sont vérifiées dans l’environnement réel.

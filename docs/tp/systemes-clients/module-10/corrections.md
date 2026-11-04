@@ -42,3 +42,11 @@ Si une authentification est demandée, utilisez les identifiants fournis par le 
 | Fichiers créés dans Documents après le point | Ils restent présents. | Le point de restauration n'affecte pas les données utilisateur. |
 
 Les références à Windows 7/8.1 figurant dans le support sont des références historiques des sources TSSR ; elles ne sont pas actualisées ni étendues ici.
+
+## Vérification de l’atelier
+
+- [ ] Une observation en temps réel et un événement historique sont distingués.
+- [ ] Le point de restauration est identifié avant récupération.
+- [ ] Les effets sur le système et sur les données utilisateur sont comparés après restauration.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

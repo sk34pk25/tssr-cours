@@ -29,3 +29,9 @@ Ces absences ne modifient pas les consignes du TP ; elles empêchent seulement d
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-02-installation-du-systeme-d-exploitation-windows-10.md)
 - [Kahoot du module](../../../kahoot/02-systemes-clients-microsoft-02-installation-du-systeme-d-exploitation-windows-10.md)
+
+## Vérification de l’atelier
+
+- [ ] La VM respecte les ressources et le réseau demandés.
+- [ ] L’installation, la configuration initiale et les instantanés sont contrôlés.
+- [ ] Les traces d’installation sont lisibles et placées à l’emplacement prévu.

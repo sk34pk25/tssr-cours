@@ -12,7 +12,7 @@ Ce TP met en pratique la configuration et la vérification d’autorisations NTF
 | Outils | Onglet Sécurité, Accès effectif et PowerShell pour les commandes demandées |
 
 !!! warning "Ressources de laboratoire non fournies"
-    La VM `Win10-XX`, la VM Discovery ainsi que les volumes `DATA` et `TOOLS` sont mentionnés dans le scénario. Ils ne sont pas fournis dans le dossier Drive M06 live. Utilisez uniquement les ressources mises à disposition par le formateur ; ne les remplacez pas par une ressource inventée.
+    La VM `Win10-XX`, la VM Discovery ainsi que les volumes `DATA` et `TOOLS` sont mentionnés dans le scénario. Ils ne sont pas fournis dans le dossier des sources du module. Utilisez uniquement les ressources mises à disposition par le formateur ; ne les remplacez pas par une ressource inventée.
 
 ## Résultats attendus
 
@@ -28,3 +28,9 @@ Ce TP met en pratique la configuration et la vérification d’autorisations NTF
 3. Vérifier les résultats avec les comptes concernés ou Accès effectif.
 4. [Consulter la correction](corrections.md) après votre tentative.
 5. Revoir les notions dans le [cours](../../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md) et la [fiche de révision](../../../revision/systemes-clients/module-06-la-securite-ntfs-et-les-acl.md).
+
+## Vérification de l’atelier
+
+- [ ] Lecture, écriture et modification des ACL sont testées séparément.
+- [ ] Les droits hérités et explicites sont distingués.
+- [ ] Accès effectif et test réel avec le compte concerné concordent.

@@ -12,7 +12,7 @@ Ce TP met en pratique la gestion des utilisateurs et des groupes locaux, l’att
 | Objectif | Créer et contrôler des comptes, groupes, privilèges, profils et SID |
 
 !!! warning "Ressources de laboratoire non fournies"
-    La VM `Win10-XX`, la VM Discovery et la console personnalisée `MaConsole.msc` sont mentionnées par les sources, mais ne sont pas fournies dans le dossier Drive M05 live. Ne les remplacez pas par une ressource inventée.
+    La VM `Win10-XX`, la VM Discovery et la console personnalisée `MaConsole.msc` sont mentionnées par les sources, mais ne sont pas fournies dans le dossier des sources du module. Ne les remplacez pas par une ressource inventée.
 
 ## Résultats attendus
 
@@ -28,3 +28,9 @@ Ce TP met en pratique la gestion des utilisateurs et des groupes locaux, l’att
 3. Conserver les contrôles demandés.
 4. [Consulter la correction](corrections.md) après votre tentative.
 5. Revoir les notions dans le [cours](../../../modules/02-systemes-clients-microsoft/module-05-les-utilisateurs-et-les-groupes.md) et la [fiche de révision](../../../revision/systemes-clients/module-05-les-utilisateurs-et-les-groupes.md).
+
+## Vérification de l’atelier
+
+- [ ] Les comptes et groupes sont vérifiés avec leurs SID.
+- [ ] Les appartenances correspondent au scénario.
+- [ ] Le profil et le jeton sont observés dans une session du compte concerné.
