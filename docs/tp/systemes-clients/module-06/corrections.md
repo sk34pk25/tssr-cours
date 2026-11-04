@@ -82,3 +82,11 @@ Set-Acl
 ## Résultat attendu
 
 Les accès observés correspondent aux groupes et droits configurés dans le scénario. Les contrôles sont réalisés avec les comptes concernés ou avec Accès effectif, sans confondre les autorisations héritées, les entrées ajoutées et les droits réellement obtenus.
+
+## Vérification de l’atelier
+
+- [ ] Lecture, écriture et modification des ACL sont testées séparément.
+- [ ] Les droits hérités et explicites sont distingués.
+- [ ] Accès effectif et test réel avec le compte concerné concordent.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

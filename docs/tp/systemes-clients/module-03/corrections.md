@@ -86,3 +86,11 @@ Ces corrections reprennent les méthodes et réponses des cinq PDF source. Les v
 - Sélectionner seulement les propriétés demandées.
 - Vérifier le fichier redirigé et son contenu après la commande.
 - Ne pas généraliser les valeurs de disques ou de groupes observées dans Discovery à une autre machine.
+
+## Vérification de l’atelier
+
+- [ ] Les cinq activités sont réalisées dans leur ordre.
+- [ ] Chaque fichier créé ou exporté est relu.
+- [ ] Les sorties PowerShell contiennent les propriétés demandées, sans se limiter à la première vue affichée.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

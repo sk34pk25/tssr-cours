@@ -8,7 +8,7 @@ Vous partagez des dossiers depuis votre VM Windows 10, puis vous testez les acc�
 
 ## Environnement de laboratoire
 
-Le scénario utilise **Win10-XX** et **Discovery**. Les VM, dossiers, volumes et adresses nécessaires ne sont pas fournis dans le dossier Drive M08 live. Utilisez uniquement l’environnement et les identifiants fournis par le formateur.
+Le scénario utilise **Win10-XX** et **Discovery**. Les VM, dossiers, volumes et adresses nécessaires ne sont pas fournis dans l’ensemble des fichiers du module. Utilisez uniquement l’environnement et les identifiants fournis par le formateur.
 
 ## 1. Partage du dossier `Echange`
 
@@ -47,3 +47,9 @@ L’équipe informatique veut partager le dossier `manuels d’utilisation` afin
 Les noms, adresses et observations appartiennent au laboratoire. Ne les transformez pas en recommandations générales.
 
 Lorsque le travail est terminé, [consultez la correction](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] Les autorisations de partage et NTFS sont contrôlées séparément.
+- [ ] Le chemin UNC fonctionne avec le compte demandé.
+- [ ] Le test RDP confirme l’accès du compte autorisé au poste cible.

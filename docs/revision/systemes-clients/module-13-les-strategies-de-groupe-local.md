@@ -36,3 +36,24 @@
 - [Cours du module](../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md)
 - [Kahoot du module](../../kahoot/02-systemes-clients-microsoft-13-les-strategies-de-groupe-local.md)
 - [TP et correction](../../tp/systemes-clients/module-13/index.md)
+
+## Retenir puis vérifier
+
+**Choisir le bon objet de stratégie, le bon périmètre et le bon compte de test.**
+
+1. **Non configuré signifie-t-il Désactivé ?**
+
+??? success "Réponse expliquée"
+    Non : Non configuré ne fixe pas ce paramètre par cette stratégie ; Désactivé lui donne une valeur explicite.
+
+2. **Comment cibler les non-administrateurs ?**
+
+??? success "Réponse expliquée"
+    Depuis MMC, ajouter l’Éditeur d’objets de stratégie de groupe et choisir l’objet local correspondant aux non-administrateurs.
+
+3. **Comment vérifier une stratégie utilisateur ?**
+
+??? success "Réponse expliquée"
+    Ouvrir une session avec le compte visé, tester le comportement attendu puis contrôler que les autres comptes ne sont pas affectés à tort.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md) · [Mettre en pratique](../../tp/systemes-clients/module-13/index.md)

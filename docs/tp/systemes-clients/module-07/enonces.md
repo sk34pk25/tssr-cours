@@ -14,7 +14,7 @@ Sur votre VM `Win10-XX` :
 2. connectez la VM sur le switch **Bridged** ;
 3. relevez l’adresse IP obtenue et l’adresse du réseau associé.
 
-Les VM, le switch, les paramètres Campus et les informations de laboratoire cités par le scénario ne sont pas fournis dans le dossier Drive M07 live.
+Les VM, le switch, les paramètres Campus et les informations de laboratoire cités par le scénario ne sont pas fournis dans l’ensemble des fichiers du module.
 
 ## Configuration IPv4 fixe
 
@@ -63,3 +63,9 @@ Indiquez si chaque requête reçoit une réponse et les adresses IPv4 retournée
 Conservez les réponses demandées : configuration relevée, adresse et réseau, résultats `ping`, observations `tracert`, réponses `nslookup`, profils de pare-feu et résultat du test ICMPv4.
 
 Une fois le travail terminé, [consultez la correction](corrections.md) pour comparer les méthodes et contrôles.
+
+## Vérification de l’atelier
+
+- [ ] IP, masque, passerelle, DNS et profil réseau sont relevés.
+- [ ] Connectivité et résolution de noms sont testées séparément.
+- [ ] La règle de pare-feu agit sur le profil et le sens demandés.

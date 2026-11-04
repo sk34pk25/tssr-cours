@@ -27,3 +27,9 @@ Le TP décrit un clonage VMware ; il ne demande pas une capture WIM ni un déplo
 
 - **A — Source TSSR :** énoncé M12.
 - **B — Structuration pédagogique :** phases de travail et listes fidèles aux consignes.
+
+## Vérification de l’atelier
+
+- [ ] Le master est généralisé et laissé arrêté avant clonage.
+- [ ] La méthode utilisée est un Full Clone dans ce TP.
+- [ ] Identité, réseau, comptes et pilotes sont comparés entre master et clone.

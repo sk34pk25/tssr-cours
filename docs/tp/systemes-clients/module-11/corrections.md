@@ -39,7 +39,7 @@ Get-Volume | Where -FilterScript {
 
 La correction précise que `8589934592` correspond à `8 x 1024 x 1024 x 1024`. Le dernier formatage intervient après le filtre et la sélection.
 
-!!! note "NEEDS_REVIEW — divergence documentaire"
+!!! note "Divergence du document source"
     Une alternative de la correction écrit `Get-Wolume`, tandis que le support et les autres exemples écrivent `Get-Volume`. La divergence est conservée comme telle ; elle n’est pas corrigée silencieusement.
 
 ## 4. Services, groupe et partages
@@ -76,3 +76,23 @@ Pour chaque exercice : partir de la cmdlet adaptée, ajouter le pipeline nécess
 
 - **A — Source TSSR :** correction du TP M11.
 - **B — Structuration pédagogique :** regroupement par besoin, sans modification des formes `Where` / `Where-Object` ni des noms du scénario.
+
+## Vérification de l’atelier
+
+- [ ] Les propriétés finales sont celles de la consigne.
+- [ ] Les bornes des filtres sont contrôlées, notamment le cas égal à 25 Go.
+- [ ] Le formatage est placé à la fin et les coquilles de la correction sont identifiées.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.
+
+## Précision pédagogique — inclure la borne de 25 Go
+
+L’énoncé dit « ne dépasse pas 25 Go » ; le filtre `-lt 25GB` de la correction source exclut exactement 25 Go. Pour répondre à la consigne inclusive, utiliser :
+
+```powershell
+Get-Volume | Where-Object {
+    $_.SizeRemaining -gt 8GB -and $_.Size -le 25GB
+} | Select-Object FileSystemLabel,DriveLetter,FileSystem | Format-List
+```
+
+Cette adaptation est séparée de la transcription du document original. La commande correcte est `Get-Volume` ; `Get-Wolume` est une coquille présente dans une alternative du corrigé.

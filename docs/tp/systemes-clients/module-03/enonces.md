@@ -94,3 +94,9 @@ Sur Discovery :
 Pour construire les réponses, le support recommande de rechercher la commande avec `Get-Command`, de consulter son aide et ses exemples, de la tester simplement, puis d’afficher les propriétés demandées.
 
 Une fois le travail terminé : [consulter les corrections](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] Les cinq activités sont réalisées dans leur ordre.
+- [ ] Chaque fichier créé ou exporté est relu.
+- [ ] Les sorties PowerShell contiennent les propriétés demandées, sans se limiter à la première vue affichée.

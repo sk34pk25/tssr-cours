@@ -11,7 +11,7 @@
 | --- | --- |
 | `.inf` | Définition textuelle du pilote. |
 | `.sys` | Pilote. |
-| `.cat` | Certificat. |
+| `.cat` | Catalogue de sécurité du package signé. |
 
 Le **Driver Store** est le magasin de pilotes présenté par le support. Les outils à reconnaître sont `msinfo32`, `driverquery` et `pnputil`.
 
@@ -51,3 +51,27 @@ Le support associe le serveur d'impression à la centralisation du partage de pl
 
 - **A — Sources TSSR :** support, énoncé et correction du TP M09.
 - **B — Structuration pédagogique :** fiche organisée à partir des notions et contrôles présents dans les sources A.
+
+## Retenir puis vérifier
+
+**Un périphérique matériel et une imprimante logique sont deux objets différents.**
+
+1. **Que représente le Driver Store ?**
+
+??? success "Réponse expliquée"
+    Le magasin de packages de pilotes de Windows.
+
+2. **Quelle différence entre file et spouleur ?**
+
+??? success "Réponse expliquée"
+    La file contient les travaux ; le spouleur est le service qui les prend en charge.
+
+3. **Pourquoi le TP n’a-t-il pas toujours le même nombre d’imprimantes ?**
+
+??? success "Réponse expliquée"
+    L’énoncé en demande quatre par défaut, la correction en montre trois : c’est une divergence des documents, à signaler plutôt qu’à masquer.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-09-les-pilotes-et-les-imprimantes.md) · [Mettre en pratique](../../tp/systemes-clients/module-09/index.md)
+
+!!! note "Précision externe — fichier .cat"
+    Le support emploie « certificat ». Le fichier `.cat` est un catalogue signé contenant les empreintes des fichiers du package. [Référence Microsoft](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/catalog-files).

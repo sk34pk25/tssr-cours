@@ -10,7 +10,7 @@ Ce TP met en pratique la configuration réseau d’une VM Windows : adressage IP
 
 ## Prérequis et environnement
 
-Le scénario source suppose l’accès aux éléments suivants, qui ne sont pas fournis dans le dossier Drive M07 live :
+Le scénario source suppose l’accès aux éléments suivants, qui ne sont pas fournis dans l’ensemble des fichiers du module :
 
 - une VM `Win10-XX` ;
 - une VM Discovery ;
@@ -38,3 +38,9 @@ Les réponses restent séparées des questions : réalisez d’abord l’énonc�
 - [Correction du TP](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-07-la-gestion-du-reseau-et-du-pare-feu.md)
+
+## Vérification de l’atelier
+
+- [ ] IP, masque, passerelle, DNS et profil réseau sont relevés.
+- [ ] Connectivité et résolution de noms sont testées séparément.
+- [ ] La règle de pare-feu agit sur le profil et le sens demandés.

@@ -13,7 +13,7 @@ Le TP « Partages et sessions distantes » demande de partager des dossiers depu
 
 ## Prérequis et ressources de laboratoire
 
-Le dossier Drive live M08 fournit le support, l’énoncé et la correction. Il ne fournit pas les VM Win10-XX et Discovery, les dossiers et volumes du scénario, ni l’environnement réseau du laboratoire. Ces prérequis doivent être fournis par le formateur ou l’environnement de formation.
+Les documents du module 08 comprennent le support, l’énoncé et la correction. Ils ne fournissent pas les VM Win10-XX et Discovery, les dossiers et volumes du scénario, ni l’environnement réseau du laboratoire. Ces prérequis doivent être fournis par le formateur ou l’environnement de formation.
 
 ## Résultats attendus
 
@@ -32,3 +32,9 @@ Le dossier Drive live M08 fournit le support, l’énoncé et la correction. Il 
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-08-le-partage-de-ressources.md)
 - [Kahoot](../../../kahoot/02-systemes-clients-microsoft-08-le-partage-de-ressources.md)
+
+## Vérification de l’atelier
+
+- [ ] Les autorisations de partage et NTFS sont contrôlées séparément.
+- [ ] Le chemin UNC fonctionne avec le compte demandé.
+- [ ] Le test RDP confirme l’accès du compte autorisé au poste cible.

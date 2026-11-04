@@ -1,60 +1,141 @@
 # Module additionnel — Workstation
 
-## Objectifs du module
+**Séquence :** Systèmes clients Microsoft  
+**Utilité :** comprendre l’environnement des VM utilisées dans les ateliers Windows.
 
-Le support présente la virtualisation, les ressources d'une machine virtuelle, ses connexions réseau, ainsi que l'import et l'export de machines virtuelles.
+## Objectifs
 
-## Principe de virtualisation
+- Distinguer hôte, invité et hyperviseur.
+- Identifier les ressources attribuées à une VM.
+- Reconnaître les topologies réseau dessinées dans le support.
+- Utiliser les raccourcis, l’import et l’export dans le contexte du cours.
 
-La virtualisation permet de faire cohabiter plusieurs systèmes invités, isolés et indépendants, à partir des ressources d'un ordinateur physique appelé **hôte**.
+## 1. Hôte, invité et hyperviseur
 
-- L'**hôte** est l'ordinateur physique, serveur ou PC client, qui possède les ressources.
-- Une **machine virtuelle** (VM) possède son propre système d'exploitation, utilise les ressources de l'hôte et est définie par un ensemble de fichiers dans un répertoire d'accueil.
-- L'**hyperviseur** est le lien entre l'hôte et les VM. Il peut être un logiciel ou un système d'exploitation ; il propose, gère, partage et priorise les ressources disponibles lorsque les VM en ont besoin.
+La virtualisation fait cohabiter plusieurs systèmes invités à partir des ressources d’un ordinateur physique, appelé **hôte**.
 
-## Ressources d'une machine virtuelle
-
-| Ressource | Repère issu du support |
+| Élément | Rôle |
 |---|---|
-| Processeur | Des ressources CPU sont attribuées à la VM. |
-| Mémoire vive | Elle est attribuée au démarrage et reste configurable. |
-| Disque | Le disque virtuel est un fichier ; sa taille dynamique et sa taille maximale sont configurables. |
-| Carte réseau | Elle relie la VM à un switch virtuel afin de communiquer avec son environnement. |
+| **Hôte** | PC client ou serveur physique qui possède les ressources. |
+| **Invité / VM** | Ordinateur virtuel avec son propre système d’exploitation, décrit par des fichiers regroupés dans un répertoire d’accueil. |
+| **Hyperviseur** | Lien entre l’hôte et les VM ; logiciel ou OS qui propose, gère, partage et priorise les ressources de l’hôte. |
 
-Le support cite aussi les lecteurs DVD, les stockages externes, la carte graphique, la carte son et le firmware.
+Les invités sont présentés comme isolés et indépendants ; leur fonctionnement utilise néanmoins le matériel commun de l’hôte.
 
-## Réseaux virtuels attestés
+**Illustration IA / externe au cours — partage des ressources.**
 
-Le support présente les switches virtuels suivants : **Host-Only**, **VMnet**, **LAN Segment**, **Bridge** et **NAT** (translation d'adresse).
+```mermaid
+flowchart TD
+    A["VM Windows"] --> H["Hyperviseur"]
+    B["VM Linux"] --> H
+    C["Autre VM"] --> H
+    H --> P["Processeur"]
+    H --> M["Mémoire"]
+    H --> D["Stockage"]
+    H --> N["Réseau de l’hôte"]
+```
 
-Une VM peut communiquer avec des VM de son réseau ou de réseaux différents, l'hôte, d'autres machines physiques et, selon le raccordement choisi, le monde extérieur. Les noms d'adaptateurs et topologies illustrés dans le support sont des exemples de démonstration, pas une prescription de configuration.
+## 2. Les ressources d’une machine virtuelle
 
-## Avantages et limites
+| Ressource | Ce qu’enseigne le support |
+|---|---|
+| Processeur | Attribution des ressources CPU ; la capture expose processeurs, cœurs et options du moteur de virtualisation. |
+| Mémoire vive | Attribuée au démarrage et configurable. |
+| Disque | Un **fichier**, dont la croissance peut être dynamique et la capacité maximale configurée. |
+| Carte réseau | Reliée à un switch virtuel pour communiquer avec les autres systèmes. |
 
-Les avantages cités sont une interface épurée, la pause, les snapshots, le clonage, les dossiers partagés entre l'hôte et la VM, ainsi que le glisser-déposer et d'autres possibilités liées aux VMware Tools.
+Une VM a les mêmes quatre besoins fondamentaux qu’une machine physique. Le support ajoute DVD et stockage externe, carte graphique, carte son et firmware.
 
-Le support présente aussi des limites : l'outil est prévu pour des maquettes simples, il s'agit d'un logiciel propriétaire VMware et sa prise en main demande une adaptation aux notions de virtualisation des systèmes, du stockage et des réseaux.
+### Comprendre les captures de configuration
 
-## Périphériques amovibles
+- CPU : distinguer le nombre de processeurs virtuels et le nombre de cœurs par processeur.
+- Mémoire : le curseur de configuration fixe l’allocation ; la valeur de la capture est un exemple.
+- Disque : l’assistant montre la capacité maximale, l’allocation immédiate éventuelle et le choix d’un seul fichier ou de plusieurs fichiers.
 
-Les médias CD/DVD, USB et disquette sont gérés. La VM capture par défaut clavier et souris : `Ctrl` + `Alt` permet de reprendre la main, et `Ctrl` + `Alt` + `Inser` est cité pour transmettre `Ctrl` + `Alt` + `Suppr` à la VM.
+![Configuration du disque virtuel dans le support](../../assets/course-sources/isolated/3dd20f3a66d49d66/g3-p5-4.webp)
 
-## Importer et exporter une VM
+*Capture du support — capacité et organisation du disque virtuel.*
 
-Importer permet d'utiliser une VM existante depuis son répertoire d'accueil ou une archive `.ovf` ou `.ova`. Exporter consiste à sauvegarder l'état actuel de la VM pour la réutiliser plus tard, soit en copiant son répertoire d'accueil, soit dans une archive `.ovf` ou `.ova`.
+## 3. Cartes et switchs virtuels
 
-Le support situe cette démonstration dans la préparation de maquettes d'apprentissage ou de test avant production. Il ne fournit ni VM, ni archive, ni procédure de laboratoire à exécuter dans ce module.
+Le cours rappelle qu’une VM doit être connectée à un **switch** pour communiquer. Selon le raccordement, elle peut joindre des VM de son réseau, des VM d’autres réseaux, l’hôte, d’autres machines physiques et le monde extérieur.
 
-## Synthèse
+| Topologie dessinée dans le support | Repère de lecture |
+|---|---|
+| **Host-Only** | Les VM et l’hôte sont raccordés au switch virtuel ; adaptateur de l’hôte **VMware Network Adapter VMnet1**. |
+| **VMnetX** | Switch virtuel VMnetX avec adaptateur VMware Network Adapter VMnetX sur l’hôte. |
+| **Lan Segment** | Plusieurs VM partagent le segment virtuel représenté ; aucun adaptateur de l’hôte n’est dessiné. |
+| **Bridge** | Le switch relie les VM au réseau physique, avec une sortie Internet figurée. |
+| **NAT** | Le schéma passe par le réseau NAT, l’adaptateur **VMnet8** de l’hôte, puis son interface **Ethernet** vers Internet. |
 
-Une VM s'appuie sur les ressources de l'hôte sous le contrôle d'un hyperviseur. CPU, mémoire, disque et réseau sont des ressources configurées pour la VM. Les switches virtuels, les périphériques amovibles et l'import/export complètent cette première vue de Workstation.
+Les accès dépendent de la topologie et de sa configuration : un nom de mode ne suffit pas à garantir une connectivité.
 
-## Liens utiles
+Le support montre aussi une maquette avec quatre réseaux **Serveurs**, **Administratif**, **Usine** et **Imprimantes**, reliés à un **routeur virtuel**. C’est un exemple d’architecture de laboratoire, pas un réseau à recréer sans consignes.
+
+## 4. Atouts et limites de Workstation
+
+### Avantages cités
+
+- Interface épurée et simple d’utilisation.
+- Pause, snapshots et clonage.
+- Dossiers partagés entre l’hôte et la VM.
+- Glisser-déposer et autres fonctions liées aux **VMware Tools**.
+
+### Limites citées
+
+- Le support le situe dans des maquettes simples.
+- Il présente Workstation comme un logiciel propriétaire VMware.
+- Sa prise en main demande de comprendre la virtualisation des OS, du stockage et du réseau.
+
+Ces points décrivent le support de formation ; les captures et noms de produit restent ceux de cette version.
+
+## 5. Manipulations à connaître
+
+| Besoin | Action du support |
+|---|---|
+| Modifier l’ordre d’amorçage | Paramétrer la séquence de démarrage dans le BIOS de la VM. |
+| Utiliser un média amovible | CD/DVD, USB et disquette sont cités. |
+| Reprendre clavier et souris sur l’hôte | **Ctrl + Alt**. |
+| Envoyer Ctrl + Alt + Suppr dans l’invité | **Ctrl + Alt + Inser** ou bouton **Send Ctrl+Alt+Del to this virtual machine**. |
+
+La distinction entre raccourci de l’hôte et raccourci de l’invité évite d’envoyer l’action au mauvais système.
+
+## 6. Importer et exporter
+
+| Opération | Deux méthodes du support |
+|---|---|
+| Importer une VM existante | Ouvrir (**Open**) son dossier d’accueil ; importer une archive **.ovf** ou **.ova**. |
+| Conserver une VM pour la réutiliser | Copier son dossier d’accueil ; exporter une archive **.ovf** ou **.ova**. |
+
+Le support parle de conserver la VM dans son état actuel. Il ne fournit pas de VM ou d’archive à télécharger dans ce module.
+
+## 7. Mise en pratique dans le parcours
+
+**TP spécifique au module additionnel : Inexistant dans les supports fournis.** Aucun énoncé ni corrigé distinct n’est inventé.
+
+Pour retrouver une application documentée du clonage, utiliser le [TP du module 12](../../tp/systemes-clients/module-12/index.md) et sa [correction](../../tp/systemes-clients/module-12/corrections.md). Il distingue le **Full Clone** Workstation et la généralisation Windows.
+
+Les notes « module 1 et 2 et extra » sont partagées avec les modules précédents et restent liées dans l’onglet Original, avec leur provenance. Elles ne constituent pas un second support illustré Workstation.
+
+## À retenir
+
+Workstation sert aux maquettes d’apprentissage et aux tests avant production. L’hyperviseur répartit CPU, mémoire, stockage et réseau ; la configuration du réseau détermine les communications. Les fonctions de la VM et les raccourcis se comprennent toujours par rapport à l’hôte.
+
+## Mini-quiz
+
+1. Qui possède les ressources physiques : l’hôte ou l’invité ?
+2. Quels sont les quatre besoins fondamentaux de la VM ?
+3. Quelle interface de l’hôte apparaît dans le schéma Host-Only ?
+4. Comment reprendre le contrôle du clavier et de la souris sur l’hôte ?
+5. Quelles sont les deux formes d’import présentées ?
+
+??? note "Réponses"
+    1. L’hôte ; l’invité utilise les ressources attribuées via l’hyperviseur.
+    2. Processeur, mémoire, disque et réseau.
+    3. VMware Network Adapter VMnet1.
+    4. Ctrl + Alt.
+    5. Ouvrir la VM depuis son dossier d’accueil ou importer une archive OVF/OVA.
 
 - [Fiche de révision Workstation](../../revision/systemes-clients/module-additionnel-workstation.md)
 - [Kahoot Workstation](../../kahoot/02-systemes-clients-microsoft-additionnel-workstation.md)
-- [Présentation de la formation](index.md)
-
-## Provenance
-
-Contenu A : `Module additionnel - Support de cours.pdf` consulté dans Drive TSSR en lecture seule. Contenu B : reformulation et organisation pédagogique web, sans ajout de procédure de virtualisation externe.
+- [Présentation du cours](index.md)

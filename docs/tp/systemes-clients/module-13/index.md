@@ -28,3 +28,9 @@ Le scénario suppose l'accès au poste de laboratoire et aux comptes indiqués p
 - [Correction](corrections.md)
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-13-les-strategies-de-groupe-local.md)
+
+## Vérification de l’atelier
+
+- [ ] Le bon objet local est choisi dans MMC.
+- [ ] Les paramètres sont testés avec le compte visé.
+- [ ] Les paramètres de laboratoire ne sont pas appliqués à un poste de travail personnel.

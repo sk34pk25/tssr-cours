@@ -25,3 +25,9 @@ Les objets nommés dans les sources — notamment `Win10-XX`, `Discovery`, `L_HA
 
 - **A — Sources TSSR :** énoncé et correction du TP M11.
 - **B — Structuration pédagogique :** mise en page et parcours de travail, sans ajout de ressource de laboratoire.
+
+## Vérification de l’atelier
+
+- [ ] Les propriétés finales sont celles de la consigne.
+- [ ] Les bornes des filtres sont contrôlées, notamment le cas égal à 25 Go.
+- [ ] Le formatage est placé à la fin et les coquilles de la correction sont identifiées.

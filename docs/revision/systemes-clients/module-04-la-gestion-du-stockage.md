@@ -32,7 +32,7 @@ Dans le TP, la correction montre un chemin GPT et décrit séparément l’alter
 
 Les numéros, lettres et noms vus dans la correction appartiennent au laboratoire. Ils sont à contrôler dans la machine réellement manipulée.
 
-## Précautions source-faithful
+## Avant une manipulation
 
 Avant une opération de formatage, suppression ou extension :
 
@@ -41,11 +41,26 @@ Avant une opération de formatage, suppression ou extension :
 3. exécuter une seule opération ;
 4. relister ou rouvrir l’outil pour vérifier le résultat.
 
-## Questions flash
-
-1. Quelle différence le module fait-il entre une partition, un volume et un système de fichiers ?
-2. Quel chemin la correction montre-t-elle pour GPT, et quelle alternative décrit-elle pour MBR ?
-3. Quelles informations devez-vous vérifier avant de formater ou supprimer un volume ?
-4. Quel résultat `Get-Disk` et `Get-Volume` permettent-ils de contrôler dans le TP ?
 
 Pour approfondir : [cours complet](../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md) · [Kahoot](../../kahoot/02-systemes-clients-microsoft-04-la-gestion-du-stockage.md).
+
+## Retenir puis vérifier
+
+**Identifier le disque avant de créer, formater, étendre ou supprimer un volume.**
+
+1. **MBR et GPT sont-ils des systèmes de fichiers ?**
+
+??? success "Réponse expliquée"
+    Non, ce sont des formats de table de partitions. NTFS et FAT32 sont des systèmes de fichiers.
+
+2. **Quels volumes le TP distingue-t-il ?**
+
+??? success "Réponse expliquée"
+    DATA, TOOLS et COMMUN en NTFS ; ARCHIVE en FAT32, avec les tailles indiquées dans l’énoncé.
+
+3. **Quelle preuve fournir après une manipulation ?**
+
+??? success "Réponse expliquée"
+    Un état actualisé des disques et volumes : taille, lettre, libellé, système de fichiers et type de disque.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage.md) · [Mettre en pratique](../../tp/systemes-clients/module-04/index.md)

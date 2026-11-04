@@ -7,7 +7,7 @@ Dans la VM `Win10-XX`, manipulez les utilisateurs et les groupes à l’aide de 
 **Durée estimée :** 1 heure 30 minutes.
 
 !!! warning "Ressources du scénario"
-    Utilisez les ressources de laboratoire fournies par le formateur. Les VM et la console mentionnées dans l’énoncé ne sont pas disponibles dans le dossier Drive M05 live.
+    Utilisez les ressources de laboratoire fournies par le formateur. Les VM et la console mentionnées dans l’énoncé ne sont pas disponibles dans le dossier des sources du module.
 
 ## 1. Créer des comptes et des groupes
 
@@ -50,3 +50,9 @@ Pour toute saisie d’authentification exigée par le scénario, utilisez les id
 ## Livrables et vérifications
 
 Conservez les résultats de contrôle demandés par chaque activité : propriétés, appartenances, listes de membres, profils et SID. Vérifiez que chaque résultat répond à la consigne correspondante avant de consulter la [correction](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] Les comptes et groupes sont vérifiés avec leurs SID.
+- [ ] Les appartenances correspondent au scénario.
+- [ ] Le profil et le jeton sont observés dans une session du compte concerné.

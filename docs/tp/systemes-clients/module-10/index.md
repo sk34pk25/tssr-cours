@@ -10,7 +10,7 @@ Ce TP de **1 heure 30 minutes** fait observer l'état d'une VM Windows en foncti
 - gros fichier de charge cité par l'énoncé ;
 - outils Windows présents dans le scénario.
 
-Ces ressources sont mentionnées par les sources mais **ne sont pas fournies dans le dossier Drive M10 live**. En particulier, aucun chemin de partage, fichier de charge ou VM de remplacement ne doit être inventé.
+Ces ressources sont mentionnées par les sources mais **ne sont pas fournies dans l’ensemble des fichiers du module**. En particulier, aucun chemin de partage, fichier de charge ou VM de remplacement ne doit être inventé.
 
 ## Objectifs
 
@@ -34,3 +34,9 @@ Le scénario demande une observation de fiabilité, un tableau de ressources pen
 - [Cours du module](../../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme.md)
 - [Fiche de révision](../../../revision/systemes-clients/module-10-la-maintenance-du-systeme.md)
 - [Kahoot du module](../../../kahoot/02-systemes-clients-microsoft-10-la-maintenance-du-systeme.md)
+
+## Vérification de l’atelier
+
+- [ ] Une observation en temps réel et un événement historique sont distingués.
+- [ ] Le point de restauration est identifié avant récupération.
+- [ ] Les effets sur le système et sur les données utilisateur sont comparés après restauration.

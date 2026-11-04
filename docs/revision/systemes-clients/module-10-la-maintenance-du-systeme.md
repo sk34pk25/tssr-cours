@@ -48,4 +48,25 @@ Les valeurs de ressources relevées dans un TP dépendent de la machine et de la
 ## Provenance
 
 - **A — Sources TSSR :** support, énoncé et correction M10 lus dans Drive en lecture seule.
-- **B — Structuration pédagogique :** organisation de la fiche à partir des notions et contrôles source-faithful.
+- **B — Structuration pédagogique :** organisation de la fiche à partir des notions et contrôles du support.
+
+## Retenir puis vérifier
+
+**Observer le symptôme et sa chronologie avant de choisir un outil de réparation.**
+
+1. **Quel outil pour observer une ressource en temps réel ?**
+
+??? success "Réponse expliquée"
+    Gestionnaire des tâches ou Moniteur de ressources ; compléter par les compteurs de l’Analyseur de performances selon le besoin.
+
+2. **Un point de restauration sauvegarde-t-il les documents personnels ?**
+
+??? success "Réponse expliquée"
+    Non. Il concerne des composants du système ; il ne remplace pas une sauvegarde des données.
+
+3. **Que comparer après restauration ?**
+
+??? success "Réponse expliquée"
+    État du système, applications et paramètres concernés, puis données utilisateur ; noter les effets réellement constatés.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-10-la-maintenance-du-systeme.md) · [Mettre en pratique](../../tp/systemes-clients/module-10/index.md)

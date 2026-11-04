@@ -10,7 +10,7 @@ Dans ce TP, vous ajoutez des supports de stockage à une VM, créez les volumes 
 
 Le scénario demande une VM Windows de laboratoire, VMware Workstation et une VM Discovery. Ajoutez **deux disques durs de 60 Go** chacun à la VM Windows, en choisissant l’option source « Store virtual disk as a single file ».
 
-Les images, disques virtuels, archives et scripts de laboratoire ne sont pas fournis dans le dossier Drive M04 live. N’inventez pas de substitut : utilisez uniquement l’environnement remis par le formateur.
+Les images, disques virtuels, archives et scripts de laboratoire ne sont pas fournis dans l’ensemble des fichiers du module. N’inventez pas de substitut : utilisez uniquement l’environnement remis par le formateur.
 
 ## Étapes avec la console graphique Windows
 
@@ -47,3 +47,9 @@ Rédigez une procédure nommée `GestionDuStockage` montrant la configuration de
     Le scénario demande de formater, étendre, supprimer et recréer des volumes. Vérifiez le disque, le volume, sa taille, son libellé et sa lettre avant chaque opération ; ne réalisez ces manipulations que dans l’environnement de laboratoire prévu.
 
 Une fois le travail terminé : [consulter la correction](corrections.md).
+
+## Vérification de l’atelier
+
+- [ ] Les volumes portent les tailles, libellés et systèmes de fichiers demandés.
+- [ ] Le chemin GPT ou MBR réellement suivi est identifié.
+- [ ] Après chaque extension, suppression ou recréation, les disques et volumes sont relus.

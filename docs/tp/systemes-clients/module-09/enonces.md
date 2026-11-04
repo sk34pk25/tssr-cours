@@ -12,7 +12,7 @@ Vous travaillez sur une VM Windows 10 et une seconde VM Discovery qui héberge u
 - VM Discovery ;
 - imprimante partagée `HP_LaserJet_Accueil_RDC_Bât2` disponible via Discovery.
 
-Les machines, l'imprimante et les pilotes associés sont des prérequis de laboratoire mentionnés dans la source ; ils ne sont pas fournis dans le dossier Drive M09 live. Si une authentification est demandée, utilisez les identifiants fournis par le formateur.
+Les machines, l'imprimante et les pilotes associés sont des prérequis de laboratoire mentionnés dans la source ; ils ne sont pas fournis dans l’ensemble des fichiers du module. Si une authentification est demandée, utilisez les identifiants fournis par le formateur.
 
 ## 1. Exporter les informations sur les pilotes
 
@@ -57,3 +57,9 @@ Avec PowerShell, affichez d'abord les informations par défaut de l'imprimante `
 ## Livrables et vérifications
 
 Conservez les deux exports CSV, les relevés matériels demandés, le résultat de la page de test PDF et les informations PowerShell attendues. Consultez la [correction](corrections.md) seulement après votre tentative.
+
+## Vérification de l’atelier
+
+- [ ] Les exports de pilotes sont relus.
+- [ ] Le document imprimé et son orientation sont contrôlés.
+- [ ] L’imprimante partagée et ses propriétés sont vérifiées dans l’environnement réel.

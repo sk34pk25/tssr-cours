@@ -59,3 +59,11 @@ La première connexion du scénario peut demander de confirmer un échange de ce
 La correction utilise `lusrmgr.msc` pour contrôler l’appartenance et illustre la différence entre un utilisateur standard et un membre du groupe Administrateurs : l’utilisateur standard cité ne peut pas changer le mot de passe de l’autre utilisateur, tandis que le compte administratif du scénario le peut. Cette conclusion dépend des groupes et droits configurés dans Discovery.
 
 Fermez la session distante à la fin de l’exercice.
+
+## Vérification de l’atelier
+
+- [ ] Les autorisations de partage et NTFS sont contrôlées séparément.
+- [ ] Le chemin UNC fonctionne avec le compte demandé.
+- [ ] Le test RDP confirme l’accès du compte autorisé au poste cible.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

@@ -76,3 +76,11 @@ Lorsque `Discovery.ova` est fourni dans l’environnement de laboratoire, l’im
 ## Résultat attendu
 
 Le résultat du TP est une VM Windows 10 installée et configurée, accompagnée de la procédure enregistrée, d’un instantané `TP1 terminé` et, lorsque la ressource correspondante est disponible, d’une VM Discovery importée et contrôlée.
+
+## Vérification de l’atelier
+
+- [ ] La VM respecte les ressources et le réseau demandés.
+- [ ] L’installation, la configuration initiale et les instantanés sont contrôlés.
+- [ ] Les traces d’installation sont lisibles et placées à l’emplacement prévu.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

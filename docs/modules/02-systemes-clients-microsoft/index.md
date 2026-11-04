@@ -32,3 +32,16 @@ Installer, administrer, sécuriser, maintenir et industrialiser un poste client 
 - [Fiches de révision](../../revision/systemes-clients/index.md)
 - [Commandes](../../commandes/index.md)
 - [Dépannage](../../troubleshooting/index.md)
+
+## Utiliser les deux versions du cours
+
+| Étape | Ressource | But |
+|---|---|---|
+| 1 | **Cours Original**, dans chaque module | Lire le support, ses tableaux et les documents associés, dans leur ordre. |
+| 2 | **Cours Optimisé IA** | Comprendre les notions avec les explications, schémas et exemples pédagogiques. |
+| 3 | [Travaux pratiques](../../tp/systemes-clients/index.md) | Réaliser les consignes avant d’ouvrir les corrections. |
+| 4 | [Révisions](../../revision/systemes-clients/index.md) et [exercices](../../exercices/quiz-systemes-clients.md) | Tester la mémorisation et expliquer les résultats. |
+
+Les 13 modules et le module additionnel Workstation disposent chacun d’un support. Les modules 02 à 13 réunissent 16 TP et leurs 16 corrections ; M03 comporte cinq activités. Aucun TP source distinct n’est présent pour M01 ou Workstation : **Inexistant** pour ces deux modules. Les exercices pédagogiques ne sont pas présentés comme des TP originaux.
+
+Les fichiers de notes vides n’apportent aucun contenu ; ils ne rendent pas les supports de cours manquants. Les synthèses Windows présentes parmi les sources de Bases des réseaux restent signalées comme documents mal classés et rattachées au cours Windows.

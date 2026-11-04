@@ -34,3 +34,11 @@ Travaillez sur le poste du scénario avec les comptes de laboratoire. Utilisez l
 ## Résultat attendu
 
 Les stratégies doivent produire un comportement différent selon le compte ou le groupe ciblé. Les résultats se contrôlent par une session de test, et non uniquement par l'état affiché dans l'éditeur.
+
+## Vérification de l’atelier
+
+- [ ] Le bon objet local est choisi dans MMC.
+- [ ] Les paramètres sont testés avec le compte visé.
+- [ ] Les paramètres de laboratoire ne sont pas appliqués à un poste de travail personnel.
+
+Consigner les résultats réellement obtenus : les noms, nombres d’objets et valeurs du laboratoire peuvent différer des captures de la correction.

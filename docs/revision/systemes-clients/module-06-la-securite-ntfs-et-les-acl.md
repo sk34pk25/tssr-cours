@@ -19,11 +19,11 @@ Les autorisations spéciales se configurent depuis **Avancé** pour affiner cert
 
 ## Règles d’accès
 
-- Une entité absente de la DACL reçoit un refus implicite.
+- Sans ACE applicable qui autorise les droits demandés, l’accès est refusé implicitement. Vérifier aussi les SID des groupes présents dans le jeton.
 - Une règle peut autoriser ou refuser un privilège.
 - Plusieurs règles peuvent s’appliquer au même utilisateur.
 - La règle la plus permissive l’emporte parmi les autorisations.
-- Un refus explicite l’emporte sur une autorisation.
+- L’évaluation suit l’ordre des ACE. Dans une DACL canonique, les entrées explicites précèdent les entrées héritées ; à niveau comparable, les refus précèdent les autorisations.
 
 ## Héritage, copie et déplacement
 
@@ -55,6 +55,30 @@ Set-Acl
 
 ## Ressources de laboratoire
 
-Le scénario mentionne une VM `Win10-XX`, une VM Discovery et les volumes `DATA` / `TOOLS`. Ces ressources ne sont pas présentes dans le dossier Drive M06 live.
+Le scénario mentionne une VM `Win10-XX`, une VM Discovery et les volumes `DATA` / `TOOLS`. Ces ressources ne sont pas présentes parmi les fichiers du module.
 
 Pour aller plus loin : [cours du module](../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md) · [Kahoot M06](../../kahoot/02-systemes-clients-microsoft-06-la-securite-ntfs-et-les-acl.md).
+
+!!! note "Précision externe — évaluation des accès"
+    Le nom du compte peut être absent de la DACL tout en recevant des droits par un groupe. Le raccourci « le refus gagne toujours » ne couvre pas l’ordre explicite/hérité. [Référence Microsoft : contrôle des DACL](https://learn.microsoft.com/en-us/windows/win32/secauthz/how-dacls-control-access-to-an-object).
+
+## Retenir puis vérifier
+
+**L’accès dépend des SID du jeton, des ACE applicables, de leur ordre et des droits demandés.**
+
+1. **Un nom absent de la DACL signifie-t-il forcément un refus ?**
+
+??? success "Réponse expliquée"
+    Non. Une ACE visant un groupe de son jeton peut lui accorder les droits. Sans autorisation applicable pour un droit demandé, ce droit est refusé implicitement.
+
+2. **Copie et déplacement conservent-ils toujours les ACL ?**
+
+??? success "Réponse expliquée"
+    Non. Dans les opérations ordinaires étudiées, seul le déplacement sur le même volume conserve les ACL ; les autres cas héritent du dossier cible.
+
+3. **Comment vérifier un résultat ?**
+
+??? success "Réponse expliquée"
+    Avec Accès effectif puis un test avec le compte concerné, en tenant compte de l’UAC.
+
+[Relire le cours complet](../../modules/02-systemes-clients-microsoft/module-06-la-securite-ntfs-et-les-acl.md) · [Mettre en pratique](../../tp/systemes-clients/module-06/index.md)
