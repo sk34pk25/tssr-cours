@@ -76,10 +76,16 @@ les propriétés de la console.
 - Les variantes `SourcePath`, `Sourcepath` et `SourcePatch` restent une
   divergence documentaire à signaler.
 - Les variantes du nom du module AWS et la divergence sur l'aide des groupes
-  locaux restent `NEEDS_REVIEW`.
+  locaux restent à vérifier dans le corrigé.
 - Les ressources de laboratoire et les données d'accès ne sont pas publiées.
 
 ## Liens
 
 - [Cours M01](../../modules/12-initiation-powershell/module-01.md)
 - [TP 01 — Premières commandes](../../tp/12-initiation-powershell/module-01/index.md)
+## Autoévaluation
+
+Comparez `$PSVersionTable` entre deux consoles. Retrouvez une commande avec `Get-Command`, un exemple avec `Get-Help -Examples`, puis l’origine de la commande avec `Get-Command | Select-Object Name,ModuleName`. Expliquez pourquoi `Get-Module` et `Get-Module -ListAvailable` renvoient des listes différentes. Repérez enfin la stratégie qui l’emporte dans `Get-ExecutionPolicy -List`.
+
+- [Cours du module](../../modules/12-initiation-powershell/module-01.md)
+- [TP et correction](../../tp/12-initiation-powershell/module-01/index.md)

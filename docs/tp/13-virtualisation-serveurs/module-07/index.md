@@ -1,18 +1,9 @@
-# Module 07 — Atelier n°5 : gestion du stockage
+# Module 07 — Ateliers
 
-Un atelier de **deux à trois heures**, avec deux parties : iSCSI en mode bloc et
-NFS en mode fichier. Les deux ESXi et leurs réseaux sont ceux des ateliers 3 et 4 ;
-une VM Windows Server 2019 préparée à l’atelier 1 fournit les services de stockage.
+Identifier le chemin bloc ou fichier, monter les banques partagées et vérifier leur accès depuis les deux hôtes.
 
-- [Énoncé adapté](tp-01.md)
-- [Correction documentaire](correction-tp-01.md)
-- [Cours du module](../../../modules/13-virtualisation-serveurs/module-07.md)
+- [iSCSI et NFS](tp-01.md) · [Correction](correction-tp-01.md)
 
-La restauration du snapshot, le formatage et les permissions affectent le
-laboratoire. Les noms, chemins, adresses et captures internes sont neutralisés.
-Les VM et le snapshot ne sont pas fournis par les PDF. Les paramètres NFS sans
-authentification restent propres au scénario historique et sont à revoir avant
-toute exécution dans un autre contexte. Aucun TP exécuté ici.
+Les énoncés et les corrections sont transcrits séparément. Les paramètres de salle et les images d’installation sont fournis pour le laboratoire.
 
-Provenance A : énoncé et solution M07 Drive TSSR en lecture seule ; B : adaptation
-fidèle. Aucun bonus créé à partir de la simple mention « Bonus » du document.
+[Cours](../../../modules/13-virtualisation-serveurs/module-07.md) · [Révision](../../../revision/13-virtualisation-serveurs/module-07.md) · [Tous les ateliers](../index.md)

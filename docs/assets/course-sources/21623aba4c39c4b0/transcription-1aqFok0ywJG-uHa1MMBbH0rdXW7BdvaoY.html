@@ -1,0 +1,94 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSSR110-Virtualisation_Mise en Situation - Module 8.2 -  DataCenter - Solution</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>TSSR110-Virtualisation_Mise en Situation - Module 8.2 -  DataCenter - Solution</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Solutions :</p>
+<h4>Atelier N°7</h4>
+<p>TP du Module 08 – Les composants d’une infrastructure vSphere</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 8.</p>
+<p>Durée estimée</p>
+<p>2 à 3 heures</p>
+<h4>Objectif :</h4>
+<p>Déployer une VM vCenter sous forme d’appliance</p>
+<p>Géré un Datacenter vSphere</p>
+<p>Utiliser les fonctionnalités fournies par vCenter, notamment la migration vMotion et Storage vMotion</p>
+<h4>Prérequis :</h4>
+<p>Disposer de deux hyperviseurs ESXi1 et ESXi2 configurés (Atelier 3, 4 et 5 réalisé)</p>
+<p>Disposer de la machine virtuelle SRV_2K19 (Atelier 1 réalisé)</p>
+<p>Disposer des machines virtuelles SRV-1 et SRV-2 hébergées sur ESXi1 et ESXi2 (Atelier 6 réalisé)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Énoncé :</h4>
+<p>Dans cet atelier, il s’agira de déployer une appliance vCenter (vCSA) permettant de gérer une infrastructure vSphere composée de nos 2 hyperviseurs. Pour cela un centre de données sera créé permettant [phrase incomplète dans le support].</p>
+<p>I - Phases préparatoires à l’intégration du vCSA</p>
+<p>Sur la machine virtuelle SRV_2K19</p>
+<ul><li>Ajouter une deuxième carte réseau et configurer la comme suit :</li><li>Adresse IP statique : 10.5.XX.21 / 16.</li><li>Adresse du serveur DNS : 10.5.XX.21</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<h4>Informations dans les visuels du support</h4>
+<ul><li>Dans Virtual Machine Settings, sélectionner Network Adapter 2, cocher Connect at power on et choisir Bridged.</li><li>Dans les connexions réseau de Windows, ouvrir les propriétés IPv4 d’Ethernet1. Renseigner 10.YY.XX.21 et le masque 255.255.0.0.</li><li>La capture laisse la passerelle vide et indique 10.YY.XX.21 comme serveur DNS préféré.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<ul><li>Renommer le serveur afin de lui ajouter le suffixe DNS principal vmwareXX.lab</li><li>Installer le rôle de serveur DNS.</li><li>Avec la console Gestion DNS, créer une nouvelle zone nommée vmwareXX.lab, créer les enregistrements DNS « A » d’ESXi1, ESXi2 et vCenter (voir sa configuration au point suivant) afin de résoudre leurs noms en adresses IPs .</li></ul>
+<figure><img src="../isolated/21623aba4c39c4b0/v13-d11-p04-i3.webp" alt="Capture isolée du support, page 4"><figcaption>Capture isolée du support, page 4</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<ul><li>L’assistant de création d’une nouvelle zone s’affiche. Choisir zone principale</li><li>Définir le nom de la nouvelle zone</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+<ul><li>Conserver tous les paramètres par défaut jusqu’à parvenir à la fin de l’assistant.</li><li>Configurer les enregistrements DNS avec les noms d’ESXi1, ESXi2 et vCenter et leurs</li></ul>
+<p>adresses IP respectives</p>
+</section>
+<section class="tssr-transcribed-page" id="page-7">
+<ul><li>Une fois les enregistrements configurés, voici ce que cela doit donner (hormis les</li></ul>
+<p>adresses IP qui seront différentes)</p>
+<p>Sur les hyperviseurs ESXi1, ESXi2</p>
+<ul><li>Modifier les configurations IP des hyperviseurs via leur console locale (touche « F2 » sur les VMs) :</li><li>Adresse du serveur DNS =&gt; 10.5YY.XX.21</li><li>Suffixe du domaine =&gt; vmwareXX.lab</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-8">
+<ul><li>Appuyer sur la touche [Echap], puis confirmer les modifications</li><li>Faire les mêmes manipulations sur l’hyperviseur ESXi2</li></ul>
+<p>II - Intégration de vCenter à l’infrastructure vSphere</p>
+<ul><li>Récupérer sur le partage « iso\virtualisation\vSphere 7 » sur distrib, l’appliance vCenter (VMware-vCenter-Server-Appliance*.ova)</li></ul>
+<figure><img src="../isolated/21623aba4c39c4b0/v13-d11-p08-i4.webp" alt="Capture isolée du support, page 8"><figcaption>Capture isolée du support, page 8</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-9">
+<ul><li>Une fois récupéré, double cliquer sur le fichier et l’ouvrir avec Workstation</li><li>Déployer l’appliance en mode « Tiny server with embedded PSC »</li><li>Fournir à l’assistant graphique à minima les points de configuration suivants : BIEN LIRE LES INDICATIONS !!!</li><li>Attribuer comme adresse statique : 10.YY.XX.10 / 16</li><li>Indiquer la passerelle de la salle 10.YY.255.254</li><li>Saisir l’adresse IP de votre serveur DNS (10.YY.XX.21)</li><li>Allouer le nom d’hôte vcenter.vmwareXX.lab</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-10">
+<p>Attendre quelques minutes que l’écran noir et bleu s’affiche. Cela peut-être un peu long….</p>
+<ul><li>Définir le mot de passe root (attention ! Le clavier est en qwerty ! Utilisez des touches communes ! (par exemple « [valeur fournie par le formateur] »)</li></ul>
+<p>Configuration du vCSA (port 5480)</p>
+<ul><li>Lancez un navigateur Internet depuis le serveur SRV_2K19. En effet, c’est le seul système avec interface graphique qui utilise comme résolveur DNS, le serveur DNS que vous avez configuré précédemment. Dans la barre d’URL saisir le nom FQDN du vCSA, en précisant le port 5480.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-11">
+<ul><li>Continuer le paramétrage en cliquant sur « configurer », puis suivre l’assistant. Vous créerez un nouveau domaine SSO, en utilisant le nom par défaut (vsphere.local).</li><li>L’authentification en tant que root vous est demandé :</li><li>Ne pas fermer la fenetre : attendre la fin de la configuration.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-12">
+<p>Si vous constatez que la configuration « boucle » et ne progresse pas, actualisez votre navigateur et recommencez du début.</p>
+<p>Configuration de l’infra vSphere (port 443)</p>
+<ul><li>Depuis votre navigateur Internet, toujours sur la VM SRV_2K19, enlever le numéro de port et se connecter en HTTPS sur vcenter.</li><li>Cet écran de bienvenue doit alors s’afficher :</li><li>S’authentifier avec le compte administrator@vsphere.local</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-13">
+<ul><li>Une fois connecté, créer un nouveau datacenter nommé Dataprod</li></ul>
+<p>et lui ajouter les 2 ESXi comme hôtes.</p>
+<ul><li>Ajout des Hotes ESXi-1 &amp; ESXi-2 par clic droit sur le datacenter</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-14">
+<ul><li>Pour ajouter les hôtes, vous devez fournir les mots de passe root configurés sur ceux-</li></ul>
+<p>ci (et non pas celui de vcenter).</p>
+<ul><li>Répondre « oui » à l’alerte de sécurité</li><li>Conserver le sparamètres restant par défaut jusqu’à la fin de l’assistant.</li><li>Puis, intégrer ESXi-2 de la meme manière.</li></ul>
+<p>III – Utilisation de la fonctionnalité vMotion offerte par vCenter</p>
+<ul><li>S’assurer que la machine virtuelle SRV-2 est bien démarrée. Sans l’arrêter, procéder au déplacement des ressources de calculs vers l’hôte ESXi1.</li><li>Situation intiale :</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-15">
+<ul><li>Lancement de la migration vers ESXi1 :</li><li>Un assistant s’éxécute alors, conserver le choix par défaut :</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-16">
+<ul><li>Sélectionner l’hyperviseur de destination (ESXi1 ici) :</li><li>Conserver le choix du groupement de port GRP-VMNET par défaut :</li><li>Puis conserver les paramètres par défaut jusque la fin de l’assistant.</li><li>Démarrer la VM SRV-1 si elle n’est pas en cours de fonctionnement. Déplacer les fichiers de la VM actuellement stockés sur la banque de données DS-Local vers DS-NFS.</li><li>Clic droit sur la VM SRV-1</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-17">
+<ul><li>Choisir la deuxième case à cocher :</li><li>Enfin, choisir la destination du stockage de la VM</li></ul>
+<figure><img src="../isolated/21623aba4c39c4b0/v13-d11-p17-i2.webp" alt="Capture isolée du support, page 17"><figcaption>Capture isolée du support, page 17</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-18">
+<ul><li>Contrôler l’impact des déplacements dans les banques de données. Contrôler le bon déroulement des opérations, les VM sont-elles toujours fonctionnelles ?</li><li>Les fichiers de la VM SRV-1 sont désormais sur la banque de données DS-NFS</li><li>La VM SRV-2 utilise maintenant les ressources de l’hyperviseur ESXi1 :</li></ul>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

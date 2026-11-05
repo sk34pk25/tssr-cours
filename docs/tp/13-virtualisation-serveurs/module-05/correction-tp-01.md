@@ -33,7 +33,7 @@ la participation au programme d’amélioration affiché dans son interface.
 Les pages 10 et 11 montrent la création d’une banque VMFS sur le disque de 200 Go,
 avec tout l’espace disponible, puis le chargement de l’ISO Windows Server 2019
 par le navigateur de banque de données. Le nom est neutralisé ici en
-`<stockage-de-laboratoire>`. Identifier le disque avant son initialisation.
+`DS-Local`. Identifier le disque avant son initialisation.
 
 ## Machine Windows Server
 
@@ -46,7 +46,7 @@ seule que leur installation est achevée.
 
 ## Limites à conserver
 
-- **NEEDS_REVIEW : RAM.** Texte et capture de préparation : 6 Go par hyperviseur ;
+- **Point de vigilance. RAM.** Texte et capture de préparation : 6 Go par hyperviseur ;
   schéma final : 8 Go. Le schéma de l’énoncé présente le même écart.
 - Le schéma récapitulatif mentionne HTTP ; il ne suffit pas à déterminer la
   configuration de protocole et de certificat à employer dans un autre laboratoire.
@@ -55,6 +55,10 @@ seule que leur installation est achevée.
   à partir des captures du document historique.
 
 [Énoncé](tp-01.md) · [Retour à l’atelier](index.md)
+
+## Résultat à vérifier
+
+Comparer la RAM du texte et des schémas. Identifier la version d’ESXi affichée, la banque de 200 Go et les VMware Tools de `SRV-1`.
 
 Provenance A : solution M05 et comparaison avec l’énoncé ; B : restitution web
 fidèle, données de laboratoire neutralisées, sans procédure externe ajoutée.

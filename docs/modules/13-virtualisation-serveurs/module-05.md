@@ -55,7 +55,7 @@ vSphere 5.5.
 ## Cadre de l’atelier n°3
 
 L’atelier d’une heure demande d’installer deux hyperviseurs ESXi et de configurer
-leur accès. Le laboratoire ENI simule deux serveurs physiques avec deux VM
+leur accès. Le laboratoire du centre de formation simule deux serveurs physiques avec deux VM
 imbriquées sous Workstation 16. Le texte demande pour chaque hyperviseur deux CPU
 d’un cœur, 6 Go de RAM, une carte réseau bridgée, un disque de 40 Go et un disque
 SCSI supplémentaire de 200 Go.
@@ -66,12 +66,37 @@ L’atelier y importe un ISO Windows Server 2019 et crée une VM invitée avec u
 d’un cœur, 2 Go de RAM et un disque de 32 Go, puis demande l’installation du système
 et des VMware Tools.
 
-!!! warning "NEEDS_REVIEW — paramètres contradictoires"
+!!! warning "paramètres contradictoires"
 
     Le texte demande 6 Go de RAM par hyperviseur ; les schémas récapitulatifs de
     l’énoncé et de la solution indiquent 8 Go. Cet écart reste à arbitrer avant
     l’exécution. Le schéma mentionne également un accès HTTP : il ne constitue pas
     une consigne générale sur le protocole ou les avertissements de certificat.
+
+## De l’installation à la VM fonctionnelle
+
+L’atelier utilise deux hôtes imbriqués `ESXi1` et `ESXi2`. Le texte demande deux processeurs d’un cœur, 6 Go de mémoire, le réseau ponté, un disque système de 40 Go et un disque SCSI de 200 Go. Les schémas indiquent 8 Go. Faire trancher le dimensionnement du laboratoire avant de créer les hôtes. L’ISO nommée par l’énoncé est `VMware-VMvisor-Installer-7.0U3-18644231.x86_64`. Le corrigé illustre aussi une autre version.
+
+Sur ESXi1, ouvrir le **Host Client** pour créer `DS-Local` en VMFS sur le disque de 200 Go. Charger l’ISO Windows Server 2019 dans cette banque et créer `SRV-1` avec un CPU, un cœur, 2 Go et un disque de 32 Go. Vérifier la console, le système et VMware Tools. Le **vSphere Client** relié à vCenter servira ensuite à administrer l’inventaire regroupé.
+
+| Besoin | Service à identifier |
+| --- | --- |
+| Changer d’hôte ou de stockage | vMotion pour le calcul et Storage vMotion pour les fichiers. |
+| Équilibrer la charge | DRS pour les hôtes et Storage DRS pour les datastores. |
+| Adapter la capacité active du cluster | DPM dans le contexte présenté. |
+| Reprendre après perte d’un hôte | HA redémarre les VM éligibles. FT vise la continuité pour des VM compatibles et configurées. |
+
+Les prix, éditions et conditions de licence présentés dans l’original portent sur le 16 août 2021. Le TP mêle un cours vSphere 6.x et une installation ESXi 7.0.
+
+## Question de révision
+
+Quel disque choisir pour installer ESXi et lequel pour créer DS-Local ?
+
+??? success "Correction"
+
+    Installer ESXi sur le disque de 40 Go, puis sélectionner le disque SCSI de 200 Go dans l’assistant de création de la banque VMFS.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-05.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-05/index.md)
 
 ## Kahoot
 

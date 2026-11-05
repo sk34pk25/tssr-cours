@@ -1,10 +1,11 @@
-# Révision — Module 03 — Administration Microsoft 365 — reprise documentaire du Module 02
+# Réviser le module 03 · Administration Microsoft 365 — reprise documentaire du module 2
 
-!!! warning "Provenance"
-    Le dossier Module 3 reprend exactement les cinq PDF du Module 2, avec le titre interne « Module 02 — Administration Microsoft 365 ». Ce rattachement est conservé à la demande explicite de l’utilisateur. Il ne s’agit pas d’un support distinct du Module 3.
+Les cinq PDF classés dans le dossier Module 3 sont des copies exactes des fichiers correspondants du Module 2. Chaque paire a la même empreinte SHA-256. Le titre interne indique « Module 02 – Administration Microsoft 365 ».
 
-Cette fiche est une aide IA / externe au cours, fondée uniquement sur les supports du module.
+[Réviser les notions dans la fiche du module 02](module-02.md)
 
-Distinguer compte, licence, groupe et rôle ; identifier les destinataires ; expliquer l’intérêt des vérifications après synchronisation et retrouver le périmètre d’OU du laboratoire dans le TP original.
+## S’exercer
 
-Consulter les documents originaux et les deux ateliers du module pour vérifier les réponses.
+- [Cours et documents sources](../../modules/14-messagerie-cloud/module-03.md)
+- [TP et corrections](../../tp/14-messagerie-cloud/module-03/index.md)
+- [Kahoot associé](../../kahoot/14-messagerie-cloud-module-03.md)

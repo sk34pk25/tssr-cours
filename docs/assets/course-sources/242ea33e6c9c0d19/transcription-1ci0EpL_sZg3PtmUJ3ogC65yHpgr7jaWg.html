@@ -1,44 +1,26 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 8 - Les structures - Switch.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 8 - Les structures - Switch</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<h4>Les structures : Switch </h4>
-<p class="tssr-source-paragraph">Démonstration 08 du module 4 </p>
-
-<pre class="tssr-source-code">La condition If permet de tester et de définir des commandes à exécuter en fonction d’un 
-résultat « Vrai » ou « Faux ». Le If se limite à un ou deux tests maximum, au-delà il faut passer par 
-la structure Switch. L’objectif de cette démonstration est de voir que le Switch permet de définir 
-une action précise en fonction de la saisie d’une valeur. </pre>
-<h4>Déroulement </h4>
-<pre class="tssr-source-code">• 
-Pour utiliser un Switch, il faut définir la variable qui va être testée. </pre>
-<p class="tssr-source-paragraph">• <br>Ensuite, on déclare les valeurs ainsi que les actions à effectuer en fonction de la valeur.  </p>
-
-
-
-<pre class="tssr-source-code">Le Switch teste, au moyen d’expressions régulières, la variable $choix. Pour cela, il faut ajouter le 
-paramètre Regex à la commande Switch. </pre>
-<p class="tssr-source-paragraph">En cas de caractère non identifié par les deux premières conditions, c’est la sortie par défaut qui <br>est exécutée. </p>
-
-<pre class="tssr-source-code">La structure Switch accède, comme la structure Foreach, les actions Continue et Break. </pre>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>$choix = Read-Host<br>“Veuillez<br>faire<br>votre<br>choix&quot;</p><p>Switch<br>-Regex<br>($choix)<br>{<br>&quot;[a-zA-Z]&#x27;<br>{Write-Host<br>&quot;Vous avez choisi<br>une<br>lettre&quot;<br>}<br>&quot;[0-9]&#x27;<br>{write-Host<br>&quot;Vous<br>avez choisi<br>un<br>chiffre&quot;<br>}<br>Default<br>{ Write-Host<br>&quot;Vous<br>avez<br>fait<br>un<br>autre<br>choix&quot;<br>}</p><p>}</p><p>Veuillez faire votre<br>choix:<br>e<br>Veuillez<br>faire<br>votre<br>choix:<br>5<br>Vous avez choisi<br>une lettre<br>Vous<br>avez choisi un chiffre</p><p>Veuillez<br>faire<br>votre<br>choix:<br>?<br>Vous<br>avez<br>fait<br>un autre<br>choix</p></div></details>
-
-
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 8 - Les structures - Switch</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 8 - Les structures - Switch</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Les structures : Switch</h3>
+<p>Démonstration 08 du module 4</p>
+<p>La condition If permet de tester et de définir des commandes à exécuter en fonction d’un résultat « Vrai » ou « Faux ». Le If se limite à un ou deux tests maximum, au-delà il faut passer par la structure Switch. L’objectif de cette démonstration est de voir que le Switch permet de définir une action précise en fonction de la saisie d’une valeur.</p>
+<h3>Déroulement</h3>
+<ul><li>Pour utiliser un Switch, il faut définir la variable qui va être testée.</li><li>Ensuite, on déclare les valeurs ainsi que les actions à effectuer en fonction de la valeur.</li></ul>
+<p>Le Switch teste, au moyen d’expressions régulières, la variable $choix. Pour cela, il faut ajouter le paramètre Regex à la commande Switch.</p>
+<p>En cas de caractère non identifié par les deux premières conditions, c’est la sortie par défaut qui est exécutée.</p>
+<p>La structure Switch accède, comme la structure Foreach, les actions Continue et Break.</p>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p1-i3-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p1-i4-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p1-i5-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-
-<pre class="tssr-source-code">Si le groupe est User, il sera non testé. Les autres groupes seront testés ensuite. </pre>
-
-<pre class="tssr-source-code">La structure Switch est largement utilisée pour constituer des menus à choix multiple. </pre>
-
-
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>$adgroup = Get-ADGroup -Filter<br>*</p><p>switch<br>-regex ($adgroup)<br>{i<br>&quot;User&quot;<br>{ CONTINUE}<br>&quot;Administrators&#x27;<br>{Write-Host<br>“Le groupe<br>est Admins”<br>}<br>Default<br>{ Write-Host<br>“Le groupe n&#x27;est<br>pas valide”<br>}</p><p>}</p><p>Le groupe est Admins<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide<br>Le groupe n&#x27;est pas valide</p><p>Write-Host<br>&quot;Le choix<br>1&quot;<br>Write-Host<br>&quot;Le<br>choix<br>2&quot;<br>Write-Host<br>“Le<br>choix<br>3&quot;<br>$choix = Read-Host<br>&quot;Veuillez<br>faire votre choix&quot;<br>switch<br>-regex ($choix)<br>{<br>&quot;1&quot;<br>{ Write-Host<br>‘vous<br>avez fait<br>le choix<br>1&quot;<br>}</p><p>&quot;2&quot;<br>{ Write-Host<br>&quot;vous avez fait<br>le choix<br>2&quot;<br>}</p><p>&quot;3&quot;<br>{| Write-Host<br>“vous<br>avez fait<br>le choix<br>3&quot;<br>}<br>‘[qQ]&#x27;<br>{BREAK}</p><p>}</p><p>Le<br>choix<br>1<br>Le<br>choix<br>2<br>Le<br>choix<br>3<br>Veuillez<br>faire<br>votre<br>choix:<br>3<br>vous<br>avez<br>fait<br>le<br>choix<br>3</p><p>En</p></div></details>
-
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2">
+<pre><code>Si le groupe est User, il sera non testé. Les autres groupes seront testés ensuite.</code></pre>
+<p>La structure Switch est largement utilisée pour constituer des menus à choix multiple.</p>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p2-i2-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p2-i3-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p2-i4-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+<figure><img src="../isolated/242ea33e6c9c0d19/ps-p2-i5-1.webp" alt="Capture du support « Fiche démo 8 - Les structures - Switch »" loading="lazy"><figcaption>Capture du support « Fiche démo 8 - Les structures - Switch »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

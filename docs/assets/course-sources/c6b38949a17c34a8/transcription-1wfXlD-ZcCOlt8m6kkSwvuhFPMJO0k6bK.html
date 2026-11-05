@@ -1,0 +1,32 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSSR110-Virtualisation_Mise en Situation - Module 5 -  VSphere 1</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>TSSR110-Virtualisation_Mise en Situation - Module 5 -  VSphere 1</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Énoncé :</h4>
+<h4>Atelier N°3</h4>
+<p>TP du Module 05 – Découverte de vSphere</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 5.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h4>Objectif :</h4>
+<p>Installer des hyperviseurs VMware ESXi.</p>
+<p>Configurer les accès à l’hyperviseur.</p>
+<h4>Prérequis :</h4>
+<p>Posséder la solution de virtualisation VMware Workstation 16.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Énoncé :</h4>
+<p>L’objectif de l’atelier est de mettre en œuvre des hyperviseurs VMware ESXi. Du fait de la configuration des machines qui sont mises à votre disposition par l’centre de formation Ecole Informatique, nous utiliserons VMware Workstation pour simuler l’existence de deux serveurs physiques servant à héberger des machines virtuelles.</p>
+<p>Sous VMware Workstation</p>
+<ul><li>Eteindre la VM « SRV_2K19 » qui ne sera pas utilisée dans cet atelier.</li><li>Créer une machine virtuelle nommée « ESXi1 » de type « ESXi 7 ». Utiliser le dossier « D:\Machines virtuelles\ESXi1 » pour stocker celle-ci.</li></ul>
+<p>Caractéristiques matérielles :</p>
+<ul><li>2 CPU / 1 cœur</li><li>6 Go RAM</li><li>1 carte réseau bridgée</li><li>1 disque de 40 Go + 1 disque supplémentaire SCSI de 200 Go</li><li>Récupérer l’image ISO « VMware-VMvisor-Installer-7.0U3-18644231.x86_64» depuis le partage &quot;iso\virtualisation” du serveur “distrib”, puis l’utiliser comme image du CDROM de la machine virtuelle.</li></ul>
+<p>Création de l’hyperviseur ESXi1</p>
+<ul><li>Procéder à l’installation d’ESXi dans la VM créée précédemment sur le disque dur de 40 Go.</li><li>Choisir la langue française et configurer le mot de passe de « root » en respectant les exigences de complexité.</li><li>Une fois l’installation achevée, relever l’adresse IP obtenue par la VM ESXi1, puis la laisser en l’état. Il est inutile pour le moment de se connecter à la console locale.</li></ul>
+<p>Création de l’hyperviseur ESXi2</p>
+<ul><li>Créer une seconde machine « ESXi2 » avec les mêmes caractéristiques que celles d’ESXi1, qui sera stockée dans le dossier « D:\Machines virtuelles\ESXi2 »</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Depuis l’hôte Windows centre de formation</p>
+<ul><li>A l’aide d’un navigateur Internet (Firefox, Chrome ou Edge), accéder à la console vSphere Client Web d’ESXi1 avec l’adresse IP relevée précédemment. Fournir les identifiants configurés pendant l’installation.</li><li>Se diriger tout d’abord dans le menu « Stockage » et y créer une nouvelle « banque de données VMFS » afin d’intialiser l’espace offert par le disque dur de 200 Go ajouté précédemment. Elle sera nommée « DS-Local » et utilisera l’intégralité de l’espace fourni.</li><li>Cliquer sur « DS-Local », puis sur « Navigateur de banque de données » et charger l’ISO de Windows Server 2019.</li><li>Se placer dans le menu « Machines virtuelles » pour créer une nouvelle machine virtuelle Windows Serve 2019 nommée « SRV-1 » avec les caractéristiques suivantes :</li><li>1 CPU / 1 cœur</li><li>2 Go RAM</li><li>1 disque de 32 Go</li><li>Lecteur de CD/DVD =&gt; Image ISO depuis la banque de données</li><li>Mettre sous tension la VM, prendre rapidement la main via une console, puis lancer l’installation de Windows Server 2019.</li><li>Une fois l’installation terminée, installer les VMware Tools dans la VM « SRV-1 ».</li><li>Fin de l’atelier ! Vous disposez désormais de 2 hyperviseurs ESXi dont l’un héberge une VM en cours de fonctionnement.</li></ul>
+<p>Schéma récapitulatif:</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,8 +1,12 @@
-# Travaux pratiques — Module 02 — Messagerie Cloud
+# Travaux pratiques · Module 02
 
-Deux ateliers sont présents dans les sources, chacun avec son énoncé et sa correction. Tenter l’atelier avant de consulter la solution. Les paramètres de salle et les interfaces sont ceux du support de formation.
+Administration Microsoft 365
 
-- **TP 01 — Utilisateurs et groupes** : [Énoncé](tp-01.md) · [Correction](correction-tp-01.md)
-- **TP 02 — Azure AD Connect** : [Énoncé](tp-02.md) · [Correction](correction-tp-02.md)
+| Atelier | Énoncé | Correction |
+| --- | --- | --- |
+| Utilisateurs et groupes | [TP 1](tp-01.md) | [Corrigé 1](correction-tp-01.md) |
+| Synchronisation avec Azure AD Connect | [TP 2](tp-02.md) | [Corrigé 2](correction-tp-02.md) |
 
-[Retour au cours](../../../modules/14-messagerie-cloud/module-02.md).
+[Revenir au module](../../../modules/14-messagerie-cloud/module-02.md)
+
+[Tous les TP de Messagerie Cloud](../index.md)

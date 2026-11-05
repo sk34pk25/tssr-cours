@@ -1,40 +1,27 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - Le Try Catch Finally.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - Le Try Catch Finally</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<h4>Le Try Catch Finally </h4>
-<p class="tssr-source-paragraph">Démonstration 06 du module 5 </p>
-
-<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la structure dédiée à la gestion des <br>erreurs. Cette structure exécute des commandes en fonction du résultat d’un test initial. </p>
-<h4>Déroulement </h4>
-<pre class="tssr-source-code">• 
-La première étape est le try qui va exécuter une commande. Si la commande réussit, le résultat 
-est affiché, sinon c’est la commande contenue dans le catch qui est exécutée à la place. </pre>
-
-
-<pre class="tssr-source-code">Le paramètre ErrorAction avec la valeur Stop permet à la valeur contenue dans la structure 
-Catch de s’exécuter sans afficher le message d’erreur. </pre>
-
-
-<pre class="tssr-source-code">Sans le paramètre ErrorAction la structure Catch n’est pas exécutée et le message d’erreur 
-apparaît en sortie. </pre>
-<pre class="tssr-source-code">La structure Try-Catch-Finally s’utilise pour effectuer des tests sur des objets ou des valeurs de 
-propriétés des objets. Pour faciliter ces tests, il est courant de coupler la structure avec le Foreach. </pre>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>try {Get-childitem<br>c:\Test<br>-ErrorAction Stop<br>}<br>catch {write-Host<br>“Le dossier<br>n&#x27;éxiste pas&quot;}<br>Finally<br>{ Write-Host<br>&quot;Fin<br>du test&quot;}</p><p>Le dossier n&#x27;éxiste pas<br>Fin du test</p><p>try {Get-childitem<br>c:\Test<br>}<br>catch {Write-Host<br>&quot;Le dossier n&#x27;éxiste pas&quot;}<br>Finally<br>{ Write-Host<br>&quot;Fin<br>du<br>test&quot;}<br>PILES.<br>in du test</p><p>En</p></div></details>
-
-
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 6 - Le Try Catch Finally</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 6 - Le Try Catch Finally</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Le Try Catch Finally</h3>
+<p>Démonstration 06 du module 5</p>
+<p>L’objectif de cette démonstration est de vous présenter la structure dédiée à la gestion des erreurs. Cette structure exécute des commandes en fonction du résultat d’un test initial.</p>
+<h3>Déroulement</h3>
+<ul><li>La première étape est le try qui va exécuter une commande. Si la commande réussit, le résultat est affiché, sinon c’est la commande contenue dans le catch qui est exécutée à la place.</li></ul>
+<p>Le paramètre ErrorAction avec la valeur Stop permet à la valeur contenue dans la structure</p>
+<pre><code>Catch de s’exécuter sans afficher le message d’erreur.
+Sans le paramètre ErrorAction la structure Catch n’est pas exécutée et le message d’erreur
+apparaît en sortie.</code></pre>
+<p>La structure Try-Catch-Finally s’utilise pour effectuer des tests sur des objets ou des valeurs de propriétés des objets. Pour faciliter ces tests, il est courant de coupler la structure avec le Foreach.</p>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p1-i3-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p1-i4-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p1-i5-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-
-<pre class="tssr-source-code">On utilise uniquement la structure Try pour effectuer le test sur une propriété. </pre>
-<p class="tssr-source-paragraph">A chaque utilisateur testé, on affiche un message de fin de test. </p>
-
-<p class="tssr-source-paragraph">Pour les utilisateurs qui n’ont pas de prénom, la réponse du test est « Vraie », pour les autres, la <br>réponse « Faux » est envoyée. </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>$users= Get-AdUser<br>-filter<br>*<br>foreach<br>(<br>$i<br>in fusers){<br>try { ($i.givenname -eq<br>$nu11)<br>|}</p><p>Finally<br>{ Write-Host<br>&quot;Fin<br>du<br>test pour<br>l&#x27;utilisateur<br>&quot; $i.name<br>}</p><p>}</p><p>True<br>Fin du test pour l&#x27;utilisateur<br>Administrator<br>True<br>Fin du test pour l&#x27;utilisateur<br>Guest<br>True<br>Fin du test pour l&#x27;utilisateur<br>krbtgt<br>True<br>Fin du test pour l&#x27;utilisateur<br>toto<br>True<br>Fin du test pour l&#x27;utilisateur<br>System.Collections.Hashtable<br>False<br>Fin du test pour l&#x27;utilisateur<br>Morse</p><p>En</p></div></details>
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2">
+<p>On utilise uniquement la structure Try pour effectuer le test sur une propriété.</p>
+<p>A chaque utilisateur testé, on affiche un message de fin de test.</p>
+<p>Pour les utilisateurs qui n’ont pas de prénom, la réponse du test est « Vraie », pour les autres, la réponse « Faux » est envoyée.</p>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p2-i2-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
+<figure><img src="../isolated/52d8a029fe69f304/ps-p2-i3-1.webp" alt="Capture du support « Fiche démo 6 - Le Try Catch Finally »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - Le Try Catch Finally »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

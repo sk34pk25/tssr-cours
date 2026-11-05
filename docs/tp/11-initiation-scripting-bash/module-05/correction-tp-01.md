@@ -1,29 +1,36 @@
-# Correction TP 01 — Enchaînements conditionnels
+# Correction — TP 01 — Enchaînements conditionnels
 
-## Variables et saisie
+Le document source demande de créer un dossier, de créer `fic_M5TP1.txt`, d’écrire le texte puis d’afficher son contenu. Les messages relatifs au dossier et au fichier ont des couleurs différentes.
 
-La correction utilise les variables `fic`, `bleu`, `vert`, `noir` et `dossier`, puis demande le dossier :
+## Variante pédagogique de script_M5TP1.sh
 
-```bash
-read -p "Veuillez saisir un nom de dossier à créer : " dossier
-```
-
-## Création du dossier et du fichier
-
-Les commandes source sont conservées :
+L’exemple est à recopier dans un espace de travail réservé au TP. La redirection `>` remplace le contenu du fichier ciblé. `mkdir -p` accepte un dossier déjà présent, d’où le message « Dossier prêt ».
 
 ```bash
-mkdir -p $dossier && echo -e ...
-touch $dossier/$fic && echo -e ...
-echo "Introduction du fichier fic_M5TP1.txt" > $dossier/$fic
-cat $dossier/$fic
-chmod u+x script_M5TP1.sh
+#!/bin/bash
+fic=fic_M5TP1.txt
+bleu=$'\033[34m'
+vert=$'\033[32m'
+noir=$'\033[0m'
+
+printf '%s' "Veuillez saisir un nom de dossier à créer : "
+IFS= read -r dossier || exit 1
+if [[ -z $dossier ]]; then
+    printf '%s\n' "Le nom du dossier est vide." >&2
+    exit 1
+fi
+
+mkdir -p -- "$dossier" &&
+    printf '%sDossier prêt : %s%s\n' "$bleu" "$dossier" "$noir" || exit 2
+
+chemin="$dossier/$fic"
+touch -- "$chemin" &&
+    printf '%sFichier prêt : %s%s\n' "$vert" "$chemin" "$noir" || exit 3
+
+printf '%s\n' "Introduction du fichier fic_M5TP1.txt" > "$chemin" &&
+    cat -- "$chemin" || exit 4
 ```
 
-La correction imprime `fic=’fic_M5TP1.txt’` avec des apostrophes typographiques. Cette forme est conservée comme observation documentaire et non normalisée en transcription ASCII.
+Le support emploie `echo -e` et certains guillemets typographiques. Ici, les délimiteurs Bash sont ASCII et les valeurs saisies sont protégées. Contrôlez un nom simple, un nom avec des espaces, une saisie vide et un dossier déjà présent. Vérifiez que le texte affiché correspond au contenu écrit.
 
-## Contrôle et limites documentaires
-
-Le scénario vérifie l’affichage du contenu créé et la différenciation colorée des messages. Les chemins construits depuis la saisie utilisateur ne sont pas protégés par des guillemets. De plus, `mkdir -p` peut réussir lorsque le dossier existe déjà : le message affiché ne démontre pas à lui seul une création nouvelle.
-
-Les sorties du laboratoire présentes dans la source sont historiques et ne constituent pas des résultats permanents.
+[Revenir au TP 01](index.md)

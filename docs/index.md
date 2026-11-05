@@ -12,14 +12,14 @@ hide:
 <p class="tssr-hero__lead">Une base de connaissances technique conçue pour suivre la formation, refaire les TP et retrouver rapidement les commandes, méthodes et contrôles essentiels.</p>
 
 <div class="tssr-hero__actions" markdown>
-[Commencer le parcours](parcours/index.md){ .md-button .md-button--primary }
+[Commencer le parcours](parcours-tssr/index.md){ .md-button .md-button--primary }
 [Ouvrir les révisions](revision/index.md){ .md-button }
 </div>
 
 <div class="tssr-hero__metrics">
-  <span class="tssr-hero__metric"><strong>9</strong><span>étapes datées</span></span>
-  <span class="tssr-hero__metric" data-tssr-metric="modules"><strong>64</strong><span>modules et ateliers</span></span>
-  <span class="tssr-hero__metric"><strong>292</strong><span>sources analysées</span></span>
+  <span class="tssr-hero__metric"><strong>28</strong><span>périodes au planning</span></span>
+  <span class="tssr-hero__metric" data-tssr-metric="modules"><strong>99</strong><span>modules et ateliers</span></span>
+  <span class="tssr-hero__metric"><strong>417</strong><span>références de sources</span></span>
 </div>
 </div>
 
@@ -46,7 +46,7 @@ hide:
 
     Étudier les notions dans l’ordre réel de la formation.
 
-    [Suivre l’ordre chronologique](parcours/index.md)
+    [Suivre l’ordre chronologique](parcours-tssr/index.md)
 
 -   :material-flask:{ .lg .middle } **Travaux pratiques**
 
@@ -108,7 +108,7 @@ hide:
 
 ## Une méthode de travail durable
 
-1. Suivre le [parcours chronologique](parcours/index.md) dans l’ordre réel des semaines de formation.
+1. Suivre le [parcours chronologique](parcours-tssr/index.md) dans l’ordre réel des semaines de formation.
 2. Lire le cours et noter le résultat attendu avant toute modification.
 3. Réaliser le TP sans ouvrir immédiatement sa correction.
 4. Vérifier avec une commande, un journal ou un test fonctionnel.

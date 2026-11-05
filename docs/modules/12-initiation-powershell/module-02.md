@@ -33,7 +33,7 @@ Get-LocalUser | Get-Member
 Get-Date | Get-Member
 ```
 
-!!! note "Formulation du support — NEEDS_REVIEW"
+!!! note "Formulation du support"
     Le support affirme que `Get-Member` s'utilise exclusivement après une
     commande dont le verbe est `Get`. Cette formulation est conservée comme
     indication documentaire du support ; elle n'est pas présentée ici comme
@@ -97,15 +97,69 @@ observations historiques ou dynamiques de laboratoire.
 - contrôler une date d'expiration de compte après la mise à jour demandée,
   avec les identifiants fournis dans le laboratoire.
 
-## Synthèse
+## Examiner le type avant de choisir une action
 
-M02 introduit l'objet PowerShell par ses propriétés, ses méthodes, son type et
-la lecture de ses membres avec `Get-Member`. Les objets de service,
-d'utilisateur local et de date servent de supports de pratique source-faithful
-dans le TP unique « L'objet ».
+Le support compare le nom « Tom » affiché par CMD avec un objet qui possède plusieurs propriétés et méthodes. Le feutre illustre la distinction entre **décrire** une chose, par sa couleur ou son poids, et **agir** sur elle, par exemple enlever son bouchon. Dans PowerShell, `Get-Service` renvoie des objets de service. `Name`, `DisplayName` et `Status` décrivent ces objets. Des méthodes comme `Start()` et `Stop()` agissent sur le service.
 
-## Mettre en pratique
+```mermaid
+flowchart LR
+    A["Objet ServiceController"] --> B["Propriétés<br/>Name, DisplayName, Status"]
+    A --> C["Méthodes<br/>Start, Stop, Refresh"]
+    A --> D["Type .NET<br/>Get-Member"]
+```
 
-Le TP 01 « L'objet », son énoncé, sa correction et la fiche de révision sont
-proposés séparément dans l'écosystème du module. Ils ne font pas partie de
-cette proposition de page de cours.
+*Schéma pédagogique externe au cours.*
+
+```powershell
+$service = Get-Service -Name Spooler
+$service | Get-Member
+$service | Get-Member -MemberType Property
+$service | Get-Member -MemberType Method
+$service.Name
+$service.DisplayName
+$service.Status
+```
+
+`TypeName` décrit le type examiné. `MemberType` distingue notamment les propriétés, les méthodes et les alias. `Definition` précise le type et les formes d’appel. Pour afficher les membres du tableau lui-même, passer celui-ci à `Get-Member -InputObject`. Avec le pipeline, `Get-Member` inspecte les objets qui circulent dans le tableau.
+
+## Lire, modifier, puis relire
+
+La démonstration recherche `WSearch`, relève son nom d’affichage, modifie ce nom, puis interroge de nouveau le service. La possibilité de lire une propriété dépend du type et de la définition de son membre. Pour appliquer un changement au système, utiliser la commande appropriée avec la bonne cible et les droits du laboratoire.
+
+```powershell
+Get-Service -Name '*search'
+Get-Service -Name WSearch | Select-Object Name,DisplayName,Status
+Set-Service -Name WSearch -DisplayName 'Service de recherche Windows'
+Get-Service -Name WSearch | Select-Object Name,DisplayName,Status
+```
+
+La table d’origine cite `String`, `Int`, `Bool`, `Array` et `Object`. Une valeur booléenne vaut `$true` ou `$false`. `$null` indique une absence de valeur. Une propriété peut elle-même contenir une collection ou un objet. Dans le TP, la description du compte local est comparée avant et après `Set-LocalUser`. Le nom du compte est celui de la maquette du formateur.
+
+## Comprendre le résultat d’une méthode
+
+```powershell
+$maintenant = Get-Date
+$maintenant | Get-Member -MemberType Method
+$demain = $maintenant.AddDays(1)
+$maintenant
+$demain
+```
+
+`AddDays(1)` produit une nouvelle valeur de type `DateTime`. La valeur initiale reste dans `$maintenant`. Une méthode de type `void` peut agir sans produire un objet utilisable dans un pipeline. Le TP compare le statut du spouleur avant et après l’appel de `Stop()` sur le service de laboratoire. Le contrôle passe par une nouvelle interrogation de `Get-Service -Name Spooler`.
+
+## Mini-quiz
+
+1. Quelle colonne décrit les arguments et le type de retour d’une méthode ?
+2. Comment lire le statut d’un objet stocké dans `$service` ?
+3. Que renvoie `$maintenant.AddDays(1)` ?
+
+??? success "Réponses"
+    1. `Definition` dans la sortie de `Get-Member`.
+    2. `$service.Status`.
+    3. Une nouvelle date augmentée d’un jour.
+
+## Travaux pratiques et révision
+
+- [TP et correction du module](../../tp/12-initiation-powershell/module-02/index.md)
+- [Fiche de révision](../../revision/12-initiation-powershell/module-02.md)
+- [Sommaire du cours](index.md)

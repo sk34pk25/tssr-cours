@@ -1,39 +1,32 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 3 - Measure-Object.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 3 - Measure-Object</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
-<h4>Measure-Object </h4>
-<p class="tssr-source-paragraph">Démonstration 03 du module 3 </p>
-
-<pre class="tssr-source-code">L’objectif de cette démonstration est de vous présenter la commande Measure-Object. </pre>
-<h4>Déroulement </h4>
-<p class="tssr-source-paragraph">Comptabiliser le nombre d’objets est important pour identifier des défaillances, des besoins <br>d’intervention ou pour vérifier la bonne prise en compte de certaines commandes. </p>
-<pre class="tssr-source-code">• 
-La commande Measure-Object permet : </pre>
-<pre class="tssr-source-code">o De comptabiliser le nombre d’objets renvoyés par une commande </pre>
-
-<pre class="tssr-source-code">Dans ce cas et sans précision, c’est le paramètre Count qui est pris à défaut. </pre>
-<p class="tssr-source-paragraph">Il est également possible de déterminer la moyenne des valeurs renvoyées par une commande. </p>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Process<br>|<br>Select-Object<br>|<br>Measure-Object</p><p>Count<br>:<br>91<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>PS C:\&gt; Get-Process<br>|<br>Select-Object -Unique<br>|<br>Measure-Object</p><p>Count<br>:<br>53<br>Average<br>:<br>sum<br>:<br>Maximum<br> :<br>Minimum<br>:<br>Property<br>:</p><p>En</p></div></details>
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 3 - Measure-Object</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 3 - Measure-Object</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Measure-Object</h3>
+<p>Démonstration 03 du module 3</p>
+<pre><code>L’objectif de cette démonstration est de vous présenter la commande Measure-Object.</code></pre>
+<h3>Déroulement</h3>
+<p>Comptabiliser le nombre d’objets est important pour identifier des défaillances, des besoins d’intervention ou pour vérifier la bonne prise en compte de certaines commandes.</p>
+<ul><li>La commande Measure-Object permet :</li></ul>
+<pre><code>o De comptabiliser le nombre d’objets renvoyés par une commande</code></pre>
+<p>Dans ce cas et sans précision, c’est le paramètre Count qui est pris à défaut.</p>
+<p>Il est également possible de déterminer la moyenne des valeurs renvoyées par une commande.</p>
+<h4>Commandes visibles dans les captures</h4><pre><code>Get-Process | Select-Object | Measure-Object
+Get-Process | Select-Object -Unique | Measure-Object</code></pre>
+<figure><img src="../isolated/658af100882af469/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 3 - Measure-Object »" loading="lazy"><figcaption>Capture du support « Fiche démo 3 - Measure-Object »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
-
-<pre class="tssr-source-code">Nous indiquons à Measure-Object la propriété Id qui est de type Int et il est renvoyé la moyenne 
-des valeurs. </pre>
-<pre class="tssr-source-code">Attention, les calculs ne se font que sur les propriétés dont le type est Int. </pre>
-
-<pre class="tssr-source-code">Nous avons toutes les possibilités de la commande Measure-Object. </pre>
-<p class="tssr-source-paragraph">C’est une commande particulièrement importante pour évaluer les tailles de fichier. </p>
-
-<pre class="tssr-source-code">La propriété Length indique la taille des dossiers présents dans le répertoire Windows. </pre>
-<pre class="tssr-source-code">Measure-Object indique la taille la plus faible, la plus élevée, la taille moyenne, le nombre d’objets 
-et nous rappelle la propriété testée. </pre>
-<p class="tssr-source-paragraph">La taille est en octets à défaut. </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PS C:\&gt; Get-Process<br>|<br>Select Id<br>|<br>Measure-Object -Property Id -Average</p><p>Count<br>:<br>90<br>Average<br>:<br>2897.33333333333<br>sum.<br>D<br>Maximum<br>:<br>Minimum<br>:<br>Property<br>:<br>Id</p><p>PS C:\&gt; Get-Process<br>|<br>Select Id<br>|<br>Measure-Object -Property<br>Id -Average -min -max -sum</p><p>Count<br>:<br>90<br>Average<br>:<br>2897.33333333333<br>Sum<br>:<br>260760<br>Maximum<br>:<br>7040<br>Minimum<br>:<br>O<br>Property<br>:<br>Id</p><p>PS C:\&gt; Get-ChilaItem<br>-Path<br>C:\Windows<br>Measure-Object -Property<br>length<br>-Average -Min<br>-max<br>-sum</p><p>Count<br>:<br>24<br>Average<br>:<br>303992.291666667<br>sum<br>:<br>7295815<br>Maximum<br>:<br>4625184<br>Minimum<br>:<br>©<br>Property<br>:<br>length</p><p>En</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2">
+<pre><code>Nous indiquons à Measure-Object la propriété Id qui est de type Int et il est renvoyé la moyenne
+des valeurs.
+Attention, les calculs ne se font que sur les propriétés dont le type est Int.
+Nous avons toutes les possibilités de la commande Measure-Object.</code></pre>
+<p>C’est une commande particulièrement importante pour évaluer les tailles de fichier.</p>
+<p>La propriété Length indique la taille des dossiers présents dans le répertoire Windows.</p>
+<pre><code>Measure-Object indique la taille la plus faible, la plus élevée, la taille moyenne, le nombre d’objets
+et nous rappelle la propriété testée.</code></pre>
+<p>La taille est en octets à défaut.</p>
+<figure><img src="../isolated/658af100882af469/ps-p2-i2-1.webp" alt="Capture du support « Fiche démo 3 - Measure-Object »" loading="lazy"><figcaption>Capture du support « Fiche démo 3 - Measure-Object »</figcaption></figure>
+<figure><img src="../isolated/658af100882af469/ps-p2-i3-1.webp" alt="Capture du support « Fiche démo 3 - Measure-Object »" loading="lazy"><figcaption>Capture du support « Fiche démo 3 - Measure-Object »</figcaption></figure>
+<figure><img src="../isolated/658af100882af469/ps-p2-i4-1.webp" alt="Capture du support « Fiche démo 3 - Measure-Object »" loading="lazy"><figcaption>Capture du support « Fiche démo 3 - Measure-Object »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

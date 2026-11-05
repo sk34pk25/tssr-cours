@@ -85,3 +85,7 @@ Le « Schéma » annoncé dans l’énoncé n’est pas fourni sous une forme ex
 Contenu A : solution et énoncé de l’Atelier n°2, module 4 Hyper-V, et support M04,
 Drive TSSR en lecture seule. Contenu B : correction web restructurée, données de
 laboratoire neutralisées et divergences rendues explicites, sans procédure externe.
+
+## Résultat à vérifier
+
+Vérifier l’amorçage de chaque invité et des emplacements distincts après l’import. Le snapshot est demandé par l’énoncé, tandis que le corrigé s’arrête aux tests entre invités.

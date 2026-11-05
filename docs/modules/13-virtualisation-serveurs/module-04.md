@@ -78,7 +78,7 @@ l’atelier et l’exemple du support restent distingués.
 
 L’atelier d’une heure utilise la VM Windows Server 2019 préparée au module 2 comme
 hôte Hyper-V à l’intérieur de VMware Workstation. Le document précise que cette
-imbrication est imposée par l’environnement ENI ; il situe l’installation sur un
+imbrication est imposée par l’environnement du centre de formation ; il situe l’installation sur un
 serveur physique dans son scénario d’entreprise.
 
 Le travail demandé couvre la préparation du stockage, l’installation du rôle, la
@@ -101,6 +101,31 @@ restructuration web limitée aux notions et aux limites observées dans ces sour
 Aucune procédure externe ni ressource binaire n’est ajoutée.
 Les supports d’installation et les fichiers de VM du laboratoire ne sont pas fournis
 par les trois PDF. Cette page ne dépend d’aucun objet pédagogique encore non publié.
+
+## Relier les paramètres aux contrôles
+
+| Étape | Valeur ou contrôle |
+| --- | --- |
+| Hôte Hyper-V du TP | `SRV_2K19`, 8 Go et un deuxième disque SCSI de 100 Go. |
+| Volume de données | `DATA`, dossiers `VMs` et `VHDs`. |
+| Réseau | Commutateur externe associé à l’interface Intel de l’hôte imbriqué. La migration dynamique reste désactivée pour ce TP. |
+| Premier invité | `SRV_2K19-HV1`, génération 2, 2048 Mo fixes et VHDX 32 Go. |
+| Copie | Sysprep avec Generalize et Shutdown, export, puis import en mode Copy the virtual machine et nouveau nom `SRV_2K19-HV2`. |
+| Vérification | Démarrage des deux invités, ping vers l’adresse de l’autre invité et snapshot Workstation `Fin atelier 2`. |
+
+La génération 1 utilise un disque d’amorçage IDE dans le cas décrit. La génération 2 utilise UEFI et un disque d’amorçage SCSI. La génération se choisit à la création en fonction du système invité et de son mode d’amorçage. [Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+
+Le support indique deux redémarrages dans son contexte historique. À l’issue de l’installation, contrôler que le rôle a démarré et que le gestionnaire Hyper-V peut créer la VM. Vérifier les emplacements du second invité et son identité après l’import.
+
+## Question de révision
+
+Quel mode d’import choisir pour garder simultanément l’original et la copie ?
+
+??? success "Correction"
+
+    Copy the virtual machine crée un nouvel identifiant. Placer les fichiers de la copie dans des emplacements séparés, puis renommer et vérifier la nouvelle VM.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-04.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-04/index.md)
 
 ## Kahoot
 

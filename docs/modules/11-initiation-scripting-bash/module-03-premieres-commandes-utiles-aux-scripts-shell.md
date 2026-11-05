@@ -1,57 +1,72 @@
 # Module 03 — Premières commandes utiles aux scripts shell
 
-## Objectifs
+Le support présente quatre gestes de base dans le terminal. Affichez une information, effacez l’écran, transmettez un code de sortie et cherchez l’aide des commandes intégrées.
 
-Le support présente l’affichage d’informations, l’effacement de l’écran, la sortie du shell courant et l’aide des commandes intégrées.
+## Afficher et mettre en forme
 
-## Afficher avec `echo`
+`echo` écrit ses arguments sur la sortie standard. Le support présente `echo -e` pour interpréter des séquences d’échappement. Les guillemets conservent le texte avec ses espaces dans un seul argument.
 
-La syntaxe indiquée est :
-
-```bash
-echo [option] "expression"
-```
-
-Avec `echo -e`, le support présente les séquences suivantes :
-
-| Séquence | Effet indiqué |
+| Séquence | Effet avec `echo -e` dans Bash |
 | --- | --- |
-| `\c` | suppression du retour à la ligne final |
-| `\n` | nouvelle ligne |
-| `\t` | tabulation |
-| `\\` | antislash |
-
-## Effacer et quitter
-
-Le support cite :
+| `\c` | Arrête l’affichage et supprime le saut de ligne final |
+| `\n` | Nouvelle ligne |
+| `\t` | Tabulation |
+| `\\` | Antislash littéral |
 
 ```bash
-clear
-exit [ n ]
-exit 0
+echo "Début du contrôle"
+echo -e 'Nom\tStatut\nlocal\tprêt'
 ```
 
-`clear` est présenté parmi les commandes internes du shell dans le support : cette présentation documentaire est conservée sans en faire une affirmation technique générale. Le support associe aussi l’absence d’un `exit` explicite à `exit 0` ; cette formulation historique n’est pas généralisée au-delà de la source.
+**Complément pédagogique.** Pour une valeur issue d’une saisie, `printf '%s\n' "$message"` fixe le format. Le contenu de la variable reste une donnée. [Commandes intégrées Bash](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
-## Code de retour
+## Effacer l’écran et identifier une commande
 
-La variable réservée `$?` est utilisée pour présenter le code retourné au shell parent.
+Le support emploie `clear` pour effacer l’affichage du terminal. Dans l’environnement habituel, `clear` est externe. Bash intègre `echo`, `exit` et `help`. Dans le laboratoire, `type` indique comment chaque nom est résolu.
 
-## Aide intégrée
+```bash
+type echo
+type clear
+type exit
+```
 
-Le support utilise :
+## Sortir et transmettre un statut
+
+`exit n` termine le shell courant avec un statut. Par convention, `0` indique le succès et un statut non nul représente une autre issue. L’appelant lit le statut dans `$?`. Sans `exit` explicite, le script se termine avec le statut de la dernière commande exécutée. `exit` sans argument réutilise ce statut. [Commandes intégrées du shell](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+
+```bash
+bash -c 'exit 4'
+statut=$?
+printf 'Statut lu par l’appelant : %s\n' "$statut"
+```
+
+Le résultat prévu est `4`. Copiez `$?` immédiatement, avant qu’une nouvelle commande ne le remplace.
+
+## Trouver l’aide de Bash
 
 ```bash
 help
 help wait
+help exit
 ```
 
-La présence de `wait` est limitée à `help wait` dans ce module : elle ne constitue pas une section sur la gestion de processus.
+`help` liste les rubriques d’aide. `help wait` montre l’aide de cette commande, comme dans le support. `help exit` détaille le code de sortie. Une commande externe dispose de sa propre documentation.
 
-## Synthèse
+### Transmission du statut — Complément pédagogique
 
-M03 est limité aux commandes et séquences présentées dans son support : `echo`, `echo -e`, `clear`, `exit`, `$?` et `help`. Aucun TP, exercice, correction, script autonome ou Kahoot n’est fourni pour ce module.
+```mermaid
+flowchart LR
+    A["Commande ou script"] --> B["Statut rendu à l’appelant"]
+    B --> C["Lire $? immédiatement"]
+    C --> D["Afficher, conserver ou tester"]
+```
 
-## Révision
+## Mini-quiz
 
-- [Fiche de révision M03](../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)
+1. Quelle séquence produit une tabulation ?
+2. D’où vient le statut en fin de script sans `exit` explicite ?
+3. Comment ouvrir l’aide de `wait` ?
+
+**Réponses.** `\t` avec l’interprétation des séquences. De la dernière commande exécutée. `help wait`.
+
+[Fiche de révision](../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)

@@ -1,33 +1,26 @@
-# Révision — Module 08 — Les fonctions
+# Fiche de révision — Module 08 — Les fonctions
 
-## Déclarer et appeler
+Déclarez la fonction avant l’appel. Ses paramètres positionnels reprennent ses propres arguments durant l’appel. Une affectation peut être visible dans le shell courant. `local` limite la portée de la variable à la fonction et à ses appels.
 
 ```bash
-nomfonction() {
-    ACTIONS
+accueil() {
+    [[ $# -eq 1 ]] || return 2
+    local nom=$1
+    printf 'Bonjour %s
+' "$nom"
 }
 
-nomfonction
+accueil "Sofia"
 ```
 
-Une déclaration précède l'appel.
+| Besoin | Forme |
+| --- | --- |
+| Transmettre une valeur textuelle | Écrire sur la sortie standard, par exemple avec `printf` |
+| Terminer la fonction avec un statut | `return 2` |
+| Charger un fichier de définitions | `source chemin` ou `. ./fonctions.fct` |
+| Protéger un fichier au nom composé | Développer le chemin entre guillemets |
 
-## Paramètres et variable
+**TP 01.** Le menu boucle sur S pour sauvegarder, D pour supprimer les sauvegardes, L pour lister et Q pour quitter. Le fichier de fonctions contient les trois traitements. Le script principal charge ce fichier, affiche les choix et traite le retour des fonctions.
 
-Le support illustre les paramètres positionnels `$1` et `$2`, ainsi qu'une variable `nbr` modifiée dans `func_majnbr`.
-
-## Charger un fichier de fonctions
-
-```bash
-source ~/mesfonctions
-. ./fonctions.fct
-```
-
-## Logique du TP
-
-Le scénario M08 associe trois fonctions : `sauvegarde`, `suppression` et `listing`. Le menu répété propose `S`, `D`, `L` et `Q`.
-
-Les fichiers `fonctions.fct` et `script_M8TP1.sh` sont décrits dans les PDF mais absents comme fichiers Drive séparés.
-
-- [Cours M08](../../modules/11-initiation-scripting-bash/module-08-les-fonctions.md)
-- [TP M08](../../tp/11-initiation-scripting-bash/module-08/index.md)
+- [Cours](../../modules/11-initiation-scripting-bash/module-08-les-fonctions.md)
+- [TP et correction](../../tp/11-initiation-scripting-bash/module-08/index.md)

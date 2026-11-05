@@ -1,388 +1,206 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 07 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
-<p class="tssr-source-paragraph">Module 07 – Les structures de boucle</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Objectifs</p>
-<p class="tssr-source-paragraph">• Appréhender les boucles en algorithmique</p>
-<p class="tssr-source-paragraph">• Utiliser des fonctions arithmétiques<br>• Maîtriser les boucles while, until, for<br>• Coupler read avec while pour lire des fichiers</p>
-<p class="tssr-source-paragraph">2</p>
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>Module 07 - Support de cours</h1><p>Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<h2>Module 07 – Les structures de boucle</h2>
+<h2>Objectifs</h2>
+<ul><li>Appréhender les boucles en algorithmique</li><li>Utiliser des fonctions arithmétiques</li><li>Maîtriser les boucles while, until, for</li><li>Coupler read avec while pour lire des fichiers</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Les structures de boucle</p>
-<p class="tssr-source-paragraph">• Une boucle est une structure permettant de répéter plusieurs fois un même <br>bloc d’actions.<br>• Le nombre de fois à exécuter le bloc d’actions peut être déterminé par une <br>condition ou une liste d’objets à traiter. <br>• Quand il s’agit d’une condition, penser à faire évoluer la valeur des variables utilisées <br>dans celle-ci (notamment au moyen de calcul).</p>
-<p class="tssr-source-paragraph">choix &lt;= saisie utilisateur</p>
-<p class="tssr-source-paragraph">NON</p>
-<p class="tssr-source-paragraph">Choix =<br>O ou N ou Q</p>
-<p class="tssr-source-paragraph">Afficher : les choix possibles<br>sont O(ui), N(on) ou Q(uitter)</p>
-<pre class="tssr-source-code">Trois mécanismes de boucles sont
-utilisables en Shell :
-•
-while
-•
-until
-•
-for </pre>
-<p class="tssr-source-paragraph">OUI</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">expr : calcul arithmétique</pre>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Fu<br>pan</p><p>A</p><p>End</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-2"><h2>Page 2</h2>
+<h3>Les structures de boucle</h3>
+<ul><li>Une boucle est une structure permettant de répéter plusieurs fois un même bloc d’actions.</li><li>Le nombre de fois à exécuter le bloc d’actions peut être déterminé par une condition ou une liste d’objets à traiter.</li><li>Quand il s’agit d’une condition, penser à faire évoluer la valeur des variables utilisées dans celle-ci (notamment au moyen de calcul).</li></ul>
+<figure><img src="../isolated/1d9cfb3656392d6b/source-p2-7.webp" alt="Boucle de saisie tant que le choix n’est pas O, N ou Q."><figcaption>Boucle de saisie tant que le choix n’est pas O, N ou Q.</figcaption></figure>
+<p>Choix = O ou N ou Q ? OUI, poursuivre. NON, afficher les choix possibles, O(ui), N(on) ou Q(uitter), puis refaire la saisie utilisateur.</p><p>Trois mécanismes de boucles sont utilisables en Shell :</p><ul><li><code>while</code></li><li><code>until</code></li><li><code>for</code></li></ul>
+<h2>expr : calcul arithmétique</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">expr : calcul arithmétique</pre>
-<pre class="tssr-source-code">expr calcul
-Syntaxe</pre>
-<p class="tssr-source-paragraph">• Les arguments passés à la commande peuvent être des entiers ou des <br>variables (contenant des entiers). Chaque opérateur doit être précédé et suivi <br>d’un espace.</p>
-<pre class="tssr-source-code">Les commandes let et ((…)) peuvent être utilisées
-en remplacement de la commande expr. 
-Nous les étudions au module « L’arithmétique entière »</pre>
-<pre class="tssr-source-code">expr 2 + 7
-9
-expr 2 \* 7
-14</pre>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle while (tant que) </pre>
-<p class="tssr-source-paragraph">6</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>CE D</p><p>N</p><p>End</p></div></details>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-3"><h2>Page 3</h2>
+<h3>expr : calcul arithmétique</h3>
+<p>Syntaxe</p>
+<pre><code>expr calcul</code></pre>
+<ul><li>Les arguments passés à la commande peuvent être des entiers ou des variables (contenant des entiers). Chaque opérateur doit être précédé et suivi d’un espace.</li></ul>
+<pre><code>expr 2 + 7</code></pre>
+<p>Les commandes let et ((…)) peuvent être utilisées</p>
+<pre><code>9</code></pre>
+<p>en remplacement de la commande expr.</p>
+<pre><code>expr 2 \* 7</code></pre>
+<p>Nous les étudions au module « L’arithmétique entière »</p>
+<pre><code>14</code></pre>
+<h2>La boucle while (tant que)</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle while (tant que)</pre>
-<p class="tssr-source-paragraph">• Structure de bouclage basée sur une condition atteinte : tant que la condition <br>est atteinte, on effectue le bloc d’actions.</p>
-<p class="tssr-source-paragraph">Moderne</p>
-<pre class="tssr-source-code">while CONDITION ; do</pre>
-<pre class="tssr-source-code">Classique
-while CONDITION
-do</pre>
-<pre class="tssr-source-code">ACTIONS
-done</pre>
-<pre class="tssr-source-code">ACTIONS
-done</pre>
-<p class="tssr-source-paragraph">• Dans ce support, la forme moderne de la structure sera prise pour les exemples. <br>Mais vous pouvez choisir la méthode de votre choix.</p>
-<pre class="tssr-source-code">• La boucle until vue plus loin aura les mêmes méthodes d’écriture moderne 
-ou classique.</pre>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle while (tant que)</pre>
-<p class="tssr-source-paragraph">Exemple</p>
-<p class="tssr-source-paragraph">• Imposer la saisie du nom à l’utilisateur</p>
-<pre class="tssr-source-code">while [[ -z &quot;$nom&quot; ]] ; do</pre>
-<pre class="tssr-source-code">echo -e &quot;Veuillez entrer votre nom : \c&quot;
-read nom
+<section class="tssr-transcribed-page" id="page-4"><h2>Page 4</h2>
+<h3>La boucle while (tant que)</h3>
+<ul><li>Structure de bouclage basée sur une condition atteinte : tant que la condition est atteinte, on effectue le bloc d’actions. Moderne Classique</li></ul>
+<pre><code>while CONDITION</code></pre>
+<pre><code>while CONDITION ; do</code></pre>
+<pre><code>do</code></pre>
+<pre><code>ACTIONS</code></pre>
+<pre><code>ACTIONS</code></pre>
+<pre><code>done</code></pre>
+<pre><code>done</code></pre>
+<ul><li>Dans ce support, la forme moderne de la structure sera prise pour les exemples. Mais vous pouvez choisir la méthode de votre choix.</li><li>La boucle until vue plus loin aura les mêmes méthodes d’écriture moderne ou classique.</li></ul>
+<h3>La boucle while (tant que)</h3>
+<h3>Exemple</h3>
+<ul><li>Imposer la saisie du nom à l’utilisateur</li></ul>
+<pre><code>while [[ -z &quot;$nom&quot; ]] ; do
+         echo -e &quot;Veuillez entrer votre nom : \c&quot;
+         read nom
 done
-echo &quot;Bonjour $nom&quot;</pre>
-<pre class="tssr-source-code">• La structure while analyse le code retour de la condition pour déterminer 
-si le bloc d’actions est à exécuter ou s’il doit sortir de la boucle.
-• Généralement, la condition se matérialise par une commande de test. 
-• On agit alors dans le bloc d’actions afin de faire évoluer le résultat du test.
-• Cependant, toute commande peut être utilisée en condition (tant que son code 
-retour est « 0 », on reste dans la boucle).</pre>
-<p class="tssr-source-paragraph">8</p>
-
-
-
-
+echo &quot;Bonjour $nom&quot;</code></pre>
+<ul><li>La structure while analyse le code retour de la condition pour déterminer si le bloc d’actions est à exécuter ou s’il doit sortir de la boucle.</li><li>Généralement, la condition se matérialise par une commande de test.</li><li>On agit alors dans le bloc d’actions afin de faire évoluer le résultat du test.</li><li>Cependant, toute commande peut être utilisée en condition (tant que son code retour est « 0 », on reste dans la boucle).</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle while (tant que)</pre>
-<p class="tssr-source-paragraph">Cas particulier des boucles infinies</p>
-<pre class="tssr-source-code">• Pour générer une boucle infinie, on utilise la commande true ou &quot;:&quot;. 
-• Les boucles infinies sont notamment utilisées pour la création de menus.</pre>
-<pre class="tssr-source-code">while true ; 
-do
-echo menu
-# Affichage du menu
-echo &quot;1) copie des fichiers&quot;
-echo &quot;2) restauration des fichiers&quot;
-echo &quot;q) Quitter&quot;
-# Récupérer la saisie de l&#x27;utilisateur dans $choix
-read -p &quot;Taper 1, 2 ou q pour continuer : &quot; choix
-# Tester la valeur de $choix
-case $choix in</pre>
-<pre class="tssr-source-code">1) echo copie des fichiers; […] ;;
-2) echo restauration des fichiers; […] ;;
-q) clear ; exit 0 ;;
-*) echo -e &quot;\e[41msaisie incorrecte \e[0m&quot; ;;
-esac
-done</pre>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle until (jusqu’à) </pre>
-<p class="tssr-source-paragraph">10</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>©</p><p>N</p></div></details>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-5"><h2>Page 5</h2>
+<h3>La boucle while (tant que)</h3>
+<h3>Cas particulier des boucles infinies</h3>
+<ul><li>Pour générer une boucle infinie, on utilise la commande true ou &quot;:&quot;.</li><li>Les boucles infinies sont notamment utilisées pour la création de menus.</li></ul>
+<pre><code>while true ;</code></pre>
+<pre><code>          do
+echo menu</code></pre>
+<pre><code>                    # Affichage du menu
+          echo &quot;1) copie des fichiers&quot;
+          echo &quot;2) restauration des fichiers&quot;
+          echo &quot;q) Quitter&quot;
+          # Récupérer la saisie de l&#x27;utilisateur dans $choix
+          read -p &quot;Taper 1, 2 ou q pour continuer : &quot; choix
+          # Tester la valeur de $choix
+          case $choix in
+                    1) echo copie des fichiers; […] ;;
+                    2) echo restauration des fichiers; […] ;;
+                    q) clear ; exit 0 ;;
+                    *) echo -e &quot;\e[41msaisie incorrecte \e[0m&quot; ;;
+          esac
+done</code></pre>
+<h2>La boucle until (jusqu’à)</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle until</pre>
-<p class="tssr-source-paragraph">• Structure basée sur une condition à atteindre : <br>tant que la condition n’est pas atteinte, on effectue un bloc d’actions. </p>
-<pre class="tssr-source-code">• La vérification de la condition mène à la sortie de la boucle.
-• La structure until et son mode de fonctionnement sont identiques à la boucle 
-while. Seule la condition de bouclage les différencie.</pre>
-<pre class="tssr-source-code">• Pour faire une boucle infinie avec until, il est possible d’utiliser la commande false.</pre>
-<pre class="tssr-source-code">until [[ -n &quot;$age&quot; ]] ; do</pre>
-<pre class="tssr-source-code">Structure
-until CONDITION ; do</pre>
-<pre class="tssr-source-code">echo -e &quot;Saisissez votre age : \c&quot;
-read age
-done</pre>
-<pre class="tssr-source-code">ACTIONS
-Done</pre>
-<p class="tssr-source-paragraph">11</p>
-<p class="tssr-source-paragraph">Scripting Shell<br>la boucle until</p>
-<p class="tssr-source-paragraph">Démo</p>
-<p class="tssr-source-paragraph">La boucle until</p>
-<p class="tssr-source-paragraph">12</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>_</p><p>|</p><p>K</p><p>©</p><p>End</p></div></details>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-6"><h2>Page 6</h2>
+<h3>La boucle until</h3>
+<ul><li>Structure basée sur une condition à atteindre : tant que la condition n’est pas atteinte, on effectue un bloc d’actions.</li><li>La vérification de la condition mène à la sortie de la boucle.</li><li>La structure until et son mode de fonctionnement sont identiques à la boucle while. Seule la condition de bouclage les différencie.</li><li>Pour faire une boucle infinie avec until, il est possible d’utiliser la commande false.</li></ul>
+<p>Structure</p>
+<pre><code>until [[ -n &quot;$age&quot; ]] ; do</code></pre>
+<pre><code>until CONDITION ; do</code></pre>
+<pre><code>echo -e &quot;Saisissez votre age : \c&quot;</code></pre>
+<pre><code>ACTIONS</code></pre>
+<pre><code>read age</code></pre>
+<pre><code>Done</code></pre>
+<pre><code>done</code></pre>
+<h3>la boucle until</h3>
+<p>Démo</p>
+<p>La boucle until</p>
 </section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle for</pre>
-<p class="tssr-source-paragraph">13</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle for </pre>
-<pre class="tssr-source-code">• La boucle for peut boucler :</pre>
-<p class="tssr-source-paragraph">• Pour un ensemble de valeurs à traiter</p>
-<p class="tssr-source-paragraph">• Un nombre de fois prédéterminé</p>
-<p class="tssr-source-paragraph">14</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-7"><h2>Page 7</h2>
+<h2>La boucle for</h2>
+<h3>La boucle for</h3>
+<ul><li>La boucle for peut boucler :</li><li>Pour un ensemble de valeurs à traiter</li><li>Un nombre de fois prédéterminé</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">La boucle for</pre>
-<p class="tssr-source-paragraph">Boucler pour un ensemble de valeurs</p>
-<p class="tssr-source-paragraph">• La syntaxe d’utilisation suivante permet de boucler pour un ensemble <br>de valeurs à traiter.</p>
-<pre class="tssr-source-code">for element in LISTE DE VALEURS ; do</pre>
-<pre class="tssr-source-code">ACTIONS
-done</pre>
-<pre class="tssr-source-code">• Lors du premier passage dans la boucle, la valeur affectée à la variable 
-définie $element sera la première valeur de la liste : « LISTE ». 
-• Lors du second passage, $variable contiendra « DE » et ainsi 
-de suite jusqu’à ce que les valeurs aient été traitées.</pre>
-<p class="tssr-source-paragraph">15</p>
-<pre class="tssr-source-code">Scripting Shell
-La boucle for</pre>
-<p class="tssr-source-paragraph">Boucler pour un ensemble de valeurs</p>
-<p class="tssr-source-paragraph">Exemple</p>
-<p class="tssr-source-paragraph">• La liste de valeurs est <br>interprétée par le Shell.</p>
-<pre class="tssr-source-code">$ for valeurs in &quot;petit exemple&quot; de &quot;boucle for&quot; ; do
-&gt;echo &quot;Entrée dans le bloc d’actions de la boucle&quot;
-&gt;echo &quot;contenu de la variable valeurs : $valeurs&quot;
-&gt;done
-Entrée dans le bloc d’actions de la boucle
-contenu de la variable valeurs : petit exemple
-Entrée dans le bloc d’actions de la boucle
-contenu de la variable valeurs : de
-Entrée dans le bloc d’actions de la boucle
-contenu de la variable valeurs : boucle for</pre>
-<pre class="tssr-source-code">• La liste des caractères de 
-séparation de champs entre 
-les différentes valeurs est 
-récupérée depuis la variable 
-d’environnement IFS
-(Internal Field Separator).</pre>
-<pre class="tssr-source-code"># set | grep ^IFS
-IFS=$&#x27; \t\n&#x27;</pre>
-<p class="tssr-source-paragraph">• Il est parfois utile de modifier <br>cette valeur.</p>
-<p class="tssr-source-paragraph">16</p>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                                                   Scripting Shell
-                                                                           La boucle for
-
- Boucler pour un ensemble de valeurs
-                      • La syntaxe d’utilisation suivante permet de boucler pour un ensemble
-               de valeurs à traiter.
-
-                                    for element in LISTE DE VALEURS ; do
-                                              ACTIONS
-                                    done
-
-                      • Lors du premier passage dans la boucle, la valeur affectée à la variable
-                    définie $element sera la première valeur de la liste : « LISTE ».
-                      • Lors du second passage, $variable contiendra « DE » et ainsi
-               de suite jusqu’à ce que les valeurs aient été traitées.
-
-
-
-
-
-15
-
-
-
-
-
-                                                                                                   Scripting Shell
-                                                                           La boucle for
-
- Boucler pour un ensemble de valeurs
-                            • La liste de valeurs est           $ for valeurs in &quot;petit exemple&quot; de &quot;boucle for&quot; ; do Exemple
-                        interprétée par le Shell.          &gt;echo&gt;echo &quot;Entrée&quot;contenudansde lalevariablebloc d’actionsvaleursde: la$valeurs&quot;boucle&quot;
-                            • La liste des caractères de         &gt;done
-                       séparation de champs entre      Entrée dans le bloc d’actions de la boucle
-                           les différentes valeurs est        contenuEntrée dansde lalevariablebloc d’actionsvaleursde: lapetitboucleexemple
-                      récupérée depuis la variable     contenu de la variable valeurs : de
-                      d’environnement IFS            Entrée dans le bloc d’actions de la boucle
-                          (Internal Field Separator).        contenu de la variable valeurs : boucle for
-                            •   Il est parfois utile de modifier   # set | grep ^IFS
-                         cette valeur.                      IFS=$&#x27; \t\n&#x27;
-
-
-
-
-
-16</pre></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-8"><h2>Page 8</h2>
+<h3>La boucle for</h3>
+<h3>Boucler pour un ensemble de valeurs</h3>
+<ul><li>La syntaxe d’utilisation suivante permet de boucler pour un ensemble de valeurs à traiter.</li></ul>
+<pre><code>for element in LISTE DE VALEURS ; do
+         ACTIONS
+done</code></pre>
+<ul><li>Lors du premier passage dans la boucle, la valeur affectée à la variable définie $element sera la première valeur de la liste : « LISTE ».</li><li>Lors du second passage, $variable contiendra « DE » et ainsi de suite jusqu’à ce que les valeurs aient été traitées.</li></ul>
+<h3>La boucle for</h3>
+<h3>Boucler pour un ensemble de valeurs</h3>
+<ul><li>La liste de valeurs est</li></ul>
+<pre><code>$ for valeurs in &quot;petit exemple&quot; de &quot;boucle for&quot; ; do</code></pre>
+<p>Exemple</p>
+<pre><code>&gt;echo &quot;Entrée dans le bloc d’actions de la boucle&quot;</code></pre>
+<p>interprétée par le Shell.</p>
+<pre><code>&gt;echo &quot;contenu de la variable valeurs : $valeurs&quot;</code></pre>
+<ul><li>La liste des caractères de</li></ul>
+<pre><code>&gt;done</code></pre>
+<p>séparation de champs entre</p>
+<pre><code>Entrée dans le bloc d’actions de la boucle
+contenu de la variable valeurs : petit exemple</code></pre>
+<p>les différentes valeurs est</p>
+<pre><code>Entrée dans le bloc d’actions de la boucle</code></pre>
+<p>récupérée depuis la variable</p>
+<pre><code>contenu de la variable valeurs : de</code></pre>
+<p>d’environnement IFS</p>
+<pre><code>Entrée dans le bloc d’actions de la boucle
+contenu de la variable valeurs : boucle for</code></pre>
+<p>(Internal Field Separator).</p>
+<ul><li>Il est parfois utile de modifier</li></ul>
+<pre><code># set | grep ^IFS</code></pre>
+<p>cette valeur.</p>
+<pre><code>IFS=$&#x27; \t\n&#x27;</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Les structures de boucle</p>
-<pre class="tssr-source-code">Les boucles for</pre>
-<p class="tssr-source-paragraph">Mise en situation</p>
-<p class="tssr-source-paragraph">Réaliser l’atelier numéro 7 mis à disposition <br>par le formateur</p>
-<p class="tssr-source-paragraph">TP</p>
-<p class="tssr-source-paragraph">17</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">Utilisation cumulée
-de while et read</pre>
-<p class="tssr-source-paragraph">18</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>n@n,<br>vo<br>=<br>|</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-9"><h2>Page 9</h2>
+<h3>Les structures de boucle</h3>
+<p>Mise en situation</p>
+<p>Les boucles for</p>
+<p>Réaliser l’atelier numéro 7 mis à disposition par le formateur</p>
+<p>TP</p>
+<h2>Utilisation cumulée de while et read</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">Utilisation cumulée de while et read </pre>
-<pre class="tssr-source-code">• La boucle for récupère les séparateurs de champs définis pour 
-le contexte d’exécution en cours (via la variable IFS). 
-• Les caractères espace, tabulation (\t) ou retour à la ligne (\n) 
-ne sont pas interprétés comme caractères quelconques, 
-mais comme des séparateurs.
-• L’utilisation combinée de while et de read permet :
-• De traiter ligne par ligne un fichier (ou résultat de commande)
-• De traiter distinctement les champs de chaque ligne</pre>
-<p class="tssr-source-paragraph">19</p>
-<pre class="tssr-source-code">Scripting Shell
-Utilisation cumulée de while et read </pre>
-<p class="tssr-source-paragraph">Exemple d’utilisation</p>
-<pre class="tssr-source-code">thouin Frèdèric linux
+<section class="tssr-transcribed-page" id="page-10"><h2>Page 10</h2>
+<h3>Utilisation cumulée de while et read</h3>
+<ul><li>La boucle for récupère les séparateurs de champs définis pour le contexte d’exécution en cours (via la variable IFS).</li><li>Les caractères espace, tabulation (\t) ou retour à la ligne (\n) ne sont pas interprétés comme caractères quelconques, mais comme des séparateurs.</li><li>L’utilisation combinée de while et de read permet :</li><li>De traiter ligne par ligne un fichier (ou résultat de commande)</li><li>De traiter distinctement les champs de chaque ligne</li></ul>
+<h3>Utilisation cumulée de while et read</h3>
+<p>Exemple d’utilisation</p>
+<pre><code>thouin Frèdèric linux
 brossier Gilles windows
-[…]</pre>
-<pre class="tssr-source-code">Traitement avec une boucle for
-Traitement avec while read
-for var in $(cat fichier.txt) ; do </pre>
-<pre class="tssr-source-code">while read nom prenom suite  ; do </pre>
-<pre class="tssr-source-code">echo &quot;$var&quot;
-done</pre>
-<pre class="tssr-source-code">echo &quot;$prenom $nom&quot; 
-done &lt; fichier.txt </pre>
-<pre class="tssr-source-code">Frédéric thouin
-Gilles brossier</pre>
-<pre class="tssr-source-code">thouin
-Frédéric
-linux
+[…]</code></pre>
+<p>Traitement avec une boucle for Traitement avec while read</p>
+<pre><code>for var in $(cat fichier.txt) ; do</code></pre>
+<pre><code>while read nom prenom suite  ; do</code></pre>
+<pre><code>echo &quot;$var&quot;</code></pre>
+<pre><code>echo &quot;$prenom $nom&quot;</code></pre>
+<pre><code>done</code></pre>
+<pre><code>done &lt; fichier.txt</code></pre>
+<pre><code>thouin</code></pre>
+<pre><code>Frédéric thouin</code></pre>
+<pre><code>Frédéric</code></pre>
+<pre><code>Gilles brossier</code></pre>
+<pre><code>linux
 brossier
 Gilles
 windows
-…</pre>
-<p class="tssr-source-paragraph">20</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>RES, CE</p></div></details>
-
-
-
+…</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">Utilisation cumulée de while et read </pre>
-<pre class="tssr-source-code">• La structure combinée while read nous permet d’utiliser distinctement les 
-trois champs de chaque ligne du fichier, à la différence de for qui ne le permet 
-pas directement.</pre>
-<pre class="tssr-source-code">• L’argument suite passé à la commande read n’est pas utilisé dans le bloc d’actions. </pre>
-<pre class="tssr-source-code">• Il est cependant nécessaire afin que toutes les informations de fin de ligne ne soient 
-pas stockées dans la variable prenom.</pre>
-<p class="tssr-source-paragraph">• La syntaxe présentée ci-dessous est utilisée quand les informations à traiter se <br>trouvent dans un fichier.</p>
-<pre class="tssr-source-code">while read nom prenom suite  ; do </pre>
-<pre class="tssr-source-code">echo &quot;$prenom $nom&quot; 
-done &lt; fichier.txt </pre>
-<p class="tssr-source-paragraph">21</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">while / read avec </pre>
-<h4>redirection d’entrée</h4>
-<p class="tssr-source-paragraph">22</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-11"><h2>Page 11</h2>
+<h3>Utilisation cumulée de while et read</h3>
+<ul><li>La structure combinée while read nous permet d’utiliser distinctement les trois champs de chaque ligne du fichier, à la différence de for qui ne le permet pas directement.</li><li>L’argument suite passé à la commande read n’est pas utilisé dans le bloc d’actions.</li><li>Il est cependant nécessaire afin que toutes les informations de fin de ligne ne soient pas stockées dans la variable prenom.</li><li>La syntaxe présentée ci-dessous est utilisée quand les informations à traiter se trouvent dans un fichier.</li></ul>
+<pre><code>while read nom prenom suite  ; do
+         echo &quot;$prenom $nom&quot;
+done &lt; fichier.txt</code></pre>
+<h2>while / read avec</h2>
+<h2>redirection d’entrée</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">while / read avec redirection d’entrée </pre>
-<pre class="tssr-source-code">• Pour utiliser le résultat de commandes comme flux d’entrée ou pour effectuer un 
-traitement au fichier avant la boucle while read, on utilise la syntaxe suivante :</pre>
-<pre class="tssr-source-code">while read nom prenom reste ; do </pre>
-<pre class="tssr-source-code">echo &quot;$prenom $nom&quot;
-done &lt; &lt;(cat Edition)</pre>
-<p class="tssr-source-paragraph">Bien respecter les espaces<br>comme dans cet exemple.</p>
-<p class="tssr-source-paragraph">• Alternativement, cette syntaxe peut être utilisée :</p>
-<pre class="tssr-source-code">cat Edition | while read nom prenom num 
-do 
-echo &quot;$prenom $nom&quot; 
-done </pre>
-<p class="tssr-source-paragraph">Le pipe suppose la création d’un sous Shell. Les variables <br>créées dans le script ne sont pas utilisables dans la boucle.<br>Cette méthode a l’avantage d’une meilleure lisibilité.</p>
-<p class="tssr-source-paragraph">23</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">- Pour aller plus loin -
-Utilisation read dans une</pre>
-<pre class="tssr-source-code">boucle while read</pre>
-<p class="tssr-source-paragraph">24</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Jv</p><p>N</p><p>End</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-12"><h2>Page 12</h2>
+<h3>while / read avec redirection d’entrée</h3>
+<ul><li>Pour utiliser le résultat de commandes comme flux d’entrée ou pour effectuer un traitement au fichier avant la boucle while read, on utilise la syntaxe suivante :</li></ul>
+<pre><code>while read nom prenom reste ; do
+   echo &quot;$prenom $nom&quot;</code></pre>
+<p>Bien respecter les espaces</p>
+<pre><code>done &lt; &lt;(cat Edition)</code></pre>
+<p>comme dans cet exemple.</p>
+<ul><li>Alternativement, cette syntaxe peut être utilisée :</li></ul>
+<pre><code>cat Edition | while read nom prenom num
+do</code></pre>
+<p>Le pipe suppose la création d’un sous Shell. Les variables</p>
+<pre><code>echo &quot;$prenom $nom&quot;</code></pre>
+<p>créées dans le script ne sont pas utilisables dans la boucle.</p>
+<pre><code>done</code></pre>
+<p>Cette méthode a l’avantage d’une meilleure lisibilité.</p>
+<h2>- Pour aller plus loin - Utilisation read dans une</h2>
+<h2>boucle while read</h2>
 </section>
-<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<pre class="tssr-source-code">Pour aller plus loin – Utilisation de read dans une boucle while read</pre>
-<pre class="tssr-source-code">• La commande read utilisée avec while a pour flux d’entrée le flux stdin
-(généré par la commande avant le pipe).
-• Ce flux n’est pas exploitable par un second read.</pre>
-<pre class="tssr-source-code">• Pour utiliser un second read, il faut rediriger son flux d’entrée standard depuis 
-/dev/tty (périphérique correspondant aux saisies clavier).</pre>
-<pre class="tssr-source-code">cat fic | while read nom ; do</pre>
-<pre class="tssr-source-code">if [[ &quot;$nom&quot; = toto ]] ; then</pre>
-<pre class="tssr-source-code">echo &quot;$nom&quot;</pre>
-<pre class="tssr-source-code">read -p &quot;message : &quot; choix &lt;/dev/tty
-echo &quot;$choix&quot;
-fi
-done</pre>
-<p class="tssr-source-paragraph">• Alternativement, cette syntaxe peut être utilisée :</p>
-<pre class="tssr-source-code">while read nom ; do
-if [[ &quot;$nom&quot; = toto ]] ; then</pre>
-<pre class="tssr-source-code">echo &quot;$nom&quot;</pre>
-<pre class="tssr-source-code">read -p &quot;message : &quot; choix &lt;/dev/tty
-echo &quot;$choix&quot;
-fi
-done &lt; &lt;(cat fic)</pre>
-<p class="tssr-source-paragraph">25</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Gin</p></div></details>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-13"><h2>Page 13</h2>
+<h3>Pour aller plus loin – Utilisation de read dans une boucle while read</h3>
+<ul><li>La commande read utilisée avec while a pour flux d’entrée le flux stdin (généré par la commande avant le pipe).</li><li>Ce flux n’est pas exploitable par un second read.</li><li>Pour utiliser un second read, il faut rediriger son flux d’entrée standard depuis /dev/tty (périphérique correspondant aux saisies clavier).</li></ul>
+<pre><code>cat fic | while read nom ; do
+    if [[ &quot;$nom&quot; = toto ]] ; then
+         echo &quot;$nom&quot;
+                 read -p &quot;message : &quot; choix &lt;/dev/tty
+                 echo &quot;$choix&quot;
+         fi
+done</code></pre>
+<ul><li>Alternativement, cette syntaxe peut être utilisée :</li></ul>
+<pre><code>while read nom ; do
+if [[ &quot;$nom&quot; = toto ]] ; then
+    echo &quot;$nom&quot;
+        read -p &quot;message : &quot; choix &lt;/dev/tty
+        echo &quot;$choix&quot;
+    fi
+done &lt; &lt;(cat fic)</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

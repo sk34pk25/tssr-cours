@@ -1,98 +1,182 @@
-# TP 01 — Premières commandes
+# Énoncé — Premières commandes
 
-## Objectifs
+Le document fourni décrit le travail demandé et les résultats à relever dans la maquette. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-- Lancer les commandes PowerShell demandées.
-- Analyser les différences de résultats entre différents environnements du
-  scénario.
+## Initiation à PowerShell Premières commandes
 
-## Préparation du scénario
+TP du Module 01
 
-Suivre les vidéos du module 1, récupérer la maquette fournie par le formateur,
-préparer l'environnement de virtualisation demandé et utiliser les identifiants
-fournis dans l'environnement de laboratoire. Les ressources correspondantes ne
-sont pas disponibles comme fichiers lisibles dans Drive M01.
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 1 de ce cours.
 
-## 1. Découvrir les deux consoles du scénario
+Durée estimée
 
-Depuis la machine indiquée dans le TP, ouvrir successivement la console
-PowerShell et la console PowerShell Core en mode administrateur. Dans chaque
-console, exécuter :
+2 heures
 
-```powershell
-Get-Command | Measure
+## Énoncé
+
+Objectifs :
+
+Lancer des commandes PowerShell données
+
+Analyser les différences de résultats d’exécution entre différents environnements
+
+Prérequis :
+
+Récupérer la maquette fournie par le formateur
+
+Avoir une connexion internet
+
+Consignes :
+
+Décompresser la maquette fournie par le formateur
+
+Intégrer les machines virtuelles dans VMware Workstation
+
+Démarrer les machines virtuelles suivantes :
+
+```text
+o
+CLI01
+o
+CD01
 ```
 
-Noter le nombre de commandes retournées par la propriété `Count`. Cette valeur
-est une observation de laboratoire.
+S’y connecter :
 
-Afficher également les verbes disponibles, puis rechercher les commandes
-employant le verbe `New` et les commandes dont le nom contient `User` :
-
-```powershell
-Get-Verb
-Get-Command -Verb New
-Get-Command -Noun *User*
-Get-command -Noun *localuser*
+```text
+o
+identifiant : Administrator@ad01.lcl
+o
+mot de passe : fourni par le formateur
 ```
 
-## 2. Utilisateurs locaux
+Depuis la machine CLI01 :
 
-Lister les cinq premiers utilisateurs locaux de chacune des machines du
-scénario :
+Lancez la console PowerShell en mode administrateur et découvrez l'interface utilisateur.
 
-```powershell
-Get-LocalUser | select -first 5
+```text
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de
+commandes renvoyées par la propriété Count
 ```
 
-Le bonus demande de modifier puis de vérifier la description d'un utilisateur
-local dans le laboratoire. Utiliser exclusivement les valeurs fournies par le
-formateur ; ne pas recopier de donnée d'accès dans vos livrables.
+Lancez la console PowerShell Core en mode administrateur et découvrez l'interface utilisateur.
 
-## 3. Consulter l'aide
-
-Pour la commande qui liste les services, afficher l'aide, l'aide dans une
-nouvelle fenêtre et l'aide complète :
-
-```powershell
-Get-Help Get-Service
-Get-Help Get-Service -showwindow
-Get-Help Get-Service -full
+```text
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de
+commandes renvoyées par la propriété Count.
 ```
 
-Le TP demande aussi l'aide en ligne pour la commande relative aux membres d'un
-groupe local. Relever la commande utilisée et les avantages observés de l'aide
-en ligne. La divergence documentaire avec la correction est conservée dans la
-page de correction.
+Affichez la liste des verbes disponibles dans chaque console PowerShell. Que remarquez-vous ?
 
-## 4. Mettre à jour les fichiers d'aide
+```text
+Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ?
+Listez les commandes contenant user dans le nom. Quelle commande avez-vous
+utilisée ?
+```
 
-Mettre à jour l'aide depuis la ressource de laboratoire indiquée par le
-formateur, puis effectuer la même opération avec la culture `fr-FR`. Relever les
-remarques demandées par l'énoncé. Les partages et fichiers d'aide nécessaires ne
-sont pas fournis dans Drive M01.
+Indiquez la commande permettant de créer un nouvel utilisateur local.
 
-## 5. Modules
+Listez les cinq premiers utilisateurs locaux de chaque machine virtuelle.
 
-- afficher les modules actuellement chargés ;
-- relever le nombre de modules demandé ;
-- identifier le module dont provient `Get-LocalUser` ;
-- rechercher les emplacements possibles pour les fichiers de module ;
-- suivre le scénario d'import du module AWS fourni dans l'environnement de
-  laboratoire ;
-- relever trois commandes proposées par ce module dans le scénario.
+```text
+o
+Utilisateurs de CD01
+o
+ Utilisateurs de CLI01
+```
 
-## 6. Profil et bonus de prompt
+Bonus
 
-Créer un profil personnel dans chaque console PowerShell, puis afficher l'aide
-de `Get-Help` à l'ouverture de la console comme le demande le TP. Identifier le
-fichier édité. Le bonus de prompt s'appuie sur un script de laboratoire absent
-de Drive M01 : ne pas inventer ce script ni son contenu.
+Modifiez la description d’un utilisateur local sur « SRV01 » et « CLI01 ». Quelles commandes avez-vous utilisées ?
 
-## Livrables et vérifications
+Depuis la machine CLI01
 
-Conserver les commandes utilisées, les réponses demandées et les observations
-propres au laboratoire. Distinguer explicitement les résultats dynamiques du
-scénario des règles présentées par le cours.
+Affichez l’aide de la commande permettant de lister tous les services du système.
 
-→ [Voir la correction du TP](correction-tp-01.md)
+Affichez l’aide dans une nouvelle fenêtre. Indiquez la commande utilisée.
+
+Affichez la totalité de l’aide disponible. Quelle commande avez-vous utilisée ?
+
+Affichez l’aide en ligne de la commande permettant de lister les membres d’un groupe d’utilisateurs locaux. Quelle commande avez-vous utilisée, quels sont les avantages de l’aide en ligne ?
+
+Mettez à jour les fichiers d’aide de votre console PowerShell.
+
+```text
+o
+Vous allez effectuer la mise à jour de toutes vos commandes à
+partir d’un dépôt local situé sur « CD01 ».
+o
+Voici le chemin « UNC » du dépôt :  \\CD01\Partage\Depot\
+CLI01
+o
+Indiquez vos remarques
+```
+
+Effectuez la même action mais en sélectionnant le langage « fr-FR ». Indiquez vos remarques.
+
+Depuis la machine CLI01
+
+Affichez les modules actuellement chargés par la console PowerShell.
+
+```text
+o
+Combien de modules sont actuellement disponibles ?
+o
+De quel module la commande Get-LocalUser est-elle issue ?
+```
+
+Affichez les emplacements disponibles pour déposer les fichiers contenant les modules. Quelle commande avez-vous utilisée ?
+
+Installer le module AWSPowerShell. L’archive est disponible sur le partage \\CD01\ Partage\Modules
+
+```text
+o
+Quelles commandes avez-vous utilisées ?
+```
+
+Vous allez obtenir un message d’erreur à l’importation du module
+
+```text
+o
+Quelle commande allez-vous exécuter pour permettre
+l’importation du module ?
+o
+Indiquez trois commandes disponibles dans le module
+AwsPowerShell
+```
+
+Mettez en place un profil personnel sur chaque console PowerShell.
+
+```text
+o
+Vous pouvez modifier la coloration ainsi que la police.
+o
+Affichez l’aide de la commande Get-Help à chaque
+ouverture de la console PowerShell.
+o
+Quel fichier avez-vous édité ?
+```
+
+Bonus
+
+Modifiez le prompt de votre console PowerShell.
+
+```text
+o
+En vous basant sur le fichier  \\CD01\Partage\Aplication\
+Prompt.ps1
+o
+Modifiez votre prompt pour afficher l’heure ainsi que la
+localisation actuelle du prompt dans le système de fichier.
+```
+
+Vous pouvez également afficher une bannière avec le nom de l’utilisateur actuel.
+
+## Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+## Suite du TP
+
+- [Corrigé](correction-tp-01.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-01.md)

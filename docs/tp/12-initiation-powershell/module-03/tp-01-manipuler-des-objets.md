@@ -1,35 +1,190 @@
-# TP 01 — Manipuler des objets
+# Énoncé — Manipuler des objets
 
-## Contexte
+Le document fourni décrit le travail demandé et les résultats à relever dans la maquette. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-Ce TP source-faithful porte sur la manipulation d’objets retournés par les commandes PowerShell. Il s’appuie sur un environnement de laboratoire non fourni avec le module.
+## Initiation à PowerShell Manipuler des objets
 
-## Activités demandées
+TP du Module 03
 
-Réaliser, dans l’ordre du scénario, les vérifications et manipulations suivantes :
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 de ce cours.
 
-1. sélectionner des propriétés et utiliser l’aide sur les commandes mobilisées ;
-2. travailler sur des utilisateurs de laboratoire et leurs propriétés, sans reproduire leurs identités ;
-3. filtrer et trier des objets, notamment selon leur état ;
-4. compter ou mesurer des objets, des fichiers et leurs tailles ;
-5. présenter des résultats sous différentes formes ;
-6. consulter des événements et produire les exports demandés ;
-7. importer des données CSV puis appliquer des propriétés calculées.
+Durée estimée
 
-## Outils et formes attendus
+1 heure 30
 
-Le TP utilise le pipeline `|`, `Select-Object`, `Where-Object`, `Sort-Object`, `Measure-Object`, les formats `Format-Table`, `Format-Wide` et `Format-List`, ainsi que `Export-Csv`, `ConvertTo-Html`, `ConvertTo-Json`, `Out-File`, `Get-Content`, `Import-Csv` et des propriétés calculées.
+## Énoncé
 
-Les objets, emplacements, fichiers, comptes, partages, valeurs de sortie et résultats propres au laboratoire sont volontairement remplacés par des références neutres telles que `<objet-de-laboratoire>` ou `<fichier-de-laboratoire>`.
+Objectifs :
 
-## Vérifications
+Manipuler les objets leurs propriétés et leurs méthodes
 
-Pour chaque activité, vérifier que la commande sélectionne, filtre, trie, mesure, met en forme, exporte ou importe bien les objets demandés par le scénario. Les observations dépendantes du laboratoire ne constituent pas des valeurs de référence générales.
+```text
+Utilisation de la commande Select-Object, Sort-Object et Where-Object.
+```
 
-## Attention — commande destructive de la source
+Consignes :
 
-Le scénario comporte une suppression d’utilisateur. Cette action est destructive et réservée au laboratoire. Elle ne doit jamais être exécutée en dehors d’un environnement prévu à cet effet ; aucune identité réelle n’est reprise dans cet énoncé.
+Depuis la machine CLI01
 
-## Points à relire dans les documents sources
+```text
+Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name,
+Enabled Department City.
+```
 
-Certaines consignes et corrections divergent sur les motifs de filtrage, les variantes de désactivation, les unités de taille, le format d’export et l’import CSV. Ces divergences restent documentées dans la correction et au checkpoint du module.
+Quelle commande avez-vous utilisée ?
+
+```text
+Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
+des propriétés Department et City ?
+```
+
+Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.
+
+Affichez les cinq premiers utilisateurs Active Directory
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur
+propriété Department
+```
+
+Indiquez les commandes utilisées.
+
+```text
+Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled,
+Department, City puis triez par la propriété City.
+```
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Reprenez la commande précédente puis appliquez le tri sur la propriété Department
+```
+
+dans l’ordre descendant.
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Effectuer le tri sur les deux propriétés City et Department.
+```
+
+Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.
+
+Quelle commande avez-vous utilisée ?
+
+Bonus
+
+Désactiver les utilisateurs dont le nom commence par un D.
+
+```text
+Utiliser la commande Disable-AdAccount
+```
+
+Depuis la machine CLI01
+
+Affichez la liste des utilisateurs Active Directory dont le compte est actif.
+
+Quelle commande avez-vous utilisée ?
+
+Conditionnez le résultat pour ceux qui ont un nom qui débute par un A ou un F. Quelle commande avez-vous utilisée ?
+
+Reprenez la commande précédente et ajouter la condition sur le compte actif. Quelle commande avez-vous utilisée ?
+
+En reprenant la commande précédente, comptez le nombre d’utilisateurs actifs et le nombre d’utilisateurs inactifs.
+
+Indiquez les commandes utilisées.
+
+Affichez tous les fichiers du répertoire \\CD01\Partage.
+
+Quelle commande avez-vous utilisée ?
+
+Reprenez la commande précédente puis affichez la taille moyenne des fichiers.
+
+Quelle commande avez-vous utilisée ?
+
+Affichez la valeur la plus faible et la plus élevée de taille de fichiers.
+
+BONUS
+
+Reprenez les commandes précédentes et indiquez les fichiers dont la taille est supérieure à 10 Mo et inférieure à 100 Mo.
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri
+descendant sur le nom.
+```
+
+Depuis la machine CLI01
+
+Affichez la liste des utilisateurs Active Directory sur cinq colonnes.
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec
+```
+
+les propriétés : Name, Enabled, Department, City
+
+Quelle commande avez-vous utilisée ?
+
+Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.
+
+Quelle commande avez-vous utilisée ?
+
+Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, NomdDns, Distinguishedname, AdresseipV4 puis regroupez-les par système d’exploitation.
+
+Indiquez les commandes utilisées.
+
+Affichez tous les événements du journal system avec les propriétés : Time, Index, Message.
+
+Faites en sorte que le contenu du message soit affiché en totalité sur la console. Quelle commande avez-vous utilisée ?
+
+Depuis la machine CLI01
+
+Exportez les utilisateurs Active Directory dans un fichier CSV \\CD01\Partage\Exports\ Csv.
+
+Quelle commande avez-vous utilisée ?
+
+Répétez la commande précédente mais dans le format HTML puis dans le dossier \\ CD01\Partage\Exports\CSV\.
+
+Quelle commande avez-vous utilisée ?
+
+Ajoutez à la suite du fichier CSV les Ordinateurs Active Directory
+
+Quelle commande avez-vous utilisée ?
+
+Modifiez le nom de la colonne Name de votre fichier CSV exporté précédemment.
+
+Faite l’importation des utilisateurs Active Directory à partir du fichier CSV modifié.
+
+Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante :
+
+```text
+Get-Aduser -filter * | Remove-aduser -confirm : $False
+```
+
+Que remarquez-vous ?
+
+```text
+Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message
+d’erreur sur la propriété Name.
+```
+
+Quelle commande avez-vous utilisée ?
+
+Affichez la liste des fichiers du partage de CD01 ; pour chaque propriété vous allez traduire le nom de la propriété. Chaque valeur sera exprimée en GB :
+
+Indiquez votre commande.
+
+## Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+## Suite du TP
+
+- [Corrigé](correction-tp-01.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-03.md)

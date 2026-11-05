@@ -1,6 +1,6 @@
 # Correction — TP 01 — Pseudo-code
 
-La correction propose une représentation en pseudo-code du scénario. Elle complète l’organigramme ; aucune correction sous forme de script Bash n’est fournie dans les sources M01.
+L’énoncé demande de traduire la préparation du café en étapes. Comparez le test de chaque ressource et la boucle au trajet de l’[organigramme](correction-organigramme.md).
 
 ```text
 Vérifier la présence de l’eau, du café, du filtre, de la cafetière et de l’électricité

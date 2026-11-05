@@ -63,7 +63,7 @@ pour RDM certains besoins liés au SAN ou aux services de cluster Microsoft.
 | Thick | Réservation statique de tout l’espace indiqué dès la création. | Temps de création. |
 | Thin | Allocation à la demande jusqu’au maximum indiqué. | Surallocation possible du datastore. |
 
-!!! warning "NEEDS_REVIEW — limites et performances historiques"
+!!! warning "limites et performances historiques"
 
     Le document affirme une limite VMDK de 2 To et présente le thick comme plus
     performant. Ces formulations sont conservées comme indications du support
@@ -81,7 +81,7 @@ associée à un disque virtuel de **80 Go**, puis un partage **NFS 3**. Chaque E
 accède à la même banque VMFS iSCSI et monte le partage NFS. Le texte parle d’une
 « cible de 80 Go » ; les captures distinguent le disque virtuel et sa cible.
 
-!!! warning "NEEDS_REVIEW — périmètre du laboratoire"
+!!! warning "périmètre du laboratoire"
 
     Les paramètres NFS demandés sont sans authentification serveur, avec accès
     des utilisateurs non mappés et autorisation des deux hyperviseurs en lecture/
@@ -90,6 +90,32 @@ accède à la même banque VMFS iSCSI et monte le partage NFS. Le texte parle d�
     internes sont neutralisés. La solution cite le module 6 dans son bandeau,
     contre le module 7 dans l’énoncé. Le mot « Bonus » final ne contient aucun
     exercice exploitable ; aucun bonus n’est créé.
+
+## Décomposer les chemins d’accès
+
+| Objet | Rôle dans le TP |
+| --- | --- |
+| Cible iSCSI Windows | Présente le disque virtuel de 80 Go aux initiateurs ESXi autorisés. |
+| LUN | Unité de stockage en mode bloc visible dans les périphériques après la réanalyse. |
+| VMFS | Système de fichiers à créer une fois sur le LUN pour y stocker les fichiers des VM. |
+| NFS | Partage de fichiers distant. Chaque ESXi monte le même export NFS 3. |
+| Datastore | Banque qui présente un espace utilisable à l’inventaire vSphere. |
+
+Depuis `SRV_2K19` sur le réseau stockage `192.168.XX.12/24`, vérifier les deux VMkernel, puis préparer le volume `STOCKAGE` sur le disque de 150 Go. Dans `DS`, distinguer le dossier iSCSI et le dossier NFS. Sur le premier ESXi, utiliser la découverte dynamique iSCSI, réanalyser et vérifier le périphérique **MSFT iSCSI**. Créer `DS-ISCSI` puis retrouver la banque existante sur le second hôte. Monter le partage `DS\NFS` sous `DS-NFS` sur les deux hôtes. Les droits NFS du scénario concernent les deux IP de laboratoire.
+
+Le support présente des limites historiques du VMDK et de VMFS. Vérifier séparément la taille maximale de la banque et celle du disque virtuel d’après la version et la configuration. Une taille de 2 To ne constitue pas un plafond universel des VMDK. [VMDK de plus de 2 To](https://knowledge.broadcom.com/external/article?legacyId=2058287) · [Capacités VMFS](https://knowledge.broadcom.com/external/article/410951/vmfs-datastore-maximum-supported-capacit.html)
+
+En thin, prévoir un seuil d’alerte sur la capacité consommée et un plan d’extension. En thick, distinguer la réservation d’espace et la manière dont les blocs sont initialisés. L’intérêt d’un MTU 9000 dépend du réseau. Avant de l’utiliser, vérifier l’ensemble du chemin et le tester avec la taille appropriée.
+
+## Question de révision
+
+ESXi2 voit le LUN mais pas la banque. Quel contrôle précède une modification de disque ?
+
+??? success "Correction"
+
+    Vérifier l’identité du LUN, l’accès de l’initiateur et le résultat de la réanalyse. Rechercher la banque existante sans initialiser à nouveau le disque partagé.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-07.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-07/index.md)
 
 ## Kahoot
 

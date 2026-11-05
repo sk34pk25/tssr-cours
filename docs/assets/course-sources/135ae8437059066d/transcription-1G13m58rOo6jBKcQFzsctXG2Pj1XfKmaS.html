@@ -1,32 +1,22 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Initiation à PowerShell </h4>
-<p class="tssr-source-paragraph">Module 06 – Pour aller plus loin</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Pour aller plus loin</p>
-<h4>S’authentifier avec PowerShell</h4>
-<p class="tssr-source-paragraph">• Pour des raisons de sécurité, nous travaillerons avec des comptes possédant <br>des privilèges réduits.</p>
-<p class="tssr-source-paragraph">• Cela peut être problématique pour la réalisation de certaines actions.</p>
-<p class="tssr-source-paragraph">• Afin de contourner cette problématique, il est possible de lancer le script <br>avec un compte utilisateur, puis demander une authentification à son <br>lancement.</p>
-<p class="tssr-source-paragraph">2</p>
-<p class="tssr-source-paragraph">2</p>
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Initiation à PowerShell</h3>
+<p>Module 06 – Pour aller plus loin</p>
+<h3>S’authentifier avec PowerShell</h3>
+<ul><li>Pour des raisons de sécurité, nous travaillerons avec des comptes possédant des privilèges réduits.</li><li>Cela peut être problématique pour la réalisation de certaines actions.</li><li>Afin de contourner cette problématique, il est possible de lancer le script avec un compte utilisateur, puis demander une authentification à son lancement.</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Pour aller plus loin</p>
-<h4>S’authentifier avec PowerShell</h4>
-<p class="tssr-source-paragraph">• Une commande est dédiée à cet usage.</p>
-<pre class="tssr-source-code">PS &gt; $Cred = Get-Credential</pre>
-<p class="tssr-source-paragraph">• Les logins et mots de passe renseignés <br>sont stockés dans la variable et <br>réutilisables dans le script.</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Pour aller plus loin</p>
-<h4>S’authentifier avec PowerShell</h4>
-<p class="tssr-source-paragraph">On peut personnaliser la fenêtre.</p>
-<pre class="tssr-source-code">PS &gt; $Cred = Get-Credential -Message &quot;Entrez votre 
-login Admin du Domaine&quot; -UserName eni\Administrator</pre>
-<p class="tssr-source-paragraph">4</p>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>applet de commande Get-Credential à I...<br>?<br>x</p><p>Fournissez des valeurs pour les paramétres suivants<br>:</p><p>Nom d&#x27;utilisateur :<br> |£|<br>+ | Ms</p><p>Mot de passe :<br>|</p><p>Demande d&#x27;informations d&#x27;identification.<br> ?<br>x</p><p>Entrez votre login Admin du Domaine</p><p>Nom diutilisateur: © eni\Administrator<br>a</p><p>Mot de passe<br>:</p><p>[a]<br>pee</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2">
+<h3>S’authentifier avec PowerShell</h3>
+<ul><li>Une commande est dédiée à cet usage.</li></ul>
+<pre><code>PS &gt; $Cred = Get-Credential</code></pre>
+<ul><li>Les logins et mots de passe renseignés sont stockés dans la variable et réutilisables dans le script.</li></ul>
+<h3>S’authentifier avec PowerShell</h3>
+<p>On peut personnaliser la fenêtre.</p>
+<pre><code>PS &gt; $Cred = Get-Credential -Message &quot;Entrez votre
+login Admin du Domaine&quot; -UserName eni\Administrator</code></pre>
+<figure><img src="../isolated/135ae8437059066d/ps-p2-i1-1.webp" alt="Capture du support « Module 06 - Support de cours »" loading="lazy"><figcaption>Capture du support « Module 06 - Support de cours »</figcaption></figure>
+<figure><img src="../isolated/135ae8437059066d/ps-p2-i2-1.webp" alt="Capture du support « Module 06 - Support de cours »" loading="lazy"><figcaption>Capture du support « Module 06 - Support de cours »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

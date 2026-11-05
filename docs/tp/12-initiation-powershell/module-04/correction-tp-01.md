@@ -1,53 +1,181 @@
-# TP 01 — Variables et structures : correction
+# Correction — Variables et structures
 
-## Cadre de lecture
+La solution fournie est reprise dans son ordre. Les valeurs observées concernent la maquette du document. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-Cette correction organise les méthodes attestées sans publier les identités,
-objets, services, journaux ou résultats propres au laboratoire. Utilisez les
-ressources et identifiants fournis par le formateur dans l’environnement prévu.
+## Variables et structures
 
-## 1. Journal, variables et index
+TP du Module 04
 
-Définissez les variables nécessaires au scénario, puis contrôlez les éléments
-attendus par index. Observez le résultat dans le journal du laboratoire sans
-le recopier comme une valeur générale.
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 de ce cours.
 
-## 2. Devinette : condition et boucle post-test
+Durée estimée
 
-Organisez la vérification demandée avec `If` et une boucle `Do`/`While`.
-Contrôlez que la saisie suit le comportement attendu par le scénario.
+4 heures
 
-## 3. Collections : condition et parcours
+## Énoncé
 
-Utilisez la condition puis la forme suivante pour parcourir une liste :
+Objectifs :
+
+- Utiliser les variables dans le langage de commande PowerShell
+- Intégrer les structures de commandes dans des scripts de base
+
+Consignes :
+
+Depuis la machine CLI01
+
+- Stocker dans une variable le résultat de la commande Get-EventLog system.
+
+Quelle commande avez-vous utilisée ?
+
+Affichez l’entrée de journal numéro 10.
+
+Quelle est la valeur de l’Index du journal ?
+
+Créer une variable qui stockera l’addition de l’index de journal numéro 10 et 20. Quelles commandes avez-vous utilisées ?
+
+### Commandes visibles dans les captures
+
+```text
+$event = Get-EventLog -LogName System
+$event[10].Index
+$index = $event[10].Index + $event[20].Index
+$index
+```
+
+- Pour répondre au besoin, vous utiliserez les structures If et DoWhile.
+
+Créer un script qui dans un premier temps demande la saisie de la date de naissance d’un utilisateur, puis dans un second temps demande à l’utilisateur de trouver cette date de naissance en indiquant si la valeur saisie est supérieure ou inférieure.
+
+Si la date saisie est correcte, la boucle s’arrête et l’utilisateur est félicité.
+
+BONUS : indiquez le nombre d’essais effectués par l’utilisateur.
+
+- Pour répondre au besoin, vous utiliserez les structures If et ForEach.
+
+```text
+Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;
+```
+
+dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active Directory.
+
+Indiquez le nombre d’utilisateurs actifs et inactifs.
+
+### Script de la capture
+
+```text
+[int]$n = Read-Host "Veuillez saisir votre date de naissance"
+$compteur=0
+do {
+[int]$date=Read-Host "Indiquez une date "
+    if ($date -gt $n){
+        write-host "La valeur saisie est trop grande"
+    }elseif($date -lt $n) {
+        Write-Host "La valeur saisie est trop petite "
+        }else {write-host "Felicitation vous avez trouvez la valeur"
+            write-host "Voici votre nombre de tentative" $compteur}
+        $compteur++
+}while( $date -ne $n)
+```
+
+- Utilisation de While / If ou Switch
+
+Réalisez un menu à choix multiples, voici l'affichage attendu :
+
+Bienvenue dans l'outil d'inventaire, Faites votre choix parmi les menus suivants : 1) Affichage des ordinateurs du domaine. 2) Affichage des groupes de domaines locaux 3) Importation des utilisateurs AD à partir d’un fichier CSV 4) Quitter Entrez votre choix :
+
+Si la saisie de l'utilisateur est incorrecte, la saisie doit être proposée à nouveau en indiquant l'erreur.
+
+Indiquez les lignes de commandes utilisées.
+
+### Script de la capture
+
+```text
+$users = get-aduser -filter *
+$UserActif = New-Object system.collections.arraylist
+$UserInActif = New-Object system.collections.arraylist
+Foreach($i in $users){
+    if ($i.enabled -eq $true){
+        $UserActif.add($i)
+    }else {
+        $UserInActif.add($i)
+    }
+}
+Write-Host "VOici le nombre d'utilisateur actif : "`
+ -NoNewline ; ($UserActif | measure).count
+Write-Host "Voici le nombre d'utilisateur inactifs : "`
+ -NoNewline ;($UserInActif | measure).count
+```
+
+- Chargez dans une variable les objets utilisateurs Active Directory.
+
+Pour chaque utilisateur, réinitialisez le mot de passe puis vérifiez si l’utilisateur est inactif. Activer leurs comptes.
+
+Quelles commandes avez-vous utilisées ?
+
+### Script de la capture
+
+```text
+do {
+Write-Host "Bienvenue dans l'outils d'inventaire,
+Faites votre choix parmis les menus suivants:
+1) Affichage des ordinateurs du domaine
+2) Affichages des groupes de domaines locaux
+3) Importation des utilisateurs AD  partir d'un fichier CSV
+4) Quitter"
+$choix = read-host "Veuillez faire un choix"
+if ($choix -notin 1,2,3,4 ){
+    Write-Host "votre choix est incorecte"
+}
+switch ($choix){
+    "1" { $computer = get-adcomputer -filter * ;
+        Write-host "Voici les ordinateurs du domaine : " $computer.name `
+        -foregroundcolor green }
+    "2" { $group = get-adgroup -filter * | where groupscope -eq domainlocal
+        Write-host "Voici les groupes de domaine locaux : " $group.name `
+        -foregroundcolor yellow}
+    "3" {$path = read-host "Veuillez indiquer le chemin du fichier CSV ";
+       import-csv -path $path -delimiter ";" | new-aduser}
+    "4" { Write-Host "Sortie du programme"}
+}
+} while ( $choix -ne 4)
+```
+
+### Commandes visibles dans les captures
+
+```text
+$user = get-aduser -filter *
+foreach ($i in $user){
+    $p = convertto-securestring -asplaintext -force "fourni par le formateur"
+    set-adaccountpassword -newpassword $p -identity $i.distinguishedname
+    if ($i.enabled -eq $false){
+        enable-adaccount -identity $i.distinguishedname
+    }
+}
+```
+## Relire les résultats des captures
+
+Le corrigé donne `3775` pour `$event[10].Index` et `7540` pour la somme avec `$event[20].Index`. Ce sont les valeurs de sa capture. Contrôler le nombre d’entrées et les index du journal avant de comparer.
+
+Dans la devinette, le corrigé convertit la date saisie en entier. Fixez le format numérique attendu si vous gardez cette variante. Le compteur augmente après le message de réussite. Pour compter aussi le dernier essai, incrémentez-le juste après la saisie, avant les trois branches `if`, `elseif`, `else`.
+
+L’appel à `ArrayList.Add()` produit un indice. `[void]` permet de le retirer de la sortie si l’on souhaite afficher uniquement les totaux. Pour le menu, vérifier les quatre choix, une saisie invalide et la sortie. Comparer les en-têtes du CSV avant de transmettre les objets à `New-ADUser`.
+
+La capture de réinitialisation conserve sa logique et indique la valeur d’accès comme « fourni par le formateur ». La variante suivante illustre une saisie sécurisée et une recherche dans l’OU du TP.
 
 ```powershell
-Foreach ($i in $liste) {
-  ...
+$base = Read-Host "Nom distinctif de l’OU du TP"
+$motDePasse = Read-Host 'Nouveau mot de passe de laboratoire' -AsSecureString
+$utilisateurs = Get-ADUser -Filter * -SearchBase $base
+foreach ($utilisateur in $utilisateurs) {
+    Set-ADAccountPassword -Identity $utilisateur -Reset -NewPassword $motDePasse
+    if (-not $utilisateur.Enabled) {
+        Enable-ADAccount -Identity $utilisateur
+    }
 }
 ```
 
-Vérifiez le résultat avec les objets de laboratoire fournis. Les actions sur
-les comptes ne doivent pas être reproduites hors de ce cadre.
+Cette variante pédagogique est à lire avec l’énoncé et la correction d’origine. Relever la liste des comptes ciblés, puis comparer `Enabled` avant et après sur les objets du TP.
 
-## 4. Menu
 
-Construisez le contrôle de menu à l’aide de `While` et `If`, ou de `Switch`,
-selon la variante du scénario. Testez chaque choix dans le laboratoire ; les
-observations produites dans cet environnement ne sont pas des résultats
-universels.
-
-## 5. Objets et opérations d’administration
-
-Appliquez la méthode décrite dans la source aux objets du laboratoire. Les
-actions à impact potentiel, notamment sur des comptes ou services, exigent une
-vérification préalable et restent limitées à l’environnement de formation.
-
-## Points documentaires à conserver
-
-- Des variations de capitalisation, ponctuation, pluriel et guillemets existent
-  entre l’énoncé et la correction source.
-- Les scénarios d’administration de comptes et l’environnement historique
-  restent propres au laboratoire.
-- La source annonce une solution commentée, alors que la nature du PDF de
-  solution doit rester vérifiée au regard du document d’origine.
+- [Retour à l’énoncé](tp-01-variables-et-structures.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-04.md)

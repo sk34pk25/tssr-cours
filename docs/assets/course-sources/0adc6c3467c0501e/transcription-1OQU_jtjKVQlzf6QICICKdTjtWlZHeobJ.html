@@ -1,35 +1,25 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Enoncé du TP 3 - Boucle while-read.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M7 - Enoncé du TP 3 - Boucle while-read</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
-<h4>Boucle while/read </h4>
-<p class="tssr-source-paragraph">TP3 du Module 07 – Les structures de boucle </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7. </p>
-
-<h4>Objectifs </h4>
-<p class="tssr-source-paragraph">Créer un script Shell utilisant une structure de boucle while/read. </p>
-<h4>Énoncé </h4>
-
-<pre class="tssr-source-code">Créer un script Shell script_M7TP3.sh qui affiche pour chaque utilisateur présent dans le fichier 
-/etc/passwd, le nom et l’UID. </pre>
-<pre class="tssr-source-code">Utiliser pour cela, la structure while read </pre>
-<p class="tssr-source-paragraph">• Afin de formater correctement la base de compte utilisateur, vous pourrez vous inspirer de <br>la commande suivante :  </p>
-<pre class="tssr-source-code">tr -s &quot;:&quot; &quot; &quot;          =&gt; permet de remplacer les “:” par un espace </pre>
-
-<p class="tssr-source-paragraph">Exemple de résultat attendu </p>
-<pre class="tssr-source-code"> 
-# ./script_M7TP3.sh 
- 
-------------------------- 
-Identifiant :    root 
--  -  -  -  -  
-UID : 0        
-------------------------- 
-Identifiant :    daemon 
--  -  -  -  -   
-UID : 1        
- 
-etc.. </pre>
-<p class="tssr-source-paragraph">Page 1/1 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Enoncé du TP 3 - Boucle while-read</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>M7 - Enoncé du TP 3 - Boucle while-read</h1><p>Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<h2>Boucle while/read</h2>
+<h3>TP3 du Module 07 – Les structures de boucle</h3>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7.</p>
+<h2>Objectifs</h2>
+<p>Créer un script Shell utilisant une structure de boucle while/read.</p>
+<h2>Énoncé</h2>
+<p>Créer un script Shell script_M7TP3.sh qui affiche pour chaque utilisateur présent dans le fichier /etc/passwd, le nom et l’UID.</p>
+<p>Utiliser pour cela, la structure while read</p>
+<ul><li>Afin de formater correctement la base de compte utilisateur, vous pourrez vous inspirer de la commande suivante :</li></ul>
+<p>tr -s &quot;:&quot; &quot; &quot;          =&gt; permet de remplacer les “:” par un espace</p>
+<p>Exemple de résultat attendu</p>
+<pre><code># ./script_M7TP3.sh
+-------------------------
+Identifiant :    root
+-  -  -  -  -
+UID : 0
+-------------------------
+Identifiant :    daemon
+-  -  -  -  -
+UID : 1
+etc..</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,57 +1,86 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Outils pour le scripting.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Outils pour le scripting</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<h4>Outils pour le scripting </h4>
-<p class="tssr-source-paragraph">TP du Module 05 </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">1 heure </p>
-<h4>Énoncé </h4>
-<p class="tssr-source-paragraph">Objectifs :  </p>
-<p class="tssr-source-paragraph">• <br>Comprendre les fonctions, modules et la gestion des erreurs </p>
-<p class="tssr-source-paragraph">Consignes :  </p>
-<p class="tssr-source-paragraph">Les manipulations sont à réaliser sur la machine CLI01 </p>
-<p class="tssr-source-paragraph">• <br>Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code. </p>
-<p class="tssr-source-paragraph">Réalisez un script permettant de tester la présence d’un service. Le nom du service sera <br>variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il <br>sera consigné dans une variable. Un message sera affiché lorsque tous les services seront <br>testés. </p>
-<p class="tssr-source-paragraph">Indiquez les lignes de commandes de votre script. </p>
-
-<p class="tssr-source-paragraph">Page 1/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p><p>$service<br>= read-host<br>&quot;Indiquez<br>le service<br>tester&quot;</p><p>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>4<br>}<br>catch<br>{</p><p>}<br>Finally{<br>$erreur</p><p>}</p></div></details>
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Outils pour le scripting</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Solution du TP - Outils pour le scripting</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Outils pour le scripting</h3>
+<p>TP du Module 05</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h3>Énoncé</h3>
+<p>Objectifs :</p>
+<ul><li>Comprendre les fonctions, modules et la gestion des erreurs</li></ul>
+<p>Consignes :</p>
+<p>Les manipulations sont à réaliser sur la machine CLI01</p>
+<ul><li>Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.</li></ul>
+<p>Réalisez un script permettant de tester la présence d’un service. Le nom du service sera variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront testés.</p>
+<p>Indiquez les lignes de commandes de votre script.</p>
+<h4>Script de la capture</h4><pre><code>$service = read-host &quot;Indiquez le service tester&quot;
+try {
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host &quot;Ce service n&#x27;existe pas&quot;
+}
+finally{
+$erreur
+}</code></pre>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p1-i2-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<p class="tssr-source-paragraph">• <br>Transformez ce script en fonction ; le nom du service sera un paramètre. </p>
+<section class="tssr-transcribed-page" id="page-2">
+<ul><li>Transformez ce script en fonction ; le nom du service sera un paramètre.</li><li>Ouvrez une session depuis votre machine client vers votre serveur CD01.</li></ul>
+<p>Stocker votre session dans une variable</p>
+<ul><li>Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de la machine.</li></ul>
+<p>Indiquez les commandes utilisées.</p>
+<h4>Script de la capture</h4><pre><code>function service {
+param ($service)
+try {
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host &quot;Ce service n&#x27;existe pas&quot;
+}
+finally{
+}
+}
+service wsearch
 
-<p class="tssr-source-paragraph">• <br>Ouvrez une session depuis votre machine client vers votre serveur CD01. </p>
+Enter-PSSession -ComputerName CD01
+$session = new-pssession -computername CD01
+$session
 
-<p class="tssr-source-paragraph">Stocker votre session dans une variable </p>
-
-<p class="tssr-source-paragraph">• <br>Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition <br>que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de <br>la machine. </p>
-<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
-
-
-<p class="tssr-source-paragraph">Page 2/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>r<br>param<br>($service)<br>try<br>{</p><p>1<br>get-service<br>-name $service -erroraction stop -errorvariable erreur</p><p>}<br>catch<br>{</p><p>}<br>finally{<br>:+<br>J<br>}<br>J<br>)<br>service wsearch</p><p>EX Administrator: Windows PowerShell<br>= J<br>PS C:\Users\Administrator&gt; Enter-PSSession<br>cD01<br>[CDO1]:<br>PS C:\Users\Administrator\Documents&gt;</p><p>EN Administrator Windows Powerthall<br>L =<br>=<br>PS C:\Users\Administrator&gt;<br>new-pssess1on<br>CD01<br>PS c:\Users\Administrator&gt;</p><p>Id Name<br>computerName<br>computerType<br>State<br>confi gurationName</p><p>_3 WinkM3<br>cD01<br> RemoteMachine<br>opened<br>Microsoft.Powershel1</p><p>1<br> $computers = get-adcomputer<br>-filter *<br>-properties<br>*</p><p>»<br>foreach<br>($i in $computers)<br>{</p><p>3<br>if<br>($i.distinguishedname -notlike &quot;*domain controllers*&quot;){</p><p>4<br>invoke-command<br>-computer $i.dnshostname<br>~<br>-scriptblock{stop-computer<br>-force}</p><p>&gt;<br>+}</p><p>|</p><p>@</p></div></details>
-
-
-
-
+$computers = get-adcomputer -filter * -properties *
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike &quot;*domain controllers*&quot;){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}</code></pre>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p2-i2-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p2-i3-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p2-i4-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p2-i5-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<p class="tssr-source-paragraph">• <br>Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.  </p>
-<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
+<section class="tssr-transcribed-page" id="page-3">
+<ul><li>Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.</li></ul>
+<p>Indiquez les commandes utilisées.</p>
+<ul><li>Modifiez durablement le comportement de votre Ise pour que les erreurs des commandes soient stockées dans une variable. Puis modifiez le comportement de la console pour que les messages d’erreur ne soient pas affichés.</li></ul>
+<h4>Script de la capture</h4><pre><code>function stop{
+param($domain)
+$computers = get-adcomputer -filter * -properties * `
+-searchbase &quot;cn=computers,dc=$domain,dc=lcl&quot;
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike &quot;*domain controllers*&quot;){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}
+}
+stop ad01
 
-<p class="tssr-source-paragraph">• <br>Modifiez durablement le comportement de votre Ise pour que les erreurs des <br>commandes soient stockées dans une variable. Puis modifiez le comportement de la <br>console pour que les messages d’erreur ne soient pas affichés.  </p>
-
-<p class="tssr-source-paragraph">Page 3/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>]<br>function<br>stop{<br>param( $domain)</p><p>;<br>$computers<br>= get-adcomputer<br>-filter<br>* -properties<br>*<br>~</p><p>1<br>-searchbase “cn=computers,dc=$domain,dc=lcl&quot;</p><p>5<br>foreach<br>($i<br>in $computers)<br>{</p><p>»<br>if ($i.distinguishedname -notlike<br>&quot;*domain controllers*&quot;){</p><p>7<br>invoke-command<br>-computer $i.dnshostname<br>—~</p><p>8<br>-scriptblock{stop-computer -force}</p><p>}<br>L<br>-}</p><p>L<br>istop ad@1</p><p>8 Administrator: Windows PowerShell ISE</p><p>File<br>Edit<br>View<br>Tools<br>Debug<br>Add-ons<br>Help<br>Heb<br>4<br>Oo À<br>&gt;<br>œ<br>6 Em</p><p>| Untitled.ps1* X<br>|<br>1<br>$€rrorActionPreference = &quot;SilentlyContinue”<br>2<br>$ErrorActionPreference</p></div></details>
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+$ErrorActionPreference = &quot;SilentlyContinue&quot;
+$ErrorActionPreference</code></pre>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p3-i2-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
+<figure><img src="../isolated/e0dd2e100740ca22/ps-p3-i3-1.webp" alt="Capture du support « Solution du TP - Outils pour le scripting »" loading="lazy"><figcaption>Capture du support « Solution du TP - Outils pour le scripting »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

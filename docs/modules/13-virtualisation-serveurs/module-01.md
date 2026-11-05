@@ -103,12 +103,6 @@ Les dates ci-dessous sont des repères historiques tels qu’ils sont formulés 
 
 Cette présentation situe la virtualisation par ses usages, ses avantages et ses limites, ses acteurs et ses secteurs d’application. Elle distingue les hyperviseurs de type 1 et de type 2, puis introduit la paravirtualisation, les composants d’un environnement virtualisé et les formats cités par le support.
 
-## Périmètre documentaire
-
-M01 repose sur un seul support de cours. Il ne comporte ni TP, ni énoncé, ni correction, ni fiche de révision, ni Kahoot, ni ressource téléchargeable attestée. Le PDF source reste une ressource de provenance et n’est pas republié comme téléchargement.
-
-**Source A — Drive TSSR, lecture seule :** `Module 01 - Support de cours.pdf` — ID `1qCsojBU2zSMsawu4PupwZkXbXJSpGSaI` — SHA-256 `ea6cf1bcebe9ae208b570a9ba6b9d74d35490ecd7e344c58952920a1edc63ae2`.
-
 <!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
 
 ## Complément IA / externe au cours — Distinguer les deux types d’hyperviseur
@@ -126,3 +120,26 @@ flowchart TD
 ```
 
 Schéma simplifié IA fondé sur la distinction du module. Il présente les couches utiles pour comprendre le cours ; les composants exacts des produits restent ceux des illustrations originales.
+
+
+## Choisir un montage
+
+| Situation | Décision | Vérification |
+| --- | --- | --- |
+| Tester un système depuis son poste | Hyperviseur de type 2 avec une VM isolée ou en NAT selon le test | Le système hôte reste utilisable et la VM reçoit le réseau prévu. |
+| Regrouper des serveurs en production | Hyperviseur de type 1, capacité et reprise dimensionnées | La mémoire disponible, les accès réseau, le stockage et la reprise satisfont les besoins des services. |
+| Maintenir plusieurs applications anciennes | VM distinctes et ressources mutualisées | Chaque application retrouve son environnement et les dépendances sont documentées. |
+
+La **consolidation** réduit le nombre d’hôtes physiques en regroupant les charges. La **mutualisation** met une capacité à la disposition de plusieurs charges. La **rationalisation** standardise les configurations et les pratiques de gestion. Quatre anciennes machines regroupées sur un même hôte illustrent la consolidation. Un stockage commun illustre la mutualisation. L’usage de modèles et d’un plan de sauvegarde commun illustre la rationalisation.
+
+Pour préparer un PRA, relever les dépendances et tester le redémarrage des VM dans l’ordre attendu. La perte d’un hôte consolidé peut toucher plusieurs services à la fois.
+
+## Question de révision
+
+Pourquoi un seul hôte physique puissant ne garantit-il pas la disponibilité des services ?
+
+??? success "Correction"
+
+    Les VM partagent les ressources et dépendent de l’hôte. Il faut vérifier les conditions de reprise et la capacité d’un hôte de secours.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-01.md)

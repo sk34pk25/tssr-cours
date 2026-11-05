@@ -64,7 +64,7 @@ L’inventaire des besoins sépare trafic des VM, gestion, déplacements de VM,
 stockage iSCSI et très haute disponibilité. Le support invite à décider quels
 flux regrouper et lesquels isoler avant de répartir les cartes.
 
-!!! warning "NEEDS_REVIEW — portée de certaines affirmations"
+!!! warning "portée de certaines affirmations"
 
     Le support affirme que deux groupements de ports distincts d’un même vSwitch
     ne communiquent pas et qu’un VDS évite toute interruption lors d’une migration.
@@ -84,12 +84,36 @@ La solution documente le rattachement de la vNIC de la VM existante au nouveau
 groupe avant suppression de son ancien groupe de ports. Les adresses VMkernel
 des deux hôtes sont distinctes sur le réseau /24 du laboratoire, neutralisé ici.
 
-!!! warning "NEEDS_REVIEW — arrêt des VM"
+!!! warning "arrêt des VM"
 
     L’énoncé demande un arrêt propre. La solution montre une option de terminaison
     forcée des VM avant arrêt de l’hôte. Cette divergence est conservée ; l’option
     forcée n’est pas reprise comme procédure normale. La couverture de la solution
     décrit surtout le premier hôte puis demande de reproduire sur le second.
+
+## Diagnostiquer la séparation des flux
+
+Deux groupes de ports d’un même vSwitch sur le même VLAN peuvent communiquer selon la configuration. Pour isoler les flux, vérifier VLAN, raccordement physique et éventuelles règles de filtrage. Les ports trunk doivent transporter les VLAN attendus. Au contrôle, relever le VLAN de chaque groupe et le mode du port physique.
+
+Un teaming répartit des flux suivant une politique. Le débit cumulé concerne plusieurs flux ou vNIC. Pour une liaison agrégée en IP hash, vérifier l’alignement avec le commutateur physique. La sélection du port virtuel, le hachage MAC source et l’ordre de bascule répondent à des besoins distincts. [Politiques de teaming VMware](https://knowledge.broadcom.com/external/article?legacyId=1004088) · [Répartition IP hash](https://knowledge.broadcom.com/external/article/321396/understanding-ip-hash-load-balancing.html)
+
+| Commutateur | Groupe | Cartes et fonction |
+| --- | --- | --- |
+| `vSwitch0` | `GRP-GESTION` | `vmnic0`, gestion déjà configurée. |
+| `vSwitch1` | `GRP-VMNET` | `vmnic1` et `vmnic2`, trafic des VM. |
+| `vSwitch2` | `GRP-STORAGE-VMOTION` | `vmnic3`, interfaces VMkernel en `192.168.XX.1/24` et `192.168.XX.2/24` selon l’hôte. |
+
+Activer le service vMotion sur l’**interface VMkernel** concernée. Contrôler d’abord la connexion à l’interface de gestion, puis le rattachement de la vNIC de la VM invitée au nouveau groupe. Un test `vmkping` entre interfaces de stockage peut vérifier leur communication dans le laboratoire. Une réponse valide la connectivité IP du test. Le montage iSCSI et les migrations se vérifient aux ateliers suivants.
+
+## Question de révision
+
+La VM reste sur l’ancien groupe qui va être supprimé. Dans quel ordre intervenir ?
+
+??? success "Correction"
+
+    Basculer la vNIC vers GRP-VMNET, vérifier sa connectivité et retirer ensuite l’ancien groupe des VM. Garder le groupe de gestion et l’accès à l’ESXi.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-06.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-06/index.md)
 
 ## Kahoot
 
@@ -101,4 +125,3 @@ A : support M06, énoncé et solution de gestion réseau, Drive TSSR en lecture 
 B : restructuration web fidèle, données de laboratoire neutralisées. Le support
 contient 21 diapositives sur 11 pages, l’énoncé trois pages et la solution 11 pages.
 Aucun laboratoire exécuté, ressource binaire ou commande ajouté.
-Cette page reste autonome et ne dépend pas d’un objet encore non publié.

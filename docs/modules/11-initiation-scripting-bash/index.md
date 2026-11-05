@@ -1,6 +1,8 @@
 # Initiation au scripting Bash
 
-> Amorçage technique : les pages de module ci-dessous existent pour permettre des propositions pédagogiques gouvernées, module par module. Aucun contenu de cours n’est introduit par cet amorçage.
+Le parcours va de l’analyse du besoin au script Bash qui appelle des fonctions. Dans chaque module, le cours optimisé explique les commandes et leurs conditions d’usage. Le cours original rassemble les supports et ressources du Drive associés. Les travaux pratiques incluent leurs variantes pédagogiques et les cas à vérifier.
+
+Préparez un dossier de laboratoire pour les essais. Utilisez une machine virtuelle dédiée pour le TP de gestion de comptes. Le contrôle de syntaxe avec `bash -n` est distinct d’un essai du script.
 
 ## Modules
 

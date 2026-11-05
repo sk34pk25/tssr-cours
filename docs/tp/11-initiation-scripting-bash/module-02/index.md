@@ -2,7 +2,7 @@
 
 ## TP 02 — Script à partir d’un algorithme
 
-**TP attesté :** TP2. Aucun TP1 M02 n’est présent parmi les sources disponibles.
+Le scénario du module correspond au TP 02.
 
 ## Objectifs
 
@@ -10,7 +10,7 @@ Réaliser le script demandé, en utilisant les commandes précisées par l’én
 
 ## Ressources
 
-Le support, l’énoncé TP2 et le script de solution sont les seules sources M02 disponibles. Le script de solution est une ressource à lire comme texte ; il n’est pas exécuté dans cette documentation.
+L’énoncé et le script de solution figurent dans le cours original. La correction explique l’ordre des commandes et les résultats à observer dans le laboratoire.
 
 - [Énoncé TP2](tp-02-script-a-partir-d-un-algorithme.md)
 - [Correction TP2](correction-tp-02.md)

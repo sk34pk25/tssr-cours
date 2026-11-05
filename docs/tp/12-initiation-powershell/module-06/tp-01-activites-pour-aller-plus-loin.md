@@ -1,49 +1,45 @@
 # Énoncé — Activités pour aller plus loin
 
-## Cadre
+Le document fourni décrit le travail demandé et les résultats à relever dans la maquette. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-Ce TP du module 06 a une durée estimée de **4 heures**. Son objectif est de
-démarrer avec le scripting PowerShell. Il suppose que les vidéos du module 06
-ont été suivies ; elles ne sont pas fournies dans le dossier Drive M06.
+## Activités pour aller plus loin
 
-Les données, machines, comptes, domaines, zones, adresses et chemins nécessaires
-au laboratoire restent fournis dans son environnement. Ne les recopiez pas dans
-vos livrables.
+TP du Module 06
 
-## Activité 1 — Comprendre et commenter un script
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 de ce cours.
 
-Analysez le script fourni dans le laboratoire. Identifiez son intention puis
-commentez un maximum de lignes, sans modifier ses données de scénario dans la
-présente page.
+Durée estimée
 
-**Contrôle :** votre commentaire doit expliquer ce que réalise chaque partie
-comprise, sans transformer le document en script alternatif.
+4 heures
 
-## Activité 2 — Correction de bugs
+## Énoncé
 
-Un script lié à la création de zones DNS primaire et secondaire comporte de
-nombreuses erreurs de syntaxe. Identifiez-les puis corrigez-les dans le cadre du
-laboratoire.
+Objectifs :
 
-**Contrôle :** distinguez toujours la forme observée dans la consigne de la
-forme observée dans le script de correction. Les noms de zones, les machines,
-les adresses et les valeurs du laboratoire ne sont pas des valeurs génériques.
+- Démarrer avec le scripting PowerShell
 
-## Activité 3 — Écriture de scripts
+Activité 1 - Comprendre et commenter un script Difficulté *
 
-Choisissez l'un des deux sujets annoncés par la source :
+Vous devez analyser un script fourni, le comprendre et le commenter un maximum de lignes.
 
-- gestion complète de la configuration réseau d'une machine de laboratoire ;
-- mise en place d'un menu de choix pour la gestion d'utilisateurs Active
-  Directory dans le scénario de laboratoire.
+Activité 2 - Correction de bugs Difficulté ***
 
-Les opérations de configuration, de gestion d'annuaire, de DNS, de partage ou
-d'ACL ont un impact. Ne les exécutez que dans l'environnement de laboratoire
-prévu et avec les valeurs fournies par le formateur.
+Vous avez trouvé un script sur Internet qui répond totalement à vos besoins. Sont dissimulées dans ce script de (très) nombreuses erreurs de syntaxe, vous devez le corriger pour qu'il fonctionne.
 
-## Livrables et vérifications
+L'objectif de ce script est de gérer la création de zones DNS primaire et secondaire.
 
-- un commentaire source-faithful de l'activité 1 ;
-- les erreurs identifiées et leur traitement dans l'activité 2 ;
-- le choix argumenté d'un des deux sujets de l'activité 3 ;
-- une séparation explicite entre données du laboratoire et méthode comprise.
+Activité 3 - Écriture de scripts Difficulté ***
+
+Vous avez le choix entre l’écriture 2 scripts : la gestion complète de la configuration réseau d’une machine ou la mise en place d’un menu de choix pour réaliser la gestion des utilisateurs Active directory.
+
+## Ressources fournies dans TP6.7z
+
+- [Consigne-creation_objets_ad_v6-Q1.ps1](../../../assets/course-sources/cb381a3f5be07ee7/transcription-1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_01.html)
+- [Consigne-Tp6-Q2.ps1](../../../assets/course-sources/cc0e1fb4f117c357/transcription-1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_02.html)
+- [revue-Énoncé du TP - Activités pour aller plus loin.docx](../../../assets/course-sources/b27c732c9ade7e1e/transcription-1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_05.html)
+
+
+## Suite du TP
+
+- [Corrigé](correction-tp-01.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-06.md)

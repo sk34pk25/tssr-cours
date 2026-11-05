@@ -20,7 +20,7 @@ voir en console certains fichiers masqués par l’explorateur, sans commande ex
 ## Provisionnement et limites historiques
 
 Le thick réserve l’espace à la création ; le thin l’alloue à la demande jusqu’à
-la capacité prévue et expose au risque de surallocation. **NEEDS_REVIEW :** la
+la capacité prévue et expose au risque de surallocation. **Point de vigilance.** la
 limite VMDK de 2 To et la supériorité de performances du thick sont des formulations
 du support historique, à contextualiser sans les généraliser aux versions actuelles.
 
@@ -45,3 +45,14 @@ Le « Bonus » vide n’est pas transformé en exercice.
 
 Provenance A : trois PDF M07 Drive TSSR en lecture seule ; B : synthèse fidèle,
 données internes neutralisées. Aucun quiz ou lien Kahoot ajouté.
+
+
+## Question de révision
+
+ESXi2 voit le LUN mais pas la banque. Quel contrôle précède une modification de disque ?
+
+??? success "Correction"
+
+    Vérifier l’identité du LUN, l’accès de l’initiateur et le résultat de la réanalyse. Rechercher la banque existante sans initialiser à nouveau le disque partagé.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-07.md)

@@ -1,57 +1,39 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Enoncé du TP 1 - Boucle until.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M7 - Enoncé du TP 1 - Boucle until</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
-<h4>Boucle until </h4>
-<p class="tssr-source-paragraph">TP1 du Module 07 – Les structures de boucle </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6. </p>
-
-<h4>Objectifs </h4>
-<p class="tssr-source-paragraph">Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes <br>conditionnels. </p>
-
-<h4>Énoncé </h4>
-<p class="tssr-source-paragraph">1- Analyse d’un script existant </p>
-<pre class="tssr-source-code">• Récupérer le script 13.sh puis le copier dans votre machine virtuelle GNU/Linux. Pour ce 
-faire, vous pouvez utiliser soit : </pre>
-<pre class="tssr-source-code">o La commande scp en ligne de commande. Depuis un système Windows, ouvrez une </pre>
-<p class="tssr-source-paragraph">invite « cmd » et tapez : </p>
-<pre class="tssr-source-code">scp CheminEtNomFichierACopier Utilisateurlinux@AdresseIPLinux </pre>
-
-<p class="tssr-source-paragraph">Exemple : </p>
-<pre class="tssr-source-code">scp C:\users\l.atreides\Downloads\13.sh paul@192.168.10.3 </pre>
-<pre class="tssr-source-code">o  L’utilitaire Windows gratuit Winscp disposant d’une interface graphique </pre>
-
-<p class="tssr-source-paragraph">• Rendre exécutable le script et le lancer </p>
-<p class="tssr-source-paragraph">• Editer et analyser le contenu du script afin d’en appréhender : </p>
-<pre class="tssr-source-code">o Son utilité </pre>
-<pre class="tssr-source-code">o Sa syntaxe d’utilisation </pre>
-<pre class="tssr-source-code">o Son fonctionnement </pre>
-<p class="tssr-source-paragraph">• Tâches à effectuer : remplacer les zones de commentaires identifiées &lt;A COMPLETER&gt; par <br>une explication des actions effectuées par les commandes situées en-dessous </p>
-
-<p class="tssr-source-paragraph">2- Rédaction d’un nouveau script </p>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Enoncé du TP 1 - Boucle until</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>M7 - Enoncé du TP 1 - Boucle until</h1><p>Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<h2>Boucle until</h2>
+<h3>TP1 du Module 07 – Les structures de boucle</h3>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6.</p>
+<h2>Objectifs</h2>
+<p>Etudier et expliquer un script Shell utilisant des structures et enchaînements de commandes conditionnels.</p>
+<h2>Énoncé</h2>
+<p>1- Analyse d’un script existant</p>
+<ul><li>Récupérer le script 13.sh puis le copier dans votre machine virtuelle GNU/Linux. Pour ce faire, vous pouvez utiliser soit :</li></ul>
+<p>o La commande scp en ligne de commande. Depuis un système Windows, ouvrez une</p>
+<p>invite « cmd » et tapez :</p>
+<pre><code>scp CheminEtNomFichierACopier Utilisateurlinux@AdresseIPLinux</code></pre>
+<p>Exemple :</p>
+<pre><code>scp C:\users\l.atreides\Downloads\13.sh paul@192.168.10.3</code></pre>
+<p>o  L’utilitaire Windows gratuit Winscp disposant d’une interface graphique</p>
+<ul><li>Rendre exécutable le script et le lancer</li><li>Editer et analyser le contenu du script afin d’en appréhender :</li></ul>
+<p>o Son utilité</p>
+<p>o Sa syntaxe d’utilisation</p>
+<p>o Son fonctionnement</p>
+<ul><li>Tâches à effectuer : remplacer les zones de commentaires identifiées &lt;A COMPLETER&gt; par une explication des actions effectuées par les commandes situées en-dessous</li></ul>
+<p>2- Rédaction d’un nouveau script</p>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> </p>
-<pre class="tssr-source-code">Créer un nouveau script nommé script_M7TP1.sh permettant sur une plage d’années donnée de 
-déterminer le nombre d’années bissextiles pour la plage considérée. Pour rappel, ce sont les années 
-qui comptent un 29ème jour au mois de février. </pre>
-<pre class="tssr-source-code">o Les années de début et de fin seront fournies en arguments au script </pre>
-<pre class="tssr-source-code">Par exemple : ./script_M7TP1.sh 2026 2029 </pre>
-<p class="tssr-source-paragraph">S’il y a plus ou moins de 2 arguments, sortie du script avec un message précisant la syntaxe <br>d’utilisation du script </p>
-<pre class="tssr-source-code">o Inspirez-vous du script 13.sh (la boucle until, la commande cal et </pre>
-<pre class="tssr-source-code">l’incrémentation d’un compteur à chaque tour de boucle notamment…) </pre>
-<p class="tssr-source-paragraph">• <br>L’objectif final est d’afficher à l’écran le nombre d’années bissextiles trouvées et les années exactes. <br>Cela pourrait donner un visuel approchant comme ci-dessous : </p>
-<pre class="tssr-source-code"> 
-./script_M7TP1.sh 2026 2029 
-########################################## </pre>
-<pre class="tssr-source-code">##  Période considérée de 2026 à 2029   ## </pre>
-<pre class="tssr-source-code">########################################## </pre>
-<pre class="tssr-source-code">Il y a 1 année(s) bissextile(s) dans la plage donnée </pre>
-<pre class="tssr-source-code">Année(s) : 2028 </pre>
-
-
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2"><h2>Page 2</h2>
+<p>Créer un nouveau script nommé script_M7TP1.sh permettant sur une plage d’années donnée de déterminer le nombre d’années bissextiles pour la plage considérée. Pour rappel, ce sont les années qui comptent un 29ème jour au mois de février.</p>
+<p>o Les années de début et de fin seront fournies en arguments au script</p>
+<p>Par exemple : ./script_M7TP1.sh 2026 2029</p>
+<p>S’il y a plus ou moins de 2 arguments, sortie du script avec un message précisant la syntaxe d’utilisation du script</p>
+<p>o Inspirez-vous du script 13.sh (la boucle until, la commande cal et</p>
+<p>l’incrémentation d’un compteur à chaque tour de boucle notamment…)</p>
+<ul><li>L’objectif final est d’afficher à l’écran le nombre d’années bissextiles trouvées et les années exactes. Cela pourrait donner un visuel approchant comme ci-dessous :</li></ul>
+<pre><code>./script_M7TP1.sh 2026 2029
+##########################################
+##  Période considérée de 2026 à 2029   ##
+##########################################
+Il y a 1 année(s) bissextile(s) dans la plage donnée
+Année(s) : 2028</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

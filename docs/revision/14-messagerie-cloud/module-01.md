@@ -1,7 +1,17 @@
-# Révision — Module 01 — Les composantes du Cloud et de Microsoft 365
+# Réviser le module 01 · Les composantes du Cloud et de Microsoft 365
 
-Cette fiche est une aide IA / externe au cours, fondée uniquement sur les supports du module.
+| Vérification | Réponse attendue |
+| --- | --- |
+| Comparer SaaS, PaaS et IaaS | Application prête, plateforme d’exécution, ressources d’infrastructure |
+| Choisir un hébergement pour un cas | Lier disponibilité, confidentialité, connectivité, compétences, coût et reprise |
+| Suivre l’envoi | MUA → MSA → MTA → relais/MTA de destination → MDA → boîte |
+| Justifier TXT, MX et CNAME | Vérification, routage entrant et découverte de configuration |
+| Prouver la bascule | DNS public, état d’intégrité, envoi, réception et retour possible |
 
-Expliquer les différences entre les trois modèles SPI, justifier un choix d’hébergement à partir d’une contrainte, suivre un message sur les schémas originaux et retrouver les étapes de vérification du domaine.
+**Entraînement.** Dessinez le flux d’un message externe qui arrive sur une ancienne plateforme. Indiquez le contrôle DNS et le contrôle de remise qui isolent la cause.
 
-Consulter les documents originaux et les deux ateliers du module pour vérifier les réponses.
+## S’exercer
+
+- [Cours et documents sources](../../modules/14-messagerie-cloud/module-01.md)
+- [TP et corrections](../../tp/14-messagerie-cloud/module-01/index.md)
+- [Kahoot associé](../../kahoot/14-messagerie-cloud-module-01.md)

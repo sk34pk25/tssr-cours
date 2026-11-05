@@ -117,13 +117,28 @@ après des paramétrages fréquents, l’espace disque insuffisant côté hôte 
 dimensionnement initial. Ces situations sont rapportées comme cas du support ; elles ne
 constituent pas une méthode universelle de diagnostic.
 
-## Périmètre et provenance
 
-Cette page est limitée au support M02 et à l’atelier avec sa solution. Aucun TP,
-correction, fiche de révision, Kahoot, ressource binaire ou lien vers un objet encore
-absent de `main` n’est inclus ici.
+## Vérifier le résultat de l’atelier
 
-Contenu A : `Module 02 - Support de cours.pdf`, `TSSR110-Virtualisation_Mise en
-Situation - Module 2 - Workstation.pdf` et sa solution, consultés dans Drive TSSR en
-lecture seule. Contenu B : restructuration web fidèle aux sources, sans procédure
-externe ajoutée.
+| Réglage | Valeur de l’atelier 1 |
+| --- | --- |
+| VM | `SRV_2K19` |
+| Processeur | 2 processeurs, 1 cœur chacun. Exposer VT-x/EPT ou AMD-V/RVI à l’invité pour l’atelier Hyper-V. |
+| Mémoire et disque | 2 Go de RAM et 60 Go dans un seul fichier de disque. |
+| Réseau final | Bridged. Le mode NAT visible au milieu du corrigé correspond à un état intermédiaire. |
+| Système et outils | Windows Server 2019 avec expérience utilisateur et VMware Tools. |
+| État de fin | VM arrêtée, snapshot `Fin Atelier 1`. |
+
+Le réseau Host-only utilise classiquement VMnet1 et le NAT VMnet8 dans la configuration montrée. En NAT, le réseau privé peut utiliser un service DHCP distinct du service de traduction d’adresses. Le mode pont place la VM sur le segment auquel le pont la rattache. Un LAN segment relie les VM qui y sont connectées. Vérifier le segment et la carte physique avant de conclure à un problème dans l’invité.
+
+Un snapshot sert à retrouver un état de la VM. Une sauvegarde exploitable doit permettre la restauration même après la perte de l’hôte ou du stockage des snapshots. En cas de déplacement de VM entre postes, vérifier la version du matériel virtuel et la compatibilité de la version de Workstation de destination.
+
+## Question de révision
+
+L’invité a une adresse dans VMnet8 et le TP attend Bridged. Quel réglage contrôler en premier ?
+
+??? success "Correction"
+
+    Ouvrir les paramètres de la carte virtuelle et confirmer le mode de connexion. Vérifier ensuite l’interface physique choisie et l’adressage dans Windows.
+
+[Fiche de révision](../../revision/13-virtualisation-serveurs/module-02.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-02/index.md)

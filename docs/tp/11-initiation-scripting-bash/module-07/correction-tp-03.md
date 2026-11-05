@@ -1,15 +1,22 @@
-# Correction fournie dans la source — TP 03 — Boucle `while read`
+# Correction — TP 03 — Boucle while read
 
-> **NEEDS_REVIEW — critique.** La correction Drive est conservée comme document source. Ses incohérences documentaires empêchent de la présenter comme une solution techniquement validée. Aucun correctif silencieux n'est appliqué.
+L’exercice lit `/etc/passwd` et affiche le premier champ, le nom, ainsi que le troisième, l’UID. Le séparateur est le deux-points. L’original emploie `tr -s`, lit `login` mais affiche `$id`, omet un guillemet et espace incorrectement la substitution de processus. Avec trois variables, la troisième reçoit aussi le reste des champs.
 
-La source fournit `while read login c2 uid`, affiche `echo "Identifiant :  $id"`, puis contient la forme incomplète `echo "UID : $uid` et `done < < (cat /etc/passwd | tr -s ":" " ")`.
+## Variante pédagogique de script_M7TP3.sh
 
-## Incohérences documentaires conservées
+```bash
+#!/bin/bash
+source_passwd=/etc/passwd
+if [[ ! -r $source_passwd ]]; then
+    printf 'Fichier illisible : %s\n' "$source_passwd" >&2
+    exit 1
+fi
+while IFS=: read -r login passe uid gid commentaire home shell; do
+    printf '%s\n' '-------------------------'
+    printf 'Identifiant : %s\nUID : %s\n' "$login" "$uid"
+done < "$source_passwd"
+```
 
-- la variable lue est `login`, mais la source affiche `$id` ;
-- le guillemet fermant manque sur la ligne UID ;
-- la source emploie `done < < (` avec cet espacement ;
-- la lecture dans trois variables ne garantit pas l'extraction indépendante des seuls premier et troisième champs annoncés ;
-- un second shebang apparaît dans le corps de la correction.
+Le champ `x` est un marqueur habituel pour des informations de mot de passe conservées ailleurs. Les espaces des commentaires et les champs vides ne décalent pas l’UID. Contrôlez que `root` a l’UID `0` dans le scénario et que chaque ligne produit un seul couple. La liste exacte dépend du système.
 
-Le code source n'est pas exécuté, réécrit en `awk` ou `cut`, ni remplacé par une solution corrigée.
+[Revenir aux TP du module](index.md)

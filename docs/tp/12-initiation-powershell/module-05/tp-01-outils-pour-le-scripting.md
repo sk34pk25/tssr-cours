@@ -1,30 +1,54 @@
-# Énoncé — TP 01 — Outils pour le scripting
+# Énoncé — Outils pour le scripting
 
-## Objectif
+Le document fourni décrit le travail demandé et les résultats à relever dans la maquette. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-Mettre en pratique les fonctions, la gestion des erreurs et les sessions distantes dans un seul scénario de laboratoire.
+## Initiation à PowerShell Outils pour le scripting
 
-## Consignes
+TP du Module 05
 
-1. Réalisez un script qui teste la présence de services. Le nom du service doit être variable. Lorsqu’un service n’existe pas, son absence est consignée dans une variable sans message immédiat ; un message est affiché après le traitement des services demandés.
-2. Transformez ce script en fonction : le nom du service devient un paramètre.
-3. Ouvrez une session de laboratoire depuis la machine cliente vers la machine distante fournie, puis stockez cette session dans une variable.
-4. Réalisez un script qui trouve les ordinateurs stockés dans l’annuaire. Avant toute action à impact, conservez la condition source qui exclut les contrôleurs de domaine.
-5. Transformez ce traitement en fonction ; le nom du domaine de laboratoire devient un paramètre.
-6. Modifiez durablement le comportement de l’IDE afin de stocker les erreurs des commandes dans une variable. Modifiez également le comportement de la console afin que les messages d’erreur ne soient pas affichés dans le scénario demandé.
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.
 
-## Attendus
+Durée estimée
 
-- Les lignes de commandes ou le script demandés pour chaque activité ;
-- la fonction de vérification de service ;
-- la fonction du traitement d’annuaire ;
-- la session distante stockée dans une variable ;
-- les réglages de gestion d’erreurs demandés.
+1 heure
 
-## Cadre de sécurité du scénario
+## Énoncé
 
-Utilisez les identifiants, machines, domaine, services et objets fournis par le formateur. Le TP mentionne une action d’impact sur des postes : elle demeure une manipulation de laboratoire conditionnée par l’exclusion protectrice demandée et ne doit pas être utilisée comme procédure générale.
+Objectifs :
 
-## Ressources absentes
+Comprendre les fonctions, modules et la gestion des erreurs
 
-Les vidéos M05 et les ressources de laboratoire citées ne sont pas fournies comme fichiers téléchargeables dans le dossier Drive M05.
+Consignes :
+
+Les manipulations sont à réaliser sur la machine CLI01
+
+Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.
+
+Réalisez un script permettant de tester la présence d’un service. Le nom du service sera variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront testés.
+
+Indiquez les lignes de commandes de votre script.
+
+Transformez ce script en fonction ; le nom du service sera un paramètre.
+
+Ouvrez une session depuis votre machine client vers votre serveur CD01.
+
+Stocker votre session dans une variable
+
+Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de la machine.
+
+Indiquez les commandes utilisées.
+
+Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.
+
+Indiquez les commandes utilisées.
+
+Modifiez durablement le comportement de votre Ise pour que les erreurs des commandes soient stockées dans une variable. Puis modifiez le comportement de la console pour que les messages d’erreur ne soient pas affichés.
+
+## Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+## Suite du TP
+
+- [Corrigé](correction-tp-01.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-05.md)

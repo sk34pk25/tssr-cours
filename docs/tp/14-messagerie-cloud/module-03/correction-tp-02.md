@@ -1,18 +1,13 @@
-# Correction — TP 02 — Azure AD Connect
+# Correction · TP 02 · Synchronisation avec Azure AD Connect
 
-!!! warning "Provenance — duplication documentaire"
-    Le dossier Module 3 reprend exactement les cinq PDF du Module 2, avec le titre interne « Module 02 — Administration Microsoft 365 ». Ce rattachement est conservé à la demande explicite de l’utilisateur. Il ne s’agit pas d’un support distinct du Module 3.
+Les cinq PDF classés dans le dossier Module 3 sont des copies exactes des fichiers correspondants du Module 2. Chaque paire a la même empreinte SHA-256. Le titre interne indique « Module 02 – Administration Microsoft 365 ».
 
-## Utiliser ce document
+[Ouvrir la version optimisée du module 02](../module-02/correction-tp-02.md).
 
-Comparer les étapes et captures de la correction avec le travail réalisé. Les interfaces et exemples sont ceux du document original ; cette aide IA ne remplace pas la correction. Relever les différences observées et les faire vérifier par le formateur.
+## Document original
 
-Les noms de comptes, domaines, machines et mots de passe d’exemple du laboratoire ne constituent pas une configuration à réutiliser. Aucune commande n’a été exécutée pendant l’intégration.
+[M2 - Solution du TP 2 - Azure AD Connect](../../../assets/course-sources/b0ef5fef8cee558e/transcription-1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G.html) · 19 pages.
 
-## Source originale
+Les mots de passe, codes de validation et coordonnées nominatives sont neutralisés. Les noms de domaine d’accès des exemples utilisent des domaines réservés à la documentation.
 
-[M2 - Solution du TP 2 - Azure AD Connect.pdf](https://drive.google.com/file/d/1WOhjAq0lhcbOq4fhj_H4hGBkkRyzrT7G/view?usp=drivesdk) · 19 pages PDF.
-
-Empreinte SHA-256 : `b0ef5fef8cee558ef2c1c1e264cbba392065e8e2daf549956735c2145a137daf`.
-
-[Retour aux ateliers](index.md).
+[Revenir à l’énoncé](tp-02.md) · [Tous les ateliers](index.md)

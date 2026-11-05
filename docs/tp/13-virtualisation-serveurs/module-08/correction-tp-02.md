@@ -14,7 +14,7 @@ de conserver les autres paramètres de l’assistant.
 
 Les pages 7 et 8 configurent DNS et suffixe sur chaque ESXi depuis sa console
 locale, puis confirment les modifications. Les notations d’adresses varient dans
-les textes et les captures : **NEEDS_REVIEW**, sans reconstitution de paramètres
+les textes et les captures : **point de vigilance**, sans reconstitution de paramètres
 de salle ni publication de leurs valeurs.
 
 ## Déploiement et configuration de l’appliance
@@ -64,6 +64,10 @@ fonctionnement des VM ; les captures ne sont pas une mesure continue de disponib
   illustrées. Aucun paramètre de version actuelle n’est ajouté.
 
 [Énoncé](tp-02.md) · [Retour aux ateliers](index.md)
+
+## Résultat à vérifier
+
+Le corrigé change d’abord l’hôte de `SRV-2`, puis le datastore de `SRV-1` de local à NFS. Comparer les vues de l’inventaire et les tâches terminées, ainsi que l’état des VM.
 
 Provenance A : solution datacenter M08 et comparaison à l’énoncé ;
 B : restitution fidèle, données de laboratoire neutralisées.
