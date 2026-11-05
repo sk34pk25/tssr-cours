@@ -1,26 +1,22 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 6 - La protection.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 6 - La protection</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
-<h4>La protection </h4>
-<p class="tssr-source-paragraph">Démonstration 06 du module 1 </p>
-
-<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous présenter la protection contre l’exécution des <br>scripts indésirables. </p>
-<h4>Déroulement </h4>
-<p class="tssr-source-paragraph">• <br>Par défaut l’exécution de scripts PowerShell est restreinte aux scripts signés numériquement. </p>
-<pre class="tssr-source-code">o Afin d’exécuter des scripts de test non signés, il faut modifier la règle de restriction des </pre>
-<p class="tssr-source-paragraph">scripts du système Windows. </p>
-<pre class="tssr-source-code">o Pour obtenir le niveau de restriction actuelle du système, on utilise la commande Get-</pre>
-<pre class="tssr-source-code">ExecutionPolicy. </pre>
-
-<p class="tssr-source-paragraph"> Set-ExecutionPolicy nécessite une console PowerShell avec les droits <br>d’administration. </p>
-
-<pre class="tssr-source-code">Pour modifier la restriction, on passe par la commande Set-ExecutionPolicy. </pre>
-
-<p class="tssr-source-paragraph">Une confirmation est demandée car il s’agit d’un paramètre de sécurité. </p>
-<p class="tssr-source-paragraph">Page 1/1 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PS C:\Windows\system32&gt; Get-ExecutionPolicy<br>Restricted</p><p>P<br>:\&gt;<br>Set-ExecutionPolicy -ExecutionPolicy Unrestricted</p><p>Execution Policy Change</p><p>he execution policy helps protect you from scripts that you do not trust.<br>Changing the execution<br>policy might expose you to the security risks described<br>in the about_Execution_Policies<br>help topic at<br>ttps:/go.microsoft.com/fwlink/?LinkID=135170.<br>Do you want to change the execution policy?<br>[Y]<br>Yes<br>[A]<br>Yes to A11<br>[N]<br>No<br>[L]<br>No to All<br>[S]<br>Suspend<br>[?]<br>Help<br>(default is &quot;N&quot;):<br>a</p></div></details>
-
-
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 6 - La protection</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 6 - La protection</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>La protection</h3>
+<p>Démonstration 06 du module 1</p>
+<p>L’objectif de cette démonstration est de vous présenter la protection contre l’exécution des scripts indésirables.</p>
+<h3>Déroulement</h3>
+<ul><li>Par défaut l’exécution de scripts PowerShell est restreinte aux scripts signés numériquement.</li></ul>
+<pre><code>o Afin d’exécuter des scripts de test non signés, il faut modifier la règle de restriction des</code></pre>
+<p>scripts du système Windows.</p>
+<pre><code>o Pour obtenir le niveau de restriction actuelle du système, on utilise la commande Get-
+ExecutionPolicy.</code></pre>
+<p>Set-ExecutionPolicy nécessite une console PowerShell avec les droits d’administration.</p>
+<p>Pour modifier la restriction, on passe par la commande Set-ExecutionPolicy.</p>
+<p>Une confirmation est demandée car il s’agit d’un paramètre de sécurité.</p>
+<h4>Commandes visibles dans les captures</h4><pre><code>Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted</code></pre>
+<figure><img src="../isolated/96ddc610aa3fa732/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 6 - La protection »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - La protection »</figcaption></figure>
+<figure><img src="../isolated/96ddc610aa3fa732/ps-p1-i3-1.webp" alt="Capture du support « Fiche démo 6 - La protection »" loading="lazy"><figcaption>Capture du support « Fiche démo 6 - La protection »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

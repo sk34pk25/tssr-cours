@@ -1,0 +1,32 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSSR110-Virtualisation_Mise en Situation - Module 6 - Gestion Reseaux</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>TSSR110-Virtualisation_Mise en Situation - Module 6 - Gestion Reseaux</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Énoncé :</h4>
+<h4>Atelier N°4</h4>
+<p>TP du Module 06 – Gestion Réseau d’une infrastructure vSphere</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 6.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h4>Objectif :</h4>
+<p>Gérer les réseaux des ESXi</p>
+<h4>Prérequis :</h4>
+<p>Disposer de deux hyperviseurs ESXi fonctionnels (Atelier 3 réalisé)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Énoncé :</h4>
+<p>Les hyperviseurs virtualisés grâce à VMware Workstation disposeront de cartes réseau supplémentaires. Cela permettra de séparer les différents flux circulant entre les hyperviseurs, les machines virtuelles qu’ils hébergent et les systèmes extérieurs.</p>
+<p>Dans cet atelier, les flux de stockage (communication avec des NAS/SAN etc.), de gestion (connexion aux hyperviseurs etc.) et liés aux machines virtuelles seront séparés via plusieurs vSwitchs/cartes réseau physiques.</p>
+<p>Sur Workstation</p>
+<ul><li>Arrêter (proprement) l’hyperviseur ESXi1 et ESXi2, et leur ajouter trois cartes réseau en « bridge »</li><li>Démarrer ESXi1</li></ul>
+<p>Sur ESXi1</p>
+<ul><li>Modifier la configuration du vSwitch0 : -</li></ul>
+<p>Ne conserver que le groupement de port actuel « Management Network » et le renommer GRP-GESTION pour le seul trafic de gestion.</p>
+<ul><li>Créer les vSwitchs supplémentaires comme indiqué sur le tableau ci-dessous :</li></ul>
+<table><thead><tr><th scope="col"></th><th scope="col">vSwitch1</th><th scope="col">vSwitch2</th></tr></thead><tbody><tr><td>Nom groupement de ports lié</td><td>GRP-VMNET</td><td>GRP-STORAGE-VMOTION</td></tr><tr><td>Type de ports</td><td>Machines virtuelles</td><td>VMKernel</td></tr><tr><td>Fonction</td><td>Communication entre VMs</td><td>Sera dédié à iSCSI + vMotion</td></tr><tr><td>Adresse Interface VMKernel (VMK)</td><td>–</td><td>192.168.xx*.1/24</td></tr><tr><td>Carte(s) réseau associée(s)</td><td>vmnic1 et vmnic2</td><td>vmnic3</td></tr></tbody></table>
+<p>Ne pas toucher aux identifiants de VLAN</p>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Sur ESXi2</p>
+<ul><li>Reproduire les modifications réseau apportées sur ESXi1 en utilisant l’adresse IP :</li><li>Pour le groupement de port GRP-STORAGE-VMOTION : 192.168.xx.2/24</li></ul>
+<p>Schéma récapitulatif :</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

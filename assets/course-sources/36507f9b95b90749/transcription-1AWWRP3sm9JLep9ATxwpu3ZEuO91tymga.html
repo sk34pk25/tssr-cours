@@ -1,230 +1,199 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Manipuler des objets.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Solution du TP - Manipuler des objets</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<h4>Manipuler des objets </h4>
-<p class="tssr-source-paragraph">TP du Module 03 </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 de ce cours. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">1 heure 30 </p>
-<h4>Énoncé </h4>
-<p class="tssr-source-paragraph">Objectifs :  </p>
-<p class="tssr-source-paragraph">• <br>Manipuler les objets leurs propriétés et leurs méthodes </p>
-<pre class="tssr-source-code">• 
-Utilisation de la commande Select-Object, Sort-Object et Where-Object. </pre>
-<p class="tssr-source-paragraph">Consignes : </p>
-<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
-<pre class="tssr-source-code">• 
-Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, 
-Enabled Department City. </pre>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-AdUser 
--Filter 
-* 
-| 
-Select-Object 
--Property 
-GivenName,Name,Enabled,Department,City </pre>
-<pre class="tssr-source-code">Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides 
-des propriétés Department et City ? </pre>
-<pre class="tssr-source-code">Get-Help Get-ADUser -ShowWindow </pre>
-<p class="tssr-source-paragraph">Indiquez la commande complète permettant l’affichage des valeurs de toutes les <br>propriétés.  </p>
-<pre class="tssr-source-code">Get-AdUser -Filter * -Properties * </pre>
-<pre class="tssr-source-code">get-ADuser -filter * -properties City, Department | select-object -Property 
-Givenname, Name , Enabled, Department, city </pre>
-<p class="tssr-source-paragraph">• <br>Affichez les cinq premiers utilisateurs Active Directory  </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-AdUser -Filter * | Select-Object -First 5 </pre>
-
-<p class="tssr-source-paragraph">Page 1/5 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solution du TP - Manipuler des objets</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Solution du TP - Manipuler des objets</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Manipuler des objets</h3>
+<p>TP du Module 03</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 3 de ce cours.</p>
+<p>Durée estimée</p>
+<p>1 heure 30</p>
+<h3>Énoncé</h3>
+<p>Objectifs :</p>
+<ul><li>Manipuler les objets leurs propriétés et leurs méthodes</li><li>Utilisation de la commande Select-Object, Sort-Object et Where-Object.</li></ul>
+<p>Consignes :</p>
+<p>Depuis la machine CLI01</p>
+<ul><li>Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, Enabled Department City.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-AdUser
+-Filter
+*
+|
+Select-Object
+-Property
+GivenName,Name,Enabled,Department,City
+Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
+des propriétés Department et City ?
+Get-Help Get-ADUser -ShowWindow</code></pre>
+<p>Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.</p>
+<pre><code>Get-AdUser -Filter * -Properties *
+get-ADuser -filter * -properties City, Department | select-object -Property
+Givenname, Name , Enabled, Department, city</code></pre>
+<ul><li>Affichez les cinq premiers utilisateurs Active Directory</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-AdUser -Filter * | Select-Object -First 5</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<pre class="tssr-source-code">• 
-Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur 
-propriété Department   </pre>
-<pre class="tssr-source-code">Indiquez les commandes utilisées. 
-Get-AdUser -Filter * | Select-Object City 
-Get-AdUser -Filter * | Select-Object Department </pre>
-<pre class="tssr-source-code">get-ADuser -filter * -properties * | select-object department,city </pre>
-<pre class="tssr-source-code">• 
- Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, 
-City puis triez par la propriété City. </pre>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
-| sort -property City </pre>
-<pre class="tssr-source-code">• 
-Reprenez la commande précédente puis appliquez le tri sur la propriété Department 
-dans l’ordre descendant. </pre>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
-| sort -property Department -Descending </pre>
-<pre class="tssr-source-code">Effectuer le tri sur les deux propriétés City et Department.  </pre>
-<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
-| sort -property City,Department </pre>
-<p class="tssr-source-paragraph">• <br>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit <br>comporter un r. </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
-| Where -Property Name -like &quot;R&quot;  </pre>
-<pre class="tssr-source-code">get-ADuser 
--filter 
-* 
--properties 
-* 
-| 
-select-object 
-Name,Enabled,city,department | where-object name -like &quot;*r*&quot; |sort-object 
--Property department, City </pre>
-<p class="tssr-source-paragraph"> <br>Bonus </p>
-<p class="tssr-source-paragraph">• <br>Désactiver les utilisateurs dont le nom commence par un D. </p>
-<pre class="tssr-source-code">Utiliser la commande Disable-AdAccount   
-Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City 
-| Where -Property Name -like &quot;R&quot; | Disabled-ADAccount </pre>
-<pre class="tssr-source-code">get-ADuser -filter &#x27;name -like &quot;d*&quot;&#x27; | Disable-ADAccount </pre>
-
-
-<p class="tssr-source-paragraph">Page 2/5 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
+<section class="tssr-transcribed-page" id="page-2">
+<ul><li>Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department</li></ul>
+<pre><code>Indiquez les commandes utilisées.
+Get-AdUser -Filter * | Select-Object City
+Get-AdUser -Filter * | Select-Object Department
+get-ADuser -filter * -properties * | select-object department,city</code></pre>
+<ul><li>Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, City puis triez par la propriété City.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| sort -property City</code></pre>
+<ul><li>Reprenez la commande précédente puis appliquez le tri sur la propriété Department dans l’ordre descendant.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| sort -property Department -Descending
+Effectuer le tri sur les deux propriétés City et Department.
+Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| sort -property City,Department</code></pre>
+<ul><li>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| Where -Property Name -like &quot;R&quot;
+get-ADuser
+-filter
+*
+-properties
+*
+|
+select-object
+Name,Enabled,city,department | where-object name -like &quot;*r*&quot; |sort-object
+-Property department, City</code></pre>
+<p>Bonus</p>
+<ul><li>Désactiver les utilisateurs dont le nom commence par un D.</li></ul>
+<pre><code>Utiliser la commande Disable-AdAccount
+Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| Where -Property Name -like &quot;R&quot; | Disabled-ADAccount
+get-ADuser -filter &#x27;name -like &quot;d*&quot;&#x27; | Disable-ADAccount</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
-<p class="tssr-source-paragraph">• <br>Affichez la liste des utilisateurs Active Directory dont le compte est actif. </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * | Where enabled -eq $True </pre>
-<p class="tssr-source-paragraph">Conditionnez le résultat pour ceux qui ont un nom qui débute par un A ou un F. Quelle <br>commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * | Where-object -filterscript { $PSItem.enabled -eq 
-$True -And ($PSItem.Name -like &quot;a*&quot; -or $PSItem.name &quot;F*&quot;} </pre>
-<pre class="tssr-source-code">#en regex </pre>
-<pre class="tssr-source-code">get-ADuser -filter * -properties * | where-object -filterscript { 
+<section class="tssr-transcribed-page" id="page-3">
+<p>Depuis la machine CLI01</p>
+<ul><li>Affichez la liste des utilisateurs Active Directory dont le compte est actif.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * | Where enabled -eq $True</code></pre>
+<p>Conditionnez le résultat pour ceux qui ont un nom qui débute par un A ou un F. Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * | Where-object -filterscript { $PSItem.enabled -eq
+$True -And ($PSItem.Name -like &quot;a*&quot; -or $PSItem.name &quot;F*&quot;}
+#en regex
+get-ADuser -filter * -properties * | where-object -filterscript {
 $PSITEM.enabled -like &quot;$true&quot; -AND $PSITEM.name -match &quot;^[AF]&quot; } | select-
-object name,Enabled </pre>
-<p class="tssr-source-paragraph">• <br>En reprenant la commande précédente, comptez le nombre d’utilisateurs actifs et le <br>nombre d’utilisateurs inactifs. </p>
-<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * | Where-Object Enabled -like $True | measure </pre>
-<pre class="tssr-source-code">Get-ADUser -Filter * | Where-Object Enabled -like $False | measure </pre>
-<p class="tssr-source-paragraph">• <br>Affichez tous les fichiers du répertoire \\CD01\Partage. </p>
-<pre class="tssr-source-code">Quelle commande avez-vous utilisée ? 
-Get-ChildItem \\CD01\Partage\ -File -Recurse </pre>
-<p class="tssr-source-paragraph">• <br>Reprenez la commande précédente puis affichez la taille moyenne des fichiers.  </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
-average </pre>
-<p class="tssr-source-paragraph">Affichez la valeur la plus faible et la plus élevée de taille de fichiers. </p>
-<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
-min -max 
-BONUS </pre>
-<p class="tssr-source-paragraph">• <br>Reprenez les commandes précédentes et indiquez les fichiers dont la taille est <br>supérieure à 10 Mo et inférieure à 100 Mo. </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript 
-{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 } </pre>
-<pre class="tssr-source-code">Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript 
-{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 } </pre>
-<p class="tssr-source-paragraph">Page 3/5 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
+object name,Enabled</code></pre>
+<ul><li>En reprenant la commande précédente, comptez le nombre d’utilisateurs actifs et le nombre d’utilisateurs inactifs.</li></ul>
+<p>Indiquez les commandes utilisées.</p>
+<pre><code>Get-ADUser -Filter * | Where-Object Enabled -like $True | measure
+Get-ADUser -Filter * | Where-Object Enabled -like $False | measure</code></pre>
+<ul><li>Affichez tous les fichiers du répertoire \\CD01\Partage.</li></ul>
+<pre><code>Quelle commande avez-vous utilisée ?
+Get-ChildItem \\CD01\Partage\ -File -Recurse</code></pre>
+<ul><li>Reprenez la commande précédente puis affichez la taille moyenne des fichiers.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
+average</code></pre>
+<p>Affichez la valeur la plus faible et la plus élevée de taille de fichiers.</p>
+<pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
+min -max
+BONUS</code></pre>
+<ul><li>Reprenez les commandes précédentes et indiquez les fichiers dont la taille est supérieure à 10 Mo et inférieure à 100 Mo.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript
+{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 }
+Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript
+{$PSItem.length -gt 10000 -and $PSItem.length -lt 100000 }</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<pre class="tssr-source-code">Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript { 
-$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB } </pre>
-<pre class="tssr-source-code">Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant 
-sur le nom. </pre>
-<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
-<p class="tssr-source-paragraph">• <br>Affichez la liste des utilisateurs Active Directory sur cinq colonnes. </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * | Format-Wide -Column 5 </pre>
-<pre class="tssr-source-code">• 
-Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec 
-les propriétés : Name, Enabled, Department, City  </pre>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser -Filter * -Properties * | Where enabled -eq $True | Format-
-Table name,enabled,Department,City </pre>
-<p class="tssr-source-paragraph">• <br>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, <br>leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.  </p>
-<pre class="tssr-source-code">Quelle commande avez-vous utilisée ? 
-Get-ADGroup -Filter * -Properties * | Format-Table -Property 
-name,description,created -GroupBy GroupScope </pre>
-<p class="tssr-source-paragraph">• <br>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, <br>NomdDns, <br>Distinguishedname, <br>AdresseipV4 <br>puis <br>regroupez-les <br>par <br>système <br>d’exploitation. </p>
-<p class="tssr-source-paragraph">Indiquez les commandes utilisées. </p>
-<pre class="tssr-source-code">Get-ADComputer 
--Filter 
-* 
--Properties 
-* 
-| 
-Format-List 
-name,dnshostname,distinguishedname,ipv4address -GroupBy operatingsytem </pre>
-<p class="tssr-source-paragraph">• <br>Affichez tous les événements du journal system avec les propriétés : Time, Index, <br>Message. </p>
-<pre class="tssr-source-code">Get-EventLog system | select-object time,index,message </pre>
-<p class="tssr-source-paragraph">Faites en sorte que le contenu du message soit affiché en totalité sur la console. Quelle <br>commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-EventLog system | fl -property timewritten,index,message </pre>
-<p class="tssr-source-paragraph">Depuis la machine CLI01 </p>
-<p class="tssr-source-paragraph">• <br>Exportez <br>les <br>utilisateurs <br>Active <br>Directory <br>dans <br>un <br>fichier <br>CSV <br>\\CD01\Partage\Exports\Csv. </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser 
--Filter 
-* 
-| 
-Export-CSV 
--Path 
-\\CD01\Partage\PowerShell\Exports\CSV\Users.csv -delimiter &quot;.&quot; </pre>
-<p class="tssr-source-paragraph">Page 4/5 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
+<section class="tssr-transcribed-page" id="page-4">
+<pre><code>Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript {
+$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }
+Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant
+sur le nom.</code></pre>
+<p>Depuis la machine CLI01</p>
+<ul><li>Affichez la liste des utilisateurs Active Directory sur cinq colonnes.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * | Format-Wide -Column 5</code></pre>
+<ul><li>Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec les propriétés : Name, Enabled, Department, City</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Where enabled -eq $True | Format-
+Table name,enabled,Department,City</code></pre>
+<ul><li>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.</li></ul>
+<pre><code>Quelle commande avez-vous utilisée ?
+Get-ADGroup -Filter * -Properties * | Format-Table -Property
+name,description,created -GroupBy GroupScope</code></pre>
+<ul><li>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, NomdDns, Distinguishedname, AdresseipV4 puis regroupez-les par système d’exploitation.</li></ul>
+<p>Indiquez les commandes utilisées.</p>
+<pre><code>Get-ADComputer
+-Filter
+*
+-Properties
+*
+|
+Format-List
+name,dnshostname,distinguishedname,ipv4address -GroupBy operatingsytem</code></pre>
+<ul><li>Affichez tous les événements du journal system avec les propriétés : Time, Index, Message.</li></ul>
+<pre><code>Get-EventLog system | select-object time,index,message</code></pre>
+<p>Faites en sorte que le contenu du message soit affiché en totalité sur la console. Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-EventLog system | fl -property timewritten,index,message</code></pre>
+<p>Depuis la machine CLI01</p>
+<ul><li>Exportez les utilisateurs Active Directory dans un fichier CSV \\CD01\Partage\Exports\Csv.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser
+-Filter
+*
+|
+Export-CSV
+-Path
+\\CD01\Partage\PowerShell\Exports\CSV\Users.csv -delimiter &quot;.&quot;</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<p class="tssr-source-paragraph">• <br>Répétez la commande précédente mais dans le format HTML puis dans le dossier <br>\\CD01\Partage\Exports\CSV\.  </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADUser 
--Filter 
-* 
--properties 
-* 
-| 
-Export-CSV 
--Path 
-\\CD01\Partage\Exports\CSV\Users_prop.csv -delimiter &quot;.&quot; </pre>
-<p class="tssr-source-paragraph">• <br>Ajoutez à la suite du fichier CSV les Ordinateurs Active Directory  </p>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Get-ADComputer 
--Filter 
-* 
-| 
-Export-CSV 
--Path 
+<section class="tssr-transcribed-page" id="page-5">
+<ul><li>Répétez la commande précédente mais dans le format HTML puis dans le dossier \\CD01\Partage\Exports\CSV\.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADUser
+-Filter
+*
+-properties
+*
+|
+Export-CSV
+-Path
+\\CD01\Partage\Exports\CSV\Users_prop.csv -delimiter &quot;.&quot;</code></pre>
+<ul><li>Ajoutez à la suite du fichier CSV les Ordinateurs Active Directory</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADComputer
+-Filter
+*
+|
+Export-CSV
+-Path
 \\CD01\Partage\PowerShell\Exports\CSV\Users.CSV -delimiter &quot;;&quot; -Append -
-Force </pre>
-<p class="tssr-source-paragraph">• <br>Modifiez le nom de la colonne Name de votre fichier CSV exporté précédemment.  </p>
-<p class="tssr-source-paragraph">Faite l’importation des utilisateurs Active Directory à partir du fichier CSV modifié.  </p>
-<pre class="tssr-source-code">Import-CSV -Path \\CD01\Partage\Exports\CSV\Users.CSV -delimiter &quot;;&quot; | 
-Select @{n=&quot;Name&quot;;e={$PSItem.Nom}} | New-ADUser </pre>
-<p class="tssr-source-paragraph">Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante : </p>
-<pre class="tssr-source-code">Get-Aduser -filter * | Remove-aduser -confirm : $False  </pre>
-<p class="tssr-source-paragraph">Que remarquez-vous ? </p>
-<p class="tssr-source-paragraph">Les utilisateurs Administrator et guest ont été conservés. </p>
-<pre class="tssr-source-code">• 
-Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message d’erreur 
-sur la propriété Name.  </pre>
-<p class="tssr-source-paragraph">Quelle commande avez-vous utilisée ? </p>
-<pre class="tssr-source-code">Import-CSV 
--Path 
-\\CD01\Partage\PowerShell\Exports\CSV\Users.CSV 
+Force</code></pre>
+<ul><li>Modifiez le nom de la colonne Name de votre fichier CSV exporté précédemment.</li></ul>
+<p>Faite l’importation des utilisateurs Active Directory à partir du fichier CSV modifié.</p>
+<pre><code>Import-CSV -Path \\CD01\Partage\Exports\CSV\Users.CSV -delimiter &quot;;&quot; |
+Select @{n=&quot;Name&quot;;e={$PSItem.Nom}} | New-ADUser</code></pre>
+<p>Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante :</p>
+<pre><code>Get-Aduser -filter * | Remove-aduser -confirm : $False</code></pre>
+<p>Que remarquez-vous ?</p>
+<p>Les utilisateurs Administrator et guest ont été conservés.</p>
+<ul><li>Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message d’erreur sur la propriété Name.</li></ul>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Import-CSV
+-Path
+\\CD01\Partage\PowerShell\Exports\CSV\Users.CSV
 -
-delimiter &quot;;&quot; | Select @{n=&quot;Name&quot;;e={$PSItem.Nom}} | New-ADUser </pre>
-<p class="tssr-source-paragraph">• <br>Affichez la liste des fichiers du partage de CD01 ; pour chaque propriété vous allez <br>traduire le nom de la propriété. Chaque valeur sera exprimée en GB :  </p>
-<p class="tssr-source-paragraph">Indiquez votre commande. </p>
-<pre class="tssr-source-code">Get-ChildItem 
--path 
-\\CD01\Partage\ 
--file 
--recurse 
-| 
-Select 
-@{n=&quot;nom&quot;;e={$PSItem.name}},@{n=&quot;taille&quot;;e={&#x27;{0:N2} 
-KB&#x27; 
--f 
-($PSItem.length /1KB) }} | Format-List </pre>
-<p class="tssr-source-paragraph">Page 5/5 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+delimiter &quot;;&quot; | Select @{n=&quot;Name&quot;;e={$PSItem.Nom}} | New-ADUser</code></pre>
+<ul><li>Affichez la liste des fichiers du partage de CD01 ; pour chaque propriété vous allez traduire le nom de la propriété. Chaque valeur sera exprimée en GB :</li></ul>
+<p>Indiquez votre commande.</p>
+<pre><code>Get-ChildItem
+-path
+\\CD01\Partage\
+-file
+-recurse
+|
+Select
+@{n=&quot;nom&quot;;e={$PSItem.name}},@{n=&quot;taille&quot;;e={&#x27;{0:N2}
+KB&#x27;
+-f
+($PSItem.length /1KB) }} | Format-List</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

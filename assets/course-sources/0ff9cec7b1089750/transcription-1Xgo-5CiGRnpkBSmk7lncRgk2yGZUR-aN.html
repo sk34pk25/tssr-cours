@@ -1,0 +1,61 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>13.sh</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>13.sh</h1><p>Le contenu du fichier shell est transcrit en texte. Les fins de ligne sont présentées au format Web.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<pre><code>#!/bin/bash
+
+# A COMPLETER #
+annee=$1
+nummois=1
+###annee=2011
+rouge=&#x27;\033[31m&#x27;
+orange=&#x27;\033[33m&#x27;
+vert=&#x27;\033[32m&#x27;
+noir=&#x27;\033[0m&#x27;
+
+# A COMPLETER #
+
+# A COMPLETER #
+[[ -z $1 ]] &amp;&amp; { echo -e &quot;Syntaxe d&#x27;utilisation : $0 $rouge &lt;annee&gt; $noir&quot;; exit 13; }
+
+echo &quot;###################&quot;
+echo &quot;##  ANNEE $annee   ##&quot;
+echo &quot;###################&quot;
+
+# A COMPLETER #
+# On boucle pour tous les mois
+until [[ $nummois -eq 13 ]]
+        do
+        ligne13=`cal $nummois $annee | grep 13`
+	# format du retour de la commande precedente incorrect
+	ligne13=$(echo $ligne13)
+        if [[ $ligne13 = *13\ 14 ]]
+                then
+                nommois=`date --date &quot;$nummois/01&quot; +%B`
+                listmois=&quot;$listmois $nommois,&quot;
+                nbremois=`expr $nbremois + 1`
+        fi
+        nummois=`expr $nummois + 1`
+done
+
+# A COMPLETER #
+echo -e &quot;En $rouge $listmois $noir surveiller les paraskaviedekatriaphobes &quot;
+# A COMPLETER #
+case $nbremois in
+        1)
+        niveau=&quot;calme&quot;
+        color=&quot;$vert&quot;
+        ;;
+        2)
+        niveau=&quot;moyenne&quot;
+        color=&quot;$orange&quot;
+        ;;
+        *)
+        niveau=&quot;a forte vigilance&quot;
+        color=&quot;$rouge&quot;
+        ;;
+esac
+
+# A COMPLETER #
+echo -e &quot;$annee sera une annee ${color}$niveau $noir( $nbremois )&quot;
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

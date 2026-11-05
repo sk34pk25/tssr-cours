@@ -1,0 +1,75 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M7 - Solution du TP 1 - partie2.sh</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>M7 - Solution du TP 1 - partie2.sh</h1><p>Le contenu du fichier shell est transcrit en texte. Les fins de ligne sont présentées au format Web.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<pre><code>#! /bin/bash
+
+# Definition des variables #
+
+anneedeb=$1 # Stockage de la première année de la plage
+
+anneefin=$2 # Stockage de la dernière année de la plage
+
+anneecourante=$anneedeb # Création d&#x27;une variable année courante à partir du début
+
+nbannees=0 # Compteur nombre d’années bissextiles initialisé à zéro
+
+
+
+# Debut du script #
+
+# Si arguments fournis au script ne sont pas = à 2 =&gt; Sortie
+
+if [[ $# -ne 2 ]]
+
+  then echo &quot;Syntaxe utilisation : script_M6TP2.sh &lt;annee_debut&gt; &lt;annee_fin&gt;&quot;
+
+  exit 3
+
+fi
+
+echo &quot;##########################################&quot;
+
+echo -e &quot;##  Période considérée de $anneedeb a $anneefin   ##&quot;
+
+echo &quot;##########################################&quot;
+
+
+
+# Bouclage pour chaque année sur le mois de février
+
+until [[ $anneecourante -gt $anneefin ]]
+
+ do fevrier=$(cal 02 $anneecourante) # Recup du calendrier du mois de février de l&#x27;année courante
+
+    echo &quot;$fevrier&quot; | grep &quot;29&quot; | grep -v &quot;[0-9][0-9]29&quot; &gt;/dev/null 2&gt;&amp;1 # On cherche dans ce calendrier la présence du 29ème jour
+
+if [[ $? -eq 0 ]] # Si la valeur 29 est trouvée (code retour = 0)
+
+ then nbannees=`expr $nbannees + 1` # Ajout +1 au nombre d&#x27;années bissextiles
+
+   listannees=&quot;$listannees $anneecourante,&quot; # Ajout de l’année au listing des années concernées
+
+fi
+
+anneecourante=`expr $anneecourante + 1` # Incrément de 1 du compteur d&#x27;année courante afin de vérifier si condition de la boucle until toujours vraie
+
+done
+
+
+
+# Résumé des années bissextiles trouvées (ou pas)
+
+if [[ $nbannees -gt 0 ]]; then # Si plus d&#x27;une année
+
+  echo -e &quot;Il y a $nbannees année(s) bissextile(s) dans la plage donnée&quot; 
+
+  echo -e &quot;Année(s) : $listannees&quot;
+
+else # Si pas d’année bissextile dans la plage
+
+  echo -e &quot;Il n&#x27;y a aucune année bissextile dans la plage donnée&quot; 
+
+fi
+
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

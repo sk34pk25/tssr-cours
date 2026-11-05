@@ -1,85 +1,54 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 02 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Des concepts <br>de la virtualisation <br>à leur mise en œuvre</h4>
-<p class="tssr-source-paragraph">Module 02 – Les applications de virtualisation </p>
-<p class="tssr-source-paragraph">d’environnements sur un poste de travail</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Objectifs</p>
-<p class="tssr-source-paragraph">• Comprendre le fonctionnement d’une application de <br>virtualisation de serveurs<br>• Configurer et mettre en place une machine virtuelle sur <br>VMware Workstation</p>
-<p class="tssr-source-paragraph">2</p>
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 02 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 02 – Les applications de virtualisation</h4>
+<h4>d’environnements sur un poste de travail</h4>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Objectifs</h4>
+<ul><li>Comprendre le fonctionnement d’une application de virtualisation de serveurs</li><li>Configurer et mettre en place une machine virtuelle sur VMware Workstation</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Prérequis et installation</p>
-<p class="tssr-source-paragraph">Prérequis matériel</p>
-<p class="tssr-source-paragraph">Installation<br>• Version actuelle : VMware Workstation 16<br>• Attention, il n’y a pas de rétrocompatibilité :</p>
-<p class="tssr-source-paragraph">•<br>Une VM « ancienne version » fonctionnera avec la version la plus récente<br>•<br>Mais une VM « nouvelle version » fonctionnera uniquement avec celle-ci<br>• Utilisez les paramètres d’installation par défaut</p>
-<p class="tssr-source-paragraph">• Processeur Intel VT-x ou <br>AMD-V (attention aux <br>réglages BIOS / UEFI)<br>• RAM et espace disque <br>adaptés</p>
-<p class="tssr-source-paragraph">La dernière version est préférable, mais il peut y avoir des <br>problèmes de fonctionnement suivant les systèmes hôte <br>(ex. WS 2019 + v16)</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Outils et composants installés</p>
-<p class="tssr-source-paragraph">• La console de gestion VMware <br>Workstation</p>
-<p class="tssr-source-paragraph">• Elle affiche la liste des VM<br>• Elle permet d’ajouter ou de créer des <br>machines virtuelles<br>• Lors de la sélection d’une VM, <br>elle permet le démarrage ou le réglage des <br>paramètres matériel</p>
-<p class="tssr-source-paragraph">• Gestion des VM<br>• Créer une nouvelle VM ou en importer une<br>• Une fois la VM créée ou importée, elle <br>s’affiche dans la liste (Library)<br>• La console affichera le système virtualisé <br>une fois la VM démarrée</p>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>||<br>AIRE</p></div></details>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Prérequis et installation</h4>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Installation</h4>
+<ul><li>Version actuelle : VMware Workstation 16</li><li>Attention, il n’y a pas de rétrocompatibilité :</li></ul>
+<h4>Prérequis matériel</h4>
+<ul><li>Processeur Intel VT-x ou AMD-V (attention aux réglages BIOS / UEFI)</li><li>RAM et espace disque adaptés</li><li>Une VM « ancienne version » fonctionnera avec la version la plus récente</li><li>Mais une VM « nouvelle version » fonctionnera uniquement avec celle-ci</li><li>Utilisez les paramètres d’installation par défaut</li></ul>
+<p>La dernière version est préférable, mais il peut y avoir des problèmes de fonctionnement suivant les systèmes hôte (ex. WS 2019 + v16)</p>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Outils et composants installés</h4>
+<ul><li>La console de gestion VMware Workstation</li><li>Elle affiche la liste des VM</li><li>Elle permet d’ajouter ou de créer des machines virtuelles</li><li>Lors de la sélection d’une VM, elle permet le démarrage ou le réglage des paramètres matériel</li><li>Gestion des VM</li><li>Créer une nouvelle VM ou en importer une</li><li>Une fois la VM créée ou importée, elle s’affiche dans la liste (Library)</li><li>La console affichera le système virtualisé une fois la VM démarrée</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Interaction avec l’hôte</p>
-<p class="tssr-source-paragraph">Gestion du matériel<br>• Les médias amovibles de type CD / DVD, USB, disquette sont gérés<br>• Par défaut, la VM « capture » le clavier et la souris<br>• Ctrl + Alt pour reprendre la main<br>• Des composants additionnels peuvent être installés pour améliorer <br>l’interaction<br>• La fonction Shared Folder permet de mapper un dossier de l’hôte <br>dans la VM en tant que lecteur réseau<br>• Pour faire Ctrl + Alt + Suppr dans la VM, taper Ctrl + Alt + Inser</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Interaction avec l’hôte</p>
-<p class="tssr-source-paragraph">Gestion du réseau<br>• VMware met en place des cartes réseau virtuelles pour permettre <br>les différents modes de connexion : </p>
-<p class="tssr-source-paragraph">• VMnet1 pour le réseau Host-only (privé + accès à l’hôte)<br>• VMnet8 pour le réseau NAT (accès à l’Internet par l’hôte)<br>• Des services sont présents pour gérer l’adressage de ces réseaux : <br>VMware DHCP Service pour le réseau privé et VMware NAT <br>Service pour le réseau NAT</p>
-<p class="tssr-source-paragraph">Il peut être nécessaire de désactiver ces services si l’on veut utiliser <br>ces réseaux avec son propre adressage dynamique.</p>
-<p class="tssr-source-paragraph">6</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-3">
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Interaction avec l’hôte</h4>
+<h4>Gestion du matériel</h4>
+<ul><li>Les médias amovibles de type CD / DVD, USB, disquette sont gérés</li><li>Par défaut, la VM « capture » le clavier et la souris</li><li>Ctrl + Alt pour reprendre la main</li><li>Des composants additionnels peuvent être installés pour améliorer l’interaction</li><li>La fonction Shared Folder permet de mapper un dossier de l’hôte dans la VM en tant que lecteur réseau</li><li>Pour faire Ctrl + Alt + Suppr dans la VM, taper Ctrl + Alt + Inser</li></ul>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Interaction avec l’hôte</h4>
+<h4>Gestion du réseau</h4>
+<ul><li>VMware met en place des cartes réseau virtuelles pour permettre les différents modes de connexion :</li><li>VMnet1 pour le réseau Host-only (privé + accès à l’hôte)</li><li>VMnet8 pour le réseau NAT (accès à l’Internet par l’hôte)</li><li>Des services sont présents pour gérer l’adressage de ces réseaux :</li></ul>
+<h4>VMware DHCP Service pour le réseau privé et VMware NAT</h4>
+<h4>Service pour le réseau NAT</h4>
+<p>Il peut être nécessaire de désactiver ces services si l’on veut utiliser ces réseaux avec son propre adressage dynamique.</p>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Étapes de création</p>
-<p class="tssr-source-paragraph">• Mode d’installation <br>•<br>Choisissez « I will install … later »<br>•<br>Dans le cas contraire, VMware gérera l’installation à votre place avec des paramètres pas nécessairement <br>adaptés<br>• Choix du système<br>•<br>Définir l’architecture matérielle selon le système<br>• Nom de la VM dans l’interface et choix de l’emplacement <br>•<br>Attention « Mes Documents » est sélectionné par défaut<br>•<br>Prévoir 1 dossier par VM</p>
-<p class="tssr-source-paragraph">• Taille du disque virtuel (et mode de stockage)</p>
-<p class="tssr-source-paragraph">•<br>Par défaut, VMware utilise l’espace au fur et à mesure des besoins<br>•<br>Sélectionner plutôt le mode « Store virtual disk in a single file » pour des besoins de performance<br>• Paramétrage matériel : « Customize Hardware »<br>•<br>Pour ajouter ou supprimer des composants<br>•<br>Pour régler le nombre de CPU et la quantité de RAM<br>•<br>Pour définir le média d’installation et le mode de connexion réseau</p>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Gestion de la VM – Workstation 16</p>
-<p class="tssr-source-paragraph">Gestion de base</p>
-<p class="tssr-source-paragraph">Gestion de la fenêtre, la <br>fermeture avec la X met <br>votre VM en pause</p>
-<p class="tssr-source-paragraph">Gestion directe<br>du matériel <br>(disques, réseau, <br>médias, etc.)</p>
-<p class="tssr-source-paragraph">Accès aux paramètres <br>et fonctions <br>complémentaires</p>
-<p class="tssr-source-paragraph">8</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>End</p><p>N</p><p>i.</p><p>me 28 juillet<br>=<br>End</p></div></details>
-
-
-
-
+<section class="tssr-transcribed-page" id="page-4">
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Étapes de création</h4>
+<ul><li>Mode d’installation</li><li>Choisissez « I will install … later »</li><li>Dans le cas contraire, VMware gérera l’installation à votre place avec des paramètres pas nécessairement adaptés</li><li>Choix du système</li><li>Définir l’architecture matérielle selon le système</li><li>Nom de la VM dans l’interface et choix de l’emplacement</li><li>Attention « Mes Documents » est sélectionné par défaut</li><li>Prévoir 1 dossier par VM</li><li>Taille du disque virtuel (et mode de stockage)</li><li>Par défaut, VMware utilise l’espace au fur et à mesure des besoins</li><li>Sélectionner plutôt le mode « Store virtual disk in a single file » pour des besoins de performance</li><li>Paramétrage matériel : « Customize Hardware »</li><li>Pour ajouter ou supprimer des composants</li><li>Pour régler le nombre de CPU et la quantité de RAM</li><li>Pour définir le média d’installation et le mode de connexion réseau</li></ul>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Gestion de la VM – Workstation 16</h4>
+<p>Gestion de base</p>
+<p>Gestion de la fenêtre, la fermeture avec la X met votre VM en pause</p>
+<p>Gestion directe du matériel (disques, réseau, médias, etc.)</p>
+<p>Accès aux paramètres et fonctions complémentaires</p>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Paramétrages matériels</p>
-<p class="tssr-source-paragraph">• Après création  de la VM, les paramétrages sont accessibles depuis la fonction <br>« Virtual Machine Settings »</p>
-<p class="tssr-source-paragraph">• Permet de modifier les paramètres initiaux<br>• Permet l’ajout et la suppression de matériel<br>• Certains composants sont paramétrables à chaud (ajout de disques, réseau …)</p>
-<p class="tssr-source-paragraph">• Connexion au réseau : 4 modes disponibles<br>• Bridged : mode pont, équivalent à une connexion au réseau physique<br>• NAT : utilise la configuration réseau de l’hôte pour accéder à l’Internet<br>• Host-only : mode interne avec connexion à l’hôte, les VM ne peuvent communiquer <br>qu’entre elles et avec l’hôte<br>• LAN segment : permet d’utiliser des segments réseau spécifiques et indépendants, à <br>condition de les déclarer avec le bouton LAN Segments</p>
-<p class="tssr-source-paragraph">Chacun de ces modes est indépendant des autres. Ils agissent comme des <br>commutateurs permettant d’isoler les VM dans des réseaux spécifiques.</p>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">Les applications de virtualisation d’environnements sur un poste de travail </p>
-<p class="tssr-source-paragraph">Problèmes courants</p>
-<p class="tssr-source-paragraph">• Démarrer sur un média CD/DVD une fois le système installé<br>• S’assurer que la VM a bien « capturé » le clavier et redémarrer<br>• Appuyer 1 fois sur la touche Échap lorsque le logo VMware s’affiche<br>• Il est possible de paramétrer la séquence de démarrage dans le BIOS de la VM</p>
-<p class="tssr-source-paragraph">• Fonctionnement du réseau aléatoire<br>• Le fonctionnement du réseau est un point sensible, notamment lors de paramétrages fréquents<br>• Désactivez et réactivez les cartes réseau de votre machine physique</p>
-<p class="tssr-source-paragraph">• Espace disque hôte insuffisant<br>• Vérifier l’emplacement du dossier de la VM et le déplacer si nécessaire<br>• Surveiller l’espace disponible dans le volume de données</p>
-<p class="tssr-source-paragraph">• Espace disque invité insuffisant<br>• Ajouter un disque depuis les paramétrages de la VM ou redimensionner (plus fastidieux)<br>• Le dimensionnement initial est important !</p>
-<p class="tssr-source-paragraph">10</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>&gt;</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-5">
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Paramétrages matériels</h4>
+<ul><li>Après création de la VM, les paramétrages sont accessibles depuis la fonction « Virtual Machine Settings »</li><li>Permet de modifier les paramètres initiaux</li><li>Permet l’ajout et la suppression de matériel</li><li>Certains composants sont paramétrables à chaud (ajout de disques, réseau …)</li><li>Connexion au réseau : 4 modes disponibles</li><li>Bridged : mode pont, équivalent à une connexion au réseau physique</li><li>NAT : utilise la configuration réseau de l’hôte pour accéder à l’Internet</li><li>Host-only : mode interne avec connexion à l’hôte, les VM ne peuvent communiquer qu’entre elles et avec l’hôte</li><li>LAN segment : permet d’utiliser des segments réseau spécifiques et indépendants, à condition de les déclarer avec le bouton LAN Segments</li></ul>
+<p>Chacun de ces modes est indépendant des autres. Ils agissent comme des commutateurs permettant d’isoler les VM dans des réseaux spécifiques.</p>
+<p>Les applications de virtualisation d’environnements sur un poste de travail</p>
+<h4>Problèmes courants</h4>
+<ul><li>Démarrer sur un média CD/DVD une fois le système installé</li><li>S’assurer que la VM a bien « capturé » le clavier et redémarrer</li><li>Appuyer 1 fois sur la touche Échap lorsque le logo VMware s’affiche</li><li>Il est possible de paramétrer la séquence de démarrage dans le BIOS de la VM</li><li>Fonctionnement du réseau aléatoire</li><li>Le fonctionnement du réseau est un point sensible, notamment lors de paramétrages fréquents</li><li>Désactivez et réactivez les cartes réseau de votre machine physique</li><li>Espace disque hôte insuffisant</li><li>Vérifier l’emplacement du dossier de la VM et le déplacer si nécessaire</li><li>Surveiller l’espace disponible dans le volume de données</li><li>Espace disque invité insuffisant</li><li>Ajouter un disque depuis les paramétrages de la VM ou redimensionner (plus fastidieux)</li><li>Le dimensionnement initial est important !</li></ul>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

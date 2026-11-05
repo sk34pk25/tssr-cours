@@ -1,0 +1,91 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 03 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 03 – La virtualisation des serveurs</h4>
+<p>La virtualisation des serveurs</p>
+<h4>Objectifs</h4>
+<ul><li>Lister un ensemble de solutions de virtualisation et de services virtualisés</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<p>La virtualisation des serveurs</p>
+<h4>Types de serveurs et concentration</h4>
+<h4>Choix du type de serveur et volume occupé</h4>
+<p>Serveurs</p>
+<p>Serveurs</p>
+<p>Serveurs</p>
+<p>Châssis</p>
+<p>La virtualisation des serveurs</p>
+<h4>Les fournisseurs de solutions de virtualisation</h4>
+<h4>Informations dans les visuels du support</h4>
+<ul><li>Les schémas comparent des serveurs indépendants, des serveurs rack et des serveurs regroupés dans un châssis.</li><li>Les exemples de fournisseurs ou solutions représentés sont VMware, Xen, KVM et Windows Server Hyper-V.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>La machine hôte</p>
+<p>C’est le serveur physique qui dispose des ressources matérielles</p>
+<p>Processeurs et technologies de virtualisation</p>
+<table><thead><tr><th scope="col">Processeurs et technologies de virtualisation</th><th scope="col">Intel</th><th scope="col">AMD</th></tr></thead><tbody><tr><td>Mécanisme de prise en charge de la virtualisation</td><td>VT-x</td><td>AMD-v</td></tr><tr><td>Mécanisme de prise en charge de SLAT</td><td>EPT</td><td>NPT / RVI</td></tr></tbody></table>
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>L’hyperviseur</p>
+<ul><li>L’hyperviseur correspond à la solution logicielle installée sur la machine hôte et sur laquelle seront hébergées des machines virtuelles</li><li>Il est chargé de la gestion du matériel de l’hôte et de l’hébergement des machines virtuelles</li></ul>
+<p>Solution Microsoft</p>
+<h4>Hyper-V</h4>
+<p>Solution VMware</p>
+<h4>ESX / ESXi</h4>
+<h4>Informations dans les visuels du support</h4>
+<ul><li>Le premier schéma représente les composants du serveur hôte. Le second superpose l’hyperviseur à cet hôte et cite Hyper-V et ESX / ESXi.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>L’outil de gestion de la solution</p>
+<ul><li>Le composant de gestion intégré à un hyperviseur est nommé : Virtual Machine Manager (VMM)</li><li>Le VMM permet notamment</li><li>La création / gestion / suppression de machines virtuelles</li><li>La gestion du matériel, des pilotes</li><li>La gestion des réseaux et de l’espace disque pour les machines virtuelles</li><li>La configuration des fonctionnalités de l’hyperviseur</li><li>Les actions de gestion associées sont réalisées au moyen d’outils</li></ul>
+<table><thead><tr><th scope="col">Solution</th><th scope="col">Hyper-V</th><th scope="col">vSphere</th></tr></thead><tbody><tr><td>Outil de gestion</td><td>Gestionnaire Hyper-V</td><td>Client Web vSphere</td></tr></tbody></table>
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>Les machines virtuelles</p>
+<p>Les machines virtuelles sont créées et hébergées sur l’hyperviseur</p>
+<p>VM</p>
+<p>Les éléments de constitution d’une VM</p>
+<p>Un fichier de caractéristiques matérielles</p>
+<p>Un fichier d’image disque par disque dur dans la VM</p>
+<p>Des ressources RAM et une image en mémoire vive (RAM)</p>
+<p>Des ressources CPU</p>
+<p>Une ou plusieurs cartes réseau virtuelles</p>
+<h4>Informations dans les visuels du support</h4>
+<ul><li>Le schéma relie les cartes et ressources physiques du serveur hôte à l’hyperviseur, qui héberge les machines virtuelles.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>Les machines virtuelles</p>
+<ul><li>Les machines virtuelles sont créées et hébergées sur l’hyperviseur</li><li>Les hyperviseurs peuvent être gérés de manière autonome ou peuvent être regroupés au sein d’un même contexte de gestion</li><li>Ce regroupement, qui en simplifie l’administration, se traduit par :</li><li>L’intégration à un contexte de domaine AD des serveurs sur lesquels le rôle Hyper-V est installé (en environnement Microsoft)</li><li>L’ajout du composant vCenter (en environnement vSphere)</li></ul>
+<p>HV2</p>
+<p>HV3 HV1</p>
+<p>vCenter</p>
+<p>Domaine.ad</p>
+<p>La virtualisation des serveurs</p>
+<h4>Les composantes d’une infrastructure de virtualisation</h4>
+<p>Récapitulatif visuel des éléments</p>
+<p>Ce schéma illustre les principaux éléments nécessaires à une infrastructure de virtualisation</p>
+<p>VM</p>
+<p>H</p>
+<p>Y</p>
+<p>P</p>
+<p>H</p>
+<p>E</p>
+<p>R</p>
+<p>Ô</p>
+<p>V</p>
+<p>T</p>
+<p>I</p>
+<p>S</p>
+<p>E</p>
+<p>V M M</p>
+<p>E</p>
+<p>U</p>
+<p>Outil d’administration</p>
+<p>R</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

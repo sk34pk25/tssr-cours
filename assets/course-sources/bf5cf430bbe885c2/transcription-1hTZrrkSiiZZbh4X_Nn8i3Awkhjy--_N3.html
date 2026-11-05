@@ -1,0 +1,231 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 07 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 07 – Gestion du stockage</h4>
+<p>Gestion du stockage</p>
+<h4>Objectifs</h4>
+<ul><li>Configurer le stockage local ou partagé</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<p>Gestion du stockage</p>
+<p>Les solutions de stockage</p>
+<p>Les solutions de stockage</p>
+<h4>Terminologie</h4>
+<table><thead><tr><th scope="col">Terme</th><th scope="col">Définition et exemple(s) de solution(s)</th></tr></thead><tbody><tr><td>Mode bloc</td><td>Le stockage en mode bloc rassemble les données en blocs qui sont stockés en tant qu’éléments séparés. Chaque bloc de données se voit attribuer un identifiant unique, qui permet au système de stockage de conserver les petits éléments à l’emplacement le plus pratique.</td></tr><tr><td>SAN</td><td>Un réseau de stockage ou SAN (Storage Area Network) est un réseau spécifiquement dédié à l’interconnexion de ressources de stockage en mode bloc avec des serveurs. Il permet à un serveur d’accéder à des ressources de stockage distantes comme s’il s’agissait d’un disque dur local. Lorsqu’un hôte désire accéder à des données sur une baie de stockage SAN, il lui suffit d’envoyer la commande SCSI appropriée et les informations lui seront retournées via le réseau.</td></tr><tr><td>NAS</td><td>L’acronyme NAS, pour Network Attached Storage, désigne un périphérique de stockage utilisé pour le stockage et le partage de fichiers via un réseau (Ethernet ou de type WAN la plupart du temps). Il s’agit d’un serveur de fichiers capable de fonctionner de façon autonome.</td></tr></tbody></table>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Les solutions de stockage</p>
+<h4>Services et données</h4>
+<ul><li>Une infrastructure regroupe un ensemble de services fournis</li><li>Ceux-ci sont dépendants de données pour leur fonctionnement</li></ul>
+<p>Question</p>
+<p>Service</p>
+<p>Requête</p>
+<p>Contenu</p>
+<p>Donnée</p>
+<p>Réponse</p>
+<p>MIB</p>
+<ul><li>Les données sont au cœur du fonctionnement de chaque service</li><li>Et les services au cœur des infrastructures réseau</li></ul>
+<p>Les solutions de stockage</p>
+<h4>Stockage local et accès aux données</h4>
+<ul><li>Lorsqu’une machine dispose d’un périphérique de stockage local, l’accès aux données sur ce périphérique est lié :</li><li>À la connectique associée au périphérique</li><li>Au protocole de stockage pris en charge</li><li>Au mode d’accès</li></ul>
+<p>Ces trois éléments sont généralement liés entre eux.</p>
+<p>Périphérique Hôte</p>
+<p>Application</p>
+<p>OS</p>
+<p>Protocole – Lien Transport</p>
+<p>Connectique - Physique</p>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>Les solutions de stockage</p>
+<h4>Périphériques disques et modes d’accès</h4>
+<ul><li>Les périphériques de type disque stockent les données sous forme d’ensembles ou blocs.</li></ul>
+<p>Périphérique Hôte</p>
+<p>Écriture</p>
+<p>OS</p>
+<p>Lecture</p>
+<p>Les solutions de stockage</p>
+<h4>Le protocole SCSI</h4>
+<ul><li>Le mode bloc s’applique au protocole SCSI</li></ul>
+<p>Périphérique Hôte</p>
+<p>Périphérique Hôte</p>
+<p>Application</p>
+<p>Pilote disque SCSI</p>
+<p>OS</p>
+<p>OS</p>
+<p>Protocole – Lien Transport</p>
+<p>Protocole – SCSI</p>
+<p>Connectique - Physique</p>
+<p>Contrôleur SCSI</p>
+<ul><li>Les données échangées par les couches liaison / transport comportent :</li></ul>
+<p>Périphérique Hôte</p>
+<ul><li>Des commandes SCSI</li><li>Des blocs de données</li></ul>
+<p>Données</p>
+<p>Commandes SCSI</p>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<p>Les solutions de stockage</p>
+<h4>Les limites du stockage local</h4>
+<ul><li>Le stockage local présente des limites :</li><li>Chaque serveur allouera de l’espace disque à la tolérance de panne</li><li>Les volumes disques sont créés en fonction des besoins et des contraintes matérielles</li><li>Les sauvegardes impactent les performances de toutes les machines qui y sont soumises</li><li>Une distance limitée entre un serveur et son stockage</li><li>La réponse aux problématiques précédentes : mise en place de solution de stockage centralisé / mutualisé</li><li>Une solution de stockage réseau est caractérisée par :</li><li>Son type d’accès : mode bloc ou mode fichier</li><li>Le(s) protocole(s) d’accès pris en charge</li></ul>
+<p>Les solutions de stockage</p>
+<h4>SAN / NAS</h4>
+<h4>SAN</h4>
+<h4>NAS</h4>
+<p>Les baies SAN utilisent des protocoles d’accès comme Fibre Channel ou iSCSI et partagent leur capacité sous la forme de volumes logiques. Ces derniers sont utilisables comme des disques locaux par les serveurs et sont donc accessibles en mode bloc. Les baies NAS mettent quant à elles leur capacité disponible à disposition des serveurs sous la forme d’un partage réseau accessible via un protocole de partage de fichiers en réseau comme NFS ou CIFS (le protocole de partage de fichiers en réseau de Windows aussi connu sous le nom SMB). Un réseau de stockage se différencie des autres systèmes de stockage tels que le NAS (Network Attached Storage) par un accès bas niveau aux disques. Pour simplifier. C&#x27;est une mutualisation des ressources de stockage.</p>
+<p>Dans le cas du NAS, la ressource de stockage est directement connectée au réseau IP de l&#x27;entreprise. Le serveur NAS intègre le support de multiples systèmes de fichiers réseau, tels que Common Internet File System (CIFS), protocole de partage de Microsoft et de Samba, Network File System (NFS), qui est un protocole de partage de fichiers Unix, ou encore AFP (AppleShare File Protocol), qui est l&#x27;équivalent pour la technologie Apple. Une fois connecté au réseau, il peut jouer le rôle de plusieurs serveurs de fichiers partagés.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+<p>Les solutions de stockage</p>
+<h4>L’iSCSI</h4>
+<ul><li>Le protocole iSCSI est utilisé par des solutions de stockage centralisées rendant accessible de l’espace disque en mode bloc par un réseau.</li></ul>
+<p>Périphérique Hôte</p>
+<p>Données</p>
+<p>TCP-</p>
+<p>Réseau</p>
+<p>iSCSI Initiator</p>
+<p>IP</p>
+<p>iSCSI</p>
+<p>Commandes SCSI</p>
+<p>iSCSI Target</p>
+<p>Réseau de</p>
+<p>stockage</p>
+<p>Adaptateur iSCSI</p>
+<p>iSCSI Initiator</p>
+<p>iSCSI Target</p>
+<h4>D’autres protocoles</h4>
+<h4>(présentés</h4>
+<h4>ultérieurement) ont une</h4>
+<h4>approche similaire.</h4>
+<p>Gestion du stockage</p>
+<p>vSphere et le stockage</p>
+</section>
+<section class="tssr-transcribed-page" id="page-7">
+<p>vSphere et le stockage</p>
+<h4>Les composantes de stockage</h4>
+<p>Dans une infrastructure vSphere, on distingue deux composantes de configuration du stockage :</p>
+<ul><li>Les adaptateurs de stockage servent à lier des solutions de stockage aux hôtes amenés à les utiliser</li><li>Les banques de données ou datastores correspondent aux conteneurs « virtuels » dans lesquels sont hébergées les données</li></ul>
+<p>vSphere et le stockage</p>
+<h4>Les composantes de stockage</h4>
+<ul><li>De nombreuses possibilités sont prises en charge pour l’hébergement des machines virtuelles dans l’environnement vSphere</li><li>Les points suivants vous permettront de cibler la solution de stockage la plus adaptée à une situation donnée :</li><li>Stockage dédié à un hôte ou mutualisé</li><li>Quel protocole d’accès à la solution de stockage</li><li>Quel support</li><li>Quel mode d’accès</li><li>Quel système de fichiers utiliser</li></ul>
+<p>La diapositive suivante</p>
+<p>illustre ces différents</p>
+<p>aspects</p>
+</section>
+<section class="tssr-transcribed-page" id="page-8">
+<p>vSphere et le stockage</p>
+<h4>Choix d’une solution de stockage</h4>
+<p>Stockage dédié</p>
+<p>Stockage mutualisé</p>
+<p>FC</p>
+<p>FCOE</p>
+<p>iSCSI</p>
+<p>NFS</p>
+<p>DAS</p>
+<p>Protocole</p>
+<p>SAS</p>
+<p>SCSI SATA</p>
+<p>HBA</p>
+<p>CNA FCOE</p>
+<p>Adaptateur virtuel FCOE</p>
+<p>HBA iSCSI</p>
+<p>Adaptateur virtuel iSCSI</p>
+<p>Réseau</p>
+<p>Connectique</p>
+<p>FC</p>
+<p>Support</p>
+<p>fibre</p>
+<p>cuivre</p>
+<p>Réseau</p>
+<p>VMFS3</p>
+<p>VMFS5</p>
+<p>Formatage par l’hôte</p>
+<p>Gestion du stockage</p>
+<p>Les adaptateurs de stockage</p>
+</section>
+<section class="tssr-transcribed-page" id="page-9">
+<p>Les adaptateurs de stockage</p>
+<h4>Raccordement de la solution de stockage</h4>
+<ul><li>La solution de stockage retenue est raccordée à l’infrastructure vSphere via la configuration des adaptateurs de stockage</li><li>Sont affichés dans les adaptateurs de stockage :</li><li>Les disques physiques raccordés directement à l’hyperviseur</li><li>Les espaces disques accessibles via des adaptateurs HBA ou CNA physiques configurés sur l’hyperviseur</li><li>Les espaces disques accessibles via des adaptateurs logiciels de l’hyperviseur</li><li>L’environnement vSphere fournit des adaptateurs virtuels FCoE et iSCSI pour les hôtes.</li><li>L’utilisation de ces adaptateurs se traduit par un impact sur les performances des hôtes, les adaptateurs matériels sont donc à privilégier.</li><li>Dans le cas d’utilisation d’une solution nécessitant un adaptateur de stockage virtuel, celui-ci est à configurer depuis l’hôte.</li></ul>
+<p>Les adaptateurs de stockage</p>
+<h4>Zoom sur l’iSCSI</h4>
+<ul><li>L’utilisation de solutions de stockage basées sur le protocole iSCSI est fréquente dans des environnements virtualisés. Les performances du réseau associé sont alors directement liées au bon fonctionnement de la solution.</li><li>Il est recommandé d’utiliser un réseau dédié à ses besoins (et de préférence des mécanismes de redondance).</li><li>Le ciblage d’une carte réseau pour le protocole iSCSI permet de dédier cette carte à ce besoin. Celui-ci se configure depuis les propriétés de l’adaptateur iSCSI. La résultante de cette configuration est visible dans les propriétés du vSwitch lié à la carte sélectionnée.</li></ul>
+<h4>Hôtes et MTU</h4>
+<p>L’utilisation de trames Ethernet pour véhiculer des flux liés au stockage nécessite une adaptation de la configuration du réseau afin de limiter la charge CPU et d’améliorer les performances globales de la solution.</p>
+<p>Si les équipements de réseau utilisés pour les flux iSCSI le permettent (prise en charge de bout en bout), il est recommandé d’augmenter la valeur du MTU à 9000.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-10">
+<p>Les adaptateurs de stockage</p>
+<h4>iSCSI en environnement vSphere</h4>
+<p>iSCSI Initiator</p>
+<p>iSCSI Target</p>
+<p>SAN iSCSI</p>
+<p>Illustration des éléments constitutifs d’une solution de stockage iSCSI</p>
+<p>ESXi</p>
+<p>HBA logiciel</p>
+<h4>+</h4>
+<p>Carte réseau</p>
+<p>Réseau</p>
+<p>LUN0</p>
+<p>de stockage</p>
+<p>LUN1</p>
+<p>HBA physique</p>
+<h4>SAN</h4>
+<p>Storage Area Network : le réseau de stockage qui est caractérisé par son (ses) protocole(s) d’accès et connectivité, sa volumétrie, ses fonctionnalités associées, ses performances</p>
+<h4>LUN</h4>
+<p>Logical Unit Number : unité de stockage d’une baie de disques</p>
+<h4>HBA</h4>
+<p>Host Bus Adapter : adaptateur de stockage qui (une fois configuré) permettra l’accès à un ou plusieurs espaces disques</p>
+<h4>iSCSI Target</h4>
+<p>L’élément qui met à disposition de l’espace disque physique</p>
+<h4>iSCSI Initiator</h4>
+<p>L’élément qui accède à de l’espace disque mis à sa disposition</p>
+<p>Gestion du stockage</p>
+<p>Les banques de données</p>
+</section>
+<section class="tssr-transcribed-page" id="page-11">
+<p>Les banques de données</p>
+<h4>Les datastores</h4>
+<ul><li>On dispose généralement de plusieurs espaces disques disponibles et accessibles depuis leur adaptateur de stockage associé.</li><li>Les banques de données (ou datastores) vont rendre utilisables ces espaces disques.</li><li>Avant leur création, il est important de recenser les besoins en termes de stockage et les caractéristiques attendues pour les espaces correspondants.</li></ul>
+<table><thead><tr><th scope="col">Besoins</th><th scope="col">VM_PROD</th><th scope="col">VM_TESTS</th><th scope="col">MODELES</th><th scope="col">ISO</th></tr></thead><tbody><tr><td>Performances</td><td>3</td><td>2</td><td>1</td><td>1</td></tr><tr><td>Tolérance aux pannes</td><td>3</td><td>2</td><td>2</td><td>1</td></tr><tr><td>Criticité</td><td>3</td><td>2</td><td>2</td><td>1</td></tr></tbody></table>
+<ul><li>Des valeurs élevées pour les différents indices sont généralement associées à un coût élevé de l’hébergement.</li></ul>
+<p>Les banques de données</p>
+<h4>La configuration des banques de données</h4>
+<ul><li>On distingue 3 types de banques de données :</li><li>VMFS</li><li>RDM avec VMFS</li><li>NFS</li><li>Caractéristiques et versions de systèmes de fichiers VMFS :</li></ul>
+<table><thead><tr><th scope="col"></th><th scope="col">VMFS 2</th><th scope="col">VMFS3</th><th scope="col">VMFS5</th><th scope="col">VMFS6</th></tr></thead><tbody><tr><td>Versions de vSphere prises en charge</td><td>ESX 2</td><td>Virtual Infrastructure 3, vSphere 4.x et vSphere 5.x</td><td>vSphere 5 et supérieur</td><td>vSphere 6.5 et supérieur</td></tr><tr><td>Volume maximal</td><td>2 To</td><td>2 To</td><td>64 To / Defrag Manu</td><td>64 To / Defrag Auto</td></tr><tr><td>Format de la table de partitions</td><td>MBR</td><td>MBR</td><td>GPT</td><td>GPT</td></tr><tr><td>Taille des blocs</td><td>1/2/4/8 Mo</td><td>1/2/4/8 Mo</td><td>1 Mo</td><td>1 Mo</td></tr></tbody></table>
+<ul><li>VMFS est un système de fichier qui permet un accès concurrentiel en lecture et écriture à un ensemble d’hôtes.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-12">
+<p>Les banques de données</p>
+<h4>Gestion des banques de données</h4>
+<p>Les principales tâches de gestion des banques de données sont :</p>
+<ul><li>Création et formatage</li><li>Suivi de son taux d’utilisation</li><li>Extension dynamique</li><li>Parcours, import et export de données</li><li>Démontage</li></ul>
+<h4>Affichage des fichiers masqués</h4>
+<p>Tous les fichiers ne sont pas visibles depuis l’outil d’exploration, ils peuvent l’être depuis la console de l’ESXi ou après s’y être connecté via ssh, au moyen de la commande ls</p>
+<p>Gestion du stockage</p>
+<p>Les disques de VM</p>
+</section>
+<section class="tssr-transcribed-page" id="page-13">
+<p>Les banques de données</p>
+<h4>VMDK ou RDM</h4>
+<ul><li>Dans la plupart des cas, les disques présentés aux machines virtuelles sont au format VMDK qui apporte plus de simplicité de gestion et de sauvegarde. Ce format limite cependant à 2 To la taille maximale d’un espace disque.</li><li>Le format RDM peut être nécessaire dans certains contextes :</li><li>Utilisation de solutions liées au SAN pour répondre à certains besoins (sauvegarde…)</li><li>Utilisation des services de cluster Microsoft</li><li>L’écart de performance entre les 2 formats est peu significatif</li></ul>
+<p>Les banques de données</p>
+<h4>La mise à disposition d’espace disque aux VM</h4>
+<ul><li>L’espace disque accessible aux hôtes est principalement destiné à être utilisé par les machines virtuelles qu’il héberge</li><li>Deux possibilités permettent de fournir de l’espace disque à une machine virtuelle :</li></ul>
+<h4>VM</h4>
+<h4>SAN</h4>
+<p>Disque virtuel</p>
+<ul><li>L’utilisation de disques au format VMDK</li><li>Le mappage d’espace disque en accès direct (Raw Device Mapping)</li></ul>
+<p>RDM</p>
+<p>LUN0</p>
+<p>Disque virtuel</p>
+<p>VMDK</p>
+<p>LUN1</p>
+<p>Datastore</p>
+<p>Storage Adapters</p>
+</section>
+<section class="tssr-transcribed-page" id="page-14">
+<p>Les banques de données</p>
+<h4>Création d’un disque VMDK</h4>
+<p>Lors de la création d’un disque virtuel au format VMDK, 2 types de provisionnements sont proposés :</p>
+<ul><li>Thick provision</li><li>Thin provision</li></ul>
+<table><thead><tr><th scope="col"></th><th scope="col">Thick provisioning</th><th scope="col">Thin provisioning</th></tr></thead><tbody><tr><td>Provisionnement</td><td>Définitif / statique</td><td>À la demande / dynamique</td></tr><tr><td>Espace disque occupé</td><td>Le disque créé occupera dès sa création tout l’espace indiqué</td><td>La taille réelle du disque correspond à l’espace maximum occupé sur le disque. Le disque pourra au maximum atteindre l’espace indiqué</td></tr><tr><td>Avantages</td><td>Performances supérieures</td><td>Création du disque instantanée. L’espace non utilisé n’est pas bloqué et peut être utilisé</td></tr><tr><td>Inconvénients</td><td>Temps de création du disque</td><td>Risque de surallocation d’un datastore</td></tr></tbody></table>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

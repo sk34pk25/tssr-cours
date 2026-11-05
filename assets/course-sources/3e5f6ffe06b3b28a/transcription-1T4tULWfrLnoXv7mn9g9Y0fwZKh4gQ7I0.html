@@ -1,41 +1,34 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M5 - Enoncé du TP1 - Enchaînements conditionnels.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M5 - Enoncé du TP1 - Enchaînements conditionnels</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> <br> <br> </p>
-<h4>Enchaînements conditionnels </h4>
-<p class="tssr-source-paragraph">TP1 du Module 05 - Les caractères spéciaux du Shell <br> </p>
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 5. </p>
-
-<h4>Objectifs </h4>
-<p class="tssr-source-paragraph">Créer un script Shell utilisant des enchainements de commandes conditionnels. </p>
-<h4>Énoncé </h4>
-
-<p class="tssr-source-paragraph">Réaliser un script Shell effectuant des actions automatisées : </p>
-<p class="tssr-source-paragraph">• <br>Le script demandera tout d’abord la saisie d’un nom de dossier </p>
-<pre class="tssr-source-code">o En réalisera la création et confirmera la bonne création avec un message en vert </pre>
-<pre class="tssr-source-code">• 
-Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt </pre>
-<pre class="tssr-source-code">o Le nom de ce fichier sera stocké dans une variable déclarée manuellement en début de </pre>
-<p class="tssr-source-paragraph">script </p>
-<pre class="tssr-source-code">o La bonne création du fichier sera confirmée par un message de couleur bleu </pre>
-<p class="tssr-source-paragraph">• <br>Renseignera automatiquement le contenu suivant dans le fichier avec la commande </p>
-<pre class="tssr-source-code">echo &quot;Introduction du fichier fic_M5TP1.txt&quot; &gt; $dossier/$fic </pre>
-<p class="tssr-source-paragraph">• <br>Affichera le contenu du fichier (et vérifier la bonne insertion du texte) </p>
-
-<p class="tssr-source-paragraph">Exemple de visuel possible : </p>
-<pre class="tssr-source-code"> 
-$ ./script_M5TP1.sh 
-Veuillez saisir un nom de dossier à créer: doss_M5TP1 
- 
-Création du dossier : doss_M5TP1 
------------------------------ 
- Répertoire ‘doss_M5TP1’ créé. 
- 
-Création du fichier : fic_M5TP1.txt 
------------------------------ 
- Fichier &#x27;fic_M5TP1.txt&#x27; créé dans ‘doss_M5TP1’. 
- 
-Contenu du fichier : </pre>
-<p class="tssr-source-paragraph"> <br> <br>ENI Ecole Informatique </p>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M5 - Enoncé du TP1 - Enchaînements conditionnels</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>M5 - Enoncé du TP1 - Enchaînements conditionnels</h1><p>Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<h2>Enchaînements conditionnels</h2>
+<h3>TP1 du Module 05 - Les caractères spéciaux du Shell</h3>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les modules 1 à 5.</p>
+<p>Objectifs</p>
+<p>Créer un script Shell utilisant des enchainements de commandes conditionnels.</p>
+<p>Énoncé</p>
+<p>Réaliser un script Shell effectuant des actions automatisées :</p>
+<ul><li>Le script demandera tout d’abord la saisie d’un nom de dossier</li></ul>
+<p>o En réalisera la création et confirmera la bonne création avec un message en vert</p>
+<ul><li>Puis, il créera automatiquement dans le dossier un fichier nommé fic_M5TP1.txt</li></ul>
+<p>o Le nom de ce fichier sera stocké dans une variable déclarée manuellement en début de</p>
+<p>script</p>
+<p>o La bonne création du fichier sera confirmée par un message de couleur bleu</p>
+<ul><li>Renseignera automatiquement le contenu suivant dans le fichier avec la commande</li></ul>
+<pre><code>echo &quot;Introduction du fichier fic_M5TP1.txt&quot; &gt; $dossier/$fic</code></pre>
+<ul><li>Affichera le contenu du fichier (et vérifier la bonne insertion du texte)</li></ul>
+<p>Exemple de visuel possible :</p>
+<pre><code>$ ./script_M5TP1.sh
+Veuillez saisir un nom de dossier à créer: doss_M5TP1</code></pre>
+<pre><code>Création du dossier : doss_M5TP1
+-----------------------------
+Répertoire ‘doss_M5TP1’ créé.</code></pre>
+<pre><code>Création du fichier : fic_M5TP1.txt
+-----------------------------
+Fichier &#x27;fic_M5TP1.txt&#x27; créé dans ‘doss_M5TP1’.</code></pre>
+<pre><code>Contenu du fichier :</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation au scripting Bash <br> <br> <br> </p>
-<pre class="tssr-source-code">------------------ 
-Introduction du fichier fic_M5TP1.txt </pre>
-<p class="tssr-source-paragraph"> <br> <br>ENI Ecole Informatique </p></section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2"><h2>Page 2</h2>
+<pre><code>------------------
+Introduction du fichier fic_M5TP1.txt</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

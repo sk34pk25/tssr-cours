@@ -1,0 +1,43 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 05 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 05 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 05 – Les composantes d’une infrastructure vSphere</h4>
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>Objectifs</h4>
+<ul><li>Décrire les composantes d’une infrastructure vSphere 6.x</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>De vSphere 5 à vSphere 6</h4>
+<ul><li>Disparition de l’ESX et du Service Console</li><li>Disparition du client Lourd vSphere Client</li><li>vCenter disponible sous forme d&#x27;Appliance virtuelle</li><li>Apparition du Web client vSphere (lié à vCenter)</li></ul>
+<p>Machines virtuelles</p>
+<p>Service console</p>
+<p>VM de gestion</p>
+<p>Hyperviseur</p>
+<p>Matériel</p>
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>Composantes d’une solution vSphere</h4>
+<p>vCenter</p>
+<table><thead><tr><th scope="col">Élément</th><th scope="col">Nom de l’élément dans la solution VMware</th></tr></thead><tbody><tr><td>Solution de virtualisation</td><td>vSphere</td></tr><tr><td>Hyperviseur</td><td>ESXi / ESX</td></tr><tr><td>Client d’administration</td><td>Client vSphere / vSphere Web Client</td></tr><tr><td>Solution de regroupement d’hyperviseurs</td><td>vCenter</td></tr></tbody></table>
+<p>ESXi</p>
+<p>VM</p>
+<p>VM</p>
+<p>Attention : les versions des différents éléments d’une infrastructure vSphere doivent concorder !</p>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>Les principales fonctionnalités</h4>
+<table><thead><tr><th scope="col">Fonctionnalité</th><th scope="col">Utilité</th></tr></thead><tbody><tr><td>vMotion*</td><td>Déplacement de machine virtuelle d’un hôte vers un autre hôte.</td></tr><tr><td>Storage vMotion*</td><td>Déplacement du stockage d’une machine virtuelle d’une banque de donnée vers une autre banque de donnée.</td></tr><tr><td>DRS</td><td>Automatisation du déplacement de machines virtuelles d’un hôte vers un autre hôte disposant de plus de ressources.</td></tr><tr><td>Storage DRS</td><td>Automatisation du déplacement de machines virtuelles d’un datastore vers un autre disposant de plus de ressources.</td></tr><tr><td>DPM</td><td>Fonctionnalité permettant d’automatiser l’entrée et la sortie de veille d’hyperviseurs en fonction de la charge d’activité du cluster.</td></tr><tr><td>HA</td><td>High Availability : fonctionnalité de haute disponibilité. Lors de la défaillance d’un hôte, les machines virtuelles ciblées seront redémarrées sur un autre hôte du cluster.</td></tr><tr><td>FT</td><td>Fault Tolerance : fonctionnalité de très haute disponibilité protégeant des machines virtuelles ciblées de la défaillance d’un hôte. Aucune interruption de service n’affectera les VM ciblées.</td></tr></tbody></table>
+<p>* Fonctionnalités abordées dans le module 8</p>
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>Tableau comparatif des coûts</h4>
+<table><thead><tr><th scope="col">Comparatif des solutions</th><th scope="col">Description</th><th scope="col">Coût au 16/08/2021</th></tr></thead><tbody><tr><td>ESXi seul</td><td>Gratuit. Nécessite simplement la création d’un compte VMware.</td><td>0 €</td></tr><tr><td>Suite Essentials</td><td>Les licences vSphere Essentials Kit sont illimitées et n’ont pas de date d’expiration. Ce kit comprend 6 licences CPU de vSphere Essentials (pour 3 serveurs dotés de 2 processeurs chacun maximum) et 1 licence de vCenter Server Essentials.</td><td>574,13 € TTC</td></tr><tr><td>vSphere Standard</td><td>Les licences vSphere Standard sont illimitées et n’ont pas de date d’expiration. Ce logiciel comprend 1 licence CPU de vSphere Standard et 1 licence de vCenter Server Standard.</td><td>1262,14 € TTC</td></tr><tr><td>vSphere Entreprise Plus</td><td>VMware vSphere Enterprise Plus intègre l’ensemble des fonctionnalités de vSphere. Aucune date d’expiration et cette licence permet l’utilisation pour un CPU de vCenter Server.</td><td>4326,23 € TTC</td></tr></tbody></table>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>Les composantes d’une infrastructure vSphere</p>
+<h4>Les licences</h4>
+<ul><li>Licences et contextes d’utilisation</li></ul>
+<table><thead><tr><th scope="col">Cible</th><th scope="col">Édition</th><th scope="col">Coût</th><th scope="col">La licence couvre</th></tr></thead><tbody><tr><td>PME</td><td>Essentials</td><td>574,13 € TTC</td><td>Elle inclut vCenter Foundation</td></tr><tr><td>PME</td><td>Essentials Plus</td><td>2525,00 € TTC</td><td>Elle inclut vCenter Foundation</td></tr><tr><td>Grandes entreprises</td><td>Standard</td><td>1262,14 € TTC</td><td>Quantité maximale de RAM par hôte</td></tr><tr><td>Grandes entreprises</td><td>Enterprise Plus</td><td>4326,23 € TTC</td><td>Quantité maximale de RAM par hôte</td></tr><tr><td>Grandes entreprises</td><td>Platinum</td><td>NC</td><td>Quantité maximale de RAM par hôte</td></tr></tbody></table>
+<p>Les VRAM pool permettant de cumuler la quantité de mémoire des licences de chaque ESXi pour les attribuer</p>
+<p>ensuite aux VM n’est plus en vigueur sur vSphere 5.5</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

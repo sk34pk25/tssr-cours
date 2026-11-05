@@ -1,0 +1,346 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 06 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 06 – Gestion du réseau</h4>
+<p>Gestion du réseau</p>
+<h4>Objectifs</h4>
+<ul><li>Configurer le réseau d’un ESXi afin de répondre à des besoins ciblés</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<p>Gestion du réseau</p>
+<p>Les VLAN</p>
+<p>Les VLAN</p>
+<h4>Définition</h4>
+<ul><li>Un VLAN (Virtuel LAN) est un réseau logique indépendant.</li><li>Les commutateurs (ou switch) permettent l’interconnexion réseau d’un ensemble d’éléments. Tous les éléments raccordés à un même switch peuvent ainsi communiquer entre eux.</li><li>La mise en œuvre de VLAN permet de définir des contextes isolés afin que seuls les éléments d’un même VLAN puissent communiquer ensemble.</li></ul>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>Postes clients</p>
+<p>Serveurs</p>
+<p>Téléphones</p>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Les VLAN</p>
+<h4>Intérêt de mise en œuvre</h4>
+<ul><li>La segmentation du réseau au moyen de VLAN permet :</li><li>D’accroître la sécurité</li><li>D’accroître les performances en limitant les domaines de diffusion</li><li>De prioriser certains flux</li><li>D’optimiser l’utilisation du matériel</li><li>Les limites</li><li>Nécessite une prise en charge par les commutateurs</li><li>Nécessite une configuration</li></ul>
+<p>Les VLAN</p>
+<h4>Prise en charge 802.1Q</h4>
+<ul><li>Les VLAN peuvent être mis en œuvre à différents niveaux du modèle OSI :</li></ul>
+<h4>VLAN de niveau 1</h4>
+<p>L’affectation à un VLAN est liée au port de raccordement du switch</p>
+<h4>VLAN de niveau 2</h4>
+<p>L’affectation du VLAN est liée à l’adresse MAC de l’équipement</p>
+<h4>VLAN de niveau 3</h4>
+<p>L’affectation du VLAN est liée à l’adresse IP de l’équipement</p>
+<ul><li>Leur affectation peut être réalisée par :</li><li>Les équipements d’interconnexion : les switchs</li><li>Les équipements terminaux (postes de travail, serveurs, téléphones IP)</li><li>La norme 802.1Q correspond au standard de prise en charge</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>Les VLAN</p>
+<h4>Intégration d’un identifiant de VLAN</h4>
+<ul><li>L’ajout d’informations d’identification de VLAN se matérialise par la modification de l’en-tête Ethernet des trames IP</li></ul>
+<p>TAG VLAN</p>
+<p>Adresse MAC</p>
+<p>Adresse MAC</p>
+<p>802.1Q (4 octets)</p>
+<p>Type / longueur</p>
+<p>Données</p>
+<p>CRC</p>
+<p>Destination</p>
+<p>Source</p>
+<p>16 bits</p>
+<p>3 bits</p>
+<p>1 bit</p>
+<p>12 bits</p>
+<p>TPID Tag Protocole</p>
+<p>Identifier</p>
+<p>TCI (Tag Control Identifier)</p>
+<p>0x8100</p>
+<p>Priorité utilisateur</p>
+<p>Canonical Format</p>
+<p>Indicator</p>
+<p>VLAN ID</p>
+<ul><li>Parmi les informations ajoutées figurent :</li><li>Une priorité (valeur de 0 à 7) permettant de mettre en place de la qualité de service 802.1 P</li><li>L’identifiant de VLAN (valeur de 1 à 4094)</li></ul>
+<p>Les VLAN</p>
+<h4>Le trunking</h4>
+<ul><li>Généralement, les réseaux d’entreprises intègrent une multitude de switchs. Les ports utilisés pour le raccordement entre les switchs doivent être identifiés comme « port trunk ».</li><li>Lors de la configuration d’un port en « port trunk », on indique les trames de quels VLAN doivent se propager.</li></ul>
+<p>Postes clients – vlan3</p>
+<p>Téléphones – vlan2</p>
+<p>Nantes - RDC</p>
+<p>Port Trunk</p>
+<p>vlan3</p>
+<p>vlan2</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>Nantes Cœur de réseau</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>Nantes – Étage 1</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>10</p>
+<p>11</p>
+<p>12</p>
+<p>13</p>
+<p>14</p>
+<p>15</p>
+<p>16</p>
+<p>17</p>
+<p>18</p>
+<p>19</p>
+<p>20</p>
+<p>21</p>
+<p>22</p>
+<p>23</p>
+<p>24</p>
+<p>Postes clients – vlan3 Téléphones – vlan2 Serveurs – vlan5</p>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<p>Les VLAN</p>
+<h4>Critères de configuration sur les switchs</h4>
+<ul><li>Sur les commutateurs, la configuration à mettre en œuvre doit prendre en considération les aspects suivants :</li><li>Le type d’utilisation du port</li></ul>
+<table><thead><tr><th scope="col">Type de port</th><th scope="col">Utilisation</th></tr></thead><tbody><tr><td>Port Access</td><td>Port utilisé pour communiquer avec un équipement terminal, un seul VLAN peut lui être affecté</td></tr><tr><td>Port Trunk</td><td>Port utilisé pour la liaison vers d’autres commutateurs, un ensemble de VLAN peut lui être affecté</td></tr></tbody></table>
+<ul><li>L’état d’activation du marquage</li></ul>
+<table><thead><tr><th scope="col">Marquage</th><th scope="col">Effet</th></tr></thead><tbody><tr><td>Marquage actif</td><td>Le marquage des paquets (champ TAG VLAN) est propagé à leur sortie du switch</td></tr><tr><td>Marquage inactif</td><td>Le champ TAG VLAN est supprimé avant la remise de la trame</td></tr></tbody></table>
+<ul><li>Le(s) VLAN(s) à affecter aux ports : à chaque port sera associé</li></ul>
+<table><thead><tr><th scope="col">Affectation</th><th scope="col">VLAN</th></tr></thead><tbody><tr><td>Le VLAN par défaut</td><td>VLAN1</td></tr><tr><td>D’autre(s) VLAN(s)</td><td>Le(s) VLAN(s) choisis</td></tr></tbody></table>
+<p>Les VLAN</p>
+<h4>Configuration sur les équipements terminaux</h4>
+<ul><li>Certains équipements terminaux sont compatibles avec la norme 802.1Q, leur affectation à un VLAN est gérée depuis leur configuration. Ces équipements doivent être connectés à des ports configurés en mode trunk du switch.</li><li>Quelques exemples de type d’équipements terminaux pouvant prendre en charge la norme 802.1Q :</li><li>Des pilotes de carte réseau</li><li>Des systèmes d’exploitation</li><li>Des téléphones IP</li></ul>
+<h4>Informations dans les visuels du support</h4>
+<ul><li>La capture d’un réglage d’appartenance au VLAN propose Par défaut ou VLAN spécifique. L’exemple choisit le VLAN spécifique 100.</li></ul>
+<figure><img src="../isolated/89509a521e376c8b/v13-d06-p05-i1.webp" alt="Capture isolée du support, page 5"><figcaption>Capture isolée du support, page 5</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+<p>Gestion du réseau</p>
+<p>Les composantes vSphere du</p>
+<p>réseau</p>
+<p>Les composantes vSphere du réseau</p>
+<h4>Le vSphere Standard Switch - VSS</h4>
+<ul><li>C’est le composant central de gestion du réseau de l’ESXi</li><li>Il est géré indépendamment pour chaque ESXi de l’infrastructure</li></ul>
+<p>VMware</p>
+<p>vSwitch0</p>
+<ul><li>Liaison</li><li>Un VSS est lié à un ou plusieurs groupements de ports</li><li>Un VSS peut être raccordé à une ou plusieurs cartes réseau</li></ul>
+<p>Par défaut le vSwitch0 est créé, il est utilisable :</p>
+<ul><li>Pour les tâches de gestion de l’ESXi</li><li>Par les machines virtuelles Il est lié à la carte réseau de l’ESXi présente à l’installation.</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-7">
+<p>Les composantes vSphere du réseau</p>
+<h4>Le vSwitch distribué - VDS</h4>
+<ul><li>À la différence des vSwitch standard, le vSwitch distribué est un</li></ul>
+<h4>objet commun aux éléments d’une même infrastructure vSphere.</h4>
+<ul><li>Un même VDS est utilisable par un ensemble d’hôtes.</li><li>Sa gestion se réalise depuis le vCenter de l’infrastructure.</li><li>L’utilisation de VDS permet d’éviter toute interruption de service en cas de migration de VM.</li></ul>
+<p>Cette fonctionnalité requiert le niveau de licence Enterprise plus.</p>
+<p>Les composantes vSphere du réseau</p>
+<h4>Les groupements de ports</h4>
+<p>ESXi</p>
+<p>VMware</p>
+<ul><li>Ils définissent un type d’utilisation du réseau pour l’ESXi parmi les suivants :</li></ul>
+<p>Networking</p>
+<p>Type</p>
+<h4>Utilisation</h4>
+<p>vSwitch0</p>
+<h4>VM Network</h4>
+<h4>Création de réseau à destination des</h4>
+<h4>machines virtuelles</h4>
+<h4>VMkernel</h4>
+<p>Création de réseau à destination des besoins de</p>
+<p>l’infrastructure de virtualisation</p>
+<p>Port group de</p>
+<p>type Virtual</p>
+<ul><li>Des machines liées à des groupements de ports distincts d’un même vSwitch ne peuvent pas communiquer entre elles.</li></ul>
+<p>machine</p>
+<p>Port group de type VMkernel</p>
+<h4>La segmentation en VLAN peut être configurée</h4>
+<h4>depuis les groupements de ports.</h4>
+</section>
+<section class="tssr-transcribed-page" id="page-8">
+<p>Les composantes vSphere du réseau</p>
+<h4>Les VMNIC ou pNIC</h4>
+<p>ESXi</p>
+<ul><li>Ce sont les cartes réseau physiques de l’ESXi</li></ul>
+<p>pNIC</p>
+<h4>Objet vSphere associé à une</h4>
+<p>VMware</p>
+<h4>VMNIC</h4>
+<h4>Carte physique de l’hôte</h4>
+<p>VMNIC</p>
+<p>pNIC</p>
+<ul><li>Deux dénominations s’appliquent aux cartes réseau physiques des hôtes</li><li>Les contraintes de liaison vmnic &lt;=&gt; vSwitch</li></ul>
+<p>Networking</p>
+<p>VMNIC</p>
+<ul><li>Chaque carte peut être liée à un seul vSwitch</li><li>Plusieurs cartes peuvent être liées au même vSwitch</li></ul>
+<p>vSwitch0</p>
+<p>Les composantes vSphere du réseau</p>
+<h4>Le regroupement de cartes réseau (Teaming)</h4>
+<ul><li>Il est possible de regrouper un ensemble de cartes réseau d’un ESXi.</li><li>Cela se traduit par :</li></ul>
+<p>Un adressage unique</p>
+<p>Si les cartes sont liées à un groupement de port typé</p>
+<p>VMkernel</p>
+<p>Un débit cumulé</p>
+<p>Mode de configuration actif - actif</p>
+<p>Un gain de tolérance de pannes</p>
+<p>Mode de configuration actif - passif</p>
+<ul><li>Prérequis de mise en œuvre :</li><li>Disposer au minimum de 2 VMNIC raccordés à un switch virtuel</li><li>Mise en œuvre, la configuration peut se faire :</li><li>Par la sélection d’un ensemble de cartes, lors de la création d’un switch virtuel</li><li>Par l’ajout de carte(s) au groupement de ports d’un switch virtuel existant</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-9">
+<p>Les composantes vSphere du réseau</p>
+<h4>Teaming – répartition de charge</h4>
+<ul><li>La configuration du teaming permet de déterminer le mode de fonctionnement de la répartition de</li></ul>
+<h4>charge :</h4>
+<ul><li>Par VM : chaque port du vSwitch (soit indirectement chaque carte réseau de VM) est lié à un VMNIC</li><li>Par adresse matérielle (MAC) de la source du paquet</li><li>Par paquet : en fonction des adressages de source et destination, un algorithme détermine la VMNIC à utiliser</li></ul>
+<p>13 14 15 16 17 18</p>
+<p>19 20 21 22 23 24</p>
+<p>Par ordonnancement des cartes : pas de répartition de charge, seule la défaillance d’une carte entraîne l’utilisation de la suivante</p>
+<p>Les composantes vSphere du réseau</p>
+<h4>Les vNIC</h4>
+<p>ESXi</p>
+<p>pNIC</p>
+<p>VMware</p>
+<ul><li>Ce sont les cartes réseau présentées aux machines virtuelles</li></ul>
+<p>VMNIC</p>
+<p>Networking</p>
+<p>vSwitch0</p>
+<ul><li>Elles peuvent être connectées ou non à un groupement de ports de type Virtual machine existant</li></ul>
+<p>vNIC</p>
+<p>Port group de</p>
+<p>type Virtual</p>
+<p>vNIC</p>
+<p>machine</p>
+<p>La segmentation en VLAN peut être configurée au niveau des vNIC</p>
+<p>Port group de type VMkernel</p>
+</section>
+<section class="tssr-transcribed-page" id="page-10">
+<p>Les composantes vSphere du réseau</p>
+<h4>Lien entre les VMNIC et les besoins réseau</h4>
+<ul><li>Un hôte dispose généralement d’un ensemble de cartes réseau</li><li>Ces cartes permettent de couvrir les multiples besoins réseau de l’infrastructure vSphere</li></ul>
+<p>Réseau pour</p>
+<p>Gestion de l’infrastructure</p>
+<p>Déplacement</p>
+<p>de VM</p>
+<p>Flux iSCSI</p>
+<p>Très haute disponibilité</p>
+<p>les VM</p>
+<ul><li>Il est important de recenser les besoins, d’identifier ceux que l’on souhaite regrouper et ceux que l’on souhaite isoler</li></ul>
+<p>Réseau pour</p>
+<p>Gestion de l’infrastructure</p>
+<p>Déplacement</p>
+<p>de VM</p>
+<p>Flux iSCSI</p>
+<p>Très haute disponibilité</p>
+<p>les VM</p>
+<p>VMNIC1</p>
+<p>VMNIC</p>
+<p>2</p>
+<p>VMNIC3</p>
+<p>VMNIC4</p>
+<p>Les composantes vSphere du réseau</p>
+<h4>Illustration de raccordement réseau global</h4>
+<p>SW3 SW2 SW1</p>
+<p>Physique</p>
+<h4>Hôte</h4>
+<p>Stockage baie</p>
+<p>de disques</p>
+<p>vSwitch 1</p>
+<p>vSwitch 2</p>
+<p>Groupement de ports</p>
+<p>Groupement de ports GESTION (VMkernel)</p>
+<p>vMotion (VMkernel)</p>
+<p>STOCKAGE</p>
+<p>(VMkernel)</p>
+<p>Logique</p>
+<p>vSwitch 0</p>
+<p>VM</p>
+<p>Groupement de ports</p>
+<p>VM PROD (VM Network)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-11">
+<p>Les composantes vSphere du réseau</p>
+<h4>Les VLAN en environnement virtualisé</h4>
+<p>Switch</p>
+<p>ESXi</p>
+<p>pNIC</p>
+<p>VMware</p>
+<ul><li>En environnement vSphere, les VLAN peuvent affectés :</li></ul>
+<p>VMNIC</p>
+<p>Networking</p>
+<ul><li>Au niveau du switch (un seul VLAN ciblera alors tout le trafic)</li><li>Sur des groupements de ports</li><li>Sur des vNIC</li><li>Si les VLAN sont affectés par l’hyperviseur, le switch doit être configuré en mode trunk et lié à tous les VLAN nécessaires aux composantes d’infrastructure vSphere et aux VM.</li></ul>
+<p>vSwitch0</p>
+<p>vNIC</p>
+<p>Port group de</p>
+<p>type Virtual</p>
+<p>vNIC</p>
+<p>machine</p>
+<p>Port group de type VMkernel</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

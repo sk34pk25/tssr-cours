@@ -1,0 +1,59 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Consigne-Tp6-Q2.ps1</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Consigne-Tp6-Q2.ps1</h1><p>Ressource du TP 6 extraite de TP6.7z. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Script fourni dans TP6.7z.</p><pre><code># Installation et configuration DNS - Cours Services réseau Windows et GNU/Linux
+# Gilles Brossier  - 15/03/2018
+#
+# Installation composant
+Install-WindowsFeature dnsserver -IncludedManagementTools
+
+# Machine client de son service DNS
+Set-DnsClientServerAddresse  -InterfaceIndex  -ServerAddresses 172.20.0.2 -PassThru
+
+# Configuration Suffixe DNS Principal
+Set-ItemProperty “HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\” –Name Domain –Value &quot;gilles.eni&quot;
+Reboot-Computer
+
+## Redirecteurs
+# Redirecteur conditionnel
+Add-DnsServerConditionalForwardedZone -ZoneName &quot;gilles.eni&quot; -MasterServers 172.20.0.1
+# Redirecteur vers S1-GL et ENI
+Set-DnsServerconditionalForwarder -IPAddress 10.0.0.3,10.100.0.3 -PassThru
+
+## Zones
+
+# Zone enfant ad.gilles.eni
+Add-DnsServerfirstZone -Name &quot;ad.gilles.eni&quot; -ZoneFile &quot;ad.gilles.eni.dns&quot;
+# Glue DNS pour le NS de la zone
+Add-DnsServerRessourceRecord -A -Name &quot;s2-w-cd&quot; -IPv4Address 172.20.0.1 -ZoneName &quot;ad&quot;
+# Enregistrement dans la zone
+Add-DnsServerRessourceRecord -A -Name &quot;dns1&quot; -IPv4Address 172.20.0.2 -ZoneName &quot;ad.gilles.eni&quot;
+
+#Add-DnsServerResourceRecord -CName -Name &quot;dns2&quot; -HostNameAlias &quot;s3-gl.gilles.eni&quot; -ZoneName &quot;ad.gilles.eni&quot;
+# Lister le contenu de la zone
+Get-DnsServerResourceRecord -ZoneName &quot;ad.gilles.eni&quot; | ft -AutoSize
+# Activation de la mise à jour dynamique
+Set-DnsServer -name &quot;ad.gilles.eni&quot; -DynamicUpdate
+
+# Configuration des serveurs secondaires + glue DNS
+Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.eni&quot; -NameServer &quot;s3-gl.gilles.eni&quot; -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -A -Name &quot;s3-gl.gilles.eni.&quot; -IPv4Address 172.20.8.3 -Zone &quot;ad&quot;
+## Ou
+Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.eni&quot; -NameServer &quot;s4-w-sm&quot; -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -A -Name &quot;s4-w-sm&quot; -IPv4Address 172.20.8.4 -ZoneName &quot;ad.gilles.eni&quot;
+
+# Zone inverse réseau 172.20.0.0/16
+Add-DnsServerPrimaryZone -NetworkId 172.20.0.0/16 -Zone 20.172.dns -DynamicUpdate NonsecureAndSecure
+#Ou
+#Add-DnsServerPrimaryZone -Name &quot;20.172.in-addr.arpa&quot; -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure
+Add-DnsServerResourceRecordPtr -Name &quot;1.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s1-gl.gilles.eni&quot;
+Add-DnsServerRessourceRecordPtr -Name &quot;2.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s2-w-cd.gilles.eni&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;3.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s3-gl.gilles.eni&quot;
+Add-DnsServerRessourceRecordPtr -Name &quot;4.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s4-w-sm.gilles.eni&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;254.7&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.eni&quot;
+Add-DnsServerRessourceRecordPtr -Name &quot;254.15&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.eni&quot;
+# Lister le contenu de la zone
+Get-DnsServerRessourceRecord -ZoneName &quot;20.172.in-addr.arpa&quot; | ft -AutoSize</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

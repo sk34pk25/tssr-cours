@@ -1,0 +1,87 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSSR110-Virtualisation_Mise en Situation - Module 6 - Gestion Reseaux - Solution</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>TSSR110-Virtualisation_Mise en Situation - Module 6 - Gestion Reseaux - Solution</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Solutions :</p>
+<h4>Atelier N°4</h4>
+<p>TP du Module 06 – Gestion Réseau d’une infrastructure vSphere</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 5.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h4>Objectif :</h4>
+<p>Gérer les réseaux des ESXi</p>
+<h4>Prérequis :</h4>
+<p>Avoir réalisé l’atelier n°3 (Module 5)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Énoncé :</h4>
+<p>Les hyperviseurs virtualisés grâce à VMware Workstation disposeront de cartes réseau supplémentaires. Cela permettra de séparer les différents flux circulant entre les hyperviseurs, les machines virtuelles qu’ils hébergent et les systèmes extérieurs.</p>
+<p>Dans cet atelier, les flux de stockage (communication avec des NAS/SAN etc.), de gestion (connexion aux hyperviseurs etc.) et liés aux machines virtuelles seront séparés via plusieurs vSwitchs/cartes réseau physiques.</p>
+<p>Sur Workstation</p>
+<ul><li>Arrêter (proprement) l’hyperviseur ESXi1 et ESXi2, et leur ajouter trois cartes réseau en « bridge »</li><li>Depuis la console locale ESXi1, appuyer sur F12</li><li>Renseigner le MDP Root, puis cliquer sur « Forcefully terminate … » et enfin touche</li></ul>
+<p>F2.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<ul><li>Dans les paramètres de la VM ESXi1, ajouter 3 cartes réseau en bridge</li><li>Démarrer ESXi1</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>Sur ESXi1</p>
+<ul><li>Modifier la configuration du vSwitch0 : -</li></ul>
+<p>Ne conserver que le groupement de port actuel « Management Network » et le renommer GRP-GESTION pour le seul trafic de gestion.</p>
+<ul><li>Cliquer sur « Mise en réseau »</li><li>Changement du nom « Management Network » en « GRP-GESTION »</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<ul><li>Créer les vSwitchs supplémentaires comme indiqué sur le tableau ci-dessous :</li></ul>
+<p>vSwitch1</p>
+<p>vSwitch2</p>
+<p>Nom groupement de ports lié</p>
+<p>GRP-VMNET</p>
+<p>GRP-STORAGE-VMOTION</p>
+<p>Type de ports</p>
+<p>Machines virtuelles</p>
+<p>VMKernel</p>
+<p>Fonction</p>
+<p>Communication entre VMs</p>
+<p>Sera dédié à iSCSI+ vMotion</p>
+<p>Adresse Interface VMKernel (VMK)</p>
+<p>192.168.xx*.1/24</p>
+<p>Carte(s) réseau associée(s)</p>
+<p>Vmnic1 Vmnic2</p>
+<p>Vmnic3</p>
+<p>Ne pas toucher aux identifiants de VLAN</p>
+<figure><img src="../isolated/9cccc6951103fe48/v13-d05-p05-i2.webp" alt="Capture isolée du support, page 5"><figcaption>Capture isolée du support, page 5</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+<ul><li>Se connecter via navigateur Internet sur l’interface d’ESXi1</li></ul>
+<p>1)° Ajout du vSwitch Standard Virtuel « vSwitch1 »</p>
+<ul><li>Dans le menu « Mise en réseau », cliquer sur onglet « Commutateurs virtuels »</li><li>Puis cliquer sur « Ajouter un commutateur… »</li><li>Ensuite lui donner le nom « vSwitch1 »</li><li>Ajouter la deuxième carte réseau physique « vmnic2 » au vSwitch1</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-7">
+<p>2)° Ajout du vSwitch Standard Virtuel « vSwitch2 »</p>
+<ul><li>Dans le menu « Mise en réseau », cliquer sur « Commutateurs virtuels »</li><li>Puis cliquer sur « Ajouter un commutateur… »</li><li>Ensuite lui donner le nom « vSwitch2 »</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-8">
+<p>3°) Ajout du groupement de port « GRP-VMNET »</p>
+<ul><li>Dans le menu « Mise en réseau », onglet « Groupes de ports », cliquer sur « Ajouter</li></ul>
+<p>un groupe de ports »</p>
+<ul><li>Modifier le Nom en : GRP-VMNET Sélectionner le Commutateur vSwitch1 puis Ajouter</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-9">
+<p>4°) Ajout d’une interface virtuel VMKernel</p>
+<ul><li>Dans le menu « Mise en réseau », onglet « NIC VMkernel », cliquer sur « Ajouter</li></ul>
+<p>une NIC… »</p>
+<ul><li>Renseigner les champs comme suit :</li></ul>
+<figure><img src="../isolated/9cccc6951103fe48/v13-d05-p09-i3.webp" alt="Capture isolée du support, page 9"><figcaption>Capture isolée du support, page 9</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-10">
+<p>5°) Retrait groupement de port « VM Network »</p>
+<ul><li>La VM « SRV-1 » utilise le groupement de port « VM Network », nous empechant de</li></ul>
+<p>le retirer. Il faut donc changer le groupement de port sur la VNIC de la VM « SRV-1 » de « VM Network » à « GRP-VMNET »</p>
+<ul><li>Désormais, nous pouvons supprimer le groupement de port « VM Network »</li></ul>
+<p>Cela donne au final :</p>
+<p>Sur ESXi2</p>
+<ul><li>Reproduire les modifications réseau apportées sur ESXi1 en utilisant l’adresse IP :</li><li>Pour le groupement de port GRP-STORAGE-VMOTION : 192.168.xx.2/24</li></ul>
+<figure><img src="../isolated/9cccc6951103fe48/v13-d05-p10-i3.webp" alt="Capture isolée du support, page 10"><figcaption>Capture isolée du support, page 10</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-11">
+<p>Schéma récapitulatif :</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,0 +1,58 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 04 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 04 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 04 – Découverte d’Hyper-V</h4>
+<p>Découverte d’Hyper-V</p>
+<h4>Objectifs</h4>
+<ul><li>Découvrir Hyper-V 2019</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Prérequis et installation</h4>
+<p>Découverte d’Hyper-V</p>
+<h4>Prérequis matériel</h4>
+<h4>Installation</h4>
+<ul><li>Versions : Hyper-V v2 (W2008 R2), Hyper-V v3 (W8, W2012)</li><li>Pour les serveurs, rôle intégré à installer avec le</li></ul>
+<h4>gestionnaire de serveur</h4>
+<ul><li>Pour le client Windows 8, fonctionnalité intégrée à activer</li><li>Processeur 64 bits Intel VT-x ou AMD-V (attention aux réglages BIOS / UEFI)</li><li>CPU, RAM et espace disque adaptés</li></ul>
+<h4>Prérequis logiciel</h4>
+<ul><li>Un système Windows Serveur (W2008 et supérieur)</li><li>Ou un système Windows 8 Pro 64bits (+SLAT Second Level Address Translation)</li></ul>
+<p>Lors de l’installation du rôle, 2 redémarrages sont nécessaires pour permettre le démarrage de l’hyperviseur en mode natif (type 1)</p>
+<p>Découverte d’Hyper-V</p>
+<h4>Utilisation et mise en œuvre</h4>
+<ul><li>Interaction avec le système hôte</li><li>Les médias amovibles USB ne sont pas gérés avec la v2 (W2008 R2)</li><li>Touche de bascule : Ctrl + Alt + Gauche</li><li>Services d’intégration (selon la compatibilité des systèmes hôtes)</li><li>Fonctionnalités</li><li>Chaque VM peut être affichée dans une console séparée</li><li>Gestion poussée des paramètres matériels (BIOS, mémoire …)</li><li>Capture instantanée</li><li>Importation et exportation (obligatoire avec la v2 pour la copie ou le transfert)</li><li>Spécificités</li><li>Outil « serveur » orienté administrateur, moins convivial</li><li>Fichiers des VM difficilement manipulables manuellement</li><li>Pour faire « Ctrl + Alt + Suppr » dans la VM, taper Ctrl + Alt + Fin</li></ul>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Découverte d’Hyper-V</p>
+<h4>Paramétrages réseau</h4>
+<p>Types de réseau virtuel</p>
+<ul><li>Identification des LAN pour les réseaux internes et externes (VLAN)</li><li>Réseau privé : réseau entre les invités uniquement</li><li>Interne uniquement : réseau interne avec connexion à l’hôte, les VM ne peuvent communiquer qu’entre elles et avec l’hôte (Host-only)</li><li>Externe : équivalent à une connexion au réseau physique (Bridged)</li><li>Externe dédié : la carte réseau externe est associée de manière exclusive à une carte physique de l’hôte</li></ul>
+<p>Découverte d’Hyper-V</p>
+<h4>Étapes de configuration</h4>
+<ul><li>Définition des réseaux virtuels</li><li>Avec l’outil gestionnaire de</li></ul>
+<h4>réseau virtuel (volet de droite de</h4>
+<p>la console)</p>
+<ul><li>Non définis par défaut, à créer selon les besoins</li><li>Un seul réseau externe est possible par carte réseau hôte</li><li>(Hyper-V « s’approprie » la carte réseau physique)</li><li>Création des machines virtuelles</li><li>Avec l’assistant Nouveau &gt;</li></ul>
+<h4>Ordinateur virtuel</h4>
+<ul><li>Définir l’emplacement de stockage et les paramètres matériels</li></ul>
+<p>Le disque d’amorçage d’une machine virtuelle de première génération est obligatoirement sur une interface de type IDE.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<p>Découverte d’Hyper-V</p>
+<h4>Console de gestion</h4>
+<p>Liste des serveurs</p>
+<p>Liste et état des VM</p>
+<p>Gestion du serveur</p>
+<p>Informations sur la VM sélectionnée</p>
+<p>Gestion de la VM</p>
+<p>Découverte d’Hyper-V</p>
+<h4>Console d’ordinateur virtuel</h4>
+<p>Gestion de base</p>
+<p>Gestion de la fenêtre, la fermeture n’arrête pas la VM</p>
+<p>Gestion des paramètres et du matériel</p>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<p>Découverte d’Hyper-V</p>
+<h4>Exportation et importation</h4>
+<ul><li>Des manipulations plus contraignantes (avec Hyper-V v3)</li><li>Pour pouvoir être dupliquée ou déplacée, une VM doit être exportée</li><li>Pour pouvoir importer, il faut disposer des fichiers de configuration</li><li>L’importation sans « Dupliquer tous les fichiers … » empêche de réimporter la même VM</li><li>L’option « Dupliquer tous les fichiers … » permet d’utiliser plusieurs fois la même VM exportée, MAIS les disques VHD sont alors copiés dans un même emplacement</li><li>Exemple de procédure</li><li>Exporter la VM dans un emplacement dédié</li><li>Copier le répertoire contenant la VM à l’emplacement voulu</li><li>Importer la VM sans « Dupliquer les fichiers … »</li></ul>
+<p>Attention à bien sélectionner le dossier contenant tous les fichiers</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>
