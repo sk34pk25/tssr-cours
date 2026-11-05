@@ -1,23 +1,98 @@
-# Correction — TP4 : Manipuler des Variables
+# Correction expliquée — TP04 — Manipuler des variables
 
-```text
-ls $HOME
-ls ~
-echo $PATH
-mkdir $HOME/scripts
-PATH=$PATH:/$HOME/scripts
-echo PATH=$PATH:/$HOME/scripts >> ~/.bashrc
-monom="$LOGNAME"
-monom=$(logname)
+Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+
+## Activité 1 — Afficher le répertoire personnel avec une variable adéquate.
+
+Pour afficher le chemin :
+
+```bash
+printf '%s\n' "$HOME"
+```
+La correction utilise ls $HOME ou ls ~ : ces commandes affichent son contenu. Pour reproduire cette interprétation :
+
+```bash
+ls "$HOME"
+```
+
+## Activité 2 — Afficher les chemins des binaires usuels.
+
+```bash
+printf '%s\n' "$PATH"
+```
+Le document utilise echo $PATH ; chaque répertoire est séparé par un deux-points.
+
+## Activité 3 — Créer scripts sous $HOME, l’ajouter au PATH et rendre l’ajout pérenne.
+
+```bash
+mkdir -p "$HOME/scripts"
+export PATH="$PATH:$HOME/scripts"
+```
+
+Ajouter une seule fois dans **$HOME/.bashrc** la ligne suivante, telle quelle :
+
+```bash
+export PATH="$PATH:$HOME/scripts"
+```
+
+Vérifier le PATH d’un nouveau shell interactif. Le slash ajouté avant $HOME dans la correction n’est pas nécessaire.
+
+## Activité 4 — Créer la variable monnom avec le login de l’utilisateur.
+
+```bash
+monnom="$LOGNAME"
+```
+La variante monnom=$(logname) reprend l’autre méthode de la source lorsque logname fonctionne dans la session. Conserver un seul nom de variable pour tout l’exercice.
+
+## Activité 5 — Afficher les variables de l’utilisateur et distinguer locales et environnement.
+
+```bash
+set
 env
+```
+env, employé par la correction, ne présente que l’environnement exporté ; set permet de retrouver aussi monnom local dans le shell courant.
+
+## Activité 6 — Ouvrir un sous-shell, vérifier que monnom n’est pas hérité puis le fermer.
+
+```bash
 bash
-echo $monnom
+printf '%s\n' "$monnom"
 exit
+```
+Avant export, le nouveau shell ne reçoit pas la variable locale ; revenir au parent pour la suite.
+
+## Activité 7 — Transformer la variable locale en variable d’environnement.
+
+```bash
 export monnom
 ```
 
-!!! warning "NEEDS_REVIEW"
+## Activité 8 — Ouvrir un nouveau sous-shell et vérifier la valeur héritée.
 
-    L'énoncé emploie `monnom`, tandis que la solution emploie `monom`. La forme
-    `PATH=$PATH:/$HOME/scripts` et l'en-tête « Archivage et compression » de la
-    solution sont conservés sans correction.
+```bash
+bash
+printf '%s\n' "$monnom"
+exit
+```
+Cette fois le login doit être visible. Quitter le sous-shell ramène au parent ; l’enfant ne modifie pas automatiquement les variables de son parent.
+
+## Points de lecture du support
+
+!!! note "Lecture de la source"
+    Le document Alias écrit parfois `find / mount`, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.
+
+!!! note "Lecture de la source"
+    Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
+
+!!! note "Lecture de la source"
+    Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
+
+!!! note "Lecture de la source"
+    La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
+
+!!! note "Lecture de la source"
+    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
+
+- [Énoncé](tp4-enonces.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Tous les ateliers du module](index.md)

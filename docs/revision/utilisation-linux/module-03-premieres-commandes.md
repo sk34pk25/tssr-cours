@@ -1,45 +1,27 @@
-# Fiche de révision — Module 03 — Premières commandes
+# Révision — M03 : Premières commandes
 
-**Sources A :** TP01 « Premières commandes », énoncé et solution TSSR.
-**Structuration B :** regroupement des contrôles demandés, sans apport de commandes supplémentaires.
+## Gestes à retenir
 
-## Changement de mot de passe
-
-```bash
-passwd
-```
-
-La vérification demandée est de fermer la session puis de se reconnecter après le changement.
-
-## Session, utilisateurs et identifiants
-
-| Besoin demandé dans le TP | Commande de la solution |
+| Besoin | Repère |
 |---|---|
-| Depuis quand êtes-vous connecté ? | `who am i` |
-| Utilisateurs travaillant sur le serveur | `who` |
-| Temps d’inactivité des utilisateurs connectés | `w -u` |
-| Numéro de processus de la session | `who am I --all --heading` |
-| UID, GID et groupes d’appartenance | `id` |
+| Mot de passe | passwd, puis reconnexion |
+| Session et connexions | who am i ; who ; w -u |
+| Identité | id |
+| Heure/date | date +%X ; date "+%A %d %B %Y" |
+| Calendriers | cal 1 1900 ; cal 1900 ; cal 1 "$(date +%Y)" ; cal 9 1752 |
 
-## Heure, date et calendrier
+## Se contrôler
 
-```bash
-date +%X
-date "+%A %d %B %Y"
-cal 1 1900
-cal 9 1752
-```
+- Pourquoi une nouvelle connexion est-elle demandée après passwd ? **Elle vérifie que le nouveau mot de passe permet effectivement l’authentification.**
+- Que représentent UID et GID ? **L’identifiant utilisateur et l’identifiant du groupe principal.**
+- Pourquoi ne pas remplacer « année courante » par 2020 ? **2020 est l’année de l’exemple de correction, pas une constante de la consigne.**
 
-- L’énoncé demande aussi le calendrier de janvier de l’année courante.
-- La solution propose `cal 1 2020` pour cette question : ne pas remplacer silencieusement l’une des deux formulations.
-- Pour septembre 1752, conserver l’observation historique rapportée dans la solution comme une information de source.
+## Pièges du support
 
-## Contrôles à effectuer
+- La correction imprime `Date +%X` avec une majuscule : l’aide pédagogique emploie `date`, conformément à la commande Linux.
+- L’option de who est imprimée avec un tiret typographique et un I majuscule. La forme utilisable est `who am i --all --heading`.
+- La date « lundi 24 septembre 2009 » est un modèle de présentation dans l’énoncé, pas une date à rendre fixe ni une validation du jour de semaine.
+- La correction ne développe pas le calendrier annuel ; `cal 1900` répond à la seconde partie de la consigne.
 
-- [ ] Après `passwd`, je ferme puis rouvre la session pour vérifier le changement.
-- [ ] Je relève la réponse affichée pour chaque question de session et d’identifiants.
-- [ ] Je vérifie séparément l’affichage de l’heure, de la date et des calendriers demandés.
-
-## Liens
-
-[Cours du module](../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md) · [TP01 — Énoncé](../../tp/utilisation-linux/module-03/enonces.md) · [TP01 — Correction](../../tp/utilisation-linux/module-03/corrections.md) · [Kahoot](../../kahoot/04-utilisation-gnu-linux-module-03-premieres-commandes.md)
+- [Cours complet](../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md)
+- [Travaux pratiques](../../tp/utilisation-linux/module-03/index.md)

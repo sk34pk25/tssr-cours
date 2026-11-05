@@ -1,39 +1,29 @@
-# Fiche de révision — Module 06 — Recherches et expressions régulières
+# Révision — M06 : Recherches et expressions régulières
 
-## TP1 — Recherches et regex
+## Gestes à retenir
 
-| Besoin attesté | Commande source |
+| Besoin | Repère |
 |---|---|
-| Rechercher `Dupont` dans `Edition` | `grep Dupont Edition` |
-| Ignorer la casse pour `dupont` | `grep -i dupont Edition` |
-| Afficher les lignes non vides | `grep -v '^$' Edition` |
-| Trouver `localhost` directement dans `/etc` | `grep -sl localhost /etc/*` |
-| Fichiers standards commençant par `ho` depuis `/etc` | `find /etc -type f -name "ho*"` |
-| Répertoires du répertoire personnel | `find ~ -type d` |
-| Fichiers terminant par `txt` et copie `.save` | `find ~ -type f -name "*txt" -exec cp {} {}.save \;` |
+| Recherche sensible / insensible | grep Dupont Edition ; grep -i dupont Edition |
+| Exclure les lignes vides | grep -v '^$' Edition |
+| Noms de fichiers contenant un texte | grep -sl localhost /etc/* |
+| Fichiers standards et noms | find /etc -type f -name 'ho*' |
+| Copies .save | find "$HOME" -type f -name '*txt' -exec cp {} {}.save \; |
+| Nom avec astérisque | touch 'fic*ier' |
+| Répertoire vide / arborescence | rmdir ne retire qu’un répertoire vide ; rm -r retire le contenu |
 
-## TP2 — Spécificités Bash / métacaractères
+## Se contrôler
 
-| Besoin attesté | Commande ou observation source |
-|---|---|
-| Sélection de noms commençant par `a`, `b`, `c` ou `d` dans `/etc` | `ls -d /etc/[a-d]*` |
-| Arborescence sous `$HOME` | `mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}` |
-| Fichier du scénario depuis `Tp/Divers/Sources/` | `touch fic*ier` |
-| Tentative sur un répertoire non vide | `rmdir` échoue dans le scénario |
-| Suppression demandée après le constat | `rm -r $HOME/Tp/Divers/Sources/` puis `rm -r ../../Divers/` |
-| Sélection finale dans `/etc` | `ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf` |
+- Que sélectionne grep -v ^$ ? **Les lignes qui ne sont pas totalement vides ; protéger le motif par des guillemets.**
+- Pourquoi citer ho* dans find ? **Pour que find reçoive le motif sans expansion préalable du shell.**
+- Pourquoi rmdir échoue-t-il sur Sources ? **Un fichier a été créé à l’intérieur.**
+- Quelle différence entre non-voyelle et consonne ? **Une non-voyelle peut aussi être un chiffre ou un symbole.**
 
-`touch fic*ier` est maintenu sous sa forme source : son résultat dépend du contenu du
-répertoire au moment de l'expansion. La suppression avec `rm -r` intervient après la
-tentative `rmdir` et ne doit pas être confondue avec elle.
+## Pièges du support
 
-## Liens utiles
+- Le motif source `[!aeiouyAEIOUY]` exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.
+- La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.
+- L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.
 
-- [Cours M06](../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
-- [TP M06](../../tp/utilisation-linux/module-06/index.md)
-- [Kahoot M06](../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres.md)
-
-## Provenance
-
-- **A — sources TSSR :** énoncés et solutions des TP1 et TP2 rattachés à M06.
-- **B — structuration pédagogique :** fiche limitée aux commandes et observations attestées.
+- [Cours complet](../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Travaux pratiques](../../tp/utilisation-linux/module-06/index.md)

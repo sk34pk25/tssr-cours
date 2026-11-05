@@ -14948,7 +14948,7 @@
       "legacyOriginal": "assets/course-sources/62f4e4cee5500e66/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/62f4e4cee5500e66/transcription-1_NcmRFZlM6nu_JCNLekgXw5bgCmPPgym.html",
-      "transcriptionSha256": "7421eed77afa5d7e5e318a65b78de464d351cba434ebcbe8d6a80e774f62bcaf",
+      "transcriptionSha256": "5e38788a137dccddef58d1c50884c6cd61fd780193ca093dd6ac9e9e7d873f17",
       "pages": [
         {
           "number": 1,
@@ -15022,7 +15022,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1cSuFMkKLzf-5P7v0aszRGy6bE4qiyZHs": {
       "id": "1cSuFMkKLzf-5P7v0aszRGy6bE4qiyZHs",
@@ -15039,7 +15040,7 @@
       "legacyOriginal": "assets/course-sources/91154f62451e05b1/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/91154f62451e05b1/transcription-1cSuFMkKLzf-5P7v0aszRGy6bE4qiyZHs.html",
-      "transcriptionSha256": "dc111b7f6a93b53282aaab1cf3756263de34f3a9df6cf4612e27156a8c507bf0",
+      "transcriptionSha256": "fd88d55fb37343805235ca1fc28adfb717d39103ecffd7049b152c22861f4f59",
       "pages": [
         {
           "number": 1,
@@ -15047,7 +15048,7 @@
           "nativeWords": 107,
           "ocrWords": 10,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15057,7 +15058,7 @@
           "nativeWords": 27,
           "ocrWords": 123,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15067,7 +15068,7 @@
           "nativeWords": 66,
           "ocrWords": 54,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15077,7 +15078,7 @@
           "nativeWords": 62,
           "ocrWords": 86,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15087,7 +15088,7 @@
           "nativeWords": 64,
           "ocrWords": 46,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15097,7 +15098,7 @@
           "nativeWords": 27,
           "ocrWords": 119,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15107,7 +15108,7 @@
           "nativeWords": 120,
           "ocrWords": 29,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15117,7 +15118,7 @@
           "nativeWords": 59,
           "ocrWords": 112,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15127,7 +15128,7 @@
           "nativeWords": 30,
           "ocrWords": 111,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15137,7 +15138,7 @@
           "nativeWords": 27,
           "ocrWords": 106,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15147,7 +15148,7 @@
           "nativeWords": 38,
           "ocrWords": 115,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15157,7 +15158,7 @@
           "nativeWords": 32,
           "ocrWords": 133,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         },
@@ -15167,13 +15168,423 @@
           "nativeWords": 34,
           "ocrWords": 125,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p01-i1.webp",
+          "sha256": "e37e5fa2e5fe6911f6c271f982865da74a0c32b08e3f4fe689d42d43b4fb1fef",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            158.9199981689453,
+            383.04998779296875,
+            435.66998291015625,
+            523.2999877929688
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i1.webp",
+          "sha256": "cf691aea60af616dde6c6d1657aea9bb4ada3297ac7ae634090204129ae58474",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            56.699981689453125,
+            538.6500244140625,
+            398.8499755859375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i2.webp",
+          "sha256": "884e8f2ec0f1a272b1796f2291e7504cd22915d48888d59324295b5696a17576",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            510.9799499511719,
+            538.6500244140625,
+            696.8299560546875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p03-i1.webp",
+          "sha256": "7be29e055b07f767131cfae63991bbea837f81dda97d2df75927f088fde21945",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            153.6699981689453,
+            195.18997192382812,
+            440.91998291015625,
+            443.4399719238281
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i1.webp",
+          "sha256": "8a059d2769b03daf3e2de3b8df54566f28dd45be58b510fad1e2c0996ba973e1",
+          "page": 4,
+          "sourcePage": 4,
+          "sourceCrop": [
+            151.4199981689453,
+            56.699951171875,
+            443.16998291015625,
+            253.199951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i2.webp",
+          "sha256": "fc849913016f79c0fde05bdddb56d566243f7317f8650383c02eabd9690d8422",
+          "page": 4,
+          "sourcePage": 4,
+          "sourceCrop": [
+            178.4199981689453,
+            403.68994140625,
+            416.16998291015625,
+            613.68994140625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 5
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p05-i1.webp",
+          "sha256": "3a158acb8663312c31b907c7c4f0e5e314c88a27177d6cd0adfd4521f404221e",
+          "page": 5,
+          "sourcePage": 5,
+          "sourceCrop": [
+            165.3000030517578,
+            195.18997192382812,
+            430.04998779296875,
+            403.6899719238281
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 6
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i1.webp",
+          "sha256": "f352177abfbc536e2517e116d35f04db632bebca08a2c085f4462145ec7df001",
+          "page": 6,
+          "sourcePage": 6,
+          "sourceCrop": [
+            198.6699981689453,
+            56.699951171875,
+            396.66998291015625,
+            258.449951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 7
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i2.webp",
+          "sha256": "008125131cd36d4de66fea69c73b38fa8227da3d0ad17eb25694069177ec5972",
+          "page": 6,
+          "sourcePage": 6,
+          "sourceCrop": [
+            151.8000030517578,
+            321.5699462890625,
+            443.54998779296875,
+            664.3199462890625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 8
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i1.webp",
+          "sha256": "8e80d8eb3e859bb03b01c58ebcd3778911de6a10edd360586b7afe1a5fe9dfb8",
+          "page": 7,
+          "sourcePage": 7,
+          "sourceCrop": [
+            121.41999816894531,
+            220.67999267578125,
+            473.16998291015625,
+            342.92999267578125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 9
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i2.webp",
+          "sha256": "0d059b9777befec1dd3ced4dd7e405dc399bad7e81915bc8450c4184c00ee666",
+          "page": 7,
+          "sourcePage": 7,
+          "sourceCrop": [
+            236.1699981689453,
+            532.5399780273438,
+            359.16998291015625,
+            607.5399780273438
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 10
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p08-i1.webp",
+          "sha256": "11f6cab4830326606ceddbaad2892a3ddebee0987bc38db452ee392ca0fb3b5a",
+          "page": 8,
+          "sourcePage": 8,
+          "sourceCrop": [
+            109.41999816894531,
+            146.03997802734375,
+            485.219970703125,
+            507.5899658203125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 11
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p09-i1.webp",
+          "sha256": "88805d7291ba963723699282ac31ad7be1a39f296a6ca76fa49c4914e9c46f42",
+          "page": 9,
+          "sourcePage": 9,
+          "sourceCrop": [
+            119.91999816894531,
+            56.699981689453125,
+            474.66998291015625,
+            418.1999816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 12
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p10-i1.webp",
+          "sha256": "a396b2ab97974e9cf450e9130739e29179d060b07ba919303ce5eebe0d3efe32",
+          "page": 10,
+          "sourcePage": 10,
+          "sourceCrop": [
+            149.1699981689453,
+            56.699981689453125,
+            445.41998291015625,
+            415.9499816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 13
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p11-i1.webp",
+          "sha256": "5300a53dd3854094562826dcdcecb5c64c12318ec4c2d6cd527b022413b4c82f",
+          "page": 11,
+          "sourcePage": 11,
+          "sourceCrop": [
+            158.1699981689453,
+            56.699981689453125,
+            436.41998291015625,
+            418.1999816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 14
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p12-i1.webp",
+          "sha256": "48ea4ac71c4e79b8cab79068d5a2d331f8730070878a8a437f7d7b1f7cb37a3a",
+          "page": 12,
+          "sourcePage": 12,
+          "sourceCrop": [
+            130.4199981689453,
+            56.699981689453125,
+            464.91998291015625,
+            419.6999816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 15
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        },
+        {
+          "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p13-i1.webp",
+          "sha256": "872b803bf6e7b881bc786efaaaf605972801ea4af8e4a4509a0372ee165e6da8",
+          "page": 13,
+          "sourcePage": 13,
+          "sourceCrop": [
+            180.39999389648438,
+            56.699981689453125,
+            528.4000244140625,
+            416.6999816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 16
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP - Utilisation de Vi"
+        }
+      ],
+      "illustrationCount": 17,
+      "glyphs": []
     },
     "116dD0Y9yfykwJumCShlSuHBvWNZeLMut": {
       "id": "116dD0Y9yfykwJumCShlSuHBvWNZeLMut",
@@ -15190,7 +15601,7 @@
       "legacyOriginal": "assets/course-sources/c8ed46b85b0ad434/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/c8ed46b85b0ad434/transcription-116dD0Y9yfykwJumCShlSuHBvWNZeLMut.html",
-      "transcriptionSha256": "2909a0684dda5e2c1fa0af911b5f33ab62ac7d6f77b5da1f32c5fb8a5056aca0",
+      "transcriptionSha256": "eb164b482a9835e9266bf6a96afd79d9f38c69719cb581d091fcfa03a85023fd",
       "pages": [
         {
           "number": 1,
@@ -15224,7 +15635,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy": {
       "id": "1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy",
@@ -15241,7 +15653,7 @@
       "legacyOriginal": "assets/course-sources/89832fa8712cd294/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/89832fa8712cd294/transcription-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy.html",
-      "transcriptionSha256": "84dadcda15c54fa996d5058077216ac507361d0b8ab7cbac3a15727979b1144c",
+      "transcriptionSha256": "943fdfa2d9a9a3577c9236f8f335b64cab87c8b6f8cb093af024aa301a594724",
       "pages": [
         {
           "number": 1,
@@ -15249,7 +15661,7 @@
           "nativeWords": 120,
           "ocrWords": 48,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15259,7 +15671,7 @@
           "nativeWords": 64,
           "ocrWords": 103,
           "tables": 0,
-          "figures": 0,
+          "figures": 3,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15269,13 +15681,183 @@
           "nativeWords": 44,
           "ocrWords": 55,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp",
+          "sha256": "be776407cd9301afe8c91e50ae1590377da33c4e8c1c502ae3d4df09b1367ac1",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            155.9199981689453,
+            385.04998779296875,
+            439.41998291015625,
+            503.54998779296875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp",
+          "sha256": "9cca7dc59404ac88de2a33aaab7ee2ce5514f2c98270b3a20024e7b7c4a017a6",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            153.6699981689453,
+            579.3999633789062,
+            441.66998291015625,
+            691.8999633789062
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp",
+          "sha256": "ba6f62407bfcaafe14ddcfae950b07fb9c2b27e0564c3c33bc7d7eb036dd54b8",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            160.4199981689453,
+            56.699951171875,
+            434.16998291015625,
+            244.199951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp",
+          "sha256": "fdeebb3915dd253ac5674084c346d37ca9c66406fbddd0b6fcb006f06790abf7",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            140.9199981689453,
+            320.04998779296875,
+            453.66998291015625,
+            404.79998779296875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp",
+          "sha256": "68a5a29246469c1642cd15856ec4ecc2df30bdc545f89d2aba4f5b082914ac97",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            126.66999816894531,
+            481.40997314453125,
+            467.91998291015625,
+            635.9099731445312
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp",
+          "sha256": "8b01d6d016176ecac8638c9df3c3ad1900e7f60dfc53fc802c032783542add21",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            174.6699981689453,
+            56.699951171875,
+            419.91998291015625,
+            170.699951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 5
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        },
+        {
+          "path": "assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp",
+          "sha256": "320c4a794fdf318ae56d5d760bcaaad817c6282e92f0adca975a2b31cb12074e",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            69.6500015258789,
+            246.54998779296875,
+            525.6500244140625,
+            338.04998779296875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 6
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Recherches et regex"
+        }
+      ],
+      "illustrationCount": 7,
+      "glyphs": []
     },
     "1GAwhjiJTIo4YDiLLShWTUbatcQbGzpIS": {
       "id": "1GAwhjiJTIo4YDiLLShWTUbatcQbGzpIS",
@@ -15292,7 +15874,7 @@
       "legacyOriginal": "assets/course-sources/a6a1edcd9c60a18a/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/a6a1edcd9c60a18a/transcription-1GAwhjiJTIo4YDiLLShWTUbatcQbGzpIS.html",
-      "transcriptionSha256": "0c42500c48114fb0e4177bda12b98013958b147d32591e05644b3910f7ab6560",
+      "transcriptionSha256": "ed82851d7b15c87cc402cb9ac88d5ef3a75abcf79550779e95da7dd846006030",
       "pages": [
         {
           "number": 1,
@@ -15316,7 +15898,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1qiNhvPoDt3_8j85ejHghAwcvbU4g6La5": {
       "id": "1qiNhvPoDt3_8j85ejHghAwcvbU4g6La5",
@@ -15333,7 +15916,7 @@
       "legacyOriginal": "assets/course-sources/d8e50d555cefa72f/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/d8e50d555cefa72f/transcription-1qiNhvPoDt3_8j85ejHghAwcvbU4g6La5.html",
-      "transcriptionSha256": "89b3f5d30b0afadd3f727ed2f4673ffe3e6dd51d5989e057c551338bd8df8cf9",
+      "transcriptionSha256": "da23aef04e666c9e8061a57a06f6123b09b1ab18febf6ebd5cec0ea0423483d8",
       "pages": [
         {
           "number": 1,
@@ -15341,7 +15924,7 @@
           "nativeWords": 140,
           "ocrWords": 19,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15351,7 +15934,7 @@
           "nativeWords": 105,
           "ocrWords": 135,
           "tables": 0,
-          "figures": 0,
+          "figures": 3,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15361,13 +15944,135 @@
           "nativeWords": 13,
           "ocrWords": 40,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p01-i1.webp",
+          "sha256": "50717d104473ab021e9a7ed8ec00f58c358d1667097c7a5b0a30b54f9896a97f",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            141.6699981689453,
+            421.41998291015625,
+            452.91998291015625,
+            542.1699829101562
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 2 - Les liens"
+        },
+        {
+          "path": "assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i1.webp",
+          "sha256": "b0db225d606bd465d81de4d21f0683f19bcc6ef23910cc2c0ea3f227e94124e7",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            56.699981689453125,
+            538.6500244140625,
+            187.5999755859375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 2 - Les liens"
+        },
+        {
+          "path": "assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i2.webp",
+          "sha256": "47bc71a93a7d134d7e9413ddb594477faafe1536855f21e0eb7d88ddf8fc244c",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            130.4199981689453,
+            263.4499816894531,
+            464.16998291015625,
+            384.1999816894531
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 2 - Les liens"
+        },
+        {
+          "path": "assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i3.webp",
+          "sha256": "4f883d4f5b6702a404f28a311bbcd5c48447f9f10f2ad729d9a818288c797c48",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            460.80999755859375,
+            538.6500244140625,
+            588.0599975585938
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 2 - Les liens"
+        },
+        {
+          "path": "assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p03-i1.webp",
+          "sha256": "8eec87584c6f7c5c9628c0febe799ffa80abc6b18d95886566b62ac8f9287fdf",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            88.0250015258789,
+            56.699951171875,
+            507.2749938964844,
+            183.449951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 2 - Les liens"
+        }
+      ],
+      "illustrationCount": 5,
+      "glyphs": []
     },
     "1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq": {
       "id": "1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq",
@@ -15384,7 +16089,7 @@
       "legacyOriginal": "assets/course-sources/b78f64f571954fe6/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/b78f64f571954fe6/transcription-1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq.html",
-      "transcriptionSha256": "3c7bd8f3284123bee488c8c39f0b42958957b530e578954462f891f16374bc3e",
+      "transcriptionSha256": "77a4b20663be1b85e93e7bec6da00e785a19b7052afd3915ef1586d1d5b2db24",
       "pages": [
         {
           "number": 1,
@@ -15418,7 +16123,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1945gKHO12jhPd0jsB4kE9EdT91tMRyWq": {
       "id": "1945gKHO12jhPd0jsB4kE9EdT91tMRyWq",
@@ -15435,7 +16141,7 @@
       "legacyOriginal": "assets/course-sources/0d448896f01cbd8b/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/0d448896f01cbd8b/transcription-1945gKHO12jhPd0jsB4kE9EdT91tMRyWq.html",
-      "transcriptionSha256": "c5fbdf0570ecf29900d8196e7047bbb41acb2c991423e6df23babbada30c9872",
+      "transcriptionSha256": "93a4329760310c6b30191dcc9845dc3d9795c1b0baba430b3453402267c4e40c",
       "pages": [
         {
           "number": 1,
@@ -15443,7 +16149,7 @@
           "nativeWords": 151,
           "ocrWords": 20,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15453,13 +16159,135 @@
           "nativeWords": 103,
           "ocrWords": 67,
           "tables": 0,
-          "figures": 0,
+          "figures": 4,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 5
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p01-i1.webp",
+          "sha256": "7f3920a2aa982ad905acb2af47fd5311d36bbbac608c0007d0b5d0c3406cf32a",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            122.91999816894531,
+            547.6400146484375,
+            471.66998291015625,
+            646.6400146484375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Lire des fichiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i1.webp",
+          "sha256": "41be70cbe90da4b6938f43c9f16f77807c3b9ceb09cd70a319aebb3abb93dd4a",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            139.4199981689453,
+            131.3399658203125,
+            455.91998291015625,
+            215.3399658203125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Lire des fichiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i2.webp",
+          "sha256": "6f29807003021dbdef5fb7300970ce9cc9a5eb0c11cf11cf460fc2f9c4525d69",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            291.1899719238281,
+            538.6500244140625,
+            348.78997802734375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Lire des fichiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i3.webp",
+          "sha256": "e4220f65f3ff9c58ff610724b4b88de2ba018781aada7635971ee6844f0ecdea",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            149.9199981689453,
+            438.1299743652344,
+            445.41998291015625,
+            508.6299743652344
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Lire des fichiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i4.webp",
+          "sha256": "c1bd2fb70c0a7dc244c9d3015887a954fe0616a4f8ad4ef226ef0cab690e2a54",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            158.9199981689453,
+            571.0,
+            435.66998291015625,
+            650.5
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Lire des fichiers"
+        }
+      ],
+      "illustrationCount": 5,
+      "glyphs": []
     },
     "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP": {
       "id": "1UxNuienstNgVxtr1UyNDEU4GdedUSzJP",
@@ -15477,7 +16305,7 @@
       "legacyOriginal": "assets/course-sources/249cdf9a0cce0395/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/249cdf9a0cce0395/transcription-1UxNuienstNgVxtr1UyNDEU4GdedUSzJP.html",
-      "transcriptionSha256": "32708c77259fa5356325c32a776ede95586529ece9eae827d61a6489751b2bbc",
+      "transcriptionSha256": "5d38d093f3d65cd5ff4eb86f2a36d8637d78bef306f7d686d66976155e681df4",
       "pages": [
         {
           "number": 1,
@@ -15485,7 +16313,7 @@
           "nativeWords": 103,
           "ocrWords": 9,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15500,8 +16328,34 @@
           "sourceGraphicsDetected": 1
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp",
+          "sha256": "09c8b697f62f0689658ce2ce8b93d7d404f6536127ef1006370240258ad391a7",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            149.9199981689453,
+            478.29998779296875,
+            445.41998291015625,
+            619.2999877929688
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "croquis",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Enoncé - Métacaractères"
+        }
+      ],
+      "illustrationCount": 1,
+      "glyphs": []
     },
     "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa": {
       "id": "1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa",
@@ -15519,7 +16373,7 @@
       "legacyOriginal": "assets/course-sources/277a72096d21b97f/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/277a72096d21b97f/transcription-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa.html",
-      "transcriptionSha256": "3d5e2fc0e61a6212e2275080336ce92d726f156134ef1422c48135d854b105ab",
+      "transcriptionSha256": "3ef4e951fff4eb5e1d1cbd7f577935306df6cd1b9517cdb5cfa5f290b7be0d11",
       "pages": [
         {
           "number": 1,
@@ -15527,7 +16381,7 @@
           "nativeWords": 110,
           "ocrWords": 53,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15537,7 +16391,7 @@
           "nativeWords": 133,
           "ocrWords": 32,
           "tables": 0,
-          "figures": 0,
+          "figures": 4,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 5
         },
@@ -15547,13 +16401,183 @@
           "nativeWords": 87,
           "ocrWords": 72,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp",
+          "sha256": "2ccff895fbc21f041f48bfdcbdaaa7694833de9fb1ab475676c502b103ed2344",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            119.91999816894531,
+            412.3499755859375,
+            475.41998291015625,
+            658.3499755859375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp",
+          "sha256": "09c8b697f62f0689658ce2ce8b93d7d404f6536127ef1006370240258ad391a7",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            149.9199981689453,
+            59.90997314453125,
+            445.41998291015625,
+            200.90997314453125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "croquis",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp",
+          "sha256": "4b936f20e579c9582da16746eb3abf48e6f626f92c6439eb8d4d2ef5a6e6ff56",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            238.39999389648438,
+            538.6500244140625,
+            302.0
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp",
+          "sha256": "edab775f47ff9c6da622ed8606eda26c02aa8f9e78429d5db25423b384ba81a8",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            122.16999816894531,
+            403.9399719238281,
+            473.16998291015625,
+            479.6899719238281
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp",
+          "sha256": "27344a1c8f9226fb27f2bc20761decd426416615bce07f5bcf2290271ea264cc",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            76.4000015258789,
+            610.3800048828125,
+            518.9000244140625,
+            675.6300048828125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp",
+          "sha256": "855cd6edeb36cdf5e2e19069fd5b719337d58e38933b2898052d935e3f50a0bc",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            92.1500015258789,
+            85.39996337890625,
+            488.8999938964844,
+            148.39996337890625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 5
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        },
+        {
+          "path": "assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp",
+          "sha256": "9b1be6019144b7310475006701884c399d93c109a3be7f7c7a509e6fd9d000fe",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            56.70000076293945,
+            365.16998291015625,
+            538.6500244140625,
+            467.0699768066406
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 6
+            }
+          ],
+          "caption": "Visuel isolé du document — M04TP02 - Solution - Métacaractères"
+        }
+      ],
+      "illustrationCount": 7,
+      "glyphs": []
     },
     "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345": {
       "id": "1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345",
@@ -15570,7 +16594,7 @@
       "legacyOriginal": "assets/course-sources/acc841d14127f89d/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/acc841d14127f89d/transcription-1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345.html",
-      "transcriptionSha256": "fffba0680c0f3940607fcd22cb7094e8eb8fb8eee8368402125aab3f330c5777",
+      "transcriptionSha256": "594c096f5d9eab9db098ed73782de58db20fb0a17c5b578e186bb486d7b1d104",
       "pages": [
         {
           "number": 1,
@@ -15595,14 +16619,7 @@
       ],
       "figures": [],
       "illustrationCount": 0,
-      "glyphs": [
-        {
-          "path": "assets/course-sources/glyphs/05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c.webp",
-          "sha256": "05bd47e29ef64ccfc6d583237b99fe9ea5cbf16adff7b03c16bed1fbc4a16a3c",
-          "codepoint": "0xf0b7",
-          "font": "SymbolMT"
-        }
-      ]
+      "glyphs": []
     },
     "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP": {
       "id": "1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP",
@@ -15619,7 +16636,7 @@
       "legacyOriginal": "assets/course-sources/7455a0ec69483e30/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/7455a0ec69483e30/transcription-1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP.html",
-      "transcriptionSha256": "af43786cda3672ba1a815dd990a9db2b6b4a2c570a43b21eeb0f7ea6d7b631d9",
+      "transcriptionSha256": "fd6ae9877fb308a78217b5f34c97341eaf92fe2a6970e8f505523d25e215db39",
       "pages": [
         {
           "number": 1,
@@ -15627,7 +16644,7 @@
           "nativeWords": 116,
           "ocrWords": 15,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15637,13 +16654,135 @@
           "nativeWords": 49,
           "ocrWords": 102,
           "tables": 0,
-          "figures": 0,
+          "figures": 3,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i1.webp",
+          "sha256": "e37c0db504bf06513e2a7eb6d2af02af0b112dc0a01fbdc194d64ab469637d7f",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            185.9199981689453,
+            385.04998779296875,
+            409.41998291015625,
+            461.54998779296875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i2.webp",
+          "sha256": "607dc2abf6efd86cbaf99ff0c93e76137fb559fba4f51e26a80e8c295bf0480e",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            121.05000305175781,
+            523.9199829101562,
+            474.29998779296875,
+            593.6699829101562
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i1.webp",
+          "sha256": "e7eea63eb3eccfa8b6e0b90afafcf6cc0ba02ad2550a76a802610dc86fc5a308",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            107.5199966430664,
+            56.699951171875,
+            487.7699890136719,
+            133.199951171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i2.webp",
+          "sha256": "d27f4450ea1b04b47c4394bd08f3f29e32bf02f9b03722fb764e7f7582ff967c",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            82.0250015258789,
+            195.56997680664062,
+            513.2750244140625,
+            334.3199768066406
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers"
+        },
+        {
+          "path": "assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i3.webp",
+          "sha256": "f8a0489f93f023968564cc3877a8b0bc80dcf19a4964f8758b42e1ace7f0d010",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            133.4199981689453,
+            410.91998291015625,
+            461.16998291015625,
+            484.41998291015625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers"
+        }
+      ],
+      "illustrationCount": 5,
+      "glyphs": []
     },
     "1OIn_dxpEqPqSCFO5kih6P8WH7RtHTocT": {
       "id": "1OIn_dxpEqPqSCFO5kih6P8WH7RtHTocT",
@@ -15660,7 +16799,7 @@
       "legacyOriginal": "assets/course-sources/de01dabfc58eec3d/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/de01dabfc58eec3d/transcription-1OIn_dxpEqPqSCFO5kih6P8WH7RtHTocT.html",
-      "transcriptionSha256": "7db76fa7fe7049a9f2cefe51515b557685cd465c071b661828e62616aa41d3ff",
+      "transcriptionSha256": "b6c849a587b25c76c02abffb98234ee3a9a93e7cbb223c3d62d17e39e24b27f0",
       "pages": [
         {
           "number": 1,
@@ -15684,7 +16823,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1T_24hs0UrEXhrpnPCZCYbuY2paK3h2GA": {
       "id": "1T_24hs0UrEXhrpnPCZCYbuY2paK3h2GA",
@@ -15701,7 +16841,7 @@
       "legacyOriginal": "assets/course-sources/a99de2a7574cb337/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/a99de2a7574cb337/transcription-1T_24hs0UrEXhrpnPCZCYbuY2paK3h2GA.html",
-      "transcriptionSha256": "75c3d9d04abc3f477b3a591f25fd4062affef386bd574c4231d27dc0422f96ea",
+      "transcriptionSha256": "ef0a9cc4ed9bcbd0e7c0edc3f1bed3f567c5c52627fb492703b0c33168f797a4",
       "pages": [
         {
           "number": 1,
@@ -15709,7 +16849,7 @@
           "nativeWords": 108,
           "ocrWords": 52,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15719,7 +16859,7 @@
           "nativeWords": 81,
           "ocrWords": 92,
           "tables": 0,
-          "figures": 0,
+          "figures": 3,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 6
         },
@@ -15729,7 +16869,7 @@
           "nativeWords": 67,
           "ocrWords": 121,
           "tables": 0,
-          "figures": 0,
+          "figures": 4,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 5
         },
@@ -15739,13 +16879,255 @@
           "nativeWords": 75,
           "ocrWords": 19,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i1.webp",
+          "sha256": "bf0bda269fdfa0a1fe28ce16d021ee5bb721f96137bda672d40523a17c28935f",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            103.4000015258789,
+            430.739990234375,
+            491.8999938964844,
+            572.489990234375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i2.webp",
+          "sha256": "1d482e454f94eaee86f4bece4d8d737bdadbffaf1bb603debfe7218771b32538",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            142.4199981689453,
+            638.6699829101562,
+            488.91998291015625,
+            724.1699829101562
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i1.webp",
+          "sha256": "640d1b331cc05d720e131b37068ef43bb0c7df6268ceec1c8b671d29d070bf83",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            133.4199981689453,
+            113.3299560546875,
+            461.16998291015625,
+            209.3299560546875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i2.webp",
+          "sha256": "1d68d0007fb01f022c6289b69002c15c5a06e207ac5496cbd67020846a5e63f9",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            92.69999694824219,
+            274.0999755859375,
+            511.95001220703125,
+            326.5999755859375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i3.webp",
+          "sha256": "8d6532ee151d3abd860bc1e6ddadf20b47a2072064a04bbb9a668b851a5b6135",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            92.69999694824219,
+            418.0699768066406,
+            507.45001220703125,
+            458.5699768066406
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i1.webp",
+          "sha256": "59de165909e71e95aa9817d378e6a689828239a3399be1e2c6375ad762bb5ec3",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            185.9199981689453,
+            59.90997314453125,
+            409.41998291015625,
+            127.40997314453125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 5
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i2.webp",
+          "sha256": "b05e632fde71897bf7df568d29ad727cd8117e0c4ecc0fd5035e935b74485f78",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            156.6699981689453,
+            192.8299560546875,
+            437.91998291015625,
+            267.8299560546875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 6
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i3.webp",
+          "sha256": "5234b51956f934a362806036accc563a4f4f772987473127834d5d5b9f2e2770",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            189.6699981689453,
+            359.969970703125,
+            405.66998291015625,
+            512.219970703125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 7
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i4.webp",
+          "sha256": "bb3553b5cfc9fa1abe00f5b329522f9d1daaf06ec72e0c376dc285bd1bc68ce8",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            189.6699981689453,
+            578.3999633789062,
+            405.66998291015625,
+            731.3999633789062
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 8
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        },
+        {
+          "path": "assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p04-i1.webp",
+          "sha256": "33752747f7183619f3b923228751b1e3e05da28c0ce3f285ffacb83d5bf0aa75",
+          "page": 4,
+          "sourcePage": 4,
+          "sourceCrop": [
+            188.9199981689453,
+            169.469970703125,
+            406.41998291015625,
+            320.969970703125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 9
+            }
+          ],
+          "caption": "Visuel isolé du document — M03TP01 - Solution - Premières Commandes"
+        }
+      ],
+      "illustrationCount": 10,
+      "glyphs": []
     },
     "1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i": {
       "id": "1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i",
@@ -15763,7 +17145,7 @@
       "legacyOriginal": "assets/course-sources/386ff594282d51a1/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/386ff594282d51a1/transcription-1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i.html",
-      "transcriptionSha256": "0748f98c17688f8f2da6509a832adfb809492b434fa35369dc396f1bd5b045c0",
+      "transcriptionSha256": "ac8a53116a7baf7d39b8b867a146ff22f5790a0b9d67ad23283bd9b580a35bd4",
       "pages": [
         {
           "number": 1,
@@ -15787,7 +17169,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu": {
       "id": "1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu",
@@ -15805,7 +17188,7 @@
       "legacyOriginal": "assets/course-sources/8ad17bc349e75f78/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/8ad17bc349e75f78/transcription-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu.html",
-      "transcriptionSha256": "b4fd3957f7bf336aeeeba504b5759567e947b06f486bfb87720a3aca41928668",
+      "transcriptionSha256": "310f15e3da7bade7bfbf6062f71422f8c4b12d0d5adf3f6b5ca499c614bd66a6",
       "pages": [
         {
           "number": 1,
@@ -15829,7 +17212,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S": {
       "id": "1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S",
@@ -15847,7 +17231,7 @@
       "legacyOriginal": "assets/course-sources/5c47e61141614e56/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/5c47e61141614e56/transcription-1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S.html",
-      "transcriptionSha256": "bc369c5fe1bc0dd2f3a1b53647774944e791ef4e843cdbb3c04daa2e0262343f",
+      "transcriptionSha256": "8c1815ff2ae5ed8d7f72799f248c38b58b2ef87b1bf08add5d8454190e70a66e",
       "pages": [
         {
           "number": 1,
@@ -15871,7 +17255,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1WnpSJp6H8sn81c2zptNez04ulEMacnMF": {
       "id": "1WnpSJp6H8sn81c2zptNez04ulEMacnMF",
@@ -15889,7 +17274,7 @@
       "legacyOriginal": "assets/course-sources/be3c60614c14cbcd/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/be3c60614c14cbcd/transcription-1WnpSJp6H8sn81c2zptNez04ulEMacnMF.html",
-      "transcriptionSha256": "54635976d4939b8fc624be71699a5a1047f5e02559e536ec3bb526669f7cf968",
+      "transcriptionSha256": "07c6b92df33f8d04fe70e66fe5aee6d9e1027b43c1bb04f6de20651bf33d93fa",
       "pages": [
         {
           "number": 1,
@@ -15913,7 +17298,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45": {
       "id": "1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45",
@@ -15931,7 +17317,7 @@
       "legacyOriginal": "assets/course-sources/8702440981273989/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/8702440981273989/transcription-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45.html",
-      "transcriptionSha256": "097b928d08c668fe6cc858befbd6ffb3a61f66aacbbe623acb32bbdf13bc000d",
+      "transcriptionSha256": "dc0ec19bd23a14ea9ce5385ae65e0bb8b3f8860113b5adfe467a4965342e2a43",
       "pages": [
         {
           "number": 1,
@@ -15939,7 +17325,7 @@
           "nativeWords": 129,
           "ocrWords": 81,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15949,7 +17335,7 @@
           "nativeWords": 99,
           "ocrWords": 95,
           "tables": 0,
-          "figures": 0,
+          "figures": 3,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
         },
@@ -15959,7 +17345,7 @@
           "nativeWords": 80,
           "ocrWords": 105,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -15974,8 +17360,154 @@
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp",
+          "sha256": "a30c072bfa62fc176b61b65f506c726d6273ee55a8c6d5f0df48cf361141fb3e",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            92.17500305175781,
+            462.1099853515625,
+            503.17498779296875,
+            705.1099853515625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        },
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p02-i1.webp",
+          "sha256": "9207bac428a1d9ed83128d1302c5fb0ea6a647c2d415e3d1e68f5400caa282a0",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            94.7750015258789,
+            109.66998291015625,
+            500.5249938964844,
+            177.16998291015625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        },
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p02-i2.webp",
+          "sha256": "0b8a53478806448810f4422f8e402a9940a0eab7e1b416b549075b168c41a901",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            95.9000015258789,
+            277.89996337890625,
+            499.3999938964844,
+            343.14996337890625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        },
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp",
+          "sha256": "cc662a8a75186576c2c9627cc6ff2cdf634e247467b43636dfc0e1f3ee0dbca8",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            92.1500015258789,
+            406.2699890136719,
+            508.3999938964844,
+            502.2699890136719
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        },
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p03-i1.webp",
+          "sha256": "7ae2811cdb6865a3e41a133986594021bc986cbfcb6a6d1de86e30569123d5bd",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            78.6500015258789,
+            59.90997314453125,
+            516.6500244140625,
+            270.65997314453125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 4
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        },
+        {
+          "path": "assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp",
+          "sha256": "b3467c42261e18050ccba3021d709bae74383923e13a57d695abfce084bbb46e",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            56.70000076293945,
+            333.77996826171875,
+            538.6500244140625,
+            456.77996826171875
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 5
+            }
+          ],
+          "caption": "Visuel isolé du document — M08TP02 - Solution - Archivages et Compression"
+        }
+      ],
+      "illustrationCount": 6,
+      "glyphs": []
     },
     "1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU": {
       "id": "1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU",
@@ -15993,7 +17525,7 @@
       "legacyOriginal": "assets/course-sources/08975db62419d231/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/08975db62419d231/transcription-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU.html",
-      "transcriptionSha256": "bc4f71e2f99e2c268e13e30b1a7dd66338928e3d2c3f91cec37462339a12a49c",
+      "transcriptionSha256": "ce9f4887423901e794bbdb423eacad8423deae53781268cd35583654728e6d55",
       "pages": [
         {
           "number": 1,
@@ -16017,7 +17549,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1zGIoKu66CadvcIDDcB39xveeioWRwruw": {
       "id": "1zGIoKu66CadvcIDDcB39xveeioWRwruw",
@@ -16035,7 +17568,7 @@
       "legacyOriginal": "assets/course-sources/c195b2e8d913b711/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/c195b2e8d913b711/transcription-1zGIoKu66CadvcIDDcB39xveeioWRwruw.html",
-      "transcriptionSha256": "f1ed426ac61cb30f9248f84507aeed2533d174afe65b4dfae67c1e70edce2bf5",
+      "transcriptionSha256": "2f8513adf39550619a1fc5a14e0840c9a487569d39aff1148b65b5f4893c1028",
       "pages": [
         {
           "number": 1,
@@ -16059,7 +17592,8 @@
         }
       ],
       "figures": [],
-      "illustrationCount": 0
+      "illustrationCount": 0,
+      "glyphs": []
     },
     "1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l": {
       "id": "1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l",
@@ -16077,7 +17611,7 @@
       "legacyOriginal": "assets/course-sources/22be2935f155b285/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/22be2935f155b285/transcription-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l.html",
-      "transcriptionSha256": "63c910d3f980876c0ca5bcf38af7d1fee735d79176634ad8daa31586568399d6",
+      "transcriptionSha256": "b793cb0dd3332919a091d377d19a37d2bee80ab893d6c6c44de9fc1be2518c60",
       "pages": [
         {
           "number": 1,
@@ -16085,7 +17619,7 @@
           "nativeWords": 150,
           "ocrWords": 95,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -16095,7 +17629,7 @@
           "nativeWords": 127,
           "ocrWords": 158,
           "tables": 0,
-          "figures": 0,
+          "figures": 2,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
         },
@@ -16105,13 +17639,111 @@
           "nativeWords": 13,
           "ocrWords": 26,
           "tables": 0,
-          "figures": 0,
+          "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
         }
       ],
-      "figures": [],
-      "illustrationCount": 0
+      "figures": [
+        {
+          "path": "assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp",
+          "sha256": "acb9fa99a8ee9836ea0c8ef01e911f6f3a36ea58c14c1007a3b57c9485861be1",
+          "page": 1,
+          "sourcePage": 1,
+          "sourceCrop": [
+            86.92500305175781,
+            446.29998779296875,
+            507.67498779296875,
+            681.0499877929688
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 0
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes"
+        },
+        {
+          "path": "assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp",
+          "sha256": "b35e3c5a336bd3aca72a3eeb194165c9f9ccc79ffb0d769e814803b33c456446",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            56.70000076293945,
+            169.70997619628906,
+            538.6500244140625,
+            340.15997314453125
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 1
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes"
+        },
+        {
+          "path": "assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp",
+          "sha256": "9dcda945eac8db3e896cf27d3510866ddf96f646bf93b2416477d2d14730c1e2",
+          "page": 2,
+          "sourcePage": 2,
+          "sourceCrop": [
+            101.91999816894531,
+            429.43994140625,
+            492.66998291015625,
+            607.18994140625
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 2
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes"
+        },
+        {
+          "path": "assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp",
+          "sha256": "2b55b264f7cff3194586c8cc61a4833a304e6b31f938aa58ed1a9ca22a558269",
+          "page": 3,
+          "sourcePage": 3,
+          "sourceCrop": [
+            56.70000076293945,
+            56.699974060058594,
+            538.6500244140625,
+            147.8499755859375
+          ],
+          "sourcePageSize": [
+            595.3200073242188,
+            842.0399780273438
+          ],
+          "kind": "capture-ui",
+          "reviewedIsolation": true,
+          "sourceIllustrations": [
+            {
+              "index": 3
+            }
+          ],
+          "caption": "Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes"
+        }
+      ],
+      "illustrationCount": 4,
+      "glyphs": []
     },
     "1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO": {
       "id": "1la5XXtYUGY8KlSyaM99C7H_t0KbBsvCO",

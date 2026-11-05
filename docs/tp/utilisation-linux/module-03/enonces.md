@@ -1,35 +1,45 @@
 # Énoncé — TP01 — Premières commandes
 
-**Source originale (A) :** `M03TP01 - Énoncé - Premières Commandes` TSSR.
-**Présentation du portail (B) :** numérotation et mise en forme des questions, sans ajout d’exercice.
+**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
 
-**Durée estimée :** 45 à 60 minutes.
+**Durée indicative :** 45 à 60 minutes.
 
-## Préambule source
+## Activité 1
 
-Avant de démarrer, l’énoncé demande d’avoir suivi les vidéos du module 3 et effectué le TP précédent.
+Changer le mot de passe, fermer la session puis se reconnecter pour vérifier le changement.
 
-## Questions
+## Activité 2
 
-1. Changer votre mot de passe, fermer la session et vous reconnecter pour vérifier le changement.
-2. Depuis quand êtes-vous connecté ?
-3. Quels sont les utilisateurs qui travaillent sur le serveur ?
-4. Quel est le temps d’inactivité des utilisateurs connectés ?
-5. Quel est le numéro de processus de votre session ?
-6. Afficher vos identifiants d’utilisateur et de groupes (UID et GID), puis relever les noms de vos groupes d’appartenance.
-7. À l’invite de commande, afficher uniquement l’heure.
-8. À l’invite, afficher uniquement la date, suivant l’exemple « lundi 24 septembre 2009 ».
-9. Utiliser `cal` avec et sans argument :
-   - afficher le calendrier de janvier 1900 puis celui de toute l’année ;
-   - afficher le calendrier du mois de janvier de l’année courante ;
-   - afficher le calendrier de septembre 1752 et relever la particularité de ce mois.
+Depuis quand la session courante est-elle connectée ?
 
-## Vérifications attendues
+## Activité 3
 
-La vérification du changement de mot de passe passe par une fermeture puis une nouvelle ouverture de session. Pour les autres questions, relever le résultat affiché par la commande utilisée.
+Quels utilisateurs travaillent sur le serveur ?
 
-## Voir aussi
+## Activité 4
 
-- [Présentation du TP01](index.md)
-- [Correction du TP01](corrections.md)
+Quel est le temps d’inactivité des utilisateurs connectés ?
+
+## Activité 5
+
+Quel est le numéro de processus de la session présenté par l’outil de connexion ?
+
+## Activité 6
+
+Afficher UID, GID et noms des groupes d’appartenance.
+
+## Activité 7
+
+Afficher uniquement l’heure.
+
+## Activité 8
+
+Afficher uniquement la date selon le modèle jour, numéro, mois, année.
+
+## Activité 9
+
+Afficher janvier 1900, toute l’année 1900, janvier de l’année courante, puis septembre 1752 et sa particularité.
+
+- [Correction](corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md)
+- [Tous les ateliers du module](index.md)

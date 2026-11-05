@@ -1,39 +1,27 @@
-# Révision — Module 05 : lire des fichiers et gérer les liens
+# Révision — M05 : Lire des fichiers et gérer les liens
 
-## TP1 — Lire des fichiers
+## Gestes à retenir
 
-| Besoin attesté | Commande source |
+| Besoin | Repère |
 |---|---|
-| Créer `MonDeuxiemeFichier` | `cat > MonDeuxiemeFichier` |
-| Créer `MonTroisiemeFichier` | `cat > MonTroisiemeFichier` |
-| Concaténer les deux fichiers | `cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3` |
-| Compter les lignes de `/etc/passwd` | `wc -l /etc/passwd` |
-| Afficher deux lignes de `/etc/hosts` | `head -n 2 /etc/hosts` |
+| Saisie puis fin d’entrée | cat > fichier ; Ctrl + D |
+| Concaténer | cat fichier1 fichier2 > resultat |
+| Compter les lignes | wc -l /etc/passwd |
+| Limiter la lecture | head -n 2 /etc/hosts |
+| Lien physique / symbolique | ln source lien ; ln -s cible lien |
+| Comparer les inodes | ls -li ; une aide ajoutée au relevé source ls -l |
 
-## TP2 — Les liens
+## Se contrôler
 
-| Observation ou action du scénario | Commande source |
-|---|---|
-| Lien physique vers `edition1.txt` | `ln Edition edition1.txt` |
-| Lire le contenu | `cat edition1.txt` |
-| Lien symbolique du laboratoire | `ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt` |
-| Deuxième lien physique | `ln edition1.txt edition3.txt` |
-| Observer les caractéristiques | `ls -l edition* Edition /tmp/stag30/edition2.txt` |
-| Étape expérimentale de suppression | `rm edition1.txt` |
+- Comment terminer la saisie de cat ? **Ctrl + D sur une nouvelle ligne.**
+- Que compte wc -l /etc/passwd ? **Les lignes de la base locale de comptes.**
+- Pourquoi edition3.txt reste-t-il lisible après suppression de edition1.txt ? **Il conserve un nom physique vers le même inode ; le lien symbolique vise un chemin supprimé.**
 
-Après cette étape, la solution observe que `edition2.txt` n’est plus lisible, alors que `edition3.txt` l’est encore. Les chemins de laboratoire restent des valeurs de scénario.
+## Pièges du support
 
-## À retenir
+- La correction écrit `Cat` dans la concaténation : utiliser `cat` en minuscules.
+- L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.
+- Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
 
-Les quatre documents font pratiquer `cat >`, la concaténation, `wc -l`, `head -n 2`, `ln`, `ln -s`, `cat` et `ls -l`. Ils ne fournissent pas une théorie générale des redirections ou des liens.
-
-## Liens utiles
-
-- [Cours M05](../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
-- [TP M05](../../tp/utilisation-linux/module-05/index.md)
-- [Kahoot M05](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
-
-## Provenance
-
-- **A — source TSSR :** énoncés et solutions des TP1 et TP2.
-- **B — structuration pédagogique :** fiche limitée aux commandes et observations attestées.
+- [Cours complet](../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Travaux pratiques](../../tp/utilisation-linux/module-05/index.md)

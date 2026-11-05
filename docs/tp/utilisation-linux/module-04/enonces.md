@@ -1,19 +1,33 @@
-# Énoncé — TP1 : Fichiers et dossiers
+# Énoncé — TP01 — Fichiers et dossiers
 
-## Consignes
+**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
 
-1. Où êtes-vous positionné dans l’arborescence ?
-2. Existe-t-il des fichiers et des répertoires ?
-3. Créez un fichier vide nommé `MonPremierFichier`.
-4. Affichez les permissions et le propriétaire de `MonPremierFichier`.
-5. Quels fichiers de `/etc` se terminent par `.conf` ?
-6. Affichez les caractéristiques détaillées de `/tmp`, sans en afficher le contenu.
+**Durée indicative :** 45 à 60 minutes.
 
-## Résultats à relever
+## Activité 1
 
-Conservez les observations demandées par chaque question. Les valeurs affichées dépendent de l’environnement du TP.
+Indiquer sa position dans l’arborescence.
 
-## Provenance
+## Activité 2
 
-- **A — source TSSR :** *Enoncé du TP 1 - Fichiers et dossiers.pdf*.
-- **B — structuration pédagogique :** numérotation et rubriques web, sans exercice supplémentaire.
+Observer la présence de fichiers et de répertoires.
+
+## Activité 3
+
+Créer un fichier vide appelé MonPremierFichier.
+
+## Activité 4
+
+Afficher les permissions et le propriétaire de MonPremierFichier.
+
+## Activité 5
+
+Afficher les noms terminés par .conf dans /etc.
+
+## Activité 6
+
+Afficher les caractéristiques de /tmp lui-même, puis relever sa particularité.
+
+- [Correction](corrections.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
+- [Tous les ateliers du module](index.md)

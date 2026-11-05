@@ -1,14 +1,29 @@
-# Énoncé — TP2 : Les liens
+# Énoncé — TP02 — Les liens
 
-1. Créez un lien physique du fichier `Edition` vers `edition1.txt`, puis vérifiez que son contenu est affichable.
-2. Créez un lien symbolique du fichier `edition1.txt` vers `/tmp/stagxx/edition2.txt`, puis vérifiez que son contenu est affichable.
-3. Créez un lien physique du fichier `edition1.txt` vers `edition3.txt`, puis vérifiez que son contenu est affichable.
-4. Affichez avec `ls` les caractéristiques des quatre fichiers en mettant les différences en évidence.
-5. Supprimez `edition1.txt` ; vérifiez si les contenus de `edition2.txt` et `edition3.txt` restent affichables.
+**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
 
-`/tmp/stagxx/edition2.txt` est conservé tel qu’il figure dans l’énoncé : ce n’est pas une valeur fixe à remplacer.
+**Durée indicative :** 45 à 60 minutes.
 
-## Provenance
+## Activité 1
 
-- **A — source TSSR :** énoncé TP2 *Les liens*.
-- **B — structuration pédagogique :** liste lisible sans ajout de scénario.
+Créer un lien physique depuis Edition vers edition1.txt et vérifier la lecture.
+
+## Activité 2
+
+Créer un lien symbolique depuis edition1.txt vers /tmp/stagxx/edition2.txt, puis vérifier.
+
+## Activité 3
+
+Créer un lien physique depuis edition1.txt vers edition3.txt.
+
+## Activité 4
+
+Afficher les caractéristiques des quatre noms et mettre les différences en évidence.
+
+## Activité 5
+
+Supprimer edition1.txt, puis tester les lectures via edition2.txt et edition3.txt.
+
+- [Correction](tp2-corrections.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Tous les ateliers du module](index.md)

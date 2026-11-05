@@ -1,79 +1,173 @@
 # Module 05 — Lire des fichiers et gérer les liens
 
-> Cette page est une synthèse limitée aux deux TP et à leurs solutions disponibles pour le module 05. Aucun support de cours distinct n’a été identifié dans Drive.
+**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
-## TP1 — Lire des fichiers
+Écrire un contenu avec cat, concaténer des fichiers, compter des lignes puis comparer liens physiques et symboliques. Les deux ateliers utilisent les noms de fichiers du scénario source.
 
-Le TP demande de créer deux fichiers avec `cat >`, puis de saisir les textes indiqués dans sa consigne :
+**Durée des ateliers :** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+
+## 1. Créer et lire des fichiers avec cat
+
+Dans `cat > MonDeuxiemeFichier`, le shell redirige la sortie de cat vers le fichier. Saisir ensuite les lignes demandées, puis terminer l’entrée avec **Ctrl + D** sur une nouvelle ligne. L’affichage seul s’obtient avec `cat MonDeuxiemeFichier`.
+
+La redirection `>` crée ou remplace le fichier cible. Dans la concaténation, les deux fichiers sources sont lus dans l’ordre et le résultat est écrit dans un troisième fichier ; ce dernier ne doit pas remplacer une des sources.
+
+## 2. Compter ou limiter l’affichage
+
+`wc -l /etc/passwd` compte les lignes de la base locale de comptes représentée par ce fichier. Le résultat n’est pas automatiquement le nombre de personnes qui se connectent : le fichier contient aussi des comptes de service et ne décrit pas nécessairement toutes les sources d’identité d’un système.
+
+`head -n 2 /etc/hosts` affiche uniquement les deux premières lignes. Le contenu de la capture appartient à la machine source ; vérifier les lignes réellement présentes sur sa VM.
+
+## 3. Deux sortes de liens
+
+| Lien | Création | Ce qu’il désigne | Observation utile |
+|---|---|---|---|
+| **Physique** | `ln source nouveau_nom` | Un autre nom du même fichier, dans les limites du système de fichiers | Même inode et nombre de liens partagé |
+| **Symbolique** | `ln -s cible nouveau_lien` | Un chemin vers une cible | Type l et flèche vers la cible dans ls -l |
+
+Dans le TP, **Edition**, **edition1.txt** et **edition3.txt** sont les noms physiques du même contenu. **/tmp/stagxx/edition2.txt** est un lien symbolique vers le chemin edition1.txt.
+
+**Illustration IA / externe au cours — liens du scénario.**
+
+```mermaid
+flowchart LR
+    A[Edition] --> I[Inode et contenu communs]
+    B[edition1.txt] --> I
+    C[edition3.txt] --> I
+    S[edition2.txt lien symbolique] --> P[Chemin edition1.txt]
+```
+
+Supprimer **edition1.txt** laisse Edition et edition3.txt accéder au contenu, mais le lien symbolique reste dirigé vers un nom qui n’existe plus. Le contenu existe encore sans que ce chemin symbolique puisse le retrouver.
+
+Les noms de compte **user30** et de dossier **stag30** sont des valeurs de la correction. L’aide pratique emploie **$HOME** et le dossier **/tmp/stagxx** à adapter aux consignes du laboratoire. Le fichier Edition doit déjà être fourni ; son contenu n’est pas inventé par le portail.
+
+## Ateliers complets
+
+### TP01 — Lire des fichiers
+
+#### Activité 1 — Créer MonDeuxiemeFichier avec cat et le contenu exact de trois lignes demandé.
+
+Lancer :
 
 ```bash
 cat > MonDeuxiemeFichier
+```
+
+Saisir, puis terminer avec Ctrl + D :
+
+```text
+Conseil :
+pour bien utiliser la ligne de commande
+faire des étirements de doigts avant chaque repas.
+```
+
+#### Activité 2 — Créer MonTroisiemeFichier avec cat et les deux lignes demandées.
+
+```bash
 cat > MonTroisiemeFichier
 ```
 
-Il demande ensuite de réunir les deux fichiers dans `fichier2+3`, de compter les lignes de `/etc/passwd` et d’afficher les deux premières lignes de `/etc/hosts` :
+Saisir, puis terminer avec Ctrl + D :
+
+```text
+Ne pas oublier de lire au moins 4 pages de man
+avant d'aller se coucher
+```
+
+#### Activité 3 — Créer fichier2+3 par concaténation des deux fichiers.
 
 ```bash
 cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3
+cat fichier2+3
+```
+Vérifier que les trois lignes du premier fichier précèdent les deux du second.
+
+#### Activité 4 — Compter les lignes de /etc/passwd, une ligne correspondant à une entrée de compte.
+
+```bash
 wc -l /etc/passwd
+```
+Relever le résultat du système, pas le nombre de la capture.
+
+#### Activité 5 — Afficher uniquement les deux premières lignes de /etc/hosts.
+
+```bash
 head -n 2 /etc/hosts
 ```
 
-Les résultats affichés dépendent de la machine du TP.
+### TP02 — Les liens
 
-## TP2 — Les liens
-
-Le scénario distingue un lien physique et un lien symbolique au moyen de commandes `ln` et `ln -s`. Il demande de relire le contenu du fichier associé, puis d’observer les caractéristiques demandées avec `ls -l`.
+#### Activité 1 — Créer un lien physique depuis Edition vers edition1.txt et vérifier la lecture.
 
 ```bash
 ln Edition edition1.txt
 cat edition1.txt
-ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt
-ln edition1.txt edition3.txt
-ls -l edition* Edition /tmp/stag30/edition2.txt
 ```
 
-Les chemins et noms de session ci-dessus sont des valeurs du laboratoire de la solution, non des valeurs universelles.
+#### Activité 2 — Créer un lien symbolique depuis edition1.txt vers /tmp/stagxx/edition2.txt, puis vérifier.
 
-## Observation après la suppression de scénario
+Depuis le répertoire personnel :
 
-Le TP prévoit ensuite l’étape expérimentale suivante :
+```bash
+mkdir -p /tmp/stagxx
+ln -s "$HOME/edition1.txt" /tmp/stagxx/edition2.txt
+cat /tmp/stagxx/edition2.txt
+```
+Le chemin absolu de la cible évite qu’elle soit interprétée relativement au dossier /tmp/stagxx.
+
+#### Activité 3 — Créer un lien physique depuis edition1.txt vers edition3.txt.
+
+```bash
+ln edition1.txt edition3.txt
+cat edition3.txt
+```
+
+#### Activité 4 — Afficher les caractéristiques des quatre noms et mettre les différences en évidence.
+
+```bash
+ls -l Edition edition1.txt edition3.txt /tmp/stagxx/edition2.txt
+ls -li Edition edition1.txt edition3.txt /tmp/stagxx/edition2.txt
+```
+La seconde ligne est un contrôle pédagogique des inodes ; les trois liens physiques partagent le même numéro.
+
+#### Activité 5 — Supprimer edition1.txt, puis tester les lectures via edition2.txt et edition3.txt.
 
 ```bash
 rm edition1.txt
+cat /tmp/stagxx/edition2.txt
+cat edition3.txt
 ```
+Le lien symbolique devient cassé et la lecture par edition3.txt reste possible, comme dans la correction.
 
-Dans l’observation donnée par la solution, le lien symbolique vers `edition2.txt` ne peut plus être lu, tandis que `edition3.txt` reste lisible. Cette page rapporte cette observation sans étendre le comportement à des cas non présents dans les sources.
+## Écarts et précisions du document
 
-## Synthèse
+!!! note "Lecture de la source"
+    La correction écrit `Cat` dans la concaténation : utiliser `cat` en minuscules.
 
-Les TP font pratiquer la création de fichiers, leur concaténation, le comptage de lignes, l’affichage partiel, puis deux formes de liens et leurs observations dans un scénario donné.
+!!! note "Lecture de la source"
+    L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.
 
-## Pour poursuivre
+!!! note "Lecture de la source"
+    Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
 
-- [TP M05 — index](../../tp/utilisation-linux/module-05/index.md)
-- [TP1 — énoncé](../../tp/utilisation-linux/module-05/tp1-enonces.md) · [correction](../../tp/utilisation-linux/module-05/tp1-corrections.md)
-- [TP2 — énoncé](../../tp/utilisation-linux/module-05/tp2-enonces.md) · [correction](../../tp/utilisation-linux/module-05/tp2-corrections.md)
-- [Fiche de révision M05](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
-- [Kahoot M05](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
+## Mini-quiz
 
-## Provenance
+1. Comment terminer la saisie de cat ?
+2. Que compte wc -l /etc/passwd ?
+3. Pourquoi edition3.txt reste-t-il lisible après suppression de edition1.txt ?
 
-- **A — source TSSR :** énoncés et solutions TP1 *Lire des fichiers* et TP2 *Les liens*.
-- **B — structuration pédagogique :** synthèse web des commandes, étapes et observations attestées, sans apport externe.
+??? note "Réponses"
+    1. Ctrl + D sur une nouvelle ligne.
+    2. Les lignes de la base locale de comptes.
+    3. Il conserve un nom physique vers le même inode ; le lien symbolique vise un chemin supprimé.
 
-<!-- TSSR-LINUX-VISUAL-20261020 -->
+## Pour pratiquer et réviser
 
-## Complément IA / externe au cours — Lire les liens
+- [TP : énoncés et corrections](../../tp/utilisation-linux/module-05/index.md)
+- [Fiche de révision](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Présentation du cours](index.md)
 
-**Illustration IA / externe au cours.**
+## Provenance pédagogique
 
-```mermaid
-flowchart LR
- A["Edition"] --> I["Même contenu / même inode"]
- B["edition3.txt : lien physique"] --> I
- C["edition2.txt : lien symbolique"] --> P["Chemin edition1.txt"]
- P --> I
-```
-
-Le dessin distingue le contenu partagé par les liens physiques et le chemin mémorisé par un lien symbolique. Après suppression du chemin ciblé, le lien symbolique peut devenir pendant alors qu’un autre lien physique permet encore de lire les données. [Référence externe — GNU Coreutils, ln](https://www.gnu.org/software/coreutils/manual/html_node/ln-invocation.html).
+Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
