@@ -1,30 +1,37 @@
 # Fiche de révision — Module 09 — Gestion des espaces de stockage — File System
 
-**Sources originales (A) :** support, énoncé et solution M09TP01 Drive. **Fiche (B) :** synthèse reformulée.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## À connaître absolument
+## Repère essentiel
 
-- Un système de fichiers Unix contient notamment superbloc, inodes, blocs d’indirection et blocs de données ; le nom d’un fichier se trouve dans son répertoire, pas dans l’inode.
-- `mkfs.ext4` prépare un système de fichiers ext4 ; `tune2fs` modifie des options ext et peut afficher le superbloc.
-- `blkid` et `lsblk -f` permettent de relever type, UUID et étiquette ; `findmnt` rend les montages lisibles.
-- `mount` rend un système de fichiers accessible à un point de montage ; `umount` le détache lorsqu’il n’est plus utilisé.
+Le nombre de liens physiques renseigne les entrées qui désignent un même inode. La place n’est pas nécessairement rendue dès que le dernier nom disparaît : un processus peut conserver le fichier ouvert. Cette précision explique les divergences possibles entre fichiers visibles et occupation du disque.
 
-## Montage persistant
+## Tableau de mémorisation
 
-`/etc/fstab` déclare les montages du démarrage. La source privilégie un UUID pour une partition, un LABEL lorsqu’il est suffisamment distinct, et le chemin du périphérique pour les LV. Elle déconseille `/dev/sdb1` pour une partition persistante, car son nom peut changer.
+| Date | Sens |
+|---|---|
+| `atime` | Accès, selon les options et la politique de mise à jour |
+| `mtime` | Modification du contenu |
+| `ctime` | Modification de l’état / métadonnées de l’inode, pas date de création |
 
-## Séquence du TP M09
+## Se tester sans regarder
 
-1. Préparer ext4 sur `lvvar`, avec le LABEL `VAR`, puis vérifier avec `blkid`.
-2. Étendre le système de fichiers de `lvhome` seulement après la vérification de son volume logique.
-3. Prendre un snapshot, limiter les écritures dans `/var`, copier les données depuis un montage temporaire et contrôler le résultat.
-4. Déclarer le montage de `/var` dans `fstab`, tester la configuration et redémarrer seulement après un test concluant.
 
-## Checklist de maîtrise
+1. Monter un volume sur `/var` copie-t-il l’ancien contenu ?
+2. `ctime` indique-t-il la création du fichier ?
+3. Quelle commande observe les inodes disponibles ?
 
-- [ ] Expliquer la différence entre formatage, montage et montage persistant.
-- [ ] Relever l’UUID, le type et le LABEL d’un volume.
-- [ ] Identifier les risques spécifiques de la migration de `/var`.
-- [ ] Relier une entrée `fstab` au point de montage constaté par `findmnt`.
+??? success "Réponses"
+    1. Non ; la migration nécessite une copie et une phase de validation.
+    2. Non, c’est la modification de l’état de l’inode.
+    3. `df -i`.
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md) · [TP](../../tp/administration-linux/module-09/index.md) · [mémo](../../memo/file-systems-debian.md).
+
+## Contrôle de maîtrise
+
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
+
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system.md) · [TP du parcours](../../tp/administration-linux/index.md).

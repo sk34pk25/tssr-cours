@@ -1,12 +1,91 @@
-# Énoncé — Module 06 — Gestion des paquets logiciels
+# Énoncés — Module 06 — Gestion des paquets logiciels
 
-!!! warning "Laboratoire"
-    Les dépôts, versions et paquets cités sont liés au TP. Relever la distribution et les sources avant toute modification ; ne pas mélanger de branches Debian.
+**Reprise structurée des consignes et explications de la source.** Les figures utiles restent isolées et les commandes transcrites restent littérales. Les écarts de version et les corrections techniques sont signalés séparément.
 
-**Sources originales (A) :** énoncé M06TP01 et support M06. **Énoncé (B) :** reformulation structurée.
+## M06TP01 - Enoncé - Gestion des paquets logiciels
 
-1. Avec l'interface graphique, examiner les dépôts configurés, désactiver le média CD-ROM seulement s'il gêne le laboratoire et lire `/etc/apt/sources.list`.
-2. Distinguer les lignes `deb`, `deb-src` et les suites de mise à jour ; désactiver les sources demandées par le TP.
-3. Actualiser les index, relever les mises à jour proposées et installer les logiciels de laboratoire demandés ; comparer `apt show` et `dpkg -L`.
-4. Sur le système sans interface graphique, déclarer seulement les dépôts Bookworm prescrits, contrôler les mises à jour et installer les paquets demandés.
-5. Configurer VIM selon le scénario du TP et vérifier le résultat sans imposer la configuration à un autre contexte.
+### Gestion des paquets
+
+Durée estimée
+
+30 à 45 mn
+
+### Énoncé :
+
+### I. Gérer les installations logicielles avec interface graphique
+
+Afficher le composant les "Software & Updates"
+
+- Vérifier les paramétrages dans les différents onglets
+- Rechercher les informations relatives aux dépôts configurés
+- Désactiver le dépôt CDROM si nécessaire
+
+Vérifier la configuration du fichier sources.list dans /etc/apt :
+
+- Quelles lignes définissent l'emplacement des sources d'installation des paquets binaires ?
+- Quelles lignes définissent l'emplacement des mises à jour ?
+- Pouvez-vous récupérer les paquets sous la forme du code source ?
+- Désactiver l'accès aux dépôts concernant le code source.
+
+Effectuer une mise à jour des paquets installés avec apt :
+
+- Combien de paquets seront mis à jour ? ( pourquoi ? )
+
+Installer le logiciel suivant avec l'outil "Logiciels"
+
+- Gparted (outil de partitionnement)
+- Lancer cette application depuis les menus Gnome
+
+Installer les paquets suivants avec la commande apt :
+
+- vim  (Editeur VI amélioré)
+- Serveur SSH   (rechercher d’abord le nom du paquet adapté)
+- terminator
+
+Afficher les informations sur ces 3 paquets avec les commandes :
+
+- $ apt show \<paquet\>
+- $ dpkg -L \<paquet\>
+
+Connectez-vous via Putty sur votre VM Debian graphique.
+
+### II. Gérer les installations logicielles sans interface graphique
+
+Configurer manuellement les dépôts Internet dans le fichier /etc/apt/sources.list
+
+- Ajouter les directives :
+- deb http://ftp.fr.debian.org/debian/ bookworm main
+- deb http://ftp.fr.debian.org/debian/ bookworm-updates main
+- Garder la directive :
+- deb http://security.debian.org/debian-security bookworm-security main
+
+Vérifier les mises à jour disponibles
+
+- Combien de paquets seront mis à jour ?
+- Effectuer les mises à jour et redémarrer si nécessaire
+
+Installer les paquets suivants avec la commande apt :
+
+- vim  (éditeur VIM)
+- cifs-utils (outils pour la connexion aux partages SMB)
+
+Configurer le fonctionnement de VIM pour les deux Postes:
+
+- Lancer l'édition : # vi /etc/vim/vimrc
+- Décommenter la ligne contenant la mention : syntax on (active la coloration syntaxique)
+- Ajouter les modifications suivantes pour retrouver un comportement normal de vim en créant le fichier : /etc/vim/vimrc.local   source /usr/share/vim/vim90/defaults.vim  let skip\_defaults\_vim = 1  if has('mouse')  set mouse=r  endif  set paste Solution
+
+## Clarifications et contrôles — complément pédagogique
+
+Le scénario d’installation cible Debian 11, mais certaines consignes demandent Bookworm et certaines captures montrent Bullseye. Ne pas mélanger ces dépôts ni transformer implicitement l’exercice en migration. Le chemin defaults.vim dépend de la version de Vim. `apt-get search` est corrigé en `apt-cache search` ou `apt search` ; dpkg interroge l’état local.
+
+Pour les justifications et références officielles, lire le [cours optimisé](../../../modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels.md).
+
+## Compte rendu attendu
+
+- État de départ et cible précise de la manipulation.
+- Commandes ou paramètres appliqués, avec les valeurs réellement utilisées.
+- Résultats observés et contrôles qui les établissent.
+- Différences entre l’environnement actuel et celui des captures.
+
+[Retour au TP](index.md) · [Énoncés](enonces.md) · [Corrigés](corrections.md).

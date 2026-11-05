@@ -1,16 +1,13 @@
 # TP — Module 05 — Gestion du réseau
 
-**Sources originales (A) :** support M05, énoncé et solution `M05TP01` TSSR.
-**Présentation du portail (B) :** organisation pédagogique des objets du module.
+Exécuter l’énoncé avant de consulter la correction. Les consignes, captures et solutions de la source sont accessibles dans l’onglet Original ; les précisions pédagogiques sont séparées.
 
-Le TP de laboratoire relie la configuration IP, le routage, la résolution de noms et le nom d'hôte sur un serveur Debian puis un poste graphique.
-
-- [Énoncé — configuration réseau](enonces.md)
-- [Correction — contrôles réseau](corrections.md)
+- [Énoncés complets](enonces.md)
+- [Corrigés commentés](corrections.md)
 - [Cours du module](../../../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau.md)
-- [Fiche de révision](../../../revision/administration-linux/module-05-gestion-du-reseau.md)
-- [Kahoot du module](../../../kahoot/05-administration-debian-gnu-linux-module-05-gestion-du-reseau.md)
 
-## Voir aussi
+## Points à surveiller
 
-- [Commandes Linux](../../../commandes/linux.md)
+Avec l’hôte `10.49.222.1/16`, le réseau est `10.49.0.0/16`, contrairement à une formulation du corrigé. Les domaines de formation sont neutralisés explicitement. Une interface Host-only sans passerelle n’est pas la sortie par défaut ; examiner le gestionnaire réseau réellement utilisé et la persistance de resolv.conf.
+
+[Liste des TP du cours](../index.md).

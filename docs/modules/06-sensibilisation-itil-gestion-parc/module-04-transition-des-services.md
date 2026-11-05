@@ -1,601 +1,176 @@
 # Module 04 — Transition des services
 
-**Séquence :** Sensibilisation ITIL et gestion de parc  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
-
-!!! warning "Périmètre et versions"
-    La progression suit principalement les publications du cycle de vie ITIL v3, complétées par une introduction à ITIL 4. Cette structure historique est conservée car elle constitue l’ordre officiel des supports.
-
-## Objectifs et compétences
-
-- Définir changement, version et élément de configuration.
-- Comprendre la CMDB et la gestion des connaissances.
-- Évaluer risque, impact, plan de retour arrière et validation.
-- Transférer un service vers l’exploitation de façon contrôlée.
-
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Transition des services » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
-
-## Méthode de travail
-
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
-
-## Module 04 - Support de cours
-
-### Sensibilisation ITIL et
-
-#### gestion de parc
-
-#### Module 04 — Transition des services
-
-- Connaitre le rôle de la transition des services
-- Identifier les différents processus
-- Définir un changement
-- Définir un CI (Configuration Item)
-- Identifier les outils
-- Définir la connaissance
-
-#### Les publications centrales « T ransition des services»
-
-### Les publications centrales « T ransition des services »
-
-#### Les publications centrales
-
-#### « T ransition des services »
-
-#### Les publications centrales « T ransition des services»
-
-- Objectif
-- Mise en production des services (nouveaux ou améliorés)
-- Son rôle
-- Mettre en production en respectant les livrables produits par la conception
-
-#### des services ainsi que les coûts
-
-- Réalisation, construction, test, validation et déploiement des services
-- Prévoir et gérer les ressources nécessaires
-- Produire la documentation
-- Surveiller et améliorer les services
-- Respecter les critères de qualité, de sécurité et les délais dans la délivrance
-
-#### des services
-
-- Prendre en compte et améliorer la perception client
-
-#### La transition des services
-
-### Les publications centrales « T ransition des services»
-
-- Dans la phase de transition, tout commence par le processus de
-
-#### gestion des changements avec une RFC Request For Change
-
-#### La transition des services
-
-#### Gestion des changements
-
-#### RFC
-
-#### Gestion des actifs de services et des configurations
-
-#### Gestion de la planification et support à la transition
-
-#### Gestion de l’évaluation des changements La validation et les tests
-
-#### Gestion des déploiements et des mises en production
-
-#### Gestion de la connaissance
-
-#### Les publications centrales « T ransition des services»
-
-- Ses objectifs
-- S’assurer que les procédures et les méthodes pour traiter les changements
-
-#### sont efficaces, voire efficientes
-
-- S’assurer que les modifications des CI (Configuration Item) sont bien
-
-#### enregistrées dans le CMS (Content Managment System)
-
-- Répondre aux évolutions exprimées par les clients en minimisant les risques
-
-#### d’interruption de service et en maximisant la valeur fournie
-
-- Définition d’un changement
-- Ajout, modification, ou retrait d’un ou plusieurs CI du système
-
-#### d’information ou d’un ou plusieurs services fournis par ce système
-
-#### d’information
-
-#### La gestion des changements
-
-- Les « 7 R » de la gestion des
-
-#### changements
-
-- Raised : qui a fait la demande ?
-- Reason : pour quelle raison ?
-- Return : quel est le retour attendu ?
-- Risks : quels sont les risques ?
-- Resources : quelles seront les ressources ?
-- Responsible : qui est le responsable ?
-- Relationship : quelles sont les relations
-
-#### avec les autres changements ?
-
-#### La gestion des changements
-
-#### Raised
-
-#### Risks
-
-#### Reason
-
-#### Return
-
-#### Les
-
-#### « 7 R »
-
-#### Resources
-
-#### Responsible
-
-#### Relationship
-
-#### Les publications centrales « T ransition des services»
-
-- Les origines d’un changement
-- Les correctifs (événement, incident, problème…)
-- La législation
-- L’organisation
-- Des directives ou des standards
-- Des évolutions des services existants
-- Des nouveaux services
-- Un nouveau modèle de sourcing
-- Une innovation technologique…
-
-#### La gestion des changements
-
-- La demande de changement
-- Tous les clients sont habilités à émettre une demande de changement, mais
-
-cela ne veut pas dire qu’elle sera acceptée.
-
-- Toute demande de changement doit être formalisée par une RFC.
-- RFC (Request For Change) est une formalisation d’une modification d’un ou
-
-plusieurs éléments de configuration (CI).
-
-- Une RFC doit contenir :
-- Un identifiant unique
-- Une date de demande
-- Le nom du demandeur
-- Une proposition de priorité de changement (priorité = impact x urgence)
-- Une description du changement
-- Les risques durant l’implémentation du changement
-- Les dates de mise en place du changement
-- Une estimation des ressources nécessaires (humaine, matériels…)
-
-#### La gestion des changements
-
-#### Les publications centrales « T ransition des services»
-
-- La gestion de la priorité d’une demande de changement
-
-#### La gestion des changements
-
-#### Code de priorité
-
-#### Urgence
-
-#### Elevée Moyenne Faible
-
-#### Impact
-
-#### Elevé 1 2 3
-
-#### Moyen 2 3 4
-
-#### Faible 3 4 5
-
-#### Code de
-
-#### priorité Description Dans GLPI Priorité de
-
-#### changement
-
-#### 1 Critique Très haute Urgent / Critique
-
-#### 2 Elevée Haute Urgent
-
-#### 3 Moyen Moyenne Normal
-
-#### 4 Faible Basse Normal
-
-#### 5 Très faible Très basse Standard / Planifié
-
-- Le changement standard
-- Actions connues, documentées, déjà réalisées et testées
-- Les risques sont faibles et bien maîtrisés
-- Changement préapprouvé, maîtrisé et associé à des procédures établies
-- Référencé dans un mini-catalogue de changements préautorisés
-- Le changement normal
-- Il nécessite une évaluation complète et une autorisation avant sa réalisation
-
-#### par le CAB
-
-- Le changement urgent
-- L’urgence est exceptionnelle et devra être validée et autorisée par l’ECAB
-- Court-circuitage des procédures (réalisation, mise en œuvre, documentation
-
-#### et tests)
-
-#### Les types de changement
-
-#### Les publications centrales « T ransition des services»
-
-#### Cycle de vie d’un changement
-
-#### Demandeur Gestion des
-
-#### changements
-
-#### Gestion de la mise
-
-#### en production
-
-#### Gestion des actifs et
-
-#### des configurations
-
-#### Clôture
-
-#### Request For
-
-#### Change
-
-#### Filtrage
-
-#### Classification
-
-#### Priorisation
-
-#### Préparation
-
-#### Script de
-
-#### procédure
-
-#### Test
-
-#### Exploitabilité
-
-#### Utilisabilité
-
-#### Bilan de test
-
-#### CAB
-
-#### Bilan de
-
-#### préparation
-
-#### Mise en
-
-#### production
-
-#### Accepté
-
-#### P I R
-
-#### MAJ de la CMDB
-
-#### ReportAbandon
-
-#### Abandon
-
-- CI - Configuration Item : composant du système d’information qui
-
-#### va contribuer à la fourniture d’un ou plusieurs services
-
-- CMS - Content Managment System : logiciel de gestion des CI, de
-
-#### la base connaissance…
-
-- CAB - Change Advisory Board : comité consultatif qui évalue et
-
-#### donne un avis sur la mise en œuvre des changements dits
-
-#### normaux
-
-- ECAB - Emergency Change Advisory Board : comité qui donne
-
-#### l’autorisation de traiter le changement en urgence
-
-- PIR - Post Implementation Review : comité qui analyse les
-
-#### résultats des mises en production des changements
-
-#### La gestion des changements : terminologie
-
-#### Les publications centrales « T ransition des services»
-
-- Son objectif
-- Identifier, contrôler et enregistrer les actifs de services et les éléments de
-
-#### configuration
-
-#### (CI - Configuration Item, les « baselines »)
-
-- Éditer des rapports sur l’état des actifs de services et des éléments de
-
-#### configuration
-
-- Auditer et vérifier les actifs de services et les éléments de configuration
-- Protéger l’intégrité des actifs de services et des éléments de configuration
-- Gérer un système de gestion de configuration (CMS ou Configuration
-
-#### Management System)
-
-#### La gestion des actifs de services et des configurations
-
-- Élément de configuration
-- Un élément de configuration, dénommé CI, est un composant du
-
-#### système d’information qui va contribuer à la fourniture d’un ou
-
-#### plusieurs services
-
-- Identifiable par un type et un ensemble d’attributs pour le décrire
-- Relation possible avec d’autres CI : situation, physique et
-
-#### fonctionnelle
-
-#### La gestion des actifs de services et des configurations
-
-#### Les publications centrales « T ransition des services»
-
-#### La gestion des actifs de services et des configurations
-
-#### Composants matériels
-
-#### Composants logiciels
-
-#### Équipements réseau
-
-#### Équipements téléphoniques
-
-#### Contrats de service
-
-#### Composants d’infrastructure
-
-#### Ressources utilisateurs
-
-#### Éléments environnementaux
-
-#### Documentations
-
-#### Procédures d’exploitation
-
-#### Exemples
-
-#### d’élément de
-
-#### configuration
-
-- Activités : planification initiale
-- Définir le périmètre, la stratégie, la politique de gestion des éléments
-
-#### de configuration
-
-- Connaître les outils et les données des différents composants existants
-
-#### (véracité et mise à jour) : analyse de l’existant
-
-- Sélection, configuration et modélisation du CMS/CMDB (type de CI,
-
-#### attributs, relations)
-
-- Chargement initial
-- Nomination du propriétaire, des acteurs clés avec leurs rôles et
-
-#### responsabilités
-
-- Formation des collaborateurs
-- Activités : planification itérative
-- Chargement des CMDB
-- Ajustement des procédures, rôles et responsabilités
-
-#### La gestion des actifs de services et des configurations
-
-#### Les publications centrales « T ransition des services»
-
-- Les outils : la CMDB
-- Configuration Management Data Base
-- BDD de l’outil de gestion associé
-- Contient des enregistrements CI
-- Les outils : le CMS
-- Configuration Management System
-- Ensemble d’outils pour gérer les données de configuration
-- Prend les données de plusieurs CMDB pour constituer une CMDB fédérée
-- Les outils : la DML
-- Definitive Media Library : lieu de stockage sécurisé des CI logiciels
-- Référence pour tous les logiciels : contient les médias, documentations et
-
-#### clés de licence associées
-
-#### La gestion des actifs de services et des configurations
-
-#### Identification
-
-- Sélectionner, identifier et définir les CI : attributs, relations, etc.
-- Définir le niveau de granularité d’enregistrement des CI et leurs baselines
-- Etiqueter les composants physiques
-
-#### Contrôle des CI
-
-- S’assurer que seuls les CI autorisés et identifiables sont enregistrés
-- CI accompagnés d’une documentation (ses relations, attributs, liens)
-
-#### Gestion des états
-
-- Production de rapports sur l’état des différents CI
-
-#### Vérifications et
-
-#### audits
-
-- Vérifier l’adéquation des activités avec celles définies par le processus
-- S’assurer de la fraîcheur des informations saisies
-- S’assurer de la bonne disponibilité des données
-
-#### Les publications centrales « T ransition des services»
-
-- La gestion des mises en production et des déploiements
-- Valide, organise et planifie le déploiement des services (nouveaux ou mis à
-
-jour) de façon « industrielle », en garantissant la valeur apportée, dans le respect des SLA.
-
-- Crée et fournit le document à l’exploitation des services
-- S’assure que les utilisateurs ont reçu les informations et sont formés pour
-
-#### utiliser les nouveaux services
-
-- Gestion des versions, convention de nommage, le R.A.C.I, les délais…
-
-#### La gestion des mises en production et des déploiements
-
-#### Fonction 1 Fonction 2 Fonction 3
-
-#### Activité 1 A R, C C
-
-#### Activité 2 A, I R C
-
-#### Activité 3 A R C
-
-#### Activité 4 A R C, I
-
-#### Activité 5 A R C, I
-
-#### R — Responsible — qui réalise la tâche
-
-#### A — Accountable — qui est le responsable, celui qui valide
-
-#### C — Consulted — qui est consulté comme expert
-
-#### I — Informed — qui doit être forcément informé
-
-- Les différents modes de déploiement
-
-#### La gestion des mises en production et des déploiements
-
-Manuel : déploiement avec l’aide du personnel de la DSI avec contrôles et surveillance. Automatique : fortement conseillé, déploiement sans l’aide du personnel de la DSI. Mode Push : le déploiement est à l’initiative d’un centre vers les sites utilisateurs cibles. Déploiement d’une mise à jour sur l’ensemble des utilisateurs concernés. Mode Pull : le déploiement est mis à disposition des utilisateurs sur un serveur. Les utilisateurs vont initier le déploiement à leur convenance. Big bang : le déploiement est effectué en une seule opération vers tous les utilisateurs. Par phase : le déploiement s’effectue selon un plan en tenant compte des périmètres définis par le client.
-
-#### Les publications centrales « T ransition des services»
-
-- La gestion de l’évaluation des changements
-- Mesure l’impact des changements, en évaluant les effets et les risques
-- Crée la revue de post-implémentation (PIR)
-- Indépendante de la gestion des changements
-- La validation et les tests
-- Garant du bon fonctionnement des services (nouveaux et mise à jour ) et de la
-
-#### gestion des erreurs découvertes pendant les phases d’intégration, de
-
-#### préproduction et de post-mise en production
-
-- Création de procès-verbaux de recette (fonctionnelle, performance,
-
-#### d’exploitabilité, de service régulier)
-
-- La gestion de la planification et le support à la transition
-- Organise le ou les changements de services (nouveaux ou mise à jour) et gère
-
-#### les ressources nécessaires (humaines et matérielles)
-
-#### Les autres processus de la transition des services
-
-- Ses objectifs
-- Donner de l’information à un collaborateur avec la granularité dont il a
-
-#### besoin
-
-- Fournir une information compréhensible et fiable
-- Permettre une prise de décision à tous les instants du cycle de vie
-- Permettre d’optimiser et de fiabiliser les prises de décision (efficience)
-- Permettre d’enregistrer les situations déjà connues
-- Mettre en place et faire vivre un système de gestion de la connaissance
-- Gérer l’information
-- S’assurer de la bonne utilisation de la base de connaissances
-- SKMS - Service Knowledge Management System
-
-#### La gestion de la connaissance
-
-#### Les publications centrales « T ransition des services»
-
-- Gestion de l’information
-- Identifier les exigences, les contraintes, les spécifications des données
-
-#### traitées
-
-- Définir une architecture permettant de supporter ces données
-- Définir des outillages appropriés pour mettre en œuvre cette architecture
-- Écrire les procédures qui vont faire vivre ces données
-- Effectuer une analyse précise de l’état des lieux en matière de gestion de la
-
-#### connaissance
-
-- Appréhender cette spécificité pour mieux bâtir une solution adaptée
-- Évaluer la performance des bases de connaissances et être force de
-
-#### propositions pour l’amélioration des bases
-
-#### La gestion de la connaissance
-
-- Bonne utilisation de la base
-- Savoir si ce que l’on a mis en place sert à quelque chose ou si des
-
-#### collaborateurs l’utilisent
-
-- Comprendre qui partage la connaissance, qui capitalise la connaissance de
-
-#### l’entreprise
-
-- L’important n’est pas une base de connaissances contenant beaucoup
-
-#### d’informations, mais une base de connaissances qui est utilisée
-
-- Gérer la promotion, l’information, la formation sur les bases de
-
-#### connaissances
-
-#### La gestion de la connaissance
-
-## Mise en pratique
+## Préparer un changement que l’exploitation saura prendre en charge
+
+La transition réalise, construit, teste, valide et déploie les services conçus. Elle prépare aussi les équipes, la documentation et les utilisateurs. Livrer un composant sans procédure de support, sans test ou sans retour arrière peut déplacer la panne vers l’exploitation.
+
+| Processus étudié | Résultat attendu |
+|---|---|
+| Changements | Demandes évaluées, autorisées selon les responsabilités et suivies. |
+| Actifs et configurations | CI identifiés, relations connues et données à jour. |
+| Planification et support à la transition | Ressources et calendrier cohérents. |
+| Évaluation | Effets, risques et résultats du changement examinés. |
+| Validation et tests | Recette fonctionnelle, performance, exploitabilité et service vérifiées. |
+| Déploiements et mises en production | Version contrôlée, transfert à l’exploitation et utilisateurs préparés. |
+| Connaissances | Informations fiables, accessibles et réellement utilisées. |
+
+## Formuler une RFC avec les sept R
+
+Un changement ajoute, modifie ou retire un CI ou un service. Une RFC identifie le demandeur, la date, le périmètre, la priorité proposée, les risques, les dates et les ressources nécessaires. Les **sept R** aident à examiner la demande : **Raised** (qui demande), **Reason** (pourquoi), **Return** (bénéfice), **Risks**, **Resources**, **Responsible** et **Relationship** avec les autres changements.
+
+| Type | Traitement |
+|---|---|
+| Standard | Connu, documenté, peu risqué et préautorisé selon une procédure établie. |
+| Normal | Évaluation et autorisation adaptées avant réalisation. Le CAB apporte avis et expertise. |
+| Urgent | Procédure d’urgence avec autorité désignée, contrôles proportionnés et traçabilité. |
+
+**Précisions externes :** urgent ne signifie pas « aucun test ni documentation ». L’autorité de changement dépend de l’organisation ; le CAB est un comité consultatif, pas nécessairement l’autorité finale de tous les changements. La **PIR** est une revue après mise en œuvre, et non la définition d’un comité permanent.
+
+```mermaid
+flowchart LR
+    R["RFC enregistrée"] --> E["Évaluer risques et dépendances"]
+    E --> D{"Autorisé ?"}
+    D -->|"Non"| X["Reporter ou abandonner"]
+    D -->|"Oui"| T["Préparer, tester et valider"]
+    T --> M["Déployer et contrôler"]
+    M --> P["PIR, CMDB et clôture"]
+```
+
+## CI, CMDB, CMS, DML et SKMS
+
+Un **CI** est un élément géré pour fournir le service : matériel, logiciel, réseau, téléphonie, infrastructure, documentation, procédure, contrat ou ressource pertinente. Définir son type, ses attributs, ses relations et sa référence de configuration (*baseline*).
+
+| Outil ou ensemble | Usage |
+|---|---|
+| CMDB — Configuration Management Database | Enregistrements des éléments de configuration et de leurs relations. |
+| CMS — Configuration Management System | Ensemble d’informations et d’outils de gestion de configuration, pouvant fédérer plusieurs CMDB. |
+| DML — Definitive Media Library | Médias logiciels de référence contrôlés, documentation et informations associées. |
+| SKMS — Service Knowledge Management System | Ensemble organisé pour gérer et exploiter les connaissances du service. |
+
+Le développement « Content Management System » associé au CMS dans certaines pages du support est une confusion : **dans ce contexte, CMS signifie Configuration Management System**. Définir d’abord périmètre, politique, granularité, responsables et outils, puis charger les données et former les équipes. Ensuite contrôler les modifications, produire les états et auditer la fiabilité des données. Une CMDB très remplie mais obsolète reste peu utile.
+
+## Choisir le déploiement et préparer la connaissance
+
+Les axes **push/pull**, **big bang/par phases**, **manuel/automatique** répondent à des questions différentes. Une diffusion automatique peut être faite par phases. Prévoir nommage, versions, responsabilités, informations aux utilisateurs, formation, procédures d’exploitation, critères de succès et retour arrière.
+
+Pour la connaissance, partir des besoins et de la fiabilité de l’information : architecture, outils, procédures de maintenance, responsables, promotion, formation et mesures d’utilisation. Compter les articles ne prouve pas qu’ils aident les techniciens ; observer leur usage et leurs résultats.
+
+## TP — documenter la transition
+
+Le TP reprend l’arrivée d’un commercial : pour chaque étape, préciser qui intervient et estimer le temps nécessaire. Comparer ensuite ses hypothèses aux tableaux de la correction, en tenant compte des dépendances et des contrôles à réaliser. La grille de priorité du cours est un **exemple** : « priorité = impact × urgence » désigne ici un croisement dans une matrice. Il ne faut pas multiplier arbitrairement les codes numériques.
+
+**Mini-quiz.** 1. À quoi sert une baseline ? 2. Quelle différence entre CMS et CMDB ? 3. Un changement urgent échappe-t-il à toute autorisation ? 4. Push et big bang sont-ils synonymes ?
+
+??? success "Réponses commentées"
+    1. À disposer d’une référence de configuration maîtrisée.
+    2. Le CMS est l’ensemble de gestion ; une CMDB contient des enregistrements et relations.
+    3. Non : appliquer le circuit d’urgence et conserver les preuves.
+    4. Non : initiative de diffusion et rythme de déploiement sont deux axes distincts.
+
+## Notions détaillées pour approfondir
+
+Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
+
+<section>
+<h4>Sensibilisation ITIL et</h4>
+<h4>gestion de parc</h4>
+<p>Module 04 – Transition des services</p>
+<h4>Objectifs</h4>
+<ul><li>Connaitre le rôle de la transition des services</li><li>Identifier les différents processus</li><li>Définir un changement</li><li>Définir un CI (Configuration Item)</li><li>Identifier les outils</li><li>Définir la connaissance</li></ul>
+</section>
+<section>
+<h4>Les publications centrales « Transition des services »</h4>
+<p>La transition des services</p>
+<ul><li>Objectif<ul><li>Mise en production des services (nouveaux ou améliorés)</li></ul></li><li>Son rôle<ul><li>Mettre en production en respectant les livrables produits par la conception des services ainsi que les coûts</li></ul></li></ul>
+<ul><li>Réalisation, construction, test, validation et déploiement des services</li><li>Prévoir et gérer les ressources nécessaires</li><li>Produire la documentation</li><li>Surveiller et améliorer les services</li><li>Respecter les critères de qualité, de sécurité et les délais dans la délivrance des services</li><li>Prendre en compte et améliorer la perception client</li></ul>
+</section>
+<section>
+<p>La transition des services</p>
+<ul><li>Dans la phase de transition, tout commence par le processus de gestion des changements avec une RFC Request For Change</li></ul>
+<figure><img alt="Processus de transition des services" loading="lazy" src="../../../assets/course-sources/isolated/6ab33825d3402c7f/itil-p003-001.webp"/><figcaption>Processus de transition des services — illustration isolée du support, page 3.</figcaption></figure>
+<p>La gestion des changements</p>
+<ul><li>Ses objectifs<ul><li>S’assurer que les procédures et les méthodes pour traiter les changements sont efficaces, voire efficientes</li><li>S’assurer que les modifications des CI (Configuration Item) sont bien enregistrées dans le CMS (Configuration Management System)</li><li>Répondre aux évolutions exprimées par les clients en minimisant les risques d’interruption de service et en maximisant la valeur fournie</li></ul></li><li>Définition d’un changement<ul><li>Ajout, modification,  ou retrait d’un ou plusieurs CI du système d’information ou d’un ou plusieurs services fournis par ce système d’information</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion des changements</p>
+<figure><img alt="Les sept R du changement" loading="lazy" src="../../../assets/course-sources/isolated/6ab33825d3402c7f/itil-p004-002.webp"/><figcaption>Les sept R du changement — illustration isolée du support, page 4.</figcaption></figure>
+<ul><li>Les « 7 R » de la gestion des changements</li></ul>
+<ul><li>Raised : qui a fait la demande ?</li><li>Reason : pour quelle raison ?</li><li>Return : quel est le retour attendu ?</li><li>Risks : quels sont les risques ?</li><li>Resources : quelles seront les ressources ?</li><li>Responsible : qui est le responsable ?</li><li>Relationship : quelles sont les relations avec les autres changements ?</li></ul>
+<p>La gestion des changements</p>
+<ul><li>Les origines d’un changement<ul><li>Les correctifs (événement, incident, problème…)</li><li>La législation</li><li>L’organisation</li><li>Des directives ou des standards</li><li>Des évolutions des services existants</li><li>Des nouveaux services</li><li>Un nouveau modèle de sourcing</li><li>Une innovation technologique…</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion des changements</p>
+<ul><li>La demande de changement<ul><li>Tous les clients sont habilités à émettre une demande de changement, mais cela ne veut pas dire qu’elle sera acceptée.</li><li>Toute demande de changement doit être formalisée par une RFC.</li><li>RFC (Request For Change) est une formalisation d’une modification d’un ou plusieurs éléments de configuration (CI).</li><li>Une RFC doit contenir :<ul><li>Un identifiant unique</li><li>Une date de demande</li><li>Le nom du demandeur</li><li>Une proposition de priorité de changement (priorité = impact x urgence)</li><li>Une description du changement</li><li>Les risques durant l’implémentation du changement</li><li>Les dates de mise en place du changement</li><li>Une estimation des ressources nécessaires (humaine, matériels…)</li></ul></li></ul></li></ul>
+<p>La gestion des changements</p>
+<ul><li>La gestion de la priorité d’une demande de changement</li></ul>
+<p>Code de</p>
+<p>priorité Description Dans GLPI Priorité de changement</p>
+<p>Urgence</p>
+<p>Code de priorité</p>
+<p>Elevée Moyenne Faible</p>
+<p>Critique Très haute Urgent / Critique</p>
+<p>Elevé</p>
+<table><caption>Correspondances de priorité du support</caption><thead><tr><th scope="col">Code de priorité</th><th scope="col">Description</th><th scope="col">Dans GLPI</th><th scope="col">Priorité de changement</th></tr></thead><tbody><tr><td>1</td><td>Critique</td><td>Très haute</td><td>Urgent / Critique</td></tr><tr><td>2</td><td>Élevée</td><td>Haute</td><td>Urgent</td></tr><tr><td>3</td><td>Moyen</td><td>Moyenne</td><td>Normal</td></tr><tr><td>4</td><td>Faible</td><td>Basse</td><td>Normal</td></tr><tr><td>5</td><td>Très faible</td><td>Très basse</td><td>Standard / Planifié</td></tr></tbody></table>
+<p>Impact</p>
+<p>Moyen</p>
+<table><caption>Code de priorité : croisement impact et urgence</caption><thead><tr><th scope="col">Impact / urgence</th><th scope="col">Élevée</th><th scope="col">Moyenne</th><th scope="col">Faible</th></tr></thead><tbody><tr><td>Élevé</td><td>1</td><td>2</td><td>3</td></tr><tr><td>Moyen</td><td>2</td><td>3</td><td>4</td></tr><tr><td>Faible</td><td>3</td><td>4</td><td>5</td></tr></tbody></table>
+</section>
+<section>
+<p>Les types de changement</p>
+<ul><li>Le changement standard<ul><li>Actions connues, documentées, déjà réalisées et testées</li><li>Les risques sont faibles et bien maîtrisés</li><li>Changement préapprouvé, maîtrisé et associé à des procédures établies</li><li>Référencé dans un mini-catalogue de changements préautorisés</li></ul></li><li>Le changement normal<ul><li>Il nécessite une évaluation complète et une autorisation avant sa réalisation par le CAB</li></ul></li><li>Le changement urgent<ul><li>L’urgence est exceptionnelle et devra être validée et autorisée par l’ECAB</li><li>Court-circuitage des procédures (réalisation, mise en œuvre, documentation et tests)</li></ul></li></ul>
+<p>Cycle de vie d’un changement</p>
+<figure><img alt="Cycle de vie d’un changement" loading="lazy" src="../../../assets/course-sources/isolated/6ab33825d3402c7f/itil-p006-003.webp"/><figcaption>Cycle de vie d’un changement — illustration isolée du support, page 6.</figcaption></figure>
+</section>
+<section>
+<p>La gestion des changements : terminologie</p>
+<ul><li>CI - Configuration Item : composant du système d’information qui va contribuer à la fourniture d’un ou plusieurs services</li><li>CMS - Configuration Management System : logiciel de gestion des CI, de la base connaissance…</li></ul>
+<ul><li>CAB - Change Advisory Board : comité consultatif qui évalue et donne un avis sur la mise en œuvre des changements dits normaux</li><li>ECAB - Emergency Change Advisory Board : comité qui donne l’autorisation de traiter le changement en urgence</li><li>PIR - Post Implementation Review : comité qui analyse les résultats des mises en production des changements</li></ul>
+<p>La gestion des actifs de services et des configurations</p>
+<ul><li>Son objectif<ul><li>Identifier, contrôler et enregistrer les actifs de services et les éléments de configuration (CI - Configuration Item, les « baselines »)</li><li>Éditer des rapports sur l’état des actifs de services et des éléments de configuration</li><li>Auditer et vérifier les actifs de services et les éléments de configuration</li><li>Protéger l’intégrité des actifs de services et des éléments de configuration</li><li>Gérer un système de gestion de configuration (CMS ou Configuration Management System)</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion des actifs de services et des configurations</p>
+<ul><li>Élément de configuration</li><li>Un élément de configuration, dénommé CI, est un composant du système d’information qui va contribuer à la fourniture d’un ou plusieurs services</li></ul>
+<ul><li>Identifiable par un type et un ensemble d’attributs pour le décrire</li><li>Relation possible avec d’autres CI : situation, physique et fonctionnelle</li></ul>
+<p>La gestion des actifs de services et des configurations</p>
+<figure><img alt="Exemples d’éléments de configuration" loading="lazy" src="../../../assets/course-sources/isolated/6ab33825d3402c7f/itil-p008-004.webp"/><figcaption>Exemples d’éléments de configuration — illustration isolée du support, page 8.</figcaption></figure>
+</section>
+<section>
+<p>La gestion des actifs de services et des configurations</p>
+<ul><li>Activités : planification initiale<ul><li>Définir le périmètre, la stratégie, la politique de gestion des éléments de configuration</li><li>Connaître les outils et les données des différents composants existants (véracité et mise à jour) : analyse de l’existant</li><li>Sélection, configuration et modélisation du CMS/CMDB (type de CI, attributs, relations)</li><li>Chargement initial</li><li>Nomination du propriétaire, des acteurs clés avec leurs rôles et responsabilités</li><li>Formation des collaborateurs</li></ul></li><li>Activités : planification itérative<ul><li>Chargement des CMDB</li><li>Ajustement des procédures, rôles et responsabilités</li></ul></li></ul>
+<p>La gestion des actifs de services et des configurations</p>
+<ul><li>Les outils : la CMDB<ul><li>Configuration Management Data Base</li><li>BDD de l’outil de gestion associé</li><li>Contient des enregistrements CI</li></ul></li><li>Les outils : le CMS<ul><li>Configuration Management System</li><li>Ensemble d’outils pour gérer les données de configuration</li><li>Prend les données de plusieurs CMDB pour constituer une CMDB fédérée</li></ul></li><li>Les outils : la DML<ul><li>Definitive Media Library : lieu de stockage sécurisé des CI logiciels</li><li>Référence pour tous les logiciels : contient les médias, documentations et clés de licence associées</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion des actifs de services et des configurations</p>
+<figure><img alt="Identification, contrôle, état et audit des configurations" loading="lazy" src="../../../assets/course-sources/isolated/6ab33825d3402c7f/itil-p010-005.webp"/><figcaption>Identification, contrôle, état et audit des configurations — illustration isolée du support, page 10.</figcaption></figure>
+<p>La gestion des mises en production et des déploiements</p>
+<ul><li>La gestion des mises en production et des déploiements<ul><li>Valide, organise et planifie le déploiement des services (nouveaux ou mis à jour) de façon « industrielle », en garantissant la valeur apportée, dans le respect des SLA.</li><li>Crée et fournit le document à l’exploitation des services</li><li>S’assure que les utilisateurs ont reçu les informations et sont formés pour utiliser les nouveaux services</li><li>Gestion des versions, convention de nommage, le R.A.C.I, les délais…</li></ul></li></ul>
+<p>Fonction 1 Fonction 2 Fonction 3</p>
+<table><caption>Matrice R.A.C.I. du déploiement</caption><thead><tr><th scope="col">Activité</th><th scope="col">Fonction 1</th><th scope="col">Fonction 2</th><th scope="col">Fonction 3</th></tr></thead><tbody><tr><td>Activité 1</td><td>A</td><td>R, C</td><td>C</td></tr><tr><td>Activité 2</td><td>A, I</td><td>R</td><td>C</td></tr><tr><td>Activité 3</td><td>A</td><td>R</td><td>C</td></tr><tr><td>Activité 4</td><td>A</td><td>R</td><td>C, I</td></tr><tr><td>Activité 5</td><td>A</td><td>R</td><td>C, I</td></tr></tbody></table>
+<p>R – Responsible – qui réalise la tâche A – Accountable – qui est le responsable, celui qui valide C – Consulted – qui est consulté comme expert I – Informed – qui doit être forcément informé</p>
+</section>
+<section>
+<p>La gestion des mises en production et des déploiements</p>
+<ul><li>Les différents modes de déploiement</li></ul>
+<table><caption>Les différents modes de déploiement</caption><thead><tr><th scope="col">Mode de déploiement</th><th scope="col">Définition du support</th></tr></thead><tbody><tr><td>Push</td><td>Le déploiement est à l’initiative d’un centre vers les sites utilisateurs cibles. Déploiement d’une mise à jour sur l’ensemble des utilisateurs concernés.</td></tr><tr><td>Pull</td><td>Le déploiement est mis à disposition des utilisateurs sur un serveur. Les utilisateurs vont initier le déploiement à leur convenance.</td></tr><tr><td>Big bang</td><td>Le déploiement est effectué en une seule opération vers tous les utilisateurs.</td></tr><tr><td>Par phase</td><td>Le déploiement s’effectue selon un plan en tenant compte des périmètres définis par le client.</td></tr><tr><td>Manuel</td><td>Déploiement avec l’aide du personnel de la DSI avec contrôles et surveillance.</td></tr><tr><td>Automatique</td><td>Fortement conseillé, déploiement sans l’aide du personnel de la DSI.</td></tr></tbody></table>
+<p>Les autres processus de la transition des services</p>
+<ul><li>La gestion de l’évaluation des changements<ul><li>Mesure l’impact des changements, en évaluant les effets et les risques</li><li>Crée la revue de post-implémentation (PIR)</li><li>Indépendante de la gestion des changements</li></ul></li><li>La validation et les tests<ul><li>Garant du bon fonctionnement des services (nouveaux et mise à jour) et de la gestion des erreurs découvertes pendant les phases d’intégration, de préproduction et de post-mise en production</li><li>Création de procès-verbaux de recette (fonctionnelle, performance, d’exploitabilité, de service régulier)</li></ul></li><li>La gestion de la planification et le support à la transition<ul><li>Organise le ou les changements de services (nouveaux ou mise à jour) et gère les ressources nécessaires (humaines et matérielles)</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion de la connaissance</p>
+<ul><li>Ses objectifs<ul><li>Donner de l’information à un collaborateur avec la granularité dont il a besoin</li><li>Fournir une information compréhensible et fiable</li><li>Permettre une prise de décision à tous les instants du cycle de vie</li><li>Permettre d’optimiser et de fiabiliser les prises de décision (efficience)</li><li>Permettre d’enregistrer les situations déjà connues</li><li>Mettre en place et faire vivre un système de gestion de la connaissance</li><li>Gérer l’information</li><li>S’assurer de la bonne utilisation de la base de connaissances</li><li>SKMS - Service Knowledge Management System</li></ul></li></ul>
+<p>La gestion de la connaissance</p>
+<ul><li>Gestion de l’information<ul><li>Identifier les exigences, les contraintes, les spécifications des données traitées</li><li>Définir une architecture permettant de supporter ces données</li><li>Définir des outillages appropriés pour mettre en œuvre cette architecture</li><li>Écrire les procédures qui vont faire vivre ces données</li><li>Effectuer une analyse précise de l’état des lieux en matière de gestion de la connaissance</li><li>Appréhender cette spécificité pour mieux bâtir une solution adaptée</li><li>Évaluer la performance des bases de connaissances et être force de propositions pour l’amélioration des bases</li></ul></li></ul>
+</section>
+<section>
+<p>La gestion de la connaissance</p>
+<ul><li>Bonne utilisation de la base<ul><li>Savoir si ce que l’on a mis en place sert à quelque chose ou si des collaborateurs l’utilisent</li><li>Comprendre qui partage la connaissance, qui capitalise la connaissance de l’entreprise</li><li>L’important n’est pas une base de connaissances contenant beaucoup d’informations, mais une base de connaissances qui est utilisée</li><li>Gérer la promotion, l’information, la formation sur les bases de connaissances</li></ul></li></ul>
+</section>
+
+## Pratiquer et réviser
 
 - [Travaux pratiques du module](../../tp/itil/module-04/index.md)
 - [Fiche de révision du module](../../revision/itil/module-04-transition-des-services.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Transition des services » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Définir changement, version et élément de configuration.
-    - Comprendre la CMDB et la gestion des connaissances.
-    - Évaluer risque, impact, plan de retour arrière et validation.
-    - Transférer un service vers l’exploitation de façon contrôlée.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [Retour à la séquence](index.md)

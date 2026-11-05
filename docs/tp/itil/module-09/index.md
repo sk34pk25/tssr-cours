@@ -1,15 +1,14 @@
 # TP — Module 09 — Assistance avec GLPI
 
-## Organisation
+Un énoncé de 3 h et une correction de 17 pages sont fournis. Les noms d’équipements, utilisateurs et versions appartiennent au laboratoire ; la fonction à retrouver compte davantage que la position exacte des menus.
 
-Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
+## Déroulement conseillé
 
-- [ ] Préparer l’environnement et un retour arrière.
-- [ ] Lire l’énoncé en entier.
-- [ ] Noter l’état initial.
-- [ ] Réaliser les manipulations.
-- [ ] Vérifier chaque résultat.
-- [ ] Comparer avec la correction.
-- [Énoncés](enonces.md)
-- [Corrections](corrections.md)
-- [Cours du module](../../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md)
+1. Reprendre les besoins, les étapes et les responsabilités des trois TP précédents.
+2. Relier les objets du parc, leurs composants, les utilisateurs et les informations réseau dans GLPI.
+3. Vérifier la cohérence des fiches et des relations après chaque ajout ou modification.
+4. Contrôler le résultat attendu avec les captures de la correction, puis conserver une preuve lisible de l’état obtenu.
+
+- [Lire les énoncés complets](enonces.md)
+- [Comparer aux corrections fournies](corrections.md)
+- [Revoir le cours](../../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md)

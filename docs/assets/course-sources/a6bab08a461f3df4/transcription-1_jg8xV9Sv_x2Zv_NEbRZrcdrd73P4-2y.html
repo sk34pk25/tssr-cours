@@ -1,0 +1,33 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01_direction_comptabilite.cmd</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>01_direction_comptabilite.cmd</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>01_direction_comptabilite.cmd</h3><pre><code>@echo off
+chcp 65001 &gt;nul
+REM Exécuter dans une invite CMD lancée en administrateur.
+REM Les mots de passe sont demandés de manière interactive et ne sont pas écrits dans le script.
+
+net localgroup l_direction /add /comment:&quot;Groupe local du service Direction&quot;
+net localgroup l_comptabilite /add /comment:&quot;Groupe local du service Comptabilite&quot;
+
+net user rgrimes * /add /fullname:&quot;Rick Grimes&quot; /comment:&quot;Direction&quot; /expires:never
+net localgroup l_direction rgrimes /add
+
+net user eporter * /add /fullname:&quot;Eugene Porter&quot; /comment:&quot;Comptabilite&quot; /expires:never
+net localgroup l_comptabilite eporter /add
+
+net user cpeletier * /add /fullname:&quot;Carol Peletier&quot; /comment:&quot;Comptabilite - interimaire&quot; /expires:never
+net localgroup l_comptabilite cpeletier /add
+REM Sur Windows français. En cas d&#x27;erreur, vérifier la syntaxe avec: net help user
+net user cpeletier /times:L-V,09:00-12:00
+
+net user adminsecours * /add /fullname:&quot;Administrateur de secours&quot; /comment:&quot;Compte local de secours&quot; /expires:never
+net localgroup Administrateurs adminsecours /add
+
+net user
+net localgroup l_direction
+net localgroup l_comptabilite
+pause
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

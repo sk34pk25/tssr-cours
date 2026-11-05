@@ -1,48 +1,202 @@
-# Correction — Module 04 — Debian en mode maintenance
+# Corrigés commentés — Module 04 — Debian en mode maintenance
 
-!!! warning "Procédure de secours"
-    Le démarrage de maintenance accorde des privilèges élevés. Il sert à réparer une machine de laboratoire ou un système dont l'accès est explicitement autorisé ; il ne remplace ni une gestion normale des comptes ni une procédure de changement en production.
+**Reprise structurée des consignes et explications de la source.** Les figures utiles restent isolées et les commandes transcrites restent littérales. Les écarts de version et les corrections techniques sont signalés séparément.
 
-**Sources originales (A) :** `M04TP01 - Solution - Debian en mode maintenance` et le support M04 TSSR.
-**Correction du portail (B) :** critères de contrôle et étapes reformulées à partir des solutions commentées TSSR.
+## M04TP01 - Solution - Debian en mode maintenance
 
-## Maintenance depuis GRUB
+Administration Debian GNU-Linux
 
-La source présente deux comportements de maintenance depuis GRUB : une voie demandant le mot de passe `root`, et une voie de laboratoire ouvrant directement un shell de secours. Dans cette seconde situation, le système de fichiers racine est initialement en lecture seule. La correction attend que l'apprenant :
+### Debian en mode maintenance
 
-1. vérifie qu'il travaille sur la machine virtuelle cible et relève la disposition de clavier signalée par la source ;
-2. constate l'état du système de fichiers racine avant toute écriture ;
-3. remonte uniquement la racine en lecture-écriture dans le laboratoire ;
-4. vérifie qu'un fichier de test peut être créé dans `/root` ;
-5. explique qu'un répertoire `/home` absent ou vide peut provenir d'un volume logique distinct qui n'a pas été monté ;
-6. synchronise les écritures avant l'arrêt imposé par le contexte de laboratoire.
+Durée estimée
 
-La commande de contrôle mentionnée dans la solution est :
+30 minutes à 1 heure
 
-```bash
+I. Sur le serveur Debian sans environnement graphique
+
+Utiliser le menu GRUB pour démarrer le serveur en mode maintenance et sans avoir besoin de s’authentifier avec le mot de passe de root (voir support de cours)
+
+Sur le menu de démarrage Grub, appuyer sur la touche ‘e’
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p1-1.webp)
+
+Administration Debian GNU-Linux
+
+Chercher la ligne commencant par "linux" , à la fin de celle-ci remplacer 'quiet' par 'init=/bin/bash'
+
+Attention : clavier en qwerty US Appuyer sur F10 pour lancer le système
+
+Commenté \[MC1\]: Image dans le domaine public. Source : https://freesvg.org/golden-qwerty-keyboard- vector-image
+
+Mappage de touche au format qwerty US
+
+Une session root est ouverte sans besoin d'authentification
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p2-1.webp)
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p2-2.webp)
+
+Administration Debian GNU-Linux
+
+- Activer l’écriture sur la partition racine.
+
+Saisir la commande " mount -o remount,rw / " Le message qui suit est une information, pas une erreur.
+
+- Pouvez-vous créer un fichier dans l’espace personnel du compte root ?
+
+Une commande touch dans /root ne renvoi pas de message d'erreur, le ficher a bien été créée
+
+- Pouvez-vous accéder au répertoire personnel de l’utilisateur créé à l’installation ?
+
+Impossible de se déplacer dans le dossier de l'utilisateur standard
+
+- Est-ce normal ?
+
+Le dossier /home est vide. Le dossier /home a été place sur un autre Volume Logique que la partition racine.
+
+Seule cette dernière est directement accessible dans ce cas.
+
+→  Utiliser la commande sync pour s’assurer que toute modification apportée est effectivement écrite ;
+
+puis forcer l'extinction du serveur par les options de VMware Workstation
+
+II. Sur le serveur Debian avec environnement graphique
+
+Démarrer dans le "Rescue mode" (dans "Advanced options") à partir de l'ISO d'installation Debian\* :
+
+Vérifiez dans les paramètres de la VM que l'image CD est bien sélectionnée et que la case "Connect at power on" est bien cochée
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p3-1.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-2.webp)
+
+```text
 mount -o remount,rw /
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-3.webp)
+
+```text
+touch /root/essai-ecriture
+ls /root/
+essai-ecriture
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-4.webp)
+
+```text
+cd /home/camille
+bash: cd: /home/camille: No such file or directory
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-5.webp)
+
+```text
+ls /home
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-6.webp)
+
+```text
 sync
 ```
 
-Ne pas reproduire ces actions sur une machine de production sans sauvegarde, autorisation et procédure approuvée.
+Administration Debian GNU-Linux
 
-## Mode de secours depuis le média d'installation
+Mettre le focus dans la VM est cliquer sur "echap" au logo vmware. Si le menu grub s’affiche, saisir la sequence ‘ctrl+alt+ins’ avant de réappuyer sur ‘echap’
 
-Après le démarrage du média d'installation, la solution demande de sélectionner le volume logique qui contient réellement le système de fichiers racine. Le shell ouvert est un shell `root` de récupération ; le prompt ou la variable `USER` permet de le constater. La commande `logname` peut ne rien renvoyer dans ce contexte particulier.
+Enfin valider le démarrage sur le CD-Rom
 
-Le contrôle attendu dans `/etc/passwd` est volontairement réversible : ajouter uniquement un texte de test dans le laboratoire, constater que l'écriture est possible, supprimer seulement cette ligne, puis enregistrer et quitter. Aucun changement d'identité, de mot de passe ou de configuration persistante ne doit être conservé.
+→  Choisir 'Advanced options' puis Rescue mode''
 
-## Critères de réussite
+- Sélectionner la langue, le nom (comme lors d'une installation)
 
-- La voie de démarrage utilisée est correctement identifiée (GRUB ou média d'installation).
-- Le système de fichiers monté correspond au système Debian installé, pas à une cible inconnue.
-- Les actions d'écriture sont limitées au test demandé et restaurées.
-- Le rôle administratif du shell et l'absence de demande de mot de passe dans le scénario de secours sont expliqués.
-- Le résultat et les précautions prises sont consignés.
+→ →  Saisir la langue et la disposition du clavier
 
-## Voir aussi
+Saisie du nom d'hôte. Remarquez la mention 'mode de récupération' en haut de l'écran
 
-- [Présentation du TP](index.md)
-- [Énoncé du TP](enonces.md)
-- [Cours — Debian en mode maintenance](../../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md)
-- [Fiche de révision — Module 04](../../../revision/administration-linux/module-04-debian-en-mode-maintenance.md)
+- Sélectionner le système de fichiers racine à monter
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p4-1.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p4-5.webp)
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-26.webp)
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-27.webp)
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-28.webp)
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-29.webp)
+
+Administration Debian GNU-Linux
+
+Ici il faut bien choisir le Volume Logique contenant le système de fichier racine. Remarquons l’importance des noms explicites pour les Groupes de Volumes & Volumes Logiques.
+
+Choisir la première option pour avoir accès à notre système Debian installé Noter l’option “Reinstallation de Grub”, utile pour dépanner un système qui ne démarre pas
+
+Après validation d'un message informatif, un shell root s'ouvre sans authentification  Accédez au fichier /etc/passwd sur votre disque dur.
+
+Ouvrir le ficher avec VI
+
+- Pouvez-vous le modifier ? (attention à ne rien casser !!)
+
+Se déplacer en fin de fichier \[G\], Passer en mode insertion avec une nouvelle ligne \[o\], Saisir du texte puis revenir en mode commande \[echap\],
+
+Enregistrer sans quitter (:w)
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-1.webp)
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-2.webp)
+
+![Capture ou visuel isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-3.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p5-4.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p5-5.webp)
+
+```text
+vi /etc/passwd
+```
+
+Administration Debian GNU-Linux
+
+Un message nous informe de la bonne écriture dans le fichier
+
+Supprimer la ligne que vous venez d'écrire (et seulement celle-ci) (dd)
+
+Enregistrer et quitter (:wq)
+
+- Avec quel utilisateur êtes-vous connecté ?
+
+La variable d'environnement USER nous renvoie la valeur 'root' également lisible simplement dans le prompt bash. NB : la commande ‘logname’ ne renvoie rien dans ce cas particulier
+
+- Avez-vous indiqué un mot de passe ?
+
+Non, comme vue précédemment, un shell root s'ouvre sans authentication dans ce type de cas
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-2.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-3.webp)
+
+![Commande ou détail d’interface isolé du document de formation.](../../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-4.webp)
+
+```text
+echo $USER
+root
+```
+
+## Clarifications et contrôles — complément pédagogique
+
+Le shell `init=/bin/bash` ne monte pas nécessairement le volume séparé de `/home`. Identifier les montages avant d’interpréter un répertoire vide. Utiliser un tiret ASCII dans `mount -o`. Le TP demande d’observer l’accès à passwd ; aucune modification arbitraire de ce fichier n’est nécessaire.
+
+Pour les justifications et références officielles, lire le [cours optimisé](../../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md).
+
+## Compte rendu attendu
+
+- État de départ et cible précise de la manipulation.
+- Commandes ou paramètres appliqués, avec les valeurs réellement utilisées.
+- Résultats observés et contrôles qui les établissent.
+- Différences entre l’environnement actuel et celui des captures.
+
+[Retour au TP](index.md) · [Énoncés](enonces.md) · [Corrigés](corrections.md).

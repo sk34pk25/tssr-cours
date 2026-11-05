@@ -10,17 +10,17 @@
         {
           "coursePath": "modules/01-bases-reseaux/index.md",
           "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
-          "evidenceQuote": "Analyser une architecture et un plan d’adressage en /26."
+          "evidenceQuote": "Calcul du sous-réseau 172.16.0.128/26"
         },
         {
           "coursePath": "modules/02-systemes-clients-microsoft/index.md",
           "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
-          "evidenceQuote": "Préparer postes Windows et Debian."
+          "evidenceQuote": "Installation de Windows 10 Professionnel"
         },
         {
           "coursePath": "modules/05-administration-debian-gnu-linux/index.md",
           "evidencePath": "modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md",
-          "evidenceQuote": "Préparer postes Windows et Debian."
+          "evidenceQuote": "Installation de Debian 10"
         }
       ],
       "resources": ["tp/msp/index.md", "revision/msp/index.md"],

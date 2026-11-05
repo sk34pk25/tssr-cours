@@ -1,60 +1,6 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M10TP01 - Enoncé - Gérer les groupes et utilisateurs.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M10TP01 - Enoncé - Gérer les groupes et utilisateurs</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-<h4>Gérer les groupes et <br>utilisateurs </h4>
-<p class="tssr-source-paragraph">TP du Module 10 – titre Gestion des utilisateurs et des groupes </p>
+<!DOCTYPE html>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 10 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">20 à 30 minutes </p>
-<h4>Énoncé </h4>
-<p class="tssr-source-paragraph">I. <br>Création d’utilisateurs et de groupes sur le serveur sans <br>environnement graphique </p>
-<p class="tssr-source-paragraph">Créer des comptes utilisateurs pour : François, Frédéric et Fabrice avec les caractéristiques <br>précisées. </p>
-<p class="tssr-source-paragraph">Attention il faudra au préalable créer les groupes nécessaires à la configuration des <br>utilisateurs. </p>
-
-<p class="tssr-source-paragraph">• <br>Pour François : </p>
-<pre class="tssr-source-code">o Shell à utiliser  
-Le shell sh </pre>
-<pre class="tssr-source-code">o Répertoire personnel  
-/home/francois </pre>
-<pre class="tssr-source-code">o Mot de passe  
-password </pre>
-<pre class="tssr-source-code">o Groupe principal  
-admin </pre>
-<pre class="tssr-source-code">o Groupes secondaires  
-stagiaires, documentation </pre>
-<p class="tssr-source-paragraph">• <br>Pour Frédéric :  </p>
-<pre class="tssr-source-code">o Shell à utiliser  
-Le shell bash </pre>
-<pre class="tssr-source-code">o Répertoire personnel  
-/home/frederic </pre>
-<pre class="tssr-source-code">o Mot de passe  
-AchAngEr </pre>
-<p class="tssr-source-paragraph">Ce mot de passe sera à changer à la première <br>ouverture de session </p>
-<pre class="tssr-source-code">o Groupes secondaires  
-stagiaires, documentation </pre>
-
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ea</p><p>AN</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-<p class="tssr-source-paragraph">• <br>Pour Fabrice :  </p>
-<pre class="tssr-source-code">o Shell à utiliser  
-Le shell bash </pre>
-<pre class="tssr-source-code">o Répertoire personnel  
-/home/fabrice </pre>
-<pre class="tssr-source-code">o Mot de passe  
-password </pre>
-<p class="tssr-source-paragraph">Son compte devra être désactivé </p>
-<pre class="tssr-source-code">o Groupes secondaires  
-vip </pre>
-
-<p class="tssr-source-paragraph">Indice pour le mot de passe de Frédéric : voir le man de la commande passwd </p>
-<p class="tssr-source-paragraph">IL EST INTERDIT DE MODIFIER DIRECTEMENT LES FICHIERS : /etc/passwd/, /etc/group, <br>/etc/shadow, /etc/gshadow </p>
-<h4>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>À --a—_—WT_———</p></div></details>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M10TP01 - Enoncé - Gérer les groupes et utilisateurs</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>M10TP01 - Enoncé - Gérer les groupes et utilisateurs</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Gérer les groupes et utilisateurs</h3><p>TP du Module 10 – titre Gestion des utilisateurs et des groupes</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 10 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>20 à 30 minutes</p><h3>Énoncé</h3><h3>I. Création d’utilisateurs et de groupes sur le serveur sans environnement graphique</h3><p>Créer des comptes utilisateurs pour : François, Frédéric et Fabrice avec les caractéristiques précisées.</p><p>Attention il faudra au préalable créer les groupes nécessaires à la configuration des utilisateurs.</p><ul><li>Pour François :</li><li>Shell à utiliser Le shell sh</li><li>Répertoire personnel /home/francois</li><li>Mot de passe password</li><li>Groupe principal admin</li><li>Groupes secondaires stagiaires, documentation</li><li>Pour Frédéric :</li><li>Shell à utiliser Le shell bash</li><li>Répertoire personnel /home/frederic</li><li>Mot de passe AchAngEr</li></ul><p>Ce mot de passe sera à changer à la première ouverture de session</p><ul><li>Groupes secondaires stagiaires, documentation</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><ul><li>Pour Fabrice :</li><li>Shell à utiliser Le shell bash</li><li>Répertoire personnel /home/fabrice</li><li>Mot de passe password</li></ul><p>Son compte devra être désactivé</p><ul><li>Groupes secondaires vip</li></ul><p>Indice pour le mot de passe de Frédéric : voir le man de la commande passwd</p><p>IL EST INTERDIT DE MODIFIER DIRECTEMENT LES FICHIERS : /etc/passwd/, /etc/group, /etc/shadow, /etc/gshadow</p><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,26 +1,27 @@
 # Administration GLPI
 
-Installer GLPI, intégrer l’annuaire, gérer le parc, automatiser l’assistance et exploiter les données.
+Installer le serveur, relier AD, organiser l’inventaire, traiter les tickets puis exploiter SQL et les extensions. La progression compte six modules réels, accompagnés de leurs supports, énoncés et corrections.
 
-<div class="tssr-index-meta"><span>Bloc technique complémentaire</span><strong>Administration GLPI</strong><span>Hors des 9 semaines datées fournies</span><a href="../../parcours/09-itil-gestion-parc/">Contexte ITIL et gestion de parc →</a></div>
+## Périmètre du laboratoire
 
-!!! warning "Périmètre et versions"
-    Le laboratoire cible GLPI 9.5, PHP 7.4 et FusionInventory. Pour GLPI 10 et 11, l’inventaire est natif et FusionInventory n’est plus pris en charge ; les déploiements actuels doivent suivre la documentation GLPI et utiliser GLPI Agent. Référence : [Documentation GLPI](https://help.glpi-project.org/documentation), [FAQ inventaire GLPI](https://help.glpi-project.org/faq/glpi/inventory).
+Les supports utilisent Debian 10, GLPI 9.5 et FusionInventory, avec PHP 7.3 dans le TP et7.4 dans le cours. Les versions et incohérences historiques restent visibles dans Original ; Optimisé explique les commandes et choix à adapter. Pour un déploiement récent, consulter la [documentation GLPI](https://help.glpi-project.org/documentation) et son [inventaire natif](https://www.glpi-project.org/en/discover-native-glpi-inventory/).
 
-## Progression officielle
+## Progression
 
-| Module | Intitulé | Accès |
+| Module | Compétence | Accès |
 |---|---|---|
-| Module 01 | Présentation de l’environnement — Installation de GLPI | [Cours](module-01-presentation-de-l-environnement-installation-de-glpi.md) |
-| Module 02 | Authentification AD — Habilitations | [Cours](module-02-authentification-ad-habilitations.md) |
-| Module 03 | Gestion de parc — Inventaire informatique | [Cours](module-03-gestion-de-parc-inventaire-informatique.md) |
-| Module 04 | Assistance — Traitements automatisés des tickets | [Cours](module-04-assistance-traitements-automatises-des-tickets.md) |
-| Module 05 | Les bases de MySQL et MariaDB | [Cours](module-05-les-bases-de-mysql-et-mariadb.md) |
-| Module 06 | Plug-ins et inventaire | [Cours](module-06-plug-ins-et-inventaire.md) |
+| 01 | Présentation de l’environnement — Installation de GLPI | [Cours](module-01-presentation-de-l-environnement-installation-de-glpi.md) · [TP](../../tp/glpi/module-01/index.md) |
+| 02 | Authentification AD — Habilitations | [Cours](module-02-authentification-ad-habilitations.md) · [TP](../../tp/glpi/module-02/index.md) |
+| 03 | Gestion de parc — Inventaire informatique | [Cours](module-03-gestion-de-parc-inventaire-informatique.md) · [TP](../../tp/glpi/module-03/index.md) |
+| 04 | Assistance — Traitements automatisés des tickets | [Cours](module-04-assistance-traitements-automatises-des-tickets.md) · [TP](../../tp/glpi/module-04/index.md) |
+| 05 | Les bases de MySQL et MariaDB | [Cours](module-05-les-bases-de-mysql-et-mariadb.md) · [TP](../../tp/glpi/module-05/index.md) |
+| 06 | Plug-ins et inventaire | [Cours](module-06-plug-ins-et-inventaire.md) · [TP](../../tp/glpi/module-06/index.md) |
 
-## Accès complémentaires
+## Travailler avec le cours
 
+Chaque module propose les concepts, une méthode et un mini-quiz. Les TP conservent les annexes et toutes les consignes, puis donnent des critères de validation et les corrections distinctes des erreurs du support. Le manuel Aruba est une fiche de spécifications utilisée pour l’inventaire ; sa transcription se lit dans le lecteur du TP 03.
+
+- [Révisions](../../revision/glpi/index.md)
 - [Travaux pratiques](../../tp/glpi/index.md)
-- [Fiches de révision](../../revision/glpi/index.md)
-- [Commandes](../../commandes/index.md)
-- [Dépannage](../../troubleshooting/index.md)
+- [Installation guidée](../../tutoriels/installer-glpi.md)
+- [Diagnostiquer un accès](../../troubleshooting/glpi-inaccessible.md)

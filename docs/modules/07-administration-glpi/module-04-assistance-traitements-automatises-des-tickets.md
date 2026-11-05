@@ -1,342 +1,90 @@
-# Module 04 — Assistance — Traitements automatisés des tickets
+# Module 04 — Assistance et traitements automatisés des tickets
 
-**Séquence :** Administration GLPI  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 1 énoncé(s), 1 correction(s)
+Le ticket assure traçabilité, communication, répartition des tâches et détection des problèmes récurrents. Il sollicite le centre de services, contient des informations exploitables, passe par un cycle de vie et porte un type : **incident** ou **demande**.
 
-!!! warning "Périmètre et versions"
-    Le laboratoire cible GLPI 9.5, PHP 7.4 et FusionInventory. Pour GLPI 10 et 11, l’inventaire est natif et FusionInventory n’est plus pris en charge ; les déploiements actuels doivent suivre la documentation GLPI et utiliser GLPI Agent. Référence : [Documentation GLPI](https://help.glpi-project.org/documentation), [FAQ inventaire GLPI](https://help.glpi-project.org/faq/glpi/inventory).
+## Choisir le flux de création
 
-## Objectifs et compétences
+Trois flux sont étudiés : depuis GLPI, par courriel vers une boîte support reliée à un collecteur, ou par téléphone avec saisie par un technicien. Depuis GLPI, l’interface anonyme historique se trouve à `http(s)://<serveur>/front/helpdesk.html` ; elle ne nécessite pas de connexion, peut être désactivée, personnalisée enHTML/CSS et se rattache par défaut à l’entité racine.
 
-- Configurer catégories et gabarits de tickets.
-- Créer des règles métiers avec critères et actions.
-- Définir calendriers, SLM, SLA et escalades.
-- Tester l’ordre de traitement sur des tickets représentatifs.
+L’interface simplifiée exige une authentification. Le demandeur remplit un formulaire géré par un gabarit, peut joindre un document, associer un élément concerné, suivre par courriel et consulter ses tickets. Une délégation peut autoriser un autre demandeur. L’interface standard, accessible par **Assistance → Tickets**, sert notamment aux techniciens N1/N2 et présente plus de champs.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Assistance — Traitements automatisés des tickets » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## Personnaliser le formulaire avec un gabarit
 
-## Méthode de travail
+Un gabarit déclare des champs obligatoires, masqués ou prédéfinis pour les interfaces standard et simplifiée. Il peut être le gabarit par défaut. Le choix du type et de la catégorie charge le gabarit associé. Toujours vérifier l’entité active et la récursivité du gabarit.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+La démarche du support est : créer les catégories, créer les gabarits nommés `catégorie-type`, puis les associer depuis la catégorie. Une catégorie peut avoir un gabarit d’incident et un de demande. Les catégories du TP sont :
 
-## Du gabarit à la règle métier
-
-```mermaid
-flowchart LR
-    U["Saisie du ticket"] --> G["Gabarit<br/>champs obligatoires, prédéfinis ou masqués"]
-    G --> C["Catégorie et type"]
-    C --> R{"Règles métier<br/>évaluées dans l’ordre"}
-    R --> A["Actions<br/>attribution, priorité, SLA…"]
-    A --> T["Ticket enregistré<br/>et contrôlé"]
+```text
+Logiciel
+├── Bureautique
+│   ├── Word
+│   ├── Excel
+│   └── Outlook
+└── Infographiste
+Serveur
+├── Virtualisation
+└── Active Directory
+Matériel
+├── Souris/clavier
+└── Ecran
 ```
 
-<p class="tssr-caption">Tester avec des tickets représentatifs permet de vérifier à la fois les critères, les actions et l’effet de l’ordre des règles.</p>
+| Gabarit | Champs obligatoires | Champs masqués |
+|---|---|---|
+| Incident serveur | Titre, catégorie, type, lieu, description | Aucun explicitement demandé |
+| Incident bureautique | Les précédents + éléments associés | Urgence et impact |
+| Demande bureautique | Titre, catégorie, type, lieu, description | Urgence et impact |
 
-<figure class="tssr-source-figure">
-  <a class="glightbox" href="../../../assets/images/itil-gestion-parc/regles-ticket-glpi.jpg" data-title="Traitement d’un ticket par les règles GLPI">
-    <img src="../../../assets/images/itil-gestion-parc/regles-ticket-glpi.jpg" alt="Schéma montrant la saisie d’un ticket, le chargement d’un gabarit, puis l’application ordonnée de règles avant enregistrement" loading="lazy">
-  </a>
-  <figcaption>Le support illustre le chargement du gabarit puis l’évaluation de règles avec critères et actions. Source : support Administration GLPI, module 04, page 7.</figcaption>
-</figure>
+Le TP associe Bureautique, Word et Excel aux deux gabarits bureautiques ; Serveur, Virtualisation et Active Directory à Incident serveur. Outlook existe dans l’arbre mais n’est pas explicitement cité dans ces associations : ne pas élargir la consigne sans décision expliquée.
 
-## Module 04 - Support de cours
+## Appliquer les règles métier
 
-### Administration GLPI
+Le gabarit sert d’abord à la présentation du formulaire ; la configuration automatique du ticket se centralise dans **Administration → Règles**. Les critères identifient notamment type et catégorie ; les actions affectent priorité, groupe/technicien ou SLA. Plusieurs règles peuvent écrire un même champ : leur ordre et leur concurrence doivent être contrôlés. Le support décrit leur lecture à la création du ticket ; tester les déclencheurs de la version utilisée plutôt que généraliser à toute modification.
 
-#### Module 04 — Assistance — Traitements automatisés des tickets
+Une condition correcte pour les incidents serveur est `(catégorie=Serveur OU Virtualisation OU Active Directory) ET type=Incident`. Le corrigé préconise « OU » pour tous les critères, type compris : cela accepterait aussi un incident d’une autre catégorie ou une demande de la catégorie Serveur. Pour conserver les deux contraintes, utiliser une règle par catégorie avec type=Incident et opérateur ET, ou un mécanisme de regroupement de critères effectivement disponible dans l’interface. Vérifier par un ticket positif et un ticket qui doit rester exclu.
 
-- Le suivi opérationnel par des tickets
-- Les différentes solutions pour créer un ticket
-- Les gabarits de ticket : personnalisation du masque de saisie
-- Déclencheurs du chargement d’un gabarit de ticket
-- Les règles métiers pour modifier dynamiquement un ticket
-- La gestion des niveaux de services (SLA)
-- Ordre de création pour un traitement automatisé
+## Calendriers, SLA et escalades
 
-### Assistance — T raitements automatisés des tickets
+Un SLA fixe un temps de prise en charge ou de résolution. Une date butoir peut être saisie directement ou calculée par un objet SLA, affecté manuellement ou par une règle. Le calcul dépend du calendrier de travail ; le dépassement informe, il n’empêche pas le traitement.
 
-#### Rappels sur les tickets
+| Calendrier du TP | Jours | Horaires attendus |
+|---|---|---|
+| cal serveur | Lundi–jeudi | 08 h00–18 h00 |
+| cal serveur | Vendredi | 08 h00–17 h30 |
+| cal utilisateurs | Lundi–vendredi | 09 h00–17 h30 |
 
-#### Assistance — T raitements automatisés des tickets
+Le texte du corrigé indique 08h00–18h00 pour les jours ouvrés. La capture de correction confirme l’horaire demandé par l’énoncé, 08h00–17h30 le vendredi.
 
-- Dans le monde de l’informatique, tout fonctionne à base de ticket
-- Il va permettre de solliciter le centre de service
-- Un ticket passera par plusieurs statuts : c’est le cycle de vie
+| Niveau de service | Prise en charge | Résolution | Calendrier | Priorité initiale / groupe |
+|---|---:|---:|---|---|
+| Incident serveur | 1 h | 8 h | cal serveur | Moyenne / GG_GLPI_Technician |
+| Incident bureautique | 4 h | 2 jours | cal utilisateurs | Basse / GG_GLPI_hotliner |
+| Demande bureautique | 4 h | 10 jours | cal utilisateurs | Très basse / GG_GLPI_hotliner |
 
-#### d’un ticket
+Les deux jours et dix jours sont à interpréter dans le paramétrage du calendrier et de l’unité du SLA. Vérifier la date calculée sur un ticket de test, notamment en fin de journée ou avant un week-end.
 
-- Il peut être de type « incident » ou « demande »
-- Il doit compter un minimum d’informations
+Une escalade modifie le ticket pendant sa vie à un instant relatif à une échéance. Pour les incidents serveur, le TP demande :10 minutes après création sans prise en charge, affecter le groupe Super-Admin et vous placer observateur ;4 heures avant la date butoir de résolution, priorité haute et affectation vers vous ;3 heures avant, priorité très haute et affectation vers Zeus. Distinguer heure de création, échéance de prise en charge et échéance de résolution : le déclencheur choisi doit produire le délai demandé. Si une escalade est relative à une prise en charge à1h, vérifier que son décalage conduit réellement à création+10 min.
 
-#### Le ticket
+## Construire et tester dans le bon ordre
 
-#### Traçabilité Détection des
+Créer les catégories → les gabarits et leurs associations → les calendriers et SLA → les escalades → les règles métier. Un SLA doit exister avant qu’une règle puisse l’affecter. Un groupe ou un utilisateur doit être importé avant son affectation.
 
-#### problèmes
+Créer un ticket pour chaque cas, puis vérifier formulaire, catégorie/type, groupe, priorité et deux échéances. Ajouter une demande Serveur et un incident Matériel comme cas d’exclusion. Pour les escalades, contrôler le déclenchement et les acteurs sans modifier les heures du serveur de formation. La preuve attendue est le ticket effectivement traité et son historique, pas seulement la présence d’une règle.
 
-#### Répartition des
+### Mini-quiz
 
-#### tâches Communication
+1. Quel objet détermine les champs obligatoires ?
+2. Pourquoi « OU » entre trois catégories et le type Incident est-il trop large ?
+3. Le délai de résolution tient-il compte des périodes fermées ?
 
-#### Utilisation d’un outil de gestion de ticket
+??? success "Réponses"
+    1. Le gabarit de ticket.
+    2. Une seule condition suffirait. Il faut aussi imposer le type pour chaque catégorie acceptée.
+    3. Le calcul utilise le calendrier associé. Vérifier la date produite dans le laboratoire.
 
-#### Trois façons de créer un ticket
 
-#### Flux d'entrée
+## Appliquer ce module
 
-- Interface d’ouverture de tickets anonymes
-- Interface simplifiée
-- Interface standard
-
-#### Depuis GLPI
-
-- Envoi d’un mail dans une boîte mail support
-- Configuration d’un collecteurMail
-- Création du ticket par téléphone
-- Utilisation de l’interface standard par le technicien Téléphone
-
-#### Assistance — T raitements automatisés des tickets
-
-- http(s)://&lt;@glpi&gt;/front/helpdesk.html
-- Aucune authentification requise
-- Possibilité de désactivation
-- Personnalisation possible : HTML/CSS
-- Par défaut, rattaché à l’entité racine
-
-#### Création ticket : interface anonyme
-
-- Accessible après authentification
-- Formulaire à compléter et géré par
-
-#### un gabarit
-
-- Si une délégation est configurée,
-
-#### possibilité de sélectionner un
-
-#### utilisateur
-
-- Ajout possible de document
-
-#### (imprime écran, manuel, etc.)
-
-- Suivi par mail possible
-- Association possible des CI concernés
-- Récapitulatif de tous ses tickets
-
-#### depuis l’accueil
-
-#### Création ticket : interface simplifiée
-
-#### Assistance — T raitements automatisés des tickets
-
-- Assistance =&gt; Tickets =&gt;
-- Ticket par téléphone
-- Utilisé par le support N1
-
-#### et N2
-
-- Accès à plus d’éléments
-- Vu en détail par la suite
-
-#### Création ticket : interface standard
-
-#### Gabarits de ticket
-
-#### Assistance — T raitements automatisés des tickets
-
-- Personnalisation de l’interface de saisie d’un ticket en fonction
-
-#### du type et d’une catégorie de ticket
-
-- Interface standard et simplifiée
-- Champs obligatoires
-- Champs masqués
-- Champs prédéfinis
-- Notion de gabarit par défaut
-- Accessibles depuis le menu listant les tickets
-
-#### Le gabarit : généralités
-
-#### Le gabarit : fonctionnement
-
-#### Assistance — T raitements automatisés des tickets
-
-- Assistance =&gt; Tickets =&gt;
-- Attention à l’entité active : récursivité possible
-
-#### Le gabarit : création
-
-- Personnalisation visuelle
-- Rendu côté utilisateur
-- Liaison avec catégorie / type
-- Depuis la catégorie
-- On commence par créer ses différentes catégories
-- Création des gabarits nommés ainsi : « catégorie-type »
-- Jusqu’à deux gabarits par catégorie (incidents et demandes)
-- Liaison entre les gabarits et les catégories pour chaque type
-
-#### Le gabarit : bonnes pratiques
-
-- On évite au maximum d’inclure
-
-#### dans le gabarit le paramétrage du
-
-#### ticket (priorité, SLA, etc.)
-
-- Gabarit uniquement pour le visuel
-- Utilisation de règles métier pour la
-
-#### configuration du ticket
-
-#### Assistance — T raitements automatisés des tickets
-
-- « Administration =&gt; règles »
-- Permettre une configuration automatisée des tickets saisis
-- Maintenance simplifiée : configuration centralisée au travers
-
-#### de règles
-
-#### Règles métier pour les tickets
-
-- Règles uniquement lues à la création du ticket
-- Toutes les règles sont interprétées
-- Importance de l’ordre =&gt; Champs concurrent
-- Critères : permettre d’identifier les tickets *
-- Type
-- Catégorie
-- Actions : définir des champs hors de portée de l’utilisateur *
-- Priorité
-- Techniciens / groupes de techniciens
-- SLA
-- etc.
-
-#### Règles métier pour les tickets
-
-#### * Donnés à titre d’exemples
-
-#### Assistance — T raitements automatisés des tickets
-
-- Objectif : attribuer un temps de résolution ou de prise en charge
-- Saisie manuelle d’une date/heure ou utilisation des objets SLA
-
-#### sous GLPI
-
-- Attribution des objets SLA manuelle ou automatique via des
-
-#### règles
-
-#### Niveaux de services
-
-#### Sélection d’un SLA
-
-#### Priorité SLA
-
-#### 1 2h
-
-#### 2 8h
-
-#### 3 2j
-
-#### Calcul effectué en fonction du
-
-#### calendrier de travail
-
-- « Configuration =&gt; Niveaux de services »
-
-#### Niveaux de services : objets SLA
-
-- Doivent être facilement
-
-#### identifiables
-
-- Le type : temps de
-
-#### résolution/prise en charge
-
-- La durée max de résolution
-
-#### souhaitée
-
-- Possibilité de créer des
-
-#### niveaux d’escalades
-
-#### Dépasser la date butoir de résolution
-
-#### n’est pas bloquant, juste informatif
-
-#### Assistance — T raitements automatisés des tickets
-
-- Permettre une modification automatisée du ticket pendant son
-
-#### cycle de vie
-
-- Se configure à travers des objets SLA qu’on applique à un ticket
-- Identifiable par un nom
-- Configuration d’un déclencheur temporelle par rapport au temps
-
-#### de résolution
-
-- Vont ensuite s’appuyer sur des critères (optionnels) pour réaliser
-
-#### des actions
-
-- Critères et actions applicables aux différents champs du ticket
-
-#### Niveaux de services
-
-#### Ordre de création
-
-- Matériel
-- Logiciel =&gt; Bureautique
-- Logiciel =&gt; Infographiste
-
-#### Créer les catégories de ticket
-
-- Personnalisation de l’interface
-- Champs obligatoires
-- Champs masqués
-
-#### Créer les gabarits de ticket puis les
-
-#### lier aux catégories suivant le type
-
-- Temps de prise en charge
-- Temps de résolutionCréer les SLAs
-- Critère (catégories, type, temps restant…)
-- Action (élévation de priorité, affection à un niveau supérieur…)Créer les escalades de SLAs
-- Critère (type (incident, demande), catégorie de ticket)
-- Action (affectation technicien, SLA, priorité…)
-
-#### Créer les règles métier
-
-#### pour les tickets
-
-## Mise en pratique
-
-- [Travaux pratiques du module](../../tp/glpi/module-04/index.md)
-- [Fiche de révision du module](../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Assistance — Traitements automatisés des tickets » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Configurer catégories et gabarits de tickets.
-    - Créer des règles métiers avec critères et actions.
-    - Définir calendriers, SLM, SLA et escalades.
-    - Tester l’ordre de traitement sur des tickets représentatifs.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [Énoncé du TP](../../tp/glpi/module-04/enonces.md)
+- [Correction expliquée](../../tp/glpi/module-04/corrections.md)
+- [Fiche de révision](../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md)

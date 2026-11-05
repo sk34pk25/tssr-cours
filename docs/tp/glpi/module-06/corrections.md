@@ -1,110 +1,133 @@
-# Corrections — Module 06 — Plug-ins et inventaire
+# TP 06 — Correction expliquée — Plug-ins et inventaire
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+## Méthode et vérifications
 
-## M6 - Solution du TP - Plugins
+Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.
 
-### GLPI
+La commande `cp` du corrigé est reformée pour contenir un chemin source complet, sans espace entre dossier et nom du fichier. Après l’installation de l’agent sur Olympus.gr, vérifier l’URL du serveur, le déclenchement d’un inventaire et la fiche obtenue. Un deuxième inventaire doit actualiser la fiche sans doublon.
 
-#### Plugins
+Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.
 
-#### TP du Module 6 — Présentation des plugins — Inventaire avec
 
-#### FusionInventory
+## Déroulement du scénario
+
+
+
+### Plugins
+
+### TP du Module 6 – Présentation des plugins – Inventaire avec FusionInventory
 
 Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir réalisé les TP proposés.
 
-- Installer le plugin FusionInventory et l’agent.
+### Objectifs
 
-#### Prérequis
+- Installer le plugin FusionInventory et l’agent. Prérequis
 
 - Avoir un serveur GLPI fonctionnel.
 
-#### Contexte :
+Contexte :
 
-- La société Olympus vous demande d’installer le plugin FusionInventory et l’agent sur
+- La société Olympus vous demande d’installer le plugin FusionInventory et l’agent sur l’application GLPI au sein de son domaine.
 
-l’application GLPI au sein de son domaine.
+### Adressage IP des VM : 192.168.1.0/24 + DHCP salle
 
-#### Adressage IP des VM : 192.168.1.0/24 + DHCP salle
+Le réseau VMNet18 relie `srv-CD1` (`192.168.1.1`), `srv-glpi` (`192.168.1.2`) et le LAN de pfSense (`192.168.1.254`). Le WAN de pfSense reçoit son adresse du réseau de salle par DHCP.
 
-#### srv-glpi srv-CD1
-
-#### PFSENSE
-
-#### VMNET 18
-
-#### Réseau de salle
-
-#### .1.2
-
-192.168.1.0/24
-
-#### .254
-
-#### DHCP
-
-#### Principales tâches à réaliser
+### Principales tâches à réaliser
 
 Installation du Plugins FusionInventory.
 
 - Récupérez depuis le serveur Debian, le fichier fusioninventory-9.5.0+1.0.tar.bz2.
 
-Utilisez de WinSCP afin de récupérer le fichier.
+Utilisez WinSCP afin de récupérer le fichier.
 
-- Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire
+- Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire /var/www/glpi/plugins.
 
-/var/www/glpi/plugins.
+```bash
+cp /chemin/fourni/fusioninventory-9.5.0+1.0.tar.bz2 /var/www/glpi/plugins/
+cd /var/www/glpi/plugins
+tar xvjf fusioninventory-9.5.0+1.0.tar.bz2
+```
 
-`cp /home/debyann/ fusioninventory -9.5.0+1.0.tar.bz2`
+- Changez l’utilisateur propriétaire pour www-data sur ce répertoire et tout son contenu.
 
-#### /var/www/glpi/plugins/
-
-`cd /var/www/glpi/plugins`
-
-`tar xvjf fusioninventory-9.5.0+1.0.tar.bz2`
-
-- Changez l’utilisateur propriétaire pour www -data sur ce répertoire et tout son
-
-contenu.
-
-`chown -R www-data /var/www/glpi/plugins`
+```bash
+chown -R www-data /var/www/glpi/plugins
+```
 
 - Installez et activez le plugin dans l’interface GLPI.
 
-Menu Configuration - Plugins dans l’interface. Au bout de la ligne fusioninventory &gt; installer puis activer.
+Menu Configuration - Plugins dans l’interface.
+
+Au bout de la ligne fusioninventory > installer puis activer.
 
 - Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr.
 
 Image de correction disponible dans les ressources.
 
-#### Bonus
+### Bonus
 
 - Activez le marketplace puis installez le plugin « Data injection ».
 
-#### Allez sur le site
+Dans le Marketplace, rechercher Data Injection, puis installer et activer l’extension compatible.
 
-Image de correction disponible dans les ressources. Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs.
+Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs.
 
-- Un fichier avec seulement les en -têtes et un autre rempli est dis ponible auprès du
+- Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
 
-formateur.
 
-## Captures de référence
 
-### data injection correspondance 1.png
+## Fichier DataInjection réellement fourni
 
-![data injection correspondance 1.png](../../../assets/images/glpi/module-06/data-injection-correspondance-1-png.png)
-### data injection correspondance 2.png
+Les fichiers sont séparés par `;`. Les accents sont lisibles en Windows-1252. Le gabarit vide a les mêmes en-têtes ; la ligne remplie est transcrite sans modifier ses noms.
 
-![data injection correspondance 2.png](../../../assets/images/glpi/module-06/data-injection-correspondance-2-png.png)
-### data injection import.png
+| Colonne CSV | Valeur fournie |
+|---|---|
+| Nom gabarit | GAB-Lattitude7520 |
+| Est un gabarit | 1 |
+| Nom | <Latitude 7520 - ####>  |
+| Lieu | Olympie > Enceinte du sanctuaire > Salle des trésors > Salle de stock |
+| Statut | en stock |
+| Type | Portable |
+| Fabricant | DELL |
+| Modèle | Latitude 7520 |
+| Numéro d'inventaire | <Latitude7520 - ####> |
+| OS architecture | 64-bit |
+| Noyau | Hybride |
+| OS | Windows 10 |
+| OS Version | 20 H2 |
+| OS edition | PRO |
+| Processeur nom | i7-1185G7 |
+| Processeur Fabricant | Intel |
+| Processeur fréquence | 4800 |
+| Processeur nb de cœur | 4 |
+| Processeur nb de thread | 8 |
+| Processeur modèle | 1185 G7 |
+| mémoire nom | DELL intégrée |
+| mémoire Fabricant | DELL |
+| mémoire Taille | 16000 |
+| mémoire Fréquence | 2666 |
+| mémoire Type | DDR4 |
+| HDD nom | SSD-PCIe-M2 |
+| HDD fabricant | Intel |
+| HDD capacité | 512000 |
+| HDD Interface | PCIe |
+| Carte réseau | RJ45-Killer-E3000 |
+| Port réseau nom | Port- |
+| Port réseau num | 1 |
+| Port réseau type | Paire torsadée (RJ-45) |
 
-![data injection import.png](../../../assets/images/glpi/module-06/data-injection-import-png.png)
-### data injection rapport.png
 
-![data injection rapport.png](../../../assets/images/glpi/module-06/data-injection-rapport-png.png)
-### marketplace datainjection.png
+## Vérifier le résultat
 
-![marketplace datainjection.png](../../../assets/images/glpi/module-06/marketplace-datainjection-png.png)
+## Méthode et vérifications
+
+Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.
+
+La commande `cp` du corrigé est reformée pour contenir un chemin source complet, sans espace entre dossier et nom du fichier. Après l’installation de l’agent sur Olympus.gr, vérifier l’URL du serveur, le déclenchement d’un inventaire et la fiche obtenue. Un deuxième inventaire doit actualiser la fiche sans doublon.
+
+Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.
+
+
+- [Énoncé](enonces.md)
+- [Cours du module](../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)

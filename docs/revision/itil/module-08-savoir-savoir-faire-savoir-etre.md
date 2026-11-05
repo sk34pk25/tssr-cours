@@ -1,39 +1,63 @@
-# Fiche de révision — Module 08 — Savoir, savoir-faire, savoir-être
+# Révision — Module 08 — Savoir, savoir-faire, savoir-être
 
-## À connaître absolument
+## Associer connaissances, compétence et relation utilisateur
 
-- Distinguer connaissance, compétence et aptitude.
-- Relier compétence technique et posture de service.
-- Communiquer clairement avec un utilisateur.
-- Identifier les axes de progression professionnelle.
+Le support distingue **savoir** (connaissances), **savoir-faire** (mise en œuvre dans une situation) et **savoir-être** (attitude adaptée au contexte professionnel). Un technicien mobilise les trois pour diagnostiquer, réparer, commander ou remplacer un matériel, installer un poste, surveiller la sécurité et former les utilisateurs.
 
-## Méthode express
+| Dimension | Exemple pédagogique externe | Preuve utile |
+|---|---|---|
+| Savoir | Comprendre DNS et les dépendances d’une application | Expliquer pourquoi un test est pertinent. |
+| Savoir-faire | Effectuer les contrôles dans le bon ordre | Résultats consignés et diagnostic reproductible. |
+| Savoir-être | Écouter un utilisateur sous pression | Reformulation validée, information claire et respectueuse. |
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+Les compétences système, réseau et métier (ERP, processus de travail) se complètent avec écoute, calme, organisation, efficacité et veille. La base de connaissances doit partager les solutions et bonnes pratiques, aider les utilisateurs lorsque cela convient et conserver les restrictions de visibilité nécessaires. La qualité d’un article et sa facilité de recherche comptent autant que son existence.
 
-## Pièges fréquents
+## Questionner, écouter et reformuler
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+1. **Question ouverte** pour laisser décrire : « Que se passe-t-il lorsque vous ouvrez l’application ? »
+2. **Écoute** du message et du contexte, sans diagnostiquer avant d’avoir les faits.
+3. **Question fermée** pour préciser : « Cela concerne-t-il aussi votre collègue ? »
+4. **Reformulation** de reflet, de résumé ou de clarification.
+5. Validation : « Ai-je bien compris ? », puis explication de la prochaine action.
 
-## Checklist de maîtrise
+La communication externe permet de transmettre une information, construire un langage partagé, créer une relation et obtenir une action. La communication interne favorise implication, adaptation au changement, climat de travail et réduction des rumeurs. Émettre une information ne prouve pas qu’elle a été reçue et comprise.
 
-- [ ] Distinguer connaissance, compétence et aptitude.
-- [ ] Relier compétence technique et posture de service.
-- [ ] Communiquer clairement avec un utilisateur.
-- [ ] Identifier les axes de progression professionnelle.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+**Précision externe sur le non-verbal :** les tableaux de gestes de l’Original sont reproduits comme éléments du support. Un geste isolé ne permet pas de conclure à l’agressivité, à la franchise ou au désintérêt ; contexte, culture, situation et caractéristiques individuelles comptent. Éviter les interprétations automatiques et les stéréotypes ; demander une clarification avec respect.
 
-## Questions flash
+## Écrire pour permettre l’action
 
-1. Quels sont les concepts indispensables de « Savoir, savoir-faire, savoir-être » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+| Élément du support | Application dans un ticket ou compte rendu |
+|---|---|
+| Mots | Vocabulaire connu, termes précis, peu de jargon, sigles expliqués, verbes concrets. |
+| Phrases | Formulations courtes ; distinguer symptôme, constat et hypothèse. |
+| Ponctuation | Listes et repères cohérents, sans accumulation de signes. |
+| Paragraphes | Une idée par bloc ; tableau si une comparaison l’exige. |
+| Texte complet | Objectif, destinataire, consignes, relecture et orthographe. |
 
-Pour approfondir : [cours complet](../../modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md).
+La messagerie facilite l’échange rapide, asynchrone et traçable, mais peut créer surcharge, interruptions, interprétations erronées et problèmes de confidentialité. Choisir le canal selon urgence et sensibilité ; un courriel envoyé ne garantit pas une prise en charge immédiate.
+
+## Désamorcer une difficulté sans tromper l’utilisateur
+
+| Situation | Réponse professionnelle possible — exemple externe |
+|---|---|
+| Utilisateur stressé | Qualifier blocage partiel ou total, reconnaître l’impact et annoncer la prochaine étape. |
+| Utilisateur agressif | Rester calme, poser une limite respectueuse et solliciter le responsable si nécessaire. |
+| Utilisateur peu à l’aise | Donner une consigne à la fois, vérifier la compréhension et éviter de juger. |
+| Diagnostic encore inconnu | « Je n’ai pas encore identifié la cause ; je vérifie ce point et je vous tiens informé à… » |
+| Action utilisateur à corriger | Expliquer le fonctionnement et la façon d’éviter le problème, sans accusation. |
+
+**Précision externe :** les formules positives proposées par le support ne doivent pas conduire à inventer une explication ou promettre un délai irréaliste. Dire clairement ce qui est connu, ce qui reste à vérifier et quand aura lieu le prochain point. Respecter aussi la confidentialité lors de l’échange et de la documentation.
+
+
+
+## Vérifier ses acquis
+
+**Mini-quiz.** 1. Quelle question ouvre un diagnostic ? 2. Pourquoi reformuler ? 3. Un geste prouve-t-il une intention ? 4. Peut-on annoncer une cause non vérifiée pour rassurer ?
+
+??? success "Réponses commentées"
+    1. Une question ouverte qui laisse décrire la situation.
+    2. Pour vérifier la compréhension et compléter les faits.
+    3. Non : tenir compte du contexte et demander clarification.
+    4. Non : expliquer honnêtement l’étape de vérification et le suivi prévu.
+
+- [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md)

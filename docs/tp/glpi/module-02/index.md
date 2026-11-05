@@ -1,15 +1,7 @@
 # TP — Module 02 — Authentification AD — Habilitations
 
-## Organisation
+Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.
 
-Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
-
-- [ ] Préparer l’environnement et un retour arrière.
-- [ ] Lire l’énoncé en entier.
-- [ ] Noter l’état initial.
-- [ ] Réaliser les manipulations.
-- [ ] Vérifier chaque résultat.
-- [ ] Comparer avec la correction.
-- [Énoncés](enonces.md)
-- [Corrections](corrections.md)
-- [Cours du module](../../../modules/07-administration-glpi/module-02-authentification-ad-habilitations.md)
+- [Énoncé complet](enonces.md)
+- [Correction expliquée](corrections.md)
+- [Cours](../../../modules/07-administration-glpi/module-02-authentification-ad-habilitations.md)

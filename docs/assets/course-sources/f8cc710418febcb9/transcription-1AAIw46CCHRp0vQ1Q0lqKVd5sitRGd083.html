@@ -1,0 +1,46 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>script_groupes.ps1</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>script_groupes.ps1</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié. Variante du script fourni, conservée séparément.</p><p>Variante du script fourni, conservée séparément : <a href="../3fedf75b44295417/transcription-1Qdof_W0D8at36EjxjuED_GHUtwvN8tQJ.html">création_groupes.txt</a>.</p>
+<h3>script_groupes.ps1</h3><pre><code>###############################################################
+# Script de création des utilisateurs dans windows 10 client  #
+# Tracer Lexton                                               #
+# créé le 20 octobre 2020                                     #
+# Mis à jour le 20 octobre 2020                               #
+# Mis à jour par Jesse MacCree                                #
+# le 20 octobre 2020                                          #
+# Fonctionnel sous Windows 10 entreprise build 2004           #
+###############################################################
+
+# Indiquer l&#x27;adresse complète du fichier utilisateurs .csv
+# Indiquer le délimiteur pour le fichier .csv
+# Indiquer les noms d&#x27;en-têtes
+
+
+$datasource=Import-CSV -Path &quot;C:\Users\fx\Desktop\groupes.csv&quot; -Delimiter &quot;;&quot; -Header Groupes,description
+
+#Boucle d&#x27;alimentation 
+
+Foreach($data in $datasource) { 
+# Nom des groupes
+$groupes=$data.Groupes
+
+# description des groupes
+$description=$data.description
+
+#creation du groupe avec les données renseignées dnas le tableau csv
+New-LocalGroup -Name ”$groupes” -Description “$description”
+
+# Fait une liste
+    $nomliste=$affich
+
+    $liste = $liste + $nomliste + &quot;,&quot;
+}
+
+# Affiche le résultat des imports
+write-host &quot;Les groupes : &quot; -ForegroundColor Black
+write-host &quot;$liste&quot; -foregroundcolor red
+write-host &quot;ont été créés&quot; -ForegroundColor Black</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

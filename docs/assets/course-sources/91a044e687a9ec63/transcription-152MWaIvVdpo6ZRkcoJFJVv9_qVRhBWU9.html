@@ -1,28 +1,5 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03TP02 - Enoncé - Gérer les services.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M03TP02 - Enoncé - Gérer les services</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
+<!DOCTYPE html>
 
-<h4>Gérer les services </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">25 à 45 minutes </p>
-<h4>Enoncé : Gestion des services : sur le serveur sans <br>environnement graphique </h4>
-<p class="tssr-source-paragraph">I. <br>Gestion du service SSHD (connexions SSH) </p>
-<p class="tssr-source-paragraph">Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) : </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration systemd du service </p>
-<p class="tssr-source-paragraph">• <br>Démon ou fichier binaire du serveur ssh </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration du serveur sshd </p>
-<p class="tssr-source-paragraph">II. <br>Gestion du service CRON (planification de tâches) </p>
-<p class="tssr-source-paragraph">• <br>Le service sera-t-il lancé automatiquement au démarrage de la machine ? </p>
-<p class="tssr-source-paragraph">• <br>Arrêter le service cron </p>
-<p class="tssr-source-paragraph">• <br>Redémarrer le serveur. Le service cron est-il actif après redémarrage </p>
-<p class="tssr-source-paragraph">• <br>Arrêter à nouveau le service manuellement </p>
-<p class="tssr-source-paragraph">• <br>Désactiver totalement le démarrage automatique du démon cron au démarrage <br>du système.  </p>
-<p class="tssr-source-paragraph">Restaurer les paramètres par défaut de démarrage du démon cron </p>
-<h4>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 1/1 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M03TP02 - Enoncé - Gérer les services</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>M03TP02 - Enoncé - Gérer les services</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><p>Administration Debian GNU/Linux</p><h3>Gérer les services</h3><p>TP du Module 03 – Démarrage d’une distribution Debian</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>25 à 45 minutes</p><h3>Enoncé : Gestion des services : sur le serveur sans environnement graphique</h3><h3>I. Gestion du service SSHD (connexions SSH)</h3><p>Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :</p><ul><li>Fichier de configuration systemd du service</li><li>Démon ou fichier binaire du serveur ssh</li><li>Fichier de configuration du serveur sshd</li></ul><h3>II. Gestion du service CRON (planification de tâches)</h3><ul><li>Le service sera-t-il lancé automatiquement au démarrage de la machine ?</li><li>Arrêter le service cron</li><li>Redémarrer le serveur. Le service cron est-il actif après redémarrage</li><li>Arrêter à nouveau le service manuellement</li><li>Désactiver totalement le démarrage automatique du démon cron au démarrage du système.</li></ul><p>Restaurer les paramètres par défaut de démarrage du démon cron</p><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,54 +1,23 @@
-# Fiche de révision — Module 05 — Les bases de MySQL et MariaDB
+# Révision — Module 05 — Les bases de MySQL et MariaDB
 
-## À connaître absolument
+## Lire une requête
 
-- Se connecter à la base GLPI avec un compte autorisé.
-- Afficher bases, tables et structure.
-- Écrire des SELECT avec filtres, tris et agrégats.
-- Sauvegarder avant toute requête de modification.
+SELECT colonnes FROM table WHERE filtre ORDER BY tri LIMIT quantité OFFSET décalage.
 
-## Méthode express
+## À expliquer sans le support
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+`IS NULL` teste l’absence de valeur ; `COUNT(*)` compte les lignes ; `COUNT(colonne)` ignore NULL ; `MIN` donne le minimum. Une jointure utiliseON pour relier les clés. `GROUP BY` explicite un comptage par gabarit.
 
-## Commandes à reconnaître
+## Mise en situation
 
-```text
-MariaDB
-mysql —u root -p
-mysql&gt;SHOW databases;
-mysql&gt;CONNECT glpidata;
-mysql&gt;SHOW tables;
-mysql&gt;DROP database glpidata;
-mysql&gt;SELECT * FROM clients;
-mysql&gt;SELECT Nom, Ville FROM clients;
-mysql&gt;SELECT Prénom, Nom FROM clients WHERE Ville='Caen';
-mysql&gt;SELECT Prénom, Nom FROM clients WHERE ID &gt; 3;
-```
+Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
 
-## Pièges fréquents
+## Question rapide
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+Age=NULL sélectionne-t-il les absences d’âge ?
 
-## Checklist de maîtrise
+??? success "Réponse"
+    Non. Utiliser `Age IS NULL`.
 
-- [ ] Se connecter à la base GLPI avec un compte autorisé.
-- [ ] Afficher bases, tables et structure.
-- [ ] Écrire des SELECT avec filtres, tris et agrégats.
-- [ ] Sauvegarder avant toute requête de modification.
-- [ ] Je sais expliquer la vérification et le retour arrière.
-
-## Questions flash
-
-1. Quels sont les concepts indispensables de « Les bases de MySQL et MariaDB » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md).
+- [Cours](../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)
+- [TP](../../tp/glpi/module-05/index.md)

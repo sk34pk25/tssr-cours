@@ -316,8 +316,14 @@ class PipelineTests(unittest.TestCase):
         self.pipeline.bindings={}
         result=self.pipeline.run("source1")
         self.assertEqual(result["status"],"NEEDS_REVIEW")
-        self.transport.entries["source1"]["name"]="Administration d'une distribution GNU/Linux.pdf"
-        ctx=context_for(self.transport.entries["source1"],ROOT,{})
+        metadata = {**self.transport.entries["source1"], "name": "Cours à confirmer.pdf"}
+        period = {
+            "cours": "Cours à confirmer",
+            "kind": "COURSE",
+            "mapping": {"state": "MATCH_PROBABLE", "candidates": ["modules/05-administration-debian-gnu-linux/index.md"]},
+        }
+        with patch("ingestion.pipeline.model", return_value=[period]):
+            ctx = context_for(metadata, ROOT, {})
         self.assertEqual(ctx["confidence"],"MATCH_PROBABLE")
         self.assertNotIn("targetPath",ctx)
 

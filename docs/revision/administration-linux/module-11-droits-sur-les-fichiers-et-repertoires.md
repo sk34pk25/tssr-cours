@@ -1,59 +1,41 @@
 # Fiche de révision — Module 11 — Droits sur les fichiers et répertoires
 
-**Sources originales (A) :** support, énoncé et solution M11TP01 Drive. **Fiche (B) :** synthèse reformulée.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## Droits usuels
+## Repère essentiel
 
-Les droits se répartissent entre utilisateur propriétaire, groupe propriétaire et autres. Lecture, écriture et exécution valent respectivement `4`, `2` et `1` en octal. Sur un répertoire, `r` liste, `w` permet notamment de créer ou supprimer, et `x` permet la traversée.
+| Droit | Valeur | Sur un fichier | Sur un répertoire |
+|---|---|---|---|
+| `r` | 4 | Lire son contenu | Lister les noms des entrées |
+| `w` | 2 | Modifier son contenu | Modifier des entrées, avec les droits de parcours nécessaires |
+| `x` | 1 | Autoriser l’exécution selon le type de fichier | Traverser le répertoire et accéder à un nom connu |
 
-`chmod` exprime une modification symbolique ou octale ; `chown` change propriétaire et/ou groupe. Vérifier avec `ls -ld` et n’utiliser `-R` qu’après avoir borné l’arborescence.
+## Tableau de mémorisation
 
-## Bits spéciaux
+| Droit | Valeur | Sur un fichier | Sur un répertoire |
+|---|---|---|---|
+| `r` | 4 | Lire son contenu | Lister les noms des entrées |
+| `w` | 2 | Modifier son contenu | Modifier des entrées, avec les droits de parcours nécessaires |
+| `x` | 1 | Autoriser l’exécution selon le type de fichier | Traverser le répertoire et accéder à un nom connu |
 
-- SetGID sur un répertoire : les nouveaux fichiers héritent de son groupe.
-- Sticky bit sur un répertoire : seul le propriétaire d’un fichier ou `root` peut le supprimer.
-- L’umask est soustrait aux droits de création ; le support indique `0022` par défaut sous Debian.
+## Se tester sans regarder
 
-## TP M11
 
-La structure source sous `/srv` couvre un espace public, un dépôt sticky, un espace du groupe `admin` et une documentation SetGID. Tester l’accès depuis les rôles définis par l’énoncé avant de conclure.
+1. Que produit umask 0007 pour un fichier demandé en 0666 ?
+2. SetGID donne-t-il à lui seul le droit d’écriture au groupe sur un nouveau fichier ?
+3. Qui peut supprimer un nom dans un répertoire sticky, sous réserve des autres droits ?
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md) · [TP](../../tp/administration-linux/module-11/index.md) · [mémo](../../memo/permissions-linux.md).
+??? success "Réponses"
+    1. 0660.
+    2. Non ; il règle le groupe hérité, pas tous les bits d’accès.
+    3. Le propriétaire du fichier, le propriétaire du répertoire ou un utilisateur privilégié.
 
-## À connaître absolument
 
-- Lire droits rwx, propriétaire et groupe.
-- Calculer et appliquer les permissions symboliques ou octales.
-- Comprendre les droits différents sur fichiers et répertoires.
-- Utiliser setuid, setgid et sticky bit avec prudence.
+## Contrôle de maîtrise
 
-## Méthode express
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
-
-## Pièges fréquents
-
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
-
-## Checklist de maîtrise
-
-- [ ] Lire droits rwx, propriétaire et groupe.
-- [ ] Calculer et appliquer les permissions symboliques ou octales.
-- [ ] Comprendre les droits différents sur fichiers et répertoires.
-- [ ] Utiliser setuid, setgid et sticky bit avec prudence.
-- [ ] Je sais expliquer la vérification et le retour arrière.
-
-## Questions flash
-
-1. Quels sont les concepts indispensables de « Droits sur les fichiers et répertoires » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md).
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires.md) · [TP du parcours](../../tp/administration-linux/index.md).

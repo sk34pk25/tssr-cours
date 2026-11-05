@@ -1,101 +1,64 @@
 # Module 07 — Amélioration continue des services
 
-**Séquence :** Sensibilisation ITIL et gestion de parc  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 0 énoncé(s), 0 correction(s)
+## Améliorer à partir des résultats réels
 
-!!! warning "Périmètre et versions"
-    La progression suit principalement les publications du cycle de vie ITIL v3, complétées par une introduction à ITIL 4. Cette structure historique est conservée car elle constitue l’ordre officiel des supports.
+L’amélioration continue analyse les résultats des engagements (SLA, OLA, UC), les tendances, la satisfaction et les audits. Elle identifie, priorise et suit les actions pour améliorer qualité, fiabilité, relation client et efficacité des méthodes de gestion. Une amélioration doit avoir un objectif et une façon de vérifier son effet.
 
-## Objectifs et compétences
+| Repère du support | Usage |
+|---|---|
+| KPI — Key Performance Indicator | Mesurer une performance liée à un objectif. |
+| CSF — Critical Success Factor | Identifier une condition essentielle de réussite. |
+| Base de référence | Comparer l’évolution à une situation initiale documentée. |
+| Mesure technique | Observer le fonctionnement des composants. |
+| Mesure de processus | Observer délais, qualité et exécution des activités. |
+| Mesure de service | Rendre compte du résultat utile au client. |
 
-- Comprendre l’objectif d’amélioration continue.
-- Utiliser la roue de Deming PDCA.
-- Choisir des indicateurs qui mesurent un résultat utile.
-- Transformer un constat en action suivie.
+**Précision externe :** toutes les métriques techniques ne doivent pas être envoyées brutes au client, mais elles peuvent soutenir l’explication d’un résultat de service. Adapter le niveau de détail au besoin du destinataire.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Amélioration continue des services » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## La roue de Deming en pratique
 
-## Méthode de travail
+```mermaid
+flowchart LR
+    P["PLAN : objectif, mesure initiale et action"] --> D["DO : essayer sur un périmètre maîtrisé"]
+    D --> C["CHECK : comparer les résultats"]
+    C --> A["ACT : corriger ou généraliser"]
+    A --> P
+```
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+**Cas externe :** de nombreux tickets de connexion sont mal renseignés. Mesurer d’abord la proportion de tickets complets et les retours nécessaires. Tester un formulaire guidé sur un service, comparer qualité et délai, puis ajuster avant généralisation. Le nombre de formulaires créés est une activité ; la baisse des échanges inutiles et l’amélioration du délai sont des résultats à vérifier.
 
-## Module 07 - Support de cours
+Prévoir un responsable, une échéance, les ressources, les risques et les critères de succès. Conserver les résultats de l’essai et les limites de la comparaison : une baisse de charge peut provenir d’une période creuse plutôt que de l’action testée.
 
-### Sensibilisation ITIL
+**Mini-quiz.** 1. Pourquoi conserver une référence initiale ? 2. Que signifie CHECK ? 3. Plus d’articles dans la base prouve-t-il une amélioration ?
 
-#### Module 07 — Les publications centrales
+??? success "Réponses commentées"
+    1. Pour comparer l’avant et l’après sur des critères cohérents.
+    2. Vérifier les résultats par rapport aux objectifs et mesures prévus.
+    3. Non : mesurer aussi usage, fiabilité et effet sur le service.
 
-#### « Amélioration continue des services »
+## Notions détaillées pour approfondir
 
-- Définir le rôle de l’amélioration continue des services
-- Connaitre la roue de Deming
+Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
 
-### Les publications centrales « Amélioration continue des services »
+<section>
+<h4>Sensibilisation ITIL</h4>
+<p>Module 07 – Les publications centrales « Amélioration continue des services »</p>
+<h4>Objectifs</h4>
+<ul><li>Définir le rôle de l’amélioration continue des services</li><li>Connaitre la roue de Deming</li></ul>
+</section>
+<section>
+<p>L’amélioration continue des services</p>
+<ul><li>Objectifs<ul><li>Analyser les résultats des différents contrats (SLA, OLA, UC)</li><li>Identifier et mettre en œuvre toutes les actions conduisant à l’amélioration des services</li><li>Améliorer la rentabilité sans diminuer la qualité : l’efficience</li><li>Améliorer la relation client</li><li>S’assurer que les méthodes de gestion sont efficaces</li></ul></li><li>Missions<ul><li>Analyser les évolutions et les tendances</li><li>Conduire les enquêtes de satisfaction et les audits internes</li><li>Émettre des préconisations d’amélioration</li><li>Conduire les revues de l’amélioration continue des services</li></ul></li></ul>
+<p>L’amélioration continue des services</p>
+<ul><li>Les indicateurs<ul><li>Les Key Performance Indicators</li><li>Les Critical Success Factor</li><li>Les bases de référence</li><li>La mesure des services<ul><li>Métriques techniques (ne pas communiquer au client)</li><li>Métriques de processus</li><li>Métriques de services (à communiquer au client)</li></ul></li></ul></li></ul>
+</section>
+<section>
+<p>L’amélioration continue des services</p>
+<ul><li>La roue de DEMING</li></ul>
+<table><caption>Roue de DEMING — transcription des libellés et du sens du cycle</caption><thead><tr><th scope="col">Cycle de la roue de Deming</th></tr></thead><tbody><tr><td>PLAN → DO → CHECK → ACT → PLAN</td></tr></tbody></table>
+</section>
 
-- Objectifs
-- Analyser les résultats des différents contrats (SLA, OLA, UC)
-- Identifier et mettre en œuvre toutes les actions conduisant à l’amélioration
+## Pratiquer et réviser
 
-#### des services
-
-- Améliorer la rentabilité sans diminuer la qualité : l’efficience
-- Améliorer la relation client
-- S’assurer que les méthodes de gestion sont efficaces
-- Missions
-- Analyser les évolutions et les tendances
-- Conduire les enquêtes de satisfaction et les audits internes
-- Émettre des préconisations d’amélioration
-- Conduire les revues de l’amélioration continue des services
-
-#### L’amélioration continue des services
-
-#### Les publications centrales « Amélioration continue des services »
-
-- Les indicateurs
-- Les Key Performance Indicators
-- Les Critical Success Factor
-- Les bases de référence
-- La mesure des services
-- Métriques techniques (ne pas communiquer au client)
-- Métriques de processus
-- Métriques de services (à communiquer au client)
-
-#### L’amélioration continue des services
-
-- La roue de DEMING
-
-#### L’amélioration continue des services
-
-#### DO
-
-#### CHECKACT
-
-#### PLAN
-
-## Mise en pratique
-
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
 - [Fiche de révision du module](../../revision/itil/module-07-amelioration-continue-des-services.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Amélioration continue des services » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Comprendre l’objectif d’amélioration continue.
-    - Utiliser la roue de Deming PDCA.
-    - Choisir des indicateurs qui mesurent un résultat utile.
-    - Transformer un constat en action suivie.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [Retour à la séquence](index.md)

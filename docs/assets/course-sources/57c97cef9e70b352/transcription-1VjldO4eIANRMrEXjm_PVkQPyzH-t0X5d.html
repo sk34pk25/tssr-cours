@@ -1,0 +1,660 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MSP_Systemes_clients_solution_172.16.0.128-26.docx</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>MSP_Systemes_clients_solution_172.16.0.128-26.docx</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Version Word de la solution adaptée, retranscrite intégralement depuis son texte et ses tableaux. La pagination de Word varie avec le logiciel et n’est pas inventée. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>Version Word de la solution adaptée</h3><p>Cette version est conservée séparément. La <a href="../7857985d194bb795/transcription-1_JPJfmmHFM8G1DMi4S2wR1lFDzt0DV_c.html">transcription de sa version PDF</a> permet de retrouver la pagination et le schéma du document fourni.</p>
+<p>MSP SYSTÈMES CLIENTS</p>
+<p>Solution complète, expliquée et adaptée</p>
+<p>Réseau choisi : 172.16.0.128/26</p>
+<p>Basé sur l’énoncé actuel, la note technique ANSSI, les ressources, les scripts et le corrigé modèle fournis.</p>
+<p>Les noms et logins personnels restent à remplacer avant exécution.</p>
+<h3>Sommaire</h3>
+<p>Sommaire automatique : mettre à jour le champ dans Word si nécessaire.</p>
+<p>1. Analyse du dossier et règles de priorité</p>
+<p>2. Paramètres à personnaliser et plan d’adressage</p>
+<p>3. Partie 1 - Installation des systèmes</p>
+<p>4. Partie 2 - Utilisateurs et environnement</p>
+<p>5. Partie 3 - Stockage, partages et imprimantes</p>
+<p>6. Partie 4 - Configuration avancée</p>
+<p>7. Partie 5 - Installation des applications</p>
+<p>8. Partie 6 - Sauvegarde et restauration</p>
+<p>9. Partie 7 - LVM, montages avancés et tableur</p>
+<p>10. Matrice de validation et livrables fournis</p>
+<h3>1. Analyse complète du dossier</h3>
+<p>Tous les fichiers accessibles de l’archive ont été inventoriés et exploités. Les exécutables ont été identifiés et leurs métadonnées/version ont été contrôlées, mais ils n’ont pas été lancés dans cet environnement Linux.</p>
+<table><tbody>
+<tr><th>Catégorie</th><th>Fichier</th><th>Analyse / utilisation</th></tr>
+<tr><td>Sujet</td><td>Enoncé MSP - Systèmes clients.pdf</td><td>14 pages. Référence prioritaire pour toutes les tâches et contraintes.</td></tr>
+<tr><td>Documentation</td><td>NP_MDP_NoteTech.pdf</td><td>11 pages. Recommandations ANSSI : mots de passe distincts, non liés à l’identité, robustes, temporaires à changer, stockage prudent.</td></tr>
+<tr><td>Ressource</td><td>7zip.exe</td><td>Installateur 7-Zip 19.00 x64 ; installation silencieuse avec /S.</td></tr>
+<tr><td>Ressource</td><td>Pilote_HP_LaserJet_M9050_MFP.exe</td><td>Pilote HP pour l’imprimante fictive. Installation via port TCP/IP standard.</td></tr>
+<tr><td>Ressource</td><td>Pilote_Xerox_Office_Color_C60C70.exe</td><td>Archive auto-extractible Xerox C60/C70 ; utilisée pour le pool et les files prioritaires.</td></tr>
+<tr><td>Tableur</td><td>Résultats_séminaire.xlsx</td><td>Classeur à compléter avec SOMME, MOYENNE, MAX, MIN, NBVAL et SI/ET.</td></tr>
+<tr><td>Corrigé</td><td>Modèle_Solution_MSP.pdf</td><td>143 pages. Référence de méthode et de chemins graphiques, adaptée au sujet actuel.</td></tr>
+<tr><td>Scripts / CSV</td><td>création_groupes, création_utilisateur, groupes.csv, utilisateurs.csv</td><td>Méthode d’import et de création en masse. Plusieurs erreurs de guillemets, d’encodage et de syntaxe ont été corrigées dans les scripts fournis avec cette solution.</td></tr>
+<tr><td>Tableurs corrigés</td><td>Résultats_séminaire_corrigé.xlsx, Tableau_récap.xlsx</td><td>Valeurs et formules utilisées pour contrôler les résultats et la convention de nommage.</td></tr>
+</tbody></table>
+<h4>1.1 Règle de priorité appliquée</h4>
+<table><tbody>
+<tr><th>Priorité documentaire<br>1) Énoncé actuel. 2) Méthodes du cours et du corrigé modèle. 3) Amélioration technique uniquement lorsque la méthode fournie est erronée, dangereuse ou ne satisfait pas le sujet actuel.</th></tr>
+</tbody></table>
+<h4>1.2 Incohérences détectées et décision retenue</h4>
+<table><tbody>
+<tr><th>Point</th><th>Contradiction</th><th>Décision appliquée</th></tr>
+<tr><td>Réseau VMware</td><td>Le sujet actuel demande Bridged ; le corrigé modèle et le tableau récap utilisent Host-only.</td><td>Utiliser Bridged, car le sujet actuel est prioritaire.</td></tr>
+<tr><td>Mémoire Debian</td><td>Le sujet actuel impose 2048 Mo ; le corrigé modèle montre 512 Mo.</td><td>Utiliser 2048 Mo.</td></tr>
+<tr><td>Nombre de comptes</td><td>Le texte annonce 9 employés, mais le tableau contient 10 personnes.</td><td>Créer les 10 comptes du tableau.</td></tr>
+<tr><td>Expiration des mots de passe</td><td>« N’expirent jamais » puis politique Windows avec changement tous les 25 jours.</td><td>Sous Windows, appliquer 25 jours car cette contrainte est plus précise et vérifiable. Sous Debian, conserver sans expiration sauf changement initial du prestataire.</td></tr>
+<tr><td>Adresses imprimantes</td><td>Le corrigé modèle emploie des IP proches des postes ; le sujet actuel impose des troisièmes octets binaires 10101000 et 10101001.</td><td>Appliquer exactement le sujet actuel : 168 et 169 en décimal.</td></tr>
+<tr><td>deb-src</td><td>Le corrigé écrit parfois « décommenter » alors que le sujet demande de commenter.</td><td>Commenter les lignes deb-src et la source DVD.</td></tr>
+<tr><td>Sauvegarde Debian</td><td>Le sujet demande tous les jours ; le corrigé planifie seulement du lundi au vendredi.</td><td>Cron quotidien : 30 12 * * *.</td></tr>
+<tr><td>SMB</td><td>Le corrigé évoque l’activation d’un ancien support SMB.</td><td>Utiliser SMB 3.0 avec cifs-utils ; ne pas activer SMB1.</td></tr>
+<tr><td>Groupe documentation</td><td>Le sujet le demande sans le définir dans la liste des services.</td><td>Créer un groupe supplémentaire documentation et appliquer le bit setgid à /services.</td></tr>
+</tbody></table>
+<h3>2. Paramètres à personnaliser et plan IP</h3>
+<h4>2.1 Remplacements obligatoires</h4>
+<table><tbody>
+<tr><th>Variable</th><th>À remplacer par</th><th>Exemple</th></tr>
+<tr><td>&lt;INITIALES&gt;</td><td>Vos initiales</td><td>AB</td></tr>
+<tr><td>&lt;VOTRE_LOGIN&gt;</td><td>Première lettre du prénom + nom</td><td>jdupont</td></tr>
+<tr><td>&lt;VOTRE_PRENOM_NOM&gt;</td><td>Votre identité</td><td>Jean Dupont</td></tr>
+<tr><td>&lt;LOGIN_BINOME&gt;</td><td>Login de votre binôme</td><td>mmartin</td></tr>
+<tr><td>&lt;PRENOM_NOM_BINOME&gt;</td><td>Identité du binôme</td><td>Marie Martin</td></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Avant toute exécution<br>Remplacer les valeurs entre chevrons dans les scripts. Ne jamais exécuter une commande de disque avant d’avoir contrôlé le numéro du disque avec list disk, detail disk, lsblk et fdisk -l.</th></tr>
+</tbody></table>
+<h4>2.2 Calcul du sous-réseau 172.16.0.128/26</h4>
+<p>Un préfixe /26 laisse 6 bits pour les hôtes : 2^6 = 64 adresses. Le bloc commence à .128 et se termine à .191. La première adresse est le réseau et la dernière est le broadcast, donc 62 adresses sont utilisables.</p>
+<table><tbody>
+<tr><th>Élément</th><th>Valeur</th><th>Pourquoi</th></tr>
+<tr><td>Adresse réseau</td><td>172.16.0.128</td><td>Identifie le sous-réseau ; ne jamais attribuer à une machine.</td></tr>
+<tr><td>Masque</td><td>255.255.255.192</td><td>Équivalent décimal du /26.</td></tr>
+<tr><td>Première IP utilisable</td><td>172.16.0.129</td><td>Premier hôte possible.</td></tr>
+<tr><td>Dernière IP utilisable / passerelle retenue</td><td>172.16.0.190</td><td>Le corrigé modèle place la passerelle sur la dernière IP utilisable.</td></tr>
+<tr><td>Broadcast</td><td>172.16.0.191</td><td>Adresse de diffusion ; ne jamais attribuer.</td></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Hypothèse de passerelle<br>La passerelle 172.16.0.190 reprend la méthode du corrigé modèle. Si le formateur ou le DHCP fournit une autre passerelle/DNS, conserver les IP des postes mais remplacer la passerelle et le DNS par les valeurs réellement fournies.</th></tr>
+</tbody></table>
+<h4>2.3 Adresses retenues</h4>
+<table><tbody>
+<tr><th>Équipement</th><th>Adresse</th><th>Masque</th><th>Passerelle</th><th>DNS conseillé</th></tr>
+<tr><td>W10-&lt;INITIALES&gt;</td><td>172.16.0.189</td><td>255.255.255.192</td><td>172.16.0.190</td><td>172.16.0.190 ou DNS fourni</td></tr>
+<tr><td>DEB10-&lt;INITIALES&gt;</td><td>172.16.0.188</td><td>255.255.255.192</td><td>172.16.0.190</td><td>172.16.0.190 ou DNS fourni</td></tr>
+<tr><td>W10 du binôme</td><td>172.16.0.187</td><td>255.255.255.192</td><td>172.16.0.190</td><td>idem</td></tr>
+<tr><td>Debian du binôme</td><td>172.16.0.186</td><td>255.255.255.192</td><td>172.16.0.190</td><td>idem</td></tr>
+</tbody></table>
+<p>Les adresses hautes sont retenues pour reproduire la logique du corrigé modèle et limiter le risque d’utiliser les premières adresses souvent réservées. Il faut néanmoins vérifier la plage DHCP avant de les fixer.</p>
+<h4>2.4 Adresses fictives des imprimantes</h4>
+<p>10101000₂ = 168 et 10101001₂ = 169. Le sujet impose de conserver le dernier octet du poste concerné.</p>
+<table><tbody>
+<tr><th>Périphérique</th><th>Calcul</th><th>Adresse</th></tr>
+<tr><td>HP LaserJet M9050 MFP</td><td>172.16 + 168 + dernier octet W10 (.189)</td><td>172.16.168.189</td></tr>
+<tr><td>Xerox physique 1</td><td>172.16 + 168 + dernier octet Debian (.188)</td><td>172.16.168.188</td></tr>
+<tr><td>Xerox physique 2</td><td>172.16 + 169 + dernier octet Debian (.188)</td><td>172.16.169.188</td></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Pourquoi ces IP sont hors du /26 ?<br>Elles sont explicitement annoncées comme fictives. Elles servent à créer les ports TCP/IP et à démontrer la configuration d’impression ; elles ne sont pas destinées à répondre au ping sur votre sous-réseau.</th></tr>
+</tbody></table>
+<h4>2.5 Tableau des machines virtuelles</h4>
+<table><tbody>
+<tr><th>Machine</th><th>CPU</th><th>Mémoire</th><th>Disques</th><th>Réseau</th><th>Système</th></tr>
+<tr><td>W10-&lt;INITIALES&gt;</td><td>2 vCPU</td><td>4 Go conseillés (2 Go minimum)</td><td>32 Go système + 40 Go données + 60 Go sauvegarde si nécessaire</td><td>Bridged</td><td>Windows 10 Professionnel 64 bits</td></tr>
+<tr><td>DEB10-&lt;INITIALES&gt;</td><td>1 vCPU</td><td>2048 Mo</td><td>20 Go système + 40 Go données + 2 x 20 Go pour LVM</td><td>Bridged</td><td>Debian 10 avec environnement graphique</td></tr>
+</tbody></table>
+<h3>3. Partie 1 - Installation des systèmes</h3>
+<h4>3.1 Préparation VMware</h4>
+<p>Créer W10-&lt;INITIALES&gt; et DEB10-&lt;INITIALES&gt; dans des dossiers distincts.</p>
+<p>Ajouter immédiatement les deux disques demandés, mais installer chaque système uniquement sur le premier disque.</p>
+<p>Configurer l’interface réseau en Bridged. Ne pas utiliser Host-only malgré le corrigé modèle.</p>
+<p>Monter l’ISO Windows 10 Professionnel la plus récente et l’ISO DVD Debian 10.x.</p>
+<p>Créer un snapshot machine éteinte après chaque grande étape : installation, utilisateurs, stockage, imprimantes.</p>
+<table><tbody>
+<tr><th>Pourquoi les snapshots machine éteinte ?<br>Ils permettent un retour fiable avant une opération risquée sur les partitions, /home, /var/log, le swap ou le spool d’impression.</th></tr>
+</tbody></table>
+<h4>3.2 Installation de Windows 10 Professionnel</h4>
+<p>Démarrer sur l’ISO et sélectionner Windows 10 Professionnel.</p>
+<p>Choisir l’installation personnalisée et sélectionner uniquement le disque de 32 Go.</p>
+<p>Créer le compte administrateur initial, appliquer les mises à jour de pilotes nécessaires, puis renommer le poste W10-&lt;INITIALES&gt;.</p>
+<p>Configurer IPv4 statiquement avec 172.16.0.189/26, passerelle 172.16.0.190 et le DNS retenu.</p>
+<p>Arrêter Windows Update selon la méthode du cours, puis appliquer la stratégie locale qui interdit la connexion aux emplacements Windows Update sur Internet.</p>
+<p>Chemins de configuration</p>
+<pre><code>services.msc
+Service : Windows Update (wuauserv)
+Type de démarrage : Manuel
+État : Arrêté
+
+gpedit.msc
+Configuration ordinateur &gt; Modèles d’administration &gt; Composants Windows &gt; Windows Update
+Activer : Ne pas se connecter aux emplacements Internet Windows Update</code></pre>
+<p>Vérification</p>
+<pre><code>hostname
+ipconfig /all
+sc query wuauserv</code></pre>
+<table><tbody>
+<tr><th>Pourquoi arrêter le service et ajouter une stratégie ?<br>Le service arrêté satisfait la méthode du corrigé. La stratégie évite qu’un utilisateur ou une tâche ne relance ensuite une connexion aux serveurs Microsoft.</th></tr>
+</tbody></table>
+<h4>3.3 Installation de Debian 10</h4>
+<p>Démarrer l’installation graphique depuis l’ISO DVD.</p>
+<p>Nommer la machine DEB10-&lt;INITIALES&gt; et configurer l’adresse 172.16.0.188/26.</p>
+<p>Choisir le partitionnement manuel et placer les partitions dans l’ordre indiqué ci-dessous afin que le swap soit suivi par l’espace libre.</p>
+<p>Conserver les systèmes de fichiers proposés par l’installateur pour chaque point de montage.</p>
+<p>Laisser les paquets par défaut, conserver l’environnement graphique et choisir ftp.fr.debian.org comme miroir français.</p>
+<table><tbody>
+<tr><th>Partition</th><th>Taille</th><th>Point de montage / type</th><th>Remarque</th></tr>
+<tr><td>/dev/sda1</td><td>512 Mo</td><td>/boot</td><td>Système de fichiers par défaut de l’installateur.</td></tr>
+<tr><td>/dev/sda2</td><td>17 Go</td><td>/</td><td>Racine du système.</td></tr>
+<tr><td>/dev/sda3</td><td>1 Go</td><td>/home</td><td>Sera remplacée plus tard par PROFILS.</td></tr>
+<tr><td>/dev/sda4</td><td>256 Mo</td><td>swap</td><td>À agrandir à 1 Go avec l’espace libre contigu.</td></tr>
+<tr><td>Espace non alloué</td><td>environ 1 Go ou plus</td><td>aucun</td><td>Conservé pour agrandir le swap.</td></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Point important<br>Le numéro réel des partitions peut varier. Dans toutes les commandes ultérieures, utiliser lsblk -f et swapon --show plutôt que de recopier aveuglément /dev/sda4.</th></tr>
+</tbody></table>
+<h4>3.4 Configuration réseau et tests</h4>
+<p>Sous Windows, utiliser les propriétés IPv4 de la carte réseau. Sous Debian graphique, utiliser NetworkManager. La carte doit être désactivée/réactivée après modification si l’adresse ne se met pas à jour.</p>
+<pre><code># Windows
+ipconfig /all
+ping 172.16.0.188
+ping 172.16.0.187
+ping 172.16.0.186
+
+# Debian
+ip -br a
+ip route
+cat /etc/resolv.conf
+ping -c 4 172.16.0.189
+ping -c 4 172.16.0.187
+ping -c 4 172.16.0.186</code></pre>
+<p>Si le ping vers Windows échoue, autoriser la règle prédéfinie « Partage de fichiers et d’imprimantes (Demande d’écho - Trafic entrant ICMPv4) » dans le pare-feu, plutôt que d’ouvrir tous les protocoles.</p>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>Capturer les quatre adresses, le masque /26, la passerelle, puis un ping réussi entre vos deux machines et vers les deux machines du binôme.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>ipconfig /all
+ip -br a
+ping ...</code></pre>
+<h3>4. Partie 2 - Utilisateurs et environnement</h3>
+<h4>4.1 Convention de nommage et comptes</h4>
+<p>Convention commune aux deux systèmes : groupes locaux en minuscules sans accent, préfixés par l_. Les groupes de service sont l_direction, l_commercial, l_comptabilite, l_informatique et l_logistique. Le groupe documentation est ajouté pour satisfaire la consigne de /services.</p>
+<table><tbody>
+<tr><th>Service</th><th>Nom</th><th>Login</th></tr>
+<tr><td>Direction</td><td>Rick Grimes</td><td>rgrimes</td></tr>
+<tr><td>Commercial</td><td>Daryl Dixon</td><td>ddixon</td></tr>
+<tr><td>Commercial</td><td>Gabriel Stokes</td><td>gstokes</td></tr>
+<tr><td>Commercial</td><td>Maggie Greene</td><td>mgreene</td></tr>
+<tr><td>Comptabilité</td><td>Eugene Porter</td><td>eporter</td></tr>
+<tr><td>Comptabilité</td><td>Carol Peletier</td><td>cpeletier</td></tr>
+<tr><td>Informatique</td><td>Vous-même</td><td>&lt;VOTRE_LOGIN&gt;</td></tr>
+<tr><td>Informatique</td><td>Votre binôme / prestataire</td><td>&lt;LOGIN_BINOME&gt;</td></tr>
+<tr><td>Logistique</td><td>Rosita Espinosa</td><td>respinosa</td></tr>
+<tr><td>Logistique</td><td>Morgan Jones</td><td>mjones</td></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Mots de passe<br>Utiliser un mot de passe temporaire unique d’au moins 12 caractères, sans nom/prénom, mélangeant plusieurs types de caractères. Le fournir de manière sûre et le changer à la première connexion lorsque demandé. Ne pas réutiliser le même mot de passe entre Windows et Debian.</th></tr>
+</tbody></table>
+<h4>4.2 Création sous Windows selon les trois méthodes imposées</h4>
+<h4>Direction et comptabilité - Invite de commandes</h4>
+<pre><code>net localgroup l_direction /add /comment:&quot;Groupe local du service Direction&quot;
+net localgroup l_comptabilite /add /comment:&quot;Groupe local du service Comptabilite&quot;
+net user rgrimes * /add /fullname:&quot;Rick Grimes&quot; /comment:&quot;Direction&quot; /expires:never
+net localgroup l_direction rgrimes /add
+net user eporter * /add /fullname:&quot;Eugene Porter&quot; /comment:&quot;Comptabilite&quot; /expires:never
+net localgroup l_comptabilite eporter /add
+net user cpeletier * /add /fullname:&quot;Carol Peletier&quot; /comment:&quot;Comptabilite - interimaire&quot; /expires:never
+net localgroup l_comptabilite cpeletier /add
+net user cpeletier /times:L-V,09:00-12:00</code></pre>
+<p>Le caractère * demande le mot de passe sans l’écrire dans le script. Le fichier 01_direction_comptabilite.cmd fourni reprend ces commandes.</p>
+<h4>Informatique et logistique - PowerShell</h4>
+<pre><code>$pwd = Read-Host &#x27;Mot de passe temporaire&#x27; -AsSecureString
+New-LocalGroup -Name &#x27;l_informatique&#x27; -Description &#x27;Service Informatique&#x27;
+New-LocalUser -Name &#x27;&lt;VOTRE_LOGIN&gt;&#x27; -FullName &#x27;&lt;VOTRE_PRENOM_NOM&gt;&#x27; -Description &#x27;Informatique - administrateur&#x27; -Password $pwd
+Add-LocalGroupMember -Group &#x27;l_informatique&#x27; -Member &#x27;&lt;VOTRE_LOGIN&gt;&#x27;
+Add-LocalGroupMember -Group &#x27;Administrateurs&#x27; -Member &#x27;&lt;VOTRE_LOGIN&gt;&#x27;</code></pre>
+<p>Utiliser le script 02_informatique_logistique.ps1 pour les quatre comptes. Il demande les mots de passe de manière sécurisée et ajoute les deux membres informatiques au groupe Administrateurs.</p>
+<h4>Commercial - Interface graphique</h4>
+<p>Exécuter lusrmgr.msc.</p>
+<p>Créer le groupe l_commercial avec une description explicite.</p>
+<p>Dans Utilisateurs, créer ddixon, gstokes et mgreene avec leur nom complet et la description Commercial.</p>
+<p>Ajouter les trois comptes au groupe l_commercial.</p>
+<p>Vérifier les membres depuis les propriétés du groupe.</p>
+<h4>4.3 Dossier Procédures sur le Bureau</h4>
+<p>Créer C:\Users\Default\Desktop\Procédures.</p>
+<p>Créer le fichier Règlement intérieur.txt dans ce dossier.</p>
+<p>Le profil Default sert de modèle aux futurs profils. Pour les profils déjà ouverts, recopier le dossier manuellement ou exécuter 03_preparer_profils.ps1.</p>
+<table><tbody>
+<tr><th>Pourquoi Default ?<br>Un simple dossier créé dans le Bureau de l’administrateur ne sera visible que pour ce compte. Le profil Default garantit sa présence pour tout nouvel utilisateur.</th></tr>
+</tbody></table>
+<h4>4.4 Horaires de Carol Peletier</h4>
+<pre><code>net user cpeletier /times:L-V,09:00-12:00
+net user cpeletier</code></pre>
+<p>Sur certains systèmes, les noms de jours sont localisés différemment. Utiliser net help user si la syntaxe L-V est refusée. Le contrôle doit afficher les heures autorisées du lundi au vendredi.</p>
+<h4>4.5 Stratégie de mots de passe et administrateurs</h4>
+<p>Ouvrir secpol.msc &gt; Stratégies de comptes &gt; Stratégie de mot de passe.</p>
+<p>Définir longueur minimale = 12, durée de vie maximale = 25 jours et exigences de complexité = Activées.</p>
+<p>Créer le compte adminsecours en CMD et l’ajouter au groupe Administrateurs.</p>
+<p>Ajouter &lt;VOTRE_LOGIN&gt; et &lt;LOGIN_BINOME&gt; au groupe Administrateurs.</p>
+<p>Forcer le changement du mot de passe du binôme à la première connexion.</p>
+<pre><code>net accounts /minpwlen:12 /maxpwage:25
+net user adminsecours * /add /fullname:&quot;Administrateur de secours&quot;
+net localgroup Administrateurs adminsecours /add
+net localgroup Administrateurs &lt;VOTRE_LOGIN&gt; /add
+net localgroup Administrateurs &lt;LOGIN_BINOME&gt; /add
+net user &lt;LOGIN_BINOME&gt; /logonpasswordchg:yes
+net accounts</code></pre>
+<table><tbody>
+<tr><th>Contradiction assumée<br>La politique globale de 25 jours rend impossible « mot de passe n’expire jamais » pour tous les comptes. La solution retient la contrainte spécifique de 25 jours, plus tardive et contrôlable dans secpol.msc.</th></tr>
+</tbody></table>
+<h4>4.6 Comptes et groupes sous Debian</h4>
+<p>Exécuter le script 01_utilisateurs_groupes.sh après avoir remplacé les variables. Il installe KSH, crée les six groupes, les dix comptes et force le changement initial du binôme.</p>
+<pre><code>chmod +x 01_utilisateurs_groupes.sh
+sudo ./01_utilisateurs_groupes.sh
+
+# Contrôles
+getent passwd rgrimes ddixon gstokes mgreene eporter cpeletier &lt;VOTRE_LOGIN&gt; &lt;LOGIN_BINOME&gt; respinosa mjones
+getent group l_direction l_commercial l_comptabilite l_informatique l_logistique documentation
+chage -l &lt;LOGIN_BINOME&gt;</code></pre>
+<table><tbody>
+<tr><th>Correction du corrigé modèle<br>useradd -p n’accepte pas un mot de passe en clair : il attend un hash. Le script utilise passwd, ce qui est sûr et fonctionnel. Le fichier correct est /etc/group, pas /etc/groups.</th></tr>
+</tbody></table>
+<h4>4.7 Stratégies locales pour les non-administrateurs Windows</h4>
+<p>Exécuter mmc, ajouter le composant Éditeur d’objet de stratégie de groupe, cliquer Parcourir &gt; Utilisateurs &gt; Non-administrateurs.</p>
+<p>Configuration utilisateur &gt; Modèles d’administration &gt; Système &gt; Accès au stockage amovible : activer CD et DVD - Refuser l’accès en lecture et en écriture.</p>
+<p>Configuration utilisateur &gt; Modèles d’administration &gt; Composants Windows &gt; Explorateur de fichiers : supprimer les fonctions de gravure de CD.</p>
+<p>Configuration utilisateur &gt; Modèles d’administration &gt; Système : activer Empêcher l’accès aux outils de modification du Registre.</p>
+<p>Configuration utilisateur &gt; Modèles d’administration &gt; Bureau &gt; Bureau : activer Papier peint du Bureau et indiquer un chemin local lisible par tous.</p>
+<p>Dans la stratégie ordinateur, ouvrir les propriétés du Pare-feu Windows Defender et activer les profils Domaine, Privé et Public.</p>
+<p>Exécuter gpupdate /force et contrôler avec gpresult /r.</p>
+<pre><code>gpupdate /force
+gpresult /r
+netsh advfirewall show allprofiles</code></pre>
+<h4>4.8 Sources APT et confort Vim</h4>
+<p>Ouvrir /etc/apt/sources.list avec Vim.</p>
+<p>Commenter en une seule commande toutes les lignes deb-src non commentées.</p>
+<p>Commenter la ligne du DVD.</p>
+<p>Mettre à jour la base de paquets et installer vim.</p>
+<p>Activer la coloration, la numérotation et le mode non compatible dans /etc/vim/vimrc.local.</p>
+<pre><code>sudo vim /etc/apt/sources.list
+:g/^\s*deb-src/s/^/#/
+:g/^\s*deb cdrom:/s/^/#/
+:wq
+
+sudo apt update
+sudo apt install -y vim
+sudo tee /etc/vim/vimrc.local &gt;/dev/null &lt;&lt;&#x27;EOF&#x27;
+set nocompatible
+syntax on
+set number
+EOF</code></pre>
+<p>Dans Vim, :g applique la substitution à toutes les lignes correspondantes. Le motif ne cible que les lignes actives, donc il évite de doubler les #.</p>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>Capturer le fichier sources.list avec les lignes commentées et un fichier ouvert dans Vim montrant les numéros de lignes et la coloration.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>grep -nE &#x27;^(deb-src|deb cdrom:)&#x27; /etc/apt/sources.list || echo &#x27;Toutes les lignes demandées sont commentées&#x27;
+vim --version | head</code></pre>
+<h3>5. Partie 3 - Stockage, partages et imprimantes</h3>
+<h4>5.1 Partition DATA de 15 Go sous Windows avec DISKPART</h4>
+<table><tbody>
+<tr><th>Risque de destruction<br>La commande clean n’est pas nécessaire ici et n’est volontairement pas utilisée. Vérifier que le disque sélectionné est bien le second disque de 40 Go.</th></tr>
+</tbody></table>
+<pre><code>diskpart
+list disk
+select disk 1
+detail disk
+offline disk
+online disk
+convert mbr
+create partition primary size=15360
+format fs=ntfs quick label=DATA
+assign letter=D
+list volume
+exit</code></pre>
+<p>15360 Mo correspond à 15 Gio. Si le formateur attend la convention du corrigé modèle, size=15000 donne environ 15 Go décimaux.</p>
+<h4>5.2 Partitions PROFILS, DATA et LOGS sous Debian</h4>
+<p>Identifier le disque de 40 Go avec lsblk -o NAME,SIZE,MODEL,TYPE,MOUNTPOINTS.</p>
+<p>Lancer fdisk /dev/sdb et créer trois partitions primaires : +15G, +15G, puis tout le reste.</p>
+<p>Écrire avec w, installer xfsprogs puis formater avec les labels demandés.</p>
+<pre><code>sudo fdisk /dev/sdb
+# n, p, 1, Entrée, +15G
+# n, p, 2, Entrée, +15G
+# n, p, 3, Entrée, Entrée
+# w
+sudo partprobe /dev/sdb
+sudo apt install -y xfsprogs
+sudo mkfs.ext4 -L PROFILS /dev/sdb1
+sudo mkfs.ext4 -L DATA /dev/sdb2
+sudo mkfs.xfs -f -L LOGS /dev/sdb3
+lsblk -f</code></pre>
+<h4>5.3 Remplacement définitif de /home par PROFILS</h4>
+<p>Éteindre la VM et créer un snapshot.</p>
+<p>Démarrer en mode secours afin qu’aucun utilisateur n’écrive dans /home.</p>
+<p>Monter PROFILS temporairement et copier toutes les données avec les droits.</p>
+<p>Commenter l’ancienne ligne /home dans /etc/fstab et ajouter LABEL=PROFILS.</p>
+<p>Redémarrer et vérifier que les comptes retrouvent leurs fichiers.</p>
+<pre><code>sudo systemctl isolate rescue.target
+sudo mkdir -p /mnt/profils
+sudo mount LABEL=PROFILS /mnt/profils
+sudo cp -a /home/. /mnt/profils/
+sudo vim /etc/fstab
+# Commenter l&#x27;ancienne ligne /home
+# Ajouter :
+LABEL=PROFILS  /home  ext4  defaults  0  2
+sudo reboot</code></pre>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>Le point /home doit provenir de LABEL=PROFILS et un utilisateur doit pouvoir créer un fichier dans son profil.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>findmnt /home
+df -hT /home
+su - ddixon -c &#x27;touch ~/test-profils &amp;&amp; ls -l ~/test-profils&#x27;</code></pre>
+<h4>5.4 Montage de DATA dans /services et confidentialité</h4>
+<pre><code>sudo mkdir -p /services
+sudo sh -c &#x27;echo &quot;LABEL=DATA /services ext4 defaults 0 2&quot; &gt;&gt; /etc/fstab&#x27;
+sudo mount -a
+sudo mkdir -p /services/{commercial,comptabilite,direction,informatique,logistique}
+
+sudo chown root:documentation /services
+sudo chmod 2770 /services
+sudo chown root:l_commercial /services/commercial
+sudo chown root:l_comptabilite /services/comptabilite
+sudo chown root:l_direction /services/direction
+sudo chown root:l_informatique /services/informatique
+sudo chown root:l_logistique /services/logistique
+sudo chmod 2770 /services/{commercial,comptabilite,direction,informatique,logistique}</code></pre>
+<p>Le bit 2 (setgid) force les nouveaux fichiers à hériter du groupe du dossier. À la racine, ils appartiennent à documentation ; dans chaque dossier de service, ils héritent du groupe du service, ce qui permet la confidentialité.</p>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>La première commande doit réussir et la seconde doit renvoyer Permission non accordée.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>su - ddixon -c &#x27;touch /services/commercial/test-ok&#x27;
+su - ddixon -c &#x27;touch /services/comptabilite/test-interdit&#x27;</code></pre>
+<h4>5.5 Dossiers NTFS Commerciaux et Support_Info</h4>
+<p>Créer D:\donnees\Commerciaux et D:\Support_Info.</p>
+<p>Dans Sécurité &gt; Avancé, désactiver l’héritage et supprimer les autorisations héritées.</p>
+<p>Conserver SYSTEM et Administrateurs en contrôle total.</p>
+<p>Accorder Modifier au groupe l_commercial sur Commerciaux et au groupe l_informatique sur Support_Info.</p>
+<p>Utiliser l’onglet Accès effectif pour tester un membre autorisé et un utilisateur étranger au service.</p>
+<pre><code>mkdir D:\donnees\Commerciaux
+mkdir D:\Support_Info
+icacls D:\donnees\Commerciaux /inheritance:r
+icacls D:\donnees\Commerciaux /grant:r &quot;SYSTEM:(OI)(CI)F&quot; &quot;Administrateurs:(OI)(CI)F&quot; &quot;l_commercial:(OI)(CI)M&quot;
+icacls D:\Support_Info /inheritance:r
+icacls D:\Support_Info /grant:r &quot;SYSTEM:(OI)(CI)F&quot; &quot;Administrateurs:(OI)(CI)F&quot; &quot;l_informatique:(OI)(CI)M</code></pre>
+<table><tbody>
+<tr><th>Règle NTFS + partage<br>Lors d’un accès réseau, le droit effectif est l’intersection des permissions de partage et NTFS. Il faut donc contrôler les deux niveaux.</th></tr>
+</tbody></table>
+<h4>5.6 Partage caché Support_Info$ et lecteur U:</h4>
+<p>Exécuter le script 04_partage_support_info.ps1. Le signe $ rend le partage non visible lors de l’exploration, mais il reste accessible avec son chemin exact.</p>
+<pre><code>New-SmbShare -Name &#x27;Support_Info$&#x27; -Path &#x27;D:\Support_Info&#x27; -ChangeAccess &#x27;l_informatique&#x27; -FullAccess &#x27;Administrateurs&#x27;
+Get-SmbShare
+net share</code></pre>
+<h4>Méthode 1 - CMD persistante sur le poste du binôme</h4>
+<pre><code>net use U: \\172.16.0.189\Support_Info$ /persistent:yes
+U:
+echo Test d&#x27;écriture &gt; test-binome.txt</code></pre>
+<h4>Méthode 2 - PowerShell ou interface graphique</h4>
+<pre><code>New-PSDrive -Name U -PSProvider FileSystem -Root &#x27;\\172.16.0.189\Support_Info$&#x27; -Persist</code></pre>
+<p>Méthode graphique équivalente : Explorateur &gt; Ce PC &gt; Connecter un lecteur réseau &gt; U: &gt; chemin UNC &gt; Reconnexion à l’ouverture de session.</p>
+<h4>5.7 Imprimante HP LaserJet M9050 MFP</h4>
+<p>Extraire ou installer le pilote HP fourni.</p>
+<p>Ouvrir printmanagement.msc, ajouter un port TCP/IP standard avec 172.16.168.189. Si la détection échoue, choisir Carte réseau générique et désactiver la requête SNMP.</p>
+<p>Ajouter l’imprimante avec le pilote HP, la nommer HP LaserJet M9050 MFP et la partager sous HP-M9050.</p>
+<p>Dans Sécurité : Tout le monde = Imprimer ; l_comptabilite = Imprimer + Gérer les documents ; l_informatique = Imprimer + Gérer cette imprimante + Gérer les documents.</p>
+<p>Depuis le W10 du binôme, ouvrir \\172.16.0.189, connecter l’imprimante et la définir par défaut.</p>
+<table><tbody>
+<tr><th>Pourquoi « Gérer les documents » pour la comptabilité ?<br>Ce droit permet de supprimer une impression bloquée sans permettre de modifier toute la configuration de l’imprimante.</th></tr>
+</tbody></table>
+<h4>5.8 Pool Xerox, horaires et priorités</h4>
+<p>Installer le pilote Xerox C60/C70 fourni.</p>
+<p>Créer les ports TCP/IP 172.16.168.188 et 172.16.169.188.</p>
+<p>Créer une imprimante Xerox-Comptabilite, ouvrir Ports, activer le pool et sélectionner les deux ports.</p>
+<p>Sécurité : supprimer Tout le monde, autoriser l_comptabilite à imprimer et l_informatique en contrôle total.</p>
+<p>Avancé : définir Disponible de 19:00 à 03:00.</p>
+<p>Créer une deuxième file Xerox-Direction utilisant le même pilote et les mêmes ports ; priorité 99 contre priorité 1 pour la file normale.</p>
+<p>Limiter Xerox-Direction au groupe l_direction et conserver l_informatique en contrôle total.</p>
+<table><tbody>
+<tr><th>Pourquoi deux files ?<br>Deux files logiques peuvent envoyer vers les mêmes ports physiques. Windows traite d’abord la file ayant la priorité la plus haute, ce qui donne la priorité aux directeurs.</th></tr>
+</tbody></table>
+<h4>5.9 Déplacement du spool vers D:</h4>
+<p>Créer D:\Spool avec les droits SYSTEM et Administrateurs.</p>
+<p>Arrêter le service Spouleur d’impression.</p>
+<p>Dans les propriétés avancées du serveur d’impression, remplacer le dossier de spool par D:\Spool, ou exécuter 05_deplacer_spool.ps1.</p>
+<p>Redémarrer le service et envoyer une page de test.</p>
+<pre><code>Stop-Service Spooler -Force
+New-Item D:\Spool -ItemType Directory -Force
+Set-ItemProperty &#x27;HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers&#x27; -Name DefaultSpoolDirectory -Value &#x27;D:\Spool&#x27;
+Start-Service Spooler</code></pre>
+<h3>6. Partie 4 - Configuration avancée</h3>
+<h4>6.1 GRUB à 2 secondes</h4>
+<pre><code>sudo vim /etc/default/grub
+# Modifier : GRUB_TIMEOUT=2
+sudo update-grub
+grep &#x27;^GRUB_TIMEOUT=&#x27; /etc/default/grub</code></pre>
+<p>update-grub régénère le fichier réellement lu au démarrage ; modifier uniquement /etc/default/grub sans cette commande ne suffit pas.</p>
+<h4>6.2 Agrandissement définitif du swap à 1 Go</h4>
+<table><tbody>
+<tr><th>Snapshot obligatoire<br>Cette opération modifie la table du premier disque. Relever avec précision le numéro de la partition swap et l’espace libre avant de continuer.</th></tr>
+</tbody></table>
+<pre><code>swapon --show
+lsblk -f
+sudo swapoff -a
+sudo fdisk /dev/sda
+# p : relever la partition swap et l&#x27;espace libre
+# d : supprimer uniquement l&#x27;ancienne partition swap
+# n : recréer la partition swap à 1G dans l&#x27;espace disponible
+# t : type Linux swap (82 sur MBR)
+# w
+sudo partprobe /dev/sda
+sudo mkswap -L SWAP /dev/sda4
+sudo vim /etc/fstab
+# Remplacer l&#x27;ancienne ligne par :
+LABEL=SWAP none swap sw 0 0
+sudo swapon -a
+swapon --show
+free -h</code></pre>
+<p>Le swap ne contient pas de données à conserver : il peut être désactivé, recréé plus grand, puis réactivé. Adapter /dev/sda4 au numéro réellement observé.</p>
+<h4>6.3 Mise à jour Debian</h4>
+<pre><code>sudo apt update
+sudo apt full-upgrade -y
+sudo apt autoremove --purge -y</code></pre>
+<h4>6.4 Bureau à distance Windows avec NLA</h4>
+<p>Panneau de configuration &gt; Système &gt; Paramètres d’utilisation à distance.</p>
+<p>Autoriser les connexions distantes et conserver l’authentification au niveau du réseau (NLA).</p>
+<p>Ajouter &lt;LOGIN_BINOME&gt; ou le groupe l_informatique aux Utilisateurs du Bureau à distance.</p>
+<p>Vérifier l’écoute sur le port 3389 puis demander au binôme de se connecter.</p>
+<pre><code>Add-LocalGroupMember -Group &#x27;Utilisateurs du Bureau à distance&#x27; -Member &#x27;&lt;LOGIN_BINOME&gt;&#x27;
+netstat -ano | findstr :3389
+Get-NetTCPConnection -LocalPort 3389 -State Listen</code></pre>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>Capturer la ligne LISTENING sur 0.0.0.0:3389 ou [::]:3389 et une session RDP réussie depuis le poste du binôme.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>netstat -ano | findstr :3389</code></pre>
+<h3>7. Partie 5 - Installation des applications</h3>
+<h4>7.1 Installation silencieuse de 7-Zip sous Windows</h4>
+<p>La ressource fournie est l’installateur 7-Zip 19.00 x64. L’option /S lance le mode silencieux et /D définit le dossier, à placer en dernier.</p>
+<pre><code>cd &lt;DOSSIER_RESSOURCES&gt;
+7zip.exe /S
+&quot;C:\Program Files\7-Zip\7z.exe&quot; i</code></pre>
+<p>Aucune boîte de dialogue ne doit apparaître, hors éventuelle demande UAC. La seconde commande prouve que le programme est installé.</p>
+<h4>7.2 Client RDP graphique sous Debian : Remmina</h4>
+<pre><code>sudo apt update
+sudo apt install -y remmina
+remmina</code></pre>
+<p>Créer un profil RDP vers 172.16.0.189.</p>
+<p>Renseigner le login Windows autorisé et son mot de passe.</p>
+<p>Conserver la négociation de sécurité automatique/NLA.</p>
+<p>Se connecter et capturer le Bureau Windows affiché dans Remmina.</p>
+<h4>7.3 Installation de Webmin</h4>
+<p>La méthode du corrigé installe un paquet .deb, laisse dpkg signaler les dépendances, puis les répare avec apt. Utiliser le paquet officiel téléchargé pour Debian.</p>
+<pre><code>sudo apt update
+sudo apt install -y perl openssl libauthen-pam-perl libio-pty-perl apt-show-versions
+sudo dpkg -i webmin_*.deb
+sudo apt --fix-broken install -y
+sudo systemctl enable --now webmin
+sudo ss -lntp | grep 10000</code></pre>
+<p>Accéder depuis le navigateur à https://172.16.0.188:10000/. Le certificat auto-signé provoque un avertissement normal dans ce laboratoire. S’authentifier avec root ou un compte autorisé.</p>
+<h3>8. Partie 6 - Sauvegarde et restauration</h3>
+<h4>8.1 Sauvegarde quotidienne Debian à 12 h 30</h4>
+<p>Le script 02_sauvegarde_quotidienne.sh crée deux archives tar datées : une pour /home et une pour /services. Il les copie ensuite vers le Debian du binôme par SCP.</p>
+<p>Sur le Debian du binôme, installer openssh-server et créer /srv/sauvegardes/DEB10-&lt;INITIALES&gt; avec les droits du compte distant.</p>
+<p>Sur votre Debian, installer openssh-client, générer une clé SSH pour root et copier la clé publique avec ssh-copy-id.</p>
+<p>Adapter REMOTE_USER, REMOTE_HOST et REMOTE_DIR dans le script.</p>
+<p>Tester le script manuellement avant de le planifier.</p>
+<p>Ajouter une tâche cron quotidienne à 12 h 30.</p>
+<pre><code>sudo apt install -y openssh-client
+sudo ssh-keygen -t ed25519 -f /root/.ssh/id_ed25519
+sudo ssh-copy-id -i /root/.ssh/id_ed25519.pub &lt;LOGIN_BINOME&gt;@172.16.0.186
+sudo install -m 700 02_sauvegarde_quotidienne.sh /usr/local/sbin/sauvegarde-msp
+sudo /usr/local/sbin/sauvegarde-msp
+sudo crontab -e
+30 12 * * * /usr/local/sbin/sauvegarde-msp &gt;&gt; /var/log/sauvegarde-msp.log 2&gt;&amp;1</code></pre>
+<table><tbody>
+<tr><th>Pourquoi une clé SSH ?<br>Cron ne peut pas répondre à une demande de mot de passe interactive. La clé permet une copie automatique ; elle doit être protégée par des permissions strictes.</th></tr>
+</tbody></table>
+<table><tbody>
+<tr><th>Contrôle à conserver dans la procédure<br>Les deux archives doivent exister localement et sur la machine distante.</th></tr>
+</tbody></table>
+<p>Commandes de vérification</p>
+<pre><code>sudo crontab -l
+ls -lh /var/backups/msp
+ssh &lt;LOGIN_BINOME&gt;@172.16.0.186 ls -lh /srv/sauvegardes/DEB10-&lt;INITIALES&gt;</code></pre>
+<h4>8.2 Image système Windows</h4>
+<p>Ajouter le disque de 60 Go dans VMware, l’initialiser et le formater en NTFS avec une lettre libre, par exemple E:.</p>
+<p>Ouvrir Panneau de configuration &gt; Sauvegarder et restaurer (Windows 7) &gt; Créer une image système.</p>
+<p>Choisir le disque de 60 Go comme destination et inclure les volumes critiques proposés.</p>
+<p>Lancer la sauvegarde et vérifier la présence du dossier WindowsImageBackup.</p>
+<p>Alternative en ligne de commande</p>
+<pre><code>wbadmin start backup -backupTarget:E: -include:C: -allCritical -quiet
+wbadmin get versions</code></pre>
+<h4>8.3 Sauvegarde du dossier Support_Info vers le W10 du binôme à 12 h 45</h4>
+<p>Sur le W10 du binôme, créer dans son partage Support_Info$ un dossier Sauvegarde_W10_&lt;INITIALES&gt;.</p>
+<p>Ouvrir Sauvegarder et restaurer &gt; Configurer la sauvegarde &gt; Enregistrer sur un réseau.</p>
+<p>Saisir \\172.16.0.187\Support_Info$\Sauvegarde_W10_&lt;INITIALES&gt; et un compte autorisé.</p>
+<p>Choisir Me laisser choisir, sélectionner D:\Support_Info et décocher l’image système.</p>
+<p>Créer la planification quotidienne. Si l’interface ne propose pas 12 h 45, modifier la tâche AutomaticBackup dans le Planificateur de tâches.</p>
+<table><tbody>
+<tr><th>Pourquoi un sous-dossier dédié ?<br>Il évite de mélanger les sauvegardes de plusieurs postes et simplifie la restauration et la preuve de fonctionnement.</th></tr>
+</tbody></table>
+<h4>8.4 Points de restauration : 8 % sur C:</h4>
+<p>Ouvrir Protection du système.</p>
+<p>Sélectionner C: &gt; Configurer &gt; Activer la protection du système.</p>
+<p>Placer l’utilisation maximale à 8 %.</p>
+<p>Créer un point nommé Avant_MSP_Final et vérifier qu’il apparaît.</p>
+<pre><code>Enable-ComputerRestore -Drive &#x27;C:\&#x27;
+vssadmin resize shadowstorage /For=C: /On=C: /MaxSize=8%
+Checkpoint-Computer -Description &#x27;Avant_MSP_Final&#x27; -RestorePointType &#x27;MODIFY_SETTINGS&#x27;</code></pre>
+<h3>9. Partie 7 - Pour aller plus loin</h3>
+<h4>9.1 Montage permanent de LOGS dans /var/log sans perte</h4>
+<p>Créer un snapshot machine éteinte.</p>
+<p>Passer en mode secours pour réduire les écritures dans /var/log.</p>
+<p>Monter la partition LOGS dans un emplacement temporaire et copier les journaux en préservant les attributs.</p>
+<p>Ajouter LABEL=LOGS dans /etc/fstab puis monter la nouvelle partition sur /var/log.</p>
+<p>Redémarrer et vérifier que de nouvelles lignes sont écrites.</p>
+<pre><code>sudo systemctl isolate rescue.target
+sudo mkdir -p /mnt/logs
+sudo mount LABEL=LOGS /mnt/logs
+sudo cp -a /var/log/. /mnt/logs/
+sudo sh -c &#x27;echo &quot;LABEL=LOGS /var/log xfs defaults 0 0&quot; &gt;&gt; /etc/fstab&#x27;
+sudo mount -a
+sudo reboot
+findmnt /var/log
+sudo tail -n 30 /var/log/syslog</code></pre>
+<table><tbody>
+<tr><th>Pourquoi cp -a ?<br>cp -a conserve propriétaires, groupes, permissions, dates et liens. Une copie simple risquerait d’empêcher certains services d’écrire leurs journaux.</th></tr>
+</tbody></table>
+<h4>9.2 Montage du partage Windows depuis Debian avec SMB 3</h4>
+<p>Installer cifs-utils.</p>
+<p>Créer /mnt/support_info et un fichier d’identifiants root-only.</p>
+<p>Ajouter le partage caché du W10 du binôme dans /etc/fstab avec vers=3.0 et _netdev.</p>
+<p>Monter et tester la création d’un fichier.</p>
+<pre><code>sudo apt install -y cifs-utils
+sudo mkdir -p /mnt/support_info
+sudo tee /root/.smb-support &gt;/dev/null &lt;&lt;&#x27;EOF&#x27;
+username=&lt;LOGIN_BINOME&gt;
+password=&lt;MOT_DE_PASSE_WINDOWS&gt;
+EOF
+sudo chmod 600 /root/.smb-support
+sudo sh -c &#x27;echo &quot;//172.16.0.187/Support_Info$ /mnt/support_info cifs credentials=/root/.smb-support,vers=3.0,iocharset=utf8,uid=&lt;VOTRE_LOGIN&gt;,gid=l_informatique,file_mode=0660,dir_mode=0770,_netdev,nofail 0 0&quot; &gt;&gt; /etc/fstab&#x27;
+sudo mount -a
+findmnt /mnt/support_info
+touch /mnt/support_info/test-debian.txt</code></pre>
+<table><tbody>
+<tr><th>Ne pas activer SMB1<br>Windows 10 et cifs-utils savent utiliser SMB2/SMB3. SMB1 est obsolète et inutile pour cette tâche.</th></tr>
+</tbody></table>
+<h4>9.3 Déplacement du fichier de pagination Windows vers D:</h4>
+<p>Système &gt; Paramètres système avancés &gt; Performances &gt; Paramètres &gt; Avancé &gt; Mémoire virtuelle &gt; Modifier.</p>
+<p>Décocher la gestion automatique.</p>
+<p>Sélectionner C: &gt; Aucun fichier d’échange &gt; Définir.</p>
+<p>Sélectionner D: &gt; Taille gérée par le système &gt; Définir.</p>
+<p>Valider et redémarrer. Vérifier la présence de D:\pagefile.sys.</p>
+<h4>9.4 Volume LVM de 32 Go monté sur /opt</h4>
+<p>Ajouter deux disques SCSI de 20 Go et vérifier qu’ils sont /dev/sdc et /dev/sdd.</p>
+<p>Installer lvm2, créer les volumes physiques, le groupe vg_applications et le volume logique lv_opt de 32 Go.</p>
+<p>Formater en ext4, copier le contenu actuel de /opt puis ajouter le montage permanent.</p>
+<p>Le script 03_lvm_opt.sh automatise ces opérations après une confirmation explicite.</p>
+<pre><code>sudo pvcreate /dev/sdc /dev/sdd
+sudo vgcreate vg_applications /dev/sdc /dev/sdd
+sudo lvcreate -L 32G -n lv_opt vg_applications
+sudo mkfs.ext4 -L OPT /dev/vg_applications/lv_opt
+sudo mkdir -p /mnt/nouveau_opt
+sudo mount /dev/vg_applications/lv_opt /mnt/nouveau_opt
+sudo cp -a /opt/. /mnt/nouveau_opt/
+# Ajouter l&#x27;UUID dans /etc/fstab puis :
+sudo mount -a
+pvs
+vgs
+lvs
+findmnt /opt</code></pre>
+<table><tbody>
+<tr><th>Pourquoi copier /opt avant le montage ?<br>Monter un nouveau volume sur /opt masque les fichiers déjà présents. La copie évite de perdre l’accès aux applications existantes.</th></tr>
+</tbody></table>
+<h4>9.5 Formules du classeur Résultats_séminaire.xlsx</h4>
+<table><tbody>
+<tr><th>Zone</th><th>Formule française à saisir puis recopier</th></tr>
+<tr><td>F5 - Total par élève</td><td>=SOMME(B5:E5)</td></tr>
+<tr><td>G5 - Moyenne par élève</td><td>=MOYENNE(B5:E5)</td></tr>
+<tr><td>I5 - Appréciation</td><td>=SI(ET(G5&gt;10;H5&gt;10);&quot;Bien&quot;;SI(ET(G5&lt;=10;H5&gt;=10);&quot;En progrès&quot;;SI(ET(G5&gt;=10;H5&lt;10);&quot;Trop d&#x27;absences&quot;;&quot;En danger!&quot;)))</td></tr>
+<tr><td>B15 - Total par matière</td><td>=SOMME(B5:B12)</td></tr>
+<tr><td>B16 - Moyenne par matière</td><td>=MOYENNE(B5:B12)</td></tr>
+<tr><td>B17 - Note maximum</td><td>=MAX(B5:B12)</td></tr>
+<tr><td>B18 - Note minimum</td><td>=MIN(B5:B12)</td></tr>
+<tr><td>B19 - Nombre d’élèves</td><td>=NBVAL(A5:A12)</td></tr>
+</tbody></table>
+<p>Recopier F5:G5 et I5 jusqu’à la ligne 12. Recopier B15:B18 vers les colonnes C à E. Le classeur Resultats_seminaire_solution_complete.xlsx fourni contient toutes les formules, y compris celles manquantes dans certaines lignes du corrigé distribué.</p>
+<table><tbody>
+<tr><th>Cas limite de la consigne<br>La règle ne définit pas explicitement le cas moyenne &gt; 10 et assiduité = 10. La formule du corrigé utilise En danger! comme cas par défaut. Les données fournies ne contiennent pas cette combinaison, donc les résultats attendus restent identiques.</th></tr>
+</tbody></table>
+<h3>10. Matrice de validation finale</h3>
+<table><tbody>
+<tr><th>Bloc</th><th>Preuve minimale à insérer dans votre procédure</th></tr>
+<tr><td>VM et réseau</td><td>Paramètres VMware, noms des VM, ipconfig /all, ip -br a, pings croisés.</td></tr>
+<tr><td>Utilisateurs Windows</td><td>net user, listes de membres des groupes, compte Carol et heures, secpol.msc, Administrateurs.</td></tr>
+<tr><td>Utilisateurs Debian</td><td>getent passwd, getent group, shell KSH du binôme, chage -l.</td></tr>
+<tr><td>GPO / Vim</td><td>gpresult /r, pare-feu actif, refus regedit sur un non-admin, sources.list et Vim numéroté.</td></tr>
+<tr><td>Disques</td><td>DISKPART list volume, lsblk -f, findmnt /home, findmnt /services.</td></tr>
+<tr><td>Permissions</td><td>Accès effectif Windows ; test autorisé/interdit sous Debian.</td></tr>
+<tr><td>Partage</td><td>Get-SmbShare, net share, lecteur U: persistant et fichier créé depuis le binôme.</td></tr>
+<tr><td>Imprimantes</td><td>Ports TCP/IP, permissions, pool, deux files/priorités, dossier D:\Spool.</td></tr>
+<tr><td>Avancé</td><td>GRUB_TIMEOUT=2, swap 1 Go, paquets mis à jour, RDP 3389 et connexion réussie.</td></tr>
+<tr><td>Applications</td><td>7-Zip installé sans assistant, Remmina connecté, Webmin sur le port 10000.</td></tr>
+<tr><td>Sauvegardes</td><td>Archives tar locales et distantes, cron, image système, sauvegarde Windows à 12 h 45, point de restauration.</td></tr>
+<tr><td>LVM et tableur</td><td>pvs/vgs/lvs, findmnt /opt, formules et résultats du classeur.</td></tr>
+</tbody></table>
+<h4>10.1 Fichiers fournis avec ce document</h4>
+<table><tbody>
+<tr><th>Fichier</th><th>Rôle</th></tr>
+<tr><td>scripts/windows/01_direction_comptabilite.cmd</td><td>Création CMD des groupes/comptes Direction et Comptabilité, horaires de Carol, admin de secours.</td></tr>
+<tr><td>scripts/windows/02_informatique_logistique.ps1</td><td>Création PowerShell des comptes Informatique et Logistique et droits administrateurs.</td></tr>
+<tr><td>scripts/windows/03_preparer_profils.ps1</td><td>Création du dossier Procédures dans Default et les profils existants.</td></tr>
+<tr><td>scripts/windows/04_partage_support_info.ps1</td><td>Permissions NTFS et partage caché Support_Info$.</td></tr>
+<tr><td>scripts/windows/05_deplacer_spool.ps1</td><td>Déplacement du spool vers D:\Spool.</td></tr>
+<tr><td>scripts/debian/01_utilisateurs_groupes.sh</td><td>Création des groupes et dix comptes Debian, KSH et changement initial.</td></tr>
+<tr><td>scripts/debian/02_sauvegarde_quotidienne.sh</td><td>Archives tar, copie SCP et rétention locale.</td></tr>
+<tr><td>scripts/debian/03_lvm_opt.sh</td><td>Création LVM de 32 Go et montage sécurisé de /opt.</td></tr>
+<tr><td>tableur/Resultats_seminaire_solution_complete.xlsx</td><td>Classeur complété avec toutes les formules.</td></tr>
+</tbody></table>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

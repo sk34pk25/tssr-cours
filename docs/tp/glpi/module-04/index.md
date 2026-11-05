@@ -1,20 +1,16 @@
 # TP — Module 04 — Assistance — Traitements automatisés des tickets
 
-## Organisation
+Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.
 
-Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
+- [Énoncé complet](enonces.md)
+- [Correction expliquée](corrections.md)
+- [Cours](../../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
 
-- [ ] Préparer l’environnement et un retour arrière.
-- [ ] Lire l’énoncé en entier.
-- [ ] Noter l’état initial.
-- [ ] Réaliser les manipulations.
-- [ ] Vérifier chaque résultat.
-- [ ] Comparer avec la correction.
-- [Énoncés](enonces.md)
-- [Corrections](corrections.md)
-- [Cours du module](../../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
+## Ressources du scénario
 
-## Ressources
+du scénario
+
+du scénario
 
 - [SLM incidents serveur.png](../../../assets/images/glpi/module-04/slm-incidents-serveur-png.png)
 - [affectation en masse gabarit et catégories.png](../../../assets/images/glpi/module-04/affectation-en-masse-gabarit-et-categories-png.png)

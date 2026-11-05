@@ -1,39 +1,67 @@
 # Énoncés — Module 03 — Démarrage d’une distribution Debian
 
-!!! warning "Environnement de laboratoire"
-    Les cibles systemd et services sont modifiés dans une machine de laboratoire. Relever la cible et l’état initiaux avant toute action afin de pouvoir restaurer le comportement demandé par le TP.
+**Reprise structurée des consignes et explications de la source.** Les figures utiles restent isolées et les commandes transcrites restent littérales. Les écarts de version et les corrections techniques sont signalés séparément.
 
-**Sources originales (A) :** `M03TP01 - Énoncé - Démarrer et arrêter Debian` et `M03TP02 - Énoncé - Gérer les services`.
-**Énoncés du portail (B) :** reformulation structurée des tâches indiquées dans les sources TSSR.
+## M03TP01 - Enoncé - Démarrer et arrêter Debian
 
-## TP01 — Démarrer et arrêter Debian
+Administration Debian GNU/Linux
 
-**Durée indicative de la source :** 15 à 30 minutes.
+### Démarrer et arrêter Debian
 
-1. Démarrer la machine avec environnement graphique et ouvrir une session de laboratoire.
-2. Identifier la cible systemd atteinte par défaut au démarrage.
-3. Consulter la documentation de `systemd`, identifier la cible correspondant à un démarrage normal sans environnement graphique et la définir comme cible par défaut.
-4. Redémarrer, constater si l’environnement graphique est chargé et expliquer le résultat observé.
-5. Charger l’environnement graphique avec la commande systemd adaptée, puis relever l’état final.
+Durée estimée
 
-## TP02 — Gérer les services
+15 à 30 minutes
 
-**Durée indicative de la source :** 25 à 45 minutes.
+### Énoncé : Identification & modification de la cible par défaut sur la station avec environnement graphique
 
-### Service SSH
+- Démarrer le système, ouvrez une session avec votre utilisateur
+- Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la machine ?
+- Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée au point précédent. Lire le paragraphe correspondant et en déduire le nom de la cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE
+- Définir comme cible par défaut la cible trouvée au point précédent.
+- Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, l’environnement graphique a-t-il été chargé ? Est-ce normal ?
+- Exécuter la commande systemctl appropriée afin de charger l’environnement graphique.
 
-- Identifier le fichier de configuration systemd du service, le démon/fichier binaire du serveur SSH et la configuration du serveur SSH.
+## M03TP02 - Enoncé - Gérer les services
 
-### Service cron
+Administration Debian GNU/Linux
 
-1. Vérifier si le service est lancé automatiquement au démarrage.
-2. Arrêter le service cron, redémarrer le serveur et contrôler son état après redémarrage.
-3. Arrêter à nouveau le service, désactiver son démarrage automatique, puis vérifier la différence entre l’état courant et l’activation au démarrage.
-4. Restaurer les paramètres de démarrage par défaut du démon cron demandés par le TP.
+### Gérer les services
 
-## Voir aussi
+Durée estimée
 
-- [Présentation du TP](index.md)
-- [Corrections du TP](corrections.md)
-- [Cours — Démarrage d’une distribution Debian](../../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian.md)
-- [Dépannage — Service Linux en échec](../../../troubleshooting/service-linux-echec.md)
+25 à 45 minutes
+
+### Enoncé : Gestion des services : sur le serveur sans environnement graphique
+
+### I. Gestion du service SSHD (connexions SSH)
+
+Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :
+
+- Fichier de configuration systemd du service
+- Démon ou fichier binaire du serveur ssh
+- Fichier de configuration du serveur sshd
+
+### II. Gestion du service CRON (planification de tâches)
+
+- Le service sera-t-il lancé automatiquement au démarrage de la machine ?
+- Arrêter le service cron
+- Redémarrer le serveur. Le service cron est-il actif après redémarrage
+- Arrêter à nouveau le service manuellement
+- Désactiver totalement le démarrage automatique du démon cron au démarrage du système.
+
+Restaurer les paramètres par défaut de démarrage du démon cron
+
+## Clarifications et contrôles — complément pédagogique
+
+Comparer état actif et activation au démarrage. `stop` ne remplace pas `disable`, et `set-default` ne remplace pas `isolate`. Restaurer la cible et le service cron à l’état demandé après l’exercice.
+
+Pour les justifications et références officielles, lire le [cours optimisé](../../../modules/05-administration-debian-gnu-linux/module-03-demarrage-d-une-distribution-debian.md).
+
+## Compte rendu attendu
+
+- État de départ et cible précise de la manipulation.
+- Commandes ou paramètres appliqués, avec les valeurs réellement utilisées.
+- Résultats observés et contrôles qui les établissent.
+- Différences entre l’environnement actuel et celui des captures.
+
+[Retour au TP](index.md) · [Énoncés](enonces.md) · [Corrigés](corrections.md).

@@ -1,178 +1,95 @@
 # Module 01 — Présentation d’ITIL et historique
 
-**Séquence :** Sensibilisation ITIL et gestion de parc  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 0 énoncé(s), 0 correction(s)
+## Comprendre la logique de services
 
-!!! warning "Périmètre et versions"
-    La progression suit principalement les publications du cycle de vie ITIL v3, complétées par une introduction à ITIL 4. Cette structure historique est conservée car elle constitue l’ordre officiel des supports.
+ITIL fournit un vocabulaire et des bonnes pratiques pour organiser les services informatiques autour des besoins métier. Le technicien ne se limite donc pas à « faire fonctionner un serveur » : il contribue à un résultat utilisable, soutenable et mesurable pour un client.
 
-## Objectifs et compétences
+| Notion | Question à se poser | Exemple pédagogique externe |
+|---|---|---|
+| Efficacité | Le résultat attendu est-il atteint ? | Les commerciaux peuvent consulter leurs commandes. |
+| Efficience | Quelles ressources ont été nécessaires ? | Le résultat est obtenu sans multiplier les interventions manuelles. |
+| Projet | Quel changement livrer, avec quelle échéance ? | Déployer un nouveau portail de commandes. |
+| Service | Quel résultat fournir dans la durée ? | Maintenir ce portail disponible avec assistance et suivi. |
+| Référentiel de pratiques | Comment organiser le travail ? | S’appuyer sur ITIL et adapter les pratiques au contexte. |
+| Norme d’exigences | Quels critères faut-il satisfaire ? | Évaluer un système de management des services selon ISO/IEC 20000-1. |
 
-- Définir ITIL et son objectif de bonnes pratiques.
-- Situer les grandes évolutions du référentiel.
-- Distinguer référentiel, norme et certification.
-- Comprendre le passage d’une logique de moyens à une logique de services.
-
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Présentation d’ITIL et historique » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
-
-## Méthode de travail
-
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
-
-## Cycle de vie étudié dans les supports
+Le support présente la bibliothèque historique, l’évolution d’une informatique fournisseuse de moyens vers une informatique fournisseuse de services, le forum d’utilisateurs itSMF, les acteurs de formation et de certification, puis le cycle de vie v3. Les cinq publications étudiées sont **stratégie, conception, transition, exploitation et amélioration continue**. L’amélioration accompagne l’ensemble du cycle : elle ne se limite pas à sa dernière étape.
 
 ```mermaid
 flowchart LR
-    S["Stratégie des services"] --> C["Conception des services"] --> T["Transition des services"] --> E["Exploitation des services"] --> A["Amélioration continue"]
-    A -. "mesure et amélioration" .-> S
+    B["Besoin métier"] --> S["Stratégie : décider de la valeur"]
+    S --> C["Conception : organiser la solution"]
+    C --> T["Transition : livrer et maîtriser le changement"]
+    T --> E["Exploitation : fournir et assister"]
+    E --> A["Mesurer et améliorer"]
+    A --> S
+    A --> C
 ```
 
-<p class="tssr-caption">Le portail conserve la structure ITIL v3 des supports : l’amélioration continue mesure les résultats et alimente les décisions tout au long du cycle.</p>
+## Repères historiques et précisions externes
 
-## Module 01 - Support de cours
+Le cours suit principalement **ITIL v3** et son introduction historique à ITIL 4. Les dates, noms d’organismes et affirmations sur la propriété du référentiel dans l’Original décrivent le support ; ils ne constituent pas un annuaire actuel. En novembre 2026, PeopleCert documente aussi **ITIL (Version 5)** et sa transition depuis ITIL 4. Il serait donc trompeur de présenter ITIL 4 comme le dernier état du référentiel. Cette sensibilisation ne remplace pas un programme de certification actuel.
 
-### Sensibilisation ITIL
+La phrase du support « ITIL 4 n’est pas une nouvelle version » demande à être contextualisée : ITIL 4 apporte une évolution du cadre, intégrant notamment les approches Agile, Lean et les environnements numériques. Il faut distinguer cet apport de la structure historique en cinq publications utilisée dans les modules suivants.
 
-#### Module 01 — Présentation d’ITIL et historique
+ISO 9001 concerne le management de la qualité dans de nombreux secteurs ; ISO/IEC 20000-1 définit les exigences d’un système de management des services. **ITIL n’est pas une norme ISO**, et suivre ITIL ne certifie pas automatiquement une organisation. La formulation « treize processus » du support ne doit pas être transformée en définition générale de la norme actuelle.
 
-- Qu’est-ce qu’ITIL ?
-- Découvrir ITIL
+## Cas guidé — expliquer son rôle à un client
 
-### Présentation d'ITIL et historique
+Un serveur redémarre correctement après intervention. Le service est-il rétabli ? Vérifier aussi la connexion de l’utilisateur, les données utiles, les performances et la communication de clôture. Le composant peut fonctionner alors que le résultat métier reste indisponible. Une preuve de rétablissement porte donc sur un usage réel du service.
 
-- ITIL : Information Technology Infrastructure Library.
-- En français : bibliothèque pour l’infrastructure des technologies de
+**Mini-quiz.** 1. Référentiel et norme sont-ils synonymes ? 2. Quelle différence entre efficacité et efficience ? 3. Pourquoi mesurer le service après livraison ?
 
-l’information.
+??? success "Réponses commentées"
+    1. Non : bonnes pratiques et exigences normatives répondent à des objectifs distincts.
+    2. Atteindre le résultat ; puis examiner les ressources consommées pour y parvenir.
+    3. Pour vérifier la valeur réellement fournie et décider des améliorations.
 
-- ITIL définit les bonnes pratiques informatiques afin d’avoir un
+## Notions détaillées pour approfondir
 
-système d’information le plus efficace et efficient que possible.
+Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
 
-#### Présentation d’ITIL
+<section>
+<h4>Sensibilisation ITIL</h4>
+<p>Module 01 – Présentation d’ITIL et historique</p>
+<h4>Objectifs</h4>
+<ul><li>Qu’est-ce qu’ITIL ?</li><li>Découvrir ITIL</li></ul>
+</section>
+<section>
+<p>Présentation d’ITIL</p>
+<ul><li>ITIL : Information Technology Infrastructure Library.</li><li>En français : bibliothèque pour l’infrastructure des technologies de l’information.</li></ul>
+<ul><li>ITIL définit les bonnes pratiques informatiques afin d’avoir un système d’information le plus efficace et efficient que possible.</li></ul>
+<p>Historique</p>
+<ul><li>ISO 9001</li><li>Norme qui s’adresse à tous les secteurs d’activité, qui définit un système de gestion de qualité par le processus.</li></ul>
+<ul><li>ISO 20000</li><li>Norme internationale, spécifique à la gestion des systèmes d’information, définie en treize processus (ces processus sont définis dans ITIL).</li><li>Cette certification est facilitée si l’on possède ISO 9001 et ITIL v2 minimum.</li></ul>
+</section>
+<section>
+<p>Historique</p>
+<ul><li>Fin des années 80<ul><li>Le gouvernement britannique lance une étude nationale pour connaître les pratiques utilisées dans la gestion des informations au niveau de l’administration et afin de garder les meilleures. Le but est d’homogénéiser le traitement des informations</li><li>Création d’une bibliothèque de 42 livres baptisée « ITIL »</li><li>Le système d’information est un fournisseur de moyens</li></ul></li><li>1991<ul><li>Création d’un forum permettant aux utilisateurs d’ITIL d’échanger les idées et leurs expériences. Il deviendra l’ITSMF</li></ul></li><li>2004<ul><li>Évolution vers ITIL v2 qui repose sur 9 livres centraux</li><li>Apparition de processus orientés sécurité et des SLA</li><li>Le système d’information est un fournisseur de services</li></ul></li></ul>
+<p>Historique</p>
+<ul><li>2007<ul><li>ITIL v3 qui repose sur 5 livres centraux</li><li>Ajout de la notion de « cycle de vie des services »</li></ul></li></ul>
+<ul><li>Janvier 2020<ul><li>Le support situe ici son introduction à ITIL 4 ; les repères de version sont précisés ci-dessus.</li></ul></li></ul>
+<ul><li>Référentiel international de gestion des services informatiques</li></ul>
+</section>
+<section>
+<p>Présentation d’ITIL v3</p>
+<ul><li>ITIL repose sur l’évolution de l’informatique dans une gestion de projets vers une gestion de service</li><li>Contenu :<ul><li>Les bonnes pratiques de la gestion des services informatiques</li><li>Définition d’un langage commun</li><li>Définition d’un cadre de travail</li></ul></li></ul>
+<p>Présentation d’ITIL v3</p>
+<ul><li>Les différents acteurs<ul><li>OGC (Office of Government Commerce) :  office public britannique du commerce</li></ul></li></ul>
+<ul><li>Propriétaire du référentiel – initialise et contrôle les publications</li><li>Axelos : entreprise créée en 2014 par l’OGC pour gérer ITIL</li><li>Organismes de gestion des certifications et des examens<ul><li>APM Group, EXIN, ISEB, Loyalist College, Dansk IT, DF Certifiering</li><li>Définissent un langage commun</li></ul></li><li>ITSMF (IT Service Management Forum)<ul><li>Association d’utilisateurs</li></ul></li><li>Les organismes de formation et les formateurs agréés</li><li>Les experts et les consultants en gestion de service certifiés ITIL</li></ul>
+</section>
+<section>
+<p>Apport d’ITIL 4</p>
+<ul><li>ITIL 4 fait évoluer le cadre de gestion des services ; voir les repères de version et la précision externe ci-dessus.</li></ul>
+<ul><li>Nouveautés :<ul><li>Gestion de projet Agile</li><li>Le Lean</li><li>Le Cloud</li></ul></li></ul>
+</section>
 
-#### Présentation d'ITIL et historique
+## Pratiquer et réviser
 
-- ISO 9001
-- Norme qui s’adresse à tous les secteurs d’activité, qui définit un
-
-système de gestion de qualité par le processus.
-
-- ISO 20000
-- Norme internationale, spécifique à la gestion des systèmes
-
-#### d’information, définie en treize processus (ces processus sont
-
-définis dans ITIL).
-
-- Cette certification est facilitée si l’on possède ISO 9001 et ITIL v2
-
-minimum.
-
-#### Historique
-
-- Fin des années 80
-- Le gouvernement britannique lance une étude nationale pour connaître les
-
-#### pratiques utilisées dans la gestion des informations au niveau de
-
-l’administration et afin de garder les meilleures. Le but est d’homogénéiser
-
-#### le traitement des informations
-
-- Création d’une bibliothèque de 42 livres baptisée « ITIL »
-- Le système d’information est un fournisseur de moyens
-- 1991
-- Création d’un forum permettant aux utilisateurs d’ITIL d’échanger les idées
-
-#### et leurs expériences. Il deviendra l’ITSMF
-
-- 2004
-- Évolution vers ITIL v2 qui repose sur 9 livres centraux
-- Apparition de processus orientés sécurité et des SLA
-- Le système d’information est un fournisseur de services
-
-#### Historique
-
-#### Présentation d'ITIL et historique
-
-- 2007
-- ITIL v3 qui repose sur 5 livres centraux
-- Ajout de la notion de « cycle de vie des services »
-- Janvier 2020
-- ITIL 4 n’est pas une version, mais un dépoussiérage de la version 3 en gardant les
-
-#### principes fondamentaux
-
-- Référentiel international de gestion des services informatiques
-
-#### Historique
-
-- ITIL repose sur l’évolution de l’informatique dans une gestion de
-
-#### projets vers une gestion de service
-
-- Contenu :
-- Les bonnes pratiques de la gestion des services informatiques
-- Définition d’un langage commun
-- Définition d’un cadre de travail
-
-#### Présentation d’ITIL v3
-
-#### Présentation d'ITIL et historique
-
-- Les différents acteurs
-- OGC (Office of Government Commerce) : office public britannique du
-
-#### commerce
-
-- Propriétaire du référentiel — initialise et contrôle les publications
-- Axelos : entreprise créée en 2014 par l’OGC pour gérer ITIL
-- Organismes de gestion des certifications et des examens
-- APM Group, EXIN, ISEB, Loyalist College, Dansk IT, DF Certifiering
-- Définissent un langage commun
-- ITSMF (IT Service Management Forum)
-- Association d’utilisateurs
-- Les organismes de formation et les formateurs agréés
-- Les experts et les consultants en gestion de service certifiés ITIL
-
-#### Présentation d’ITIL v3
-
-- ITIL 4 n’est pas une nouvelle version, mais représente la 4e
-
-génération industrielle.
-
-- Nouveautés :
-- Gestion de projet Agile
-- Le Lean
-- Le Cloud
-
-#### Apport d’ITIL 4
-
-## Mise en pratique
-
-- Aucun énoncé de TP distinct n’est fourni pour ce module.
 - [Fiche de révision du module](../../revision/itil/module-01-presentation-d-itil-et-historique.md)
+- [Retour à la séquence](index.md)
 
-## Questions flash
+## Références externes vérifiées le 4 novembre 2026
 
-1. Comment expliquer simplement « Présentation d’ITIL et historique » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Définir ITIL et son objectif de bonnes pratiques.
-    - Situer les grandes évolutions du référentiel.
-    - Distinguer référentiel, norme et certification.
-    - Comprendre le passage d’une logique de moyens à une logique de services.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [PeopleCert — versions et transition ITIL](https://www.peoplecert.org/help-and-support/faq-itil)
+- [ISO — ISO/IEC 20000-1, exigences du management des services](https://www.iso.org/standard/70636.html)
