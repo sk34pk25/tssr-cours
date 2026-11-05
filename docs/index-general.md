@@ -99,6 +99,9 @@
 ## S
 
 - [Savoir, savoir-faire, savoir-être](modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md)
+- [Services réseau en environnement Linux](modules/15-services-reseau-en-environnement-linux/index.md)
+- [Services réseau en environnement Microsoft](modules/09-services-reseaux-en-environnement-microsoft/index.md)
+- [Services réseau — mise en situation professionnelle](modules/10-msp-services-reseau/index.md)
 - [SLA](glossaire/index.md)
 - [Stratégie et conception des services](modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md)
 

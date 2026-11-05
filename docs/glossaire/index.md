@@ -28,6 +28,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="itil">Sensibilisation ITIL et gestion de parc</option>
         <option value="glpi">Administration GLPI</option>
         <option value="msp">Mise en situation professionnelle — Systèmes clients</option>
+        <option value="reseaux-ms">Services réseau en environnement Microsoft</option>
+        <option value="reseaux-linux">Services réseau en environnement Linux</option>
+        <option value="msp-reseau">Mise en situation professionnelle — Services réseau</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-module">
@@ -93,6 +96,20 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="g05" data-course="glpi">GLPI · M05 · MySQL et MariaDB</option>
         <option value="g06" data-course="glpi">GLPI · M06 · Plug-ins et inventaire</option>
         <option value="s01" data-course="msp">MSP · M01 · MSP Systèmes clients</option>
+        <option value="srvms01" data-course="reseaux-ms">Réseau Microsoft · M01 · Administration Windows</option>
+        <option value="srvms02" data-course="reseaux-ms">Réseau Microsoft · M02 · Active Directory</option>
+        <option value="srvms03" data-course="reseaux-ms">Réseau Microsoft · M03 · Stratégies de groupe</option>
+        <option value="srvms04" data-course="reseaux-ms">Réseau Microsoft · M04 · Routage</option>
+        <option value="srvms05" data-course="reseaux-ms">Réseau Microsoft · M05 · DHCP</option>
+        <option value="srvms06" data-course="reseaux-ms">Réseau Microsoft · M06 · DNS</option>
+        <option value="srvlin01" data-course="reseaux-linux">Réseau Linux · M01 · Introduction</option>
+        <option value="srvlin02" data-course="reseaux-linux">Réseau Linux · M02 · Adressage réseau</option>
+        <option value="srvlin03" data-course="reseaux-linux">Réseau Linux · M03 · Routage et traduction d’adresses</option>
+        <option value="srvlin04" data-course="reseaux-linux">Réseau Linux · M04 · Administration à distance</option>
+        <option value="srvlin05" data-course="reseaux-linux">Réseau Linux · M05 · DNS résolveur</option>
+        <option value="srvlin06" data-course="reseaux-linux">Réseau Linux · M06 · DHCP</option>
+        <option value="srvlin07" data-course="reseaux-linux">Réseau Linux · M07 · DNS autoritaire sur zone</option>
+        <option value="mspr01" data-course="msp-reseau">MSP Réseau · MSP · Services réseau</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-tri">
@@ -198,7 +215,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="active-directory" data-glossary-card data-term="Active Directory" data-full-name data-aliases="AD | AD DS" data-keywords="annuaire | LDAP" data-definition="Service d’annuaire Microsoft qui centralise identités, groupes, ordinateurs et politiques, et peut servir de source d’authentification LDAP pour GLPI." data-courses="glpi" data-modules="g02" data-letter="A" data-course-sort="administration glpi" data-module-sort="053" data-source-order="423" aria-labelledby="active-directory-titre">
+<article class="tssr-glossary-card" id="active-directory" data-glossary-card data-term="Active Directory" data-full-name data-aliases="AD | AD DS" data-keywords="annuaire | LDAP" data-definition="Service d’annuaire Microsoft qui centralise identités, groupes, ordinateurs et politiques, et peut servir de source d’authentification LDAP pour GLPI." data-courses="glpi reseaux-ms msp-reseau" data-modules="g02 srvms02 mspr01" data-letter="A" data-course-sort="administration glpi" data-module-sort="053" data-source-order="423" aria-labelledby="active-directory-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="active-directory-titre"><a href="#active-directory" class="tssr-glossary-card__anchor" aria-label="Active Directory">Active Directory</a></h2>
   </header>
@@ -206,6 +223,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> AD · AD DS</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02/" title="Services réseau en environnement Microsoft — Module 02 — Active Directory">Réseau Microsoft · M02 · Active Directory</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
   </ul>
 </article>
 
@@ -1448,7 +1467,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="dhcp" data-glossary-card data-term="DHCP" data-full-name="Dynamic Host Configuration Protocol" data-aliases="configuration dynamique" data-keywords="bail DHCP | DORA" data-definition="Protocole qui fournit automatiquement à un client une adresse IP, un masque, une passerelle, des DNS et une durée de bail." data-courses="reseaux windows debian" data-modules="r03 w07 d05" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="002" data-source-order="28" aria-labelledby="dhcp-titre">
+<article class="tssr-glossary-card" id="dhcp" data-glossary-card data-term="DHCP" data-full-name="Dynamic Host Configuration Protocol" data-aliases="configuration dynamique" data-keywords="bail DHCP | DORA" data-definition="Protocole qui fournit automatiquement à un client une adresse IP, un masque, une passerelle, des DNS et une durée de bail." data-courses="reseaux windows debian reseaux-ms reseaux-linux msp-reseau" data-modules="r03 w07 d05 srvms05 srvlin06 mspr01" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="002" data-source-order="28" aria-labelledby="dhcp-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="dhcp-titre"><a href="#dhcp" class="tssr-glossary-card__anchor" aria-label="DHCP">DHCP</a></h2>
     <p class="tssr-glossary-card__full-name">Dynamic Host Configuration Protocol</p>
@@ -1459,6 +1478,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-03-l-adressage-ipv4/" title="Bases des réseaux — Module 03 — L’adressage IPv4">Réseaux · M03 · Adressage IPv4</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/" title="Systèmes clients Microsoft — Module 07 — La gestion du réseau et du pare-feu">Windows · M07 · Réseau et pare-feu</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/" title="Administration Debian GNU/Linux — Module 05 — Gestion du réseau">Debian · M05 · Réseau Debian</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05/" title="Services réseau en environnement Microsoft — Module 05 — DHCP">Réseau Microsoft · M05 · DHCP</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-06-dhcp/" title="Services réseau en environnement Linux — Module 06 — DHCP">Réseau Linux · M06 · DHCP</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
   </ul>
 </article>
 
@@ -1562,7 +1584,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="dns" data-glossary-card data-term="DNS" data-full-name="Domain Name System" data-aliases="système de noms de domaine" data-keywords="résolution de noms | nameserver" data-definition="Système hiérarchique qui traduit des noms comme serveur.exemple.fr en adresses IP et publie d’autres informations de domaine." data-courses="reseaux windows debian" data-modules="r05 w07 d05" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="004" data-source-order="29" aria-labelledby="dns-titre">
+<article class="tssr-glossary-card" id="dns" data-glossary-card data-term="DNS" data-full-name="Domain Name System" data-aliases="système de noms de domaine" data-keywords="résolution de noms | nameserver" data-definition="Système hiérarchique qui traduit des noms comme serveur.exemple.fr en adresses IP et publie d’autres informations de domaine." data-courses="reseaux windows debian reseaux-ms reseaux-linux msp-reseau" data-modules="r05 w07 d05 srvms06 srvlin05 srvlin07 mspr01" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="004" data-source-order="29" aria-labelledby="dns-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="dns-titre"><a href="#dns" class="tssr-glossary-card__anchor" aria-label="DNS">DNS</a></h2>
     <p class="tssr-glossary-card__full-name">Domain Name System</p>
@@ -1573,6 +1595,10 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-05-les-premieres-commandes-reseau/" title="Bases des réseaux — Module 05 — Les premières commandes réseau">Réseaux · M05 · Commandes réseau</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/" title="Systèmes clients Microsoft — Module 07 — La gestion du réseau et du pare-feu">Windows · M07 · Réseau et pare-feu</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/" title="Administration Debian GNU/Linux — Module 05 — Gestion du réseau">Debian · M05 · Réseau Debian</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06/" title="Services réseau en environnement Microsoft — Module 06 — DNS">Réseau Microsoft · M06 · DNS</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-05-dns-resolveur/" title="Services réseau en environnement Linux — Module 05 — DNS résolveur">Réseau Linux · M05 · DNS résolveur</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-07-dns-autoritaire-sur-zone/" title="Services réseau en environnement Linux — Module 07 — DNS autoritaire sur zone">Réseau Linux · M07 · DNS autoritaire sur zone</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
   </ul>
 </article>
 
@@ -2367,7 +2393,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="gpo-lgpo" data-glossary-card data-term="GPO / LGPO" data-full-name="Group Policy Object / Local Group Policy Object" data-aliases="stratégie de groupe | stratégie locale" data-keywords="gpedit.msc" data-definition="Ensemble de paramètres administratifs appliqués aux utilisateurs ou ordinateurs ; LGPO désigne la stratégie enregistrée localement sur un poste." data-courses="windows glpi" data-modules="w13 g02" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="018" data-source-order="109" aria-labelledby="gpo-lgpo-titre">
+<article class="tssr-glossary-card" id="gpo-lgpo" data-glossary-card data-term="GPO / LGPO" data-full-name="Group Policy Object / Local Group Policy Object" data-aliases="stratégie de groupe | stratégie locale" data-keywords="gpedit.msc" data-definition="Ensemble de paramètres administratifs appliqués aux utilisateurs ou ordinateurs ; LGPO désigne la stratégie enregistrée localement sur un poste." data-courses="windows glpi reseaux-ms msp-reseau" data-modules="w13 g02 srvms03 mspr01" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="018" data-source-order="109" aria-labelledby="gpo-lgpo-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="gpo-lgpo-titre"><a href="#gpo-lgpo" class="tssr-glossary-card__anchor" aria-label="GPO / LGPO">GPO / LGPO</a></h2>
     <p class="tssr-glossary-card__full-name">Group Policy Object / Local Group Policy Object</p>
@@ -2377,6 +2403,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/" title="Systèmes clients Microsoft — Module 13 — Les stratégies de groupe local">Windows · M13 · Stratégies de groupe</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03/" title="Services réseau en environnement Microsoft — Module 03 — Stratégies de groupe">Réseau Microsoft · M03 · Stratégies de groupe</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
   </ul>
 </article>
 
@@ -3378,7 +3406,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="nat" data-glossary-card data-term="NAT" data-full-name="Network Address Translation" data-aliases="traduction d’adresses réseau" data-keywords="PAT | adresse privée" data-definition="Traduction d’adresses réalisée par un équipement frontière, souvent pour faire partager une adresse publique à plusieurs hôtes privés." data-courses="reseaux windows" data-modules="r04 wadd" data-letter="N" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="45" aria-labelledby="nat-titre">
+<article class="tssr-glossary-card" id="nat" data-glossary-card data-term="NAT" data-full-name="Network Address Translation" data-aliases="traduction d’adresses réseau" data-keywords="PAT | adresse privée" data-definition="Traduction d’adresses réalisée par un équipement frontière, souvent pour faire partager une adresse publique à plusieurs hôtes privés." data-courses="reseaux windows reseaux-ms reseaux-linux msp-reseau" data-modules="r04 wadd srvms04 srvlin03 mspr01" data-letter="N" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="45" aria-labelledby="nat-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="nat-titre"><a href="#nat" class="tssr-glossary-card__anchor" aria-label="NAT">NAT</a></h2>
     <p class="tssr-glossary-card__full-name">Network Address Translation</p>
@@ -3388,6 +3416,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/" title="Bases des réseaux — Module 04 — La communication dans un réseau">Réseaux · M04 · Communication réseau</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04/" title="Services réseau en environnement Microsoft — Module 04 — Routage">Réseau Microsoft · M04 · Routage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-03-routage-et-traduction-d-adresses/" title="Services réseau en environnement Linux — Module 03 — Routage et traduction d’adresses">Réseau Linux · M03 · Routage et traduction d’adresses</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
   </ul>
 </article>
 
@@ -4306,13 +4337,15 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="routage-statique" data-glossary-card data-term="Routage statique" data-full-name data-aliases data-keywords="route manuelle" data-definition="Méthode où l’administrateur saisit manuellement les routes. Elle est prévisible mais ne s’adapte pas seule à une panne ou une nouvelle topologie." data-courses="reseaux" data-modules="r04" data-letter="R" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="58" aria-labelledby="routage-statique-titre">
+<article class="tssr-glossary-card" id="routage-statique" data-glossary-card data-term="Routage statique" data-full-name data-aliases data-keywords="route manuelle" data-definition="Méthode où l’administrateur saisit manuellement les routes. Elle est prévisible mais ne s’adapte pas seule à une panne ou une nouvelle topologie." data-courses="reseaux reseaux-ms reseaux-linux" data-modules="r04 srvms04 srvlin03" data-letter="R" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="58" aria-labelledby="routage-statique-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="routage-statique-titre"><a href="#routage-statique" class="tssr-glossary-card__anchor" aria-label="Routage statique">Routage statique</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Méthode où l’administrateur saisit manuellement les routes. Elle est prévisible mais ne s’adapte pas seule à une panne ou une nouvelle topologie.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/" title="Bases des réseaux — Module 04 — La communication dans un réseau">Réseaux · M04 · Communication réseau</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04/" title="Services réseau en environnement Microsoft — Module 04 — Routage">Réseau Microsoft · M04 · Routage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-03-routage-et-traduction-d-adresses/" title="Services réseau en environnement Linux — Module 03 — Routage et traduction d’adresses">Réseau Linux · M03 · Routage et traduction d’adresses</a></li>
   </ul>
 </article>
 

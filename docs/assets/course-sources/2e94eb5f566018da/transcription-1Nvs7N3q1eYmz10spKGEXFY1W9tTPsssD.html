@@ -1,0 +1,51 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M07 - Solution du TP2 - Configurer un service DNS secondaire</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M07 - Solution du TP2 - Configurer un service DNS secondaire</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Configurer un service DNS secondaire</h2><h3>TP 02 du Module 07 – DNS autoritaire sur zone</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>2 heures</p><h2>Solution</h2><h3>Etape 1 - Autoriser le transfert des zones hébergées pour DEB-S1 uniquement</h3><pre><code>Depuis db-cli-10
+# dig axfr tssr.example</code></pre><p>Le transfert a-t-il abouti ?</p><p>=&gt; Oui de base le transfert est autorisé vers tous les hôtes.</p><pre><code> # vi  /etc/bind/named.conf.local
+ # Zone directe tssr.example
+ zone &quot;tssr.example&quot; {
+         type master;
+         file &quot;db.tssr.example&quot;;
+         allow-transfer  { 192.168.X.11; } ;
+ };
+
+ # named-checkconf –z
+ # rndc reload</code></pre><p>Refaire la commande dig sur db-cli-10 (ne fonctionne pas) et sur deb-s1 (fonctionne) : # dig axfr tssr.example</p><h3>Etape 2 - Ajout d’un service DNS secondaire sur DEB-S1</h3><ul><li>Sur DEB-S2, modifier votre zone directe afin que DEB-S1 soit référencé comme serveur DNS faisant autorité pour cette zone (en complément de DEB-S2).</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><pre><code> # vi /var/cache/bind/db.tssr.example.example
+ ;
+ ; Zone directe tssr.example.example
+ ;
+ $TTL    86400
+ @       IN      SOA     deb- s2.tssr.example. admin.tssr.example. (
+
+
+2019100251 ; serial
+                           86400         ;  Refresh
+                            7200         ; Retry
+                         3600000         ;  Expire
+                            3600 )       ;  Negative Cache TTL
+ ;
+ @       IN      NS      deb- s2.tssr.example.
+ @       IN      NS      deb-s1.tssr.example.
+
+ # named-checkconf –z
+ # rndc reload</code></pre><pre><code>Sur Deb-S1
+# apt install bind9</code></pre><pre><code>Configurer la zone secondaire sur deb-s1 :
+ # vi  /etc/bind/named.conf.local
+ # Zone directe tssr.example
+ zone &quot;tssr.example&quot; {
+         type slave;
+         file &quot;db.tssr.example&quot;;
+         master { 192.169.X.12; };
+ };
+
+ # named-checkconf –z
+ # rndc reload</code></pre><h3>Etape 3 - Test de résolution de noms depuis les clients</h3><pre><code>Depuis cli-db-10 :
+$ dig soa tssr.example  @192.168.X.11
+$ dig ns tssr.example @192.168.X.11</code></pre><pre><code>Arrêter le service Bind sur deb-s2
+$ ping  deb-s1.tssr.example.
+$ ping  deb-s2.tssr.example.</code></pre><p>Que se passe-t-il ?</p><h3>Etape 4 - Test de résolution de noms depuis les clients</h3><ul><li>Sur DEB-S2, activer le suivi des requêtes DNS dans les logs avec la commande rndc.</li></ul><pre><code> # rndc querylog</code></pre></section>
+<section class="tssr-transcribed-page" id="page-3"><pre><code> # journalctl -fu bind9.service</code></pre><ul><li>Rajouter un enregistrement dans la zone deb-s2 et vérifier les requêtes, bien analyser les logs pour voir la requête IXFR passer.</li><li>Couper deb-s2 et tester une requête vers l’extérieur depuis un client.</li><li>Paramétrer le serveur deb-s1 comme deb-s2 pour renvoyer les requêtes vers un forwarder.</li></ul><p>La redondance n’est pas activée pour la zone inverse ; il faudrait modifier la zone primaire pour autoriser le transfert et créer les paramétrages sur le second serveur pour gérer la zone secondaire.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

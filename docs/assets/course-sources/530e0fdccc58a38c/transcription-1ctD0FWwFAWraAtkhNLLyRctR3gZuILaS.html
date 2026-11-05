@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M05 - Solution du TP1 - Configurer un serveur DNS resolveur</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M05 - Solution du TP1 - Configurer un serveur DNS resolveur</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Configurer un serveur DNS résolveur</h2><h3>TP 01 du Module 05 – DNS résolveur</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>1 heure</p><h2>Solution</h2><h3>Etape 1 - Installation et configurer le service DNS Bind9 sur DEB-S2</h3><ul><li>Installer le service Bind9 :</li></ul><pre><code># apt install bind9</code></pre><pre><code>Configuration dans /etc/bind/named.conf.local
+
+ dnssec-validation no ;
+ allow-recursion {
+                 172.18.X.0/24;
+                 192.168.X.0/24;
+ };</code></pre><p>Test et reload de la configuration</p><pre><code> # named-checkconf</code></pre><pre><code> # rndc reload</code></pre><h3>Etape 2 - Modification de la configuration cliente DNS des postes</h3><ul><li>Installer le paquet dnsutils sur le poste Cli-db-10 :</li></ul><pre><code># apt install dnsutils</code></pre><p>Sur deb-s1 et les autres :</p><pre><code> # vi /etc/resolv.conf</code></pre><pre><code> nameserver 192.168.X.12</code></pre></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Etape 3 - Test de résolution depuis le client</h3><p>D’après vous, quel mécanisme votre serveur utilise-t-il actuellement pour résoudre les noms d’hôtes publics ?</p><p>Les Serveurs racines via configuration par défaut</p><p>Fichier /usr/share/dns/root.hints chargé dans named.conf.default-zones</p><p>Pour tester, il est possible d’utiliser soit :</p><ul><li>la commande ping</li><li>la commande dig</li></ul><p>A tester :</p><p>www.isc.org</p><p>www.yahoo.fr</p><h3>Etape 4 - Configuration de Bind9 pour faire appel aux services de redirecteur</h3><pre><code>Rajouter le ou les forwarders :
+
+# vi  /etc/bind/named.conf.options
+ forwarders {
+                 66.55.44.33;
+ };</code></pre><p>Tester et relancer : # named-checkconf # rndc reload # rndc flush =&gt; pour vider le cache serveur</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

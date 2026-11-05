@@ -1,0 +1,89 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 02 - Support de cours</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>Module 02 - Support de cours</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Services réseau en environnement Linux</h2><p>Module 02 - Adressage réseau</p><h3>Adressage réseau</h3><h3>Objectifs</h3><ul><li>Paramétrer les interfaces réseau d&#x27;un serveur Linux</li><li>Découvrir les différentes méthodes de paramétrage</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Adressage réseau</h3><h3>Public ciblé</h3><ul><li>Techniciens système et réseaux</li></ul><h3>Adressage réseau</h3><h2>Nommage des cartes</h2><h2>réseau et outils de</h2><h2>configuration</h2></section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Nommage et outils</h3><ul><li>systemd a introduit un nouveau système de nommage des interfaces réseau</li><li>Il s&#x27;adapte suivant le matériel détecté</li><li>L&#x27;interface de loopback s&#x27;appelle toujours lo</li><li>Les interfaces réseau vont s&#x27;appeler par exemple :</li><li>ens[1-n]</li><li>enp0s[1-n]</li><li>L&#x27;ancien système de nommage est eth[0-n]</li></ul><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Nommage et outils</h3><ul><li>On va distinguer 3 façons de configurer le réseau :</li><li>De façon dynamique avec la commande ip</li><li>De façon statique avec le « fichier interfaces »</li><li>Avec l&#x27;outil NetworkManager</li></ul></section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec la commande IP</h3><ul><li>Configuration dynamique, donc :</li><li>Prise en compte directement</li><li>Pas conservée après un reboot de la machine</li><li>Commande qui sert à gérer tout le réseau avec un ensemble de sous-commandes :</li></ul><p>Transcription du détail du support.</p><pre><code>ip [ OPTIONS ] OBJECT { COMMAND | help }
+OBJECT := { link | addr | addrlabel | route | rule | neigh | ntable | tunnel | tuntap
+          | maddr | mroute | mrule | monitor | xfrm | netns | l2tp }</code></pre><ul><li>On indique le type d&#x27;objet à manipuler (adresse, route, etc.) et les options</li></ul><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec la commande IP</h3><ul><li>Pour afficher les informations d&#x27;adressage :</li></ul><p>Transcription du détail du support.</p><pre><code>$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:0c:29:4d:bc:c2 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::20c:29ff:fe4d:bcc2/64 scope link
+       valid_lft forever preferred_lft forever</code></pre><ul><li>Ajout ou suppression d&#x27;adresses :</li></ul><p>Transcription du détail du support.</p><pre><code># ip a add 10.11.12.13/24 dev ens33
+# ip a del 172.16.0.1/16 dev ens37
+# ip a flush ens33</code></pre></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec la commande IP</h3><ul><li>Activer ou désactiver une interface :</li></ul><p>Transcription du détail du support.</p><pre><code># ip link set ens33 down
+# ip l set ens37 up</code></pre><ul><li>N&#x27;oubliez pas le man :</li></ul><p>Transcription du détail du support.</p><pre><code>$ man ip
+$ man ip-address</code></pre><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec le fichier interfaces</h3><ul><li>Configuration stabilisée dans le temps même après redémarrage du serveur</li><li>Fichier /etc/network/interfaces</li></ul><p>Transcription du détail du support.</p><pre><code># L’interface réseau de loopback =&gt; il ne faut pas la modifier
+auto lo
+iface lo inet loopback
+
+# L’interface ens33 est configurée manuellement.
+auto ens33
+iface ens33 inet static
+    address 192.168.66.6
+    netmask 255.255.0.0
+
+# L’interface ens37 est quant à elle configurée via DHCP.
+auto ens37
+iface ens37 inet dhcp</code></pre></section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec le fichier interfaces</h3><ul><li>Interface de loopback à ne pas toucher</li><li>Interface ens33 en configuration statique :</li><li>address : adresse IP</li><li>netmask : le masque de réseau (possible en CIDR sur la ligne address)</li><li>gateway : la passerelle</li><li>Interface ens37 en DHCP</li></ul><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec le fichier interfaces</h3><p>Ne pas oublier de redémarrer le réseau après configuration.</p><pre><code># systemctl restart networking</code></pre></section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec Network Manager</h3><ul><li>Si Network Manager est installé, il faut utiliser les commandes adéquates et ne pas configurer dans le « fichier interfaces »</li></ul><p>Transcription du détail du support.</p><pre><code># systemctl status NetworkManager
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/lib/systemd/system/NetworkManager.service; enabled; vendor p…)
+   Active: active (running) since Mon 2019-05-20 12:24:14 CEST; 66h 6min ago</code></pre><ul><li>La commande nmcli est utilisée pour gérer les interfaces réseau</li><li>Possible aussi d&#x27;utiliser nmtui et l&#x27;interface graphique si installée</li></ul><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec Network Manager</h3><ul><li>Exemple avec nmcli pour afficher la configuration</li></ul><p>Transcription du détail du support.</p><pre><code>$ nmcli
+ens33: connecté to Wired connection 1
+       &quot;Intel 82545EM&quot;
+       ethernet (e1000), 00:0C:29:08:4B:4C, hw, mtu 1500
+       ip4 default
+       inet4 172.16.6.6/24
+       route4 172.16.6.0/24
+       [...]
+
+lo: non-géré
+    &quot;lo&quot;
+    loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+    servers: 10.0.0.1
+    domains: demo.example
+    interface: ens33</code></pre></section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Nommage des cartes réseaux et outils de configuration</h3><h3>Configuration avec Network Manager</h3><ul><li>Modification de l&#x27;IP :</li></ul><p>Transcription du détail du support.</p><pre><code># nmcli connection modify Wired\ connection\ 1 ipv4.addresses 192.168.66.6/24
+# nmcli connection modify Wired\ connection\ 1 ipv4.addresses 192.168.66.6/24 ipv4.method manual
+# nmcli connection modify Wired\ connection\ 1 +ipv4.addresses 192.168.1.1/24</code></pre><h3>Adressage réseau</h3><h2>Passerelle par défaut</h2></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Passerelle par défaut</h3><h3>Modification de la passerelle par défaut</h3><ul><li>La passerelle par défaut est modifiable avec les différentes méthodes :</li><li>Avec Network Manager :</li></ul><p>Transcription du détail du support.</p><pre><code># nmcli connection modify Wired\ connection\ 1 ipv4.gateway 192.168.66.254</code></pre><ul><li>Dans le fichier interfaces :</li></ul><p>Transcription du détail du support.</p><pre><code># L’interface ens33 est configurée manuellement.
+auto ens33
+iface ens33 inet static
+    address 192.168.66.6
+    netmask 255.255.0.0
+    gateway 192.168.66.254</code></pre><h3>Passerelle par défaut</h3><h3>La commande ip</h3><ul><li>Avec la commande ip</li></ul><p>Transcription du détail du support.</p><pre><code>$ man ip-route
+Affichage de la table de routage : itinéraires et passerelles :
+$ ip r
+default via 192.168.0.254 dev ens37
+10.11.0.0/16 dev ens33 proto kernel scope link src 10.11.12.13
+192.168.0.0/24 dev ens37 proto kernel scope link src 192.168.0.1
+
+Ajouter une route par défaut :
+# ip r add default via 10.11.0.254
+Modifier la route par défaut :
+# ip r change default via 10.11.255.254
+Supprimer la route par défaut :
+# ip route del default via 192.168.0.254</code></pre><p>Dans tous les cas, la commande  « ip r » permet d&#x27;afficher la table de routage de la machine.</p></section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Adressage réseau</h3><h2>Nom d&#x27;hôte</h2><h3>Nom d’hôte</h3><h3>Caractéristiques</h3><ul><li>Le nom d&#x27;hôte de la machine peut être :</li><li>Un nom court</li><li>Un FQDN (Full Qualified Domain Name)</li><li>Il est configuré dans le fichier /etc/hostname qui ne doit contenir que le nom d&#x27;hôte (court ou long)</li><li>Le nom d&#x27;hôte doit être résolvable localement. On doit donc le retrouver dans le fichier /etc/hosts</li></ul></section>
+<section class="tssr-transcribed-page" id="page-11"><h3>Nom d’hôte</h3><h3>Fichiers du nom d&#x27;hôte</h3><ul><li>Fichier /etc/hostname</li></ul><p>Transcription du détail du support.</p><pre><code>srv-lan.demo.example</code></pre><ul><li>Fichier /etc/hosts</li></ul><p>Transcription du détail du support.</p><pre><code>127.0.0.1       localhost
+127.0.1.1       srv-lan.demo.example   srv-lan</code></pre><ul><li>La commande hostname permet d&#x27;afficher le nom d&#x27;hôte</li></ul><h3>Adressage réseau</h3><h2>Client DNS</h2></section>
+<section class="tssr-transcribed-page" id="page-12"><h3>Client DNS</h3><h3>La résolution DNS</h3><ul><li>Autre élément de configuration du réseau : la résolution DNS</li><li>Elle va se faire :</li><li>Localement grâce au fichier /etc/hosts</li><li>Avec un serveur DNS configuré avec Network Manager ou avec le fichier /etc/resolv.conf</li></ul><h3>Client DNS</h3><h3>La résolution DNS</h3><ul><li>L&#x27;ordre de résolution est défini :</li><li>Dans le fichier /etc/nsswitch.conf</li></ul><p>Transcription du détail du support.</p><pre><code>$ grep hosts /etc/nsswitch.conf
+hosts: files dns</code></pre><ul><li>Ou avec une interface graphique :</li></ul><p>Transcription du détail du support.</p><pre><code># grep hosts /etc/nsswitch.conf
+hosts: files mdns4_minimal [NOTFOUND=return] dns myhostname</code></pre><ul><li>Il faudra interpréter l&#x27;ordre : 1. fichier /etc/hosts 2. mdns4_minimal : interrogation mDNS (multicast DNS) pour les noms d’hôtes IPv4 en .local 3. serveur DNS 4. myhostname : résolution des noms locaux du poste</li></ul></section>
+<section class="tssr-transcribed-page" id="page-13"><h3>Client DNS</h3><h3>La résolution DNS</h3><ul><li>Pour configurer la résolution DNS en tant que client DNS :</li><li>Avec Network Manager</li></ul><p>Transcription du détail du support.</p><pre><code># nmcli connection modify Wired\ connection\ 1 ipv4.dns 192.168.66.1</code></pre><ul><li>Dans le fichier /etc/resolv.conf</li></ul><p>Transcription du détail du support.</p><pre><code>search demo.example ad.formation.example
+domain ad.formation.example
+nameserver 10.0.0.3
+nameserver 10.100.0.3</code></pre><ul><li>nameserver : pour définir les serveurs DNS</li><li>search et domain pour définir les suffixes DNS</li><li>Si la configuration est en DHCP, c&#x27;est ce dernier qui fournit la configuration DNS</li></ul></section>
+<!-- SOURCE-CONTENT:END --></body></html>

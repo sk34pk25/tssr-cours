@@ -31,8 +31,24 @@
       "title": "Mise en situation professionnelle : services réseau",
       "path": "modules/10-msp-services-reseau/index.md",
       "sourceFolderId": "1sTxYxQiaiKhaRdqsQYGV7Kw37myRNXK3",
-      "relations": [],
-      "resources": [],
+      "relations": [
+        {
+          "coursePath": "modules/09-services-reseaux-en-environnement-microsoft/index.md",
+          "modulePath": "modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md",
+          "evidencePath": "modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md",
+          "evidenceQuote": "Sur Windows Server 1, installer AD DS et DNS"
+        },
+        {
+          "coursePath": "modules/15-services-reseau-en-environnement-linux/index.md",
+          "modulePath": "modules/15-services-reseau-en-environnement-linux/module-04-administration-a-distance.md",
+          "evidencePath": "modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md",
+          "evidenceQuote": "Tester SSH vers Debian"
+        }
+      ],
+      "resources": [
+        "tp/10-msp-services-reseau/module-01/index.md",
+        "revision/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md"
+      ],
       "sections": {}
     }
   ]
