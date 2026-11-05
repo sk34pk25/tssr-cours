@@ -1,0 +1,41 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TSSR110-Virtualisation_Mise en Situation - Module 8 - Gestion des Modeles - Solution</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>TSSR110-Virtualisation_Mise en Situation - Module 8 - Gestion des Modeles - Solution</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Solutions :</p>
+<h4>Atelier N°6</h4>
+<p>TP du Module 08 – Gestion des Modèles</p>
+<p>Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 8.</p>
+<p>Durée estimée</p>
+<p>1 heure</p>
+<h4>Objectif :</h4>
+<p>Exporter et importer une machine virtuelle sous forme de modèle OVF d’un hyperviseur vers un autre</p>
+<h4>Prérequis :</h4>
+<p>Disposer de deux hyperviseurs ESXi1 et ESXi2</p>
+<p>Disposer d’une machine virtuelle SRV-1 hébergée sur ESXi1 (Atelier 3 réalisé)</p>
+</section>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Énoncé :</h4>
+<p>Cet atelier a pour objectif d’illustrer l’exportation d’une machine virtuelle depuis l’hyperviseur ESXi1 sous forme d’un modèle OVF. Dans un deuxième temps, un import de ce modèle sera réalisée vers l’hyperviseur ESXi2.</p>
+<ul><li>Se connecter à l’hyperviseur ESXi1 avec un navigateur Internet (Firefox ou Chrome)</li></ul>
+<p>Sur l’hyperviseur ESXi1</p>
+<ul><li>Depuis le menu « Machines virtuelles », cliquer droit sur la VM « SRV-1 » et sélectionner « Exporter ». au format OVF la machine virtuelle « SRV_1 »</li><li>Dans la boite de dialogue qui s’affiche, cocher tous les choix possibles sauf le dernier (« nvram »).</li></ul>
+<figure><img src="../isolated/11683951f3c6d059/v13-d04-p02-i2.webp" alt="Capture isolée du support, page 2"><figcaption>Capture isolée du support, page 2</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+<p>Le téléchargement doit commencer dans votre navigateur, les fichiers seront stockés localement sur votre système.</p>
+<ul><li>Après quelques minutes, observer à l’emplacement de stockage par défaut, l’apparition des fichiers « .mf », « .ovf » et « .vmdk ».</li><li>Se connecter à l’hyperviseur ESXi2 avec un navigateur Internet</li></ul>
+<p>Sur l’hyperviseur ESXi2</p>
+<ul><li>Importer les fichiers précédemment récupérés sur votre système sous un nouveau nom « SRV-2 », en cliquant sur le lien « Créer/Enregistrer une machine virtuelle ».</li></ul>
+<figure><img src="../isolated/11683951f3c6d059/v13-d04-p03-i3.webp" alt="Capture isolée du support, page 3"><figcaption>Capture isolée du support, page 3</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+<ul><li>Les fichiers relatifs à la machine virtuelle SRV-2 seront placés dans la banque de données « DS-ISCSI ».</li></ul>
+<figure><img src="../isolated/11683951f3c6d059/v13-d04-p04-i3.webp" alt="Capture isolée du support, page 4"><figcaption>Capture isolée du support, page 4</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<ul><li>Ignorer le message d’erreur et lancer tout de même l’importation.</li></ul>
+<p>Pour observer l’avancement du processus, cliquer tout en bas du navigateur sur « Tâches récentes » si cela n’a pas déjà été fait.</p>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+<ul><li>A l’issue de l’opération, une nouvelle machine virtuelle doit faire son apparition dans l’inventaire d’ESXi2. Démarrer cette VM pour contrôler son bon fonctionnement.</li></ul>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

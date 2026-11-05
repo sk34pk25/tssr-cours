@@ -1,107 +1,101 @@
 # Module 07 — Les structures de boucle
 
-## Objectifs
+Une boucle répète des commandes. Définissez le premier état, ce qui déclenche un passage, la progression et la sortie. Le support utilise une condition de saisie, un compteur et une liste de fichiers.
 
-Ce module présente les boucles en algorithmique, le calcul associé et les boucles `while`, `until` et `for`. Il introduit aussi `while read` pour traiter un fichier ligne par ligne.
+## Faire progresser le traitement
 
-## Répéter et faire progresser un calcul
-
-Une boucle répète un bloc d'actions selon une condition ou une liste de valeurs. Lorsque la condition dépend d'une variable, le support rappelle de faire évoluer cette variable, notamment par un calcul.
+`expr` effectue un calcul entier avec ses opérandes séparés par des espaces. Protégez `*` pour qu’il soit transmis à `expr` au lieu de développer des noms de fichiers. Le support cite également `let` et l’arithmétique Bash.
 
 ```bash
 expr 2 + 7
 expr 2 \* 7
+n=0
+n=$((n + 1))
+printf '%s\n' "$n"
 ```
 
-Les opérateurs de `expr` sont séparés par des espaces. Le support cite `let` et `((…))` comme alternatives, développées dans le module consacré à l'arithmétique entière.
+`$((…))` développe la valeur du calcul. `((…))` exécute une expression arithmétique et produit un statut. Vérifiez la progression dans chaque branche de la boucle, en particulier lorsqu’une erreur mène à une nouvelle tentative.
 
-## Boucle `while`
+## Répéter avec while ou until
+
+| Structure | Entrée dans le corps | Fin |
+| --- | --- | --- |
+| `while CONDITION` | Le test réussit | Le test a un statut non nul |
+| `until CONDITION` | Le test a un statut non nul | Le test réussit |
+| `while true` | À chaque passage | Une instruction comme `break` ou `exit` arrête le traitement |
+| `for item in …` | Une fois par élément développé | Tous les éléments ont été traités |
+
+Le support présente `while` pour demander un nom tant qu’il est vide et `until` pour demander un âge jusqu’à l’obtention d’une valeur. Dans ce dernier cas, une valeur non vide peut encore être non numérique. Traitez la fin de l’entrée pour éviter une boucle de demandes sans saisie possible.
 
 ```bash
-while CONDITION; do
-    ACTIONS
+nom=
+while [[ -z $nom ]]; do
+    IFS= read -r -p "Nom : " nom || exit 1
+done
+
+age=
+until [[ $age =~ ^[0-9]+$ ]]; do
+    IFS= read -r -p "Âge entier : " age || exit 1
 done
 ```
 
-Le support illustre une saisie de nom tant que la variable est vide :
+Dans un menu, `while true` répète l’affichage. Le choix de quitter mène à `break` pour quitter la boucle ou `exit` pour terminer le script. Un choix inconnu doit produire un retour compréhensible avant le nouveau passage.
+
+## Itérer sur une liste avec for
+
+`for` parcourt les mots issus de la liste après les développements applicables. Les séparateurs d’`IFS` jouent sur le découpage des développements non cités. Les mots cités restent entiers. Avec `"$@"`, chaque argument fourni au script reste un élément.
 
 ```bash
-while [[ -z "$nom" ]]; do
-    read nom
+for extension in sh txt bash; do
+    printf 'Extension : %s\n' "$extension"
+done
+for argument in "$@"; do
+    printf 'Argument : <%s>\n' "$argument"
 done
 ```
 
-Une boucle infinie est également illustrée avec `while true; do` dans un scénario de menu.
+Le support montre `set | grep ^IFS` et `IFS=$' \t\n'`. Modifier `IFS` agit sur les développements ultérieurs qui utilisent le découpage de champs. Une affectation placée juste avant `read` limite son usage à la lecture concernée. `for var in $(cat fichier.txt)` découpe des mots et peut développer des caractères génériques. Cette forme est inadaptée aux lignes contenant des espaces ou des motifs.
 
-## Boucle `until`
-
-```bash
-until CONDITION; do
-    ACTIONS
-done
-```
-
-L'exemple demande une saisie tant que l'âge n'est pas renseigné :
+## Lire des lignes avec while read
 
 ```bash
-until [[ -n "$age" ]]; do
-    read age
-done
-```
-
-## Boucle `for` et séparateurs
-
-```bash
-for element in LISTE DE VALEURS; do
-    ACTIONS
-done
-```
-
-La liste est interprétée par le Shell selon les séparateurs de champs `IFS`. Les formes montrées sont `set | grep ^IFS` et `IFS=$' \t\n'`.
-
-## Lire ligne par ligne avec `while read`
-
-Le support compare une itération `for`, qui découpe selon `IFS`, à `while read`, qui permet de traiter séparément les champs d'une ligne :
-
-```bash
-for var in $(cat fichier.txt); do
-    echo "$var"
-done
-
-while read nom prenom suite; do
-    echo "$prenom$nom"
+while IFS= read -r ligne || [[ -n $ligne ]]; do
+    printf '%s\n' "$ligne"
 done < fichier.txt
 ```
 
-Les autres formes documentées sont `done < <(cat Edition)` et `cat Edition | while read nom prenom num`.
+`IFS=` préserve les espaces en bordure. `-r` conserve les antislashs. Le second test permet de traiter la dernière ligne même si elle est dépourvue de saut de ligne. Pour répartir les champs de `/etc/passwd`, utilisez `IFS=: read -r nom passe uid gid commentaire home shell`. Les champs vides et les espaces dans un commentaire restent en place.
 
-Dans le scénario où un second `read` est nécessaire pendant une boucle, son entrée est redirigée depuis le terminal :
+Le support présente aussi `cat Edition | while read …` et `done < <(cat Edition)`. Une boucle dans un tube s’exécute généralement dans un sous-shell. Ses affectations peuvent rester locales à ce processus. Une redirection depuis un fichier ou une substitution de processus permet de garder la boucle dans le shell courant. [Pipelines Bash](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html)
 
-```bash
-read -p "message : " choix </dev/tty
-```
+Un deuxième `read` sans redirection dans la boucle consomme la ligne suivante de la même entrée. Pour demander une réponse à l’utilisateur, le support redirige ce `read` depuis `/dev/tty`. Cette forme nécessite un terminal de contrôle.
 
-## Mise en pratique
+## Trois travaux pratiques
 
-Le TP1 conserve deux parties distinctes : l'analyse du scénario vendredi 13, puis la recherche d'années bissextiles. Le TP2 porte sur une boucle `for` et un fichier d'extensions externe. Le TP3 documente une boucle `while read` sur `/etc/passwd`; sa correction source est explicitement signalée comme nécessitant une revue.
+| TP | Traitement | Vérification |
+| --- | --- | --- |
+| 01 partie 1 | Analyser `13.sh` et compléter sa documentation. Les mois sont parcourus jusqu’à 13 | Compteur initial, détection du vendredi, format de calendrier |
+| 01 partie 2 | Rechercher les années bissextiles dans un intervalle inclusif | `2026 2029` donne 2028. Préciser la règle des siècles |
+| 02 | Compter les fichiers selon une liste d’extensions | Répertoire contenant des espaces, extension absente et total |
+| 03 | Lire `/etc/passwd` avec `while read` et afficher nom et UID | Délimiter sur `:` et conserver les champs vides |
 
-## Liens
-
-- [TP M07](../../tp/11-initiation-scripting-bash/module-07/index.md)
-- [Révision M07](../../revision/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)
-
-<!-- TSSR-SERVICE-SCRIPT-VISUAL-20261020 -->
-
-## Complément IA / externe au cours — Lire une boucle while
-
-**Illustration IA / externe au cours.**
+### Progression — Complément pédagogique
 
 ```mermaid
 flowchart TD
- D["État initial"] --> T{"Condition vraie ?"}
- T -->|"Oui"| A["Actions et évolution de l’état"]
- A --> T
- T -->|"Non"| F["Sortie de boucle"]
+    A["Initialiser"] --> B{"Poursuivre ?"}
+    B -->|Oui| C["Traiter et mettre à jour"]
+    C --> B
+    B -->|Non| D["Présenter le résultat"]
 ```
 
-Illustration de synthèse IA : pour expliquer une boucle du TP, nommer l’état initial, la condition, l’action qui fait progresser l’état et le cas de sortie. Comparer ensuite avec `until`, qui poursuit lorsque sa condition est fausse.
+## Mini-quiz
+
+1. Quand une boucle `until` s’arrête-t-elle ?
+2. Pourquoi préférer une redirection de fichier pour un compteur utilisé après la boucle ?
+3. Que fait le second `read` quand il partage l’entrée du premier ?
+
+**Réponses.** Dès que la condition réussit. Le compteur reste dans le shell courant. Le second `read` avance la même entrée.
+
+- [TP du module et corrections](../../tp/11-initiation-scripting-bash/module-07/index.md)
+- [Fiche de révision](../../revision/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)

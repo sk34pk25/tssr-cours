@@ -1,35 +1,19 @@
-# Révision — Module 05 — Les caractères spéciaux du script
+# Fiche de révision — Module 05 — Enchaînements et couleurs
 
-## Enchaîner et conditionner
+| Forme | Repère |
+| --- | --- |
+| `A ; B` | B suit A quel que soit son statut dans le déroulement ordinaire |
+| `A && B` | B s’exécute si A réussit |
+| `A \|\| B` | B s’exécute si A a un statut non nul |
+| `A \| B` | La sortie standard de A devient l’entrée de B |
+| `( A; B )` | Le groupe s’exécute dans un sous-shell |
+| `{ A; B; }` | Le groupe ordinaire s’exécute dans le shell courant |
+| `2>/dev/null` | Écarte la sortie d’erreur |
+| `> fichier` | Redirige la sortie en remplaçant le contenu du fichier |
 
-Les formes attestées sont :
+Les codes de couleur du support vont de 30 à 37 pour le texte et 40 à 47 pour le fond. `\033[1;32m` demande le vert en gras et `\033[0m` réinitialise le style.
 
-```bash
-mkdir /data ; touch /data/file1 ; cat /home/bonjour.txt
-mkdir /data && touch /data/file1
-mkdir ./data 2>/dev/null || echo "Erreur de création du répertoire 'data'"
-```
+**TP 01.** Construisez le chemin de `fic_M5TP1.txt` dans le dossier saisi, vérifiez chaque étape et citez le chemin lors de son utilisation. Le succès de `mkdir -p` signifie que le dossier est prêt, y compris s’il existait déjà.
 
-Le module cite également le tube `|`, le code retour `$?` et la redirection d’erreur `2>/dev/null`.
-
-## Regrouper
-
-```bash
-(cmd1 ; cmd2)
-{ cmd1 ; cmd2 ; cmd3 ; }
-```
-
-## Couleurs
-
-Le support cite les caractères `30` à `37`, les fonds `40` à `47`, les attributs `0`, `1`, `4`, `7`, `8` et `9`, les préfixes `\033[` et `\e[`, la terminaison `m` et la remise à zéro `\033[0m`.
-
-```bash
-echo -e "voici du \033[1;32mvert \033[0m"
-```
-
-## TP 01
-
-Le TP associe la saisie d’un dossier, `mkdir -p`, la création de `fic_M5TP1.txt`, l’écriture avec `>`, l’affichage avec `cat` et les messages colorés du scénario.
-
-- [Cours M05](../../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script.md)
-- [TP 01](../../tp/11-initiation-scripting-bash/module-05/index.md)
+- [Cours](../../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script.md)
+- [TP et correction](../../tp/11-initiation-scripting-bash/module-05/index.md)

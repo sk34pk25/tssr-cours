@@ -1,12 +1,10 @@
 # Initiation à PowerShell
 
-Amorçage technique en attente de proposition pédagogique gouvernée.
+Le cours progresse des premières commandes vers l’écriture de scripts Windows, Active Directory et DNS. Chaque module réunit les transcriptions du support, des démonstrations et du TP ainsi qu’une aide de travail avec exemples, contrôles et questions de révision.
 
-## Modules
-
-1. [Module 01](module-01.md)
-2. [Module 02](module-02.md)
-3. [Module 03](module-03.md)
-4. [Module 04](module-04.md)
-5. [Module 05](module-05.md)
-6. [Module 06](module-06.md)
+1. [Présentation et premières commandes](module-01.md)
+2. [Objets, propriétés et méthodes](module-02.md)
+3. [Manipulation des objets](module-03.md)
+4. [Variables et structures](module-04.md)
+5. [Outils pour le scripting](module-05.md)
+6. [Authentification et scripts de laboratoire](module-06.md)

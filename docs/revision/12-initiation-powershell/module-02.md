@@ -15,7 +15,7 @@ Get-LocalUser | Get-Member
 Get-Date | Get-Member
 ```
 
-!!! note "Formulation du support — NEEDS_REVIEW"
+!!! note "Formulation du support"
     Le support indique que `Get-Member` s'utilise exclusivement après une
     commande dont le verbe est `Get`. Cette formulation est conservée comme
     assertion documentaire du module, non comme règle universelle.
@@ -63,3 +63,9 @@ de session du laboratoire sont exclus.
 
 - [Cours M02](../../modules/12-initiation-powershell/module-02.md)
 - [TP 01 — L'objet](../../tp/12-initiation-powershell/module-02/index.md)
+## Autoévaluation
+
+Prenez un objet service et retrouvez son type, ses propriétés et une méthode avec `Get-Member`. Préparez deux contrôles, l’un avant et l’autre après l’action demandée. Comparez ensuite une valeur `DateTime` avec le résultat de `AddDays(1)` et expliquez pourquoi il faut conserver ce dernier si on souhaite le réutiliser.
+
+- [Cours du module](../../modules/12-initiation-powershell/module-02.md)
+- [TP et correction](../../tp/12-initiation-powershell/module-02/index.md)

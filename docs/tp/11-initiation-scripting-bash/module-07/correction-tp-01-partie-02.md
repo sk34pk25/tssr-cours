@@ -1,19 +1,46 @@
-# Correction source — TP 01, partie 2 — Années bissextiles
+# Correction — TP 01, partie 2 — Années bissextiles
 
-> Script source en CRLF, lu comme texte et jamais exécuté.
+Le script fourni reçoit deux années et examine chaque mois de février avec `cal`, jusqu’à la borne finale incluse. Il compte les années où il trouve le 29. Le document affiche un nom de fichier de module différent dans le message d’usage. La version pédagogique indique le nom utilisé lors du lancement et valide la plage avant le parcours.
 
-La correction attend deux arguments et emploie `anneedeb`, `anneefin`, `anneecourante`, `nbannees`, `fevrier` et `listannees`. Elle utilise une boucle `until`, `cal 02 $anneecourante`, puis :
+## Variante pédagogique de script_M7TP1.sh
+
+La règle grégorienne est la divisibilité par 4, sauf un multiple de 100 qui doit aussi être divisible par 400. Cette version conserve `until` et le compteur, puis applique la règle directement. Le test de l’original permet en parallèle d’étudier le format de `cal` demandé par l’énoncé.
 
 ```bash
-echo "$fevrier" | grep "29" | grep -v "[0-9][0-9]29" >/dev/null 2>&1
+#!/bin/bash
+if [[ $# -ne 2 || $1 != [1-9][0-9][0-9][0-9] || $2 != [1-9][0-9][0-9][0-9] ]]; then
+    printf 'Usage : %s annee_debut annee_fin\n' "$0" >&2
+    exit 3
+fi
+anneecourante=$1
+anneefin=$2
+if (( anneecourante > anneefin )); then
+    printf '%s\n' "La borne finale précède la borne initiale." >&2
+    exit 3
+fi
+
+nbannees=0
+annees=()
+until (( anneecourante > anneefin )); do
+    if (( anneecourante % 4 == 0 &&
+          (anneecourante % 100 != 0 || anneecourante % 400 == 0) )); then
+        annees+=("$anneecourante")
+        nbannees=$((nbannees + 1))
+    fi
+    anneecourante=$((anneecourante + 1))
+done
+
+printf 'Années bissextiles : %s\n' "$nbannees"
+if (( nbannees > 0 )); then
+    printf 'Année(s) : %s\n' "${annees[*]}"
+fi
 ```
 
-Elle incrémente ensuite le compteur et `anneecourante` avec `expr`.
+| Plage | Résultat prévu |
+| --- | --- |
+| `2026 2029` | 2028 |
+| `1900 1900` | Aucune |
+| `2000 2000` | 2000 |
+| `2029 2026` | Erreur de plage |
 
-## NEEDS_REVIEW
-
-- le message de syntaxe cite `script_M6TP2.sh` ;
-- seule la quantité d'arguments est validée ;
-- la validité des années et l'ordre de la plage ne sont pas entièrement validés ;
-- le commentaire « Si plus d'une année » accompagne le test `-gt 0` ;
-- le script source est en CRLF.
+[Revenir aux TP du module](index.md)

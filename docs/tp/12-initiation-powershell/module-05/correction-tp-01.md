@@ -1,49 +1,121 @@
-# Correction — TP 01 — Outils pour le scripting
+# Correction — Outils pour le scripting
 
-## Principes conservés par la solution source
+La solution fournie est reprise dans son ordre. Les valeurs observées concernent la maquette du document. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-La solution documente une fonction de vérification de service avec :
+## Outils pour le scripting
 
-- un paramètre de service ;
-- un traitement `Try` / `Catch` / `Finally` ;
-- `-ErrorAction Stop` pour rendre le traitement d’erreur applicable ;
-- `-ErrorVariable` pour consigner une erreur ;
-- un résultat ou message dépendant de l’observation du scénario.
+TP du Module 05
 
-Les noms de services, messages, comptes, machines, domaine et résultats de laboratoire ne sont pas reproduits ici.
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 de ce cours.
 
-## Session distante
+Durée estimée
 
-La solution montre deux modes complémentaires :
+1 heure
 
-1. entrer dans une session distante pour le travail interactif du scénario ;
-2. créer une PSSession et la stocker dans une variable pour la réutiliser.
+## Énoncé
 
-Vérifiez que la session affichée correspond bien à la machine de laboratoire ciblée avant toute suite de manipulation.
+Objectifs :
 
-## Traitement d’objets d’annuaire
+- Comprendre les fonctions, modules et la gestion des erreurs
 
-La solution suit la progression suivante :
+Consignes :
 
-1. obtenir les ordinateurs du domaine de laboratoire ;
-2. parcourir les objets obtenus ;
-3. conserver l’exclusion explicite des contrôleurs de domaine ;
-4. ne lancer l’action distante à impact que pour les objets autorisés par cette condition ;
-5. transformer le traitement en fonction paramétrée par le domaine.
+Les manipulations sont à réaliser sur la machine CLI01
 
-> **Action à impact.** La source montre une action distante sur des machines de laboratoire. Ne l’exécutez pas hors de l’environnement autorisé, et ne retirez jamais l’exclusion protectrice documentée.
+- Pour réaliser le TP, utilisez un IDE comme ISE ou Visual Studio Code.
 
-## Gestion d’erreurs de l’IDE et de la console
+Réalisez un script permettant de tester la présence d’un service. Le nom du service sera variable. Dans le cas où le service n’est pas existant, aucun message ne sera affiché mais il sera consigné dans une variable. Un message sera affiché lorsque tous les services seront testés.
 
-La correction relie la consignation des erreurs à une variable et la suppression de leur affichage au comportement demandé dans le scénario. Vérifiez le résultat avec des données de laboratoire fournies par le formateur, sans introduire de valeur d’accès dans votre script ou votre compte rendu.
+Indiquez les lignes de commandes de votre script.
 
-## Contrôles
+### Script de la capture
 
-- La fonction reçoit bien son paramètre et traite l’absence conformément au scénario.
-- La session distante est stockée et identifiable.
-- La condition d’exclusion est présente avant toute action à impact.
-- Les erreurs sont consignées et leur affichage correspond au réglage demandé.
+```text
+$service = read-host "Indiquez le service tester"
+try {
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host "Ce service n'existe pas"
+}
+finally{
+$erreur
+}
+```
 
-## Anomalies et limites documentaires
+- Transformez ce script en fonction ; le nom du service sera un paramètre.
+- Ouvrez une session depuis votre machine client vers votre serveur CD01.
 
-La correction ne remplace pas les ressources de laboratoire absentes. Les données dynamiques observées dans les captures de la solution restent des observations de laboratoire, non des résultats universels.
+Stocker votre session dans une variable
+
+- Créer un script permettant de trouver les ordinateurs stockés dans l’AD, puis à condition que la machine ne soit pas un contrôleur de domaine, le script lancera l’extinction de la machine.
+
+Indiquez les commandes utilisées.
+
+### Script de la capture
+
+```text
+function service {
+param ($service)
+try {
+    get-service -name $service -erroraction stop -errorvariable erreur
+}
+catch {
+    write-host "Ce service n'existe pas"
+}
+finally{
+}
+}
+service wsearch
+
+Enter-PSSession -ComputerName CD01
+$session = new-pssession -computername CD01
+$session
+
+$computers = get-adcomputer -filter * -properties *
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike "*domain controllers*"){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}
+```
+
+- Transformez le script en fonction ; le nom de domaine sera indiqué en paramètre.
+
+Indiquez les commandes utilisées.
+
+- Modifiez durablement le comportement de votre Ise pour que les erreurs des commandes soient stockées dans une variable. Puis modifiez le comportement de la console pour que les messages d’erreur ne soient pas affichés.
+
+### Script de la capture
+
+```text
+function stop{
+param($domain)
+$computers = get-adcomputer -filter * -properties * `
+-searchbase "cn=computers,dc=$domain,dc=lcl"
+foreach ($i in $computers) {
+if ($i.distinguishedname -notlike "*domain controllers*"){
+    invoke-command -computer $i.dnshostname `
+    -scriptblock{stop-computer -force}
+}
+}
+}
+stop ad01
+
+$ErrorActionPreference = "SilentlyContinue"
+$ErrorActionPreference
+```
+## Contrôler le service, les cibles et la portée des erreurs
+
+Tester la fonction avec un service présent et un nom absent. `-ErrorVariable erreur` renseigne `$erreur`. `-ErrorAction Stop` rend l’erreur interceptable dans `catch`. Le bloc `finally` du premier exemple affiche le contenu d’erreur. Le second exemple le laisse vide.
+
+Dans la capture, l’invite passe à `[CD01]` après `Enter-PSSession` et `$session` affiche l’état `Opened`. Ces observations sont propres à la maquette. Le test pédagogique consiste à lire le nom de la machine distante et à fermer les sessions créées une fois le travail terminé.
+
+La correction d’arrêt filtre les noms distinctifs contenant `domain controllers`. Le nom de l’OU peut varier. Pour vérifier la sélection, comparer la liste d’ordinateurs à celle obtenue avec `Get-ADDomainController` et contrôler séparément les machines autorisées avant l’action. Le code Original montre l’arrêt forcé demandé par l’exercice.
+
+L’affectation de `$ErrorActionPreference` s’applique à sa portée. Le profil de l’hôte permet de retrouver un réglage au prochain démarrage si cet effet persistant est demandé. Vérifier avec une nouvelle console et une commande de test. [Gestion des erreurs PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_error_handling).
+
+
+- [Retour à l’énoncé](tp-01-outils-pour-le-scripting.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-05.md)

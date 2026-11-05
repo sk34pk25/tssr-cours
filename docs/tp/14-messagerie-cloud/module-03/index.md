@@ -1,11 +1,14 @@
-# Travaux pratiques — Module 03 — Messagerie Cloud
+# Travaux pratiques · Module 03
 
-!!! warning "Provenance — duplication documentaire"
-    Le dossier Module 3 reprend exactement les cinq PDF du Module 2, avec le titre interne « Module 02 — Administration Microsoft 365 ». Ce rattachement est conservé à la demande explicite de l’utilisateur. Il ne s’agit pas d’un support distinct du Module 3.
+Administration Microsoft 365 — reprise documentaire du module 2
 
-Deux ateliers sont présents dans les sources, chacun avec son énoncé et sa correction. Tenter l’atelier avant de consulter la solution. Les paramètres de salle et les interfaces sont ceux du support de formation.
+Les cinq PDF classés dans le dossier Module 3 sont des copies exactes des fichiers correspondants du Module 2. Chaque paire a la même empreinte SHA-256. Le titre interne indique « Module 02 – Administration Microsoft 365 ».
 
-- **TP 01 — Utilisateurs et groupes** : [Énoncé](tp-01.md) · [Correction](correction-tp-01.md)
-- **TP 02 — Azure AD Connect** : [Énoncé](tp-02.md) · [Correction](correction-tp-02.md)
+| Atelier | Énoncé | Correction |
+| --- | --- | --- |
+| Utilisateurs et groupes | [TP 1](tp-01.md) | [Corrigé 1](correction-tp-01.md) |
+| Synchronisation avec Azure AD Connect | [TP 2](tp-02.md) | [Corrigé 2](correction-tp-02.md) |
 
-[Retour au cours](../../../modules/14-messagerie-cloud/module-03.md).
+[Revenir au module](../../../modules/14-messagerie-cloud/module-03.md)
+
+[Tous les TP de Messagerie Cloud](../index.md)

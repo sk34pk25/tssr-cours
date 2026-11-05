@@ -1,53 +1,85 @@
-# TP 01 — L'objet
+# Énoncé — L’objet
 
-## Objectifs
+Le document fourni décrit le travail demandé et les résultats à relever dans la maquette. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-- Comprendre le langage objet présenté dans le module.
-- Utiliser les commandes de gestion de l'objet demandées par le scénario.
+## Initiation à PowerShell L’objet
 
-## Préparation
+TP du Module 02
 
-Le TP se déroule sur `<machine-de-laboratoire>`, après les vidéos du module 2.
-Utiliser les identifiants et les valeurs fournis par le formateur. Ils ne sont
-pas repris dans cette page.
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 de ce cours.
 
-## 1. Examiner un objet de service
+Durée estimée
 
-Afficher les propriétés et les méthodes de l'objet
-`System.ServiceProcess.ServiceController` avec `Get-Member` :
+30 minutes
 
-```powershell
-Get-Service | Get-Member
+## Énoncé
+
+Objectifs :
+
+Comprendre le langage objet.
+
+Utiliser les commandes de gestion de l’objet.
+
+Consignes :
+
+Depuis la machine CLI01 :
+
+```text
+Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet
+System.ServiceProcess.ServiceController
 ```
 
-Puis relevez :
+Quelle commande avez-vous utilisée ?
 
-- deux propriétés de type `String` ;
-- une méthode de type `Bool` ;
-- une méthode de type `int`.
+Indiquez deux propriétés de type String
 
-## 2. Observer le service Spooler
+Indiquez une méthode de type Bool et une de type int.
 
-Affichez les propriétés du service Spooler, relevez celles qui sont demandées
-par le TP et indiquez la valeur observée pour chacune.
+Affichez les propriétés du service Spooler.
 
-## 3. Observer un utilisateur local
+Quelle commande avez-vous utilisée ?
 
-Affichez les propriétés de `<utilisateur-de-laboratoire>`, puis relevez les
-propriétés et leurs valeurs demandées dans le scénario.
+Quelles propriétés avez-vous affichées ?
 
-Modifiez ensuite la valeur de `Description` comme demandé par le formateur.
+Indiquez les valeurs de chaque propriété.
 
-## 4. Utiliser une méthode sur le service
+Affichez les propriétés de l’utilisateur local Adara Mcintyre.
 
-Affichez l'état du service Spooler. Utilisez ensuite la méthode demandée pour
-l'arrêter, puis vérifiez de nouveau son état.
+Quelle commande avez-vous utilisée ?
 
-## Bonus — Date d'expiration
+Quelles propriétés avez-vous affichées ?
 
-Utilisez une méthode de l'objet `Get-Date` pour renseigner
-`AccountExpires` de `<utilisateur-de-laboratoire>`. La valeur doit être au
-minimum 48 heures postérieure à la date actuelle. Contrôlez ensuite la mise à
-jour avec la forme demandée par le scénario.
+Indiquez les valeurs de chaque propriété.
 
-→ [Voir la correction du TP](correction-tp-01.md)
+```text
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
+avez-vous utilisée ?
+```
+
+Affichez le statut du service Spooler.
+
+Utilisez la méthode pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?
+
+Vérifier à nouveau le statut du service.
+
+Bonus
+
+```text
+Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
+AccountExpires du compte de l’utilisateur Axel Rios.
+Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios
+» |  select *
+```
+
+La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure
+
+à la date actuelle.
+
+## Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+## Suite du TP
+
+- [Corrigé](correction-tp-01.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-02.md)

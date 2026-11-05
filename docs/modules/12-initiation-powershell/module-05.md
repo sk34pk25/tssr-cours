@@ -57,9 +57,10 @@ Les documents montrent l’emploi de `-ErrorAction Stop` pour rendre le traiteme
 Une fonction évite de répéter des lignes de commandes et doit être déclarée avant son appel. Les sources montrent une déclaration `Function`, des paramètres avec `Param(...)`, un paramètre obligatoire `[Parameter(Mandatory=$True)]`, le type `[String]` et le retour d’une valeur dans un scénario donné.
 
 ```powershell
-Function <nom> {
-    # commandes du scénario
+function Get-DateDuJour {
+    Get-Date -Format 'yyyy-MM-dd'
 }
+Get-DateDuJour
 ```
 
 ## Exécuter à distance dans le scénario de laboratoire
@@ -78,10 +79,100 @@ Le remoting PowerShell s’appuie sur WS-Man et WinRM. Les sources attestent `En
 - Déclarer une fonction avant de l’appeler et expliciter ses paramètres.
 - Distinguer session distante, gestion de session et commande distante.
 
-## Ressources du module
+## Écrire, exécuter et contrôler par étapes
 
-Le module comporte un TP unique, **Outils pour le scripting**, ainsi que sa correction et une fiche de révision. Ces ressources font l’objet d’une proposition gouvernée distincte et ne sont pas encore disponibles comme liens sur la base de cette page.
+Le support part d’un algorithme du quotidien pour distinguer les entrées, les actions, les tests et la boucle. Pour le TP, l’entrée est le nom du service. Le résultat attendu est un objet service si ce nom existe et un message explicite si la recherche échoue. Tester une ligne, puis une fonction, avant de l’intégrer au script complet.
 
-## Provenance
+L’ISE du support réunit l’éditeur de script, la console de sortie et le panneau de commandes. Visual Studio Code présente l’éditeur, le terminal, l’explorateur, les extensions et leurs notifications. L’extension PowerShell permet la complétion et l’aide au débogage. Le choix de la console détermine la version du moteur qui exécute le script.
 
-Sources A — TSSR Drive live : support `Module 05 - Support de cours.pdf` (Drive `1I7waDlSR3_PhRJI-V3XHSUwiioEUt0XU`, SHA-256 `031f076741f7955e0b02614e11a47071711545143d74805418b7e0fed1095814`) ; énoncé et solution du TP, ainsi que neuf démonstrations M05 sur les IDE, les commentaires, l’enchaînement, la gestion des erreurs, Try/Catch/Finally, les fonctions, le remoting et Invoke-Command. Les noms Drive présentant un encodage dégradé sont conservés dans la provenance de campagne ; les titres internes des PDF ont été vérifiés.
+Le caractère `#` commente la fin de ligne et `<# ... #>` délimite un bloc de commentaire. Un commentaire utile précise le rôle d’une condition ou la raison d’un choix. Le caractère `;` sépare deux commandes. Un pipeline `|` transmet les objets. Avec PowerShell 7, `&&` et `||` enchaînent selon le succès ou l’échec de la commande précédente. [Opérateurs d’enchaînement PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_Pipeline_Chain_Operators).
+
+Le support présente l’accent grave comme continuation de ligne. Un espace après cet accent peut rompre la continuation. Une table de paramètres facilite la lecture des commandes longues.
+
+```powershell
+$parametres = @{
+    Name = 'Spooler'
+    ErrorAction = 'Stop'
+}
+Get-Service @parametres
+```
+
+## Observer les erreurs selon leur effet
+
+`$Error[0]` donne l’erreur la plus récente de la session. `-ErrorVariable erreurs` collecte les erreurs de la commande dans une variable de ce nom. Le paramètre reçoit le nom `erreurs` et `$erreurs` désigne son contenu après l’appel. `$ErrorActionPreference` règle le comportement par défaut dans la portée concernée.
+
+| Valeur du support | Effet à observer |
+| --- | --- |
+| `Continue` | Affiche l’erreur non bloquante et poursuit le traitement possible |
+| `SilentlyContinue` | Poursuit sans afficher cette erreur, qui peut rester dans `$Error` |
+| `Ignore` | Ignore cette erreur non bloquante sans l’ajouter à `$Error` |
+| `Inquire` | Demande une décision sur la poursuite |
+| `Stop` | Transforme une erreur non bloquante de la commande en erreur interceptable |
+| `Suspend` | Cas historique des workflows présenté par la table du support |
+
+Une erreur non bloquante ne déclenche pas systématiquement `catch`. `-ErrorAction Stop` convient lorsque l’échec doit passer dans `catch`. `finally` exécute le nettoyage ou le message de fin lors de la sortie de ce bloc. [Gestion des erreurs PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_error_handling).
+
+```powershell
+function Find-LabService {
+    param(
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]$Name
+    )
+    try {
+        Get-Service -Name $Name -ErrorAction Stop -ErrorVariable erreurs
+    } catch {
+        Write-Warning "Recherche de $Name impossible. $($_.Exception.Message)"
+    } finally {
+        Write-Verbose 'Fin de la recherche'
+    }
+}
+Find-LabService -Name Spooler
+```
+
+Une fonction définit des paramètres pour éviter de dupliquer la logique. Déclarez-la avant l’appel. Les objets produits peuvent être repris dans une autre commande. `Write-Host` affiche un message à l’utilisateur. L’exemple de la démonstration `FindUsers` cherche un objet puis produit un message si la recherche ne renvoie rien. Vérifier le type de retour avant de l’utiliser dans un pipeline.
+
+## Distinguer une session et une commande distante
+
+```mermaid
+flowchart LR
+    A["Console locale"] --> B["New-PSSession"]
+    B --> C["Session sur le serveur"]
+    C --> D["Enter-PSSession<br/>travail interactif"]
+    C --> E["Invoke-Command<br/>commande ou bloc"]
+    C --> F["Remove-PSSession<br/>libérer la session"]
+```
+
+*Schéma pédagogique externe au cours.*
+
+Dans la maquette Windows, `Enable-PSRemoting` prépare la réception des connexions WinRM, ce qui configure des services et règles du poste cible. `Enter-PSSession` ouvre une session interactive. `Exit-PSSession` en sort. Une session créée dans une variable peut rester ouverte et servir à plusieurs `Invoke-Command`. L’exemple du support déconnecte puis reconnecte une session WinRM et montre l’import d’un module distant dans la console locale. Les prérequis dépendent du transport et de l’hôte. [Prérequis Microsoft du remoting](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote_requirements?view=powershell-7.6).
+
+```powershell
+$serveur = Read-Host 'Nom du serveur de laboratoire'
+$session = New-PSSession -ComputerName $serveur
+Invoke-Command -Session $session -ScriptBlock { Get-Service -Name Spooler }
+Remove-PSSession -Session $session
+```
+
+Le bloc distant s’exécute dans son propre contexte. Passez les valeurs avec `param()` et `-ArgumentList`, ou avec `$using:variable`. `Invoke-Command -ComputerName` accepte plusieurs cibles. Les objets retournés peuvent être désérialisés. L’accès à une troisième machine depuis la session distante représente le second saut, dont les droits dépendent de la méthode d’authentification configurée.
+
+Le TP demande d’identifier les ordinateurs AD avant une opération d’arrêt. Le code source filtre un chemin d’annuaire. Pour vérifier le résultat, dresser d’abord la liste des cibles, vérifier séparément les contrôleurs de domaine et limiter le test aux machines de la maquette prévues à cet effet.
+
+## Mini-quiz
+
+1. Quel paramètre permet à `catch` d’intercepter une erreur non bloquante ?
+2. Où retrouver la dernière erreur de la session ?
+3. Quelle commande termine une session ouverte par `New-PSSession` ?
+4. Quelle différence entre `;` et `|` ?
+
+??? success "Réponses"
+    1. `-ErrorAction Stop` sur la commande concernée.
+    2. `$Error[0]`.
+    3. `Remove-PSSession`.
+    4. Le premier sépare des commandes. Le second transmet des objets.
+
+## Travaux pratiques et révision
+
+- [TP et correction du module](../../tp/12-initiation-powershell/module-05/index.md)
+- [Fiche de révision](../../revision/12-initiation-powershell/module-05.md)
+- [Sommaire du cours](index.md)

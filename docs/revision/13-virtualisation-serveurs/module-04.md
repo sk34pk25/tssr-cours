@@ -14,7 +14,7 @@
 - L’indication de disque d’amorçage IDE concerne la première génération. L’atelier
   demande une VM de génération 2, avec disque VHDX.
 - Dans l’atelier, Hyper-V est installé dans une VM Workstation pour les besoins du
-  laboratoire ENI ; les paramètres de ressources restent propres à ce scénario.
+  laboratoire du centre de formation ; les paramètres de ressources restent propres à ce scénario.
 
 ## Ordre du travail documenté
 
@@ -43,3 +43,14 @@ avec Sysprep et arrêter → exporter → importer une copie dans des sous-dossi
 
 Contenu A : support M04, énoncé et solution de l’Atelier n°2 Hyper-V, Drive TSSR en
 lecture seule. Contenu B : synthèse des éléments attestés, sans quiz ni exercice ajouté.
+
+
+## Question de révision
+
+Quel mode d’import choisir pour garder simultanément l’original et la copie ?
+
+??? success "Correction"
+
+    Copy the virtual machine crée un nouvel identifiant. Placer les fichiers de la copie dans des emplacements séparés, puis renommer et vérifier la nouvelle VM.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-04.md)

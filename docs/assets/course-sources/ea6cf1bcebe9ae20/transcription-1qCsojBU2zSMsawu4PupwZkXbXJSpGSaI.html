@@ -1,139 +1,94 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 01 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Des concepts <br>de la virtualisation <br>à leur mise en œuvre</h4>
-<p class="tssr-source-paragraph">Module 01 – Présentation</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Présentation</p>
-<p class="tssr-source-paragraph">Objectifs</p>
-<p class="tssr-source-paragraph">• Définir les termes de mutualisation, consolidation et <br>rationalisation <br>• Différencier les hyperviseurs de type 1 et 2</p>
-<p class="tssr-source-paragraph">2</p>
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 01 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 01 - Support de cours</h1><p>La transcription conserve les repères des pages du support. Les marques du centre et les valeurs de connexion propres au laboratoire sont neutralisées. Les visuels retenus sont isolés.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Module 01 – Présentation</h4>
+<p>Présentation</p>
+<h4>Objectifs</h4>
+<ul><li>Définir les termes de mutualisation, consolidation et rationalisation</li><li>Différencier les hyperviseurs de type 1 et 2</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Présentation<br>La virtualisation en 8 dates</p>
-<p class="tssr-source-paragraph">Les émulateurs font leur apparition en <br>Micro informatique (ils rendent <br>possible l&#x27;émulation des machines <br>Atari, Amiga, Amstrad et de consoles)</p>
-<p class="tssr-source-paragraph">Prise en charge matérielle <br>par le CPU d’instructions <br>de virtualisation</p>
-<p class="tssr-source-paragraph">Plus de serveurs virtuels <br>que physiques, KVM est <br>intégré au noyau Linux</p>
-<p class="tssr-source-paragraph">KVM est intégré au <br>noyau Linux</p>
-<p class="tssr-source-paragraph">VMware développa et <br>popularisa son système <br>propriétaire de virtualisation <br>logicielle pour les <br>architectures de type x86</p>
-<p class="tssr-source-paragraph">IBM : embryons de la <br>virtualisation en test <br>puis production sur <br>des Mainframes</p>
-<p class="tssr-source-paragraph">Virtual Desktop <br>Infrastructures VMware</p>
-<p class="tssr-source-paragraph">XenSource racheté par Citrix</p>
-<p class="tssr-source-paragraph">Début des </p>
-<p class="tssr-source-paragraph">années </p>
-<p class="tssr-source-paragraph">60/70<br>Milieu des <br>années 90</p>
-<p class="tssr-source-paragraph">2000<br>2006<br>2007<br>2009<br>2007<br>2007</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Présentation<br>Utilisations</p>
-<p class="tssr-source-paragraph">Pour quels usages ?</p>
-<p class="tssr-source-paragraph">Quels avantages ?</p>
-<p class="tssr-source-paragraph">Des inconvénients ?</p>
-<p class="tssr-source-paragraph">•<br>Les serveurs d’infrastructure <br>locaux et distants (le Cloud…)<br>•<br>Les environnements de test et <br>les problématiques de <br>compatibilité<br>•<br>Les scénarios de PRA (Plan de <br>Reprise d’Activité) </p>
-<p class="tssr-source-paragraph">•<br>Optimisation des taux <br>d’utilisation du matériel <br>•<br>Économies sur les coûts <br>matériels et de gestion <br>•<br>Gestion facilitée des systèmes <br>(granularité)<br>•<br>Économies d’énergie (green <br>computing) </p>
-<p class="tssr-source-paragraph">•<br>Concentration et dépendance <br>vis-à-vis d’une solution<br>•<br>Mise en œuvre complexe <br>avec un investissement initial <br>important<br>•<br>Contraintes d’administration <br>spécifiques (déploiement, <br>sauvegarde, etc.)</p>
-<p class="tssr-source-paragraph">4</p>
-
-
-
+<section class="tssr-transcribed-page" id="page-2">
+<p>Présentation</p>
+<h4>La virtualisation en 8 dates</h4>
+<table><thead><tr><th scope="col">Date</th><th scope="col">Repère</th></tr></thead><tbody><tr><td>60/70</td><td>IBM : embryons de la virtualisation en test puis production sur des Mainframes</td></tr><tr><td>Milieu des années 90</td><td>Les émulateurs font leur apparition en Micro informatique (ils rendent possible l’émulation des machines Atari, Amiga, Amstrad et de consoles)</td></tr><tr><td>Début des années 2000</td><td>VMware développa et popularisa son système propriétaire de virtualisation logicielle pour les architectures de type x86</td></tr><tr><td>2006</td><td>Prise en charge matérielle par le CPU d’instructions de virtualisation</td></tr><tr><td>2007</td><td>XenSource racheté par Citrix</td></tr><tr><td>2007</td><td>KVM est intégré au noyau Linux</td></tr><tr><td>2007</td><td>Virtual Desktop Infrastructures VMware</td></tr><tr><td>2009</td><td>Plus de serveurs virtuels que physiques, KVM est intégré au noyau Linux</td></tr></tbody></table>
+<p>Présentation</p>
+<h4>Utilisations</h4>
+<h4>Pour quels usages ?</h4>
+<h4>Quels avantages ?</h4>
+<h4>Des inconvénients ?</h4>
+<ul><li>Les serveurs d’infrastructure locaux et distants (le Cloud…)</li><li>Les environnements de test et les problématiques de compatibilité</li><li>Les scénarios de PRA (Plan de Reprise d’Activité)</li><li>Optimisation des taux d’utilisation du matériel</li><li>Économies sur les coûts matériels et de gestion</li><li>Gestion facilitée des systèmes (granularité)</li><li>Économies d’énergie (green computing)</li><li>Concentration et dépendance vis-à-vis d’une solution</li><li>Mise en œuvre complexe avec un investissement initial important</li><li>Contraintes d’administration spécifiques (déploiement, sauvegarde, etc.)</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Présentation</p>
-<p class="tssr-source-paragraph">Les acteurs<br>Les grands éditeurs</p>
-<p class="tssr-source-paragraph">Des logiciels libres</p>
-<p class="tssr-source-paragraph">• Les acteurs</p>
-<p class="tssr-source-paragraph">D’autres solutions</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Présentation</p>
-<p class="tssr-source-paragraph">Les secteurs de la virtualisation</p>
-<p class="tssr-source-paragraph">La virtualisation est un domaine transverse qui peut être mis en <br>œuvre à plusieurs niveaux au sein d’une infrastructure.<br>• Virtualisation d’environnements sur un poste de travail<br>• Virtualisation d’applications<br>• Virtualisation de serveurs<br>• Virtualisation de stations de travail</p>
-<p class="tssr-source-paragraph">• On retrouve aussi la virtualisation dans des domaines plus ciblés : <br>• Le réseau<br>• Le stockage<br>• Les services</p>
-<p class="tssr-source-paragraph">6</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>vmware’</p><p>B= Microsoft</p><p>ciTRIXx<br>=</p><p>:<br>@ redhat ei<br>ORACLE<br>A<br>|| Parallels<br>ES<br>PROXMOX<br>=<br>&gt; docker</p></div></details>
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="tssr-transcribed-page" id="page-3">
+<p>Présentation</p>
+<h4>Les acteurs</h4>
+<p>Les grands éditeurs</p>
+<p>Des logiciels libres</p>
+<ul><li>Les acteurs</li></ul>
+<p>D’autres solutions</p>
+<p>Présentation</p>
+<h4>Les secteurs de la virtualisation</h4>
+<p>La virtualisation est un domaine transverse qui peut être mis en œuvre à plusieurs niveaux au sein d’une infrastructure.</p>
+<ul><li>Virtualisation d’environnements sur un poste de travail</li><li>Virtualisation d’applications</li><li>Virtualisation de serveurs</li><li>Virtualisation de stations de travail</li><li>On retrouve aussi la virtualisation dans des domaines plus ciblés :</li><li>Le réseau</li><li>Le stockage</li><li>Les services</li></ul>
+<h4>Informations dans les visuels du support</h4>
+<ul><li>Les logos des grands éditeurs illustrent VMware, Microsoft, Citrix, Red Hat et Oracle.</li><li>Les logiciels libres sont représentés par GNU et Linux.</li><li>Les autres solutions illustrées sont Parallels, Proxmox et Docker.</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Présentation<br>Les principales solutions</p>
-<p class="tssr-source-paragraph">Pour le poste de travail<br>Pour les serveurs</p>
-<p class="tssr-source-paragraph">VMware Player, VMware Workstation</p>
-<p class="tssr-source-paragraph">vSphere (VMware)</p>
-<p class="tssr-source-paragraph">Oracle VM VirtualBox</p>
-<p class="tssr-source-paragraph">Hyper-V (Windows Serveur)</p>
-<p class="tssr-source-paragraph">Xen (utilisé par Citrix avec XenServer)</p>
-<p class="tssr-source-paragraph">Windows Virtual PC <br>(Windows 7 Mode XP), Hyper-V <br>Client (W8 x64 SLAT)</p>
-<p class="tssr-source-paragraph">QEMU</p>
-<p class="tssr-source-paragraph">KVM (utilisé par Red Hat)</p>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">Présentation</p>
-<p class="tssr-source-paragraph">Les outils</p>
-<p class="tssr-source-paragraph">Les outils</p>
-<p class="tssr-source-paragraph">Principes de base</p>
-<p class="tssr-source-paragraph">• Paramétrage matériel : architecture, BIOS, <br>processeur, mémoire, disque …</p>
-<p class="tssr-source-paragraph">La console de </p>
-<p class="tssr-source-paragraph">gestion des </p>
-<p class="tssr-source-paragraph">L’hyperviseur</p>
-<p class="tssr-source-paragraph">machines </p>
-<p class="tssr-source-paragraph">virtuelles</p>
-<p class="tssr-source-paragraph">• Gestion des médias amovibles : DVD au <br>format ISO, USB « transmis » à la VM et <br>disquette (!) au format FLP ou IMG</p>
-<p class="tssr-source-paragraph">• Réseaux virtuels : interne, NAT, pont, LAN <br>dédié</p>
-<p class="tssr-source-paragraph">Les consoles </p>
-<p class="tssr-source-paragraph">Les composants<br>complémentaires</p>
-<p class="tssr-source-paragraph">• Format des disques : selon la solution, <br>VHD, VMDK, VDI …</p>
-<p class="tssr-source-paragraph">d’accès à la <br>machine virtuelle</p>
-<p class="tssr-source-paragraph">• Fichier de configuration : selon la solution, <br>XML, VMX, VBOX …</p>
-<p class="tssr-source-paragraph">8</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>End</p><p>A</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-4">
+<p>Présentation</p>
+<h4>Les principales solutions</h4>
+<table><thead><tr><th scope="col">Pour le poste de travail</th><th scope="col">Pour les serveurs</th></tr></thead><tbody><tr><td>VMware Player, VMware Workstation</td><td>vSphere (VMware)</td></tr><tr><td>Oracle VM VirtualBox</td><td>Hyper-V (Windows Serveur)</td></tr><tr><td>Windows Virtual PC (Windows 7 Mode XP), Hyper-V Client (W8 x64 SLAT)</td><td>Xen (utilisé par Citrix avec XenServer)</td></tr><tr><td>QEMU</td><td>KVM (utilisé par Red Hat)</td></tr></tbody></table>
+<p>Présentation</p>
+<h4>Les outils</h4>
+<p>Les outils</p>
+<p>Principes de base</p>
+<ul><li>Paramétrage matériel : architecture, BIOS, processeur, mémoire, disque …</li></ul>
+<p>La console de</p>
+<h4>gestion des</h4>
+<ul><li>Gestion des médias amovibles : DVD au format ISO, USB « transmis » à la VM et disquette (!) au format FLP ou IMG</li></ul>
+<p>L’hyperviseur</p>
+<p>machines</p>
+<p>virtuelles</p>
+<ul><li>Réseaux virtuels : interne, NAT, pont, LAN dédié</li></ul>
+<p>Les consoles</p>
+<ul><li>Format des disques : selon la solution, VHD, VMDK, VDI …</li></ul>
+<p>Les composants complémentaires</p>
+<h4>d’accès à la</h4>
+<p>machine virtuelle</p>
+<ul><li>Fichier de configuration : selon la solution, XML, VMX, VBOX …</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">Présentation<br>Les types d’hyperviseurs</p>
-<p class="tssr-source-paragraph">L’hyperviseur de type 1<br>L’hyperviseur de type 2</p>
-<p class="tssr-source-paragraph">Machines <br>virtuelles</p>
-<p class="tssr-source-paragraph">Machines <br>virtuelles</p>
-<p class="tssr-source-paragraph">Module de translation </p>
-<p class="tssr-source-paragraph">Hyperviseur</p>
-<p class="tssr-source-paragraph">binaire</p>
-<p class="tssr-source-paragraph">VirtualBox</p>
-<p class="tssr-source-paragraph">1 niveau <br>intermédiaire</p>
-<p class="tssr-source-paragraph">Hyperviseur</p>
-<p class="tssr-source-paragraph">2 niveaux <br>intermédiaires</p>
-<p class="tssr-source-paragraph">Applications</p>
-<p class="tssr-source-paragraph">binaire</p>
-<p class="tssr-source-paragraph">Matériel</p>
-<p class="tssr-source-paragraph">OS</p>
-<p class="tssr-source-paragraph">Matériel</p>
-<p class="tssr-source-paragraph">Implémentation : fait office de <br>système d’exploitation <br>Solutions : Hyper-V, KVM, VMware <br>ESXi, XenServer </p>
-<p class="tssr-source-paragraph">Implémentation : installé en tant <br>qu’application sur un système d’exploitation<br>Solutions : VirtualBox, VirtualPC, VMware <br>Player et Workstation</p>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">Présentation</p>
-<p class="tssr-source-paragraph">Virtualisation et paravirtualisation</p>
-<p class="tssr-source-paragraph">• Dans un contexte de virtualisation, les machines virtuelles s’adressent au <br>matériel présenté par l’hyperviseur. Elles n’ont pas connaissance de sa présence.</p>
-<p class="tssr-source-paragraph">• La paravirtualisation est une technique de virtualisation dans laquelle les <br>machines virtuelles sont préparées pour faire appel directement à un <br>hyperviseur. Les appels système sont alors redirigés et non traduits.</p>
-<p class="tssr-source-paragraph">Solution de paravirtualisation</p>
-<p class="tssr-source-paragraph">Solution de virtualisation</p>
-<p class="tssr-source-paragraph">Machines <br>virtuelles</p>
-<p class="tssr-source-paragraph">Machines <br>virtuelles</p>
-<p class="tssr-source-paragraph">Module de <br>translation </p>
-<p class="tssr-source-paragraph">Hypercalls</p>
-<p class="tssr-source-paragraph">binaire</p>
-<p class="tssr-source-paragraph">Hyperviseur</p>
-<p class="tssr-source-paragraph">Hyperviseur</p>
-<p class="tssr-source-paragraph">binaire</p>
-<p class="tssr-source-paragraph">binaire</p>
-<p class="tssr-source-paragraph">Matériel</p>
-<p class="tssr-source-paragraph">Matériel</p>
-<p class="tssr-source-paragraph">10</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>~N</p><p>EM</p><p>iii<br>lil<br>S|</p><p>End<br>EF<br>FFM</p></div></details>
-
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-5">
+<p>Présentation</p>
+<h4>Les types d’hyperviseurs</h4>
+<p>L’hyperviseur de type 1</p>
+<p>L’hyperviseur de type 2</p>
+<p>Machines virtuelles</p>
+<p>Machines virtuelles</p>
+<p>Module de translation</p>
+<p>1 niveau intermédiaire</p>
+<p>Hyperviseur</p>
+<p>binaire</p>
+<p>VirtualBox</p>
+<p>Hyperviseur</p>
+<p>2 niveaux intermédiaires</p>
+<p>Applications</p>
+<p>binaire</p>
+<p>Matériel</p>
+<p>OS</p>
+<p>Matériel</p>
+<p>Implémentation : fait office de système d’exploitation Solutions : Hyper-V, KVM, VMware ESXi, XenServer</p>
+<p>Implémentation : installé en tant qu’application sur un système d’exploitation Solutions : VirtualBox, VirtualPC, VMware Player et Workstation</p>
+<p>Présentation</p>
+<h4>Virtualisation et paravirtualisation</h4>
+<ul><li>Dans un contexte de virtualisation, les machines virtuelles s’adressent au matériel présenté par l’hyperviseur. Elles n’ont pas connaissance de sa présence.</li><li>La paravirtualisation est une technique de virtualisation dans laquelle les machines virtuelles sont préparées pour faire appel directement à un hyperviseur. Les appels système sont alors redirigés et non traduits.</li></ul>
+<h4>Solution de paravirtualisation</h4>
+<h4>Solution de virtualisation</h4>
+<p>Machines virtuelles</p>
+<p>Machines virtuelles</p>
+<p>Module de translation</p>
+<p>Hypercalls</p>
+<p>binaire</p>
+<p>Hyperviseur</p>
+<p>Hyperviseur</p>
+<p>binaire</p>
+<p>binaire</p>
+<p>Matériel</p>
+<p>Matériel</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

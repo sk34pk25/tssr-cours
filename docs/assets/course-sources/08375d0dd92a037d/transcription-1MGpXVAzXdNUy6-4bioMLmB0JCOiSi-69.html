@@ -1,0 +1,40 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M2 - Solution du TP 2 - Script a partir d’un algorithme.sh</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>M2 - Solution du TP 2 - Script a partir d’un algorithme.sh</h1><p>Le contenu du fichier shell est transcrit en texte. Les fins de ligne sont présentées au format Web.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<pre><code>#!/bin/bash
+###########################
+# Mclaveau
+# 20190122
+###########################
+# Script Atel 2
+###########################
+
+# Affiche le message suivant : « Bonjour, cette machine est fin prête pour scripter … »
+echo &quot;Bonjour, cette machine est fin prête pour scripter ...&quot;
+
+# Affiche le message suivant : « Scripts Shell présents ici : »
+echo &quot;Scripts shells présents ici :&quot;
+
+# Affiche la liste détaillée des scripts Shell présents dans le répertoire courant
+ls -l *.sh
+ls -l *.bash
+
+# Affiche un saut de ligne
+echo &quot;&quot;
+
+# Affiche le message suivant : « Informations relatives à l’interpréteur Bash : »
+echo &quot;Informations relatives à l’interpréteur Bash : &quot;
+
+# Affiche la version de Bash installée
+bash --version
+
+# Affiche les chemins : du binaire de Bash, du fichier bashrc commun à tous les utilisateurs et du fichier contenant les pages de manuel de Bash
+whereis bash
+
+# Affiche le message « Mise à jour disponible ? »
+echo &quot;Mise à jour disponible ?&quot;
+
+# Affiche si une version mise à jour de Bash est disponible
+apt list --upgradable | grep bash
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

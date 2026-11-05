@@ -1,18 +1,16 @@
 # Atelier n°2 — Mise en place et découverte d’Hyper-V
 
 **Durée estimée : 1 heure.** Prérequis : cours M04 et VM Windows Server 2019 du
-module 2. Dans cette restitution, `<HOTE_HYPERV>` désigne cette VM Workstation ;
-`<VM_HV1>` et `<VM_HV2>` désignent les deux VM créées dans Hyper-V. Ces repères
-remplacent les noms du laboratoire. `<VOLUME_DATA>` et `<ISO_WS2019>` sont à adapter
+module 2. La VM Workstation est `SRV_2K19`. Les deux invités Hyper-V sont `SRV_2K19-HV1` et `SRV_2K19-HV2`. `<VOLUME_DATA>` et `<ISO_WS2019>` sont à adapter
 au laboratoire autorisé, sans publier d’adresse de partage ou de donnée d’accès.
 
 ## 1. Préparer la VM sous VMware Workstation
 
-1. Porter la mémoire de `<HOTE_HYPERV>` à **8 Go**.
+1. Porter la mémoire de `SRV_2K19` à **8 Go**.
 2. Ajouter un deuxième disque **SCSI de 100 Go**.
 3. Démarrer cette VM.
 
-Le document impose ce montage imbriqué pour les postes ENI et indique un serveur
+Le document impose ce montage imbriqué pour les postes du centre de formation et indique un serveur
 physique dans son scénario d’entreprise. Les valeurs ci-dessus ne sont pas un
 dimensionnement universel.
 
@@ -29,18 +27,18 @@ dimensionnement universel.
 !!! warning "Actions sur l’environnement de laboratoire"
 
     La préparation du volume doit concerner le disque ajouté pour l’atelier.
-    L’installation du rôle et ses redémarrages concernent `<HOTE_HYPERV>`.
+    L’installation du rôle et ses redémarrages concernent `SRV_2K19`.
     Les ressources binaires et les paramètres d’accès ne sont pas fournis ici.
 
 ## 3. Créer et installer la première VM Hyper-V
 
-Créer `<VM_HV1>` avec les caractéristiques demandées :
+Créer `SRV_2K19-HV1` avec les caractéristiques demandées :
 
 | Paramètre | Valeur de l’énoncé |
 | --- | --- |
 | Génération | 2 |
 | Mémoire | 2 Go, sans mémoire dynamique |
-| Réseau | Commutateur associé à la carte indiquée dans le laboratoire |
+| Réseau | Commutateur externe associé à la carte Intel |
 | Disque | VHDX de 32 Go |
 | Installation | ISO Windows Server 2019 préparée sur le bureau |
 
@@ -48,7 +46,7 @@ Démarrer cette VM, ouvrir sa console et installer le système depuis l’ISO.
 
 ## 4. Généraliser, exporter et importer
 
-1. Une fois l’installation terminée, ouvrir **Sysprep** dans `<VM_HV1>`.
+1. Une fois l’installation terminée, ouvrir **Sysprep** dans `SRV_2K19-HV1`.
 2. Cocher **Generalize** et sélectionner **Shutdown**.
 3. Exporter la VM vers le dossier prévu pour l’occasion dans
    `<VOLUME_DATA>\VMs\EXPORT\Machines virtuelles`.
@@ -56,8 +54,8 @@ Démarrer cette VM, ouvrir sa console et installer le système depuis l’ISO.
    indication d’avancement visible.
 5. Utiliser **Import Virtual Machine** et sélectionner le chemin contenant l’export.
 6. Choisir **Copy the virtual machine**. Placer les fichiers de VM et les disques dans
-   des sous-dossiers propres à `<VM_HV2>`, à partir des emplacements `VMs` et `VHDs`.
-7. Renommer la VM importée `<VM_HV2>`.
+   des sous-dossiers propres à `SRV_2K19-HV2`, à partir des emplacements `VMs` et `VHDs`.
+7. Renommer la VM importée `SRV_2K19-HV2`.
 
 Sysprep généralise puis arrête la première VM dans ce scénario ; vérifier la machine
 concernée avant de confirmer. Ne pas remplacer cette manipulation par une procédure
@@ -70,7 +68,7 @@ elles avec `ping` vers **l’adresse relevée sur l’autre VM**. Ne pas recopie
 adresses de la capture source. Si la liaison échoue, l’énoncé demande de vérifier les
 pare-feux Windows ; il ne fournit pas de commande de désactivation à reproduire.
 
-L’énoncé demande enfin un snapshot **VMware Workstation de `<HOTE_HYPERV>`**, nommé
+L’énoncé demande enfin un snapshot **VMware Workstation de `SRV_2K19`**, nommé
 `Fin atelier 2`. Il s’agit de la VM hôte du laboratoire, et non d’une instruction de
 création d’un checkpoint Hyper-V. La solution fournie ne montre pas cette étape finale.
 
@@ -83,3 +81,7 @@ aucune topologie n’a été inventée. La correction reste dans un
 Contenu A : énoncé de l’Atelier n°2, module 4 Hyper-V, Drive TSSR en lecture seule.
 Contenu B : restructuration de ses consignes, avec neutralisation des données de
 laboratoire et signalement des actions à impact. Aucun nouvel exercice ni ressource.
+
+## Résultat à vérifier
+
+Vérifier le volume `DATA`, les dossiers distincts et le raccordement au commutateur Intel. Relever les deux IP puis vérifier le ping et le snapshot `Fin atelier 2` dans Workstation.

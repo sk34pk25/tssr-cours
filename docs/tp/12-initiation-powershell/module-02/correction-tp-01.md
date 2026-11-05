@@ -1,81 +1,142 @@
-# Correction — TP 01 : L'objet
+# Correction — L’objet
 
-## Périmètre de la correction
+La solution fournie est reprise dans son ordre. Les valeurs observées concernent la maquette du document. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
 
-Cette correction reprend les commandes et les contrôles documentés dans les
-sources M02. Les identités locales, le nom de la machine, les identifiants de
-sécurité et les valeurs de session du laboratoire sont volontairement exclus.
-Les sorties de service, les dates et les membres observés dépendent de
-l'environnement source.
+## L’objet
 
-## 1. Membres d'un objet de service
+TP du Module 02
 
-```powershell
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 de ce cours.
+
+Durée estimée
+
+30 minutes
+
+## Énoncé
+
+Objectifs :
+
+- Comprendre le langage objet.
+- Utiliser les commandes de gestion de l’objet.
+
+Consignes :
+
+Depuis la machine CLI01 :
+
+- Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet System.ServiceProcess.ServiceController
+
+Quelle commande avez-vous utilisée ?
+
+```text
 Get-Service | Get-Member
 ```
 
-La sortie source permet d'identifier le type de l'objet, ainsi que ses
-propriétés et méthodes. Les deux propriétés de type `String` et les méthodes
-de type `Bool` et `int` sont à relever dans la sortie du laboratoire.
+- Indiquez deux propriétés de type String
 
-## 2. Propriétés du service Spooler
+```text
+DisplayName               Property      string DisplayName {get;set;}
+MachineName               Property      string MachineName {get;set;}
+```
 
-```powershell
-Get-Service -Name Spooler | Get-Member -MemberType Property
+- Indiquez une méthode de type Bool et une de type int.
+
+```text
+Equals                    Method        bool Equals(System.Object obj)
+GetHashCode               Method        int GetHashCode()
+```
+
+La méthode de type Bool est Equals la méthode de type Int est GetHashCode
+
+- Affichez les propriétés du service Spooler.
+
+Quelle commande avez-vous utilisée ?
+
+```text
+get-service -name spooler | get-member -MemberType Property
+```
+
+Quelles propriétés avez-vous affichées ?
+
+```text
 Get-Service -Name Spooler
 ```
 
-La première commande limite l'affichage aux propriétés. La seconde affiche les
-valeurs visibles dans le scénario source. Elles restent dépendantes de la
-machine de laboratoire.
+Les propriétés affichées par défaut sont :
 
-!!! note "NEEDS_REVIEW — forme du paramètre"
-    Les démonstrations emploient `-ServiceName`, alors que la correction du TP
-    emploie `-Name`. Les deux formes sont conservées dans leur contexte
-    documentaire, sans correction silencieuse.
-
-## 3. Propriétés d'un utilisateur local
-
-```powershell
-Get-LocalUser -Name <utilisateur-de-laboratoire>
-Set-LocalUser -Name <utilisateur-de-laboratoire> -Description "Administrateur"
+```text
+Status Name DisplayName
 ```
 
-La correction source utilise un compte local propre au laboratoire. Son
-identité est remplacée ici par `<utilisateur-de-laboratoire>`. La modification
-porte sur la propriété `Description` demandée par l'énoncé.
+- Indiquez les valeurs de chaque propriété.
 
-## 4. Méthode du service Spooler
+Running Spooler Print Spooler
 
-```powershell
-Get-Service -Name Spooler
+- Affichez les propriétés de l’utilisateur local Adara Mcintyre.
+
+Quelle commande avez-vous utilisée ?
+
+```text
+Get-LocalUser -Name
+```
+
+Quelles propriétés avez-vous affichées ?
+
+```text
+Name Enabled Description
+```
+
+Indiquez les valeurs de chaque propriété.
+
+Adara Mcintyre True Technician
+
+```text
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
+avez-vous utilisée ?
+Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+Get-LocalUser -Name "adara mcintyre"
+```
+
+- Affichez le statut du service Spooler.
+
+Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?
+
+```text
 (Get-Service -Name Spooler).stop()
+```
+
+Vérifier à nouveau le statut du service.
+
+```text
 Get-Service -Name Spooler
 ```
 
-La dernière commande contrôle l'état observé après l'appel de la méthode. Ne
-généralisez pas le résultat de statut : il dépend du service et de
-l'environnement du laboratoire.
+Bonus
 
-## Bonus — `AccountExpires`
-
-```powershell
-Set-LocalUser -Name <utilisateur-de-laboratoire> -AccountExpires (get-date).adddays(2)
-Get-LocalUser -Name <utilisateur-de-laboratoire> | select *
+```text
+Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
+AccountExpires du compte de l’utilisateur Axel Rios.
 ```
 
-La source demande une date au moins 48 heures postérieure à la date actuelle.
-Les dates affichées restent dynamiques.
+- Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *
 
-!!! warning "NEEDS_REVIEW — forme de contrôle source"
-    La correction contient aussi la forme `Set-LocalUser ... | select *` dans
-    une étape de contrôle. Elle est conservée comme forme documentaire
-    problématique et n'est pas remplacée silencieusement par une autre
-    commande.
+La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.
 
-!!! warning "NEEDS_REVIEW — identité du bonus"
-    L'identité de compte mentionnée dans l'énoncé et celle utilisée dans la
-    correction diffèrent. Elles sont toutes deux exclues de cette page ; la
-    divergence est conservée pour le suivi documentaire.
+```text
+Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
+Set-LocalUser -Name "adara mcintyre"| select *
+```
+## Contrôler les objets avant et après l’action
 
-→ [Retour à l'énoncé](tp-01-objet.md)
+`Get-Member -MemberType Property` montre les propriétés. La syntaxe peut également accepter une abréviation de paramètre non ambiguë. Retenir le nom complet dans une procédure. Les noms et descriptions du compte local sont des valeurs de la maquette. Le bonus et la correction emploient des identités différentes. Relire le nom demandé dans l’énoncé avant de choisir le compte.
+
+```powershell
+$service = Get-Service -Name Spooler
+$service | Get-Member -MemberType Property
+$service | Select-Object Name,Status,DisplayName
+```
+
+Le corrigé appelle `Stop()` sur le spouleur. Interroger de nouveau le service après l’action pour vérifier son état. La capture du bonus utilise `(Get-Date).AddDays(2)` pour `AccountExpires`. Vérifier la propriété après la modification et distinguer l’expiration du compte de celle du mot de passe.
+
+
+- [Retour à l’énoncé](tp-01-objet.md)
+- [Cours du module](../../../modules/12-initiation-powershell/module-02.md)

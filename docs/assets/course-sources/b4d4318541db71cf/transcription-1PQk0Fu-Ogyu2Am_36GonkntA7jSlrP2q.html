@@ -1,42 +1,26 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 5 - Les structures - While.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 5 - Les structures - While</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-<h4>Les structures : While </h4>
-<p class="tssr-source-paragraph">Démonstration 05 du module 4 </p>
-
-<pre class="tssr-source-code">Les boucles sont des structures essentielles dans un langage et PowerShell n’y échappe pas. 
-L’objectif de cette démonstration est de montrer comment la boucle While exécute des 
-commandes, sous réserve que son test renvoie une réponse « Vrai » (si la réponse au test passe à 
-« Faux », la boucle s’arrête). </pre>
-<h4>Déroulement </h4>
-<pre class="tssr-source-code">• 
-La boucle While commence par un test, puis si la réponse est « Vraie », elle boucle une série 
-de commandes. </pre>
-<p class="tssr-source-paragraph">• <br>La boucle tourne tant que la réponse au test est « Vraie » </p>
-
-
-<p class="tssr-source-paragraph">Pour déterminer un nombre de tours de boucle maximum, on va initier une variable dite de <br>« Comptage » qui à chaque tour de boucle va s’incrémenter. </p>
-<p class="tssr-source-paragraph">Lorsque la valeur de la variable de comptage atteint la limite, la boucle s’arrête. </p>
-
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>$x =<br>1<br>while<br>($x -eq 1 ){<br>write-host<br>&quot;le<br>test<br>est vraie<br>la boucle<br>tourne<br>a<br>l&#x27;infinie”</p><p>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie<br>le<br>test<br>est<br>vraie<br>la boucle<br>tourne<br>à l&#x27;infinie</p><p>$x =<br>1<br>while<br>($x -1e 10<br>Dit<br>write-host<br>&quot;Voici<br>la valeur<br>du compteur<br>$x&quot;<br>$X++</p></div></details>
-
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 5 - Les structures - While</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 5 - Les structures - While</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Les structures : While</h3>
+<p>Démonstration 05 du module 4</p>
+<p>Les boucles sont des structures essentielles dans un langage et PowerShell n’y échappe pas. L’objectif de cette démonstration est de montrer comment la boucle While exécute des commandes, sous réserve que son test renvoie une réponse « Vrai » (si la réponse au test passe à « Faux », la boucle s’arrête).</p>
+<h3>Déroulement</h3>
+<ul><li>La boucle While commence par un test, puis si la réponse est « Vraie », elle boucle une série de commandes.</li><li>La boucle tourne tant que la réponse au test est « Vraie »</li></ul>
+<p>Pour déterminer un nombre de tours de boucle maximum, on va initier une variable dite de « Comptage » qui à chaque tour de boucle va s’incrémenter.</p>
+<p>Lorsque la valeur de la variable de comptage atteint la limite, la boucle s’arrête.</p>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p1-i3-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p1-i4-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Initiation à PowerShell </p>
-
-<p class="tssr-source-paragraph">Lorsque la variable atteint la valeur « 10 » la boucle s’arrête.  </p>
-<p class="tssr-source-paragraph">La boucle s’utilise beaucoup comme vérificateur de valeur saisie par un utilisateur. En effet, tant <br>que la valeur souhaitée n’est pas atteinte, la boucle ne s’arrête pas. </p>
-<pre class="tssr-source-code">Combiné à la commande Read-Host, la valeur saisie est testée à chaque tour de boucle, si la 
-valeur est conforme, on sort de la boucle. </pre>
-
-
-<p class="tssr-source-paragraph">Tant que la lettre est différente de « Q » on boucle.  </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Voici la valeur du compteur<br>1<br>Voici la valeur du compteur 2<br>Voici la valeur du compteur 3<br>Voici la valeur du compteur 4<br>Voici la valeur du compteur 5<br>Voici la valeur du compteur<br>6<br>Voici la valeur du compteur 7<br>Voici la valeur du compteur 4<br>Voici la valeur du compteur<br>9<br>Voici la valeur du compteur 10</p><p>$x = Read-Host<br>“Veuillez<br>saisir<br>la lettre<br>de<br>votre<br>choix<br>Q<br>pour<br>quitter<br>while ($x -ne<br>&quot;q&quot;<br>)if<br>|<br>write-host<br>&quot;Vous<br>avez<br>choisi<br>la<br>lettre<br>:<br>$x&quot;</p><p>$x = Read-Host<br>“Veuillez<br>saisir<br>la lettre<br>de<br>votre<br>choix<br>Q pour<br>quitter&quot;</p><p>Veuillez saisir la lettre<br>de votre choix © pour quitter: A<br>Wous<br>avez<br>choisi<br>la lettre<br>:<br>A<br>Veuillez saisir la lettre<br>de votre choix © pour quitter:<br>E<br>Wous<br>avez<br>choisi<br>la lettre<br>:<br>E<br>Veuillez saisir la lettre<br>de votre choix © pour quitter:<br>q<br>ES C:\Users\Administrator&gt;</p><p>En</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-2">
+<p>Lorsque la variable atteint la valeur « 10 » la boucle s’arrête.</p>
+<p>La boucle s’utilise beaucoup comme vérificateur de valeur saisie par un utilisateur. En effet, tant que la valeur souhaitée n’est pas atteinte, la boucle ne s’arrête pas.</p>
+<pre><code>Combiné à la commande Read-Host, la valeur saisie est testée à chaque tour de boucle, si la
+valeur est conforme, on sort de la boucle.</code></pre>
+<p>Tant que la lettre est différente de « Q » on boucle.</p>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p2-i2-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p2-i3-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
+<figure><img src="../isolated/b4d4318541db71cf/ps-p2-i4-1.webp" alt="Capture du support « Fiche démo 5 - Les structures - While »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - Les structures - While »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

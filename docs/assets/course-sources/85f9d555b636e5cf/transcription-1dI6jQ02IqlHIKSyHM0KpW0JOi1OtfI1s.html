@@ -1,21 +1,16 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche d‚mo 2 - Les Cmdlets.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Fiche d‚mo 2 - Les Cmdlets</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Initiation au Scripting avec PowerShell </p>
-<h4>Les Cmdlets </h4>
-<p class="tssr-source-paragraph">Démonstration 02 du module 1 </p>
-
-<p class="tssr-source-paragraph">L’objectif de cette démonstration est de vous faire découvrir la constitution d’une Cmdlet. </p>
-<h4>Déroulement </h4>
-<p class="tssr-source-paragraph">• <br>Une Cmdlet est toujours constituée d’un Verbe définissant une action puis du caractère «-» </p>
-<p class="tssr-source-paragraph">• <br>Elle se termine toujours par un nom décrivant un objet Windows. </p>
-
-<pre class="tssr-source-code">Pour obtenir la liste des verbes disponible on utilise la Cmdlet Get-Verb </pre>
-
-<p class="tssr-source-paragraph">Chaque Cmdlet dispose de paramètres ; ils s’utilisent en ajoutant le caractère « - » puis le nom du <br>paramètre.  </p>
-
-<p class="tssr-source-paragraph">Page 1/1 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés <br> </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PS C:\Users\STAG&gt; Get-LocalUser<br>Get-LocalGroup<br>Get-Service</p><p>PS C:\Users\STAG&gt; Get-Verb<br>|fw -Column<br>9</p><p>Add<br>Clear<br>Close<br>Copy<br>Enter<br>Exit<br>Find<br>Format<br>Get<br>Hide<br>Join<br>Lock<br>Move<br>New<br>Open<br>Optimize<br>Pop<br>Push<br>Redo<br>Remove<br>Rename<br>Reset<br>Resize<br>Search<br>Select<br>Set<br>Show<br>Skip<br>split<br>step<br>Switch<br>Undo<br>Unlock<br>watch<br>Backup<br>Checkpoint]<br>Compare<br>Compress<br>Convert<br>ConvertFrom ConvertTo<br>Dismount<br>Edit<br>Expand<br>Export<br>Group<br>Import<br>Initialize<br>Limit<br>Merge<br>Mount<br>Out<br>Publish<br>Restore<br>save<br>sync<br>Unpublish<br>Update<br>Approve<br>Assert<br>Complete<br>confirm<br>Deny<br>Disable<br>Enable<br>install<br>Invoke<br>Register<br>Request<br>Restart<br>Resume<br>start<br>Stop<br>Submit<br>suspend<br>Uninstall<br>Unregister<br>wait<br>Debug<br>Measure<br>Ping<br>Repair<br>Resolve<br>Test<br>Trace<br>Connect<br>Disconnect Read<br>Receive<br>send<br>write<br>Block<br>Grant<br>Protect<br>Revoke<br>Unblock<br>Unprotect<br>Use</p><p>PS C:\Users\STAG&gt; Get-LocalGroupMember<br>-Group -Member</p><p>En</p></div></details>
-
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche démo 2 - Les Cmdlets</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Fiche démo 2 - Les Cmdlets</h1><p>Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h3>Les Cmdlets</h3>
+<p>Démonstration 02 du module 1</p>
+<p>L’objectif de cette démonstration est de vous faire découvrir la constitution d’une Cmdlet.</p>
+<h3>Déroulement</h3>
+<ul><li>Une Cmdlet est toujours constituée d’un Verbe définissant une action puis du caractère «-»</li><li>Elle se termine toujours par un nom décrivant un objet Windows.</li></ul>
+<p>Pour obtenir la liste des verbes disponible on utilise la Cmdlet Get-Verb</p>
+<p>Chaque Cmdlet dispose de paramètres ; ils s’utilisent en ajoutant le caractère « - » puis le nom du paramètre.</p>
+<figure><img src="../isolated/85f9d555b636e5cf/ps-p1-i2-1.webp" alt="Capture du support « Fiche démo 2 - Les Cmdlets »" loading="lazy"><figcaption>Capture du support « Fiche démo 2 - Les Cmdlets »</figcaption></figure>
+<figure><img src="../isolated/85f9d555b636e5cf/ps-p1-i3-1.webp" alt="Capture du support « Fiche démo 2 - Les Cmdlets »" loading="lazy"><figcaption>Capture du support « Fiche démo 2 - Les Cmdlets »</figcaption></figure>
+<figure><img src="../isolated/85f9d555b636e5cf/ps-p1-i4-1.webp" alt="Capture du support « Fiche démo 2 - Les Cmdlets »" loading="lazy"><figcaption>Capture du support « Fiche démo 2 - Les Cmdlets »</figcaption></figure>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

@@ -52,3 +52,14 @@ M02.
 
 Contenu A : support, énoncé et solution M02 consultés dans Drive TSSR en lecture seule.
 Contenu B : synthèse web limitée aux sources.
+
+
+## Question de révision
+
+L’invité a une adresse dans VMnet8 et le TP attend Bridged. Quel réglage contrôler en premier ?
+
+??? success "Correction"
+
+    Ouvrir les paramètres de la carte virtuelle et confirmer le mode de connexion. Vérifier ensuite l’interface physique choisie et l’adressage dans Windows.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-02.md)

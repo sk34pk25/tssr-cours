@@ -1,22 +1,17 @@
-# Révision — Module 07 — Les structures de boucle
+# Fiche de révision — Module 07 — Les boucles
 
-## Calcul et boucles
+| Besoin | Forme |
+| --- | --- |
+| Répéter pendant le succès du test | `while` |
+| Répéter jusqu’au succès du test | `until` |
+| Parcourir les arguments ou une liste | `for element in "$@"` ou une liste explicite |
+| Lire ligne par ligne | `while IFS= read -r ligne` avec `done < fichier` |
+| Lire des champs séparés par deux-points | `IFS=: read -r login passe uid gid commentaire home shell` |
+| Poser une question pendant la lecture | Deuxième `read` dirigé vers `/dev/tty` si disponible |
 
-`expr 2 + 7`, `expr 2 \* 7`, `while`, `until`, `for` et `while true` dans le scénario de menu du support.
+Identifiez l’initialisation, le test, le corps et la progression. `expr 2 \* 7` protège l’opérateur multiplication. Une boucle alimentée par un tube s’exécute généralement dans un sous-shell. Une redirection de fichier permet de réutiliser les affectations après la boucle.
 
-## Séparation et lecture
+**TP.** Le vendredi 13 et les années bissextiles mettent en œuvre `until`. Le comptage par extension mobilise `for` et un fichier de configuration. L’extraction du nom et de l’UID repose sur `while read` et le séparateur `:`.
 
-`set | grep ^IFS`, `IFS=$' \t\n'`, `for var in $(cat fichier.txt)`, `while read nom prenom suite`, `done < fichier.txt`, `done < <(cat Edition)` et `cat Edition | while read nom prenom num`.
-
-Lorsque la source le montre, un second `read` emploie `</dev/tty`.
-
-## Scénarios TP
-
-- TP1 : vendredi 13 et plage d'années bissextiles avec `until` ;
-- TP2 : extensions lues depuis le fichier externe absent `ext.txt` ;
-- TP3 : lecture de `/etc/passwd` avec `while read`.
-
-La correction TP3 est une source **NEEDS_REVIEW — critique**, et non un exemple de code validé.
-
-- [Cours M07](../../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)
-- [TP M07](../../tp/11-initiation-scripting-bash/module-07/index.md)
+- [Cours](../../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)
+- [TP et corrections](../../tp/11-initiation-scripting-bash/module-07/index.md)

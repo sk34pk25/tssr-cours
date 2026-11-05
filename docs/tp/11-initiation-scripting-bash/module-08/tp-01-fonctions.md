@@ -31,6 +31,8 @@ Q : Quitter
 
 L'énoncé cite le recours aux structures `while`, `for`, `if` et `case`.
 
-## Ressources non fournies comme fichiers séparés
+## Préparer et vérifier le laboratoire
 
-`fonctions.fct` et `script_M8TP1.sh` sont mentionnés dans le scénario, mais sont absents comme objets Drive autonomes. Aucun fichier de remplacement n'est créé.
+Créez `fonctions.fct` et `script_M8TP1.sh` dans un répertoire consacré au TP. Le PDF de correction décrit leurs contenus et la correction du portail propose une variante. Ajoutez des fichiers de test, dont un nom avec des espaces. Vérifiez l’état affiché avant et après sauvegarde, puis après suppression.
+
+[Correction du TP](correction-tp-01.md)

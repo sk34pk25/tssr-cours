@@ -18,7 +18,7 @@ de destination est celle du stockage iSCSI partagé. La page 5 illustre le mappa
 vers le groupe de ports des VM, le provisionnement mince et la mise sous tension
 automatique cochée. Ces choix appartiennent à cette solution.
 
-!!! warning "NEEDS_REVIEW — image disque requise manquante"
+!!! warning "image disque requise manquante"
 
     Le récapitulatif de la page 5 affiche cette erreur. Le texte demande de
     l’ignorer, mais n’en établit pas la cause ni l’innocuité. Cette demande est
@@ -37,5 +37,9 @@ Aucun arrêt, Sysprep, modification d’identité, commande ou dépannage extern
 ajouté à cette correction. L’erreur reste à revoir avant exécution.
 
 [Énoncé](tp-01.md) · [Retour aux ateliers](index.md)
+
+## Résultat à vérifier
+
+Si le message de disque manquant apparaît, examiner les références du descripteur, la présence des VMDK et le manifeste. Le démarrage de `SRV-2` constitue le contrôle final.
 
 Provenance A : solution OVF M08 et énoncé ; B : restitution web fidèle et neutralisée.

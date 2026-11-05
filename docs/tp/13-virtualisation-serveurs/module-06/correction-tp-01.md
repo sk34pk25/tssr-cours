@@ -7,7 +7,7 @@ configuration actuelle. Les adresses, noms internes et captures ne sont pas publ
 ## Cartes et gestion
 
 Les pages 2 et 3 ajoutent trois cartes bridgées à chaque VM hyperviseur dans
-Workstation. **NEEDS_REVIEW :** la consigne générale demande un arrêt propre,
+Workstation. **Point de vigilance.** la consigne générale demande un arrêt propre,
 mais le détail illustré sélectionne une terminaison forcée des VM. Cette opération
 impactante n’est pas reprise comme mode normal d’arrêt.
 
@@ -50,5 +50,9 @@ carte pour stockage/vMotion. Il ne fournit pas de résultat de test actuel.
   n’est ajouté.
 
 [Énoncé](tp-01.md) · [Retour à l’atelier](index.md)
+
+## Résultat à vérifier
+
+L’interface VMkernel du stockage porte le service vMotion. Les adresses de scénario sont `192.168.XX.1/24` et `192.168.XX.2/24`. Vérifier leur unicité et conserver l’accès de gestion.
 
 Provenance A : solution M06 et énoncé ; B : restitution fidèle et neutralisée.

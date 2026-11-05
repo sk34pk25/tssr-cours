@@ -1,18 +1,13 @@
-# Correction — TP 01 — Utilisateurs et groupes
+# Correction · TP 01 · Utilisateurs et groupes
 
-!!! warning "Provenance — duplication documentaire"
-    Le dossier Module 3 reprend exactement les cinq PDF du Module 2, avec le titre interne « Module 02 — Administration Microsoft 365 ». Ce rattachement est conservé à la demande explicite de l’utilisateur. Il ne s’agit pas d’un support distinct du Module 3.
+Les cinq PDF classés dans le dossier Module 3 sont des copies exactes des fichiers correspondants du Module 2. Chaque paire a la même empreinte SHA-256. Le titre interne indique « Module 02 – Administration Microsoft 365 ».
 
-## Utiliser ce document
+[Ouvrir la version optimisée du module 02](../module-02/correction-tp-01.md).
 
-Comparer les étapes et captures de la correction avec le travail réalisé. Les interfaces et exemples sont ceux du document original ; cette aide IA ne remplace pas la correction. Relever les différences observées et les faire vérifier par le formateur.
+## Document original
 
-Les noms de comptes, domaines, machines et mots de passe d’exemple du laboratoire ne constituent pas une configuration à réutiliser. Aucune commande n’a été exécutée pendant l’intégration.
+[M2 - Solution du TP 1 - Utilisateurs et groupes](../../../assets/course-sources/5aa0bc1641f5fddd/transcription-1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G.html) · 4 pages.
 
-## Source originale
+Les mots de passe, codes de validation et coordonnées nominatives sont neutralisés. Les noms de domaine d’accès des exemples utilisent des domaines réservés à la documentation.
 
-[M2 - Solution du TP 1 - Utilisateurs et groupes.pdf](https://drive.google.com/file/d/1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G/view?usp=drivesdk) · 4 pages PDF.
-
-Empreinte SHA-256 : `5aa0bc1641f5fddd77dce03e2f8413db215da19c65290a2e4fccb29c8344f91e`.
-
-[Retour aux ateliers](index.md).
+[Revenir à l’énoncé](tp-01.md) · [Tous les ateliers](index.md)

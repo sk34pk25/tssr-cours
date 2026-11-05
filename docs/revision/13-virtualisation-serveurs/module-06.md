@@ -24,7 +24,7 @@ par MAC ou selon les adresses source/destination, et l’ordonnancement pour bas
 en cas de panne. L’inventaire des besoins distingue VM, gestion, migration,
 stockage et très haute disponibilité.
 
-**NEEDS_REVIEW :** les formulations du support sur le débit cumulé, l’absence
+**Point de vigilance.** les formulations du support sur le débit cumulé, l’absence
 d’interruption avec VDS et l’impossibilité de communiquer entre groupes de ports
 distincts restent à contextualiser ; elles ne suffisent pas à garantir performances,
 disponibilité ou isolation pour toute configuration. La mention Enterprise Plus
@@ -47,3 +47,14 @@ ni configuration iSCSI complète n’est démontrée.
 
 Provenance A : trois PDF M06 du Drive TSSR en lecture seule ; B : synthèse fidèle.
 Aucune question, ressource binaire ou association Kahoot ajoutée.
+
+
+## Question de révision
+
+La VM reste sur l’ancien groupe qui va être supprimé. Dans quel ordre intervenir ?
+
+??? success "Correction"
+
+    Basculer la vNIC vers GRP-VMNET, vérifier sa connectivité et retirer ensuite l’ancien groupe des VM. Garder le groupe de gestion et l’accès à l’ESXi.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-06.md)

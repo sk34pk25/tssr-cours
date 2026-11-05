@@ -1,79 +1,69 @@
-# Module 06 — Pour aller plus loin
+# Module 06 — S’authentifier et écrire des scripts de laboratoire
 
-Ce module prolonge l'initiation au scripting PowerShell à partir des sources
-TSSR du module 06. Il présente une demande d'authentification dans un script et
-le cadre des activités pratiques associées.
+Le support montre comment demander une identité pour une action précise depuis un script lancé avec un compte courant. Le TP met ensuite en pratique la lecture d’un script Active Directory, la correction d’un script DNS et l’écriture d’un script au choix.
 
-## Objectifs
-
-- demander un autre credential lorsqu'une action ne peut pas être réalisée avec
-  le compte à privilèges réduits qui a lancé le script ;
-- conserver ce résultat dans une variable pour le réutiliser dans le script ;
-- situer trois activités de pratique : analyser un script, corriger des erreurs
-  de syntaxe et écrire un script dans un scénario de laboratoire.
-
-## Demander un credential
-
-Les sources présentent l'exécution initiale d'un script avec un compte à
-privilèges réduits. Lorsque certaines actions demandent une autre
-authentification, le script peut ouvrir une demande dédiée :
+## Demander une identité avec `Get-Credential`
 
 ```powershell
-$Cred = Get-Credential
+$cred = Get-Credential
+$cred.GetType().FullName
+$cred.UserName
 ```
 
-Le résultat est conservé dans la variable `$Cred` et peut être réutilisé dans
-le même script. Lors de la saisie, le champ du mot de passe est masqué. Dans
-l'exemple source, l'affichage de la variable ne révèle pas directement ce
-secret.
-
-## Personnaliser la demande
-
-Le message et le nom d'utilisateur proposé peuvent être adaptés au scénario :
+`Get-Credential` renvoie un objet `PSCredential` contenant le nom d’utilisateur et un mot de passe de type `SecureString`. L’affichage du champ est masqué. Utilisez l’objet en argument d’une commande qui accepte `-Credential`. Le processus conserve son identité courante.
 
 ```powershell
-$Cred = Get-Credential -Message "<message>" -UserName "<utilisateur-de-laboratoire>"
+$compte = Read-Host 'Compte autorisé dans la maquette'
+$cred = Get-Credential -UserName $compte -Message 'Authentification du laboratoire'
+$serveur = Read-Host 'Serveur de laboratoire'
+Invoke-Command -ComputerName $serveur -Credential $cred -ScriptBlock { hostname }
 ```
 
-Les valeurs entre chevrons sont des repères neutres : les données du
-laboratoire ne sont pas des valeurs à recopier dans un script ou un document.
+```mermaid
+flowchart LR
+    A["Script lancé avec le compte courant"] --> B["Get-Credential"]
+    B --> C["Objet PSCredential"]
+    C --> D["Commande qui accepte -Credential"]
+    D --> E["Résultat à vérifier dans la maquette"]
+```
 
-## Activités pour aller plus loin
+*Schéma pédagogique externe au cours.*
 
-Le TP du module est annoncé pour une durée estimée de quatre heures. Il réunit
-trois activités :
+Le nom prérempli et le message personnalisent la demande. La protection du secret dépend aussi du traitement qui suit. Pour le compte rendu, conserver l’action, la cible et le résultat. La valeur d’accès est fournie par le formateur et reste distincte du script publié.
 
-1. analyser un script fourni et le commenter ;
-2. identifier puis corriger des erreurs de syntaxe dans un script lié à DNS ;
-3. écrire, au choix, un script de configuration réseau ou un menu de gestion
-   d'utilisateurs Active Directory.
+## Lire l’archive du TP par activité
 
-Les scripts de travail correspondants sont des ressources de laboratoire. Ils
-ne sont pas publiés ici : ils comportent des données propres au scénario et
-des commandes à impact.
+| Activité | Ressource fournie | Travail attendu |
+| --- | --- | --- |
+| 1. Lire et commenter | Script de consigne Active Directory et version commentée de correction | Repérer les OU, groupes, modèles, comptes, rattachements et droits. Expliquer ce que chaque bloc modifie. |
+| 2. Corriger les bugs | Script DNS de consigne et correction DNS | Comparer les noms de commandes, paramètres, zones et enregistrements. Distinguer syntaxe PowerShell et disponibilité réelle des commandes. |
+| 3. Écrire | Énoncé PDF et énoncé révisé Word | Choisir la configuration réseau ou un menu de gestion d’utilisateurs AD, puis décrire les entrées, actions et contrôles. |
 
-## Vérifications et précautions
+Les quatre scripts et l’énoncé Word de TP6.7z sont consultables dans **Cours Original**. Les versions sont conservées séparément. La correction Active Directory ajoute un partage SMB et des ACL NTFS. C’est une extension du script fourni. La correction DNS crée une zone primaire et prépare des enregistrements pour des serveurs secondaires. La création effective d’une zone secondaire demande une commande distincte et une source de transfert autorisée. [Gestion Microsoft des zones DNS](https://learn.microsoft.com/windows-server/networking/dns/manage-dns-zones).
 
-- Distinguer la demande formulée par un script de consigne de la forme montrée
-  dans un script de correction.
-- Dans l'activité DNS, rechercher les erreurs de syntaxe avant de conclure sur
-  une forme corrigée.
-- Les opérations sur Active Directory, DNS, le système, les partages ou les
-  ACL sont des opérations de laboratoire à impact : elles ne doivent pas être
-  exécutées hors du contexte prévu.
-- Ne pas inscrire de mot de passe, de compte, de domaine, de machine, d'adresse
-  ou de chemin de laboratoire dans le script ou dans ses livrables.
+## Décrire le déroulement avant de modifier une machine
 
-## Synthèse
+Dans le script AD, commencer par identifier la base LDAP et les OU. Relever ensuite les modèles et comptes créés, les groupes et leurs portées, les propriétés et les rattachements. Après lecture, expliquer quelle étape suppose que la précédente ait réussi.
 
-`Get-Credential` permet de demander une authentification pendant l'exécution
-d'un script, puis de conserver son résultat dans une variable. Le module
-introduit ensuite des activités de lecture, de correction et d'écriture de
-scripts, avec une attention explicite aux données sensibles et aux commandes à
-impact.
+Dans le script DNS, suivre l’ordre du rôle, de l’interface, des redirecteurs, de la zone directe et de la zone inverse. Un enregistrement `A` associe un nom à une adresse IPv4. Un `PTR` associe une adresse inverse à un nom. Un `NS` désigne un serveur de noms. Les enregistrements de délégation et l’autorisation de transfert répondent à des fonctions différentes.
 
-## Ressources du parcours
+Un parseur peut accepter une ligne contenant un nom de commande inconnu. Le diagnostic complet compare l’AST, l’aide du module, les paramètres, les droits, la cible et le résultat. Par exemple, `Reboot-Computer` peut être lu comme une commande sans erreur de grammaire, alors que le corrigé emploie `Restart-Computer`.
 
-Les activités pratiques, leur restitution pédagogique redacted et la fiche de
-révision font l'objet d'une proposition gouvernée distincte. Aucun lien vers
-ces objets n'est ajouté avant leur présence sur le site.
+## Mini-quiz
+
+1. Quel type renvoie `Get-Credential` ?
+2. Stocker `$cred` change-t-il l’identité de la console ?
+3. Pourquoi une commande DNS mal orthographiée peut-elle passer l’analyse syntaxique ?
+4. Quelle différence entre un enregistrement NS et une zone secondaire ?
+
+??? success "Réponses"
+    1. `System.Management.Automation.PSCredential`.
+    2. La console conserve son identité. Une commande compatible peut utiliser cet objet pour s’authentifier.
+    3. La syntaxe autorise l’appel d’un nom de commande. La résolution de ce nom intervient ensuite.
+    4. NS désigne un serveur de noms. Une zone secondaire est une copie reçue par transfert depuis une source autorisée.
+
+## Travaux pratiques et révision
+
+- [TP et correction du module](../../tp/12-initiation-powershell/module-06/index.md)
+- [Fiche de révision](../../revision/12-initiation-powershell/module-06.md)
+- [Sommaire du cours](index.md)

@@ -19,7 +19,7 @@ Drive M02.
 2. Créer, sur le volume de données du laboratoire, le dossier de stockage prévu pour les
    machines virtuelles.
 3. Créer une VM Windows Server 2019 sous le nom de scénario
-   `<vm-de-laboratoire>`.
+   `SRV_2K19`.
 4. Appliquer les paramètres de laboratoire : 2 processeurs, 1 cœur par processeur,
    2 Go de mémoire, disque de 60 Go en fichier unique et carte réseau Bridged.
 5. Activer l’option de virtualisation processeur indiquée par la source.
@@ -58,3 +58,7 @@ conservée, sans choisir silencieusement une méthode canonique.
 Contenu A : énoncé de l’Atelier n°1 consulté dans Drive TSSR en lecture seule. Les
 placeholders neutralisent les données de laboratoire ; aucun identifiant, mot de passe,
 chemin complet ou nom de machine source n’est reproduit.
+
+## Résultat à vérifier
+
+Comparer le nom `SRV_2K19`, la RAM, les CPU et le réseau à l’énoncé. Vérifier l’option VT-x/EPT ou AMD-V/RVI et l’état arrêté au moment de créer `Fin Atelier 1`.

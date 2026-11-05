@@ -1,29 +1,17 @@
 # Fiche de révision — Module 01 — Analyse
 
-## Décomposer un besoin
+| Étape | Repère |
+| --- | --- |
+| Besoin | Situation initiale et service demandé par le porteur du besoin |
+| Cahier des charges | Contraintes, entrées, résultats attendus et comportement en cas d’erreur |
+| Algorithme | Ordre des actions et conditions |
+| Vérification | Une entrée et un résultat prévu pour chaque branche |
 
-Avant l’écriture éventuelle d’un script, relever :
+Le pseudo-code exprime les étapes en texte. Un organigramme utilise des ovales pour le début et la fin, des rectangles pour les actions, des losanges pour les décisions et des flèches pour le sens du parcours.
 
-- le besoin ;
-- les contraintes ;
-- les données d’entrée ;
-- le traitement ;
-- le résultat attendu.
+**Rappel du TP café.** Vérifiez l’eau, le café, le filtre, la cafetière et l’électricité. Avec toutes les ressources, partez de `d=0`. Après chaque ajout d’eau et de café, augmentez `d`. Allumez à `d=n`.
 
-## Représenter la logique
+**Autoévaluation.** Déroulez l’algorithme pour deux tasses puis pour un filtre manquant. Repérez dans chaque cas la branche qui mène à la fin.
 
-- **Pseudo-code** : formule les étapes du traitement.
-- **Organigramme** : représente visuellement les décisions et les actions.
-
-## À retenir du TP café
-
-- vérifier les ressources ;
-- terminer si une ressource manque ;
-- initialiser `d=0` ;
-- ajouter eau et café tant que `d` n’atteint pas `n` ;
-- incrémenter `d` ;
-- allumer la cafetière.
-
-Les deux corrections, pseudo-code et organigramme, sont complémentaires. Aucune correction Bash n’est fournie pour ce TP.
-
-Pour revoir le contexte : [cours du module](../../modules/11-initiation-scripting-bash/module-01-analyse.md).
+- [Cours](../../modules/11-initiation-scripting-bash/module-01-analyse.md)
+- [TP et corrections](../../tp/11-initiation-scripting-bash/module-01/index.md)

@@ -1,7 +1,17 @@
-# Révision — Module 02 — Administration Microsoft 365
+# Réviser le module 02 · Administration Microsoft 365
 
-Cette fiche est une aide IA / externe au cours, fondée uniquement sur les supports du module.
+| Vérification | Réponse attendue |
+| --- | --- |
+| Distinguer identité, licence et rôle | Authentification, services consommés et droits administratifs |
+| Choisir un groupe | Collaboration, diffusion, sécurité ou usage mixte |
+| Tester une délégation | Lecture, Envoyer en tant que et Envoyer de la part de séparément |
+| Trouver la cause d’une absence de synchronisation | UPN, OU, attribut, état du connecteur et erreur d’export |
+| Tester un alias | proxyAddresses côté AD, synchronisation, réception effective |
 
-Distinguer compte, licence, groupe et rôle ; identifier les destinataires ; expliquer l’intérêt des vérifications après synchronisation et retrouver le périmètre d’OU du laboratoire dans le TP original.
+**Entraînement.** Un utilisateur synchronisé apparaît dans le tenant. Son alias échoue et il peut ouvrir la boîte partagée sans pouvoir envoyer. Tracez les deux contrôles indépendants, proxyAddresses et délégation d’envoi.
 
-Consulter les documents originaux et les deux ateliers du module pour vérifier les réponses.
+## S’exercer
+
+- [Cours et documents sources](../../modules/14-messagerie-cloud/module-02.md)
+- [TP et corrections](../../tp/14-messagerie-cloud/module-02/index.md)
+- [Kahoot associé](../../kahoot/14-messagerie-cloud-module-02.md)

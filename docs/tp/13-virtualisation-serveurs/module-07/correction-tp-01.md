@@ -59,4 +59,8 @@ Cette illustration ne prouve pas une exécution actuelle sur les deux hôtes.
 
 [Énoncé](tp-01.md) · [Retour à l’atelier](index.md)
 
+## Résultat à vérifier
+
+Le succès de la découverte se constate côté ESXi par le périphérique MSFT iSCSI et côté Windows par l’état connecté. Vérifier l’export NFS 3 et les autorisations des deux hôtes.
+
 Provenance A : solution et énoncé M07 ; B : restitution fidèle et neutralisée.

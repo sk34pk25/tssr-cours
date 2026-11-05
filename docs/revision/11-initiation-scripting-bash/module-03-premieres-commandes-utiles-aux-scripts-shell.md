@@ -1,32 +1,18 @@
-# Fiche de révision — Module 03 — Premières commandes utiles aux scripts shell
+# Fiche de révision — Module 03 — Premières commandes utiles
 
-## Afficher
+| Besoin | Forme |
+| --- | --- |
+| Afficher un texte | `echo "message"` |
+| Interpréter des séquences | `echo -e` avec `\c`, `\n`, `\t` ou `\\` |
+| Afficher une valeur avec un format fixe | `printf '%s\n' "$valeur"` |
+| Effacer l’écran | `clear`, habituellement externe |
+| Voir comment Bash résout un nom | `type echo` ou `type clear` |
+| Terminer le shell avec un statut | `exit 0`, `exit 2` |
+| Lire le dernier statut | `$?` immédiatement après le retour |
+| Voir l’aide intégrée | `help` ou `help wait` |
 
-```bash
-echo [option] "expression"
-echo -e
-```
+`\c` termine l’affichage sans saut de ligne, `\n` produit un saut, `\t` une tabulation et `\\` un antislash. Sans `exit` explicite, le statut final est celui de la dernière commande exécutée.
 
-Avec `echo -e`, le support cite `\c`, `\n`, `\t` et `\\`.
+**Autoévaluation.** Après `bash -c 'exit 2'`, le statut à récupérer est `2`. Il change dès qu’une autre commande synchrone se termine.
 
-## Shell et code de retour
-
-```bash
-clear
-exit [ n ]
-exit 0
-$?
-```
-
-`$?` présente le code retourné au shell parent. Les formulations du support concernant `clear` et l’absence d’`exit` explicite restent à interpréter dans leur contexte documentaire.
-
-## Aide
-
-```bash
-help
-help wait
-```
-
-`wait` n’est abordé ici qu’au travers de l’aide intégrée.
-
-Pour le contexte : [cours du module](../../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md).
+[Cours](../../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)

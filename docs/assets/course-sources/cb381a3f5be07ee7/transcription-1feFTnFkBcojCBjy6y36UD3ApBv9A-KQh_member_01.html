@@ -1,0 +1,157 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Consigne-creation_objets_ad_v6-Q1.ps1</title><style>body{font:18px/1.65 system-ui;max-width:90ch;margin:auto;padding:1.25rem;color:#17243b;background:#fff}section{border-top:1px solid #d4dce8;padding-top:1rem;margin:1.5rem 0}h3,h4{color:#204b80}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:1rem;background:#eef3fa}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.9rem;color:#52627a}table{border-collapse:collapse;max-width:100%;margin:1rem 0}th,td{border:1px solid #d4dce8;padding:.45rem;text-align:left;vertical-align:top}th{background:#edf4fa}</style></head><body><h1>Consigne-creation_objets_ad_v6-Q1.ps1</h1><p>Ressource du TP 6 extraite de TP6.7z. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Script fourni dans TP6.7z.</p><pre><code>#
+#Titre à Remplacer
+#
+
+# Indiquer l&#x27;action
+$societe=&quot;_Entreprise&quot;
+New-ADOrganizationalUnit $societe -ProtectedFromAccidentalDeletion $false
+## Indiquer l&#x27;action
+$base = Get-ADOrganizationalUnit -Filter { name -like &quot;_Ent*&quot; }
+New-ADOrganizationalUnit Groupes -Path $base -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit Utilisateurs -Path $base -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit Ordinateurs -Path $base -ProtectedFromAccidentalDeletion $false
+Get-ADOrganizationalUnit -filter * -SearchBase $base | ft name,DistinguishedName -AutoSize
+
+# Indiquer l&#x27;action
+$ubase = Get-ADOrganizationalUnit -Filter { name -eq &quot;Utilisateurs&quot; }
+$upn = &quot;@ad30.societegb.fr&quot;
+# Modeles Direction - Informatique - Utilisateurs
+New-ADUser -Name &quot;_mod_dir&quot; -SamAccountName &quot;mod_dir&quot; -Description &quot;Modèle Direction&quot; -City Nantes -PostalCode 44000 -Department Direction -Company &quot;Société GB&quot; -Path $ubase
+New-ADUser -Name &quot;_mod_info&quot; -SamAccountName &quot;mod_info&quot; -Description &quot;Modèle Informatique&quot; -City Nantes -PostalCode 44000 -Department Informatique -Company &quot;Société GB&quot; -Path $ubase
+New-ADUser -Name &quot;_mod_util&quot; -SamAccountName &quot;mod_util&quot; -Description &quot;Modèle Utilisateurs&quot; -Company &quot;Société GB&quot; -Path $ubase
+
+# Indiquer l&#x27;action
+
+[byte[]]$hours = @(0,0,0,192,255,15,192,255,15,192,255,15,192,255,15,192,255,15,192,255,15)
+Set-ADUser -Identity &quot;mod_util&quot; -Replace @{logonhours = $hours}
+
+# Indiquer l&#x27;action
+$mdir = get-aduser -Filter { samaccountname -eq &quot;mod_dir&quot; } -Properties city,postalcode,department,company
+$uname = &quot;david&quot;
+new-aduser -Instance $mdir -name $uname -givenname $uname -SamAccountName $uname -UserPrincipalName $uname$upn -Path $ubase -OfficePhone &quot;504&quot; -Title &quot;Directeur Comptabilités Finances&quot;
+
+# Indiquer l&#x27;action
+$minf = get-aduser -Filter { samaccountname -eq &quot;mod_info&quot; } -Properties city,postalcode,department,company
+$unames = @(&quot;isabelle&quot;,&quot;ivan&quot;)
+foreach ($uname in $unames) {
+    new-aduser -Instance $minf -name $uname -givenname $uname -SamAccountName $uname -UserPrincipalName $uname$upn -Path $ubase
+}
+## Indiquer l&#x27;action
+Set-ADUser -Identity isabelle -Title &quot;Administratrice SR&quot; -OfficePhone &quot;666&quot;
+Set-ADUser -Identity ivan -title &quot;Support Technique&quot;
+
+# Indiquer l&#x27;action
+$mutil = get-aduser -Filter { samaccountname -eq &quot;mod_util&quot; } -Properties logonhours,company
+$unames = @(&quot;christelle&quot;,&quot;christophe&quot;)
+foreach ($uname in $unames) {
+    new-aduser -Instance $mutil -name $uname -givenname $uname -SamAccountName $uname -UserPrincipalName $uname$upn -Path $ubase
+}
+## Parametrages complementaires
+Set-ADAccountExpiration -Identity &quot;christophe&quot; -DateTime &quot;01/01/2021&quot;
+
+# Indiquer l&#x27;action
+$unames = @(&quot;david&quot;,&quot;isabelle&quot;,&quot;christelle&quot;)
+$mdp = &#x27;fourni par le formateur&#x27;
+ foreach ($uname in $unames) {
+   Set-ADAccountPassword $uname -NewPassword (ConvertTo-SecureString -AsPlainText $mdp -force)
+   Enable-ADAccount $uname
+ }
+
+$unames = @(&quot;ivan&quot;,&quot;christophe&quot;)
+$mdp = &#x27;fourni par le formateur&#x27;
+ foreach ($uname in $unames) {
+   Set-ADAccountPassword $uname -NewPassword (ConvertTo-SecureString -AsPlainText $mdp -force)
+   Enable-ADAccount $uname
+ }
+
+# Indiquer l&#x27;action
+$gbase = Get-ADOrganizationalUnit -Filter { name -eq &quot;Groupes&quot; }
+New-ADGroup G_Compta -Path $gbase -GroupScope Global -Description &quot;Service Comptabilité&quot;
+New-ADGroup G_Direction -Path $gbase -GroupScope Global -Description &quot;Service Direction&quot; `
+    -OtherAttributes @{&#x27;mail&#x27;=&#x27;direction@societegb.fr&#x27;}
+New-ADGroup G_Info -Path $gbase -GroupScope Global -Description &quot;Service Informatique&quot;
+New-ADGroup G_Info_Tech -Path $gbase -GroupScope Global -Description &quot;Techniciens - Service Informatique&quot;
+New-ADGroup G_Interim -Path $gbase -GroupScope Global -Description &quot;Personnel intérimaire&quot;
+# Indiquer l&#x27;action
+Get-ADGroup -Filter { name -like &quot;G_*&quot; } | Format-Table name,DistinguishedName -AutoSize
+
+# Indiquer l&#x27;action
+Add-ADGroupMember G_Compta christelle,christophe
+Add-ADGroupMember G_Direction david,mod_dir
+Add-ADGroupMember G_Info isabelle,ivan,mod_info
+Add-ADGroupMember G_Info_Tech ivan
+Add-ADGroupMember G_Interim christophe
+
+# Indiquer l&#x27;action
+$gg = Get-ADGroup -Filter { name -like &quot;G_*&quot; }
+foreach ($group in $gg) {
+    $group.Name
+    Get-ADGroupMember $group | Format-Table name,DistinguishedName -AutoSize
+    }
+
+# Indiquer l&#x27;action
+## Indiquer l&#x27;action
+$ubase = Get-ADOrganizationalUnit -Filter { name -eq &quot;Utilisateurs&quot; }
+New-ADOrganizationalUnit S_Direction -Path $ubase -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit S_Compta -Path $ubase -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit S_Info -Path $ubase -ProtectedFromAccidentalDeletion $false
+## Indiquer l&#x27;action
+$base = Get-ADOrganizationalUnit -Filter { name -like &quot;_Ent*&quot; }
+Get-ADOrganizationalUnit -filter * -SearchBase $base | ft name,DistinguishedName -AutoSize
+## Indiquer l&#x27;action
+#Move-ADObject
+
+# Indiquer l&#x27;action
+Get-ADGroupMember G_Info | select name,distinguishedname | Out-File -Encoding utf8 &quot;c:\ctrl_membres_informatique.txt&quot;
+Get-ADUser david | out-file -Encoding utf8 &quot;c:\detail_user_david.txt&quot;
+
+
+#
+#Titre
+#
+
+# Indiquer l&#x27;action
+$gbase = Get-ADOrganizationalUnit -Filter { name -eq &quot;Groupes&quot; }
+New-ADGroup DL_Racine_Data_CT -Path $gbase -GroupScope DomainLocal -Description &quot;Racine DATA en CT&quot;
+New-ADGroup DL_Racine_Data_M -Path $gbase -GroupScope DomainLocal -Description &quot;Racine DATA en M&quot;
+New-ADGroup DL_Racine_Data_L -Path $gbase -GroupScope DomainLocal -Description &quot;Racine DATA en L&quot;
+New-ADGroup DL_Data_Doc_CT -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Docs en CT&quot;
+New-ADGroup DL_Data_Doc_M -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Docs en M&quot;
+New-ADGroup DL_Data_Doc_L -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Docs en L&quot;
+New-ADGroup DL_Data_Doc_Refus -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Docs en refus&quot;
+New-ADGroup DL_Data_Compta_CT -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Compta en CT&quot;
+New-ADGroup DL_Data_Compta_M -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Compta en M&quot;
+New-ADGroup DL_Data_Compta_L -Path $gbase -GroupScope DomainLocal -Description &quot;DATA Compa en L&quot;
+#
+Get-ADGroup -Filter { name -like &quot;DL_*&quot; } | ft name,DistinguishedName -AutoSize
+
+# Indiquer l&#x27;action
+New-ADGroup G_Entreprise -Path $gbase -GroupScope Global -Description &quot;Personnel de l&#x27;entreprise&quot;
+Add-ADGroupMember G_Entreprise G_Compta,G_Direction,G_Info
+New-ADGroup G_Info_Adm -Path $gbase -GroupScope Global -Description &quot;Administrateurs - Service Informatique&quot;
+Add-ADGroupMember G_Info_Adm isabelle
+
+# Indiquer l&#x27;action
+Add-ADGroupMember DL_Racine_Data_CT G_Info_Adm
+Add-ADGroupMember DL_Data_Doc_L G_Entreprise
+Add-ADGroupMember DL_Data_Doc_Refus G_Interim
+Add-ADGroupMember DL_Data_Compta_M G_Compta
+# Indiquer l&#x27;action
+Add-ADGroupMember DL_Data_Compta_L G_Direction
+
+# Indiquer l&#x27;action
+New-ADGroup DL_Delegu_Gestion_Comptes_Compta -Path $gbase -GroupScope DomainLocal -Description &quot;Délégation gestion des comptes Compta&quot;
+New-ADGroup DL_Delegu_Gestion_Comptes -Path $gbase -GroupScope DomainLocal -Description &quot;Délégation gestion des comptes entreprise - sauf Service Info&quot;
+# Indiquer l&#x27;action
+New-ADGroup G_Direction_Resp -Path $gbase -GroupScope Global -Description &quot;Responsable - Service Direction&quot;
+Add-ADGroupMember G_Direction_Resp david
+
+# Indiquer l&#x27;action
+Add-ADGroupMember DL_Delegu_Gestion_Comptes_Compta G_Direction_Resp
+Add-ADGroupMember DL_Delegu_Gestion_Comptes G_Info_Tech</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

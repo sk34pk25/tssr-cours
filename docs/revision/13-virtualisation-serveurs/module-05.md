@@ -31,7 +31,7 @@ Deux hyperviseurs, chacun avec deux CPU d’un cœur, une carte bridgée et deux
 de 40 et 200 Go. Le disque de 40 Go reçoit ESXi ; celui de 200 Go devient la banque
 VMFS. La VM Windows Server 2019 reçoit un CPU d’un cœur, 2 Go de RAM et 32 Go de disque.
 
-**NEEDS_REVIEW :** les hyperviseurs ont 6 Go de RAM dans le texte, 8 Go dans les
+**Point de vigilance.** les hyperviseurs ont 6 Go de RAM dans le texte, 8 Go dans les
 schémas. Les avertissements de certificat de la solution restent des observations
 historiques à examiner dans leur contexte. Les ressources binaires ne sont pas jointes.
 
@@ -40,3 +40,14 @@ historiques à examiner dans leur contexte. Les ressources binaires ne sont pas 
 
 Provenance A : trois PDF M05 du Drive TSSR en lecture seule ; B : synthèse fidèle.
 Aucune question, ressource externe ou association Kahoot n’est ajoutée.
+
+
+## Question de révision
+
+Quel disque choisir pour installer ESXi et lequel pour créer DS-Local ?
+
+??? success "Correction"
+
+    Installer ESXi sur le disque de 40 Go, puis sélectionner le disque SCSI de 200 Go dans l’assistant de création de la banque VMFS.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-05.md)

@@ -1,81 +1,49 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 03 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Scripting Shell</h4>
-<p class="tssr-source-paragraph">Module 03 – Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Objectifs</p>
-<p class="tssr-source-paragraph">• Découvrir les commandes intégrées à Bash</p>
-<p class="tssr-source-paragraph">• Afficher des informations sur la console<br>• Sortir du programme<br>• Trouver de l&#x27;aide</p>
-<p class="tssr-source-paragraph">2</p>
-
-
-
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 03 - Support de cours</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui;color:#17243b;background:white}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}h2,h3{color:#204b80}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th,pre{background:#eef4fa}pre{padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}figure{margin:1rem 0}img{max-width:100%;height:auto}</style></head><body><h1>Module 03 - Support de cours</h1><p>Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Page 1</h2>
+<h2>Module 03 – Premières commandes utiles aux scripts Shell</h2>
+<h2>Objectifs</h2>
+<ul><li>Découvrir les commandes intégrées à Bash</li><li>Afficher des informations sur la console</li><li>Sortir du programme</li><li>Trouver de l&#x27;aide</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Scripting Shell<br>Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">Les commandes abordées dans cette partie sont des <br>commandes internes (ou fonctionnalités du Shell).</p>
-<p class="tssr-source-paragraph">Aucun fichier binaire dédié ne leur est associé.</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">echo<br>affichage écran </p>
-<pre class="tssr-source-code">echo permet d’afficher du texte</pre>
-<pre class="tssr-source-code">echo [option] &quot;expression&quot;
-Syntaxe</pre>
-<pre class="tssr-source-code">Si « expression » contient des caractères spéciaux, il faut la protéger avec des 
-doubles quotes et lui ajouter l’option –e. </pre>
-<p class="tssr-source-paragraph">On peut de plus utiliser des options de mise en forme</p>
-<pre class="tssr-source-code">\c
-inhibe le changement de ligne en fin de commande</pre>
-<pre class="tssr-source-code">\n
-nouvelle ligne</pre>
-<pre class="tssr-source-code">\t
-tabulation horizontale</pre>
-<pre class="tssr-source-code">\\
-le caractère \</pre>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>EN</p><p>[</p><p>CSA|</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-2"><h2>Page 2</h2>
+<h3>Premières commandes utiles aux scripts Shell</h3>
+<p>Les commandes abordées dans cette partie sont des commandes internes (ou fonctionnalités du Shell).</p>
+<p>Aucun fichier binaire dédié ne leur est associé.</p>
+<h3>Premières commandes utiles aux scripts Shell</h3>
+<h3>echo</h3>
+<h3>affichage écran</h3>
+<p>echo permet d’afficher du texte</p>
+<p>Syntaxe</p>
+<pre><code>echo [option] &quot;expression&quot;</code></pre>
+<p>Si « expression » contient des caractères spéciaux, il faut la protéger avec des doubles quotes et lui ajouter l’option –e.</p>
+<p>On peut de plus utiliser des options de mise en forme</p>
+<table><thead><tr><th>Séquence</th><th>Mise en forme</th></tr></thead><tbody><tr><td>\c</td><td>inhibe le changement de ligne en fin de commande</td></tr><tr><td>\n</td><td>nouvelle ligne</td></tr><tr><td>\t</td><td>tabulation horizontale</td></tr><tr><td>\\</td><td>le caractère \</td></tr></tbody></table>
 </section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">clear<br>effacement de l’écran</p>
-<pre class="tssr-source-code">clear
-Syntaxe</pre>
-<p class="tssr-source-paragraph">Commande simple sans argument, permettant d’afficher <br>une page écran vierge</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">exit<br>sortie du Shell courant</p>
-<pre class="tssr-source-code">exit [ n ]
-Syntaxe</pre>
-<pre class="tssr-source-code">• n est la valeur retournée au Shell père dans la variable $?</pre>
-<pre class="tssr-source-code">• Un script est généralement exécuté dans un environnement enfant
-• Celui-ci peut se terminer par la commande « exit 0 » ou non 
-(dans ce cas, celle-ci est implicite)</pre>
-<p class="tssr-source-paragraph">6</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>VE</p><p>er,</p><p>VE</p><p>[7</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="page-3"><h2>Page 3</h2>
+<h3>Premières commandes utiles aux scripts Shell</h3>
+<h3>clear</h3>
+<h3>effacement de l’écran</h3>
+<p>Syntaxe</p>
+<pre><code>clear</code></pre>
+<p>Commande simple sans argument, permettant d’afficher une page écran vierge</p>
+<h3>Premières commandes utiles aux scripts Shell</h3>
+<h3>exit</h3>
+<h3>sortie du Shell courant</h3>
+<p>Syntaxe</p>
+<pre><code>exit [ n ]</code></pre>
+<ul><li>n est la valeur retournée au Shell père dans la variable $?</li><li>Un script est généralement exécuté dans un environnement enfant</li><li>Celui-ci peut se terminer par la commande « exit 0 » ou non (dans ce cas, celle-ci est implicite)</li></ul>
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Scripting Shell</p>
-<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">help<br>affiche la liste des commandes internes au Shell</p>
-<p class="tssr-source-paragraph">Lorsqu’une commande interne est spécifiée en argument, <br>affiche l’aide de la commande.</p>
-<pre class="tssr-source-code">help
-Syntaxe</pre>
-<p class="tssr-source-paragraph">• Afficher les commandes internes au Shell</p>
-<pre class="tssr-source-code">help wait
-Syntaxe</pre>
-<pre class="tssr-source-code">• Afficher l’aide de la commande interne wait</pre>
-<p class="tssr-source-paragraph">7</p>
-<p class="tssr-source-paragraph">Premières commandes utiles aux scripts Shell</p>
-<p class="tssr-source-paragraph">Démo</p>
-<h4>Premières commandes</h4>
-<p class="tssr-source-paragraph">8</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>LE|</p><p>RS<br>|<br>|</p><p>End</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<section class="tssr-transcribed-page" id="page-4"><h2>Page 4</h2>
+<h3>Premières commandes utiles aux scripts Shell</h3>
+<h3>help</h3>
+<h3>affiche la liste des commandes internes au Shell</h3>
+<p>Lorsqu’une commande interne est spécifiée en argument, affiche l’aide de la commande.</p>
+<ul><li>Afficher les commandes internes au Shell Syntaxe</li></ul>
+<pre><code>help</code></pre>
+<p>Syntaxe</p>
+<pre><code>help wait</code></pre>
+<ul><li>Afficher l’aide de la commande interne wait</li></ul>
+<p>Premières commandes utiles aux scripts Shell</p>
+<p>Démo</p>
+<p>Premières commandes</p>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>

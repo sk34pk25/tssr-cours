@@ -1,16 +1,17 @@
-# Révision — Module 06 — Exécution conditionnelle
+# Fiche de révision — Module 06 — Exécution conditionnelle
 
-## Tests
+| Besoin | Repère |
+| --- | --- |
+| Tester un statut | `if commande; then …; fi` |
+| Comparer des entiers | `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le` |
+| Tester une chaîne | `-n` non vide, `-z` vide, `=` ou `!=` pour comparer |
+| Tester un chemin | `-d` répertoire, `-f` fichier ordinaire, `-r` lisible, `-w` modifiable, `-x` exécutable, `-s` taille positive |
+| Combiner dans `[[ ]]` | `&&`, `!`, `( )` et le ou logique |
+| Sélectionner un motif | `case … in`, `;;`, `esac` |
 
-`test condition`, `[ condition ]`, `[[ condition ]]`, `(( condition ))`; opérateurs `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le`, `=`, `!=`, `-n`, `-z`, `-d`, `-f`, `-w`, `-r`, `-x`, `-s`, `&&`, `||`, `!` et `( )`.
+Bash intègre `test` et `[`. Dans `[[ ]]`, un membre droit non cité de `=` peut être un motif. `*` représente zéro ou plusieurs caractères, `?` un caractère et `[abc]` un caractère choisi. Placez le motif général `*` en dernier dans un `case`.
 
-## Structures et motifs
+**TP.** Le premier distingue les statuts 1 et 2 pour les arguments et le refus de `root`. Le second organise un menu de comptes locaux. Pour vérifier un compte dans `/etc/passwd`, comparez le premier champ exactement.
 
-`if`, `elif`, `else`, `fi`; `case ... in`, `;;`, `esac`; motifs `*`, `?`, `[…]`, `[^…]`, `[!...]`, `?(…)`, `*(…)`, `+(…)`, `@(…)`, `!(…)`, `|`, `?([+-])+([0-9])`, et `shopt -s extglob`.
-
-## TP
-
-TP1 : arguments, saisie, refus de `root`, sorties. TP2 : menu `case` de compte utilisateur avec `useradd`, `passwd`, `userdel` et `grep`.
-
-- [Cours M06](../../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle.md)
-- [TP M06](../../tp/11-initiation-scripting-bash/module-06/index.md)
+- [Cours](../../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle.md)
+- [TP et corrections](../../tp/11-initiation-scripting-bash/module-06/index.md)

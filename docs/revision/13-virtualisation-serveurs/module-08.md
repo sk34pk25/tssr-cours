@@ -21,8 +21,7 @@ datacenter. La conversion transforme l’objet ; le clonage conserve l’origina
 La personnalisation peut porter sur nom, IP et identifiant de sécurité, avec les
 prérequis VMware Tools/Sysprep cités par le support.
 
-**NEEDS_REVIEW :** le support qualifie OVA d’archive compressée ; l’adaptation ne
-généralise pas cette qualification. La solution OVF montre une image disque requise
+Un fichier OVA regroupe les éléments d’un paquet OVF. La compression dépend du mode de préparation du paquet.
 manquante : sa consigne de poursuivre n’est pas une preuve d’intégrité de l’import.
 
 ## Migrations
@@ -36,7 +35,7 @@ Le support cite l’activation de vMotion, les réseaux des hôtes et l’accès
 stockage dans son scénario, ainsi que des obstacles liés à ISO, groupes de ports
 ou instructions CPU. Cette liste n’est pas généralisée à toute version.
 
-**NEEDS_REVIEW :** l’énoncé datacenter demande une migration vers iSCSI puis un
+**Point de vigilance.** l’énoncé datacenter demande une migration vers iSCSI puis un
 déplacement d’hôte d’une VM non définie dans les prérequis. La solution déplace
 le calcul de la seconde VM vers le premier ESXi puis les fichiers de la première
 du stockage local vers NFS. Les deux parcours restent à distinguer et à arbitrer.
@@ -46,3 +45,14 @@ du stockage local vers NFS. Les deux parcours restent à distinguer et à arbitr
 
 Provenance A : cinq PDF M08 du Drive TSSR en lecture seule ; B : synthèse fidèle,
 données de laboratoire neutralisées. Aucun quiz, commande ou lien Kahoot inventé.
+
+
+## Question de révision
+
+La VM doit garder son hôte et changer de datastore. Quelle opération sélectionner ?
+
+??? success "Correction"
+
+    Choisir une migration de stockage. Contrôler l’espace cible, la tâche de migration et la nouvelle banque de la VM tout en vérifiant son état de fonctionnement.
+
+[Revenir au cours](../../modules/13-virtualisation-serveurs/module-08.md)

@@ -11,8 +11,7 @@ les résultats chiffrés restent liés au scénario de laboratoire du TP.
 
 Le support situe PowerShell v1.0 en 2006 et évoque notamment Windows XP SP2,
 Vista et Windows Server 2003 SP1. Il présente également PowerShell 5.1 sur
-Windows 10 et Windows Server 2019, ainsi que des références à PowerShell Core
-3.0 et 7.0. Ces repères sont des informations historiques issues du support de
+Windows 10 et Windows Server 2019, ainsi que des références à .NET Core 3.0 et PowerShell Core 7.0. Ces repères sont des informations historiques issues du support de
 formation : ils ne décrivent pas nécessairement l'état actuel des produits.
 
 Le support distingue Windows PowerShell et PowerShell Core. Il associe à Core
@@ -84,10 +83,8 @@ et un accès Internet autorisé.
 
 ## Mettre à jour l'aide
 
-La source présente `Update-Help` pour rechercher des fichiers d'aide depuis
-Windows Update ou depuis une source locale ou réseau. `Save-Help` est cité dans
-la démonstration comme commande d'export des fichiers d'aide. Le support indique
-qu'une console avec droits d'administration est nécessaire pour `Update-Help`.
+La source présente `Update-Help` pour rechercher des fichiers d'aide depuis les sources d’aide des modules ou depuis un dépôt local ou réseau. `Save-Help` est cité dans
+la démonstration comme commande d'export des fichiers d'aide. Le support décrit la mise à jour avec des droits d’administration dans son environnement Windows PowerShell.
 
 ```powershell
 Update-Help
@@ -156,16 +153,91 @@ partir d'un script de laboratoire non fourni dans Drive M01.
 - utiliser les identifiants fournis dans l'environnement de laboratoire lorsque
   le scénario demande une connexion.
 
-## Synthèse
+## Choisir la console et interpréter les versions
 
-M01 introduit PowerShell par ses cmdlets, la découverte des commandes et de
-l'aide, les modules, la stratégie d'exécution et la personnalisation de la
-console. Les versions, compatibilités et limites citées dans les documents
-restent des repères historiques du support de formation.
+La démonstration installe PowerShell 7.0.3 et compare son `$PSVersionTable` avec Windows PowerShell 5.1. Le premier présente `PSEdition = Core` et le second `PSEdition = Desktop`. Dans le support, la version 3.0 désigne **.NET Core**. Le tableau des systèmes pris en charge correspond à la période où la fiche a été rédigée. Les valeurs 129 commandes pour PowerShell 1.0 ou 2855 pour un poste 5.1 servent de repères historiques.
 
-## Aller plus loin dans le module
+`powershell.exe` ouvre Windows PowerShell et `pwsh` ouvre PowerShell moderne lorsque les deux sont installés. Une commande peut manquer parce qu’un module, un rôle Windows ou une session particulière est nécessaire. La fiche d’origine indique que le remoting n’est pas disponible dans son contexte. PowerShell moderne prend en charge le remoting sur SSH et conserve des usages Windows avec WinRM. [Documentation Microsoft sur le remoting SSH](https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
-- [TP — Premières commandes](../../tp/12-initiation-powershell/module-01/index.md)
-- [Énoncé du TP](../../tp/12-initiation-powershell/module-01/tp-01-premieres-commandes.md)
-- [Correction du TP](../../tp/12-initiation-powershell/module-01/correction-tp-01.md)
+```powershell
+$PSVersionTable
+Get-Verb
+Get-Command -Name '*-Service'
+Get-Command -Verb Stop
+Get-Command -Verb New
+Get-Command -Noun '*User*'
+Get-Command | Measure-Object
+```
+
+L’astérisque représente une suite de caractères. `Get-Command -Verb New` cible le verbe. `Get-Command -Noun '*User*'` cherche dans le nom après le tiret. Pour expliquer un écart de comptage entre deux consoles, relever `PSEdition`, `PSVersion` et les modules chargés dans chacune.
+
+## Passer de la commande au bon exemple
+
+```mermaid
+flowchart LR
+    A["Action recherchée"] --> B["Get-Command"]
+    B --> C["Get-Help et exemples"]
+    C --> D["Paramètres et portée"]
+    D --> E["Essai sur la ressource du TP"]
+```
+
+*Schéma pédagogique externe au cours.*
+
+La fiche Get-Help démontre les paramètres `-Full`, `-Parameter Verb`, `-ShowWindow` et `-Online` avec `Get-Command`. Les crochets de la syntaxe de l’aide signalent une partie facultative. `about_Command_Syntax` explique les conventions de lecture de ces lignes.
+
+```powershell
+Get-Help Get-Command -Full
+Get-Help Get-Command -Parameter Verb
+Get-Help Get-Command -ShowWindow
+Get-Help Get-Command -Online
+Get-Help about_Command_Syntax
+Get-Help Get-LocalGroupMember -Examples
+```
+
+Le TP demande d’identifier la commande qui liste les membres d’un groupe. `Get-LocalGroupMember` correspond à cette action. L’aide de `Get-LocalGroup` concerne l’objet groupe. L’Original et la correction conservent la différence observée entre les deux réponses du dossier. [Référence de Get-LocalGroupMember](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.localaccounts/get-localgroupmember?view=powershell-5.1).
+
+Les fichiers d’aide sont associés aux modules. `Save-Help` les dépose dans un répertoire et `Update-Help -SourcePath` les lit depuis ce dépôt. Le choix `en-US` ou `fr-FR` ne produit des résultats que si le module fournit la culture demandée. À partir de PowerShell 6.1, la portée utilisateur est disponible et utilisée par défaut. L’installation dans les répertoires système conserve ses exigences de droits. [Référence de Update-Help](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/update-help?view=powershell-7.2).
+
+```powershell
+Save-Help -DestinationPath 'C:\PowerShell'
+Update-Help -SourcePath 'C:\PowerShell' -UICulture en-US
+Get-ExecutionPolicy -List
+Get-Module
+Get-Module -ListAvailable
+$env:PSModulePath
+```
+
+Le support compare `Restricted`, `AllSigned`, `RemoteSigned`, `Unrestricted` et `Bypass`. La stratégie active dépend de sa portée. Une stratégie de groupe a priorité sur les réglages de la session et du poste. L’exemple historique passe à `Unrestricted` pour illustrer l’effet d’un changement. Pour le TP, lire le résultat de `Get-ExecutionPolicy -List` avant d’expliquer la stratégie effective. [Règles de stratégie d’exécution](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
+
+## Charger un module et retrouver son profil
+
+`Get-Module` montre les modules de la session. `Get-Module -ListAvailable` cherche dans les emplacements référencés par `PSModulePath`. Une implémentation de module peut utiliser un script `.psm1`, un manifeste `.psd1` ou un assembly. Le support montre l’import d’AWSPowerShell et compte les commandes exportées. Ce total varie selon la version du module.
+
+```powershell
+Import-Module -Name AWSPowerShell
+Get-Command -Module AWSPowerShell | Measure-Object
+Get-Command -Module AWSPowerShell -CommandType Cmdlet | Select-Object -First 3
+$PROFILE
+Test-Path -LiteralPath $PROFILE
+```
+
+Les propriétés de la console règlent son apparence. Le profil est un script exécuté au démarrage d’un hôte. La démonstration y affiche le nom et l’heure, puis redéfinit `prompt`. Un profil peut être différent entre Windows PowerShell, PowerShell moderne et le terminal de l’éditeur. Vérifier son chemin avant de l’éditer.
+
+## Mini-quiz
+
+1. Quelle commande distingue les éditions Desktop et Core ?
+2. Quel paramètre de `Get-Command` recherche `Stop` comme verbe ?
+3. Pourquoi le nombre de commandes change-t-il entre deux consoles ?
+4. Quelle commande liste les portées de stratégie d’exécution ?
+
+??? success "Réponses"
+    1. `$PSVersionTable` contient `PSEdition` et `PSVersion`.
+    2. `-Verb Stop`.
+    3. Les versions, les modules et les rôles disponibles diffèrent.
+    4. `Get-ExecutionPolicy -List`.
+
+## Travaux pratiques et révision
+
+- [TP et correction du module](../../tp/12-initiation-powershell/module-01/index.md)
 - [Fiche de révision](../../revision/12-initiation-powershell/module-01.md)
+- [Sommaire du cours](index.md)

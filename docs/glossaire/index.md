@@ -9,7 +9,7 @@ hide:
 
 Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontrés dans les cours, travaux pratiques et fiches de révision de la formation.
 
-<div class="tssr-glossary" data-glossary-root data-total="487">
+<div class="tssr-glossary" data-glossary-root data-total="522">
   <form class="tssr-glossary-controls" data-glossary-controls hidden aria-label="Filtrer le glossaire">
     <div class="tssr-glossary-controls__primary">
       <label class="tssr-glossary-field tssr-glossary-field--search" for="glossaire-recherche">
@@ -31,6 +31,10 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="reseaux-ms">Services réseau en environnement Microsoft</option>
         <option value="reseaux-linux">Services réseau en environnement Linux</option>
         <option value="msp-reseau">Mise en situation professionnelle — Services réseau</option>
+        <option value="bash">Initiation au scripting Bash</option>
+        <option value="powershell">Initiation à PowerShell</option>
+        <option value="virtualisation">Virtualisation de serveurs</option>
+        <option value="cloud">Messagerie Cloud</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-module">
@@ -110,6 +114,32 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="srvlin06" data-course="reseaux-linux">Réseau Linux · M06 · DHCP</option>
         <option value="srvlin07" data-course="reseaux-linux">Réseau Linux · M07 · DNS autoritaire sur zone</option>
         <option value="mspr01" data-course="msp-reseau">MSP Réseau · MSP · Services réseau</option>
+        <option value="bash01" data-course="bash">Bash · M01 · Analyse</option>
+        <option value="bash02" data-course="bash">Bash · M02 · Écriture</option>
+        <option value="bash03" data-course="bash">Bash · M03 · Commandes de base</option>
+        <option value="bash04" data-course="bash">Bash · M04 · Variables</option>
+        <option value="bash05" data-course="bash">Bash · M05 · Enchaînements et couleurs</option>
+        <option value="bash06" data-course="bash">Bash · M06 · Conditions</option>
+        <option value="bash07" data-course="bash">Bash · M07 · Boucles</option>
+        <option value="bash08" data-course="bash">Bash · M08 · Fonctions</option>
+        <option value="powershell01" data-course="powershell">PowerShell · M01 · Premières commandes</option>
+        <option value="powershell02" data-course="powershell">PowerShell · M02 · Objets</option>
+        <option value="powershell03" data-course="powershell">PowerShell · M03 · Manipulation des objets</option>
+        <option value="powershell04" data-course="powershell">PowerShell · M04 · Variables et structures</option>
+        <option value="powershell05" data-course="powershell">PowerShell · M05 · Réalisation d’un script</option>
+        <option value="powershell06" data-course="powershell">PowerShell · M06 · Identité et laboratoire</option>
+        <option value="virt01" data-course="virtualisation">Virtualisation · M01 · Concepts</option>
+        <option value="virt02" data-course="virtualisation">Virtualisation · M02 · VMware Workstation</option>
+        <option value="virt03" data-course="virtualisation">Virtualisation · M03 · Virtualisation des serveurs</option>
+        <option value="virt04" data-course="virtualisation">Virtualisation · M04 · Hyper-V</option>
+        <option value="virt05" data-course="virtualisation">Virtualisation · M05 · Infrastructure vSphere</option>
+        <option value="virt06" data-course="virtualisation">Virtualisation · M06 · Réseau vSphere</option>
+        <option value="virt07" data-course="virtualisation">Virtualisation · M07 · Stockage</option>
+        <option value="virt08" data-course="virtualisation">Virtualisation · M08 · Datacenter</option>
+        <option value="cloud01" data-course="cloud">Messagerie Cloud · M01 · Cloud et Microsoft 365</option>
+        <option value="cloud02" data-course="cloud">Messagerie Cloud · M02 · Administration Microsoft 365</option>
+        <option value="cloud03" data-course="cloud">Messagerie Cloud · M03 · Reprise du module 02</option>
+        <option value="cloud04" data-course="cloud">Messagerie Cloud · M04 · Services complémentaires</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-tri">
@@ -154,7 +184,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
       <button type="button" class="tssr-glossary-letter" data-glossary-letter="Z" aria-pressed="false">Z</button>
     </fieldset>
     <div class="tssr-glossary-controls__status">
-      <p data-glossary-status role="status" aria-live="polite"><strong data-glossary-count>487</strong> termes affichés <span data-glossary-summary>Tous les termes</span></p>
+      <p data-glossary-status role="status" aria-live="polite"><strong data-glossary-count>522</strong> termes affichés <span data-glossary-summary>Tous les termes</span></p>
       <button type="reset" class="tssr-glossary-reset" data-glossary-reset>Réinitialiser</button>
     </div>
   </form>
@@ -215,7 +245,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="active-directory" data-glossary-card data-term="Active Directory" data-full-name data-aliases="AD | AD DS" data-keywords="annuaire | LDAP" data-definition="Service d’annuaire Microsoft qui centralise identités, groupes, ordinateurs et politiques, et peut servir de source d’authentification LDAP pour GLPI." data-courses="glpi reseaux-ms msp-reseau" data-modules="g02 srvms02 mspr01" data-letter="A" data-course-sort="administration glpi" data-module-sort="053" data-source-order="423" aria-labelledby="active-directory-titre">
+<article class="tssr-glossary-card" id="active-directory" data-glossary-card data-term="Active Directory" data-full-name data-aliases="AD | AD DS" data-keywords="annuaire | LDAP" data-definition="Service d’annuaire Microsoft qui centralise identités, groupes, ordinateurs et politiques, et peut servir de source d’authentification LDAP pour GLPI." data-courses="glpi reseaux-ms msp-reseau cloud" data-modules="g02 srvms02 mspr01 cloud02 cloud03 cloud04" data-letter="A" data-course-sort="administration glpi" data-module-sort="053" data-source-order="423" aria-labelledby="active-directory-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="active-directory-titre"><a href="#active-directory" class="tssr-glossary-card__anchor" aria-label="Active Directory">Active Directory</a></h2>
   </header>
@@ -225,6 +255,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02/" title="Services réseau en environnement Microsoft — Module 02 — Active Directory">Réseau Microsoft · M02 · Active Directory</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -359,6 +392,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Notification signalant qu’un seuil ou une condition mérite une action ; elle peut provenir de la surveillance d’un événement technique.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/" title="Sensibilisation ITIL et gestion de parc — Module 06 — Exploitation des services">ITIL · M06 · Exploitation des services</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="algorithme" data-glossary-card data-term="Algorithme" data-full-name data-aliases data-keywords="analyse | décisions | pseudo-code | organigramme" data-definition="Enchaînement d’instructions et de décisions qui transforme des données d’entrée en résultat. Il peut être formulé en pseudo-code ou en organigramme avant d’être écrit dans un langage." data-courses="bash" data-modules="bash01" data-letter="A" data-course-sort="initiation au scripting bash" data-module-sort="073" data-source-order="488" aria-labelledby="algorithme-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="algorithme-titre"><a href="#algorithme" class="tssr-glossary-card__anchor" aria-label="Algorithme">Algorithme</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Enchaînement d’instructions et de décisions qui transforme des données d’entrée en résultat. Il peut être formulé en pseudo-code ou en organigramme avant d’être écrit dans un langage.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-01-analyse/" title="Initiation au scripting Bash — Module 01 — Analyse">Bash · M01 · Analyse</a></li>
   </ul>
 </article>
 
@@ -540,7 +583,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="autodiscover" data-glossary-card data-term="Autodiscover" data-full-name data-aliases="découverte automatique" data-keywords="Outlook | Exchange" data-definition="Service Exchange qui fournit automatiquement à Outlook les paramètres de connexion d’une boîte aux lettres à partir de l’adresse de messagerie." data-courses="m365" data-modules="m04" data-letter="A" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="166" aria-labelledby="autodiscover-titre">
+<article class="tssr-glossary-card" id="autodiscover" data-glossary-card data-term="Autodiscover" data-full-name data-aliases="découverte automatique" data-keywords="Outlook | Exchange" data-definition="Service Exchange qui fournit automatiquement à Outlook les paramètres de connexion d’une boîte aux lettres à partir de l’adresse de messagerie." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="A" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="166" aria-labelledby="autodiscover-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="autodiscover-titre"><a href="#autodiscover" class="tssr-glossary-card__anchor" aria-label="Autodiscover">Autodiscover</a></h2>
   </header>
@@ -548,6 +591,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> découverte automatique</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -574,7 +620,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="bash" data-glossary-card data-term="Bash" data-full-name="Bourne Again Shell" data-aliases data-keywords="shell | script" data-definition="Shell courant sous GNU/Linux qui interprète les commandes et fournit variables, redirections, fonctions et langage de script." data-courses="linux msp" data-modules="l03 l08 s01" data-letter="B" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="025" data-source-order="216" aria-labelledby="bash-titre">
+<article class="tssr-glossary-card" id="bash" data-glossary-card data-term="Bash" data-full-name="Bourne Again Shell" data-aliases data-keywords="shell | script" data-definition="Shell courant sous GNU/Linux qui interprète les commandes et fournit variables, redirections, fonctions et langage de script." data-courses="linux msp bash" data-modules="l03 l08 s01 bash02 bash07" data-letter="B" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="025" data-source-order="216" aria-labelledby="bash-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="bash-titre"><a href="#bash" class="tssr-glossary-card__anchor" aria-label="Bash">Bash</a></h2>
     <p class="tssr-glossary-card__full-name">Bourne Again Shell</p>
@@ -584,6 +630,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/" title="Utilisation d’une distribution GNU/Linux — Module 03 — Premières commandes">GNU/Linux · M03 · Premières commandes</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts/" title="Initiation au scripting Bash — Module 02 — Écriture des scripts">Bash · M02 · Écriture</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
   </ul>
 </article>
 
@@ -631,7 +679,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="boite-aux-lettres" data-glossary-card data-term="Boîte aux lettres" data-full-name data-aliases="mailbox" data-keywords="Outlook | Exchange Online" data-definition="Espace de messagerie associé à un utilisateur ou une ressource, contenant courriels, calendrier, contacts et paramètres côté serveur." data-courses="m365" data-modules="m04" data-letter="B" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="167" aria-labelledby="boite-aux-lettres-titre">
+<article class="tssr-glossary-card" id="boite-aux-lettres" data-glossary-card data-term="Boîte aux lettres" data-full-name data-aliases="mailbox" data-keywords="Outlook | Exchange Online" data-definition="Espace de messagerie associé à un utilisateur ou une ressource, contenant courriels, calendrier, contacts et paramètres côté serveur." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="B" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="167" aria-labelledby="boite-aux-lettres-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="boite-aux-lettres-titre"><a href="#boite-aux-lettres" class="tssr-glossary-card__anchor" aria-label="Boîte aux lettres">Boîte aux lettres</a></h2>
   </header>
@@ -639,6 +687,32 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> mailbox</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="boite-aux-lettres-partagee" data-glossary-card data-term="Boîte aux lettres partagée" data-full-name data-aliases="Boîte partagée" data-keywords="Exchange Online | accès total | envoyer en tant que" data-definition="Boîte Exchange accessible à plusieurs utilisateurs à partir d’une adresse commune. L’accès total et les autorisations d’envoi constituent des délégations distinctes." data-courses="cloud" data-modules="cloud02 cloud03" data-letter="B" data-course-sort="messagerie cloud" data-module-sort="096" data-source-order="519" aria-labelledby="boite-aux-lettres-partagee-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="boite-aux-lettres-partagee-titre"><a href="#boite-aux-lettres-partagee" class="tssr-glossary-card__anchor" aria-label="Boîte aux lettres partagée">Boîte aux lettres partagée</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Boîte Exchange accessible à plusieurs utilisateurs à partir d’une adresse commune. L’accès total et les autorisations d’envoi constituent des délégations distinctes.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Boîte partagée</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="boucle" data-glossary-card data-term="Boucle" data-full-name data-aliases data-keywords="while | until | for | foreach" data-definition="Structure de contrôle qui répète un traitement tant qu’une condition le permet, jusqu’à sa réalisation ou pour chaque élément d’une collection." data-courses="bash powershell" data-modules="bash07 powershell04" data-letter="B" data-course-sort="initiation au scripting bash" data-module-sort="079" data-source-order="495" aria-labelledby="boucle-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="boucle-titre"><a href="#boucle" class="tssr-glossary-card__anchor" aria-label="Boucle">Boucle</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Structure de contrôle qui répète un traitement tant qu’une condition le permet, jusqu’à sa réalisation ou pour chaque élément d’une collection.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-04/" title="Initiation à PowerShell — Module 04 — Les structures et variables">PowerShell · M04 · Variables et structures</a></li>
   </ul>
 </article>
 
@@ -698,7 +772,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="carte-reseau-virtuelle" data-glossary-card data-term="Carte réseau virtuelle" data-full-name data-aliases="vNIC" data-keywords="machine virtuelle" data-definition="Adaptateur réseau présenté à une machine virtuelle et relié par l’hyperviseur à un réseau NAT, ponté ou privé." data-courses="windows msp" data-modules="wadd s01" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="83" aria-labelledby="carte-reseau-virtuelle-titre">
+<article class="tssr-glossary-card" id="carte-reseau-virtuelle" data-glossary-card data-term="Carte réseau virtuelle" data-full-name data-aliases="vNIC" data-keywords="machine virtuelle" data-definition="Adaptateur réseau présenté à une machine virtuelle et relié par l’hyperviseur à un réseau NAT, ponté ou privé." data-courses="windows msp virtualisation" data-modules="wadd s01 virt02 virt04 virt06" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="83" aria-labelledby="carte-reseau-virtuelle-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="carte-reseau-virtuelle-titre"><a href="#carte-reseau-virtuelle" class="tssr-glossary-card__anchor" aria-label="Carte réseau virtuelle">Carte réseau virtuelle</a></h2>
   </header>
@@ -707,6 +781,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
   </ul>
 </article>
 
@@ -967,7 +1044,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="clone-de-machine-virtuelle" data-glossary-card data-term="Clone de machine virtuelle" data-full-name data-aliases="clone de VM" data-keywords="virtualisation" data-definition="Copie d’une machine virtuelle servant à créer rapidement un environnement similaire ; son identité réseau et système doit rester unique." data-courses="windows msp" data-modules="wadd s01" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="85" aria-labelledby="clone-de-machine-virtuelle-titre">
+<article class="tssr-glossary-card" id="clone-de-machine-virtuelle" data-glossary-card data-term="Clone de machine virtuelle" data-full-name data-aliases="clone de VM" data-keywords="virtualisation" data-definition="Copie d’une machine virtuelle servant à créer rapidement un environnement similaire ; son identité réseau et système doit rester unique." data-courses="windows msp virtualisation" data-modules="wadd s01 virt04 virt08" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="85" aria-labelledby="clone-de-machine-virtuelle-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="clone-de-machine-virtuelle-titre"><a href="#clone-de-machine-virtuelle" class="tssr-glossary-card__anchor" aria-label="Clone de machine virtuelle">Clone de machine virtuelle</a></h2>
   </header>
@@ -976,6 +1053,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -990,7 +1069,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="cloud-computing" data-glossary-card data-term="Cloud computing" data-full-name data-aliases="informatique en nuage" data-keywords="service en ligne" data-definition="Mise à disposition à la demande de ressources informatiques hébergées par un fournisseur et accessibles par réseau avec une capacité adaptable." data-courses="m365" data-modules="m01" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="171" aria-labelledby="cloud-computing-titre">
+<article class="tssr-glossary-card" id="cloud-computing" data-glossary-card data-term="Cloud computing" data-full-name data-aliases="informatique en nuage" data-keywords="service en ligne" data-definition="Mise à disposition à la demande de ressources informatiques hébergées par un fournisseur et accessibles par réseau avec une capacité adaptable." data-courses="m365 cloud" data-modules="m01 cloud01" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="171" aria-labelledby="cloud-computing-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="cloud-computing-titre"><a href="#cloud-computing" class="tssr-glossary-card__anchor" aria-label="Cloud computing">Cloud computing</a></h2>
   </header>
@@ -998,6 +1077,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> informatique en nuage</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" title="Microsoft 365 — Outils collaboratifs — Module 01 — Découverte de Microsoft 365">Microsoft 365 · M01 · Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -1026,7 +1106,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="cmdlet" data-glossary-card data-term="Cmdlet" data-full-name data-aliases="commande PowerShell" data-keywords="Get-Process | Verbe-Nom" data-definition="Commande PowerShell nommée selon le couple Verbe-Nom, qui reçoit et produit généralement des objets plutôt que du texte brut." data-courses="windows" data-modules="w03 w11" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="87" aria-labelledby="cmdlet-titre">
+<article class="tssr-glossary-card" id="cmdlet" data-glossary-card data-term="Cmdlet" data-full-name data-aliases="commande PowerShell" data-keywords="Get-Process | Verbe-Nom" data-definition="Commande PowerShell nommée selon le couple Verbe-Nom, qui reçoit et produit généralement des objets plutôt que du texte brut." data-courses="windows powershell" data-modules="w03 w11 powershell01" data-letter="C" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="87" aria-labelledby="cmdlet-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="cmdlet-titre"><a href="#cmdlet" class="tssr-glossary-card__anchor" aria-label="Cmdlet">Cmdlet</a></h2>
   </header>
@@ -1035,6 +1115,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-01/" title="Initiation à PowerShell — Module 01 — Initiation à PowerShell">PowerShell · M01 · Premières commandes</a></li>
   </ul>
 </article>
 
@@ -1047,6 +1128,19 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> système de gestion des configurations</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services/" title="Sensibilisation ITIL et gestion de parc — Module 04 — Transition des services">ITIL · M04 · Transition des services</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="code-de-retour-bash" data-glossary-card data-term="Code de retour Bash" data-full-name data-aliases="statut de sortie Bash" data-keywords="statut | exit | Bash" data-definition="Statut numérique d’une commande ou d’un pipeline. Zéro indique généralement le succès. Bash expose le statut du dernier pipeline synchrone via $? pour permettre à l’appelant de le tester." data-courses="bash" data-modules="bash03 bash05 bash06" data-letter="C" data-course-sort="initiation au scripting bash" data-module-sort="075" data-source-order="489" aria-labelledby="code-de-retour-bash-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="code-de-retour-bash-titre"><a href="#code-de-retour-bash" class="tssr-glossary-card__anchor" aria-label="Code de retour Bash">Code de retour Bash</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Statut numérique d’une commande ou d’un pipeline. Zéro indique généralement le succès. Bash expose le statut du dernier pipeline synchrone via $? pour permettre à l’appelant de le tester.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> statut de sortie Bash</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/" title="Initiation au scripting Bash — Module 03 — Premières commandes utiles aux scripts shell">Bash · M03 · Commandes de base</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle/" title="Initiation au scripting Bash — Module 06 — Exécution conditionnelle">Bash · M06 · Conditions</a></li>
   </ul>
 </article>
 
@@ -1237,7 +1331,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="courrier-electronique" data-glossary-card data-term="Courrier électronique" data-full-name data-aliases="e-mail | mail | courriel" data-keywords="SMTP | Outlook" data-definition="Message numérique transmis entre boîtes aux lettres par des serveurs de messagerie et consulté avec un client comme Outlook." data-courses="m365" data-modules="m04" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="174" aria-labelledby="courrier-electronique-titre">
+<article class="tssr-glossary-card" id="courrier-electronique" data-glossary-card data-term="Courrier électronique" data-full-name data-aliases="e-mail | mail | courriel" data-keywords="SMTP | Outlook" data-definition="Message numérique transmis entre boîtes aux lettres par des serveurs de messagerie et consulté avec un client comme Outlook." data-courses="m365 cloud" data-modules="m04 cloud01" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="174" aria-labelledby="courrier-electronique-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="courrier-electronique-titre"><a href="#courrier-electronique" class="tssr-glossary-card__anchor" aria-label="Courrier électronique">Courrier électronique</a></h2>
   </header>
@@ -1245,6 +1339,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> e-mail · mail · courriel</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -1290,7 +1385,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="csv" data-glossary-card data-term="CSV" data-full-name="Comma-Separated Values" data-aliases="valeurs séparées" data-keywords="import | export" data-definition="Format texte tabulaire où chaque ligne représente un enregistrement et les champs sont séparés par un délimiteur convenu." data-courses="m365 glpi" data-modules="m03 g06" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="022" data-source-order="437" aria-labelledby="csv-titre">
+<article class="tssr-glossary-card" id="csv" data-glossary-card data-term="CSV" data-full-name="Comma-Separated Values" data-aliases="valeurs séparées" data-keywords="import | export" data-definition="Format texte tabulaire où chaque ligne représente un enregistrement et les champs sont séparés par un délimiteur convenu." data-courses="m365 glpi powershell" data-modules="m03 g06 powershell03" data-letter="C" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="022" data-source-order="437" aria-labelledby="csv-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="csv-titre"><a href="#csv" class="tssr-glossary-card__anchor" aria-label="CSV">CSV</a></h2>
     <p class="tssr-glossary-card__full-name">Comma-Separated Values</p>
@@ -1300,6 +1395,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-03-connaissances-des-notions-de-base-d-excel/" title="Microsoft 365 — Outils collaboratifs — Module 03 — Connaissances des notions de base d’Excel">Microsoft 365 · M03 · Excel</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-06-plug-ins-et-inventaire/" title="Administration GLPI — Module 06 — Plug-ins et inventaire">GLPI · M06 · Plug-ins et inventaire</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -1345,6 +1441,19 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Unité de données transmise sans établissement de connexion ; le terme désigne notamment un message UDP autonome.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-01-le-modele-osi/" title="Bases des réseaux — Module 01 — Le modèle OSI">Réseaux · M01 · Modèle OSI</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="datastore" data-glossary-card data-term="Datastore" data-full-name data-aliases="Banque de données vSphere" data-keywords="vSphere | VMFS | NFS | fichiers VM" data-definition="Espace de stockage présenté dans l’inventaire vSphere pour héberger notamment les fichiers des VM et les images ISO. Dans le laboratoire, une banque utilise VMFS sur un volume bloc ou monte un partage NFS." data-courses="virtualisation" data-modules="virt05 virt07 virt08" data-letter="D" data-course-sort="virtualisation de serveurs" data-module-sort="091" data-source-order="510" aria-labelledby="datastore-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="datastore-titre"><a href="#datastore" class="tssr-glossary-card__anchor" aria-label="Datastore">Datastore</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Espace de stockage présenté dans l’inventaire vSphere pour héberger notamment les fichiers des VM et les images ISO. Dans le laboratoire, une banque utilise VMFS sur un volume bloc ou monte un partage NFS.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Banque de données vSphere</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -1584,7 +1693,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="dns" data-glossary-card data-term="DNS" data-full-name="Domain Name System" data-aliases="système de noms de domaine" data-keywords="résolution de noms | nameserver" data-definition="Système hiérarchique qui traduit des noms comme serveur.exemple.fr en adresses IP et publie d’autres informations de domaine." data-courses="reseaux windows debian reseaux-ms reseaux-linux msp-reseau" data-modules="r05 w07 d05 srvms06 srvlin05 srvlin07 mspr01" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="004" data-source-order="29" aria-labelledby="dns-titre">
+<article class="tssr-glossary-card" id="dns" data-glossary-card data-term="DNS" data-full-name="Domain Name System" data-aliases="système de noms de domaine" data-keywords="résolution de noms | nameserver" data-definition="Système hiérarchique qui traduit des noms comme serveur.exemple.fr en adresses IP et publie d’autres informations de domaine." data-courses="reseaux windows debian reseaux-ms reseaux-linux msp-reseau virtualisation cloud" data-modules="r05 w07 d05 srvms06 srvlin05 srvlin07 mspr01 virt08 cloud01" data-letter="D" data-course-sort="bases des reseaux" data-module-sort="004" data-source-order="29" aria-labelledby="dns-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="dns-titre"><a href="#dns" class="tssr-glossary-card__anchor" aria-label="DNS">DNS</a></h2>
     <p class="tssr-glossary-card__full-name">Domain Name System</p>
@@ -1599,6 +1708,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-05-dns-resolveur/" title="Services réseau en environnement Linux — Module 05 — DNS résolveur">Réseau Linux · M05 · DNS résolveur</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/15-services-reseau-en-environnement-linux/module-07-dns-autoritaire-sur-zone/" title="Services réseau en environnement Linux — Module 07 — DNS autoritaire sur zone">Réseau Linux · M07 · DNS autoritaire sur zone</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -1753,6 +1864,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="enregistrement-mx" data-glossary-card data-term="Enregistrement MX" data-full-name data-aliases="Mail Exchange" data-keywords="DNS | SMTP | routage entrant | priorité" data-definition="Enregistrement DNS qui désigne un serveur de réception du courrier pour un domaine. La valeur de préférence la plus faible est prioritaire lors du choix d’une cible SMTP." data-courses="cloud" data-modules="cloud01" data-letter="E" data-course-sort="messagerie cloud" data-module-sort="095" data-source-order="517" aria-labelledby="enregistrement-mx-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="enregistrement-mx-titre"><a href="#enregistrement-mx" class="tssr-glossary-card__anchor" aria-label="Enregistrement MX">Enregistrement MX</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Enregistrement DNS qui désigne un serveur de réception du courrier pour un domaine. La valeur de préférence la plus faible est prioritaire lors du choix d’une cible SMTP.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Mail Exchange</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="entite-glpi" data-glossary-card data-term="Entité GLPI" data-full-name data-aliases data-keywords="hiérarchie | cloisonnement" data-definition="Niveau hiérarchique qui cloisonne ou organise les objets, utilisateurs et règles d’une organisation dans une même instance GLPI." data-courses="glpi" data-modules="g02" data-letter="E" data-course-sort="administration glpi" data-module-sort="053" data-source-order="440" aria-labelledby="entite-glpi-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="entite-glpi-titre"><a href="#entite-glpi" class="tssr-glossary-card__anchor" aria-label="Entité GLPI">Entité GLPI</a></h2>
@@ -1830,6 +1952,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="erreur-terminante-powershell" data-glossary-card data-term="Erreur terminante PowerShell" data-full-name data-aliases data-keywords="PowerShell | try | catch | ErrorAction" data-definition="Erreur qui interrompt le bloc ou le pipeline concerné et peut être interceptée par catch. Pour une cmdlet qui prend en charge ErrorAction, Stop permet de faire remonter une erreur non terminante." data-courses="powershell" data-modules="powershell05" data-letter="E" data-course-sort="initiation a powershell" data-module-sort="085" data-source-order="500" aria-labelledby="erreur-terminante-powershell-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="erreur-terminante-powershell-titre"><a href="#erreur-terminante-powershell" class="tssr-glossary-card__anchor" aria-label="Erreur terminante PowerShell">Erreur terminante PowerShell</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Erreur qui interrompt le bloc ou le pipeline concerné et peut être interceptée par catch. Pour une cmdlet qui prend en charge ErrorAction, Stop permet de faire remonter une erreur non terminante.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-05/" title="Initiation à PowerShell — Module 05 — Réalisation d’un script">PowerShell · M05 · Réalisation d’un script</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="escalade-fonctionnelle" data-glossary-card data-term="Escalade fonctionnelle" data-full-name data-aliases data-keywords="support N2 | compétence" data-definition="Transfert d’un dossier vers une équipe possédant les compétences ou outils nécessaires lorsque le niveau courant ne peut pas résoudre." data-courses="itil" data-modules="i06 i09" data-letter="E" data-course-sort="sensibilisation itil et gestion de parc" data-module-sort="048" data-source-order="378" aria-labelledby="escalade-fonctionnelle-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="escalade-fonctionnelle-titre"><a href="#escalade-fonctionnelle" class="tssr-glossary-card__anchor" aria-label="Escalade fonctionnelle">Escalade fonctionnelle</a></h2>
@@ -1848,6 +1980,20 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Alerte vers un niveau de management lorsque priorité, délai, risque ou ressources exigent une décision ou une coordination supérieure.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/06-sensibilisation-itil-gestion-parc/module-06-exploitation-des-services/" title="Sensibilisation ITIL et gestion de parc — Module 06 — Exploitation des services">ITIL · M06 · Exploitation des services</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="esxi" data-glossary-card data-term="ESXi" data-full-name data-aliases="VMware ESXi" data-keywords="VMware | hôte | Host Client | vSphere" data-definition="Hyperviseur VMware installé sur un hôte pour exécuter des VM. Son Host Client administre un hôte. Plusieurs hôtes peuvent ensuite être regroupés dans l’inventaire vCenter." data-courses="virtualisation" data-modules="virt05 virt06 virt07 virt08" data-letter="E" data-course-sort="virtualisation de serveurs" data-module-sort="091" data-source-order="506" aria-labelledby="esxi-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="esxi-titre"><a href="#esxi" class="tssr-glossary-card__anchor" aria-label="ESXi">ESXi</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Hyperviseur VMware installé sur un hôte pour exécuter des VM. Son Host Client administre un hôte. Plusieurs hôtes peuvent ensuite être regroupés dans l’inventaire vCenter.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> VMware ESXi</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -1966,7 +2112,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="exchange-online" data-glossary-card data-term="Exchange Online" data-full-name data-aliases data-keywords="Outlook | mailbox" data-definition="Service de messagerie hébergé de Microsoft 365 qui fournit boîtes aux lettres, calendriers et fonctions de transport des messages." data-courses="m365" data-modules="m01 m04" data-letter="E" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="180" aria-labelledby="exchange-online-titre">
+<article class="tssr-glossary-card" id="exchange-online" data-glossary-card data-term="Exchange Online" data-full-name data-aliases data-keywords="Outlook | mailbox" data-definition="Service de messagerie hébergé de Microsoft 365 qui fournit boîtes aux lettres, calendriers et fonctions de transport des messages." data-courses="m365 cloud" data-modules="m01 m04 cloud01 cloud02 cloud03" data-letter="E" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="180" aria-labelledby="exchange-online-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="exchange-online-titre"><a href="#exchange-online" class="tssr-glossary-card__anchor" aria-label="Exchange Online">Exchange Online</a></h2>
   </header>
@@ -1974,16 +2120,20 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" title="Microsoft 365 — Outils collaboratifs — Module 01 — Découverte de Microsoft 365">Microsoft 365 · M01 · Microsoft 365</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="export" data-glossary-card data-term="export" data-full-name data-aliases data-keywords="variable d’environnement | shell" data-definition="Commande Bash qui marque une variable pour qu’elle soit transmise dans l’environnement des processus enfants lancés ensuite." data-courses="linux" data-modules="l08" data-letter="E" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="226" aria-labelledby="export-titre">
+<article class="tssr-glossary-card" id="export" data-glossary-card data-term="export" data-full-name data-aliases data-keywords="variable d’environnement | shell" data-definition="Commande Bash qui marque une variable pour qu’elle soit transmise dans l’environnement des processus enfants lancés ensuite." data-courses="linux bash" data-modules="l08 bash04" data-letter="E" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="226" aria-labelledby="export-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="export-titre"><a href="#export" class="tssr-glossary-card__anchor" aria-label="export">export</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Commande Bash qui marque une variable pour qu’elle soit transmise dans l’environnement des processus enfants lancés ensuite.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/" title="Initiation au scripting Bash — Module 04 — Les variables dans les scripts">Bash · M04 · Variables</a></li>
   </ul>
 </article>
 
@@ -2085,6 +2235,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="fonction-de-script" data-glossary-card data-term="Fonction de script" data-full-name data-aliases data-keywords="Bash | PowerShell | portée | paramètre" data-definition="Bloc nommé que le script peut appeler plusieurs fois. La fonction peut recevoir des arguments et employer des variables à portée limitée." data-courses="bash powershell" data-modules="bash08 powershell05" data-letter="F" data-course-sort="initiation au scripting bash" data-module-sort="080" data-source-order="496" aria-labelledby="fonction-de-script-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="fonction-de-script-titre"><a href="#fonction-de-script" class="tssr-glossary-card__anchor" aria-label="Fonction de script">Fonction de script</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Bloc nommé que le script peut appeler plusieurs fois. La fonction peut recevoir des arguments et employer des variables à portée limitée.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-08-les-fonctions/" title="Initiation au scripting Bash — Module 08 — Les fonctions">Bash · M08 · Fonctions</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-05/" title="Initiation à PowerShell — Module 05 — Réalisation d’un script">PowerShell · M05 · Réalisation d’un script</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="fonction-excel" data-glossary-card data-term="Fonction Excel" data-full-name data-aliases data-keywords="formule | arguments" data-definition="Formule prédéfinie qui calcule un résultat à partir d’arguments, par exemple SOMME, MOYENNE ou SI." data-courses="m365" data-modules="m03" data-letter="F" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="022" data-source-order="183" aria-labelledby="fonction-excel-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="fonction-excel-titre"><a href="#fonction-excel" class="tssr-glossary-card__anchor" aria-label="Fonction Excel">Fonction Excel</a></h2>
@@ -2105,7 +2266,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="format-table" data-glossary-card data-term="Format-Table" data-full-name data-aliases="ft" data-keywords="PowerShell | formatage" data-definition="Cmdlet PowerShell de mise en forme qui présente des objets en tableau pour l’affichage ; son résultat n’est pas destiné au traitement en aval." data-courses="windows" data-modules="w11" data-letter="F" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="103" aria-labelledby="format-table-titre">
+<article class="tssr-glossary-card" id="format-table" data-glossary-card data-term="Format-Table" data-full-name data-aliases="ft" data-keywords="PowerShell | formatage" data-definition="Cmdlet PowerShell de mise en forme qui présente des objets en tableau pour l’affichage ; son résultat n’est pas destiné au traitement en aval." data-courses="windows powershell" data-modules="w11 powershell03" data-letter="F" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="103" aria-labelledby="format-table-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="format-table-titre"><a href="#format-table" class="tssr-glossary-card__anchor" aria-label="Format-Table">Format-Table</a></h2>
   </header>
@@ -2113,6 +2274,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> ft</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -2137,7 +2299,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="fqdn" data-glossary-card data-term="FQDN" data-full-name="Fully Qualified Domain Name" data-aliases="nom de domaine pleinement qualifié" data-keywords="hostname | DNS" data-definition="Nom DNS complet d’une machine comprenant son nom d’hôte et son domaine, par exemple srv01.exemple.local." data-courses="debian glpi" data-modules="d05 g02" data-letter="F" data-course-sort="administration debian gnu/linux" data-module-sort="035" data-source-order="306" aria-labelledby="fqdn-titre">
+<article class="tssr-glossary-card" id="fqdn" data-glossary-card data-term="FQDN" data-full-name="Fully Qualified Domain Name" data-aliases="nom de domaine pleinement qualifié" data-keywords="hostname | DNS" data-definition="Nom DNS complet d’une machine comprenant son nom d’hôte et son domaine, par exemple srv01.exemple.local." data-courses="debian glpi virtualisation" data-modules="d05 g02 virt08" data-letter="F" data-course-sort="administration debian gnu/linux" data-module-sort="035" data-source-order="306" aria-labelledby="fqdn-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="fqdn-titre"><a href="#fqdn" class="tssr-glossary-card__anchor" aria-label="FQDN">FQDN</a></h2>
     <p class="tssr-glossary-card__full-name">Fully Qualified Domain Name</p>
@@ -2147,6 +2309,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau/" title="Administration Debian GNU/Linux — Module 05 — Gestion du réseau">Debian · M05 · Réseau Debian</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -2298,7 +2461,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="get-help" data-glossary-card data-term="Get-Help" data-full-name data-aliases data-keywords="PowerShell | aide" data-definition="Cmdlet PowerShell qui affiche l’aide d’une commande, ses paramètres, des exemples et éventuellement la documentation en ligne." data-courses="windows" data-modules="w03 w11" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="106" aria-labelledby="get-help-titre">
+<article class="tssr-glossary-card" id="get-help" data-glossary-card data-term="Get-Help" data-full-name data-aliases data-keywords="PowerShell | aide" data-definition="Cmdlet PowerShell qui affiche l’aide d’une commande, ses paramètres, des exemples et éventuellement la documentation en ligne." data-courses="windows powershell" data-modules="w03 w11 powershell01" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="106" aria-labelledby="get-help-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="get-help-titre"><a href="#get-help" class="tssr-glossary-card__anchor" aria-label="Get-Help">Get-Help</a></h2>
   </header>
@@ -2306,10 +2469,11 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-01/" title="Initiation à PowerShell — Module 01 — Initiation à PowerShell">PowerShell · M01 · Premières commandes</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="get-member" data-glossary-card data-term="Get-Member" data-full-name data-aliases="gm" data-keywords="PowerShell | objet" data-definition="Cmdlet PowerShell qui révèle le type, les propriétés et les méthodes des objets reçus dans le pipeline." data-courses="windows" data-modules="w03 w11" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="107" aria-labelledby="get-member-titre">
+<article class="tssr-glossary-card" id="get-member" data-glossary-card data-term="Get-Member" data-full-name data-aliases="gm" data-keywords="PowerShell | objet" data-definition="Cmdlet PowerShell qui révèle le type, les propriétés et les méthodes des objets reçus dans le pipeline." data-courses="windows powershell" data-modules="w03 w11 powershell02" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="107" aria-labelledby="get-member-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="get-member-titre"><a href="#get-member" class="tssr-glossary-card__anchor" aria-label="Get-Member">Get-Member</a></h2>
   </header>
@@ -2318,6 +2482,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-02/" title="Initiation à PowerShell — Module 02 — PowerShell : langage objet">PowerShell · M02 · Objets</a></li>
   </ul>
 </article>
 
@@ -2393,7 +2558,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="gpo-lgpo" data-glossary-card data-term="GPO / LGPO" data-full-name="Group Policy Object / Local Group Policy Object" data-aliases="stratégie de groupe | stratégie locale" data-keywords="gpedit.msc" data-definition="Ensemble de paramètres administratifs appliqués aux utilisateurs ou ordinateurs ; LGPO désigne la stratégie enregistrée localement sur un poste." data-courses="windows glpi reseaux-ms msp-reseau" data-modules="w13 g02 srvms03 mspr01" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="018" data-source-order="109" aria-labelledby="gpo-lgpo-titre">
+<article class="tssr-glossary-card" id="gpo-lgpo" data-glossary-card data-term="GPO / LGPO" data-full-name="Group Policy Object / Local Group Policy Object" data-aliases="stratégie de groupe | stratégie locale" data-keywords="gpedit.msc" data-definition="Ensemble de paramètres administratifs appliqués aux utilisateurs ou ordinateurs ; LGPO désigne la stratégie enregistrée localement sur un poste." data-courses="windows glpi reseaux-ms msp-reseau cloud" data-modules="w13 g02 srvms03 mspr01 cloud04" data-letter="G" data-course-sort="systemes clients microsoft" data-module-sort="018" data-source-order="109" aria-labelledby="gpo-lgpo-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="gpo-lgpo-titre"><a href="#gpo-lgpo" class="tssr-glossary-card__anchor" aria-label="GPO / LGPO">GPO / LGPO</a></h2>
     <p class="tssr-glossary-card__full-name">Group Policy Object / Local Group Policy Object</p>
@@ -2405,6 +2570,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03/" title="Services réseau en environnement Microsoft — Module 03 — Stratégies de groupe">Réseau Microsoft · M03 · Stratégies de groupe</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau/" title="Mise en situation professionnelle — Services réseau — Mise en situation professionnelle — Services réseau">MSP Réseau · MSP · Services réseau</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -2575,7 +2741,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="hyperviseur" data-glossary-card data-term="Hyperviseur" data-full-name data-aliases data-keywords="virtualisation | VM" data-definition="Logiciel ou couche système qui crée et exécute des machines virtuelles en partageant processeur, mémoire, stockage et réseau physiques." data-courses="windows msp" data-modules="wadd s01" data-letter="H" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="114" aria-labelledby="hyperviseur-titre">
+<article class="tssr-glossary-card" id="hyper-v" data-glossary-card data-term="Hyper-V" data-full-name data-aliases data-keywords="Windows Server | commutateur virtuel | génération de VM" data-definition="Hyperviseur Microsoft qui héberge des machines virtuelles et leur présente du matériel virtuel. Le module pratique couvre le rôle Windows Server, les commutateurs virtuels, les générations de VM et l’importation." data-courses="virtualisation" data-modules="virt03 virt04" data-letter="H" data-course-sort="virtualisation de serveurs" data-module-sort="089" data-source-order="505" aria-labelledby="hyper-v-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="hyper-v-titre"><a href="#hyper-v" class="tssr-glossary-card__anchor" aria-label="Hyper-V">Hyper-V</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Hyperviseur Microsoft qui héberge des machines virtuelles et leur présente du matériel virtuel. Le module pratique couvre le rôle Windows Server, les commutateurs virtuels, les générations de VM et l’importation.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-03/" title="Virtualisation de serveurs — Module 03 — La virtualisation des serveurs">Virtualisation · M03 · Virtualisation des serveurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="hyperviseur" data-glossary-card data-term="Hyperviseur" data-full-name data-aliases data-keywords="virtualisation | VM" data-definition="Logiciel ou couche système qui crée et exécute des machines virtuelles en partageant processeur, mémoire, stockage et réseau physiques." data-courses="windows msp virtualisation" data-modules="wadd s01 virt01 virt02 virt03 virt04 virt05" data-letter="H" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="114" aria-labelledby="hyperviseur-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="hyperviseur-titre"><a href="#hyperviseur" class="tssr-glossary-card__anchor" aria-label="Hyperviseur">Hyperviseur</a></h2>
   </header>
@@ -2583,6 +2760,22 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-01/" title="Virtualisation de serveurs — Module 01 — Des concepts de la virtualisation à leur mise en œuvre">Virtualisation · M01 · Concepts</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-03/" title="Virtualisation de serveurs — Module 03 — La virtualisation des serveurs">Virtualisation · M03 · Virtualisation des serveurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="iaas" data-glossary-card data-term="IaaS" data-full-name data-aliases="Infrastructure as a Service" data-keywords="cloud | infrastructure | machine virtuelle" data-definition="Modèle cloud qui fournit des ressources d’infrastructure comme les machines virtuelles, le réseau et le stockage. Dans le cas type du cours, le client administre le système invité et ses applications." data-courses="cloud" data-modules="cloud01" data-letter="I" data-course-sort="messagerie cloud" data-module-sort="095" data-source-order="515" aria-labelledby="iaas-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="iaas-titre"><a href="#iaas" class="tssr-glossary-card__anchor" aria-label="IaaS">IaaS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Modèle cloud qui fournit des ressources d’infrastructure comme les machines virtuelles, le réseau et le stockage. Dans le cas type du cours, le client administre le système invité et ses applications.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Infrastructure as a Service</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -2609,6 +2802,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="ifs" data-glossary-card data-term="IFS" data-full-name data-aliases data-keywords="Bash | read | séparateur" data-definition="Variable Bash qui indique les séparateurs utilisés dans le découpage des champs. Une affectation ponctuelle avec read permet de choisir le séparateur ou de préserver une ligne entière." data-courses="bash" data-modules="bash07" data-letter="I" data-course-sort="initiation au scripting bash" data-module-sort="079" data-source-order="494" aria-labelledby="ifs-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="ifs-titre"><a href="#ifs" class="tssr-glossary-card__anchor" aria-label="IFS">IFS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Variable Bash qui indique les séparateurs utilisés dans le découpage des champs. Une affectation ponctuelle avec read permet de choisir le séparateur ou de préserver une ligne entière.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="image-de-reference" data-glossary-card data-term="Image de référence" data-full-name data-aliases="master" data-keywords="Sysprep | WIM" data-definition="Installation Windows préparée, configurée et validée pour servir de source à la capture puis au déploiement sur d’autres postes." data-courses="windows" data-modules="w12" data-letter="I" data-course-sort="systemes clients microsoft" data-module-sort="017" data-source-order="115" aria-labelledby="image-de-reference-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="image-de-reference-titre"><a href="#image-de-reference" class="tssr-glossary-card__anchor" aria-label="Image de référence">Image de référence</a></h2>
@@ -2620,7 +2823,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="image-iso" data-glossary-card data-term="Image ISO" data-full-name data-aliases="ISO" data-keywords="installation | média" data-definition="Fichier représentant le contenu d’un disque optique, utilisé comme support virtuel pour installer un système ou démarrer un outil." data-courses="windows debian msp" data-modules="w02 d02 s01" data-letter="I" data-course-sort="systemes clients microsoft" data-module-sort="007" data-source-order="116" aria-labelledby="image-iso-titre">
+<article class="tssr-glossary-card" id="image-iso" data-glossary-card data-term="Image ISO" data-full-name data-aliases="ISO" data-keywords="installation | média" data-definition="Fichier représentant le contenu d’un disque optique, utilisé comme support virtuel pour installer un système ou démarrer un outil." data-courses="windows debian msp virtualisation" data-modules="w02 d02 s01 virt01 virt02 virt04 virt05" data-letter="I" data-course-sort="systemes clients microsoft" data-module-sort="007" data-source-order="116" aria-labelledby="image-iso-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="image-iso-titre"><a href="#image-iso" class="tssr-glossary-card__anchor" aria-label="Image ISO">Image ISO</a></h2>
   </header>
@@ -2630,10 +2833,14 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/" title="Systèmes clients Microsoft — Module 02 — Installation du système d’exploitation Windows 10">Windows · M02 · Installation Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/" title="Administration Debian GNU/Linux — Module 02 — Installation d’une distribution Debian">Debian · M02 · Installation Debian</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-01/" title="Virtualisation de serveurs — Module 01 — Des concepts de la virtualisation à leur mise en œuvre">Virtualisation · M01 · Concepts</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="imap" data-glossary-card data-term="IMAP" data-full-name="Internet Message Access Protocol" data-aliases data-keywords="courriel | synchronisation" data-definition="Protocole qui synchronise les messages et dossiers conservés sur un serveur de messagerie entre plusieurs clients." data-courses="m365" data-modules="m04" data-letter="I" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="185" aria-labelledby="imap-titre">
+<article class="tssr-glossary-card" id="imap" data-glossary-card data-term="IMAP" data-full-name="Internet Message Access Protocol" data-aliases data-keywords="courriel | synchronisation" data-definition="Protocole qui synchronise les messages et dossiers conservés sur un serveur de messagerie entre plusieurs clients." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="I" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="185" aria-labelledby="imap-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="imap-titre"><a href="#imap" class="tssr-glossary-card__anchor" aria-label="IMAP">IMAP</a></h2>
     <p class="tssr-glossary-card__full-name">Internet Message Access Protocol</p>
@@ -2641,6 +2848,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Protocole qui synchronise les messages et dossiers conservés sur un serveur de messagerie entre plusieurs clients.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -2734,7 +2944,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="instantane" data-glossary-card data-term="Instantané" data-full-name data-aliases="snapshot" data-keywords="VM | retour arrière" data-definition="État ponctuel d’une machine virtuelle permettant un retour rapide en laboratoire ; il ne remplace pas une sauvegarde indépendante." data-courses="windows msp" data-modules="wadd s01" data-letter="I" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="118" aria-labelledby="instantane-titre">
+<article class="tssr-glossary-card" id="instantane" data-glossary-card data-term="Instantané" data-full-name data-aliases="snapshot" data-keywords="VM | retour arrière" data-definition="État ponctuel d’une machine virtuelle permettant un retour rapide en laboratoire ; il ne remplace pas une sauvegarde indépendante." data-courses="windows msp virtualisation" data-modules="wadd s01 virt02 virt04 virt07" data-letter="I" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="118" aria-labelledby="instantane-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="instantane-titre"><a href="#instantane" class="tssr-glossary-card__anchor" aria-label="Instantané">Instantané</a></h2>
   </header>
@@ -2743,6 +2953,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
   </ul>
 </article>
 
@@ -2777,6 +2990,19 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Interface complète dont les menus dépendent du profil, destinée aux techniciens, gestionnaires et administrateurs de GLPI.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/07-administration-glpi/module-02-authentification-ad-habilitations/" title="Administration GLPI — Module 02 — Authentification AD — Habilitations">GLPI · M02 · AD et habilitations</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="interface-vmkernel" data-glossary-card data-term="Interface VMkernel" data-full-name data-aliases="Adaptateur VMkernel" data-keywords="vSwitch | groupe de ports | vMotion | stockage IP" data-definition="Interface réseau de l’hôte ESXi destinée aux services de l’hyperviseur, tels que la gestion, le stockage IP ou vMotion. Elle se raccorde à un groupe de ports et porte un adressage propre." data-courses="virtualisation" data-modules="virt06 virt07 virt08" data-letter="I" data-course-sort="virtualisation de serveurs" data-module-sort="092" data-source-order="508" aria-labelledby="interface-vmkernel-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="interface-vmkernel-titre"><a href="#interface-vmkernel" class="tssr-glossary-card__anchor" aria-label="Interface VMkernel">Interface VMkernel</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Interface réseau de l’hôte ESXi destinée aux services de l’hyperviseur, tels que la gestion, le stockage IP ou vMotion. Elle se raccorde à un groupe de ports et porte un adressage propre.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Adaptateur VMkernel</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -2851,6 +3077,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-06-l-adressage-ipv6/" title="Bases des réseaux — Module 06 — L’adressage IPv6">Réseaux · M06 · Adressage IPv6</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-07-la-gestion-du-reseau-et-du-pare-feu/" title="Systèmes clients Microsoft — Module 07 — La gestion du réseau et du pare-feu">Windows · M07 · Réseau et pare-feu</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="iscsi" data-glossary-card data-term="iSCSI" data-full-name data-aliases data-keywords="stockage bloc | SCSI | initiateur | cible | LUN" data-definition="Protocole qui transporte les commandes SCSI sur TCP/IP. Un initiateur se connecte à une cible qui lui présente des unités de stockage en mode bloc." data-courses="virtualisation" data-modules="virt07" data-letter="I" data-course-sort="virtualisation de serveurs" data-module-sort="093" data-source-order="511" aria-labelledby="iscsi-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="iscsi-titre"><a href="#iscsi" class="tssr-glossary-card__anchor" aria-label="iSCSI">iSCSI</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Protocole qui transporte les commandes SCSI sur TCP/IP. Un initiateur se connecte à une cible qui lui présente des unités de stockage en mode bloc.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
   </ul>
 </article>
 
@@ -2976,13 +3212,14 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="lien-de-partage" data-glossary-card data-term="Lien de partage" data-full-name data-aliases data-keywords="OneDrive | SharePoint | permission" data-definition="URL donnant un accès contrôlé à un fichier ou dossier, avec une portée et des droits à vérifier avant diffusion." data-courses="m365" data-modules="m05" data-letter="L" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="186" aria-labelledby="lien-de-partage-titre">
+<article class="tssr-glossary-card" id="lien-de-partage" data-glossary-card data-term="Lien de partage" data-full-name data-aliases data-keywords="OneDrive | SharePoint | permission" data-definition="URL donnant un accès contrôlé à un fichier ou dossier, avec une portée et des droits à vérifier avant diffusion." data-courses="m365 cloud" data-modules="m05 cloud04" data-letter="L" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="186" aria-labelledby="lien-de-partage-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="lien-de-partage-titre"><a href="#lien-de-partage" class="tssr-glossary-card__anchor" aria-label="Lien de partage">Lien de partage</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">URL donnant un accès contrôlé à un fichier ou dossier, avec une portée et des droits à vérifier avant diffusion.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" title="Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive">Microsoft 365 · M05 · Teams, SharePoint, OneDrive</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -3128,7 +3365,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="machine-virtuelle" data-glossary-card data-term="Machine virtuelle" data-full-name data-aliases="VM" data-keywords="virtualisation | système invité" data-definition="Ordinateur logiciel isolé qui exécute son propre système invité sur des ressources fournies par un hyperviseur." data-courses="windows msp" data-modules="wadd s01" data-letter="M" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="121" aria-labelledby="machine-virtuelle-titre">
+<article class="tssr-glossary-card" id="machine-virtuelle" data-glossary-card data-term="Machine virtuelle" data-full-name data-aliases="VM" data-keywords="virtualisation | système invité" data-definition="Ordinateur logiciel isolé qui exécute son propre système invité sur des ressources fournies par un hyperviseur." data-courses="windows msp virtualisation cloud" data-modules="wadd s01 virt01 virt02 virt03 virt04 virt05 cloud01" data-letter="M" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="121" aria-labelledby="machine-virtuelle-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="machine-virtuelle-titre"><a href="#machine-virtuelle" class="tssr-glossary-card__anchor" aria-label="Machine virtuelle">Machine virtuelle</a></h2>
   </header>
@@ -3137,6 +3374,12 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-01/" title="Virtualisation de serveurs — Module 01 — Des concepts de la virtualisation à leur mise en œuvre">Virtualisation · M01 · Concepts</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-03/" title="Virtualisation de serveurs — Module 03 — La virtualisation des serveurs">Virtualisation · M03 · Virtualisation des serveurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -3209,7 +3452,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="metacaractere-shell" data-glossary-card data-term="Métacaractère shell" data-full-name data-aliases data-keywords="globbing | quoting" data-definition="Caractère interprété spécialement par le shell, comme *, ?, |, &gt;, $ ou ;, et qu’il faut protéger pour le traiter littéralement." data-courses="linux" data-modules="l04 l08" data-letter="M" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="026" data-source-order="245" aria-labelledby="metacaractere-shell-titre">
+<article class="tssr-glossary-card" id="metacaractere-shell" data-glossary-card data-term="Métacaractère shell" data-full-name data-aliases data-keywords="globbing | quoting" data-definition="Caractère interprété spécialement par le shell, comme *, ?, |, &gt;, $ ou ;, et qu’il faut protéger pour le traiter littéralement." data-courses="linux bash" data-modules="l04 l08 bash05 bash06" data-letter="M" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="026" data-source-order="245" aria-labelledby="metacaractere-shell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="metacaractere-shell-titre"><a href="#metacaractere-shell" class="tssr-glossary-card__anchor" aria-label="Métacaractère shell">Métacaractère shell</a></h2>
   </header>
@@ -3217,6 +3460,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/" title="Utilisation d’une distribution GNU/Linux — Module 04 — Fichiers, dossiers et métacaractères">GNU/Linux · M04 · Fichiers et métacaractères</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle/" title="Initiation au scripting Bash — Module 06 — Exécution conditionnelle">Bash · M06 · Conditions</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="methode-powershell" data-glossary-card data-term="Méthode PowerShell" data-full-name data-aliases data-keywords="objet | Get-Member" data-definition="Opération qu’un objet permet d’appeler, distincte des valeurs exposées par ses propriétés. Get-Member aide à repérer les méthodes disponibles sur un type." data-courses="powershell" data-modules="powershell02" data-letter="M" data-course-sort="initiation a powershell" data-module-sort="082" data-source-order="499" aria-labelledby="methode-powershell-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="methode-powershell-titre"><a href="#methode-powershell" class="tssr-glossary-card__anchor" aria-label="Méthode PowerShell">Méthode PowerShell</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Opération qu’un objet permet d’appeler, distincte des valeurs exposées par ses propriétés. Get-Member aide à repérer les méthodes disponibles sur un type.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-02/" title="Initiation à PowerShell — Module 02 — PowerShell : langage objet">PowerShell · M02 · Objets</a></li>
   </ul>
 </article>
 
@@ -3230,7 +3485,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="microsoft-365" data-glossary-card data-term="Microsoft 365" data-full-name data-aliases="M365" data-keywords="cloud | collaboration" data-definition="Suite de services et applications Microsoft par abonnement réunissant notamment Office, Exchange Online, Teams, SharePoint et OneDrive." data-courses="m365" data-modules="m01" data-letter="M" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="188" aria-labelledby="microsoft-365-titre">
+<article class="tssr-glossary-card" id="microsoft-365" data-glossary-card data-term="Microsoft 365" data-full-name data-aliases="M365" data-keywords="cloud | collaboration" data-definition="Suite de services et applications Microsoft par abonnement réunissant notamment Office, Exchange Online, Teams, SharePoint et OneDrive." data-courses="m365 cloud" data-modules="m01 cloud01 cloud02 cloud03 cloud04" data-letter="M" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="188" aria-labelledby="microsoft-365-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="microsoft-365-titre"><a href="#microsoft-365" class="tssr-glossary-card__anchor" aria-label="Microsoft 365">Microsoft 365</a></h2>
   </header>
@@ -3238,10 +3493,26 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> M365</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" title="Microsoft 365 — Outils collaboratifs — Module 01 — Découverte de Microsoft 365">Microsoft 365 · M01 · Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="microsoft-teams" data-glossary-card data-term="Microsoft Teams" data-full-name data-aliases="Teams" data-keywords="collaboration" data-definition="Plateforme de collaboration qui réunit conversations, réunions, appels, équipes, canaux, fichiers et applications Microsoft 365." data-courses="m365" data-modules="m05" data-letter="M" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="189" aria-labelledby="microsoft-teams-titre">
+<article class="tssr-glossary-card" id="microsoft-entra-connect-sync" data-glossary-card data-term="Microsoft Entra Connect Sync" data-full-name data-aliases="Azure AD Connect" data-keywords="identité hybride | synchronisation | annuaire | filtrage" data-definition="Outil qui synchronise des objets et attributs entre un annuaire Active Directory local et Microsoft Entra ID. La configuration définit quels objets entrent dans le périmètre." data-courses="cloud" data-modules="cloud02 cloud03" data-letter="M" data-course-sort="messagerie cloud" data-module-sort="096" data-source-order="520" aria-labelledby="microsoft-entra-connect-sync-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="microsoft-entra-connect-sync-titre"><a href="#microsoft-entra-connect-sync" class="tssr-glossary-card__anchor" aria-label="Microsoft Entra Connect Sync">Microsoft Entra Connect Sync</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Outil qui synchronise des objets et attributs entre un annuaire Active Directory local et Microsoft Entra ID. La configuration définit quels objets entrent dans le périmètre.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Azure AD Connect</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="microsoft-teams" data-glossary-card data-term="Microsoft Teams" data-full-name data-aliases="Teams" data-keywords="collaboration" data-definition="Plateforme de collaboration qui réunit conversations, réunions, appels, équipes, canaux, fichiers et applications Microsoft 365." data-courses="m365 cloud" data-modules="m05 cloud04" data-letter="M" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="189" aria-labelledby="microsoft-teams-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="microsoft-teams-titre"><a href="#microsoft-teams" class="tssr-glossary-card__anchor" aria-label="Microsoft Teams">Microsoft Teams</a></h2>
   </header>
@@ -3249,6 +3520,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> Teams</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" title="Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive">Microsoft 365 · M05 · Teams, SharePoint, OneDrive</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -3351,6 +3623,26 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="module-powershell" data-glossary-card data-term="Module PowerShell" data-full-name data-aliases data-keywords="PowerShell | Get-Module | Import-Module" data-definition="Ensemble de commandes et ressources réutilisables. Get-Module renseigne sur les modules et Import-Module charge explicitement un module dans la session." data-courses="powershell" data-modules="powershell01" data-letter="M" data-course-sort="initiation a powershell" data-module-sort="081" data-source-order="497" aria-labelledby="module-powershell-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="module-powershell-titre"><a href="#module-powershell" class="tssr-glossary-card__anchor" aria-label="Module PowerShell">Module PowerShell</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Ensemble de commandes et ressources réutilisables. Get-Module renseigne sur les modules et Import-Module charge explicitement un module dans la session.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-01/" title="Initiation à PowerShell — Module 01 — Initiation à PowerShell">PowerShell · M01 · Premières commandes</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="motif-bash" data-glossary-card data-term="Motif Bash" data-full-name data-aliases data-keywords="Bash | glob | case | extglob" data-definition="Expression composée de caractères littéraux et de métacaractères comme * ou ?. Bash emploie des motifs dans le développement de chemins, dans case et dans certaines comparaisons entre doubles crochets." data-courses="bash" data-modules="bash06" data-letter="M" data-course-sort="initiation au scripting bash" data-module-sort="078" data-source-order="493" aria-labelledby="motif-bash-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="motif-bash-titre"><a href="#motif-bash" class="tssr-glossary-card__anchor" aria-label="Motif Bash">Motif Bash</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Expression composée de caractères littéraux et de métacaractères comme * ou ?. Bash emploie des motifs dans le développement de chemins, dans case et dans certaines comparaisons entre doubles crochets.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle/" title="Initiation au scripting Bash — Module 06 — Exécution conditionnelle">Bash · M06 · Conditions</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="mount" data-glossary-card data-term="mount" data-full-name data-aliases data-keywords="montage | fstab" data-definition="Commande qui attache un système de fichiers à un point de l’arborescence et, avec -a, applique les entrées appropriées de fstab." data-courses="debian" data-modules="d09" data-letter="M" data-course-sort="administration debian gnu/linux" data-module-sort="039" data-source-order="320" aria-labelledby="mount-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="mount-titre"><a href="#mount" class="tssr-glossary-card__anchor" aria-label="mount">mount</a></h2>
@@ -3361,7 +3653,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="mtu" data-glossary-card data-term="MTU" data-full-name="Maximum Transmission Unit" data-aliases="unité de transmission maximale" data-keywords="fragmentation" data-definition="Taille maximale de paquet transportable dans une trame sur une interface sans fragmentation, souvent 1 500 octets sur Ethernet." data-courses="reseaux" data-modules="r01" data-letter="M" data-course-sort="bases des reseaux" data-module-sort="000" data-source-order="43" aria-labelledby="mtu-titre">
+<article class="tssr-glossary-card" id="mtu" data-glossary-card data-term="MTU" data-full-name="Maximum Transmission Unit" data-aliases="unité de transmission maximale" data-keywords="fragmentation" data-definition="Taille maximale de paquet transportable dans une trame sur une interface sans fragmentation, souvent 1 500 octets sur Ethernet." data-courses="reseaux virtualisation" data-modules="r01 virt07" data-letter="M" data-course-sort="bases des reseaux" data-module-sort="000" data-source-order="43" aria-labelledby="mtu-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="mtu-titre"><a href="#mtu" class="tssr-glossary-card__anchor" aria-label="MTU">MTU</a></h2>
     <p class="tssr-glossary-card__full-name">Maximum Transmission Unit</p>
@@ -3370,6 +3662,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> unité de transmission maximale</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-01-le-modele-osi/" title="Bases des réseaux — Module 01 — Le modèle OSI">Réseaux · M01 · Modèle OSI</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
   </ul>
 </article>
 
@@ -3422,13 +3715,14 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="nat-virtuel" data-glossary-card data-term="NAT virtuel" data-full-name data-aliases data-keywords="VM | réseau virtuel" data-definition="Mode réseau où l’hyperviseur traduit le trafic des machines virtuelles derrière l’adresse de l’hôte pour leur donner un accès sortant." data-courses="windows" data-modules="wadd" data-letter="N" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="125" aria-labelledby="nat-virtuel-titre">
+<article class="tssr-glossary-card" id="nat-virtuel" data-glossary-card data-term="NAT virtuel" data-full-name data-aliases data-keywords="VM | réseau virtuel" data-definition="Mode réseau où l’hyperviseur traduit le trafic des machines virtuelles derrière l’adresse de l’hôte pour leur donner un accès sortant." data-courses="windows virtualisation" data-modules="wadd virt02" data-letter="N" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="125" aria-labelledby="nat-virtuel-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="nat-virtuel-titre"><a href="#nat-virtuel" class="tssr-glossary-card__anchor" aria-label="NAT virtuel">NAT virtuel</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Mode réseau où l’hyperviseur traduit le trafic des machines virtuelles derrière l’adresse de l’hôte pour leur donner un accès sortant.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
   </ul>
 </article>
 
@@ -3521,7 +3815,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="objet-powershell" data-glossary-card data-term="Objet PowerShell" data-full-name data-aliases data-keywords="propriété | méthode | pipeline" data-definition="Valeur structurée possédant un type, des propriétés et des méthodes, transmise nativement entre commandes du pipeline PowerShell." data-courses="windows" data-modules="w03 w11" data-letter="O" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="127" aria-labelledby="objet-powershell-titre">
+<article class="tssr-glossary-card" id="objet-powershell" data-glossary-card data-term="Objet PowerShell" data-full-name data-aliases data-keywords="propriété | méthode | pipeline" data-definition="Valeur structurée possédant un type, des propriétés et des méthodes, transmise nativement entre commandes du pipeline PowerShell." data-courses="windows powershell" data-modules="w03 w11 powershell02 powershell03" data-letter="O" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="127" aria-labelledby="objet-powershell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="objet-powershell-titre"><a href="#objet-powershell" class="tssr-glossary-card__anchor" aria-label="Objet PowerShell">Objet PowerShell</a></h2>
   </header>
@@ -3529,6 +3823,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-02/" title="Initiation à PowerShell — Module 02 — PowerShell : langage objet">PowerShell · M02 · Objets</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -3567,13 +3863,25 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="onedrive" data-glossary-card data-term="OneDrive" data-full-name data-aliases data-keywords="cloud | synchronisation" data-definition="Service Microsoft de stockage et synchronisation des fichiers personnels professionnels, avec partage et historique de versions." data-courses="m365" data-modules="m05" data-letter="O" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="191" aria-labelledby="onedrive-titre">
+<article class="tssr-glossary-card" id="office-deployment-tool" data-glossary-card data-term="Office Deployment Tool" data-full-name data-aliases="ODT" data-keywords="Microsoft 365 Apps | XML | déploiement | GPO" data-definition="Outil de déploiement de Microsoft 365 Apps qui lit une configuration XML. Il peut télécharger les fichiers nécessaires puis appliquer l’installation sur le poste." data-courses="cloud" data-modules="cloud04" data-letter="O" data-course-sort="messagerie cloud" data-module-sort="098" data-source-order="522" aria-labelledby="office-deployment-tool-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="office-deployment-tool-titre"><a href="#office-deployment-tool" class="tssr-glossary-card__anchor" aria-label="Office Deployment Tool">Office Deployment Tool</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Outil de déploiement de Microsoft 365 Apps qui lit une configuration XML. Il peut télécharger les fichiers nécessaires puis appliquer l’installation sur le poste.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> ODT</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="onedrive" data-glossary-card data-term="OneDrive" data-full-name data-aliases data-keywords="cloud | synchronisation" data-definition="Service Microsoft de stockage et synchronisation des fichiers personnels professionnels, avec partage et historique de versions." data-courses="m365 cloud" data-modules="m05 cloud04" data-letter="O" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="191" aria-labelledby="onedrive-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="onedrive-titre"><a href="#onedrive" class="tssr-glossary-card__anchor" aria-label="OneDrive">OneDrive</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Service Microsoft de stockage et synchronisation des fichiers personnels professionnels, avec partage et historique de versions.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" title="Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive">Microsoft 365 · M05 · Teams, SharePoint, OneDrive</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -3600,13 +3908,27 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="outlook" data-glossary-card data-term="Outlook" data-full-name data-aliases data-keywords="messagerie | calendrier" data-definition="Client Microsoft de messagerie et d’organisation qui gère courriels, calendrier, contacts, tâches et connexion à Exchange." data-courses="m365" data-modules="m04" data-letter="O" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="192" aria-labelledby="outlook-titre">
+<article class="tssr-glossary-card" id="outlook" data-glossary-card data-term="Outlook" data-full-name data-aliases data-keywords="messagerie | calendrier" data-definition="Client Microsoft de messagerie et d’organisation qui gère courriels, calendrier, contacts, tâches et connexion à Exchange." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="O" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="192" aria-labelledby="outlook-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="outlook-titre"><a href="#outlook" class="tssr-glossary-card__anchor" aria-label="Outlook">Outlook</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Client Microsoft de messagerie et d’organisation qui gère courriels, calendrier, contacts, tâches et connexion à Exchange.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="paas" data-glossary-card data-term="PaaS" data-full-name data-aliases="Platform as a Service" data-keywords="cloud | plateforme | application" data-definition="Modèle cloud qui fournit une plateforme d’exécution maintenue par le fournisseur. Le client y déploie son application et gère ses données et les réglages qui lui sont attribués." data-courses="cloud" data-modules="cloud01" data-letter="P" data-course-sort="messagerie cloud" data-module-sort="095" data-source-order="516" aria-labelledby="paas-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="paas-titre"><a href="#paas" class="tssr-glossary-card__anchor" aria-label="PaaS">PaaS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Modèle cloud qui fournit une plateforme d’exécution maintenue par le fournisseur. Le client y déploie son application et gère ses données et les réglages qui lui sont attribués.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Platform as a Service</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -3639,6 +3961,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Bloc de texte terminé par une marque de paragraphe et portant des propriétés comme alignement, retraits, espacement et style.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/" title="Microsoft 365 — Outils collaboratifs — Module 02 — Connaissances des notions de base Word">Microsoft 365 · M02 · Word</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="parametre-positionnel-bash" data-glossary-card data-term="Paramètre positionnel Bash" data-full-name data-aliases data-keywords="Bash | argument | fonction" data-definition="Argument accessible par son rang dans un script ou une fonction, par exemple $1. $# compte les arguments. Entre guillemets doubles, $@ préserve les limites de chaque argument." data-courses="bash" data-modules="bash04 bash08" data-letter="P" data-course-sort="initiation au scripting bash" data-module-sort="076" data-source-order="490" aria-labelledby="parametre-positionnel-bash-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="parametre-positionnel-bash-titre"><a href="#parametre-positionnel-bash" class="tssr-glossary-card__anchor" aria-label="Paramètre positionnel Bash">Paramètre positionnel Bash</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Argument accessible par son rang dans un script ou une fonction, par exemple $1. $# compte les arguments. Entre guillemets doubles, $@ préserve les limites de chaque argument.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/" title="Initiation au scripting Bash — Module 04 — Les variables dans les scripts">Bash · M04 · Variables</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-08-les-fonctions/" title="Initiation au scripting Bash — Module 08 — Les fonctions">Bash · M08 · Fonctions</a></li>
   </ul>
 </article>
 
@@ -3744,7 +4077,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="peripherique-bloc" data-glossary-card data-term="Périphérique bloc" data-full-name data-aliases="block device" data-keywords="/dev/sda | stockage" data-definition="Interface noyau donnant accès à un stockage par blocs, comme un disque, une partition ou un volume logique sous /dev." data-courses="debian" data-modules="d07 d08" data-letter="P" data-course-sort="administration debian gnu/linux" data-module-sort="037" data-source-order="325" aria-labelledby="peripherique-bloc-titre">
+<article class="tssr-glossary-card" id="peripherique-bloc" data-glossary-card data-term="Périphérique bloc" data-full-name data-aliases="block device" data-keywords="/dev/sda | stockage" data-definition="Interface noyau donnant accès à un stockage par blocs, comme un disque, une partition ou un volume logique sous /dev." data-courses="debian virtualisation" data-modules="d07 d08 virt07" data-letter="P" data-course-sort="administration debian gnu/linux" data-module-sort="037" data-source-order="325" aria-labelledby="peripherique-bloc-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="peripherique-bloc-titre"><a href="#peripherique-bloc" class="tssr-glossary-card__anchor" aria-label="Périphérique bloc">Périphérique bloc</a></h2>
   </header>
@@ -3753,6 +4086,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage/" title="Administration Debian GNU/Linux — Module 07 — Gestion des espaces de stockage">Debian · M07 · Stockage</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm/" title="Administration Debian GNU/Linux — Module 08 — Gestion des espaces de stockage avancée — LVM">Debian · M08 · LVM</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
   </ul>
 </article>
 
@@ -3847,7 +4181,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="pipeline-powershell" data-glossary-card data-term="Pipeline PowerShell" data-full-name data-aliases="tube PowerShell" data-keywords="objet | pipe" data-definition="Chaîne de commandes reliées par | dans laquelle les objets produits à gauche deviennent l’entrée de la commande suivante." data-courses="windows" data-modules="w11" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="135" aria-labelledby="pipeline-powershell-titre">
+<article class="tssr-glossary-card" id="pipeline-bash" data-glossary-card data-term="Pipeline Bash" data-full-name data-aliases data-keywords="Bash | tube | pipefail" data-definition="Suite de commandes reliées par un tube. La sortie standard d’une commande alimente l’entrée de la suivante. Le statut est celui de la dernière commande par défaut. pipefail signale les échecs intermédiaires." data-courses="bash" data-modules="bash05 bash07" data-letter="P" data-course-sort="initiation au scripting bash" data-module-sort="077" data-source-order="491" aria-labelledby="pipeline-bash-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="pipeline-bash-titre"><a href="#pipeline-bash" class="tssr-glossary-card__anchor" aria-label="Pipeline Bash">Pipeline Bash</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Suite de commandes reliées par un tube. La sortie standard d’une commande alimente l’entrée de la suivante. Le statut est celui de la dernière commande par défaut. pipefail signale les échecs intermédiaires.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="pipeline-powershell" data-glossary-card data-term="Pipeline PowerShell" data-full-name data-aliases="tube PowerShell" data-keywords="objet | pipe" data-definition="Chaîne de commandes reliées par | dans laquelle les objets produits à gauche deviennent l’entrée de la commande suivante." data-courses="windows powershell" data-modules="w11 powershell03" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="135" aria-labelledby="pipeline-powershell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="pipeline-powershell-titre"><a href="#pipeline-powershell" class="tssr-glossary-card__anchor" aria-label="Pipeline PowerShell">Pipeline PowerShell</a></h2>
   </header>
@@ -3855,6 +4200,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> tube PowerShell</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -3889,7 +4235,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="pop3" data-glossary-card data-term="POP3" data-full-name="Post Office Protocol version 3" data-aliases data-keywords="courriel | téléchargement" data-definition="Protocole simple qui télécharge les messages d’un serveur vers un client, avec moins de synchronisation de dossiers qu’IMAP." data-courses="m365" data-modules="m04" data-letter="P" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="194" aria-labelledby="pop3-titre">
+<article class="tssr-glossary-card" id="pop3" data-glossary-card data-term="POP3" data-full-name="Post Office Protocol version 3" data-aliases data-keywords="courriel | téléchargement" data-definition="Protocole simple qui télécharge les messages d’un serveur vers un client, avec moins de synchronisation de dossiers qu’IMAP." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="P" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="194" aria-labelledby="pop3-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="pop3-titre"><a href="#pop3" class="tssr-glossary-card__anchor" aria-label="POP3">POP3</a></h2>
     <p class="tssr-glossary-card__full-name">Post Office Protocol version 3</p>
@@ -3897,6 +4243,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Protocole simple qui télécharge les messages d’un serveur vers un client, avec moins de synchronisation de dossiers qu’IMAP.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -3923,7 +4272,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="powershell" data-glossary-card data-term="PowerShell" data-full-name data-aliases data-keywords="script | cmdlet | objet" data-definition="Shell et langage d’automatisation Microsoft orienté objets, fondé sur des cmdlets, des fournisseurs et un pipeline structuré." data-courses="windows msp" data-modules="w03 w11 s01" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="137" aria-labelledby="powershell-titre">
+<article class="tssr-glossary-card" id="powershell" data-glossary-card data-term="PowerShell" data-full-name data-aliases data-keywords="script | cmdlet | objet" data-definition="Shell et langage d’automatisation Microsoft orienté objets, fondé sur des cmdlets, des fournisseurs et un pipeline structuré." data-courses="windows msp powershell" data-modules="w03 w11 s01 powershell01" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="137" aria-labelledby="powershell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="powershell-titre"><a href="#powershell" class="tssr-glossary-card__anchor" aria-label="PowerShell">PowerShell</a></h2>
   </header>
@@ -3932,6 +4281,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-01/" title="Initiation à PowerShell — Module 01 — Initiation à PowerShell">PowerShell · M01 · Premières commandes</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="powershell-remoting" data-glossary-card data-term="PowerShell Remoting" data-full-name data-aliases data-keywords="PowerShell | Enter-PSSession | Invoke-Command" data-definition="Mécanisme d’exécution de commandes sur un hôte distant autorisé. Enter-PSSession ouvre une session interactive et Invoke-Command demande l’exécution d’un bloc de commandes." data-courses="powershell" data-modules="powershell05" data-letter="P" data-course-sort="initiation a powershell" data-module-sort="085" data-source-order="501" aria-labelledby="powershell-remoting-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="powershell-remoting-titre"><a href="#powershell-remoting" class="tssr-glossary-card__anchor" aria-label="PowerShell Remoting">PowerShell Remoting</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Mécanisme d’exécution de commandes sur un hôte distant autorisé. Enter-PSSession ouvre une session interactive et Invoke-Command demande l’exécution d’un bloc de commandes.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-05/" title="Initiation à PowerShell — Module 05 — Réalisation d’un script">PowerShell · M05 · Réalisation d’un script</a></li>
   </ul>
 </article>
 
@@ -4002,6 +4362,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="profil-powershell" data-glossary-card data-term="Profil PowerShell" data-full-name data-aliases data-keywords="PowerShell | configuration | session" data-definition="Script de personnalisation associé à un utilisateur ou à un hôte PowerShell. La variable $PROFILE indique le chemin du profil propre à l’utilisateur et à l’hôte courants." data-courses="powershell" data-modules="powershell01" data-letter="P" data-course-sort="initiation a powershell" data-module-sort="081" data-source-order="498" aria-labelledby="profil-powershell-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="profil-powershell-titre"><a href="#profil-powershell" class="tssr-glossary-card__anchor" aria-label="Profil PowerShell">Profil PowerShell</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Script de personnalisation associé à un utilisateur ou à un hôte PowerShell. La variable $PROFILE indique le chemin du profil propre à l’utilisateur et à l’hôte courants.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-01/" title="Initiation à PowerShell — Module 01 — Initiation à PowerShell">PowerShell · M01 · Premières commandes</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="profil-reseau-windows" data-glossary-card data-term="Profil réseau Windows" data-full-name data-aliases data-keywords="pare-feu | public | privé" data-definition="Catégorie Domaine, Privé ou Public qui détermine l’ensemble de règles de pare-feu appliqué à une connexion Windows." data-courses="windows" data-modules="w07" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="012" data-source-order="138" aria-labelledby="profil-reseau-windows-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="profil-reseau-windows-titre"><a href="#profil-reseau-windows" class="tssr-glossary-card__anchor" aria-label="Profil réseau Windows">Profil réseau Windows</a></h2>
@@ -4022,7 +4392,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="propriete-powershell" data-glossary-card data-term="Propriété PowerShell" data-full-name data-aliases data-keywords="objet | Get-Member" data-definition="Information nommée portée par un objet PowerShell, par exemple Name, Status ou Length, que l’on peut sélectionner et filtrer." data-courses="windows" data-modules="w03 w11" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="140" aria-labelledby="propriete-powershell-titre">
+<article class="tssr-glossary-card" id="propriete-powershell" data-glossary-card data-term="Propriété PowerShell" data-full-name data-aliases data-keywords="objet | Get-Member" data-definition="Information nommée portée par un objet PowerShell, par exemple Name, Status ou Length, que l’on peut sélectionner et filtrer." data-courses="windows powershell" data-modules="w03 w11 powershell02 powershell03" data-letter="P" data-course-sort="systemes clients microsoft" data-module-sort="008" data-source-order="140" aria-labelledby="propriete-powershell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="propriete-powershell-titre"><a href="#propriete-powershell" class="tssr-glossary-card__anchor" aria-label="Propriété PowerShell">Propriété PowerShell</a></h2>
   </header>
@@ -4030,6 +4400,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-03-interagir-avec-windows-10/" title="Systèmes clients Microsoft — Module 03 — Interagir avec Windows 10">Windows · M03 · Interagir avec Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-02/" title="Initiation à PowerShell — Module 02 — PowerShell : langage objet">PowerShell · M02 · Objets</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -4041,6 +4413,16 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production/" title="Administration Debian GNU/Linux — Module 12 — Maintenance d’un système en production">Debian · M12 · Maintenance</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="pscredential" data-glossary-card data-term="PSCredential" data-full-name data-aliases data-keywords="PowerShell | Get-Credential | authentification" data-definition="Objet PowerShell qui associe un nom d’utilisateur et un mot de passe sous forme SecureString. Get-Credential prépare cet objet pour une commande qui accepte un paramètre Credential." data-courses="powershell" data-modules="powershell06" data-letter="P" data-course-sort="initiation a powershell" data-module-sort="086" data-source-order="502" aria-labelledby="pscredential-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="pscredential-titre"><a href="#pscredential" class="tssr-glossary-card__anchor" aria-label="PSCredential">PSCredential</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Objet PowerShell qui associe un nom d’utilisateur et un mot de passe sous forme SecureString. Get-Credential prépare cet objet pour une commande qui accepte un paramètre Credential.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-06/" title="Initiation à PowerShell — Module 06 — S’authentifier et écrire des scripts de laboratoire">PowerShell · M06 · Identité et laboratoire</a></li>
   </ul>
 </article>
 
@@ -4123,7 +4505,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="redirection-shell" data-glossary-card data-term="Redirection shell" data-full-name data-aliases data-keywords="stdin | stdout | stderr" data-definition="Mécanisme qui change la source ou la destination d’un flux avec des opérateurs comme &gt;, &gt;&gt;, &lt;, 2&gt; ou 2&gt;&amp;1." data-courses="linux" data-modules="l06 l08" data-letter="R" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="028" data-source-order="259" aria-labelledby="redirection-shell-titre">
+<article class="tssr-glossary-card" id="redirection-shell" data-glossary-card data-term="Redirection shell" data-full-name data-aliases data-keywords="stdin | stdout | stderr" data-definition="Mécanisme qui change la source ou la destination d’un flux avec des opérateurs comme &gt;, &gt;&gt;, &lt;, 2&gt; ou 2&gt;&amp;1." data-courses="linux bash" data-modules="l06 l08 bash05 bash07" data-letter="R" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="028" data-source-order="259" aria-labelledby="redirection-shell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="redirection-shell-titre"><a href="#redirection-shell" class="tssr-glossary-card__anchor" aria-label="Redirection shell">Redirection shell</a></h2>
   </header>
@@ -4131,6 +4513,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/" title="Utilisation d’une distribution GNU/Linux — Module 06 — Recherches et expressions régulières">GNU/Linux · M06 · Recherches et regex</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
   </ul>
 </article>
 
@@ -4230,7 +4614,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="reseau-host-only" data-glossary-card data-term="Réseau host-only" data-full-name data-aliases="réseau privé hôte" data-keywords="VM | isolation" data-definition="Réseau virtuel privé entre l’hôte et ses machines virtuelles, sans accès direct au réseau physique sauf routage ajouté." data-courses="windows" data-modules="wadd" data-letter="R" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="144" aria-labelledby="reseau-host-only-titre">
+<article class="tssr-glossary-card" id="reseau-host-only" data-glossary-card data-term="Réseau host-only" data-full-name data-aliases="réseau privé hôte" data-keywords="VM | isolation" data-definition="Réseau virtuel privé entre l’hôte et ses machines virtuelles, sans accès direct au réseau physique sauf routage ajouté." data-courses="windows virtualisation" data-modules="wadd virt02" data-letter="R" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="144" aria-labelledby="reseau-host-only-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="reseau-host-only-titre"><a href="#reseau-host-only" class="tssr-glossary-card__anchor" aria-label="Réseau host-only">Réseau host-only</a></h2>
   </header>
@@ -4238,10 +4622,11 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> réseau privé hôte</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="reseau-ponte" data-glossary-card data-term="Réseau ponté" data-full-name data-aliases="bridged networking" data-keywords="VM | bridge" data-definition="Mode virtuel qui connecte directement la machine virtuelle au réseau physique comme un équipement distinct possédant sa propre adresse." data-courses="windows msp" data-modules="wadd s01" data-letter="R" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="145" aria-labelledby="reseau-ponte-titre">
+<article class="tssr-glossary-card" id="reseau-ponte" data-glossary-card data-term="Réseau ponté" data-full-name data-aliases="bridged networking" data-keywords="VM | bridge" data-definition="Mode virtuel qui connecte directement la machine virtuelle au réseau physique comme un équipement distinct possédant sa propre adresse." data-courses="windows msp virtualisation" data-modules="wadd s01 virt02 virt05" data-letter="R" data-course-sort="systemes clients microsoft" data-module-sort="019" data-source-order="145" aria-labelledby="reseau-ponte-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="reseau-ponte-titre"><a href="#reseau-ponte" class="tssr-glossary-card__anchor" aria-label="Réseau ponté">Réseau ponté</a></h2>
   </header>
@@ -4250,6 +4635,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-additionnel-workstation/" title="Systèmes clients Microsoft — Module additionnel — Workstation">Windows · Additionnel · Workstation</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
   </ul>
 </article>
 
@@ -4406,7 +4793,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="saas" data-glossary-card data-term="SaaS" data-full-name="Software as a Service" data-aliases="logiciel en tant que service" data-keywords="cloud | abonnement" data-definition="Modèle où une application est hébergée par un fournisseur et utilisée comme service, généralement par navigateur ou client connecté." data-courses="m365" data-modules="m01" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="198" aria-labelledby="saas-titre">
+<article class="tssr-glossary-card" id="saas" data-glossary-card data-term="SaaS" data-full-name="Software as a Service" data-aliases="logiciel en tant que service" data-keywords="cloud | abonnement" data-definition="Modèle où une application est hébergée par un fournisseur et utilisée comme service, généralement par navigateur ou client connecté." data-courses="m365 cloud" data-modules="m01 cloud01" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="198" aria-labelledby="saas-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="saas-titre"><a href="#saas" class="tssr-glossary-card__anchor" aria-label="SaaS">SaaS</a></h2>
     <p class="tssr-glossary-card__full-name">Software as a Service</p>
@@ -4415,6 +4802,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> logiciel en tant que service</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" title="Microsoft 365 — Outils collaboratifs — Module 01 — Découverte de Microsoft 365">Microsoft 365 · M01 · Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -4472,7 +4860,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="script-shell" data-glossary-card data-term="Script shell" data-full-name data-aliases="script Bash" data-keywords="automatisation" data-definition="Fichier texte contenant une suite de commandes interprétées par un shell, souvent précédé d’un shebang et rendu exécutable." data-courses="linux msp" data-modules="l08 s01" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="263" aria-labelledby="script-shell-titre">
+<article class="tssr-glossary-card" id="script-shell" data-glossary-card data-term="Script shell" data-full-name data-aliases="script Bash" data-keywords="automatisation" data-definition="Fichier texte contenant une suite de commandes interprétées par un shell, souvent précédé d’un shebang et rendu exécutable." data-courses="linux msp bash" data-modules="l08 s01 bash01 bash02" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="263" aria-labelledby="script-shell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="script-shell-titre"><a href="#script-shell" class="tssr-glossary-card__anchor" aria-label="Script shell">Script shell</a></h2>
   </header>
@@ -4481,6 +4869,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-01-analyse/" title="Initiation au scripting Bash — Module 01 — Analyse">Bash · M01 · Analyse</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts/" title="Initiation au scripting Bash — Module 02 — Écriture des scripts">Bash · M02 · Écriture</a></li>
   </ul>
 </article>
 
@@ -4506,7 +4896,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="select-object" data-glossary-card data-term="Select-Object" data-full-name data-aliases="select" data-keywords="projection | PowerShell" data-definition="Cmdlet PowerShell qui choisit des propriétés ou une portion des objets sans les réduire à une simple présentation visuelle." data-courses="windows" data-modules="w11" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="147" aria-labelledby="select-object-titre">
+<article class="tssr-glossary-card" id="select-object" data-glossary-card data-term="Select-Object" data-full-name data-aliases="select" data-keywords="projection | PowerShell" data-definition="Cmdlet PowerShell qui choisit des propriétés ou une portion des objets sans les réduire à une simple présentation visuelle." data-courses="windows powershell" data-modules="w11 powershell03" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="147" aria-labelledby="select-object-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="select-object-titre"><a href="#select-object" class="tssr-glossary-card__anchor" aria-label="Select-Object">Select-Object</a></h2>
   </header>
@@ -4514,6 +4904,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> select</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 
@@ -4571,7 +4962,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="sharepoint-online" data-glossary-card data-term="SharePoint Online" data-full-name data-aliases="SharePoint" data-keywords="intranet | documents" data-definition="Service Microsoft 365 de sites collaboratifs, bibliothèques documentaires, listes, recherche et gestion des autorisations." data-courses="m365" data-modules="m05" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="201" aria-labelledby="sharepoint-online-titre">
+<article class="tssr-glossary-card" id="sharepoint-online" data-glossary-card data-term="SharePoint Online" data-full-name data-aliases="SharePoint" data-keywords="intranet | documents" data-definition="Service Microsoft 365 de sites collaboratifs, bibliothèques documentaires, listes, recherche et gestion des autorisations." data-courses="m365 cloud" data-modules="m05 cloud04" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="024" data-source-order="201" aria-labelledby="sharepoint-online-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="sharepoint-online-titre"><a href="#sharepoint-online" class="tssr-glossary-card__anchor" aria-label="SharePoint Online">SharePoint Online</a></h2>
   </header>
@@ -4579,10 +4970,11 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> SharePoint</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-05-exploiter-teams-sharepoint-et-onedrive/" title="Microsoft 365 — Outils collaboratifs — Module 05 — Exploiter Teams, SharePoint et OneDrive">Microsoft 365 · M05 · Teams, SharePoint, OneDrive</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="shebang" data-glossary-card data-term="Shebang" data-full-name data-aliases="hashbang" data-keywords="script | interpréteur" data-definition="Première ligne #! d’un script Unix qui indique au système quel interpréteur lancer, par exemple #!/usr/bin/env bash." data-courses="linux" data-modules="l08" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="264" aria-labelledby="shebang-titre">
+<article class="tssr-glossary-card" id="shebang" data-glossary-card data-term="Shebang" data-full-name data-aliases="hashbang" data-keywords="script | interpréteur" data-definition="Première ligne #! d’un script Unix qui indique au système quel interpréteur lancer, par exemple #!/usr/bin/env bash." data-courses="linux bash" data-modules="l08 bash02" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="264" aria-labelledby="shebang-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="shebang-titre"><a href="#shebang" class="tssr-glossary-card__anchor" aria-label="Shebang">Shebang</a></h2>
   </header>
@@ -4590,10 +4982,11 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> hashbang</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts/" title="Initiation au scripting Bash — Module 02 — Écriture des scripts">Bash · M02 · Écriture</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="shell" data-glossary-card data-term="Shell" data-full-name data-aliases data-keywords="Bash | interpréteur" data-definition="Programme qui interprète les commandes d’un utilisateur ou d’un script et lance les processus, redirections et pipelines demandés." data-courses="linux" data-modules="l03 l08" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="025" data-source-order="265" aria-labelledby="shell-titre">
+<article class="tssr-glossary-card" id="shell" data-glossary-card data-term="Shell" data-full-name data-aliases data-keywords="Bash | interpréteur" data-definition="Programme qui interprète les commandes d’un utilisateur ou d’un script et lance les processus, redirections et pipelines demandés." data-courses="linux bash" data-modules="l03 l08 bash03" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="025" data-source-order="265" aria-labelledby="shell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="shell-titre"><a href="#shell" class="tssr-glossary-card__anchor" aria-label="Shell">Shell</a></h2>
   </header>
@@ -4601,6 +4994,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/" title="Utilisation d’une distribution GNU/Linux — Module 03 — Premières commandes">GNU/Linux · M03 · Premières commandes</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/" title="Initiation au scripting Bash — Module 03 — Premières commandes utiles aux scripts shell">Bash · M03 · Commandes de base</a></li>
   </ul>
 </article>
 
@@ -4665,6 +5059,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="slat" data-glossary-card data-term="SLAT" data-full-name data-aliases="Second Level Address Translation" data-keywords="EPT | NPT | RVI | mémoire" data-definition="Traduction d’adresses mémoire de second niveau par le processeur. Elle aide l’hyperviseur à faire correspondre les adresses physiques vues par la VM à celles de l’hôte. Intel l’implémente avec EPT et AMD avec NPT." data-courses="virtualisation" data-modules="virt03 virt04" data-letter="S" data-course-sort="virtualisation de serveurs" data-module-sort="089" data-source-order="504" aria-labelledby="slat-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="slat-titre"><a href="#slat" class="tssr-glossary-card__anchor" aria-label="SLAT">SLAT</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Traduction d’adresses mémoire de second niveau par le processeur. Elle aide l’hyperviseur à faire correspondre les adresses physiques vues par la VM à celles de l’hôte. Intel l’implémente avec EPT et AMD avec NPT.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Second Level Address Translation</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-03/" title="Virtualisation de serveurs — Module 03 — La virtualisation des serveurs">Virtualisation · M03 · Virtualisation des serveurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="smb" data-glossary-card data-term="SMB" data-full-name="Server Message Block" data-aliases="partage Windows" data-keywords="TCP 445 | UNC" data-definition="Protocole de partage de fichiers, imprimantes et autres ressources, utilisé nativement par Windows sur les réseaux IP." data-courses="windows msp" data-modules="w08 s01" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="013" data-source-order="150" aria-labelledby="smb-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="smb-titre"><a href="#smb" class="tssr-glossary-card__anchor" aria-label="SMB">SMB</a></h2>
@@ -4678,7 +5084,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="smtp" data-glossary-card data-term="SMTP" data-full-name="Simple Mail Transfer Protocol" data-aliases data-keywords="envoi de mail | transport" data-definition="Protocole utilisé pour soumettre et relayer les courriels entre clients et serveurs ou entre serveurs de messagerie." data-courses="m365" data-modules="m04" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="203" aria-labelledby="smtp-titre">
+<article class="tssr-glossary-card" id="smtp" data-glossary-card data-term="SMTP" data-full-name="Simple Mail Transfer Protocol" data-aliases data-keywords="envoi de mail | transport" data-definition="Protocole utilisé pour soumettre et relayer les courriels entre clients et serveurs ou entre serveurs de messagerie." data-courses="m365 cloud" data-modules="m04 cloud01 cloud02 cloud03" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="023" data-source-order="203" aria-labelledby="smtp-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="smtp-titre"><a href="#smtp" class="tssr-glossary-card__anchor" aria-label="SMTP">SMTP</a></h2>
     <p class="tssr-glossary-card__full-name">Simple Mail Transfer Protocol</p>
@@ -4686,6 +5092,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Protocole utilisé pour soumettre et relayer les courriels entre clients et serveurs ou entre serveurs de messagerie.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-04-exploiter-outlook-et-savoir-le-depanner/" title="Microsoft 365 — Outils collaboratifs — Module 04 — Exploiter Outlook et savoir le dépanner">Microsoft 365 · M04 · Outlook</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -4722,7 +5131,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="sortie-standard" data-glossary-card data-term="Sortie standard" data-full-name data-aliases="stdout" data-keywords="descripteur 1 | flux" data-definition="Flux numéro 1 où une commande écrit normalement son résultat, affiché au terminal sauf redirection ou pipeline." data-courses="linux" data-modules="l08" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="266" aria-labelledby="sortie-standard-titre">
+<article class="tssr-glossary-card" id="sortie-standard" data-glossary-card data-term="Sortie standard" data-full-name data-aliases="stdout" data-keywords="descripteur 1 | flux" data-definition="Flux numéro 1 où une commande écrit normalement son résultat, affiché au terminal sauf redirection ou pipeline." data-courses="linux bash" data-modules="l08 bash03 bash05" data-letter="S" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="266" aria-labelledby="sortie-standard-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="sortie-standard-titre"><a href="#sortie-standard" class="tssr-glossary-card__anchor" aria-label="Sortie standard">Sortie standard</a></h2>
   </header>
@@ -4730,6 +5139,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> stdout</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/" title="Initiation au scripting Bash — Module 03 — Premières commandes utiles aux scripts shell">Bash · M03 · Commandes de base</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
   </ul>
 </article>
 
@@ -4754,6 +5165,29 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-03-l-adressage-ipv4/" title="Bases des réseaux — Module 03 — L’adressage IPv4">Réseaux · M03 · Adressage IPv4</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="sous-shell-bash" data-glossary-card data-term="Sous-shell Bash" data-full-name data-aliases data-keywords="Bash | processus | portée" data-definition="Contexte d’exécution séparé, par exemple celui d’un groupe entre parenthèses. Les affectations faites dans ce contexte restent locales au sous-shell." data-courses="bash" data-modules="bash05 bash07 bash08" data-letter="S" data-course-sort="initiation au scripting bash" data-module-sort="077" data-source-order="492" aria-labelledby="sous-shell-bash-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="sous-shell-bash-titre"><a href="#sous-shell-bash" class="tssr-glossary-card__anchor" aria-label="Sous-shell Bash">Sous-shell Bash</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Contexte d’exécution séparé, par exemple celui d’un groupe entre parenthèses. Les affectations faites dans ce contexte restent locales au sous-shell.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/" title="Initiation au scripting Bash — Module 05 — Les caractères spéciaux du script">Bash · M05 · Enchaînements et couleurs</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/" title="Initiation au scripting Bash — Module 07 — Les structures de boucle">Bash · M07 · Boucles</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-08-les-fonctions/" title="Initiation au scripting Bash — Module 08 — Les fonctions">Bash · M08 · Fonctions</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="spf" data-glossary-card data-term="SPF" data-full-name data-aliases="Sender Policy Framework" data-keywords="DNS | TXT | SMTP | domaine" data-definition="Politique publiée en DNS dans un enregistrement TXT pour indiquer quels serveurs peuvent envoyer du courrier au nom d’un domaine utilisé dans l’enveloppe SMTP." data-courses="cloud" data-modules="cloud01" data-letter="S" data-course-sort="messagerie cloud" data-module-sort="095" data-source-order="518" aria-labelledby="spf-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="spf-titre"><a href="#spf" class="tssr-glossary-card__anchor" aria-label="SPF">SPF</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Politique publiée en DNS dans un enregistrement TXT pour indiquer quels serveurs peuvent envoyer du courrier au nom d’un domaine utilisé dans l’enveloppe SMTP.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Sender Policy Framework</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
   </ul>
 </article>
 
@@ -4810,6 +5244,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> bit collant</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-11-droits-sur-les-fichiers-et-repertoires/" title="Administration Debian GNU/Linux — Module 11 — Droits sur les fichiers et répertoires">Debian · M11 · Droits Linux</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="storage-vmotion" data-glossary-card data-term="Storage vMotion" data-full-name data-aliases data-keywords="migration à chaud | datastore | stockage | vSphere" data-definition="Fonction vSphere qui déplace les fichiers d’une VM en fonctionnement vers une autre banque de données. L’administrateur vérifie la capacité de la cible et l’état de la VM après la migration." data-courses="virtualisation" data-modules="virt05 virt08" data-letter="S" data-course-sort="virtualisation de serveurs" data-module-sort="091" data-source-order="514" aria-labelledby="storage-vmotion-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="storage-vmotion-titre"><a href="#storage-vmotion" class="tssr-glossary-card__anchor" aria-label="Storage vMotion">Storage vMotion</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Fonction vSphere qui déplace les fichiers d’une VM en fonctionnement vers une autre banque de données. L’administrateur vérifie la capacité de la cible et l’état de la VM après la migration.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -4890,7 +5335,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="sysprep" data-glossary-card data-term="Sysprep" data-full-name="System Preparation Tool" data-aliases data-keywords="generalize | image" data-definition="Outil Microsoft qui prépare une installation Windows pour la duplication, notamment en la généralisant avant capture et redémarrage en OOBE." data-courses="windows" data-modules="w12" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="017" data-source-order="152" aria-labelledby="sysprep-titre">
+<article class="tssr-glossary-card" id="sysprep" data-glossary-card data-term="Sysprep" data-full-name="System Preparation Tool" data-aliases data-keywords="generalize | image" data-definition="Outil Microsoft qui prépare une installation Windows pour la duplication, notamment en la généralisant avant capture et redémarrage en OOBE." data-courses="windows virtualisation" data-modules="w12 virt04 virt08" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="017" data-source-order="152" aria-labelledby="sysprep-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="sysprep-titre"><a href="#sysprep" class="tssr-glossary-card__anchor" aria-label="Sysprep">Sysprep</a></h2>
     <p class="tssr-glossary-card__full-name">System Preparation Tool</p>
@@ -4898,6 +5343,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Outil Microsoft qui prépare une installation Windows pour la duplication, notamment en la généralisant avant capture et redémarrage en OOBE.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-12-introduction-a-la-capture-et-au-deploiement-d-image/" title="Systèmes clients Microsoft — Module 12 — Introduction à la capture et au déploiement d’image">Windows · M12 · Capture et déploiement</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -4934,7 +5381,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="systeme-de-fichiers" data-glossary-card data-term="Système de fichiers" data-full-name data-aliases="file system" data-keywords="formatage | volume" data-definition="Organisation logique qui stocke et retrouve fichiers, répertoires et métadonnées sur un volume, par exemple NTFS ou ext4." data-courses="windows debian" data-modules="w04 d09" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="009" data-source-order="154" aria-labelledby="systeme-de-fichiers-titre">
+<article class="tssr-glossary-card" id="systeme-de-fichiers" data-glossary-card data-term="Système de fichiers" data-full-name data-aliases="file system" data-keywords="formatage | volume" data-definition="Organisation logique qui stocke et retrouve fichiers, répertoires et métadonnées sur un volume, par exemple NTFS ou ext4." data-courses="windows debian virtualisation" data-modules="w04 d09 virt07" data-letter="S" data-course-sort="systemes clients microsoft" data-module-sort="009" data-source-order="154" aria-labelledby="systeme-de-fichiers-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="systeme-de-fichiers-titre"><a href="#systeme-de-fichiers" class="tssr-glossary-card__anchor" aria-label="Système de fichiers">Système de fichiers</a></h2>
   </header>
@@ -4943,6 +5390,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/" title="Systèmes clients Microsoft — Module 04 — La gestion du stockage">Windows · M04 · Stockage Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-09-gestion-des-espaces-de-stockage-file-system/" title="Administration Debian GNU/Linux — Module 09 — Gestion des espaces de stockage — File System">Debian · M09 · Systèmes de fichiers</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
   </ul>
 </article>
 
@@ -5049,6 +5497,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="teaming-reseau" data-glossary-card data-term="Teaming réseau" data-full-name data-aliases="NIC teaming" data-keywords="vSwitch | vmnic | répartition de charge | bascule" data-definition="Association de plusieurs liaisons montantes à un commutateur virtuel. La politique choisie détermine la répartition des flux et l’ordre de bascule en cas de panne." data-courses="virtualisation" data-modules="virt06" data-letter="T" data-course-sort="virtualisation de serveurs" data-module-sort="092" data-source-order="509" aria-labelledby="teaming-reseau-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="teaming-reseau-titre"><a href="#teaming-reseau" class="tssr-glossary-card__anchor" aria-label="Teaming réseau">Teaming réseau</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Association de plusieurs liaisons montantes à un commutateur virtuel. La politique choisie détermine la répartition des flux et l’ordre de bascule en cas de panne.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> NIC teaming</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="technicien-glpi" data-glossary-card data-term="Technicien GLPI" data-full-name data-aliases data-keywords="support | profil" data-definition="Utilisateur habilité à qualifier, prendre en charge, suivre et résoudre des tickets selon son profil, son entité et ses groupes." data-courses="glpi" data-modules="g02 g04" data-letter="T" data-course-sort="administration glpi" data-module-sort="053" data-source-order="483" aria-labelledby="technicien-glpi-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="technicien-glpi-titre"><a href="#technicien-glpi" class="tssr-glossary-card__anchor" aria-label="Technicien GLPI">Technicien GLPI</a></h2>
@@ -5060,7 +5519,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="tenant-microsoft-365" data-glossary-card data-term="Tenant Microsoft 365" data-full-name data-aliases="locataire Microsoft 365" data-keywords="organisation | cloud" data-definition="Environnement logique isolé d’une organisation dans les services Microsoft, contenant ses identités, abonnements, domaines et paramètres." data-courses="m365" data-modules="m01" data-letter="T" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="208" aria-labelledby="tenant-microsoft-365-titre">
+<article class="tssr-glossary-card" id="tenant-microsoft-365" data-glossary-card data-term="Tenant Microsoft 365" data-full-name data-aliases="locataire Microsoft 365" data-keywords="organisation | cloud" data-definition="Environnement logique isolé d’une organisation dans les services Microsoft, contenant ses identités, abonnements, domaines et paramètres." data-courses="m365 cloud" data-modules="m01 cloud01 cloud02 cloud03" data-letter="T" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="020" data-source-order="208" aria-labelledby="tenant-microsoft-365-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="tenant-microsoft-365-titre"><a href="#tenant-microsoft-365" class="tssr-glossary-card__anchor" aria-label="Tenant Microsoft 365">Tenant Microsoft 365</a></h2>
   </header>
@@ -5068,6 +5527,9 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> locataire Microsoft 365</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-01-decouverte-de-microsoft-365/" title="Microsoft 365 — Outils collaboratifs — Module 01 — Découverte de Microsoft 365">Microsoft 365 · M01 · Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-01/" title="Messagerie Cloud — Module 01 — Les composantes du Cloud et de Microsoft 365">Messagerie Cloud · M01 · Cloud et Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -5202,7 +5664,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="uefi" data-glossary-card data-term="UEFI" data-full-name="Unified Extensible Firmware Interface" data-aliases data-keywords="firmware | GPT | EFI" data-definition="Micrologiciel moderne qui initialise la machine, gère des entrées de démarrage et fonctionne couramment avec des disques GPT." data-courses="windows debian" data-modules="w02 d02" data-letter="U" data-course-sort="systemes clients microsoft" data-module-sort="007" data-source-order="156" aria-labelledby="uefi-titre">
+<article class="tssr-glossary-card" id="uefi" data-glossary-card data-term="UEFI" data-full-name="Unified Extensible Firmware Interface" data-aliases data-keywords="firmware | GPT | EFI" data-definition="Micrologiciel moderne qui initialise la machine, gère des entrées de démarrage et fonctionne couramment avec des disques GPT." data-courses="windows debian virtualisation" data-modules="w02 d02 virt04" data-letter="U" data-course-sort="systemes clients microsoft" data-module-sort="007" data-source-order="156" aria-labelledby="uefi-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="uefi-titre"><a href="#uefi" class="tssr-glossary-card__anchor" aria-label="UEFI">UEFI</a></h2>
     <p class="tssr-glossary-card__full-name">Unified Extensible Firmware Interface</p>
@@ -5211,6 +5673,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-02-installation-du-systeme-d-exploitation-windows-10/" title="Systèmes clients Microsoft — Module 02 — Installation du système d’exploitation Windows 10">Windows · M02 · Installation Windows</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian/" title="Administration Debian GNU/Linux — Module 02 — Installation d’une distribution Debian">Debian · M02 · Installation Debian</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
   </ul>
 </article>
 
@@ -5249,7 +5712,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="unc" data-glossary-card data-term="UNC" data-full-name="Universal Naming Convention" data-aliases="chemin UNC" data-keywords="SMB | partage" data-definition="Syntaxe Windows \\serveur\partage\chemin qui désigne une ressource réseau sans dépendre d’une lettre de lecteur locale." data-courses="windows msp" data-modules="w08 s01" data-letter="U" data-course-sort="systemes clients microsoft" data-module-sort="013" data-source-order="157" aria-labelledby="unc-titre">
+<article class="tssr-glossary-card" id="unc" data-glossary-card data-term="UNC" data-full-name="Universal Naming Convention" data-aliases="chemin UNC" data-keywords="SMB | partage" data-definition="Syntaxe Windows \\serveur\partage\chemin qui désigne une ressource réseau sans dépendre d’une lettre de lecteur locale." data-courses="windows msp cloud" data-modules="w08 s01 cloud04" data-letter="U" data-course-sort="systemes clients microsoft" data-module-sort="013" data-source-order="157" aria-labelledby="unc-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="unc-titre"><a href="#unc" class="tssr-glossary-card__anchor" aria-label="UNC">UNC</a></h2>
     <p class="tssr-glossary-card__full-name">Universal Naming Convention</p>
@@ -5259,6 +5722,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-08-le-partage-de-ressources/" title="Systèmes clients Microsoft — Module 08 — Le partage de ressources">Windows · M08 · Partage de ressources</a></li>
     <li><a class="tssr-glossary-card__context" href="../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/" title="Mise en situation professionnelle — Systèmes clients — Module 01 — MSP Systèmes clients">MSP · M01 · MSP Systèmes clients</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-04/" title="Messagerie Cloud — Module 04 — Services complémentaires">Messagerie Cloud · M04 · Services complémentaires</a></li>
   </ul>
 </article>
 
@@ -5294,6 +5758,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> Debian Sid</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/05-administration-debian-gnu-linux/module-01-presentation-de-debian-gnu-linux/" title="Administration Debian GNU/Linux — Module 01 — Présentation de Debian GNU/Linux">Debian · M01 · Présentation Debian</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="upn" data-glossary-card data-term="UPN" data-full-name data-aliases="User Principal Name" data-keywords="Active Directory | identité | suffixe UPN | synchronisation" data-definition="Identifiant de connexion d’un utilisateur dans Active Directory ou Microsoft Entra ID, souvent sous la forme utilisateur@domaine. Son suffixe et son adresse de messagerie peuvent être différents." data-courses="cloud" data-modules="cloud02 cloud03" data-letter="U" data-course-sort="messagerie cloud" data-module-sort="096" data-source-order="521" aria-labelledby="upn-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="upn-titre"><a href="#upn" class="tssr-glossary-card__anchor" aria-label="UPN">UPN</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Identifiant de connexion d’un utilisateur dans Active Directory ou Microsoft Entra ID, souvent sous la forme utilisateur@domaine. Son suffixe et son adresse de messagerie peuvent être différents.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> User Principal Name</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-02/" title="Messagerie Cloud — Module 02 — Administration Microsoft 365">Messagerie Cloud · M02 · Administration Microsoft 365</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/14-messagerie-cloud/module-03/" title="Messagerie Cloud — Module 03 — Administration Microsoft 365 — reprise documentaire du module 2">Messagerie Cloud · M03 · Reprise du module 02</a></li>
   </ul>
 </article>
 
@@ -5397,23 +5873,37 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="variable-de-shell" data-glossary-card data-term="Variable de shell" data-full-name data-aliases data-keywords="Bash | export" data-definition="Valeur nommée connue du shell courant mais non transmise aux processus enfants tant qu’elle n’est pas exportée." data-courses="linux" data-modules="l08" data-letter="V" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="271" aria-labelledby="variable-de-shell-titre">
+<article class="tssr-glossary-card" id="variable-de-shell" data-glossary-card data-term="Variable de shell" data-full-name data-aliases data-keywords="Bash | export" data-definition="Valeur nommée connue du shell courant mais non transmise aux processus enfants tant qu’elle n’est pas exportée." data-courses="linux bash" data-modules="l08 bash04" data-letter="V" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="271" aria-labelledby="variable-de-shell-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="variable-de-shell-titre"><a href="#variable-de-shell" class="tssr-glossary-card__anchor" aria-label="Variable de shell">Variable de shell</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Valeur nommée connue du shell courant mais non transmise aux processus enfants tant qu’elle n’est pas exportée.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/" title="Initiation au scripting Bash — Module 04 — Les variables dans les scripts">Bash · M04 · Variables</a></li>
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="variable-d-environnement" data-glossary-card data-term="Variable d’environnement" data-full-name data-aliases data-keywords="export | environnement" data-definition="Valeur nommée héritée par les processus enfants, utilisée pour transmettre un contexte comme PATH, HOME, LANG ou un paramètre applicatif." data-courses="linux" data-modules="l08" data-letter="V" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="270" aria-labelledby="variable-d-environnement-titre">
+<article class="tssr-glossary-card" id="variable-d-environnement" data-glossary-card data-term="Variable d’environnement" data-full-name data-aliases data-keywords="export | environnement" data-definition="Valeur nommée héritée par les processus enfants, utilisée pour transmettre un contexte comme PATH, HOME, LANG ou un paramètre applicatif." data-courses="linux bash" data-modules="l08 bash04" data-letter="V" data-course-sort="utilisation d’une distribution gnu/linux" data-module-sort="030" data-source-order="270" aria-labelledby="variable-d-environnement-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="variable-d-environnement-titre"><a href="#variable-d-environnement" class="tssr-glossary-card__anchor" aria-label="Variable d’environnement">Variable d’environnement</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Valeur nommée héritée par les processus enfants, utilisée pour transmettre un contexte comme PATH, HOME, LANG ou un paramètre applicatif.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/" title="Utilisation d’une distribution GNU/Linux — Module 08 — Mécanismes Linux et Bash avancé">GNU/Linux · M08 · Bash avancé</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/" title="Initiation au scripting Bash — Module 04 — Les variables dans les scripts">Bash · M04 · Variables</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="vcenter" data-glossary-card data-term="vCenter" data-full-name data-aliases="vCenter Server" data-keywords="vSphere | datacenter | inventaire | VCSA" data-definition="Service d’administration vSphere qui regroupe l’inventaire des hôtes ESXi, des VM, des réseaux et des banques de données. Il permet de gérer les permissions et de coordonner les opérations du datacenter." data-courses="virtualisation" data-modules="virt05 virt08" data-letter="V" data-course-sort="virtualisation de serveurs" data-module-sort="091" data-source-order="507" aria-labelledby="vcenter-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="vcenter-titre"><a href="#vcenter" class="tssr-glossary-card__anchor" aria-label="vCenter">vCenter</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Service d’administration vSphere qui regroupe l’inventaire des hôtes ESXi, des VM, des réseaux et des banques de données. Il permet de gérer les permissions et de coordonner les opérations du datacenter.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> vCenter Server</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -5450,7 +5940,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="vhd-vhdx" data-glossary-card data-term="VHD / VHDX" data-full-name="Virtual Hard Disk" data-aliases="disque dur virtuel" data-keywords="Hyper-V | montage" data-definition="Formats de disque dur virtuel Microsoft ; VHDX est plus récent, plus robuste et prend en charge des capacités supérieures à VHD." data-courses="windows" data-modules="w04" data-letter="V" data-course-sort="systemes clients microsoft" data-module-sort="009" data-source-order="159" aria-labelledby="vhd-vhdx-titre">
+<article class="tssr-glossary-card" id="vhd-vhdx" data-glossary-card data-term="VHD / VHDX" data-full-name="Virtual Hard Disk" data-aliases="disque dur virtuel" data-keywords="Hyper-V | montage" data-definition="Formats de disque dur virtuel Microsoft ; VHDX est plus récent, plus robuste et prend en charge des capacités supérieures à VHD." data-courses="windows virtualisation" data-modules="w04 virt04" data-letter="V" data-course-sort="systemes clients microsoft" data-module-sort="009" data-source-order="159" aria-labelledby="vhd-vhdx-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="vhd-vhdx-titre"><a href="#vhd-vhdx" class="tssr-glossary-card__anchor" aria-label="VHD / VHDX">VHD / VHDX</a></h2>
     <p class="tssr-glossary-card__full-name">Virtual Hard Disk</p>
@@ -5459,6 +5949,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> disque dur virtuel</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-04-la-gestion-du-stockage/" title="Systèmes clients Microsoft — Module 04 — La gestion du stockage">Windows · M04 · Stockage Windows</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
   </ul>
 </article>
 
@@ -5473,7 +5964,20 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="vlan" data-glossary-card data-term="VLAN" data-full-name="Virtual Local Area Network" data-aliases="réseau local virtuel" data-keywords="segmentation | 802.1Q" data-definition="Segmentation logique d’un réseau commuté en domaines de diffusion séparés, même lorsque les équipements partagent des commutateurs physiques." data-courses="reseaux" data-modules="r04" data-letter="V" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="75" aria-labelledby="vlan-titre">
+<article class="tssr-glossary-card" id="virtualisation-imbriquee" data-glossary-card data-term="Virtualisation imbriquée" data-full-name data-aliases="Nested virtualization" data-keywords="extensions processeur | Hyper-V | ESXi" data-definition="Exécution d’un hyperviseur à l’intérieur d’une machine virtuelle. L’hyperviseur extérieur doit exposer à la VM les fonctions de virtualisation du processeur nécessaires." data-courses="virtualisation" data-modules="virt02 virt04 virt05" data-letter="V" data-course-sort="virtualisation de serveurs" data-module-sort="088" data-source-order="503" aria-labelledby="virtualisation-imbriquee-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="virtualisation-imbriquee-titre"><a href="#virtualisation-imbriquee" class="tssr-glossary-card__anchor" aria-label="Virtualisation imbriquée">Virtualisation imbriquée</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Exécution d’un hyperviseur à l’intérieur d’une machine virtuelle. L’hyperviseur extérieur doit exposer à la VM les fonctions de virtualisation du processeur nécessaires.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Nested virtualization</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-02/" title="Virtualisation de serveurs — Module 02 — Les applications de virtualisation d’environnements sur un poste de travail">Virtualisation · M02 · VMware Workstation</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="vlan" data-glossary-card data-term="VLAN" data-full-name="Virtual Local Area Network" data-aliases="réseau local virtuel" data-keywords="segmentation | 802.1Q" data-definition="Segmentation logique d’un réseau commuté en domaines de diffusion séparés, même lorsque les équipements partagent des commutateurs physiques." data-courses="reseaux virtualisation" data-modules="r04 virt04 virt06" data-letter="V" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="75" aria-labelledby="vlan-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="vlan-titre"><a href="#vlan" class="tssr-glossary-card__anchor" aria-label="VLAN">VLAN</a></h2>
     <p class="tssr-glossary-card__full-name">Virtual Local Area Network</p>
@@ -5482,6 +5986,8 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> réseau local virtuel</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-04-la-communication-dans-un-reseau/" title="Bases des réseaux — Module 04 — La communication dans un réseau">Réseaux · M04 · Communication réseau</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-04/" title="Virtualisation de serveurs — Module 04 — Découverte d’Hyper-V">Virtualisation · M04 · Hyper-V</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
   </ul>
 </article>
 
@@ -5494,6 +6000,29 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> masque de longueur variable</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-03-l-adressage-ipv4/" title="Bases des réseaux — Module 03 — L’adressage IPv4">Réseaux · M03 · Adressage IPv4</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="vmfs" data-glossary-card data-term="VMFS" data-full-name data-aliases="Virtual Machine File System" data-keywords="iSCSI | stockage bloc | datastore" data-definition="Système de fichiers de vSphere destiné au stockage des fichiers des VM sur un périphérique en mode bloc. Dans le laboratoire, deux hôtes ESXi accèdent à une même banque VMFS sur iSCSI." data-courses="virtualisation" data-modules="virt07" data-letter="V" data-course-sort="virtualisation de serveurs" data-module-sort="093" data-source-order="512" aria-labelledby="vmfs-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="vmfs-titre"><a href="#vmfs" class="tssr-glossary-card__anchor" aria-label="VMFS">VMFS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Système de fichiers de vSphere destiné au stockage des fichiers des VM sur un périphérique en mode bloc. Dans le laboratoire, deux hôtes ESXi accèdent à une même banque VMFS sur iSCSI.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Virtual Machine File System</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="vmotion" data-glossary-card data-term="vMotion" data-full-name data-aliases data-keywords="migration à chaud | calcul | VMkernel | vSphere" data-definition="Fonction vSphere qui déplace l’exécution d’une VM en fonctionnement vers un autre hôte compatible. La migration du calcul exige notamment un réseau et une destination compatibles." data-courses="virtualisation" data-modules="virt05 virt06 virt08" data-letter="V" data-course-sort="virtualisation de serveurs" data-module-sort="091" data-source-order="513" aria-labelledby="vmotion-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="vmotion-titre"><a href="#vmotion" class="tssr-glossary-card__anchor" aria-label="vMotion">vMotion</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Fonction vSphere qui déplace l’exécution d’une VM en fonctionnement vers un autre hôte compatible. La migration du calcul exige notamment un réseau et une destination compatibles.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-05/" title="Virtualisation de serveurs — Module 05 — Les composantes d’une infrastructure vSphere">Virtualisation · M05 · Infrastructure vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-06/" title="Virtualisation de serveurs — Module 06 — Gestion du réseau vSphere">Virtualisation · M06 · Réseau vSphere</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-08/" title="Virtualisation de serveurs — Module 08 — Gestion du datacenter">Virtualisation · M08 · Datacenter</a></li>
   </ul>
 </article>
 
@@ -5541,7 +6070,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="where-object" data-glossary-card data-term="Where-Object" data-full-name data-aliases="where | ?" data-keywords="filtrage | pipeline" data-definition="Cmdlet PowerShell qui conserve uniquement les objets satisfaisant une condition portant sur leurs propriétés." data-courses="windows" data-modules="w11" data-letter="W" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="162" aria-labelledby="where-object-titre">
+<article class="tssr-glossary-card" id="where-object" data-glossary-card data-term="Where-Object" data-full-name data-aliases="where | ?" data-keywords="filtrage | pipeline" data-definition="Cmdlet PowerShell qui conserve uniquement les objets satisfaisant une condition portant sur leurs propriétés." data-courses="windows powershell" data-modules="w11 powershell03" data-letter="W" data-course-sort="systemes clients microsoft" data-module-sort="016" data-source-order="162" aria-labelledby="where-object-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="where-object-titre"><a href="#where-object" class="tssr-glossary-card__anchor" aria-label="Where-Object">Where-Object</a></h2>
   </header>
@@ -5549,6 +6078,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> where · ?</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-11-plus-loin-avec-powershell/" title="Systèmes clients Microsoft — Module 11 — Plus loin avec PowerShell">Windows · M11 · PowerShell</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/12-initiation-powershell/module-03/" title="Initiation à PowerShell — Module 03 — Manipuler des objets">PowerShell · M03 · Manipulation des objets</a></li>
   </ul>
 </article>
 

@@ -40,7 +40,7 @@ ISO, les identifiants et les mots de passe sont neutralisés.
 
 - Le support recommande une création avec installation différée ; la solution visuelle
   sélectionne une ISO et montre Easy Install.
-- L’énoncé cite le DHCP « ENI » ; la solution parle plus généralement du DHCP.
+- L’énoncé cite le DHCP « du centre de formation » ; la solution parle plus généralement du DHCP.
 - L’énoncé affiche « 1 heure » et la solution « 1 heures ».
 - Les interfaces, Workstation 16 Pro et 16.2.x sont des observations historiques de
   captures, non des prescriptions actuelles.
@@ -50,3 +50,7 @@ ISO, les identifiants et les mots de passe sont neutralisés.
 Contenu A : solution de l’Atelier n°1 consultée dans Drive TSSR en lecture seule.
 Contenu B : mise en forme de correction sans extrapolation de procédure, sans exécution
 de VM et sans donnée sensible de laboratoire.
+
+## Résultat à vérifier
+
+Le choix Easy Install apparaît dans le corrigé. Vérifier l’édition Desktop Experience, le mode Bridged final, la présence de VMware Tools et le libellé `Fin Atelier 1`.

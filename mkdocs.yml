@@ -245,28 +245,28 @@ nav:
           - Module 08 — Les fonctions: modules/11-initiation-scripting-bash/module-08-les-fonctions.md
       - Initiation à PowerShell:
           - Présentation: modules/12-initiation-powershell/index.md
-          - Module 01: modules/12-initiation-powershell/module-01.md
-          - Module 02: modules/12-initiation-powershell/module-02.md
-          - Module 03: modules/12-initiation-powershell/module-03.md
-          - Module 04: modules/12-initiation-powershell/module-04.md
-          - Module 05: modules/12-initiation-powershell/module-05.md
-          - Module 06: modules/12-initiation-powershell/module-06.md
+          - "Module 01 — Initiation à PowerShell": modules/12-initiation-powershell/module-01.md
+          - "Module 02 — PowerShell : langage objet": modules/12-initiation-powershell/module-02.md
+          - "Module 03 — Manipuler des objets": modules/12-initiation-powershell/module-03.md
+          - "Module 04 — Les structures et variables": modules/12-initiation-powershell/module-04.md
+          - "Module 05 — Réalisation d’un script": modules/12-initiation-powershell/module-05.md
+          - "Module 06 — S’authentifier et écrire des scripts de laboratoire": modules/12-initiation-powershell/module-06.md
       - Virtualisation de serveurs:
           - Présentation: modules/13-virtualisation-serveurs/index.md
-          - Module 01: modules/13-virtualisation-serveurs/module-01.md
-          - Module 02: modules/13-virtualisation-serveurs/module-02.md
-          - Module 03: modules/13-virtualisation-serveurs/module-03.md
-          - Module 04: modules/13-virtualisation-serveurs/module-04.md
-          - Module 05: modules/13-virtualisation-serveurs/module-05.md
-          - Module 06: modules/13-virtualisation-serveurs/module-06.md
-          - Module 07: modules/13-virtualisation-serveurs/module-07.md
-          - Module 08: modules/13-virtualisation-serveurs/module-08.md
+          - "Module 01 — Des concepts de la virtualisation à leur mise en œuvre": modules/13-virtualisation-serveurs/module-01.md
+          - "Module 02 — Les applications de virtualisation d’environnements sur un poste de travail": modules/13-virtualisation-serveurs/module-02.md
+          - "Module 03 — La virtualisation des serveurs": modules/13-virtualisation-serveurs/module-03.md
+          - "Module 04 — Découverte d’Hyper-V": modules/13-virtualisation-serveurs/module-04.md
+          - "Module 05 — Les composantes d’une infrastructure vSphere": modules/13-virtualisation-serveurs/module-05.md
+          - "Module 06 — Gestion du réseau vSphere": modules/13-virtualisation-serveurs/module-06.md
+          - "Module 07 — Gestion du stockage": modules/13-virtualisation-serveurs/module-07.md
+          - "Module 08 — Gestion du datacenter": modules/13-virtualisation-serveurs/module-08.md
       - Messagerie Cloud:
           - Présentation: modules/14-messagerie-cloud/index.md
-          - Module 01: modules/14-messagerie-cloud/module-01.md
-          - Module 02: modules/14-messagerie-cloud/module-02.md
-          - Module 03: modules/14-messagerie-cloud/module-03.md
-          - Module 04: modules/14-messagerie-cloud/module-04.md
+          - "Module 01 — Les composantes du Cloud et de Microsoft 365": modules/14-messagerie-cloud/module-01.md
+          - "Module 02 — Administration Microsoft 365": modules/14-messagerie-cloud/module-02.md
+          - "Module 03 — Administration Microsoft 365 — reprise documentaire du module 2": modules/14-messagerie-cloud/module-03.md
+          - "Module 04 — Services complémentaires": modules/14-messagerie-cloud/module-04.md
           - Travaux pratiques: tp/14-messagerie-cloud/index.md
 
   - Tutoriels:
@@ -431,6 +431,11 @@ nav:
           - Présentation: tp/10-msp-services-reseau/module-01/index.md
           - Énoncé: tp/10-msp-services-reseau/module-01/enonces.md
           - Proposition de correction: tp/10-msp-services-reseau/module-01/corrections.md
+      - "Initiation au scripting Bash": tp/11-initiation-scripting-bash/index.md
+      - "Initiation à PowerShell": tp/12-initiation-powershell/index.md
+      - "Virtualisation de serveurs": tp/13-virtualisation-serveurs/index.md
+      - "Messagerie Cloud": tp/14-messagerie-cloud/index.md
+
   - Exercices:
       - Présentation: exercices/index.md
       - Quiz Réseaux: exercices/quiz-reseaux.md
@@ -545,6 +550,11 @@ nav:
       - Services réseau en environnement Microsoft: revision/services-reseaux-microsoft/index.md
       - Services réseau en environnement Linux: revision/services-reseau-linux/index.md
       - MSP Services réseau: revision/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md
+      - "Initiation au scripting Bash": revision/11-initiation-scripting-bash/index.md
+      - "Initiation à PowerShell": revision/12-initiation-powershell/index.md
+      - "Virtualisation de serveurs": revision/13-virtualisation-serveurs/index.md
+      - "Messagerie Cloud": revision/14-messagerie-cloud/index.md
+
   - Mémos:
       - Présentation: memo/index.md
       - Ports essentiels: memo/ports-essentiels.md
