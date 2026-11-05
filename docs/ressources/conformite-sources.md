@@ -122,4 +122,6 @@ Les corrections de TP sont repliées à l’ouverture pour permettre une premiè
 
 La construction du site contrôle les empreintes des transcriptions et des illustrations ainsi que la séquence des pages. Les tableaux restent structurés, et les commandes et opérateurs restent lisibles dans le lecteur. Les extraits visuels sont isolés et leur recadrage est vérifié. Le manuel Aruba se consulte dans la transcription liée au TP GLPI.
 
-Les modules d’Infrastructures réseaux, de Sauvegarde et restauration, de Réseau et sécurité et de Services transverses Microsoft figurent au planning. Aucune source correspondante n’a été trouvée dans le dossier TSSR consulté le 5 novembre 2026.
+Le cours **Infrastructures réseaux** est consultable uniquement via les vidéos sur le site de l’ENI.
+
+Aucun support de Sauvegarde et restauration, de Réseau et sécurité ou de Services transverses Microsoft n’a été trouvé dans le dossier TSSR consulté le 5 novembre 2026.
