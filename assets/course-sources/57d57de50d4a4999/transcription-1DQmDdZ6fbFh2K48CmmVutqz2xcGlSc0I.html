@@ -1,0 +1,48 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_informatique_logistique.ps1</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>02_informatique_logistique.ps1</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>02_informatique_logistique.ps1</h3><pre><code># Exécuter PowerShell en tant qu&#x27;administrateur.
+# Remplacer les quatre valeurs entre chevrons avant exécution.
+$VotreLogin = &#x27;&lt;VOTRE_LOGIN&gt;&#x27;
+$VotreNomComplet = &#x27;&lt;VOTRE_PRENOM_NOM&gt;&#x27;
+$LoginBinome = &#x27;&lt;LOGIN_BINOME&gt;&#x27;
+$NomBinome = &#x27;&lt;PRENOM_NOM_BINOME&gt;&#x27;
+
+$groups = @(
+    @{Name=&#x27;l_informatique&#x27;; Description=&#x27;Groupe local du service Informatique&#x27;},
+    @{Name=&#x27;l_logistique&#x27;; Description=&#x27;Groupe local du service Logistique&#x27;}
+)
+foreach ($g in $groups) {
+    if (-not (Get-LocalGroup -Name $g.Name -ErrorAction SilentlyContinue)) {
+        New-LocalGroup -Name $g.Name -Description $g.Description
+    }
+}
+
+$users = @(
+    @{Name=$VotreLogin; FullName=$VotreNomComplet; Description=&#x27;Informatique - administrateur&#x27;; Group=&#x27;l_informatique&#x27;; Admin=$true},
+    @{Name=$LoginBinome; FullName=$NomBinome; Description=&#x27;Informatique - binome / prestataire&#x27;; Group=&#x27;l_informatique&#x27;; Admin=$true},
+    @{Name=&#x27;respinosa&#x27;; FullName=&#x27;Rosita Espinosa&#x27;; Description=&#x27;Logistique&#x27;; Group=&#x27;l_logistique&#x27;; Admin=$false},
+    @{Name=&#x27;mjones&#x27;; FullName=&#x27;Morgan Jones&#x27;; Description=&#x27;Logistique&#x27;; Group=&#x27;l_logistique&#x27;; Admin=$false}
+)
+
+foreach ($u in $users) {
+    if (-not (Get-LocalUser -Name $u.Name -ErrorAction SilentlyContinue)) {
+        $pwd = Read-Host &quot;Mot de passe temporaire pour $($u.Name)&quot; -AsSecureString
+        New-LocalUser -Name $u.Name -FullName $u.FullName -Description $u.Description -Password $pwd
+    }
+    Add-LocalGroupMember -Group $u.Group -Member $u.Name -ErrorAction SilentlyContinue
+    if ($u.Admin) {
+        Add-LocalGroupMember -Group &#x27;Administrateurs&#x27; -Member $u.Name -ErrorAction SilentlyContinue
+    }
+}
+
+# Force le binôme à changer son mot de passe à sa première ouverture de session.
+cmd /c &quot;net user $LoginBinome /logonpasswordchg:yes&quot;
+
+Get-LocalGroupMember l_informatique
+Get-LocalGroupMember l_logistique
+Get-LocalGroupMember Administrateurs
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

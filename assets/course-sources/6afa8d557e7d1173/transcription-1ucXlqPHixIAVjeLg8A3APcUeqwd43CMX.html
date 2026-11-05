@@ -1,0 +1,25 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_sauvegarde_quotidienne.sh</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>02_sauvegarde_quotidienne.sh</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>02_sauvegarde_quotidienne.sh</h3><pre><code>#!/bin/bash
+set -euo pipefail
+# À adapter avant utilisation.
+REMOTE_USER=&#x27;&lt;LOGIN_BINOME&gt;&#x27;
+REMOTE_HOST=&#x27;172.16.0.186&#x27;
+REMOTE_DIR=&#x27;/srv/sauvegardes/DEB10-XX&#x27;
+BACKUP_DIR=&#x27;/var/backups/msp&#x27;
+DATE=&quot;$(date +%F)&quot;
+
+mkdir -p &quot;$BACKUP_DIR&quot;
+tar -cpf &quot;$BACKUP_DIR/home-$DATE.tar&quot; /home
+tar -cpf &quot;$BACKUP_DIR/services-$DATE.tar&quot; /services
+
+scp -i /root/.ssh/id_ed25519 &quot;$BACKUP_DIR/home-$DATE.tar&quot; &quot;$BACKUP_DIR/services-$DATE.tar&quot; \
+  &quot;$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR/&quot;
+
+# Conservation locale de 7 jours.
+find &quot;$BACKUP_DIR&quot; -type f -name &#x27;*.tar&#x27; -mtime +7 -delete
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_lvm_opt.sh</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>03_lvm_opt.sh</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>03_lvm_opt.sh</h3><pre><code>#!/bin/bash
+set -euo pipefail
+# Exécuter en root après avoir vérifié que /dev/sdc et /dev/sdd sont bien les deux nouveaux disques de 20 Go.
+apt update
+apt install -y lvm2
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
+read -r -p &#x27;Confirmer la création LVM sur /dev/sdc et /dev/sdd (taper OUI) : &#x27; confirm
+[[ &quot;$confirm&quot; == &#x27;OUI&#x27; ]] || exit 1
+
+pvcreate /dev/sdc /dev/sdd
+vgcreate vg_applications /dev/sdc /dev/sdd
+lvcreate -L 32G -n lv_opt vg_applications
+mkfs.ext4 -L OPT /dev/vg_applications/lv_opt
+
+mkdir -p /mnt/nouveau_opt
+mount /dev/vg_applications/lv_opt /mnt/nouveau_opt
+cp -a /opt/. /mnt/nouveau_opt/
+umount /mnt/nouveau_opt
+
+UUID=$(blkid -s UUID -o value /dev/vg_applications/lv_opt)
+echo &quot;UUID=$UUID /opt ext4 defaults 0 2&quot; &gt;&gt; /etc/fstab
+mount -a
+findmnt /opt
+pvs; vgs; lvs
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

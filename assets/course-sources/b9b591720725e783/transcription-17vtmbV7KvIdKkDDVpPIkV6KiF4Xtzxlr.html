@@ -1,51 +1,10 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP01 - Solution - Manipuler les disques et LVM.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M08TP01 - Solution - Manipuler les disques et LVM</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
-<h4>Manipuler les disques et <br>LVM </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Gestion des espaces de stockage avancée - LVM </p>
+<!DOCTYPE html>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">15 à 20 minutes </p>
-<h4>Énoncé  </h4>
-<p class="tssr-source-paragraph">I. <br>Gestion des disques sur la station avec environnement <br>graphique </p>
-<p class="tssr-source-paragraph">• <br>Ajouter un nouveau disque de 40 Go. </p>
-<p class="tssr-source-paragraph"> → <br> <br>1Depuis les paramètres de la VM, créer un nouveau disque, avec les options pas défaut. </p>
-<pre class="tssr-source-code">o Vérifier que le disque est bien présent dans /dev </pre>
-<p class="tssr-source-paragraph"> <br>Après l&#x27;ajout du disque, seul le disque d&#x27;origine est listé </p>
-
-<p class="tssr-source-paragraph"> <br>En utilisant la commande indiquée en Astuce apparait le host qui gère les disques. Ici host2. </p>
-
-<p class="tssr-source-paragraph"> <br>On force ensuite le scan en précisant le host2 indiqué à l’étape précédente </p>
-
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Spencty<br>Oak Capacsty<br>eet large Vow mart thn ob<br>be</p><p>aves<br>8<br>1<br>“3<br>Hordeere<br>Options | 2d adware dites<br>x<br>.<br>A</p><p>eccmener<br>dec<br>a<br>fee Det<br>9» bi<br>00<br>48<br>Dene<br>ardent Type<br>ms<br>What type of hectare du wart Ss rt<br>1<br>dices<br>ot hace rent<br>as</p><p>thcenten<br>fee NA ae<br>(an tance peines be repens a2<br>the peer</p><p>D<br>proces<br>dab scito be mms rapt ree,<br>IF<br>vos 0<br>not ace a he Que ro, Don<br>| =Mere<br>di PSP<br>ae<br>aan<br>Dd apte oma areQu où yeu at BA 00 à<br>Dane<br>(re)<br>A5 Pad det<br>Weck AGE<br>| G)COIDND Drive<br>cep SO TE<br>an<br>=<br>Sui etd cb a tbe hes</p></div></details>
-
-
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
-<p class="tssr-source-paragraph">• <br>Créer 1 partition sur le nouveau disque avec fdisk : </p>
-<pre class="tssr-source-code">o Partition principale de la totalité du disque pour du LVM </pre>
-<p class="tssr-source-paragraph"> <br>Lancer fdisk sur /dev/sdb, n pour créer une nouvelle partition. Tous les choix par défaut </p>
-
-<p class="tssr-source-paragraph"> <br>L’option t permet de modifier le type de partition en 8e pour “Linux LVM”. </p>
-<p class="tssr-source-paragraph">• <br>Intégrer la partition au groupe de volume présent dans votre système. </p>
-<p class="tssr-source-paragraph"> <br>pvcreate pour declarer la nouvelle partition comme Volume Physique utilisable pour LVM </p>
-<p class="tssr-source-paragraph">vgextend ajoute ce nouveau Volume Physique au Groupe de Volumes existant. </p>
-<p class="tssr-source-paragraph">• <br>Créer un volume logique de 20 Go nommé lvvar. </p>
-<p class="tssr-source-paragraph"> <br>lvcreate avec l’option -n pour préciser le nom du volume logique </p>
-<p class="tssr-source-paragraph">-L permet de préciser la taille du volume <br>Ne pas oublier de préciser le nom du Groupe de Volume cible. </p>
-<p class="tssr-source-paragraph">• <br>Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe <br>de volume. </p>
-<p class="tssr-source-paragraph"> <br>lvextend avec l’option -l suivi de l’argument “100%FREE” permet d’affecter l’espace libre au volume logique </p>
-<p class="tssr-source-paragraph">Avec un LV existant, saisir le chemin complet /dev/&lt;nomduVG&gt;/&lt;nomduLV&gt; </p>
-<p class="tssr-source-paragraph"> <br>d </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-
-
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M08TP01 - Solution - Manipuler les disques et LVM</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>M08TP01 - Solution - Manipuler les disques et LVM</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Manipuler les disques et LVM</h3><p>TP du Module 08 – Gestion des espaces de stockage avancée - LVM</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>15 à 20 minutes</p><h3>Énoncé</h3><h3>I. Gestion des disques sur la station avec environnement graphique</h3><ul><li>Ajouter un nouveau disque de 40 Go.</li></ul><p>→  1Depuis les paramètres de la VM, créer un nouveau disque, avec les options pas défaut.</p><ul><li>Vérifier que le disque est bien présent dans /dev</li></ul><p>Après l'ajout du disque, seul le disque d'origine est listé</p><p>En utilisant la commande indiquée en Astuce apparait le host qui gère les disques. Ici host2.</p><p>On force ensuite le scan en précisant le host2 indiqué à l’étape précédente</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-p1-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-p1-2.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-small-p1-4.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>ls -l /dev/sd*</code></pre></details></figure><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-small-p1-5.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>udevadm info --query=path --name=sda
+/devices/pci0000:00/0000:00:10.0/host2/target2:0:0/2:0:0:0/block/sda</code></pre></details></figure><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-small-p1-6.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>echo "- - -" &gt; /sys/class/scsi_host/host2/scan
+ls /dev/sd*</code></pre></details></figure></section>
+<section class="tssr-transcribed-page" id="page-2"><ul><li>Créer 1 partition sur le nouveau disque avec fdisk :</li><li>Partition principale de la totalité du disque pour du LVM</li></ul><p>Lancer fdisk sur /dev/sdb, n pour créer une nouvelle partition. Tous les choix par défaut</p><p>L’option t permet de modifier le type de partition en 8e pour “Linux LVM”.</p><ul><li>Intégrer la partition au groupe de volume présent dans votre système.</li></ul><p>pvcreate pour declarer la nouvelle partition comme Volume Physique utilisable pour LVM vgextend ajoute ce nouveau Volume Physique au Groupe de Volumes existant.</p><ul><li>Créer un volume logique de 20 Go nommé lvvar.</li></ul><p>lvcreate avec l’option -n pour préciser le nom du volume logique</p><p>-L permet de préciser la taille du volume Ne pas oublier de préciser le nom du Groupe de Volume cible.</p><ul><li>Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume.</li></ul><p>lvextend avec l’option -l suivi de l’argument “100%FREE” permet d’affecter l’espace libre au volume logique</p><p>Avec un LV existant, saisir le chemin complet /dev/&lt;nomduVG&gt;/&lt;nomduLV&gt; d</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-p2-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-p2-2.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-p2-3.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>lvcreate -n lvvar -L 20G vgsystem
+lvs</code></pre></details></figure><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-small-p2-4.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>pvcreate /dev/sdb1
+vgextend vgsystem /dev/sdb1</code></pre></details></figure><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/b9b591720725e783/deb-small-p2-6.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>lvextend -l +100%FREE /dev/vgsystem/lvhome</code></pre></details></figure></section>
+<!-- SOURCE-CONTENT:END --></body></html>

@@ -1,79 +1,35 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M07 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M07 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
-<h4>GNU/Linux</h4>
-<h4>Module 07 – Gestion des espaces de stockage</h4></section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion des espaces de stockage</h4>
-<h4>Objectifs</h4>
-<h4>• Comprendre le fonctionnement du partitionnement sous <br>Linux<br>• Utiliser la commande fdisk<br>• Connaître les systèmes de fichiers sous Linux</h4>
-<h4>Créer des partitions en mode « legacy »</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<!DOCTYPE html>
 
-</section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des espaces de stockage</h4>
-<h4>Partitionner un disque</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Partitionner un disque</h4>
-<h4>La norme Intel du MBR</h4>
-<h4>• Le MBR (Master Boot Record) est constitué de 2 principaux <br>éléments :</h4>
-<p class="tssr-source-paragraph">• Le boot loader : 446 premiers octets - Sous Linux il contient le stage 1 de <br>GRUB<br>• La table de partition : 64 octets, contient la position des 4 partitions <br>primaires<br>• La partition étendue pourra quant à elle stocker les informations <br>au maximum de 56 partitions logiques<br>• La plus grosse problématique du MBR est la taille limite des <br>partitions fixée au maximum à 2,2To (espace d&#x27;adressage de 32 bits)</p>
-</section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Partitionner un disque</h4>
-<h4>La norme Intel du GPT</h4>
-<p class="tssr-source-paragraph">• Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant <br>du MBR<br>• Le nombre maximum de partitions est fixé à 128 (voire 256)<br>• La limite théorique des partitions et des disques est de 9,4 Zo <br>(Zettaoctet)</p>
-</section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Partitionner un disque</h4>
-<h4>Nommage des disques sous Linux</h4>
-<p class="tssr-source-paragraph">• Sous Linux, les disques de type SCSI/SATA sont matérialisés dans le <br>répertoire /dev suivi de sd puis la lettre correspondant au disque<br>• Par exemple, s’il y a deux disques dans le système :<br>• /dev/sda correspond au premier disque détecté<br>• /dev/sdb correspond au deuxième disque</p>
-</section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Partitionner un disque</h4>
-<h4>Nommage des partitions</h4>
-<p class="tssr-source-paragraph">• Linux ne nomme pas les partitions à la suite<br>• Linux va réserver les chiffres de 1 à 4 pour les partitions principales <br>(principale et étendue)<br>• Quel que soit le nombre de partitions principales, s’il y a une <br>partition étendue alors les partitions logiques commenceront <br>quoiqu’il arrive à 5</p>
-</section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Partitionner un disque</h4>
-<h4>Nommage des partitions</h4>
-<p class="tssr-source-paragraph">• Exemple : le deuxième disque du système est partitionné avec 2 <br>partitions principales et une partition étendue contenant 3 <br>partitions logiques. Linux présentera tout cela de cette façon :</p>
-<h4>/dev/sdb disque entier<br>/dev/sdb1 1re partition principale<br>/dev/sdb2 2e partition principale</h4>
-<h4>/dev/sdb3 partition étendue<br>/dev/sdb5 1re partition logique<br>/dev/sdb6 2e partition logique<br>/dev/sdb7 3e partition logique</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Gestion des espaces de stockage</h4>
-<h4>Outil de <br>partitionnement</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<pre class="tssr-source-code">• fdisk [option] &lt;peripherique de stockage&gt;</pre>
-<pre class="tssr-source-code">• -l affiche la table de partition du périphérique</pre>
-<pre class="tssr-source-code">root@deb:~# fdisk -l /dev/sda</pre>
-<pre class="tssr-source-code">Disque /dev/sda : 20 GiB, 21474836480 octets, 41943040 secteurs
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>RES24_0050B - M07 - Linux Administration (Debian)</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>RES24_0050B - M07 - Linux Administration (Debian)</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Administration Debian</h3><h3>GNU/Linux</h3><p>Module 07 – Gestion des espaces de stockage</p></section>
+<section class="tssr-transcribed-page" id="page-2"><h2>Gestion des espaces de stockage</h2><h3>Objectifs</h3><ul><li>Comprendre le fonctionnement du partitionnement sous Linux</li><li>Utiliser la commande fdisk</li><li>Connaître les systèmes de fichiers sous Linux</li></ul><p>Créer des partitions en mode « legacy »</p></section>
+<section class="tssr-transcribed-page" id="page-3"><h2>Gestion des espaces de stockage</h2><h3>Partitionner un disque</h3></section>
+<section class="tssr-transcribed-page" id="page-4"><h2>La norme Intel du MBR</h2><ul><li>Le MBR (Master Boot Record) est constitué de 2 principaux éléments :</li><li>Le boot loader : 446 premiers octets - Sous Linux il contient le stage 1 de GRUB</li><li>La table de partition : 64 octets, contient la position des 4 partitions primaires</li><li>La partition étendue pourra quant à elle stocker les informations au maximum de 56 partitions logiques</li><li>La plus grosse problématique du MBR est la taille limite des partitions fixée au maximum à 2,2To (espace d'adressage de 32 bits)</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h2>La norme Intel du GPT</h2><ul><li>Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant du MBR</li><li>Le nombre maximum de partitions est fixé à 128 (voire 256)</li><li>La limite théorique des partitions et des disques est de 9,4 Zo (Zettaoctet)</li></ul></section>
+<section class="tssr-transcribed-page" id="page-6"><h2>Nommage des disques sous Linux</h2><ul><li>Sous Linux, les disques de type SCSI/SATA sont matérialisés dans le répertoire /dev suivi de sd puis la lettre correspondant au disque</li><li>Par exemple, s’il y a deux disques dans le système :</li><li>/dev/sda correspond au premier disque détecté</li><li>/dev/sdb correspond au deuxième disque</li></ul></section>
+<section class="tssr-transcribed-page" id="page-7"><h2>Nommage des partitions</h2><ul><li>Linux ne nomme pas les partitions à la suite</li><li>Linux va réserver les chiffres de 1 à 4 pour les partitions principales (principale et étendue)</li><li>Quel que soit le nombre de partitions principales, s’il y a une partition étendue alors les partitions logiques commenceront quoiqu’il arrive à 5</li></ul></section>
+<section class="tssr-transcribed-page" id="page-8"><h2>Nommage des partitions</h2><ul><li>Exemple : le deuxième disque du système est partitionné avec 2 partitions principales et une partition étendue contenant 3 partitions logiques. Linux présentera tout cela de cette façon :</li></ul><p>/dev/sdb disque entier /dev/sdb1 1re partition principale /dev/sdb2 2e partition principale</p><p>/dev/sdb3 partition étendue /dev/sdb5 1re partition logique /dev/sdb6 2e partition logique /dev/sdb7 3e partition logique</p></section>
+<section class="tssr-transcribed-page" id="page-9"><h2>Gestion des espaces de stockage</h2><h3>Outil de partitionnement</h3></section>
+<section class="tssr-transcribed-page" id="page-10"><h2>La commande fdisk</h2><pre><code>• fdisk [option] &lt;peripherique de stockage&gt;</code></pre><ul><li>-l affiche la table de partition du périphérique</li></ul><pre><code>root@deb:~# fdisk -l /dev/sda</code></pre><pre><code>Disque /dev/sda : 20 GiB, 21474836480 octets, 41943040 secteurs
 Unités : secteur de 1 × 512 = 512 octets
 Taille de secteur (logique / physique) : 512 octets / 512 octets
-taille d&#x27;E/S (minimale / optimale) : 512 octets / 512 octets
-Type d&#x27;étiquette de disque : dos
+taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+Type d'étiquette de disque : dos
 Identifiant de disque : 0x732e6aa1
 Périphérique Amorçage Début Fin Secteurs Taille Id Type
 /dev/sda1 * 2048 499711 497664 243M 83 Linux
-/dev/sda2 501758 41940991 41439234 19,8G 5 Étendue </pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>DO<br>ene</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<pre class="tssr-source-code">root@deb:~# fdisk /dev/sdb</pre>
-<pre class="tssr-source-code">Bienvenue dans fdisk (util-linux 2.29.2).
-Les modifications resteront en mémoire jusqu&#x27;à écriture.
-Soyez prudent avant d&#x27;utiliser la commande d&#x27;écriture.</pre>
-<pre class="tssr-source-code">Commande (m pour l&#x27;aide) : m
+/dev/sda2 501758 41940991 41439234 19,8G 5 Étendue </code></pre></section>
+<section class="tssr-transcribed-page" id="page-11"><h2>La commande fdisk</h2><pre><code>root@deb:~# fdisk /dev/sdb</code></pre><pre><code>Bienvenue dans fdisk (util-linux 2.29.2).
+Les modifications resteront en mémoire jusqu'à écriture.
+Soyez prudent avant d'utiliser la commande d'écriture.</code></pre><pre><code>Commande (m pour l'aide) : m
 [...]
 n ajouter une nouvelle partition
 p afficher la table de partitions
-t modifier le type d&#x27;une partition
+t modifier le type d'une partition
 [...]
 w écrire la table sur le disque et quitter
-q quitter sans enregistrer les modifications</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<pre class="tssr-source-code">root@deb:~# fdisk /dev/sdb</pre>
-<pre class="tssr-source-code">Commande (m pour l&#x27;aide) : n
+q quitter sans enregistrer les modifications</code></pre></section>
+<section class="tssr-transcribed-page" id="page-12"><h2>La commande fdisk</h2><pre><code>root@deb:~# fdisk /dev/sdb</code></pre><pre><code>Commande (m pour l'aide) : n
 Type de partition
 p primaire (0 primaire, 0 étendue, 4 libre)
 e étendue (conteneur pour partitions logiques)
@@ -81,58 +37,33 @@ Sélectionnez (p par défaut) : p
 Numéro de partition (1-4, 1 par défaut) :
 Premier secteur (2048-62914559, 2048 par défaut) :
 Dernier secteur, +secteurs ou +taille{K,M,G,T,P} (2048-62914559, 
-62914559 par défaut) : +20G</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<h4>Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée. </h4>
-<pre class="tssr-source-code">Commande (m pour l&#x27;aide) : p
+62914559 par défaut) : +20G</code></pre></section>
+<section class="tssr-transcribed-page" id="page-13"><h2>La commande fdisk</h2><p>Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée.</p><pre><code>Commande (m pour l'aide) : p
 Disque /dev/sdb : 30 GiB, 32212254720 octets, 62914560 secteurs
 Unités : secteur de 1 × 512 = 512 octets
 Taille de secteur (logique / physique) : 512 octets / 512 octets
-taille d&#x27;E/S (minimale / optimale) : 512 octets / 512 octets
-Type d&#x27;étiquette de disque : dos
+taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+Type d'étiquette de disque : dos
 Identifiant de disque : 0x0ab85bf5
 Périphérique Amorçage Début Fin Secteurs Taille Id Type
-/dev/sdb1 2048 41945087 41943040 20G 83 Linux</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=)</p><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<h4>Une fois les partitions créées, il ne faut pas oublier de définir le type <br>de partition via la commande t.</h4>
-<pre class="tssr-source-code">Commande (m pour l&#x27;aide) : t
+/dev/sdb1 2048 41945087 41943040 20G 83 Linux</code></pre></section>
+<section class="tssr-transcribed-page" id="page-14"><h2>La commande fdisk</h2><p>Une fois les partitions créées, il ne faut pas oublier de définir le type de partition via la commande t.</p><pre><code>Commande (m pour l'aide) : t
 Partition 1 sélectionnée
 Code Hexa (taper L pour afficher tous les codes) :L
  0  Vide            24  NEC DOS         81  Minix / Linux a
- 1  FAT12           27  TFS WinRE masqu 82  partition d&#x27;éch 
+ 1  FAT12           27  TFS WinRE masqu 82  partition d'éch 
  2  root XENIX      39  Plan 9          83  Linux
  3  usr XENIX       3c  récupération Pa 84  OS/2 cachée
  4  FAT16 &lt;32M      40  Venix 80286     85  Linux
  5  Étendue         41  PPC PReP Boot   86  NTFS volume set
  6  FAT16           42  SFS             87  NTFS volume set
  7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext
- 8  AIX             4e  2e partie QNX4. 8e  Linux LVM</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Outil de partitionnement</h4>
-<h4>La commande fdisk</h4>
-<h4>L’enregistrement des modifications se fait via la commande w.</h4>
-<pre class="tssr-source-code">Commande (m pour l&#x27;aide) : w
+ 8  AIX             4e  2e partie QNX4. 8e  Linux LVM</code></pre></section>
+<section class="tssr-transcribed-page" id="page-15"><h2>La commande fdisk</h2><p>L’enregistrement des modifications se fait via la commande w.</p><pre><code>Commande (m pour l'aide) : w
 La table de partitions a été altérée.
-Appel d&#x27;ioctl() pour relire la table de partitions.
+Appel d'ioctl() pour relire la table de partitions.
 Synchronisation des disques.
-root@deb:~#</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Outil de partitionnement</h4>
-<h4>Démo</h4>
-<h4>Les partitions avec fdisk</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Gestion des espaces de stockage</h4>
-<h4>Conclusion</h4>
-<h4>• Vous comprenez le fonctionnement du partitionnement sous Linux<br>• Vous savez utiliser la commande fdisk<br>• Vous connaissez les systèmes de fichiers sous Linux</h4>
-</section><!-- SOURCE-CONTENT:END --></body></html>
+root@deb:~#</code></pre></section>
+<section class="tssr-transcribed-page" id="page-16"><h2>Outil de partitionnement</h2><p>Démo</p><p>Les partitions avec fdisk</p></section>
+<section class="tssr-transcribed-page" id="page-17"><h2>Conclusion</h2><ul><li>Vous comprenez le fonctionnement du partitionnement sous Linux</li><li>Vous savez utiliser la commande fdisk</li><li>Vous connaissez les systèmes de fichiers sous Linux</li></ul></section>
+<!-- SOURCE-CONTENT:END --></body></html>

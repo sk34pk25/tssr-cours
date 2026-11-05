@@ -1,36 +1,14 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M12 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M12 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
-<h4>GNU/Linux</h4>
-<h4>Module 12 – Maintenance d’un système en production</h4></section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Maintenance d’un système en production</h4>
-<h4>Objectifs</h4>
-<h4>• Analyser le système<br>• Gérer les journaux<br>• Planifier des tâches<br>• Gérer les fichiers de logs</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-</section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Maintenance d’un système en production</h4>
-<h4>Analyser le système</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Analyser le système</h4>
-<h4>Nécessité d’analyser son système</h4>
-<p class="tssr-source-paragraph">• Il est important d’analyser son système d’exploitation pour vérifier <br>que tout fonctionne correctement. Il y a des deux types d’outils <br>permettant cette analyse : les outils proactifs et réactifs.<br>• Afin d’analyser facilement son système, il est utile de lire les <br>journaux du système (les logs). <br>• Afin de préserver un bon fonctionnement, il est utile d’automatiser<br>des tâches administratives.<br>• Enfin, il est important de connaître des commandes de prise <br>d’informations du système, la RAM, le CPU, les processus, etc.</p>
-</section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Analyser le système</h4>
-<h4>Gestion des journaux système et applicatif</h4>
-<h4>La gestion des journaux applicatifs est gérée sous Debian 9 par deux <br>services :<br>• Journald au travers de systemd<br>• L’ancien système rsyslog au travers de journald</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Analyser le système</h4>
-<h4>Journald au travers de Systemd</h4>
-<pre class="tssr-source-code">• Tous les services, programmes, tâches gérées par systemd ont leurs 
-comportements remontés dans journald.
-• Le fait d’exécuter la commande systemctl status [daemon]
-affiche le statut du service mais aussi les logs de l’application. 
-• Ces logs sont enregistrés dans une base de données gérée par 
-journald.</pre>
-</section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Maintenance d&#x27;un système en production</h4>
-<h4>La commande Journalctl</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>La commande Journalctl<br>Journald au travers de Systemd</h4>
-<pre class="tssr-source-code">root@deb:~$ systemctl status sshd.service 
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>RES24_0050B - M12 - Linux Administration (Debian)</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>RES24_0050B - M12 - Linux Administration (Debian)</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Administration Debian</h3><h3>GNU/Linux</h3><p>Module 12 – Maintenance d’un système en production</p></section>
+<section class="tssr-transcribed-page" id="page-2"><h2>Maintenance d’un système en production</h2><h3>Objectifs</h3><ul><li>Analyser le système</li><li>Gérer les journaux</li><li>Planifier des tâches</li><li>Gérer les fichiers de logs</li></ul></section>
+<section class="tssr-transcribed-page" id="page-3"><h2>Maintenance d’un système en production</h2><h3>Analyser le système</h3></section>
+<section class="tssr-transcribed-page" id="page-4"><h2>Nécessité d’analyser son système</h2><ul><li>Il est important d’analyser son système d’exploitation pour vérifier que tout fonctionne correctement. Il y a des deux types d’outils permettant cette analyse : les outils proactifs et réactifs.</li><li>Afin d’analyser facilement son système, il est utile de lire les journaux du système (les logs).</li><li>Afin de préserver un bon fonctionnement, il est utile d’automatiser des tâches administratives.</li><li>Enfin, il est important de connaître des commandes de prise d’informations du système, la RAM, le CPU, les processus, etc.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h2>Gestion des journaux système et applicatif</h2><p>La gestion des journaux applicatifs est gérée sous Debian 9 par deux services :</p><ul><li>Journald au travers de systemd</li><li>L’ancien système rsyslog au travers de journald</li></ul></section>
+<section class="tssr-transcribed-page" id="page-6"><h2>Journald au travers de Systemd</h2><ul><li>Tous les services, programmes, tâches gérées par systemd ont leurs comportements remontés dans journald.</li><li>Le fait d’exécuter la commande systemctl status [daemon] affiche le statut du service mais aussi les logs de l’application.</li><li>Ces logs sont enregistrés dans une base de données gérée par journald.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-7"><h2>Maintenance d'un système en production</h2><h3>La commande Journalctl</h3></section>
+<section class="tssr-transcribed-page" id="page-8"><h2>Journald au travers de Systemd</h2><pre><code>root@deb:~$ systemctl status sshd.service 
 ● ssh.service - OpenBSD Secure Shell server
    Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2021-06-03 14:22:07 CEST; 6 days ago
@@ -41,20 +19,11 @@ journald.</pre>
     Tasks: 1 (limit: 2315)
    Memory: 3.8M
    CGroup: /system.slice/ssh.service
-           └─621 /usr/sbin/sshd -D</pre>
-<pre class="tssr-source-code">juin 09 15:35:20 client-linux sshd[5154]: Accepted password for jdoe from 172.19.11.13 
+           └─621 /usr/sbin/sshd -D</code></pre><pre><code>juin 09 15:35:20 client-linux sshd[5154]: Accepted password for jdoe from 172.19.11.13 
 port 61644 ssh2
 juin 09 15:35:20 client-linux sshd[5154]: pam_unix(sshd:session): session opened for 
-user jdoe by (uid=0)</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>La commande Journalctl</h4>
-<h4>Regarder les logs complets de chaque service</h4>
-<pre class="tssr-source-code">• Puisque journald stocke les informations dans une base de données, il est 
-possible de regarder les logs complets de chaque service via la commande 
-journalctl. </pre>
-<pre class="tssr-source-code">• Le fichier de configuration de journald est /etc/systemd/journald.conf</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl 
+user jdoe by (uid=0)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-9"><h2>Regarder les logs complets de chaque service</h2><ul><li>Puisque journald stocke les informations dans une base de données, il est possible de regarder les logs complets de chaque service via la commande journalctl.</li><li>Le fichier de configuration de journald est /etc/systemd/journald.conf</li></ul><pre><code>root@deb:~$ journalctl 
 - Logs begin at Thu 2021-06-03 14:22:04 CEST, end at Wed 2021-06-09 15:41:22 CEST. -
 juin 03 14:22:04 client-linux kernel: Linux version 4.19.0-16-amd64 (debian-
 kernel@lists.debian.org) (gcc version 8.3.0 (Debian 8.3.0-6)) #1 SMP D
@@ -62,38 +31,25 @@ juin 03 14:22:04 client-linux kernel: Command line: BOOT_IMAGE=/vmlinuz-4.19.0-1
 root=/dev/mapper/client--linux--vg-root ro quiet
 juin 03 14:22:04 client-linux kernel: Disabled fast string operations
 [...]
-juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly&#x27; terminated
+juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly' terminated
 juin 09 15:41:22 client-linux anacron[4086]: Normal exit (2 jobs run)
 juin 09 15:41:22 client-linux systemd[1]: anacron.service: Succeeded.
-lines 4792-4839/4839 (END)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Cr</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>La commande Journalctl</h4>
-<h4>Visualiser les logs en temps réel</h4>
-<pre class="tssr-source-code">Il est possible de visualiser les logs en temps réel avec l’option -f</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl -f
+lines 4792-4839/4839 (END)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-10"><h2>Visualiser les logs en temps réel</h2><p>Il est possible de visualiser les logs en temps réel avec l’option -f</p><pre><code>root@deb:~$ journalctl -f
 -- Logs begin at Thu 2021-06-03 14:22:04 CEST. --
 juin 09 15:36:22 client-linux cracklib[5204]: no dictionary update necessary.
-juin 09 15:36:23 client-linux anacron[4086]: Job `cron.daily&#x27; terminated
+juin 09 15:36:23 client-linux anacron[4086]: Job `cron.daily' terminated
 juin 09 15:36:45 client-linux PackageKit[4305]: daemon quit
 juin 09 15:36:45 client-linux systemd[1]: packagekit.service: Main process exited, 
 code=killed, status=15/TERM
 juin 09 15:36:45 client-linux systemd[1]: packagekit.service: Succeeded.
-juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly&#x27; started
-juin 09 15:41:22 client-linux anacron[5274]: Updated timestamp for job `cron.weekly&#x27; to 
+juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly' started
+juin 09 15:41:22 client-linux anacron[5274]: Updated timestamp for job `cron.weekly' to 
 2021-06-09
-juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly&#x27; terminated
+juin 09 15:41:22 client-linux anacron[4086]: Job `cron.weekly' terminated
 juin 09 15:41:22 client-linux anacron[4086]: Normal exit (2 jobs run)
-juin 09 15:41:22 client-linux systemd[1]: anacron.service: Succeeded.</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>SO<br>Cal</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>La commande Journalctl</h4>
-<h4>Voir les logs d’un service donné</h4>
-<pre class="tssr-source-code">journalctl -u [service]</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl –u cron
+juin 09 15:41:22 client-linux systemd[1]: anacron.service: Succeeded.</code></pre></section>
+<section class="tssr-transcribed-page" id="page-11"><h2>Voir les logs d’un service donné</h2><pre><code>journalctl -u [service]</code></pre><pre><code>root@deb:~$ journalctl –u cron
 -- Logs begin at Thu 2021-06-03 14:22:04 CEST, end at Wed 2021-06-09 15:41:22 CEST. --
 juin 03 14:22:06 client-linux systemd[1]: Started Regular background program processing 
 daemon.
@@ -104,40 +60,23 @@ by (uid=0)
 juin 03 14:30:01 client-linux CRON[1338]: (root) CMD ([ -x /etc/init.d/anacron ] &amp;&amp; if [ ! -d 
 /run/systemd/system ]; then /usr/sbin/invoke-rc.d an
 juin 03 14:30:01 client-linux CRON[1337]: pam_unix(cron:session): session closed for user root
-[...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PO</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>La commande Journalctl</h4>
-<h4>Voir les logs d’un PID donné</h4>
-<pre class="tssr-source-code">journalctl _PID=[n° pid]</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl _PID=1
+[...]</code></pre></section>
+<section class="tssr-transcribed-page" id="page-12"><h2>Voir les logs d’un PID donné</h2><pre><code>journalctl _PID=[n° pid]</code></pre><pre><code>root@deb:~$ journalctl _PID=1
 -- Logs begin at Sun 2019-04-21 07:14:36 CEST, end at Thu 2019-05-09 13:24:52 CEST. --
 avril 21 08:01:38 debian systemd[1]: Started Run anacron jobs.
 avril 21 08:01:38 debian systemd[1]: anacron.timer: Adding 2min 48.679199s random time.
 avril 21 08:53:38 debian systemd[1]: Starting Daily apt download activities...
 avril 21 08:53:45 debian systemd[1]: Started Daily apt download activities.
-avril 21 08:53:45 debian systemd[1]: apt-daily.timer: Adding 10h 23.576305s random time.</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>La commande Journalctl</h4>
-<h4>Voir les logs d’un programme</h4>
-<pre class="tssr-source-code">journalctl /usr/sbin/sshd</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl /usr/sbin/sshd 
+avril 21 08:53:45 debian systemd[1]: apt-daily.timer: Adding 10h 23.576305s random time.</code></pre></section>
+<section class="tssr-transcribed-page" id="page-13"><h2>Voir les logs d’un programme</h2><pre><code>journalctl /usr/sbin/sshd</code></pre><pre><code>root@deb:~$ journalctl /usr/sbin/sshd 
 -- Logs begin at Thu 2021-06-03 14:22:04 CEST, end at Wed 2021-06-09 16:32:19 CEST. --
 juin 03 14:22:07 client-linux sshd[621]: Server listening on 0.0.0.0 port 22.
 juin 03 14:22:07 client-linux sshd[621]: Server listening on :: port 22.
 juin 09 15:35:20 client-linux sshd[5154]: Accepted password for jdoe from 172.19.11.13 port 
 61644 ssh2
 juin 09 15:35:20 client-linux sshd[5154]: pam_unix(sshd:session): session opened for user jdoe
-by (uid=0)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>La commande Journalctl</h4>
-<h4>Voir les logs par niveau de priorité</h4>
-<pre class="tssr-source-code">journalctl –p &lt;level&gt;</pre>
-<pre class="tssr-source-code">root@deb:~$ journalctl -p err
+by (uid=0)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-14"><h2>Voir les logs par niveau de priorité</h2><pre><code>journalctl –p &lt;level&gt;</code></pre><pre><code>root@deb:~$ journalctl -p err
 -- Logs begin at Thu 2021-06-03 14:22:04 CEST, end at Wed 2021-06-09 16:32:19 CEST. --
 juin 03 14:22:07 client-linux kernel: sd 3:0:0:0: [sdc] No Caching mode page found
 juin 03 14:22:07 client-linux kernel: sd 3:0:0:0: [sdc] Assuming drive cache: write through
@@ -145,130 +84,41 @@ juin 09 15:35:20 client-linux gdm-password][18939]: pam_unix(gdm-password:auth):
 failed
 juin 09 15:35:20 client-linux
 gdm-password][18939]: pam_unix(gdm-password:auth): auth could 
-not identify password for [jdoe]</pre>
-<pre class="tssr-source-code">Les différents niveaux de priorités sont du plus critique au 
-plus informatif : emerg, alert, crit, err, warning, notice, info, 
-debug.</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>La commande Journalctl</h4>
-<h4>Cumuler les options</h4>
-<h4>Il est possible de cumuler les options, par exemple :</h4>
-<pre class="tssr-source-code">root@deb:~$ journalctl -f /usr/sbin/sshd -p info
+not identify password for [jdoe]</code></pre><p>Les différents niveaux de priorités sont du plus critique au plus informatif : emerg, alert, crit, err, warning, notice, info, debug.</p></section>
+<section class="tssr-transcribed-page" id="page-15"><h2>Cumuler les options</h2><p>Il est possible de cumuler les options, par exemple :</p><pre><code>root@deb:~$ journalctl -f /usr/sbin/sshd -p info
 -- Logs begin at Thu 2021-06-03 14:22:04 CEST, end at Wed 2021-06-09 16:32:19 CEST. --
-mai 06 09:56:48 debian sshd[18901]: Accepted password for jdoe from 10.9.121.13 </pre>
-<pre class="tssr-source-code">port
+mai 06 09:56:48 debian sshd[18901]: Accepted password for jdoe from 10.9.121.13 </code></pre><pre><code>port
 60042 ssh2
 mai 06 09:56:48 debian sshd[18901]: pam_unix(sshd:session): session opened for user 
 jdoe by 
-(uid=0)</pre>
-<pre class="tssr-source-code">mai 06 15:48:06 debian sshd[18901]: pam_unix(sshd:session): session closed for user 
-jdoe</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D</p><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Maintenance d&#x27;un système en production</h4>
-<h4>rsyslog à travers Journald</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Généralité</h4>
-<p class="tssr-source-paragraph">• Journald a certes l’avantage de stocker les logs dans une base de <br>données mais ces logs sont uniquement conservés pour le <br>démarrage en cours.<br>• Pour conserver les logs, Debian utilise rsyslog. <br>• Tous les logs de journalctl sont transférés à rsyslog.</p>
-</section>
-<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Principe de fonctionnement</h4>
-<p class="tssr-source-paragraph">• rsyslog travaille sur des « facilities » et des niveaux de priorités qui <br>déclenchent une action.<br>• Les facilities les plus courantes sont :<br>• auth : utilisée pour des évènements concernant la sécurité ou <br>l&#x27;authentification à travers des applications d&#x27;accès (type SSH)<br>• authpriv : utilisée pour les messages relatifs au contrôle d&#x27;accès<br>• daemon : utilisée par les différents processus systèmes et d&#x27;application<br>• kern : utilisée pour les messages concernant le noyau</p>
-</section>
-<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Principe de fonctionnement</h4>
-<p class="tssr-source-paragraph">• mail : utilisée pour les évènements des services mail<br>• user : facility par défaut quand aucune n&#x27;est spécifiée<br>• local0 à local7 : utilisées pour les messages de différents <br>programmes<br>• * : désigne toutes les facilities<br>• none : désigne aucune facility</p>
-</section>
-<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Principe de fonctionnement</h4>
-<p class="tssr-source-paragraph">Les différents niveaux de priorité sont :<br>• emerg : urgence, système inutilisable<br>• alert : alerte, intervention immédiate nécessaire<br>• crit : erreur système critique<br>• err : erreur de fonctionnement<br>• warning : avertissement<br>• notice : évènements normaux devant être signalés<br>• info : pour information<br>• debug : message de débogage</p>
-</section>
-<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Principe de fonctionnement</h4>
-<p class="tssr-source-paragraph">• Les actions correspondent généralement à l’écriture du journal <br>dans un fichier, mais il est possible de configurer rsyslog pour qu’il <br>envoie les messages à enregistrer vers un autre serveur rsyslog.<br>• Exemple de configuration des règles dans le fichier <br>/etc/rsyslog.conf :</p>
-<pre class="tssr-source-code">auth,authpriv.*   
+(uid=0)</code></pre><pre><code>mai 06 15:48:06 debian sshd[18901]: pam_unix(sshd:session): session closed for user 
+jdoe</code></pre></section>
+<section class="tssr-transcribed-page" id="page-16"><h2>Maintenance d'un système en production</h2><h3>rsyslog à travers Journald</h3></section>
+<section class="tssr-transcribed-page" id="page-17"><h2>Généralité</h2><ul><li>Journald a certes l’avantage de stocker les logs dans une base de données mais ces logs sont uniquement conservés pour le démarrage en cours.</li><li>Pour conserver les logs, Debian utilise rsyslog.</li><li>Tous les logs de journalctl sont transférés à rsyslog.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-18"><h2>Principe de fonctionnement</h2><ul><li>rsyslog travaille sur des « facilities » et des niveaux de priorités qui déclenchent une action.</li><li>Les facilities les plus courantes sont :</li><li>auth : utilisée pour des évènements concernant la sécurité ou l'authentification à travers des applications d'accès (type SSH)</li><li>authpriv : utilisée pour les messages relatifs au contrôle d'accès</li><li>daemon : utilisée par les différents processus systèmes et d'application</li><li>kern : utilisée pour les messages concernant le noyau</li></ul></section>
+<section class="tssr-transcribed-page" id="page-19"><h2>Principe de fonctionnement</h2><ul><li>mail : utilisée pour les évènements des services mail</li><li>user : facility par défaut quand aucune n'est spécifiée</li><li>local0 à local7 : utilisées pour les messages de différents programmes</li><li>* : désigne toutes les facilities</li><li>none : désigne aucune facility</li></ul></section>
+<section class="tssr-transcribed-page" id="page-20"><h2>Principe de fonctionnement</h2><p>Les différents niveaux de priorité sont :</p><ul><li>emerg : urgence, système inutilisable</li><li>alert : alerte, intervention immédiate nécessaire</li><li>crit : erreur système critique</li><li>err : erreur de fonctionnement</li><li>warning : avertissement</li><li>notice : évènements normaux devant être signalés</li><li>info : pour information</li><li>debug : message de débogage</li></ul></section>
+<section class="tssr-transcribed-page" id="page-21"><h2>Principe de fonctionnement</h2><ul><li>Les actions correspondent généralement à l’écriture du journal dans un fichier, mais il est possible de configurer rsyslog pour qu’il envoie les messages à enregistrer vers un autre serveur rsyslog.</li><li>Exemple de configuration des règles dans le fichier /etc/rsyslog.conf :</li></ul><pre><code>auth,authpriv.*   
 /var/log/auth.log
 *.*;auth,authpriv.none -/var/log/syslog
 #cron.*       
 /var/log/cron.log
 daemon.*       -/var/log/daemon.log
-kern.*        -/var/log/kern.log</pre>
-<h4>• Le « - » devant certains chemins indique que l’enregistrement des <br>logs est asynchrone.</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Commande d&#x27;interaction</h4>
-<pre class="tssr-source-code">• Il est possible de faire des tests ou créer des scripts qui 
-interagissent avec journald et rsyslog via la commande logger.</pre>
-<pre class="tssr-source-code">logger &lt;option&gt; [message]</pre>
-<h4>• Par exemple, pour envoyer un message cron de niveau info :</h4>
-<pre class="tssr-source-code">root@deb:~$ logger -p cron.info Message de test</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D)</p><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Rsyslog à travers Journald</h4>
-<h4>Démo</h4>
-<h4>Gestion des journaux</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Rsyslog à travers Journald</h4>
-<h4>TP</h4>
-<h4>Démo</h4>
-<h4>Gestion de la journalisation</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                Rsyslog à travers Journald
-
-
-
-     TPDémo
-
-                             Gestion de la journalisation</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Maintenance d’un système en production</h4>
-<h4>Planification des tâches</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><h4>Planification des tâches</h4>
-<h4>Planification utilisateur</h4>
-<pre class="tssr-source-code">crontab –e</pre>
-<h4>Au premier lancement de la commande, Debian vous <br>proposera de choisir l’éditeur de texte a utiliser :</h4>
-<pre class="tssr-source-code">no crontab for root - using an empty one</pre>
-<pre class="tssr-source-code">Select an editor. To change later, run &#x27;select-editor&#x27;.
+kern.*        -/var/log/kern.log</code></pre><ul><li>Le « - » devant certains chemins indique que l’enregistrement des logs est asynchrone.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-22"><h2>Commande d'interaction</h2><ul><li>Il est possible de faire des tests ou créer des scripts qui interagissent avec journald et rsyslog via la commande logger.</li></ul><pre><code>logger &lt;option&gt; [message]</code></pre><ul><li>Par exemple, pour envoyer un message cron de niveau info :</li></ul><pre><code>root@deb:~$ logger -p cron.info Message de test</code></pre></section>
+<section class="tssr-transcribed-page" id="page-23"><h2>Rsyslog à travers Journald</h2><p>Démo</p><h3>Gestion des journaux</h3></section>
+<section class="tssr-transcribed-page" id="page-24"><h2>Rsyslog à travers Journald</h2><h3>TP</h3><p>Démo</p><h3>Gestion de la journalisation</h3></section>
+<section class="tssr-transcribed-page" id="page-25"><h2>Maintenance d’un système en production</h2><h3>Planification des tâches</h3></section>
+<section class="tssr-transcribed-page" id="page-26"><h2>Planification utilisateur</h2><pre><code>crontab –e</code></pre><p>Au premier lancement de la commande, Debian vous proposera de choisir l’éditeur de texte a utiliser :</p><pre><code>no crontab for root - using an empty one</code></pre><pre><code>Select an editor. To change later, run 'select-editor'.
 1. /bin/nano &lt;---- easiest
 2. /usr/bin/vim.basic &lt;---- the best
 3. /usr/bin/vim.tiny
-Choose 1-3 [1]: 2</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Planification des tâches</h4>
-<h4>Planification utilisateur</h4>
-<h4>Le fichier crontab est composé de six colonnes :</h4>
-<p class="tssr-source-paragraph">• Minute : de 0 à 59<br>• Heure : de 0 à 23<br>• Jour du mois : de 1 à 31<br>• Mois : de 1 à 12<br>• Jour de la semaine : de 0 à 7 (sachant que 0 et 7 représentent <br>dimanche)<br>• Commande : la commande à exécuter suivant la planification (il est <br>conseillé d’utiliser un script pour des raisons de simplification de <br>suivi des actions).</p>
-</section>
-<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Planification des tâches</h4>
-<h4>Planification utilisateur</h4>
-<p class="tssr-source-paragraph">Il est possible de formater les cinq premières colonnes :<br>• Avec des listes, en utilisant le caractère « , » :<br>• Ex. : 1,3,5 dans la colonne des jours de la semaine génèrent une tâche tous les lundis, <br>mercredis et vendredis<br>• Avec des intervalles, en utilisant « - » :<br>• Ex. : 10-20 dans la colonne jours du mois génère une tâche exécutée du 10 au 20<br>• Avec un joker, en utilisant « * » :<br>• Ex. : * dans la colonne des heures indique toutes les heures<br>• Mettre un répétiteur, en utilisant « / » :<br>• Ex : */2 dans la colonne des mois génère une tâche exécutée en janvier, mars, mai, <br>juillet, septembre, novembre</p>
-</section>
-<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Planification des tâches</h4>
-<h4>Planification utilisateur</h4>
-<h4>Exemple de configuration</h4>
-<pre class="tssr-source-code">0  5  *  *  1  /opt/bin/backup.sh</pre>
-<h4>Tâche exécutée chaque lundi matin à 5h00 <br>durant toute l&#x27;année, quel que soit le mois</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-30"><h3>Page 30</h3><h4>Maintenance d’un système en production</h4>
-<h4>Planification système</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-31"><h3>Page 31</h3><h4>Planification des tâches</h4>
-<h4>Planification système</h4>
-<pre class="tssr-source-code">• Cron utilise aussi une table spéciale pour les tâches de 
-planification du système. 
-• Ces tâches sont déclarées dans le fichier /etc/crontab.</pre>
-<pre class="tssr-source-code">SHELL=/bin/sh
+Choose 1-3 [1]: 2</code></pre></section>
+<section class="tssr-transcribed-page" id="page-27"><h2>Planification utilisateur</h2><p>Le fichier crontab est composé de six colonnes :</p><ul><li>Minute : de 0 à 59</li><li>Heure : de 0 à 23</li><li>Jour du mois : de 1 à 31</li><li>Mois : de 1 à 12</li><li>Jour de la semaine : de 0 à 7 (sachant que 0 et 7 représentent dimanche)</li><li>Commande : la commande à exécuter suivant la planification (il est conseillé d’utiliser un script pour des raisons de simplification de suivi des actions).</li></ul></section>
+<section class="tssr-transcribed-page" id="page-28"><h2>Planification utilisateur</h2><p>Il est possible de formater les cinq premières colonnes :</p><ul><li>Avec des listes, en utilisant le caractère « , » :</li><li>Ex. : 1,3,5 dans la colonne des jours de la semaine génèrent une tâche tous les lundis, mercredis et vendredis</li><li>Avec des intervalles, en utilisant « - » :</li><li>Ex. : 10-20 dans la colonne jours du mois génère une tâche exécutée du 10 au 20</li><li>Avec un joker, en utilisant « * » :</li><li>Ex. : * dans la colonne des heures indique toutes les heures</li><li>Mettre un répétiteur, en utilisant « / » :</li><li>Ex : */2 dans la colonne des mois génère une tâche exécutée en janvier, mars, mai, juillet, septembre, novembre</li></ul></section>
+<section class="tssr-transcribed-page" id="page-29"><h2>Planification utilisateur</h2><p>Exemple de configuration</p><pre><code>0  5  *  *  1  /opt/bin/backup.sh</code></pre><p>Tâche exécutée chaque lundi matin à 5h00 durant toute l'année, quel que soit le mois</p></section>
+<section class="tssr-transcribed-page" id="page-30"><h2>Maintenance d’un système en production</h2><h3>Planification système</h3></section>
+<section class="tssr-transcribed-page" id="page-31"><h2>Planification système</h2><ul><li>Cron utilise aussi une table spéciale pour les tâches de planification du système.</li><li>Ces tâches sont déclarées dans le fichier /etc/crontab.</li></ul><pre><code>SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # m h dom mon dow user command
 17 * * * * root cd / &amp;&amp; run-parts --report /etc/cron.hourly
@@ -277,90 +127,26 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 47 6 * * 7 root test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report 
 /etc/cron.weekly)
 52 6 1 * * root test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report 
-/etc/cron.monthly)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>8</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-32"><h3>Page 32</h3><h4>Planification des tâches</h4>
-<h4>Lancement des tâches non exécutées avec anacron</h4>
-<p class="tssr-source-paragraph">• Pour comprendre le fonctionnement d’anacron, l’explication <br>suivante va s’appuyer sur le travail : cron.daily<br>• Tous les jours, si le système reste allumé 24h/24,<br> cron va exécuter cette tâche à 6h25 :</p>
-<pre class="tssr-source-code">25 6 * * * root cd / &amp;&amp; run-parts --report /etc/cron.daily</pre>
-<pre class="tssr-source-code">• Cette tâche a pour effet de lancer tous les scripts présents dans 
-le répertoire /etc/cron.daily.
-• En regardant dans ce répertoire, on voit qu’il y a un fichier 
-0anacron. Ce script exécute une simple commande qui est :</pre>
-<pre class="tssr-source-code">anacron –u cron.daily</pre>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><h4>Planification des tâches</h4>
-<h4>Démo</h4>
-<h4>Planification de tâches</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-34"><h3>Page 34</h3><h4>Planification des tâches</h4>
-<h4>TP</h4>
-<h4>Démo</h4>
-<h4>Gestion de la planification des </h4>
-<h4>tâches</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                             Planification des tâches
-
-
-
-     TPDémo
-                            Gestion de la planification des
-                                       tâches</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-35"><h3>Page 35</h3><h4>Maintenance d’un système en production</h4>
-<h4>Gestion de la taille des fichiers </h4>
-<h4>de log</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-36"><h3>Page 36</h3><h4>Gestion de la taille des fichiers de log</h4>
-<h4>Taille des logs avec Journald</h4>
-<p class="tssr-source-paragraph">• Nativement journald stocke ses logs dans une base de données <br>volatile dans /run/log/journal.<br>• Mais il est possible de demander à journald de garder les logs de <br>façon durable.<br>• Dans le fichier de configuration de journald <br>/etc/systemd/journald.conf, le paramètre #Storage=auto est <br>commenté, donc journald utilise sa valeur par défaut qui est auto.<br>• Le fait de créer un répertoire /var/log/journal rendra la <br>conservation des logs durable.<br>• La taille de la base de données peut vite devenir conséquente sur <br>un système fortement utilisé.</p>
-</section>
-<section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><h4>Gestion de la taille des fichiers de log</h4>
-<h4>Taille des logs avec Journald</h4>
-<p class="tssr-source-paragraph">• Par défaut, journald utilisera un maximum de 10% du système de <br>fichier hébergeant /var/log/journald.<br>• Il est possible de définir la taille maximum utilisée sur le système <br>de fichier de la base de données avec le paramètre <br>SystemMaxUse=. De plus, il est possible de dire que la base de <br>données sera subdivisée en plusieurs fichiers de taille fixe avec le <br>paramètre SystemMaxFileSize=.<br>• Bien évidement si la décision est prise de garder les logs de <br>journald de façon définitive, il sera peut-être intéressant de <br>stopper rsyslog afin d’éviter les doublons d’information.</p>
-<pre class="tssr-source-code">root@deb:~$ systemctl disable rsyslog</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ent</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-38"><h3>Page 38</h3><h4>Gestion de la taille des fichiers de log</h4>
-<h4>Taille des logs avec Logrotate</h4>
-<p class="tssr-source-paragraph">• Logrotate est un programme exécuté par une tâche cron système <br>tous les jours (et bien sûr géré aussi par anacron) présente dans <br>/etc/cron.daily/logrotate.<br>• Le fichier de configuration principal /etc/logrotate.conf définit des <br>valeurs de comportement par défaut.</p>
-<h4>Exemple de configuration</h4>
-<pre class="tssr-source-code">/var/log/squid/access.log {
+/etc/cron.monthly)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-32"><h2>Lancement des tâches non exécutées avec anacron</h2><ul><li>Pour comprendre le fonctionnement d’anacron, l’explication suivante va s’appuyer sur le travail : cron.daily</li><li>Tous les jours, si le système reste allumé 24h/24, cron va exécuter cette tâche à 6h25 :</li></ul><pre><code>25 6 * * * root cd / &amp;&amp; run-parts --report /etc/cron.daily</code></pre><ul><li>Cette tâche a pour effet de lancer tous les scripts présents dans le répertoire /etc/cron.daily.</li><li>En regardant dans ce répertoire, on voit qu’il y a un fichier 0anacron. Ce script exécute une simple commande qui est :</li></ul><pre><code>anacron –u cron.daily</code></pre></section>
+<section class="tssr-transcribed-page" id="page-33"><h2>Planification des tâches</h2><p>Démo</p><h3>Planification de tâches</h3></section>
+<section class="tssr-transcribed-page" id="page-34"><h2>Planification des tâches</h2><h3>TP</h3><p>Démo</p><h3>Gestion de la planification des</h3><h3>tâches</h3></section>
+<section class="tssr-transcribed-page" id="page-35"><h2>Maintenance d’un système en production</h2><h3>Gestion de la taille des fichiers</h3><h3>de log</h3></section>
+<section class="tssr-transcribed-page" id="page-36"><h2>Taille des logs avec Journald</h2><ul><li>Nativement journald stocke ses logs dans une base de données volatile dans /run/log/journal.</li><li>Mais il est possible de demander à journald de garder les logs de façon durable.</li><li>Dans le fichier de configuration de journald /etc/systemd/journald.conf, le paramètre #Storage=auto est commenté, donc journald utilise sa valeur par défaut qui est auto.</li><li>Le fait de créer un répertoire /var/log/journal rendra la conservation des logs durable.</li><li>La taille de la base de données peut vite devenir conséquente sur un système fortement utilisé.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-37"><h2>Taille des logs avec Journald</h2><ul><li>Par défaut, journald utilisera un maximum de 10% du système de fichier hébergeant /var/log/journald.</li><li>Il est possible de définir la taille maximum utilisée sur le système de fichier de la base de données avec le paramètre SystemMaxUse=. De plus, il est possible de dire que la base de données sera subdivisée en plusieurs fichiers de taille fixe avec le paramètre SystemMaxFileSize=.</li><li>Bien évidement si la décision est prise de garder les logs de journald de façon définitive, il sera peut-être intéressant de stopper rsyslog afin d’éviter les doublons d’information.</li></ul><pre><code>root@deb:~$ systemctl disable rsyslog</code></pre></section>
+<section class="tssr-transcribed-page" id="page-38"><h2>Taille des logs avec Logrotate</h2><ul><li>Logrotate est un programme exécuté par une tâche cron système tous les jours (et bien sûr géré aussi par anacron) présente dans /etc/cron.daily/logrotate.</li><li>Le fichier de configuration principal /etc/logrotate.conf définit des valeurs de comportement par défaut.</li></ul><pre><code>/var/log/squid/access.log {
 daily
 compress
 delaycompress
 rotate 366
 create 640
-}</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>—</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-39"><h3>Page 39</h3><h4>Maintenance d’un système en production</h4>
-<h4>Outils d&#x27;analyse du système</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-40"><h3>Page 40</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<h4>• Connaître la version du système</h4>
-<pre class="tssr-source-code">root@deb:~$ cat /etc/debian_version
-10.9</pre>
-<h4>• Connaître la version du noyau Linux actif et son architecture</h4>
-<pre class="tssr-source-code">root@deb:~$ uname -a
+}</code></pre><p>Exemple de configuration</p></section>
+<section class="tssr-transcribed-page" id="page-39"><h2>Maintenance d’un système en production</h2><h3>Outils d'analyse du système</h3></section>
+<section class="tssr-transcribed-page" id="page-40"><h2>Prise d'informations sur le système</h2><ul><li>Connaître la version du système</li></ul><pre><code>root@deb:~$ cat /etc/debian_version
+10.9</code></pre><ul><li>Connaître la version du noyau Linux actif et son architecture</li></ul><pre><code>root@deb:~$ uname -a
 Linux deb 5.2.0-8-amd64 #1 SMP Debian 5.2.0-8.1 
-(2021-05-19) x86_64 GNU/Linux</pre>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<h4>Connaître le type de CPU</h4>
-<pre class="tssr-source-code">root@deb:~$ lscpu
+(2021-05-19) x86_64 GNU/Linux</code></pre></section>
+<section class="tssr-transcribed-page" id="page-41"><h2>Prise d'informations sur le système</h2><p>Connaître le type de CPU</p><pre><code>root@deb:~$ lscpu
 Architecture : x86_64
 Mode(s) opératoire(s) des processeurs : 32-bit, 64-bit
 Boutisme : Little Endian
@@ -372,14 +158,8 @@ Cœur(s) par socket : 1
 Famille de processeur : 6
 Modèle : 42
 Nom de modèle : Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz
-[…]</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-42"><h3>Page 42</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<h4>Lister les informations des matériels PCI</h4>
-<pre class="tssr-source-code">root@deb:~$ lspci
+[…]</code></pre></section>
+<section class="tssr-transcribed-page" id="page-42"><h2>Prise d'informations sur le système</h2><p>Lister les informations des matériels PCI</p><pre><code>root@deb:~$ lspci
 00:00.0 Host bridge: Intel Corporation 440BX/ZX - 82443 Host bridge (rev 01)
 00:01.0 PCI bridge: Intel Corporation 440BX/ZX – 82443 AGP bridge (rev 01)
 00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 08)
@@ -391,48 +171,21 @@ Nom de modèle : Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz
 Dual Ultra320 SCSI (rev 01)
 00:11.0 PCI bridge: VMware PCI bridge (rev 02)
 00:15.0 PCI bridge: VMware PCI Express Root Port (rev 01)
-00:15.1 PCI bridge: VMware PCI Express Root Port (rev 01)</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-43"><h3>Page 43</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<h4>• Lister les périphériques USB</h4>
-<pre class="tssr-source-code">root@deb:~$ lsusb
+00:15.1 PCI bridge: VMware PCI Express Root Port (rev 01)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-43"><h2>Prise d'informations sur le système</h2><ul><li>Lister les périphériques USB</li></ul><pre><code>root@deb:~$ lsusb
 Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 003: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
 Bus 001 Device 002: ID 0e0f:0003 VMware, Inc. Virtual Mouse
-Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</pre>
-<h4>• Lister les informations sur stockage et systèmes de fichiers <br>(commande déjà vue dans les modules précédents)</h4>
-<pre class="tssr-source-code">fdisk ; pvs,vgs,lvs ; lsblk,blkid,findmnt,df</pre>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-44"><h3>Page 44</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<h4>Lister les informations sur répertoires et fichiers</h4>
-<pre class="tssr-source-code">• La commande du permet de prendre des informations sur la taille utile d’un 
-répertoire.</pre>
-<pre class="tssr-source-code">root@deb:~$ du –sh /root
+Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub</code></pre><ul><li>Lister les informations sur stockage et systèmes de fichiers (commande déjà vue dans les modules précédents)</li></ul><pre><code>fdisk ; pvs,vgs,lvs ; lsblk,blkid,findmnt,df</code></pre></section>
+<section class="tssr-transcribed-page" id="page-44"><h2>Prise d'informations sur le système</h2><p>Lister les informations sur répertoires et fichiers</p><ul><li>La commande du permet de prendre des informations sur la taille utile d’un répertoire.</li></ul><pre><code>root@deb:~$ du –sh /root
 76K 
-/root</pre>
-<pre class="tssr-source-code">• La commande ls permet de prendre des informations sur les fichiers.</pre>
-<pre class="tssr-source-code">root@deb:~$ ls –lh fichier
--rw-r----- 1 jdoe informatique  79,4k 10:24 fichier</pre>
-<pre class="tssr-source-code">• La commande file permet de connaître la nature d’un fichier.</pre>
-<pre class="tssr-source-code">root@deb:~$ file /vin/bash
+/root</code></pre><ul><li>La commande ls permet de prendre des informations sur les fichiers.</li></ul><pre><code>root@deb:~$ ls –lh fichier
+-rw-r----- 1 jdoe informatique  79,4k 10:24 fichier</code></pre><ul><li>La commande file permet de connaître la nature d’un fichier.</li></ul><pre><code>root@deb:~$ file /vin/bash
 /bin/bash: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically 
 linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, 
-BuildID[sha1]=ffe165dc8164aea2b05beda07aeda8ad71f1e7c, stripped</pre>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-45"><h3>Page 45</h3><h4>Outil d’analyse du système</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<pre class="tssr-source-code">La commande lsof permet de connaître l’activité des fichiers 
-ouverts dans un répertoire donné.</pre>
-<pre class="tssr-source-code">root@deb:~$ lsof /root
-lsof: WARNING: can&#x27;t stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
+BuildID[sha1]=ffe165dc8164aea2b05beda07aeda8ad71f1e7c, stripped</code></pre></section>
+<section class="tssr-transcribed-page" id="page-45"><h2>Prise d'informations sur le système</h2><p>La commande lsof permet de connaître l’activité des fichiers ouverts dans un répertoire donné.</p><pre><code>root@deb:~$ lsof /root
+lsof: WARNING: can't stat() fuse.gvfsd-fuse file system /run/user/1000/gvfs
  
    Output information may be incomplete.
 COMMAND 
@@ -457,22 +210,13 @@ lsof
 3827 
 root cwd DIR  254,0  4096 
    781836 
-/root</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Be</p><p>ene</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-46"><h3>Page 46</h3><h4>Maintenance d’un système en production</h4>
-<h4>Performances et processus</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-47"><h3>Page 47</h3><h4>Performances et processus</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<pre class="tssr-source-code">Informations en temps réel avec top</pre>
-<pre class="tssr-source-code">top - 10:52:12 up 11:27,  3 users,  load average: 0,00, 0,00, 0,00
+/root</code></pre></section>
+<section class="tssr-transcribed-page" id="page-46"><h2>Maintenance d’un système en production</h2><h3>Performances et processus</h3></section>
+<section class="tssr-transcribed-page" id="page-47"><h2>Prise d'informations sur le système</h2><p>Informations en temps réel avec top</p><pre><code>top - 10:52:12 up 11:27,  3 users,  load average: 0,00, 0,00, 0,00
 Tasks: 193 total,   2 running, 191 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  1,0 us,  0,3 sy,  0,0 ni, 98,7 id,  0,0 wa,  0,0 hi,  0,0 si,  0,0 st
 MiB Mem :   1970,9 total,    406,0 free,    848,2 used,    716,7 buff/cache
-MiB Swap:    976,0 total,    976,0 free,      0,0 used.    938,3 avail Mem</pre>
-<pre class="tssr-source-code">   PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+MiB Swap:    976,0 total,    976,0 free,      0,0 used.    938,3 avail Mem</code></pre><pre><code>   PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
      5 root      20   0       0      0      0 I   0,3   0,0   0:41.44 kworker/0:0-
 mm_percpu_wq
    550 root      20   0  122940  12316  10708 S   0,3   0,6   0:45.42 vmtoolsd
@@ -482,59 +226,21 @@ mm_percpu_wq
      1 root      20   0  104324  10568   7852 S   0,0   0,5   0:03.68 systemd
      2 root      20   0       0      0      0 S   0,0   0,0   0:00.00 kthreadd
      3 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_gp
-     </pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Se</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-48"><h3>Page 48</h3><h4>Performances et processus</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<pre class="tssr-source-code">Informations en temps réel avec htop (à installer)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>CPUT ||<br>2.7%]<br>Tasks:<br>103, 205 thr;<br>1 running<br>MemE {I} LITT ILILLEEL ET LI {| )682M/1.946]<br>Load average: 0.77 0.25 0.08<br>Swp[<br>O0K/2.00G]<br>Uptime:<br>18:53:43</p><p>3472 penthium<br>20<br>06 24548<br>3644<br>3008 R<br>0.7<br>0.2<br>0:00.05 htop<br>769 penthium<br>20<br>@<br>330M 49536 29780 S<br>0.7<br>2.4<br>0:01.99 /usr/lib/xorg/Xorg vt<br>1 root<br>20<br>©<br>136M<br>7236<br>5340S<br>0.0<br>0.4<br>0:03.69 /sbin/init<br>230 root<br>20<br>6 59640<br>6408<br>5680 S<br>0.0<br>0.3<br>0:01.57 /lib/systemd/systemd-<br>261 root<br>20<br>©<br>104M<br>1600<br>1340 S<br>0.0<br>6.1<br>0:00.00 /sbin/lvmetad<br>-f<br>264 root<br>20<br>© 46184<br>3668<br>2764S<br>0.0<br>0.2<br>0:00.39 /lLib/systemd/systemd-<br>452 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>0:00.09 /lib/systemd/systemd-<br>438 systemd-t<br>20<br>0<br>126M<br>4280<br>3768 S<br>0.0<br>0.2<br>6:00.63 /lib/systemd/systemd-<br>462 root<br>20<br>6<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.08 /usr/sbin/rsyslogd<br>-n<br>463 root<br>20<br>@<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.00 /usr/sbin/rsyslogd<br>-n<br>464 root<br>20<br>6<br>244M<br>3064<br>2480S<br>0.0<br>0.2<br>0:00.16 /usr/sbin/rsyslogd<br>-n<br>447 root<br>20<br>©<br>244M<br>3064<br>2480 S<br>0.0<br>0.2<br>0:00.28 /usr/sbin/rsyslogd<br>-n<br>465 root<br>20<br>6<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>471 root<br>20<br>0<br>412M<br>8896<br>7400 S<br>0.0<br>0.4<br>0:00.00 /usr/sbin/ModemManage<br>448 root<br>20<br>©<br>412M<br>8896<br>7400S<br>0.0<br>0.4<br>0:00.04 /usr/sbin/ModemManage</p><p>i<br>450 avahi<br>20<br>6 47144<br>2984<br>2632 S<br>0.0<br>0.1<br>0:06.66 avahi-daemon:<br>running<br>env<br>472 rtkit<br>20<br>©<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:00.96 /usr/lLib/rtkit/rtkit-</p><p>=<br>473 rtkit<br>RT<br>1<br>181M<br>2928<br>2624S<br>06.0<br>0.1<br>6:00.16 /usr/lib/rtkit/rtkit-<br>451 rtkit<br>21<br>1<br>181M<br>2928<br>2624S<br>0.0<br>0.1<br>0:01.14 /usr/lib/rtkit/rtkit-<br>FF 2 SF 3 SF 4RS 5 RF 6 RE + 7 RSS F © I<br>© RR<br>1 © RSR</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-49"><h3>Page 49</h3><h4>Performances et processus</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<pre class="tssr-source-code">Informations en temps réel avec glances (à installer)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>XPS13-9333<br>(Ubur<br>1<br>4 64bit<br>L<br>x<br>4.4.0-13<br>i<br>IP 192.1<br>).48/24 Pub<br>169.86<br>.2<br>Upt ime<br>1:02:4</p><p>1<br>H<br>cpu<br>7<br>e<br>tx<br>MEM<br>t<br>1G<br>SWAP<br>LOAD<br>t-co<br>F<br>I<br>1<br>e<br>sn<br>€<br>e<br>tota<br>4<br>€<br>MEM<br>1<br>2.0%<br>i<br>CES<br>i<br>i:<br>GRE<br>bof!<br>626<br>4<br>4.524</p><p>NETWORK<br>CONTAINERS<br>ed<br>t<br>ker<br>17.05.8-ce</p><p>TASKS<br>254<br>(813<br>t<br>5<br>ot<br>ted<br>autonat<br>y<br>by<br>CP<br>t<br>WIFI</p><p>cpus<br>Men<br>IAT<br>RE<br>PI<br>f<br>TIME+<br>THR<br>NI<br>sw<br>¢</p><p>DISK<br>1/0<br>Û<br>“<br>M<br>136M<br>Large<br>)<br>ate<br>3<br>t</p><p>FILE SYS<br>Tot<br>1.9<br>43&quot;<br>‘<br>c<br>‘<br>fire<br>tentr<br>pa</p><p>FOLDERS<br>|<br>(]<br>19<br>4<br>F<br>pticat</p><p>SENSORS<br>M<br>M<br>4581<br>Large<br>18<br>3<br>in<br>/terainnt</p><p>End<br>to!<br>PRES<br>Reise<br>oe<br>perlite</p><p>2<br>1<br>T<br>No warning or<br>critical<br>alert<br>detected</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-50"><h3>Page 50</h3><h4>Performances et processus</h4>
-<h4>Prise d&#x27;informations sur le système</h4>
-<pre class="tssr-source-code">• Lister des processus avec ps</pre>
-<pre class="tssr-source-code">root@deb:~$ ps -ef
+     </code></pre></section>
+<section class="tssr-transcribed-page" id="page-48"><h2>Prise d'informations sur le système</h2><p>Informations en temps réel avec htop (à installer)</p></section>
+<section class="tssr-transcribed-page" id="page-49"><h2>Prise d'informations sur le système</h2><p>Informations en temps réel avec glances (à installer)</p></section>
+<section class="tssr-transcribed-page" id="page-50"><h2>Prise d'informations sur le système</h2><ul><li>Lister des processus avec ps</li></ul><pre><code>root@deb:~$ ps -ef
 […]
 jdoe       6155   6149  0 08:55 ?        00:00:00 sshd: jdoe@pts/2
 jdoe       6156   6155  0 08:55 pts/2    00:00:00 -bash
 root       6301      2  0 10:56 ?        00:00:00 [kworker/0:1-ata_sff]
 root       6302      2  0 11:02 ?        00:00:00 [kworker/0:2-ata_sff]
-jdoe       6309   6156  0 11:05 pts/2    00:00:00 ps -ef</pre>
-<pre class="tssr-source-code">• Informations sur la ram avec free</pre>
-<pre class="tssr-source-code">root@deb:~$ free -h
+jdoe       6309   6156  0 11:05 pts/2    00:00:00 ps -ef</code></pre><ul><li>Informations sur la ram avec free</li></ul><pre><code>root@deb:~$ free -h
  
  
 total        used        free      shared  buff/cache   available
 Mem:       1,9Gi       802Mi       451Mi        23Mi       716Mi       983Mi
-Swap:      975Mi          0B       975Mi2</pre>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-51"><h3>Page 51</h3><h4>Performances et processus</h4>
-<h4>Démo</h4>
-<h4>Prise d’informations</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-52"><h3>Page 52</h3><h4>Performances et processus</h4>
-<h4>TP</h4>
-<h4>Démo</h4>
-<h4>Informations sur le système</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                           Performances et processus
-
-
-
-     TPDémo
-
-                              Informations sur le système</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+Swap:      975Mi          0B       975Mi2</code></pre></section>
+<section class="tssr-transcribed-page" id="page-51"><h2>Performances et processus</h2><p>Démo</p><h3>Prise d’informations</h3></section>
+<section class="tssr-transcribed-page" id="page-52"><h2>Performances et processus</h2><h3>TP</h3><p>Démo</p><h3>Informations sur le système</h3></section>
+<!-- SOURCE-CONTENT:END --></body></html>

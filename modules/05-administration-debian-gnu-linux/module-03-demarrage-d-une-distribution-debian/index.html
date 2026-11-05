@@ -1751,6 +1751,584 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administration Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Administration Debian GNU/Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 01 — Présentation de Debian GNU/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-02-installation-d-une-distribution-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 02 — Installation d’une distribution Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 03 — Démarrage d’une distribution Debian
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 03 — Démarrage d’une distribution Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#comprendre-le-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprendre le démarrage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-pid-1-et-unites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systemd, PID 1 et unités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observer-les-unites-et-choisir-une-cible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observer les unités et choisir une cible
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distinguer-fonctionnement-et-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distinguer fonctionnement et activation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-le-service-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier le service SSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arreter-et-planifier-un-redemarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrêter et planifier un redémarrage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-explicatif-complement-pedagogique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma explicatif — complément pédagogique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoévaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-travailler-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour travailler ce module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-04-debian-en-mode-maintenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 04 — Debian en mode maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-05-gestion-du-reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 05 — Gestion du réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — Gestion des paquets logiciels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 — Gestion des espaces de stockage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 08 — Gestion des espaces de stockage avancée — LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-09-gestion-des-espaces-de-stockage-file-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 09 — Gestion des espaces de stockage — File System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 — Gestion des utilisateurs et groupes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 — Droits sur les fichiers et répertoires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 — Maintenance d’un système en production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -1770,7 +2348,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1792,14 +2370,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1886,7 +2464,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7">
         
           
           <div class="md-nav__link md-nav__container">
@@ -1908,14 +2486,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2210,7 +2788,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2232,14 +2810,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2324,7 +2902,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2346,14 +2924,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2630,7 +3208,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2652,14 +3230,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2884,7 +3462,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2906,14 +3484,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3188,7 +3766,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12">
         
           
           <div class="md-nav__link md-nav__container">
@@ -3210,14 +3788,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_11">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3356,562 +3934,6 @@
     
   
     Travaux pratiques
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" checked="">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Administration Debian GNU/Linux
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_12">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Administration Debian GNU/Linux
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-01-presentation-de-debian-gnu-linux/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 01 — Présentation de Debian GNU/Linux
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-02-installation-d-une-distribution-debian/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 02 — Installation d’une distribution Debian
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 03 — Démarrage d’une distribution Debian
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 03 — Démarrage d’une distribution Debian
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objectifs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#du-firmware-aux-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Du firmware aux services
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gerer-avec-systemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gérer avec systemd
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arreter-proprement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Arrêter proprement
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        À retenir
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-des-acquis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vérification des acquis
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complement-ia-externe-au-cours-situer-la-panne-de-demarrage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complément IA / externe au cours — Situer la panne de démarrage
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-04-debian-en-mode-maintenance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 04 — Debian en mode maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-05-gestion-du-reseau/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 05 — Gestion du réseau
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-06-gestion-des-paquets-logiciels/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 06 — Gestion des paquets logiciels
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-07-gestion-des-espaces-de-stockage/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 07 — Gestion des espaces de stockage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-08-gestion-des-espaces-de-stockage-avancee-lvm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 08 — Gestion des espaces de stockage avancée — LVM
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-09-gestion-des-espaces-de-stockage-file-system/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 09 — Gestion des espaces de stockage — File System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-10-gestion-des-utilisateurs-et-groupes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 10 — Gestion des utilisateurs et groupes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-11-droits-sur-les-fichiers-et-repertoires/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 11 — Droits sur les fichiers et répertoires
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module-12-maintenance-d-un-systeme-en-production/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 12 — Maintenance d’un système en production
   
 
     
@@ -13365,10 +13387,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
+  <a href="#comprendre-le-demarrage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs
+        Comprendre le démarrage
       
     </span>
   </a>
@@ -13376,10 +13398,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#du-firmware-aux-services" class="md-nav__link">
+  <a href="#systemd-pid-1-et-unites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Du firmware aux services
+        Systemd, PID 1 et unités
       
     </span>
   </a>
@@ -13387,10 +13409,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gerer-avec-systemd" class="md-nav__link">
+  <a href="#observer-les-unites-et-choisir-une-cible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gérer avec systemd
+        Observer les unités et choisir une cible
       
     </span>
   </a>
@@ -13398,10 +13420,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#arreter-proprement" class="md-nav__link">
+  <a href="#distinguer-fonctionnement-et-activation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Arrêter proprement
+        Distinguer fonctionnement et activation
       
     </span>
   </a>
@@ -13409,10 +13431,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-retenir" class="md-nav__link">
+  <a href="#identifier-le-service-ssh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À retenir
+        Identifier le service SSH
       
     </span>
   </a>
@@ -13420,10 +13442,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification-des-acquis" class="md-nav__link">
+  <a href="#arreter-et-planifier-un-redemarrage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérification des acquis
+        Arrêter et planifier un redémarrage
       
     </span>
   </a>
@@ -13431,10 +13453,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#complement-ia-externe-au-cours-situer-la-panne-de-demarrage" class="md-nav__link">
+  <a href="#schema-explicatif-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Complément IA / externe au cours — Situer la panne de démarrage
+        Schéma explicatif — complément pédagogique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoévaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-travailler-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour travailler ce module
       
     </span>
   </a>
@@ -13547,293 +13591,48 @@
 <details class="tssr-original-document" open="">
 <summary>Support · RES24_0050B - M03 - Linux Administration (Debian) · 29 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
-<h4>GNU/Linux</h4>
-<h4>Module 03 – Démarrage d’une distribution Debian</h4></section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-2"><h3>Page 2</h3><h4>Démarrage d’une distribution Debian</h4>
-<h4>Objectifs</h4>
-<h4>• Comprendre les diverses étapes de démarrage<br>• Apprendre à gérer le système et les services avec  <br>SystemD<br>• Arrêter ou redémarrer une machine Linux</h4>
-<h4>Démarrer Debian Linux</h4>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
 
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-3"><h3>Page 3</h3><h4>Démarrage d’une distribution Debian</h4>
-<h4>Démarrage de Linux, </h4>
-<h4>services et niveaux</h4>
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-4"><h3>Page 4</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Chargeur d’amorçage (Boot Loader – BL)</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
-<pre class="tssr-source-code">Sous Debian, le chargeur est le programme GRUB2. Il se divise en 
-plusieurs parties nommées stage.
-Après démarrage, le BIOS de la machine lance le chargeur 
-d’amorçage.
-Stage 1 : dans le Master Boot Record (MBR), situé sur les 512 
-premiers octets du disque dur. Ce stage se contente de charger le 
-suivant.
-Stage 1.5 : également localisé au début du disque dur contenant le 
-Boot Loader, avant les données de la première partition
-Stage 2 : d’un point de vue Linux, la fin de GRUB est placée dans le 
-répertoire /boot/grub/</pre>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
-                                   Chargeur d’amorçage (Boot Loader – BL)
-
-
-
-1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
-
-  Sous Debian, le chargeur est le programme GRUB2. Il se divise en
-  plusieurs parties nommées stage.
-  Après démarrage, le BIOS de la machine lance le chargeur
-  d’amorçage.
-  Stage 1 : dans le Master Boot Record (MBR), situé sur les 512
-  premiers octets du disque dur. Ce stage se contente de charger le
-  suivant.
-  Stage 1.5 : également localisé au début du disque dur contenant le
-  Boot Loader, avant les données de la première partition
-  Stage 2 : d’un point de vue Linux, la fin de GRUB est placée dans le
-  répertoire /boot/grub/</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=<br>&gt;SO<br>— EE</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-5"><h3>Page 5</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Configuration de GRUB</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
-<pre class="tssr-source-code">• Le fichier de configuration de grub se trouve dans 
-/boot/grub/grub.cfg</pre>
-<h4>Il ne faut pas éditer ce fichier.</h4>
-<h4>• Il est ainsi conseillé de procéder aux modifications de la <br>configuration de GRUB à partir de :</h4>
-<pre class="tssr-source-code">• /etc/default/grub, contenant les paramètres et options globales
-• scripts présents dans le dossier /etc/grub.d/</pre>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
-                                                     Configuration de GRUB
-
-
-1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
-
-  • Le fichier de configuration de grub se trouve dans
-   /boot/grub/grub.cfg
-
-                               Il ne faut pas éditer ce fichier.
-
-
-  •  Il est ainsi conseillé de procéder aux modifications de la
-   configuration de GRUB à partir de :
-        • /etc/default/grub, contenant les paramètres et options globales
-        • scripts présents dans le dossier /etc/grub.d/</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BR — D — QU — VU — DS — EE</p><p>A</p><p>End</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-6"><h3>Page 6</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Configuration de GRUB</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
-<pre class="tssr-source-code">Pour la prise en compte de ces modifications, deux commandes 
-permettent de regénérer le fichier /boot/grub/grub.cfg :
-grub-mkconfig et update-grub. </pre>
-<pre class="tssr-source-code">root@deb:~# update-grub
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-1"><h3>Administration Debian</h3><h3>GNU/Linux</h3><p>Module 03 – Démarrage d’une distribution Debian</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-2"><h2>Démarrage d’une distribution Debian</h2><h3>Objectifs</h3><ul><li>Comprendre les diverses étapes de démarrage</li><li>Apprendre à gérer le système et les services avec SystemD</li><li>Arrêter ou redémarrer une machine Linux</li></ul><p>Démarrer Debian Linux</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-3"><h2>Démarrage d’une distribution Debian</h2><h3>Démarrage de Linux,</h3><h3>services et niveaux</h3></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-4"><h2>Chargeur d’amorçage (Boot Loader – BL)</h2><p>1| BIOS 2| MBR 3| GRUB 4| Noyau 5| SystemD 5.1| Cible 2| MBR 3| GRUB 1| BIOS</p><p>Sous Debian, le chargeur est le programme GRUB2. Il se divise en plusieurs parties nommées stage. Après démarrage, le BIOS de la machine lance le chargeur d’amorçage. Stage 1 : dans le Master Boot Record (MBR), situé sur les 512 premiers octets du disque dur. Ce stage se contente de charger le suivant. Stage 1.5 : également localisé au début du disque dur contenant le Boot Loader, avant les données de la première partition Stage 2 : d’un point de vue Linux, la fin de GRUB est placée dans le répertoire /boot/grub/</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-5"><h2>Configuration de GRUB</h2><p>1| BIOS 2| MBR 3| GRUB 4| Noyau 5| SystemD 5.1| Cible 2| MBR 3| GRUB 1| BIOS</p><ul><li>Le fichier de configuration de grub se trouve dans /boot/grub/grub.cfg</li></ul><p>Il ne faut pas éditer ce fichier.</p><ul><li>Il est ainsi conseillé de procéder aux modifications de la configuration de GRUB à partir de :</li><li>/etc/default/grub, contenant les paramètres et options globales</li><li>scripts présents dans le dossier /etc/grub.d/</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-6"><h2>Configuration de GRUB</h2><p>1| BIOS 2| MBR 3| GRUB 4| Noyau 5| SystemD 5.1| Cible 2| MBR 3| GRUB 1| BIOS</p><p>Pour la prise en compte de ces modifications, deux commandes permettent de regénérer le fichier /boot/grub/grub.cfg : grub-mkconfig et update-grub.</p><pre><code>root@deb:~# update-grub
 Création du fichier de configuration GRUB…
 Image Linux trouvée : /boot/vmlinuz-4.19.0-12-amd64
 Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-12-amd64
 Image Linux trouvée : /boot/vmlinuz-4.19.0-11-amd64
 Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-11-amd64
-fait</pre>
-<pre class="tssr-source-code">root@deb:~# grub-mkconfig -o /boot/grub/grub.cfg
+fait</code></pre><pre><code>root@deb:~# grub-mkconfig -o /boot/grub/grub.cfg
 Création du fichier de configuration GRUB…
 Image Linux trouvée : /boot/vmlinuz-4.19.0-12-amd64
 Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-12-amd64
 Image Linux trouvée : /boot/vmlinuz-4.19.0-11-amd64
 Image mémoire initiale trouvée : /boot/initrd.img-4.19.0-11-amd64
-fait</pre>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
-                                                     Configuration de GRUB
-
-
-1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
-
-
-  Pour la prise en compte de ces modifications, deux commandes
-  permettent de regénérer le fichier /boot/grub/grub.cfg :
- grub-mkconfig et update-grub.
-
-
-
-
-         root@deb:~#root@deb:~# update-grubgrub-mkconfig -o /boot/grub/grub.cfg
-          CréationCréation dudu fichierfichier dede configurationconfiguration GRUB…GRUB…
-          ImageImage LinuxLinux trouvéetrouvée :: /boot/vmlinuz-4.19.0-12-amd64/boot/vmlinuz-4.19.0-12-amd64
-          ImageImage mémoiremémoire initialeinitiale trouvéetrouvée :: /boot/initrd.img-4.19.0-12-amd64/boot/initrd.img-4.19.0-12-amd64
-          ImageImage LinuxLinux trouvéetrouvée :: /boot/vmlinuz-4.19.0-11-amd64/boot/vmlinuz-4.19.0-11-amd64
-          ImageImage mémoiremémoire initialeinitiale trouvéetrouvée :: /boot/initrd.img-4.19.0-11-amd64/boot/initrd.img-4.19.0-11-amd64
-          faitfait</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N<br>=<br>a<br>- En</p><p>M<br>—</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-7"><h3>Page 7</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>GRUB au démarrage</h4>
-<p class="tssr-source-paragraph">Selon la configuration de <br>GRUB, il est possible de <br>paramétrer l’affichage du <br>menu au démarrage. Sera <br>alors offerte la possibilité <br>de sélectionner l’une des <br>entrées qui y figurent afin <br>de choisir un noyau ou un <br>mode de démarrage <br>particulier.</p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>GNU GRUB<br>version 2.42+dfs¢1-26+deblau2</p><p>Debian GNU/Linux</p><p>Options avancees pour Debian GNU/Linux</p><p>Utilisez les touches T et | pour sélectionner une entrée.<br>Apouyez sur Entrée pour démarrer le systeme sélectionné,<br># € #<br>pour éditer les commandes avant de démarrer ou # c<br># pour<br>obtenir une invite de commandes.<br>L'entrée sélectionnée sera exécutée automatiquement dans 23 s.</p><p>ene</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-8"><h3>Page 8</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Le noyau Linux</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>3| GRUB<br>1| BIOS</p>
-<h4>Application(s)</h4>
-<h4>Shell</h4>
-<h4>Noyau</h4>
-<p class="tssr-source-paragraph">• Le noyau (kernel) d’un système <br>d’exploitation a pour but principal <br>de mettre en relation le matériel <br>(via le BIOS) et les interfaces <br>utilisateurs et applications. <br>• Le kernel est dit modulaire, car il <br>est constitué de plusieurs fichiers.</p>
-<h4>Matériel</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                        Démarrage de Linux, services et niveaux
-                                                          Le noyau Linux
-
-
-
-1|1| BIOSBIOS          2|2| MBRMBR          3|3| GRUBGRUB         4| Noyau          5| SystemD           5.1| Cible
-
-  • Le noyau (kernel) d’un système
-    d’exploitation a pour but principal
-                                                   Application(s)   de mettre en relation le matériel
-    (via le BIOS) et les interfaces                                                           Shell
-    utilisateurs et applications.
-  • Le kernel est dit modulaire, car il
-                                       Noyau   est constitué de plusieurs fichiers.
-
-
-                                                    Matériel</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>D<br>— D<br>— DU<br>— QU — DRE — ER</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-9"><h3>Page 9</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Fichiers du moyau</h4>
-<h4>• Deux fichiers sont indispensables pour le démarrage minimum du <br>système d’exploitation Debian :</h4>
-<pre class="tssr-source-code">• vmlinuz-4.19.0-12-amd64 : fichier principal du noyau avec sa 
-version dans le nom.
-• initrd.img-4.19.0-12-amd64:fichier secondaire généré à chaque 
-mise à jour. 
-Il contient la configuration spécifique au matériel et les options importantes 
-du système d’exploitation (ex : gestion du raid, chiffrement, pilote des 
-systèmes de fichiers, etc.)</pre>
-<pre class="tssr-source-code">root@deb:~# ls -l /boot/
+fait</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-7"><h2>GRUB au démarrage</h2><p>Selon la configuration de GRUB, il est possible de paramétrer l’affichage du menu au démarrage. Sera alors offerte la possibilité de sélectionner l’une des entrées qui y figurent afin de choisir un noyau ou un mode de démarrage particulier.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/42936137889d5576/deb-p7-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/42936137889d5576/deb-p7-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-8"><h2>Le noyau Linux</h2><p>1| BIOS 2| MBR 3| GRUB 4| Noyau 5| SystemD 5.1| Cible 2| MBR 3| GRUB 1| BIOS</p><ul><li>Le noyau (kernel) d’un système d’exploitation a pour but principal de mettre en relation le matériel (via le BIOS) et les interfaces utilisateurs et applications.</li><li>Le kernel est dit modulaire, car il est constitué de plusieurs fichiers.</li></ul><p>Application(s)</p><p>Shell</p><p>Noyau</p><p>Matériel</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-9"><h2>Fichiers du moyau</h2><ul><li>Deux fichiers sont indispensables pour le démarrage minimum du système d’exploitation Debian :</li><li>vmlinuz-4.19.0-12-amd64 : fichier principal du noyau avec sa version dans le nom.</li><li>initrd.img-4.19.0-12-amd64:fichier secondaire généré à chaque mise à jour. Il contient la configuration spécifique au matériel et les options importantes du système d’exploitation (ex : gestion du raid, chiffrement, pilote des systèmes de fichiers, etc.)</li></ul><pre><code>root@deb:~# ls -l /boot/
 total 72280
 -rw-r--r-- 1 root root   206143 oct.  18 10:43 config-4.19.0-12-amd64
 drwxr-xr-x 5 root root     4096 nov.  19 12:00 grub
 -rw-r--r-- 1 root root 28097458 nov.  18 12:04 initrd.img-4.19.0-12-amd64
 -rw-r--r-- 1 root root  3415048 oct.  18 10:43 System.map-4.19.0-12-amd64
--rw-r--r-- 1 root root  5278960 oct.  18 10:43 vmlinuz-4.19.0-12-amd64</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>a</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-10"><h3>Page 10</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Relation GRUB / Noyau</h4>
-<h4>• Lors du démarrage, on <br>peut passer des <br>paramètres au lancement <br>du noyau par Grub. <br>• Pour cela, il faudra <br>appuyer sur la touche <br>« e » pour passer en <br>mode édition.</h4>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>GNU<br>GRUB<br>version<br>2.92"beta3-5+deb9u1</p><p>Debian GNU/Linux<br>Options<br>avancées<br>pour<br>Debian GNU/Linux</p><p>Utilisez<br>les touches<br>|<br>et<br>|<br>pour<br>sélectionner<br>une entrée.<br>Appuyez<br>sur Entrée pour démarrer<br>le<br>système sélectionné,<br>«<br>e<br>»<br>pour<br>éditer<br>les<br>commandes avant<br>de démarrer<br>ou<br>«<br>©<br>*<br>pour<br>obten ir<br>ne<br>invite<br>de<br>commandes.<br>L'entrée<br>sélectionnée<br>sera exécutée<br>automatiquement<br>dans<br>5<br>5.</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-11"><h3>Page 11</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Relation GRUB / Noyau</h4>
-<h4>La ligne dans laquelle il est possible d’apporter des modifications est :</h4>
-<pre class="tssr-source-code">linux /vmlinuz-4.9.0-8-amd64 root=/dev/mapper/debian--vg-root ro 
-quiet</pre>
-<p class="tssr-source-paragraph">• /vmlinuz-4.9.0-8-amd64 : nom de l’image noyau à charger.<br>• root=/dev/mapper/debian--vg-root : déclaration du système de fichier <br>contenant la racine du système d’exploitation (/).<br>• ro : indique que la racine du système d’exploitation sera montée en lecture <br>seule. Il est important de ne pas changer ce paramètre (si l’intégrité du <br>système de fichier doit être vérifiée, celui-ci doit être en lecture seule).<br>• quiet : indique que le noyau se lancera de façon non verbeuse.</p>
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-12"><h3>Page 12</h3><h4>Démarrage de Linux, services et niveaux</h4>
-<h4>Démo</h4>
-<h4>BIOS, Grub et grub.cfg</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-13"><h3>Page 13</h3><h4>Démarrage d’une distribution Debian</h4>
-<h4>Gestion du système </h4>
-<h4>avec SystemD</h4>
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-14"><h3>Page 14</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Le gestionnaire système : SystemD</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>1| BIOS</p>
-<p class="tssr-source-paragraph">• System D est le gestionnaire système, le premier programme lancé <br>par le noyau (PID 1).<br>• Il est en charge de lancer tous les programmes suivants afin <br>d’obtenir un système opérationnel pour l’utilisateur. <br>• Le démarrage des programmes (services) est parallèle avec des <br>dépendances entres services. <br>• La gestion des services est matérialisée dans des fichiers <br>spécifiques au sein du dossier /lib/systemd/system. </p>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                    Gestion du système avec SystemD
-                                         Le gestionnaire système : SystemD
-
-
-1|1| BIOSBIOS          2|2| MBRMBR          3| GRUB         4| Noyau         5| SystemD           5.1| Cible
-
-   • System D est le gestionnaire système, le premier programme lancé
-    par le noyau (PID 1).
-   •  Il est en charge de lancer tous les programmes suivants afin
-    d’obtenir un système opérationnel pour l’utilisateur.
-   • Le démarrage des programmes (services) est parallèle avec des
-   dépendances entres services.
-   • La gestion des services est matérialisée dans des fichiers
-    spécifiques au sein du dossier /lib/systemd/system.</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=)<br>=)<br>=)<br>om)</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-15"><h3>Page 15</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Les cibles : SystemD</h4>
-<p class="tssr-source-paragraph">1| BIOS<br>2| MBR<br>3| GRUB<br>4| Noyau<br>5| SystemD<br>5.1| Cible<br>2| MBR<br>1| BIOS</p>
-<h4>SystemD utilise des cibles (target) pour savoir quels sont les <br>programmes à exécuter ou arrêter suivant l’objet de la cible.</h4>
-<h4>Nom de la cible<br>Objet de la cible<br>Equiv. SysV</h4>
-<h4>poweroff.target<br>Arrêt du système<br>0</h4>
-<h4>rescue.target<br>Passer en mode maintenance<br>1</h4>
-<h4>multi-user.target<br>Système d’exploitation en mode console (CLI) avec session </h4>
-<h4>multi-utilisateur<br>3</h4>
-<h4>graphical.target<br>Système d’exploitation en mode graphique (GUI) si installé<br>5</h4>
-<h4>reboot.target<br>Redémarrage du système<br>6</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                     Gestion du système avec SystemD
-                                                          Les cibles : SystemD
-
-
- 1|1| BIOSBIOS          2|2| MBRMBR          3| GRUB         4| Noyau         5| SystemD           5.1| Cible
-
-  SystemD utilise des cibles (target) pour savoir quels sont les
-  programmes à exécuter ou arrêter suivant l’objet de la cible.
-
-
-
-Nom de la cible                      Objet de la cible                       Equiv. SysV
- poweroff.target                         Arrêt du système                       0
-
-  rescue.target                   Passer en mode maintenance                  1
-                 Système d’exploitation en mode console (CLI) avec sessionmulti-user.target                                                         3                                            multi-utilisateur
-graphical.target   Système d’exploitation en mode graphique (GUI) si installé      5
-  reboot.target                  Redémarrage du système                    6</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>= = D<br>mue DIN mu CN mu RE</p><p>RSSE<br>ET<br>_</p></div></details>
-<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td>N d l ibl<br>om e a c e</td><td>Obj et d e l a cibl e</td><td>E qui v S ysV<br>.</td></tr><tr><td>powerofftarget<br>.</td><td>A rrêt d systè<br>u me</td><td>0</td></tr><tr><td>rescue target<br>.</td><td>P asser en mod e mai ntenance</td><td>1</td></tr><tr><td>multi -user target<br>.</td><td>S ystè d’ expl oitati mod consol (CLI) sessi<br>me on en e e avec on<br>multi utili sateur<br>-</td><td>3</td></tr><tr><td>graphi cal target<br>.</td><td>S ystè d’ expl oitati mod graphi (GUI) si i nstallé<br>me on en e que</td><td>5</td></tr><tr><td>reb oot target<br>.</td><td>R edé d systè<br>marrage u me</td><td>6</td></tr></tbody></table></div>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-16"><h3>Page 16</h3><h4>Gestion du système avec SystemD</h4>
-<h4>La commande systemctl</h4>
-<pre class="tssr-source-code">Une commande pour les gouverner tous :
-systemctl &lt;action&gt; [cible/service/unit]</pre>
-<pre class="tssr-source-code">systemctl est LA commande par laquelle nous pourrons, entre autres : </pre>
-<h4>• afficher la cible par défaut </h4>
-<h4>• changer de cible par défaut</h4>
-<h4>• changer de cible directement</h4>
-<h4>• gérer les services</h4>
-<h4>• lister les cibles, services, et autres éléments de SystemD</h4>
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-17"><h3>Page 17</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Gérer les cibles</h4>
-<h4>Connaître la cible par défaut</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl get-default
-graphical.target</pre>
-<h4>Changer la cible par défaut</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl set-default multi-user.target
+-rw-r--r-- 1 root root  5278960 oct.  18 10:43 vmlinuz-4.19.0-12-amd64</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-10"><h2>Relation GRUB / Noyau</h2><ul><li>Lors du démarrage, on peut passer des paramètres au lancement du noyau par Grub.</li><li>Pour cela, il faudra appuyer sur la touche « e » pour passer en mode édition.</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/42936137889d5576/deb-p10-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/42936137889d5576/deb-p10-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-11"><h2>Relation GRUB / Noyau</h2><p>La ligne dans laquelle il est possible d’apporter des modifications est :</p><pre><code>linux /vmlinuz-4.9.0-8-amd64 root=/dev/mapper/debian--vg-root ro 
+quiet</code></pre><ul><li>/vmlinuz-4.9.0-8-amd64 : nom de l’image noyau à charger.</li><li>root=/dev/mapper/debian--vg-root : déclaration du système de fichier contenant la racine du système d’exploitation (/).</li><li>ro : indique que la racine du système d’exploitation sera montée en lecture seule. Il est important de ne pas changer ce paramètre (si l’intégrité du système de fichier doit être vérifiée, celui-ci doit être en lecture seule).</li><li>quiet : indique que le noyau se lancera de façon non verbeuse.</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-12"><h2>Démarrage de Linux, services et niveaux</h2><p>Démo</p><p>BIOS, Grub et grub.cfg</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-13"><h2>Démarrage d’une distribution Debian</h2><h3>Gestion du système</h3><h3>avec SystemD</h3></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-14"><h2>Le gestionnaire système : SystemD</h2><p>1| BIOS 2| MBR 3| GRUB 4| Noyau 5| SystemD 5.1| Cible 2| MBR 1| BIOS</p><ul><li>System D est le gestionnaire système, le premier programme lancé par le noyau (PID 1).</li><li>Il est en charge de lancer tous les programmes suivants afin d’obtenir un système opérationnel pour l’utilisateur.</li><li>Le démarrage des programmes (services) est parallèle avec des dépendances entres services.</li><li>La gestion des services est matérialisée dans des fichiers spécifiques au sein du dossier /lib/systemd/system.</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-15"><h2>Les cibles : SystemD</h2><p>SystemD utilise des cibles (target) pour savoir quels sont les programmes à exécuter ou arrêter suivant l’objet de la cible.</p><table><tbody><tr><th>Nom de la cible</th><th>Objet de la cible</th><th>Equiv. SysV</th></tr><tr><td>poweroff.target</td><td>Arrêt du système</td><td>0</td></tr><tr><td>rescue.target</td><td>Passer en mode maintenance</td><td>1</td></tr><tr><td>multi-user.target</td><td>Système d’exploitation en mode console (CLI) avec session multi-utilisateur</td><td>3</td></tr><tr><td>graphical.target</td><td>Système d’exploitation en mode graphique (GUI) si installé</td><td>5</td></tr><tr><td>reboot.target</td><td>Redémarrage du système</td><td>6</td></tr></tbody></table><p>Repères du schéma de démarrage : 1 | BIOS → 2 | MBR → 3 | GRUB → 4 | Noyau → 5 | SystemD → 5.1 | Cible.</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-16"><h2>La commande systemctl</h2><p>Une commande pour les gouverner tous : systemctl &lt;action&gt; [cible/service/unit] systemctl est LA commande par laquelle nous pourrons, entre autres :</p><ul><li>afficher la cible par défaut</li><li>changer de cible par défaut</li><li>changer de cible directement</li><li>gérer les services</li><li>lister les cibles, services, et autres éléments de SystemD</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-17"><h2>Gérer les cibles</h2><p>Connaître la cible par défaut</p><pre><code>root@deb:~# systemctl get-default
+graphical.target</code></pre><p>Changer la cible par défaut</p><pre><code>root@deb:~# systemctl set-default multi-user.target
 Removed /etc/systemd/system/default.target.
 Created symlink /etc/systemd/system/default.target /lib/systemd/system/multi-
-user.target</pre>
-<h4>Changer de cible  </h4>
-<pre class="tssr-source-code">root@deb:~# systemctl isolate rescue.target</pre>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-18"><h3>Page 18</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Lister les unités SystemD</h4>
-<h4>Lister les divers éléments (units) de SystemD</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl list-units
+user.target</code></pre><p>Changer de cible</p><pre><code>root@deb:~# systemctl isolate rescue.target</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-18"><h2>Lister les unités SystemD</h2><p>Lister les divers éléments (units) de SystemD</p><pre><code>root@deb:~# systemctl list-units
 …
 networking.service 
  
@@ -13848,9 +13647,7 @@ loaded active active    Multi-User System
 network.target 
  
 loaded active active    Network
-…</pre>
-<h4>Lister tous les units</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl list-units --all
+…</code></pre><p>Lister tous les units</p><pre><code>root@deb:~# systemctl list-units --all
 getty-pre.target 
  
 loaded    inactive dead      Login Prompts (Pre)
@@ -13862,14 +13659,8 @@ graphical.target
 loaded    inactive dead      Graphical Interface
 local-fs-pre.target 
  
-loaded    active   active    Local File Systems (Pre)</pre>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-19"><h3>Page 19</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Gérer les services avec systemctl</h4>
-<h4>Voir le statut d’un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl status cron.service
+loaded    active   active    Local File Systems (Pre)</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-19"><h2>Gérer les services avec systemctl</h2><p>Voir le statut d’un service</p><pre><code>root@deb:~# systemctl status cron.service
 ● cron.service - Regular background program processing daemon
    Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
    Active: active (running) since Fri 2020-11-20 11:18:33 CET; 3h 29min ago
@@ -13878,19 +13669,13 @@ loaded    active   active    Local File Systems (Pre)</pre>
     Tasks: 1 (limit: 2327)
    Memory: 1.1M
    CGroup: /system.slice/cron.service
-           └─403 /usr/sbin/cron -f</pre>
-<pre class="tssr-source-code">nov. 20 11:18:33 SRV-DEB-01 cron[403]: (CRON) INFO (Running @reboot jobs)
+           └─403 /usr/sbin/cron -f</code></pre><pre><code>nov. 20 11:18:33 SRV-DEB-01 cron[403]: (CRON) INFO (Running @reboot jobs)
 nov. 20 12:17:01 SRV-DEB-01 CRON[760]: pam_unix(cron:session): session opened for user root by 
 (uid=0)
 nov. 20 12:17:01 SRV-DEB-01 CRON[761]: (root) CMD (   cd / &amp;&amp; run-parts --report 
 /etc/cron.hourly)
-nov. 20 12:17:01 SRV-DEB-01 CRON[760]: pam_unix(cron:session): session closed for user root</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-20"><h3>Page 20</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Gérer les services avec systemctl</h4>
-<h4>Démarrer un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl start cron.service
+nov. 20 12:17:01 SRV-DEB-01 CRON[760]: pam_unix(cron:session): session closed for user root</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-20"><h2>Gérer les services avec systemctl</h2><p>Démarrer un service</p><pre><code>root@deb:~# systemctl start cron.service
 root@deb:~# systemctl status cron.service
 ● cron.service - Regular background program processing daemon
    Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
@@ -13900,176 +13685,59 @@ root@deb:~# systemctl status cron.service
     Tasks: 1 (limit: 2327)
    Memory: 488.0K
    CGroup: /system.slice/cron.service
-           └─885 /usr/sbin/cron -f</pre>
-<pre class="tssr-source-code">nov. 20 16:58:53 SRV-DEB-01 systemd[1]: Started Regular background program processing 
+           └─885 /usr/sbin/cron -f</code></pre><pre><code>nov. 20 16:58:53 SRV-DEB-01 systemd[1]: Started Regular background program processing 
 daemon.
 nov. 20 16:58:53 SRV-DEB-01 cron[885]: (CRON) INFO (pidfile fd = 3)
 nov. 20 16:58:53 SRV-DEB-01 cron[885]: (CRON) INFO (Skipping @reboot jobs -- not system 
-startup)</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-21"><h3>Page 21</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Gérer les services avec systemctl</h4>
-<h4>Arrêter un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl stop cron.service
+startup)</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-21"><h2>Gérer les services avec systemctl</h2><p>Arrêter un service</p><pre><code>root@deb:~# systemctl stop cron.service
 root@deb:~# systemctl status cron.service
 ● cron.service - Regular background program processing daemon
    Loaded: loaded (/lib/systemd/system/cron.service; enabled; vendor preset: enabled)
    Active: inactive (dead) since Fri 2020-11-20 16:47:53 CET; 58s ago
      Docs: man:cron(8)
   Process: 403 ExecStart=/usr/sbin/cron -f $EXTRA_OPTS (code=killed, signal=TERM)
- Main PID: 403 (code=killed, signal=TERM)</pre>
-<h4>Redémarrer un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl restart cron.service
-root@deb:~#</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-22"><h3>Page 22</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Gérer les services avec systemctl</h4>
-<h4>Activer un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl enable networking
+ Main PID: 403 (code=killed, signal=TERM)</code></pre><p>Redémarrer un service</p><pre><code>root@deb:~# systemctl restart cron.service
+root@deb:~#</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-22"><h2>Gérer les services avec systemctl</h2><p>Activer un service</p><pre><code>root@deb:~# systemctl enable networking
 Synchronizing state of networking.service with SysV service script with 
 /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable networking
 Created symlink /etc/systemd/system/multi-user.target.wants/networking.service → 
 /lib/systemd/system/networking.service.
 Created symlink /etc/systemd/system/network-online.target.wants/networking.service → 
-/lib/systemd/system/networking.service.</pre>
-<h4>Désactiver un service</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl disable networking
+/lib/systemd/system/networking.service.</code></pre><p>Désactiver un service</p><pre><code>root@deb:~# systemctl disable networking
 Synchronizing state of networking.service with SysV service script with 
 /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install disable networking
 Removed /etc/systemd/system/network-online.target.wants/networking.service.
-Removed /etc/systemd/system/multi-user.target.wants/networking.service.</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+Removed /etc/systemd/system/multi-user.target.wants/networking.service.</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-23"><h2>Gestion du système avec SystemD</h2><p>Démo</p><p>La commande systemctl</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-24"><h2>Démarrage d’une distribution Debian</h2><h3>Arrêter / redémarrer le</h3><h3>système</h3></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-25"><h2>La commande shutdown</h2><pre><code>root@deb:~# shutdown [-rhc] &lt;heure&gt; &lt;message&gt;</code></pre><p>Arrêter le système maintenant</p><pre><code>root@deb:~# shutdown -h now</code></pre><p>Arrêter le système dans 10 minutes avec un avertissement</p><pre><code>root@deb:~# shutdown -h +10 "Arrêt du serveur dans 10mn !"</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-26"><h2>La commande shutdown</h2><p>Redémarrer immédiatement</p><pre><code>root@deb:~# reboot</code></pre><p>ou</p><pre><code>root@deb:~# shutdown -r now</code></pre><p>Redémarrer le système à 16h30</p><pre><code>root@deb:~# shutdown -r 16:30 "reboot à 16h30"</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-27"><h2>La commande shutdown</h2><ul><li>Annuler une commande shutdown en attente.</li><li>Ne fonctionne pas avec l’option now ou une fois l’heure programmée atteinte.</li></ul><pre><code>root@deb:~# shutdown -c</code></pre></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-28"><h2>Arrêter / redémarrer le système</h2><h3>TP Démarrer et arrêter Debian</h3><p>Démo</p><p>Gérer les services</p></section>
+<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-29"><h2>Conclusion</h2><ul><li>Vous connaissez les principales étapes du démarrage de Debian GNU/Linux.</li><li>Vous savez gérer les services et cibles SystemD.</li><li>Vous savez arrêter ou redémarrer un ordinateur sous Linux.</li></ul></section>
 
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-23"><h3>Page 23</h3><h4>Gestion du système avec SystemD</h4>
-<h4>Démo</h4>
-<h4>La commande systemctl</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-24"><h3>Page 24</h3><h4>Démarrage d’une distribution Debian</h4>
-<h4>Arrêter / redémarrer le </h4>
-<h4>système</h4>
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-25"><h3>Page 25</h3><h4>Arrêter / redémarrer le système</h4>
-<h4>La commande shutdown</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown [-rhc] &lt;heure&gt; &lt;message&gt;</pre>
-<h4>Arrêter le système maintenant</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown -h now</pre>
-<h4>Arrêter le système dans 10 minutes avec un avertissement</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown -h +10 "Arrêt du serveur dans 10mn !"</pre>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-26"><h3>Page 26</h3><h4>Arrêter / redémarrer le système</h4>
-<h4>La commande shutdown</h4>
-<h4>Redémarrer immédiatement</h4>
-<pre class="tssr-source-code">root@deb:~# reboot</pre>
-<h4>ou</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown -r now</pre>
-<h4>Redémarrer le système à 16h30</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown -r 16:30 "reboot à 16h30"</pre>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-27"><h3>Page 27</h3><h4>Arrêter / redémarrer le système</h4>
-<h4>La commande shutdown</h4>
-<h4>• Annuler une commande shutdown en attente. <br>• Ne fonctionne pas avec l’option now ou une fois l’heure <br>programmée atteinte.</h4>
-<pre class="tssr-source-code">root@deb:~# shutdown -c</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-28"><h3>Page 28</h3><h4>Arrêter / redémarrer le système</h4>
-<h4>TP<br>Démarrer et arrêter Debian</h4>
-<h4>Démo</h4>
-<h4>Gérer les services</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                               Arrêter / redémarrer le système
-
-
-
-     TP                             Démarrer et arrêter DebianDémo
-
-
-
-                                                  Gérer les services</pre></details>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="source-1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO-page-29"><h3>Page 29</h3><h4>Démarrage d’une distribution Debian</h4>
-<h4>Conclusion</h4>
-<p class="tssr-source-paragraph">• Vous connaissez les principales étapes du démarrage de Debian <br>GNU/Linux.<br>• Vous savez gérer les services et cibles SystemD.<br>• Vous savez arrêter ou redémarrer un ordinateur sous Linux.</p>
-</section>
 <p class="tssr-original-proof">Référence du document : 1yR1NXZJTL3Fb3MnLdA7XjOUn5nH97LhO · <span title="Empreinte SHA-256 du fichier source">SHA-256 42936137889d5576…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
 <summary>Énoncé · M03TP01 - Enoncé - Démarrer et arrêter Debian · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<section class="tssr-transcribed-page" id="source-13gVLkqE-ZMvWUjKgen3ABExTJx-4Gtpq-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
 
-<h4>Démarrer et arrêter Debian </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+<section class="tssr-transcribed-page" id="source-13gVLkqE-ZMvWUjKgen3ABExTJx-4Gtpq-page-1"><p>Administration Debian GNU/Linux</p><h3>Démarrer et arrêter Debian</h3><p>TP du Module 03 – Démarrage d’une distribution Debian</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>15 à 30 minutes</p><h3>Énoncé : Identification &amp; modification de la cible par défaut sur la station avec environnement graphique</h3><ul><li>Démarrer le système, ouvrez une session avec votre utilisateur</li><li>Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la machine ?</li><li>Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée au point précédent. Lire le paragraphe correspondant et en déduire le nom de la cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE</li><li>Définir comme cible par défaut la cible trouvée au point précédent.</li><li>Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, l’environnement graphique a-t-il été chargé ? Est-ce normal ?</li><li>Exécuter la commande systemctl appropriée afin de charger l’environnement graphique.</li></ul><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">15 à 30 minutes </p>
-<h4>Énoncé : Identification &amp; modification de la cible <br>par défaut sur la station avec environnement <br>graphique </h4>
-<p class="tssr-source-paragraph">• <br>Démarrer le système, ouvrez une session avec votre utilisateur  </p>
-<p class="tssr-source-paragraph">• <br>Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la <br>machine ? </p>
-<p class="tssr-source-paragraph">• <br>Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée <br>au point précédent. Lire le paragraphe correspondant et en déduire le nom de la <br>cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE   </p>
-<p class="tssr-source-paragraph">• <br>Définir comme cible par défaut la cible trouvée au point précédent. </p>
-<p class="tssr-source-paragraph">• <br>Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, <br>l’environnement graphique a-t-il été chargé ? Est-ce normal ?  </p>
-<p class="tssr-source-paragraph">• <br>Exécuter la commande systemctl appropriée afin de charger l’environnement <br>graphique. </p>
-<p class="tssr-source-paragraph">• <br> </p>
-<h4>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 1/1 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
-
-</section>
 <p class="tssr-original-proof">Référence du document : 13gVLkqE-ZMvWUjKgen3ABExTJx-4Gtpq · <span title="Empreinte SHA-256 du fichier source">SHA-256 05cb0cd4aeb9ffa6…</span></p>
 </div>
 </details>
 <details class="tssr-original-document">
 <summary>Énoncé · M03TP02 - Enoncé - Gérer les services · 1 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<section class="tssr-transcribed-page" id="source-152MWaIvVdpo6ZRkcoJFJVv9_qVRhBWU9-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
 
-<h4>Gérer les services </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+<section class="tssr-transcribed-page" id="source-152MWaIvVdpo6ZRkcoJFJVv9_qVRhBWU9-page-1"><p>Administration Debian GNU/Linux</p><h3>Gérer les services</h3><p>TP du Module 03 – Démarrage d’une distribution Debian</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>25 à 45 minutes</p><h3>Enoncé : Gestion des services : sur le serveur sans environnement graphique</h3><h3>I. Gestion du service SSHD (connexions SSH)</h3><p>Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :</p><ul><li>Fichier de configuration systemd du service</li><li>Démon ou fichier binaire du serveur ssh</li><li>Fichier de configuration du serveur sshd</li></ul><h3>II. Gestion du service CRON (planification de tâches)</h3><ul><li>Le service sera-t-il lancé automatiquement au démarrage de la machine ?</li><li>Arrêter le service cron</li><li>Redémarrer le serveur. Le service cron est-il actif après redémarrage</li><li>Arrêter à nouveau le service manuellement</li><li>Désactiver totalement le démarrage automatique du démon cron au démarrage du système.</li></ul><p>Restaurer les paramètres par défaut de démarrage du démon cron</p><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">25 à 45 minutes </p>
-<h4>Enoncé : Gestion des services : sur le serveur sans <br>environnement graphique </h4>
-<p class="tssr-source-paragraph">I. <br>Gestion du service SSHD (connexions SSH) </p>
-<p class="tssr-source-paragraph">Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) : </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration systemd du service </p>
-<p class="tssr-source-paragraph">• <br>Démon ou fichier binaire du serveur ssh </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration du serveur sshd </p>
-<p class="tssr-source-paragraph">II. <br>Gestion du service CRON (planification de tâches) </p>
-<p class="tssr-source-paragraph">• <br>Le service sera-t-il lancé automatiquement au démarrage de la machine ? </p>
-<p class="tssr-source-paragraph">• <br>Arrêter le service cron </p>
-<p class="tssr-source-paragraph">• <br>Redémarrer le serveur. Le service cron est-il actif après redémarrage </p>
-<p class="tssr-source-paragraph">• <br>Arrêter à nouveau le service manuellement </p>
-<p class="tssr-source-paragraph">• <br>Désactiver totalement le démarrage automatique du démon cron au démarrage <br>du système.  </p>
-<p class="tssr-source-paragraph">Restaurer les paramètres par défaut de démarrage du démon cron </p>
-<h4>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 1/1 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
-
-</section>
 <p class="tssr-original-proof">Référence du document : 152MWaIvVdpo6ZRkcoJFJVv9_qVRhBWU9 · <span title="Empreinte SHA-256 du fichier source">SHA-256 91a044e687a9ec63…</span></p>
 </div>
 </details>
@@ -14077,52 +13745,12 @@ Removed /etc/systemd/system/multi-user.target.wants/networking.service.</pre>
 <summary>Correction · M03TP01 - Solution - Démarrer et arrêter Debian · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
 
-<h4>Démarrer et arrêter Debian </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+<section class="tssr-transcribed-page" id="source-1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0-page-1"><p>Administration Debian GNU/Linux</p><h3>Démarrer et arrêter Debian</h3><p>TP du Module 03 – Démarrage d’une distribution Debian</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>15 à 30 minutes</p><h3>Solution : Identification &amp; modification de la cible par défaut : sur la station avec environnement graphique</h3><ul><li>Démarrer le système, ouvrez une session avec votre utilisateur</li></ul><p>Cliquez sur votre nom puis saisissez votre mot de passe</p><ul><li>Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la machine ?</li></ul><p>→  Ouvrir une fenêtre de terminal puis saisir la commande attendue</p><ul><li>Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée au point précédent. Lire le paragraphe correspondant et en déduire le nom de la cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-2.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-2.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-3.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p1-3.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl get-default
+graphical.target</code></pre></details></figure></section>
+<section class="tssr-transcribed-page" id="source-1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0-page-2"><p>Administration Debian GNU/Linux</p><p>→  man systemd   puis recherche  /graphical.target . Le résultat de cette recherche nous permet de remarquer le choix entre graphical.target et multi-user.target</p><ul><li>Définir comme cible par défaut la cible trouvée au point précédent.</li></ul><p>Faire une élévation de droit puis saisir la commande systemctl avec ces paramètres</p><ul><li>Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, l’environnement graphique a-t-il été chargé ? Est-ce normal ?</li></ul><p>Après redémarrage, le mode multi-user par défaut nous offre un mode console</p><ul><li>Exécuter la commande systemctl appropriée afin de charger l’environnement graphique.</li></ul><p>→  Ouvrir une session avec l'utilisateur root,  saisir la commande systemctl isolate graphical.target</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-2.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-2.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>su -
+systemctl set-default multi-user.target</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-3.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-3.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-4.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-4.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl isolate graphical.target</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-5.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-p2-5.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-small-p2-4.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/ac79903da5e2dbe8/deb-small-p2-4.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption></figure></section>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 9 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">15 à 30 minutes </p>
-<h4>Solution : Identification &amp; modification de la cible <br>par défaut : sur la station avec environnement <br>graphique </h4>
-<p class="tssr-source-paragraph">• <br>Démarrer le système, ouvrez une session avec votre utilisateur  </p>
-<p class="tssr-source-paragraph"> <br>Cliquez sur votre nom puis saisissez votre mot de passe </p>
-<p class="tssr-source-paragraph">• <br>Quelle est la cible systemd qui sera atteinte par défaut au démarrage de la <br>machine ? </p>
-<p class="tssr-source-paragraph"> → <br> <br>Ouvrir une fenêtre de terminal puis saisir la commande attendue </p>
-<p class="tssr-source-paragraph">• <br>Dans le manuel de la commande systemd, rechercher le nom de la cible identifiée <br>au point précédent. Lire le paragraphe correspondant et en déduire le nom de la <br>cible permettant un démarrage normal SANS ENVIRONNEMENT GRAPHIQUE   </p>
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>e<br>Ss</p><p>Camille Garcia</p><p>4<br> essosssese)<br>@</p><p>@<br>terminal<br>a</p><p>A<br>camille@DebClient: ~</p><p>amille@DebClient:-$ systemctl get-default<br>graphical.target</p><p>srmins<br>amille@DebClient:~$</p><p>ff</p><p>(Gay</p></div></details>
-
-
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-
-<p class="tssr-source-paragraph"> → <br> <br>man systemd   puis recherche  /graphical.target . <br>Le résultat de cette recherche nous permet de remarquer le choix entre graphical.target et multi-user.target </p>
-<p class="tssr-source-paragraph">• <br>Définir comme cible par défaut la cible trouvée au point précédent. </p>
-<p class="tssr-source-paragraph"> <br>Faire une élévation de droit puis saisir la commande systemctl avec ces paramètres </p>
-<p class="tssr-source-paragraph">• <br>Redémarrer le poste avec environnement graphique. A l’issue du redémarrage, <br>l’environnement graphique a-t-il été chargé ? Est-ce normal ? </p>
-<p class="tssr-source-paragraph"> <br>Après redémarrage, le mode multi-user par défaut nous offre un mode console </p>
-<p class="tssr-source-paragraph">• <br>Exécuter la commande systemctl appropriée afin de charger l’environnement <br>graphique. </p>
-<p class="tssr-source-paragraph"> → <br> <br>Ouvrir une session avec l'utilisateur root,  saisir la commande systemctl isolate graphical.target </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>F<br>7<br>Description</p><p>ystend<br>is<br>à<br>system<br>and<br>service<br>manager<br>for<br>Linux<br>operatil</p><p>ss<br>PID<br>1),<br>it<br>acts<br>on<br>init<br>system<br>that<br>beings<br>up<br>and malt</p><p>are<br>started<br>for<br>logged-in<br>users<br>to<br>start<br>their<br>service</p><p>systend<br>is<br>usually<br>not<br>invoked directly<br>by<br>the<br>user,<br>but<br>À<br>started during early boot,<br>The user manager<br>instances<br>are<br>PETERET LANEY (For Fully orestured Boots Into]<br>user@.service(S)<br>service<br>the UI)<br>or multi-user.target<br>(for<br>limited console-only</p><p>dic<br>ee<br>a is |!<br>de GSà<br>Lied oi À<br>boots for use in embedded or server environments, or<br>tt ay<br>nace att es À<br>pSimilar; a subset of ENEBMEMEE).<br>However, it is at<br>and telinit<br>are<br>mostly equivalent when invoked from normal<br>the discretion of<br>the administrator<br>to configure<br>it as an<br>information<br>alias<br>to<br>any<br>other<br>target<br>unit.<br>See systend,special(7}<br>lucauhical.Laraetl<br>A<br>(for details about<br>these<br>target units.<br>|</p><p>camillegDebClient:-$ su<br>-<br>Mot de passe<br>:<br>root@DebClient<br>:~# systemctl set-default multi-user.target<br>Removed /etc/systemd/system/default.target.<br>Created symlink /etc/systemd/system/default.target + /lib/systemd/system/multi-user.<br>target.<br>root@DebClient :~#</p><p>ANSE<br>|<br># DebClient *</p><p>Jebian<br>GNU/Linux<br>11<br>Deb<br>nt<br>tty</p><p>ebClient<br>login</p><p>ebian<br>GNU/Linux<br>11<br>DebClient<br>ttyl</p><p>ebClient login: root<br>(a) Camille Garcia<br>assword:</p><p>inux<br>DebClient 5.10.0-9-amd64<br>#1<br>SMP Debian 5.10.70-1<br>(2021-09-30)<br>x86_64<br>PTR</p><p>12 programs<br>included<br>with<br>the Debian GNU/Linux<br>system<br>are<br>free<br>software;<br>ne<br>exact<br>distribution<br>terms<br>for<br>each<br>program<br>are<br>described<br>in<br>the<br>ndividual<br>files<br>in<br>/usr/share/doc/*/copyr ight.</p><p>ebian<br>GNU/Linux<br>comes<br>with<br>ABSOLUTELY<br>NO<br>WARRANTY,<br>to<br>the<br>extent<br>ermitted<br>by applicable<br>law.<br>rn<br>oot@DebClient:“# systemctl isolate graphical.target _<br>f<br>debian</p></div></details>
-
-
-
-
-
-
-
-
-
-
-</section>
 <p class="tssr-original-proof">Référence du document : 1GaBj6qd0GXpphUYErc_GEcLltx6nHkM0 · <span title="Empreinte SHA-256 du fichier source">SHA-256 ac79903da5e2dbe8…</span></p>
 </div>
 </details>
@@ -14130,57 +13758,16 @@ Removed /etc/systemd/system/multi-user.target.wants/networking.service.</pre>
 <summary>Correction · M03TP02 - Solution - Gérer les services · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
 
-<h4>Gérer les services </h4>
-<p class="tssr-source-paragraph">TP du Module 03 – Démarrage d’une distribution Debian </p>
+<section class="tssr-transcribed-page" id="source-1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR-page-1"><p>Administration Debian GNU/Linux</p><h3>Gérer les services</h3><p>TP du Module 03 – Démarrage d’une distribution Debian</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>25 à 45 minutes</p><h3>Solution : Gestion des services : sur le serveur sans environnement graphique</h3><h3>I. Gestion du service SSHD (connexions SSH)</h3><p>Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) :</p><p>Ouvrir une session avec votre utilisateur standard</p><ul><li>Fichier de configuration systemd du service</li><li>Démon ou fichier binaire du serveur ssh</li></ul><p>Conf systemd ligne 'Loaded'</p><p>Binaire en ligne Process</p><ul><li>Fichier de configuration du serveur sshd find dans le dossier /etc qui contient les paramètres du système et de ses services</li></ul><p>type f car nous cherchons un fichier, pas un dossier *sshd*conf* cherche un fichier dont le nom contient à la fois le nom du service et le mot conf, habituel dans des fichiers de ce type.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p1-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p1-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl status sshd
+# Unité : /lib/systemd/system/ssh.service
+# Binaire : /usr/sbin/sshd</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-2.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-2.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-4.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p1-4.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>find /etc/ -type f -name "*sshd*conf*" 2&gt;/dev/null
+/etc/ssh/sshd_config</code></pre></details></figure></section>
+<section class="tssr-transcribed-page" id="source-1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR-page-2"><p>Administration Debian GNU/Linux</p><h3>II. Gestion du service CRON (planification de tâches)</h3><ul><li>Le service sera-t-il lancé automatiquement au démarrage de la machine ?</li></ul><p>Lister les services avec systemctl puis filtrer sur le mot cron.</p><p>Le résultat montre un service activé</p><ul><li>Arrêter le service cron</li></ul><p>Arrêt du service avec la commande systemctl stop.</p><p>Vérification du résultat avec systemctl status .</p><ul><li>Redémarrer le serveur. Le service cron est-il actif après redémarrage systemctl stop ne fait qu'arrêter un service temporairement. Le service est de nouveau actif après redémarrage du système</li><li>Arrêter à nouveau le service manuellement</li><li>Désactiver totalement le démarrage automatique du démon cron au démarrage du système</li></ul><p>Désactivation d'un service au prochain démarrage avec l'option disable de systemctl</p><p>Restaurer les paramètres par défaut de démarrage du démon cron systemctl enable pour activer au démarrage, systemctl start pour démarrer manuellement le service sans devoir redémarrer le serveur.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p2-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-p2-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl enable cron.service
+systemctl start cron
+systemctl status cron</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-2.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-2.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl list-units | grep cron</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-3.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-3.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl stop cron.service
+systemctl status cron.service</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-4.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-4.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl status cron.service</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-6.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-small-p2-6.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>systemctl disable cron.service</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-detail-p2-42.webp" data-desc-position="bottom"><img alt="Détail de la procédure du laboratoire, isolé et vérifié." loading="lazy" src="../../../assets/course-sources/isolated/057a0c0c0b2745e7/deb-detail-p2-42.webp"></a><figcaption>Détail de la procédure du laboratoire, isolé et vérifié.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes visibles</summary><pre><code>systemctl stop cron.service</code></pre></details></figure></section>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">25 à 45 minutes </p>
-<h4>Solution : Gestion des services : sur le serveur sans <br>environnement graphique </h4>
-<p class="tssr-source-paragraph">I. <br>Gestion du service SSHD (connexions SSH) </p>
-<p class="tssr-source-paragraph">Trouver les fichiers relatifs au fonctionnement du service (nom et emplacement) : </p>
-<p class="tssr-source-paragraph"> <br>Ouvrir une session avec votre utilisateur standard </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration systemd du service <br>• <br>Démon ou fichier binaire du serveur ssh </p>
-<p class="tssr-source-paragraph"> <br>Conf systemd ligne 'Loaded' </p>
-<p class="tssr-source-paragraph">Binaire en ligne Process </p>
-<p class="tssr-source-paragraph">• <br>Fichier de configuration du serveur sshd </p>
-<p class="tssr-source-paragraph"> <br>find dans le dossier /etc qui contient les paramètres du système et de ses services </p>
-<p class="tssr-source-paragraph">type f car nous cherchons un fichier, pas un dossier <br>*sshd*conf* cherche un fichier dont le nom contient à la fois le nom du service  <br>et le mot conf, habituel dans des fichiers de ce type. </p>
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>debsrv01<br>login:<br>camille<br>Password:</p><p>camilleëdebsrv01:"$<br>systemctl<br>status<br>sshd</p><p>e<br>ssh.service<br>-<br>OpenBSD Secure Shell<br>server<br>Loaded:<br>loaded<br>lib/systemd/system/ssh.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>active<br>(running)<br>since<br>Tue 2021-10-19<br>16:19:37<br>CEST;<br>4min<br>42s<br>ago<br>Docs:<br>man:sshd(8)<br>man:sshd_conf ig(5)<br>Process:<br>517<br>ExecStartPre=/usr/sbin/sshd<br>-t<br>(code=exited,<br>status=0/SUCCESS)<br>Main<br>PID:<br>523<br>(sshd)<br>Tasks:<br>1<br>(limit:<br>2300<br>Memory:<br>3. 7M<br>CPU:<br>36ms<br>CGroup:<br>/system.slice/ssh.service</p><p>L5e3<br>sshd:<br>/usr/shin/sshd<br>-D<br>[listener]<br>0 of<br>10-100<br>startups</p><p>camille@debsrvoi:~$<br>find<br>/etc/<br>-type<br>f<br>-name<br>'xsshd«xconfx' 2&gt;/dev/null<br>etc/ssh/sshd_conf<br>ig<br>camille@debsrv01:“$</p></div></details>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="source-1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-
-<p class="tssr-source-paragraph">II. <br>Gestion du service CRON (planification de tâches) </p>
-<p class="tssr-source-paragraph">• <br>Le service sera-t-il lancé automatiquement au démarrage de la machine ?  </p>
-<p class="tssr-source-paragraph"> <br>Lister les services avec systemctl puis filtrer sur le mot cron.  </p>
-<p class="tssr-source-paragraph">Le résultat montre un service activé </p>
-<p class="tssr-source-paragraph">• <br>Arrêter le service cron </p>
-<p class="tssr-source-paragraph"> <br>Arrêt du service avec la commande systemctl stop. </p>
-<p class="tssr-source-paragraph">Vérification du résultat avec systemctl status . </p>
-<p class="tssr-source-paragraph">• <br>Redémarrer le serveur. Le service cron est-il actif après redémarrage </p>
-<p class="tssr-source-paragraph"> <br>systemctl stop ne fait qu'arrêter un service temporairement.  <br>Le service est de nouveau actif après redémarrage du système </p>
-<p class="tssr-source-paragraph">• <br>Arrêter à nouveau le service manuellement </p>
-
-<p class="tssr-source-paragraph">• <br>Désactiver totalement le démarrage automatique du démon cron au démarrage <br>du système </p>
-<p class="tssr-source-paragraph"> <br>Désactivation d'un service au prochain démarrage avec l'option disable de systemctl </p>
-<p class="tssr-source-paragraph">Restaurer les paramètres par défaut de démarrage du démon cron </p>
-<p class="tssr-source-paragraph"> <br>systemctl enable pour activer au démarrage, <br> systemctl start pour démarrer manuellement le service sans devoir redémarrer le serveur. </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>camille@debsrvo1:"#$<br>systemctl<br>list-units<br>grep cron<br>cron.service<br>loaded<br>a<br>ctive running<br>Regular<br>background program processing<br>daemon<br>camille@debsrv01:"$</p><p>root@debsrvoi:°#%<br>systemctl<br>stop cron.service<br>root@debsrvo1:“#<br>systemctl<br>status<br>cron.service<br>e<br>cron.service<br>- Regular<br>background program processing<br>daemon<br>Loaded:<br>loaded<br>(/lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>inactive<br>(dead)<br>since<br>Wed<br>2021-10-20<br>09:24:16<br>CEST;<br>10s<br>ago</p><p>root@debsryv01:"#<br>systemctl<br>status cron.service</p><p>e<br>cron.service<br>- Regular<br>background program processing daemon<br>Loaded:<br>loaded<br>(/lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled)<br>Active:<br>active<br>(running)<br>since<br>Wed 2021-10-20 09:27:16<br>CEST;<br>5s<br>ago</p><p>root@debsrvo1i:"#<br>systemctl stop cron.service</p><p>root@debsrv01:~# systemctl disable cron.service<br>Synchronizing<br>state<br>of<br>cron.service<br>with SysV service<br>script<br>with<br>/lib/systemd/systemd-sysv-install.<br>Executing:<br>/lib/systemd/systemd-sysv-install<br>disable cron<br>Removed<br>/etc/systemd/system/multi-user.target.wants/cron.service.</p><p>root@debsryv01:“#<br>systemctl<br>enable cron.service<br>Synchronizing<br>state<br>of<br>cron.service<br>with<br>SysV service<br>script<br>with<br>/lib/systemd/systemd-sysv-install.<br>Executing:<br>/lib/systemd/systemd-sysv-install enable<br>cron<br>Created<br>symlink<br>/etc/systemd/system/multi-user.target.wants/cron.service<br>+<br>/lib/systemd/system/cron.</p><p>root@debsrv01:“#<br>systemctl<br>start<br>cron<br>root@debsryvo1:"#<br>systemctl<br>status<br>cron<br>¢<br>cron.service<br>- Regular<br>background<br>program<br>processing daemon<br>Loaded:<br>loaded<br>lib/systemd/system/cron.service;<br>enabled;<br>vendor<br>preset:<br>enabled<br>Active:<br>active<br>(running)<br>since<br>Wed 2021-10-20<br>09:35:02 CEST;<br>11s ago</p><p>+<br>Cail</p></div></details>
-
-
-
-
-
-</section>
 <p class="tssr-original-proof">Référence du document : 1BqZRCFRK5I4Uo1i1LA6SNEZ9eveMWvVR · <span title="Empreinte SHA-256 du fichier source">SHA-256 057a0c0c0b2745e7…</span></p>
 </div>
 </details>
@@ -14191,46 +13778,134 @@ Removed /etc/systemd/system/multi-user.target.wants/networking.service.</pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p><strong>Sources originales (A) :</strong> support et TP TSSR « Démarrer et arrêter Debian » / « Gérer les services ».
-<strong>Contenu du portail (B) :</strong> reformulation structurée des sources TSSR.</p>
-<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
-<ul>
-<li>Identifier les étapes principales du démarrage Linux.</li>
-<li>Gérer l’arrêt, le redémarrage et les services avec systemd.</li>
-<li>Contrôler l’état d’un service avant et après une action.</li>
-</ul>
-<h2 id="du-firmware-aux-services">Du firmware aux services<a class="headerlink" href="#du-firmware-aux-services" title="Permanent link">¶</a></h2>
-<p>La source présente GRUB2 comme chargeur d’amorçage, puis le passage vers l’initialisation des services. Le démarrage ne se résume pas à l’apparition d’une invite : chaque étape prépare la suivante. Lors d’un diagnostic, repérer l’étape où l’exécution s’arrête est plus utile que redémarrer au hasard.</p>
-<h2 id="gerer-avec-systemd">Gérer avec systemd<a class="headerlink" href="#gerer-avec-systemd" title="Permanent link">¶</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>nom.service
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>systemctl<span class="w"> </span>start<span class="w"> </span>nom.service
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>nom.service
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>nom.service
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nom.service
+<p><strong>Cours optimisé — reformulation pédagogique du support et des TP associés.</strong> Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.</p>
+<h2 id="comprendre-le-demarrage">Comprendre le démarrage<a class="headerlink" href="#comprendre-le-demarrage" title="Permanent link">¶</a></h2>
+<p>Le support suit une machine BIOS avec MBR : firmware, chargeur GRUB, noyau Linux, initialisation, puis services et sessions. Ce scénario est un exemple d’architecture, pas l’unique chaîne d’amorçage possible. GRUB choisit une entrée, charge le noyau et l’image initiale, puis transmet des paramètres comme la racine du système.</p>
+<p>Dans <code>/boot</code>, le support distingue <code>vmlinuz</code> (noyau), <code>initrd</code> (image initiale), <code>System.map</code> et <code>config</code>. Les suffixes correspondent aux versions installées. Une ligne GRUB comportant <code>root=/dev/mapper/... ro quiet</code> indique notamment le périphérique racine, le montage initial en lecture seule et la réduction des messages. En appuyant sur <code>e</code>, on modifie temporairement l’entrée sélectionnée ; il ne faut pas recopier le chemin du noyau d’une autre machine.</p>
+<h2 id="systemd-pid-1-et-unites">Systemd, PID 1 et unités<a class="headerlink" href="#systemd-pid-1-et-unites" title="Permanent link">¶</a></h2>
+<p>Après la phase noyau, systemd assure l’initialisation dans le scénario. Il est le processus PID 1. Les <strong>unités</strong> décrivent différents objets : services, cibles, montages ou timers. Les dépendances permettent de démarrer en parallèle ce qui peut l’être, avec un ordre lorsque celui-ci est nécessaire. Une cible rassemble des unités ; elle ne correspond pas à un programme unique.</p>
+<table>
+<thead>
+<tr>
+<th>Cible étudiée</th>
+<th>Rôle</th>
+<th>Ancien repère numérique du support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>poweroff.target</code></td>
+<td>Arrêter la machine</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>rescue.target</code></td>
+<td>Environnement de secours restreint</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>multi-user.target</code></td>
+<td>Fonctionnement multiutilisateur sans bureau</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>graphical.target</code></td>
+<td>Fonctionnement avec environnement graphique</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>reboot.target</code></td>
+<td>Redémarrer</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>Les nombres sont des compatibilités historiques avec les niveaux d’exécution ; ils n’épuisent pas toutes les cibles possibles.</p>
+<h2 id="observer-les-unites-et-choisir-une-cible">Observer les unités et choisir une cible<a class="headerlink" href="#observer-les-unites-et-choisir-une-cible" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>systemctl<span class="w"> </span>get-default
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>systemctl<span class="w"> </span>list-units
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>systemctl<span class="w"> </span>list-units<span class="w"> </span>--all
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>systemctl<span class="w"> </span>list-unit-files
 </span></code></pre></div>
-<p><code>status</code> est le contrôle de départ. <code>enable</code> configure le démarrage automatique ; il ne remplace pas une vérification de l’état actuel du service.</p>
-<h2 id="arreter-proprement">Arrêter proprement<a class="headerlink" href="#arreter-proprement" title="Permanent link">¶</a></h2>
-<p>Utiliser une commande d’arrêt ou de redémarrage prévue pour le système et prévenir les utilisateurs concernés. Une coupure brutale peut laisser un système de fichiers dans un état incohérent.</p>
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
-<p>Le démarrage et les services s’administrent en observant d’abord l’état, en appliquant l’action minimale nécessaire puis en relisant cet état.</p>
-<h2 id="verification-des-acquis">Vérification des acquis<a class="headerlink" href="#verification-des-acquis" title="Permanent link">¶</a></h2>
+<p><code>list-units</code> présente les unités chargées, avec une sélection dépendant des options. <code>list-unit-files</code> examine les fichiers d’unités et leur état d’activation : une ligne ne prouve donc pas que le service fonctionne actuellement.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>systemctl<span class="w"> </span>set-default<span class="w"> </span>multi-user.target
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>systemctl<span class="w"> </span>isolate<span class="w"> </span>graphical.target
+</span></code></pre></div>
+<p>La première commande définit la cible pour les prochains démarrages. La seconde bascule l’état courant et peut arrêter des unités ou sessions qui ne font pas partie de la nouvelle cible. Dans le TP, on relève la cible du poste graphique, on choisit <code>multi-user.target</code>, on redémarre pour observer la console, puis on charge le mode graphique. Revenir ensuite à la cible initiale si l’exercice le prévoit.</p>
+<h2 id="distinguer-fonctionnement-et-activation">Distinguer fonctionnement et activation<a class="headerlink" href="#distinguer-fonctionnement-et-activation" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Commande avec <code>cron.service</code></th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>systemctl status cron.service</code></td>
+<td>Lire l’état et des messages récents</td>
+</tr>
+<tr>
+<td><code>systemctl start cron.service</code></td>
+<td>Démarrer maintenant</td>
+</tr>
+<tr>
+<td><code>systemctl stop cron.service</code></td>
+<td>Arrêter maintenant</td>
+</tr>
+<tr>
+<td><code>systemctl restart cron.service</code></td>
+<td>Arrêter puis démarrer</td>
+</tr>
+<tr>
+<td><code>systemctl enable cron.service</code></td>
+<td>Préparer l’activation selon les liens de dépendance</td>
+</tr>
+<tr>
+<td><code>systemctl disable cron.service</code></td>
+<td>Retirer ces liens d’activation</td>
+</tr>
+</tbody>
+</table>
+<p>Arrêter cron ne désactive pas son prochain démarrage. Désactiver un service ne l’arrête pas forcément et ne bloque pas toute activation par dépendance ou manuelle. Pour le TP, observer ces deux axes séparément : <code>is-active</code> et <code>is-enabled</code> sont des contrôles pratiques supplémentaires.</p>
+<h2 id="identifier-le-service-ssh">Identifier le service SSH<a class="headerlink" href="#identifier-le-service-ssh" title="Permanent link">¶</a></h2>
+<p>Le TP demande le fichier d’unité, le binaire serveur et sa configuration. Sur Debian, le service usuel est <code>ssh.service</code>, avec <code>sshd</code> pour le démon et <code>/etc/ssh/sshd_config</code> pour la configuration. <code>systemctl status ssh.service</code> et <code>systemctl cat ssh.service</code> aident à examiner la machine réelle. Les unités fournies par les paquets peuvent apparaître sous <code>/lib/systemd/system</code> ou <code>/usr/lib/systemd/system</code> ; leurs surcharges locales relèvent de <code>/etc/systemd/system</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Précision externe — activation et configuration</p>
+<p><code>enable</code> et <code>disable</code> concernent l’activation ; <code>--now</code> ajoute une action immédiate. Pour modifier un service, préférer une surcharge locale plutôt que le fichier livré par le paquet. Les états et chemins se vérifient sur la version utilisée. Référence : <a href="https://www.freedesktop.org/software/systemd/man/latest/systemctl.html">systemctl(1)</a>.</p>
+</div>
+<h2 id="arreter-et-planifier-un-redemarrage">Arrêter et planifier un redémarrage<a class="headerlink" href="#arreter-et-planifier-un-redemarrage" title="Permanent link">¶</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>shutdown<span class="w"> </span>-h<span class="w"> </span>now
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>shutdown<span class="w"> </span>-h<span class="w"> </span>+10<span class="w"> </span><span class="s1">'Arrêt dans dix minutes'</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>shutdown<span class="w"> </span>-r<span class="w"> </span><span class="m">16</span>:30
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>shutdown<span class="w"> </span>-c
+</span></code></pre></div>
+<p>Le support présente également <code>reboot</code> et <code>shutdown -r now</code>. Vérifier les utilisateurs et les tâches en cours avant l’arrêt. <code>shutdown -c</code> annule un arrêt planifié encore en attente ; il ne revient pas sur un arrêt déjà réalisé.</p>
+<h2 id="schema-explicatif-complement-pedagogique">Schéma explicatif — complément pédagogique<a class="headerlink" href="#schema-explicatif-complement-pedagogique" title="Permanent link">¶</a></h2>
+<p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
+<div class="mermaid">flowchart LR
+ F["Firmware"] --&gt; G["GRUB"] --&gt; K["Noyau + initramfs"] --&gt; S["systemd PID 1"]
+ S --&gt; C["Cible"] --&gt; U["Services et sessions"]</div>
+<h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quelle commande affiche l’état d’un service ?</li>
-<li>Quel est le rôle de <code>enable</code> ?</li>
+<li><code>set-default</code> change-t-il immédiatement la cible courante ?</li>
+<li>Pourquoi cron redémarre-t-il après un simple <code>stop</code> suivi d’un reboot ?</li>
+<li>Quelle commande distingue les fichiers d’unités des seules unités chargées ?</li>
 </ol>
 <details class="success">
 <summary>Réponses</summary>
 <ol>
-<li><code>systemctl status nom.service</code>.</li>
-<li>Configurer le démarrage automatique du service.</li>
+<li>Non ; <code>isolate</code> agit sur l’état courant.</li>
+<li>Son activation au démarrage est restée configurée.</li>
+<li><code>systemctl list-unit-files</code>.</li>
 </ol>
 </details>
-<!-- TSSR-LINUX-VISUAL-20261020 -->
-<h2 id="complement-ia-externe-au-cours-situer-la-panne-de-demarrage">Complément IA / externe au cours — Situer la panne de démarrage<a class="headerlink" href="#complement-ia-externe-au-cours-situer-la-panne-de-demarrage" title="Permanent link">¶</a></h2>
-<p><strong>Illustration IA / externe au cours.</strong></p>
-<div class="mermaid">flowchart LR
- F["Firmware"] --&gt; G["GRUB2"] --&gt; K["Noyau Linux"] --&gt; S["Initialisation systemd"] --&gt; V["Services"]</div>
-<p>Repère IA de synthèse : repérer la dernière étape atteinte, relever le message, puis consulter la partie correspondante du support et du TP.</p>
+<h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../revision/administration-linux/module-03-demarrage-d-une-distribution-debian/">Fiche de révision</a></li>
+<li><a href="../../../tp/administration-linux/module-03/">Travaux pratiques</a></li>
+<li><a href="../">Progression du cours</a></li>
+</ul>
 </div>
 </div>
 </div>

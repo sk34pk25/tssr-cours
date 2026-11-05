@@ -1,0 +1,35 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>README</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>README.txt</h3><pre><code>PACK SOLUTION MSP - SYSTÈMES CLIENTS
+Réseau adapté : 172.16.0.128/26
+
+PLAN D&#x27;ADRESSAGE RETENU
+- Réseau : 172.16.0.128/26
+- Masque : 255.255.255.192
+- Première adresse utilisable : 172.16.0.129
+- Dernière adresse utilisable : 172.16.0.190
+- Broadcast : 172.16.0.191
+- Passerelle retenue par hypothèse : 172.16.0.190
+- Votre Windows 10 : 172.16.0.189
+- Votre Debian 10 : 172.16.0.188
+- Windows 10 du binôme : 172.16.0.187
+- Debian 10 du binôme : 172.16.0.186
+
+La passerelle .190 reprend la méthode du corrigé modèle (dernière adresse utilisable). Si le formateur ou le DHCP du réseau Bridged fournit une autre passerelle ou d&#x27;autres DNS, ces valeurs réelles sont prioritaires.
+
+REMPLACEMENTS OBLIGATOIRES AVANT EXÉCUTION
+- &lt;INITIALES&gt;
+- &lt;VOTRE_LOGIN&gt;
+- &lt;VOTRE_PRENOM_NOM&gt;
+- &lt;LOGIN_BINOME&gt;
+- &lt;PRENOM_NOM_BINOME&gt;
+
+SÉCURITÉ
+- Ne jamais lancer un script de disque ou de partitionnement avant d&#x27;avoir vérifié le numéro du disque avec list disk ou lsblk.
+- Les scripts complètent la procédure PDF ; ils ne remplacent pas les contrôles, tests et captures demandés.
+- Les actions dans VMware, Windows 10 et Debian 10 restent à exécuter dans vos machines virtuelles.
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>

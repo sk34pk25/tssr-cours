@@ -1,0 +1,25 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_preparer_profils.ps1</title><style>body{font:18px/1.65 system-ui;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}section{margin:2rem 0;border-top:1px solid #d8dee8;padding-top:1rem}h3,h4{color:#204b80;line-height:1.35}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #d8dee8;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf4fa}pre{overflow:auto;padding:1rem;background:#f3f6fa;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}figure{margin:1.25rem 0}figcaption{font-size:.88rem;color:#536379}</style></head><body><h1>03_preparer_profils.ps1</h1><p>Transcription du document du dossier TSSR, adaptée à une lecture Web. Les versions, valeurs et consignes restent celles du document source ; les compléments pédagogiques sont séparés.</p>
+<!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p>Document texte ou script fourni dans le Drive, retranscrit sans exécution. Les valeurs d’accès présentes dans les documents sont neutralisées par « fourni par le formateur ». Les adresses personnelles utilisent le domaine example.com. Le rôle des champs et la structure des exemples sont conservés ; aucun fichier source du Drive n’a été modifié.</p><h3>03_preparer_profils.ps1</h3><pre><code># Exécuter en administrateur avant la première connexion des utilisateurs.
+$defaultDesktop = &#x27;C:\Users\Default\Desktop\Procédures&#x27;
+New-Item -ItemType Directory -Path $defaultDesktop -Force | Out-Null
+@&#x27;
+Règlement intérieur
+- Respecter la politique de sécurité.
+- Ne jamais communiquer son mot de passe.
+- Stocker les documents professionnels dans les emplacements autorisés.
+&#x27;@ | Set-Content -Path (Join-Path $defaultDesktop &#x27;Règlement intérieur.txt&#x27;) -Encoding UTF8
+
+# Met aussi à jour les profils déjà créés.
+Get-ChildItem &#x27;C:\Users&#x27; -Directory | Where-Object {
+    $_.Name -notin @(&#x27;Default&#x27;,&#x27;Default User&#x27;,&#x27;Public&#x27;,&#x27;All Users&#x27;)
+} | ForEach-Object {
+    $dest = Join-Path $_.FullName &#x27;Desktop\Procédures&#x27;
+    New-Item -ItemType Directory -Path $dest -Force | Out-Null
+    Copy-Item (Join-Path $defaultDesktop &#x27;Règlement intérieur.txt&#x27;) $dest -Force
+}
+</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END -->
+</body></html>
