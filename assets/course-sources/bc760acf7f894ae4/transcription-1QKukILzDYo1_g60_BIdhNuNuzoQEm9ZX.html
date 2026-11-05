@@ -1,0 +1,54 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M06 - Solution du TP1 - Configurer le serveur DHCP avec isc-dhcp-server</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M06 - Solution du TP1 - Configurer le serveur DHCP avec isc-dhcp-server</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><p>Services réseau en environnement Linux</p><h2>Configurer le serveur DHCP avec isc-dhcp-server</h2><h3>TP 01 du Module 06 – DHCP</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>1 heure</p><h2>Solution</h2><h3>Etape 1 - Installation du relais DHCP sur RouTux</h3><h2>RouTux DEB-S1 IPv4 :</h2><p>LAN Serveurs LAN Clients</p><p>172.18.num_stag.0 / 24</p><p>Nom de l interface</p><p>Sur RouTux chercher le paquet : # apt search ^isc-dhcp</p><pre><code>Installation :
+# apt install isc-dhcp- relay</code></pre><pre><code>Lister les interfaces :
+# ip  a
+  ens33 = LAN Clients
+  ens36 = LAN Serveurs</code></pre><pre><code>Reconfigurer le paquet :
+# dpkg-reconfigure isc-dhcp-server</code></pre></section>
+<section class="tssr-transcribed-page" id="page-2"><p>Services réseau en environnement Linux</p><h3>Etape 2 - Configuration du service isc-dhcp-server sur DEB-S1</h3><pre><code>Installation serveur dhcp :
+# aptitude install isc-dhcp-server</code></pre><pre><code>Configuration du service :
+# vi /etc/default/is-dhcp-server
+ INTERFACESv4=’’ens33’’
+
+Et :
+
+ # vi /etc/dhcp/dhcpd.conf
+ # Options serveur
+ option domain-name- servers 192.168.X.12;
+ # Parametres generaux
+ default-lease-time 345600;
+ max-lease-time 691200;
+ ddns-update-style none;
+ log-facility local7;
+ authoritative;
+
+ # Plage LAN Clients
+ subnet 172.18.30.0 netmask 255.255.255.0 {
+         range 172.18.30.100 172.18.30.200;
+         option routers 172.18.30.254;
+ }
+
+ # Ecoute sur le LAN Serveurs
+ subnet 192.168.30.0  netmask 255.255.255.0 {}
+
+NB pour configurer rsyslog :
+
+Fichier /etc/rsyslog.conf
+
+ #Modif :  *.*;auth,authpriv.none           -/var/log/syslog
+ *.*;local07,auth,authpriv.n one          -/var/log/syslog
+ #ajout :
+ local07.*                        /var/log/dhcpd.log
+
+ Relance des service :
+ # systemctl restart rsyslog isc-dhcp-server</code></pre><h3>Etape 3 - Analyse en mode Debug des échanges client &lt;=&gt; relais &lt;=&gt; serveur</h3><pre><code>Arrêt des services :
+ # systemctl stop isc-dhcp- relay.service
+ # systemctl status isc-dhcp- relay.service
+
+Démarrage du relai dhcp  en debug :
+# dhcrelay -d -iu ens36 -id  ens33 192.168.30.12</code></pre></section>
+<section class="tssr-transcribed-page" id="page-3"><p>Services réseau en environnement Linux</p><p>Sur le serveur dhcp : # dhcpd -d</p><p>Configurer le client pour passer en DHCP et vérifier les requêtes sur le relai et sur le serveur DHCP  Redémarrer les services : Sur deb-s2 # systemctl start isc-dhcp- server</p><p>Si erreur au démarrage, vérifier l’existence du fichier /var/run/dhcpd.pid (suite au lancement en mode debug). Le supprimer si nécessaire.  Sur routux : # systemctl start isc-dhcp- relay</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

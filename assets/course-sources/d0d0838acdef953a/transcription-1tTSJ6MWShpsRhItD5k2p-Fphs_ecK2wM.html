@@ -1,0 +1,88 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M07 - Solution du TP1 - Configurer un service DNS faisant autorit‚</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M07 - Solution du TP1 - Configurer un service DNS faisant autorit‚</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Configurer un service DNS faisant autorité</h2><h3>TP 01 du Module 07 – DNS autoritaire sur zone</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 7 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>2 heures</p><h2>Solution</h2><h3>Etape 1 - Configurer le serveur DEB-S2 pour qu’il héberge une zone directe</h3><pre><code>Ajouter les infos dans le fichier named.conf.local pour identifier la nouvelle zone :
+
+# vi /etc/bind/named.conf.local
+
+# Zone directe tssr.example
+ zone &quot;tssr.example
+         type master;
+         file &quot;db.tssr&quot;;
+ };</code></pre><pre><code>Créer le fichier de zone :
+# vi  /var/cache/bind/db.tssr.example
+ ;
+ ; Zone directe tssr.example
+ ;
+ $ORIGIN tssr.example
+$TTL    86400
+ @       IN      SOA  deb-s2.tssr.example. admin.tssr.example. (
+                               1         ; Serial
+                           86400         ;  Refresh
+                            7200         ;  Retry
+                         3600000         ;  Expire
+                            3600 )       ;  Negative Cache TTL
+ ;
+ @       IN      NS      deb-s2.tssr.example</code></pre></section>
+<section class="tssr-transcribed-page" id="page-2"><pre><code>Rajouter les enregistrements :
+ deb-s1  IN      A        192.168.30.11
+ deb-s2  IN      A        192.168.30.12
+ routux  IN      A        192.168.30.254
+ routux  IN      A        172.18.30.254</code></pre><pre><code>Puis :
+ pfsense IN      A        172.30.30.1</code></pre><pre><code>Puis :
+ ns1     IN      A        192.168.30.11</code></pre><pre><code>Pour l’alias :
+ test    IN      CNAME    ns1.tssr.example.</code></pre><pre><code>Pour tester et relancer :
+ # named-checkzone tssr.example /var/cache/bind/db.tssr.example</code></pre><pre><code>Ou/et
+# named-checkconf -z</code></pre><p>Relancer bind : # rndc reload</p><h3>Etape 2 - Tests de résolution depuis le poste client Debian</h3><p>Pour les tests par exemple : $ dig ns1.tssr.example</p><ul><li>Dans la configuration du DHCP, rajouter dans le fichier /etc/dhcp/dhcpd.conf :</li></ul><pre><code>option domain-name &quot;tssr.example&quot;;</code></pre><p>et redémarrer isc-dhcp-server</p><h3>Etape 3 - Configuration de zones inverses</h3><pre><code>Pour les zones inverses :
+
+# vi /etc/bind/named.conf.local
+
+# Zone inverse LAN Clients - 172.18.10.0/24
+ zone &quot;10.18.172.in- addr.arpa&quot; {
+         type master;
+         file &quot;db.inv.172.18.30&quot;;
+ };
+
+ # Zone inverse LAN Serveurs - 192.168.10.0/24
+ zone &quot;10.168.192.in- addr.arpa&quot; {
+         type master;
+         file &quot;db.inv.192.168.10&quot;;
+ };</code></pre></section>
+<section class="tssr-transcribed-page" id="page-3"><pre><code>Pour les fichiers de zone :
+
+ # vi /var/cache/bind/db.inv.172.18.30
+ ;
+ ; Zone inverse 172.18.30.0/24
+ ;
+ $TTL    86400
+ @       IN      SOA     deb- s2.tssr.example. admin.tssr.example. (
+                               1         ; Serial
+                           86400         ;  Refresh
+                            7200         ;  Retry
+                         3600000         ;  Expire
+                            3600 )       ;  Negative Cache TTL
+ ;
+ @       IN      NS      deb- s2.tssr.example.
+ 254     IN      PTR     routux.tssr.example.
+
+
+ # vi /var/cache/bind/db.inv.192.168.30
+ ;
+ ; Zone inverse 192.168.30.0/24
+ ;
+ $TTL    86400
+ @       IN      SOA     deb- s2.tssr.example. Admin.tssr.example. (
+                               1         ; Serial
+                           86400         ;  Refresh
+                            7200         ;  Retry
+                         3600000         ;  Expire
+                            3600 )       ;  Negative Cache TTL
+ ;
+ @       IN      NS      deb- s2.tssr.example.
+ 254     IN      PTR     routux.tssr.example.
+ 11      IN      PTR     deb- s1.tssr.example.
+ 12      IN      PTR     deb- s2.tssr.example.</code></pre><p>Relancer bind9 : # rndc reload</p><pre><code>Tester :
+ $ dig -x 172.18.10.254
+ $ dig -x 192.168.10.254</code></pre></section>
+<!-- SOURCE-CONTENT:END --></body></html>

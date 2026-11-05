@@ -1,0 +1,68 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 07 - Support de cours</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>Module 07 - Support de cours</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Services réseau en environnement Linux</h2><p>Module 07 – DNS autoritaire sur zone</p><h3>DNS Partie 2</h3><h3>Objectifs</h3><ul><li>Serveur DNS faisant autorité</li><li>Découvrir les différents enregistrements</li><li>Mettre en place une configuration DNS pour gérer une zone</li><li>Mettre en place une zone primaire et secondaire</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>DNS Partie 2</h3><h2>DNS faisant autorité</h2><h3>DNS faisant autorité</h3><h3>Définition</h3><ul><li>Un DNS faisant autorité :</li><li>Est la source d&#x27;information pour un ou plusieurs domaines</li><li>Est interrogé par des serveurs DNS résolveur</li><li>Peut gérer la zone d&#x27;un domaine (primaire) ou une copie (secondaire)</li></ul></section>
+<section class="tssr-transcribed-page" id="page-3"><h3>DNS faisant autorité</h3><h3>Zones</h3><ul><li>Une zone est en ensemble d&#x27;informations ayant une caractéristique commune :</li><li>Une partie du nom de domaine</li><li>Un réseau IP d&#x27;appartenance</li><li>Une zone directe référence des équipements appartenant à un même nom de domaine</li><li>Une zone inverse référence des équipements appartenant à un même réseau logique</li></ul><h3>DNS faisant autorité</h3><h3>Zones</h3><h3>Domaine : demo.example</h3><h3>Zone directe demo.example</h3><table><tr><th>Hôte</th><th>Type</th><th>Adresse</th></tr><tr><td>DB10-FS1</td><td>A</td><td>10.9.9.5</td></tr><tr><td>DB10-FS2</td><td>A</td><td>10.9.9.10</td></tr><tr><td>DB10-INFRA1</td><td>A</td><td>10.9.9.9</td></tr><tr><td>DB10-INFRA1</td><td>AAAA</td><td>2001:DBB::EC01:e</td></tr></table><h3>Zone inverse 42.168.192.IN-ADDR.ARPA</h3><p>Réseau 192.168.42.0/24.</p><table><tr><th>Dernier octet</th><th>Type</th><th>Nom</th></tr><tr><td>103</td><td>PTR</td><td>SPX.PE.JO.</td></tr><tr><td>104</td><td>PTR</td><td>GLS.PE.JO.</td></tr><tr><td>205</td><td>PTR</td><td>GTI.PE.JO.</td></tr></table></section>
+<section class="tssr-transcribed-page" id="page-4"><h3>DNS faisant autorité</h3><h3>Enregistrements</h3><ul><li>Les données d&#x27;une zone sont stockées sous forme d&#x27;enregistrements.</li></ul><table><tr><th>Type</th><th>Utilité</th></tr><tr><td>SOA</td><td>Contient les caractéristiques de la zone, identifie par un FQDN résolvable le serveur qui peut y écrire</td></tr><tr><td>NS</td><td>Identifie par un FQDN résolvable le·s serveur·s qui dispose·nt d’un exemplaire de la zone et fait / font autorité <br>pour celle-ci</td></tr><tr><td>A</td><td>Correspondance entre un nom (connu) et une adresse IPv4 (attendue)</td></tr><tr><td>AAAA</td><td>Correspondance entre un nom (connu) et une adresse IPv6 (attendue)</td></tr><tr><td>SRV</td><td>Correspondance entre un type de service et le FQDN du serveur le fournissant</td></tr><tr><td>MX</td><td>Permet d’identifier le·s serveur·s de messagerie d’un domaine donné</td></tr><tr><td>CNAME</td><td>Correspondance entre un nom et un autre nom</td></tr><tr><td>PTR</td><td>Correspondance entre une adresse d’hôte (connue) et un FQDN (attendu)<br>Enregistrements uniquement présents dans des zones inverses</td></tr></table><h3>DNS faisant autorité</h3><h3>Serveur primaire / Serveur secondaire</h3><ul><li>Un serveur faisant autorité sur une zone peut être source d&#x27;information et source de modification.</li><li>Il est possible d&#x27;y modifier les enregistrements de la zone.</li><li>On parle de serveur primaire pour la zone (ou serveur maître).</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>DNS faisant autorité</h3><h3>Serveur primaire / Serveur secondaire</h3><ul><li>Inversement, un serveur faisant autorité sur une zone peut ne disposer que d&#x27;une copie de cette zone.</li><li>Il récupère la zone et ses mises à jour depuis le serveur primaire.</li><li>On parle de serveur secondaire ou serveur esclave pour la zone.</li></ul><h3>DNS faisant autorité</h3><h3>Serveur primaire / Serveur secondaire</h3><p>La notion de primaire et secondaire se met en place au niveau de chaque zone.</p><ul><li>Un serveur physique hébergeant le service DNS peut avoir des zones primaires et des zones secondaires.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-6"><h3>DNS Partie 2</h3><h2>Configuration d&#x27;un serveur</h2><h2>DNS faisant autorité</h2><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Serveur DNS faisant autorité</h3><ul><li>Pour mettre en place une gestion de zone sur un serveur DNS Bind9, il faut :</li><li>Définir les paramètres de la zone dans le fichier /etc/bind/named.conf.local</li><li>Définir le fichier de données de la zone, i.e. la base de données des enregistrements</li></ul></section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Zone DNS primaire</h3><ul><li>Configuration d&#x27;une zone primaire :</li></ul><p>Transcription du détail du support.</p><pre><code># vi /etc/bind/named.conf.local
+
+zone &quot;formation.demo&quot; {
+    type master;
+    file &quot;db.formation.demo&quot;;
+    allow-transfer { 10.11.0.53; };
+};</code></pre><p>Déclaration de la zone directe principale en chargeant le fichier db.formation.demo. Autorisation du transfert de zone.</p><ul><li>Configuration d&#x27;une zone primaire inverse :</li></ul><p>Transcription du détail du support.</p><pre><code># vi /etc/bind/named.conf.local
+
+zone &quot;42.168.192.in-addr.arpa&quot; {
+    type master;
+    file &quot;db.192.168.42.inv&quot;;
+};</code></pre><p>Déclaration de la zone inverse principale en chargeant le fichier db.192.168.42.inv.</p><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Zone DNS secondaire</h3><ul><li>Configuration d&#x27;une zone secondaire :</li></ul><p>Transcription du détail du support.</p><pre><code># vi /etc/bind/named.conf.local
+
+zone &quot;formation.demo&quot; {
+    type slave;
+    masters { 10.5.3.10; };
+    file &quot;db.formation.demo&quot;;
+    allow-query { any; };
+};</code></pre><p>Déclaration de la zone directe secondaire à partir du serveur principal en chargeant le fichier db.formation.demo. Autorisation des requêtes par le client.</p></section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Fichier de zone</h3><ul><li>Le fichier de zone contient les données de la zone. On va distinguer 3 parties :</li><li>Les directives globales de la zone</li></ul><p>Transcription du détail du support.</p><pre><code>; fichier de zone du domaine ecole.example
+; point-virgule = commentaire en début / en cours de ligne
+
+$ORIGIN ecole.example.
+$TTL 86400</code></pre><p>Directives de configuration s’appliquant à tous les enregistrements suivants.</p><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Fichier de zone</h3><ul><li>Le SOA et les NS</li></ul><p>Transcription du détail du support.</p><pre><code>@ SOA dns1.ecole.example. hostmaster.ecole.example. (
+2019100253 ; serial
+86400      ; refresh 1 day
+7200       ; retry 2 hours
+3600000    ; expire
+3600 )     ; negative TTL
+;
+@ NS dns1.ecole.example.
+@ NS dns2.ecole.example.</code></pre><p>Enregistrements SOA et NS relatifs à la zone.</p><p>Vous devez toujours modifier le serial à chaque modification de la zone sous la forme AAAAMMJJxx.</p></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Fichier de zone</h3><ul><li>Les enregistrements de la zone</li></ul><p>Transcription du détail du support.</p><pre><code>dns1 A     44.0.5.3
+dns1 AAAA  2001:0db8::ec01:e
+dns2 AAAA  2001:0db8::ec01:e53
+www  A     44.0.0.80
+rdsgw A    35.12.13.15
+smtp A     44.0.0.25
+ww   CNAME www.ecole.example.
+wwww CNAME www.ecole.example.
+@    MX    10 smtp.ecole.example.
+@    MX    20 mx0.mail.ovh.net.</code></pre><p>Autres enregistrements de la zone.</p><h3>Configuration d’un serveur DNS faisant autorité</h3><h3>Fichier de zone</h3><ul><li>Pour une zone inverse</li></ul><p>Transcription du détail du support.</p><pre><code>; zone inverse pour le réseau 192.168.42.0/24
+
+$TTL 86400
+@ SOA dns1.formation.demo. hostmaster.formation.demo. (
+2019100253 ; serial
+86400      ; refresh 1 day
+7200       ; retry 2 hours
+3600000    ; expire
+3600 )     ; negative TTL
+;
+@ NS dns1.formation.demo.
+
+1   PTR srv01.formation.demo.
+2   PTR srv02.formation.demo.
+13  PTR lucky.formation.demo.
+254 PTR gw42.infra.example.</code></pre><p>Directives de configuration, enregistrements SOA et NS relatifs à la zone, puis autres enregistrements PTR.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

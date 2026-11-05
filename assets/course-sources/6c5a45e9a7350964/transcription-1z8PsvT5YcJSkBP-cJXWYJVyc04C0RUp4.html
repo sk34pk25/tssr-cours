@@ -1,0 +1,30 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M03 - Solution du TP1- Routage</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M03 - Solution du TP1- Routage</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><p>Services réseau en environnement Linux</p><h2>Routage</h2><h3>TP 01 du Module 03 – Routage et traduction d’adresses</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 3 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>1 heure</p><h2>Solution</h2><h3>Etape 1 - Ajout de cartes réseau à la machine RouTux</h3><ul><li>Rajouter les interfaces réseau dans VMware. Veiller à bien les mettre dans le même ordre que sur le tableau.</li></ul><p>Pour récupérer les adresses MAC, récupérer la ligne link/ether avec # ip a ou # ip link</p><h2>Etape 2 - Configuration IPv4 du réseau de RouTux</h2><p>Nom de l interface</p><p>VMNet4</p><p>LAN Clients 172.18.num_stag.0 / 24</p><p>VMNet2</p><p>172.30.num_stag.0 / 24</p><p>192.168.num_stag.0 / 24</p><p>LAN Serveurs</p><p>VMNet6</p><pre><code>Configuration statique à faire :
+
+ # vi /etc/network/interfaces
+ # LAN Clients
+ auto ens33
+ iface ens33 inet static</code></pre></section>
+<section class="tssr-transcribed-page" id="page-2"><p>Services réseau en environnement Linux</p><pre><code>address  172.18.X.254
+
+netmask  255.255.255.0
+
+ # LAN Serveurs
+ auto ens36
+ iface ens36 inet static
+
+address  192.168.X.254
+
+netmask  255.255.255.0
+
+ # Interco
+ auto ens37
+ iface ens37 inet static
+
+address  172.30.X.254
+
+netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau : # systemctl restart  networking.service</p><h3>Etape 3 -  Activation du routage sur RouTux</h3><p>Pour activer le routage :</p><pre><code># vi /etc/sysctl.conf</code></pre><pre><code>net.ipv4.ip_forward=1</code></pre><p>Décommenter la ligne</p><pre><code># sysctl -p</code></pre><p>Pour rajouter les gateway sur les serveurs :</p><p>Sur cli-deb-10</p><pre><code># nmcli connection modify  Wired\ connection\ 1  ipv4.gateway 172.18.X.254</code></pre><p>+ Désactivation/Activation connexion via nmtui ?</p><p>Ou via l’interface graphique</p><p>Sur deb-s1</p><pre><code> # vi /etc/network/interfaces</code></pre><p>Ajouter la directive pour ens33 :</p><pre><code>gateway  192.168.X.254</code></pre><p>Idem sur deb-s2</p><p>Pour vérifier depuis deb-s1 par exemple, pinguer cli-db-10. Si cela fonctionne, cela signifie que le routage est opérationnel sur RouTux.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

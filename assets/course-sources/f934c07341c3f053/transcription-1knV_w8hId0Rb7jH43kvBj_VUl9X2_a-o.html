@@ -1,0 +1,53 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h2>Services réseau en environnement Linux</h2><p>Module 06 - Le DHCP</p><h3>Le DHCP</h3><h3>Objectifs</h3><ul><li>Comprendre le fonctionnement du service DHCP</li><li>Mise en place d&#x27;un service DHCP</li><li>Mise en place d&#x27;un relai DHCP</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><h3>Le DHCP</h3><h2>Fonctionnement du service</h2><h2>DHCP</h2><h3>Fonctionnement du service DHCP</h3><h3>Fonctionnement DHCP</h3><ul><li>Le DHCP permet de fournir des configurations IP aux équipements qui l&#x27;utilisent</li><li>Normalisé par une série de RFC</li><li>Centralise la configuration de l&#x27;adresse IP</li><li>Optimisation de l&#x27;utilisation des plages IP</li><li>Propage les mises à jour de configuration</li></ul></section>
+<section class="tssr-transcribed-page" id="page-3"><h3>Fonctionnement du service DHCP</h3><h3>Les requêtes DHCP (en IPv4)</h3><figure><img src="../isolated/f934c07341c3f053/linux-net-vector-6.webp" loading="lazy" alt="Séquence DHCPv4 Discover, Offer, Request, Ack"><figcaption>Séquence DHCPv4 Discover, Offer, Request, Ack</figcaption></figure><p>IPv4. 1 Discover du client au serveur. 2 Offer du serveur au client. 3 Request du client au serveur. 4 Ack du serveur au client.</p><p>IPv4</p><p>1</p><p>Discover</p><p>2</p><p>Offer</p><p>3</p><p>Request</p><p>4</p><p>Ack</p><h3>Fonctionnement du service DHCP</h3><h3>Les requêtes DHCP (en IPv4)</h3><ul><li>DHCP DISCOVER : le client broadcast sur le réseau pour demander une configuration IP</li><li>DHCP OFFER : le serveur DHCP fait une proposition de configuration (toujours en broadcast)</li><li>DHCP REQUEST : le client accepte l&#x27;offre</li><li>DHCP ACK : le serveur prend acte de l&#x27;acceptation et envoi le bail DHCP</li></ul></section>
+<section class="tssr-transcribed-page" id="page-4"><h3>Fonctionnement du service DHCP</h3><h3>Les serveurs DHCP</h3><ul><li>Pour mettre en place un service DHCP on a les serveurs suivants :</li><li>isc-dhcp-server :</li><li>+ service répondu</li><li>+ facile à mettre en œuvre</li><li>- n&#x27;évolue plus</li><li>kea :</li><li>+ nouveau produit</li><li>- moins utilisé</li><li>- plus compliqué à configurer</li></ul><h3>Fonctionnement du service DHCP</h3><h3>Les serveurs DHCP</h3><ul><li>Les deux produits sont soutenus par l’ISC.</li><li>Pour ce cours, le travail sera fait sur isc-dhcp-server.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h3>Le DHCP</h3><h2>Mise en place d’un serveur</h2><h2>DHCP</h2><h3>Mise en place serveur DHCP</h3><h3>Caractéristiques serveur DHCP</h3><table><tr><td>Nom du paquet</td><td>isc-dhcp-server</td></tr><tr><td>Fichiers de <br>configuration</td><td>/etc/default/isc-dhcp-server<br>/etc/dhcp/dhcpd.conf</td></tr><tr><td>Fichier de baux</td><td>/var/lib/dhcp/dhcpd.leases</td></tr><tr><td>Nom du service</td><td>isc-dhcp-server</td></tr><tr><td>Fichier journal</td><td>/var/log/syslog</td></tr></table></section>
+<section class="tssr-transcribed-page" id="page-6"><h3>Mise en place serveur DHCP</h3><h3>Le fichier /etc/default/isc-dhcp-server</h3><ul><li>Le fichier /etc/default/isc-dhcp-server permet de définir sur quelle(s) interface(s) va écouter le service DHCP.</li></ul><p>Transcription du détail du support.</p><pre><code># vi /etc/default/isc-dhcp-server
+
+INTERFACESv4=&quot;ens35&quot;
+INTERFACESv6=&quot;&quot;</code></pre><h3>Mise en place serveur DHCP</h3><h3>Configuration serveur DHCP</h3><ul><li>La configuration se fera dans le fichier /etc/dhcp/dhcpd.conf</li></ul><p>Transcription du détail du support.</p><pre><code># vi /etc/dhcp/dhcpd.conf
+
+option domain-name &quot;demo.example&quot;;
+option domain-name-servers 172.16.17.18;
+# 6H 6m 6s = 21966s
+default-lease-time 21966;
+max-lease-time 42000;
+
+ddns-update-style none;
+
+authoritative;
+log-facility local7;
+
+subnet 192.168.42.0 netmask 255.255.255.0 {
+}
+
+subnet 172.19.0.0 netmask 255.255.0.0 {
+    range 172.19.2.0 172.19.9.255;
+    option routers 172.19.1.1;
+}
+
+host wifi-hp-04 {
+    hardware ethernet 08:00:07:26:c0:a5;
+    fixed-address 172.20.0.2;
+}</code></pre></section>
+<section class="tssr-transcribed-page" id="page-7"><h3>Mise en place serveur DHCP</h3><h3>Configuration serveur DHCP</h3><ul><li>option domain-name et option domain-name-servers : définition du nom de domaine et du serveur DNS</li><li>default-lease-time et max-lease-time : définition du bail par défaut et du bail maximum</li><li>ddns-update-style : permet de définir l&#x27;interaction entre le DNS et le DHCP ici aucune</li></ul><h3>Mise en place serveur DHCP</h3><h3>Configuration serveur DHCP</h3><ul><li>authoritative : serveur DHCP autoritaire</li><li>subnet : définition des paramètres pour un réseau :</li><li>range : fourchette d’IP affectables</li><li>option router : paramétrage de la gateway</li></ul></section>
+<section class="tssr-transcribed-page" id="page-8"><h3>Mise en place serveur DHCP</h3><h3>Configuration serveur DHCP</h3><ul><li>host : affectation d&#x27;une adresse IP pour une machine :</li><li>hardware ethernet : son adresse MAC</li><li>fixed-address : l&#x27;adresse IP</li><li>La commande dhcp -t permet de tester la configuration</li></ul><h3>Mise en place serveur DHCP</h3><h3>Configuration serveur DHCP</h3><ul><li>Il faut ensuite redémarrer le service :</li><li>Soit avec la commande</li></ul><pre><code>systemctl (status|stop|start|restart) isc-dhcp-server</code></pre><ul><li>Soit en mode debug</li></ul><pre><code>dhcpd -d</code></pre></section>
+<section class="tssr-transcribed-page" id="page-9"><h3>Le DHCP</h3><h2>Mise en place d’un relai DHCP</h2><h3>Mise en place relai DHCP</h3><h3>Relai DHCP</h3><ul><li>La mise en place d&#x27;un relai DHCP est nécessaire si le serveur DHCP est en dehors du domaine de diffusion des clients.</li><li>Paquet à mettre en place : isc-dhcp-relay</li><li>Paramètres à mettre en place :</li><li>SERVERS : pour définir le ou les serveurs DHCP</li><li>INTERFACES : les interfaces d&#x27;écoute du service</li></ul></section>
+<section class="tssr-transcribed-page" id="page-10"><h3>Mise en place relai DHCP</h3><h3>Relai DHCP</h3><p>Transcription du détail du support.</p><pre><code># vi /etc/default/isc-dhcp-relay
+
+# Defaults for isc-dhcp-relay initscript
+
+# What servers should the DHCP relay forward requests to?
+SERVERS=&quot;192.168.42.2&quot;
+
+# On what interfaces should the DHCP relay (dhrelay) serve DHCP requests?
+INTERFACES=&quot;ens33 ens35&quot;
+
+# Additional options that are passed to the DHCP relay daemon?
+OPTIONS=&quot;&quot;</code></pre></section>
+<!-- SOURCE-CONTENT:END --></body></html>
