@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fiche-de-revision-module-06-recherches-et-expressions-regulieres" class="md-skip">
+        <a href="#revision-m06-recherches-et-expressions-regulieres" class="md-skip">
           Aller au contenu
         </a>
       
@@ -11252,10 +11252,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#tp1-recherches-et-regex" class="md-nav__link">
+  <a href="#gestes-a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TP1 — Recherches et regex
+        Gestes à retenir
       
     </span>
   </a>
@@ -11263,10 +11263,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tp2-specificites-bash-metacaracteres" class="md-nav__link">
+  <a href="#se-controler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TP2 — Spécificités Bash / métacaractères
+        Se contrôler
       
     </span>
   </a>
@@ -11274,21 +11274,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#liens-utiles" class="md-nav__link">
+  <a href="#pieges-du-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Liens utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provenance
+        Pièges du support
       
     </span>
   </a>
@@ -13332,10 +13321,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#tp1-recherches-et-regex" class="md-nav__link">
+  <a href="#gestes-a-retenir" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TP1 — Recherches et regex
+        Gestes à retenir
       
     </span>
   </a>
@@ -13343,10 +13332,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tp2-specificites-bash-metacaracteres" class="md-nav__link">
+  <a href="#se-controler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TP2 — Spécificités Bash / métacaractères
+        Se contrôler
       
     </span>
   </a>
@@ -13354,21 +13343,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#liens-utiles" class="md-nav__link">
+  <a href="#pieges-du-support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Liens utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provenance
+        Pièges du support
       
     </span>
   </a>
@@ -13462,98 +13440,68 @@
 
 
 
-<h1 id="fiche-de-revision-module-06-recherches-et-expressions-regulieres">Fiche de révision — Module 06 — Recherches et expressions régulières<a class="headerlink" href="#fiche-de-revision-module-06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
+<h1 id="revision-m06-recherches-et-expressions-regulieres">Révision — M06 : Recherches et expressions régulières<a class="headerlink" href="#revision-m06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="tp1-recherches-et-regex">TP1 — Recherches et regex<a class="headerlink" href="#tp1-recherches-et-regex" title="Permanent link">¶</a></h2>
+<h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Besoin attesté</th>
-<th>Commande source</th>
+<th>Besoin</th>
+<th>Repère</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Rechercher <code>Dupont</code> dans <code>Edition</code></td>
-<td><code>grep Dupont Edition</code></td>
+<td>Recherche sensible / insensible</td>
+<td>grep Dupont Edition ; grep -i dupont Edition</td>
 </tr>
 <tr>
-<td>Ignorer la casse pour <code>dupont</code></td>
-<td><code>grep -i dupont Edition</code></td>
+<td>Exclure les lignes vides</td>
+<td>grep -v '^$' Edition</td>
 </tr>
 <tr>
-<td>Afficher les lignes non vides</td>
-<td><code>grep -v '^$' Edition</code></td>
+<td>Noms de fichiers contenant un texte</td>
+<td>grep -sl localhost /etc/*</td>
 </tr>
 <tr>
-<td>Trouver <code>localhost</code> directement dans <code>/etc</code></td>
-<td><code>grep -sl localhost /etc/*</code></td>
+<td>Fichiers standards et noms</td>
+<td>find /etc -type f -name 'ho*'</td>
 </tr>
 <tr>
-<td>Fichiers standards commençant par <code>ho</code> depuis <code>/etc</code></td>
-<td><code>find /etc -type f -name "ho*"</code></td>
+<td>Copies .save</td>
+<td>find "$HOME" -type f -name '*txt' -exec cp {} {}.save \;</td>
 </tr>
 <tr>
-<td>Répertoires du répertoire personnel</td>
-<td><code>find ~ -type d</code></td>
+<td>Nom avec astérisque</td>
+<td>touch 'fic*ier'</td>
 </tr>
 <tr>
-<td>Fichiers terminant par <code>txt</code> et copie <code>.save</code></td>
-<td><code>find ~ -type f -name "*txt" -exec cp {} {}.save \;</code></td>
+<td>Répertoire vide / arborescence</td>
+<td>rmdir ne retire qu’un répertoire vide ; rm -r retire le contenu</td>
 </tr>
 </tbody>
 </table>
-<h2 id="tp2-specificites-bash-metacaracteres">TP2 — Spécificités Bash / métacaractères<a class="headerlink" href="#tp2-specificites-bash-metacaracteres" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Besoin attesté</th>
-<th>Commande ou observation source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sélection de noms commençant par <code>a</code>, <code>b</code>, <code>c</code> ou <code>d</code> dans <code>/etc</code></td>
-<td><code>ls -d /etc/[a-d]*</code></td>
-</tr>
-<tr>
-<td>Arborescence sous <code>$HOME</code></td>
-<td><code>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</code></td>
-</tr>
-<tr>
-<td>Fichier du scénario depuis <code>Tp/Divers/Sources/</code></td>
-<td><code>touch fic*ier</code></td>
-</tr>
-<tr>
-<td>Tentative sur un répertoire non vide</td>
-<td><code>rmdir</code> échoue dans le scénario</td>
-</tr>
-<tr>
-<td>Suppression demandée après le constat</td>
-<td><code>rm -r $HOME/Tp/Divers/Sources/</code> puis <code>rm -r ../../Divers/</code></td>
-</tr>
-<tr>
-<td>Sélection finale dans <code>/etc</code></td>
-<td><code>ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf</code></td>
-</tr>
-</tbody>
-</table>
-<p><code>touch fic*ier</code> est maintenu sous sa forme source : son résultat dépend du contenu du
-répertoire au moment de l'expansion. La suppression avec <code>rm -r</code> intervient après la
-tentative <code>rmdir</code> et ne doit pas être confondue avec elle.</p>
-<h2 id="liens-utiles">Liens utiles<a class="headerlink" href="#liens-utiles" title="Permanent link">¶</a></h2>
+<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours M06</a></li>
-<li><a href="../../../tp/utilisation-linux/module-06/">TP M06</a></li>
-<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres/">Kahoot M06</a></li>
+<li>Que sélectionne grep -v ^$ ? <strong>Les lignes qui ne sont pas totalement vides ; protéger le motif par des guillemets.</strong></li>
+<li>Pourquoi citer ho* dans find ? <strong>Pour que find reçoive le motif sans expansion préalable du shell.</strong></li>
+<li>Pourquoi rmdir échoue-t-il sur Sources ? <strong>Un fichier a été créé à l’intérieur.</strong></li>
+<li>Quelle différence entre non-voyelle et consonne ? <strong>Une non-voyelle peut aussi être un chiffre ou un symbole.</strong></li>
 </ul>
-<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
+<h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>A — sources TSSR :</strong> énoncés et solutions des TP1 et TP2 rattachés à M06.</li>
-<li><strong>B — structuration pédagogique :</strong> fiche limitée aux commandes et observations attestées.</li>
+<li>Le motif source <code>[!aeiouyAEIOUY]</code> exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.</li>
+<li>La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.</li>
+<li>
+<p>L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.</p>
+</li>
+<li>
+<p><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours complet</a></p>
+</li>
+<li><a href="../../../tp/utilisation-linux/module-06/">Travaux pratiques</a></li>
 </ul>
 
 

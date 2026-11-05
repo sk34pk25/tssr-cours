@@ -22,7 +22,7 @@
     
     
       
-        <title>Correction — TP3 : Redirections et Alias - TSSR · PAK</title>
+        <title>Correction expliquée — TP03 — Redirections et Alias - TSSR · PAK</title>
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#correction-tp3-redirections-et-alias" class="md-skip">
+        <a href="#correction-expliquee-tp03-redirections-et-alias" class="md-skip">
           Aller au contenu
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Correction — TP3 : Redirections et Alias
+              Correction expliquée — TP03 — Redirections et Alias
             
           </span>
         </div>
@@ -13226,6 +13226,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-de-lecture-du-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13253,7 +13283,7 @@
 
 
 
-<h1 id="correction-tp3-redirections-et-alias">Correction — TP3 : Redirections et Alias<a class="headerlink" href="#correction-tp3-redirections-et-alias" title="Permanent link">¶</a></h1>
+<h1 id="correction-expliquee-tp03-redirections-et-alias">Correction expliquée — TP03 — Redirections et Alias<a class="headerlink" href="#correction-expliquee-tp03-redirections-et-alias" title="Permanent link">¶</a></h1>
 <p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
@@ -13265,22 +13295,21 @@
 <summary>Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-<h4>Redirections et Alias </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">30 à 45 mn </p>
-<h4>Énoncé </h4>
-<pre class="tssr-source-code">• 
+<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-1">
+<h4>Redirections et Alias</h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir réalisé les TP proposés.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">30 à 45 mn</p>
+<h4>Énoncé</h4>
+<pre class="tssr-source-code"><code>• 
 Lister tous les processus qui finissent par un d. 
  
 Le résultat sera stocké dans $HOME/process/daemons.txt. 
 mkdir $HOME/process 
-ps –e |grep d$ &gt; $HOME/process/daemons.txt </pre>
-<pre class="tssr-source-code">• 
+ps –e |grep d$ &gt; $HOME/process/daemons.txt</code></pre>
+<pre class="tssr-source-code"><code>• 
 Recherchez les fichiers dont le nom se termine par .conf à partir de la racine.  
 Cette recherche ne devra être effectuée que sur le système de fichier racine.  
 Le 
@@ -13298,12 +13327,12 @@ le
 fichier 
 $HOME/resultats/fichiers.conf. 
 mkdir $HOME/resultats  
-find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
-<pre class="tssr-source-code">• 
+find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf</code></pre>
+<pre class="tssr-source-code"><code>• 
 La commande précédente a duré un certain temps, comment connaître le temps 
 exact d’exécution de celle-ci ? 
-time find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
-<pre class="tssr-source-code">• 
+time find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf</code></pre>
+<pre class="tssr-source-code"><code>• 
 En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre 
 de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.   
 Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des 
@@ -13314,21 +13343,10 @@ cat resultats/fichiers.conf |wc -l &gt; resultats/compteur.txt
 grep –c f$ resultats/fichiers.conf &gt; resultats/compteur.txt 
  
 # Alternativement sans utiliser le fichier fichier.conf 
-find / -mount -type f -name "*.conf" 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt </pre>
-
-
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PT<br>PO<br>LT</p></div></details>
-
-
-
-
-
+find / -mount -type f -name "*.conf" 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-<pre class="tssr-source-code">• 
+<section class="tssr-transcribed-page" id="source-1WnpSJp6H8sn81c2zptNez04ulEMacnMF-page-2">
+<pre class="tssr-source-code"><code>• 
 Reproduire toutes les actions précédentes, mais avec la création d’alias… 
 # Créer les répertoires nécessaires 
 mkdir -p $HOME/process 
@@ -13360,24 +13378,21 @@ cat $HOME/resultats/fichiers.conf | wc -l &gt; $HOME/resultats/compteur.txt
 grep -c f$ $HOME/resultats/fichiers.conf &gt; $HOME/resultats/compteur.txt 
  
 # Alternative sans utiliser le fichier fichiers.conf 
-compter_fichiers </pre>
-<p class="tssr-source-paragraph">• <br>Explication des alias </p>
-<pre class="tssr-source-code">• 
+compter_fichiers</code></pre>
+<ul><li>Explication des alias</li></ul>
+<pre class="tssr-source-code"><code>• 
 lister_daemons : Alias pour lister les processus qui se terminent par d et stocker le 
-résultat dans daemons.txt. </pre>
-<pre class="tssr-source-code">• 
+résultat dans daemons.txt.</code></pre>
+<pre class="tssr-source-code"><code>• 
 rechercher_conf : Alias pour rechercher les fichiers .conf à partir de la racine et 
-afficher le résultat à l'écran tout en le stockant dans fichiers.conf. </pre>
-<pre class="tssr-source-code">• 
+afficher le résultat à l'écran tout en le stockant dans fichiers.conf.</code></pre>
+<pre class="tssr-source-code"><code>• 
 compter_fichiers : Alias pour compter le nombre de fichiers.conf trouvés et 
-stocker ce nombre dans compteur.txt. </pre>
-<p class="tssr-source-paragraph">• <br>Remarques </p>
-<p class="tssr-source-paragraph">• <br>Les alias sont définis pour simplifier l'exécution des commandes, mais ils ne sont <br>valables que pour la session actuelle. </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-
+stocker ce nombre dans compteur.txt.</code></pre>
+<ul><li>Remarques</li></ul>
+<ul><li>Les alias sont définis pour simplifier l'exécution des commandes, mais ils ne sont valables que pour la session actuelle.</li></ul>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1WnpSJp6H8sn81c2zptNez04ulEMacnMF · <span title="Empreinte SHA-256 du fichier source">SHA-256 be3c60614c14cbcd…</span></p>
 </div>
 </details>
@@ -13388,24 +13403,46 @@ stocker ce nombre dans compteur.txt. </pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir -p $HOME/process
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir -p $HOME/resultats
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>alias lister_daemons='ps -e | grep d$ &gt; $HOME/process/daemons.txt'
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>alias rechercher_conf='find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee $HOME/resultats/fichiers.conf'
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>alias compter_fichiers='find / -mount -type f -name "*.conf" 2&gt;/dev/null | wc -l &gt; $HOME/resultats/compteur.txt'
+<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<h2 id="activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants">Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.<a class="headerlink" href="#activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants" title="Permanent link">¶</a></h2>
+<p>Les quatre premières demandes sont identiques à celles du TP01 : conserver les chemins daemons.txt, fichiers.conf et compteur.txt, la limite -mount, le double affichage tee et le comptage sans relire le fichier.</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/process"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">lister_daemons</span><span class="o">=</span><span class="s1">'ps -e | grep "d$" &gt; "$HOME/process/daemons.txt"'</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">rechercher_conf</span><span class="o">=</span><span class="s1">'find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee "$HOME/resultats/fichiers.conf"'</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">compter_fichiers</span><span class="o">=</span><span class="s1">'find / -mount -type f -name "*.conf" 2&gt;/dev/null | wc -l &gt; "$HOME/resultats/compteur.txt"'</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>lister_daemons
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>rechercher_conf
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>time rechercher_conf
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">time</span><span class="w"> </span>rechercher_conf
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>compter_fichiers
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>cat $HOME/resultats/fichiers.conf | wc -l &gt; $HOME/resultats/compteur.txt
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>grep -c f$ $HOME/resultats/fichiers.conf &gt; $HOME/resultats/compteur.txt
 </span></code></pre></div>
-<p>Les alias sont valables uniquement pour la session courante.</p>
-<div class="admonition warning">
-<p class="admonition-title">NEEDS_REVIEW</p>
-<p>Le tiret rendu dans <code>ps –e</code> est ambigu dans le PDF solution : aucune
-normalisation silencieuse n'est appliquée.</p>
+Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Les variantes cat fichiers.conf | wc -l et grep -c f$ sont montrées dans la correction mais ne satisfont pas l’interdiction de relire ce fichier.<p></p>
+<h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Le document Alias écrit parfois <code>find / mount</code>, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
+</div>
+<ul>
+<li><a href="../tp3-enonces/">Énoncé</a></li>
+<li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../">Tous les ateliers du module</a></li>
+</ul>
 </div>
 </div>
 </div>

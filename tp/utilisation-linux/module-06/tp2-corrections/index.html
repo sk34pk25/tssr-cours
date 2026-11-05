@@ -22,7 +22,7 @@
     
     
       
-        <title>Correction — TP2 : Spécificités du shell Bash / métacaractères - TSSR · PAK</title>
+        <title>Correction expliquée — TP02 — Métacaractères - TSSR · PAK</title>
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#correction-tp2-specificites-du-shell-bash-metacaracteres" class="md-skip">
+        <a href="#correction-expliquee-tp02-metacaracteres" class="md-skip">
           Aller au contenu
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Correction — TP2 : Spécificités du shell Bash / métacaractères
+              Correction expliquée — TP02 — Métacaractères
             
           </span>
         </div>
@@ -13233,10 +13233,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#rmdir-puis-suppression-recursive" class="md-nav__link">
+  <a href="#activite-1-afficher-les-noms-de-fichiers-et-repertoires-commencant-par-a-b-c-ou-d-directement-dans-etc-sans-lister-leur-contenu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rmdir puis suppression récursive
+        Activité 1 — Afficher les noms de fichiers et répertoires commençant par a, b, c ou d directement dans /etc, sans lister leur contenu.
       
     </span>
   </a>
@@ -13244,10 +13244,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selection-finale-demandee" class="md-nav__link">
+  <a href="#activite-2-creer-en-une-seule-commande-larborescence-bin-et-tp-sous-home-puis-bourne-kornshell-divers-et-ses-trois-sous-repertoires" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sélection finale demandée
+        Activité 2 — Créer en une seule commande l’arborescence bin et Tp sous $HOME, puis Bourne, KornShell, Divers et ses trois sous-répertoires.
       
     </span>
   </a>
@@ -13255,10 +13255,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#needs_review-anomalies-documentaires-conservees" class="md-nav__link">
+  <a href="#activite-3-se-positionner-dans-sources-et-creer-un-fichier-dont-le-nom-comporte-un-asterisque" class="md-nav__link">
     <span class="md-ellipsis">
       
-        NEEDS_REVIEW — anomalies documentaires conservées
+        Activité 3 — Se positionner dans Sources et créer un fichier dont le nom comporte un astérisque.
       
     </span>
   </a>
@@ -13266,10 +13266,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provenance" class="md-nav__link">
+  <a href="#activite-4-sans-changer-de-repertoire-essayer-de-supprimer-sources-avec-rmdir-et-expliquer-le-resultat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provenance
+        Activité 4 — Sans changer de répertoire, essayer de supprimer Sources avec rmdir et expliquer le résultat.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-5-supprimer-divers-avec-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 5 — Supprimer Divers avec rm.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-6-depuis-le-repertoire-personnel-lister-en-detail-les-fichiers-directement-dans-etc-extension-conf-six-lettres-initiale-consonne-et-lettre-avant-lextension-entre-f-et-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 6 — Depuis le répertoire personnel, lister en détail les fichiers directement dans /etc : extension .conf, six lettres, initiale consonne et lettre avant l’extension entre f et s.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-de-lecture-du-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points de lecture du support
       
     </span>
   </a>
@@ -13305,7 +13338,7 @@
 
 
 
-<h1 id="correction-tp2-specificites-du-shell-bash-metacaracteres">Correction — TP2 : Spécificités du shell Bash / métacaractères<a class="headerlink" href="#correction-tp2-specificites-du-shell-bash-metacaracteres" title="Permanent link">¶</a></h1>
+<h1 id="correction-expliquee-tp02-metacaracteres">Correction expliquée — TP02 — Métacaractères<a class="headerlink" href="#correction-expliquee-tp02-metacaracteres" title="Permanent link">¶</a></h1>
 <p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
@@ -13318,72 +13351,53 @@
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.</p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<h4>Les métacaractères </h4>
-<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6. </p>
-<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45 à 60 minutes </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
-<p class="tssr-source-paragraph">1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, <br>b, c ou d du répertoire /etc. </p>
-<p class="tssr-source-paragraph">ls -d /etc/[a-d]* </p>
-
-<p class="tssr-source-paragraph">2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule <br>ligne de commande : </p>
-<p class="tssr-source-paragraph">Page 1/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user3086srv-formateur:-$<br>ls -d /etc/[a-d]*<br>fetc/adduser.conf<br>fetc/cron.daily</p><p>fetc/apparmor<br>fetc/crontab</p><p>/etc/bash.bashre<br>fetc/debconf.conf<br>fetc/bash completion<br>fetc/debian version</p><p>fetc/bindresvport.blacklist<br>/etc/deluser.conf</p><p>fetc/ca-certificates.conf<br>fetc/discover.conf.d<br>fetc/calendar<br>fetc/discover-modprobe.con£f</p><p>user30@srv-formateur:-$ | |</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-1">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<h4>Les métacaractères</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.</p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.</li></ol>
+<p class="tssr-source-paragraph">ls -d /etc/[a-d]*</p>
+<ol start="2"><li>Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-
-<p class="tssr-source-paragraph"> <br>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}} </p>
-
-<p class="tssr-source-paragraph">3. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui <br>comporte, dans son nom, un astérisque. </p>
-<p class="tssr-source-paragraph">cd Tp/Divers/Sources/ </p>
-<p class="tssr-source-paragraph"> <br>touch fic*ier </p>
-
-<p class="tssr-source-paragraph">4. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources <br>en utilisant la commande rmdir. Que constatez-vous ? </p>
-<pre class="tssr-source-code">Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-2">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<p class="tssr-source-paragraph">mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</p>
+<ol start="3"><li>Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.</li></ol>
+<p class="tssr-source-paragraph">cd Tp/Divers/Sources/</p>
+<p class="tssr-source-paragraph">touch fic*ier</p>
+<ol start="4"><li>Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?</li></ol>
+<pre class="tssr-source-code"><code>Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
 répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
-non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée. </pre>
-<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/ </p>
-
-<p class="tssr-source-paragraph"> <br>On constate que même positionné dans un répertoire nous pouvons le supprimer </p>
-<p class="tssr-source-paragraph">5. Supprimer le répertoire Divers en utilisant la commande rm. </p>
-<p class="tssr-source-paragraph">Page 2/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>SHOME</p><p>bin<br>Th</p><p>Bourne<br>KornShell<br>Divers</p><p>Sources<br>lik:<br>Executables</p><p>user30@srv-formateur:~$ mkdir -p bin Tp/ {Bourne, KornShell, Divers/{Sources,lib,Exec<br>tuables}}</p><p>user30@srv-formateur:-/Tp/Divers/Sources$<br>touch fic*ier</p></div></details>
-
-
-
-
+non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée.</code></pre>
+<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/</p>
+<p class="tssr-source-paragraph">On constate que même positionné dans un répertoire nous pouvons le supprimer</p>
+<ol start="5"><li>Supprimer le répertoire Divers en utilisant la commande rm.</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<p class="tssr-source-paragraph">rm -r ../../Divers/ </p>
-
-
-<p class="tssr-source-paragraph">6. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée <br>des fichiers répondants aux critères suivants : </p>
-<p class="tssr-source-paragraph">- ils sont présents directement dans /etc </p>
-<p class="tssr-source-paragraph"> <br>- leurs noms finissent par l'extension .conf </p>
-<p class="tssr-source-paragraph"> <br>- la première lettre est une consonne, celle précédant l'extension est comprise entre <br>f et s </p>
-<p class="tssr-source-paragraph"> <br>- ils comportent exactement 6 lettres (hors extension). </p>
-<pre class="tssr-source-code"> 
-ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
-
-<p class="tssr-source-paragraph">Page 3/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv—-formateur:~/Tp/Divers/Sources$<br>rm -r<br>../../Divers/<br>user30@srv-formateur:-/Tp/Divers/Sources$<br>| |</p><p>user30@srv-formateur:~/Tp/Divers/Sources$<br>cd ~<br>user30@srv-formateur:~$<br>ls -ld /etc/['aeiouv][a-zA-7][a-zA-7][a-zA-7][a-zA-7][£-s]<br>cont</p><p>-rFw-r--r--<br>1<br>root<br>root<br>5060<br>oct.<br>26<br>2018<br>/etc/hdparm.conf<br>-rw-r--r--<br>1<br>root<br>root<br>2350<br>août<br>2<br>2019 fetc/sysctl.cont<br>user30@srv-formateur:~$ |</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-3">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<p class="tssr-source-paragraph">rm -r ../../Divers/</p>
+<ol start="6"><li>Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :</li></ol>
+<p class="tssr-source-paragraph">- ils sont présents directement dans /etc</p>
+<p class="tssr-source-paragraph">- leurs noms finissent par l'extension .conf</p>
+<p class="tssr-source-paragraph">- la première lettre est une consonne, celle précédant l'extension est comprise entre f et s</p>
+<p class="tssr-source-paragraph">- ils comportent exactement 6 lettres (hors extension).</p>
+<pre class="tssr-source-code"><code>ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa · <span title="Empreinte SHA-256 du fichier source">SHA-256 277a72096d21b97f…</span></p>
 </div>
 </details>
@@ -13394,35 +13408,67 @@ ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-d<span class="w"> </span>/etc/<span class="o">[</span>a-d<span class="o">]</span>*
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>bin<span class="w"> </span>Tp/<span class="o">{</span>Bourne,KornShell,Divers/<span class="o">{</span>Sources,lib,Executables<span class="o">}}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>Tp/Divers/Sources/
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>touch<span class="w"> </span>fic*ier
+<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<h2 id="activite-1-afficher-les-noms-de-fichiers-et-repertoires-commencant-par-a-b-c-ou-d-directement-dans-etc-sans-lister-leur-contenu">Activité 1 — Afficher les noms de fichiers et répertoires commençant par a, b, c ou d directement dans /etc, sans lister leur contenu.<a class="headerlink" href="#activite-1-afficher-les-noms-de-fichiers-et-repertoires-commencant-par-a-b-c-ou-d-directement-dans-etc-sans-lister-leur-contenu" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-d<span class="w"> </span>/etc/<span class="o">[</span>a-d<span class="o">]</span>*
 </span></code></pre></div>
-<p>La commande <code>touch fic*ier</code> est conservée sous sa forme source. Son résultat dépend du
-contenu du répertoire au moment de l'expansion.</p>
-<h2 id="rmdir-puis-suppression-recursive">Rmdir puis suppression récursive<a class="headerlink" href="#rmdir-puis-suppression-recursive" title="Permanent link">¶</a></h2>
-<p>L'énoncé demande d'essayer <code>rmdir</code> sur le répertoire <code>Sources</code>. La correction indique que
-<code>rmdir</code> ne supprime que des répertoires vides. Elle utilise ensuite :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$HOME</span>/Tp/Divers/Sources/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rm<span class="w"> </span>-r<span class="w"> </span>../../Divers/
+-d conserve l’affichage des noms des répertoires eux-mêmes.<p></p>
+<h2 id="activite-2-creer-en-une-seule-commande-larborescence-bin-et-tp-sous-home-puis-bourne-kornshell-divers-et-ses-trois-sous-repertoires">Activité 2 — Créer en une seule commande l’arborescence bin et Tp sous $HOME, puis Bourne, KornShell, Divers et ses trois sous-répertoires.<a class="headerlink" href="#activite-2-creer-en-une-seule-commande-larborescence-bin-et-tp-sous-home-puis-bourne-kornshell-divers-et-ses-trois-sous-repertoires" title="Permanent link">¶</a></h2>
+<p>Se placer dans le répertoire personnel, puis lancer la commande unique de création :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>bin<span class="w"> </span>Tp/<span class="o">{</span>Bourne,KornShell,Divers/<span class="o">{</span>Sources,lib,Executables<span class="o">}}</span>
 </span></code></pre></div>
-<p>La suppression récursive est donc une étape distincte de la tentative avec <code>rmdir</code>.</p>
-<h2 id="selection-finale-demandee">Sélection finale demandée<a class="headerlink" href="#selection-finale-demandee" title="Permanent link">¶</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/etc/<span class="o">[</span>!aeiouyAEIOUY<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>f-s<span class="o">]</span>.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$HOME
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── bin
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── Tp
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ├── Bourne
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    ├── KornShell
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    └── Divers
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        ├── Sources
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        ├── lib
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        └── Executables
 </span></code></pre></div>
-<h2 id="needs_review-anomalies-documentaires-conservees">NEEDS_REVIEW — anomalies documentaires conservées<a class="headerlink" href="#needs_review-anomalies-documentaires-conservees" title="Permanent link">¶</a></h2>
+<h2 id="activite-3-se-positionner-dans-sources-et-creer-un-fichier-dont-le-nom-comporte-un-asterisque">Activité 3 — Se positionner dans Sources et créer un fichier dont le nom comporte un astérisque.<a class="headerlink" href="#activite-3-se-positionner-dans-sources-et-creer-un-fichier-dont-le-nom-comporte-un-asterisque" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/Tp/Divers/Sources"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>touch<span class="w"> </span><span class="s1">'fic*ier'</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ls
+</span></code></pre></div>
+Le nom attendu est littéralement fic*ier ; les guillemets ne font pas partie du nom.<p></p>
+<h2 id="activite-4-sans-changer-de-repertoire-essayer-de-supprimer-sources-avec-rmdir-et-expliquer-le-resultat">Activité 4 — Sans changer de répertoire, essayer de supprimer Sources avec rmdir et expliquer le résultat.<a class="headerlink" href="#activite-4-sans-changer-de-repertoire-essayer-de-supprimer-sources-avec-rmdir-et-expliquer-le-resultat" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rmdir<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/Tp/Divers/Sources"</span>
+</span></code></pre></div>
+Sources contient le fichier créé : rmdir ne supprime que les répertoires vides. La correction illustre ensuite rm -r, une action différente qui supprime son contenu.<p></p>
+<h2 id="activite-5-supprimer-divers-avec-rm">Activité 5 — Supprimer Divers avec rm.<a class="headerlink" href="#activite-5-supprimer-divers-avec-rm" title="Permanent link">¶</a></h2>
+<p>Après l’observation précédente, revenir dans le répertoire personnel puis supprimer uniquement l’arborescence d’exercice :</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rm<span class="w"> </span>-r<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/Tp/Divers"</span>
+</span></code></pre></div>
+La correction emploie un chemin relatif ../../Divers depuis son contexte de départ ; le chemin explicite évite la dépendance à un répertoire courant supprimé.<p></p>
+<h2 id="activite-6-depuis-le-repertoire-personnel-lister-en-detail-les-fichiers-directement-dans-etc-extension-conf-six-lettres-initiale-consonne-et-lettre-avant-lextension-entre-f-et-s">Activité 6 — Depuis le répertoire personnel, lister en détail les fichiers directement dans /etc : extension .conf, six lettres, initiale consonne et lettre avant l’extension entre f et s.<a class="headerlink" href="#activite-6-depuis-le-repertoire-personnel-lister-en-detail-les-fichiers-directement-dans-etc-extension-conf-six-lettres-initiale-consonne-et-lettre-avant-lextension-entre-f-et-s" title="Permanent link">¶</a></h2>
+<p>Le document propose :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/etc/<span class="o">[</span>!aeiouyAEIOUY<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>f-s<span class="o">]</span>.conf
+</span></code></pre></div>
+<p>Pour imposer une consonne ASCII au premier caractère, au lieu de tout caractère non voyelle :</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/etc/<span class="o">[</span>b-df-hj-np-tv-xzB-DF-HJ-NP-TV-XZ<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>a-zA-Z<span class="o">][</span>f-s<span class="o">]</span>.conf
+</span></code></pre></div>
+Le premier ensemble fournit une lettre, les quatre suivants quatre lettres, puis [f-s] la sixième ; .conf suit ces six caractères.<p></p>
+<h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Le motif source <code>[!aeiouyAEIOUY]</code> exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.</p>
+</div>
 <ul>
-<li>Le TP est stocké sous <em>Module 4 / TP2</em> et préfixé <code>M04TP02</code>, alors que son titre interne
-  et ses prérequis indiquent le module 06.</li>
-<li>La progression source est conservée : tentative avec <code>rmdir</code>, constat sur le répertoire
-  non vide, puis recours à <code>rm -r</code>.</li>
-</ul>
-<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>A — source TSSR :</strong> solution TP2 <em>Les métacaractères</em>, titrée en interne « TP du Module 06 ».</li>
-<li><strong>B — structuration pédagogique :</strong> présentation des commandes, constats et anomalies sans
-  modifier le document source.</li>
+<li><a href="../tp2-enonces/">Énoncé</a></li>
+<li><a href="../../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours du module</a></li>
+<li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>
 </div>

@@ -22,7 +22,7 @@
     
     
       
-        <title>TP — Module 06 : recherches et spécificités Bash - TSSR · PAK</title>
+        <title>TP — M06 : Recherches et expressions régulières - TSSR · PAK</title>
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp-module-06-recherches-et-specificites-bash" class="md-skip">
+        <a href="#tp-m06-recherches-et-expressions-regulieres" class="md-skip">
           Aller au contenu
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TP — Module 06 : recherches et spécificités Bash
+              TP — M06 : Recherches et expressions régulières
             
           </span>
         </div>
@@ -13226,47 +13226,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#tp1-recherches-et-regex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP1 — Recherches et regex
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tp2-specificites-du-shell-bash-metacaracteres" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TP2 — Spécificités du shell Bash / métacaractères
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provenance
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -13294,7 +13253,7 @@
 
 
 
-<h1 id="tp-module-06-recherches-et-specificites-bash">TP — Module 06 : recherches et spécificités Bash<a class="headerlink" href="#tp-module-06-recherches-et-specificites-bash" title="Permanent link">¶</a></h1>
+<h1 id="tp-m06-recherches-et-expressions-regulieres">TP — M06 : Recherches et expressions régulières<a class="headerlink" href="#tp-m06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
 <p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
@@ -13305,41 +13264,30 @@
 <details class="tssr-original-document" open="">
 <summary>Énoncé · Enoncé du TP 1 - Recherches et regex · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
-<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-1"><h3>Page 1</h3><h4>Utilisation d'une distribution GNU/Linux<br>Recherches et regex </h4>
+
+<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-1">
+<h4>Utilisation d'une distribution GNU/Linux Recherches et regex</h4>
 <p class="tssr-source-paragraph">TP du Module 06 – Fichiers et dossiers sous Linux</p>
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir<br>effectué le TP précédent.</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir effectué le TP précédent.</p>
 <p class="tssr-source-paragraph">Durée estimée</p>
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Énoncé</h4>
-<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires<br>pour répondre aux questions.</p>
-<p class="tssr-source-paragraph">1. Recherchez toutes les lignes contenant Dupont dans le fichier Edition.</p>
-<p class="tssr-source-paragraph">2. Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le<br>fichier Edition.</p>
-<p class="tssr-source-paragraph">Page 1/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Recherchez toutes les lignes contenant Dupont dans le fichier Edition.</li></ol>
+<ol start="2"><li>Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier Edition.</li></ol>
 </section>
-<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux</p>
-<p class="tssr-source-paragraph">3. Affichez toutes les lignes non vides du fichier Edition.</p>
-<p class="tssr-source-paragraph">4. Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-<br>répertoires.</p>
-<p class="tssr-source-paragraph">5. Recherchez tous les fichiers standards commençant par ho à partir du répertoire<br>/etc.</p>
-<p class="tssr-source-paragraph">6. Recherchez tous les répertoires depuis votre répertoire personnel.</p>
-<p class="tssr-source-paragraph">Page 2/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
-
-
-
+<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-2">
+<ol start="3"><li>Affichez toutes les lignes non vides du fichier Edition.</li></ol>
+<ol start="4"><li>Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-répertoires.</li></ol>
+<ol start="5"><li>Recherchez tous les fichiers standards commençant par ho à partir du répertoire /etc.</li></ol>
+<ol start="6"><li>Recherchez tous les répertoires depuis votre répertoire personnel.</li></ol>
 </section>
-<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux</p>
-<p class="tssr-source-paragraph">7. Recherchez tous les fichiers standards de votre répertoire personnel se terminant<br>par txt et en faire une copie avec l'extension .save.</p>
+<section class="tssr-transcribed-page" id="source-116dD0Y9yfykwJumCShlSuHBvWNZeLMut-page-3">
+<ol start="7"><li>Recherchez tous les fichiers standards de votre répertoire personnel se terminant par txt et en faire une copie avec l'extension .save.</li></ol>
 <h4>Solution</h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans<br>les ressources à télécharger.</p>
-<p class="tssr-source-paragraph">Page 3/3<br>                                                   </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés</p>
-
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 116dD0Y9yfykwJumCShlSuHBvWNZeLMut · <span title="Empreinte SHA-256 du fichier source">SHA-256 c8ed46b85b0ad434…</span></p>
 </div>
 </details>
@@ -13347,61 +13295,34 @@
 <summary>Énoncé · M04TP02 - Enoncé - Métacaractères · 2 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.</p>
-<section class="tssr-transcribed-page" id="source-1UxNuienstNgVxtr1UyNDEU4GdedUSzJP-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<h4>Les métacaractères </h4>
-<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6. </p>
-<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<h4>45 à 60 minutes <br>Énoncé </h4>
-<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
-<p class="tssr-source-paragraph">1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, <br>b, c ou d du répertoire /etc. </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph">2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule <br>ligne de commande : </p>
-
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>FHÔME</p><p>bin<br>Th</p><p>Bourne<br>KornShell<br>Divers</p><p>Sources<br>lik:<br>Executables</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1UxNuienstNgVxtr1UyNDEU4GdedUSzJP-page-1">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<h4>Les métacaractères</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.</p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<h4>45 à 60 minutes Énoncé</h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.</li></ol>
+<ol start="2"><li>Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Enoncé - Métacaractères" src="../../../assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Enoncé - Métacaractères</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1UxNuienstNgVxtr1UyNDEU4GdedUSzJP-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<p class="tssr-source-paragraph">3. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui <br>comporte, dans son nom, un astérisque. </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph">4. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources <br>en utilisant la commande rmdir. Que constatez-vous ? </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph">5. Supprimer le répertoire Divers en utilisant la commande rm. </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph">6. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée <br>des fichiers répondants aux critères suivants : </p>
-<p class="tssr-source-paragraph">- ils sont présents directement dans /etc </p>
-<p class="tssr-source-paragraph"> <br>- leurs noms finissent par l'extension .conf </p>
-<p class="tssr-source-paragraph"> <br>- la première lettre est une consonne, celle précédant l'extension est comprise entre <br>f et s </p>
-<p class="tssr-source-paragraph"> <br>- ils comportent exactement 6 lettres (hors extension). </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<p class="tssr-source-paragraph"> <br> ..............................................................................................................................................  </p>
-<h4> <br> ..............................................................................................................................................  <br>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les <br>ressources à télécharger. </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
+<section class="tssr-transcribed-page" id="source-1UxNuienstNgVxtr1UyNDEU4GdedUSzJP-page-2">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<ol start="3"><li>Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.</li></ol>
+<ol start="4"><li>Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?</li></ol>
+<ol start="5"><li>Supprimer le répertoire Divers en utilisant la commande rm.</li></ol>
+<ol start="6"><li>Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :</li></ol>
+<p class="tssr-source-paragraph">- ils sont présents directement dans /etc</p>
+<p class="tssr-source-paragraph">- leurs noms finissent par l'extension .conf</p>
+<p class="tssr-source-paragraph">- la première lettre est une consonne, celle précédant l'extension est comprise entre f et s</p>
+<p class="tssr-source-paragraph">- ils comportent exactement 6 lettres (hors extension).</p>
+<h4>Solution</h4>
+<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1UxNuienstNgVxtr1UyNDEU4GdedUSzJP · <span title="Empreinte SHA-256 du fichier source">SHA-256 249cdf9a0cce0395…</span></p>
 </div>
 </details>
@@ -13409,67 +13330,42 @@
 <summary>Correction · Solution du TP 1 - Recherches et regex · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-<h4>Recherches et regex </h4>
-<p class="tssr-source-paragraph">TP du Module 06 – Fichiers et dossiers sous Linux </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir <br>effectué le TP précédent. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45 à 60 minutes </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires <br>pour répondre aux questions. </p>
-<p class="tssr-source-paragraph">1. Recherchez toutes les lignes contenant Dupont dans le fichier Edition. </p>
-<pre class="tssr-source-code">grep Dupont Edition </pre>
-
-<p class="tssr-source-paragraph">2. Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier <br>Edition. </p>
-<pre class="tssr-source-code">grep -i dupont Edition </pre>
-
-<p class="tssr-source-paragraph">3. Affichez toutes les lignes non vides du fichier Edition. </p>
-<pre class="tssr-source-code"> 
-grep -v '^$' Edition </pre>
-<p class="tssr-source-paragraph">Page 1/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>grep Dupont Edition<br>Dupont<br>Jean 111111<br>Dupont<br>Jean 111111<br>Dupont<br>Patrice<br>222222<br>Dupont<br>Jojo<br>399959<br>Dupont<br>Pierre<br>222222<br>user30@sryv—formateur:~$ |</p><p>user30@srv-formateur:-$<br>grep<br>-i dupont Edition<br>Dupont<br>Jeam<br>111111<br>Dupont<br>Jean<br>111111<br>Dupont<br>Patrice<br>222222<br>Dupont<br>Jojo<br>999999<br>Dupont<br>Pierre<br>222222<br>user308srv-formateur:-$ [|</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-1">
+<h4>Recherches et regex</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Fichiers et dossiers sous Linux</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir effectué le TP précédent.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Recherchez toutes les lignes contenant Dupont dans le fichier Edition.</li></ol>
+<pre class="tssr-source-code"><code>grep Dupont Edition</code></pre>
+<ol start="2"><li>Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier Edition.</li></ol>
+<pre class="tssr-source-code"><code>grep -i dupont Edition</code></pre>
+<ol start="3"><li>Affichez toutes les lignes non vides du fichier Edition.</li></ol>
+<pre class="tssr-source-code"><code>grep -v '^$' Edition</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-
-<p class="tssr-source-paragraph">4. Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-<br>répertoires. </p>
-<pre class="tssr-source-code"> 
-grep -sl localhost /etc/* </pre>
-
-<p class="tssr-source-paragraph">5. Recherchez tous les fichiers standards commençant par ho à partir du répertoire <br>/etc. </p>
-<pre class="tssr-source-code"> 
-find /etc -type f -name "ho*" </pre>
-
-<p class="tssr-source-paragraph">6. Recherchez tous les répertoires depuis votre répertoire personnel. </p>
-<pre class="tssr-source-code"> 
-find ~ -type d </pre>
-<p class="tssr-source-paragraph">Page 2/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>grep<br>-v<br>'*$!<br>Edition<br>Aboaf<br>Maurice<br>244748<br>Adda<br>Jen<br>239234<br>Allo<br>Jean-Pierre<br>255398<br>Ben<br>Raf<br>238999<br>Bernard<br>Jean-Paul<br>234567<br>ChasserAt<br>Paul<br>245678<br>Cousin<br>Pascal<br>222222<br>Froideceaux<br>Michel<br>252423<br>Gros<br>Lucien<br>212121<br>Cayrol<br>Patrice<br>123456<br>Beux<br>Leon<br>567891<br>Dupont<br>Jean<br>111111</p><p>user30@srv-formateur:-$<br>grep -sl localhost /etc/*<br>fetc/hosts<br>fete/reportbug.<br>cont<br>user30@srv—formateur:~$ |</p><p>user30@srv-formateur:-$<br>find fetc -type<br>£ -name<br>"ho*"™<br>fetc/host.cont<br>fetc/hosts<br>find:<br>‘/etc/ssl/private':<br>Permission<br>non accordée<br>fetc/apparmor.d/tunables/home<br>fetc/hosts.allow<br>find:<br>‘/etc/lvm/backup’:<br>Permission<br>non accordée<br>fetc/fhosts.deny<br>fetc/hostname<br>user30@srv—formateur: ~$ |</p><p>ED</p></div></details>
-
-
-
+<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-2">
+<ol start="4"><li>Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-répertoires.</li></ol>
+<pre class="tssr-source-code"><code>grep -sl localhost /etc/*</code></pre>
+<ol start="5"><li>Recherchez tous les fichiers standards commençant par ho à partir du répertoire /etc.</li></ol>
+<pre class="tssr-source-code"><code>find /etc -type f -name "ho*"</code></pre>
+<ol start="6"><li>Recherchez tous les répertoires depuis votre répertoire personnel.</li></ol>
+<pre class="tssr-source-code"><code>find ~ -type d</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-
-<p class="tssr-source-paragraph">7. Recherchez tous les fichiers standards de votre répertoire personnel se terminant par <br>txt et en faire une copie avec l'extension .save. </p>
-<pre class="tssr-source-code"> 
-find ~ -type f -name "*txt" -exec cp {} {}.save \; </pre>
-
-<p class="tssr-source-paragraph">Page 3/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:-$<br>find ~ -type<br>d<br>fhome/user30<br>fhome/user30/Tp<br>#home/user30/Tp/KornShell<br>fhome/user30/Tp/Bourne<br>fhome/user30/bin<br>user30@srv-formateur:~$ |</p><p>user30@srv—formateur:~$<br>find ~ -type<br>£ -name<br>"*txt™<br>-exec<br>cp<br>{}<br>{}-save<br>\:<br>user30@srv-formateur:-$<br>1s<br>bin<br>editions .txt<br>fichier2+3<br>MonPremierFichier<br>TE<br>Edition<br>edition3.txt.save<br>MonDeuxiemeFichier<br>MonTroisiemeFichier<br>user30@srv-formateur:-$ |</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy-page-3">
+<ol start="7"><li>Recherchez tous les fichiers standards de votre répertoire personnel se terminant par txt et en faire une copie avec l'extension .save.</li></ol>
+<pre class="tssr-source-code"><code>find ~ -type f -name "*txt" -exec cp {} {}.save \;</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Recherches et regex" src="../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Recherches et regex</figcaption></figure>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy · <span title="Empreinte SHA-256 du fichier source">SHA-256 89832fa8712cd294…</span></p>
 </div>
 </details>
@@ -13478,72 +13374,53 @@ find ~ -type f -name "*txt" -exec cp {} {}.save \; </pre>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.</p>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<h4>Les métacaractères </h4>
-<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6. </p>
-<p class="tssr-source-paragraph">Avoir effectué le TP précèdent </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45 à 60 minutes </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
-<p class="tssr-source-paragraph">1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, <br>b, c ou d du répertoire /etc. </p>
-<p class="tssr-source-paragraph">ls -d /etc/[a-d]* </p>
-
-<p class="tssr-source-paragraph">2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule <br>ligne de commande : </p>
-<p class="tssr-source-paragraph">Page 1/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user3086srv-formateur:-$<br>ls -d /etc/[a-d]*<br>fetc/adduser.conf<br>fetc/cron.daily</p><p>fetc/apparmor<br>fetc/crontab</p><p>/etc/bash.bashre<br>fetc/debconf.conf<br>fetc/bash completion<br>fetc/debian version</p><p>fetc/bindresvport.blacklist<br>/etc/deluser.conf</p><p>fetc/ca-certificates.conf<br>fetc/discover.conf.d<br>fetc/calendar<br>fetc/discover-modprobe.con£f</p><p>user30@srv-formateur:-$ | |</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-1">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<h4>Les métacaractères</h4>
+<p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.</p>
+<p class="tssr-source-paragraph">Avoir effectué le TP précèdent</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.</li></ol>
+<p class="tssr-source-paragraph">ls -d /etc/[a-d]*</p>
+<ol start="2"><li>Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-
-<p class="tssr-source-paragraph"> <br>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}} </p>
-
-<p class="tssr-source-paragraph">3. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui <br>comporte, dans son nom, un astérisque. </p>
-<p class="tssr-source-paragraph">cd Tp/Divers/Sources/ </p>
-<p class="tssr-source-paragraph"> <br>touch fic*ier </p>
-
-<p class="tssr-source-paragraph">4. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources <br>en utilisant la commande rmdir. Que constatez-vous ? </p>
-<pre class="tssr-source-code">Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-2">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<p class="tssr-source-paragraph">mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</p>
+<ol start="3"><li>Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.</li></ol>
+<p class="tssr-source-paragraph">cd Tp/Divers/Sources/</p>
+<p class="tssr-source-paragraph">touch fic*ier</p>
+<ol start="4"><li>Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?</li></ol>
+<pre class="tssr-source-code"><code>Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
 répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
-non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée. </pre>
-<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/ </p>
-
-<p class="tssr-source-paragraph"> <br>On constate que même positionné dans un répertoire nous pouvons le supprimer </p>
-<p class="tssr-source-paragraph">5. Supprimer le répertoire Divers en utilisant la commande rm. </p>
-<p class="tssr-source-paragraph">Page 2/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>SHOME</p><p>bin<br>Th</p><p>Bourne<br>KornShell<br>Divers</p><p>Sources<br>lik:<br>Executables</p><p>user30@srv-formateur:~$ mkdir -p bin Tp/ {Bourne, KornShell, Divers/{Sources,lib,Exec<br>tuables}}</p><p>user30@srv-formateur:-/Tp/Divers/Sources$<br>touch fic*ier</p></div></details>
-
-
-
-
+non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée.</code></pre>
+<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/</p>
+<p class="tssr-source-paragraph">On constate que même positionné dans un répertoire nous pouvons le supprimer</p>
+<ol start="5"><li>Supprimer le répertoire Divers en utilisant la commande rm.</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Les métacaractères <br> </p>
-<p class="tssr-source-paragraph">rm -r ../../Divers/ </p>
-
-
-<p class="tssr-source-paragraph">6. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée <br>des fichiers répondants aux critères suivants : </p>
-<p class="tssr-source-paragraph">- ils sont présents directement dans /etc </p>
-<p class="tssr-source-paragraph"> <br>- leurs noms finissent par l'extension .conf </p>
-<p class="tssr-source-paragraph"> <br>- la première lettre est une consonne, celle précédant l'extension est comprise entre <br>f et s </p>
-<p class="tssr-source-paragraph"> <br>- ils comportent exactement 6 lettres (hors extension). </p>
-<pre class="tssr-source-code"> 
-ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
-
-<p class="tssr-source-paragraph">Page 3/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv—-formateur:~/Tp/Divers/Sources$<br>rm -r<br>../../Divers/<br>user30@srv-formateur:-/Tp/Divers/Sources$<br>| |</p><p>user30@srv-formateur:~/Tp/Divers/Sources$<br>cd ~<br>user30@srv-formateur:~$<br>ls -ld /etc/['aeiouv][a-zA-7][a-zA-7][a-zA-7][a-zA-7][£-s]<br>cont</p><p>-rFw-r--r--<br>1<br>root<br>root<br>5060<br>oct.<br>26<br>2018<br>/etc/hdparm.conf<br>-rw-r--r--<br>1<br>root<br>root<br>2350<br>août<br>2<br>2019 fetc/sysctl.cont<br>user30@srv-formateur:~$ |</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa-page-3">
+<p class="tssr-source-paragraph">Les métacaractères</p>
+<p class="tssr-source-paragraph">rm -r ../../Divers/</p>
+<ol start="6"><li>Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :</li></ol>
+<p class="tssr-source-paragraph">- ils sont présents directement dans /etc</p>
+<p class="tssr-source-paragraph">- leurs noms finissent par l'extension .conf</p>
+<p class="tssr-source-paragraph">- la première lettre est une consonne, celle précédant l'extension est comprise entre f et s</p>
+<p class="tssr-source-paragraph">- ils comportent exactement 6 lettres (hors extension).</p>
+<pre class="tssr-source-code"><code>ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp"></a><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa · <span title="Empreinte SHA-256 du fichier source">SHA-256 277a72096d21b97f…</span></p>
 </div>
 </details>
@@ -13554,37 +13431,29 @@ ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf </pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<h2 id="tp1-recherches-et-regex">TP1 — Recherches et regex<a class="headerlink" href="#tp1-recherches-et-regex" title="Permanent link">¶</a></h2>
-<p><strong>Durée indicative :</strong> 45 à 60 minutes.</p>
-<p>Les documents demandent d'avoir suivi les vidéos du module 6 et effectué le TP
-précédent. Ces prérequis sont mentionnés, mais ne sont pas fournis comme ressources
-lisibles dans le dossier Drive M06.</p>
-<p>Objectifs attestés : rechercher du texte dans <code>Edition</code>, rechercher des fichiers et des
-répertoires dans les chemins indiqués, puis effectuer la copie demandée en <code>.save</code>.</p>
-<ul>
-<li><a href="tp1-enonces/">Énoncé TP1</a></li>
-<li><a href="tp1-corrections/">Correction TP1</a></li>
-</ul>
-<h2 id="tp2-specificites-du-shell-bash-metacaracteres">TP2 — Spécificités du shell Bash / métacaractères<a class="headerlink" href="#tp2-specificites-du-shell-bash-metacaracteres" title="Permanent link">¶</a></h2>
-<p><strong>Durée indicative :</strong> 45 à 60 minutes.</p>
-<p>Le TP fait créer l'arborescence source et exécuter les sélections de noms demandées,
-dont la tentative <code>rmdir</code> suivie de la correction avec <code>rm -r</code>.</p>
-<ul>
-<li><a href="tp2-enonces/">Énoncé TP2</a></li>
-<li><a href="tp2-corrections/">Correction TP2</a></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Rattachement documentaire du TP2</p>
-<p>Les PDF du TP2 sont physiquement rangés dans Drive sous <em>Module 4 / TP2</em> et
-portent le préfixe <code>M04TP02</code>. Leurs titres internes et leurs prérequis indiquent
-explicitement « TP du Module 06 ». Ils sont donc rattachés pédagogiquement au
-module 06 ; le rangement historique dans Drive reste inchangé.</p>
-</div>
-<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
-<ul>
-<li><strong>A — sources TSSR :</strong> énoncés et solutions TP1/TP2.</li>
-<li><strong>B — structuration pédagogique :</strong> index séparant strictement les deux TP.</li>
-</ul>
+<p>Les documents originaux et l’aide de pratique sont séparés dans leurs onglets. Les corrections se consultent après une tentative.</p>
+<table>
+<thead>
+<tr>
+<th>Atelier</th>
+<th>Énoncé</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP01 — Recherches et regex</td>
+<td><a href="tp1-enonces/">Ouvrir</a></td>
+<td><a href="tp1-corrections/">Ouvrir</a></td>
+</tr>
+<tr>
+<td>TP02 — Métacaractères</td>
+<td><a href="tp2-enonces/">Ouvrir</a></td>
+<td><a href="tp2-corrections/">Ouvrir</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Revenir au cours</a></p>
 </div>
 </div>
 </div>

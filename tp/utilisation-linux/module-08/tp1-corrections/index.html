@@ -22,7 +22,7 @@
     
     
       
-        <title>Correction — TP1 : Utilisation des systèmes - TSSR · PAK</title>
+        <title>Correction expliquée — TP01 — Utilisation des systèmes - TSSR · PAK</title>
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#correction-tp1-utilisation-des-systemes" class="md-skip">
+        <a href="#correction-expliquee-tp01-utilisation-des-systemes" class="md-skip">
           Aller au contenu
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Correction — TP1 : Utilisation des systèmes
+              Correction expliquée — TP01 — Utilisation des systèmes
             
           </span>
         </div>
@@ -13226,6 +13226,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#activite-1-lister-tous-les-processus-dont-laffichage-se-termine-par-d-et-enregistrer-dans-homeprocessdaemonstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 1 — Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-2-rechercher-depuis-les-fichiers-conf-sans-quitter-son-systeme-de-fichiers-et-afficherenregistrer-simultanement-les-chemins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 2 — Rechercher depuis / les fichiers .conf, sans quitter son système de fichiers, et afficher/enregistrer simultanément les chemins.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-3-mesurer-le-temps-exact-de-cette-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 3 — Mesurer le temps exact de cette exécution.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-4-en-une-commande-enregistrer-uniquement-le-nombre-de-fichiers-trouves-sans-relire-fichiersconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 4 — En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-de-lecture-du-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13253,7 +13316,7 @@
 
 
 
-<h1 id="correction-tp1-utilisation-des-systemes">Correction — TP1 : Utilisation des systèmes<a class="headerlink" href="#correction-tp1-utilisation-des-systemes" title="Permanent link">¶</a></h1>
+<h1 id="correction-expliquee-tp01-utilisation-des-systemes">Correction expliquée — TP01 — Utilisation des systèmes<a class="headerlink" href="#correction-expliquee-tp01-utilisation-des-systemes" title="Permanent link">¶</a></h1>
 <p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
@@ -13265,37 +13328,26 @@
 <summary>Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites</summary>
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
-<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-<h4>Utilisation des systèmes </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir <br>effectué le TP précédent. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45 à 60 minutes </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
-<p class="tssr-source-paragraph">1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans <br>$HOME/process/daemons.txt. </p>
-<pre class="tssr-source-code">mkdir $HOME/process </pre>
-<pre class="tssr-source-code"> 
-ps -e | grep d$ &gt; $HOME/process/daemons.txt </pre>
-<pre class="tssr-source-code"> 
-cat process/daemons.txt </pre>
-
-<p class="tssr-source-paragraph">2. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette <br>recherche ne devra être effectuée que sur le système de fichier racine. Le résultat <br>sera <br>affiché <br>à <br>l'écran <br>tout <br>en <br>étant <br>stocké <br>dans <br>le <br>fichier </p>
-<p class="tssr-source-paragraph">Page 1/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>RE</p><p>user30Ë6srv-formateur:-$ mkdir $HOME/process<br>user30Ësrv-formateur:-$ ps<br>-e<br>|<br>grep<br>dS<br>&gt; SHOME/process/daemons.txt<br>user30@srv—formateur:~$<br>cat process/daemons.txt<br>1?<br>00:00:01<br>systemd<br>27<br>00:00:00<br>kthreadd</p><p>6<br>?<br>00:00:00<br>kworker/0:0H-kblockd<br>10<br>?<br>00:00:04 rcu_sched<br>17<br>?<br>00:00:00<br>kauditd<br>18?<br>00:00:00<br>khungtaskd</p><p>35<br>7<br>00:00:00<br>kintegrityd<br>26<br>7<br>00:00:00<br>kblockd</p><p>29<br>7<br>00:00:00 watchdogd</p><p>183<br>7<br>00:00:00<br>kworker/0:1H-kblockd<br>288<br>7<br>00:00:00<br>systemd-udevd<br>ve<br>=<br>TTL<br>seve<br>ile<br>uns</p></div></details>
-
-
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-1">
+<h4>Utilisation des systèmes</h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.</li></ol>
+<pre class="tssr-source-code"><code>mkdir $HOME/process</code></pre>
+<pre class="tssr-source-code"><code>ps -e | grep d$ &gt; $HOME/process/daemons.txt</code></pre>
+<pre class="tssr-source-code"><code>cat process/daemons.txt</code></pre>
+<ol start="2"><li>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier</li></ol>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes" src="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-<p class="tssr-source-paragraph">$HOME/resultats/fichiers.conf. </p>
-<pre class="tssr-source-code"> 
-mkdir $HOME/resultats </pre>
-<pre class="tssr-source-code"> 
-find 
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-2">
+<p class="tssr-source-paragraph">$HOME/resultats/fichiers.conf.</p>
+<pre class="tssr-source-code"><code>mkdir $HOME/resultats</code></pre>
+<pre class="tssr-source-code"><code>find 
 / 
 -mount 
 -type 
@@ -13305,12 +13357,10 @@ f
 2&gt;/dev/null 
 | 
 tee 
-resultats/fichiers.conf </pre>
-<pre class="tssr-source-code"> 
-cat resultats/fichiers.conf </pre>
-
-<p class="tssr-source-paragraph">3. L’exécution de la commande précédente a duré un certain temps ; comment <br>connaître le temps exact d’exécution de celle-ci ? </p>
-<pre class="tssr-source-code">time 
+resultats/fichiers.conf</code></pre>
+<pre class="tssr-source-code"><code>cat resultats/fichiers.conf</code></pre>
+<ol start="3"><li>L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?</li></ol>
+<pre class="tssr-source-code"><code>time 
 find / 
 -mount 
 -type f 
@@ -13318,30 +13368,19 @@ find /
 "*.conf" 
 2&gt;/dev/null | 
 tee 
-resultats/fichiers.conf </pre>
-
-<p class="tssr-source-paragraph">4. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le <br>nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat <br>devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts). </p>
-<pre class="tssr-source-code"> 
-find / -mount 
+resultats/fichiers.conf</code></pre>
+<ol start="4"><li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</li></ol>
+<pre class="tssr-source-code"><code>find / -mount 
 -type f -name "*.conf" 2&gt;/dev/null | wc 
 -l &gt; 
-resultats/compteur.txt </pre>
-
-<p class="tssr-source-paragraph">Page 2/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ser30@srv—formateur:~$<br>find /<br>-mount<br>-type<br>£ -name<br>"*.conf" 2&gt;/dev/null<br>|<br>tee<br>res<br>1tats/fichiers.conf<br>fetc/ld.so.conf.d/libc.conf<br>fetc/ld.so.conf.d/x86 64-linux-gnu.conf<br>fetc/ldap/ldap.conf<br>/etc/host .cont<br>fetc/ca-certificates.cont<br>fetc/nsswitch.conf<br>fetc/discover-modprobe.conf<br>fetc/bind/forwaders.conf<br>fetc/bind/named.conf<br>fetc/deluser.conf</p><p>usr/share/doc/procps/examples/sysctil.con<br>‘usr/share/doc/adduser/examples/adduser.local.conf.examples/addus<br>fusr/share/doc/adduser/examples/adduser.local.cont<br>fusr/share/doc/apt-utils/examples/apt-ftparchive.conf<br>fusr/share/doc/apt-utils/examples/ftp-archive.conf<br>fusr/share/doc/rsyslog/examples/rsyslog.d/console.con£f<br>fusr/share/doc/rsyslog/examples/rsyslog.d/xconsole.con£<br>fusr/share/doc/rsyslog/examples/tmpfiles.d/xconsole,.conf<br>‘usr/share/doc/apt/examples/apt.con£<br>#usr/share/libc-bin/nsswitch.conf</p><p>real<br>OmO,072s<br>user<br>OmO,045s<br>sys<br>OmO,021s<br>user306srv-formateur:-$ |</p><p>ED</p></div></details>
-
-
+resultats/compteur.txt</code></pre>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes" src="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes</figcaption></figure>
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes" src="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux </p>
-
-<p class="tssr-source-paragraph">Page 3/3 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open=""><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>user30@srv-formateur:~$<br>find<br>/<br>-mount -type<br>£<br>-name<br>"*.conf"<br>2&gt;/dev/null<br>we<br>-l<br>&gt;</p><p>|<br>resultats/compteur.txt<br>user30@srv-formateur:~$<br>cat resultats/compteur.txt</p><p>user30@srv-formateur:~$ | |</p></div></details>
-
+<section class="tssr-transcribed-page" id="source-1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l-page-3">
+<figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes" src="../../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp"></a><figcaption>Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes</figcaption></figure>
 </section>
+
 <p class="tssr-original-proof">Référence du document : 1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l · <span title="Empreinte SHA-256 du fichier source">SHA-256 22be2935f155b285…</span></p>
 </div>
 </details>
@@ -13352,15 +13391,57 @@ resultats/compteur.txt </pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir $HOME/process
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ps -e | grep d$ &gt; $HOME/process/daemons.txt
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat process/daemons.txt
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>mkdir $HOME/resultats
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee resultats/fichiers.conf
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>time find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee resultats/fichiers.conf
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>find / -mount -type f -name "*.conf" 2&gt;/dev/null | wc -l &gt; resultats/compteur.txt
+<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<h2 id="activite-1-lister-tous-les-processus-dont-laffichage-se-termine-par-d-et-enregistrer-dans-homeprocessdaemonstxt">Activité 1 — Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.<a class="headerlink" href="#activite-1-lister-tous-les-processus-dont-laffichage-se-termine-par-d-et-enregistrer-dans-homeprocessdaemonstxt" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/process"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ps<span class="w"> </span>-e<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'d$'</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/process/daemons.txt"</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/process/daemons.txt"</span>
 </span></code></pre></div>
-<p>Les résultats et la durée sont des observations de laboratoire.</p>
+Le motif filtre ici la fin des lignes de l’affichage ps du scénario.<p></p>
+<h2 id="activite-2-rechercher-depuis-les-fichiers-conf-sans-quitter-son-systeme-de-fichiers-et-afficherenregistrer-simultanement-les-chemins">Activité 2 — Rechercher depuis / les fichiers .conf, sans quitter son système de fichiers, et afficher/enregistrer simultanément les chemins.<a class="headerlink" href="#activite-2-rechercher-depuis-les-fichiers-conf-sans-quitter-son-systeme-de-fichiers-et-afficherenregistrer-simultanement-les-chemins" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats"</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>find<span class="w"> </span>/<span class="w"> </span>-mount<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.conf'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>tee<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats/fichiers.conf"</span>
+</span></code></pre></div>
+Comparer les chemins affichés et ceux enregistrés.<p></p>
+<h2 id="activite-3-mesurer-le-temps-exact-de-cette-execution">Activité 3 — Mesurer le temps exact de cette exécution.<a class="headerlink" href="#activite-3-mesurer-le-temps-exact-de-cette-execution" title="Permanent link">¶</a></h2>
+<p>Relancer la recherche en l’encadrant par time :</p>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">time</span><span class="w"> </span>find<span class="w"> </span>/<span class="w"> </span>-mount<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.conf'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>tee<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats/fichiers.conf"</span>
+</span></code></pre></div>
+Observer les informations de temps ; une exécution non mesurée ne peut pas être chronométrée rétroactivement avec cette seule commande.<p></p>
+<h2 id="activite-4-en-une-commande-enregistrer-uniquement-le-nombre-de-fichiers-trouves-sans-relire-fichiersconf">Activité 4 — En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.<a class="headerlink" href="#activite-4-en-une-commande-enregistrer-uniquement-le-nombre-de-fichiers-trouves-sans-relire-fichiersconf" title="Permanent link">¶</a></h2>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>find<span class="w"> </span>/<span class="w"> </span>-mount<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.conf'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>wc<span class="w"> </span>-l<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats/compteur.txt"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cat<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats/compteur.txt"</span>
+</span></code></pre></div>
+La commande principale effectue la recherche et le comptage ; cat est le contrôle séparé du livrable.<p></p>
+<h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Le document Alias écrit parfois <code>find / mount</code>, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Lecture de la source</p>
+<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
+</div>
+<ul>
+<li><a href="../tp1-enonces/">Énoncé</a></li>
+<li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../">Tous les ateliers du module</a></li>
+</ul>
 </div>
 </div>
 </div>
