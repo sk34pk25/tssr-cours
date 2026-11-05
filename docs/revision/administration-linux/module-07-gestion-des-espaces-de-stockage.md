@@ -1,39 +1,37 @@
 # Fiche de révision — Module 07 — Gestion des espaces de stockage
 
-## À connaître absolument
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-- Identifier disques, partitions et tables de partition.
-- Créer et contrôler une partition.
-- Distinguer périphérique, partition, système de fichiers et point de montage.
-- Sauvegarder les informations avant une modification destructive.
+## Repère essentiel
 
-## Méthode express
+## Lire MBR et GPT
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+## Tableau de mémorisation
 
-## Pièges fréquents
+| Sujet | MBR, scénario « legacy » | GPT |
+|---|---|---|
+| Structure | Secteur initial avec code d’amorçage, quatre entrées et signature | En-têtes et tableaux de partitions avec identifiants GUID |
+| Organisation | Partitions primaires, éventuelle partition étendue contenant les logiques | Entrées de partitions sans structure primaire/étendue équivalente |
+| Limites | Dépendent notamment de l’adressage et de la taille des secteurs | Capacités et nombre d’entrées bien plus importants |
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+## Se tester sans regarder
 
-## Checklist de maîtrise
 
-- [ ] Identifier disques, partitions et tables de partition.
-- [ ] Créer et contrôler une partition.
-- [ ] Distinguer périphérique, partition, système de fichiers et point de montage.
-- [ ] Sauvegarder les informations avant une modification destructive.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+1. Que fait `q` avant l’écriture ?
+2. Le type `8e` formate-t-il une partition ?
+3. Pourquoi vérifier taille et identité du disque, en plus du nom `/dev/sdb` ?
 
-## Questions flash
+??? success "Réponses"
+    1. Il abandonne les modifications en attente.
+    2. Non : c’est un type de partition MBR.
+    3. L’ordre de détection peut changer et le nom seul ne prouve pas que c’est le bon disque.
 
-1. Quels sont les concepts indispensables de « Gestion des espaces de stockage » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage.md).
+## Contrôle de maîtrise
+
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
+
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-07-gestion-des-espaces-de-stockage.md) · [TP du parcours](../../tp/administration-linux/index.md).

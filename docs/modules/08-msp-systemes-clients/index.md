@@ -1,21 +1,11 @@
-# Mise en situation professionnelle — Systèmes clients
+# MSP Systèmes clients
 
-Mobiliser les compétences Windows, Debian, réseau, stockage, scripts, bureautique, sécurité et documentation dans un cas complet.
+Mettre en place et documenter une maquette Windows et Debian : réseau, identités, stockage, permissions, impression, accès distant, sauvegardes et tableur.
 
-<div class="tssr-index-meta"><span>Étape 08 / 09</span><strong>27 → 31 juillet 2026</strong><span>CHAUSSIER Alexandre</span><a href="../../parcours/08-msp-systemes-clients/">Voir dans le parcours →</a></div>
+Le dossier de travail rassemble un énoncé de 14 pages, une note historique sur les mots de passe de 11 pages physiques, un ancien modèle de 143 pages, une solution adaptée de 27 pages et vingt ressources texte, scripts ou classeurs. Les versions divergentes restent identifiées. La solution adaptée guide la résolution, l’énoncé fixe les exigences.
 
-!!! warning "Périmètre et versions"
-    Le dossier contient un énoncé, un ancien modèle de correction et une solution consolidée plus récente. Le portail sépare strictement l’énoncé de la correction, privilégie les scripts consolidés et ne publie aucun secret en clair.
+- [Module complet — cours Original et Optimisé IA](module-01-msp-systemes-clients.md)
+- [Travaux pratiques](../../tp/msp/module-01/index.md)
+- [Fiche de révision](../../revision/msp/module-01-msp-systemes-clients.md)
 
-## Progression officielle
-
-| Module | Intitulé | Accès |
-|---|---|---|
-| Module 01 | MSP Systèmes clients | [Cours](module-01-msp-systemes-clients.md) |
-
-## Accès complémentaires
-
-- [Travaux pratiques](../../tp/msp/index.md)
-- [Fiches de révision](../../revision/msp/index.md)
-- [Commandes](../../commandes/index.md)
-- [Dépannage](../../troubleshooting/index.md)
+Les documents Original sont retranscrits en pages Web. Les fichiers binaires, les valeurs d’accès nominatives et les liens privés Drive ne sont pas publiés.

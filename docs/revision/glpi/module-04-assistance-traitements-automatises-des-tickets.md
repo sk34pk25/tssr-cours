@@ -1,39 +1,23 @@
-# Fiche de révision — Module 04 — Assistance — Traitements automatisés des tickets
+# Révision — Module 04 — Assistance — Traitements automatisés des tickets
 
-## À connaître absolument
+## Automatiser les tickets
 
-- Configurer catégories et gabarits de tickets.
-- Créer des règles métiers avec critères et actions.
-- Définir calendriers, SLM, SLA et escalades.
-- Tester l’ordre de traitement sur des tickets représentatifs.
+Catégories → gabarits → calendriers/SLA → escalades → règles métier → tickets de test.
 
-## Méthode express
+## À expliquer sans le support
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+Le gabarit structure le formulaire ; la règle configure l’affectation ; leSLAfixe un délai calculé selon calendrier ; l’escalade agit à une échéance. Combiner les catégories parOU et imposer le type parET.
 
-## Pièges fréquents
+## Mise en situation
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
 
-## Checklist de maîtrise
+## Question rapide
 
-- [ ] Configurer catégories et gabarits de tickets.
-- [ ] Créer des règles métiers avec critères et actions.
-- [ ] Définir calendriers, SLM, SLA et escalades.
-- [ ] Tester l’ordre de traitement sur des tickets représentatifs.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Un ticket Serveur de type Demande doit-il recevoir le SLA Incident Serveur ?
 
-## Questions flash
+??? success "Réponse"
+    Non. C’est un cas d’exclusion à tester.
 
-1. Quels sont les concepts indispensables de « Assistance — Traitements automatisés des tickets » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md).
+- [Cours](../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
+- [TP](../../tp/glpi/module-04/index.md)

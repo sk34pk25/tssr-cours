@@ -1,39 +1,30 @@
 # Mémo — LVM Debian
 
-**Sources originales (A) :** support et solution M08TP01 Drive. **Mémo (B) :** sélection structurée des commandes présentes dans les sources.
+**Synthèse du support et du TP du module 8 ; compléments de méthode signalés dans le cours.**
 
-## Chaîne à contrôler
+| Couche | Rôle | Observation |
+|---|---|---|
+| PV | Périphérique préparé pour LVM | `pvs`, `pvdisplay` |
+| VG | Réserve d’extents provenant des PV | `vgs`, `vgdisplay` |
+| LV | Capacité logique allouée dans le VG | `lvs`, `lvdisplay` |
+| Système de fichiers | Organisation des fichiers dans le LV | `lsblk -f`, `df -h` |
+| Montage | Insertion dans l’arborescence | `findmnt` |
 
-```text
-partition Linux LVM → PV → VG → LV
-```
+## Séquence du laboratoire
 
-```bash
-pvs
-vgs
-lvs
-```
-
-Ces trois commandes servent à relever l’état des volumes physiques, groupes de volumes et volumes logiques avant et après l’exercice.
-
-## Commandes du scénario M08
+Identifier d’abord le disque ajouté et le VG existant. Les noms ci-dessous sont ceux d’un exemple de correction, à vérifier sur la VM.
 
 ```bash
-pvcreate /dev/<partition-lvm>
-vgextend <VG> /dev/<partition-lvm>
-lvcreate -n lvvar -L 20G <VG>
-lvextend -l 100%FREE /dev/<VG>/<LV>
+pvcreate /dev/sdb1
+vgextend vgsystem /dev/sdb1
+lvcreate -n lvvar -L 20G vgsystem
+lvextend -l +100%FREE /dev/vgsystem/lvhome
 ```
 
-Le scénario source utilise `fdisk` pour créer une partition et lui attribuer le type `8e` (Linux LVM). Les noms de disque, de groupe et de volume doivent être relevés sur la VM de laboratoire : ils ne sont pas universels.
+Le TP ajoute un disque de 40 Go, prépare une partition LVM, crée lvvar de 20 Go et attribue le reste à lvhome. `+100%FREE` consomme tous les extents libres du groupe visé. Sans adaptation du système de fichiers, la nouvelle capacité du LV n’est pas encore utilisable par ses fichiers.
 
-## Détection du disque de laboratoire
+`-L +512M` ajoute 512 Mio ; `-L 1G` vise une taille finale de 1 Gio. L’option `-r` demande une adaptation du système de fichiers lorsque celle-ci est prise en charge ; ne pas supposer qu’elle appelle toujours le même outil.
 
-```bash
-udevadm info --query=path --name=sda
-echo "- - -" > /sys/class/scsi_host/host<numero>/scan
-```
+Une réduction nécessite de traiter le système de fichiers avant de retirer l’espace du LV. La possibilité et la procédure dépendent du format ; ne pas inverser simplement une commande d’extension.
 
-La seconde commande déclenche un scan SCSI du `host` identifié dans le laboratoire ; elle ne doit être utilisée qu’après avoir vérifié le périphérique et le contexte de la VM.
-
-Voir le [TP M08](../tp/administration-linux/module-08/index.md) et le [cours](../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md).
+[Cours complet](../modules/05-administration-debian-gnu-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md) · [TP LVM](../tp/administration-linux/module-08/index.md) · [TP systèmes de fichiers](../tp/administration-linux/module-09/index.md).

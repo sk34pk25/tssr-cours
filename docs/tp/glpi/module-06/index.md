@@ -1,20 +1,16 @@
 # TP — Module 06 — Plug-ins et inventaire
 
-## Organisation
+Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.
 
-Les réponses restent séparées des questions. Commencer par l’énoncé, conserver les preuves de vérification, puis consulter la correction seulement après une tentative complète.
+- [Énoncé complet](enonces.md)
+- [Correction expliquée](corrections.md)
+- [Cours](../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)
 
-- [ ] Préparer l’environnement et un retour arrière.
-- [ ] Lire l’énoncé en entier.
-- [ ] Noter l’état initial.
-- [ ] Réaliser les manipulations.
-- [ ] Vérifier chaque résultat.
-- [ ] Comparer avec la correction.
-- [Énoncés](enonces.md)
-- [Corrections](corrections.md)
-- [Cours du module](../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)
+## Ressources du scénario
 
-## Ressources
+du scénario
+
+du scénario
 
 - [modèle excel data injection gabarit vide.csv](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-vide-csv.csv)
 - [modèle excel data injection gabarit vide.xlsx](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-vide-xlsx.xlsx)

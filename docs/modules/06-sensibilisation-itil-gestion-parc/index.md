@@ -5,7 +5,7 @@ Comprendre la gestion des services, le cycle de vie ITIL étudié et son applica
 <div class="tssr-index-meta"><span>Étape 09 / 09</span><strong>3 → 7 août 2026</strong><span>CHAUSSIER Alexandre</span><a href="../../parcours/09-itil-gestion-parc/">Voir dans le parcours →</a></div>
 
 !!! warning "Périmètre et versions"
-    La progression suit principalement les publications du cycle de vie ITIL v3, complétées par une introduction à ITIL 4. Cette structure historique est conservée car elle constitue l’ordre officiel des supports.
+    La progression suit principalement les publications du cycle de vie ITIL v3, complétées par une introduction à ITIL 4. Cette structure historique est conservée pour suivre les supports. Le module 01 distingue ce périmètre du référentiel et des certifications actuels, notamment ITIL (Version 5).
 
 ## Progression officielle
 
@@ -27,3 +27,8 @@ Comprendre la gestion des services, le cycle de vie ITIL étudié et son applica
 - [Fiches de révision](../../revision/itil/index.md)
 - [Commandes](../../commandes/index.md)
 - [Dépannage](../../troubleshooting/index.md)
+- [Approfondir l’administration de GLPI](../07-administration-glpi/index.md)
+
+## Documents et exercices disponibles
+
+Les neuf modules réunissent 17 documents et 145 pages sources : 9 supports, 4 énoncés et 4 corrections. Les TP progressent sur le même cas d’arrivée d’un salarié : stratégie, conception, transition puis exploitation avec GLPI. Chaque correction est séparée de son énoncé.

@@ -1,5 +1,7 @@
 # Révisions — Administration Debian GNU/Linux
 
+Douze fiches pour vérifier les distinctions et les commandes avant les manipulations. Les corrections des formulations historiques sont expliquées dans les cours complets.
+
 - [Module 01 — Présentation de Debian GNU/Linux](module-01-presentation-de-debian-gnu-linux.md)
 - [Module 02 — Installation d’une distribution Debian](module-02-installation-d-une-distribution-debian.md)
 - [Module 03 — Démarrage d’une distribution Debian](module-03-demarrage-d-une-distribution-debian.md)
@@ -12,3 +14,7 @@
 - [Module 10 — Gestion des utilisateurs et groupes](module-10-gestion-des-utilisateurs-et-groupes.md)
 - [Module 11 — Droits sur les fichiers et répertoires](module-11-droits-sur-les-fichiers-et-repertoires.md)
 - [Module 12 — Maintenance d’un système en production](module-12-maintenance-d-un-systeme-en-production.md)
+
+[Travaux pratiques](../../tp/administration-linux/index.md) · [Cours complet](../../modules/05-administration-debian-gnu-linux/index.md).
+
+[Quiz interne — 12 questions](../../exercices/quiz-administration-debian.md).

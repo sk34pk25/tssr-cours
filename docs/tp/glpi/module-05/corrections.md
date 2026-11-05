@@ -1,168 +1,96 @@
-# Corrections — Module 05 — Les bases de MySQL et MariaDB
+# TP 05 — Correction expliquée des requêtes SQL
 
-!!! warning
-    Une correction décrit le contexte du laboratoire. Comparer la logique et les contrôles avant de reprendre une valeur, une version ou un chemin dans un autre environnement.
+Les requêtes suivent les douze demandes du support, dans l’ordre. Les identifiants2(modèle 24 ports) et3(gabarit de demande) sont ceux du laboratoire source. Les contrôler dans sa base ; ils ne sont pas universels. Les sorties illustrées dépendent des données effectivement saisies aux modules précédents.
 
-## M5 - Soution du TP - Requêtes SQL
+## 1. Connexion et repérage
 
-### GLPI
+```bash
+mysql -u root -p
+```
 
-#### Requêtes SQL
+```sql
+SHOW DATABASES;
+CONNECT glpidata;
+SHOW TABLES;
+```
 
-#### TP du Module 5 — Les bases de MySQL/MariaDB
+## 2. Calendriers, utilisateurs et langue
 
-Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
+```sql
+SELECT * FROM glpi_calendars;
+SELECT name, firstname FROM glpi_users;
+SELECT name FROM glpi_users WHERE language = 'en_GB';
+```
 
-- Comprendre le fonctionnement des requêtes MySQL.
+La consigne appelle « noms et prénoms » ce que le corrigé extrait par `name, firstname` ; `name` est ici l’identifiant de connexion. Pour rechercher le patronyme réel, examiner aussi la colonne `realname` du schéma utilisé. La capture du support montre17lignes d’utilisateurs,3 calendriers et les comptes initiaux en anglais ; ce sont des exemples, pas des nombres imposés au TP.
 
-#### Prérequis
+## 3. Catégories enfants
 
-- Avoir fini les TP des modules précédents.
+```sql
+SELECT name, completename
+FROM glpi_itilcategories
+WHERE completename <> name;
+```
 
-#### Contexte :
+Une autre solution du support utilise `level > 1` ; vérifier la convention de niveau dans les données. L’accent de `glpi_itilcatégories` dans le PDF est une coquille : le nom utilisé par la capture est sans accent.
 
-- Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis
+## 4. Commutateurs24 ports qui ne sont pas des gabarits
 
-quelque temps et votre DSI vous demande des informations à extraire dans la base de données directement. Des images de correction sont disponibles dans les ressources.
+```sql
+SELECT name
+FROM glpi_networkequipments
+WHERE is_template = 0
+  AND networkequipmentmodels_id = 2;
+```
 
-#### Principales tâches à réaliser
+Les deux conditions sont nécessaires. La capture montre quatre résultats ; le TP 3 demande six exemplaires. Le résultat de votre base doit refléter votre réalisation complète, sans supprimer les deux exemplaires supplémentaires pour imiter la capture.
 
-Connexion à la base de données en ligne de commande de votre serveur GLPI
+## 5. Compter les niveaux de service
 
-- Connectez-vous en Shell à votre base de données de GLPI avec le compte root que
+```sql
+SELECT COUNT(*) AS nb_de_SLMs
+FROM glpi_slms;
+```
 
-#### vous avez configuré lorsque vous avez effectué la commande
+Le corrigé fait `COUNT(name)`, qui ne compte que les noms nonNULL. `COUNT(*)` compte les lignes. La capture source obtient3SLM.
 
-`mysql_secure_installation.`
+## 6. Retrouver le nom maximal du modèle 24 ports
 
-`mysql -u root -p`
+```sql
+SELECT MAX(name)
+FROM glpi_networkequipments
+WHERE networkequipmentmodels_id = 2;
+```
 
-- Affichez toutes les bases de données présentes dans votre serveur MariaDB.
+Le PDF colle `FROM` au nom de table ; les espaces sont rétablis ici. `MAX(name)` compare des chaînes. Il suit l’ordre numérique attendu seulement si les suffixes sont de largeur fixe (`0001` à`0006`). La capture s’arrête à`0004`, car ses données ne contiennent que quatre exemplaires.
 
-`show databases;`
+## 7. Bonus : catégories et gabarits de demande
 
-Attention, ne pas oublier le ; à chaque fin de ligne.
+```sql
+SELECT c.name AS categorie, t.name AS gabarit
+FROM glpi_itilcategories AS c
+INNER JOIN glpi_tickettemplates AS t
+    ON c.tickettemplates_id_demand = t.id;
+```
 
-- Connectez-vous à la base de données glpidata puis affiche z toutes les tables
+La jointure élimine les catégories sans gabarit correspondant. Le corrigé ajoute `WHERE ... = 3` pour son seul gabarit Demande Bureautique. Conserver cette restriction uniquement si elle correspond à la question dans votre base.
 
-présentes. connect glpidata;
+## 8. Bonus : nombre de catégories par gabarit
 
-`show tables;`
+```sql
+SELECT t.name AS gabarit,
+       COUNT(*) AS `nombre de catégories qui utilise un gabarit de demande`
+FROM glpi_itilcategories AS c
+INNER JOIN glpi_tickettemplates AS t
+    ON c.tickettemplates_id_demand = t.id
+GROUP BY t.id, t.name;
+```
 
-- Affichez tous les attributs de la table des calendriers.
+Le regroupement rend explicite le comptage par gabarit ; la requête source mêle agrégat et nom sans `GROUP BY`. Ajouter si besoin un filtre `WHERE t.id = 3` avant le regroupement. Vérifier le résultat par la liste détaillée précédente : chaque catégorie comptée doit y être présente.
 
-`select * from glpi_calendars;`
+## Erreurs de source corrigées
 
-- Affichez les noms et prénoms des utilisateurs de GLPI.
+Prompts non exécutables retirés, apostrophes typographiques remplacées, nom `glpi_itilcategories` sans accent, `FROM glpi_networkequipments` séparé, nombres utilisés comme nombres et regroupement du dernier agrégat ajouté. L’Original conserve les formulations et commandes historiques.
 
-`select name, firstname from glpi_users;`
-
-- Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).
-
-`select name from glpi_users where language=’en_GB’;`
-
-- Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.
-
-  - Indice : utiliser un comparateur.
-
-`select name, completename from glpi_itilcatégories where`
-
-completename&lt;&gt;name;
-
-#### Ou
-
-`select name, completename from glpi_itilcatégories where level &gt; ‘1’;`
-
-- Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au
-
-modèle GAB-JL356A-ARUBA-2540-24P.
-
-  - Indices :
-
-- Utiliser les sélections complexes.
-- Is_template à 1 est un gabarit.
-- GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.
-
-`select n ame from glpi_networkequipments where is_template=’0’ and`
-
-networkequipmentmodels_id=’2’;
-
-- Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.
-
-  - Indice : utiliser un alias.
-
-`select count(name) as nb_de_SLMs from glpi_slms;`
-
-- Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports.
-
-  - Indice : utiliser une fonction d’agrégation.
-
-`select MAX(name) from_glpinetworkequipments where`
-
-networkequipmentmodels_id=’2’;
-
-#### BONUS
-
-- Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est
-
-utilisé pour une demande dans les catégories de ticket.
-
-  - Indice : utiliser une jointure interne.
-
-Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul qui est de type demande rattaché à une catégorie.
-
-#### Une solution :
-
-`SELECT glpi_tickettemplates.name, glpi_itilcategories.name from`
-
-#### glpi_tickettemplates INNER JOIN glpi_itilcategories ON
-
-#### glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
-
-where glpi_itilcategories.tickettemplates_id_demand=’3’;
-
-#### BONUS
-
-- Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en -
-
-tête « nombre de catégories qui utilise un gabarit de demande ».
-
-`SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui`
-
-#### utilise un gabarit de demande’, glpi_tickettemplates.name from
-
-#### glpi_tickettemplates INNER JOIN glpi_itilcategories ON
-
-#### glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
-
-where glpi_itilcategories.tickettemplates_id_demand=’3’;
-
-## Captures de référence
-
-### afficher les calendriers.png
-
-![afficher les calendriers.png](../../../assets/images/glpi/module-05/afficher-les-calendriers-png.png)
-### afficher switch non gabarit et du gab 24P.png
-
-![afficher switch non gabarit et du gab 24P.png](../../../assets/images/glpi/module-05/afficher-switch-non-gabarit-et-du-gab-24p-png.png)
-### connection à la bdd et affichage des tables.png
-
-![connection à la bdd et affichage des tables.png](../../../assets/images/glpi/module-05/connection-a-la-bdd-et-affichage-des-tables-png.png)
-### connection et affichage bdd.png
-
-![connection et affichage bdd.png](../../../assets/images/glpi/module-05/connection-et-affichage-bdd-png.png)
-### nb_de_SLMs.png
-
-![nb_de_SLMs.png](../../../assets/images/glpi/module-05/nb-de-slms-png.png)
-### nom complément de nom de catégorie enfant.png
-
-![nom complément de nom de catégorie enfant.png](../../../assets/images/glpi/module-05/nom-complement-de-nom-de-categorie-enfant-png.png)
-### nom des users en anglais.png
-
-![nom des users en anglais.png](../../../assets/images/glpi/module-05/nom-des-users-en-anglais-png.png)
-### nom et prenom des utilisateurs.png
-
-![nom et prenom des utilisateurs.png](../../../assets/images/glpi/module-05/nom-et-prenom-des-utilisateurs-png.png)
-### numéro max du switch 24P.png
-
-![numéro max du switch 24P.png](../../../assets/images/glpi/module-05/numero-max-du-switch-24p-png.png)
+- [Énoncé](enonces.md)
+- [Cours](../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)

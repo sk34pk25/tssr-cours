@@ -1,48 +1,38 @@
 # Fiche de révision — Module 06 — Gestion des paquets logiciels
 
-**Sources originales (A) :** support et TP M06 TSSR. **Fiche (B) :** synthèse reformulée.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## Repères
+## Repère essentiel
 
-- `deb` référence des binaires, `deb-src` des sources ; les dépôts sont déclarés dans `sources.list` ou `sources.list.d`.
-- `apt update` télécharge les index ; `apt upgrade` met à niveau sans suppression ; `full-upgrade` peut adapter les dépendances.
-- `dpkg` interroge les paquets locaux et ne résout pas seul les dépendances distantes.
-- Vérifier la branche, la liste de changements et le résultat avant de considérer l'opération terminée.
+Le support reprend stable, testing, unstable/Sid, oldstable et oldoldstable. Experimental est un ensemble de paquets expérimentaux, pas un système complet autonome. Un serveur de production se rattache à une version choisie et à sa politique de maintenance.
 
-## À connaître absolument
+## Tableau de mémorisation
 
-- Distinguer dpkg, apt et dépôts.
-- Rechercher, installer, mettre à jour et supprimer un paquet.
-- Lire les métadonnées et journaux de paquets.
-- Éviter d’utiliser apt comme interface de script stable.
+| Élément | Sens |
+|---|---|
+| `deb` | Paquets binaires ; `deb-src` concerne leurs sources |
+| URI | Emplacement du dépôt : HTTP, fichier local, média… |
+| `bookworm` | Suite ou nom de code ciblé |
+| `main contrib` | Composants à consulter |
 
-## Méthode express
+## Se tester sans regarder
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
 
-## Pièges fréquents
+1. Quelle commande remplace `apt-get search` ?
+2. `dpkg -l` interroge-t-il tout le dépôt distant ?
+3. Pourquoi ne pas copier les lignes Bookworm sur un serveur Bullseye sans préparation ?
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+??? success "Réponses"
+    1. `apt-cache search` ou `apt search`.
+    2. Non, la base locale.
+    3. Cela change la version visée et engage une migration majeure.
 
-## Checklist de maîtrise
 
-- [ ] Distinguer dpkg, apt et dépôts.
-- [ ] Rechercher, installer, mettre à jour et supprimer un paquet.
-- [ ] Lire les métadonnées et journaux de paquets.
-- [ ] Éviter d’utiliser apt comme interface de script stable.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+## Contrôle de maîtrise
 
-## Questions flash
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
 
-1. Quels sont les concepts indispensables de « Gestion des paquets logiciels » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels.md).
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-06-gestion-des-paquets-logiciels.md) · [TP du parcours](../../tp/administration-linux/index.md).

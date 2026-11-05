@@ -1,196 +1,38 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M09 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M09 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
-<h4>GNU/Linux</h4>
-<h4>Module 09 – Gestion des espaces de stockage – File System</h4></section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Objectifs</h4>
-<h4>• Découvrir des systèmes de fichiers Linux<br>• Appliquer des FS sur l’espace de stockage<br>• Gérer les systèmes de fichiers<br>• Monter les systèmes de fichiers</h4>
-<h4>Préparer le stockage à recevoir des données</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<!DOCTYPE html>
 
-</section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Considérations <br>générales sur les <br>systèmes de fichiers</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
-<h4>Considérations générales</h4>
-<p class="tssr-source-paragraph">• Tous les systèmes de fichiers de type Unix sont basés sur le <br>même principe et les mêmes éléments élémentaires. Les <br>systèmes de fichiers Unix sont segmentés en blocs de données, <br>actuellement à 4 Ko par défaut<br>• Chaque bloc pourra avoir différentes structures :<br>• Superbloc : bloc contenant les informations vitales du système de fichiers<br>• Inode : bloc contenant les inodes contenant les informations d’un fichier<br>• Bloc d’indirection : bloc redirigeant vers d’autres blocs (cf. plus loin dans <br>ce chapitre)<br>• Bloc de données : bloc contenant les données réelles du fichier<br>• Table des inodes : bloc contenant la liste des blocs d’inodes<br>• Table des inodes libres : bloc contenant la liste des inodes libres<br>• Table des blocs libres : bloc contenant la liste des blocs de données libres</p>
-</section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
-<h4>Le Superbloc</h4>
-<p class="tssr-source-paragraph">• Le superbloc contient les informations vitales du système de <br>fichiers. Donc par mesure de sécurité, il est dupliqué à différents <br>endroits du système de fichiers. Il contient les informations <br>suivantes :</p>
-<p class="tssr-source-paragraph">• Taille des blocs<br>• Taille du système de fichiers<br>• Nombre de montages effectués<br>• Nombre maximum de montages avant vérification<br>• Date de dernier montage<br>• Intervalle maximum entre deux montages avant vérification<br>• Un pointeur vers l’inode racine du système de fichier</p>
-</section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
-<h4>Inodes et bloc d’indirection</h4>
-<p class="tssr-source-paragraph">• Les inodes sont regroupés par bloc dans un système de fichiers. <br>La taille d’un inode est de 128 octets. Avec des blocs de 4 Ko, il y <br>aura 32 inodes par bloc d’inodes. Un inode contient des <br>informations propres au fichier qu’il représente :</p>
-<p class="tssr-source-paragraph">• Type de fichier : -,d,b,c,l,p,s<br>• Mode ou droit d’accès : en octal, ex : 0644 (rw-r--r--)<br>• Nombre de liens physiques : si la valeur tombe à zéro, le fichier est considéré <br>comme supprimé.<br>• UID : propriétaire<br>• GID : groupe propriétaire</p>
-</section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Considérations générales sur les systèmes de fichiers</h4>
-<h4>Inodes et bloc d’indirection</h4>
-<p class="tssr-source-paragraph">• Taille du fichier : en octets<br>• Champs date : atime (dernier accès au fichier), ctime (dernier changement <br>des informations de l’inode), mtime (dernier changement de données réelles <br>du fichier)<br>• 15 adresses : pointant vers les blocs de données réelles du fichier</p>
-<h4>L’inode ne possède pas le nom du fichier, celui-ci est renseigné <br>dans le répertoire contenant ce fichier.</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p><p>À =</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Systèmes de fichiers </h4>
-<h4>Linux</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Systèmes de fichiers Linux</h4>
-<h4>Systèmes de fichiers EXT</h4>
-<p class="tssr-source-paragraph">• L’ext2, l’ext3 et l’ext4 sont implémentés sur un système Debian<br>• La différence entre ext2 et ext3 est la journalisation, améliorant la <br>récupération du système de fichier en cas de crash (extinction <br>brutale du PC par exemple)<br>• Le système de fichier ext4 est une amélioration de l’ext3 mais <br>réécrit de zéro<br>• ext4 est le système de fichier par défaut sur Debian 10.<br>• Son avantage est qu’il est peu sujet à la fragmentation grâce à la <br>préallocation des blocs de données contigus</p>
-</section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Systèmes de fichiers Linux</h4>
-<h4>Systèmes de fichiers EXT</h4>
-<p class="tssr-source-paragraph">Caractéristiques :<br>• Taille maximale de fichier : <br> <br>16 Tio (avec des blocs de 4 Ko)<br>• Nombre maximal de fichiers : <br> <br>4 milliards<br>• Taille maximale du nom de fichier : <br>255 octets<br>• Taille maximale de volume : <br> <br>1 Eio (limité à 16 Tio par <br> <br> <br> <br> <br> <br> <br>e2fsprogs avec des blocs de <br> <br> <br> <br> <br> <br>4 Ko)<br>• D’autres systèmes de fichiers sont gérés sous Debian, entre autres : <br>NTFS, FAT</p>
-<h4>• Il est bien sûr possible d’installer d’autres outils de gestion de <br>systèmes de fichiers comme XFS, Btrfs, etc.</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Outils de gestion des </h4>
-<h4>systèmes de fichiers</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Création de systèmes de fichiers</h4>
-<pre class="tssr-source-code">• Le formatage va installer sur un périphérique de stockage un 
-système de fichier. Sans un système de fichier, le périphérique de 
-stockage est inutilisable
-• Un périphérique de stockage peut être une partition (ex: /dev/sdc1) 
-ou un volume logique (ex : /dev/vgsys/lvroot ou /dev/mapper/vgsys-
-lvhome)</pre>
-<h4>ext4<br>ext4<br>ext4</h4>
-<h4>/dev/sdc<br>vgsys<br>lvroot<br>lvhome<br>/dev/sdc1</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>[2<br>|</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Création de systèmes de fichiers</h4>
-<pre class="tssr-source-code">• mkfs.[fstype] &lt;options&gt; [périphérique de stockage]</pre>
-<pre class="tssr-source-code">• mkfs.[fstype]est une commande simplifiant la mémorisation des 
-commandes de création de systèmes de fichiers. C’est en fait une 
-fausse commande qui fait appel à la vraie commande de création
-• Exemple : mkfs.ext4 est la commande mke2fs avec des options 
-préconfigurées pour générer de l’ext4</pre>
-<h4>• Pour savoir quelle est la commande utilisée par un mkfs.[fstype], il <br>suffit de consulter la commande man mkfs.[fstype]</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Création de systèmes de fichiers</h4>
-<h4>• Création d’un système de fichiers ext4 sur partition /dev/sda2</h4>
-<pre class="tssr-source-code">root@deb:~# mkfs.ext4 /dev/sda2</pre>
-<h4>• Création d’un système de fichiers ext4 sur volume logique lv1</h4>
-<pre class="tssr-source-code">root@deb:~# mkfs.ext4 /dev/vggroup1/lv1</pre>
-<h4>• Création d’un système de fichiers NTFS (nécessite le paquet ntfs-3g)</h4>
-<pre class="tssr-source-code">root@deb:~# mkfs.ntfs /dev/sde1</pre>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Modification de systèmes de fichiers</h4>
-<pre class="tssr-source-code">• tune2fs &lt;options&gt; [périphérique de stockage]</pre>
-<h4>• tune2fs permet de modifier des options d’un système de fichiers type ext</h4>
-<h4>• Il permet aussi de récupérer les informations du superbloc</h4>
-<pre class="tssr-source-code">• Options usuelles 
-•
--L permet de modifier l’étiquette du système de fichiers
-•
--l permet d’afficher les informations du superbloc
-•
--i permet de modifier l’intervalle entre deux vérifications
-•
--c permet de modifier le nombre maximum de montages déclenchant une 
-vérification</pre>
-<pre class="tssr-source-code">• resize2fs &lt;options&gt; [périphérique de stockage]</pre>
-<h4>• resize2fs permet de changer la taille d’un système de fichiers</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Vérification d’un système de fichiers</h4>
-<pre class="tssr-source-code">• fsck.&lt;fstype&gt; &lt;options&gt; [périphérique de stockage]</pre>
-<h4>• La vérification d’un système de fichiers permet de contrôler l’intégrité des données <br>présentes sur celui-ci</h4>
-<h4>• Il est possible de le faire manuellement tout comme il est possible de l’automatiser <br>au démarrage</h4>
-<h4>• Comme pour les commandes de formatage, la vérification peut facilement se faire <br>avec les commandes fsck.&lt;fstype&gt;</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Prise d’information</h4>
-<pre class="tssr-source-code">• blkid &lt;options&gt; [périphérique de stockage]</pre>
-<pre class="tssr-source-code">• La commande blkid permet d’afficher les informations relatives à un 
-périphérique particulier. Sans argument, elle affichera les informations relatives à 
-tous les périphériques formatés</pre>
-<pre class="tssr-source-code">root@deb:~# blkid
-/dev/sda1: UUID=&quot;32a0cf22-91d5&quot; TYPE=&quot;ext2&quot; PARTUUID=&quot;732e6aa1-01&quot;
-/dev/sda5: UUID=&quot;VDfsmc-gci2&quot; TYPE=&quot;LVM2_member&quot; PARTUUID=&quot;732e6aa1&quot;
-/dev/sr0: UUID=&quot;2021&quot; LABEL=&quot;Deb10&quot; TYPE=&quot;iso9660 PTUUID=&quot;49506c1e&quot; PTTYPE=&quot;dos&quot;
-/dev/mapper/vgsys-lvroot: UUID=&quot;bffe9183-34a3&quot; TYPE=&quot;ext4&quot;
-/dev/mapper/vgsys-lvswap_1: UUID=&quot;d5d6cc72-21ed&quot; TYPE=&quot;swap&quot;</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>pO</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Prise d’information</h4>
-<pre class="tssr-source-code">• lsblk &lt;options&gt; [périphérique de stockage]</pre>
-<pre class="tssr-source-code">• La commande lsblk permet d’afficher sous forme arborescente les 
-informations relatives aux périphériques et aux systèmes de fichiers</pre>
-<pre class="tssr-source-code">root@deb:~# lsblk
-NAME 
- 
-MAJ:MIN RM 
-SIZE 
-RO 
-TYPE 
-MOUNTPOINT
-sda  
- 
-8:0 
-  0 
-20G 
-0 
-disk
-├─sda1 
- 
-8:1 
-  0 
-243M 
-0 
-part 
-/boot
-├─sda2 
- 
-8:2 
-  0 
-1K 
-0 
-part
-└─sda5 
- 
-8:5 
-  0 
-19,8G 0 
-part
-├─vgsys-lvroot 
-254:0    0 
-17,8G 0 
-lvm 
-/
-└─vgsys-lvswap 
-254:1    0 
-2G 
-0 
-lvm 
-[SWAP]
-sr0  
- 
-11:0 
-  1 
-3,4G 
-0 
-rom 
-/media/cdrom0</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ee<br>ene</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Prise d’information</h4>
-<pre class="tssr-source-code">root@deb:~# lsblk -f
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>RES24_0050B - M09 - Linux Administration (Debian)</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>RES24_0050B - M09 - Linux Administration (Debian)</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Administration Debian</h3><h3>GNU/Linux</h3><p>Module 09 – Gestion des espaces de stockage – File System</p></section>
+<section class="tssr-transcribed-page" id="page-2"><h2>Gestion des espaces de stockage – File System</h2><h3>Objectifs</h3><ul><li>Découvrir des systèmes de fichiers Linux</li><li>Appliquer des FS sur l’espace de stockage</li><li>Gérer les systèmes de fichiers</li><li>Monter les systèmes de fichiers</li></ul><p>Préparer le stockage à recevoir des données</p></section>
+<section class="tssr-transcribed-page" id="page-3"><h2>Gestion des espaces de stockage – File System</h2><h3>Considérations générales sur les systèmes de fichiers</h3></section>
+<section class="tssr-transcribed-page" id="page-4"><h2>Considérations générales</h2><ul><li>Tous les systèmes de fichiers de type Unix sont basés sur le même principe et les mêmes éléments élémentaires. Les systèmes de fichiers Unix sont segmentés en blocs de données, actuellement à 4 Ko par défaut</li><li>Chaque bloc pourra avoir différentes structures :</li><li>Superbloc : bloc contenant les informations vitales du système de fichiers</li><li>Inode : bloc contenant les inodes contenant les informations d’un fichier</li><li>Bloc d’indirection : bloc redirigeant vers d’autres blocs (cf. plus loin dans ce chapitre)</li><li>Bloc de données : bloc contenant les données réelles du fichier</li><li>Table des inodes : bloc contenant la liste des blocs d’inodes</li><li>Table des inodes libres : bloc contenant la liste des inodes libres</li><li>Table des blocs libres : bloc contenant la liste des blocs de données libres</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h2>Le Superbloc</h2><ul><li>Le superbloc contient les informations vitales du système de fichiers. Donc par mesure de sécurité, il est dupliqué à différents endroits du système de fichiers. Il contient les informations suivantes :</li><li>Taille des blocs</li><li>Taille du système de fichiers</li><li>Nombre de montages effectués</li><li>Nombre maximum de montages avant vérification</li><li>Date de dernier montage</li><li>Intervalle maximum entre deux montages avant vérification</li><li>Un pointeur vers l’inode racine du système de fichier</li></ul></section>
+<section class="tssr-transcribed-page" id="page-6"><h2>Inodes et bloc d’indirection</h2><ul><li>Les inodes sont regroupés par bloc dans un système de fichiers. La taille d’un inode est de 128 octets. Avec des blocs de 4 Ko, il y aura 32 inodes par bloc d’inodes. Un inode contient des informations propres au fichier qu’il représente :</li><li>Type de fichier : -,d,b,c,l,p,s</li><li>Mode ou droit d’accès : en octal, ex : 0644 (rw-r--r--)</li><li>Nombre de liens physiques : si la valeur tombe à zéro, le fichier est considéré comme supprimé.</li><li>UID : propriétaire</li><li>GID : groupe propriétaire</li></ul></section>
+<section class="tssr-transcribed-page" id="page-7"><h2>Inodes et bloc d’indirection</h2><ul><li>Taille du fichier : en octets</li><li>Champs date : atime (dernier accès au fichier), ctime (dernier changement des informations de l’inode), mtime (dernier changement de données réelles du fichier)</li><li>15 adresses : pointant vers les blocs de données réelles du fichier</li></ul><p>L’inode ne possède pas le nom du fichier, celui-ci est renseigné dans le répertoire contenant ce fichier.</p></section>
+<section class="tssr-transcribed-page" id="page-8"><h2>Gestion des espaces de stockage – File System</h2><h3>Systèmes de fichiers</h3><h3>Linux</h3></section>
+<section class="tssr-transcribed-page" id="page-9"><h2>Systèmes de fichiers EXT</h2><ul><li>L’ext2, l’ext3 et l’ext4 sont implémentés sur un système Debian</li><li>La différence entre ext2 et ext3 est la journalisation, améliorant la récupération du système de fichier en cas de crash (extinction brutale du PC par exemple)</li><li>Le système de fichier ext4 est une amélioration de l’ext3 mais réécrit de zéro</li><li>ext4 est le système de fichier par défaut sur Debian 10.</li><li>Son avantage est qu’il est peu sujet à la fragmentation grâce à la préallocation des blocs de données contigus</li></ul></section>
+<section class="tssr-transcribed-page" id="page-10"><h2>Systèmes de fichiers EXT</h2><p>Caractéristiques :</p><ul><li>Taille maximale de fichier :  16 Tio (avec des blocs de 4 Ko)</li><li>Nombre maximal de fichiers :  4 milliards</li><li>Taille maximale du nom de fichier : 255 octets</li><li>Taille maximale de volume :  1 Eio (limité à 16 Tio par       e2fsprogs avec des blocs de      4 Ko)</li><li>D’autres systèmes de fichiers sont gérés sous Debian, entre autres : NTFS, FAT</li><li>Il est bien sûr possible d’installer d’autres outils de gestion de systèmes de fichiers comme XFS, Btrfs, etc.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-11"><h2>Gestion des espaces de stockage – File System</h2><h3>Outils de gestion des</h3><h3>systèmes de fichiers</h3></section>
+<section class="tssr-transcribed-page" id="page-12"><h2>Création de systèmes de fichiers</h2><ul><li>Le formatage va installer sur un périphérique de stockage un système de fichier. Sans un système de fichier, le périphérique de stockage est inutilisable</li><li>Un périphérique de stockage peut être une partition (ex: /dev/sdc1) ou un volume logique (ex : /dev/vgsys/lvroot ou /dev/mapper/vgsys- lvhome) ext4 ext4 ext4</li></ul><h3>/dev/sdc vgsys lvroot lvhome /dev/sdc1</h3></section>
+<section class="tssr-transcribed-page" id="page-13"><h2>Création de systèmes de fichiers</h2><pre><code>• mkfs.[fstype] &lt;options&gt; [périphérique de stockage]</code></pre><ul><li>mkfs.[fstype]est une commande simplifiant la mémorisation des commandes de création de systèmes de fichiers. C’est en fait une fausse commande qui fait appel à la vraie commande de création</li><li>Exemple : mkfs.ext4 est la commande mke2fs avec des options préconfigurées pour générer de l’ext4</li><li>Pour savoir quelle est la commande utilisée par un mkfs.[fstype], il suffit de consulter la commande man mkfs.[fstype]</li></ul></section>
+<section class="tssr-transcribed-page" id="page-14"><h2>Création de systèmes de fichiers</h2><ul><li>Création d’un système de fichiers ext4 sur partition /dev/sda2</li></ul><pre><code>root@deb:~# mkfs.ext4 /dev/sda2</code></pre><ul><li>Création d’un système de fichiers ext4 sur volume logique lv1</li></ul><pre><code>root@deb:~# mkfs.ext4 /dev/vggroup1/lv1</code></pre><ul><li>Création d’un système de fichiers NTFS (nécessite le paquet ntfs-3g)</li></ul><pre><code>root@deb:~# mkfs.ntfs /dev/sde1</code></pre></section>
+<section class="tssr-transcribed-page" id="page-15"><h2>Modification de systèmes de fichiers</h2><pre><code>• tune2fs &lt;options&gt; [périphérique de stockage]</code></pre><ul><li>tune2fs permet de modifier des options d’un système de fichiers type ext</li><li>Il permet aussi de récupérer les informations du superbloc</li><li>Options usuelles</li><li>-L permet de modifier l’étiquette du système de fichiers</li><li>-l permet d’afficher les informations du superbloc</li><li>-i permet de modifier l’intervalle entre deux vérifications</li><li>-c permet de modifier le nombre maximum de montages déclenchant une vérification</li></ul><pre><code>• resize2fs &lt;options&gt; [périphérique de stockage]</code></pre><ul><li>resize2fs permet de changer la taille d’un système de fichiers</li></ul></section>
+<section class="tssr-transcribed-page" id="page-16"><h2>Vérification d’un système de fichiers</h2><pre><code>• fsck.&lt;fstype&gt; &lt;options&gt; [périphérique de stockage]</code></pre><ul><li>La vérification d’un système de fichiers permet de contrôler l’intégrité des données présentes sur celui-ci</li><li>Il est possible de le faire manuellement tout comme il est possible de l’automatiser au démarrage</li><li>Comme pour les commandes de formatage, la vérification peut facilement se faire avec les commandes fsck.&lt;fstype&gt;</li></ul></section>
+<section class="tssr-transcribed-page" id="page-17"><h2>Prise d’information</h2><pre><code>• blkid &lt;options&gt; [périphérique de stockage]</code></pre><ul><li>La commande blkid permet d’afficher les informations relatives à un périphérique particulier. Sans argument, elle affichera les informations relatives à tous les périphériques formatés</li></ul><pre><code>root@deb:~# blkid
+/dev/sda1: UUID="32a0cf22-91d5" TYPE="ext2" PARTUUID="732e6aa1-01"
+/dev/sda5: UUID="VDfsmc-gci2" TYPE="LVM2_member" PARTUUID="732e6aa1"
+/dev/sr0: UUID="2021" LABEL="Deb10" TYPE="iso9660 PTUUID="49506c1e" PTTYPE="dos"
+/dev/mapper/vgsys-lvroot: UUID="bffe9183-34a3" TYPE="ext4"
+/dev/mapper/vgsys-lvswap_1: UUID="d5d6cc72-21ed" TYPE="swap"</code></pre></section>
+<section class="tssr-transcribed-page" id="page-18"><h2>Prise d’information</h2><ul><li>lsblk &lt;options&gt; [périphérique de stockage]</li><li>La commande lsblk permet d’afficher sous forme arborescente les informations relatives aux périphériques et aux systèmes de fichiers.</li></ul><pre><code>root@deb:~# lsblk
+NAME                 MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                    8:0   0   20G  0 disk
+├─sda1                 8:1   0  243M  0 part /boot
+├─sda2                 8:2   0    1K  0 part
+└─sda5                 8:5   0 19,8G  0 part
+  ├─vgsys-lvroot     254:0   0 17,8G  0 lvm  /
+  └─vgsys-lvswap     254:1   0    2G  0 lvm  [SWAP]
+sr0                   11:0   1  3,4G  0 rom  /media/cdrom0</code></pre></section>
+<section class="tssr-transcribed-page" id="page-19"><h2>Prise d’information</h2><pre><code>root@deb:~# lsblk -f
 NAME 
  
 FSTYPE LABEL UUID 
@@ -235,59 +77,26 @@ sr0
  
 iso9660 Deb10 2021-02-16 
  
-/media/cdrom0</pre>
-
-</section>
-<section class="tssr-transcribed-page" id="page-20"><h3>Page 20</h3><h4>Outils de gestion des systèmes de fichiers</h4>
-<h4>Démo</h4>
-<h4>Les systèmes de fichiers</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-21"><h3>Page 21</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Monter des systèmes de </h4>
-<h4>fichiers</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-22"><h3>Page 22</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Montage d’un système de fichiers</h4>
-<p class="tssr-source-paragraph">• Sous un système d’exploitation Linux, comme tout est fichier, la <br>mise à disposition d’un système de fichier venant d’un espace de <br>stockage (partition, LVM, RAID, etc.) se fera en définissant un <br>répertoire comme point de montage<br>• Ce point de montage sera le chemin par lequel accéder aux <br>données du système de fichier<br>• Pour un montage temporaire d’un système de fichiers, il est <br>conseillé d’utiliser le répertoire /mnt. S’il faut  monter plusieurs <br>systèmes de fichiers de façon temporaire, il est possible de créer <br>des sous-répertoires dans /mnt, pour chacun des systèmes de <br>fichiers</p>
-</section>
-<section class="tssr-transcribed-page" id="page-23"><h3>Page 23</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Montage manuel avec mount</h4>
-<pre class="tssr-source-code">• mount &lt;options&gt; [périphérique source] [/point/de/montage]</pre>
-<pre class="tssr-source-code">• La commande mount permettra de mettre à disposition un système de fichiers dans un 
-répertoire</pre>
-<p class="tssr-source-paragraph">• Options possibles :<br>• -t [fstype] <br>Détermine le type de système de fichiers à monter<br>• -o [option] <br>Permet de définir différentes options séparées par une virgule<br>• sync/async <br>Active ou non l’utilisation de la mise en tampon en RAM des données <br> <br> <br>avant écriture dans le système de fichiers.<br>  <br> <br>Par défaut : async</p>
-</section>
-<section class="tssr-transcribed-page" id="page-24"><h3>Page 24</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Montage manuel avec mount</h4>
-<p class="tssr-source-paragraph">• Options possibles suite :<br>•<br>exec/noexec <br>Active la possibilité d’exécuter des fichiers <br> <br>  <br> <br>exécutables présents sur le système de fichiers. <br>  <br> <br>Par défaut : exec<br>•<br>ro/rw <br> <br>Monte le système de fichiers en lecture seule ou  <br>  <br> <br>en lecture/écriture. <br>  <br> <br>Par défaut : rw<br>•<br>suid/nosuid <br>Active la possibilité d’exécuter les binaires avec  <br>  <br> <br>l’interprétation du SUID positionné dessus. <br>  <br> <br>Par défaut : suid<br>•<br>remount <br>Permet de changer une ou des options de <br> <br>  <br> <br>montage sans démonter le système de fichiers.</p>
-</section>
-<section class="tssr-transcribed-page" id="page-25"><h3>Page 25</h3><h4>Monter des systèmes de fichiers<br>Montage manuel avec mount</h4>
-<pre class="tssr-source-code">root@deb:~# ls /mnt
+/media/cdrom0</code></pre></section>
+<section class="tssr-transcribed-page" id="page-20"><h2>Outils de gestion des systèmes de fichiers</h2><p>Démo</p><p>Les systèmes de fichiers</p></section>
+<section class="tssr-transcribed-page" id="page-21"><h2>Gestion des espaces de stockage – File System</h2><h3>Monter des systèmes de</h3><h3>fichiers</h3></section>
+<section class="tssr-transcribed-page" id="page-22"><h2>Montage d’un système de fichiers</h2><ul><li>Sous un système d’exploitation Linux, comme tout est fichier, la mise à disposition d’un système de fichier venant d’un espace de stockage (partition, LVM, RAID, etc.) se fera en définissant un répertoire comme point de montage</li><li>Ce point de montage sera le chemin par lequel accéder aux données du système de fichier</li><li>Pour un montage temporaire d’un système de fichiers, il est conseillé d’utiliser le répertoire /mnt. S’il faut  monter plusieurs systèmes de fichiers de façon temporaire, il est possible de créer des sous-répertoires dans /mnt, pour chacun des systèmes de fichiers</li></ul></section>
+<section class="tssr-transcribed-page" id="page-23"><h2>Montage manuel avec mount</h2><pre><code>• mount &lt;options&gt; [périphérique source] [/point/de/montage]</code></pre><ul><li>La commande mount permettra de mettre à disposition un système de fichiers dans un répertoire</li><li>Options possibles :</li><li>-t [fstype] Détermine le type de système de fichiers à monter</li><li>-o [option] Permet de définir différentes options séparées par une virgule</li><li>sync/async Active ou non l’utilisation de la mise en tampon en RAM des données   avant écriture dans le système de fichiers.   Par défaut : async</li></ul></section>
+<section class="tssr-transcribed-page" id="page-24"><h2>Montage manuel avec mount</h2><ul><li>Options possibles suite :</li><li>exec/noexec Active la possibilité d’exécuter des fichiers    exécutables présents sur le système de fichiers.   Par défaut : exec</li><li>ro/rw  Monte le système de fichiers en lecture seule ou   en lecture/écriture.   Par défaut : rw</li><li>suid/nosuid Active la possibilité d’exécuter les binaires avec   l’interprétation du SUID positionné dessus.   Par défaut : suid</li><li>remount Permet de changer une ou des options de    montage sans démonter le système de fichiers.</li></ul></section>
+<section class="tssr-transcribed-page" id="page-25"><h2>Montage manuel avec mount</h2><pre><code>root@deb:~# ls /mnt
 root@deb:~# mount –t ext4 /dev/sdc1 /mnt
 root@deb:~# ls /mnt
 contacts
 liste_taches.txt
 preparation 
-root@deb:~#</pre>
-<h4>ext4</h4>
-<h4>/dev/sdc1</h4>
-<pre class="tssr-source-code">/
+root@deb:~#</code></pre><pre><code>/
  /bin
  /boot
  /etc
  /mnt
  /var
-[...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>=</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-26"><h3>Page 26</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Informations sur les montages</h4>
-<pre class="tssr-source-code">• mount La sortie de mount est faiblement lisible mais permet de 
-savoir facilement les options de montage appliquées</pre>
-<pre class="tssr-source-code">root@deb:~# mount
+[...]</code></pre><p>ext4</p><p>/dev/sdc1</p></section>
+<section class="tssr-transcribed-page" id="page-26"><h2>Informations sur les montages</h2><ul><li>mount La sortie de mount est faiblement lisible mais permet de savoir facilement les options de montage appliquées</li></ul><pre><code>root@deb:~# mount
 sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
 [...]
 /dev/mapper/vgsys/lvroot on / type ext4 (rw,relatime,errors=remount-
@@ -300,15 +109,8 @@ tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
 [...]
 /dev/mapper/vgsys/lvhome on /home type ext4 (rw,relatime,data=ordered)
 /dev/sdc1 on /mnt type ext4 (rw,relatime,data=ordered)
-/dev/sr0 on /media/cdrom0 type iso9660 (ro,nosuid,nodev,noexec,relatime,user)</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>a</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-27"><h3>Page 27</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Informations sur les montages</h4>
-<pre class="tssr-source-code">• findmnt permet une meilleure lisibilité et surtout de prendre 
-l’information sur un seul point de montage</pre>
-<pre class="tssr-source-code">root@deb:~# findmnt
+/dev/sr0 on /media/cdrom0 type iso9660 (ro,nosuid,nodev,noexec,relatime,user)</code></pre></section>
+<section class="tssr-transcribed-page" id="page-27"><h2>Informations sur les montages</h2><ul><li>findmnt permet une meilleure lisibilité et surtout de prendre l’information sur un seul point de montage</li></ul><pre><code>root@deb:~# findmnt
 TARGET 
 SOURCE  
  
@@ -337,142 +139,34 @@ rw,relatime,data=ordered
 ext4 
 rw,relatime,data=ordered
 └─ /media/cdrom0 
-/dev/sr0 iso9660 ro,nosuid,nodev,noexec,relatime</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-28"><h3>Page 28</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Informations sur les montages</h4>
-<h4>Pour voir l’information sur un seul point de montage, il suffit de le <br>cibler :</h4>
-<pre class="tssr-source-code">root@deb:~# findmnt /dev/sdc1
+/dev/sr0 iso9660 ro,nosuid,nodev,noexec,relatime</code></pre></section>
+<section class="tssr-transcribed-page" id="page-28"><h2>Informations sur les montages</h2><p>Pour voir l’information sur un seul point de montage, il suffit de le cibler :</p><pre><code>root@deb:~# findmnt /dev/sdc1
 TARGET 
 SOURCE FSTYPE OPTIONS
  /mnt 
 /dev/sdc1 
 ext4 
-rw,relatime,data=ordered</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-29"><h3>Page 29</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Démonter un volume</h4>
-<pre class="tssr-source-code">• umount [périphérique de stockage] </pre>
-<pre class="tssr-source-code">ou
-• umount [point de montage] </pre>
-<h4>• À faire par exemple pour retirer une clé USB ou disque externe<br>• Attention, il ne faudra pas qu’un utilisateur utilise le volume monté <br>pour permettre sa déconnexion.</h4>
-<pre class="tssr-source-code">root@deb:~# umount /mnt</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-30"><h3>Page 30</h3><h4>Monter des systèmes de fichiers</h4>
-<h4>Démo</h4>
-<h4>Montage manuel</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-31"><h3>Page 31</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Montage automatique <br>des systèmes de fichiers</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-32"><h3>Page 32</h3><h4>Montage automatique des systèmes de fichiers</h4>
-<h4>Montage automatique</h4>
-<p class="tssr-source-paragraph">Les montages automatiques sont effectués par systemd au tout <br>début du démarrage du système d’exploitation. La déclaration des <br>montages automatiques est présente dans le fichier /etc/fstab</p>
-<pre class="tssr-source-code"># /etc/fstab: static file system information.
-# &lt;file system&gt; 
- 
-&lt;mount point&gt; 
-&lt;type&gt;  
-&lt;options&gt; 
-&lt;dump&gt; &lt;pass&gt;
-/dev/mapper/vgsys-lvroot 
-/ 
- 
-ext4 
-    errors=remount-ro 
-0 
-1
+rw,relatime,data=ordered</code></pre></section>
+<section class="tssr-transcribed-page" id="page-29"><h2>Démonter un volume</h2><pre><code>• umount [périphérique de stockage] </code></pre><pre><code>ou
+• umount [point de montage] </code></pre><ul><li>À faire par exemple pour retirer une clé USB ou disque externe</li><li>Attention, il ne faudra pas qu’un utilisateur utilise le volume monté pour permettre sa déconnexion.</li></ul><pre><code>root@deb:~# umount /mnt</code></pre></section>
+<section class="tssr-transcribed-page" id="page-30"><h2>Monter des systèmes de fichiers</h2><p>Démo</p><p>Montage manuel</p></section>
+<section class="tssr-transcribed-page" id="page-31"><h2>Gestion des espaces de stockage – File System</h2><h3>Montage automatique des systèmes de fichiers</h3></section>
+<section class="tssr-transcribed-page" id="page-32"><h2>Montage automatique</h2><p>Les montages automatiques sont effectués par systemd au tout début du démarrage du système d’exploitation. La déclaration des montages automatiques est présente dans le fichier /etc/fstab.</p><pre><code># /etc/fstab: static file system information.
+# &lt;file system&gt;              &lt;mount point&gt; &lt;type&gt;      &lt;options&gt;          &lt;dump&gt; &lt;pass&gt;
+/dev/mapper/vgsys-lvroot     /             ext4        errors=remount-ro  0      1
 # /boot was on /dev/sda1 during installation
-UUID=32a0cf22-548810a16c45 /boot 
- 
-ext2 
- 
-defaults 
-0 
-2
-/dev/vgsys/lvhome 
- 
-/home 
- 
-ext4 
- 
-defaults 0 
-2 
-/dev/mapper/vgsys-lvswap 
-none 
- 
-swap 
- 
-sw 
- 
-0 
-0
-/dev/sr0 
- 
- 
-/media/cdrom0 
-udf,iso9660 
-user,noauto 
-0 
-0</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eo<br>Cr</p></div></details>
-<div class="tssr-source-table"><table><caption>Tableau du support — lecture structurée</caption><tbody><tr><td># / etc/f stab : stati c fil e system i nf ormati on<br>.</td><td></td><td></td><td></td><td></td></tr><tr><td># &lt;fil e system&gt; &lt;mount poi nt&gt;</td><td>&lt;type&gt;</td><td>&lt;opti ons&gt;</td><td>&lt;d ump&gt;</td><td>&lt;pass&gt;</td></tr><tr><td>/d ev/ mapper/ vgsys -l vroot /</td><td>ext4</td><td>errors=remount -ro</td><td>0</td><td>1</td></tr><tr><td># /b oot was on /d ev/ sd a1 d uri ng i nstall ati on</td><td></td><td></td><td></td><td></td></tr><tr><td>UUID =32a0cf22 -548810a16c45 /b oot</td><td>ext2</td><td>d ef aults</td><td>0</td><td>2</td></tr><tr><td>/d / /l h /h<br>ev vgsys v ome ome</td><td>ext4</td><td>d ef aults0</td><td>2</td><td></td></tr><tr><td>/d / / l<br>ev mapper vgsys vswap none<br>-</td><td>swap</td><td>sw</td><td>0</td><td>0</td></tr><tr><td>/d ev/ sr0 / medi a/ cd rom0</td><td>udf i so9660<br>,</td><td>user noauto<br>,</td><td>0</td><td>0</td></tr></tbody></table></div>
-
-</section>
-<section class="tssr-transcribed-page" id="page-33"><h3>Page 33</h3><h4>Montage automatique des systèmes de fichiers</h4>
-<h4>Montage automatique</h4>
-<h4>• La section &lt;file system&gt; :<br>• Cette colonne déclare le système à monter. Cette source peut être exprimée de <br>plusieurs façons :</h4>
-<p class="tssr-source-paragraph">• Via un UUID, la façon la plus sécurisée mais humainement plus difficile à reconnaître<br>• Via le LABEL, humainement plus pratique que l’UUID mais il pose un problème en cas de <br>doublon<br>• Via le chemin du périphérique, on l’utilise principalement pour les LVM car il n’est pas <br>possible d’avoir plusieurs volumes LVM avec le même nom sur un système<br>• Il est fortement déconseillé de l’utiliser pour des partitions (ex : /dev/sdb1)<br>• La section &lt;mount point&gt; :<br>• Cette colonne déclare le répertoire de montage du système de fichiers</p>
-</section>
-<section class="tssr-transcribed-page" id="page-34"><h3>Page 34</h3><h4>Montage automatique des systèmes de fichiers</h4>
-<h4>Montage automatique</h4>
-<h4>• La section &lt;type&gt; :</h4>
-<h4>• Cette colonne déclare le type de système de fichiers. Il est possible de mettre auto mais cela <br>ralentit le montage des périphériques<br>• La section &lt;options&gt; :</h4>
-<h4>• Cette colonne déclare les options de montage. Il est possible de mettre defaults<br>• Les options dans defaults sont : async,nouser,exec,rw,auto,suid,dev<br>• La section &lt;dump&gt; :</h4>
-<h4>• Cette colonne est très faiblement utilisée. Elle correspond à des paramètres de configuration de <br>la commande dump<br>• La section &lt;pass&gt; :</h4>
-<p class="tssr-source-paragraph">• Cette section permet de savoir si le système doit analyser l’intégrité du système de fichiers afin <br>de corriger les problèmes avant de le monter. (commande fsck)<br>• Si la valeur est à 0 : pas de vérification, si elle est supérieure à 0 alors le système analysera les <br>systèmes de fichiers (1 pour la racine, 2 pour les autres)</p>
-</section>
-<section class="tssr-transcribed-page" id="page-35"><h3>Page 35</h3><h4>Montage automatique des systèmes de fichiers</h4>
-<h4>Montage automatique</h4>
-<p class="tssr-source-paragraph">• Afin de garantir la bonne intégration d’une nouvelle ligne dans le <br>fichier /etc/fstab, il est important de la tester avant le redémarrage <br>du poste. Le moyen le plus simple est d’utiliser la commande <br>mount en ne précisant que le point de montage</p>
-<pre class="tssr-source-code">root@deb:~# mount /srv/data
-mount: impossible de trouver /srv/data dans /etc/fstab</pre>
-<p class="tssr-source-paragraph">• Dans cet exemple, la commande indique qu’elle ne trouve pas <br>d’entrée de /srv/data dans le fstab<br>• Dans le cas où une ligne indique /srv/data dans le fichier fstab <br>alors le montage se fera par rapport aux différentes déclarations<br>• Si la commande ne renvoie rien, c’est que le montage s’est <br>correctement effectué</p>
-
-</section>
-<section class="tssr-transcribed-page" id="page-36"><h3>Page 36</h3><h4>Montage automatique des systèmes de fichiers</h4>
-<h4>Démo</h4>
-<h4>Montage automatique</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-37"><h3>Page 37</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Commandes </h4>
-<h4>informatives</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-38"><h3>Page 38</h3><h4>Commandes informatives</h4>
-<h4>Informations sur les systèmes de fichiers</h4>
-<pre class="tssr-source-code">• Nous avons déjà utilisé les commandes informatives suivantes :
-• blkid permet de récupérer les informations sur les disques, 
-partitions et volumes logiques LVM</pre>
-<pre class="tssr-source-code">• lsblk va donner un affichage plus hiérarchisé de ces mêmes 
-informations </pre>
-<pre class="tssr-source-code">• findmnt offre un affichage hiérarchisé des systèmes de fichiers 
-montés</pre>
-</section>
-<section class="tssr-transcribed-page" id="page-39"><h3>Page 39</h3><h4>Commandes informatives</h4>
-<h4>Informations sur les systèmes de fichiers</h4>
-<pre class="tssr-source-code">• df &lt;options&gt; [/point/de/montage]</pre>
-<pre class="tssr-source-code">• La commande df permet de prendre des informations utiles sur les systèmes de 
-fichiers montés</pre>
-<h4>• Options usuelles :<br>• -h : affiche la taille en puissance de 1024 (K,M,G…)<br>• -i : affiche les informations sur les inodes</h4>
-<pre class="tssr-source-code">root@deb:~# df -h
+UUID=32a0cf22-548810a16c45    /boot         ext2        defaults           0      2
+/dev/vgsys/lvhome            /home         ext4        defaults           0      2
+/dev/mapper/vgsys-lvswap     none          swap        sw                 0      0
+/dev/sr0                    /media/cdrom0  udf,iso9660 user,noauto        0      0</code></pre></section>
+<section class="tssr-transcribed-page" id="page-33"><h2>Montage automatique</h2><ul><li>La section &lt;file system&gt; :</li><li>Cette colonne déclare le système à monter. Cette source peut être exprimée de plusieurs façons :</li><li>Via un UUID, la façon la plus sécurisée mais humainement plus difficile à reconnaître</li><li>Via le LABEL, humainement plus pratique que l’UUID mais il pose un problème en cas de doublon</li><li>Via le chemin du périphérique, on l’utilise principalement pour les LVM car il n’est pas possible d’avoir plusieurs volumes LVM avec le même nom sur un système</li><li>Il est fortement déconseillé de l’utiliser pour des partitions (ex : /dev/sdb1)</li><li>La section &lt;mount point&gt; :</li><li>Cette colonne déclare le répertoire de montage du système de fichiers</li></ul></section>
+<section class="tssr-transcribed-page" id="page-34"><h2>Montage automatique</h2><ul><li>La section &lt;type&gt; :</li><li>Cette colonne déclare le type de système de fichiers. Il est possible de mettre auto mais cela ralentit le montage des périphériques</li><li>La section &lt;options&gt; :</li><li>Cette colonne déclare les options de montage. Il est possible de mettre defaults</li><li>Les options dans defaults sont : async,nouser,exec,rw,auto,suid,dev</li><li>La section &lt;dump&gt; :</li><li>Cette colonne est très faiblement utilisée. Elle correspond à des paramètres de configuration de la commande dump</li><li>La section &lt;pass&gt; :</li><li>Cette section permet de savoir si le système doit analyser l’intégrité du système de fichiers afin de corriger les problèmes avant de le monter. (commande fsck)</li><li>Si la valeur est à 0 : pas de vérification, si elle est supérieure à 0 alors le système analysera les systèmes de fichiers (1 pour la racine, 2 pour les autres)</li></ul></section>
+<section class="tssr-transcribed-page" id="page-35"><h2>Montage automatique</h2><ul><li>Afin de garantir la bonne intégration d’une nouvelle ligne dans le fichier /etc/fstab, il est important de la tester avant le redémarrage du poste. Le moyen le plus simple est d’utiliser la commande mount en ne précisant que le point de montage</li></ul><pre><code>root@deb:~# mount /srv/data
+mount: impossible de trouver /srv/data dans /etc/fstab</code></pre><ul><li>Dans cet exemple, la commande indique qu’elle ne trouve pas d’entrée de /srv/data dans le fstab</li><li>Dans le cas où une ligne indique /srv/data dans le fichier fstab alors le montage se fera par rapport aux différentes déclarations</li><li>Si la commande ne renvoie rien, c’est que le montage s’est correctement effectué</li></ul></section>
+<section class="tssr-transcribed-page" id="page-36"><h2>Montage automatique des systèmes de fichiers</h2><p>Démo</p><p>Montage automatique</p></section>
+<section class="tssr-transcribed-page" id="page-37"><h2>Gestion des espaces de stockage – File System</h2><h3>Commandes</h3><h3>informatives</h3></section>
+<section class="tssr-transcribed-page" id="page-38"><h2>Informations sur les systèmes de fichiers</h2><ul><li>Nous avons déjà utilisé les commandes informatives suivantes :</li><li>blkid permet de récupérer les informations sur les disques, partitions et volumes logiques LVM</li><li>lsblk va donner un affichage plus hiérarchisé de ces mêmes informations</li><li>findmnt offre un affichage hiérarchisé des systèmes de fichiers montés</li></ul></section>
+<section class="tssr-transcribed-page" id="page-39"><h2>Informations sur les systèmes de fichiers</h2><pre><code>• df &lt;options&gt; [/point/de/montage]</code></pre><ul><li>La commande df permet de prendre des informations utiles sur les systèmes de fichiers montés</li><li>Options usuelles :</li><li>-h : affiche la taille en puissance de 1024 (K,M,G…)</li><li>-i : affiche les informations sur les inodes</li></ul><pre><code>root@deb:~# df -h
 Sys. de fichiers 
  
  
@@ -497,45 +191,12 @@ tmpfs
 4,3G 
   13G 26% 
 /
-[...]</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>DO<br>env</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-40"><h3>Page 40</h3><h4>Commandes informatives</h4>
-<h4>Informations sur les systèmes de fichiers</h4>
-<pre class="tssr-source-code">• La commande ls -l ne permet pas de connaître la taille d’un répertoire. 
-En effet, elle remonte juste la taille utilisée par l’inode du répertoire et 
-non son contenu.
-Pour connaître la taille d’un répertoire, il faut utiliser la commande du 
-du &lt;options&gt; [/point/de/montage]</pre>
-<h4>• Options usuelles :<br>• -h : affiche la taille en puissance de 1024 (K,M,G…)<br>• -s : n’affiche pas les sous-répertoires mais uniquement le répertoire en <br>argument</h4>
-<pre class="tssr-source-code">root@deb:~# du –hs /etc
+[...]</code></pre></section>
+<section class="tssr-transcribed-page" id="page-40"><h2>Informations sur les systèmes de fichiers</h2><ul><li>La commande ls -l ne permet pas de connaître la taille d’un répertoire. En effet, elle remonte juste la taille utilisée par l’inode du répertoire et non son contenu. Pour connaître la taille d’un répertoire, il faut utiliser la commande du du &lt;options&gt; [/point/de/montage]</li><li>Options usuelles :</li><li>-h : affiche la taille en puissance de 1024 (K,M,G…)</li><li>-s : n’affiche pas les sous-répertoires mais uniquement le répertoire en argument</li></ul><pre><code>root@deb:~# du –hs /etc
 6,9M 
  
-/etc</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>&gt;<br>env</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-41"><h3>Page 41</h3><h4>Commandes informatives</h4>
-<h4>Démo</h4>
-<h4>Prises d’informations sur les FS</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-42"><h3>Page 42</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>TP</h4>
-<h4>Démo</h4>
-<h4>Préparation des systèmes de fichiers</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                            Gestion des espaces de stockage – File System
-
-
-
-     TPDémo
-
-                                           Préparation des systèmes de fichiers</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-43"><h3>Page 43</h3><h4>Gestion des espaces de stockage – File System</h4>
-<h4>Conclusion</h4>
-<h4>• Vous savez créer et manipuler des systèmes de fichiers Linux<br>• Vous savez monter ceux-ci en manuel<br>• Vous savez automatiser un montage au démarrage du système <br>d’exploitation</h4>
-</section><!-- SOURCE-CONTENT:END --></body></html>
+/etc</code></pre></section>
+<section class="tssr-transcribed-page" id="page-41"><h2>Commandes informatives</h2><p>Démo</p><p>Prises d’informations sur les FS</p></section>
+<section class="tssr-transcribed-page" id="page-42"><h2>Gestion des espaces de stockage – File System</h2><h3>TP</h3><p>Démo</p><p>Préparation des systèmes de fichiers</p></section>
+<section class="tssr-transcribed-page" id="page-43"><h2>Conclusion</h2><ul><li>Vous savez créer et manipuler des systèmes de fichiers Linux</li><li>Vous savez monter ceux-ci en manuel</li><li>Vous savez automatiser un montage au démarrage du système d’exploitation</li></ul></section>
+<!-- SOURCE-CONTENT:END --></body></html>

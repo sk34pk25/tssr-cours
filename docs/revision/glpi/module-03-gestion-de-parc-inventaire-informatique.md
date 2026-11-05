@@ -1,39 +1,23 @@
-# Fiche de révision — Module 03 — Gestion de parc — Inventaire informatique
+# Révision — Module 03 — Gestion de parc — Inventaire informatique
 
-## À connaître absolument
+## Inventaire cohérent
 
-- Construire une nomenclature de parc.
-- Créer ordinateurs, composants, logiciels, licences et équipements réseau.
-- Utiliser des gabarits cohérents.
-- Représenter baies, ports et connexions.
+Intitulés → modèle → composants → gabarit → exemplaires → relations → validation.
 
-## Méthode express
+## À expliquer sans le support
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+Distinguer logiciel/version/licence ; connexion directe/port réseau ; stock/équipement installé. La fiche Aruba identifie JL356A24 ports et JL357A48 ports. Les quantités du TP priment sur les captures incomplètes.
 
-## Pièges fréquents
+## Mise en situation
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
 
-## Checklist de maîtrise
+## Question rapide
 
-- [ ] Construire une nomenclature de parc.
-- [ ] Créer ordinateurs, composants, logiciels, licences et équipements réseau.
-- [ ] Utiliser des gabarits cohérents.
-- [ ] Représenter baies, ports et connexions.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Pourquoi tester un gabarit avant une création en série ?
 
-## Questions flash
+??? success "Réponse"
+    Pour valider incrémentation, valeurs communes et relations avant de multiplier les erreurs.
 
-1. Quels sont les concepts indispensables de « Gestion de parc — Inventaire informatique » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md).
+- [Cours](../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
+- [TP](../../tp/glpi/module-03/index.md)

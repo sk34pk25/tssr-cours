@@ -1,39 +1,23 @@
-# Fiche de révision — Module 06 — Plug-ins et inventaire
+# Révision — Module 06 — Plug-ins et inventaire
 
-## À connaître absolument
+## Importer sans doublons
 
-- Installer et gérer un plug-in compatible.
-- Comprendre l’ancien flux FusionInventory du laboratoire.
-- Utiliser GLPI Agent et l’inventaire natif dans les versions actuelles.
-- Importer des données avec Data Injection et contrôler le rapport.
+Compatibilité → installation/activation → règles de rapprochement → agent → inventaire → contrôle.
 
-## Méthode express
+## À expliquer sans le support
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+FusionInventory et GLPI 9.5 sont historiques dans ce laboratoire. DataInjection importe un CSV après création du modèle et correspondance des colonnes. Vérifier séparateur, encodage, droits, dépendances et résultat d’un deuxième import.
 
-## Pièges fréquents
+## Mise en situation
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
 
-## Checklist de maîtrise
+## Question rapide
 
-- [ ] Installer et gérer un plug-in compatible.
-- [ ] Comprendre l’ancien flux FusionInventory du laboratoire.
-- [ ] Utiliser GLPI Agent et l’inventaire natif dans les versions actuelles.
-- [ ] Importer des données avec Data Injection et contrôler le rapport.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+Un rapport d’import réussi prouve-t-il que tous les champs sont justes ?
 
-## Questions flash
+??? success "Réponse"
+    Non. Ouvrir la fiche créée et comparer les données et relations.
 
-1. Quels sont les concepts indispensables de « Plug-ins et inventaire » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md).
+- [Cours](../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)
+- [TP](../../tp/glpi/module-06/index.md)

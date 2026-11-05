@@ -1,48 +1,41 @@
 # Fiche de révision — Module 04 — Debian en mode maintenance
 
-**Sources originales (A) :** support M04 et TP M04 TSSR.
-**Fiche de révision (B) :** synthèse reformulée des sources.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## Deux voies de secours
+## Repère essentiel
 
-| Voie | Ce que la source permet de vérifier | Point de vigilance |
+| Méthode | Origine de l’environnement | Point déterminant |
 |---|---|---|
-| GRUB | Démarrer temporairement en maintenance depuis le noyau sélectionné | Vérifier la cible et la disposition de clavier avant toute modification |
-| Média d'installation | Ouvrir le mode de secours et monter la racine du système installé | Choisir le bon volume logique et non un système de fichiers inconnu |
+| Paramètre `single` dans GRUB | Système installé | Authentification root généralement demandée dans ce scénario |
+| `init=/bin/bash` | Noyau installé, shell à la place de l’initialisation normale | Services et arrêt ordinaires absents |
+| Rescue mode de l’ISO | Environnement externe au système installé | Sélection du système racine à monter |
 
-## À connaître
+## Tableau de mémorisation
 
-- Un système peut nécessiter une maintenance après un démarrage défaillant, la perte du mot de passe `root` ou pour une récupération de données.
-- Un shell de secours peut disposer des privilèges administratifs sans l'authentification habituelle : il est réservé à un contexte autorisé.
-- Après un démarrage de maintenance direct, la racine peut être en lecture seule ; l'écriture doit être explicitement limitée, vérifiée et synchronisée.
-- Un `/home` non accessible peut être sur un volume logique distinct de la racine et ne pas être monté dans le shell de secours.
-- Dans le mode de secours du média, `USER` ou le prompt permet d'identifier le shell `root`; `logname` peut être vide.
+| Méthode | Origine de l’environnement | Point déterminant |
+|---|---|---|
+| Paramètre `single` dans GRUB | Système installé | Authentification root généralement demandée dans ce scénario |
+| `init=/bin/bash` | Noyau installé, shell à la place de l’initialisation normale | Services et arrêt ordinaires absents |
+| Rescue mode de l’ISO | Environnement externe au système installé | Sélection du système racine à monter |
 
-## Méthode de contrôle
+## Se tester sans regarder
 
-1. Identifier le symptôme et confirmer que la machine est bien celle autorisée.
-2. Choisir la voie documentée : GRUB ou média d'installation.
-3. Identifier la racine et les volumes avant toute écriture.
-4. Réaliser seulement le test ou la réparation explicitement demandée.
-5. Synchroniser, restaurer l'état de laboratoire et vérifier le redémarrage normal.
-6. Consigner l'action, le résultat et le retour à l'état attendu.
 
-## Checklist de maîtrise
+1. Pourquoi `/home` peut-il sembler vide dans le shell initial ?
+2. Quelle commande rend la racine montée accessible en écriture ?
+3. Pourquoi identifier la racine choisie depuis l’ISO ?
 
-- [ ] Je distingue maintenance via GRUB et secours via le média d'installation.
-- [ ] Je sais expliquer pourquoi la racine peut être en lecture seule.
-- [ ] Je contrôle la cible de stockage avant une modification.
-- [ ] Je limite les écritures à un laboratoire autorisé et les synchronise.
-- [ ] Je sais expliquer pourquoi un shell de récupération ne doit pas devenir une voie d'accès permanente.
+??? success "Réponses"
+    1. Son volume séparé n’est peut-être pas monté.
+    2. `mount -o remount,rw /`.
+    3. Le shell de secours et le système à réparer ne sont pas nécessairement la même arborescence.
 
-## Questions flash
 
-1. Dans quel cas choisir le média d'installation plutôt que GRUB ?
-2. Pourquoi un répertoire utilisateur peut-il sembler absent dans le shell de secours ?
-3. Quel contrôle doit précéder une écriture sur le système récupéré ?
+## Contrôle de maîtrise
 
-## Liens utiles
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
 
-- [Cours complet](../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md)
-- [TP — Debian en mode maintenance](../../tp/administration-linux/module-04/index.md)
-- [Kahoot du module](../../kahoot/05-administration-debian-gnu-linux-module-04-debian-en-mode-maintenance.md)
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-04-debian-en-mode-maintenance.md) · [TP du parcours](../../tp/administration-linux/index.md).

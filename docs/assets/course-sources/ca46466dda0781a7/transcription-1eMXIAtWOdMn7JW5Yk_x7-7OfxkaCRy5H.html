@@ -1,154 +1,144 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration GLPI</h4>
-<p class="tssr-source-paragraph">Module 06 – Présentation des plug-ins – Inventaire avec </p>
-<p class="tssr-source-paragraph">FusionInventory</p>
-<p class="tssr-source-paragraph">1</p>
-<p class="tssr-source-paragraph">Objectifs</p>
-<p class="tssr-source-paragraph">• Comment ajouter/gérer des plugins avec GLPI<br>• Exploration du site https://plugins.glpi-project.org/</p>
-<p class="tssr-source-paragraph">• Comment installer le plugin FusionInventory pour GLPI<br>• Installation d’un agent FusionInventory sous Windows<br>• Savoir modifier la configuration de l’agent FusionInventory<br>• Comment forcer un inventaire depuis un agent<br>• Installer le plugin Data-Injection en vue d’importer des données<br>• Paramétrer un modèle d’importation Data-Injection</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">2</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06 - Support de cours</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>Module 06 - Support de cours</h1><p>Transcription fidèle du support de formation, avec mise en forme adaptée à la lecture. Les identifiants secrets du laboratoire sont remplacés par une indication du formateur ; les coquilles techniques sont expliquées séparément dans le cours optimisé.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Administration GLPI</h4>
+<h4 class="tssr-source-paragraph">Module 06 – Présentation des plug-ins – Inventaire avec</h4>
+<h4 class="tssr-source-paragraph">FusionInventory</h4>
 
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Présentation des plug-ins</h4>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">3</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Les plug-ins : présentation</p>
-<p class="tssr-source-paragraph">• Étendre les possibilités de GLPI sans modification du <br>produit de base<br>• Catalogue: « https://plugins.glpi-project.org »</p>
-<p class="tssr-source-paragraph">* Domaines traités</p>
-<p class="tssr-source-paragraph">• Depuis la version 9.5, il est possible d’utiliser le Marketplace <br>(inscription sur le site obligatoire)<br>• Principaux domaines :<br>• Rapports / Graphiques<br>• Inventaire *<br>• Réseau<br>• Gestion administrative<br>• HelpDesk *<br>• Import</p>
-<p class="tssr-source-paragraph">4</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Les plug-ins : installation manuelle</p>
-<p class="tssr-source-paragraph">• Récupération des sources au format Gzip ou Bzip2<br>• Extraction des plug-ins : « GlpiInstallationDir/plugins »<br>• Installation et activation depuis l’interface graphique : <br>« Configuration =&gt; Plugins »<br>• Chemin d’accès de configuration du plugin : va dépendre <br>du plugin</p>
-<p class="tssr-source-paragraph">• Une version de plugin pour une version ou plus de GLPI</p>
-<p class="tssr-source-paragraph">• La mise à jour de GLPI peut nécessiter une mise à jour <br>du plugin</p>
-<p class="tssr-source-paragraph">5</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Paramétrage du Marketplace</p>
-<p class="tssr-source-paragraph">• Inscription gratuite sur le site https://services.glpi-<br>network.com/register afin de récupérer une clé d’enregistrement<br>• Puis la coller dans la section Configuration→Générale de GLPI :</p>
-<p class="tssr-source-paragraph">6</p>
+<h4 class="tssr-source-paragraph">Objectifs</h4>
+<ul><li>Comment ajouter/gérer des plugins avec GLPI</li><li>Exploration du site https://plugins.glpi-project.org/</li></ul>
+<ul><li>Comment installer le plugin FusionInventory pour GLPI</li><li>Installation d’un agent FusionInventory sous Windows</li><li>Savoir modifier la configuration de l’agent FusionInventory</li><li>Comment forcer un inventaire depuis un agent</li><li>Installer le plugin Data-Injection en vue d’importer des données</li><li>Paramétrer un modèle d’importation Data-Injection</li></ul>
 
 
 
 
 </section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Les plug-ins : installation par le Marketplace</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">7</p>
+<section class="tssr-transcribed-page" id="page-2">
+<h4>Présentation des plug-ins</h4>
+
+
+
+<h4 class="tssr-source-paragraph">Les plug-ins : présentation</h4>
+<ul><li>Étendre les possibilités de GLPI sans modification du produit de base</li><li>Catalogue: « https://plugins.glpi-project.org »</li></ul>
+<h4 class="tssr-source-paragraph">* Domaines traités</h4>
+<ul><li>Depuis la version 9.5, il est possible d’utiliser le Marketplace (inscription sur le site obligatoire)</li><li>Principaux domaines :</li><li>Rapports / Graphiques</li><li>Inventaire *</li><li>Réseau</li><li>Gestion administrative</li><li>HelpDesk *</li><li>Import</li></ul>
+
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-3">
+
+<h4 class="tssr-source-paragraph">Les plug-ins : installation manuelle</h4>
+<ul><li>Récupération des sources au format Gzip ou Bzip2</li><li>Extraction des plug-ins : « GlpiInstallationDir/plugins »</li><li>Installation et activation depuis l’interface graphique : « Configuration =&gt; Plugins »</li><li>Chemin d’accès de configuration du plugin : va dépendre du plugin</li></ul>
+<ul><li>Une version de plugin pour une version ou plus de GLPI</li></ul>
+<ul><li>La mise à jour de GLPI peut nécessiter une mise à jour du plugin</li></ul>
+
+
+<h4 class="tssr-source-paragraph">Paramétrage du Marketplace</h4>
+<ul><li>Inscription gratuite sur le site https://services.glpi- network.com/register afin de récupérer une clé d’enregistrement</li><li>Puis la coller dans la section Configuration→Générale de GLPI :</li></ul>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-4">
+
+<h4 class="tssr-source-paragraph">Les plug-ins : installation par le Marketplace</h4>
+
+
 <h4>Plugin FusionInventory</h4>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">8</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Configuration<br>Plugins » % Marketplace<br>a</p><p>instalé<br>Découvrir<br>Marketplace</p><p>:</p><p>inventaire<br>.<br>ActualTime<br>e<br>Advanced GLPI dashboards<br>a<br>dm<br>advancedplanning<br>e<br>Gestion<br>‘Ads actual time tracking<br>for GLPI tasks<br>ul<br>(Réseau|(Standard]<br>Ce plugin débloque les fonctionnatés<br>TV<br>Requêtes<br>SQL pour lestableaux<br>de bord<br>avancées<br>(Vue planification) dans GLPI<br>Helpdesk<br>ee<br>{menu Accueil<br>&gt; Assistance<br>&gt; Planning)</p><p>28 TICgal<br>3 TECLIB<br>28 TECLIS</p><p>imp<br>Airwatch connector<br>e<br>A<br> anonymize<br>a<br>S<br>ApprovalByMail<br>a<br>‘Connecteur<br>pour récupérer les données<br>(Réseau |(Basic]<br>Red =<br>[Réseau |(standera}<br>GLPI-Network<br>d&#x27;inventaire depuis Airwatch<br>Æ<br> hnonymisation<br>des données<br>GLPI<br>Plugin GLPI ApprovalByMail</p><p>Rappons</p><p>Export<br>23<br>Teclib.<br>Wald<br>Nou<br>23 TECUB<br>2 recu</p><p>ene</p><p>ene</p></div></details>
 
+
+
+
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p04-i1.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-5">
+<h4 class="tssr-source-paragraph">FusionInventory Présentation des plug-ins – Inventaire avec FusionInventory</h4>
+<ul><li>Plugins dans GLPI =&gt; la partie serveur</li><li>Les clients FusionInventory agents : Windows/Linux/macOS/Android</li><li>Permettre un inventaire automatique des équipements</li><li>Déploiement en mode Push / Pull d’applications</li><li>Collecte de données</li><li>Inventaire distant SNMP</li><li>Découverte réseau</li><li>Wake-on-LAN</li></ul>
+
+
+<h4 class="tssr-source-paragraph">FusionInventory : vue d'ensemble</h4>
+<ul><li>Modèle client / serveur</li><li>Le client communique à intervalle régulier avec son serveur</li></ul>
+<ul><li>Le serveur peut réveiller le client pour une communication anticipée</li><li>Données d’inventaire, remontée d’information de collecte, etc.</li><li>Protocole HTTP : documents XML</li></ul>
+
+
+
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p05-i1.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
+</section>
+<section class="tssr-transcribed-page" id="page-6">
+
+<h4 class="tssr-source-paragraph">FusionInventory : préparation inventaire</h4>
+<ul><li>Nécessité de préparer la partie serveur avant toute importation de clients</li><li>Comment gérer l’affectation des lieux et entités aux objets inventoriés ?</li></ul>
+<ul><li>Comment maintenir une relation cohérente utilisateur &lt;=&gt; ordinateur</li><li>Inventaire automatique par défaut très volumineux =&gt; limitation nécessaire</li><li>Définition d’une liste noire</li></ul>
+<h4 class="tssr-source-paragraph">Dictionnaires Administration =&gt;</h4>
+<h4 class="tssr-source-paragraph">Règles fusion Administration =&gt; Fusion =&gt;</h4>
+<h4 class="tssr-source-paragraph">Dictionnaires</h4>
+<h4 class="tssr-source-paragraph">Règles</h4>
+
+<h4 class="tssr-source-paragraph">FusionInventory : règles Présentation des plug-ins – Inventaire avec FusionInventory</h4>
+<ul><li>« Règles d’informations d’ordinateur »</li></ul>
+<ul><li>À chaque update, modifier des informations ordinateur en fonction d’information de collecte</li></ul>
+<ul><li>« Règles de lieu »</li></ul>
+<ul><li>Permettre l’affectation et modification automatique du lieu des équipements importés par Fusion</li></ul>
+<ul><li>« Règles sur l’entité ordinateur »</li></ul>
+<ul><li>Permettre l’affectation et modification automatique de l’entité de rattachement</li></ul>
+<ul><li>« Règles d’import et de liaison des matériels »</li></ul>
+<ul><li>Liste fixe – Identification précise des machines à mettre à jour ou importer – éviter les doublons</li></ul>
+<ul><li>« Matériels ignorés durant l’import »</li></ul>
+<ul><li>Liste des équipements n’ayant pas pu être importés suite à une découverte réseau</li></ul>
+
+
+</section>
+<section class="tssr-transcribed-page" id="page-7">
+<h4>Pour aller plus loin : Plugin Data Injection</h4>
+
+
+<h4 class="tssr-source-paragraph">Data Injection Présentation des plug-ins – Inventaire avec FusionInventory</h4>
+<ul><li>Il permet d’injecter des données depuis un fichier .csv</li><li>Comme dans la création à la main, l’ordre de création est important</li><li>Par exemple, création d’un fabricant, puis d’un composant et enfin l’ordinateur</li><li>Attention :</li><li>Aux droits des utilisateurs qui utilisent l’injection</li><li>Si l’utilisateur n’a pas le droit de créer un composant, il ne sera pas créé</li><li>Si vous utilisez FusionInventory, est-il indispensable d’injecter vos données ?</li></ul>
 
 
 
 </section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><p class="tssr-source-paragraph">FusionInventory<br>Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">• Plugins dans GLPI =&gt; la partie serveur<br>• Les clients FusionInventory agents : <br>Windows/Linux/macOS/Android <br>• Permettre un inventaire automatique des équipements<br>• Déploiement en mode Push / Pull d’applications<br>• Collecte de données<br>• Inventaire distant SNMP<br>• Découverte réseau<br>• Wake-on-LAN</p>
-<p class="tssr-source-paragraph">9</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">FusionInventory : vue d&#x27;ensemble</p>
-<p class="tssr-source-paragraph">• Modèle client / serveur<br>• Le client communique à intervalle régulier avec son serveur</p>
-<p class="tssr-source-paragraph">• Le serveur peut réveiller le client pour une communication <br>anticipée<br>• Données d’inventaire, remontée d’information de collecte, etc.<br>• Protocole HTTP : documents XML</p>
-<p class="tssr-source-paragraph">10</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Agent<br>TEE<br>=) |=) =</p><p>Inventaire<br>Collecte<br>Application<br>Client1</p><p>GLPI</p></div></details>
+<section class="tssr-transcribed-page" id="page-8">
+
+<h4 class="tssr-source-paragraph">Data Injection</h4>
+<ul><li>Ce qu’on peut importer</li></ul>
+<ul><li>Ce qu’on ne peut pas importer</li></ul>
+<ul><li>Logiciel</li><li>Versions de logiciels</li><li>Licences</li><li>Données relations au helpdesk (catégories, tickets)</li><li>Données relatives à la base de connaissance</li></ul>
+<ul><li>Ordinateur</li><li>Écran</li><li>Imprimante</li><li>Matériel réseau</li><li>Téléphone</li><li>Périphériques</li><li>Composants</li><li>Utilisateur</li><li>Groupe</li></ul>
+<ul><li>Entité</li><li>Contrat</li><li>Fournisseur</li><li>Contact</li><li>Informations financières</li><li>Ports réseau</li><li>Type de cartouche</li><li>Type de consommable</li><li>Documents</li></ul>
+
+
+<h4 class="tssr-source-paragraph">Data Injection</h4>
+<ul><li>Étape 1 – La création d'un modèle</li></ul>
 
 
 
-
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p08-i1.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">FusionInventory : préparation inventaire</p>
-<p class="tssr-source-paragraph">• Nécessité de préparer la partie serveur avant toute importation <br>de clients<br>• Comment gérer l’affectation des lieux et entités aux objets <br>inventoriés ?</p>
-<p class="tssr-source-paragraph">• Comment maintenir une relation cohérente <br>utilisateur &lt;=&gt; ordinateur<br>• Inventaire automatique par défaut très volumineux =&gt; limitation <br>nécessaire<br>• Définition d’une liste noire</p>
-<p class="tssr-source-paragraph">Dictionnaires<br>Administration =&gt; </p>
-<p class="tssr-source-paragraph">Règles fusion<br>Administration =&gt; Fusion =&gt; </p>
-<p class="tssr-source-paragraph">Dictionnaires</p>
-<p class="tssr-source-paragraph">Règles</p>
-<p class="tssr-source-paragraph">11</p>
-<p class="tssr-source-paragraph">FusionInventory : règles<br>Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">•<br>« Règles d’informations d’ordinateur »</p>
-<p class="tssr-source-paragraph">• À chaque update, modifier des informations ordinateur en fonction d’information de <br>collecte</p>
-<p class="tssr-source-paragraph">•<br>« Règles de lieu »</p>
-<p class="tssr-source-paragraph">• Permettre l’affectation et modification automatique du lieu des équipements importés <br>par Fusion</p>
-<p class="tssr-source-paragraph">•<br>« Règles sur l’entité ordinateur »</p>
-<p class="tssr-source-paragraph">• Permettre l’affectation et modification automatique de l’entité de rattachement</p>
-<p class="tssr-source-paragraph">•<br>« Règles d’import et de liaison des matériels »</p>
-<p class="tssr-source-paragraph">• Liste fixe – Identification précise des machines à mettre à jour ou importer – éviter les <br>doublons</p>
-<p class="tssr-source-paragraph">•<br>« Matériels ignorés durant l’import »</p>
-<p class="tssr-source-paragraph">• Liste des équipements n’ayant pas pu être importés suite à une découverte réseau</p>
-<p class="tssr-source-paragraph">12</p>
+<section class="tssr-transcribed-page" id="page-9">
+
+<h4 class="tssr-source-paragraph">Data Injection</h4>
+<ul><li>Étape 2 – Injecter un fichier au format .csv avec vos en-têtes de colonne</li></ul>
+<ul><li>UTF-8 pour un fichier venant de Linux</li></ul>
+<ul><li>ISO8859-1 pour un fichier venant de</li></ul>
+<h4 class="tssr-source-paragraph">Windows</h4>
+
+
+<h4 class="tssr-source-paragraph">Data Injection</h4>
+<ul><li>Étape 3 - Correspondance de vos en-têtes de colonne avec les champs des différentes tables</li></ul>
 
 
 
-
-
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p09-i1.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p09-i2.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Pour aller plus loin :<br>Plugin Data Injection</h4>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">13</p>
-<p class="tssr-source-paragraph">Data Injection<br>Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">• Il permet d’injecter des données depuis un fichier .csv<br>• Comme dans la création à la main, l’ordre de création est important<br>• Par exemple, création d’un fabricant, puis d’un composant et enfin l’ordinateur<br>• Attention :<br>• Aux droits des utilisateurs qui utilisent l’injection<br>• Si l’utilisateur n’a pas le droit de créer un composant, il ne sera pas créé<br>• Si vous utilisez FusionInventory, est-il indispensable d’injecter vos données ?</p>
-<p class="tssr-source-paragraph">14</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>A</p></div></details>
+<section class="tssr-transcribed-page" id="page-10">
+
+<h4 class="tssr-source-paragraph">Data Injection</h4>
+<ul><li>Étape 4 - Procéder à l’importation avec votre fichier rempli</li></ul>
 
 
 
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p10-i1.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
+<figure><img src="../isolated/ca46466dda0781a7/g07-d12-p10-i2.webp" alt="Visuel isolé — Module 06 - Support de cours"><figcaption>Visuel isolé — Module 06 - Support de cours</figcaption></figure>
 </section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Data Injection</p>
-<p class="tssr-source-paragraph">• Ce qu’on peut importer</p>
-<p class="tssr-source-paragraph">• Ce qu’on ne peut pas importer</p>
-<p class="tssr-source-paragraph">• Logiciel<br>• Versions de logiciels<br>• Licences<br>• Données relations au helpdesk <br>(catégories, tickets)<br>• Données relatives à la base de <br>connaissance</p>
-<p class="tssr-source-paragraph">• Ordinateur<br>• Écran<br>• Imprimante<br>• Matériel <br>réseau<br>• Téléphone<br>• Périphériques<br>• Composants<br>• Utilisateur<br>• Groupe</p>
-<p class="tssr-source-paragraph">• Entité<br>• Contrat<br>• Fournisseur<br>• Contact<br>• Informations <br>financières<br>• Ports réseau<br>• Type de cartouche<br>• Type de <br>consommable<br>• Documents</p>
-<p class="tssr-source-paragraph">15</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Data Injection</p>
-<p class="tssr-source-paragraph">• Étape 1 – La création d&#x27;un modèle</p>
-<p class="tssr-source-paragraph">16</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>eni</p><p>iow ERE)<br>ences<br>+<br>Qh<br>TS</p><p>Watorique<br>.<br>Ente<br>nate<br>racine<br>+ | iO<br>‘Sous<br>enthes<br>Non</p><p>j<br>Reste</p></div></details>
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Data Injection</p>
-<p class="tssr-source-paragraph">• Étape 2 – Injecter un fichier au format .csv avec vos en-têtes de colonne</p>
-<p class="tssr-source-paragraph">•<br>UTF-8 pour un fichier venant de Linux</p>
-<p class="tssr-source-paragraph">•<br>ISO8859-1 pour un fichier venant de </p>
-<p class="tssr-source-paragraph">Windows</p>
-<p class="tssr-source-paragraph">17</p>
-<p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Data Injection</p>
-<p class="tssr-source-paragraph">• Étape 3 - Correspondance de vos en-têtes de colonne avec les <br>champs des différentes tables</p>
-<p class="tssr-source-paragraph">18</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>mode<br>Fichier à injecter<br>Fier</p><p>à injecter<br>{Choix du ever<br>Parcourir.<br>Aucun fichier sélectionné<br>Correspondances.</p><p>Encodage<br>ou hier<br>Détection<br>automatique<br>=<br>Historique<br>2<br>—<br>Fle fichier Annuler<br>Tous</p><p>1508859-1</p><p>A<br>8<br>c<br>o<br>E<br>F<br>s<br>4<br>1<br>3<br>k<br>L<br>M<br>N</p><p>1)<br>Nomgabart<br>Estun gabarit<br>Nom<br>Leu<br>Statut<br>Type<br>Fabricant<br>Modéle<br>Numérod&#x27;nventaire OS architecture Noyau<br>OS<br>OS Version OS</p><p>edition</p><p>8<br>modèle-GAB-latitude7520</p><p>Modèle<br>Voir un aperçu du fichier</p><p>Fleher injecter<br>En-tete du fichier<br>Tables<br>champs<br>‘Champs de liaison<br>Correspondances<br>Nom<br>Ordinateur<br>+<br>Nom<br>¥</p><p>=<br>Numéro dirventare<br>Ordnateur<br>+<br>Numéro<br>dinvertare<br>+<br>¥</p><p>08 Sense Pack<br>Système dexlotaion deélément +<br>erie pack +</p></div></details>
-
-
-
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><p class="tssr-source-paragraph">Présentation des plug-ins – Inventaire avec FusionInventory</p>
-<p class="tssr-source-paragraph">Data Injection</p>
-<p class="tssr-source-paragraph">• Étape 4 - Procéder à l’importation avec votre fichier rempli</p>
-<p class="tssr-source-paragraph">19</p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Boots injection Importation<br>du A...<br>=<br>Modèle : modéle-GAB-latitude7520</p><p>Sear en res enters<br>Etat d&#x27;avancement de l&#x27;import</p><p>Information complémentaire (Choix du fchier)</p><p>caren Re eme<br>Résultat de l&#x27;importation</p><p>Fichier<br>à injecter</p><p>Procéder import Annuer<br>Tormier</p></div></details>
-
-
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<!-- SOURCE-CONTENT:END --></body></html>

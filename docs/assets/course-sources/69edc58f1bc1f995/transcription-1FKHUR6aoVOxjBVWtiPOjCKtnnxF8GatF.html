@@ -1,25 +1,11 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RES24_0050B - M05 - Linux Administration (Debian).pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>RES24_0050B - M05 - Linux Administration (Debian)</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><h4>Administration Debian </h4>
-<h4>GNU/Linux</h4>
-<h4>Module 05 – Gestion du réseau</h4></section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><h4>Gestion du réseau</h4>
-<h4>Objectifs</h4>
-<h4>• Prendre des informations sur le réseau<br>• Configuration réseau d’un système sans interface <br>graphique<br>• Configuration réseau d’un système avec interface <br>graphique </h4>
-<h4>Interroger et configurer le réseau sous Linux.</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>End</p></div></details>
+<!DOCTYPE html>
 
-</section>
-<section class="tssr-transcribed-page" id="page-3"><h3>Page 3</h3><h4>Gestion du réseau</h4>
-<h4>Prendre des informations</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3><h4>Les prérequis</h4>
-<h4>Prise d’information réseau</h4>
-<p class="tssr-source-paragraph">• Pour une mise en réseau des postes client et serveur, il faut que la <br>couche IP soit correctement réalisée<br>• La configuration IP a généralement besoin :<br>• D’une adresse IP<br>• D’un masque réseau<br>• Potentiellement d’une passerelle par défaut<br>• Afin de pouvoir résoudre les noms d’hôtes, il faudra aussi <br>renseigner un ou des serveurs DNS</p>
-</section>
-<section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3><h4>Les prérequis</h4>
-<h4>Connaître l’adresse réseau</h4>
-<pre class="tssr-source-code">• Dans un shell, commande ip avec l’argument address
- ou son raccourci a</pre>
-<pre class="tssr-source-code">root@deb:~# ip a 
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>RES24_0050B - M05 - Linux Administration (Debian)</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>RES24_0050B - M05 - Linux Administration (Debian)</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Administration Debian</h3><h3>GNU/Linux</h3><p>Module 05 – Gestion du réseau</p></section>
+<section class="tssr-transcribed-page" id="page-2"><h2>Gestion du réseau</h2><h3>Objectifs</h3><ul><li>Prendre des informations sur le réseau</li><li>Configuration réseau d’un système sans interface graphique</li><li>Configuration réseau d’un système avec interface graphique</li></ul><p>Interroger et configurer le réseau sous Linux.</p></section>
+<section class="tssr-transcribed-page" id="page-3"><h2>Gestion du réseau</h2><h3>Prendre des informations</h3></section>
+<section class="tssr-transcribed-page" id="page-4"><h2>Prise d’information réseau</h2><ul><li>Pour une mise en réseau des postes client et serveur, il faut que la couche IP soit correctement réalisée</li><li>La configuration IP a généralement besoin :</li><li>D’une adresse IP</li><li>D’un masque réseau</li><li>Potentiellement d’une passerelle par défaut</li><li>Afin de pouvoir résoudre les noms d’hôtes, il faudra aussi renseigner un ou des serveurs DNS</li></ul></section>
+<section class="tssr-transcribed-page" id="page-5"><h2>Connaître l’adresse réseau</h2><ul><li>Dans un shell, commande ip avec l’argument address ou son raccourci a</li></ul><pre><code>root@deb:~# ip a 
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
 qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -33,136 +19,43 @@ group default qlen 1000
     inet 192.168.1.50/24 brd 192.168.1.255 scope global dynamic ens33
        valid_lft 85457sec preferred_lft 85457sec
     inet6 fe80::20c:29ff:fe7c:ffba/64 scope link 
-       valid_lft forever preferred_lft forever</pre>
-</section>
-<section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3><h4>Les prérequis</h4>
-<h4>Connaître passerelle et serveur DNS</h4>
-<pre class="tssr-source-code">• Dans un shell, commande ip avec l’option route ou son raccourci 
-r</pre>
-<pre class="tssr-source-code">root@deb:~# ip r 
+       valid_lft forever preferred_lft forever</code></pre></section>
+<section class="tssr-transcribed-page" id="page-6"><h2>Connaître passerelle et serveur DNS</h2><ul><li>Dans un shell, commande ip avec l’option route ou son raccourci r</li></ul><pre><code>root@deb:~# ip r 
 default via 192.168.1.1 dev ens33 
 192.168.1.0/24 dev ens33 proto kernel scope link src 
-192.168.1.50</pre>
-<pre class="tssr-source-code">• Les informations de DNS se trouvent dans le fichier 
-/etc/resolv.conf</pre>
-<pre class="tssr-source-code">root@deb:~# cat /etc/resolv.conf 
+192.168.1.50</code></pre><ul><li>Les informations de DNS se trouvent dans le fichier /etc/resolv.conf</li></ul><pre><code>root@deb:~# cat /etc/resolv.conf 
 search mondomaine.fr
 nameserver 10.1.2.20
-nameserver 10.1.2.21</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>J<br>d</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-7"><h3>Page 7</h3><h4>Les prérequis</h4>
-<h4>Démo</h4>
-<h4>Informations réseau</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3><h4>Gestion du réseau</h4>
-<h4>Système sans interface </h4>
-<h4>graphique</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3><h4>Système sans interface graphique</h4>
-<h4>Configuration IP en DHCP</h4>
-<h4>• La configuration IP et DNS sur un système sans interface graphique se fait dans <br>deux fichiers de configuration</h4>
-<h4>• Le fichier /etc/network/interfaces permet de gérer la partie IP</h4>
-<h4>• Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une <br>configuration statique</h4>
-<pre class="tssr-source-code">root@deb:~# vim /etc/network/interfaces
+nameserver 10.1.2.21</code></pre></section>
+<section class="tssr-transcribed-page" id="page-7"><h2>Les prérequis</h2><p>Démo</p><p>Informations réseau</p></section>
+<section class="tssr-transcribed-page" id="page-8"><h2>Gestion du réseau</h2><h3>Système sans interface</h3><h3>graphique</h3></section>
+<section class="tssr-transcribed-page" id="page-9"><h2>Configuration IP en DHCP</h2><ul><li>La configuration IP et DNS sur un système sans interface graphique se fait dans deux fichiers de configuration</li><li>Le fichier /etc/network/interfaces permet de gérer la partie IP</li><li>Il est possible d’avoir une configuration simplifiée via un serveur DHCP ou une configuration statique</li></ul><pre><code>root@deb:~# vim /etc/network/interfaces
 # The loopback network interface
 auto lo
 iface lo inet loopback
 # Carte réseau - Ethernet ens33
 auto ens33
 allow-hotplug ens33
-iface ens33 inet dhcp </pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3><h4>Système sans interface graphique</h4>
-<h4>Configuration IP statique</h4>
-<h4>• Mettre en place une configuration statique dans le fichier <br>/etc/network/interfaces</h4>
-<pre class="tssr-source-code">root@deb:~# vim /etc/network/interfaces
+iface ens33 inet dhcp </code></pre></section>
+<section class="tssr-transcribed-page" id="page-10"><h2>Configuration IP statique</h2><ul><li>Mettre en place une configuration statique dans le fichier /etc/network/interfaces</li></ul><pre><code>root@deb:~# vim /etc/network/interfaces
 # The loopback network interface
 auto lo
 iface lo inet loopback
 # Carte réseau - Ethernet ens33
 auto ens33
-iface ens33 inet static</pre>
-<pre class="tssr-source-code">address 10.1.1.10
+iface ens33 inet static</code></pre><pre><code>address 10.1.1.10
 netmask 255.255.0.0
-gateway 10.1.255.254</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>N</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-11"><h3>Page 11</h3><h4>Système sans interface graphique</h4>
-<h4>Configuration serveur DNS statique</h4>
-<h4>• Mettre en place une configuration statique dans le fichier <br>/etc/resolv.conf via la directive nameserver</h4>
-<pre class="tssr-source-code">root@deb:~# vim /etc/resolv.conf
+gateway 10.1.255.254</code></pre></section>
+<section class="tssr-transcribed-page" id="page-11"><h2>Configuration serveur DNS statique</h2><ul><li>Mettre en place une configuration statique dans le fichier /etc/resolv.conf via la directive nameserver</li></ul><pre><code>root@deb:~# vim /etc/resolv.conf
 search mondomaine.fr
 nameserver 10.1.2.20
-nameserver 10.1.2.21</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>À<br>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3><h4>Système sans interface graphique</h4>
-<h4>Prise en compte des modifications</h4>
-<h4>On utilise la commande systemctl pour gérer le service networking<br>• Arrêter le service réseau </h4>
-<pre class="tssr-source-code">root@deb:~# systemctl stop networking.service</pre>
-<h4>• Démarrer le service réseau</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl start networking.service</pre>
-<h4>• Redémarrer le service réseau</h4>
-<pre class="tssr-source-code">root@deb:~# systemctl restart networking.service</pre>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>ZT...<br>eee</p></div></details>
-
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3><h4>Système sans interface graphique</h4>
-<h4>Démo</h4>
-<h4>Mise en place d’une adresse IP fixe sur serveur </h4>
-<h4>Debian</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-14"><h3>Page 14</h3><h4>Gestion du réseau</h4>
-<h4>Configuration réseau <br>d’un système graphique</h4>
-</section>
-<section class="tssr-transcribed-page" id="page-15"><h3>Page 15</h3><h4>Configuration réseau d’un système graphique</h4>
-<h4>Gestion du réseau avec Network Manager</h4>
-<h4>Network Manager est utilisé dans le cas d’un système Linux avec <br>interface graphique (Desktop)</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>#<br>Bluetooth</p><p>4<br>Arrière-plan</p><p>A Notifications<br>—</p><p>|<br>Méthode IPv4<br>Automatique (DHCP)<br>Réseau<br>local seulernent</p><p>79°<br>.<br>Recherche<br>© Manuel<br>Désactiver<br>ea<br>Filaire connecté<br>~</p><p>Pays etlangue<br>ra</p><p>=<br>Adresses<br>Eteindre</p><p>© Acces universel<br>-<br>-<br>Paramètres filaire<br>172.16.0.120<br>255.255.254.0<br>172.16.1.254<br>°</p><p>cd<br>o<br>L<br>&#x27;<br>æ Comptes<br>en tigne<br>°<br>=<br>MathieuC<br>L<br>ay<br>W&amp; Confidentialite</p><p>DNS<br>Automatique</p><p>*S. Partage<br>10,1,2.20,10.1.2.21<br>|<br>az<br>1<br>“ Son<br>7e<br>&amp;<br>O</p><p>Energie<br>Routes<br>Automatique a<br>}<br>env<br>©</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-16"><h3>Page 16</h3><h4>Configuration réseau d’un système graphique</h4>
-<h4>Prise en compte des modifications</h4>
-<h4>On utilise la commande systemctl pour gérer le service <br>NetworkManager</h4>
-<h4>Redémarrer le service réseau </h4>
-<pre class="tssr-source-code">root@deb:~# systemctl restart NetworkManager</pre>
-<h4>Ou simplement l’interface graphique (Off, On)</h4>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>Filaire<br>+</p><p>Connecté - 1000 Mb/s<br>@)&gt;)<br>+</p><p>eni</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-17"><h3>Page 17</h3><h4>Gestion du réseau</h4>
-<h4>Démo</h4>
-<h4>Gestion du réseau au sein d’un bureau Gnome</h4>
-
-</section>
-<section class="tssr-transcribed-page" id="page-18"><h3>Page 18</h3><h4>Gestion du réseau</h4>
-<h4>TP</h4>
-<h4>Démo</h4>
-<h4>Gestion de la configuration réseau d’un poste</h4>
-<details class="tssr-source-reading"><summary>Lecture continue du texte source</summary><pre>                                                                      Gestion du réseau
-
-
-
-     TPDémo
-
-                                     Gestion de la configuration réseau d’un poste</pre></details>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>|</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-19"><h3>Page 19</h3><h4>Gestion du réseau</h4>
-<h4>Conclusion</h4>
-<p class="tssr-source-paragraph">• Vous savez consulter les informations réseau sur un système <br>Linux<br>• Vous pouvez configurer l’adressage IP sur un serveur<br>• Vous pouvez configurer l’adressage IP sur un poste avec <br>interface graphique</p>
-</section><!-- SOURCE-CONTENT:END --></body></html>
+nameserver 10.1.2.21</code></pre></section>
+<section class="tssr-transcribed-page" id="page-12"><h2>Prise en compte des modifications</h2><p>On utilise la commande systemctl pour gérer le service networking</p><ul><li>Arrêter le service réseau</li></ul><pre><code>root@deb:~# systemctl stop networking.service</code></pre><ul><li>Démarrer le service réseau</li></ul><pre><code>root@deb:~# systemctl start networking.service</code></pre><ul><li>Redémarrer le service réseau</li></ul><pre><code>root@deb:~# systemctl restart networking.service</code></pre></section>
+<section class="tssr-transcribed-page" id="page-13"><h2>Système sans interface graphique</h2><p>Démo</p><p>Mise en place d’une adresse IP fixe sur serveur</p><p>Debian</p></section>
+<section class="tssr-transcribed-page" id="page-14"><h2>Gestion du réseau</h2><h3>Configuration réseau d’un système graphique</h3></section>
+<section class="tssr-transcribed-page" id="page-15"><h2>Gestion du réseau avec Network Manager</h2><p>Network Manager est utilisé dans le cas d’un système Linux avec interface graphique (Desktop)</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p15-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p15-2.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-16"><h2>Prise en compte des modifications</h2><p>On utilise la commande systemctl pour gérer le service NetworkManager</p><p>Redémarrer le service réseau</p><pre><code>root@deb:~# systemctl restart NetworkManager</code></pre><p>Ou simplement l’interface graphique (Off, On)</p><figure><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../isolated/69edc58f1bc1f995/deb-p16-1.webp"/><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-17"><h2>Gestion du réseau</h2><p>Démo</p><p>Gestion du réseau au sein d’un bureau Gnome</p></section>
+<section class="tssr-transcribed-page" id="page-18"><h2>Gestion du réseau</h2><h3>TP</h3><p>Démo</p><p>Gestion de la configuration réseau d’un poste</p></section>
+<section class="tssr-transcribed-page" id="page-19"><h2>Conclusion</h2><ul><li>Vous savez consulter les informations réseau sur un système Linux</li><li>Vous pouvez configurer l’adressage IP sur un serveur</li><li>Vous pouvez configurer l’adressage IP sur un poste avec interface graphique</li></ul></section>
+<!-- SOURCE-CONTENT:END --></body></html>

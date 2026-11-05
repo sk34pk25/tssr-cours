@@ -1,55 +1,43 @@
 # Fiche de révision — Module 12 — Maintenance d’un système en production
 
-**Sources originales (A) :** support et TP M12 Drive. **Fiche (B) :** synthèse reformulée.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## Observer avant d’agir
+## Repère essentiel
 
-`systemctl status`, `journalctl`, `journalctl -u <service>`, `journalctl -p <priorité>` et `journalctl -f` servent à analyser le comportement des services. Les priorités vont de `emerg` à `debug`; `rsyslog` applique des règles par facility et priorité pour écrire ou transférer les journaux.
+## Journal systemd
 
-## Planifier sans perdre la trace
+## Tableau de mémorisation
 
-Les crontabs utilisateur et système sont distinctes. Une tâche de maintenance doit préciser sa périodicité, sa commande, son destinataire et une preuve durable de son exécution. Le TP M12 utilise notamment une sortie de processus horodatée dans `/var/log/procstatus.log`.
+| Besoin | Commande du parcours |
+|---|---|
+| Lire le journal accessible | `journalctl` |
+| Suivre les nouvelles entrées | `journalctl -f` |
+| Filtrer un service | `journalctl -u cron.service` |
+| Filtrer un PID | `journalctl _PID=1` |
+| Filtrer un programme | `journalctl /usr/sbin/sshd` |
+| Erreurs et niveaux plus graves | `journalctl -p err` |
+| Messages du noyau | `journalctl -k` |
 
-## Processus et sécurité
+## Se tester sans regarder
 
-Relever PID, utilisateur et terminal avant un signal. `SIGTERM` est la première demande d’arrêt ; `SIGKILL` est un dernier recours. Éviter les processus système et tout shell non explicitement concerné par une intervention de laboratoire.
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md) · [TP01](../../tp/administration-linux/module-12/tp01-journalisation/index.md) · [TP02](../../tp/administration-linux/module-12/tp02-planification/index.md) · TP03.
+1. Une crontab utilisateur contient-elle un champ utilisateur ?
+2. Comment vérifier que cron a émis un événement et qu’une règle l’a bien écrit ?
+3. Pourquoi la colonne free n’est-elle pas seule suffisante ?
+4. PuTTY tourne-t-il sur le serveur Debian de ce scénario ?
 
-## À connaître absolument
+??? success "Réponses"
+    1. Non ; le champ supplémentaire concerne les tables système.
+    2. Générer un message identifié avec logger puis examiner les destinations attendues.
+    3. Des caches sont récupérables ; available apporte une estimation différente.
+    4. Non ; le serveur voit notamment sshd et le shell distant.
 
-- Interroger les journaux avec journalctl.
-- Planifier des tâches avec cron et les timers adaptés.
-- Collecter les informations système utiles au diagnostic.
-- Documenter une intervention puis vérifier le retour au service.
 
-## Méthode express
+## Contrôle de maîtrise
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
 
-## Pièges fréquents
-
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
-
-## Checklist de maîtrise
-
-- [ ] Interroger les journaux avec journalctl.
-- [ ] Planifier des tâches avec cron et les timers adaptés.
-- [ ] Collecter les informations système utiles au diagnostic.
-- [ ] Documenter une intervention puis vérifier le retour au service.
-- [ ] Je sais expliquer la vérification et le retour arrière.
-
-## Questions flash
-
-1. Quels sont les concepts indispensables de « Maintenance d’un système en production » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
-
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md).
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md) · [TP du parcours](../../tp/administration-linux/index.md).

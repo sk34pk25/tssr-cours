@@ -1,39 +1,58 @@
-# Fiche de révision — Module 02 — La gestion des services
+# Révision — Module 02 — La gestion des services
 
-## À connaître absolument
+## Le service crée de la valeur grâce à deux conditions
 
-- Définir service, valeur, client et fournisseur.
-- Distinguer processus, fonction et rôle.
-- Identifier propriétaire de processus et acteurs.
-- Employer un vocabulaire commun au centre de services.
+L’**utilité** répond à « ce service m’aide-t-il à faire mon travail ? » ; la **garantie** répond à « puis-je compter sur lui dans les conditions prévues ? ». Une application utile mais souvent indisponible crée peu de valeur. Un système parfaitement disponible mais inutile au métier n’en crée pas davantage.
 
-## Méthode express
+| Utilité | Garantie à préciser dans l’engagement |
+|---|---|
+| Améliorer les performances du métier | Disponibilité et heures de service |
+| Supprimer une contrainte | Capacité et performances suffisantes |
+| Répondre à un besoin réel | Continuité et sécurité |
 
-1. Identifier le besoin ou le symptôme.
-2. Relever l’état actuel sans le modifier.
-3. Appliquer une seule action contrôlée.
-4. Mesurer le résultat.
-5. Documenter et, si nécessaire, revenir en arrière.
+**Précision externe :** la définition du support sur les coûts et risques signifie que le client n’a pas à gérer lui-même certains coûts et risques propres à la réalisation du service. Elle ne signifie pas que le service est gratuit ou que tout risque disparaît.
 
-## Pièges fréquents
+## Acteurs, processus, fonctions et rôles
 
-- Confondre l’objectif attendu avec l’action réalisée.
-- Modifier plusieurs paramètres avant d’effectuer un test.
-- Oublier les différences de version ou de droits.
-- Valider uniquement à l’écran sans test fonctionnel.
+| Acteur du support | Responsabilité à comprendre |
+|---|---|
+| Fournisseur interne, partagé ou externe | Fournir le service ; distinguer équipe interne, service partagé et prestataire externe. |
+| Client | Exprimer les besoins, négocier et valider les engagements ; il peut représenter les utilisateurs. |
+| Utilisateur | Utiliser le service et signaler les besoins ou difficultés. |
+| Propriétaire de service | Suivre le service dans sa durée de vie, ses résultats, améliorations et relations client. |
+| Gestionnaire de service | Coordonner la démarche et les responsables concernés. |
 
-## Checklist de maîtrise
+Un **processus** décrit des activités organisées : entrées, déclencheur, sorties, clients, objectifs, rôles, outils, contrôles et mesures. Une **fonction** regroupe des personnes et des moyens ; elle peut participer à plusieurs processus. Les quatre fonctions v3 du support sont le centre de services, la gestion technique, la gestion des opérations et la gestion des applications. Un **rôle** décrit une responsabilité dans une activité ; il ne se confond pas avec un poste ou un titre hiérarchique.
 
-- [ ] Définir service, valeur, client et fournisseur.
-- [ ] Distinguer processus, fonction et rôle.
-- [ ] Identifier propriétaire de processus et acteurs.
-- [ ] Employer un vocabulaire commun au centre de services.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+```mermaid
+flowchart LR
+    D["Déclencheur et informations"] --> P["Activités du processus"]
+    P --> O["Sortie attendue pour le client"]
+    M["Mesures, suivi et contrôles"] --> P
+    O --> M
+```
 
-## Questions flash
+## Lire une matrice RACI sans confondre les lettres
 
-1. Quels sont les concepts indispensables de « La gestion des services » ?
-2. Quelle preuve technique montre que le résultat est conforme ?
-3. Quelle action serait risquée sans sauvegarde ou instantané ?
+| Lettre | Sens pratique | Contrôle |
+|---|---|---|
+| R — Responsible | Réalise l’activité et rend compte de son exécution | Au moins un acteur pour que le travail soit effectué. |
+| A — Accountable | Assume la responsabilité finale | Identifier un responsable clairement désigné pour l’activité. |
+| C — Consulted | Apporte un avis, échange dans les deux sens | Consulter les personnes dont l’avis est nécessaire. |
+| I — Informed | Reçoit l’information utile | Prévoir qui doit connaître l’avancement ou le résultat. |
 
-Pour approfondir : [cours complet](../../modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md).
+**Précision externe :** le support indique au moins un C et un I par action ; cela ne constitue pas une obligation universelle de RACI. Une activité peut n’avoir aucun consulté ou informé distinct. La matrice doit rester utile et éviter la consultation systématique de tout le monde.
+
+
+
+## Vérifier ses acquis
+
+**Mini-quiz.** 1. Qui utilise et qui négocie le service ? 2. Un processus est-il une équipe ? 3. Qui réalise dans RACI ? 4. Disponibilité élevée suffit-elle à créer de la valeur ?
+
+??? success "Réponses commentées"
+    1. L’utilisateur utilise ; le client exprime et négocie les besoins.
+    2. Non, c’est une organisation d’activités ; les fonctions lui apportent des moyens.
+    3. R ; A porte la responsabilité finale.
+    4. Non : il faut aussi une utilité correspondant au besoin.
+
+- [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md)

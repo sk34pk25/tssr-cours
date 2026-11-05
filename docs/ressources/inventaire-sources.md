@@ -81,7 +81,7 @@ Cet inventaire recense les 292 fichiers de l’archive d’origine. Le chemin de
 | 75 | GLPI/Module 3/M3 - Ressources TP/JL357A-Aruba-48P-avant.png | tp | 12908 | oui | `assets/images/glpi/module-03/jl357a-aruba-48p-avant-png.png` — Ressource publiée dans le portail. |
 | 76 | GLPI/Module 3/M3 - Ressources TP/PDU G2 Arriere.png | tp | 39052 | oui | `assets/images/glpi/module-03/pdu-g2-arriere-png.png` — Ressource publiée dans le portail. |
 | 77 | GLPI/Module 3/M3 - Ressources TP/PDU G2 Avant.png | tp | 27304 | oui | `assets/images/glpi/module-03/pdu-g2-avant-png.png` — Ressource publiée dans le portail. |
-| 78 | GLPI/Module 3/M3 - Ressources TP/manuel Aruba 24 ports.pdf | tp | 2887599 | oui | `assets/resources/glpi/manuel-aruba-24-ports.pdf` — Ressource publiée dans le portail. |
+| 78 | GLPI/Module 3/M3 - Ressources TP/manuel Aruba 24 ports.pdf | tp | 2887599 | oui | [Fiche Aruba retranscrite en HTML (12 pages)](../assets/course-sources/b8ce0876eff78941/transcription-117kxWm1eP4YIacFfO8SBR9XaTL8PQvi4.html). |
 | 79 | GLPI/Module 3/M3 - Solution du TP - Gestion de parc.pdf | correction | 504211 | oui | `tp/glpi/module-03/corrections.md` — Contenu analysé et intégré à la page indiquée. |
 | 80 | GLPI/Module 3/M3 - images correction TP/Gabarit switch 24P.png | correction | 31025 | oui | `assets/images/glpi/module-03/gabarit-switch-24p-png.png` — Ressource publiée dans le portail. |
 | 81 | GLPI/Module 3/M3 - images correction TP/Gabarit switch 48P.png | correction | 31114 | oui | `assets/images/glpi/module-03/gabarit-switch-48p-png.png` — Ressource publiée dans le portail. |

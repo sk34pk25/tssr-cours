@@ -1,55 +1,93 @@
 # Module 08 — Gestion des espaces de stockage avancée — LVM
 
-**Sources originales (A) :** support et TP TSSR « Manipuler les disques et LVM ».
-**Contenu du portail (B) :** reformulation structurée des sources TSSR.
+**Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Les trois objets LVM
 
-## Objectifs
+LVM ajoute une couche d’allocation entre les périphériques et les volumes utilisés. Un **PV** (*physical volume*) est un périphérique préparé pour LVM. Plusieurs PV alimentent un **VG** (*volume group*). Dans cet espace, des **LV** (*logical volumes*) reçoivent une capacité allouée. Le système de fichiers du module 9 vient au-dessus d’un LV.
 
-- Identifier volumes physiques, groupes de volumes et volumes logiques.
-- Comprendre l’intérêt de la couche LVM.
-- Contrôler une structure LVM avant sa modification.
+| Niveau | Observer rapidement | Observer en détail | Modifier dans le support |
+|---|---|---|---|
+| PV | `pvs` | `pvdisplay` | `pvcreate` |
+| VG | `vgs` | `vgdisplay` | `vgcreate`, `vgextend` |
+| LV | `lvs` | `lvdisplay` | `lvcreate`, `lvextend`, `lvreduce` |
 
-## Le modèle LVM
+Les capacités sont réparties en unités d’allocation, les extents. L’espace libre du VG et l’espace libre dans un système de fichiers sont deux mesures différentes : `vgs` ne remplace pas `df`.
 
-LVM ajoute une couche logique entre les périphériques et les systèmes de fichiers. Les volumes physiques (PV) alimentent un groupe de volumes (VG), à partir duquel on crée des volumes logiques (LV). Cette souplesse n’annule pas les contraintes physiques : une opération doit être planifiée avec l’état réel des volumes et des sauvegardes.
+## Créer et étendre les niveaux
+
+Les commandes suivantes reprennent les noms pédagogiques du support ; elles supposent des partitions de laboratoire identifiées et libres de données à conserver.
 
 ```bash
-pvs
-vgs
-lvs
+pvcreate /dev/sdb1 /dev/sdb2 /dev/sdc1
+vgcreate vggroup1 /dev/sdb1 /dev/sdb2 /dev/sdc1
+lvcreate -n lv1 -L 2G vggroup1
+lvcreate -n lv2 -L 512M vggroup1
 ```
 
-## Méthode
+`pvcreate` écrit les métadonnées LVM sur les cibles. `vgcreate` crée le groupe ; `lvcreate` consomme une partie de ses extents libres. L’affichage `/dev/vggroup1/lv1` et le chemin sous `/dev/mapper` permettent d’atteindre le LV ; les doubles tirets observés dans certains noms mapper correspondent à l’échappement des tirets du VG/LV.
 
-1. Observer PV, VG et LV existants.
-2. Vérifier l’espace libre du groupe de volumes.
-3. Préparer la modification sur un volume de laboratoire.
-4. Vérifier le système de fichiers et le montage après l’opération.
+Pour ajouter le nouveau périphérique de l’exemple :
 
-## À retenir
+```bash
+pvcreate /dev/sdd
+vgextend vggroup1 /dev/sdd
+pvs
+vgs
+```
 
-LVM rend l’allocation plus flexible, mais chaque niveau — PV, VG, LV et système de fichiers — doit être identifié séparément.
+Un périphérique n’est pas utilisable par le VG simplement parce qu’il apparaît dans `/dev`. La préparation PV puis l’appartenance au VG doivent être vérifiées.
 
-## Vérification des acquis
+## Agrandir un LV et son système de fichiers
 
-1. Quel objet regroupe les volumes physiques ?
-2. Quelle commande liste les volumes logiques ?
+```bash
+lvextend -r -L +512M /dev/vggroup1/lv1
+lvextend -r -L 1G /dev/vggroup1/lv2
+```
 
-??? success "Réponses"
-    1. Le groupe de volumes (VG).
-    2. `lvs`.
+Dans le premier cas, `+512M` ajoute une capacité. Dans le second, `1G` fixe la taille cible totale. `-r` demande aussi l’adaptation du système de fichiers, lorsque le type, les outils et l’état le permettent. Examiner le résultat de chaque étape : un LV agrandi avec un système de fichiers inchangé ne fournit pas encore cet espace à ses fichiers.
 
-<!-- TSSR-LINUX-VISUAL-20261020 -->
+!!! info "Clarification externe — redimensionnement"
+    `-r` ne signifie pas « toujours resize2fs » : l’outil et les contraintes dépendent du système de fichiers. La réduction exige que le système de fichiers soit réduit avant de retirer l’espace du LV ; certaines familles, notamment XFS, ne se réduisent pas. L’agrandissement et la réduction ne sont donc pas des opérations symétriques. Références : [lvextend(8)](https://manpages.debian.org/trixie/lvm2/lvextend.8.en.html), [lvreduce(8)](https://manpages.debian.org/trixie/lvm2/lvreduce.8.en.html).
 
-## Complément IA / externe au cours — Lire les niveaux de LVM
+Le support mentionne `lvreduce` ; ne pas traiter sa syntaxe comme une recette universelle. Les sorties d’exemple comportent aussi des capacités et nombres d’extents qui ne forment pas tous un état mathématique cohérent. Utiliser les sorties actuelles de la VM pour calculer l’espace disponible.
 
-**Illustration IA / externe au cours.**
+## TP — nouveau disque de 40 Go
+
+Sur la station avec bureau, le TP demande d’ajouter un disque de 40 Go, de créer une partition occupant le disque pour LVM, de l’intégrer au VG existant, puis de créer **lvvar de 20 Go**. Tout le reste de l’espace libre du VG sert à agrandir **lvhome**. Les noms historiques du corrigé doivent être rapprochés de ceux réellement présents.
+
+Démarche : relever `lsblk` et `pvs/vgs/lvs`, ajouter le disque, confirmer sa présence, préparer la partition et son type, créer le PV, étendre le VG existant, créer lvvar, puis étendre lvhome avec l’espace libre voulu. Le TP suivant formate lvvar et adapte le système de fichiers de home. Si `-r` a déjà été employé avec succès, le système de fichiers peut être déjà agrandi.
+
+Le support donne une astuce de détection SCSI :
+
+```bash
+udevadm info --query=path --name=sda
+```
+
+Le chemin permet de repérer `host0` dans son exemple. La commande source `echo "- - -" > /sys/class/scsi_host/host0/scan` suppose ce contrôleur précis et une redirection privilégiée ; ne pas recopier `host0` sans l’identifier. Une redirection faite dans un shell ordinaire n’acquiert pas les droits root simplement en préfixant `echo` par sudo.
+
+## Schéma explicatif — complément pédagogique
 
 ```mermaid
 flowchart LR
- A["Volume physique PV"] --> G["Groupe de volumes VG"]
- B["Autre PV"] --> G
- G --> L["Volume logique LV"] --> F["Système de fichiers"] --> M["Point de montage"]
+ P1["PV : partition 1"] --> V["VG : extents communs"]
+ P2["PV : autre périphérique"] --> V
+ V --> L1["LV home"] --> F1["Système de fichiers"]
+ V --> L2["LV var"] --> F2["Système de fichiers"]
 ```
 
-Repère IA fondé sur les niveaux étudiés : `pvs`, `vgs` et `lvs` observent trois objets différents ; le montage concerne le système de fichiers créé au-dessus du volume.
+## Autoévaluation
+
+1. Quelle commande renseigne l’espace non alloué du groupe ?
+2. Que signifie le signe `+` dans `-L +512M` ?
+3. Quelle couche faut-il contrôler après l’extension du LV ?
+
+??? success "Réponses"
+    1. `vgs` ou `vgdisplay`.
+    2. Une augmentation, plutôt qu’une taille finale absolue.
+    3. Le système de fichiers, puis le montage et la capacité réellement visible.
+
+## Pour travailler ce module
+
+- [Fiche de révision](../../revision/administration-linux/module-08-gestion-des-espaces-de-stockage-avancee-lvm.md)
+- [Travaux pratiques](../../tp/administration-linux/module-08/index.md)
+- [Progression du cours](index.md)

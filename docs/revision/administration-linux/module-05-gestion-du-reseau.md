@@ -1,35 +1,41 @@
 # Fiche de révision — Module 05 — Gestion du réseau
 
-**Sources originales (A) :** support M05 et TP M05 TSSR.
-**Fiche de révision (B) :** synthèse reformulée des sources.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## Les quatre contrôles réseau
+## Repère essentiel
 
-| Élément | Contrôle | Erreur à éviter |
+```bash
+ip address
+ip route
+cat /etc/resolv.conf
+```
+
+## Tableau de mémorisation
+
+| Interface / rôle | Adressage demandé | Route par défaut |
 |---|---|---|
-| Interface et adresse | `ip a` | conclure sans vérifier le préfixe |
-| Routage | `ip route` | ajouter une seconde passerelle par défaut |
-| DNS | `/etc/resolv.conf` et une requête de nom | confondre résolution et connectivité IP |
-| Nom d'hôte | `/etc/hostname` et `/etc/hosts` | modifier un seul des deux fichiers source |
+| Serveur, première carte | `10.X.Y.1/16` : X = réseau de salle, Y = numéro de stagiaire | `10.X.255.254` |
+| Serveur, deuxième carte Host-only | `192.168.100.1/24` | Aucune sur cette carte |
+| Client graphique | Adresse distincte compatible avec la première carte du serveur | Selon le segment et la connectivité attendue |
 
-## Méthode de diagnostic
+## Se tester sans regarder
 
-1. Relever l'interface, l'adresse, les routes et la résolution avant modification.
-2. Appliquer une seule configuration au contexte de laboratoire.
-3. Vérifier l'adresse puis la route par défaut.
-4. Tester une cible IP, puis un nom d'hôte.
-5. Vérifier le nom de la machine dans une nouvelle session.
-6. Consigner ou restaurer le résultat demandé.
 
-## À retenir
+1. Quel est le réseau de `10.49.222.1/16` ?
+2. Pourquoi éviter une passerelle sur la carte Host-only du TP ?
+3. Une édition de resolv.conf est-elle toujours durable ?
 
-- Les valeurs de salle (adresses, DNS, domaines et noms d'hôtes) sont des données de laboratoire, pas une recette universelle.
-- La seconde interface host-only ne reçoit pas de passerelle par défaut dans le TP.
-- Sur le serveur, les fichiers de configuration IP et DNS sont distincts dans la source.
-- Sur le poste graphique, le gestionnaire de réseau prend en charge la configuration IPv4 mais des paramètres DNS peuvent exiger un outil complémentaire indiqué dans le support.
+??? success "Réponses"
+    1. `10.49.0.0/16`.
+    2. Cette carte relie un segment local ; le TP ne lui donne pas le rôle de sortie par défaut.
+    3. Non ; le fichier peut être généré par le gestionnaire réseau.
 
-## Liens utiles
 
-- [Cours complet](../../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau.md)
-- [TP — Gestion du réseau](../../tp/administration-linux/module-05/index.md)
-- [Kahoot du module](../../kahoot/05-administration-debian-gnu-linux-module-05-gestion-du-reseau.md)
+## Contrôle de maîtrise
+
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
+
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-05-gestion-du-reseau.md) · [TP du parcours](../../tp/administration-linux/index.md).

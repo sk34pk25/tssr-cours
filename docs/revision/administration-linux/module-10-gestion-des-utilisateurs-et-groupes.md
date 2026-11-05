@@ -1,29 +1,38 @@
 # Fiche de révision — Module 10 — Gestion des utilisateurs et groupes
 
-**Sources originales (A) :** support, énoncé et solution M10TP01 Drive. **Fiche (B) :** synthèse reformulée sans identifiants de démonstration.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## À connaître absolument
+## Repère essentiel
 
-- UID identifie l’utilisateur ; GID identifie son groupe principal ; des groupes secondaires peuvent compléter ses appartenances.
-- `/etc/passwd`, `/etc/shadow`, `/etc/group` et `/etc/gshadow` sont des sources d’information : les changements passent par les commandes dédiées.
-- `useradd -m`, `-s`, `-g` et `-G` créent un compte avec son répertoire, shell et groupes ; `id` contrôle le résultat.
-- `groupadd`, `groupmod`, `groupdel` et `gpasswd` administrent les groupes ; `usermod`, `userdel` et `passwd` gèrent le cycle de vie des comptes.
+Root possède l’UID 0. Les comptes système sont utilisés par des services, tandis que les comptes de connexion permettent l’usage interactif. Le support utilise les plages Debian usuelles, mais ses formules « humains > 1000 » et « 99 % des services » sont trop générales : l’allocation se règle dans la configuration et un premier compte peut précisément avoir l’UID 1000.
 
-## Privilèges
+## Tableau de mémorisation
 
-La source conseille de limiter l’usage direct de `root`. `su -` effectue un changement complet d’identité ; `sudo` délègue des tâches définies dans `/etc/sudoers` et emploie le mot de passe de l’utilisateur appelant.
+| Fichier | Champs essentiels du support | Rôle |
+|---|---|---|
+| `/etc/passwd` | login, marqueur de mot de passe, UID, GID, commentaire, home, shell | Définition des comptes |
+| `/etc/shadow` | login, hash, dernier changement, âges, avertissement, inactivité, expiration, réservé | Authentification et vieillissement |
+| `/etc/group` | nom, marqueur de mot de passe, GID, membres supplémentaires | Définition des groupes |
+| `/etc/gshadow` | nom, mot de passe, administrateurs, membres | Informations protégées des groupes |
 
-## Contrôles du TP M10
+## Se tester sans regarder
 
-1. Créer les groupes avant les comptes qui les utilisent.
-2. Relever les groupes et le shell avec `id` et les fichiers de configuration, sans les éditer directement.
-3. Forcer le changement de mot de passe ou verrouiller/désactiver le compte selon le scénario, puis vérifier le comportement.
 
-## Checklist de maîtrise
+1. Pourquoi préférer `usermod -aG` pour ajouter une appartenance ?
+2. Verrouiller le mot de passe suffit-il toujours à désactiver un compte ?
+3. Combien de champs comporte gshadow ?
 
-- [ ] Distinguer groupe principal et groupes secondaires.
-- [ ] Créer un compte avec son répertoire et son shell.
-- [ ] Vérifier une appartenance avec `id`.
-- [ ] Expliquer le verrouillage de mot de passe et la désactivation d’un compte.
+??? success "Réponses"
+    1. `-G` seul remplace la liste des groupes supplémentaires.
+    2. Non ; expiration et autres méthodes d’authentification doivent être considérées.
+    3. Quatre.
 
-Pour approfondir : [cours complet](../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md) · TP · [mémo](../../memo/comptes-groupes-debian.md).
+
+## Contrôle de maîtrise
+
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
+
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-10-gestion-des-utilisateurs-et-groupes.md) · [TP du parcours](../../tp/administration-linux/index.md).

@@ -1,48 +1,49 @@
 # Fiche de révision — Module 02 — Installation d’une distribution Debian
 
-**Sources originales (A) :** supports et TP TSSR M02 d’installation Debian avec et sans interface graphique.
-**Fiche de révision (B) :** synthèse et reformulation pédagogique des sources originales.
+**Fiche pédagogique issue du cours optimisé ; les précisions externes restent identifiées dans le cours complet.**
 
-## À connaître absolument
+## Repère essentiel
 
-- Préparer une machine et son support d’installation.
-- Installer Debian avec ou sans interface graphique.
-- Configurer comptes, stockage, réseau et sélection de logiciels.
-- Mettre le système à jour et vérifier le démarrage.
+| Méthode du support | Principe | Point à vérifier |
+|---|---|---|
+| Live | Tester un environnement avant installation | Le test ne remplace pas l’installation sur disque |
+| DVD complet | Beaucoup de paquets disponibles hors ligne | Mises à jour postérieures au média |
+| Netinstall | Petit média puis récupération sur un dépôt | Accès réseau et miroir accessibles |
+| USB | Porter une image d’installation sur une clé | Méthode d’écriture adaptée à l’image |
+| PXE / réseau | Obtenir une configuration réseau puis un chargeur | Services réseau et fichier d’amorçage |
+| Installation automatisée | FAI ou préconfiguration | Réponses, cible et reproductibilité |
+| Clonage | Déployer une image préparée avec FOG, Ghost, Acronis ou Clonezilla | État et identité des systèmes clonés |
 
-## Méthode express
+## Tableau de mémorisation
 
-1. Préparer l’image, la machine virtuelle et le retour arrière du laboratoire.
-2. Choisir explicitement le parcours graphique ou sans interface graphique.
-3. Vérifier le disque cible avant le partitionnement et appliquer le schéma demandé.
-4. Démarrer sur le système installé puis contrôler l’identité, le réseau et les montages.
-5. Documenter les paramètres effectivement utilisés et les écarts éventuels.
+| Méthode du support | Principe | Point à vérifier |
+|---|---|---|
+| Live | Tester un environnement avant installation | Le test ne remplace pas l’installation sur disque |
+| DVD complet | Beaucoup de paquets disponibles hors ligne | Mises à jour postérieures au média |
+| Netinstall | Petit média puis récupération sur un dépôt | Accès réseau et miroir accessibles |
+| USB | Porter une image d’installation sur une clé | Méthode d’écriture adaptée à l’image |
+| PXE / réseau | Obtenir une configuration réseau puis un chargeur | Services réseau et fichier d’amorçage |
+| Installation automatisée | FAI ou préconfiguration | Réponses, cible et reproductibilité |
+| Clonage | Déployer une image préparée avec FOG, Ghost, Acronis ou Clonezilla | État et identité des systèmes clonés |
 
-## Pièges fréquents
+## Se tester sans regarder
 
-- Confondre les deux parcours : graphique et sans interface graphique n’ont pas le même objectif ni le même schéma de stockage.
-- Partitioner le mauvais disque ou valider sans relever le résultat réel de `lsblk -f` et `findmnt`.
-- Réutiliser aveuglément des valeurs de laboratoire dans un environnement différent.
-- Valider uniquement à l’écran sans démarrer ni ouvrir de session sur le système installé.
 
-## Checklist de maîtrise
+1. L’installeur graphique oblige-t-il à installer GNOME ?
+2. Quel volume reçoit le reste du disque du TP graphique ?
+3. Pourquoi relever BIOS/UEFI avant de choisir la disposition du disque ?
 
-- [ ] Préparer une machine et son support d’installation.
-- [ ] Installer Debian avec ou sans interface graphique.
-- [ ] Configurer comptes, stockage, réseau et sélection de logiciels.
-- [ ] Mettre le système à jour et vérifier le démarrage.
-- [ ] Je sais expliquer la vérification et le retour arrière.
+??? success "Réponses"
+    1. Non ; le bureau est choisi dans les tâches logicielles.
+    2. Le volume destiné à `/home`.
+    3. Les exigences d’amorçage et le placement du chargeur diffèrent.
 
-## Questions flash
 
-1. Quelles différences essentielles séparent les parcours graphique et sans interface graphique ?
-2. Quelles commandes permettent de vérifier les systèmes de fichiers et points de montage réellement actifs ?
-3. Pourquoi faut-il identifier le disque cible avant le partitionnement ?
+## Contrôle de maîtrise
 
-## Voir aussi
+- [ ] Expliquer les termes avec un exemple concret.
+- [ ] Justifier la commande choisie et son effet avant de l’exécuter.
+- [ ] Distinguer ce que le système fait maintenant et ce qui est configuré pour plus tard.
+- [ ] Vérifier le résultat sur la machine réelle et identifier les différences de version.
 
-- [Cours complet — Module 02](../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md)
-- [TP — Installation avec et sans interface graphique](../../tp/administration-linux/module-02/index.md)
-- [Énoncés](../../tp/administration-linux/module-02/enonces.md)
-- Corrections
-- [Kahoot — Module 02](../../kahoot/05-administration-debian-gnu-linux-module-02-installation-d-une-distribution-debian.md)
+[Reprendre le cours complet](../../modules/05-administration-debian-gnu-linux/module-02-installation-d-une-distribution-debian.md) · [TP du parcours](../../tp/administration-linux/index.md).

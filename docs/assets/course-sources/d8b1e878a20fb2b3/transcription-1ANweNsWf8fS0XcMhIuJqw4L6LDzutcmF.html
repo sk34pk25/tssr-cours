@@ -1,36 +1,6 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP01 - Enoncé - Manipuler les disques et LVM.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M08TP01 - Enoncé - Manipuler les disques et LVM</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
-<h4>Manipuler les disques et <br>LVM </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Gestion des espaces de stockage avancée - LVM </p>
+<!DOCTYPE html>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">15 à 20 minutes </p>
-<h4>Énoncé  </h4>
-<p class="tssr-source-paragraph">I. <br>Gestion des disques sur la station avec environnement <br>graphique </p>
-<p class="tssr-source-paragraph">• <br>Ajouter un nouveau disque de 40 Go. </p>
-<pre class="tssr-source-code">o Vérifier que le disque est bien présent dans /dev </pre>
-<p class="tssr-source-paragraph">• <br>Créer 1 partition sur le nouveau disque avec fdisk : </p>
-<pre class="tssr-source-code">o Partition principale de la totalité du disque pour du LVM </pre>
-<p class="tssr-source-paragraph">• <br>Intégrer la partition au groupe de volume présent dans votre système. </p>
-<p class="tssr-source-paragraph">• <br>Créer un volume logique de 20 Go nommé lvvar. </p>
-<p class="tssr-source-paragraph">• <br>Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe <br>de volume. </p>
-<p class="tssr-source-paragraph">II. <br>Astuce  </p>
-<p class="tssr-source-paragraph">Pour détecter les disques SCSI sans redémarrer : </p>
-<p class="tssr-source-paragraph">• <br>Trouver la chaine SCSI qui gère les disques avec la commande : </p>
-<pre class="tssr-source-code">o # udevadm info --query=path --name=sda </pre>
-<pre class="tssr-source-code">o Ex. résultat 
- : 
-/devices/pci0000:00/0000:00:10.0/host0/target0:0:0/0:0:0:0/block/sda </pre>
-<pre class="tssr-source-code">o Cela veut dire que host0 gère les disques SCSI </pre>
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
-
-</section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux <br> </p>
-<p class="tssr-source-paragraph">• <br>Lancer un scan de la chaine SCSI </p>
-<pre class="tssr-source-code">o # echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan </pre>
-<h4>• Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M08TP01 - Enoncé - Manipuler les disques et LVM</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>M08TP01 - Enoncé - Manipuler les disques et LVM</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Manipuler les disques et LVM</h3><p>TP du Module 08 – Gestion des espaces de stockage avancée - LVM</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 8 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>15 à 20 minutes</p><h3>Énoncé</h3><h3>I. Gestion des disques sur la station avec environnement graphique</h3><ul><li>Ajouter un nouveau disque de 40 Go.</li><li>Vérifier que le disque est bien présent dans /dev</li><li>Créer 1 partition sur le nouveau disque avec fdisk :</li><li>Partition principale de la totalité du disque pour du LVM</li><li>Intégrer la partition au groupe de volume présent dans votre système.</li><li>Créer un volume logique de 20 Go nommé lvvar.</li><li>Agrandir le volume logique lvhome avec le reste de l’espace disponible du groupe de volume.</li></ul><h3>II. Astuce</h3><p>Pour détecter les disques SCSI sans redémarrer :</p><ul><li>Trouver la chaine SCSI qui gère les disques avec la commande :</li><li># udevadm info --query=path --name=sda</li><li>Ex. résultat : /devices/pci0000:00/0000:00:10.0/host0/target0:0:0/0:0:0:0/block/sda</li><li>Cela veut dire que host0 gère les disques SCSI</li></ul></section>
+<section class="tssr-transcribed-page" id="page-2"><ul><li>Lancer un scan de la chaine SCSI</li><li># echo "- - -" &gt; /sys/class/scsi_host/host0/scan</li><li>Solution</li></ul><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>

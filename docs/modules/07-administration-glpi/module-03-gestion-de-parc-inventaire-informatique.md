@@ -1,457 +1,90 @@
-# Module 03 — Gestion de parc — Inventaire informatique
+# Module 03 — Gestion de parc et inventaire informatique
 
-**Séquence :** Administration GLPI  
-**Importance :** socle de la progression officielle  
-**Sources consolidées :** 1 support(s) de cours, 2 énoncé(s), 1 correction(s)
+Un inventaire utile décrit les objets, leurs caractéristiques, leur localisation et leurs relations. Il permet de retrouver le matériel impliqué dans un ticket, ses composants, ses logiciels, ses connexions, son cycle de vie et ses données administratives ou financières.
 
-!!! warning "Périmètre et versions"
-    Le laboratoire cible GLPI 9.5, PHP 7.4 et FusionInventory. Pour GLPI 10 et 11, l’inventaire est natif et FusionInventory n’est plus pris en charge ; les déploiements actuels doivent suivre la documentation GLPI et utiliser GLPI Agent. Référence : [Documentation GLPI](https://help.glpi-project.org/documentation), [FAQ inventaire GLPI](https://help.glpi-project.org/faq/glpi/inventory).
+## Définir une nomenclature
 
-## Objectifs et compétences
+Le support construit un nom à partir de quatre informations : `PC` pour le type, `DIR` pour la direction, `202203` pour mars2022 et `012` comme index. Le choix des séparateurs appartient à la convention retenue. Un nom doit rester unique et compréhensible sans porter toutes les informations de la fiche.
 
-- Construire une nomenclature de parc.
-- Créer ordinateurs, composants, logiciels, licences et équipements réseau.
-- Utiliser des gabarits cohérents.
-- Représenter baies, ports et connexions.
+Les champs récurrents sont nom, lieu, statut, type, fabricant, modèle, numéro d’inventaire, responsable et groupe techniques, utilisateur et groupe, commentaire. Les intitulés se préparent en amont ou peuvent se créer depuis le bouton d’ajout de la fiche. Distinguer le **modèle** matériel, le **gabarit** de saisie et l’**exemplaire** physique.
 
-!!! tip "Façon simple de le comprendre"
-    Ce module sert à passer de la notion « Gestion de parc — Inventaire informatique » à une méthode que l’on peut expliquer, appliquer, vérifier et dépanner.
+## Gabarits et incrémentation
 
-## Méthode de travail
+Un gabarit préremplit les caractéristiques communes d’une famille d’équipements. On complète ensuite les informations propres à chaque exemplaire. Les champs accompagnés d’une baguette peuvent être incrémentés selon un format.
 
-1. Lire les concepts dans l’ordre du support.
-2. Reproduire les exemples dans un environnement de laboratoire.
-3. Noter le résultat attendu avant de modifier une configuration.
-4. Vérifier avec l’outil ou la commande appropriée.
-5. Revenir à l’état initial si le résultat diverge.
+| Élément du format | Sens dans le support |
+|---|---|
+| `<` et `>` | Début et fin du format interprété |
+| Caractères fixes | Partie conservée dans le nom |
+| `####` | Compteur sur quatre chiffres |
+| `\Y`, `\y` | Année sur quatre ou deux chiffres |
+| `\m`, `\d` | Mois et jour |
 
-## Du matériel au service rendu
+Exemple : `<Proliant-DL380-GEN-####>` fournit une base cohérente pour deux serveurs. Avant une création en masse, générer un exemplaire et contrôler nom, compteur, lieu et statut.
+
+## Décrire un ordinateur
+
+Dans **Parc → Ordinateurs**, le type distingue fixe, portable et serveur. Les composants se créent dans **Configuration → Composants** : ils possèdent leurs propres champs et intitulés, une entité de création et éventuellement une récursivité. La liste des types de composants est prévue par l’application ; l’inventaire automatique peut alimenter ces éléments.
+
+Les logiciels sont classés par catégorie et définis par nom, version et statut. Le parcours est : créer une catégorie (bureautique), créer le logiciel (Office) et son éditeur, créer sa version (365 ProPlus) avec son OS, créer les licences avec quantité puis les affecter aux ordinateurs. Installer le logiciel et attribuer une licence sont deux opérations distinctes.
+
+Les connexions directes représentent USB, série, HDMI et les liaisons à des moniteurs, imprimantes, téléphones ou périphériques. Les ports réseau représentent les interfaces Ethernet, Wi-Fi, fibre ou agrégées. Un port possède un nom et un numéro ; il peut être associé à une carte réseau et porter les informations IP, domaine, VLAN et réseau.
 
 ```mermaid
 flowchart LR
-    A["Actif inventorié<br/>poste, écran, imprimante"] --> C["CI dans GLPI<br/>identité et caractéristiques"] --> R["Relations<br/>utilisateur, lieu, contrat"] --> T["Tickets et interventions"] --> H["Historique et cycle de vie"]
+    P["PC : port1"] --- R["Prise p001 en salle S331"]
+    R --- S["Commutateur : eth01"]
 ```
 
-<p class="tssr-caption">L’inventaire devient utile quand l’actif est relié à son utilisateur, son emplacement, ses contrats et ses tickets : ces relations donnent le contexte de support.</p>
+Cette représentation ajoutée au cours montre le raccordement physique. La prise appartient à un lieu ; le switch et le PC restent des éléments d’inventaire. Les autres onglets couvrent systèmes d’exploitation, contrats, volumes, virtualisation, antivirus, liens externes et certificats.
 
-## Module 03 - Support de cours
+## Choisir le bon type d’élément
 
-### Administration GLPI
+| Élément | Informations et relations à vérifier |
+|---|---|
+| Moniteur | Gestion/responsable/statut/lieu, fabricant/modèle/type, usagers, taille et connectiques, gestion unitaire ou globale |
+| Matériel réseau | Switch, routeur, pare-feu ou borne distingués par type, caractéristiques, gabarit et ports réseau |
+| Imprimante | Caractéristiques, gestion, usagers, spécifications, connexion directe/réseau, cartouches et gestion unitaire/globale |
+| Cartouche/consommable | Modèle, import en masse, imprimantes compatibles, installation, fin de vie et seuils d’alerte |
+| Téléphone | Fixe/portable/combiné, spécifications, usagers, composants, liaisons et tickets |
+| Périphérique | Matériel non couvert par un type spécialisé, connexion, usager, réservation et tickets |
 
-#### Module 03 — Gestion de parc — Inventaire informatique
+Pour les cartouches : créer le modèle d’imprimante, créer le modèle de cartouche compatible, ajouter le stock (l’exemple donne50cartouches neuves), puis installer les cartouches dans l’imprimante du bon modèle. Le stock disponible et les consommables installés doivent rester distingués.
 
-- Découvrir la notion d’inventaire dans GLPI
-- L’importance d’un plan de nommage
-- L’ordinateur, un assemblage de composants
-- Le logiciel, un item qui associe une licence
-- Connecter un équipement au réseau
-- Gérer les consommables avec GLPI
-- Création d’un gabarit d’inventaire
+## Modéliser un centre de données
 
-### Les éléments d'inventaire
+Créer le datacenter, puis sa salle serveur, la grille d’emplacements et la baie, puis les matériels et leurs modèles avec images avant/arrière. L’exemple théorique utilise2 colonnes,2 lignes et une baie42U. Le TP nomme `Olympus datacenter`, `Salle serveur1` et une baie HPE. Les PDU représentent la distribution électrique ; le libellé « Onduleurs (PDU) » du support ne doit pas faire confondre PDU et onduleur.
 
-#### Fonctionnalités gestion de parc
+Une baie décrit position, orientation, hauteur en U, dimensions, charge maximale et équipements. Placer chaque objet dans les U attendues et vérifier les conflits, la charge et le statut. Une relation dessinée ne remplace pas une vérification de capacité physique.
 
-#### Inventaire matériel
+## Réaliser l’inventaire Olympus
 
-Vue détaillée, connexions, etc.
+Le TP complet conserve toutes les quantités et valeurs demandées : deux ProliantDL380, une baie42U, deux PDU, quatre commutateurs48 ports, six commutateurs24 ports, douze portables affectés plus deux réservables, deux écrans, cinq imprimantes, cartouches/papier de réserve, un téléphone et une webcam. Les fiches détaillées des processeurs, mémoire, disques, cartes réseau, Wi-Fi, OS et licences figurent dans l’énoncé.
 
-#### Historique sur les éléments
+Les relations réseau attendues sont : les24ports0001/0002 vers les ports1/2 du48ports0001 ; les0003/0004 vers1/2 du48ports0002 ; le0005 vers1 du48ports0003. Préparer4prises dans la salle des trésors,2 à l’hôtellerie,4 au temple d’Héra et2au temple de Zeus, puis connecter les portables par les prises de leur lieu. Le24ports0006 reste l’exemplaire supplémentaire prévu par l’énoncé, sans affectation détaillée.
 
-#### Systèmes d’exploitation
+La réservation s’active sur l’équipement : autoriser, rendre indisponible, rendre disponible ou ne plus autoriser. Le TP réserve un portable pendant un mois au nom de Zeus. Vérifier le calendrier de réservation et l’identité du bénéficiaire.
 
-#### Informations administratives et financières
+## Lire les incohérences sans les propager
 
-#### Composants internes
+La fiche Aruba fournie identifie **JL356A comme24portsPoE+** et **JL357A comme48portsPoE+**, avec4uplinksSFP+1/10GbE. Le TP nomme aussi un48portsJL356A et lui donne des vitesses100/10 Gbit/s ; ces valeurs ne correspondent pas à cette fiche. Les originaux les conservent. Pour un inventaire matériel réel, relever l’étiquette et le modèle, puis choisir les interfaces du matériel réellement présent. Le document Aruba reste accessible dans le lecteur Original du TP.
 
-#### Composants et cartographie réseau
+Le TP indique aussi6 To comme12×512 Go (6144 Go), une fréquence CPU par défaut enMHz à côté d’une fréquence enGHz,8096 Mio de mémoire graphique, un protocole Wi-Fi `a/b/g/n/y`, un écran relié à un Optiplex absent des créations précédentes, et deux emplacements de baies dans une grille1×1. Ces points doivent être décidés avec le formateur et documentés, sans inventer du matériel manquant. Les captures de correction montrent parfois d’autres valeurs : elles illustrent une réalisation, pas une nouvelle consigne prioritaire.
 
-#### Cycle de vie des matériels
+### Mini-quiz
 
-#### Réservation de matériel
+1. Quelle différence entre modèle, gabarit et exemplaire ?
+2. Installer Office garantit-il l’affectation d’une licence ?
+3. Quel document tranche la confusion24/48 ports du TP ?
 
-#### Logiciels et licences
+??? success "Réponses"
+    1. Le modèle décrit une référence ; le gabarit prépare la saisie ; l’exemplaire représente un matériel identifié.
+    2. Non. Version installée et licence attribuée se contrôlent séparément.
+    3. La fiche Aruba fournie et l’étiquette de l’équipement effectivement inventorié.
 
-### Type Service
 
-#### Organisation
+## Appliquer ce module
 
-#### Date achat Index
-
-#### PC DIR 202203 012
-
-#### Ordinateur fixe Direction Mars 2022 N° 012
-
-#### Élaborer un plan de nommage
-
-- Un plan de nommage est une nomenclature
-- Définir l’information importante pour retrouver un item
-- Se gèrent depuis le menu Parc =&gt; ordinateurs
-- Utilisables pour les ordinateurs fixes, portables, serveurs, etc.
-- Champ « type » très important pour les différencier
-- Utilisation possible des gabarits
-- Utilisation possible d’un outil d’inventaire automatique
-
-#### Élément ordinateur
-
-- Ne sont pas des intitulés
-- Doivent être créés depuis configuration =&gt; composants
-- Sont caractérisés par plusieurs champs qui eux sont des intitulés
-- La liste des différents composants est fixe
-- Peuvent être gérés dynamiquement par un outil d’inventaire
-- Portée limitée à l’entité de création, récursivité possible
-
-#### Ordinateur : composants
-
-- Gérer quels sont les logiciels installés sur l’ordinateur
-- Triés par catégories et caractérisés par un nom, leur version
-
-#### et le statut
-
-- Possibilité de choisir la catégorie à afficher
-- Possibilité de définir si une licence a été installée sur le poste
-
-### Ordinateur : logiciels
-
-#### Créer une catégorie
-
-de logiciel.
-
-#### Exemple :
-
-#### bureautique
-
-Créer le logiciel.
-
-#### Exemple : Office
-
-#### Associer ce logiciel
-
-#### à un éditeur et
-
-à une catégorie. À partir du logiciel, créer la version.
-
-#### Exemple :
-
-#### 365 ProPlus
-
-#### Renseigner le système
-
-d’exploitation. Créer les licences. Renseigner le nombre, le logiciel et l’éditeur.
-
-#### Puis affecter la licence
-
-à un ordinateur.
-
-- Va permettre de gérer les connexions directes avec d’autres
-
-#### éléments
-
-- Représentation de la liaison physique (USB, série, HDMI…)
-
-#### entre un ordinateur et un autre élément
-
-- Connexion possible : imprimantes, périphériques, moniteurs
-
-#### et téléphones
-
-#### Ordinateur : connexion
-
-### élément matériel
-
-- Connexions réseau entre les différents éléments
-- Modélisation de la sortie d’une interface réseau sur un
-- Plusieurs types : Ethernet, wifi, fibre, agrégation, etc.
-- L’ajout de plusieurs ports en même temps est possible
-- Il est caractérisé par un nom et un numéro (convention de
-
-#### nommage)
-
-- Peut être associé à un composant de type carte réseau
-- Information réseau (@IP , domaine, nom et vlan)
-
-#### Ordinateur : port réseau
-
-- Connecter les ports réseau des éléments va permettre une
-
-#### représentation physique de tout son réseau
-
-- Connexion réseau possible à tout autre élément disposant d’un
-
-#### port réseau
-
-- Le raccordement préalable à une prise réseau pourra être renseigné
-- Les intitulés « prises réseau » seront associés à un lieu
-
-#### Ordinateur : connexion d'un port réseau
-
-#### Le port réseau « 1 » de mon ordinateur est raccordé à la prise « p001 »
-
-en S331 qui ensuite est raccordée au port réseau « eth01 » d’un switch cisco
-
-- Système d’exploitation
-- Contrats
-- Volumes
-- Virtualisation
-- Antivirus
-- Liens externes
-- Certificats
-
-#### Ordinateur : les autres onglets
-
-- Informations de gestion de l’élément (responsable, statut, lieu, etc.)
-- Caractéristiques générales (fabricant, modèle, type, etc.)
-- Usagers du moniteur (connu ou non, groupes, etc.)
-- Spécifications techniques (taille, connectiques, etc.)
-- Son type de gestion : globale ou unitaire
-
-#### Élément moniteur
-
-### et route le réseau entre plusieurs autres éléments matériels
-
-- Permettre la représentation de tout matériel qui gère, transmet
-- Ils devront être différenciables par l’intitulé type
-- Switch, routeur, firewall, borne wifi, etc.
-- Utilisation possible d’un gabarit
-- Grand nombre de paramètres communs aux autres éléments
-- Ports réseau importants pour les connexions réseau avec les
-
-#### autres éléments
-
-#### Élément matériel réseau
-
-- Représenter toutes les imprimantes présentes sur le parc
-
-#### informatique
-
-- Utilisation possible d’un gabarit
-- Champs : caractéristiques générales, gestion, usagers et
-
-#### spécifications
-
-- Gestion unitaire ou globale
-- Connexion directe ou réseau
-- Gestion des cartouches installées
-
-#### Élément imprimante
-
-- Définitions des modèles
-- Importation en masse
-- Modèles d’imprimantes compatibles
-- Installation sur les imprimantes
-- Fin de vie des cartouches
-- Seuils d’alerte (avec supervision)
-
-#### Élément cartouches et consommables
-
-#### Gérer les cartouches
-
-#### Créer un modèle
-
-d’imprimante.
-
-#### Exemple :
-
-#### imprimante USB HP
-
-#### Créer un modèle
-
-de cartouche.
-
-#### Exemple :
-
-Cart-impr-HP .
-
-#### Puis associer le
-
-#### modèle de cartouche
-
-#### à votre modèle
-
-d’imprimante.
-
-#### Ajouter des
-
-#### cartouches à votre
-
-modèle.
-
-#### Exemple :
-
-#### 50 cartouches neuves
-
-#### Installer la ou les
-
-#### cartouches sur votre
-
-imprimante.
-
-#### L’imprimante doit
-
-#### être du même
-
-#### modèle d’imprimante
-
-que les cartouches.
-
-- Fixe, portable, combiné
-- Spécifications
-- Usagers
-- Gestion des composants
-- Connexion directe et réseau
-- Associable à un ticket
-
-#### Élément téléphones
-
-- Tout ce qui n’est pas implémenté nativement dans GLPI
-- Connexion directe et réseau
-- Réservation possible
-- Usagers
-- Associable à un ticket
-
-#### Élément périphérique
-
-### Élément centre de données
-
-- Représentation de ses centres de données (Datacenters)
-- Salles serveur
-- Baie
-- Équipements
-- Onduleurs (PDU)
-
-#### Datacenter
-
-#### Salle 1 Salle 2
-
-#### Baie
-
-- Un grand nombre d’éléments peuvent être réservés
-
-#### Réservations
-
-- Rendre un élément réservableAutoriser les réservations
-- Plus de nouvelles réservations possiblesRendre indisponible
-- Rétablir la possibilité de réserverRendre disponible
-- Désactiver les réservationsNe pas autoriser
-
-### Les gabarits
-
-- Applicables à plusieurs éléments
-- Définition d’un élément standard, généralement identifié
-
-#### par son modèle
-
-- Pré-remplissage de certains champs communs à un même
-
-#### modèle d’élément
-
-- Simplifie l’ajout de plusieurs éléments de même modèle
-
-#### Le gabarit
-
-- Certains champs peuvent bénéficier d’un système d’incrémentation
-- Champs identifiables par une baguette
-- Le champ est rempli automatiquement selon un format défini
-- Format sous la forme &lt;XXX####&gt;
-- &lt; et &gt; pour indiquer le début et la fin d’un format à interpréter
-- X pour un caractère quelconque fixe
-- # pour un numéro à incrémenter. Nombre de chiffres égaux
-
-#### au nombre de #
-
-- \Y pour y inscrire l’année courante sur 4 chiffres
-- \y pour l’année sur 2 chiffres
-- \m pour le mois
-- \d pour le jour
-
-#### Le gabarit
-
-- Peu importe l’élément d’inventaire, plusieurs champs sont identiques
-- Intitulés du champ à créer en amont ou « sur place »
-- Liste des principaux
-- Nom
-- Lieu
-- Statut
-- Type
-- Fabricant
-- Modèle
-- Numéro d’inventaire
-- Responsable et groupe techniques
-- Utilisateur et groupe
-- Commentaire
-
-#### Champs récurrents
-
-#### Le permet l’ajout d’un intitulé sans
-
-#### quitter la fiche de l’élément
-
-### Les différentes étapes
-
-#### Étapes de création d'un Datacenter
-
-#### Créer un centre de
-
-données.
-
-#### Exemple :
-
-Datacenter L.A.
-
-#### Créer une salle
-
-#### serveur dans votre
-
-#### datacenter
-
-#### Puis indiquer la taille
-
-#### de l’emplacement
-
-pour la baie.
-
-#### Exemple :
-
-#### 2 colonnes
-
-#### 2 lignes
-
-#### Créer la baie dans
-
-#### votre salle serveur
-
-#### puis indiquer le
-
-#### nombre d’unités
-
-#### Exemple :
-
-#### 42 U
-
-#### Créer le matériel avec
-
-#### les images dans le
-
-modèle de matériel.
-
-## Mise en pratique
-
-- [Travaux pratiques du module](../../tp/glpi/module-03/index.md)
-- [Fiche de révision du module](../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md)
-
-## Questions flash
-
-1. Comment expliquer simplement « Gestion de parc — Inventaire informatique » à un collègue ?
-2. Quelles étapes ou notions doivent être maîtrisées avant la manipulation ?
-3. Quel contrôle permet de prouver que le résultat est correct ?
-4. Quel est le premier risque ou piège à écarter ?
-
-??? success "Éléments de réponse"
-    - Construire une nomenclature de parc.
-    - Créer ordinateurs, composants, logiciels, licences et équipements réseau.
-    - Utiliser des gabarits cohérents.
-    - Représenter baies, ports et connexions.
-
-## Voir aussi
-
-- [Présentation de la séquence](index.md)
+- [Énoncé du TP](../../tp/glpi/module-03/enonces.md)
+- [Correction expliquée](../../tp/glpi/module-03/corrections.md)
+- [Fiche de révision](../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md)

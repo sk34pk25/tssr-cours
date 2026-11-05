@@ -1,51 +1,6 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M05TP01 - Enoncé - Gestion de la configuration réseau dun poste.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M05TP01 - Enoncé - Gestion de la configuration réseau dun poste</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-<h4>Gérer la configuration <br>réseau d’un poste </h4>
-<p class="tssr-source-paragraph">TP du Module 05 – Gestion du réseau </p>
+<!DOCTYPE html>
 
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45mn à 1 heure </p>
-<h4>Énoncé </h4>
-<p class="tssr-source-paragraph">I. <br>Configurer une adresse IP statique sur le serveur sans <br>environnement graphique </p>
-<p class="tssr-source-paragraph">Configurer la 1ere carte réseau détectée (ens33) avec l&#x27;adressage suivant : </p>
-<p class="tssr-source-paragraph">• <br>Adresse IP : 10.X.Y.1/16 </p>
-<pre class="tssr-source-code">o Avec le second octet X=n° de réseau. </pre>
-<p class="tssr-source-paragraph">▪ <br>Pour récupérer votre réseau de salle, depuis le poste Windows hôte, <br>ouvrir une fenêtre cmd et lancer la commande ipconfig  </p>
-<p class="tssr-source-paragraph"> <br>Dans cet exemple, le numéro de salle est 49 </p>
-<pre class="tssr-source-code">o avec le troisième octet Y=votre n° de stagiaire (donné par votre coach en </pre>
-<p class="tssr-source-paragraph">début de semaine) </p>
-<p class="tssr-source-paragraph">• <br>Passerelle : 10.X.255.254 </p>
-
-<p class="tssr-source-paragraph">Page 1/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>EX Invite de commandes</p><p>C:\Users\mclaveau&gt;ipconfig</p><p>Configuration<br>IP de Windows</p><p>Carte<br>Ethernet<br>Ethernet<br>:</p><p>suffixe DNS propre<br>à<br>la<br>connexion.<br>.<br>.<br>:<br>ad.campus-eni.fr</p><p>Adresse<br>IPv4.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.:<br>10.49.8.254<br>Masque<br>de sous-réseau.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>255.255.6.8<br>Passerelle<br>par<br>défaut.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>:<br>18.49.255.254</p></div></details>
-
-
-</section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Administration Debian GNU/Linux </p>
-<p class="tssr-source-paragraph">Vérifier et adapter si nécessaire les paramètres de résolution de nom : </p>
-<p class="tssr-source-paragraph">• <br>Serveurs DNS : serveurs DNS de l’ENI  <br> <br>(à récupérer depuis votre poste avec ipconfig /all) </p>
-<p class="tssr-source-paragraph">• <br>Domaines résolus par défaut : ad.campus-eni.fr et eni-ecole.net </p>
-<p class="tssr-source-paragraph">• <br>Pour valider la bonne prise en compte du point précédent, vous pourrez essayer un <br>ping vers les hôtes suivants :  </p>
-<pre class="tssr-source-code">o dc44-far </pre>
-<pre class="tssr-source-code">o dc35-cdb1 </pre>
-<pre class="tssr-source-code">o repos </pre>
-<p class="tssr-source-paragraph">Modifier le nom de la machine : </p>
-<p class="tssr-source-paragraph">• <br>Indiquer le nom : deb-&lt;prénom&gt;-01 avec &lt;prénom&gt; = votre prénom </p>
-<p class="tssr-source-paragraph">Attention, il y a 2 fichiers à modifier ! (/etc/hosts et /etc/hostname) <br> </p>
-<p class="tssr-source-paragraph">Ajouter une 2e carte réseau en Host-only à votre VM et utiliser les paramètres suivants : </p>
-<p class="tssr-source-paragraph">• <br>IP : 192.168.100.1/24 </p>
-<p class="tssr-source-paragraph">• <br>Pas de passerelle par défaut </p>
-<p class="tssr-source-paragraph">II. <br>Configurer une adresse IP statique sur la machine avec <br>environnement graphique </p>
-<p class="tssr-source-paragraph">Configurer un adressage IP statique compatible avec la 1ere carte réseau de la VM Debian <br>sans environnement graphique </p>
-<p class="tssr-source-paragraph">• <br>Pouvez-vous pinguer l&#x27;autre VM Debian ? </p>
-<p class="tssr-source-paragraph">• <br>Pouvez-vous pinguer les serveurs ENI ? </p>
-<h4>Astuce </h4>
-<p class="tssr-source-paragraph"> <br>Précaution préalable : créer le fichier .vimrc avec l&#x27;activation du mode nocompatible </p>
-<p class="tssr-source-paragraph">Pour le moment notre système est nativement  en mode compatible Unix </p>
-<h4>Solution </h4>
-<p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d&#x27;un PDF commenté, disponible dans les <br>ressources à télécharger.  </p>
-<p class="tssr-source-paragraph">Page 2/2 <br> <br> <br> <br> <br>© ENI – Tous droits réservés </p>
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>rootd@debsryvoi:&quot;# echo<br>“set nocompatible<br>=&gt;<br>“/.yvinrc<br>root@debsryvol:&quot;# _</p></div></details>
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M05TP01 - Enoncé - Gestion de la configuration réseau dun poste</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:88ch;margin:auto;padding:1.5rem;color:#17243b;background:#fff}h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.15rem}section{margin:2rem 0;padding-top:1rem;border-top:1px solid #dce3ee}table{border-collapse:collapse;width:100%;margin:1rem 0}td,th{border:1px solid #bdc9d9;padding:.55rem;text-align:left;vertical-align:top}th{background:#eef3f9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3f9;padding:1rem}code{font-size:.92em}figure{margin:1.5rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem;color:#44546b}li{margin:.35rem 0}</style></head><body><h1>M05TP01 - Enoncé - Gestion de la configuration réseau dun poste</h1><p>Transcription intégrale structurée du support et de ses instructions. La mise en forme est adaptée au Web ; les compléments pédagogiques restent dans leur onglet distinct. Les noms de domaine de formation sont neutralisés ; les notions, commandes et adresses numériques sont conservées.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><h3>Gérer la configuration réseau d’un poste</h3><p>TP du Module 05 – Gestion du réseau</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>45mn à 1 heure</p><h3>Énoncé</h3><h3>I. Configurer une adresse IP statique sur le serveur sans environnement graphique</h3><p>Configurer la 1ere carte réseau détectée (ens33) avec l'adressage suivant :</p><ul><li>Adresse IP : 10.X.Y.1/16</li><li>Avec le second octet X=n° de réseau.</li><li>Pour récupérer votre réseau de salle, depuis le poste Windows hôte, ouvrir une fenêtre cmd et lancer la commande ipconfig</li></ul><p>Dans cet exemple, le numéro de salle est 49</p><ul><li>avec le troisième octet Y=votre n° de stagiaire (donné par votre coach en début de semaine)</li><li>Passerelle : 10.X.255.254</li></ul><div class="tssr-source-transcription"><p>Transcription textuelle de la capture : les noms de domaine de formation sont neutralisés ; adresses IP, commandes et résultats sont conservés.</p><table><tr><th>Paramètre observé sur le poste Windows</th><th>Valeur</th></tr><tr><td>Commande</td><td>ipconfig</td></tr><tr><td>Interface</td><td>Carte Ethernet Ethernet</td></tr><tr><td>Suffixe DNS (nom de formation neutralisé)</td><td>laboratoire.example</td></tr><tr><td>Adresse IPv4</td><td>10.49.0.254</td></tr><tr><td>Masque de sous-réseau</td><td>255.255.0.0</td></tr><tr><td>Passerelle par défaut</td><td>10.49.255.254</td></tr></table></div></section>
+<section class="tssr-transcribed-page" id="page-2"><p>Vérifier et adapter si nécessaire les paramètres de résolution de nom :</p><ul><li>Serveurs DNS : serveurs DNS de l’[organisme de formation]  (à récupérer depuis votre poste avec ipconfig /all)</li><li>Domaines résolus par défaut : laboratoire.example et [référence de l’organisme de formation neutralisée]</li><li>Pour valider la bonne prise en compte du point précédent, vous pourrez essayer un ping vers les hôtes suivants :</li><li>dc44-far</li><li>dc35-cdb1</li><li>repos</li></ul><p>Modifier le nom de la machine :</p><ul><li>Indiquer le nom : deb-&lt;prénom&gt;-01 avec &lt;prénom&gt; = votre prénom</li></ul><p>Attention, il y a 2 fichiers à modifier ! (/etc/hosts et /etc/hostname)</p><p>Ajouter une 2e carte réseau en Host-only à votre VM et utiliser les paramètres suivants :</p><ul><li>IP : 192.168.100.1/24</li><li>Pas de passerelle par défaut</li></ul><h3>II. Configurer une adresse IP statique sur la machine avec environnement graphique</h3><p>Configurer un adressage IP statique compatible avec la 1ere carte réseau de la VM Debian sans environnement graphique</p><ul><li>Pouvez-vous pinguer l'autre VM Debian ?</li><li>Pouvez-vous pinguer les serveurs [organisme de formation] ?</li></ul><h3>Astuce</h3><p>Précaution préalable : créer le fichier .vimrc avec l'activation du mode nocompatible</p><p>Pour le moment notre système est nativement  en mode compatible Unix</p><h3>Solution</h3><p>Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p><figure><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../isolated/115dc7cb2a0e9401/deb-small-p2-2.webp"/><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>echo "set nocompatible" &gt;&gt; ~/.vimrc</code></pre></details></figure></section>
+<!-- SOURCE-CONTENT:END --></body></html>
