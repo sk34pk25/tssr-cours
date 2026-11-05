@@ -1,6 +1,7 @@
 """Build-time HTML rendering; no writes to source documents and no network."""
 from html import escape
 
+from parcours import canonical_title
 from parcours_catalog import ROOT, catalog, load_msp, model
 
 LABELS = {"COURSE": "Cours", "MSP": "MSP", "STAGE": "Stage", "INTERRUPTION": "Interruption", "EVALUATION": "Évaluation finale"}
@@ -21,6 +22,8 @@ def render_parcours(root=ROOT):
     for index, p in enumerate(periods, 1):
         relation = p["mapping"]
         access = link(relation["path"], "Ouvrir le contenu") if relation["path"] else "Correspondance à confirmer" if relation["state"] == "MATCH_PROBABLE" else "Contenu non encore disponible" if relation["state"] in {"MISSING", "MSP"} else "Période sans cours associé"
+        if relation["state"] == "MISSING" and canonical_title(p["cours"]) == "les infrastructures reseaux":
+            access = "Ce cours est consultable uniquement via les vidéos sur le site de l’ENI."
         parts.append(f'''<article class="tssr-timeline__card" id="{p['id']}">
 <span class="tssr-timeline__number">{index:02d}</span>
 <div class="tssr-timeline__body">

@@ -108,6 +108,7 @@ class PlanningTests(unittest.TestCase):
         rendered = render_parcours()
         self.assertEqual(rendered.count('data-period-start='), len(load_planning()))
         self.assertNotIn('>Passé<', rendered)
+        self.assertEqual(rendered.count("Ce cours est consultable uniquement via les vidéos sur le site de l’ENI."), 2)
         self.assertEqual(rendered.count('href="../modules/09-services-reseaux-en-environnement-microsoft/"'), 2)
         self.assertIn('href="../modules/15-services-reseau-en-environnement-linux/"', rendered)
         uncertain = {**model()[0], "mapping": {
