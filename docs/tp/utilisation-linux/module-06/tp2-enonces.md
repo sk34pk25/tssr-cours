@@ -1,8 +1,12 @@
 # Énoncé — TP02 — Métacaractères
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 06 et de faire le TP précédent. Ouvrir un Bash de laboratoire et réserver l’arborescence `$HOME/Tp` à l’exercice. Identifier précisément `Sources` et `Divers` avant les opérations de suppression.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 Arborescence demandée :
 
@@ -42,6 +46,17 @@ Supprimer Divers avec rm.
 
 Depuis le répertoire personnel, lister en détail les fichiers directement dans /etc : extension .conf, six lettres, initiale consonne et lettre avant l’extension entre f et s.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Arborescence | Vérifier les répertoires créés et la présence de l’astérisque littéral dans le nom demandé. |
+| Suppression | Expliquer le résultat de `rmdir`, puis vérifier la disparition de `Divers` dans l’arborescence d’exercice. |
+| Sélection | Contrôler l’extension et les contraintes sur les six lettres de chaque nom retenu. |
+
+## Liens
+
 - [Correction](tp2-corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
 - [Tous les ateliers du module](index.md)

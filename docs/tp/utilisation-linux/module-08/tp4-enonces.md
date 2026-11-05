@@ -1,8 +1,12 @@
 # Énoncé — TP04 — Manipuler des variables
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 08. Utiliser le Bash du compte de laboratoire et repérer le fichier de configuration chargé dans une nouvelle session interactive. Conserver sa version initiale avant de l’éditer.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 ## Activité 1
 
@@ -36,6 +40,16 @@ Transformer la variable locale en variable d’environnement.
 
 Ouvrir un nouveau sous-shell et vérifier la valeur héritée.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Configuration | Vérifier le chemin du répertoire personnel et la présence de `$HOME/scripts` dans le `PATH` d’un nouveau Bash interactif. |
+| Environnement | Comparer la valeur de `monnom` dans un sous-shell avant et après export. Revenir au parent entre les deux observations. |
+
+## Liens
+
 - [Correction](tp4-corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

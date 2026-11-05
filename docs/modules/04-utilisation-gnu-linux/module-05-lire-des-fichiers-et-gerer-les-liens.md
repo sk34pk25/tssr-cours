@@ -1,10 +1,16 @@
 # Module 05 — Lire des fichiers et gérer les liens
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Écrire un contenu avec cat, concaténer des fichiers, compter des lignes puis comparer liens physiques et symboliques. Les deux ateliers utilisent les noms de fichiers du scénario source.
 
-**Durée des ateliers :** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Créer deux fichiers texte et réunir leurs contenus dans un troisième.
+- Compter les lignes ou limiter l’affichage à l’aide de la commande adaptée.
+- Distinguer un lien physique d’un lien symbolique par l’observation des inodes et des chemins.
 
 ## 1. Créer et lire des fichiers avec cat
 
@@ -150,22 +156,31 @@ Le lien symbolique devient cassé et la lecture par edition3.txt reste possible,
 !!! note "Lecture de la source"
     Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
 
+## À retenir
+
+`cat` concatène les fichiers dans l’ordre des arguments. `wc -l` mesure les lignes terminées par un saut de ligne. Deux liens physiques partagent un inode, tandis qu’un lien symbolique désigne un chemin.
+
 ## Mini-quiz
 
-1. Comment terminer la saisie de cat ?
-2. Que compte wc -l /etc/passwd ?
-3. Pourquoi edition3.txt reste-t-il lisible après suppression de edition1.txt ?
+1. Comment terminer une saisie interactive avec `cat` ?
+2. Dans quel ordre `cat A B > C` assemble-t-il le contenu ?
+3. Comment observer seulement deux lignes de `/etc/hosts` ?
+4. Comment confirmer que deux noms sont des liens physiques du même fichier ?
+5. Que se passe-t-il pour `edition2.txt` et `edition3.txt` après suppression de `edition1.txt` ?
 
-??? note "Réponses"
-    1. Ctrl + D sur une nouvelle ligne.
-    2. Les lignes de la base locale de comptes.
-    3. Il conserve un nom physique vers le même inode ; le lien symbolique vise un chemin supprimé.
+??? note "Réponses commentées"
+    1. Utiliser `Ctrl + D` sur une nouvelle ligne pour signaler la fin de l’entrée au terminal.
+    2. Il écrit les octets de `A` puis ceux de `B` dans `C`. `>` remplace le contenu précédent de `C`.
+    3. Utiliser `head -n 2 /etc/hosts`. `wc -l` compterait des lignes au lieu de les afficher.
+    4. Comparer les numéros d’inode dans `ls -li`, sur le même système de fichiers. Ils sont identiques dans le scénario du TP.
+    5. Le lien symbolique `edition2.txt` devient pendant si son chemin cible disparaît. Le lien physique `edition3.txt` donne encore accès au même inode.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-05/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

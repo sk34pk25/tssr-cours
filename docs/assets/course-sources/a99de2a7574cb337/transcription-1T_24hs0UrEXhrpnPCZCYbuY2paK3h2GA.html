@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M03TP01 - Solution - Premières Commandes</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>M03TP01 - Solution - Premières Commandes</h1><p>Transcription du document de formation ; texte et captures isolées sont distincts de l’aide pédagogique.</p><!-- SOURCE-CONTENT:START -->
 <section class="tssr-transcribed-page" id="page-1">
-<p class="tssr-source-paragraph">Premières commandes</p>
 <h4>Premières commandes</h4>
 <p class="tssr-source-paragraph">TP du Module 03 – Découverte du shell et premières commandes</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 3.</p>
@@ -18,41 +17,37 @@
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p01-i2.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-2">
-<p class="tssr-source-paragraph">Premières commandes</p>
 <ol start="3"><li>Quels sont les utilisateurs qui travaillent sur le serveur ?</li></ol>
-<p class="tssr-source-paragraph">who</p>
+<pre class="tssr-source-code"><code>who</code></pre>
 <ol start="4"><li>Quel est le temps d'inactivité des utilisateurs connectés ?</li></ol>
 <pre class="tssr-source-code"><code>w -u</code></pre>
 <ol start="5"><li>Quel est le numéro de processus de votre session ?</li></ol>
 <pre class="tssr-source-code"><code>who am I –all --heading</code></pre>
 <ol start="6"><li>Afficher vos identifiants d'utilisateur et de groupes (UID et GID) et relevez les noms de vos groupes d’appartenance.</li></ol>
-<p class="tssr-source-paragraph">id</p><p>Exemple de sortie du support : le nom du groupe propre au centre de formation est neutralisé en « groupe-formation ». Les UID et GID sont ceux de la machine d’exemple.</p><pre><code>uid=1030(user30) gid=1030(user30) groupes=1030(user30),100(users),1000(groupe-formation)</code></pre>
+<pre class="tssr-source-code"><code>id</code></pre><p>Exemple de sortie du support : le nom du groupe propre au centre de formation est neutralisé en « groupe-formation ». Les UID et GID sont ceux de la machine d’exemple.</p><pre><code>uid=1030(user30) gid=1030(user30) groupes=1030(user30),100(users),1000(groupe-formation)</code></pre>
 <ol start="7"><li>A l'invite de commande, afficher juste l’heure.</li></ol>
-<p class="tssr-source-paragraph">Date +%X</p>
+<pre class="tssr-source-code"><code>Date +%X</code></pre>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p02-i1.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p02-i2.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p02-i3.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 
 </section>
 <section class="tssr-transcribed-page" id="page-3">
-<p class="tssr-source-paragraph">Premières commandes</p>
 <ol start="8"><li>A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009</li></ol>
-<p class="tssr-source-paragraph">date "+%A %d %B %Y"</p>
+<pre class="tssr-source-code"><code>date "+%A %d %B %Y"</code></pre>
 <ol start="9"><li>Commande cal avec et sans argument :</li></ol>
 <p class="tssr-source-paragraph">a. Afficher le calendrier de Janvier 1900 puis celui de toute l’année.</p>
-<p class="tssr-source-paragraph">cal 1 1900</p>
+<pre class="tssr-source-code"><code>cal 1 1900</code></pre>
 <p class="tssr-source-paragraph">b. Afficher le calendrier du mois de Janvier de l'année courante.</p>
-<p class="tssr-source-paragraph">cal 1 2020</p>
+<pre class="tssr-source-code"><code>cal 1 2020</code></pre>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p03-i1.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p03-i2.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p03-i3.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M03TP01 - Solution - Premières Commandes" src="../isolated/a99de2a7574cb337/u04-d11-p03-i4.webp"/><figcaption>Visuel isolé du document — M03TP01 - Solution - Premières Commandes</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-4">
-<p class="tssr-source-paragraph">Premières commandes</p>
-<p class="tssr-source-paragraph">c. Afficher le calendrier de septembre 1752, quelle est la particularité de</p>
-<p class="tssr-source-paragraph">ce mois ?</p>
-<p class="tssr-source-paragraph">cal 9 1752</p>
+<p class="tssr-source-paragraph">c. Afficher le calendrier de septembre 1752, quelle est la particularité de ce mois ?</p>
+<pre class="tssr-source-code"><code>cal 9 1752</code></pre>
 <p class="tssr-source-paragraph">Voir le man en recherchant la mention 1752. C’est le mois du passage au calendrier grégorien, 11 jours ont sautés pour l'occasion, du 3 au 13.</p>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>

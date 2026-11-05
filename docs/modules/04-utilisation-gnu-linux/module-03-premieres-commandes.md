@@ -1,10 +1,16 @@
 # Module 03 — Premières commandes
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
-Identifier sa session, observer les utilisateurs et les identifiants, puis formater la date et lire des calendriers. Les sources disponibles sont l’énoncé et la correction du TP01 ; aucun support de cours distinct n’est fourni.
+Identifier sa session, observer les utilisateurs et les identifiants, puis formater la date et lire des calendriers.
 
-**Durée des ateliers :** 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Identifier une connexion, un utilisateur, ses groupes et le processus de session.
+- Vérifier le changement de mot de passe par une nouvelle connexion.
+- Afficher l’heure, une date formatée et un calendrier demandé.
 
 ## 1. Lire la commande et vérifier le résultat
 
@@ -22,6 +28,18 @@ Dans ce premier atelier, l’aide pédagogique consiste à relier chaque questio
 | `cal` | Calendriers mensuels et annuels |
 
 La distinction essentielle est celle entre **l’utilisateur**, **une connexion de cet utilisateur** et **un processus**. Une même personne peut avoir plusieurs sessions. Le PID affiché dans le tableau de connexion ne doit pas être confondu avec l’ensemble des processus lancés par le compte.
+
+**Illustration IA / externe au cours — Choisir la commande selon l’information attendue.**
+
+```mermaid
+flowchart TD
+    Besoin[Information attendue] --> Session[Connexion courante]
+    Besoin --> Connexions[Connexions et activité]
+    Besoin --> Identite[Identifiants et groupes]
+    Session --> WhoI[who am i]
+    Connexions --> WhoW[who ou w]
+    Identite --> Id[id]
+```
 
 ## 2. Mot de passe et identité
 
@@ -131,22 +149,31 @@ Comparer les quatre sorties. Rechercher 1752 dans le manuel pour expliquer le sa
 !!! note "Lecture de la source"
     La correction ne développe pas le calendrier annuel ; `cal 1900` répond à la seconde partie de la consigne.
 
+## À retenir
+
+`who am i` décrit la connexion courante, `who` et `w` décrivent les sessions et `id` décrit le compte et ses groupes. Pour produire une date lisible, transmettre le format complet dans un seul argument. Pour un calendrier, vérifier le mois et l’année dans l’en-tête obtenu.
+
 ## Mini-quiz
 
-1. Pourquoi une nouvelle connexion est-elle demandée après passwd ?
-2. Que représentent UID et GID ?
-3. Pourquoi ne pas remplacer « année courante » par 2020 ?
+1. Quel contrôle termine l’activité de changement de mot de passe ?
+2. Comment distinguer deux connexions du même compte ?
+3. Quels champs de `id` distinguent groupe principal et groupes supplémentaires ?
+4. Pourquoi entourer `+%A %d %B %Y` de guillemets ?
+5. Comment afficher janvier de l’année en cours sans figer 2020 ?
 
-??? note "Réponses"
-    1. Elle vérifie que le nouveau mot de passe permet effectivement l’authentification.
-    2. L’identifiant utilisateur et l’identifiant du groupe principal.
-    3. 2020 est l’année de l’exemple de correction, pas une constante de la consigne.
+??? note "Réponses commentées"
+    1. Fermer la session, puis réussir une nouvelle connexion avec le nouveau mot de passe. Le contrôle porte sur l’authentification, pas uniquement sur le retour de `passwd`.
+    2. Lire les terminaux et heures de connexion dans `who`. Deux lignes peuvent correspondre au même identifiant utilisateur.
+    3. `gid` indique le groupe principal et `groups` énumère les appartenances affichées. `uid` identifie le compte.
+    4. Le format contient des espaces. Les guillemets en font un seul argument pour `date`.
+    5. Utiliser `cal 1 "$(date +%Y)"`. Le shell calcule l’année avant de lancer `cal`.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-03/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-03-premieres-commandes.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-03-premieres-commandes.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

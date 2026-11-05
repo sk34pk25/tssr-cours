@@ -1,8 +1,12 @@
 # Énoncé — TP02 — Les liens
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 05 et de faire le TP précédent. Se placer dans le répertoire de laboratoire où se trouve `Edition`. Le fichier et les nouveaux liens physiques doivent appartenir au même système de fichiers.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 ## Activité 1
 
@@ -24,6 +28,16 @@ Afficher les caractéristiques des quatre noms et mettre les différences en év
 
 Supprimer edition1.txt, puis tester les lectures via edition2.txt et edition3.txt.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Avant suppression | Comparer les caractéristiques et le contenu des noms demandés. Noter le chemin porté par le lien symbolique. |
+| Après suppression | Comparer les lectures de `edition2.txt` et `edition3.txt`. Expliquer le résultat avec le chemin et l’inode. |
+
+## Liens
+
 - [Correction](tp2-corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
 - [Tous les ateliers du module](index.md)

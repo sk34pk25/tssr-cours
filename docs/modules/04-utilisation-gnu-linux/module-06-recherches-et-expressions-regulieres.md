@@ -1,10 +1,16 @@
 # Module 06 — Recherches et expressions régulières
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Rechercher dans le contenu avec grep, retrouver des chemins avec find puis utiliser les développements de noms du shell. Les deux TP sont conservés : Recherches et regex, puis Métacaractères.
 
-**Durée des ateliers :** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Choisir entre recherche dans le texte, parcours de l’arborescence et motif du shell.
+- Écrire et protéger les motifs employés dans les deux ateliers.
+- Contrôler la profondeur, le type de fichier et les chemins retenus avant de copier ou de supprimer.
 
 ## 1. Trois mécanismes à distinguer
 
@@ -15,6 +21,18 @@ Rechercher dans le contenu avec grep, retrouver des chemins avec find puis utili
 | Parcourir une arborescence et tester les chemins | find | `find /etc -type f -name 'ho*'` |
 
 Un astérisque n’a pas le même rôle dans un motif de noms et dans une expression régulière. Les guillemets autour de `'ho*'` empêchent le shell de développer ce motif avant que find le reçoive.
+
+**Illustration IA / externe au cours — Trois recherches, trois interprètes.**
+
+```mermaid
+flowchart TD
+    Question[Que faut-il trouver ?] --> Contenu[Une ligne dans un fichier]
+    Question --> Parcours[Des chemins dans une arborescence]
+    Question --> Noms[Des noms passés à une commande]
+    Contenu --> Grep[grep lit le contenu]
+    Parcours --> Find[find applique ses critères]
+    Noms --> Shell[Le shell développe le motif]
+```
 
 ## 2. Rechercher dans le texte
 
@@ -180,24 +198,31 @@ Le premier ensemble fournit une lettre, les quatre suivants quatre lettres, puis
 !!! note "Lecture de la source"
     L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.
 
+## À retenir
+
+`grep` examine des lignes, `find` parcourt des chemins et le shell développe les motifs de noms. Vérifier la casse, la profondeur et le type recherché. Protéger un motif quand il doit parvenir intact à `grep` ou `find`.
+
 ## Mini-quiz
 
-1. Que sélectionne grep -v ^$ ?
-2. Pourquoi citer ho* dans find ?
-3. Pourquoi rmdir échoue-t-il sur Sources ?
-4. Quelle différence entre non-voyelle et consonne ?
+1. Que sélectionne `grep -v '^$' Edition` ?
+2. Pourquoi protéger `'ho*'` dans une commande `find` ?
+3. Comment limiter `find` aux enfants directs de `/etc` ?
+4. Pourquoi `rmdir` ne peut-il pas retirer `Sources` dans l’exercice ?
+5. Pourquoi un motif qui exclut les voyelles ne suffit-il pas pour reconnaître une consonne ?
 
-??? note "Réponses"
-    1. Les lignes qui ne sont pas totalement vides ; protéger le motif par des guillemets.
-    2. Pour que find reçoive le motif sans expansion préalable du shell.
-    3. Un fichier a été créé à l’intérieur.
-    4. Une non-voyelle peut aussi être un chiffre ou un symbole.
+??? note "Réponses commentées"
+    1. Les lignes qui ne sont pas complètement vides. Une ligne qui ne contient que des espaces est encore retenue par ce motif.
+    2. Le shell transmet le motif intact. `find -name` le compare ensuite au nom de chaque entrée parcourue.
+    3. Avec `-maxdepth 1` sur GNU find. `-type f` permet de garder les fichiers réguliers.
+    4. `Sources` contient le fichier créé précédemment. L’atelier demande d’observer ce refus avant de poursuivre.
+    5. Le motif peut encore accepter un chiffre ou un signe. Définir l’ensemble de lettres voulu ou utiliser un critère supplémentaire.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-06/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

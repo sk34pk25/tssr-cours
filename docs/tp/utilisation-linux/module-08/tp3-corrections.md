@@ -1,10 +1,16 @@
 # Correction expliquée — TP03 — Redirections et Alias
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
 
-## Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.
+## État initial
 
-Les quatre premières demandes sont identiques à celles du TP01 : conserver les chemins daemons.txt, fichiers.conf et compteur.txt, la limite -mount, le double affichage tee et le comptage sans relire le fichier.
+Ouvrir un Bash interactif de laboratoire. Savoir reproduire les quatre opérations du TP Utilisation des systèmes avant de définir les alias.
+
+## Activités 1 à 4 — Refaire les opérations
+
+Reprendre les quatre contrôles du [TP Utilisation des systèmes](tp1-corrections.md). Vérifier `daemons.txt` pour les processus, `fichiers.conf` et l’affichage pour la recherche, la mesure obtenue avec `time`, puis la valeur de `compteur.txt`.
+
+## Activité 5 — Définir et vérifier les alias
 
 ```bash
 mkdir -p "$HOME/process" "$HOME/resultats"
@@ -17,7 +23,14 @@ rechercher_conf
 time rechercher_conf
 compter_fichiers
 ```
-Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Les variantes cat fichiers.conf | wc -l et grep -c f$ sont montrées dans la correction mais ne satisfont pas l’interdiction de relire ce fichier.
+Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Utiliser `type lister_daemons rechercher_conf compter_fichiers` pour vérifier les définitions avant de relancer chaque alias.
+
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Alias | Vérifier que les trois noms d’alias sont reconnus dans la session et qu’ils reproduisent les mêmes opérations. |
+| Preuves | Relever les fichiers créés et la durée obtenue. Le compteur doit être produit par le flux de recherche. |
 
 ## Points de lecture du support
 
@@ -27,15 +40,9 @@ Les alias sont à définir puis à appeler dans le shell interactif, avec des va
 !!! note "Lecture de la source"
     Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
 
-!!! note "Lecture de la source"
-    Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
-
-!!! note "Lecture de la source"
-    La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
-
-!!! note "Lecture de la source"
-    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
+## Liens
 
 - [Énoncé](tp3-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

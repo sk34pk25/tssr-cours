@@ -1,6 +1,10 @@
 # Correction expliquée — TP02 — Archivage et compression
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Utiliser le répertoire personnel du compte de laboratoire. Vérifier l’espace disponible dans `/tmp` et préparer `Restaurations` dans le cadre du TP.
 
 ## Activité 1 — Archiver son répertoire personnel dans /tmp sous son login et noter la taille.
 
@@ -56,23 +60,21 @@ tar -tf "/tmp/$LOGNAME-v2.tar"
 ```
 L’opération de mise à jour concerne l’archive non compressée v2, comme dans le document.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Archives | Comparer les tailles mesurées des trois formats, puis vérifier les chemins effectivement restaurés. |
+| Exclusion et mise à jour | Contrôler les membres de la seconde archive non compressée. Elle doit exclure `Restaurations` et inclure le nouveau fichier après mise à jour. |
+
 ## Points de lecture du support
 
-!!! note "Lecture de la source"
-    Le document Alias écrit parfois `find / mount`, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.
+!!! note "Lecture de l’archive"
+    Vérifier les membres avec `tar -tf` avant et après restauration. Les tailles dépendent du contenu du compte de laboratoire.
 
-!!! note "Lecture de la source"
-    Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
-
-!!! note "Lecture de la source"
-    Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
-
-!!! note "Lecture de la source"
-    La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
-
-!!! note "Lecture de la source"
-    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
+## Liens
 
 - [Énoncé](tp2-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

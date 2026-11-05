@@ -1,10 +1,16 @@
 # Module 08 — Mécanismes Linux et Bash avancé
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Combiner les commandes avec redirections et pipelines, mesurer leur exécution, archiver/restaurer, créer des alias et observer l’héritage des variables. Les quatre énoncés et leurs corrections restent distincts, même lorsque les scénarios se recoupent.
 
-**Durée des ateliers :** Quatre TP : 45 à 60 minutes, sauf Alias 30 à 45 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Quatre TP : 45 à 60 minutes, sauf Alias 30 à 45 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Rediriger les deux flux et combiner les commandes pour produire les preuves demandées.
+- Créer, contrôler et restaurer une archive, puis comparer les compressions.
+- Composer un alias et observer ce qu’un sous-shell hérite après `export`.
 
 ## 1. Suivre les flux
 
@@ -12,7 +18,7 @@ Combiner les commandes avec redirections et pipelines, mesurer leur exécution, 
 |---|---|
 | `>` | Écrire le résultat standard dans un fichier, en le remplaçant |
 | `>>` | Ajouter à la suite du fichier |
-| `2>/dev/null` | Écarter les messages d’erreur du résultat standard |
+| `2>/dev/null` | Rediriger la sortie d’erreur vers `/dev/null` et conserver la sortie standard |
 | `commande1 \| commande2` | Transmettre la sortie standard à l’entrée de la commande suivante |
 | `tee fichier` | Afficher le flux tout en l’enregistrant |
 | `time ...` | Mesurer l’exécution de la commande ou du pipeline visé |
@@ -20,6 +26,17 @@ Combiner les commandes avec redirections et pipelines, mesurer leur exécution, 
 Le fichier **fichiers.conf** contient des chemins trouvés, et non le contenu des fichiers .conf. Le fichier **compteur.txt** doit ne contenir que le nombre demandé. Les répertoires process et resultats doivent exister avant la redirection.
 
 Les exemples utilisent le répertoire personnel comme point de départ. Les chemins relatifs **resultats/...** de la correction dépendent de cette position ; les chemins **$HOME/resultats/...** permettent de l’expliciter.
+
+**Illustration IA / externe au cours — Suivre la sortie de find jusqu’au terminal et au fichier.**
+
+```mermaid
+flowchart TD
+    Find[find cherche les fichiers] -->|sortie standard| Tee[tee]
+    Tee --> Ecran[Affichage terminal]
+    Tee --> Fichier[fichiers.conf]
+    Find -->|sortie d’erreur| Erreurs[Diagnostics et accès refusés]
+    Erreurs -->|si 2 est redirigé| Null["/dev/null"]
+```
 
 ## 2. Limiter une recherche au système de fichiers racine
 
@@ -30,6 +47,9 @@ find / -mount -type f -name '*.conf' 2>/dev/null
 La recherche commence à **/** ; **-mount** évite de descendre vers d’autres systèmes de fichiers ; **-type f** vise les fichiers standards. Le motif est protégé pour être interprété par find. Une recherche peut rencontrer des accès refusés ; la redirection d’erreur les retire de la sortie utilisée dans le TP.
 
 `time` doit encadrer une exécution : il ne reconstruit pas rétroactivement la durée exacte d’une commande déjà terminée si elle n’a pas été mesurée. Les sorties real, user et sys du document sont des observations historiques à comparer aux résultats de son laboratoire.
+
+!!! note "Lire le résultat de la recherche"
+    `2>/dev/null` masque les diagnostics, notamment les accès refusés. Une liste non vide peut donc être partielle. Relancer sans redirection si le TP demande de justifier le périmètre réellement parcouru.
 
 ## 3. Archive et compression sont deux opérations
 
@@ -279,24 +299,32 @@ Cette fois le login doit être visible. Quitter le sous-shell ramène au parent 
 !!! note "Lecture de la source"
     Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
 
+## À retenir
+
+Distinguer la sortie standard des diagnostics avant de filtrer. Inspecter une archive avec `tar -t` avant d’extraire vers le répertoire prévu. Utiliser `export` pour transmettre une variable aux futurs processus enfants.
+
 ## Mini-quiz
 
-1. Pourquoi tee répond-il à l’affichage et à l’enregistrement simultanés ?
-2. Quelle variante respecte le comptage sans relire fichiers.conf ?
-3. Quelle différence entre -z et -j dans tar ?
-4. Pourquoi monnom est-il vide dans le premier sous-shell ?
+1. Pourquoi utiliser `tee` pour la liste des fichiers ?
+2. Comment compter sans relire `fichiers.conf` ?
+3. Que masque `2>/dev/null` pendant la recherche ?
+4. À quoi servent `-z` et `-j` avec `tar` ?
+5. Pourquoi le premier sous-shell ne reçoit-il pas `monnom` ?
 
-??? note "Réponses"
-    1. Il écrit son entrée à l’écran et dans le fichier demandé.
-    2. Le pipeline find ... | wc -l dirigé vers compteur.txt.
-    3. gzip et bzip2.
-    4. La variable est locale avant son export ; les futurs enfants ne l’héritent qu’après export.
+??? note "Réponses commentées"
+    1. `tee` recopie son entrée à la fois sur sa sortie standard et dans le fichier demandé.
+    2. Passer la sortie de `find` directement à `wc -l`, puis rediriger le compteur vers `compteur.txt`.
+    3. Les diagnostics envoyés sur la sortie d’erreur, comme les accès refusés. Une liste affichée peut donc être partielle.
+    4. Ils sélectionnent respectivement gzip et bzip2. Le TP demande de comparer les tailles réellement obtenues.
+    5. La variable n’est pas encore exportée. Après `export monnom`, un nouveau processus enfant hérite de sa valeur.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-08/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-08-mecanismes-linux-et-bash-avance.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
+- [Manuel des redirections Bash](https://www.gnu.org/s/bash/manual/html_node/Redirections.html)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

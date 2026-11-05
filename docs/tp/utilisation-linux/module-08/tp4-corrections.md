@@ -1,6 +1,10 @@
 # Correction expliquée — TP04 — Manipuler des variables
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Utiliser le Bash du compte de laboratoire et repérer le fichier de configuration chargé dans une nouvelle session interactive. Conserver sa version initiale avant de l’éditer.
 
 ## Activité 1 — Afficher le répertoire personnel avec une variable adéquate.
 
@@ -76,13 +80,14 @@ exit
 ```
 Cette fois le login doit être visible. Quitter le sous-shell ramène au parent ; l’enfant ne modifie pas automatiquement les variables de son parent.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Configuration | Vérifier le chemin du répertoire personnel et la présence de `$HOME/scripts` dans le `PATH` d’un nouveau Bash interactif. |
+| Environnement | Comparer la valeur de `monnom` dans un sous-shell avant et après export. Revenir au parent entre les deux observations. |
+
 ## Points de lecture du support
-
-!!! note "Lecture de la source"
-    Le document Alias écrit parfois `find / mount`, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.
-
-!!! note "Lecture de la source"
-    Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
 
 !!! note "Lecture de la source"
     Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
@@ -90,9 +95,9 @@ Cette fois le login doit être visible. Quitter le sous-shell ramène au parent 
 !!! note "Lecture de la source"
     La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
 
-!!! note "Lecture de la source"
-    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
+## Liens
 
 - [Énoncé](tp4-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

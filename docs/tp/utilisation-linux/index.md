@@ -1,12 +1,19 @@
-# TP — Utilisation GNU/Linux
+# Travaux pratiques — Utilisation GNU/Linux
 
-Onze ateliers : tenter les consignes puis confronter les résultats à la correction expliquée. Le jeu de fichiers du laboratoire, dont Edition, doit être fourni pour les activités qui l’utilisent.
+Le cours réunit onze ateliers documentés. Lire l’énoncé, faire les manipulations et relever les résultats avant d’ouvrir la correction.
 
-- [M03 — Premières commandes](module-03/index.md)
-- [M04 — Fichiers, dossiers et métacaractères](module-04/index.md)
-- [M05 — Lire des fichiers et gérer les liens](module-05/index.md)
-- [M06 — Recherches et expressions régulières](module-06/index.md)
-- [M07 — Utilisation de Vi](module-07/index.md)
-- [M08 — Mécanismes Linux et Bash avancé](module-08/index.md)
+| Module | Sujet | Ateliers |
+| --- | --- | --- |
+| 03 | Premières commandes | [Ouvrir](module-03/index.md) |
+| 04 | Fichiers, dossiers et métacaractères | [Ouvrir](module-04/index.md) |
+| 05 | Lire des fichiers et gérer les liens | [Ouvrir](module-05/index.md) |
+| 06 | Recherches et expressions régulières | [Ouvrir](module-06/index.md) |
+| 07 | Utilisation de Vi | [Ouvrir](module-07/index.md) |
+| 08 | Mécanismes Linux et Bash avancé | [Ouvrir](module-08/index.md) |
 
-[Revenir au cours](../../modules/04-utilisation-gnu-linux/index.md)
+## Pour continuer
+
+- [Présentation du cours](../../modules/04-utilisation-gnu-linux/index.md)
+- [Fiches de révision](../../revision/utilisation-linux/index.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
+- [Mémo des permissions Linux](../../memo/permissions-linux.md)
