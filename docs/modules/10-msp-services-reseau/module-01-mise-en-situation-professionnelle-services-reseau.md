@@ -1,69 +1,127 @@
 # Mise en situation professionnelle : services réseau
 
-**Unité :** atelier fil rouge — services réseau
+Cette maquette met en place les réseaux, services et contrôles de l’équipe fictive **Support-Terre**. Le sujet prévoit environ **4,5 jours** et suppose les cours et TP précédents réalisés. L’onglet **Cours Original** contient les 18 pages de l’énoncé. **Correction fournie : Inexistant.** Les explications et exemples ci-dessous constituent un accompagnement pédagogique externe.
 
-**Source A :** `Module-1.pdf` (Drive TSSR, source unique)
+## 1. Préparer le plan et les machines
 
-## Contexte et objectif
+Préparer VMware Workstation et les médias d’installation de pfSense, Windows Server et Debian prévus par le laboratoire. `D` désigne le dernier octet de l’adresse du poste fourni ; `XY` désigne vos initiales. Calculer `192.168.(4 × D).0/22` et vérifier que le troisième octet calculé est valide. Le `/22` couvre quatre réseaux `/24` : le premier pour les clients, le dernier pour les serveurs. Le routeur utilise la dernière adresse **d’hôte utilisable** de chacun de ces deux `/24`, soit `.254`.
 
-L’atelier place l’équipe fictive **Support-Terre / TSSRC-Série-EU** dans une mise en situation professionnelle de services réseau. Il réunit des tâches d’infrastructure, de services réseau, d’annuaire et d’administration, selon une progression imposée par l’énoncé.
+```mermaid
+flowchart LR
+    C["LAN Clients — premier /24 — VMnet3"] --- F["ROUTEUR-XY — pfSense — trois cartes"]
+    S["LAN Serveurs — dernier /24 — VMnet2"] --- F
+    F --- W["WAN — réseau ponté du laboratoire"]
+    S --- A["Windows 1 — AD et DNS du domaine"]
+    S --- B["Windows 2 — fichiers et services réseau"]
+    S --- L["Debian — services réseau et SSH"]
+```
 
-Les données suivantes restent des variables de laboratoire : `D`, `XY`, `prénomD`, les noms des machines, les adresses WAN, le DNS de l’établissement et le proxy ENI. Elles ne sont pas remplacées ici par des valeurs permanentes.
+| Machine | Fin de l’adresse locale | Disque et RAM du sujet | Réseau |
+|---|---:|---|---|
+| Windows Server 1 | `.101` | 60 Go, 4 Go | VMnet2 |
+| Windows Server 2 | `.102` | 60 Go, 4 Go | VMnet2 |
+| Debian serveur, sans interface graphique | `.111` | 20 Go, 1 Go | VMnet2 |
+| Windows 10 client | `.10` | 40 Go, 2 Go | VMnet3 |
+| Debian client, avec interface graphique | `.1` | 20 Go, 2 Go | VMnet3 |
 
-## 1. Préparer l’infrastructure
+L’exemple du sujet utilise `D = 13` : réseau `192.168.52.0/22`, LAN Clients `192.168.52.0/24`, LAN Serveurs `192.168.55.0/24`. Sur le WAN d’exemple `10.3.0.0/16`, l’adresse du routeur est `10.3.42.13`. Reporter le nom d’interface, l’adresse IP et la MAC sur le schéma. Employer les valeurs WAN réellement attribuées si le réseau du laboratoire diffère.
 
-L’infrastructure comprend les réseaux **LAN Clients**, **LAN Serveurs** et **WAN**. L’adressage demandé suit la formule `192.168.4×D.0/22`, puis un découpage en quatre sous-réseaux `/24` : le premier est affecté au LAN Clients et le dernier au LAN Serveurs.
+Commencer par vérifier la liaison entre serveurs, puis chaque LAN vers son interface pfSense, les routes et la passerelle, puis le NAT vers une destination de test autorisée. Le sujet utilise `9.9.9.9` comme contrôle depuis le routeur. Les règles **any** du sujet sont propres à la maquette : en réseau réel, restreindre flux et interfaces aux besoins. Le service DHCP du TP ne doit pas être diffusé sur le WAN.
 
-Le scénario prévoit un pare-feu pfSense à trois interfaces, avec l’adresse hôte utilisable la plus haute sur les LAN. Il demande trois serveurs (Windows Server 1, Windows Server 2 et Debian sans interface graphique) ainsi que deux clients (Windows 10 et Debian avec interface graphique). Les contrôles portent sur le routage, le filtrage pfSense, le NAT, la connectivité, une résolution DNS provisoire et les dépôts Debian attendus par le scénario.
+### DNS et dépôts provisoires
 
-> La règle pfSense `any` citée par la source relève du contexte de laboratoire ; elle n’est pas une recommandation générale.
+Identifier le DNS du poste de salle avec `Get-DnsClientServerAddress -AddressFamily IPv4`. Vérifier sa joignabilité avant de l’utiliser sur les deux Debian. Le sujet attend une résolution **interne** de `ftp.fr.debian.org` dans ce laboratoire, des dépôts ordinaires via ce nom et les mises à jour de sécurité via `security.debian.org`. Ce résultat dépend du réseau de formation. Identifier le gestionnaire du réseau et de la résolution avant de modifier une configuration, puis actualiser les index APT et relever les erreurs éventuelles.
 
-## 2. Mettre en place DHCP
+## 2. Installer DHCP pour le LAN Clients
 
-Le serveur DHCP est choisi selon la parité de `D`. La distribution concerne uniquement le LAN Clients : la moitié de la plage `/24` est allouable, la passerelle par défaut est transmise, et pfSense sert de relais DHCP si nécessaire.
+| Parité de `D` | DHCP initial | DNS initial |
+|---|---|---|
+| Pair | Windows Server 2 | Debian |
+| Impair | Debian | Windows Server 2 |
+
+Définir une plage sur la moitié du LAN Clients selon les conventions du TP. Consigner ses bornes et exclure les adresses statiques, la passerelle, l’adresse de réseau et celle de diffusion. Transmettre le masque et la passerelle pfSense ; le DNS interne sera fourni après l’étape suivante. Les serveurs se trouvent sur un autre réseau : activer le relais sur l’interface LAN Clients si nécessaire. Vérifier un nouveau bail, ses options et la joignabilité de la passerelle depuis le client.
 
 ## 3. Mettre en place le DNS interne
 
-Le serveur DNS dépend lui aussi de la parité de `D`. Il utilise un redirecteur inconditionnel vers le DNS de l’établissement, une zone directe `prénomD.infra.tld` et les enregistrements des trois serveurs. Les zones inverses des LAN Clients et LAN Serveurs sont demandées.
+Configurer le DNS désigné par la parité. Tester d’abord une requête vers le DNS de l’établissement, puis utiliser ce dernier comme redirecteur général. Configurer les serveurs et l’option DNS de DHCP pour utiliser le DNS interne. Créer la zone **`prénomD.infra.tld`**, puis les enregistrements des trois serveurs. Vérifier la réponse SOA et la résolution du nom du serveur primaire indiqué par celle-ci. Une requête de nom qui réussit ne prouve pas que la résolution inverse fonctionne.
 
-Les vérifications prévues sont la résolution directe, la résolution inverse et le contrôle du SOA.
+Créer ensuite une zone inverse pour chacun des deux `/24`. Ajouter le PTR de la dernière adresse utilisable de chaque LAN vers `routeur.prénomD.infra.tld`, puis interroger directement le DNS du TP pour les deux adresses. Pour l’exemple `D=13`, les zones inverses sont `52.168.192.in-addr.arpa` et `55.168.192.in-addr.arpa`.
 
-## 4. Créer le domaine Active Directory
+## 4. Créer le domaine et contrôler ses dépendances
 
-La source demande une nouvelle forêt avec le domaine `prénomD.domaine.tssr`, au niveau fonctionnel annoncé Windows Server 2016. Le DNS est installé sur le contrôleur de domaine et un redirecteur conditionnel est prévu vers le DNS interne. Les clients Windows et le second serveur Windows sont intégrés, puis les UO, utilisateurs et groupes sont créés pour réaliser des tests de connexion par service.
+Sur Windows Server 1, installer AD DS et DNS, puis créer une nouvelle forêt et le domaine **`prénomD.domaine.tssr`**, au niveau fonctionnel **Windows Server 2016** demandé. Examiner les enregistrements A et SRV, notamment ceux qui permettent de trouver LDAP et Kerberos. Sur le DNS principal du TP, rediriger **ce seul espace de noms** vers le DNS du contrôleur. La zone `prénomD.infra.tld` et le domaine AD ne désignent pas le même espace.
 
-## 5. Donner accès aux ressources du domaine
+Intégrer Windows 10 et Windows Server 2 au domaine et tester une ouverture de session. Si `D` est pair, vérifier que le rôle DHCP Windows est autorisé dans AD et que sa portée est active ; `Get-DhcpServerInDC` permet de contrôler l’autorisation. Créer les unités d’organisation pour services, postes et serveurs ; créer les comptes du tableau de l’Original avec la première lettre du prénom suivie du nom, puis les groupes des services. Tester au moins un compte de chaque service depuis le client.
 
-Le scénario prévoit trois disques de 1 Go, un volume `F:` tolérant à la panne, puis l’arborescence `DATA`, `SERVICES` et `PUBLIC`. Il demande des partages par service, des règles d’accès par service, le contrôle total pour le groupe Informatique et un partage caché `Outils`.
+## 5. Stockage, partages et accès
 
-La documentation attendue porte notamment sur le volume et sur les autorisations du service Comptabilité. Les ACL non précisées par la source ne sont pas complétées ici.
+Le sujet demande trois disques de 1 Go et un volume **F:** supportant la perte d’un disque. Dans la version de Windows Server utilisée, choisir un mode de stockage qui fournit cette tolérance ; vérifier le résultat dans le laboratoire. Créer `F:\DATA`, puis `SERVICES` et `PUBLIC`. Associer les comptes aux groupes de service et les groupes de service aux groupes d’autorisation des ressources. Vérifier à la fois le partage et les ACL NTFS.
 
-## 6. Appliquer les GPO demandées
+| Ressource | Modification | Lecture |
+|---|---|---|
+| `SERVICES\Direction` | Direction, Comptabilité | Secrétariat |
+| `SERVICES\Comptabilité` | Comptabilité | Direction, Secrétariat |
+| `SERVICES\Secrétariat` | Secrétariat | — |
+| `SERVICES\Support` | Support, Secrétariat | Direction |
+| `PUBLIC` | Membres de la société | — |
 
-Les objectifs attestés sont : un fond d’écran commun, l’accès au Panneau de configuration / Paramètres réservé aux administrateurs du domaine, la politique de mot de passe demandée, le mappage de `SERVICES` pour les secrétaires, ainsi que les paramètres relatifs aux pilotes, au redémarrage automatique, à la recherche Internet et à la remontée d’erreurs.
+Le service informatique dispose du contrôle total sur les dossiers partagés selon le sujet. L’accès au dossier **Informatique** est réservé à ce service. **Incohérence de l’Original :** le tableau indique `F:\DATA\Informatique`, la phrase suivante `D:\DATA\Informatique`. La proposition conserve **F:** pour rester cohérente avec le volume créé et partage ce dossier sous `Outils$`. Le suffixe `$` masque le partage dans l’affichage ordinaire ; seules les permissions protègent son accès. Tester un compte autorisé et un compte non autorisé. Documenter la création de F: et le partage avec les droits du dossier Comptabilité.
 
-## 7. Prévoir la redondance
+## 6. Appliquer une stratégie, puis vérifier
 
-La phase de redondance comprend un second DHCP avec des plages complémentaires et un test d’arrêt successif. Elle prévoit aussi un second DNS, ses redirecteurs, une zone secondaire `prénomD.infra.tld` sans résolution inverse sur le second DNS, l’adaptation du DNS des clients, un second contrôleur de domaine et les vérifications de réplication et de connexion.
+| Exigence du sujet | Preuve à relever dans la maquette |
+|---|---|
+| Fond de bureau commun | Ouvrir une session avec deux comptes ciblés. |
+| Accès au Panneau de configuration et aux Paramètres réservé aux administrateurs du domaine | Comparer administrateur et compte standard. |
+| Mots de passe : 30 jours, minimum 3 caractères, complexité désactivée | Vérifier la politique réellement appliquée au domaine. C’est une consigne historique de laboratoire, à ne pas reprendre en production. |
+| Partage SERVICES visible automatiquement pour les secrétaires | Vérifier le lecteur ou raccourci dans leur session et l’absence hors périmètre. |
+| Installation ou mise à jour de pilotes réservée aux administrateurs locaux | Tester avec un compte standard et contrôler la stratégie effective. |
+| Empêcher le redémarrage automatique pendant l’utilisation | Vérifier le résultat avec la version de Windows et le mécanisme de mises à jour du TP. |
+| Ne pas lancer de recherche Internet depuis Windows | Tester une recherche et observer les résultats proposés. |
+| Bloquer la remontée d’erreurs vers Microsoft | Contrôler le réglage effectif et son périmètre. |
 
-## 8. Administrer à distance
+Appliquer et tester un réglage à la fois. `gpresult /r` aide à vérifier que le bon utilisateur ou ordinateur reçoit la bonne GPO ; un réglage visible dans la console ne prouve pas son effet sur le client.
 
-Le scénario demande SSH sur le serveur Debian, le Bureau à distance sur les serveurs Windows, les fonctionnalités facultatives, RSAT, le Gestionnaire de serveur et les consoles AD/DNS depuis un client Windows. Windows Admin Center est une activité de documentation et de test demandée par la source ; aucune documentation externe n’est ajoutée.
+## 7. Vérifier la continuité des services
 
-La seule commande textuelle explicitement prescrite est `psr`, lancée avec **Windows+R**, puis `psr`. Une commande PowerShell est demandée pour identifier le DNS du poste de salle, sans que le PDF n’en fournisse la syntaxe : elle n’est donc pas inventée ici.
+**DHCP.** Installer le second service sur l’autre serveur (Debian ou Windows Server 2), avec des plages **disjointes**. Fournir les mêmes options de passerelle et de DNS attendues. Relayer les demandes vers les deux serveurs. Tester un nouveau bail après l’arrêt de chacun à tour de rôle. Des plages séparées ne synchronisent pas les baux : c’est la solution du TP, pas une réplication d’état.
 
-## Vérifications et livrables
+**DNS.** Installer le second DNS sur l’autre serveur. Configurer le redirecteur général vers le DNS de formation, le redirecteur du domaine AD vers Windows Server 1, et la zone directe `prénomD.infra.tld` en secondaire. Autoriser le transfert seulement vers le serveur secondaire et vérifier son résultat en interrogeant ce serveur directement. Augmenter le numéro de série de la zone lorsque sa méthode de gestion l’exige.
 
-Les contrôles annoncés par l’atelier concernent notamment la connectivité, les services DHCP et DNS, les résolutions directe et inverse, le SOA, les connexions par service, les accès aux partages, les stratégies, les essais de redondance, la réplication et l’administration distante. La documentation attendue fait partie des livrables de la MSP.
+**Incohérence de l’Original :** le sujet écarte la résolution inverse sur le second DNS, puis demande un contrôle de transfert dans « chacune des 2 zones ». La proposition teste le transfert de la **zone directe** explicitement demandée, et indique que les zones inverses restent sur le DNS initial. Le domaine AD reste à ce stade une redirection, pas une seconde zone à transférer.
 
-## À retenir
+**Clients.** Ajouter le second DNS dans les options DHCP et dans les configurations statiques. Vérifier que les deux serveurs savent répondre aux noms internes attendus : un DNS de secours qui ignore les zones internes peut donner un résultat intermittent.
 
-Cette unité articule huit phases : infrastructure, DHCP, DNS interne, Active Directory, ressources du domaine, GPO, redondance et administration distante. Les choix conditionnels et les valeurs de laboratoire restent ceux du scénario source.
+**AD.** Promouvoir Windows Server 2 comme second contrôleur. Vérifier création puis réplication d’un objet, enregistrements SRV et ouverture de session lorsque chacun des contrôleurs est arrêté à tour de rôle. Utiliser un compte de test qui ne peut pas réussir uniquement grâce à une ouverture de session mise en cache. Si Windows Server 2 héberge désormais la zone AD localement, examiner le redirecteur conditionnel antérieur : le DNS Windows ne peut pas conserver une zone hébergée et un redirecteur conditionnel du même nom sur le même serveur.
 
-## Aller plus loin dans l’atelier
+## 8 et 9. Administrer depuis le poste client
 
-- [Index de l’atelier](../../tp/10-msp-services-reseau/module-01/index.md)
-- [Énoncé restructuré](../../tp/10-msp-services-reseau/module-01/enonces.md)
+Tester SSH vers Debian, puis RDP vers les serveurs Windows avec un membre du service informatique et un compte non autorisé. Vérifier que le port répond, puis que l’authentification et les autorisations correspondent au besoin. Les outils facultatifs **RSAT** du client Windows servent à gérer le serveur et les rôles AD DS, DHCP et DNS : ouvrir la console AD, vérifier les objets et créer un enregistrement A de test dans la zone de laboratoire. Pour Windows Admin Center, installer une version compatible dans la maquette, ajouter les machines Microsoft et vérifier les fonctions réellement disponibles pour le compte utilisé.
+
+## Mini-quiz d’application
+
+1. Quelles sont les deux passerelles pour `D=13` ?
+2. Quel DHCP et quel DNS commencer sur Windows Server 2 lorsque `D` est impair ?
+3. Quelle preuve distingue un transfert de zone réussi d’une réponse obtenue depuis un cache ou le serveur primaire ?
+4. Un partage `Outils$` est-il protégé par son nom ?
+5. Pourquoi tester un nouveau compte quand on arrête un contrôleur ?
+
+??? success "Réponses commentées"
+    1. `192.168.52.254` et `192.168.55.254`.
+    2. Le DNS initial est Windows Server 2 ; le DHCP initial est Debian. Windows Server 2 recevra ensuite le second DHCP.
+    3. Interroger directement le secondaire pour un nouvel enregistrement de la zone transférée et vérifier le SOA ou le numéro de série.
+    4. Non, le suffixe le masque ; les autorisations décident de l’accès.
+    5. Pour écarter une session réussie seulement grâce aux identifiants déjà mis en cache.
+
+## Pour pratiquer et réviser
+
+- [Énoncé complet](../../tp/10-msp-services-reseau/module-01/enonces.md)
+- [Proposition de correction externe](../../tp/10-msp-services-reseau/module-01/corrections.md)
 - [Fiche de révision](../../revision/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md)
+- [Retour à la mise en situation](index.md)
 
-> Aucun Kahoot canonique ni correction séparée n’est attesté pour cette unité.
+## Références externes
+
+- [Microsoft Learn — autoriser et configurer DHCP](https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/quickstart-install-configure-dhcp-server)
+- [Microsoft Learn — zones et transferts DNS](https://learn.microsoft.com/en-us/windows-server/networking/dns/zone-types)
+- [Microsoft Learn — redirecteurs et résolution DNS](https://learn.microsoft.com/en-us/windows-server/networking/dns/forwarding)

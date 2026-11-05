@@ -213,14 +213,23 @@ nav:
       - Mise en situation professionnelle — Systèmes clients:
           - Présentation: modules/08-msp-systemes-clients/index.md
           - Module 01 — MSP Systèmes clients: modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md
-      - Services réseaux en environnement Microsoft:
+      - Services réseau en environnement Microsoft:
           - Présentation: modules/09-services-reseaux-en-environnement-microsoft/index.md
-          - Module 01: modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md
-          - Module 02: modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md
-          - Module 03: modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03.md
-          - Module 04: modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04.md
-          - Module 05: modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05.md
-          - Module 06: modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06.md
+          - Module 01 — Administration Windows: modules/09-services-reseaux-en-environnement-microsoft/module-01-module-01.md
+          - Module 02 — Active Directory: modules/09-services-reseaux-en-environnement-microsoft/module-02-module-02.md
+          - Module 03 — Stratégies de groupe: modules/09-services-reseaux-en-environnement-microsoft/module-03-module-03.md
+          - Module 04 — Routage: modules/09-services-reseaux-en-environnement-microsoft/module-04-module-04.md
+          - Module 05 — DHCP: modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05.md
+          - Module 06 — DNS: modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06.md
+      - Services réseau en environnement Linux:
+          - Présentation: modules/15-services-reseau-en-environnement-linux/index.md
+          - Module 01 — Introduction: modules/15-services-reseau-en-environnement-linux/module-01-introduction.md
+          - Module 02 — Adressage réseau: modules/15-services-reseau-en-environnement-linux/module-02-adressage-reseau.md
+          - Module 03 — Routage et traduction d’adresses: modules/15-services-reseau-en-environnement-linux/module-03-routage-et-traduction-d-adresses.md
+          - Module 04 — Administration à distance: modules/15-services-reseau-en-environnement-linux/module-04-administration-a-distance.md
+          - Module 05 — DNS résolveur: modules/15-services-reseau-en-environnement-linux/module-05-dns-resolveur.md
+          - Module 06 — DHCP: modules/15-services-reseau-en-environnement-linux/module-06-dhcp.md
+          - Module 07 — DNS autoritaire sur zone: modules/15-services-reseau-en-environnement-linux/module-07-dns-autoritaire-sur-zone.md
       - Mise en situation professionnelle — Services réseau:
           - Présentation: modules/10-msp-services-reseau/index.md
           - Module 01 — MSP Services réseau: modules/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md
@@ -402,10 +411,31 @@ nav:
               - Présentation: tp/msp/module-01/index.md
               - Énoncés: tp/msp/module-01/enonces.md
               - Corrections: tp/msp/module-01/corrections.md
+      - Services réseau en environnement Microsoft:
+          - Présentation: tp/services-reseaux-microsoft/index.md
+          - Administration Windows: tp/services-reseaux-microsoft/module-01/index.md
+          - Active Directory: tp/services-reseaux-microsoft/module-02/index.md
+          - Stratégies de groupe: tp/services-reseaux-microsoft/module-03/index.md
+          - Routage: tp/services-reseaux-microsoft/module-04/index.md
+          - DHCP: tp/services-reseaux-microsoft/module-05/index.md
+          - DNS: tp/services-reseaux-microsoft/module-06/index.md
+      - Services réseau en environnement Linux:
+          - Présentation: tp/services-reseau-linux/index.md
+          - Adressage réseau: tp/services-reseau-linux/module-02/index.md
+          - Routage et traduction d’adresses: tp/services-reseau-linux/module-03/index.md
+          - Administration à distance: tp/services-reseau-linux/module-04/index.md
+          - DNS résolveur: tp/services-reseau-linux/module-05/index.md
+          - DHCP: tp/services-reseau-linux/module-06/index.md
+          - DNS autoritaire sur zone: tp/services-reseau-linux/module-07/index.md
+      - Mise en situation professionnelle — Services réseau:
+          - Présentation: tp/10-msp-services-reseau/module-01/index.md
+          - Énoncé: tp/10-msp-services-reseau/module-01/enonces.md
+          - Proposition de correction: tp/10-msp-services-reseau/module-01/corrections.md
   - Exercices:
       - Présentation: exercices/index.md
       - Quiz Réseaux: exercices/quiz-reseaux.md
       - Quiz Systèmes clients: exercices/quiz-systemes-clients.md
+      - Quiz Services réseau Linux: exercices/quiz-services-reseau-linux.md
       - Cas pratiques transversaux: exercices/cas-pratiques.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
@@ -512,6 +542,9 @@ nav:
       - Mise en situation professionnelle — Systèmes clients:
           - Présentation: revision/msp/index.md
           - Module 01 — MSP Systèmes clients: revision/msp/module-01-msp-systemes-clients.md
+      - Services réseau en environnement Microsoft: revision/services-reseaux-microsoft/index.md
+      - Services réseau en environnement Linux: revision/services-reseau-linux/index.md
+      - MSP Services réseau: revision/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md
   - Mémos:
       - Présentation: memo/index.md
       - Ports essentiels: memo/ports-essentiels.md

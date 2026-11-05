@@ -85,7 +85,13 @@ class PlanningTests(unittest.TestCase):
         msps = load_msp()
         self.assertEqual(len(msps), 2)
         self.assertTrue(msps[0]["relations"])
-        self.assertFalse(msps[1]["relations"])
+        self.assertEqual(
+            {relation["coursePath"] for relation in msps[1]["relations"]},
+            {
+                "modules/09-services-reseaux-en-environnement-microsoft/index.md",
+                "modules/15-services-reseau-en-environnement-linux/index.md",
+            },
+        )
         for bad in ["../README.md", "javascript:alert.md", "modules/absent.md"]:
             with self.assertRaises(PlanningError):
                 doc_path(bad)
@@ -102,7 +108,15 @@ class PlanningTests(unittest.TestCase):
         rendered = render_parcours()
         self.assertEqual(rendered.count('data-period-start='), len(load_planning()))
         self.assertNotIn('>Passé<', rendered)
-        self.assertIn('Correspondance à confirmer', rendered)
+        self.assertEqual(rendered.count('href="../modules/09-services-reseaux-en-environnement-microsoft/"'), 2)
+        self.assertIn('href="../modules/15-services-reseau-en-environnement-linux/"', rendered)
+        uncertain = {**model()[0], "mapping": {
+            "state": "MATCH_PROBABLE",
+            "path": None,
+            "candidates": ["modules/03-microsoft-365-outils-collaboratifs/index.md"],
+        }}
+        with patch("parcours_render.model", return_value=[uncertain]):
+            self.assertIn('Correspondance à confirmer', render_parcours())
         Links().feed(rendered)
         Links().feed(render_msp())
 

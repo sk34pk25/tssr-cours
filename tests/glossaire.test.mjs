@@ -138,7 +138,9 @@ test("the generated source contains hundreds of unique, referenced terms", () =>
   assert.ok(data.entries.length >= 300 && data.entries.length <= 2_000);
   assert.equal(new Set(normalizedTerms).size, data.entries.length);
   assert.ok(data.entries.every((item) => item.refs.length > 0));
-  assert.equal(data.courses.length, 8);
+  const courseIds = new Set(data.courses.map((course) => course.id));
+  const referencedCourseIds = new Set(data.entries.flatMap((entry) => entry.refs.map((ref) => ref.split(":")[0])));
+  assert.deepEqual(referencedCourseIds, courseIds);
 });
 
 test("the generated Markdown exposes every term as static indexable content", () => {

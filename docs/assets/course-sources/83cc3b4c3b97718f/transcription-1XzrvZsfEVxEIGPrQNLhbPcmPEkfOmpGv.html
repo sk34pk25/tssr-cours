@@ -1,0 +1,23 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M02 - Solution du TP1 - Adressage réseau</title><style>body{max-width:88ch;margin:auto;padding:1.5rem;font:18px/1.65 system-ui,sans-serif;color:#17243b;background:white}
+h1{font-size:1.9rem}h2{font-size:1.35rem;color:#204b80}h3{font-size:1.1rem}section{border-top:1px solid #d7e0eb;margin:2rem 0;padding-top:1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #bac7d9;padding:.55rem;vertical-align:top;text-align:left}th{background:#eef4fa}
+pre{background:#eef4fa;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere}code{font-size:.93em}figure{margin:1rem 0}img{max-width:100%;height:auto}figcaption{font-size:.85rem}li{margin:.25rem 0}</style></head><body><h1>M02 - Solution du TP1 - Adressage réseau</h1><p>Transcription du document de formation dans l’ordre des pages.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1"><p>Services réseau en environnement Linux</p><h2>Mise en œuvre et configuration réseau</h2><h3>TP 01 du Module 02 – Adressage réseau</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>3 heures</p><h2>Solution</h2><h3>Etape 1 - Configuration du LAN Clients</h3><p>Création de la machine virtuelle cliente :</p><table><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>Cli-db-10</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet4</td></tr></table><h2>Nom : Cli-db-10 IPv4 : * . 10</h2><h2>LAN Clients 172.18.num_stag.0 / 24 VMNet 4</h2><pre><code># nmcli connection modify Wired\ connection\ 1  ipv4.addresses
+172.18.X.10/24 ipv4.method  manual</code></pre></section>
+<section class="tssr-transcribed-page" id="page-2"><p>Services réseau en environnement Linux</p><p>+ Désactivation/Activation connexion via nmtui</p><p>ou configuration + activation interactive via nmtui</p><p>ou configuration via l’interface graphique</p><p>Pour cli-deb-10, nommage de la machine à l’installation</p><pre><code>Ou # nmcli general hostname cli- deb-10</code></pre><p>Ou configuration interactive avec nmtui</p><h3>Etape 2 - Configuration du LAN Serveurs</h3><p>Création des machines virtuelles serveur :</p><p>Créer les machines virtuelles suivantes</p><table><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>DEB-S1</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet6</td></tr><tr><td>DEB-S2</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet6</td></tr></table><figure><img src="../isolated/83cc3b4c3b97718f/linux-net-figure-1.webp" loading="lazy" alt="LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12."><figcaption>LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.</figcaption></figure></section>
+<section class="tssr-transcribed-page" id="page-3"><p>Services réseau en environnement Linux</p><p>Pour une configuration dynamique :</p><p>Sur deb-s1</p><pre><code> # ip a add 192.168.X.11 dev  ens33</code></pre><p>Sur deb-s2</p><pre><code> # ip a add 192.168.X.12 dev  ens33</code></pre><p>Pour flusher les interfaces :</p><pre><code> # ip a flush dev ens33</code></pre><p>Pour une configuration définitive</p><pre><code> Sur deb-s1
+ # vi /etc/network/interface
+ auto ens33
+ iface ens33 inet static
+
+address  192.168.X.11
+
+netmask  255.255.255.0</code></pre><p>Sur deb-s2</p><p>Même chose que pour deb-s1 avec IP  192.168.X.12</p><p>Ne pas oublier de redémarrer la configuration : # systemctl restart  networking.service</p><pre><code>Pour le hostname :
+# vi /etc/hostname
+
+deb-s1
+# hostname –F  /etc/hostname
+# vi /etc/hosts
+ 127.0.1.1 deb-s1</code></pre><p>Même chose avec deb-s2</p></section>
+<section class="tssr-transcribed-page" id="page-4"><p>Services réseau en environnement Linux</p><h2>Etape 3 - Préparation d’un serveur supplémentaire</h2><p>Créer une machine virtuelle avec les caractéristiques suivantes :</p><table><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>RouTux</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Aucune carte réseau</td></tr></table><p>Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant.</p></section>
+<!-- SOURCE-CONTENT:END --></body></html>
