@@ -1,21 +1,37 @@
-# Énoncé — TP1 : Recherches et regex
+# Énoncé — TP01 — Recherches et regex
 
-Les documents demandent d'utiliser les commandes nécessaires pour répondre aux
-questions suivantes.
+**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
 
-1. Recherchez toutes les lignes contenant `Dupont` dans le fichier `Edition`.
-2. Recherchez toutes les lignes contenant `dupont`, quelle que soit la casse, dans le
-   fichier `Edition`.
-3. Affichez toutes les lignes non vides du fichier `Edition`.
-4. Listez les fichiers contenant `localhost` dans le répertoire `/etc`, sans inclure les
-   sous-répertoires.
-5. Recherchez tous les fichiers standards commençant par `ho` à partir du répertoire
-   `/etc`.
-6. Recherchez tous les répertoires depuis votre répertoire personnel.
-7. Recherchez tous les fichiers standards de votre répertoire personnel se terminant par
-   `txt` et faites-en une copie avec l'extension `.save`.
+**Durée indicative :** 45 à 60 minutes.
 
-## Provenance
+## Activité 1
 
-- **A — source TSSR :** énoncé TP1 *Recherches et regex*.
-- **B — structuration pédagogique :** liste web fidèle, sans exercice supplémentaire.
+Rechercher les lignes contenant Dupont dans Edition.
+
+## Activité 2
+
+Rechercher dupont quelle que soit la casse.
+
+## Activité 3
+
+Afficher toutes les lignes non vides.
+
+## Activité 4
+
+Lister les fichiers contenant localhost directement dans /etc, sans sous-répertoires.
+
+## Activité 5
+
+Rechercher les fichiers standards commençant par ho à partir de /etc.
+
+## Activité 6
+
+Rechercher tous les répertoires depuis le répertoire personnel.
+
+## Activité 7
+
+Trouver les fichiers standards de son répertoire personnel terminés par txt et en faire une copie .save.
+
+- [Correction](tp1-corrections.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Tous les ateliers du module](index.md)

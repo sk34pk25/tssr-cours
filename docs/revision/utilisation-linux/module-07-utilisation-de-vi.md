@@ -1,72 +1,31 @@
-# Fiche de révision — Module 07 — Utilisation de Vi
+# Révision — M07 : Utilisation de Vi
 
-> **Sources A :** énoncé et solution du TP « Utilisation de Vi ». Les commandes
-> ci-dessous sont limitées aux formes réellement présentes dans ces documents.
+## Gestes à retenir
 
-## Ouvrir, chercher et se déplacer
+| Besoin | Repère |
+|---|---|
+| Revenir au mode normal | Échap |
+| Début / fin | gg / G |
+| Insérer avant / après | i / a ; O / o pour une nouvelle ligne |
+| Rechercher | /motif ; ?motif ; n ; N |
+| Lignes | dd ; yy puis p |
+| Substitution globale |  :%s/ancien/nouveau/g |
+| Enregistrer et quitter | :wq |
+| Configuration | .vimrc ; set number ; set tabstop=5 ; set nocompatible |
 
-```text
-vi Edition
-/Dupont Jean
-?Dupont
-n
-N
-2e
-w
-gg
-G
-```
+## Se contrôler
 
-## Insérer et modifier
+- À quoi sert Échap avant une action ? **À revenir au mode normal.**
+- Quelle différence entre O et o ? **O ouvre avant la ligne courante, o après.**
+- Que signifient % et le dernier g dans :%s/a/b/g ? **Toutes les lignes, puis toutes les occurrences de chaque ligne.**
+- Comment remplir la demande de changement de séparateur ? **Employer par exemple :%s#JEAN#Jean#g.**
 
-```text
-i
-a
-o
-O
-esc
-cwMerlin-Duval
-dd
-yy
-p
-```
+## Pièges du support
 
-## Enregistrer, commande externe et réglages
+- Le document écrit .virmc alors que l’énoncé demande .vimrc : la forme de travail est .vimrc.
+- Quelques lignes omettent le deux-points d’entrée en commande Ex. Il est ajouté dans les exemples utilisables.
+- La question19 demande un autre séparateur ; la correction ne le change pas. La forme avec # répond à cette partie de la consigne.
+- Les formes source des questions20 et21 ont une portée plus étroite que leur formulation ; les ancrages et le drapeau g sont expliqués, sans modifier le texte de la source.
 
-```text
-:wq
-:!date
-set number
-set tabstop=5
-set nocompatible
-```
-
-## Commandes globales attestées
-
-```text
-:g/Dupont/s//Durand/g
-:g/Durand/m$
-:g/ Durand/s//Dupont/
-g/Jean /s/Jean/&-Paul
-:g/\(Jean\)/s//\U\1/
-:g/JEAN/s//Jean/
-:%s/Jean/Jean-Jean/
-:%s/\<[1-3]/(033)&/
-g/^F/s/$/0/
-```
-
-## Points à vérifier dans les sources
-
-- `.vimrc` est cité dans l'énoncé ; `vi .virmc` est indiqué dans la solution.
-- `g/Jean /s/Jean/&-Paul` et `g/^F/s/$/0/` sont documentés sans `:` visible.
-- `:g/ Durand/s//Dupont/` contient un espace après le premier `/`.
-
-Ces formes sont conservées comme **NEEDS_REVIEW** : elles ne sont pas
-normalisées dans cette fiche.
-
-## Liens
-
-- [Cours M07](../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md)
-- [TP et énoncé](../../tp/utilisation-linux/module-07/enonces.md)
-- [Correction](../../tp/utilisation-linux/module-07/corrections.md)
-- [Kahoot M07](../../kahoot/04-utilisation-gnu-linux-module-07-utilisation-de-vi.md)
+- [Cours complet](../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md)
+- [Travaux pratiques](../../tp/utilisation-linux/module-07/index.md)

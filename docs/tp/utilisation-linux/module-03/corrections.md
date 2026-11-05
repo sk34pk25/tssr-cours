@@ -1,52 +1,87 @@
-# Correction — TP01 — Premières commandes
+# Correction expliquée — TP01 — Premières commandes
 
-**Source originale (A) :** `M03TP01 - Solution - Premières Commandes` TSSR.
-**Présentation du portail (B) :** séparation des réponses et des contrôles, sans modification des commandes ou des observations de source.
+Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
 
-## 1. Changement de mot de passe
+## Activité 1 — Changer le mot de passe, fermer la session puis se reconnecter pour vérifier le changement.
 
 ```bash
 passwd
 ```
+Suivre les demandes interactives puis réussir une nouvelle connexion.
 
-La solution précise de respecter la complexité requise, puis de quitter et de se reconnecter pour vérifier le changement.
+## Activité 2 — Depuis quand la session courante est-elle connectée ?
 
-## 2 à 6. Session, utilisateurs et identifiants
+```bash
+who am i
+```
+Relever la date et l’heure de connexion de sa propre ligne.
 
-| Question | Commande proposée par la solution |
-|---|---|
-| Depuis quand êtes-vous connecté ? | `who am i` |
-| Utilisateurs travaillant sur le serveur | `who` |
-| Temps d’inactivité des utilisateurs connectés | `w -u` |
-| Numéro de processus de votre session | `who am I --all --heading` |
-| UID, GID et groupes d’appartenance | `id` |
+## Activité 3 — Quels utilisateurs travaillent sur le serveur ?
 
-## 7 et 8. Heure et date
+```bash
+who
+```
+Observer les sessions connectées ; plusieurs lignes peuvent concerner un même compte.
+
+## Activité 4 — Quel est le temps d’inactivité des utilisateurs connectés ?
+
+```bash
+w -u
+```
+Lire la colonne d’inactivité de chaque session.
+
+## Activité 5 — Quel est le numéro de processus de la session présenté par l’outil de connexion ?
+
+```bash
+who am i --all --heading
+```
+Lire la colonne PID du résultat, comme dans le document.
+
+## Activité 6 — Afficher UID, GID et noms des groupes d’appartenance.
+
+```bash
+id
+```
+Relever l’utilisateur, le groupe principal et les groupes supplémentaires.
+
+## Activité 7 — Afficher uniquement l’heure.
 
 ```bash
 date +%X
-date "+%A %d %B %Y"
 ```
 
-## 9. Calendriers
+## Activité 8 — Afficher uniquement la date selon le modèle jour, numéro, mois, année.
+
+```bash
+date "+%A %d %B %Y"
+```
+Le résultat doit être la date courante dans la forme demandée ; la langue dépend du système.
+
+## Activité 9 — Afficher janvier 1900, toute l’année 1900, janvier de l’année courante, puis septembre 1752 et sa particularité.
 
 ```bash
 cal 1 1900
+cal 1900
+cal 1 "$(date +%Y)"
 cal 9 1752
+man cal
 ```
+Comparer les quatre sorties. Rechercher 1752 dans le manuel pour expliquer le saut observé dans le scénario.
 
-Pour la demande « janvier de l’année courante », la solution source affiche `cal 1 2020`. Cet écart avec l’énoncé est conservé pour relecture ; il ne doit pas être résolu silencieusement.
+## Points de lecture du support
 
-Pour septembre 1752, la solution demande de rechercher « 1752 » dans le manuel et rapporte une particularité liée au passage au calendrier grégorien, avec onze jours indiqués comme sautés du 3 au 13. Cette observation reste celle de la source : aucune explication historique supplémentaire n’est ajoutée ici.
+!!! note "Lecture de la source"
+    La correction imprime `Date +%X` avec une majuscule : l’aide pédagogique emploie `date`, conformément à la commande Linux.
 
-## Contrôles
+!!! note "Lecture de la source"
+    L’option de who est imprimée avec un tiret typographique et un I majuscule. La forme utilisable est `who am i --all --heading`.
 
-- Fermer puis rouvrir la session après `passwd`.
-- Relever les résultats affichés par les commandes de session et d’identifiants.
-- Comparer l’affichage de l’heure, de la date et des calendriers aux demandes de l’énoncé.
+!!! note "Lecture de la source"
+    La date « lundi 24 septembre 2009 » est un modèle de présentation dans l’énoncé, pas une date à rendre fixe ni une validation du jour de semaine.
 
-## Voir aussi
+!!! note "Lecture de la source"
+    La correction ne développe pas le calendrier annuel ; `cal 1900` répond à la seconde partie de la consigne.
 
-- [Présentation du TP01](index.md)
-- [Énoncé du TP01](enonces.md)
-- [Fiche de révision](../../../revision/utilisation-linux/module-03-premieres-commandes.md)
+- [Énoncé](enonces.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md)
+- [Tous les ateliers du module](index.md)

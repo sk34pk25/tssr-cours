@@ -1,20 +1,47 @@
-# Énoncé — TP2 : Spécificités du shell Bash / métacaractères
+# Énoncé — TP02 — Métacaractères
 
-1. Affichez les fichiers et répertoires, sans afficher leur contenu, dont le nom commence
-   par `a`, `b`, `c` ou `d` dans `/etc`.
-2. Créez, dans votre répertoire de travail (`$HOME`), l'arborescence demandée en une seule
-   ligne de commande.
-3. Positionnez-vous dans `Tp/Divers/Sources/`, puis créez un fichier dont le nom comporte
-   un astérisque.
-4. Sans vous déplacer dans l'arborescence, essayez de supprimer le répertoire `Sources`
-   avec `rmdir`. Constatez le résultat.
-5. Supprimez le répertoire `Divers` en utilisant `rm`.
-6. Depuis votre répertoire d'accueil, affichez la liste détaillée des fichiers qui sont
-   directement présents dans `/etc`, finissent par `.conf`, commencent par une consonne,
-   ont une lettre comprise entre `f` et `s` avant l'extension et comptent exactement six
-   lettres hors extension.
+**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
 
-## Provenance
+**Durée indicative :** 45 à 60 minutes.
 
-- **A — source TSSR :** énoncé TP2 *Les métacaractères*, titré en interne « TP du Module 06 ».
-- **B — structuration pédagogique :** liste web sans exercice additionnel.
+Arborescence demandée :
+
+```text
+$HOME
+├── bin
+└── Tp
+    ├── Bourne
+    ├── KornShell
+    └── Divers
+        ├── Sources
+        ├── lib
+        └── Executables
+```
+
+## Activité 1
+
+Afficher les noms de fichiers et répertoires commençant par a, b, c ou d directement dans /etc, sans lister leur contenu.
+
+## Activité 2
+
+Créer en une seule commande l’arborescence bin et Tp sous $HOME, puis Bourne, KornShell, Divers et ses trois sous-répertoires.
+
+## Activité 3
+
+Se positionner dans Sources et créer un fichier dont le nom comporte un astérisque.
+
+## Activité 4
+
+Sans changer de répertoire, essayer de supprimer Sources avec rmdir et expliquer le résultat.
+
+## Activité 5
+
+Supprimer Divers avec rm.
+
+## Activité 6
+
+Depuis le répertoire personnel, lister en détail les fichiers directement dans /etc : extension .conf, six lettres, initiale consonne et lettre avant l’extension entre f et s.
+
+- [Correction](tp2-corrections.md)
+- [Cours du module](../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Tous les ateliers du module](index.md)

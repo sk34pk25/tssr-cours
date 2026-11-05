@@ -1,52 +1,43 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP04 - Solution - Manipuler des Variables.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M08TP04 - Solution - Manipuler des Variables</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
-<h4>Manipuler des variables </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8. </p>
-
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">45 à 60 minutes </p>
-<h4>Proposition de solution </h4>
-<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes <br>nécessaires pour répondre aux questions. </p>
-
-<p class="tssr-source-paragraph">1. Afficher le répertoire personnel en utilisant une variable adéquate </p>
-<pre class="tssr-source-code">ls $HOME </pre>
-<p class="tssr-source-paragraph">ou </p>
-<pre class="tssr-source-code">ls ~ </pre>
-
-<p class="tssr-source-paragraph">2. Afficher le contenu de la variable contenant les chemins vers les binaires usuels de <br>l’utilisateur. </p>
-<pre class="tssr-source-code">echo $PATH </pre>
-
-<p class="tssr-source-paragraph">3. Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins <br>usuels. Faire en sorte que la manipulation soit pérenne. </p>
-<pre class="tssr-source-code">mkdir $HOME/scripts  </pre>
-<pre class="tssr-source-code">PATH=$PATH:/$HOME/scripts  </pre>
-<pre class="tssr-source-code">echo PATH=$PATH:/$HOME/scripts &gt;&gt; ~/.bashrc </pre>
-
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>BE</p></div></details>
-
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M08TP04 - Solution - Manipuler des Variables</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>M08TP04 - Solution - Manipuler des Variables</h1><p>Transcription du document de formation ; texte et captures isolées sont distincts de l’aide pédagogique.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<p class="tssr-source-paragraph">Archivage et compression</p>
+<h4>Manipuler des variables</h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">45 à 60 minutes</p>
+<h4>Proposition de solution</h4>
+<p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
+<ol start="1"><li>Afficher le répertoire personnel en utilisant une variable adéquate</li></ol>
+<pre class="tssr-source-code"><code>ls $HOME</code></pre>
+<p class="tssr-source-paragraph">ou</p>
+<pre class="tssr-source-code"><code>ls ~</code></pre>
+<ol start="2"><li>Afficher le contenu de la variable contenant les chemins vers les binaires usuels de l’utilisateur.</li></ol>
+<pre class="tssr-source-code"><code>echo $PATH</code></pre>
+<ol start="3"><li>Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins usuels. Faire en sorte que la manipulation soit pérenne.</li></ol>
+<pre class="tssr-source-code"><code>mkdir $HOME/scripts</code></pre>
+<pre class="tssr-source-code"><code>PATH=$PATH:/$HOME/scripts</code></pre>
+<pre class="tssr-source-code"><code>echo PATH=$PATH:/$HOME/scripts &gt;&gt; ~/.bashrc</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Archivage et compression <br> </p>
-<p class="tssr-source-paragraph">4. Créer une variable &quot;monnom&quot; contenant le login de l’utilisateur </p>
-<pre class="tssr-source-code">monom=&quot;$LOGNAME&quot;  </pre>
-<p class="tssr-source-paragraph">ou </p>
-<pre class="tssr-source-code">monom=$(logname) </pre>
-<p class="tssr-source-paragraph">5. Afficher les variables de l’utilisateurs </p>
-<pre class="tssr-source-code">env </pre>
-<p class="tssr-source-paragraph">6. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. <br>Fermer le sous-shell </p>
-<pre class="tssr-source-code">bash </pre>
-<pre class="tssr-source-code">echo $monnom </pre>
-<pre class="tssr-source-code">exit </pre>
-<p class="tssr-source-paragraph">7. Transformer la variable locale de la question 4 en variable d’environnement </p>
-<pre class="tssr-source-code">export monnom </pre>
-<p class="tssr-source-paragraph">8. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login <br>de l’utilisateur. Fermer le sous-shell </p>
-<pre class="tssr-source-code">bash </pre>
-<pre class="tssr-source-code">echo $monnom </pre>
-<pre class="tssr-source-code">exit </pre>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+<section class="tssr-transcribed-page" id="page-2">
+<p class="tssr-source-paragraph">Archivage et compression</p>
+<ol start="4"><li>Créer une variable "monnom" contenant le login de l’utilisateur</li></ol>
+<pre class="tssr-source-code"><code>monom="$LOGNAME"</code></pre>
+<p class="tssr-source-paragraph">ou</p>
+<pre class="tssr-source-code"><code>monom=$(logname)</code></pre>
+<ol start="5"><li>Afficher les variables de l’utilisateurs</li></ol>
+<pre class="tssr-source-code"><code>env</code></pre>
+<ol start="6"><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. Fermer le sous-shell</li></ol>
+<pre class="tssr-source-code"><code>bash</code></pre>
+<pre class="tssr-source-code"><code>echo $monnom</code></pre>
+<pre class="tssr-source-code"><code>exit</code></pre>
+<ol start="7"><li>Transformer la variable locale de la question 4 en variable d’environnement</li></ol>
+<pre class="tssr-source-code"><code>export monnom</code></pre>
+<ol start="8"><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login de l’utilisateur. Fermer le sous-shell</li></ol>
+<pre class="tssr-source-code"><code>bash</code></pre>
+<pre class="tssr-source-code"><code>echo $monnom</code></pre>
+<pre class="tssr-source-code"><code>exit</code></pre>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>
 
-</section><!-- SOURCE-CONTENT:END --></body></html>

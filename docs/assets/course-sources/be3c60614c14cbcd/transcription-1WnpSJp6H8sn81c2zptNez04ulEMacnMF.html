@@ -1,19 +1,19 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M08TP03 - Solution - Alias et Redirections.pdf</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd3df;padding:.5rem}figcaption{font-size:.8rem}figure{margin:1rem 0}details{padding:.5rem;background:#f4f7fb}h3{color:#204bb0}</style></head><body><h1>M08TP03 - Solution - Alias et Redirections</h1><p>Transcription du document du Drive TSSR. La mise en forme est adaptée au Web ; les compléments IA du portail sont présentés séparément.</p><!-- SOURCE-CONTENT:START --><section class="tssr-transcribed-page" id="page-1"><h3>Page 1</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
-<h4>Redirections et Alias </h4>
-<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash </p>
-
-<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir <br>réalisé les TP proposés. </p>
-
-<p class="tssr-source-paragraph">Durée estimée </p>
-<p class="tssr-source-paragraph">30 à 45 mn </p>
-<h4>Énoncé </h4>
-<pre class="tssr-source-code">• 
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M08TP03 - Solution - Alias et Redirections</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>M08TP03 - Solution - Alias et Redirections</h1><p>Transcription du document de formation ; texte et captures isolées sont distincts de l’aide pédagogique.</p><!-- SOURCE-CONTENT:START -->
+<section class="tssr-transcribed-page" id="page-1">
+<h4>Redirections et Alias</h4>
+<p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash</p>
+<p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir réalisé les TP proposés.</p>
+<p class="tssr-source-paragraph">Durée estimée</p>
+<p class="tssr-source-paragraph">30 à 45 mn</p>
+<h4>Énoncé</h4>
+<pre class="tssr-source-code"><code>• 
 Lister tous les processus qui finissent par un d. 
  
 Le résultat sera stocké dans $HOME/process/daemons.txt. 
 mkdir $HOME/process 
-ps –e |grep d$ &gt; $HOME/process/daemons.txt </pre>
-<pre class="tssr-source-code">• 
+ps –e |grep d$ &gt; $HOME/process/daemons.txt</code></pre>
+<pre class="tssr-source-code"><code>• 
 Recherchez les fichiers dont le nom se termine par .conf à partir de la racine.  
 Cette recherche ne devra être effectuée que sur le système de fichier racine.  
 Le 
@@ -21,7 +21,7 @@ résultat
 sera 
 affiché 
 à 
-l&#x27;écran 
+l'écran 
 tout 
 en 
 étant 
@@ -31,12 +31,12 @@ le
 fichier 
 $HOME/resultats/fichiers.conf. 
 mkdir $HOME/resultats  
-find / mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
-<pre class="tssr-source-code">• 
+find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf</code></pre>
+<pre class="tssr-source-code"><code>• 
 La commande précédente a duré un certain temps, comment connaître le temps 
 exact d’exécution de celle-ci ? 
-time find / mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf </pre>
-<pre class="tssr-source-code">• 
+time find / mount -type f -name "*.conf" 2&gt;/dev/null |tee $HOME/resultats/fichiers.conf</code></pre>
+<pre class="tssr-source-code"><code>• 
 En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre 
 de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.   
 Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des 
@@ -47,32 +47,21 @@ cat resultats/fichiers.conf |wc -l &gt; resultats/compteur.txt
 grep –c f$ resultats/fichiers.conf &gt; resultats/compteur.txt 
  
 # Alternativement sans utiliser le fichier fichier.conf 
-find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt </pre>
-
-
-<p class="tssr-source-paragraph">Page 1/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
-
-<details class="tssr-source-ocr" open><summary>Texte extrait des éléments graphiques du support</summary><div class="tssr-source-ocr-text"><p>PT<br>PO<br>LT</p></div></details>
-
-
-
-
-
+find / -mount -type f -name "*.conf" 2&gt;/dev/null |wc -l &gt; resultats/compteur.txt</code></pre>
 </section>
-<section class="tssr-transcribed-page" id="page-2"><h3>Page 2</h3><p class="tssr-source-paragraph">Utilisation d&#x27;une distribution GNU/Linux </p>
-<pre class="tssr-source-code">• 
+<section class="tssr-transcribed-page" id="page-2">
+<pre class="tssr-source-code"><code>• 
 Reproduire toutes les actions précédentes, mais avec la création d’alias… 
 # Créer les répertoires nécessaires 
 mkdir -p $HOME/process 
 mkdir -p $HOME/resultats 
  
 # Définir des alias pour les commandes 
-alias lister_daemons=&#x27;ps -e | grep d$ &gt; $HOME/process/daemons.txt&#x27; 
-alias rechercher_conf=&#x27;find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null | tee 
-$HOME/resultats/fichiers.conf&#x27; 
-alias compter_fichiers=&#x27;find / -mount -type f -name &quot;*.conf&quot; 2&gt;/dev/null | wc -l &gt; 
-$HOME/resultats/compteur.txt&#x27; 
+alias lister_daemons='ps -e | grep d$ &gt; $HOME/process/daemons.txt' 
+alias rechercher_conf='find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee 
+$HOME/resultats/fichiers.conf' 
+alias compter_fichiers='find / -mount -type f -name "*.conf" 2&gt;/dev/null | wc -l &gt; 
+$HOME/resultats/compteur.txt' 
  
 # Lister tous les processus qui finissent par un d 
 lister_daemons 
@@ -80,7 +69,7 @@ lister_daemons
 # Rechercher les fichiers .conf à partir de la racine 
 rechercher_conf 
  
-# Mesurer le temps d&#x27;exécution de la recherche 
+# Mesurer le temps d'exécution de la recherche 
 time rechercher_conf 
  
 # Compter le nombre de fichiers trouvés et stocker le résultat 
@@ -93,21 +82,19 @@ cat $HOME/resultats/fichiers.conf | wc -l &gt; $HOME/resultats/compteur.txt
 grep -c f$ $HOME/resultats/fichiers.conf &gt; $HOME/resultats/compteur.txt 
  
 # Alternative sans utiliser le fichier fichiers.conf 
-compter_fichiers </pre>
-<p class="tssr-source-paragraph">• <br>Explication des alias </p>
-<pre class="tssr-source-code">• 
+compter_fichiers</code></pre>
+<ul><li>Explication des alias</li></ul>
+<pre class="tssr-source-code"><code>• 
 lister_daemons : Alias pour lister les processus qui se terminent par d et stocker le 
-résultat dans daemons.txt. </pre>
-<pre class="tssr-source-code">• 
+résultat dans daemons.txt.</code></pre>
+<pre class="tssr-source-code"><code>• 
 rechercher_conf : Alias pour rechercher les fichiers .conf à partir de la racine et 
-afficher le résultat à l&#x27;écran tout en le stockant dans fichiers.conf. </pre>
-<pre class="tssr-source-code">• 
+afficher le résultat à l'écran tout en le stockant dans fichiers.conf.</code></pre>
+<pre class="tssr-source-code"><code>• 
 compter_fichiers : Alias pour compter le nombre de fichiers.conf trouvés et 
-stocker ce nombre dans compteur.txt. </pre>
-<p class="tssr-source-paragraph">• <br>Remarques </p>
-<p class="tssr-source-paragraph">• <br>Les alias sont définis pour simplifier l&#x27;exécution des commandes, mais ils ne sont <br>valables que pour la session actuelle. </p>
-<p class="tssr-source-paragraph">Page 2/2 </p>
-<p class="tssr-source-paragraph">© ENI – Tous droits réservés </p>
+stocker ce nombre dans compteur.txt.</code></pre>
+<ul><li>Remarques</li></ul>
+<ul><li>Les alias sont définis pour simplifier l'exécution des commandes, mais ils ne sont valables que pour la session actuelle.</li></ul>
+</section>
+<!-- SOURCE-CONTENT:END --></body></html>
 
-
-</section><!-- SOURCE-CONTENT:END --></body></html>
