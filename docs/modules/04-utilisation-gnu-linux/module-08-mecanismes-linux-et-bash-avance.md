@@ -1,10 +1,10 @@
 # Module 08 — Mécanismes Linux et Bash avancé
 
-**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Combiner les commandes avec redirections et pipelines, mesurer leur exécution, archiver/restaurer, créer des alias et observer l’héritage des variables. Les quatre énoncés et leurs corrections restent distincts, même lorsque les scénarios se recoupent.
 
-**Durée des ateliers.** Quatre TP : 45 à 60 minutes, sauf Alias 30 à 45 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Quatre TP : 45 à 60 minutes, sauf Alias 30 à 45 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
 
 ## Objectifs
 

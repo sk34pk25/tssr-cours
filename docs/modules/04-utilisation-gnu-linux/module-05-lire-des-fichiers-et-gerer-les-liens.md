@@ -1,10 +1,10 @@
 # Module 05 — Lire des fichiers et gérer les liens
 
-**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Écrire un contenu avec cat, concaténer des fichiers, compter des lignes puis comparer liens physiques et symboliques. Les deux ateliers utilisent les noms de fichiers du scénario source.
 
-**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
 
 ## Objectifs
 

@@ -1,10 +1,10 @@
 # Module 03 — Premières commandes
 
-**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Identifier sa session, observer les utilisateurs et les identifiants, puis formater la date et lire des calendriers.
 
-**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
 
 ## Objectifs
 

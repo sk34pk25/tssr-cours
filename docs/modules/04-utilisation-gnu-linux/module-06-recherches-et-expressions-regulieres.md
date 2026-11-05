@@ -1,10 +1,10 @@
 # Module 06 — Recherches et expressions régulières
 
-**Sources du module.** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Rechercher dans le contenu avec grep, retrouver des chemins avec find puis utiliser les développements de noms du shell. Les deux TP sont conservés : Recherches et regex, puis Métacaractères.
 
-**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
 
 ## Objectifs
 
