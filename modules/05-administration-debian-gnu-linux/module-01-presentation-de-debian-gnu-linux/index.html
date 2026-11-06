@@ -1970,6 +1970,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10224,6 +10235,8 @@
       
         
       
+        
+      
     
     
     
@@ -10316,6 +10329,34 @@
     
   
     Quiz Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-administration-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Administration Debian
   
 
     
@@ -13838,6 +13879,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -13958,6 +14007,118 @@
     
   
     Permissions Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/apt-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APT sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/lvm-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volumes LVM sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/file-systems-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes de fichiers sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/comptes-groupes-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comptes et groupes sous Debian
   
 
     
@@ -14720,6 +14881,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14879,6 +15051,11 @@ user30@deb:~$</code></pre></section>
 </div>
 <p><strong>Cours optimisé — reformulation pédagogique du support et des TP associés.</strong> Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.</p>
 <h2 id="objectifs-et-reperes">Objectifs et repères<a class="headerlink" href="#objectifs-et-reperes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Situer Debian dans l’écosystème GNU/Linux et expliquer le rôle de son contrat social.</li>
+<li>Distinguer la version installée, la branche suivie et la suite utilisée par APT.</li>
+<li>Lire les invites des exemples et préparer une VM de laboratoire.</li>
+</ul>
 <p>Debian est une distribution GNU/Linux : elle assemble le noyau Linux, les outils utilisateur, un système de paquets et des logiciels organisés en dépôts. Le projet naît en août 1993. Ses versions portent les noms de personnages de <em>Toy Story</em>. Pour administrer une machine, il faut distinguer le <strong>numéro de version</strong>, son <strong>nom de code</strong>, sa <strong>branche</strong> et la <strong>version du noyau</strong> : ces informations ne sont pas interchangeables.</p>
 <p>Le support présente Debian comme une base particulièrement adaptée aux serveurs et cite Ubuntu et Linux Mint parmi ses dérivées. Cette orientation pédagogique explique le choix d’un serveur en console dans les TP ; Debian propose également des environnements de bureau.</p>
 <h2 id="lire-les-commandes-du-cours">Lire les commandes du cours<a class="headerlink" href="#lire-les-commandes-du-cours" title="Permanent link">¶</a></h2>
@@ -14945,18 +15122,24 @@ user30@deb:~$</code></pre></section>
  V --&gt; B["Statut : stable, puis oldstable"]
  V --&gt; S["Système installé"]
  S --&gt; K["Noyau + outils + paquets"]</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Relever la version installée avant de choisir une commande ou un dépôt. Stable, testing et unstable correspondent à des rôles différents. L’invite sert à repérer le contexte d’exécution des exemples.</p>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quelle différence existe entre <code>trixie</code> et <code>stable</code> ?</li>
 <li>Faut-il recopier <code>user@deb:~$</code> dans le terminal ?</li>
 <li>Pourquoi noter la version avant de configurer les dépôts ?</li>
+<li>Comment relever la suite installée avant de lire un exemple APT ?</li>
+<li>Quelle vérification précède une commande précédée de <code>#</code> dans le support ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>Le nom de code identifie une version ; l’alias stable change avec les publications.</li>
 <li>Non : c’est l’invite, pas la commande.</li>
 <li>Les dépôts doivent correspondre à la version et au projet de mise à jour prévu.</li>
+<li>Lire <code>/etc/os-release</code> et noter <code>VERSION_CODENAME</code>, puis vérifier les sources réellement configurées.</li>
+<li>Déterminer si le symbole représente une invite d’administration et si la commande exige réellement ces droits.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>

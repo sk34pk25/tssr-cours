@@ -10081,6 +10081,8 @@
       
         
       
+        
+      
     
     
     
@@ -10173,6 +10175,34 @@
     
   
     Quiz Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-administration-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Administration Debian
   
 
     
@@ -13695,6 +13725,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -13815,6 +13853,118 @@
     
   
     Permissions Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/apt-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APT sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/lvm-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volumes LVM sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/file-systems-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes de fichiers sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/comptes-groupes-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comptes et groupes sous Debian
   
 
     
@@ -14600,16 +14750,16 @@ cat /adm/logs/warning.log</code></pre></details></figure><figure><a class="gligh
 <div class="tssr-original-document__body">
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
-<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-1"><h3>Informations sur le système</h3><p>TP du Module 12 – Maintenance d'un système en production</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>20 à 45 minutes</p><h3>Énoncé</h3><h3>I. Relevé d’informations : sur le serveur sans environnement graphique</h3><ul><li>Afficher les informations sur la mémoire</li><li>Combien de mémoire RAM est utilisée ?</li><li>Combien de mémoire SWAP est utilisée ?</li><li>Combien de mémoire RAM est réellement libre ?</li></ul><p>117 MO de ram sont ici utilisés. 975 MO de swap le sont également (mais partagé). Ici pour connaitre la totalité de la ram disponible, il faut additionner la valeur de la colonne libre avec la valeur de la colonne tamp/cache (utilisation système pour améliorer les performances, libérable si besoin)</p><ul><li>Afficher les informations détaillées sur le processeur et la mémoire lscpu donne de nombreuses informations sur les processeurs</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p1-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p1-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p1-2.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p1-2.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>free -m
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-1"><h3>Informations sur le système</h3><p>TP du Module 12 – Maintenance d'un système en production</p><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 12 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>20 à 45 minutes</p><h3>Énoncé</h3><h3>I. Relevé d’informations : sur le serveur sans environnement graphique</h3><ul><li>Afficher les informations sur la mémoire<ul><li>Combien de mémoire RAM est utilisée ?</li><li>Combien de mémoire SWAP est utilisée ?</li><li>Combien de mémoire RAM est réellement libre ?</li></ul></li></ul><p>117 MO de ram sont ici utilisés. 975 MO de swap le sont également (mais partagé). Ici pour connaitre la totalité de la ram disponible, il faut additionner la valeur de la colonne libre avec la valeur de la colonne tamp/cache (utilisation système pour améliorer les performances, libérable si besoin)</p><ul><li>Afficher les informations détaillées sur le processeur et la mémoire</li></ul><p><code>lscpu</code> donne de nombreuses informations sur les processeurs</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p1-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p1-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p1-2.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p1-2.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>free -m
                total used free shared buff/cache disponible
 Mem:            1951  117 1729      0        104       1708
 Partition d’échange: 975 0 975</code></pre></details></figure></section>
-<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-2"><p>Lsmemavec l'option -a  donne des informations complète sur la mémoire</p><ul><li>Quel type de processeur a été détecté ?</li><li>Afficher tous les processus relatifs à des démons (dont le nom finit par un "d") ps -ef permet de lister tous les processus. grep avec l'option -e répétée permet de donner plusieurs informations de filtre (fonction logique OU)</li></ul><p>-e 'd ' valide la lettre d suivi d'un espace ; -e 'd$' valide la lettre suivie du caractère fin de ligne.</p><p>A noter la dernière grep qui est ici un "faux positif" de la sortie Alternatives :</p><ul><li>Meilleure commande compacte et sûre (compte des processus dont le nom se termine par d) : ps -eo comm --no-headers | awk '/d$/ {count++} END{print count+0}'</li><li>Si vous voulez aussi PID et utilisateur (plus utile pour un TP) : ps -eo pid,user,comm --no-headers | awk '3 /d/ {print $0}'</li><li>Si vous tenez à wc -l mais sans faux positifs : ps -eo comm --no-headers | grep -E 'd$' | wc -l</li><li>Afficher leur nombre</li></ul><p>Reprenant la ligne précédent, on ajout un grep -v grep pour supprimer le "faux positif"</p><p>Puis on compte le tout avec la commande wc.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p2-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p2-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-3.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-3.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>Nom de modèle : Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-5.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-5.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>ps -ef | grep -e 'd ' -e 'd$' | grep -v grep | wc -l
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-2"><p>Lsmemavec l'option -a  donne des informations complète sur la mémoire</p><ul><li>Quel type de processeur a été détecté ?</li><li>Afficher tous les processus relatifs à des démons (dont le nom finit par un "d")</li></ul><p><code>ps -ef</code> permet de lister tous les processus. <code>grep</code> avec l'option <code>-e</code> répétée permet de donner plusieurs informations de filtre (fonction logique OU)</p><p>-e 'd ' valide la lettre d suivi d'un espace ; -e 'd$' valide la lettre suivie du caractère fin de ligne.</p><p>A noter la dernière grep qui est ici un "faux positif" de la sortie</p><h4>Alternatives :</h4><ul><li>Meilleure commande compacte et sûre (compte des processus dont le nom se termine par d) :<pre><code>ps -eo comm --no-headers | awk '/d$/ {count++} END{print count+0}'</code></pre></li><li>Si vous voulez aussi PID et utilisateur (plus utile pour un TP) :<pre><code>ps -eo pid,user,comm --no-headers | awk '3 /d/ {print $0}'</code></pre></li><li>Si vous tenez à wc -l mais sans faux positifs :<pre><code>ps -eo comm --no-headers | grep -E 'd$' | wc -l</code></pre></li></ul><ul><li>Afficher leur nombre</li></ul><p>Reprenant la ligne précédent, on ajout un grep -v grep pour supprimer le "faux positif"</p><p>Puis on compte le tout avec la commande wc.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p2-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p2-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-3.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-3.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>Nom de modèle : Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-5.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p2-5.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>ps -ef | grep -e 'd ' -e 'd$' | grep -v grep | wc -l
 9</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-detail-p2-37.webp" data-desc-position="bottom"><img alt="Détail de la procédure du laboratoire, isolé et vérifié." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-detail-p2-37.webp"></a><figcaption>Détail de la procédure du laboratoire, isolé et vérifié.</figcaption></figure></section>
 <section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-3"><h3>II. Intervention sur les processus</h3><ul><li>Ouvrez une session SSH avec le login utilisateur (pas le compte root)</li><li>Lister tous les processus relatifs à votre login de façon détaillée ps -fux est une des méthodes pour lister tous les processus de l'utilisateur. Il en existe plusieurs autres avec ps.</li><li>Lister dans un fichier tous les processus correspondant aux connexions Putty</li></ul><p>Un classique enchainement de ps et grep avant de transférerle résultat dans un fichier</p><ul><li>Arrêter un processus lancé</li><li>Lancer une seconde session Putty et ouvrir une session avec votre login utilisateur</li><li>Repérer le n° de processus (PID) relatif au shell de cette seconde session Putty ps sans options ni arguments affiche, entre autre, le processus du shell actuel et son PID, ici 954</li><li>Depuis votre 1ere session, tenter d'arrêter votre second shell (avec le signal par défaut)</li></ul><p>La commande kill lancée sans argument via la première session n'arrête pas la session.</p><ul><li>Depuis votre 1ere session, arrêter définitivement votre second shell (avec le signal adapté)</li></ul><p>En ajoutant l'option forçant le signal 1 (SIGHUP) la session est coupée</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-1.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-1.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-2.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-2.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-3.webp" data-desc-position="bottom"><img alt="Capture ou visuel isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-p3-3.webp"></a><figcaption>Capture ou visuel isolé du document de formation.</figcaption></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p3-6.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p3-6.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>kill 954</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p3-7.webp" data-desc-position="bottom"><img alt="Commande ou détail d’interface isolé du document de formation." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-small-p3-7.webp"></a><figcaption>Commande ou détail d’interface isolé du document de formation.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes et informations utiles visibles</summary><pre><code>ls
 liste-putty.txt
 kill -9 954</code></pre></details></figure><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-detail-p3-38.webp" data-desc-position="bottom"><img alt="Détail de la procédure du laboratoire, isolé et vérifié." loading="lazy" src="../../../assets/course-sources/isolated/c8a88d1121b5649c/deb-detail-p3-38.webp"></a><figcaption>Détail de la procédure du laboratoire, isolé et vérifié.</figcaption><details class="tssr-source-figure-text"><summary>Transcription des commandes visibles</summary><pre><code>ps -ef | grep sshd | grep -v grep &gt; liste-putty.txt</code></pre></details></figure></section>
-<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-4"><p>Autre proposition :</p><p>1. Ouvrir la 2e session PuTTY et se connecter sous votre même compte. 2. Dans la 2e session, repérer le PID du shell :</p><ul><li>Exécuter : ps -o pid,tty,cmd -u (whoami)−−no−headers∣grep"(tty)" ou plus simplement : ps -o pid= -p $ # affiche le PID du shell courant 3. Depuis la 1re session, envoyer le signal par défaut (SIGTERM) au PID trouvé :</li><li>Commande : kill</li><li>Effet : demande poliment au processus de se terminer. Le shell peut ignorer ou intercepter SIGTERM (ex : shell interactif). Vérifier si le processus a disparu : ps -p &amp;&amp; echo "toujours actif" || echo "terminé" 4. Si le shell ne se termine pas, envoyer SIGKILL pour forcer l’arrêt :</li><li>Commande : kill -9 ou kill -KILL</li><li>Effet : terminaison immédiate et non interceptable. Vérifier la disparition : ps -p || echo "terminé définitivement"</li></ul><p>Remarques pratiques :</p><ul><li>Préférez toujours SIGTERM (kill) puis, si nécessaire, SIGKILL (kill -9).</li><li>Pour éviter d’envoyer les signaux au mauvais processus, vérifiez le PID et le tty (ps -o pid,tty,cmd). Exemple de vérification complète depuis la 1re session : ps -u $(whoami) -o pid,tty,cmd --no-headers | grep pts/1</li><li>Ne tuez pas de processus système ni un shell que vous n’avez pas prévu d’interrompre.</li></ul></section>
+<section class="tssr-transcribed-page" id="source-1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY-page-4"><h4>Autre proposition :</h4><ol><li>Ouvrir la 2e session PuTTY et se connecter sous votre même compte.</li><li>Dans la 2e session, repérer le PID du shell :<ul><li>Exécuter :<pre><code>ps -o pid,tty,cmd -u (whoami)−−no−headers∣grep"(tty)"</code></pre>ou plus simplement :<pre><code>ps -o pid= -p $ # affiche le PID du shell courant</code></pre></li></ul></li><li>Depuis la 1re session, envoyer le signal par défaut (SIGTERM) au PID trouvé :<ul><li>Commande : <code>kill</code></li><li>Effet : demande poliment au processus de se terminer. Le shell peut ignorer ou intercepter SIGTERM (ex : shell interactif). Vérifier si le processus a disparu :<pre><code>ps -p &amp;&amp; echo "toujours actif" || echo "terminé"</code></pre></li></ul></li><li>Si le shell ne se termine pas, envoyer SIGKILL pour forcer l’arrêt :<ul><li>Commande : <code>kill -9</code> ou <code>kill -KILL</code></li><li>Effet : terminaison immédiate et non interceptable. Vérifier la disparition :<pre><code>ps -p || echo "terminé définitivement"</code></pre></li></ul></li></ol><p>Remarques pratiques :</p><ul><li>Préférez toujours SIGTERM (kill) puis, si nécessaire, SIGKILL (kill -9).</li><li>Pour éviter d’envoyer les signaux au mauvais processus, vérifiez le PID et le tty (ps -o pid,tty,cmd). Exemple de vérification complète depuis la 1re session : ps -u $(whoami) -o pid,tty,cmd --no-headers | grep pts/1</li><li>Ne tuez pas de processus système ni un shell que vous n’avez pas prévu d’interrompre.</li></ul></section>
 
 <p class="tssr-original-proof">Référence du document : 1hsueaoXEYZ7RJ-cYbRInc8_XFTUvXBVY · <span title="Empreinte SHA-256 du fichier source">SHA-256 c8a88d1121b5649c…</span></p>
 </div>

@@ -2072,6 +2072,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#disque-table-et-partitions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2142,6 +2153,17 @@
     <span class="md-ellipsis">
       
         Schéma explicatif — complément pédagogique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
       
     </span>
   </a>
@@ -10235,6 +10257,8 @@
       
         
       
+        
+      
     
     
     
@@ -10327,6 +10351,34 @@
     
   
     Quiz Systèmes clients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercices/quiz-administration-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Administration Debian
   
 
     
@@ -13849,6 +13901,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -13969,6 +14029,118 @@
     
   
     Permissions Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/apt-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APT sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/lvm-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volumes LVM sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/file-systems-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes de fichiers sous Debian
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../memo/comptes-groupes-debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comptes et groupes sous Debian
   
 
     
@@ -14665,6 +14837,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#disque-table-et-partitions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14735,6 +14918,17 @@
     <span class="md-ellipsis">
       
         Schéma explicatif — complément pédagogique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
       
     </span>
   </a>
@@ -14947,6 +15141,12 @@ root@deb:~#</code></pre></section>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p><strong>Cours optimisé — reformulation pédagogique du support et des TP associés.</strong> Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Distinguer le disque, la table de partitions et les partitions qu’elle décrit.</li>
+<li>Reconnaître le type de table et les noms de périphériques.</li>
+<li>Observer et reproduire la démonstration de partitionnement sur le disque prévu.</li>
+</ul>
 <h2 id="disque-table-et-partitions">Disque, table et partitions<a class="headerlink" href="#disque-table-et-partitions" title="Permanent link">¶</a></h2>
 <p>Un disque est un périphérique bloc ; sa table de partitions décrit des régions utilisables. Une partition n’est pas encore un système de fichiers et un point de montage n’est pas une partition. Le support prépare les niveaux étudiés ensuite : partitionnement, LVM, puis systèmes de fichiers.</p>
 <h2 id="lire-mbr-et-gpt">Lire MBR et GPT<a class="headerlink" href="#lire-mbr-et-gpt" title="Permanent link">¶</a></h2>
@@ -15060,18 +15260,24 @@ root@deb:~#</code></pre></section>
  D["Disque /dev/sdb"] --&gt; P["Partition primaire /dev/sdb1"]
  D --&gt; E["Partition étendue /dev/sdb3"]
  E --&gt; L["Partitions logiques à partir de /dev/sdb5"]</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Identifier le disque avant toute écriture. Le nom d’une partition dépend du type de périphérique. Vérifier la table et le résultat avec deux outils de lecture avant de poursuivre vers LVM.</p>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
 <li>Que fait <code>q</code> avant l’écriture ?</li>
 <li>Le type <code>8e</code> formate-t-il une partition ?</li>
 <li>Pourquoi vérifier taille et identité du disque, en plus du nom <code>/dev/sdb</code> ?</li>
+<li>Que vérifier avant d’écrire une table avec <code>fdisk</code> ?</li>
+<li>Que permet <code>lsblk</code> après le partitionnement ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>Il abandonne les modifications en attente.</li>
 <li>Non : c’est un type de partition MBR.</li>
 <li>L’ordre de détection peut changer et le nom seul ne prouve pas que c’est le bon disque.</li>
+<li>Confirmer le disque cible, les tailles et types de partitions et l’absence de données à conserver sur ce disque.</li>
+<li>Voir quels périphériques et partitions le noyau présente, avec leur hiérarchie et leurs tailles.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
