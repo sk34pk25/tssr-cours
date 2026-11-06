@@ -9,3 +9,9 @@
 - [Module 07 — Amélioration continue des services](module-07-amelioration-continue-des-services.md)
 - [Module 08 — Savoir, savoir-faire, savoir-être](module-08-savoir-savoir-faire-savoir-etre.md)
 - [Module 09 — Assistance avec GLPI](module-09-assistance-avec-glpi.md)
+
+## Pour mettre en pratique
+
+- [Travaux pratiques](../../tp/itil/index.md)
+- [Présentation du cours](../../modules/06-sensibilisation-itil-gestion-parc/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

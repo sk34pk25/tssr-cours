@@ -4,9 +4,9 @@ Installer le serveur, relier AD, organiser l’inventaire, traiter les tickets p
 
 ## Périmètre du laboratoire
 
-Les supports utilisent Debian 10, GLPI 9.5 et FusionInventory, avec PHP 7.3 dans le TP et7.4 dans le cours. Les versions et incohérences historiques restent visibles dans Original ; Optimisé explique les commandes et choix à adapter. Pour un déploiement récent, consulter la [documentation GLPI](https://help.glpi-project.org/documentation) et son [inventaire natif](https://www.glpi-project.org/en/discover-native-glpi-inventory/).
+Les supports utilisent Debian 10, GLPI 9.5 et FusionInventory, avec PHP 7.3 dans le TP et 7.4 dans le cours. Les versions et incohérences historiques restent visibles dans Original ; Optimisé explique les commandes et choix à adapter. Pour un déploiement récent, consulter la [documentation GLPI](https://help.glpi-project.org/documentation) et son [inventaire natif](https://www.glpi-project.org/en/discover-native-glpi-inventory/).
 
-## Progression
+## Progression officielle
 
 | Module | Compétence | Accès |
 |---|---|---|
@@ -17,11 +17,20 @@ Les supports utilisent Debian 10, GLPI 9.5 et FusionInventory, avec PHP 7.3 dans
 | 05 | Les bases de MySQL et MariaDB | [Cours](module-05-les-bases-de-mysql-et-mariadb.md) · [TP](../../tp/glpi/module-05/index.md) |
 | 06 | Plug-ins et inventaire | [Cours](module-06-plug-ins-et-inventaire.md) · [TP](../../tp/glpi/module-06/index.md) |
 
-## Travailler avec le cours
+## Utiliser les deux versions du cours
 
-Chaque module propose les concepts, une méthode et un mini-quiz. Les TP conservent les annexes et toutes les consignes, puis donnent des critères de validation et les corrections distinctes des erreurs du support. Le manuel Aruba est une fiche de spécifications utilisée pour l’inventaire ; sa transcription se lit dans le lecteur du TP 03.
+| Étape | Ressource | But |
+| --- | --- | --- |
+| 1 | **Cours Original** | Lire le support, les consignes, les annexes et les corrections dans leur ordre. |
+| 2 | **Cours Optimisé IA** | Suivre la méthode et distinguer les choix actuels des paramètres du laboratoire historique. |
+| 3 | [Travaux pratiques](../../tp/glpi/index.md) | Réaliser les étapes, consigner les preuves, puis comparer avec le corrigé. |
+| 4 | [Fiches de révision](../../revision/glpi/index.md) | Répondre aux questions et retrouver les contrôles. |
 
-- [Révisions](../../revision/glpi/index.md)
-- [Travaux pratiques](../../tp/glpi/index.md)
+Ce cours complète [Sensibilisation ITIL et gestion de parc](../06-sensibilisation-itil-gestion-parc/index.md). Le TP 03 donne accès à la transcription du manuel Aruba pour vérifier les caractéristiques du matériel.
+
+## Accès complémentaires
+
 - [Installation guidée](../../tutoriels/installer-glpi.md)
-- [Diagnostiquer un accès](../../troubleshooting/glpi-inaccessible.md)
+- [Dépannage d’un accès GLPI](../../troubleshooting/glpi-inaccessible.md)
+- [Commandes MariaDB et GLPI](../../commandes/mariadb-glpi.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

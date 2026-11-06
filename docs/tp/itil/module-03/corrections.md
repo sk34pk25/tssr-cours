@@ -219,7 +219,15 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <ul><li> Test impression</li></ul>
 </section>
 
+## Résultat attendu et contrôles
+
+| Point de contrôle | Preuve à conserver |
+| --- | --- |
+| Stratégie | Relier le besoin du salarié aux matériels, services, accès et dépendances. Produire une vue des prérequis. |
+| Conception | Transformer le besoin en étapes avec contrôles, livraison, mise à jour du suivi et des données de configuration. |
+
 ## Poursuivre
 
 - [Énoncés](enonces.md) et [corrections](corrections.md)
 - [Cours et repères](../../../modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md)
+- [Fiche de révision](../../../revision/itil/module-03-strategie-et-conception-des-services.md)

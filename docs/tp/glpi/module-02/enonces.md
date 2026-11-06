@@ -1,9 +1,12 @@
 # TP 02 — Énoncé — Authentification AD — Habilitations
 
+## Préparer l’atelier
+
+AD DS et GLPI doivent fonctionner avant l’atelier. Préparer les OU, les groupes, les lieux et un accès local de secours avant de tester LDAP.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Consignes complètes
-
 
 
 ### Liaison LDAP et ajout d'utilisateurs
@@ -14,7 +17,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 ### Objectifs
 
-- Utiliser l’ADDS avec GLPI et utiliser le moteur de règle d’habilitations. Prérequis
+- Utiliser l’ADDS avec GLPI et utiliser le moteur de règle d’habilitations.
+
+### Prérequis
 
 - AD et GLPI fonctionnels. Principales tâches à réaliser
 
@@ -115,11 +120,6 @@ _Olympus
 
 ### Annexe 3
 
-Consulter la correction expliquée après une première réalisation.
-
-
-
-## Vérifier le résultat
 
 ## Vérifier les habilitations
 
@@ -138,6 +138,15 @@ Pour chaque règle, contrôler un critère `(LDAP) MemberOf`, puis les deux acti
 
 Le compte Administrateur de liaison est une consigne du laboratoire. Son secret reste fourni par le formateur. Conserver une trace des DN sans publier de mot de passe.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Liaison | Vérifier la connexion LDAP avec l’identité de liaison prévue, le DN de base et le filtre, sans relever le secret dans le compte rendu. |
+| Règles | Suivre utilisateur, groupe AD, critère `MemberOf`, puis actions sur le profil et l’entité. |
+| Comptes de test | Comparer Observer, Super-Admin, Technician, Hotliner et Self-Service avec les cas du TP. Contrôler la portée et l’interface. |
 
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-02-authentification-ad-habilitations.md)
+
+- [Fiche de révision](../../../revision/glpi/module-02-authentification-ad-habilitations.md)

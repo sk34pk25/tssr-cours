@@ -1,5 +1,9 @@
 # TP 01 — Correction expliquée — Installation de l’environnement
 
+## État initial
+
+Le sujet prévoit VMware Workstation, les supports d’installation des systèmes et quatre machines de laboratoire. Relever le plan IP, le serveur DNS et les versions avant de configurer les services.
+
 Le scénario installe GLPI pour le domaine Olympus.gr, puis permet son accès depuis Windows 10. Les versions sont celles du laboratoire : Debian 10, Windows Server2019 et GLPI 9.5. Le nom de base retenu ici est `glpidata`, pour lever l’alternance `glpidb/glpidata` du support. Les secrets sont fournis par le formateur.
 
 ## 1. Préparer les quatre machines
@@ -95,7 +99,7 @@ ls -ld /var/log/glpi /var/www/glpi/marketplace
 
 Le support utilise parfois `/var/ww` : les commandes ci-dessus rétablissent `/var/www`. La copie `files/.` conserve aussi les fichiers cachés. Les répertoires `_cache`, `_cron`, `_dumps`, `_graphs`, `_lock`, `_pictures`, `_plugins`, `_rss`, `_sessions`, `_tmp` et `_uploads` doivent être accessibles au compte du service web.
 
-## 5. Déclarer Apache etDNS
+## 5. Déclarer Apache et DNS
 
 Créer le site `/etc/apache2/sites-available/glpi.olympus.gr.conf`. Cet exemple reprend le VirtualHost du laboratoire avec le nom effectif :
 
@@ -125,5 +129,15 @@ Depuis Windows 10, ouvrir `http://glpi.olympus.gr`. Choisir la langue, installat
 
 Conserver les preuves suivantes : adhésion du client au domaine, résolution du nom GLPI, accès à l’assistant, prérequis satisfaits, base choisie, connexion administrateur, dossiers et propriétaires. Une page Apache ou un simpleping ne valide pas l’ensemble de cette chaîne.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Réseau et nom | Vérifier l’adresse, la passerelle et le DNS côté client. Contrôler que le nom du site résout vers le serveur GLPI. |
+| Chaîne web et SQL | Vérifier le VirtualHost, Apache et PHP, puis le service MariaDB et les droits du compte utilisé par l’application. |
+| Installation | Contrôler les dossiers de configuration, données et journaux, puis tester la connexion au portail depuis le client. |
+
 - [Énoncé complet](enonces.md)
 - [Cours](../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md)
+
+- [Fiche de révision](../../../revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md)

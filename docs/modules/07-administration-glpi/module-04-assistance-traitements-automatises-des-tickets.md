@@ -2,6 +2,12 @@
 
 Le ticket assure traçabilité, communication, répartition des tâches et détection des problèmes récurrents. Il sollicite le centre de services, contient des informations exploitables, passe par un cycle de vie et porte un type : **incident** ou **demande**.
 
+## Objectifs
+
+- Distinguer gabarit, règle métier, calendrier, SLA et escalade.
+- Configurer le scénario d’assistance et les échéances demandées.
+- Vérifier les cas déclenchés et exclus par les règles.
+
 ## Choisir le flux de création
 
 Trois flux sont étudiés : depuis GLPI, par courriel vers une boîte support reliée à un collecteur, ou par téléphone avec saisie par un technicien. Depuis GLPI, l’interface anonyme historique se trouve à `http(s)://<serveur>/front/helpdesk.html` ; elle ne nécessite pas de connexion, peut être désactivée, personnalisée enHTML/CSS et se rattache par défaut à l’entité racine.
@@ -63,25 +69,62 @@ Le texte du corrigé indique 08h00–18h00 pour les jours ouvrés. La capture de
 
 Les deux jours et dix jours sont à interpréter dans le paramétrage du calendrier et de l’unité du SLA. Vérifier la date calculée sur un ticket de test, notamment en fin de journée ou avant un week-end.
 
-Une escalade modifie le ticket pendant sa vie à un instant relatif à une échéance. Pour les incidents serveur, le TP demande :10 minutes après création sans prise en charge, affecter le groupe Super-Admin et vous placer observateur ;4 heures avant la date butoir de résolution, priorité haute et affectation vers vous ;3 heures avant, priorité très haute et affectation vers Zeus. Distinguer heure de création, échéance de prise en charge et échéance de résolution : le déclencheur choisi doit produire le délai demandé. Si une escalade est relative à une prise en charge à1h, vérifier que son décalage conduit réellement à création+10 min.
+Une escalade applique une action à un moment lié à une échéance. Le TP des incidents serveur demande trois actions distinctes.
 
-## Construire et tester dans le bon ordre
+| Moment | Action |
+| --- | --- |
+| Dix minutes après la création, si le ticket reste sans prise en charge | Affecter le groupe Super-Admin et ajouter le compte du stagiaire comme observateur. |
+| Quatre heures avant l’échéance de résolution | Placer la priorité sur Haute et affecter le ticket au compte du stagiaire. |
+| Trois heures avant l’échéance de résolution | Placer la priorité sur Très haute et affecter le ticket à Zeus. |
 
-Créer les catégories → les gabarits et leurs associations → les calendriers et SLA → les escalades → les règles métier. Un SLA doit exister avant qu’une règle puisse l’affecter. Un groupe ou un utilisateur doit être importé avant son affectation.
+Le calcul doit distinguer l’heure de création, l’échéance de prise en charge et celle de résolution. Si l’escalade se règle par rapport à une prise en charge d’une heure, vérifier que le décalage produit bien une action dix minutes après la création.
 
-Créer un ticket pour chaque cas, puis vérifier formulaire, catégorie/type, groupe, priorité et deux échéances. Ajouter une demande Serveur et un incident Matériel comme cas d’exclusion. Pour les escalades, contrôler le déclenchement et les acteurs sans modifier les heures du serveur de formation. La preuve attendue est le ticket effectivement traité et son historique, pas seulement la présence d’une règle.
+## TP — Mettre en place l’assistance automatisée
 
-### Mini-quiz
+1. Créer les catégories de ticket, puis les gabarits. Vérifier les champs imposés et l’association du gabarit à la catégorie. Préparer les profils et groupes déjà importés au module 02 avant de les utiliser comme acteurs.
+2. Créer les calendriers et définir leurs périodes ouvertes et fermées. Configurer les objectifs de prise en charge et de résolution à partir du tableau du scénario. Créer un ticket avant une fermeture du calendrier pour vérifier la date obtenue.
+3. Ajouter les escalades serveur aux échéances adéquates. Le délai de dix minutes après création et les deux décalages avant la résolution sont des repères différents. Vérifier le moment calculé et l’action configurée.
+4. Créer les règles qui affectent catégorie, type, groupe, priorité et SLA. Si le moteur n’offre que **tous les critères** ou **un critère quelconque** par règle, créer une règle par catégorie d’incident acceptée. Exiger le type Incident dans chacune de ces règles.
+
+**Illustration IA / externe au cours — chemin d’un ticket soumis au scénario.**
+
+```mermaid
+flowchart TD
+    S[Ticket soumis] --> T[Gabarit et champs]
+    T --> R[Catégorie et type examinés]
+    R -->|Critères remplis| A[Affectation et priorité]
+    R -->|Critères non remplis| N[Pas de traitement par cette règle]
+    A --> C[SLA et calendrier]
+    C --> E[Échéances puis escalades]
+```
+
+| Essai | Preuve à relever |
+| --- | --- |
+| Incident serveur | Groupe, priorité, deux dates calculées et escalades serveur attendues. |
+| Demande bureautique | Gabarit et groupe attendus, échéances calculées avec le calendrier utilisateurs. |
+| Demande dans la catégorie Serveur | Vérifier qu’elle ne déclenche pas une règle réservée aux incidents. |
+| Incident dans la catégorie Matériel | Vérifier qu’il ne reçoit pas les actions d’une règle réservée aux catégories du scénario. |
+
+Contrôler l’historique et les acteurs du ticket. En cas d’écart, relever la catégorie et le type effectifs, puis la règle et l’échéance appliquées. L’existence d’une règle dans l’interface ne valide pas son déclenchement.
+
+## À retenir
+
+Le gabarit agit sur le formulaire. La règle agit sur le ticket. Le calendrier contribue au calcul du SLA et l’escalade agit à un moment relatif à une échéance. Les cas exclus comptent autant que les cas déclenchés.
+
+## Mini-quiz
 
 1. Quel objet détermine les champs obligatoires ?
 2. Pourquoi « OU » entre trois catégories et le type Incident est-il trop large ?
 3. Le délai de résolution tient-il compte des périodes fermées ?
+4. Pourquoi tester une demande dans la catégorie Serveur ?
+5. Comment prouver qu’une escalade a produit son effet ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Le gabarit de ticket.
     2. Une seule condition suffirait. Il faut aussi imposer le type pour chaque catégorie acceptée.
     3. Le calcul utilise le calendrier associé. Vérifier la date produite dans le laboratoire.
-
+    4. C’est un cas d’exclusion. Il vérifie qu’une catégorie compatible ne suffit pas sans le type Incident.
+    5. Vérifier le moment et les acteurs de l’action dans l’historique d’un ticket de test, puis comparer avec l’échéance de référence.
 
 ## Appliquer ce module
 

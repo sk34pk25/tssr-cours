@@ -1,4 +1,4 @@
-# Révision — Module 07 — Amélioration continue des services
+# Fiche de révision — Module 07 — Amélioration continue des services
 
 ## Améliorer à partir des résultats réels
 
@@ -31,13 +31,23 @@ Prévoir un responsable, une échéance, les ressources, les risques et les crit
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Pourquoi conserver une référence initiale ? 2. Que signifie CHECK ? 3. Plus d’articles dans la base prouve-t-il une amélioration ?
+**1. Pourquoi conserver une référence initiale ?**
 
-??? success "Réponses commentées"
-    1. Pour comparer l’avant et l’après sur des critères cohérents.
-    2. Vérifier les résultats par rapport aux objectifs et mesures prévus.
-    3. Non : mesurer aussi usage, fiabilité et effet sur le service.
+??? success "Réponse expliquée"
+    Pour comparer l’avant et l’après sur des critères cohérents.
+
+**2. Que signifie CHECK ?**
+
+??? success "Réponse expliquée"
+    Vérifier les résultats par rapport aux objectifs et mesures prévus.
+
+**3. Plus d’articles dans la base prouve-t-il une amélioration ?**
+
+??? success "Réponse expliquée"
+    Non : mesurer aussi usage, fiabilité et effet sur le service.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-07-amelioration-continue-des-services.md)

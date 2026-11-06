@@ -1,23 +1,40 @@
-# Révision — Module 04 — Assistance — Traitements automatisés des tickets
+# Fiche de révision — Module 04 — Assistance — Traitements automatisés des tickets
 
-## Automatiser les tickets
+Construire des formulaires et des règles de tickets, puis vérifier les délais et les affectations.
 
-Catégories → gabarits → calendriers/SLA → escalades → règles métier → tickets de test.
+## Repères du laboratoire
 
-## À expliquer sans le support
+GLPI doit fonctionner avec les utilisateurs, groupes, catégories et lieux nécessaires. Préparer les calendriers et les gabarits avant de relier les règles et les niveaux de service.
 
-Le gabarit structure le formulaire ; la règle configure l’affectation ; leSLAfixe un délai calculé selon calendrier ; l’escalade agit à une échéance. Combiner les catégories parOU et imposer le type parET.
+## Contrôles à savoir réaliser
 
-## Mise en situation
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Formulaires | Vérifier les champs obligatoires, masqués et prédéfinis des incidents et demandes depuis le compte de test. |
+| Critères | Tester un cas attendu et un cas d’exclusion pour chaque règle. Vérifier le regroupement de la catégorie et du type. |
+| Temps et affectation | Lire le calendrier, les délais de prise en charge et de résolution, le groupe et l’historique des escalades. |
 
-Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
+## Retenir puis vérifier
 
-## Question rapide
+**Un gabarit règle la saisie. Une règle métier associe des critères et des actions. Le calendrier et le SLA déterminent les échéances.**
 
-Un ticket Serveur de type Demande doit-il recevoir le SLA Incident Serveur ?
+**1. Pourquoi le type « incident » doit-il être combiné avec la catégorie serveur ?**
 
-??? success "Réponse"
-    Non. C’est un cas d’exclusion à tester.
+??? success "Réponse expliquée"
+    Un OU simple peut déclencher la règle pour une demande serveur ou un incident d’une autre catégorie. Tester les deux cas d’exclusion.
 
-- [Cours](../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
-- [TP](../../tp/glpi/module-04/index.md)
+**2. Quelle différence entre prise en charge et résolution ?**
+
+??? success "Réponse expliquée"
+    Les délais mesurent deux étapes du traitement. Relever chaque échéance avec le calendrier lié au niveau de service.
+
+**3. Quel horaire du vendredi contrôler dans le calendrier serveur ?**
+
+??? success "Réponse expliquée"
+    La fin à 17 h 30 donnée par l’énoncé et la capture de correction. Le texte du corrigé généralise une autre plage.
+
+## Pour pratiquer
+
+- [Cours complet](../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
+- [Travaux pratiques](../../tp/glpi/module-04/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

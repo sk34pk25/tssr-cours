@@ -1,25 +1,10 @@
 # TP 02 — Correction expliquée — Authentification AD — Habilitations
 
-## Vérifier les habilitations
+## État initial
 
-Avant l’import : créer le compte local nominatif de secours, les OU, groupes, lieux et profils attendus. Choisir les profils proposés par l’interface : les graphies `Sefl-service`, `Supervisor`, `Super-Admin`, les tirets et underscores diffèrent entre passages du support.
-
-Pour chaque règle, contrôler un critère `(LDAP) MemberOf`, puis les deux actions profil+entité. Les captures de correction associent les groupes métier aux groupes GLPI : `GG_dir` et le groupe experts à Observer, `GG_admin` à Super-Admin, `GG_techniciens` à Technician, `GG_stagiaires_info` à Hotliner. Vérifier l’appartenance réellement visible par LDAP, surtout si des groupes sont imbriqués.
-
-| Essai | Résultat à conserver |
-|---|---|
-| Zeus ou Hera | Profil Observer et bon lieu |
-| Athena ou votre compte | Super-Admin, bonne portée administrative |
-| Poseidon | Technician |
-| Dionysos | Hotliner |
-| Compte Self-Service | Interface simplifiée, sans droits d’administration |
-| normal, post-only, tech | Comptes désactivés à la fin du TP |
-
-Le compte Administrateur de liaison est une consigne du laboratoire. Son secret reste fourni par le formateur. Conserver une trace des DN sans publier de mot de passe.
-
+AD DS et GLPI doivent fonctionner avant l’atelier. Préparer les OU, les groupes, les lieux et un accès local de secours avant de tester LDAP.
 
 ## Déroulement du scénario
-
 
 
 ### Liaison LDAP et ajout d'utilisateurs
@@ -30,7 +15,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 ### Objectifs
 
-- Utiliser l’ADDS avec GLPI et utiliser le moteur de règle d’habilitations. Prérequis
+- Utiliser l’ADDS avec GLPI et utiliser le moteur de règle d’habilitations.
+
+### Prérequis
 
 - AD et GLPI fonctionnels.
 
@@ -153,11 +140,7 @@ _Olympus
 
 ### Annexe 3
 
-
-
-## Vérifier le résultat
-
-## Vérifier les habilitations
+## Résultat attendu et contrôles
 
 Avant l’import : créer le compte local nominatif de secours, les OU, groupes, lieux et profils attendus. Choisir les profils proposés par l’interface : les graphies `Sefl-service`, `Supervisor`, `Super-Admin`, les tirets et underscores diffèrent entre passages du support.
 
@@ -174,6 +157,7 @@ Pour chaque règle, contrôler un critère `(LDAP) MemberOf`, puis les deux acti
 
 Le compte Administrateur de liaison est une consigne du laboratoire. Son secret reste fourni par le formateur. Conserver une trace des DN sans publier de mot de passe.
 
-
 - [Énoncé](enonces.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-02-authentification-ad-habilitations.md)
+
+- [Fiche de révision](../../../revision/glpi/module-02-authentification-ad-habilitations.md)

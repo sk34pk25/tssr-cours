@@ -1,5 +1,9 @@
 # TP 05 — Correction expliquée des requêtes SQL
 
+## État initial
+
+Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et niveaux de service des TP précédents. Se connecter avec le compte autorisé et vérifier le nom de la base avant d’interroger les tables.
+
 Les requêtes suivent les douze demandes du support, dans l’ordre. Les identifiants2(modèle 24 ports) et3(gabarit de demande) sont ceux du laboratoire source. Les contrôler dans sa base ; ils ne sont pas universels. Les sorties illustrées dépendent des données effectivement saisies aux modules précédents.
 
 ## 1. Connexion et repérage
@@ -92,5 +96,15 @@ Le regroupement rend explicite le comptage par gabarit ; la requête source mêl
 
 Prompts non exécutables retirés, apostrophes typographiques remplacées, nom `glpi_itilcategories` sans accent, `FROM glpi_networkequipments` séparé, nombres utilisés comme nombres et regroupement du dernier agrégat ajouté. L’Original conserve les formulations et commandes historiques.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Contexte | Vérifier la base active, les tables et les colonnes avant de sélectionner les données. |
+| Filtrage | Distinguer NULL, égalité d’une chaîne et condition sur la catégorie. Identifier le modèle de switch dans les données de son laboratoire. |
+| Comptage et tri | Distinguer les lignes et les valeurs renseignées, puis rendre la sélection reproductible avec un tri lorsque l’ordre importe. |
+
 - [Énoncé](enonces.md)
 - [Cours](../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)
+
+- [Fiche de révision](../../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb.md)

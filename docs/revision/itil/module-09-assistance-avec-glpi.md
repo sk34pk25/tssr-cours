@@ -1,4 +1,4 @@
-# Révision — Module 09 — Assistance avec GLPI
+# Fiche de révision — Module 09 — Assistance avec GLPI
 
 ## Le ticket assure la continuité du traitement
 
@@ -54,14 +54,31 @@ Le sujet et sa correction de **17 pages** sont fournis : ils couvrent le traitem
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Attribué signifie-t-il résolu ? 2. Quelle différence entre observateur et technicien affecté ? 3. Une solution proposée clôture-t-elle toujours immédiatement ? 4. Pourquoi tester l’article avec un autre profil ?
+**1. Attribué signifie-t-il résolu ?**
 
-??? success "Réponses commentées"
-    1. Non : le travail a un responsable, le résultat reste à obtenir.
-    2. L’un suit l’information ; l’autre prend en charge le traitement.
-    3. Non : approbation ou règle de clôture s’applique selon la configuration.
-    4. Pour vérifier les droits et la visibilité réellement obtenus.
+??? success "Réponse expliquée"
+    Non : le travail a un responsable, le résultat reste à obtenir.
+
+**2. Quelle différence entre observateur et technicien affecté ?**
+
+??? success "Réponse expliquée"
+    L’un suit l’information ; l’autre prend en charge le traitement.
+
+**3. Une solution proposée clôture-t-elle toujours immédiatement ?**
+
+??? success "Réponse expliquée"
+    Non : approbation ou règle de clôture s’applique selon la configuration.
+
+**4. Pourquoi tester l’article avec un autre profil ?**
+
+??? success "Réponse expliquée"
+    Pour vérifier les droits et la visibilité réellement obtenus.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md)
+- [Travaux pratiques du module](../../tp/itil/module-09/index.md)
+- [Approfondir l’administration de GLPI](../../modules/07-administration-glpi/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

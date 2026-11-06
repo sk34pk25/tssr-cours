@@ -1,9 +1,12 @@
 # TP 01 — Énoncé — Présentation de l’environnement — Installation de GLPI
 
+## Préparer l’atelier
+
+Le sujet prévoit VMware Workstation, les supports d’installation des systèmes et quatre machines de laboratoire. Relever le plan IP, le serveur DNS et les versions avant de configurer les services.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Consignes complètes
-
 
 
 ### Installation de l’environnement
@@ -326,11 +329,6 @@ Require all granted
 
 - Pour la suite des TP, depuis le client W10, faites-en sorte de pouvoir y accéder depuis l’URL suivante : http://glpi.olympus.gr puis terminez la configuration.
 
-Consulter la correction expliquée après une première réalisation.
-
-
-
-## Vérifier le résultat
 
 ## Méthode et points de contrôle
 
@@ -340,6 +338,15 @@ Le code fourni correspond au laboratoire historique. Pour valider : résolution 
 
 Les commentaires du support sur la suppression des comptes anonymes ne signifient pas que tous les comptes applicatifs doivent être supprimés. La règle pfSense autorisant tout le trafic est limitée au scénario isolé. Ne pas utiliser le fichier d’exemple de VirtualHost sans choisir le nom effectif du domaine.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Réseau et nom | Vérifier l’adresse, la passerelle et le DNS côté client. Contrôler que le nom du site résout vers le serveur GLPI. |
+| Chaîne web et SQL | Vérifier le VirtualHost, Apache et PHP, puis le service MariaDB et les droits du compte utilisé par l’application. |
+| Installation | Contrôler les dossiers de configuration, données et journaux, puis tester la connexion au portail depuis le client. |
 
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md)
+
+- [Fiche de révision](../../../revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi.md)

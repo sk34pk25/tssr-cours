@@ -1,23 +1,40 @@
-# Révision — Module 03 — Gestion de parc — Inventaire informatique
+# Fiche de révision — Module 03 — Gestion de parc — Inventaire informatique
 
-## Inventaire cohérent
+Inventorier les matériels, logiciels et consommables d’Olympus et vérifier leurs relations.
 
-Intitulés → modèle → composants → gabarit → exemplaires → relations → validation.
+## Repères du laboratoire
 
-## À expliquer sans le support
+L’application GLPI doit être fonctionnelle. Lire les quantités, les lieux et les relations de l’énoncé, puis consulter les illustrations du matériel pour distinguer modèles et références.
 
-Distinguer logiciel/version/licence ; connexion directe/port réseau ; stock/équipement installé. La fiche Aruba identifie JL356A24 ports et JL357A48 ports. Les quantités du TP priment sur les captures incomplètes.
+## Contrôles à savoir réaliser
 
-## Mise en situation
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Gabarit et exemplaires | Préparer les valeurs communes, puis contrôler les noms, le nombre et le statut des exemplaires créés. |
+| Baie et connectivité | Vérifier l’encombrement, les vues avant et arrière, les ports et les liaisons. Consigner les écarts entre les captures et la demande. |
+| Affectations et réservations | Contrôler le lieu, l’utilisateur, la licence ou le consommable pour chaque relation. Retrouver la réservation de Zeus. |
 
-Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
+## Retenir puis vérifier
 
-## Question rapide
+**Un gabarit fournit des valeurs communes. L’inventaire se contrôle sur les exemplaires, leurs quantités et leurs relations.**
 
-Pourquoi tester un gabarit avant une création en série ?
+**1. Quelle information distinguer avant de créer plusieurs switchs ?**
 
-??? success "Réponse"
-    Pour valider incrémentation, valeurs communes et relations avant de multiplier les erreurs.
+??? success "Réponse expliquée"
+    Le modèle, le nombre de ports, le gabarit et la quantité d’exemplaires demandée. La fiche du matériel aide à distinguer les références Aruba.
 
-- [Cours](../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
-- [TP](../../tp/glpi/module-03/index.md)
+**2. Que faut-il documenter si une capture montre quatre exemplaires et l’énoncé en exige six ?**
+
+??? success "Réponse expliquée"
+    L’écart entre les deux documents. Contrôler le nombre demandé dans l’énoncé avant de déclarer l’atelier terminé.
+
+**3. Comment vérifier qu’un portable a bien été réservé ?**
+
+??? success "Réponse expliquée"
+    Contrôler l’option de réservation, l’exemplaire, le bénéficiaire et la période enregistrée.
+
+## Pour pratiquer
+
+- [Cours complet](../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
+- [Travaux pratiques](../../tp/glpi/module-03/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

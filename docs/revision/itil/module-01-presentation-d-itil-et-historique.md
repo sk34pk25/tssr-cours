@@ -1,4 +1,4 @@
-# Révision — Module 01 — Présentation d’ITIL et historique
+# Fiche de révision — Module 01 — Présentation d’ITIL et historique
 
 ## Comprendre la logique de services
 
@@ -36,13 +36,23 @@ ISO 9001 concerne le management de la qualité dans de nombreux secteurs ; ISO/I
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Référentiel et norme sont-ils synonymes ? 2. Quelle différence entre efficacité et efficience ? 3. Pourquoi mesurer le service après livraison ?
+**1. Référentiel et norme sont-ils synonymes ?**
 
-??? success "Réponses commentées"
-    1. Non : bonnes pratiques et exigences normatives répondent à des objectifs distincts.
-    2. Atteindre le résultat ; puis examiner les ressources consommées pour y parvenir.
-    3. Pour vérifier la valeur réellement fournie et décider des améliorations.
+??? success "Réponse expliquée"
+    Non : bonnes pratiques et exigences normatives répondent à des objectifs distincts.
+
+**2. Quelle différence entre efficacité et efficience ?**
+
+??? success "Réponse expliquée"
+    Atteindre le résultat ; puis examiner les ressources consommées pour y parvenir.
+
+**3. Pourquoi mesurer le service après livraison ?**
+
+??? success "Réponse expliquée"
+    Pour vérifier la valeur réellement fournie et décider des améliorations.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-01-presentation-d-itil-et-historique.md)

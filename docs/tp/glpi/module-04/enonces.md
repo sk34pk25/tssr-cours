@@ -1,9 +1,12 @@
 # TP 04 — Énoncé — Assistance — Traitements automatisés des tickets
 
+## Préparer l’atelier
+
+GLPI doit fonctionner avec les utilisateurs, groupes, catégories et lieux nécessaires. Préparer les calendriers et les gabarits avant de relier les règles et les niveaux de service.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Consignes complètes
-
 
 
 ### Assistance
@@ -14,7 +17,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 ### Objectifs
 
-- Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets. Prérequis
+- Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets.
+
+### Prérequis
 
 Application GLPI fonctionnelle.
 
@@ -212,28 +217,32 @@ Gabarit de ticket.
 
 - Groupe de technicien « GG_GLPI_hotliner ».
 
-Consulter la correction expliquée après une première réalisation.
-
-
-
-## Vérifier le résultat
 
 ## Vérifier la logique des règles
 
-Le texte source du corrigé préconise parfoisOU entre les catégories et le type. Pour respecter la demande, le test doit exprimer `(une des catégories prévues) ET type attendu`. Lorsque l’interface ne permet pas ce regroupement, créer une règle par catégorie avecET. Dans la reprise ci-dessous, les avertissementsOU du corrigé sont remplacés par cette précision.
+Le texte source du corrigé préconise parfois OU entre les catégories et le type. Pour respecter la demande, le test doit exprimer `(une des catégories prévues) ET type attendu`. Lorsque l’interface ne permet pas ce regroupement, créer une règle par catégorie avec ET. Dans la reprise ci-dessous, les avertissements OU du corrigé sont remplacés par cette précision.
 
-L’énoncé et la capture de correction fixent la fin du vendredi à 17h30. Pour l’escalade à10 minutes de création, vérifier l’origine du délai utilisé : une durée relative à une échéance de prise en charge n’est pas automatiquement relative à la création.
+L’énoncé et la capture de correction fixent la fin du vendredi à 17h30. Pour l’escalade à 10 minutes de création, vérifier l’origine du délai utilisé : une durée relative à une échéance de prise en charge n’est pas automatiquement relative à la création.
 
 | Ticket de test | Formulaire | Affectation/SLA |
 |---|---|---|
-| Incident Serveur/Virtualisation/AD | Incident serveur | Technician, priorité moyenne, prise en charge1h/résolution8h |
-| Incident Bureautique/Word/Excel | Incident bureautique, élément associé obligatoire | Hotliner, priorité basse,4 h/2 jours |
-| Demande Bureautique/Word/Excel | Demande bureautique | Hotliner, priorité très basse,4 h/10 jours |
+| Incident Serveur/Virtualisation/AD | Incident serveur | Technician, priorité moyenne, prise en charge 1 h / résolution 8 h |
+| Incident Bureautique/Word/Excel | Incident bureautique, élément associé obligatoire | Hotliner, priorité basse, 4 h/2 jours |
+| Demande Bureautique/Word/Excel | Demande bureautique | Hotliner, priorité très basse, 4 h/10 jours |
 | Demande Serveur | Ne doit pas déclencher la règle d’incident serveur | Cas d’exclusion |
 | Incident Matériel | Ne doit pas recevoir le SLA serveur | Cas d’exclusion |
 
-Conserver l’historique des changements de priorité, des acteurs et des échéances. Le directeur Zeus doit exister/importé avant l’escalade qui le vise. L’attribution comme technicien dans la capture exige les habilitations adéquates ; ne pas supposer que le profilObserver suffit.
+Conserver l’historique des changements de priorité, des acteurs et des échéances. Le directeur Zeus doit exister/importé avant l’escalade qui le vise. L’attribution comme technicien dans la capture exige les habilitations adéquates ; ne pas supposer que le profil Observer suffit.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Formulaires | Vérifier les champs obligatoires, masqués et prédéfinis des incidents et demandes depuis le compte de test. |
+| Critères | Tester un cas attendu et un cas d’exclusion pour chaque règle. Vérifier le regroupement de la catégorie et du type. |
+| Temps et affectation | Lire le calendrier, les délais de prise en charge et de résolution, le groupe et l’historique des escalades. |
 
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets.md)
+
+- [Fiche de révision](../../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md)

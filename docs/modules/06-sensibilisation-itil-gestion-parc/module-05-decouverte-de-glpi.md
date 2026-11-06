@@ -1,5 +1,11 @@
 # Module 05 — Découverte de GLPI
 
+## Objectifs
+
+- Distinguer l’interface simplifiée de l’interface standard et repérer le profil et l’entité actifs.
+- Construire une recherche reproductible avec les bons critères et colonnes.
+- Contrôler une sélection avant une modification massive dans le laboratoire.
+
 ## GLPI relie les équipements, les personnes et l’assistance
 
 Le support présente GLPI comme outil libre de gestion de parc et de centre de services. Comprendre les **objets et leurs relations** avant de mémoriser les menus : ordinateur, utilisateur, logiciel, contrat, composant et ticket. Les captures de l’Original montrent la version utilisée en formation ; l’emplacement des menus peut différer dans une autre version.
@@ -36,16 +42,23 @@ La recherche rapide porte sur les champs affichés ; la recherche multicritères
 
 **Exemple externe :** rechercher les ordinateurs d’un service avec le système visé, afficher modèle, utilisateur et date utile, puis ouvrir plusieurs fiches pour vérifier les données. Exporter la liste pour validation. Avant une modification massive, refaire le contrôle du nombre d’éléments sélectionnés et de leur entité ; une erreur de filtre peut toucher tout le parc.
 
-**Mini-quiz.** 1. Pourquoi un technicien ne voit-il pas tous les menus ? 2. ET et OU donnent-ils le même résultat ? 3. Quelle précaution avant une modification massive ?
+### Construire puis vérifier la sélection
 
-??? success "Réponses commentées"
-    1. Les droits et la portée des habilitations limitent les accès.
-    2. Non : ET exige toutes les conditions ; OU accepte les alternatives prévues.
-    3. Vérifier filtre, sélection, entité et action sur un échantillon.
+```mermaid
+flowchart LR
+    P["Vérifier profil et entité"] --> F["Choisir les critères"]
+    F --> L["Lire les résultats"]
+    L --> T["Tester sur un élément"]
+    T --> V["Vérifier la fiche modifiée"]
+```
+
+La séquence relie les fonctions de recherche et de modification illustrées par le support GLPI.
 
 ## Notions détaillées pour approfondir
 
 Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
+
+### Présentation de GLPI
 
 <section>
 <h4>Sensibilisation ITIL et</h4>
@@ -54,12 +67,16 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <h4>Objectifs</h4>
 <ul><li>Découvrir l’outil GLPI</li><li>Définir les différentes fonctionnalités</li><li>Découvrir les fonctionnalités de recherche</li><li>Découvrir son utilisation au quotidien</li></ul>
 </section>
+
 <section>
 <p>GLPI : présentation</p>
 <ul><li>GLPI : Gestion Libre de Parc Informatique</li><li>ITSM : Information Technology Service Management conforme avec ITIL</li><li>Logiciel libre sous licence GPL 100% libre</li><li>Logiciel complet pour la gestion de parc et centre de services</li><li>Plusieurs langues et plug-ins disponibles</li><li>Installation possible sous Windows et Linux</li><li>Pour les petits comme les grands systèmes d’information</li></ul>
 <p>GLPI : fonctionnalités gestion de parc</p>
 <figure><img alt="Fonctionnalités de gestion du parc" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p002-001.webp"/><figcaption>Fonctionnalités de gestion du parc — illustration isolée du support, page 2.</figcaption></figure>
 </section>
+
+### Interfaces et accès au parc
+
 <section>
 <p>GLPI : les interfaces</p>
 <ul><li>Interface simplifiée<ul><li>Interface la plus restrictive</li><li>Destinée aux utilisateurs finaux</li><li>Permet de créer un ticket, suivre ses tickets, accéder aux réservations et à la FAQ</li></ul></li><li>Interface standard<ul><li>Interface principale de GLPI</li><li>Tous les modules y sont disponibles en fonction des droits de chacun</li><li>Utilisée pour les taches techniciens, d’administration et de configuration</li><li>3 vues de travail : personnelle, groupe et globale</li></ul></li></ul>
@@ -67,6 +84,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Permet d’effectuer une recherche uniquement sur les champs affichés</li><li>Étendue de la recherche aux champs affichés par défaut de tous les éléments d’inventaire</li><li>Utilisation possible des caractères suivants (REGEX) :<ul><li>« ^ » pour symboliser le début du champ</li><li>« $ » pour symboliser la fin du champ</li><li>« NULL » pour rechercher les champs vides</li><li>Utilisation conjointe de « ^ » et « $ » pour la valeur exacte d’un champ</li></ul></li></ul>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p003-002.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 3.</figcaption></figure>
 </section>
+
 <section>
 <p>GLPI : gestion de parc</p>
 <p>Menu parc</p>
@@ -89,6 +107,9 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Critères globaux de recherche possibles</li></ul>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p004-004.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 4.</figcaption></figure>
 </section>
+
+### Recherche et modification massive
+
 <section>
 <p>GLPI : gestion de parc</p>
 <p>Recherche avancée</p>
@@ -104,6 +125,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-005.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 5.</figcaption></figure>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p005-006.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 5.</figcaption></figure>
 </section>
+
 <section>
 <p>GLPI : gestion de parc</p>
 <p>Modification massive • Pour effectuer une modification sur un ensemble d’éléments • Utilisé conjointement aux recherches avancées • Généralement appliquée sur tous les éléments retournés d’une recherche • Plusieurs actions possibles</p>
@@ -113,6 +135,32 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <p>Fiche élément • Accessible en cliquant sur un élément • Contient toutes les informations de l’élément • Menu de navigation vertical sur la gauche • Certains onglets communs à tous les éléments • Possibilité d’afficher tous les onglets sur la même page • Navigation possible entre les fiches des éléments de la page courante</p>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/23ce31ec50409678/itil-p006-009.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 6.</figcaption></figure>
 </section>
+
+## Vérifier en pratique
+
+| Point de contrôle | Résultat attendu |
+| --- | --- |
+| Population | Vérifier l’entité, le type de matériel et le nombre de fiches trouvées avant de sélectionner les résultats. |
+| Modification | Tester l’action sur un élément autorisé, rouvrir sa fiche et vérifier le champ réellement modifié. |
+
+## Mini-quiz — 5 questions
+
+1. Pourquoi un technicien ne voit-il pas tous les menus ?
+2. ET et OU donnent-ils le même résultat ?
+3. Quelle précaution avant une modification massive ?
+4. Le même filtre renvoie moins de postes avec le compte d’un technicien. Quel contrôle faire avant de le changer ?
+5. Pourquoi vérifier le nombre de lignes avant une modification massive ?
+
+??? success "Réponses commentées"
+    1. Les droits et la portée des habilitations limitent les accès.
+
+    2. Non : ET exige toutes les conditions ; OU accepte les alternatives prévues.
+
+    3. Vérifier filtre, sélection, entité et action sur un échantillon.
+
+    4. Comparer l’entité active, les entités accessibles et les droits des profils avec le contexte dans lequel le filtre a été créé.
+
+    5. Pour confirmer que l’action touche seulement la population prévue. Tester ensuite sur un échantillon du laboratoire.
 
 ## Pratiquer et réviser
 

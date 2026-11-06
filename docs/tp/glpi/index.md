@@ -1,12 +1,18 @@
 # Travaux pratiques — Administration GLPI
 
-Suivre les six modules dans leur ordre : les utilisateurs, matériels et règles créés aux premières étapes sont réutilisés ensuite.
+Les ateliers réutilisent les comptes, lieux, matériels et règles du laboratoire Olympus. Lire l’énoncé avant d’ouvrir la correction.
 
-- [Module 01 — Présentation de l’environnement — Installation de GLPI](module-01/index.md)
-- [Module 02 — Authentification AD — Habilitations](module-02/index.md)
-- [Module 03 — Gestion de parc — Inventaire informatique](module-03/index.md)
-- [Module 04 — Assistance — Traitements automatisés des tickets](module-04/index.md)
-- [Module 05 — Les bases de MySQL et MariaDB](module-05/index.md)
-- [Module 06 — Plug-ins et inventaire](module-06/index.md)
+| Module | Intitulé | Atelier |
+| --- | --- | --- |
+| 01 | Présentation de l’environnement — Installation de GLPI | [Ouvrir](module-01/index.md) |
+| 02 | Authentification AD — Habilitations | [Ouvrir](module-02/index.md) |
+| 03 | Gestion de parc — Inventaire informatique | [Ouvrir](module-03/index.md) |
+| 04 | Assistance — Traitements automatisés des tickets | [Ouvrir](module-04/index.md) |
+| 05 | Les bases de MySQL et MariaDB | [Ouvrir](module-05/index.md) |
+| 06 | Plug-ins et inventaire | [Ouvrir](module-06/index.md) |
 
-[Revenir au cours](../../modules/07-administration-glpi/index.md)
+## Pour continuer
+
+- [Présentation du cours](../../modules/07-administration-glpi/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)
+- [Dépannage de l’accès](../../troubleshooting/glpi-inaccessible.md)

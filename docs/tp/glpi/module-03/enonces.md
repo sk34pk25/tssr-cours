@@ -1,9 +1,12 @@
 # TP 03 — Énoncé — Gestion de parc — Inventaire informatique
 
+## Préparer l’atelier
+
+L’application GLPI doit être fonctionnelle. Lire les quantités, les lieux et les relations de l’énoncé, puis consulter les illustrations du matériel pour distinguer modèles et références.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Consignes complètes
-
 
 
 ### Gestion de parc
@@ -487,11 +490,6 @@ terres.
 
 - 1 webcam Logitech C920 assignée au Hall
 
-Consulter la correction expliquée après une première réalisation.
-
-
-
-## Vérifier le résultat
 
 ## Contrôler les résultats de l’inventaire
 
@@ -499,16 +497,25 @@ Le cahier des charges détaillé ci-dessous conserve toutes les quantités, rela
 
 | Point du support | Décision à expliciter dans la réalisation |
 |---|---|
-| « deux emplacements » mais grille1×1 | Choisir une grille pouvant contenir le nombre demandé après validation du formateur |
-| JL356A appelé48 ports | La fiche Aruba identifie JL356A24portsPoE+ et JL357A48portsPoE+ |
-| Ports48P à100/10 Gbit/s | La fiche présente des ports cuivre1GbE et4uplinksSFP+1/10GbE |
-| PDU enU15-42 alors que modèle1U | Vérifier l’emplacement et l’encombrement sans occuper arbitrairement28U |
-| 12 ×512 Go présentés comme6 To | Conserver les12 modules et préciser le total6144 Go et les conventions d’unité |
-| CPU2.6 MHz ou capture3 MHz | Ne pas confondre unités, valeur de consigne et valeur illustrée |
+| « deux emplacements » mais grille 1 × 1 | Choisir une grille pouvant contenir le nombre demandé après validation du formateur |
+| JL356A appelé 48 ports | La fiche Aruba identifie JL356A 24 ports PoE+ et JL357A 48 ports PoE+ |
+| Ports 48 P à 100/10 Gbit/s | La fiche présente des ports cuivre 1 GbE et 4 uplinks SFP+ 1/10 GbE |
+| PDU en U15–42 alors que modèle 1 U | Vérifier l’emplacement et l’encombrement sans occuper arbitrairement 28 U |
+| 12 × 512 Go présentés comme 6 To | Conserver les 12 modules et préciser le total de 6 144 Go et les conventions d’unité |
+| CPU 2,6 MHz ou capture 3 MHz | Ne pas confondre unités, valeur de consigne et valeur illustrée |
 | Écran associé à un Optiplex non créé | Faire préciser le poste attendu ; ne pas inventer une fiche manquante |
 
-Preuves : tableau des exemplaires et lieux, vue avant/arrière de baie, ports connectés, affectations aux12 utilisateurs, licences attribuées, stock de consommables et réservation de Zeus. Les captures séparées montrent parfois4switchs24P au lieu des6demandés ; le résultat attendu reste celui de l’énoncé.
+Preuves : tableau des exemplaires et lieux, vue avant/arrière de baie, ports connectés, affectations aux 12 utilisateurs, licences attribuées, stock de consommables et réservation de Zeus. Les captures séparées montrent parfois 4 switchs 24 ports au lieu des 6 demandés ; le résultat attendu reste celui de l’énoncé.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Gabarit et exemplaires | Préparer les valeurs communes, puis contrôler les noms, le nombre et le statut des exemplaires créés. |
+| Baie et connectivité | Vérifier l’encombrement, les vues avant et arrière, les ports et les liaisons. Consigner les écarts entre les captures et la demande. |
+| Affectations et réservations | Contrôler le lieu, l’utilisateur, la licence ou le consommable pour chaque relation. Retrouver la réservation de Zeus. |
 
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
+
+- [Fiche de révision](../../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md)
