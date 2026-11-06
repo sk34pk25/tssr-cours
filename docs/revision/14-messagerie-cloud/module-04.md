@@ -10,6 +10,9 @@
 
 **Entraînement.** Un poste n’installe rien au redémarrage et un membre d’un groupe Lecture modifie un fichier. Préparez les contrôles du contexte ordinateur puis de l’héritage des permissions SharePoint.
 
+??? success "Correction commentée"
+    Sur le poste, relever l’application de la GPO dans le contexte ordinateur, puis vérifier la lecture du partage et les traces d’installation. Pour SharePoint, vérifier les permissions effectives du membre, l’héritage et les autres groupes auxquels il appartient.
+
 ## S’exercer
 
 - [Cours et documents sources](../../modules/14-messagerie-cloud/module-04.md)

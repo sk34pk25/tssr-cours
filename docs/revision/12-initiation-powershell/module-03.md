@@ -48,9 +48,17 @@ Les propriétés calculées servent dans les sources à renommer, adapter ou tra
 Les résultats dépendent des objets de laboratoire et ne sont pas des valeurs universelles. La suppression d’un utilisateur présente dans le scénario est destructive : elle ne s’exécute que dans le laboratoire prévu.
 
 Les divergences de filtrage, de désactivation, de tailles, d’export, d’import et de forme `Get-Content` restent à relire dans les documents sources.
+
 ## Autoévaluation
 
-Sélectionnez les services actifs, triez-les par nom puis mesurez leur nombre. Préparez deux sorties à partir de la même liste, un tableau pour la console et un CSV pour réutiliser les données. Expliquez la différence entre `Get-Content`, `Import-Csv` et `Import-Clixml`. Ajoutez une propriété calculée pour une taille en Kio.
+1. Pourquoi demander `Department` et `City` avec `-Properties` ?
+2. Où placer `Format-Table` ?
+3. Comment distinguer la lecture du fichier de la création d’un compte ?
+
+??? success "Réponses commentées"
+    1. Ces attributs peuvent manquer dans le jeu de propriétés renvoyé par défaut.
+    2. En fin de chaîne d’affichage. Reprendre les objets d’origine pour exporter le CSV.
+    3. Contrôler les en-têtes et la projection avec `Import-Csv`, puis vérifier l’OU et l’identité cible avant de simuler la création.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-03.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-03/index.md)

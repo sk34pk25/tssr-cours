@@ -2,6 +2,12 @@
 
 Une boucle répète des commandes. Définissez le premier état, ce qui déclenche un passage, la progression et la sortie. Le support utilise une condition de saisie, un compteur et une liste de fichiers.
 
+## Objectifs
+
+- Écrire le test, l’initialisation et la progression de chaque boucle.
+- Parcourir les mois, les années ou les fichiers sans perdre leurs limites.
+- Lire des champs séparés par deux-points et vérifier le résultat après la boucle.
+
 ## Faire progresser le traitement
 
 `expr` effectue un calcul entier avec ses opérandes séparés par des espaces. Protégez `*` pour qu’il soit transmis à `expr` au lieu de développer des noms de fichiers. Le support cite également `let` et l’arithmétique Bash.
@@ -79,6 +85,27 @@ Un deuxième `read` sans redirection dans la boucle consomme la ligne suivante d
 | 02 | Compter les fichiers selon une liste d’extensions | Répertoire contenant des espaces, extension absente et total |
 | 03 | Lire `/etc/passwd` avec `while read` et afficher nom et UID | Délimiter sur `:` et conserver les champs vides |
 
+### TP 01 — Contrôler la sentinelle et l’intervalle
+
+Pour `13.sh`, repérez d’abord l’année attendue, le premier mois et la fin à la valeur 13. Relevez où se font le test du vendredi, le comptage et le classement final. Le résultat du test fondé sur `cal` dépend de la présentation du calendrier. La correction pédagogique propose GNU `date` pour vérifier le jour sans lire des colonnes de calendrier.
+
+Pour les années bissextiles, vérifiez les deux bornes avant de commencer. Parcourez chaque année de la plage, bornes comprises, puis affichez les années retenues et leur nombre. Une année divisible par 100 est exclue, sauf si elle est divisible par 400. La variante de correction applique la règle grégorienne.
+
+### TP 02 — Compter par extension
+
+Préparez le fichier d’extensions demandé par le TP. Parcourez les fichiers ordinaires visibles du premier niveau. Séparez le total de fichiers et les compteurs par extension. Conservez les limites d’un nom contenant des espaces. Un dossier dont le nom finit par `.sh` ne doit pas augmenter le compteur des scripts.
+
+### TP 03 — Extraire le nom et l’UID
+
+Définissez le deux-points comme séparateur du `read` et affectez un nom à chacun des sept champs. Affichez seulement le premier et le troisième champ. Redirigez le fichier vers la boucle. Une description contenant des espaces ou un champ vide ne déplace pas l’UID.
+
+| Jeu d’essai | Résultat attendu |
+| --- | --- |
+| Années 2026 à 2029 | Une seule année, 2028 |
+| Année 1900, puis 2000 | 1900 exclue, 2000 retenue |
+| Fichier `nom composé.sh` et dossier `archives.sh` | Un fichier `.sh` compté |
+| Ligne de compte avec un commentaire composé | Le couple identifiant et UID est lu sans décalage |
+
 ### Progression — Complément pédagogique
 
 ```mermaid
@@ -89,13 +116,26 @@ flowchart TD
     B -->|Non| D["Présenter le résultat"]
 ```
 
+## À retenir
+
+Une boucle doit rendre explicites le départ, la progression et l’arrêt. Les guillemets protègent les noms parcourus. Le séparateur du fichier doit piloter le découpage effectué par `read`.
+
 ## Mini-quiz
 
 1. Quand une boucle `until` s’arrête-t-elle ?
-2. Pourquoi préférer une redirection de fichier pour un compteur utilisé après la boucle ?
-3. Que fait le second `read` quand il partage l’entrée du premier ?
+2. Pourquoi rediriger un fichier dans une boucle dont on réutilise le compteur ?
+3. Que fait un second `read` s’il partage la même entrée ?
+4. Pourquoi 1900 et 2000 ne donnent-elles pas le même résultat ?
+5. Quel champ contient l’UID dans le TP 03 ?
 
-**Réponses.** Dès que la condition réussit. Le compteur reste dans le shell courant. Le second `read` avance la même entrée.
+??? success "Réponses commentées"
+    1. Lorsque la condition réussit, donc qu’elle rend le statut zéro.
+    2. La boucle s’exécute dans le shell courant. Dans un pipeline, elle s’exécute généralement dans un sous-shell.
+    3. Il consomme la ligne suivante de cette entrée.
+    4. Ce sont des siècles. 2000 est divisible par 400, alors que 1900 ne l’est pas.
+    5. Le troisième champ séparé par deux-points. Le premier contient l’identifiant.
+
+## Appliquer ce module
 
 - [TP du module et corrections](../../tp/11-initiation-scripting-bash/module-07/index.md)
 - [Fiche de révision](../../revision/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)

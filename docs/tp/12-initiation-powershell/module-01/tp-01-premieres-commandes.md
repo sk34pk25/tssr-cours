@@ -12,6 +12,16 @@ Durée estimée
 
 2 heures
 
+## Préparer le travail et le compte rendu
+
+Vérifier les consoles disponibles, le rôle des VM et l’accès au dépôt d’aide de la maquette. Relever la version et l’hôte à chaque observation.
+
+| Étape | Preuve à relever |
+| --- | --- |
+| Comparaison des consoles | Édition, version, nombre de commandes et un exemple de différence. |
+| Aide et modules | Commandes utilisées, cultures disponibles, origine de la commande et trois exemples exportés. |
+| Profil | Chemin de l’hôte choisi et résultat observé à sa réouverture. |
+
 ## Énoncé
 
 Objectifs :
@@ -34,56 +44,36 @@ Intégrer les machines virtuelles dans VMware Workstation
 
 Démarrer les machines virtuelles suivantes :
 
-```text
-o
-CLI01
-o
-CD01
-```
+- CLI01
+- CD01
 
 S’y connecter :
 
-```text
-o
-identifiant : Administrator@ad01.lcl
-o
-mot de passe : fourni par le formateur
-```
+- identifiant : Administrator@ad01.lcl
+- mot de passe : fourni par le formateur
 
 Depuis la machine CLI01 :
 
 Lancez la console PowerShell en mode administrateur et découvrez l'interface utilisateur.
 
-```text
-Exécutez la commande Get-Command | Measure. Indiquez le nombre de
-commandes renvoyées par la propriété Count
-```
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes renvoyées par la propriété Count
 
 Lancez la console PowerShell Core en mode administrateur et découvrez l'interface utilisateur.
 
-```text
-Exécutez la commande Get-Command | Measure. Indiquez le nombre de
-commandes renvoyées par la propriété Count.
-```
+Exécutez la commande Get-Command | Measure. Indiquez le nombre de commandes renvoyées par la propriété Count.
 
 Affichez la liste des verbes disponibles dans chaque console PowerShell. Que remarquez-vous ?
 
-```text
-Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ?
-Listez les commandes contenant user dans le nom. Quelle commande avez-vous
-utilisée ?
-```
+Listez les commandes utilisant le verbe New. Quelle commande avez-vous utilisée ?
+
+Listez les commandes contenant user dans le nom. Quelle commande avez-vous utilisée ?
 
 Indiquez la commande permettant de créer un nouvel utilisateur local.
 
 Listez les cinq premiers utilisateurs locaux de chaque machine virtuelle.
 
-```text
-o
-Utilisateurs de CD01
-o
- Utilisateurs de CLI01
-```
+- Utilisateurs de CD01
+- Utilisateurs de CLI01
 
 Bonus
 
@@ -101,16 +91,9 @@ Affichez l’aide en ligne de la commande permettant de lister les membres d’u
 
 Mettez à jour les fichiers d’aide de votre console PowerShell.
 
-```text
-o
-Vous allez effectuer la mise à jour de toutes vos commandes à
-partir d’un dépôt local situé sur « CD01 ».
-o
-Voici le chemin « UNC » du dépôt :  \\CD01\Partage\Depot\
-CLI01
-o
-Indiquez vos remarques
-```
+- Vous allez effectuer la mise à jour de toutes vos commandes à partir d’un dépôt local situé sur « CD01 ».
+- Voici le chemin « UNC » du dépôt : \\CD01\Partage\Depot\CLI01
+- Indiquez vos remarques
 
 Effectuez la même action mais en sélectionnant le langage « fr-FR ». Indiquez vos remarques.
 
@@ -118,57 +101,32 @@ Depuis la machine CLI01
 
 Affichez les modules actuellement chargés par la console PowerShell.
 
-```text
-o
-Combien de modules sont actuellement disponibles ?
-o
-De quel module la commande Get-LocalUser est-elle issue ?
-```
+- Combien de modules sont actuellement disponibles ?
+- De quel module la commande Get-LocalUser est-elle issue ?
 
 Affichez les emplacements disponibles pour déposer les fichiers contenant les modules. Quelle commande avez-vous utilisée ?
 
 Installer le module AWSPowerShell. L’archive est disponible sur le partage \\CD01\ Partage\Modules
 
-```text
-o
-Quelles commandes avez-vous utilisées ?
-```
+- Quelles commandes avez-vous utilisées ?
 
 Vous allez obtenir un message d’erreur à l’importation du module
 
-```text
-o
-Quelle commande allez-vous exécuter pour permettre
-l’importation du module ?
-o
-Indiquez trois commandes disponibles dans le module
-AwsPowerShell
-```
+- Quelle commande allez-vous exécuter pour permettre l’importation du module ?
+- Indiquez trois commandes disponibles dans le module AwsPowerShell
 
 Mettez en place un profil personnel sur chaque console PowerShell.
 
-```text
-o
-Vous pouvez modifier la coloration ainsi que la police.
-o
-Affichez l’aide de la commande Get-Help à chaque
-ouverture de la console PowerShell.
-o
-Quel fichier avez-vous édité ?
-```
+- Vous pouvez modifier la coloration ainsi que la police.
+- Affichez l’aide de la commande Get-Help à chaque ouverture de la console PowerShell.
+- Quel fichier avez-vous édité ?
 
 Bonus
 
 Modifiez le prompt de votre console PowerShell.
 
-```text
-o
-En vous basant sur le fichier  \\CD01\Partage\Aplication\
-Prompt.ps1
-o
-Modifiez votre prompt pour afficher l’heure ainsi que la
-localisation actuelle du prompt dans le système de fichier.
-```
+- En vous basant sur le fichier \\CD01\Partage\Aplication\Prompt.ps1
+- Modifiez votre prompt pour afficher l’heure ainsi que la localisation actuelle du prompt dans le système de fichier.
 
 Vous pouvez également afficher une bannière avec le nom de l’utilisateur actuel.
 

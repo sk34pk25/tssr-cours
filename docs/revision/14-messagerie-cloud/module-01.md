@@ -10,6 +10,9 @@
 
 **Entraînement.** Dessinez le flux d’un message externe qui arrive sur une ancienne plateforme. Indiquez le contrôle DNS et le contrôle de remise qui isolent la cause.
 
+??? success "Correction commentée"
+    Commencer par les enregistrements MX publics du domaine. Identifier ensuite le système qui a accepté le message dans la trace de transport et vérifier la remise dans la boîte. Un MX correct ne prouve pas la remise au destinataire.
+
 ## S’exercer
 
 - [Cours et documents sources](../../modules/14-messagerie-cloud/module-01.md)

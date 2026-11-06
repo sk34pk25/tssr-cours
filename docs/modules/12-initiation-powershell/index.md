@@ -8,3 +8,8 @@ Le cours progresse des premières commandes vers l’écriture de scripts Window
 4. [Variables et structures](module-04.md)
 5. [Outils pour le scripting](module-05.md)
 6. [Authentification et scripts de laboratoire](module-06.md)
+
+## Ressources pour pratiquer
+
+- [Les six TP et leurs corrigés](../../tp/12-initiation-powershell/index.md)
+- [Fiches de révision](../../revision/12-initiation-powershell/index.md)

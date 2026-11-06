@@ -13,5 +13,14 @@ Enregistrez le script en LF. Après un contrôle de syntaxe, comparez le résult
 
 **TP 02.** Les actions couvrent `ls -l *.sh`, `ls -l *.bash`, `bash --version`, `whereis bash` et la consultation des mises à jour connues par APT. Prévoyez le cas où aucun fichier ne correspond à un motif.
 
+## Questions flash
+
+1. Comment distinguer un problème de syntaxe d’un problème de permissions ?
+2. Que vérifier quand le filtre APT n’affiche aucune ligne ?
+
+??? success "Réponses commentées"
+    1. Lancer d’abord `bash -n monscript.sh`. Si la syntaxe passe mais que `./monscript.sh` est refusé, vérifier le droit d’exécution, le shebang et les fins de ligne.
+    2. Regarder la liste de départ et la fraîcheur des informations locales. Un filtre vide ne dit pas à lui seul pourquoi aucune ligne ne correspond.
+
 - [Cours](../../modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts.md)
 - [TP et correction](../../tp/11-initiation-scripting-bash/module-02/index.md)

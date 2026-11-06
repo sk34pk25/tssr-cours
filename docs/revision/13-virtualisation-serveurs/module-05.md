@@ -39,15 +39,17 @@ historiques à examiner dans leur contexte. Les ressources binaires ne sont pas 
 [Atelier et correction](../../tp/13-virtualisation-serveurs/module-05/index.md)
 
 Provenance A : trois PDF M05 du Drive TSSR en lecture seule ; B : synthèse fidèle.
-Aucune question, ressource externe ou association Kahoot n’est ajoutée.
-
 
 ## Question de révision
 
-Quel disque choisir pour installer ESXi et lequel pour créer DS-Local ?
+1. Quel composant exécute les VM du laboratoire ?
+2. Pourquoi vérifier la banque locale avant de créer SRV-1 ?
+3. Que relever pour démontrer la mise en service de SRV-1 ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Installer ESXi sur le disque de 40 Go, puis sélectionner le disque SCSI de 200 Go dans l’assistant de création de la banque VMFS.
+    1. L’hôte ESXi. L’outil de gestion présente et pilote les objets, tandis que l’exécution se déroule sur l’hôte.
+    2. Elle doit être accessible sur l’hôte choisi et contenir assez d’espace. Vérifier aussi le réseau et le média d’installation avant le démarrage.
+    3. L’hôte et la banque utilisés, la configuration de la VM, son état et l’accès au système invité.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-05.md)

@@ -7,3 +7,16 @@ Avec un argument, il est utilisé comme nom. Sans argument, une saisie est deman
 ## Formes attestées
 
 `[ $# -eq 1 ] && name=$1`, `[[ $# -gt 1 ]]`, `[[ $# -eq 0 ]]`, `[[ $name = root ]]`, `read -p ...`, `echo -e ...`, `exit 1` et `exit 2`.
+
+## Preuves à relever
+
+| Cas | Preuve |
+| --- | --- |
+| Aucun argument | Invite de saisie, puis accueil si le nom est valide |
+| Un nom ordinaire | Accueil et statut zéro |
+| Deux arguments | Message d’usage et statut 1 |
+| Argument `root` | Refus et statut 2 |
+
+Consignez le statut immédiatement après chaque appel.
+
+[Correction du TP](correction-tp-01.md)

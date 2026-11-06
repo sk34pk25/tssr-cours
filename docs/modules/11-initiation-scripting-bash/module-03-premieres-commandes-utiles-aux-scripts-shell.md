@@ -2,6 +2,12 @@
 
 Le support présente quatre gestes de base dans le terminal. Affichez une information, effacez l’écran, transmettez un code de sortie et cherchez l’aide des commandes intégrées.
 
+## Objectifs
+
+- Afficher une donnée et un libellé dans des formats reproductibles.
+- Identifier les commandes intégrées et consulter leur aide.
+- Conserver et expliquer le statut de sortie d’une commande.
+
 ## Afficher et mettre en forme
 
 `echo` écrit ses arguments sur la sortie standard. Le support présente `echo -e` pour interpréter des séquences d’échappement. Les guillemets conservent le texte avec ses espaces dans un seul argument.
@@ -52,6 +58,20 @@ help exit
 
 `help` liste les rubriques d’aide. `help wait` montre l’aide de cette commande, comme dans le support. `help exit` détaille le code de sortie. Une commande externe dispose de sa propre documentation.
 
+## Mise en pratique — Affichage et statut
+
+Aucun TP distinct n’est fourni pour ce module. Cet essai pédagogique reprend les commandes du support.
+
+1. Affichez un libellé et une valeur contenant des espaces. Comparez `echo -e` et `printf` pour produire une tabulation.
+2. Relevez la catégorie indiquée par `type echo` et `type clear`. Ouvrez l’aide intégrée de `exit`.
+3. Dans un shell enfant, demandez le statut `4` avec le bloc précédent. Enregistrez `$?` aussitôt et vérifiez sa valeur avant de poursuivre.
+
+| Contrôle | Résultat prévu |
+| --- | --- |
+| Affichage avec tabulation | Une séparation visible entre libellé et valeur |
+| `type echo` dans Bash | Une commande intégrée, sauf redéfinition locale |
+| `bash -c 'exit 4'` | L’appelant continue et peut lire le statut `4` |
+
 ### Transmission du statut — Complément pédagogique
 
 ```mermaid
@@ -61,12 +81,25 @@ flowchart LR
     C --> D["Afficher, conserver ou tester"]
 ```
 
+## À retenir
+
+La sortie standard contient les données destinées à l’appelant. Le statut représente l’issue du traitement. Lisez-le immédiatement et cherchez l’aide avec l’outil adapté à la catégorie de commande.
+
 ## Mini-quiz
 
-1. Quelle séquence produit une tabulation ?
-2. D’où vient le statut en fin de script sans `exit` explicite ?
-3. Comment ouvrir l’aide de `wait` ?
+1. Quelle séquence représente une tabulation ?
+2. D’où vient le statut d’un script sans `exit` explicite ?
+3. Comment afficher l’aide de la commande intégrée `wait` ?
+4. Pourquoi enregistrer `$?` avant un affichage de diagnostic ?
+5. Pourquoi passer le format séparément dans `printf '%s\n' "$message"` ?
 
-**Réponses.** `\t` avec l’interprétation des séquences. De la dernière commande exécutée. `help wait`.
+??? success "Réponses commentées"
+    1. `\t` lorsque la commande interprète les séquences d’échappement.
+    2. De la dernière commande exécutée.
+    3. Avec `help wait` dans Bash.
+    4. L’affichage a son propre statut et peut remplacer celui que l’on veut observer.
+    5. Le format reste constant même si le message contient des caractères qui ressemblent à des directives.
+
+## Appliquer ce module
 
 [Fiche de révision](../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)

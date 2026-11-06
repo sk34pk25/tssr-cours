@@ -13,5 +13,14 @@ Identifiez l’initialisation, le test, le corps et la progression. `expr 2 \* 7
 
 **TP.** Le vendredi 13 et les années bissextiles mettent en œuvre `until`. Le comptage par extension mobilise `for` et un fichier de configuration. L’extraction du nom et de l’UID repose sur `while read` et le séparateur `:`.
 
+## Questions flash
+
+1. Pourquoi un répertoire nommé `archives.sh` doit-il être ignoré ?
+2. Pourquoi utiliser `IFS=:` pour lire les comptes ?
+
+??? success "Réponses commentées"
+    1. Le TP compte les fichiers ordinaires. Vérifier le type de l’entrée avant son extension.
+    2. Le séparateur des champs est le deux-points. Les espaces du commentaire ne modifient pas la position de l’UID.
+
 - [Cours](../../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle.md)
 - [TP et corrections](../../tp/11-initiation-scripting-bash/module-07/index.md)

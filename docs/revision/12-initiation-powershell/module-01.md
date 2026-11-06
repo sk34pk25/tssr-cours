@@ -83,9 +83,17 @@ les propriétés de la console.
 
 - [Cours M01](../../modules/12-initiation-powershell/module-01.md)
 - [TP 01 — Premières commandes](../../tp/12-initiation-powershell/module-01/index.md)
+
 ## Autoévaluation
 
-Comparez `$PSVersionTable` entre deux consoles. Retrouvez une commande avec `Get-Command`, un exemple avec `Get-Help -Examples`, puis l’origine de la commande avec `Get-Command | Select-Object Name,ModuleName`. Expliquez pourquoi `Get-Module` et `Get-Module -ListAvailable` renvoient des listes différentes. Repérez enfin la stratégie qui l’emporte dans `Get-ExecutionPolicy -List`.
+1. Comment expliquer un nombre de commandes différent entre deux consoles ?
+2. Que relève-t-on pour identifier le module d’une commande ?
+3. Quel profil vérifier avant de l’éditer ?
+
+??? success "Réponses commentées"
+    1. Comparer leurs éditions, versions et modules présents ou chargés.
+    2. La propriété `ModuleName` de `Get-Command`, puis l’état du module avec `Get-Module`.
+    3. Le profil utilisateur de l’hôte voulu. Une autre console peut charger un fichier différent.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-01.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-01/index.md)

@@ -19,3 +19,11 @@ Les modules 1 à 5 sont cités dans l’énoncé. Les fichiers d’exercice et t
 7. Utiliser les couleurs de scénario pour différencier les messages relatifs au dossier et au fichier.
 
 Les chemins, messages et la logique restent ceux de l’énoncé ; aucun script autonome n’est ajouté.
+
+## Preuves à relever
+
+1. Testez un dossier neuf, puis un dossier d’essai déjà présent.
+2. Vérifiez le nom de `fic_M5TP1.txt`, son contenu exact et les messages colorés.
+3. Essayez une saisie vide et un nom occupé par un fichier. L’échec doit empêcher l’étape d’écriture.
+
+[Correction du TP](correction-tp-01.md)

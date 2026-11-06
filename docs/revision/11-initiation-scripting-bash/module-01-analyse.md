@@ -13,5 +13,14 @@ Le pseudo-code exprime les étapes en texte. Un organigramme utilise des ovales 
 
 **Autoévaluation.** Déroulez l’algorithme pour deux tasses puis pour un filtre manquant. Repérez dans chaque cas la branche qui mène à la fin.
 
+## Questions flash
+
+1. Que fixer avant d’écrire le script d’échecs de connexion ?
+2. Pour deux tasses, quelles valeurs le compteur prend-il ?
+
+??? success "Réponses commentées"
+    1. La source du journal, le nombre de résultats par défaut et le traitement des arguments invalides.
+    2. 0, 1, puis 2. Le test réussit alors et l’allumage se fait une seule fois.
+
 - [Cours](../../modules/11-initiation-scripting-bash/module-01-analyse.md)
 - [TP et corrections](../../tp/11-initiation-scripting-bash/module-01/index.md)

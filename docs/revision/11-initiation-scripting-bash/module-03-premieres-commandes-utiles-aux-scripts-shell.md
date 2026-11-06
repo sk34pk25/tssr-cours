@@ -13,6 +13,13 @@
 
 `\c` termine l’affichage sans saut de ligne, `\n` produit un saut, `\t` une tabulation et `\\` un antislash. Sans `exit` explicite, le statut final est celui de la dernière commande exécutée.
 
-**Autoévaluation.** Après `bash -c 'exit 2'`, le statut à récupérer est `2`. Il change dès qu’une autre commande synchrone se termine.
+## Questions flash
+
+1. Comment observer un statut non nul sans quitter le shell courant ?
+2. Quel outil décrit une commande intégrée ?
+
+??? success "Réponses commentées"
+    1. Lancer `bash -c 'exit 4'`, puis enregistrer `$?` immédiatement.
+    2. `help` dans Bash, par exemple `help exit`. `type` indique d’abord la catégorie de commande.
 
 [Cours](../../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)

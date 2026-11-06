@@ -14,3 +14,10 @@ Préparez un dossier de laboratoire pour les essais. Utilisez une machine virtue
 6. [Module 06 — Exécution conditionnelle](module-06-execution-conditionnelle.md)
 7. [Module 07 — Les structures de boucle](module-07-les-structures-de-boucle.md)
 8. [Module 08 — Les fonctions](module-08-les-fonctions.md)
+
+## Accès complémentaires
+
+- [Travaux pratiques et corrections](../../tp/11-initiation-scripting-bash/index.md)
+- [Fiches de révision](../../revision/11-initiation-scripting-bash/index.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
+- [Retour au parcours TSSR](../../parcours-tssr/index.md#p-9fe7f3d025879400)

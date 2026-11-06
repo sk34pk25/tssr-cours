@@ -12,6 +12,16 @@ Durée estimée
 
 4 heures
 
+## Préparer le travail et le compte rendu
+
+Vérifier le journal Système et identifier l’OU autorisée. Pour la devinette, choisir un format de date explicite. Pour le menu, préparer un CSV de test et une simulation des actions d’écriture.
+
+| Étape | Preuve à relever |
+| --- | --- |
+| Journal | Nombre d’objets, `Index` aux positions demandées et somme. |
+| Devinette | Traces d’un essai antérieur, postérieur, exact et invalide. |
+| AD et menu | Comptages, cas des quatre choix et vérification du refus hors périmètre. |
+
 ## Énoncé
 
 Objectifs :
@@ -24,9 +34,7 @@ Consignes :
 
 Depuis la machine CLI01
 
-```text
 Stocker dans une variable le résultat de la commande Get-EventLog system.
-```
 
 Quelle commande avez-vous utilisée ?
 
@@ -46,9 +54,7 @@ BONUS : indiquez le nombre d’essais effectués par l’utilisateur.
 
 Pour répondre au besoin, vous utiliserez les structures If et ForEach.
 
-```text
 Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;
-```
 
 dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active Directory.
 

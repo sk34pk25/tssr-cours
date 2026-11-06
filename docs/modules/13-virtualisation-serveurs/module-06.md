@@ -1,127 +1,122 @@
 # Module 06 — Gestion du réseau vSphere
 
-## Objectif
+Le laboratoire dispose de deux ESXi. On sépare les flux de gestion, des VM et de stockage ou de vMotion en configurant les commutateurs virtuels et les interfaces des hôtes.
 
-Configurer le réseau d’un ESXi pour répondre à des besoins ciblés. Le support
-présente les VLAN, les composants réseau vSphere et la séparation des flux.
-L’atelier poursuit le laboratoire ESXi imbriqué sous VMware Workstation.
+## Objectifs
 
-## VLAN, marquage et ports
+- Lire un VLAN et comprendre le marquage 802.1Q.
+- Identifier un VSS, un VDS, un groupe de ports, une vNIC et un VMkernel.
+- Répartir les quatre cartes du laboratoire en gardant l’accès de gestion.
+- Déplacer la vNIC invitée et vérifier les réseaux des deux hôtes.
 
-Le support définit un VLAN comme un réseau logique indépendant et présente la
-segmentation comme un moyen d’isoler des contextes, de limiter les domaines de
-diffusion et d’organiser les flux. Elle suppose des commutateurs compatibles et
-une configuration adaptée. La source classe l’affectation selon le port, l’adresse
-MAC ou l’adresse IP ; ce classement est celui du document.
+## 1. Segmentation et marquage
 
-Le marquage **802.1Q** ajoute un champ de quatre octets à la trame Ethernet. Le
-schéma distingue le TPID `0x8100`, la priorité sur trois bits, un bit nommé CFI
-dans ce support historique et le VLAN ID sur douze bits. Le cours donne les
-identifiants 1 à 4094 et les priorités 0 à 7, associées à 802.1p.
+Un **VLAN** organise une partie du réseau Ethernet en domaine de diffusion distinct. Le support classe les modes d’affectation par port, par adresse MAC ou par adresse IP. La configuration de l’infrastructure doit transporter les VLAN nécessaires jusqu’aux équipements qui les utilisent.
 
-| Port ou réglage | Présentation du support |
+Le marquage **IEEE 802.1Q** ajoute quatre octets à la trame. Le support distingue le TPID `0x8100`, la priorité sur trois bits, le bit appelé CFI dans ce document et l’identifiant VLAN sur douze bits. Le tableau cite les identifiants de VLAN 1 à 4094 et les niveaux de priorité 0 à 7 liés à 802.1p.
+
+| Port ou réglage | Rôle dans les exemples |
 | --- | --- |
-| Access | Un VLAN pour la liaison à un équipement terminal. |
-| Trunk | Plusieurs VLAN autorisés, notamment pour les liaisons entre commutateurs. |
-| Marquage actif | Le tag est propagé à la sortie. |
-| Marquage inactif | Le tag est supprimé avant remise de la trame. |
+| Access | Rattacher un équipement à un VLAN, généralement avec remise de trames non marquées. |
+| Trunk | Transporter plusieurs VLAN autorisés entre équipements. |
+| Marquage actif | Conserver le tag lorsque le destinataire de la liaison doit lire le VLAN. |
+| Marquage inactif | Livrer une trame sans tag à l’équipement terminal selon le réglage de port. |
 
-Le support mentionne VLAN 1 comme VLAN par défaut. Il présente aussi les
-équipements terminaux capables de gérer 802.1Q, notamment les systèmes, pilotes
-réseau et téléphones IP, avec un raccordement trunk dans le scénario décrit.
+Le support mentionne VLAN 1 comme valeur par défaut dans son environnement. Il illustre des équipements capables de traiter un tag, tels que des téléphones IP, pilotes et systèmes d’exploitation. Dans l’atelier, les identifiants VLAN existants restent en place.
 
-## Composants du réseau vSphere
+## 2. Relier une interface au réseau physique
 
-| Composant | Fonction décrite |
+| Objet | Fonction |
 | --- | --- |
-| VSS, vSphere Standard Switch | Commutateur géré indépendamment sur chaque ESXi. |
-| VDS, vSwitch distribué | Objet commun à plusieurs hôtes, administré depuis vCenter. |
-| Groupement de ports pour VM | Raccordement réseau des machines virtuelles. |
-| VMkernel | Réseau des besoins de l’infrastructure de virtualisation. |
-| VMNIC / pNIC | Objet vSphere associé à une carte physique / carte physique de l’hôte. |
-| vNIC | Carte réseau présentée à une VM. |
+| VSS | Commutateur standard configuré localement sur un ESXi. |
+| VDS | Commutateur distribué géré avec vCenter pour plusieurs hôtes. |
+| Groupe de ports | Ensemble de réglages de connexion, dont le VLAN selon le scénario. |
+| vNIC | Carte présentée au système invité. Elle se raccorde à un groupe de ports de VM. |
+| VMkernel | Interface réseau de l’hôte pour un service d’infrastructure, comme la gestion ou vMotion. |
+| VMNIC ou pNIC | Carte physique de l’ESXi employée comme liaison montante. |
 
-Le commutateur standard créé par défaut sert dans le support à la gestion de
-l’ESXi et aux VM. Un VSS peut avoir plusieurs groupements de ports et plusieurs
-cartes physiques. Une carte physique ne peut être liée qu’à un seul vSwitch,
-alors que plusieurs cartes peuvent être liées au même vSwitch.
+Un VSS peut porter plusieurs groupes et plusieurs VMNIC. Dans le scénario du support, une VMNIC appartient à un seul commutateur virtuel. Les VLAN peuvent être traités au niveau du commutateur physique, des groupes de ports ou des équipements qui marquent leurs propres trames. Vérifier le chemin de bout en bout avant de conclure à l’isolation.
 
-Le cours associe le VDS à Enterprise Plus dans son contexte de licence historique.
-Il présente la segmentation VLAN au niveau du commutateur physique, des
-groupements de ports ou des vNIC. Si l’hyperviseur affecte les VLAN, le raccordement
-physique doit transporter les VLAN nécessaires selon le scénario du support.
+!!! note "Portée du groupe de ports et du VDS"
 
-## Regroupement de cartes et flux
+    Deux noms de groupes distincts ne garantissent pas une séparation si leur réseau effectif est le même. Vérifier le VLAN, les liaisons montantes et le filtrage. Le VDS centralise la configuration de plusieurs hôtes. Les autres conditions d’une migration restent à vérifier.
 
-Le teaming regroupe plusieurs cartes d’un ESXi, avec au moins deux VMNIC raccordées
-au commutateur virtuel dans la présentation du cours. La source distingue
-l’actif-actif, associé au débit cumulé, et l’actif-passif, associé à la tolérance
-de panne. Elle présente des répartitions par port de VM, par MAC source ou selon
-les adresses source et destination. L’ordonnancement de cartes est décrit comme
-une bascule en cas de défaillance, sans répartition de charge.
+## 3. Comprendre le regroupement de cartes
 
-L’inventaire des besoins sépare trafic des VM, gestion, déplacements de VM,
-stockage iSCSI et très haute disponibilité. Le support invite à décider quels
-flux regrouper et lesquels isoler avant de répartir les cartes.
+Le **teaming** combine plusieurs liaisons montantes. Le support distingue le mode actif-actif, associé à la distribution de flux, et le mode actif-passif, associé au secours en cas de panne. Il présente la sélection par port de VM, le hachage MAC source, le hachage IP et l’ordre de bascule.
 
-!!! warning "portée de certaines affirmations"
+| Besoin | Vérification |
+| --- | --- |
+| Distribuer plusieurs flux | Identifier la politique et observer la répartition sur les uplinks. |
+| Assurer un secours | Définir l’ordre des cartes actives et de secours, puis vérifier la bascule dans le cadre prévu. |
+| Utiliser IP hash | Vérifier que le commutateur physique est configuré selon les exigences de cette politique. |
 
-    Le support affirme que deux groupements de ports distincts d’un même vSwitch
-    ne communiquent pas et qu’un VDS évite toute interruption lors d’une migration.
-    Il présente aussi le teaming actif-actif comme un débit cumulé. Ces formulations
-    restent à contextualiser selon la configuration ; elles ne sont pas transformées
-    ici en garanties générales ni en règles d’isolation suffisantes à elles seules.
+Le débit total d’un ensemble de liaisons n’indique pas le débit d’une session unique. Le support associe aussi le VDS à Enterprise Plus dans son contexte historique. [Politiques de teaming VMware](https://knowledge.broadcom.com/external/article?legacyId=1004088) · [Répartition IP hash](https://knowledge.broadcom.com/external/article/321396/understanding-ip-hash-load-balancing.html)
 
-## Cadre de l’atelier n°4
+## 4. TP guidé — Séparer les flux sur deux ESXi
 
-L’atelier d’une heure suppose les deux ESXi fonctionnels de l’atelier précédent.
-Trois cartes bridgées supplémentaires sont ajoutées à chaque hyperviseur. Le
-réseau de gestion conserve sa carte ; un second commutateur porte les VM avec deux
-cartes ; un troisième porte une interface VMkernel dédiée à iSCSI et vMotion avec
-la dernière carte. Les identifiants VLAN ne doivent pas être modifiés.
+**Durée du support.** Environ une heure. Utiliser les deux ESXi préparés à l’atelier 3. Arrêter proprement l’invité puis les hôtes avant d’ajouter chacun trois cartes Bridged dans Workstation. La terminaison forcée illustrée dans le corrigé ne correspond pas à l’arrêt propre demandé par l’énoncé.
 
-La solution documente le rattachement de la vNIC de la VM existante au nouveau
-groupe avant suppression de son ancien groupe de ports. Les adresses VMkernel
-des deux hôtes sont distinctes sur le réseau /24 du laboratoire, neutralisé ici.
+### A. Établir le plan du premier hôte
 
-!!! warning "arrêt des VM"
+| Flux | Commutateur et groupe | Liaison montante | Interface ou réglage |
+| --- | --- | --- | --- |
+| Gestion | `vSwitch0` et `GRP-GESTION` | `vmnic0` | VMkernel et adresse déjà en service |
+| Machines virtuelles | `vSwitch1` et `GRP-VMNET` | `vmnic1` et `vmnic2` | Groupe de ports pour les vNIC invitées |
+| Stockage et vMotion | `vSwitch2` et `GRP-STORAGE-VMOTION` | `vmnic3` | VMkernel du réseau de laboratoire en /24, service vMotion activé |
 
-    L’énoncé demande un arrêt propre. La solution montre une option de terminaison
-    forcée des VM avant arrêt de l’hôte. Cette divergence est conservée ; l’option
-    forcée n’est pas reprise comme procédure normale. La couverture de la solution
-    décrit surtout le premier hôte puis demande de reproduire sur le second.
+**Illustration IA / externe au cours — chemin de chaque flux sur un ESXi.**
 
-## Diagnostiquer la séparation des flux
+```mermaid
+flowchart LR
+    G["VMkernel de gestion"] --> A["vSwitch0"] --> N0["vmnic0"]
+    V["vNIC de SRV-1"] --> P["GRP-VMNET"] --> B["vSwitch1"] --> N12["vmnic1 et vmnic2"]
+    S["VMkernel stockage et vMotion"] --> C["vSwitch2"] --> N3["vmnic3"]
+```
 
-Deux groupes de ports d’un même vSwitch sur le même VLAN peuvent communiquer selon la configuration. Pour isoler les flux, vérifier VLAN, raccordement physique et éventuelles règles de filtrage. Les ports trunk doivent transporter les VLAN attendus. Au contrôle, relever le VLAN de chaque groupe et le mode du port physique.
+### B. Créer les groupes et déplacer l’invité
 
-Un teaming répartit des flux suivant une politique. Le débit cumulé concerne plusieurs flux ou vNIC. Pour une liaison agrégée en IP hash, vérifier l’alignement avec le commutateur physique. La sélection du port virtuel, le hachage MAC source et l’ordre de bascule répondent à des besoins distincts. [Politiques de teaming VMware](https://knowledge.broadcom.com/external/article?legacyId=1004088) · [Répartition IP hash](https://knowledge.broadcom.com/external/article/321396/understanding-ip-hash-load-balancing.html)
+1. Démarrer ESXi1. Vérifier les quatre cartes et noter celle utilisée par l’accès actuel.
+2. Garder le commutateur de gestion et renommer son groupe selon le laboratoire. Vérifier que le Host Client reste accessible.
+3. Créer le commutateur des VM avec deux liaisons montantes. Y créer le groupe `GRP-VMNET`.
+4. Créer le commutateur de stockage avec la quatrième carte. Ajouter son VMkernel, renseigner l’adresse /24 prévue et activer vMotion sur cette interface.
+5. Dans les réglages de la VM invitée, déplacer sa vNIC vers `GRP-VMNET`. Contrôler le rattachement avant de retirer l’ancien groupe des VM. Le groupe de gestion reste en service.
+6. Laisser les VLAN inchangés, conformément à l’énoncé.
 
-| Commutateur | Groupe | Cartes et fonction |
-| --- | --- | --- |
-| `vSwitch0` | `GRP-GESTION` | `vmnic0`, gestion déjà configurée. |
-| `vSwitch1` | `GRP-VMNET` | `vmnic1` et `vmnic2`, trafic des VM. |
-| `vSwitch2` | `GRP-STORAGE-VMOTION` | `vmnic3`, interfaces VMkernel en `192.168.XX.1/24` et `192.168.XX.2/24` selon l’hôte. |
+### C. Reproduire sur ESXi2 et contrôler
 
-Activer le service vMotion sur l’**interface VMkernel** concernée. Contrôler d’abord la connexion à l’interface de gestion, puis le rattachement de la vNIC de la VM invitée au nouveau groupe. Un test `vmkping` entre interfaces de stockage peut vérifier leur communication dans le laboratoire. Une réponse valide la connectivité IP du test. Le montage iSCSI et les migrations se vérifient aux ateliers suivants.
+1. Configurer les mêmes rôles de commutateurs et de groupes sur ESXi2.
+2. Donner au second VMkernel de stockage une autre adresse du même /24. Les repères du cours sont `192.168.XX.1/24` et `192.168.XX.2/24`, à remplacer selon le laboratoire.
+3. Contrôler l’accès de gestion sur chacun des deux hôtes. Comparer les groupes, les cartes et le service vMotion.
+4. En complément, tester la connectivité IP depuis le VMkernel concerné avec `vmkping -I <vmk-stockage> <ip-vmkernel-pair>`. Adapter les deux paramètres au laboratoire. Le résultat porte sur l’accès IP. La mise en service du stockage iSCSI et la migration vMotion seront testées dans leurs ateliers. [Vérifier un accès depuis un VMkernel](https://knowledge.broadcom.com/external/article/440803/troubleshooting-network-access-from-esxi.html)
 
-## Question de révision
+## À retenir
 
-La VM reste sur l’ancien groupe qui va être supprimé. Dans quel ordre intervenir ?
+La vNIC d’une VM utilise un groupe de ports. Le VMkernel fournit une connexion à l’hôte pour un service d’infrastructure. Dans l’atelier, garder l’accès de gestion, déplacer la VM sur le nouveau groupe et retirer l’ancien groupe dans cet ordre.
 
-??? success "Correction"
+## Mini-quiz — 5 questions {#question-de-revision}
 
-    Basculer la vNIC vers GRP-VMNET, vérifier sa connectivité et retirer ensuite l’ancien groupe des VM. Garder le groupe de gestion et l’accès à l’ESXi.
+1. Que transporte le tag 802.1Q ?
+2. Où gérer un VSS et un VDS ?
+3. Quelles cartes portent le trafic des VM et le trafic du stockage dans le TP ?
+4. Sur quel objet activer le service vMotion ?
+5. La VM utilise encore le groupe que vous allez supprimer. Quel ordre suivre ?
 
-[Fiche de révision](../../revision/13-virtualisation-serveurs/module-06.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-06/index.md)
+??? success "Réponses commentées"
 
-## Kahoot
+    1. Le marquage permet notamment d’identifier le VLAN de la trame et sa priorité.
+    2. Le VSS se gère sur l’hôte. Le VDS se gère dans le contexte vCenter.
+    3. `vmnic1` et `vmnic2` pour les VM, `vmnic3` pour le réseau de stockage et de vMotion. `vmnic0` reste dédiée à la gestion de la maquette.
+    4. Sur le VMkernel du réseau prévu, après vérification de son adresse et du commutateur associé.
+    5. Déplacer la vNIC, contrôler la connexion, puis supprimer l’ancien groupe des VM. Garder le groupe de gestion.
 
-- [TSSR-Virtualisation de serveurs-Module-06](../../kahoot/13-virtualisation-serveurs-module-06.md)
+## Pour pratiquer et réviser
 
-## Provenance
+- [Énoncé de l’atelier réseau](../../tp/13-virtualisation-serveurs/module-06/tp-01.md) et [correction](../../tp/13-virtualisation-serveurs/module-06/correction-tp-01.md)
+- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-06.md)
+- [Kahoot existant](../../kahoot/13-virtualisation-serveurs-module-06.md)
+- [Sommaire de Virtualisation de serveurs](index.md)
 
-A : support M06, énoncé et solution de gestion réseau, Drive TSSR en lecture seule.
-B : restructuration web fidèle, données de laboratoire neutralisées. Le support
-contient 21 diapositives sur 11 pages, l’énoncé trois pages et la solution 11 pages.
-Aucun laboratoire exécuté, ressource binaire ou commande ajouté.
+## Provenance pédagogique
+
+Le support M06 et l’atelier 4 donnent la segmentation, les composants et la répartition des cartes. Le schéma de synthèse et le contrôle `vmkping` sont des compléments pédagogiques identifiés.

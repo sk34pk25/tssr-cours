@@ -15,13 +15,16 @@ La **consolidation** réduit le nombre d’hôtes physiques en regroupant les ch
 
 Pour préparer un PRA, relever les dépendances et tester le redémarrage des VM dans l’ordre attendu. La perte d’un hôte consolidé peut toucher plusieurs services à la fois.
 
-
 ## Question de révision
 
-Pourquoi un seul hôte physique puissant ne garantit-il pas la disponibilité des services ?
+1. Quatre serveurs sont regroupés sur un hôte. Quel bénéfice et quel contrôle associer ?
+2. Comment reconnaître un hyperviseur de type 2 ?
+3. Quels éléments documenter pour la reprise ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Les VM partagent les ressources et dépendent de l’hôte. Il faut vérifier les conditions de reprise et la capacité d’un hôte de secours.
+    1. La consolidation réduit le nombre de machines physiques. Mesurer la charge simultanée des invités et tester la reprise en cas de panne de l’hôte.
+    2. Il s’exécute sur un système d’exploitation hôte. Vérifier dans le schéma du module où se trouve la couche qui gère les VM.
+    3. Les dépendances entre VM, leurs réseaux et leurs banques de données, l’ordre de redémarrage et la capacité d’un hôte de secours.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-01.md)

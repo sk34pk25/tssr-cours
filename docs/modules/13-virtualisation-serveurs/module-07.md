@@ -1,128 +1,136 @@
 # Module 07 — Gestion du stockage
 
-## Objectif et modes d’accès
+Le même serveur Windows fournit deux chemins de stockage aux ESXi. En iSCSI, les hôtes voient un disque présenté à travers le réseau et utilisent une banque VMFS. En NFS, ils montent directement un partage de fichiers.
 
-Configurer un stockage local ou partagé. Le support distingue la connectique,
-le protocole et le mode d’accès, ainsi que stockage dédié à un hôte et stockage
-mutualisé. Les services dépendent de données ; les contraintes de stockage ont
-donc des conséquences sur leur fonctionnement.
+## Objectifs
 
-| Notion | Présentation du support |
+- Distinguer accès bloc, accès fichier, SAN et NAS.
+- Identifier initiateur, cible, LUN, système de fichiers et datastore.
+- Choisir les repères de provisionnement d’un disque de VM.
+- Configurer les deux banques partagées du TP et vérifier leur accès depuis les deux hôtes.
+
+## 1. Partir du mode d’accès
+
+| Notion | Ce qu’elle désigne |
 | --- | --- |
-| Mode bloc | Données organisées en blocs, accessibles notamment par des commandes SCSI. |
-| SAN | Réseau de stockage donnant accès à des ressources en mode bloc, par exemple via Fibre Channel ou iSCSI. |
-| NAS | Service de fichiers partagé sur le réseau, notamment via NFS ou CIFS/SMB. |
-| iSCSI | Transport réseau de commandes SCSI et de données pour l’accès en mode bloc. |
-| Initiateur iSCSI | Élément qui accède au stockage proposé. |
-| Cible iSCSI | Élément qui met l’espace de stockage à disposition. |
-| LUN | Unité logique de stockage présentée par la baie dans le schéma. |
-| HBA | Adaptateur permettant l’accès aux espaces de stockage après configuration. |
+| Accès bloc | Accès à des blocs de données, notamment avec des commandes SCSI. |
+| SAN | Réseau qui fournit des unités de stockage en mode bloc, par exemple en Fibre Channel ou iSCSI. |
+| NAS | Service de fichiers partagé sur le réseau, notamment en NFS ou CIFS/SMB. |
+| iSCSI | Transport de commandes SCSI et de données sur IP. |
+| Initiateur iSCSI | Adaptateur ou logiciel qui demande l’accès au stockage. |
+| Cible iSCSI | Service qui expose le stockage aux initiateurs autorisés. |
+| LUN | Unité logique de stockage présentée par la cible ou la baie. |
+| HBA ou CNA | Adaptateurs matériels de stockage ou convergents cités par le cours. |
 
-Le support présente comme limites du stockage local les contraintes matérielles,
-la répartition de la tolérance aux pannes entre serveurs, l’effet des sauvegardes
-sur les performances et la distance entre serveur et stockage. La mutualisation
-est la réponse étudiée, avec un choix entre modes bloc et fichier.
+Le stockage local dépend de la capacité et de la tolérance aux pannes de chaque serveur. Les opérations de sauvegarde peuvent peser sur ses performances. La mutualisation facilite l’accès de plusieurs hôtes à une capacité commune. Le protocole, le réseau, le matériel et le système de fichiers déterminent ensuite le chemin d’accès.
 
-## Adaptateurs et banques de données
+Pour iSCSI, le support conseille un réseau dédié et, si possible, redondant. Le MTU de 9000 n’a de sens que si les équipements et les interfaces du chemin le supportent. Le TP réutilise le réseau configuré à l’atelier précédent.
 
-Les **adaptateurs de stockage** relient les solutions aux hôtes. Les **banques de
-données**, ou datastores, sont les conteneurs utilisés pour héberger leurs données.
-Le choix dépend du partage entre hôtes, du protocole, du support, du mode d’accès
-et du système de fichiers.
+## 2. Du périphérique à la banque de données
 
-Le support présente les disques locaux, HBA/CNA matériels et adaptateurs logiciels
-iSCSI ou FCoE. Il associe ces derniers à une charge sur l’hôte ; cette comparaison
-reste celle du document, sans recommandation matérielle actuelle ajoutée.
+Un stockage **DAS** est directement rattaché à l’hôte. Le support montre notamment des connexions SAS, SCSI et SATA. Sur un stockage mutualisé, comparer Fibre Channel, FCoE, iSCSI et NFS selon le support physique, la connectique et le mode d’accès. L’inventaire des adaptateurs d’un ESXi regroupe les disques raccordés, les espaces accessibles via HBA ou CNA matériels et ceux accessibles via des adaptateurs logiciels. Les exemples du cours comprennent des adaptateurs logiciels FCoE et iSCSI. Leur traitement consomme des ressources de l’hôte, à prendre en compte dans le dimensionnement.
 
-Pour iSCSI, il recommande un réseau dédié et si possible redondant. Il mentionne
-un MTU de 9000 **uniquement sous condition de prise en charge de bout en bout**.
-Cette recommandation du support ne devient pas une étape imposée de l’atelier,
-dont les captures conservent le réseau préparé précédemment.
+Une **banque de données**, ou *datastore*, est un espace géré par vSphere pour les fichiers de VM, modèles et images ISO. Dans l’atelier, la banque VMFS est créée au-dessus du LUN iSCSI. La banque NFS référence un export de fichiers. Deux hôtes qui accèdent au même LUN doivent retrouver la même banque VMFS, sans initialiser deux fois le périphérique.
 
-## Datastores et gestion
+**Illustration IA / externe au cours — les deux chemins du laboratoire.**
 
-Le cours présente VMFS, RDM avec VMFS et NFS. Il décrit VMFS comme permettant
-l’accès concurrent en lecture et écriture par plusieurs hôtes. Son tableau
-historique compare VMFS 2, 3, 5 et 6, avec VMFS 6 associé à vSphere 6.5 et supérieur.
-Les cellules fusionnées ou peu explicites ne sont pas reconstituées.
+```mermaid
+flowchart LR
+    subgraph A["Windows Server"]
+        T["Cible iSCSI et disque virtuel 80 Go"]
+        N["Partage NFS 3"]
+    end
+    subgraph B["ESXi1 et ESXi2"]
+        I["Initiateurs iSCSI"] --> V["LUN détecté · VMFS"] --> D["DS-ISCSI"]
+        C["Clients NFS"] --> F["Montage de l’export"] --> E["DS-NFS"]
+    end
+    T --> I
+    N --> C
+```
 
-Les besoins sont à inventorier par usage : production, tests, modèles et ISO, avec
-des attentes de performances, de tolérance aux pannes et de criticité. Les tâches
-présentées sont création/formatage, suivi d’utilisation, extension dynamique,
-parcours/import/export et démontage. Le support cite `ls` en console ou après
-connexion SSH pour voir des fichiers masqués par l’explorateur ; aucune connexion
-ni commande n’est exécutée ici.
+Le cours cite VMFS, NFS et le mappage RDM associé à VMFS. VMFS prévoit l’accès simultané de plusieurs hôtes à une banque partagée. Le tableau historique compare VMFS 2, 3, 5 et 6, avec VMFS 6 associé à vSphere 6.5 et supérieur. Les limites dépendent de la version et du type d’objet mesuré. [Capacités VMFS](https://knowledge.broadcom.com/external/article/410951/vmfs-datastore-maximum-supported-capacit.html)
 
-## Disques des VM et provisionnement
+## 3. Choisir et surveiller l’espace
 
-Le support distingue les fichiers **VMDK** et le mappage direct **RDM**. Il cite
-pour RDM certains besoins liés au SAN ou aux services de cluster Microsoft.
-
-| Provisionnement | Description du support | Point de vigilance cité |
+| Choix | Fonctionnement | Contrôle |
 | --- | --- | --- |
-| Thick | Réservation statique de tout l’espace indiqué dès la création. | Temps de création. |
-| Thin | Allocation à la demande jusqu’au maximum indiqué. | Surallocation possible du datastore. |
+| VMDK | Les données d’un disque de VM sont stockées dans des fichiers | Vérifier la capacité maximale du disque virtuel et la place sur la banque. |
+| RDM | La VM utilise un mappage vers un périphérique de stockage | Vérifier le besoin, notamment pour un scénario SAN ou cluster. |
+| Thick | L’espace demandé est réservé lors de la création | Vérifier la capacité restante et le mode d’initialisation choisi. |
+| Thin | L’espace physique consommé progresse jusqu’à la limite définie | Suivre le taux de remplissage et prévoir une extension avant saturation. |
 
-!!! warning "limites et performances historiques"
+La limite de 2 To mentionnée dans le support est un repère historique. Vérifier la version et le contexte avant d’appliquer une limite ou une conclusion de performance. [VMDK de plus de 2 To](https://knowledge.broadcom.com/external/article?legacyId=2058287)
 
-    Le document affirme une limite VMDK de 2 To et présente le thick comme plus
-    performant. Ces formulations sont conservées comme indications du support
-    historique à contextualiser, sans limite universelle ni classement de
-    performances ajouté pour les versions actuelles.
+Pour administrer une banque, prévoir les tâches décrites dans le support. Créer ou formater, surveiller l’utilisation, étendre si la configuration le permet, parcourir les fichiers, importer, exporter puis démonter lorsque la banque n’est plus utilisée. Le support cite `ls` dans la console ou après une connexion SSH pour certains fichiers masqués dans le navigateur. Réserver l’accès à la console au cadre d’administration prévu.
 
-## Cadre de l’atelier n°5
+## 4. TP guidé — Partager une banque iSCSI et une banque NFS
 
-L’atelier dure deux à trois heures. Il utilise les deux ESXi et leurs réseaux
-préparés aux ateliers 3 et 4, plus une VM Windows Server 2019 restaurée au snapshot
-de fin d’atelier 1. Cette restauration modifie l’état du laboratoire.
+**Durée du support.** Deux à trois heures. Prévoir les deux ESXi et leurs interfaces VMkernel de stockage, ainsi que la VM `SRV_2K19`.
 
-Le serveur reçoit un disque de 150 Go et fournit deux services : une cible iSCSI
-associée à un disque virtuel de **80 Go**, puis un partage **NFS 3**. Chaque ESXi
-accède à la même banque VMFS iSCSI et monte le partage NFS. Le texte parle d’une
-« cible de 80 Go » ; les captures distinguent le disque virtuel et sa cible.
+### A. Préparer le serveur Windows et vérifier le réseau
 
-!!! warning "périmètre du laboratoire"
+1. Revenir au snapshot de fin d’atelier 1 de `SRV_2K19`. Cette opération remplace son état courant dans le laboratoire.
+2. Démarrer la VM et attribuer l’adresse de stockage prévue, représentée par `192.168.XX.12/24`. Les deux VMkernel ont des adresses distinctes du même sous-réseau.
+3. Tester le ping depuis Windows vers chacun des deux VMkernel. Une absence de réponse impose de vérifier le réseau, l’adressage et le filtrage avant de configurer les partages.
+4. Ajouter le disque de **150 Go** et créer le volume `STOCKAGE`. Préparer des dossiers distincts pour iSCSI et NFS, dans l’arborescence `DS`.
 
-    Les paramètres NFS demandés sont sans authentification serveur, avec accès
-    des utilisateurs non mappés et autorisation des deux hyperviseurs en lecture/
-    écriture par adresse. Ils appartiennent au scénario de laboratoire et ne
-    constituent pas une politique de production. Les adresses, noms et chemins
-    internes sont neutralisés. La solution cite le module 6 dans son bandeau,
-    contre le module 7 dans l’énoncé. Le mot « Bonus » final ne contient aucun
-    exercice exploitable ; aucun bonus n’est créé.
+### B. Présenter le disque par iSCSI
 
-## Décomposer les chemins d’accès
+1. Dans le premier ESXi, activer l’adaptateur iSCSI logiciel. Le lier au VMkernel de stockage et ajouter Windows comme cible dynamique.
+2. Sur Windows Server, ajouter **Serveur cible iSCSI** et créer un **disque virtuel de 80 Go** sous `DS\iSCSI`. L’associer à une cible et autoriser les deux initiateurs ESXi aux adresses prévues.
+3. Revenir sur ESXi1, valider et réanalyser les adaptateurs. Vérifier le périphérique **MSFT iSCSI** côté ESXi et l’état connecté sur Windows.
+4. Identifier le LUN de 80 Go. Créer la banque **`DS-ISCSI`** en VMFS en utilisant l’espace prévu.
+5. Configurer le second ESXi vers la même cible et réanalyser. Vérifier la banque existante et son accès. Cette étape ne demande pas un second formatage.
 
-| Objet | Rôle dans le TP |
+### C. Monter le partage de fichiers
+
+1. Dans Windows, ajouter **Serveur pour NFS** et partager le dossier `DS\NFS`.
+2. Reproduire les paramètres de laboratoire de l’énoncé. NFS 3, accès des utilisateurs non mappés, lecture et écriture pour les deux adresses ESXi, sans authentification serveur dans ce scénario.
+3. Sur chacun des ESXi, ajouter un **montage NFS** vers l’export du serveur Windows et nommer la banque `DS-NFS`.
+4. Vérifier le même serveur, le même export et l’accès aux fichiers depuis les deux hôtes.
+
+!!! warning "Différencier les conditions de laboratoire"
+
+    Les permissions NFS de l’atelier et l’absence de CHAP montrée dans le corrigé décrivent une maquette. En production, les règles d’authentification et d’accès dépendent du service et de son environnement. Le document appelle aussi « cible de 80 Go » l’ensemble de la cible et de son disque. Dans l’interface, vérifier ces deux objets séparément.
+
+### D. Lire les preuves de résultat
+
+| Constat attendu | Vérification |
 | --- | --- |
-| Cible iSCSI Windows | Présente le disque virtuel de 80 Go aux initiateurs ESXi autorisés. |
-| LUN | Unité de stockage en mode bloc visible dans les périphériques après la réanalyse. |
-| VMFS | Système de fichiers à créer une fois sur le LUN pour y stocker les fichiers des VM. |
-| NFS | Partage de fichiers distant. Chaque ESXi monte le même export NFS 3. |
-| Datastore | Banque qui présente un espace utilisable à l’inventaire vSphere. |
+| Le réseau stockage est disponible | Les trois adresses du /24 sont distinctes et les chemins vers les VMkernel répondent selon le test. |
+| Les deux ESXi voient le même LUN | Relever le périphérique, l’identité de la cible et le résultat de la réanalyse. |
+| `DS-ISCSI` est commune | La banque créée sur ESXi1 apparaît sur ESXi2. Le LUN n’est initialisé qu’une fois. |
+| `DS-NFS` est montée | Les deux hôtes voient le même export et disposent des droits de laboratoire prévus. |
 
-Depuis `SRV_2K19` sur le réseau stockage `192.168.XX.12/24`, vérifier les deux VMkernel, puis préparer le volume `STOCKAGE` sur le disque de 150 Go. Dans `DS`, distinguer le dossier iSCSI et le dossier NFS. Sur le premier ESXi, utiliser la découverte dynamique iSCSI, réanalyser et vérifier le périphérique **MSFT iSCSI**. Créer `DS-ISCSI` puis retrouver la banque existante sur le second hôte. Monter le partage `DS\NFS` sous `DS-NFS` sur les deux hôtes. Les droits NFS du scénario concernent les deux IP de laboratoire.
+Le bandeau de solution indique module 6 tandis que l’énoncé indique module 7. La mention finale « Bonus » ne contient pas de consigne supplémentaire.
 
-Le support présente des limites historiques du VMDK et de VMFS. Vérifier séparément la taille maximale de la banque et celle du disque virtuel d’après la version et la configuration. Une taille de 2 To ne constitue pas un plafond universel des VMDK. [VMDK de plus de 2 To](https://knowledge.broadcom.com/external/article?legacyId=2058287) · [Capacités VMFS](https://knowledge.broadcom.com/external/article/410951/vmfs-datastore-maximum-supported-capacit.html)
+## À retenir
 
-En thin, prévoir un seuil d’alerte sur la capacité consommée et un plan d’extension. En thick, distinguer la réservation d’espace et la manière dont les blocs sont initialisés. L’intérêt d’un MTU 9000 dépend du réseau. Avant de l’utiliser, vérifier l’ensemble du chemin et le tester avec la taille appropriée.
+En iSCSI, la cible présente un LUN et les hôtes utilisent VMFS pour la banque du TP. En NFS, ils montent un export de fichiers. Vérifier l’identité du stockage partagé avant de le formater ou de le reconfigurer.
 
-## Question de révision
+## Mini-quiz — 5 questions {#question-de-revision}
 
-ESXi2 voit le LUN mais pas la banque. Quel contrôle précède une modification de disque ?
+1. Qui initie la connexion iSCSI dans le TP ?
+2. À quoi correspondent les 80 Go ?
+3. ESXi2 voit le LUN mais pas la banque. Quels contrôles effectuer avant de modifier le disque ?
+4. Quels paramètres comparer sur les deux montages NFS ?
+5. Pourquoi surveiller un datastore qui contient des disques thin ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Vérifier l’identité du LUN, l’accès de l’initiateur et le résultat de la réanalyse. Rechercher la banque existante sans initialiser à nouveau le disque partagé.
+    1. Les adaptateurs logiciels des deux hôtes ESXi contactent la cible du serveur Windows.
+    2. À la taille du disque virtuel iSCSI présenté par la cible. Le volume Windows de stockage fait 150 Go dans le scénario.
+    3. Vérifier le LUN, l’autorisation de l’initiateur, la connectivité et la réanalyse. Rechercher la banque existante avant toute opération d’initialisation.
+    4. Le serveur, le chemin de l’export, la version NFS et les droits de chaque hôte.
+    5. L’espace utilisé augmente avec les écritures. La capacité réellement disponible peut devenir insuffisante avant d’atteindre la somme des tailles annoncées aux VM.
 
-[Fiche de révision](../../revision/13-virtualisation-serveurs/module-07.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-07/index.md)
+## Pour pratiquer et réviser
 
-## Kahoot
+- [Énoncé de l’atelier stockage](../../tp/13-virtualisation-serveurs/module-07/tp-01.md) et [correction](../../tp/13-virtualisation-serveurs/module-07/correction-tp-01.md)
+- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-07.md)
+- [Kahoot existant](../../kahoot/13-virtualisation-serveurs-module-07.md)
+- [Sommaire de Virtualisation de serveurs](index.md)
 
-- [TSSR-Virtualisation de serveurs-Module-07](../../kahoot/13-virtualisation-serveurs-module-07.md)
+## Provenance pédagogique
 
-## Provenance
-
-A : support M07, énoncé de quatre pages et solution de 17 pages, Drive TSSR en
-lecture seule. B : restructuration fidèle avec lecture des captures, sans
-republication de données internes. Aucun TP exécuté ou ressource binaire ajouté. Cette page reste indépendante des objets non publiés.
+Le support M07 et l’atelier 5 fondent les modes d’accès, les réglages et les vérifications. Le schéma clarifie les deux chemins. Les références Broadcom précisent la portée des limites historiques.

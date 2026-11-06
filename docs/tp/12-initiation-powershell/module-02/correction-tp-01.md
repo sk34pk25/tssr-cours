@@ -89,9 +89,9 @@ Indiquez les valeurs de chaque propriété.
 
 Adara Mcintyre True Technician
 
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?
+
 ```text
-Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-avez-vous utilisée ?
 Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
 Get-LocalUser -Name "adara mcintyre"
 ```
@@ -112,10 +112,7 @@ Get-Service -Name Spooler
 
 Bonus
 
-```text
-Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-AccountExpires du compte de l’utilisateur Axel Rios.
-```
+Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.
 
 - Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *
 

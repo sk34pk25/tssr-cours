@@ -14,5 +14,14 @@
 
 **TP 01.** Repérez `HISTFILE` et `PATH`. Après la saisie d’un fichier texte, contrôlez les fins de ligne avec `wc -l` et les extraits avec `head -n 2` et `tail -n 2`. Protégez les chemins cités et vérifiez l’accès avant la lecture.
 
+## Questions flash
+
+1. Comment lire un chemin dont le nom contient des espaces ?
+2. Que mesure `wc -l` si un fichier ne finit pas par un saut de ligne ?
+
+??? success "Réponses commentées"
+    1. Lire avec `IFS= read -r chemin`, puis utiliser `"$chemin"` dans les appels suivants.
+    2. Le nombre de fins de ligne. Le résultat peut différer du nombre de lignes visibles.
+
 - [Cours](../../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts.md)
 - [TP et correction](../../tp/11-initiation-scripting-bash/module-04/index.md)

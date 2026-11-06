@@ -63,9 +63,17 @@ de session du laboratoire sont exclus.
 
 - [Cours M02](../../modules/12-initiation-powershell/module-02.md)
 - [TP 01 — L'objet](../../tp/12-initiation-powershell/module-02/index.md)
+
 ## Autoévaluation
 
-Prenez un objet service et retrouvez son type, ses propriétés et une méthode avec `Get-Member`. Préparez deux contrôles, l’un avant et l’autre après l’action demandée. Comparez ensuite une valeur `DateTime` avec le résultat de `AddDays(1)` et expliquez pourquoi il faut conserver ce dernier si on souhaite le réutiliser.
+1. Comment reconnaître la valeur de retour d’une méthode ?
+2. Que faut-il relever après l’appel à `Stop()` ?
+3. Quel est le résultat de `AddDays(1)` ?
+
+??? success "Réponses commentées"
+    1. Lire la colonne `Definition` de `Get-Member -MemberType Method`.
+    2. L’état issu d’une nouvelle interrogation du service. La méthode ne fournit pas elle-même ce résultat.
+    3. Une nouvelle valeur `DateTime`. Elle peut être stockée puis comparée à la date initiale.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-02.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-02/index.md)

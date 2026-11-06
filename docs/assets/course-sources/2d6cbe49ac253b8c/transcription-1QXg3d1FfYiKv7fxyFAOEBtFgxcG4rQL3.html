@@ -198,17 +198,17 @@ New-Mailbox -Name &quot;vidéoproj_1&quot; -DisplayName &quot;vidéoproj_1&quot;
 <section class="tssr-transcribed-page" id="page-16">
 <h3>Destinataires et permissions Exchange Online</h3>
 <h3>Les différents types de destinataires</h3>
-<h3>Boîte aux lettres</h3>
-<h3>de ressource Option d&#x27;invitation</h3>
-<ul><li>Demande de réunion</li></ul>
-<h3>Boîte aux lettres de salle</h3>
+<h4>Demande de réunion</h4><ul><li>Boîte aux lettres de salle</li><li>Boîte aux lettres de ressource</li><li>Option d’invitation</li></ul>
+
+
+
 <h3>Destinataires et permissions Exchange Online</h3>
 <h3>Les différents types de destinataires</h3>
-<ul><li>Boîte aux lettres partagées</li><li>Plusieurs utilisateurs peuvent accéder à une Boîte aux lettres partagée</li><li>Gain de licence (attention à bien respecter les CGU…)</li><li>Possibilité de fixer un mot de passe (accès smartphone)</li><li>Attention aux délégations</li><li>« Accès total » permet aux utilisateurs de voir les messages</li><li>« Envoyer en tant que » permet d&#x27;envoyer des messages en tant que cette boîte aux lettres</li><li>Attention à la gestion des mails (éléments envoyés)</li></ul>
-<p>New-Mailbox –Shared –Name &quot;support&quot; –DiplayName &quot;support&quot; –Alias &quot;support&quot; | Set-Mailbox –GrantSendOnBehalfTo jpetit@domaine-labo-4.example | Add-MailboxPermission –User &quot;Jean Petit&quot; –AccesRights FullAccess –InheritanceType All</p>
-<h4>Exemples de boîte partagée et de délégation dans la capture</h4><pre><code>New-Mailbox -Shared -Name &quot;support&quot; -DisplayName &quot;support&quot; -Alias &quot;support&quot;
+<ul><li>Boîte aux lettres partagées</li><li>Plusieurs utilisateurs peuvent accéder à une Boîte aux lettres partagée</li><li>Gain de licence (attention à bien respecter les CGU…)</li><li>Possibilité de fixer un mot de passe (accès smartphone)</li><li>Attention aux délégations</li><li>« Accès total » permet aux utilisateurs de voir les messages</li><li>« Envoyer en tant que » permet d'envoyer des messages en tant que cette boîte aux lettres</li><li>Attention à la gestion des mails (éléments envoyés)</li></ul>
+<p>New-Mailbox –Shared –Name "support" –DiplayName "support" –Alias "support" | Set-Mailbox –GrantSendOnBehalfTo jpetit@domaine-labo-4.example | Add-MailboxPermission –User "Jean Petit" –AccesRights FullAccess –InheritanceType All</p>
+<h4>Exemples de boîte partagée et de délégation dans la capture</h4><pre><code>New-Mailbox -Shared -Name "support" -DisplayName "support" -Alias "support"
 Set-Mailbox -GrantSendOnBehalfTo jpetit@example.com
-Add-MailboxPermission -User &quot;Jean Petit&quot; -AccessRights FullAccess -InheritanceType All</code></pre><p>Les deux fragments de délégation affichés dans la capture omettent l’identité de la boîte cible.</p>
+Add-MailboxPermission -User "Jean Petit" -AccessRights FullAccess -InheritanceType All</code></pre><p>Les deux fragments de délégation affichés dans la capture omettent l’identité de la boîte cible.</p>
 </section>
 <section class="tssr-transcribed-page" id="page-17">
 <h3>Destinataires et permissions Exchange Online</h3>
@@ -284,23 +284,23 @@ Add-MailboxPermission -User &quot;Jean Petit&quot; -AccessRights FullAccess -Inh
 <h3>Administrer Exchange Online</h3>
 <h3>Les connecteurs</h3>
 <ul><li>L’une des utilisations les plus communes est d’utiliser un relais SMTP en interne :</li></ul>
-<h3>Réseau de votre organisation</h3>
-<h3>Vos boîtes aux lettres Office 365</h3>
-<p>Imprimante multifonction ou périphérique (par exemple, numérisation vers la messagerie)</p>
-<h3>Internet</h3>
-<p>Service Web hébergé localement (par exemple, un service de paie)</p>
-<p>Authentification à l’aide des informations d’identification De boîte aux lettres Office 365</p>
-<p>Site Web hébergé localement (par exemple, un site intranet des RH)</p>
-<h3>Message envoyé à</h3>
-<h3>Smtp.office365.com</h3>
-<h3>des destinataires</h3>
-<h3>sur le port 587</h3>
-<h3>externes</h3>
-<h3>Destinataires extérieurs à votre</h3>
-<ul><li>Simplifier la configuration des équipements (authentification non obligatoire en interne)</li><li>Limiter le nombre de machines pouvant exploiter le protocole SMTP et ainsi limiter la surface d’attaque</li><li>Établir une configuration sécurisée entre votre relais SMTP interne et Microsoft 365 (pas toujours possible sur les équipements)</li><li>Limiter le nombre d’entrées dans le SPF</li></ul>
-<h3>société</h3>
-<h3>Connectivité des clients</h3>
-<h3>de messagerie</h3>
+<ul><li>Simplifier la configuration des équipements (authentification non obligatoire en interne)</li><li>Limiter le nombre de machines pouvant exploiter le protocole SMTP et ainsi limiter la surface d’attaque</li><li>Établir une configuration sécurisée entre votre relais SMTP interne et Microsoft 365 (pas toujours possible sur les équipements)</li><li>Limiter le nombre d’entrées dans le SPF</li></ul><h4>Relais SMTP illustré</h4><table><caption>Éléments du trajet dans le schéma</caption><thead><tr><th scope="col">Emplacement</th><th scope="col">Éléments ou indications</th></tr></thead><tbody><tr><td>Réseau de votre organisation</td><td>Imprimante multifonction ou périphérique (par exemple, numérisation vers la messagerie), service Web hébergé localement (par exemple, un service de paie), site Web hébergé localement (par exemple, un site intranet des RH)</td></tr><tr><td>Internet</td><td>Smtp.office365.com sur le port 587. Authentification à l’aide des informations d’identification de boîte aux lettres Office 365.</td></tr><tr><td>Destinataires</td><td>Vos boîtes aux lettres Office 365. Message envoyé à des destinataires externes, extérieurs à votre société.</td></tr></tbody></table><h3>Connectivité des clients de messagerie</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <section class="tssr-transcribed-page" id="page-26">
 <h3>Connectivité des clients de messagerie</h3>
@@ -499,28 +499,28 @@ Start-ADSyncSyncCycle -PolicyType Delta</code></pre>
 <h3>RBAC</h3>
 <h3>Délégation de privilèges</h3>
 <ul><li>Pour une gestion fine de l’attribution de droits d’administration Exchange, il existe une console nommée RBAC (Role Based Access Control)</li><li>Basé sur des rôles prédéfinis, vous pourrez attribuer à des utilisateurs ou techniciens des privilèges pour administrer la partie Exchange Online de Microsoft 365</li><li>L’affectation de permissions devra se faire au travers de comptes administrateurs spécifiques et avec le principe du privilège minimum</li></ul>
-<p>Gestion des licences Les différents rôles administrateur Microsoft 365</p>
-<h3>Nom dans l&#x27;admin center de Office365</h3>
-<h3>Nom Dans PowerShell Rôle</h3>
-<h3>Administrateur général Company administrator</h3>
-<p>Il a accès à toutes les fonctionnalités. Celui qui a acheté Microsoft 365 a ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</p>
-<h3>Administrateur de</h3>
-<h3>facturation</h3>
-<h3>Billing administrator</h3>
-<p>Il effectue les achats, gère les abonnements et les tickets support. Il surveille l&#x27;état des services.</p>
-<h3>Administrateur de mot</h3>
-<h3>de passe</h3>
-<h3>Helpdesk administrator</h3>
-<p>Il réinitialise les mots de passe. Il gère les tickets support et surveille l&#x27;état des services.</p>
-<h3>Administrateur de</h3>
-<h3>Service support</h3>
-<p>Il gère les tickets support et surveille l&#x27;état des services.</p>
-<h3>service</h3>
-<h3>administrator</h3>
-<h3>Administrateur de gestion des utilisateurs</h3>
-<h3>User account administrator</h3>
-<p>Il créé et supprime des utilisateurs et des groupes, réinitialise les mots de passe, gère les tickets support et surveille l&#x27;état des services.</p>
-<table><thead><tr><th scope="col">Nom dans l&#x27;admin center de Office365</th><th scope="col">Nom Dans PowerShell</th><th scope="col">Rôle</th></tr></thead><tbody><tr><td>Administrateur général</td><td>Company administrator</td><td>Il a accès à toutes les fonctionnalités. Celui qui a achetéMicrosoft 365 a ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</td></tr><tr><td>Administrateur de facturation</td><td>Billing administrator</td><td>Il effectue les achats, gère les abonnements et les tickets support. Il surveille l&#x27;état des services.</td></tr><tr><td>Administrateur de mot de passe</td><td>Helpdesk administrator</td><td>Il réinitialise les mots de passe. Il gère les ticketssupport et surveille l&#x27;état des services.</td></tr><tr><td>Administrateur de service</td><td>Service support administrator</td><td>Il gère les ticketssupport et surveille l&#x27;état des services.</td></tr><tr><td>Administrateur de gestion des utilisateurs</td><td>User account administrator</td><td>Il créé et supprime des utilisateurset des groupes, réinitialise les mots de passe, gère les ticketssupport et surveille l&#x27;état des services.</td></tr></tbody></table>
+<h3>Gestion des licences</h3><table><caption>Les différents rôles administrateur Microsoft 365</caption><thead><tr><th scope="col">Nom dans l’admin center de Office365</th><th scope="col">Nom dans PowerShell</th><th scope="col">Rôle</th></tr></thead><tbody><tr><td>Administrateur général</td><td>Company administrator</td><td>Il a accès à toutes les fonctionnalités. Celui qui a acheté Microsoft 365 a ce rôle par défaut. Ne donnez pas ce rôle à tout le monde.</td></tr><tr><td>Administrateur de facturation</td><td>Billing administrator</td><td>Il effectue les achats, gère les abonnements et les tickets support. Il surveille l'état des services.</td></tr><tr><td>Administrateur de mot de passe</td><td>Helpdesk administrator</td><td>Il réinitialise les mots de passe. Il gère les tickets support et surveille l'état des services.</td></tr><tr><td>Administrateur de service</td><td>Service support administrator</td><td>Il gère les tickets support et surveille l'état des services.</td></tr><tr><td>Administrateur de gestion des utilisateurs</td><td>User account administrator</td><td>Il créé et supprime des utilisateurs et des groupes, réinitialise les mots de passe, gère les tickets support et surveille l'état des services.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <section class="tssr-transcribed-page" id="page-44">
 <h3>Gestion des licences</h3>
@@ -541,12 +541,12 @@ Start-ADSyncSyncCycle -PolicyType Delta</code></pre>
 <section class="tssr-transcribed-page" id="page-45">
 <h3>RBAC</h3>
 <h3>Rôles personnalisés</h3>
-<h3>2</h3>
-<ul><li>Créez vos propres rôles</li></ul>
-<h3>1</h3>
-<h3>3</h3>
-<h3>4</h3>
-<h3>5</h3>
+<p>Créez vos propres rôles</p><ol><li>Dans le centre d’administration Exchange, ouvrir Rôles, puis Rôles d’administrateur.</li><li>Choisir Ajouter un groupe de rôles.</li><li>Dans Configurer les informations de base, renseigner le nom. Le support montre « Rôle personnalisé ».</li><li>Dans Autorisation, sélectionner les rôles à attribuer au groupe.</li><li>Dans Affecter des administrateurs, rechercher les membres par nom ou par adresse de courriel.</li></ol>
+
+
+
+
+
 </section>
 <!-- SOURCE-CONTENT:END -->
 </body></html>

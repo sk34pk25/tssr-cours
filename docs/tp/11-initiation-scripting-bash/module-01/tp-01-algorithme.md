@@ -25,3 +25,11 @@ Produire un pseudo-code puis un organigramme qui permettent :
 6. d’allumer la cafetière.
 
 Les vidéos du module 1 et le TP précédent sont cités comme prérequis documentaires, mais ils ne font pas partie des sources M01 disponibles.
+
+## Preuves à relever
+
+1. Préparez deux traces, l’une avec une ressource manquante et l’autre avec deux tasses et toutes les ressources.
+2. Notez le résultat de chaque décision et les valeurs successives de `d`.
+3. Comparez la trace de votre pseudo-code à celle de votre organigramme. L’allumage vient après les deux ajouts dans le cas réussi.
+
+[Pseudo-code corrigé](correction-pseudo-code.md) · [Organigramme corrigé](correction-organigramme.md)

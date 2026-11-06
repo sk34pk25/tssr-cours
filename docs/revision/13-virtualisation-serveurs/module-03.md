@@ -16,13 +16,16 @@ Relier hôte, hyperviseur, VM et outils de gestion à une infrastructure physiqu
 
 Le support emploie VMM comme terme générique pour la gestion des VM. Distinguer ce terme du nom de produits de gestion. Pour la disponibilité, identifier les mécanismes de reprise des VM, les réseaux et les banques accessibles aux hôtes ainsi que les points de panne communs.
 
-
 ## Question de révision
 
-La console centrale voit deux hôtes. Que reste-t-il à vérifier avant d’annoncer une reprise automatique ?
+1. Que représente la configuration d’une VM par rapport à son disque ?
+2. Un outil de gestion voit deux hôtes. Leurs VM partagent-elles nécessairement le même stockage ?
+3. Quels renseignements permettent de comparer deux hôtes avant de regrouper les VM ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    La présence et le fonctionnement du mécanisme de disponibilité, la capacité restante et l’accès du second hôte aux fichiers et réseaux nécessaires à la VM.
+    1. La configuration décrit les ressources et périphériques virtuels. Le disque conserve le contenu utilisé par le système invité.
+    2. Vérifier les banques de données accessibles par chacun. L’inventaire commun ne prouve pas l’accès au stockage.
+    3. CPU, mémoire, réseau, stockage et ressources consommées, puis les dépendances et contraintes de reprise des invités.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-03.md)

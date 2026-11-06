@@ -50448,7 +50448,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/093b0952e91c8ab2/transcription-1eFOzHmjkgvoaFtUTU5J85KTrqDlH7v8h.html",
-      "transcriptionSha256": "2feb8aff72dc903c016b6970c5dd8b269495aa8695188ded7267d6744773f3ac",
+      "transcriptionSha256": "092ecf8a8fae9fe80c2b9a61c45ab807f5c5569dab359f1668e79daf4c05daeb",
       "pages": [
         {
           "number": 1,
@@ -50684,7 +50684,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/f0d6685dbc44dec9/transcription-1ruZignmyI2vKV4BJy8Udzl9Pkq9CtwW2.html",
-      "transcriptionSha256": "d8c5eae7bc4ebc5e01c1e27c2599abd905c44c8c968bcec28c6d2ba2d569e899",
+      "transcriptionSha256": "c2932e6242d9d1313faf17bb8b7a3e2e5ab18f8e27ae0ef0f85bf8043039482a",
       "pages": [
         {
           "number": 1,
@@ -52949,7 +52949,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/36507f9b95b90749/transcription-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga.html",
-      "transcriptionSha256": "5ec320c822da0da9d9c362fe5bed9b8ded97a30e532a97465d53707c64fec1b9",
+      "transcriptionSha256": "6fd15af24ef88ca4c406d63a7ab9a702889fafbf1c7d6cfc9ab685157ceee1e7",
       "pages": [
         {
           "number": 1,
@@ -53019,7 +53019,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/b233ed14007424a6/transcription-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ.html",
-      "transcriptionSha256": "5d77a6474edc639e7ae5deb6c84ab3bce561c204bcb42a66b5b5cbb3bcdb5226",
+      "transcriptionSha256": "7df2738ac918675eb3baebee5b51f003c5570e5924d389937a0bbea2e624c555",
       "pages": [
         {
           "number": 1,
@@ -53099,7 +53099,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/05fe89244edfff8f/transcription-1QFC1_tXd6PhXvwUg0gisgE7SABd8fBf1.html",
-      "transcriptionSha256": "377544235e6ebff558e9ef179ad66dbc04c6d5bcd5515e2f658030899c13d5ff",
+      "transcriptionSha256": "a2f3b1db7166574066b58b3d33c17a7c554d0d91e46fa2a188b3a734de67eff3",
       "pages": [
         {
           "number": 1,
@@ -55393,7 +55393,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/bd72edfae79c22a0/transcription-1TqWsLOg5YcprfveeH7NzxLpEr8QNWTWB.html",
-      "transcriptionSha256": "531c72a7c34aa541ed2bf4784ee02113d6b01e5b6c86021fefcfaf7b6c104ba7",
+      "transcriptionSha256": "4661d73e75bf26c095082b8cd4407a638fd942c727845123b4554f539ee5dc41",
       "pages": [
         {
           "number": 1,
@@ -55604,7 +55604,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/0b856b384bf49271/transcription-1xn1SKBNjc5eBQSLwmp2ZYpD-iUlG4SA7.html",
-      "transcriptionSha256": "afd857a4f42ccd6713810e131bc4b2ee5422e14e7146a8c936abfa077fbd5043",
+      "transcriptionSha256": "37301aa920826c063d54dc409a52764862a0b17c4a10caeb4bd05c737143e4ed",
       "pages": [
         {
           "number": 1,
@@ -56644,7 +56644,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/3c336006434e1b83/transcription-17gKQ4X46H6zq3ZYZtll4gFhX-l7sTvaH.html",
-      "transcriptionSha256": "0d7d5af40a705fc6e2c2910d3cd0e8a3295826a47b22e8f75a522cf9e4f3594e",
+      "transcriptionSha256": "3f047ae543ea5041777eaf6150547739efd0752e9044b6efaff7b206ba28af3b",
       "pages": [
         {
           "number": 1,
@@ -58630,7 +58630,7 @@
       "legacyOriginal": "assets/course-sources/ea6cf1bcebe9ae20/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/ea6cf1bcebe9ae20/transcription-1qCsojBU2zSMsawu4PupwZkXbXJSpGSaI.html",
-      "transcriptionSha256": "ab17a7838be1f97e5570ffc11d823231a8068c0dc512c7bc9ac3d7199b2de37b",
+      "transcriptionSha256": "f2c6e696cb1703449e834ab1a7749f4a00a2ad6fc1c30f4bdb040db17b0c4f21",
       "pages": [
         {
           "number": 1,
@@ -58677,7 +58677,7 @@
           "nativeSha256": "98fbdd5668dadb5a2bfb6794f28a84ab2a479c6c7b55fccd0ac823cafbcb0fdb",
           "nativeWords": 150,
           "ocrWords": 8,
-          "tables": 0,
+          "tables": 2,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 5
@@ -61966,7 +61966,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/30380f017a48637a/transcription-1GLjA5f2bv_wItuCtVq5gmJ00cfvMr4k_.html",
-      "transcriptionSha256": "69c926530ddb17f2b0018c1bc64f11b79341663f2f38b1753df7695d8329eede",
+      "transcriptionSha256": "45dee915d262cb50708382b7540f4c987e428126ffb4b570f292301cfb424cd7",
       "pages": [
         {
           "number": 1,
@@ -63395,7 +63395,7 @@
       "sourceNotice": "Le PDF classé dans le module 3 est identique, par SHA-256, au document correspondant du module 2. Transcription du document source. Les parcours et libellés historiques sont conservés. Les mots de passe, codes de validation et coordonnées nominatives sont neutralisés. Les noms de domaine d’accès des exemples utilisent des domaines réservés à la documentation.",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/2d6cbe49ac253b8c/transcription-1QXg3d1FfYiKv7fxyFAOEBtFgxcG4rQL3.html",
-      "transcriptionSha256": "9df5e99c67ea122f0189baf8ebc84be1b629b6a7d759381f0591488c4cf168a0",
+      "transcriptionSha256": "74c672746305e90ff4f3195116aed1f4152460efb0e81df384002df6c34b9b59",
       "pages": [
         {
           "number": 1,
@@ -63642,7 +63642,7 @@
           "nativeSha256": "795d271f449e6dd8dfaa230deac54462ad23322c9bfa5f534684968198545737",
           "nativeWords": 144,
           "ocrWords": 89,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -64476,7 +64476,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/2d6cbe49ac253b8c/transcription-1D_WQ8CSn6GRFx1z-cJiwJT2TLAV6_Y4y.html",
-      "transcriptionSha256": "761c70c4c88fd38602a8137d2fbdee786009673913b4459f0e1a8e53a29cdd70",
+      "transcriptionSha256": "924f159f8f99c1b4460cf3cd7ae429a1ee49536c83a518758b5dc789a6a6766c",
       "pages": [
         {
           "number": 1,
@@ -64723,7 +64723,7 @@
           "nativeSha256": "795d271f449e6dd8dfaa230deac54462ad23322c9bfa5f534684968198545737",
           "nativeWords": 144,
           "ocrWords": 89,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -65558,7 +65558,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/94b0952ee81d37c6/transcription-1Se_Xcs1zz1yiD0x5WAi_ALNW5AgJFklA.html",
-      "transcriptionSha256": "a516efe6d56b0c08879526ac3985d484abb6ecf506eb093b60c102d8344432c8",
+      "transcriptionSha256": "edacf5b91dd471d5d893ad1c191a6b0bae017c40516a4f0815aab7bb10a450be",
       "pages": [
         {
           "number": 1,
@@ -65595,7 +65595,7 @@
           "nativeSha256": "47a0664ad2f1434d86925e7c0dcd4a5f222b0ac22cea23c6e17892ff16b5cfde",
           "nativeWords": 98,
           "ocrWords": 99,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -65705,7 +65705,7 @@
           "nativeSha256": "64e030d7a50563811d3d6c9cede11b2ded00f70831d50646c3f0975b91b78175",
           "nativeWords": 38,
           "ocrWords": 49,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 8
@@ -67643,7 +67643,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/9cccc6951103fe48/transcription-1HSWdLoQeka8x86zyHULWXauf0IGWW-d2.html",
-      "transcriptionSha256": "069c3363a4117d09d1455d73fe047cbdff92b1e82db0fed631934785419770db",
+      "transcriptionSha256": "de957b3abd060709dfb0bbc2dbd6a09db05bc23976c494d3ed6f1a08e1a63928",
       "illustrationCount": 3,
       "figures": [
         {
@@ -67668,7 +67668,7 @@
               "index": 0
             }
           ],
-          "caption": "Capture isolée du support, page 5"
+          "caption": "Modification du groupe de ports GRP-GESTION sur vSwitch0."
         },
         {
           "path": "assets/course-sources/isolated/9cccc6951103fe48/v13-d05-p09-i3.webp",
@@ -67766,7 +67766,7 @@
           "nativeSha256": "9f9e5662052c30e610611d4b1252fe71c069179a7276caa40009a2aead913750",
           "nativeWords": 73,
           "ocrWords": 0,
-          "tables": 0,
+          "tables": 1,
           "figures": 1,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 3
@@ -67896,7 +67896,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/89509a521e376c8b/transcription-1No0xQoKZ0i6p59XLY7nhFdyXYZHFW-wH.html",
-      "transcriptionSha256": "a45175b7f0934f518f6c2899d8d59e7cffaa8fb1618b797b2b53d3a5821c23af",
+      "transcriptionSha256": "263dae142cf037c90831372ae99e28e0e5fa260a560cbcf8eed8580438a03f3b",
       "illustrationCount": 1,
       "figures": [
         {
@@ -67941,7 +67941,7 @@
           "nativeSha256": "df5a8555e097b95cc13ca86225802c849c6ac8a851f98a7e4b5df06b70e2d1ad",
           "nativeWords": 96,
           "ocrWords": 0,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
@@ -67961,7 +67961,7 @@
           "nativeSha256": "5201db7ceacda58e1d8aca43ec77050876a96d45f37a0b6f00fd32693caac8ae",
           "nativeWords": 259,
           "ocrWords": 0,
-          "tables": 0,
+          "tables": 2,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 2
@@ -68767,7 +68767,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/79ec6dff67e456df/transcription-1C2VQDIMlzps9N515P837u_4arX_qYyiD.html",
-      "transcriptionSha256": "97769101e91b7aa3ef09f5b8774ad86d662becb123044bc99fe714987b107313",
+      "transcriptionSha256": "133511c1a227d643a2c881d25f9b058ba16f91216e4cdc5eb85f60bb6a19421c",
       "illustrationCount": 0,
       "figures": [],
       "glyphs": [],

@@ -50,16 +50,16 @@ M02.
 
 ## Provenance
 
-Contenu A : support, énoncé et solution M02 consultés dans Drive TSSR en lecture seule.
-Contenu B : synthèse web limitée aux sources.
-
-
 ## Question de révision
 
-L’invité a une adresse dans VMnet8 et le TP attend Bridged. Quel réglage contrôler en premier ?
+1. La VM reçoit une adresse du réseau NAT. Quel contrôle rétablit l’attendu du TP ?
+2. Quelle différence vérifier entre le nom de la VM et le nom d’hôte de Windows ?
+3. Quelle preuve garder avant de passer à Hyper-V ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Ouvrir les paramètres de la carte virtuelle et confirmer le mode de connexion. Vérifier ensuite l’interface physique choisie et l’adressage dans Windows.
+    1. Contrôler le réseau de la carte virtuelle, puis le pont et la carte physique utilisée. Le scénario final demande Bridged.
+    2. Le premier se lit dans l’inventaire Workstation. Le second se vérifie dans le système invité après son démarrage.
+    3. Les ressources et les extensions processeur exposées, le réseau Bridged, les outils invités et le snapshot demandé après arrêt de la VM.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-02.md)

@@ -177,18 +177,105 @@ L’index d’un événement et sa position dans le tableau sont deux valeurs di
 
 Le script fourni pour la dernière consigne réinitialise le mot de passe des utilisateurs sélectionnés puis réactive les comptes inactifs. Sa valeur de démonstration est neutralisée dans Original. La variante pédagogique de la correction utilise une saisie sécurisée et une OU de laboratoire explicite pour rendre la portée de l’exercice vérifiable.
 
+## TP guidé
+
+### Contrôler le journal et les bornes du tableau
+
+En Windows PowerShell dans la maquette, prendre un instantané du journal. Les positions 10 et 20 nécessitent au moins 21 entrées. Relever l’objet à la position 10, sa propriété `Index` puis additionner les deux valeurs demandées.
+
+```powershell
+$events = @(Get-EventLog -LogName System)
+if ($events.Count -lt 21) {
+    throw 'Le journal ne contient pas 21 entrées.'
+}
+$events[10] | Select-Object Index,TimeGenerated
+$sommeIndex = $events[10].Index + $events[20].Index
+$sommeIndex
+```
+
+### Faire converger la devinette
+
+Choisir le format `yyyy-MM-dd` et convertir les saisies avant de les comparer. Traiter la saisie invalide dans un bloc distinct et compter uniquement les essais valides pour le bonus. La condition d’arrêt teste l’égalité des dates.
+
+```powershell
+$culture = [Globalization.CultureInfo]::InvariantCulture
+$cible = [datetime]::ParseExact((Read-Host 'Date cible yyyy-MM-dd'), 'yyyy-MM-dd', $culture)
+$essais = 0
+$trouve = $false
+do {
+    $saisie = Read-Host 'Proposer une date yyyy-MM-dd'
+    try {
+        $date = [datetime]::ParseExact($saisie, 'yyyy-MM-dd', $culture)
+    } catch {
+        Write-Host 'Date invalide'
+        continue
+    }
+    $essais++
+    if ($date -lt $cible) {
+        Write-Host 'La date proposée est antérieure'
+    } elseif ($date -gt $cible) {
+        Write-Host 'La date proposée est postérieure'
+    } else {
+        $trouve = $true
+        Write-Host "Bravo, date trouvée en $essais essai(s)."
+    }
+} until ($trouve)
+```
+
+### Vérifier les collections et le menu AD
+
+Sur l’OU du TP, relever une seule liste d’utilisateurs, puis répartir les objets dans `$UserActif` et `$UserInactif` avec `if` et `foreach`. Utiliser un tableau même quand aucune valeur ne correspond. Contrôler que les deux nombres additionnés correspondent à la taille de la liste de départ.
+
+```powershell
+$ou = Read-Host "DN de l’OU de laboratoire"
+if ([string]::IsNullOrWhiteSpace($ou)) {
+    throw "Préciser l’OU du TP."
+}
+$users = @(Get-ADUser -Filter * -SearchBase $ou -ErrorAction Stop)
+$UserActif = @()
+$UserInactif = @()
+foreach ($user in $users) {
+    if ($user.Enabled) {
+        $UserActif += $user
+    } else {
+        $UserInactif += $user
+    }
+}
+[pscustomobject]@{
+    Total = $users.Count
+    Actifs = $UserActif.Count
+    Inactifs = $UserInactif.Count
+}
+```
+
+| Choix du menu | Action attendue | Contrôle |
+| --- | --- | --- |
+| 1 | Interroger les ordinateurs du domaine | Vérifier que la commande renvoie les machines prévues |
+| 2 | Interroger les groupes de portée DomainLocal | Contrôler le champ `GroupScope` |
+| 3 | Lire le CSV d’utilisateurs et préparer l’import | Contrôler le chemin, les colonnes, les doublons et l’OU avant toute création |
+| 4 | Quitter la boucle | Vérifier que le menu n’est pas réaffiché |
+| Autre saisie | Afficher l’erreur et reproposer le menu | Tester une chaîne vide et un choix hors limites |
+
+Pour la dernière consigne, limiter les comptes aux objets inactifs identifiés dans l’OU du TP. Faire relire la liste avant toute réinitialisation ou réactivation. La correction propose une saisie sécurisée et explique comment vérifier `Enabled` après une intervention autorisée.
+
+## À retenir
+
+Vérifier le type d’une saisie avant sa comparaison et la taille d’un tableau avant son indexation. Dans un menu, tester une entrée valide, une entrée inconnue et la sortie. Pour Active Directory, contrôler la sélection avant d’appliquer les changements.
+
 ## Mini-quiz
 
 1. Combien de tours minimum effectue `do ... until` ?
 2. Quelle différence entre `$events[10]` et `$events[10].Index` ?
 3. Pourquoi une comparaison numérique après `Read-Host` demande-t-elle de vérifier le type ?
 4. Que renvoie `ArrayList.Add()` ?
+5. Quel contrôle valide la séparation des utilisateurs actifs et inactifs ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Un tour.
     2. Le premier est l’objet à la position 10. Le second est la propriété `Index` de cet objet.
     3. La saisie arrive comme chaîne.
     4. L’indice de l’élément ajouté.
+    5. Additionner les deux `Count` et les comparer au nombre total d’objets sélectionnés dans la même interrogation de départ.
 
 ## Travaux pratiques et révision
 

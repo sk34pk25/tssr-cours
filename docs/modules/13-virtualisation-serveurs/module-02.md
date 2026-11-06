@@ -1,144 +1,133 @@
 # Module 02 — Les applications de virtualisation d’environnements sur un poste de travail
 
+L’atelier construit une VM Windows Server 2019 dans VMware Workstation 16. Cette VM devient l’hôte Hyper-V du module 4. Vérifier dès maintenant la configuration du processeur, le raccordement au réseau et l’état final de la VM évite de reprendre l’installation plus tard.
+
 ## Objectifs
 
-À l’issue du module, les sources visent à permettre de :
+- Repérer les composants de Workstation et les réglages d’une machine virtuelle.
+- Choisir entre Host-only, NAT, Bridged et LAN segment selon les échanges recherchés.
+- Préparer et installer la VM `SRV_2K19` avec les paramètres de l’atelier.
+- Contrôler l’installation, les outils invités et le snapshot final.
 
-- comprendre le fonctionnement d’une application de virtualisation de serveurs ;
-- configurer et mettre en place une machine virtuelle avec **VMware Workstation**.
+## 1. Préparer le poste et lire la console
 
-## Repères historiques du module
+Le support utilise Workstation 16. La solution illustre aussi Workstation 16 Pro et une compatibilité matérielle 16.2.x. Relever la version du logiciel et celle du matériel virtuel avant de déplacer une VM vers un autre poste. Le document prévoit une installation de Workstation avec les paramètres par défaut.
 
-Le support présente **VMware Workstation 16**. Les captures documentaires citent aussi
-Workstation 16 Pro et une compatibilité 16.2.x. Ces références sont des repères
-historiques des sources TSSR : elles ne décrivent pas une version actuelle du produit.
-
-## Prérequis matériels et installation
-
-Le support cite les prérequis suivants :
-
-- un processeur Intel VT-x ou AMD-V, avec l’attention portée aux réglages BIOS/UEFI ;
-- une quantité de mémoire vive et un espace disque adaptés ;
-- l’installation de VMware Workstation avec les paramètres par défaut.
-
-Le support rappelle également un point de compatibilité : une VM d’ancienne version
-fonctionne avec une version plus récente de Workstation, tandis qu’une VM de nouvelle
-version ne fonctionne qu’avec cette version. Cette formulation est conservée au niveau
-du support, sans ajout de règle externe.
-
-## Console et gestion des machines virtuelles
-
-La console VMware Workstation présentée par le support :
-
-- affiche la liste des machines virtuelles dans la *Library* ;
-- permet d’ajouter, de créer ou de mentionner l’import d’une machine virtuelle ;
-- donne accès au démarrage et aux réglages matériels de la VM sélectionnée ;
-- affiche le système virtualisé lorsque la VM est démarrée.
-
-Le support ne fournit pas de procédure complète d’import dans ce module.
-
-## Matériel virtuel et stockage
-
-Une machine virtuelle peut être paramétrée avec des ressources de processeur, de
-mémoire, de disque, de CD/DVD, de réseau et de périphériques. La fonction
-`Virtual Machine Settings` est présentée comme le point d’accès aux paramètres initiaux,
-à l’ajout ou à la suppression de matériel et, pour certains composants, à des réglages à
-chaud.
-
-Pour le disque virtuel, le support indique que l’espace est utilisé au fur et à mesure des
-besoins. Il présente aussi le stockage dans un fichier unique dans un contexte de
-performance. Dans l’atelier, ce choix appartient aux paramètres du scénario de
-laboratoire ; ce n’est pas une recommandation générale.
-
-## Interaction avec l’hôte
-
-Les éléments suivants sont décrits par le support :
-
-- gestion des médias CD/DVD, USB et disquette ;
-- capture par défaut du clavier et de la souris par la VM, avec `Ctrl` + `Alt` pour
-  reprendre la main ;
-- transmission de `Ctrl` + `Alt` + `Suppr` à la VM avec `Ctrl` + `Alt` + `Inser` ;
-- installation possible de composants additionnels pour améliorer l’interaction ;
-- fonction *Shared Folder* pour mapper un dossier de l’hôte dans la VM comme lecteur
-  réseau.
-
-## Réseaux virtuels présentés
-
-Le support décrit des cartes réseau virtuelles et les modes suivants :
-
-| Mode ou composant | Rôle présenté dans le support |
+| Contrôle | Ce qu’il permet de vérifier |
 | --- | --- |
-| VMnet1 / Host-only | Réseau privé avec accès à l’hôte. |
-| VMnet8 / NAT | Accès à Internet par l’hôte. |
-| VMware DHCP Service | Gestion de l’adressage du réseau privé. |
-| VMware NAT Service | Gestion du réseau NAT. |
-| Bridged | Mode pont, équivalent à une connexion au réseau physique. |
-| LAN segment | Segments spécifiques et indépendants, à déclarer dans Workstation. |
+| Intel VT-x ou AMD-V | Le processeur dispose des extensions utilisées pour la virtualisation. |
+| BIOS ou UEFI | Les extensions sont activées et accessibles au logiciel de virtualisation. |
+| Mémoire et espace libre | Le poste peut accueillir la VM et ses futurs snapshots. |
+| Bibliothèque Workstation | La VM correcte est enregistrée et sélectionnée avant de changer ses paramètres. |
 
-Ces modes sont décrits par le support comme indépendants et servant à isoler des VM
-dans des réseaux spécifiques. L’atelier utilise **Bridged** comme état final. La solution
-montre d’abord un état NAT intermédiaire, puis son passage explicite en Bridged : NAT ne
-doit donc pas être interprété comme le résultat final de l’atelier.
+La **Library** présente les VM enregistrées. Depuis la console, on peut en créer, en ouvrir ou en importer selon le format. Le support indique ces possibilités puis se concentre sur la création. Sélectionner la VM avant de démarrer l’invité ou d’ouvrir **Virtual Machine Settings**.
 
-## Création d’une VM : ce que montrent les sources
+## 2. Régler le matériel et interagir avec l’invité
 
-Le support présente les choix relatifs à l’architecture, au nom et à l’emplacement de la
-VM, à la taille et au stockage du disque, au matériel, au média d’installation et au
-réseau. Il montre une création avec installation différée, formulée par « I will install
-… later ».
+Le matériel virtuel comprend processeur, mémoire, disques, CD/DVD, cartes réseau et périphériques. Certains réglages peuvent être modifiés à chaud. Dans l’atelier, préparer le matériel avant le premier démarrage.
 
-L’atelier demande une VM Windows Server 2019 avec des paramètres de scénario : deux
-processeurs, un cœur par processeur, 2 Go de mémoire, un disque de 60 Go stocké dans un
-fichier unique, une carte Bridged et l’option de virtualisation processeur indiquée dans
-le document. Ces valeurs sont propres au laboratoire.
-
-!!! warning "Divergence documentaire conservée"
-
-    Le support montre une installation différée. La solution visuelle sélectionne une
-    image ISO et fait apparaître le mécanisme Easy Install. Les deux éléments sont
-    conservés comme documents sources distincts : aucune méthode n’est substituée à
-    l’autre dans cette page.
-
-## Atelier, outils invités et snapshot
-
-L’atelier demande, dans son environnement de laboratoire, de relier une image ISO
-Windows Server 2019, d’installer le système avec expérience utilisateur, puis
-d’installer VMware Tools. L’ISO, le partage de distribution, l’installateur Workstation
-et VMware Tools ne sont pas fournis dans le dossier Drive M02.
-
-Le résultat demandé comprend l’arrêt préalable de la VM puis la création d’un snapshot
-final. Le module ne présente ni retour arrière, ni suppression, ni stratégie de
-sauvegarde par snapshot.
-
-## Points de vigilance issus du support
-
-Le support mentionne notamment le démarrage sur un média CD/DVD, les difficultés réseau
-après des paramétrages fréquents, l’espace disque insuffisant côté hôte ou invité et le
-dimensionnement initial. Ces situations sont rapportées comme cas du support ; elles ne
-constituent pas une méthode universelle de diagnostic.
-
-
-## Vérifier le résultat de l’atelier
-
-| Réglage | Valeur de l’atelier 1 |
+| Objet | Action ou repère du support |
 | --- | --- |
-| VM | `SRV_2K19` |
-| Processeur | 2 processeurs, 1 cœur chacun. Exposer VT-x/EPT ou AMD-V/RVI à l’invité pour l’atelier Hyper-V. |
-| Mémoire et disque | 2 Go de RAM et 60 Go dans un seul fichier de disque. |
-| Réseau final | Bridged. Le mode NAT visible au milieu du corrigé correspond à un état intermédiaire. |
-| Système et outils | Windows Server 2019 avec expérience utilisateur et VMware Tools. |
-| État de fin | VM arrêtée, snapshot `Fin Atelier 1`. |
+| Disque virtuel | Choisir la taille maximale et le rangement dans un fichier unique ou en plusieurs fichiers. L’espace d’un disque à allocation progressive augmente avec son utilisation. |
+| Lecteur CD/DVD | Connecter le média ou l’image ISO, puis vérifier la connexion au démarrage. |
+| Clavier et souris | La VM capture les entrées. `Ctrl` + `Alt` rend la main à l’hôte. |
+| Combinaison de sécurité | `Ctrl` + `Alt` + `Inser` envoie `Ctrl` + `Alt` + `Suppr` à l’invité. |
+| VMware Tools et dossiers partagés | Les outils facilitent l’interaction avec l’invité. Un Shared Folder peut présenter un dossier de l’hôte sous forme de lecteur réseau. |
+| Médias amovibles | Le cours présente CD/DVD, USB et disquette. Contrôler à quelle machine le périphérique est connecté. |
 
-Le réseau Host-only utilise classiquement VMnet1 et le NAT VMnet8 dans la configuration montrée. En NAT, le réseau privé peut utiliser un service DHCP distinct du service de traduction d’adresses. Le mode pont place la VM sur le segment auquel le pont la rattache. Un LAN segment relie les VM qui y sont connectées. Vérifier le segment et la carte physique avant de conclure à un problème dans l’invité.
+Le choix « fichier unique » est celui de l’exercice. La marge de capacité sur l’hôte reste à contrôler lorsque l’invité écrit ou que l’on crée des snapshots.
 
-Un snapshot sert à retrouver un état de la VM. Une sauvegarde exploitable doit permettre la restauration même après la perte de l’hôte ou du stockage des snapshots. En cas de déplacement de VM entre postes, vérifier la version du matériel virtuel et la compatibilité de la version de Workstation de destination.
+## 3. Choisir le mode réseau
 
-## Question de révision
+| Mode | Communication recherchée | Contrôle immédiat |
+| --- | --- | --- |
+| Host-only, souvent VMnet1 | Échanges avec l’hôte et les VM du réseau privé | Les VM concernées sont connectées au même réseau virtuel. |
+| NAT, souvent VMnet8 | Sortie via l’hôte depuis un réseau privé | L’invité a une adresse du réseau NAT et le service de traduction fonctionne. |
+| Bridged | Raccordement de la VM au réseau physique du laboratoire | La carte utilise le pont prévu et l’invité obtient un adressage compatible. |
+| LAN segment | Liaison entre les VM du segment déclaré | Chaque carte cible le même segment, avec un adressage cohérent. |
 
-L’invité a une adresse dans VMnet8 et le TP attend Bridged. Quel réglage contrôler en premier ?
+Le service VMware DHCP distribue l’adressage du réseau virtuel privé configuré. Le service VMware NAT assure la traduction sur le réseau NAT. Choisir le mode avant de diagnostiquer une adresse inattendue. [Modes réseau de VMware Workstation](https://knowledge.broadcom.com/external/article/309842/understanding-networking-types-in-hosted.html)
 
-??? success "Correction"
+**Illustration IA / externe au cours — chemins de connexion.**
 
-    Ouvrir les paramètres de la carte virtuelle et confirmer le mode de connexion. Vérifier ensuite l’interface physique choisie et l’adressage dans Windows.
+```mermaid
+flowchart LR
+    V["Carte de la VM"] --> P["Host-only"] --> H["Hôte et VM du réseau privé"]
+    V --> N["NAT"] --> T["Traduction sur l’hôte"]
+    V --> B["Bridged"] --> L["Réseau physique"]
+    V --> S["LAN segment"] --> E["VM du segment"]
+```
 
-[Fiche de révision](../../revision/13-virtualisation-serveurs/module-02.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-02/index.md)
+## 4. TP guidé — Installation de Workstation et de la VM
+
+L’atelier dure environ une heure. Le poste de laboratoire utilise Windows Server 2019 et l’adressage du contexte de formation. Préparer Workstation, l’ISO autorisée et les outils invités fournis pour le laboratoire.
+
+### A. Préparer la VM et l’installation
+
+1. Vérifier la version de Workstation et créer un dossier de VM sur le volume de données du laboratoire.
+2. Créer une VM Windows Server 2019 nommée `SRV_2K19`. Choisir le dossier de stockage préparé.
+3. Régler les paramètres avant de lancer l’installation.
+
+| Réglage du TP | Valeur attendue |
+| --- | --- |
+| Processeurs | 2 processeurs, 1 cœur par processeur |
+| Mémoire | 2 Go |
+| Disque | 60 Go dans un fichier unique |
+| Virtualisation processeur | Exposer VT-x/EPT ou AMD-V/RVI à l’invité pour l’atelier Hyper-V |
+| Réseau final | Bridged |
+| Média et système | ISO Windows Server 2019, avec expérience utilisateur |
+
+!!! note "Deux parcours d’assistant"
+
+    Le support montre « I will install the operating system later ». Le corrigé sélectionne l’ISO au départ et montre Easy Install. Dans les deux cas, vérifier le matériel avant de démarrer. Le corrigé passe aussi par un réglage NAT intermédiaire. La consigne finale est Bridged.
+
+### B. Installer et vérifier l’invité
+
+1. Associer l’ISO autorisée au CD/DVD virtuel et vérifier que le lecteur est connecté au démarrage.
+2. Démarrer la VM et installer Windows Server 2019 avec expérience utilisateur. Contrôler l’édition proposée à l’écran avant de poursuivre.
+3. Installer VMware Tools dans l’invité et vérifier leur présence après le redémarrage si nécessaire.
+4. Confirmer le nom du système invité, puis relever son adresse et son réseau. Le nom d’inventaire de Workstation et le nom du système invité sont deux réglages distincts.
+5. Arrêter proprement l’invité. Créer le snapshot `Fin Atelier 1` dans Workstation et vérifier que l’état de la VM est arrêté.
+
+### C. Corriger un écart
+
+Après installation, le support présente aussi un démarrage sur média. Donner le clavier à la VM, puis appuyer une fois sur Échap à l’apparition du logo VMware pour choisir le périphérique de démarrage. Le firmware de l’invité permet de vérifier l’ordre d’amorçage. Pour un défaut réseau persistant, isoler d’abord la carte virtuelle et le réseau auquel elle est reliée. Un changement d’état sur la carte physique de l’hôte peut interrompre ses connexions et doit être réservé au poste de laboratoire.
+
+| Symptôme | Premier contrôle | Résultat attendu |
+| --- | --- | --- |
+| La VM ne démarre pas sur l’ISO | Vérifier le média et le CD/DVD virtuel | L’assistant d’installation de Windows démarre. |
+| Adresse du réseau NAT alors que le TP demande le pont | Vérifier la carte virtuelle et la carte physique à laquelle le pont est associé | L’adresse correspond au réseau de laboratoire prévu. |
+| Hyper-V échoue ensuite à détecter les extensions processeur | Contrôler VT-x/EPT ou AMD-V/RVI dans Workstation et sur l’hôte | Les fonctions requises sont exposées à la VM hôte. |
+| Le disque est plein | Identifier si la saturation concerne le volume hôte ou le disque vu par l’invité | De l’espace est disponible au niveau où la panne est observée. |
+
+**Complément pédagogique.** Le snapshot fournit un point de retour du laboratoire. Une sauvegarde doit rester restaurable après une perte du stockage où la VM et ses snapshots sont conservés.
+
+## À retenir
+
+L’atelier se termine avec une VM nommée et arrêtée, les outils invités installés, le réseau Bridged et un snapshot identifié. Avant de poursuivre avec Hyper-V, conserver les ressources et extensions processeur demandées.
+
+## Mini-quiz — 5 questions {#question-de-revision}
+
+1. Dans quel mode la VM est-elle raccordée au réseau physique de laboratoire ?
+2. Quelle différence entre VMware DHCP Service et VMware NAT Service ?
+3. Quels paramètres de processeur et de disque sont demandés ?
+4. Pourquoi vérifier l’exposition des extensions processeur avant le module Hyper-V ?
+5. Dans quel état créer le snapshot final ?
+
+??? success "Réponses commentées"
+
+    1. Bridged. Le mode NAT visible dans le corrigé est une étape intermédiaire.
+    2. Le premier distribue les paramètres IP du réseau virtuel configuré. Le second assure la traduction pour les connexions du réseau NAT.
+    3. Deux processeurs d’un cœur chacun et un disque virtuel de 60 Go dans un seul fichier.
+    4. La prochaine VM hôte doit pouvoir exécuter un hyperviseur imbriqué. Il lui faut les extensions exposées par Workstation.
+    5. Après l’arrêt propre de l’invité. Vérifier le snapshot `Fin Atelier 1` dans l’inventaire de la VM.
+
+## Pour pratiquer et réviser
+
+- [Énoncé de l’atelier](../../tp/13-virtualisation-serveurs/module-02/tp-01-workstation.md) et [correction](../../tp/13-virtualisation-serveurs/module-02/correction-tp-01.md)
+- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-02.md)
+- [Sommaire de Virtualisation de serveurs](index.md)
+
+## Provenance pédagogique
+
+Le support M02 et les deux documents de l’atelier 1 donnent la configuration et les manipulations. Les contrôles proposés, le schéma et la distinction entre snapshot et sauvegarde sont des aides de synthèse.

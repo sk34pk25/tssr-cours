@@ -46,15 +46,17 @@ ni configuration iSCSI complète n’est démontrée.
 [Atelier et correction](../../tp/13-virtualisation-serveurs/module-06/index.md)
 
 Provenance A : trois PDF M06 du Drive TSSR en lecture seule ; B : synthèse fidèle.
-Aucune question, ressource binaire ou association Kahoot ajoutée.
-
 
 ## Question de révision
 
-La VM reste sur l’ancien groupe qui va être supprimé. Dans quel ordre intervenir ?
+1. Comment distinguer un groupe de ports destiné aux VM d’une interface VMkernel ?
+2. Une VM ne reçoit pas le réseau attendu. Quels points comparer ?
+3. Pourquoi effectuer les tests depuis les deux ESXi ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Basculer la vNIC vers GRP-VMNET, vérifier sa connectivité et retirer ensuite l’ancien groupe des VM. Garder le groupe de gestion et l’accès à l’ESXi.
+    1. Le premier raccorde les cartes réseau des invités. L’interface VMkernel sert à un trafic de l’hôte comme la gestion ou le stockage.
+    2. La carte connectée, le groupe de ports, l’identifiant VLAN et la configuration de la liaison physique ou virtuelle en amont.
+    3. Une interface et son chemin peuvent être corrects sur un seul hôte. Vérifier le même rôle réseau, la bonne adresse et le résultat sur chacun.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-06.md)
