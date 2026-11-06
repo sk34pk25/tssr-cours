@@ -1,6 +1,10 @@
 # Correction expliquée — TP01 — Utilisation des systèmes
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Ouvrir Bash sur le système de laboratoire et préparer les répertoires d’exercice sous `$HOME`. Les permissions du compte peuvent limiter les résultats observés.
 
 ## Activité 1 — Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.
 
@@ -39,23 +43,17 @@ cat "$HOME/resultats/compteur.txt"
 ```
 La commande principale effectue la recherche et le comptage ; cat est le contrôle séparé du livrable.
 
-## Points de lecture du support
+## Résultat attendu et contrôles
 
-!!! note "Lecture de la source"
-    Le document Alias écrit parfois `find / mount`, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.
+| Contrôle | Trace attendue |
+| --- | --- |
+| Sorties | Vérifier `daemons.txt` et la correspondance entre l’affichage de la recherche et `fichiers.conf`. |
+| Chronométrage | Relever le temps mesuré pendant la commande demandée. |
+| Compteur | Vérifier que `compteur.txt` ne contient que le nombre produit par la recherche, sans relecture de `fichiers.conf`. |
 
-!!! note "Lecture de la source"
-    Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
-
-!!! note "Lecture de la source"
-    Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
-
-!!! note "Lecture de la source"
-    La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
-
-!!! note "Lecture de la source"
-    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
+## Liens
 
 - [Énoncé](tp1-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

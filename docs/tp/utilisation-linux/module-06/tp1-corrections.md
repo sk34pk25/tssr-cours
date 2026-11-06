@@ -1,6 +1,10 @@
 # Correction expliquée — TP01 — Recherches et regex
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Utiliser le fichier `Edition` du laboratoire et effectuer les copies dans le répertoire personnel du compte d’exercice.
 
 ## Activité 1 — Rechercher les lignes contenant Dupont dans Edition.
 
@@ -46,17 +50,22 @@ find "$HOME" -type f -name '*txt' -exec cp {} {}.save \;
 ```
 Vérifier la présence des copies et le maintien des originaux. Une copie nom.txt.save ne se termine plus par txt.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Texte | Comparer les résultats des recherches avec et sans distinction de casse, puis observer l’effet du filtre sur les lignes vides. |
+| Parcours | Distinguer les résultats directs sous `/etc` du parcours récursif. Vérifier les répertoires affichés depuis `$HOME`. |
+| Copies | Associer chaque copie `.save` à un fichier source qui existe toujours. |
+
 ## Points de lecture du support
-
-!!! note "Lecture de la source"
-    Le motif source `[!aeiouyAEIOUY]` exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.
-
-!!! note "Lecture de la source"
-    La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.
 
 !!! note "Lecture de la source"
     L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.
 
+## Liens
+
 - [Énoncé](tp1-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
 - [Tous les ateliers du module](index.md)

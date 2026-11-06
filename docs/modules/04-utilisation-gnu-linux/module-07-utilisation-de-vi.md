@@ -1,10 +1,16 @@
 # Module 07 — Utilisation de Vi
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Modifier le fichier Edition par déplacements, insertions, recherches, copies de lignes et substitutions. Les 22 consignes du TP sont conservées dans leur ordre ; la correction utilise des fonctionnalités Vim sous le nom Vi.
 
-**Durée des ateliers :** 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Se déplacer et modifier un texte en identifiant le mode actif.
+- Chercher, copier, déplacer et enregistrer des lignes.
+- Choisir la portée, les ancrages et le séparateur d’une substitution, puis vérifier le résultat.
 
 ## 1. Reconnaître le mode avant de taper
 
@@ -16,6 +22,18 @@ Modifier le fichier Edition par déplacements, insertions, recherches, copies de
 | **Recherche** | Saisir un motif après / ou ? | Entrée, puis n ou N |
 
 La même lettre peut donc être une action en mode normal et un caractère ajouté au fichier en mode insertion. Les blocs de touches des activités se lisent comme une séquence, pas comme une commande shell à copier dans le terminal.
+
+**Illustration IA / externe au cours — Repérer le mode actif avant de taper.**
+
+```mermaid
+flowchart TD
+    Normal[Mode normal] -->|i, o ou O| Insertion[Mode insertion]
+    Insertion -->|Échap| Normal
+    Normal -->|deux-points| Commande[Ligne de commande]
+    Commande -->|Entrée ou Échap| Normal
+    Normal -->|barre oblique| Recherche[Recherche]
+    Recherche -->|Entrée| Normal
+```
 
 ## 2. Se déplacer et insérer
 
@@ -243,24 +261,31 @@ Le début de mot, les chiffres et la fin de ligne limitent le changement au num�
 !!! note "Lecture de la source"
     Les formes source des questions20 et21 ont une portée plus étroite que leur formulation ; les ancrages et le drapeau g sont expliqués, sans modifier le texte de la source.
 
+## À retenir
+
+Revenir au mode normal avant une action sur les lignes. Tester une recherche avant de lancer une substitution globale. Vérifier les lignes modifiées avant d’enregistrer, et tester séparément les réglages de `.vimrc`.
+
 ## Mini-quiz
 
-1. À quoi sert Échap avant une action ?
-2. Quelle différence entre O et o ?
-3. Que signifient % et le dernier g dans :%s/a/b/g ?
-4. Comment remplir la demande de changement de séparateur ?
+1. En mode insertion, que faire avant de taper `dd` ?
+2. Quelle différence entre `O` et `o` ?
+3. Que contrôlent `%` et le dernier `g` dans `:%s/a/b/g` ?
+4. Comment changer le séparateur de la substitution ?
+5. Que désigne `$` dans un motif de recherche ?
 
-??? note "Réponses"
-    1. À revenir au mode normal.
-    2. O ouvre avant la ligne courante, o après.
-    3. Toutes les lignes, puis toutes les occurrences de chaque ligne.
-    4. Employer par exemple :%s#JEAN#Jean#g.
+??? note "Réponses commentées"
+    1. Appuyer sur Échap pour revenir au mode normal. Dans ce mode, `dd` supprime la ligne courante.
+    2. `O` ouvre une ligne au-dessus de la ligne courante et `o` en ouvre une en dessous. Les deux passent en mode insertion.
+    3. `%` étend l’opération à toutes les lignes et `g` à toutes les occurrences de chaque ligne concernée.
+    4. Choisir un autre séparateur, par exemple `:%s#JEAN#Jean#g`. Le caractère `#` délimite ici le motif et le remplacement.
+    5. La fin de ligne. Il sert notamment à cibler les numéros en fin de ligne dans l’activité 21.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-07/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-07-utilisation-de-vi.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-07-utilisation-de-vi.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

@@ -16,6 +16,20 @@ id utilisateur
 stat fichier
 ```
 
+## Sessions, fichiers et flux
+
+| Besoin | Commande | Contrôle |
+| --- | --- | --- |
+| Observer sa connexion et son compte | `who am i`, puis `id` | Comparer terminal, heure de connexion, UID et groupes. |
+| Lister les entrées `.conf` sous `/etc` | `ls -d -- /etc/*.conf` | Les noms affichés sont les entrées correspondantes, y compris les répertoires. |
+| Lire les attributs de `/tmp` | `ls -ld -- /tmp` | Lire les permissions du répertoire et repérer le sticky bit. |
+| Comparer des liens | `ls -li -- edition1.txt edition3.txt` | Deux liens physiques d’un même système de fichiers partagent un inode. |
+| Rechercher par nom dans les enfants directs | `find /etc -maxdepth 1 -type f -name '*.conf'` | Le motif entre guillemets est interprété par `find`. |
+| Écarter les lignes vides d’un fichier | `grep -v '^$' Edition` | Les lignes contenant des espaces restent visibles. |
+| Contrôler une archive | `tar -tf sauvegarde.tar` | Vérifier les chemins et la présence des fichiers avant une restauration. |
+
+Les TP reprennent ces commandes dans leur contexte, avec l’énoncé, le corrigé et les vérifications à effectuer. [Utilisation d’une distribution GNU/Linux](../modules/04-utilisation-gnu-linux/index.md)
+
 ## Paquets
 
 ```bash

@@ -1,8 +1,12 @@
 # Énoncé — TP — Utilisation de Vi
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 07 et de faire le TP précédent. Utiliser le fichier `Edition` du laboratoire et vérifier que l’éditeur lancé prend en charge les commandes Vim employées dans l’atelier. Garder une copie de travail avant les substitutions.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 ## Activité 1
 
@@ -92,6 +96,17 @@ Ajouter (033) avant chaque numéro situé en fin de ligne et commençant par 1, 
 
 Ajouter zéro à la fin de toutes les lignes qui commencent par F.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Navigation et édition | Relever les occurrences avant et après modification et vérifier la position des lignes ajoutées ou déplacées. |
+| Configuration | Vérifier à la réouverture les effets des options de `.vimrc` demandées. |
+| Substitution | Comparer les lignes visées, les lignes hors plage et les résultats après chaque opération. |
+
+## Liens
+
 - [Correction](corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-07-utilisation-de-vi.md)
 - [Tous les ateliers du module](index.md)

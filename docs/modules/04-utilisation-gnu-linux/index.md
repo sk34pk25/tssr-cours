@@ -2,15 +2,15 @@
 
 Pratiquer les commandes et les mécanismes du shell à partir des onze ateliers documentés.
 
-<div class="tssr-index-meta"><span>Étape 05 / 09</span><strong>6 → 10 juillet 2026</strong><span>RICHEZ Cédric</span><a href="../../parcours/05-utilisation-linux/">Voir le parcours</a></div>
+<div class="tssr-index-meta"><span>Planning TSSR</span><strong>6 → 10 juillet 2026</strong><span>RICHEZ Cédric</span><a href="../../parcours-tssr/#p-abb81b3446a662d6">Voir la période dans le parcours</a></div>
 
 ## Périmètre des sources
 
-Les sources disponibles comprennent 22 documents, soit les énoncés et corrections des modules03 à08. Aucun support théorique distinct ni document des modules01 et02 n’a été trouvé dans le dossier vérifié. Pour ces modules absents, le contenu original est **Inexistant** ; leur contenu n’est pas reconstitué artificiellement.
+Les sources disponibles comprennent 22 documents, soit les énoncés et corrections des modules 03 à 08. Aucun support théorique distinct ni document des modules 01 et 02 n’a été trouvé dans le dossier vérifié. Pour ces modules absents, le contenu original est **Inexistant** ; leur contenu n’est pas reconstitué artificiellement.
 
 Le module additionnel Workstation est un doublon du support déjà rattaché à Systèmes clients Microsoft. Il n’est pas ajouté comme cours Linux. Les Kahoot existants conservent leurs liens et leur contenu.
 
-## Progression conservée
+## Progression officielle
 
 | Module | Sujet | Accès |
 |---|---|---|
@@ -23,11 +23,21 @@ Le module additionnel Workstation est un doublon du support déjà rattaché à 
 | M07 | Utilisation de Vi | [Cours](module-07-utilisation-de-vi.md) |
 | M08 | Mécanismes Linux et Bash avancé | [Cours](module-08-mecanismes-linux-et-bash-avance.md) |
 
-## Lire l’original et pratiquer
+## Utiliser les deux versions du cours
 
-L’onglet **Cours Original** affiche les documents existants, page par page, avec leurs captures isolées et leurs coquilles conservées. **Cours Optimisé IA** explique chaque activité, propose des contrôles et signale les variantes nécessaires pour répondre à l’énoncé. Les résultats dépendant de la machine sont à observer.
+| Étape | Ressource | But |
+| --- | --- | --- |
+| 1 | **Cours Original**, dans chaque module | Lire les énoncés et les corrigés dans l’ordre des documents. |
+| 2 | **Cours Optimisé IA** | Comprendre les gestes, lire les tableaux et les schémas, puis répondre au mini-quiz. |
+| 3 | [Travaux pratiques](../../tp/utilisation-linux/index.md) | Faire l’atelier à partir de son énoncé, noter les résultats, puis consulter la correction. |
+| 4 | [Fiches de révision](../../revision/utilisation-linux/index.md) | Refaire les contrôles et répondre aux questions avant d’ouvrir les réponses. |
 
-Le TP Métacaractères stocké sous Module4/TP2 est rattaché au module06 car sa première page porte ce numéro et le titre Spécificités du shell Bash. Sa provenance d’origine reste indiquée.
+Le TP Métacaractères est rangé dans Module 4 / TP2. Sa première page l’attribue au module 06, sous le titre *Spécificités du shell Bash*. Le lien figure donc dans le module 06.
+
+## Accès complémentaires
 
 - [Travaux pratiques](../../tp/utilisation-linux/index.md)
 - [Fiches de révision](../../revision/utilisation-linux/index.md)
+- [Commandes GNU/Linux](../../commandes/linux.md)
+- [Mémo des permissions Linux](../../memo/permissions-linux.md)
+- [Dépannage d’un service Linux](../../troubleshooting/service-linux-echec.md)

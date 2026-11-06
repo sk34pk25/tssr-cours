@@ -1,6 +1,10 @@
 # Correction expliquée — TP01 — Premières commandes
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Utiliser le compte de laboratoire attribué et un terminal où il est possible de fermer puis de rouvrir la session.
 
 ## Activité 1 — Changer le mot de passe, fermer la session puis se reconnecter pour vérifier le changement.
 
@@ -68,6 +72,14 @@ man cal
 ```
 Comparer les quatre sorties. Rechercher 1752 dans le manuel pour expliquer le saut observé dans le scénario.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Authentification | La nouvelle connexion réussit après le changement. Consigner le succès sans noter le mot de passe. |
+| Session | Relever la connexion courante, les utilisateurs présents, l’inactivité et le PID demandé. Identifier séparément UID, GID et groupes. |
+| Temps | Présenter les formats demandés et les quatre affichages de calendrier. Décrire la particularité visible en septembre 1752. |
+
 ## Points de lecture du support
 
 !!! note "Lecture de la source"
@@ -82,6 +94,9 @@ Comparer les quatre sorties. Rechercher 1752 dans le manuel pour expliquer le sa
 !!! note "Lecture de la source"
     La correction ne développe pas le calendrier annuel ; `cal 1900` répond à la seconde partie de la consigne.
 
+## Liens
+
 - [Énoncé](enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-03-premieres-commandes.md)
 - [Tous les ateliers du module](index.md)

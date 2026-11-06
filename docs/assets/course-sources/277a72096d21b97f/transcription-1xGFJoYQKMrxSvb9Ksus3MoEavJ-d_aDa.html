@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M04TP02 - Solution - Métacaractères</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>M04TP02 - Solution - Métacaractères</h1><p>Transcription du document de formation ; texte et captures isolées sont distincts de l’aide pédagogique.</p><!-- SOURCE-CONTENT:START -->
 <section class="tssr-transcribed-page" id="page-1">
-<p class="tssr-source-paragraph">Les métacaractères</p>
 <h4>Les métacaractères</h4>
 <p class="tssr-source-paragraph">TP du Module 06 – Spécificités du shell Bash</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.</p>
@@ -11,21 +10,20 @@
 <h4>Proposition de solution</h4>
 <p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
 <ol start="1"><li>Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.</li></ol>
-<p class="tssr-source-paragraph">ls -d /etc/[a-d]*</p>
+<pre class="tssr-source-code"><code>ls -d /etc/[a-d]*</code></pre>
 <ol start="2"><li>Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :</li></ol>
 <figure><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../isolated/277a72096d21b97f/u04-d21-p01-i1.webp"/><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-2">
-<p class="tssr-source-paragraph">Les métacaractères</p>
-<p class="tssr-source-paragraph">mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</p>
+<pre class="tssr-source-code"><code>mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}</code></pre>
 <ol start="3"><li>Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.</li></ol>
-<p class="tssr-source-paragraph">cd Tp/Divers/Sources/</p>
-<p class="tssr-source-paragraph">touch fic*ier</p>
+<pre class="tssr-source-code"><code>cd Tp/Divers/Sources/</code></pre>
+<pre class="tssr-source-code"><code>touch fic*ier</code></pre>
 <ol start="4"><li>Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?</li></ol>
 <pre class="tssr-source-code"><code>Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
 répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
 non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée.</code></pre>
-<p class="tssr-source-paragraph">rm -r $HOME/Tp/Divers/Sources/</p>
+<pre class="tssr-source-code"><code>rm -r $HOME/Tp/Divers/Sources/</code></pre>
 <p class="tssr-source-paragraph">On constate que même positionné dans un répertoire nous pouvons le supprimer</p>
 <ol start="5"><li>Supprimer le répertoire Divers en utilisant la commande rm.</li></ol>
 <figure><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../isolated/277a72096d21b97f/u04-d21-p02-i1.webp"/><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
@@ -34,13 +32,8 @@ non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée.</
 <figure><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../isolated/277a72096d21b97f/u04-d21-p02-i4.webp"/><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-3">
-<p class="tssr-source-paragraph">Les métacaractères</p>
-<p class="tssr-source-paragraph">rm -r ../../Divers/</p>
-<ol start="6"><li>Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :</li></ol>
-<p class="tssr-source-paragraph">- ils sont présents directement dans /etc</p>
-<p class="tssr-source-paragraph">- leurs noms finissent par l'extension .conf</p>
-<p class="tssr-source-paragraph">- la première lettre est une consonne, celle précédant l'extension est comprise entre f et s</p>
-<p class="tssr-source-paragraph">- ils comportent exactement 6 lettres (hors extension).</p>
+<pre class="tssr-source-code"><code>rm -r ../../Divers/</code></pre>
+<ol start="6"><li>Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :<ul><li>ils sont présents directement dans /etc</li><li>leurs noms finissent par l'extension .conf</li><li>la première lettre est une consonne, celle précédant l'extension est comprise entre f et s</li><li>ils comportent exactement 6 lettres (hors extension).</li></ul></li></ol>
 <pre class="tssr-source-code"><code>ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf</code></pre>
 <figure><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../isolated/277a72096d21b97f/u04-d21-p03-i1.webp"/><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>
 <figure><img alt="Visuel isolé du document — M04TP02 - Solution - Métacaractères" src="../isolated/277a72096d21b97f/u04-d21-p03-i2.webp"/><figcaption>Visuel isolé du document — M04TP02 - Solution - Métacaractères</figcaption></figure>

@@ -1,6 +1,10 @@
 # Correction expliquée — TP02 — Métacaractères
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Ouvrir un Bash de laboratoire et réserver l’arborescence `$HOME/Tp` à l’exercice. Identifier précisément `Sources` et `Divers` avant les opérations de suppression.
 
 ## Activité 1 — Afficher les noms de fichiers et répertoires commençant par a, b, c ou d directement dans /etc, sans lister leur contenu.
 
@@ -71,6 +75,14 @@ ls -ld /etc/[b-df-hj-np-tv-xzB-DF-HJ-NP-TV-XZ][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f
 ```
 Le premier ensemble fournit une lettre, les quatre suivants quatre lettres, puis [f-s] la sixième ; .conf suit ces six caractères.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Arborescence | Vérifier les répertoires créés et la présence de l’astérisque littéral dans le nom demandé. |
+| Suppression | Expliquer le résultat de `rmdir`, puis vérifier la disparition de `Divers` dans l’arborescence d’exercice. |
+| Sélection | Contrôler l’extension et les contraintes sur les six lettres de chaque nom retenu. |
+
 ## Points de lecture du support
 
 !!! note "Lecture de la source"
@@ -79,9 +91,9 @@ Le premier ensemble fournit une lettre, les quatre suivants quatre lettres, puis
 !!! note "Lecture de la source"
     La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.
 
-!!! note "Lecture de la source"
-    L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.
+## Liens
 
 - [Énoncé](tp2-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
 - [Tous les ateliers du module](index.md)

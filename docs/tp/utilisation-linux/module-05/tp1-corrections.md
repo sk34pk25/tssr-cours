@@ -1,6 +1,10 @@
 # Correction expliquée — TP01 — Lire des fichiers
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Préparer un dossier d’exercice accessible en écriture et conserver les deux textes donnés ci-dessous.
 
 ## Activité 1 — Créer MonDeuxiemeFichier avec cat et le contenu exact de trois lignes demandé.
 
@@ -52,6 +56,13 @@ Relever le résultat du système, pas le nombre de la capture.
 head -n 2 /etc/hosts
 ```
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Textes produits | Les deux fichiers contiennent respectivement trois et deux lignes. Le fichier concaténé présente les textes dans l’ordre demandé. |
+| Lectures | Relever le nombre de lignes de `/etc/passwd` et les deux premières lignes de `/etc/hosts` sur sa machine. |
+
 ## Points de lecture du support
 
 !!! note "Lecture de la source"
@@ -60,9 +71,9 @@ head -n 2 /etc/hosts
 !!! note "Lecture de la source"
     L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.
 
-!!! note "Lecture de la source"
-    Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
+## Liens
 
 - [Énoncé](tp1-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
 - [Tous les ateliers du module](index.md)

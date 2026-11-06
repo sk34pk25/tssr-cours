@@ -1,6 +1,10 @@
 # Correction expliquée — TP — Utilisation de Vi
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Utiliser le fichier `Edition` du laboratoire et vérifier que l’éditeur lancé prend en charge les commandes Vim employées dans l’atelier. Garder une copie de travail avant les substitutions.
 
 ## Activité 1 — Ouvrir Edition depuis son répertoire personnel.
 
@@ -174,6 +178,14 @@ Le début de mot, les chiffres et la fin de ligne limitent le changement au num�
 ```
 ^F sélectionne les lignes ; $ positionne l’ajout à leur fin. Enregistrer et contrôler les dernières modifications.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Navigation et édition | Relever les occurrences avant et après modification et vérifier la position des lignes ajoutées ou déplacées. |
+| Configuration | Vérifier à la réouverture les effets des options de `.vimrc` demandées. |
+| Substitution | Comparer les lignes visées, les lignes hors plage et les résultats après chaque opération. |
+
 ## Points de lecture du support
 
 !!! note "Lecture de la source"
@@ -183,11 +195,14 @@ Le début de mot, les chiffres et la fin de ligne limitent le changement au num�
     Quelques lignes omettent le deux-points d’entrée en commande Ex. Il est ajouté dans les exemples utilisables.
 
 !!! note "Lecture de la source"
-    La question19 demande un autre séparateur ; la correction ne le change pas. La forme avec # répond à cette partie de la consigne.
+    La question 19 demande un autre séparateur ; la correction ne le change pas. La forme avec # répond à cette partie de la consigne.
 
 !!! note "Lecture de la source"
     Les formes source des questions20 et21 ont une portée plus étroite que leur formulation ; les ancrages et le drapeau g sont expliqués, sans modifier le texte de la source.
 
+## Liens
+
 - [Énoncé](enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-07-utilisation-de-vi.md)
 - [Tous les ateliers du module](index.md)

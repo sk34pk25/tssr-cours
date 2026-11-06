@@ -1,8 +1,12 @@
 # Énoncé — TP01 — Utilisation des systèmes
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 08 et de faire le TP précédent. Ouvrir Bash sur le système de laboratoire et préparer les répertoires d’exercice sous `$HOME`. Les permissions du compte peuvent limiter les résultats observés.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 ## Activité 1
 
@@ -20,6 +24,17 @@ Mesurer le temps exact de cette exécution.
 
 En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Sorties | Vérifier `daemons.txt` et la correspondance entre l’affichage de la recherche et `fichiers.conf`. |
+| Chronométrage | Relever le temps mesuré pendant la commande demandée. |
+| Compteur | Vérifier que `compteur.txt` ne contient que le nombre produit par la recherche, sans relecture de `fichiers.conf`. |
+
+## Liens
+
 - [Correction](tp1-corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
 - [Tous les ateliers du module](index.md)

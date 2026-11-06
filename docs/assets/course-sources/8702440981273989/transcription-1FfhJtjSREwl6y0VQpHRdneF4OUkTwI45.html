@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>M08TP02 - Solution - Archivages et Compression</title><style>body{font:18px/1.65 system-ui;max-width:85ch;margin:auto;padding:1rem;color:#17243b;background:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f3f5f7}img{max-width:100%;height:auto}section{margin:2rem 0;border-top:1px solid #ccd3df;padding-top:1rem}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd3df;padding:.5rem}figure{margin:1rem 0}figcaption{font-size:.85rem}</style></head><body><h1>M08TP02 - Solution - Archivages et Compression</h1><p>Transcription du document de formation ; texte et captures isolées sont distincts de l’aide pédagogique.</p><!-- SOURCE-CONTENT:START -->
 <section class="tssr-transcribed-page" id="page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Archivage et compression</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -17,7 +16,6 @@
 <figure><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../isolated/8702440981273989/u04-d05-p01-i1.webp"/><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -czvf /tmp/$LOGNAME.tar.gz $HOME</code></pre>
 <pre class="tssr-source-code"><code>ls -lh /tmp/$LOGNAME.tar.gz</code></pre>
 <ol start="3"><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
@@ -34,7 +32,6 @@
 <figure><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../isolated/8702440981273989/u04-d05-p02-i3.webp"/><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-3">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li></ol>
 <pre class="tssr-source-code"><code>tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME</code></pre>
 <ol start="7"><li>Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
@@ -45,7 +42,6 @@
 <figure><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../isolated/8702440981273989/u04-d05-p03-i2.webp"/><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-4">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -tf /tmp/$LOGNAME-v2.tar 
 /home/user30/.profile 
 /home/user30/process/ 

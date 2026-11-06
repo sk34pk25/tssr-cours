@@ -1,6 +1,10 @@
 # Correction expliquée — TP02 — Les liens
 
-Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.
+Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans **Cours Original**.
+
+## État initial
+
+Se placer dans le répertoire de laboratoire où se trouve `Edition`. Le fichier et les nouveaux liens physiques doivent appartenir au même système de fichiers.
 
 ## Activité 1 — Créer un lien physique depuis Edition vers edition1.txt et vérifier la lecture.
 
@@ -44,17 +48,21 @@ cat edition3.txt
 ```
 Le lien symbolique devient cassé et la lecture par edition3.txt reste possible, comme dans la correction.
 
+## Résultat attendu et contrôles
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Avant suppression | Comparer les caractéristiques et le contenu des noms demandés. Noter le chemin porté par le lien symbolique. |
+| Après suppression | Comparer les lectures de `edition2.txt` et `edition3.txt`. Expliquer le résultat avec le chemin et l’inode. |
+
 ## Points de lecture du support
-
-!!! note "Lecture de la source"
-    La correction écrit `Cat` dans la concaténation : utiliser `cat` en minuscules.
-
-!!! note "Lecture de la source"
-    L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.
 
 !!! note "Lecture de la source"
     Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
 
+## Liens
+
 - [Énoncé](tp2-enonces.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
 - [Tous les ateliers du module](index.md)

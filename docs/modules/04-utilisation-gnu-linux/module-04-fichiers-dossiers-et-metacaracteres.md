@@ -1,10 +1,16 @@
 # Module 04 — Fichiers, dossiers et métacaractères
 
-**Source disponible :** énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
 
 Se repérer dans l’arborescence, créer un fichier, lire ses attributs et distinguer le contenu d’un répertoire de ses propres caractéristiques. Le TP Métacaractères mal classé dans le dossier Module 4 reste étudié au module 06, conformément à son titre interne.
 
-**Durée des ateliers :** 45 à 60 minutes. Lire chaque énoncé avant de commencer ; employer la machine et les fichiers de formation prévus.
+**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+
+## Objectifs
+
+- Vérifier le répertoire courant avant une manipulation.
+- Créer un fichier et identifier son propriétaire, son groupe et ses permissions.
+- Lister des noms correspondant à un motif et afficher les attributs d’un répertoire.
 
 ## 1. Savoir où l’on travaille
 
@@ -21,10 +27,20 @@ Se repérer dans l’arborescence, créer un fichier, lire ses attributs et dist
 ## 3. Un motif de noms n’est pas une recherche dans le contenu
 
 ```bash
-ls /etc/*.conf
+ls -d -- /etc/*.conf
 ```
 
-Le shell développe le motif `*.conf` en noms du répertoire /etc avant de lancer ls. Il s’agit de noms terminés par .conf, sans exploration récursive de leurs contenus. Les motifs plus élaborés, leur protection et la création de l’arborescence du TP Métacaractères sont détaillés au [module 06](module-06-recherches-et-expressions-regulieres.md).
+Le shell développe le motif `*.conf` en noms du répertoire /etc avant de lancer ls. L’option `-d` affiche chaque entrée trouvée par le shell, y compris un répertoire dont le nom se termine par `.conf`. Le support emploie `ls` sans cette option. [Manuel GNU de ls](https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html) Les motifs plus élaborés, leur protection et la création de l’arborescence du TP Métacaractères sont détaillés au [module 06](module-06-recherches-et-expressions-regulieres.md).
+
+**Illustration IA / externe au cours — Le shell développe le motif avant l’appel à ls.**
+
+```mermaid
+flowchart TD
+    Motif[Motif dans la commande] --> Shell[Le shell trouve les noms]
+    Shell --> Arguments[Les noms deviennent des arguments de ls]
+    Arguments --> Noms[Avec -d, ls affiche les entrées]
+    Arguments --> Contenu[Sans -d, ls peut lister leur contenu]
+```
 
 ## 4. Le répertoire ou ce qu’il contient ?
 
@@ -67,7 +83,7 @@ Identifier les champs, sans recopier les valeurs de la capture comme des valeurs
 #### Activité 5 — Afficher les noms terminés par .conf dans /etc.
 
 ```bash
-ls /etc/*.conf
+ls -d -- /etc/*.conf
 ```
 
 #### Activité 6 — Afficher les caractéristiques de /tmp lui-même, puis relever sa particularité.
@@ -85,22 +101,31 @@ L’option -d évite de lister son contenu. Observer notamment le t des permissi
 !!! note "Lecture de la source"
     Le titre du module inclut les métacaractères, mais son TP propre concerne fichiers et dossiers ; le second TP est rattaché au module06 d’après le titre écrit dans son document.
 
+## À retenir
+
+`pwd` indique où un nom relatif sera cherché. `ls -l` affiche les attributs et `ls -ld` permet d’examiner le répertoire lui-même. Dans `/tmp`, le `t` se lit dans le champ des permissions.
+
 ## Mini-quiz
 
-1. Quelle commande identifie le répertoire courant ?
-2. Pourquoi ls -ld /tmp respecte-t-il la consigne ?
-3. Que fait le motif /etc/*.conf ?
+1. Où `touch MonPremierFichier` crée-t-il le fichier ?
+2. Que révèle `ls -l` après la création ?
+3. Qui développe `/etc/*.conf` ?
+4. Pourquoi ajouter `-d` à la liste des noms `.conf` ?
+5. Pourquoi utiliser `ls -ld -- /tmp` dans le TP ?
 
-??? note "Réponses"
-    1. pwd.
-    2. -d demande les attributs du répertoire lui-même.
-    3. Le shell sélectionne les noms terminés par .conf directement dans /etc.
+??? note "Réponses commentées"
+    1. Dans le répertoire courant si ce nom relatif n’existe pas. Utiliser `pwd` avant la création et `ls -l -- MonPremierFichier` ensuite.
+    2. Entre autres, le type, les permissions, le propriétaire et le groupe du fichier.
+    3. Le shell développe le motif en chemins correspondants avant de lancer `ls`. Le motif vise les noms directement sous `/etc`.
+    4. Un répertoire peut aussi correspondre au motif. `-d` affiche son nom comme celui des autres entrées.
+    5. `-d` sélectionne le répertoire `/tmp` lui-même et `-l` affiche ses permissions, dont le sticky bit s’il est présent.
 
 ## Pour pratiquer et réviser
 
 - [TP : énoncés et corrections](../../tp/utilisation-linux/module-04/index.md)
 - [Fiche de révision](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
 - [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-04-fichiers-dossiers-et-metacaracteres.md)
+- [Mémo sur les permissions Linux](../../memo/permissions-linux.md)
 - [Présentation du cours](index.md)
 
 ## Provenance pédagogique

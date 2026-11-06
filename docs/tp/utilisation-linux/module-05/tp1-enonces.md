@@ -1,8 +1,12 @@
 # Énoncé — TP01 — Lire des fichiers
 
-**Périmètre :** reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.
+## Préparer l’atelier
 
-**Durée indicative :** 45 à 60 minutes.
+Le support demande de suivre les vidéos du module 05 et de faire le TP précédent. Préparer un dossier d’exercice accessible en écriture et conserver les deux textes donnés ci-dessous.
+
+**Durée estimée dans le support**
+
+45 à 60 minutes.
 
 Textes à saisir :
 
@@ -41,6 +45,16 @@ Compter les lignes de /etc/passwd, une ligne correspondant à une entrée de com
 
 Afficher uniquement les deux premières lignes de /etc/hosts.
 
+## Livrables et vérifications
+
+| Contrôle | Trace attendue |
+| --- | --- |
+| Textes produits | Les deux fichiers contiennent respectivement trois et deux lignes. Le fichier concaténé présente les textes dans l’ordre demandé. |
+| Lectures | Relever le nombre de lignes de `/etc/passwd` et les deux premières lignes de `/etc/hosts` sur sa machine. |
+
+## Liens
+
 - [Correction](tp1-corrections.md)
 - [Cours du module](../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
+- [Fiche de révision](../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
 - [Tous les ateliers du module](index.md)
