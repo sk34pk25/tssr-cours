@@ -158,18 +158,76 @@ Le bloc distant s’exécute dans son propre contexte. Passez les valeurs avec `
 
 Le TP demande d’identifier les ordinateurs AD avant une opération d’arrêt. Le code source filtre un chemin d’annuaire. Pour vérifier le résultat, dresser d’abord la liste des cibles, vérifier séparément les contrôleurs de domaine et limiter le test aux machines de la maquette prévues à cet effet.
 
+## TP guidé
+
+### Tester les services et garder les erreurs pour le bilan
+
+Dans l’éditeur du TP, tester un service connu puis un nom inexistant. Capturer les erreurs de la commande sans affichage immédiat et afficher un bilan unique après la boucle. Réunir ensuite cette logique dans une fonction qui reçoit les noms.
+
+```powershell
+function Test-LabService {
+    param([Parameter(Mandatory)][string[]]$Name)
+    $erreurs = @()
+    $resultats = foreach ($nom in $Name) {
+        $service = Get-Service -Name $nom -ErrorAction SilentlyContinue -ErrorVariable +erreurs
+        [pscustomobject]@{
+            Nom = $nom
+            Etat = if ($service) { $service.Status } else { 'Non obtenu' }
+        }
+    }
+    [pscustomobject]@{
+        Resultats = @($resultats)
+        Erreurs = @($erreurs)
+    }
+}
+$bilan = Test-LabService -Name 'Spooler', 'ServiceInexistantTP'
+Write-Host 'Vérification des services terminée.'
+$bilan.Resultats
+$bilan.Erreurs | Select-Object FullyQualifiedErrorId,CategoryInfo
+```
+
+Un résultat « Non obtenu » doit être interprété avec l’erreur conservée. Une commande peut échouer pour une autre raison qu’un service absent. Le préfixe `+` dans `-ErrorVariable +erreurs` ajoute les erreurs des appels successifs dans la même variable.
+
+### Créer, contrôler et libérer une session
+
+Créer une session vers CD01 dans la maquette, la conserver dans une variable et relever son état. Comparer la sortie d’un test local et distant. Libérer la session même si la commande du test échoue.
+
+```powershell
+$session = New-PSSession -ComputerName CD01 -ErrorAction Stop
+try {
+    $session | Select-Object ComputerName,State,Availability
+    Invoke-Command -Session $session -ScriptBlock { hostname } -ErrorAction Stop
+} finally {
+    Remove-PSSession -Session $session
+}
+```
+
+### Préparer les cibles AD et contrôler le profil de l’éditeur
+
+1. Transformer la recherche des ordinateurs en fonction avec un paramètre de domaine. Définir aussi l’OU autorisée. Établir dans ce même domaine la liste des contrôleurs avec `Get-ADDomainController`. Si cette interrogation échoue, interrompre la préparation.
+2. Comparer les noms DNS, exclure les contrôleurs et les objets sans nom DNS, puis confronter la sélection à la liste de machines autorisées. Vérifier les noms courts et les FQDN avant une simulation `Stop-Computer -WhatIf` sur la liste approuvée. Le filtre illustré dans le corrigé s’appuie sur l’organisation d’une maquette. Une OU seule ne prouve pas qu’un ordinateur peut être arrêté.
+3. Ouvrir le profil de l’hôte ISE ou de la console concernée après l’avoir sauvegardé. Tester une erreur non bloquante connue avec `$ErrorActionPreference = 'SilentlyContinue'`, puis constater qu’elle reste consultable dans `$Error`. Pour un exercice ciblé, préférer le réglage de la seule commande. Restaurer le profil et vérifier l’effet à la réouverture.
+
+[Paramètres communs et collecte d’erreurs](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters) · [Référence de Get-ADDomainController](https://learn.microsoft.com/powershell/module/activedirectory/get-addomaincontroller)
+
+## À retenir
+
+Une fonction reçoit ses entrées, produit un résultat exploitable et permet de distinguer un échec d’une sortie vide. Une session distante se vérifie et se ferme. La sélection AD et la liste de cibles autorisées précèdent toute simulation d’arrêt.
+
 ## Mini-quiz
 
 1. Quel paramètre permet à `catch` d’intercepter une erreur non bloquante ?
 2. Où retrouver la dernière erreur de la session ?
 3. Quelle commande termine une session ouverte par `New-PSSession` ?
 4. Quelle différence entre `;` et `|` ?
+5. Comment prouver qu’une erreur masquée reste consultable ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `-ErrorAction Stop` sur la commande concernée.
     2. `$Error[0]`.
     3. `Remove-PSSession`.
     4. Le premier sépare des commandes. Le second transmet des objets.
+    5. Provoquer une erreur non bloquante connue dans la maquette puis lire l’enregistrement capturé par `-ErrorVariable` ou `$Error[0]`.
 
 ## Travaux pratiques et révision
 

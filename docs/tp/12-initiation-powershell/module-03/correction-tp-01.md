@@ -28,15 +28,12 @@ Depuis la machine CLI01
 Quelle commande avez-vous utilisée ?
 
 ```text
-Get-AdUser
--Filter
-*
-|
-Select-Object
--Property
-GivenName,Name,Enabled,Department,City
-Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
-des propriétés Department et City ?
+Get-AdUser -Filter * | Select-Object -Property GivenName,Name,Enabled,Department,City
+```
+
+Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides des propriétés Department et City ?
+
+```text
 Get-Help Get-ADUser -ShowWindow
 ```
 
@@ -58,8 +55,9 @@ Get-AdUser -Filter * | Select-Object -First 5
 
 - Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department
 
-```text
 Indiquez les commandes utilisées.
+
+```text
 Get-AdUser -Filter * | Select-Object City
 Get-AdUser -Filter * | Select-Object Department
 get-ADuser -filter * -properties * | select-object department,city
@@ -81,7 +79,11 @@ Quelle commande avez-vous utilisée ?
 ```text
 Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | sort -property Department -Descending
+```
+
 Effectuer le tri sur les deux propriétés City et Department.
+
+```text
 Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | sort -property City,Department
 ```
@@ -108,8 +110,9 @@ Bonus
 
 - Désactiver les utilisateurs dont le nom commence par un D.
 
-```text
 Utiliser la commande Disable-AdAccount
+
+```text
 Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | Where -Property Name -like "R" | Disabled-ADAccount
 get-ADuser -filter 'name -like "d*"' | Disable-ADAccount
@@ -147,8 +150,9 @@ Get-ADUser -Filter * | Where-Object Enabled -like $False | measure
 
 - Affichez tous les fichiers du répertoire \\CD01\Partage.
 
+Quelle commande avez-vous utilisée ?
+
 ```text
-Quelle commande avez-vous utilisée ?
 Get-ChildItem \\CD01\Partage\ -File -Recurse
 ```
 
@@ -183,9 +187,9 @@ Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript
 ```text
 Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript {
 $PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }
-Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant
-sur le nom.
 ```
+
+Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant sur le nom.
 
 Depuis la machine CLI01
 
@@ -208,8 +212,9 @@ Table name,enabled,Department,City
 
 - Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.
 
+Quelle commande avez-vous utilisée ?
+
 ```text
-Quelle commande avez-vous utilisée ?
 Get-ADGroup -Filter * -Properties * | Format-Table -Property
 name,description,created -GroupBy GroupScope
 ```
@@ -298,6 +303,9 @@ Select @{n="Name";e={$PSItem.Nom}} | New-ADUser
 ```
 
 Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante :
+
+!!! warning "Commande de suppression du document historique"
+    Le bloc ci-dessous est à analyser dans le cadre du TP. Utiliser la recherche ciblée du doublon et le contrôle de l’OU décrits dans le cours.
 
 ```text
 Get-Aduser -filter * | Remove-aduser -confirm : $False

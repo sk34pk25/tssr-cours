@@ -2,6 +2,12 @@
 
 Une fonction donne un nom à un ensemble de commandes que le script peut réutiliser. Ce module couvre la déclaration, l’appel, les paramètres, l’usage des variables et le chargement d’un fichier de fonctions.
 
+## Objectifs
+
+- Définir une fonction, lui transmettre des paramètres et récupérer son statut.
+- Limiter la portée des variables et charger un fichier de fonctions identifié.
+- Séparer le menu des actions et vérifier la sauvegarde, le listing et la suppression.
+
 ## Déclarer, puis appeler
 
 Déclarez la fonction avant que le déroulement atteigne son premier appel. Le corps est exécuté lors de l’appel. Le support illustre `func_infos` avec les informations de la distribution, puis utilise un appel séparé pour démarrer la fonction.
@@ -74,6 +80,20 @@ Le script principal affiche en boucle les choix S, D, L et Q. La création, la s
 
 La correction distingue le dossier vide, un script sans copie et un script déjà sauvegardé. Les guillemets protègent les noms contenant des espaces. Une commande de copie ou de suppression doit signaler son résultat. Préparez un répertoire de laboratoire avec des fichiers de test pour observer chaque branche.
 
+### Assembler les deux fichiers du TP
+
+1. Définissez dans `fonctions.fct` une fonction par action. Parcourez les chemins avec un motif Bash plutôt qu’avec la sortie de `ls`. Protégez les chemins dans les appels à `cp` et `rm`.
+2. Dans `script_M8TP1.sh`, vérifiez la lisibilité du fichier de fonctions et chargez-le. Gardez le menu dans le script principal.
+3. Traitez S, D, L et Q séparément. Une action doit rendre un statut que le menu peut vérifier. L et D n’ont pas le même périmètre. L consulte les scripts, tandis que D retire les fichiers `.save` du dossier d’exercice.
+4. Analysez la syntaxe de chacun des fichiers et utilisez uniquement un dossier de TP isolé pour l’essai. La correction donne le contenu complet des deux fichiers.
+
+| Enchaînement | Preuve à relever |
+| --- | --- |
+| L, puis S, puis L | L’état passe de « sans sauvegarde » à « sauvegardé » |
+| D, puis L | Les copies ont disparu. Les scripts restent présents |
+| Q | Sortie du menu avec statut zéro |
+| Dossier vide ou choix invalide | Aucune action sur un chemin imaginaire. Un choix invalide est signalé |
+
 ### Organisation du TP — Complément pédagogique
 
 ```mermaid
@@ -89,13 +109,26 @@ flowchart TD
     C -->|Q| G["Quitter"]
 ```
 
+## À retenir
+
+Une fonction reçoit ses propres arguments et transmet un statut à l’appelant. Le chargement d’un fichier exécute son contenu dans le shell courant. Le menu orchestre les fonctions et les tests vérifient les effets sur les fichiers.
+
 ## Mini-quiz
 
 1. Que désigne `$1` dans une fonction appelée avec un argument ?
 2. Quel rôle joue `return 2` ?
-3. À quel moment les commandes au niveau supérieur d’un fichier chargé s’exécutent-elles ?
+3. À quel moment le code au niveau supérieur de `fonctions.fct` s’exécute-t-il ?
+4. Que doit montrer L après S dans le dossier du TP ?
+5. Pourquoi contrôler les statuts de copie et de suppression ?
 
-**Réponses.** Le premier argument de la fonction. La fonction se termine avec le statut 2. Lors de `source` ou `.`.
+??? success "Réponses commentées"
+    1. Le premier argument de cet appel à la fonction.
+    2. Il quitte la fonction avec le statut 2, que l’appelant peut tester.
+    3. Pendant le chargement par `source` ou `.`.
+    4. Chaque script correspondant doit avoir sa copie `.sh.save` et l’état affiché doit le confirmer.
+    5. Une commande peut échouer pour un fichier. Le menu peut alors signaler un résultat partiel au lieu d’annoncer une réussite globale.
+
+## Appliquer ce module
 
 - [TP 01 et correction](../../tp/11-initiation-scripting-bash/module-08/index.md)
 - [Fiche de révision](../../revision/11-initiation-scripting-bash/module-08-les-fonctions.md)

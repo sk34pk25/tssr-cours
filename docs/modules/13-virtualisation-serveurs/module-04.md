@@ -1,132 +1,127 @@
 # Module 04 — Découverte d’Hyper-V
 
-## Objectifs et contexte documentaire
+L’atelier reprend la VM Windows Server 2019 du module 2 et y installe Hyper-V. Dans cette maquette, Workstation héberge la VM Windows, qui héberge à son tour deux invités Hyper-V.
 
-Le module vise la découverte d’**Hyper-V 2019** et des menus de configuration de
-l’hyperviseur Microsoft. Le support emploie également des repères plus anciens :
-Hyper-V v2 sous Windows Server 2008 R2, Hyper-V v3 sous Windows 8/Windows Server 2012.
-Ces versions décrivent le contexte historique du cours, sans recommandation de
-version actuelle.
+## Objectifs
 
-## Prérequis et installation présentés
+- Préparer les ressources et installer le rôle Hyper-V.
+- Repérer la console, les réglages d’une VM et les types de commutateurs virtuels.
+- Créer une VM de génération 2, puis produire une seconde VM par export et import.
+- Vérifier la communication entre les invités et identifier le snapshot final.
 
-Le support cite un processeur 64 bits Intel VT-x ou AMD-V, les réglages BIOS/UEFI
-correspondants, ainsi que des ressources CPU, RAM et disque adaptées. Pour le
-logiciel, il mentionne Windows Server à partir de 2008 et Windows 8 Pro 64 bits avec
-SLAT (*Second Level Address Translation*).
+## 1. Préparer l’hôte Hyper-V
 
-Sur serveur, Hyper-V est présenté comme un rôle à installer depuis le Gestionnaire
-de serveur ; sur le client Windows 8, comme une fonctionnalité à activer. Le support
-historique indique deux redémarrages afin de démarrer l’hyperviseur en mode natif,
-de type 1. Cette indication n’est pas étendue à toutes les versions de Windows.
+Le support présente les extensions Intel VT-x ou AMD-V, les réglages BIOS/UEFI, la mémoire, le processeur et l’espace disque. Les rappels Hyper-V v2 sous Windows Server 2008 R2, Hyper-V v3 sous Windows 8 ou Windows Server 2012 et SLAT situent les exemples du support. Le TP travaille sous Windows Server 2019.
 
-## Console, matériel et interaction
-
-La console de gestion rassemble les serveurs, la liste et l’état des VM, les
-informations de la VM sélectionnée et les actions de gestion du serveur ou de la VM.
-Une machine peut être affichée dans une console séparée. **Fermer sa fenêtre
-n’arrête pas la VM.**
-
-Le support présente les paramètres matériels, les services d’intégration selon la
-compatibilité des systèmes, les captures instantanées, l’importation et l’exportation.
-Il décrit un outil orienté administration et des fichiers de VM difficiles à
-manipuler manuellement. Il mentionne aussi l’absence de gestion des médias USB
-amovibles avec Hyper-V v2 ; cette limite reste attachée à la version citée.
-
-Les raccourcis documentés sont `Ctrl` + `Alt` + `Gauche` pour la bascule et
-`Ctrl` + `Alt` + `Fin` pour transmettre `Ctrl` + `Alt` + `Suppr` dans la VM.
-
-## Réseaux virtuels
-
-| Réseau du support | Portée décrite |
+| Environnement | Installation présentée |
 | --- | --- |
-| Privé | Communication entre les invités uniquement. |
-| Interne | Communication entre les VM et avec l’hôte, rapprochée de Host-only. |
-| Externe | Connexion au réseau physique, rapprochée de Bridged. |
-| Externe dédié | Association exclusive à une carte physique de l’hôte. |
+| Windows Server | Ajouter le rôle Hyper-V depuis le Gestionnaire de serveur. |
+| Client Windows cité dans le support | Activer Hyper-V dans les fonctionnalités du système. |
+| Atelier imbriqué | Préparer la VM Workstation et vérifier que ses extensions de virtualisation sont exposées avant d’ajouter le rôle. |
 
-Le support mentionne l’identification des LAN par VLAN pour les réseaux internes et
-externes. Les réseaux virtuels sont à créer selon les besoins dans l’outil de gestion
-réseau du volet droit. Il indique un seul réseau externe par carte réseau hôte.
+Le support mentionne deux redémarrages dans son scénario historique. Dans le laboratoire, suivre l’assistant puis vérifier que le rôle démarre et que la console gère l’hôte. Si l’installation échoue pour cause de fonctionnalités processeur, vérifier la virtualisation imbriquée sur l’hôte extérieur. [Dépannage de la virtualisation imbriquée Hyper-V](https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/hyper-v-nested-virtualization)
 
-## Création et stockage d’une VM
+## 2. Lire la console et choisir le commutateur
 
-L’assistant `Nouveau > Ordinateur virtuel` sert à définir le stockage et le matériel.
-Le support précise que le disque d’amorçage d’une VM de **première génération** se
-trouve sur une interface IDE. L’atelier de ce module demande une **génération 2** :
-les deux contextes ne doivent pas être confondus.
+Le **Gestionnaire Hyper-V** réunit les hôtes, la liste et l’état des VM, les réglages et les actions. La **connexion à la machine virtuelle** ouvre sa console. Fermer cette fenêtre laisse la VM dans son état d’exécution. Le support cite `Ctrl` + `Alt` + `Gauche` pour la bascule et `Ctrl` + `Alt` + `Fin` pour envoyer `Ctrl` + `Alt` + `Suppr` à l’invité.
 
-Dans le laboratoire, les fichiers des VM et les disques virtuels sont rangés dans
-des emplacements distincts, nommés `VMs` et `VHDs` sur un volume de données. Le
-disque demandé pour la VM de l’atelier est au format **VHDX**, de 32 Go ; la
-présentation d’export du support évoque aussi des disques **VHD**.
+Le cours décrit le matériel, les services d’intégration, les points de contrôle, l’import et l’export. Il situe la limite sur l’USB amovible dans le contexte de Hyper-V v2.
 
-## Exportation et importation : repères du support
-
-Le support décrit l’export avant duplication ou déplacement, la nécessité de
-disposer des fichiers de configuration et la sélection du dossier contenant tous
-les fichiers. Dans son exemple historique, il propose d’exporter dans un emplacement
-dédié, de copier le répertoire voulu puis d’importer sans « Dupliquer les fichiers ».
-Il signale également le risque de rassembler les copies de disques dans un même
-emplacement avec l’autre option.
-
-L’atelier suit une autre consigne explicite : importer avec **Copy the virtual
-machine** et choisir des sous-dossiers distincts pour la seconde VM. La procédure de
-l’atelier et l’exemple du support restent distingués.
-
-## Cadre de l’atelier n°2
-
-L’atelier d’une heure utilise la VM Windows Server 2019 préparée au module 2 comme
-hôte Hyper-V à l’intérieur de VMware Workstation. Le document précise que cette
-imbrication est imposée par l’environnement du centre de formation ; il situe l’installation sur un
-serveur physique dans son scénario d’entreprise.
-
-Le travail demandé couvre la préparation du stockage, l’installation du rôle, la
-création d’une VM, l’installation du système, Sysprep avec généralisation et arrêt,
-l’export puis l’import d’une seconde VM, et un contrôle de communication. Les valeurs
-de mémoire et de disque de l’atelier sont des paramètres de laboratoire.
-
-!!! warning "Limites documentaires conservées"
-
-    La capture finale de la solution montre un ping vers l’adresse également affichée
-    comme passerelle ; elle ne suffit pas à prouver la liaison entre les deux VM
-    demandée par l’énoncé. L’énoncé demande enfin un snapshot VMware de la VM qui
-    héberge Hyper-V ; la solution fournie ne documente pas cette dernière étape.
-
-## Périmètre et provenance
-
-Contenu A : `Module 04 - Support de cours.pdf` et les documents de mise en situation
-Hyper-V du module 4, énoncé et solution, dans Drive TSSR en lecture seule. Contenu B :
-restructuration web limitée aux notions et aux limites observées dans ces sources.
-Aucune procédure externe ni ressource binaire n’est ajoutée.
-Les supports d’installation et les fichiers de VM du laboratoire ne sont pas fournis
-par les trois PDF. Cette page ne dépend d’aucun objet pédagogique encore non publié.
-
-## Relier les paramètres aux contrôles
-
-| Étape | Valeur ou contrôle |
+| Type présenté | Portée |
 | --- | --- |
-| Hôte Hyper-V du TP | `SRV_2K19`, 8 Go et un deuxième disque SCSI de 100 Go. |
-| Volume de données | `DATA`, dossiers `VMs` et `VHDs`. |
-| Réseau | Commutateur externe associé à l’interface Intel de l’hôte imbriqué. La migration dynamique reste désactivée pour ce TP. |
-| Premier invité | `SRV_2K19-HV1`, génération 2, 2048 Mo fixes et VHDX 32 Go. |
-| Copie | Sysprep avec Generalize et Shutdown, export, puis import en mode Copy the virtual machine et nouveau nom `SRV_2K19-HV2`. |
-| Vérification | Démarrage des deux invités, ping vers l’adresse de l’autre invité et snapshot Workstation `Fin atelier 2`. |
+| Privé | Entre les VM du commutateur. |
+| Interne | Entre ces VM et leur hôte Hyper-V. |
+| Externe | Liaison au réseau physique via une carte choisie. |
+| Externe dédié | Carte physique réservée à ce raccordement dans le montage présenté. |
 
-La génération 1 utilise un disque d’amorçage IDE dans le cas décrit. La génération 2 utilise UEFI et un disque d’amorçage SCSI. La génération se choisit à la création en fonction du système invité et de son mode d’amorçage. [Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+Le support aborde l’identification VLAN pour les réseaux internes et externes. Dans l’atelier, le commutateur externe est associé à la carte Intel du serveur imbriqué. La migration à chaud reste désactivée.
 
-Le support indique deux redémarrages dans son contexte historique. À l’issue de l’installation, contrôler que le rôle a démarré et que le gestionnaire Hyper-V peut créer la VM. Vérifier les emplacements du second invité et son identité après l’import.
+**Illustration IA / externe au cours — montage du laboratoire.**
 
-## Question de révision
+```mermaid
+flowchart TB
+    P["Poste Workstation"] --> H["SRV_2K19 · hôte Hyper-V"]
+    H --> X["Commutateur externe · carte Intel"]
+    H --> D["Volume DATA · dossiers VMs et VHDs"]
+    X --> A["SRV_2K19-HV1"]
+    X --> B["SRV_2K19-HV2"]
+    D --> A
+    D --> B
+```
 
-Quel mode d’import choisir pour garder simultanément l’original et la copie ?
+## 3. Choisir génération, disque et mode d’import
 
-??? success "Correction"
+Le support évoque le disque d’amorçage IDE d’une VM de première génération. L’atelier choisit une **génération 2**, avec amorçage UEFI et disque virtuel SCSI. Vérifier la compatibilité du système invité au moment de la création. [Choisir la génération d’une VM Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
-    Copy the virtual machine crée un nouvel identifiant. Placer les fichiers de la copie dans des emplacements séparés, puis renommer et vérifier la nouvelle VM.
+Un export rassemble la configuration et les fichiers nécessaires au déplacement ou à la duplication. Le support historique décrit un import sans duplication des fichiers dans son exemple. Le TP demande **Copy the virtual machine**. Ce mode crée une nouvelle identité de VM, avec des emplacements à contrôler pour éviter de réutiliser le disque de la première. [Exporter et importer une VM Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/deploy/export-and-import-virtual-machines)
 
-[Fiche de révision](../../revision/13-virtualisation-serveurs/module-04.md) · [Atelier et correction](../../tp/13-virtualisation-serveurs/module-04/index.md)
+## 4. TP guidé — Installer Hyper-V et dupliquer un invité
 
-## Kahoot
+**Durée du support.** Environ une heure. Prendre la VM `SRV_2K19` préparée au module 2 et l’ISO Windows Server 2019 de laboratoire.
 
-- [TSSR-Virtualisation de serveurs-Module-04](../../kahoot/13-virtualisation-serveurs-module-04.md)
+### A. Préparer le serveur
+
+1. Dans Workstation, porter la mémoire de `SRV_2K19` à **8 Go** et ajouter un second disque SCSI de **100 Go**.
+2. Démarrer la VM hôte. Identifier le disque ajouté avant de créer le volume `DATA`.
+3. Installer le rôle Hyper-V. Sélectionner l’interface Intel pour le commutateur externe et laisser la migration à chaud désactivée.
+4. Placer les configurations dans `<VOLUME_DATA>\VMs` et les disques dans `<VOLUME_DATA>\VHDs`. Préparer l’ISO sur le bureau de la VM hôte.
+5. Après redémarrage, ouvrir le Gestionnaire Hyper-V. Vérifier l’hôte, le commutateur et les chemins avant la création de l’invité.
+
+### B. Créer et installer `SRV_2K19-HV1`
+
+| Paramètre | Valeur du TP |
+| --- | --- |
+| Génération | 2 |
+| Mémoire | 2 Go fixes |
+| Réseau | Commutateur externe associé à la carte Intel |
+| Disque | VHDX de 32 Go |
+| Média | ISO Windows Server 2019 de laboratoire |
+
+Créer l’ordinateur virtuel, lancer sa console et installer Windows Server 2019. Contrôler le premier démarrage et la présence des fichiers sur le volume prévu.
+
+### C. Généraliser et créer la copie
+
+1. Dans **HV1**, lancer Sysprep. Choisir **Generalize** et **Shutdown**.
+2. Quand l’invité est arrêté, l’exporter dans le dossier `EXPORT` prévu sous `VMs`. Attendre que les fichiers de l’export soient disponibles.
+3. Ouvrir **Import Virtual Machine**. Pointer vers le répertoire contenant l’export, puis choisir **Copy the virtual machine**.
+4. Donner à la copie des dossiers propres sous `VMs` et `VHDs`. La renommer `SRV_2K19-HV2`.
+5. Vérifier que les deux VM figurent dans l’inventaire, utilisent des fichiers distincts et démarrent.
+
+### D. Prouver la communication et garder l’état final
+
+Relever l’adresse de chaque invité dans sa console, puis envoyer un `ping` vers l’adresse **de l’autre invité**. En cas d’échec, vérifier d’abord le commutateur, l’adressage et le pare-feu Windows du laboratoire. La capture de la solution montre un ping vers une adresse affichée aussi comme passerelle. Cette preuve ne suffit pas pour valider la communication demandée.
+
+Créer ensuite le snapshot **`Fin atelier 2` de la VM hôte Workstation** `SRV_2K19`, comme le demande l’énoncé. La solution ne montre pas cette dernière étape. Le snapshot demandé se trouve dans Workstation. Un point de contrôle d’un invité Hyper-V porte sur un autre objet.
+
+## À retenir
+
+- Le commutateur externe relie les invités au segment prévu.
+- L’export produit les fichiers nécessaires à l’import. Le mode copie et les dossiers séparés permettent de garder deux VM.
+- La preuve réseau vise l’adresse de l’autre invité, et le snapshot final concerne la VM hôte Workstation.
+
+## Mini-quiz — 5 questions {#question-de-revision}
+
+1. À quel niveau contrôler les extensions de virtualisation si Hyper-V ne s’installe pas dans `SRV_2K19` ?
+2. Quel type de commutateur relie les invités au réseau physique choisi ?
+3. Quelle génération et quel disque utilise le premier invité du TP ?
+4. Quel mode d’import permet de garder l’original et la copie ?
+5. Quelles deux preuves permettent de conclure l’atelier ?
+
+??? success "Réponses commentées"
+
+    1. Sur le processeur de l’hôte physique et dans les réglages d’exposition des extensions à la VM Workstation.
+    2. Un commutateur externe associé à la carte Intel prévue.
+    3. Génération 2 et VHDX de 32 Go, avec 2 Go de mémoire fixe dans ce laboratoire.
+    4. Copy the virtual machine. Vérifier aussi les emplacements de configuration et de disque de la seconde VM.
+    5. Un ping entre les adresses relevées sur les deux invités et le snapshot de la VM hôte Workstation demandé par l’énoncé.
+
+## Pour pratiquer et réviser
+
+- [Énoncé de l’atelier Hyper-V](../../tp/13-virtualisation-serveurs/module-04/tp-01-hyper-v.md) et [correction](../../tp/13-virtualisation-serveurs/module-04/correction-tp-01.md)
+- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-04.md)
+- [Kahoot existant](../../kahoot/13-virtualisation-serveurs-module-04.md)
+- [Sommaire de Virtualisation de serveurs](index.md)
+
+## Provenance pédagogique
+
+Le support M04 et l’atelier 2 donnent les réglages, consignes et captures. Le schéma de la maquette et les vérifications intermédiaires explicitent le scénario. Les précisions sur les générations et l’import sont documentées par Microsoft.

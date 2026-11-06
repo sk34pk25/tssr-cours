@@ -41,16 +41,16 @@ avec Sysprep et arrêter → exporter → importer une copie dans des sous-dossi
 - [Cours M04](../../modules/13-virtualisation-serveurs/module-04.md).
 - [Atelier unique, énoncé et correction](../../tp/13-virtualisation-serveurs/module-04/index.md).
 
-Contenu A : support M04, énoncé et solution de l’Atelier n°2 Hyper-V, Drive TSSR en
-lecture seule. Contenu B : synthèse des éléments attestés, sans quiz ni exercice ajouté.
-
-
 ## Question de révision
 
-Quel mode d’import choisir pour garder simultanément l’original et la copie ?
+1. Quel mode d’import garde l’original et une copie distincte ?
+2. Pourquoi vérifier l’adresse visée dans la preuve de ping ?
+3. Quels contrôles précèdent Sysprep dans ce TP ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Copy the virtual machine crée un nouvel identifiant. Placer les fichiers de la copie dans des emplacements séparés, puis renommer et vérifier la nouvelle VM.
+    1. Choisir Copy the virtual machine et des dossiers distincts. Vérifier le nouvel identifiant de la copie.
+    2. Un ping vers la passerelle ne démontre pas que les deux VM communiquent. Relever leur adresse avec `ipconfig` et viser l’autre invité.
+    3. Identifier la première VM Hyper-V, vérifier le choix Generalize et Shutdown, puis contrôler son état arrêté avant l’export.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-04.md)

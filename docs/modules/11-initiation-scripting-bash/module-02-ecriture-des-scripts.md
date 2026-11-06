@@ -2,6 +2,12 @@
 
 Créez un fichier texte à partir de l’algorithme, choisissez son interpréteur et contrôlez les résultats. Le support utilise Bash et l’éditeur `vi` ou `vim`.
 
+## Objectifs
+
+- Écrire un fichier texte avec un shebang et des commentaires utiles.
+- Comparer l’appel par Bash au lancement direct du fichier.
+- Contrôler la syntaxe et relier chaque sortie à une étape du TP.
+
 ## Interpréteur, commentaires et permissions
 
 Ouvrez `monscript.sh` avec `vi monscript.sh`. Placez le shebang en première ligne. Documentez le rôle du script avec `#`. Un en-tête peut donner son usage, ses dépendances et sa version.
@@ -56,6 +62,19 @@ Suivez les actions de l’énoncé dans leur ordre. Affichez l’accueil, listez
 
 **Clarification pédagogique.** Sans correspondance, le motif peut être transmis tel quel à `ls`. `whereis bash` recherche certains emplacements, dont le résultat varie selon l’installation. La liste dépend des métadonnées APT disponibles et le filtre peut retenir des paquets dont le nom contient `bash`. Le script fourni dans le Drive est consultable dans la correction du TP.
 
+### Organiser et vérifier les sorties
+
+1. Créez un fichier avec des fins de ligne LF. Placez le shebang et un commentaire d’usage avant l’accueil.
+2. Placez deux fichiers de test, dont un nom avec des espaces. Comparez les listes par extension dans le dossier de travail. Relevez aussi le cas où une extension ne correspond à aucun fichier.
+3. Distinguez la version retournée par `bash --version` des emplacements retournés par `whereis bash`. Vérifiez séparément l’emplacement du fichier de configuration si l’énoncé le demande.
+4. Consultez la liste APT et interprétez sa sortie. Un filtre sans ligne peut signifier qu’aucun nom ne correspond aux informations locales. L’exercice ne demande pas d’installer une mise à jour.
+5. Contrôlez d’abord la syntaxe. Pour tester le lancement direct en VM, ajoutez le droit d’exécution au propriétaire et comparez la sortie attendue à la sortie observée.
+
+```bash
+bash -n monscript.sh
+chmod u+x ./monscript.sh
+```
+
 ### Du fichier à la trace — Complément pédagogique
 
 ```mermaid
@@ -66,13 +85,26 @@ flowchart LR
     D --> E["Trace ou diagnostic ciblé"]
 ```
 
+## À retenir
+
+Le shebang choisit l’interpréteur pour un lancement direct. Le droit d’exécution rend ce lancement possible. L’analyse syntaxique, la trace et la vérification du résultat répondent à trois questions différentes.
+
 ## Mini-quiz
 
-1. Quel élément sélectionne l’interpréteur lors de `./monscript.sh` ?
-2. Que contrôle `bash -n` ?
+1. Quel élément sélectionne l’interpréteur pour `./monscript.sh` ?
+2. Que contrôle `bash -n monscript.sh` ?
 3. Que montre `bash -x` ?
+4. Quel effet a `chmod u+x` sur ce fichier ?
+5. Que vérifier si `ls -l *.bash` échoue dans le dossier du TP ?
 
-**Réponses.** Le shebang. La syntaxe. Les commandes réellement exécutées et leurs arguments développés.
+??? success "Réponses commentées"
+    1. Le shebang de la première ligne, lorsque le fichier peut être exécuté.
+    2. La syntaxe. Une commande manquante ou un résultat inattendu peuvent apparaître ensuite lors d’un essai.
+    3. La trace des commandes exécutées et de leurs arguments développés. Une valeur sensible peut y apparaître.
+    4. Il ajoute le droit d’exécution du propriétaire. Un appel explicite par `bash` requiert surtout de pouvoir lire le fichier.
+    5. Vérifier la présence d’un fichier correspondant. Avec les réglages usuels, le motif non développé est transmis à `ls`.
+
+## Appliquer ce module
 
 - [TP 02 et correction](../../tp/11-initiation-scripting-bash/module-02/index.md)
 - [Fiche de révision](../../revision/11-initiation-scripting-bash/module-02-ecriture-des-scripts.md)

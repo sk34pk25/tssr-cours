@@ -7,37 +7,37 @@
 </section>
 <section class="tssr-transcribed-page" id="page-2">
 <p>Gestion du réseau</p>
-<p>Les VLAN</p>
-<p>Les VLAN</p>
+<h4>Les VLAN</h4>
+
 <h4>Définition</h4>
 <ul><li>Un VLAN (Virtuel LAN) est un réseau logique indépendant.</li><li>Les commutateurs (ou switch) permettent l’interconnexion réseau d’un ensemble d’éléments. Tous les éléments raccordés à un même switch peuvent ainsi communiquer entre eux.</li><li>La mise en œuvre de VLAN permet de définir des contextes isolés afin que seuls les éléments d’un même VLAN puissent communiquer ensemble.</li></ul>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>Postes clients</p>
-<p>Serveurs</p>
-<p>Téléphones</p>
+<table><caption>Répartition des ports du commutateur sur le schéma</caption><thead><tr><th scope="col">Équipements</th><th scope="col">Ports</th></tr></thead><tbody><tr><td>Postes clients</td><td>1 à 12</td></tr><tr><td>Serveurs</td><td>13 à 18</td></tr><tr><td>Téléphones</td><td>19 à 24</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <section class="tssr-transcribed-page" id="page-3">
 <p>Les VLAN</p>
@@ -58,112 +58,112 @@
 <p>Les VLAN</p>
 <h4>Intégration d’un identifiant de VLAN</h4>
 <ul><li>L’ajout d’informations d’identification de VLAN se matérialise par la modification de l’en-tête Ethernet des trames IP</li></ul>
-<p>TAG VLAN</p>
-<p>Adresse MAC</p>
-<p>Adresse MAC</p>
-<p>802.1Q (4 octets)</p>
-<p>Type / longueur</p>
-<p>Données</p>
-<p>CRC</p>
-<p>Destination</p>
-<p>Source</p>
-<p>16 bits</p>
-<p>3 bits</p>
-<p>1 bit</p>
-<p>12 bits</p>
-<p>TPID Tag Protocole</p>
-<p>Identifier</p>
-<p>TCI (Tag Control Identifier)</p>
-<p>0x8100</p>
-<p>Priorité utilisateur</p>
-<p>Canonical Format</p>
-<p>Indicator</p>
-<p>VLAN ID</p>
+<p>Adresse MAC Destination → Adresse MAC Source → TAG VLAN 802.1Q (4 octets) → Type / longueur → Données → CRC.</p><table><caption>Détail du tag VLAN 802.1Q</caption><thead><tr><th scope="col">Champ</th><th scope="col">Longueur</th><th scope="col">Valeur ou information du schéma</th></tr></thead><tbody><tr><td>TPID (Tag Protocole Identifier)</td><td>16 bits</td><td>0x8100</td></tr><tr><td>TCI (Tag Control Identifier)</td><td>3 bits</td><td>Priorité utilisateur</td></tr><tr><td>TCI (Tag Control Identifier)</td><td>1 bit</td><td>Canonical Format Indicator</td></tr><tr><td>TCI (Tag Control Identifier)</td><td>12 bits</td><td>VLAN ID</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <ul><li>Parmi les informations ajoutées figurent :</li><li>Une priorité (valeur de 0 à 7) permettant de mettre en place de la qualité de service 802.1 P</li><li>L’identifiant de VLAN (valeur de 1 à 4094)</li></ul>
 <p>Les VLAN</p>
 <h4>Le trunking</h4>
 <ul><li>Généralement, les réseaux d’entreprises intègrent une multitude de switchs. Les ports utilisés pour le raccordement entre les switchs doivent être identifiés comme « port trunk ».</li><li>Lors de la configuration d’un port en « port trunk », on indique les trames de quels VLAN doivent se propager.</li></ul>
-<p>Postes clients – vlan3</p>
-<p>Téléphones – vlan2</p>
-<p>Nantes - RDC</p>
-<p>Port Trunk</p>
-<p>vlan3</p>
-<p>vlan2</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>Nantes Cœur de réseau</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>Nantes – Étage 1</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<p>4</p>
-<p>5</p>
-<p>6</p>
-<p>7</p>
-<p>8</p>
-<p>9</p>
-<p>10</p>
-<p>11</p>
-<p>12</p>
-<p>13</p>
-<p>14</p>
-<p>15</p>
-<p>16</p>
-<p>17</p>
-<p>18</p>
-<p>19</p>
-<p>20</p>
-<p>21</p>
-<p>22</p>
-<p>23</p>
-<p>24</p>
-<p>Postes clients – vlan3 Téléphones – vlan2 Serveurs – vlan5</p>
+<p>Le schéma représente trois commutateurs à Nantes. Les ports de chacun sont numérotés de 1 à 24.</p><table><caption>Affectations et liaisons représentées sur le schéma</caption><thead><tr><th scope="col">Commutateur</th><th scope="col">Groupes de ports représentés</th><th scope="col">Port Trunk</th></tr></thead><tbody><tr><td>Nantes - RDC</td><td>Postes clients – vlan3 (ports 1 à 12) · téléphones – vlan2 (ports 13 à 21)</td><td>23 ↔ port 23 du cœur de réseau</td></tr><tr><td>Nantes Cœur de réseau</td><td>Les ports 23 et 24 relient le cœur aux deux commutateurs d’accès</td><td>23 ↔ RDC · 24 ↔ étage 1</td></tr><tr><td>Nantes – Étage 1</td><td>Postes clients – vlan3 (ports 1 à 7) · téléphones – vlan2 (ports 8 à 13) · serveurs – vlan5 (ports 14 à 19)</td><td>24 ↔ port 24 du cœur de réseau</td></tr></tbody></table><p>Le repère Port Trunk du dessin montre vlan3 et vlan2.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <section class="tssr-transcribed-page" id="page-5">
 <p>Les VLAN</p>

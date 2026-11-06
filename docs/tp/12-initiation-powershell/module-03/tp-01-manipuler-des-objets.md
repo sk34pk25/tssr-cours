@@ -12,31 +12,33 @@ Durée estimée
 
 1 heure 30
 
+## Préparer le travail et le compte rendu
+
+Vérifier l’OU autorisée, l’accès au partage et le dossier d’export. Conserver la liste structurée avant de formater l’affichage. Pour les opérations AD, préparer une simulation ou une preuve en lecture avant tout changement.
+
+| Étape | Preuve à relever |
+| --- | --- |
+| Annuaire | Attributs obtenus, ordre de tri et nombres avant et après filtrage. |
+| Partage | Minimum, maximum, moyenne et unités des tailles. |
+| Export et import | Colonnes des fichiers, copie d’essai pour l’ajout des ordinateurs et diagnostic du doublon ciblé. |
+
 ## Énoncé
 
 Objectifs :
 
 Manipuler les objets leurs propriétés et leurs méthodes
 
-```text
 Utilisation de la commande Select-Object, Sort-Object et Where-Object.
-```
 
 Consignes :
 
 Depuis la machine CLI01
 
-```text
-Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name,
-Enabled Department City.
-```
+Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, Enabled Department City.
 
 Quelle commande avez-vous utilisée ?
 
-```text
-Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
-des propriétés Department et City ?
-```
+Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides des propriétés Department et City ?
 
 Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.
 
@@ -44,31 +46,19 @@ Affichez les cinq premiers utilisateurs Active Directory
 
 Quelle commande avez-vous utilisée ?
 
-```text
-Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur
-propriété Department
-```
+Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department
 
 Indiquez les commandes utilisées.
 
-```text
-Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled,
-Department, City puis triez par la propriété City.
-```
+Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, City puis triez par la propriété City.
 
 Quelle commande avez-vous utilisée ?
 
-```text
-Reprenez la commande précédente puis appliquez le tri sur la propriété Department
-```
-
-dans l’ordre descendant.
+Reprenez la commande précédente puis appliquez le tri sur la propriété Department dans l’ordre descendant.
 
 Quelle commande avez-vous utilisée ?
 
-```text
 Effectuer le tri sur les deux propriétés City et Department.
-```
 
 Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.
 
@@ -78,9 +68,7 @@ Bonus
 
 Désactiver les utilisateurs dont le nom commence par un D.
 
-```text
 Utiliser la commande Disable-AdAccount
-```
 
 Depuis la machine CLI01
 
@@ -112,10 +100,7 @@ Reprenez les commandes précédentes et indiquez les fichiers dont la taille est
 
 Quelle commande avez-vous utilisée ?
 
-```text
-Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri
-descendant sur le nom.
-```
+Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant sur le nom.
 
 Depuis la machine CLI01
 
@@ -123,11 +108,7 @@ Affichez la liste des utilisateurs Active Directory sur cinq colonnes.
 
 Quelle commande avez-vous utilisée ?
 
-```text
-Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec
-```
-
-les propriétés : Name, Enabled, Department, City
+Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec les propriétés : Name, Enabled, Department, City
 
 Quelle commande avez-vous utilisée ?
 
@@ -163,16 +144,16 @@ Faite l’importation des utilisateurs Active Directory à partir du fichier CSV
 
 Si vous obtenez le message d’erreur Already exist, utilisez la commande suivante :
 
+!!! warning "Commande de suppression du document historique"
+    Le bloc ci-dessous est à analyser dans le cadre du TP. Utiliser la recherche ciblée du doublon et le contrôle de l’OU décrits dans le cours.
+
 ```text
 Get-Aduser -filter * | Remove-aduser -confirm : $False
 ```
 
 Que remarquez-vous ?
 
-```text
-Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message
-d’erreur sur la propriété Name.
-```
+Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message d’erreur sur la propriété Name.
 
 Quelle commande avez-vous utilisée ?
 

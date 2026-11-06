@@ -44,9 +44,17 @@
 - Identifier la session distante avant toute commande de laboratoire.
 
 > Les opérations de remoting et le scénario à impact sont réservés à l’environnement autorisé. Les versions d’IDE, valeurs de laboratoire et résultats de captures sont historiques ou contextuels.
+
 ## Autoévaluation
 
-Écrivez les trois blocs `try`, `catch` et `finally` pour une recherche de service. Prévoyez un nom connu et un nom absent. Justifiez `-ErrorAction Stop` et le nom de la variable collectant les erreurs. Décrivez ensuite la différence entre une session interactive, un bloc envoyé avec `Invoke-Command` et la fermeture avec `Remove-PSSession`.
+1. Comment empêcher l’affichage immédiat d’une erreur non bloquante et la conserver ?
+2. Quelle commande utiliser après une session créée par `New-PSSession` ?
+3. Quel résultat vérifier avant de simuler l’arrêt de postes ?
+
+??? success "Réponses commentées"
+    1. Combiner `-ErrorAction SilentlyContinue` avec `-ErrorVariable`. Le préfixe `+` ajoute les erreurs à une variable existante.
+    2. `Remove-PSSession` libère la session. Un bloc `finally` permet de le faire même après une erreur.
+    3. La liste autorisée, sans contrôleurs de domaine, sans cibles non identifiées et sans machines hors du TP.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-05.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-05/index.md)

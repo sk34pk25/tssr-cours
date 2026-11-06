@@ -1,6 +1,6 @@
 # Messagerie Cloud
 
-Formation du 19 au 23 octobre 2026 selon le planning TSSR.
+Formation du 19 au 23 octobre 2026. [Voir la période dans le parcours TSSR](../../parcours-tssr/index.md#p-725d069b25b05b2d)
 
 ## Modules
 
@@ -9,9 +9,11 @@ Formation du 19 au 23 octobre 2026 selon le planning TSSR.
 3. [Administration Microsoft 365 — reprise documentaire du module 2](module-03.md)
 4. [Services complémentaires](module-04.md)
 
-## Travaux pratiques
+## Accès complémentaires
 
-[Énoncés et corrections](../../tp/14-messagerie-cloud/index.md)
+- [Énoncés et corrections des ateliers](../../tp/14-messagerie-cloud/index.md)
+- [Fiches de révision et exercices corrigés](../../revision/14-messagerie-cloud/index.md)
+- [Diagnostiquer une connexion Outlook](../../troubleshooting/outlook-connexion.md)
 
 ## Provenance du module 3
 

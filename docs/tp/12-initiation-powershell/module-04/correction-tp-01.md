@@ -52,9 +52,7 @@ BONUS : indiquez le nombre d’essais effectués par l’utilisateur.
 
 - Pour répondre au besoin, vous utiliserez les structures If et ForEach.
 
-```text
 Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;
-```
 
 dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active Directory.
 

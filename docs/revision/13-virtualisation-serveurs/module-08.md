@@ -46,13 +46,16 @@ du stockage local vers NFS. Les deux parcours restent à distinguer et à arbitr
 Provenance A : cinq PDF M08 du Drive TSSR en lecture seule ; B : synthèse fidèle,
 données de laboratoire neutralisées. Aucun quiz, commande ou lien Kahoot inventé.
 
-
 ## Question de révision
 
-La VM doit garder son hôte et changer de datastore. Quelle opération sélectionner ?
+1. Quelles preuves distinguent migration de calcul et migration de stockage ?
+2. Pourquoi vérifier les dépendances d’un déploiement depuis un modèle ?
+3. Que relever avant l’export OVF et après l’import dans ESXi2 ?
 
-??? success "Correction"
+??? success "Réponses commentées"
 
-    Choisir une migration de stockage. Contrôler l’espace cible, la tâche de migration et la nouvelle banque de la VM tout en vérifiant son état de fonctionnement.
+    1. Comparer l’hôte d’exécution et la banque de données avant et après. Selon l’opération, l’un ou l’autre change.
+    2. Le nouvel invité doit avoir les ressources, le réseau, le stockage et l’identité attendus. Vérifier aussi les droits sur le bon objet.
+    3. Noter l’état, les paramètres et la destination, puis vérifier la nouvelle entrée d’inventaire, son réseau et ses disques avant démarrage.
 
 [Revenir au cours](../../modules/13-virtualisation-serveurs/module-08.md)

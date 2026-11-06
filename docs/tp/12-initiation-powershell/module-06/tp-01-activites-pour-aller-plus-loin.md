@@ -12,6 +12,16 @@ Durée estimée
 
 4 heures
 
+## Préparer le travail et le compte rendu
+
+Utiliser une copie de travail des scripts transcrits. Vérifier les modules AD et DNS et le périmètre des machines. Lire et analyser la syntaxe avant de présenter une simulation.
+
+| Étape | Preuve à relever |
+| --- | --- |
+| Lecture AD | Commentaires, dépendances, groupes et objets ciblés par bloc. |
+| Correction DNS | Table des écarts, résultats du parseur et vérifications de chaque serveur. |
+| Script au choix | Entrées, actions, erreurs prévues et trois preuves dont un cas de refus ou de retour. |
+
 ## Énoncé
 
 Objectifs :

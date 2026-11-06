@@ -2,6 +2,12 @@
 
 À partir d’un statut ou d’une expression, choisissez la branche à exécuter. Le module couvre `if`, les comparaisons, les motifs et `case`. Il prolonge l’exemple du nombre de résultats dans le script de connexion.
 
+## Objectifs
+
+- Utiliser un statut, un test de fichier ou une comparaison dans une condition.
+- Choisir entre `if` et `case` et prévoir une branche pour les saisies invalides.
+- Vérifier les codes de sortie du script d’accueil et les branches du menu de comptes.
+
 ## Exécuter une branche
 
 `if` prend une commande ou une liste de commandes. `then` s’exécute quand le statut testé vaut zéro. `elif` teste un autre cas si la condition précédente a échoué. `else` traite les cas restants et `fi` ferme la structure. Les blocs peuvent être imbriqués.
@@ -83,6 +89,26 @@ esac
 
 Le TP 01 exploite `$#` et `$1`. Il demande le nom quand aucun argument n’est fourni, refuse un nombre d’arguments supérieur à un, interdit `root` et salue les autres noms. Le TP 02 emploie `case` dans un menu de gestion de comptes. Les actions de création, changement du mot de passe et suppression demandent une machine virtuelle de laboratoire et les droits appropriés.
 
+### TP 01 — Arguments et refus de `root`
+
+1. Refusez plus d’un argument et rendez le statut `1`.
+2. Avec un argument, reprenez sa valeur. Sans argument, lisez la saisie et contrôlez sa validité.
+3. Avec `root`, affichez le refus et rendez le statut `2`. Pour une autre valeur valide, affichez l’accueil et relevez le statut de réussite.
+
+### TP 02 — Menu de comptes dans la VM
+
+1. Lisez un identifiant et validez sa forme. Traitez le choix avec `case`.
+2. Pour V, vérifiez l’existence d’un compte local et comparez un compte présent à un nom absent.
+3. Pour C, M ou S, utilisez un compte de test préfixé `tp_` dans la VM et les droits prévus. Vérifiez l’état avant et après chaque action. La correction sépare ces branches de la simple vérification.
+4. Pour Q, quittez sans modifier de compte. Pour un choix inconnu, relevez le diagnostic et le statut.
+
+| Cas de contrôle | Résultat prévu |
+| --- | --- |
+| TP 01, deux arguments | Usage et statut 1 |
+| TP 01, argument `root` | Refus et statut 2 |
+| TP 02, modification avec un nom hors préfixe | Refus avant toute commande de gestion de comptes |
+| TP 02, V sur un compte présent | Confirmation de présence locale |
+
 ### Lecture d’une condition — Complément pédagogique
 
 ```mermaid
@@ -94,13 +120,26 @@ flowchart LR
     D --> E
 ```
 
+## À retenir
+
+Le statut zéro sélectionne la branche de succès. Validez le type de donnée avant sa comparaison et placez le motif de secours à la fin de `case`. Pour une action sur un compte, contrôlez d’abord la cible et l’environnement.
+
 ## Mini-quiz
 
-1. Quelle forme teste qu’un chemin désigne un fichier ordinaire ?
-2. Quand une branche `case` placée après `*` est-elle atteinte avec `;;` ?
-3. Que change le guillemetage du motif à droite de `=` ?
+1. Quel test reconnaît un fichier ordinaire ?
+2. Quand une branche située après `*` est-elle atteinte dans ce menu ?
+3. Que change le guillemetage du motif à droite de `=` dans `[[ ]]` ?
+4. Quel statut le TP 01 attend-il pour l’identifiant `root` ?
+5. Quelles vérifications précèdent C, M ou S dans la correction du TP 02 ?
 
-**Réponses.** `-f`. Un motif `*` précédent correspond déjà à la valeur. Les caractères cités sont traités littéralement.
+??? success "Réponses commentées"
+    1. `-f`.
+    2. Jamais si la branche `*` correspond déjà et se termine par `;;`.
+    3. Les caractères cités sont traités littéralement, y compris un astérisque cité.
+    4. Le statut 2, après un refus explicite.
+    5. La cible est un compte `tp_` du laboratoire et les droits requis sont présents dans la VM.
+
+## Appliquer ce module
 
 - [TP 01 et TP 02](../../tp/11-initiation-scripting-bash/module-06/index.md)
 - [Fiche de révision](../../revision/11-initiation-scripting-bash/module-06-execution-conditionnelle.md)

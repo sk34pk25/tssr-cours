@@ -2,6 +2,12 @@
 
 Ce module organise plusieurs commandes dans un même script. Il montre comment lier une action au succès d’une autre, partager une redirection et rendre une information visible par la couleur.
 
+## Objectifs
+
+- Choisir un enchaînement en fonction du statut recherché.
+- Comparer le groupe courant, le sous-shell et les redirections.
+- Construire un script d’écriture qui s’arrête si une étape requise échoue.
+
 ## Choisir la règle d’enchaînement
 
 | Forme | Quand la deuxième commande est appelée | Statut de la liste |
@@ -61,6 +67,19 @@ printf '\033[1;32m%s\033[0m\n' 'Fichier prêt'
 
 Demandez le dossier, créez-le, créez `fic_M5TP1.txt`, écrivez le texte attendu et affichez son contenu. Le support distingue les messages du dossier et du fichier par couleur. Un chemin peut contenir des espaces. Protégez ses développements par des guillemets et arrêtez le traitement si une étape requise échoue. La redirection `>` remplace le contenu du fichier. Réalisez le TP dans un répertoire de travail réservé à l’exercice.
 
+### Vérifier chaque effet dans le dossier du TP
+
+1. Lisez le chemin de destination et refusez une saisie vide. Utilisez un dossier d’exercice.
+2. Créez le dossier et contrôlez le statut avant de construire le chemin de `fic_M5TP1.txt`.
+3. Créez puis écrivez le fichier. Affichez le contenu seulement après une écriture réussie. Vérifiez que la couleur n’affecte que le message et réinitialisez-la avant l’affichage suivant.
+4. Comparez le fichier créé, la sortie standard et la sortie d’erreur. Un nom avec des espaces doit produire un seul dossier et un seul fichier.
+
+| Cas | Vérification |
+| --- | --- |
+| Dossier nouveau ou déjà présent | Le dossier est prêt et le contenu final est celui de l’énoncé |
+| Chemin déjà occupé par un fichier | La création du dossier échoue et les actions suivantes sont interrompues |
+| Saisie vide | Message explicite et statut non nul |
+
 ### Enchaînement du TP — Complément pédagogique
 
 ```mermaid
@@ -72,13 +91,26 @@ flowchart TD
     C -->|Oui| D["Afficher le contenu"]
 ```
 
+## À retenir
+
+`&&` et `||` testent des statuts. Un tube transmet des données. Regrouper les commandes fixe la portée d’une redirection et le contexte des affectations. Un diagnostic utile reste lisible quand le terminal n’affiche pas la couleur.
+
 ## Mini-quiz
 
 1. Que fait `B` après `A && B` quand A échoue ?
-2. Quelle forme laisse une affectation visible dans le shell courant ?
-3. À quel flux correspond le descripteur `2` ?
+2. Quel groupe conserve une affectation dans le shell courant hors d’un tube ?
+3. Quel descripteur rediriger pour séparer les diagnostics ?
+4. Si A réussit et B échoue dans `A && B || C`, que fait la liste ?
+5. Que faire après un message coloré dans le TP ?
 
-**Réponses.** B est ignorée. Le groupe ordinaire entre accolades. La sortie d’erreur standard.
+??? success "Réponses commentées"
+    1. B n’est pas exécutée.
+    2. Le groupe ordinaire entre accolades.
+    3. Le descripteur `2` correspond à la sortie d’erreur standard.
+    4. Elle exécute C. Utilisez un `if` si la branche doit dépendre uniquement du statut de A.
+    5. Réinitialiser le style pour que les sorties suivantes gardent leur apparence normale.
+
+## Appliquer ce module
 
 - [TP 01 et correction](../../tp/11-initiation-scripting-bash/module-05/index.md)
 - [Fiche de révision](../../revision/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script.md)

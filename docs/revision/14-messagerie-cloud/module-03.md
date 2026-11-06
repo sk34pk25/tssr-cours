@@ -4,6 +4,13 @@ Les cinq PDF classés dans le dossier Module 3 sont des copies exactes des fichi
 
 [Réviser les notions dans la fiche du module 02](module-02.md)
 
+## Cas de révision — alias et boîte partagée
+
+L’utilisateur apparaît dans le tenant, mais l’alias ne reçoit rien et la boîte partagée refuse l’envoi. Expliquer pourquoi ces contrôles sont indépendants.
+
+??? success "Correction commentée"
+    Contrôler la valeur de `proxyAddresses` et son export dans l’annuaire pour l’alias. Vérifier l’autorisation d’envoi attachée à la boîte pour l’autre problème. Ouvrir la boîte avec un droit de lecture ne prouve pas la délégation d’envoi.
+
 ## S’exercer
 
 - [Cours et documents sources](../../modules/14-messagerie-cloud/module-03.md)

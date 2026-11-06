@@ -135,7 +135,11 @@ La console peut être personnalisée par ses propriétés graphiques, notamment 
 police, la taille et les couleurs. Le support montre la création d'un profil :
 
 ```powershell
-New-Item -Path $Profile -Type File -Force
+if (-not (Test-Path -LiteralPath $PROFILE)) {
+    $dossier = Split-Path -Parent $PROFILE
+    New-Item -Path $dossier -ItemType Directory -Force | Out-Null
+    New-Item -Path $PROFILE -ItemType File | Out-Null
+}
 ```
 
 Le support décrit ce profil comme un fichier créé dans le dossier Documents de
@@ -223,18 +227,74 @@ Test-Path -LiteralPath $PROFILE
 
 Les propriétés de la console règlent son apparence. Le profil est un script exécuté au démarrage d’un hôte. La démonstration y affiche le nom et l’heure, puis redéfinit `prompt`. Un profil peut être différent entre Windows PowerShell, PowerShell moderne et le terminal de l’éditeur. Vérifier son chemin avant de l’éditer.
 
+## TP guidé
+
+### Comparer les consoles et identifier les comptes
+
+Sur CLI01, lancer Windows PowerShell et PowerShell moderne dans les mêmes conditions. Relever pour chaque hôte l’édition, la version, le nombre de commandes et les verbes approuvés disponibles. Répéter `Get-Command -Verb New` et `Get-Command -Noun '*User*'` dans les deux consoles. Les noms et les nombres relevés constituent la preuve du TP.
+
+```powershell
+$PSVersionTable | Select-Object -Property PSEdition,PSVersion
+Get-Verb | Select-Object Verb,Group
+(Get-Command | Measure-Object).Count
+Get-Command -Name New-LocalUser -ErrorAction SilentlyContinue
+Get-LocalUser | Select-Object -First 5 Name,Enabled
+```
+
+La consigne demande aussi de comparer CLI01 et CD01. Vérifier le rôle de CD01. Un contrôleur de domaine ne présente pas les mêmes comptes locaux qu’un poste membre. Si la commande n’est pas disponible, relever son message et la machine interrogée. Pour le bonus, vérifier auprès du formateur que SRV01 est bien une cible autorisée, car les étapes précédentes nomment CD01. Relever la description du compte local de test avant et après un changement approuvé.
+
+### Comparer les formes d’aide et les cultures
+
+Consulter l’aide de `Get-Service` dans la console puis dans une fenêtre si l’hôte le permet. Comparer la version complète et l’aide en ligne de `Get-LocalGroupMember`. Une page en ligne peut décrire une version différente de la commande installée.
+
+```powershell
+Get-Help Get-Service
+Get-Help Get-Service -ShowWindow
+Get-Help Get-Service -Full
+Get-Help Get-LocalGroupMember -Online
+$depot = '\\CD01\Partage\Depot\CLI01'
+Test-Path -LiteralPath $depot
+Update-Help -SourcePath $depot
+Update-Help -SourcePath $depot -UICulture fr-FR
+```
+
+Utiliser le chemin de la maquette si le dépôt est accessible. Relever quelles cultures et quels modules ont une aide dans le dépôt, puis noter les erreurs de chemin, de droits ou de langue séparément.
+
+### Charger l’archive et préparer un profil par hôte
+
+1. Relever les modules chargés, les modules disponibles et le module de `Get-LocalUser`. Vérifier les chemins de `PSModulePath` avant de déposer le dossier extrait de l’archive approuvée.
+2. Essayer l’import d’AWSPowerShell, relever l’erreur exacte et vérifier la politique effective. Si l’archive approuvée est bloquée par sa provenance, contrôler son origine et demander la procédure de déblocage de la maquette. Une stratégie de groupe conserve la priorité.
+3. Après import, relever trois commandes réellement exportées. Sauvegarder tout profil existant avant de l’éditer. Ajouter `Get-Help Get-Help` au profil de l’hôte voulu, rouvrir la même console et vérifier son exécution. Pour le bonus, modifier une fonction `prompt` de travail pour y inclure l’heure et le chemin courant.
+
+```powershell
+Get-Module
+Get-Module -ListAvailable | Measure-Object
+(Get-Command Get-LocalUser).ModuleName
+$env:PSModulePath -split [IO.Path]::PathSeparator
+Import-Module AWSPowerShell -ErrorAction Stop
+Get-Command -Module AWSPowerShell | Select-Object -First 3 Name
+$PROFILE.CurrentUserCurrentHost
+Test-Path -LiteralPath $PROFILE.CurrentUserCurrentHost
+```
+
+## À retenir
+
+Comparer des consoles en relevant d’abord leur édition et leur version. Utiliser `Get-Command` pour chercher une action, `Get-Help` pour vérifier ses paramètres et `Get-Module` pour identifier la commande disponible. Dans le TP, vérifier le dépôt d’aide, l’origine du module et le profil de l’hôte.
+
 ## Mini-quiz
 
 1. Quelle commande distingue les éditions Desktop et Core ?
 2. Quel paramètre de `Get-Command` recherche `Stop` comme verbe ?
 3. Pourquoi le nombre de commandes change-t-il entre deux consoles ?
 4. Quelle commande liste les portées de stratégie d’exécution ?
+5. Comment distinguer les modules chargés des modules présents sur le disque ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `$PSVersionTable` contient `PSEdition` et `PSVersion`.
     2. `-Verb Stop`.
     3. Les versions, les modules et les rôles disponibles diffèrent.
     4. `Get-ExecutionPolicy -List`.
+    5. `Get-Module` affiche les modules chargés dans cette session. `Get-Module -ListAvailable` recherche ceux que l’hôte peut trouver dans `PSModulePath`.
 
 ## Travaux pratiques et révision
 

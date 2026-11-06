@@ -18,9 +18,17 @@
 2. rechercher des erreurs de syntaxe dans un scénario DNS ;
 3. écrire au choix un script de configuration réseau ou de gestion
    d'utilisateurs Active Directory.
+
 ## Autoévaluation
 
-Identifiez les deux parties de `PSCredential` et une commande qui accepte l’objet. Comparez les deux scripts DNS en séparant erreur de grammaire, commande introuvable et résultat de configuration. Expliquez la différence entre un enregistrement NS, une délégation et le transfert d’une zone secondaire. Pour le menu AD, donnez un cas de test pour la création d’un compte, le doublon et la limite de l’OU.
+1. Que contient `PSCredential` ?
+2. Que prouve une analyse syntaxique réussie ?
+3. Quelle preuve est nécessaire pour la zone secondaire ?
+
+??? success "Réponses commentées"
+    1. Un nom d’utilisateur et un secret protégé en `SecureString`, utilisables par une commande qui accepte cet objet.
+    2. Que le texte suit la grammaire PowerShell. Vérifier ensuite les commandes, leurs paramètres, les droits et la configuration produite.
+    3. Vérifier le type et les données de la zone sur le serveur cible ainsi que le transfert autorisé depuis la source.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-06.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-06/index.md)

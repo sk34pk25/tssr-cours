@@ -12,6 +12,17 @@ Durée estimée
 
 1 heure
 
+## Préparer le travail et le compte rendu
+
+Choisir l’éditeur et les VM du TP. Relever la cible distante et l’OU autorisée. Tester les fonctions et les erreurs séparément avant de préparer une action de remoting ou d’arrêt.
+
+| Étape | Preuve à relever |
+| --- | --- |
+| Fonction | Un service présent, un nom absent et les erreurs conservées après le bilan. |
+| Session | Cible de la session, résultat distant et confirmation de sa fermeture. |
+| Cibles AD | Liste validée avec exclusion des contrôleurs de domaine et résultat de simulation. |
+| Profil | Comportement observé à la réouverture de l’hôte et vérification après rétablissement. |
+
 ## Énoncé
 
 Objectifs :

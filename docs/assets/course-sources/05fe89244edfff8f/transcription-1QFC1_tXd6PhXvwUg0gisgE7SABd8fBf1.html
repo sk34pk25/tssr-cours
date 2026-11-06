@@ -80,8 +80,7 @@ Name –like ’’Power*’’</code></pre>
 <p>Afin de pouvoir tester des valeurs de propriété, chaque type de valeur dispose d’un opérateur de comparaison adapté.</p>
 <table><thead><tr><th scope="col">Comparaison</th><th scope="col">Insensibilité à la casse</th><th scope="col">Sensibilité à la casse</th></tr></thead><tbody><tr><td>Égalité</td><td>-eq</td><td>-ceq</td></tr><tr><td>Inégalité</td><td>-ne</td><td>-cne</td></tr><tr><td>Supérieur à</td><td>-gt</td><td>-cgt</td></tr><tr><td>Supérieur ou égal à</td><td>-ge</td><td>-cge</td></tr><tr><td>Inférieur à</td><td>-lt</td><td>-clt</td></tr><tr><td>Inférieur ou égal à</td><td>-le</td><td>-cle</td></tr><tr><td>Comparaison d’égalité d’expression</td><td>-like</td><td>-clike</td></tr><tr><td>Comparaison d’inégalité d’expression</td><td>-notlike</td><td>-cnotlike</td></tr></tbody></table>
 <h3>La commande Where-Object</h3>
-<pre><code>Si on applique plusieurs conditions à la commande Where-Object, on va
-utiliser les expressions logiques ET et OU.</code></pre>
+<p>Si on applique plusieurs conditions à la commande Where-Object, on va utiliser les expressions logiques ET et OU.</p>
 <ul><li>Dans le cas d’un ET logique, les deux conditions doivent être valides pour que l’objet soit retenu.</li></ul>
 <pre><code>PS &gt; Get-Process | Select Name,Id | Where –Filterscript{$PSitem.Id–gt1500
 –and$PSItem.Id–lt2000}</code></pre>

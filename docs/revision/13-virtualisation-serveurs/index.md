@@ -1,6 +1,6 @@
 # Révisions — Virtualisation de serveurs
 
-Relire les repères puis répondre à la question de chaque module avant d’ouvrir la correction.
+Relire les repères, puis répondre aux trois questions du module avant d’ouvrir les réponses commentées.
 
 - [01 · Présentation et types d’hyperviseurs](module-01.md)
 - [02 · VMware Workstation](module-02.md)

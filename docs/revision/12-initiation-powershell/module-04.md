@@ -54,9 +54,17 @@ Reprenez les cinq exercices du TP : variables/index, devinette, collections,
 menu, puis objets du scénario. Les données, résultats et actions
 d’administration propres au laboratoire ne doivent pas être réemployés hors de
 son cadre.
+
 ## Autoévaluation
 
-Écrivez les cas de sortie d’une boucle `while` et d’une boucle `do ... until` pour une saisie initiale vide. Relevez le type de la valeur retournée par `Read-Host`. Expliquez ce que mesure la position `[10]` et ce que signifie `.Index` sur l’objet du journal. Essayez ensuite un menu `switch` avec un choix invalide.
+1. Quelle différence entre la position `[10]` et `.Index` ?
+2. Que renvoie `Read-Host` ?
+3. Quels cas valident le menu ?
+
+??? success "Réponses commentées"
+    1. `[10]` sélectionne le onzième élément du tableau. `.Index` lit une propriété du journal sur cet objet.
+    2. Une chaîne par défaut. La convertir avant une comparaison de nombres ou de dates.
+    3. Chaque choix prévu, une saisie inconnue qui relance le menu et la sortie qui termine la boucle.
 
 - [Cours du module](../../modules/12-initiation-powershell/module-04.md)
 - [TP et correction](../../tp/12-initiation-powershell/module-04/index.md)

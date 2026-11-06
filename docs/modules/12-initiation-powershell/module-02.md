@@ -147,16 +147,53 @@ $demain
 
 `AddDays(1)` produit une nouvelle valeur de type `DateTime`. La valeur initiale reste dans `$maintenant`. Une méthode de type `void` peut agir sans produire un objet utilisable dans un pipeline. Le TP compare le statut du spouleur avant et après l’appel de `Stop()` sur le service de laboratoire. Le contrôle passe par une nouvelle interrogation de `Get-Service -Name Spooler`.
 
+## TP guidé
+
+### Décrire le spouleur avant d’agir
+
+Sur CLI01, examiner les membres du service. Noter deux propriétés de type chaîne et relever dans `Definition` une méthode à retour booléen et une méthode à retour entier. Comparer `Equals()` et `GetHashCode()` dans la console de la maquette. Relever ensuite les valeurs réelles du nom, du nom affiché et de l’état.
+
+```powershell
+$spouleur = Get-Service -Name Spooler
+$spouleur | Get-Member -MemberType Property
+$spouleur | Get-Member -MemberType Method -Name Equals,GetHashCode,Stop
+$spouleur | Select-Object Name,DisplayName,Status
+```
+
+### Modifier le compte de test, puis relire
+
+Sélectionner le compte local prévu dans l’énoncé et relever ses propriétés. Vérifier le nom avant de simuler la modification de la description. La relecture après simulation doit montrer la valeur initiale. Après la modification autorisée dans la maquette, relire l’objet pour confirmer la valeur demandée.
+
+```powershell
+$nom = Read-Host 'Nom exact du compte local du TP'
+Get-LocalUser -Name $nom | Format-List Name,Enabled,Description,AccountExpires
+Set-LocalUser -Name $nom -Description 'Administrateur' -WhatIf
+```
+
+Le TP demande ensuite d’appeler `Stop()` sur le spouleur. Dans la VM autorisée, relever d’abord `Status` et vérifier que l’arrêt ne perturbe aucun autre travail. Après appel, interroger le service à nouveau. `Stop()` demande un arrêt et ne renvoie pas le nouvel état. Si le service est encore en arrêt, attendre ou relire son état avant de conclure. Rétablir l’état initial du service et la description initiale du compte de test selon la consigne de la maquette.
+
+### Vérifier le bonus sur l’expiration
+
+Construire une nouvelle date avec une méthode de `DateTime`, par exemple `(Get-Date).AddDays(3)`. Simuler `Set-LocalUser -AccountExpires` sur le compte du bonus. Après validation de la cible et application autorisée, relire `AccountExpires` et vérifier qu’il reste au moins 48 heures par rapport à l’heure du contrôle.
+
+## À retenir
+
+Lire le type et les membres avant de choisir une propriété ou une méthode. Une méthode peut produire une nouvelle valeur ou modifier l’état d’une ressource. Le TP se valide par deux lectures, avant l’action et après son effet.
+
 ## Mini-quiz
 
 1. Quelle colonne décrit les arguments et le type de retour d’une méthode ?
 2. Comment lire le statut d’un objet stocké dans `$service` ?
 3. Que renvoie `$maintenant.AddDays(1)` ?
+4. Pourquoi réinterroger le spouleur après `Stop()` ?
+5. Quelle propriété contrôle l’expiration demandée dans le bonus ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `Definition` dans la sortie de `Get-Member`.
     2. `$service.Status`.
     3. Une nouvelle date augmentée d’un jour.
+    4. La méthode ne renvoie pas le nouvel état et l’objet conservé peut être ancien. Une nouvelle lecture de `Get-Service` permet de constater l’état.
+    5. `AccountExpires`. Après la modification autorisée, comparer cette valeur à la date actuelle sur la machine de test.
 
 ## Travaux pratiques et révision
 
