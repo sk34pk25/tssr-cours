@@ -14511,6 +14511,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#preparer-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#activite-1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14548,6 +14559,28 @@
     <span class="md-ellipsis">
       
         Activité 4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrables-et-verifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables et vérifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14596,19 +14629,18 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-1">
-<h4>Utilisation d'une distribution GNU/Linux Utilisation des systèmes</h4>
+<p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux</p>
+<h4>Utilisation des systèmes</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.</p>
 <p class="tssr-source-paragraph">Durée estimée</p>
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Énoncé</h4>
 <p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
-<ol start="1"><li>Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.</li></ol>
-<ol start="2"><li>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.</li></ol>
+<ol start="1"><li>Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.</li><li>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.</li></ol>
 </section>
 <section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-2">
-<ol start="3"><li>L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?</li></ol>
-<ol start="4"><li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</li></ol>
+<ol start="3"><li>L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?</li><li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</li></ol>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
 </section>
@@ -14623,8 +14655,10 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p><strong>Périmètre :</strong> reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.</p>
-<p><strong>Durée indicative :</strong> 45 à 60 minutes.</p>
+<h2 id="preparer-latelier">Préparer l’atelier<a class="headerlink" href="#preparer-latelier" title="Permanent link">¶</a></h2>
+<p>Le support demande de suivre les vidéos du module 08 et de faire le TP précédent. Ouvrir Bash sur le système de laboratoire et préparer les répertoires d’exercice sous <code>$HOME</code>. Les permissions du compte peuvent limiter les résultats observés.</p>
+<p><strong>Durée estimée dans le support</strong></p>
+<p>45 à 60 minutes.</p>
 <h2 id="activite-1">Activité 1<a class="headerlink" href="#activite-1" title="Permanent link">¶</a></h2>
 <p>Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.</p>
 <h2 id="activite-2">Activité 2<a class="headerlink" href="#activite-2" title="Permanent link">¶</a></h2>
@@ -14633,9 +14667,34 @@
 <p>Mesurer le temps exact de cette exécution.</p>
 <h2 id="activite-4">Activité 4<a class="headerlink" href="#activite-4" title="Permanent link">¶</a></h2>
 <p>En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.</p>
+<h2 id="livrables-et-verifications">Livrables et vérifications<a class="headerlink" href="#livrables-et-verifications" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sorties</td>
+<td>Vérifier <code>daemons.txt</code> et la correspondance entre l’affichage de la recherche et <code>fichiers.conf</code>.</td>
+</tr>
+<tr>
+<td>Chronométrage</td>
+<td>Relever le temps mesuré pendant la commande demandée.</td>
+</tr>
+<tr>
+<td>Compteur</td>
+<td>Vérifier que <code>compteur.txt</code> ne contient que le nombre produit par la recherche, sans relecture de <code>fichiers.conf</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp1-corrections/">Correction</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

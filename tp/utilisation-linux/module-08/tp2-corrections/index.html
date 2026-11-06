@@ -14511,6 +14511,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#etat-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#activite-1-archiver-son-repertoire-personnel-dans-tmp-sous-son-login-et-noter-la-taille" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14588,10 +14599,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#points-de-lecture-du-support" class="md-nav__link">
     <span class="md-ellipsis">
       
         Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14641,7 +14674,6 @@
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Archivage et compression</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14657,7 +14689,6 @@
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -czvf /tmp/$LOGNAME.tar.gz $HOME</code></pre>
 <pre class="tssr-source-code"><code>ls -lh /tmp/$LOGNAME.tar.gz</code></pre>
 <ol start="3"><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
@@ -14674,7 +14705,6 @@
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-3">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li></ol>
 <pre class="tssr-source-code"><code>tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME</code></pre>
 <ol start="7"><li>Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
@@ -14685,7 +14715,6 @@
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-4">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -tf /tmp/$LOGNAME-v2.tar 
 /home/user30/.profile 
 /home/user30/process/ 
@@ -14725,7 +14754,9 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<p>Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans <strong>Cours Original</strong>.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Utiliser le répertoire personnel du compte de laboratoire. Vérifier l’espace disponible dans <code>/tmp</code> et préparer <code>Restaurations</code> dans le cadre du TP.</p>
 <h2 id="activite-1-archiver-son-repertoire-personnel-dans-tmp-sous-son-login-et-noter-la-taille">Activité 1 — Archiver son répertoire personnel dans /tmp sous son login et noter la taille.<a class="headerlink" href="#activite-1-archiver-son-repertoire-personnel-dans-tmp-sous-son-login-et-noter-la-taille" title="Permanent link">¶</a></h2>
 <p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-cvf<span class="w"> </span><span class="s2">"/tmp/</span><span class="nv">$LOGNAME</span><span class="s2">.tar"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ls<span class="w"> </span>-lh<span class="w"> </span><span class="s2">"/tmp/</span><span class="nv">$LOGNAME</span><span class="s2">.tar"</span>
@@ -14759,30 +14790,35 @@ La seconde commande vérifie l’absence du répertoire exclu.<p></p>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>tar<span class="w"> </span>-tf<span class="w"> </span><span class="s2">"/tmp/</span><span class="nv">$LOGNAME</span><span class="s2">-v2.tar"</span>
 </span></code></pre></div>
 L’opération de mise à jour concerne l’archive non compressée v2, comme dans le document.<p></p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archives</td>
+<td>Comparer les tailles mesurées des trois formats, puis vérifier les chemins effectivement restaurés.</td>
+</tr>
+<tr>
+<td>Exclusion et mise à jour</td>
+<td>Contrôler les membres de la seconde archive non compressée. Elle doit exclure <code>Restaurations</code> et inclure le nouveau fichier après mise à jour.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Le document Alias écrit parfois <code>find / mount</code>, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.</p>
+<p class="admonition-title">Lecture de l’archive</p>
+<p>Vérifier les membres avec <code>tar -tf</code> avant et après restauration. Les tailles dépendent du contenu du compte de laboratoire.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
-</div>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp2-enonces/">Énoncé</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

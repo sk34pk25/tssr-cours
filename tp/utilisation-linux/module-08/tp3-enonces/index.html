@@ -14511,10 +14511,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#activite-1" class="md-nav__link">
+  <a href="#preparer-latelier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activité 1
+        Préparer l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-1-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 1 — Processus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-2-recherche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 2 — Recherche
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-3-duree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 3 — Durée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-4-compteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 4 — Compteur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-5-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 5 — Alias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrables-et-verifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables et vérifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14592,21 +14669,44 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p><strong>Périmètre :</strong> reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.</p>
-<p><strong>Durée indicative :</strong> 30 à 45 minutes.</p>
-<p>Les quatre premières demandes du document :</p>
-<ol>
-<li>Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.</li>
-<li>Rechercher depuis / les fichiers .conf, sans quitter son système de fichiers, et afficher/enregistrer simultanément les chemins.</li>
-<li>Mesurer le temps exact de cette exécution.</li>
-<li>En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.</li>
-</ol>
-<p>Puis reproduire ces actions avec les alias demandés.</p>
-<h2 id="activite-1">Activité 1<a class="headerlink" href="#activite-1" title="Permanent link">¶</a></h2>
-<p>Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.</p>
+<h2 id="preparer-latelier">Préparer l’atelier<a class="headerlink" href="#preparer-latelier" title="Permanent link">¶</a></h2>
+<p>Le support demande de suivre les vidéos du module 08 et de réaliser les TP proposés. Ouvrir un Bash interactif de laboratoire. Savoir reproduire les quatre opérations du TP Utilisation des systèmes avant de définir les alias.</p>
+<p><strong>Durée estimée dans le support</strong></p>
+<p>30 à 45 minutes.</p>
+<h2 id="activite-1-processus">Activité 1 — Processus<a class="headerlink" href="#activite-1-processus" title="Permanent link">¶</a></h2>
+<p>Lister les processus dont l’affichage se termine par <code>d</code>. Stocker le résultat dans <code>$HOME/process/daemons.txt</code>.</p>
+<h2 id="activite-2-recherche">Activité 2 — Recherche<a class="headerlink" href="#activite-2-recherche" title="Permanent link">¶</a></h2>
+<p>Rechercher les fichiers <code>.conf</code> à partir de la racine en restant sur le système de fichiers racine. Afficher les chemins à l’écran et les écrire dans <code>$HOME/resultats/fichiers.conf</code>.</p>
+<h2 id="activite-3-duree">Activité 3 — Durée<a class="headerlink" href="#activite-3-duree" title="Permanent link">¶</a></h2>
+<p>Mesurer le temps d’exécution de la recherche précédente.</p>
+<h2 id="activite-4-compteur">Activité 4 — Compteur<a class="headerlink" href="#activite-4-compteur" title="Permanent link">¶</a></h2>
+<p>En une commande, enregistrer dans <code>$HOME/resultats/compteur.txt</code> le nombre de fichiers trouvés sans relire <code>fichiers.conf</code>. Le fichier doit contenir uniquement ce nombre.</p>
+<h2 id="activite-5-alias">Activité 5 — Alias<a class="headerlink" href="#activite-5-alias" title="Permanent link">¶</a></h2>
+<p>Reproduire les quatre opérations en définissant des alias dans le shell de l’atelier.</p>
+<h2 id="livrables-et-verifications">Livrables et vérifications<a class="headerlink" href="#livrables-et-verifications" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alias</td>
+<td>Vérifier que les trois noms d’alias sont reconnus dans la session et qu’ils reproduisent les mêmes opérations.</td>
+</tr>
+<tr>
+<td>Preuves</td>
+<td>Relever les fichiers créés et la durée obtenue. Le compteur doit être produit par le flux de recherche.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp3-corrections/">Correction</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

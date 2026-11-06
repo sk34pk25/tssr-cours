@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m07-utilisation-de-vi" class="md-skip">
+        <a href="#fiche-de-revision-module-07-utilisation-de-vi" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12373,10 +12373,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12388,6 +12388,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m07-utilisation-de-vi">Révision — M07 : Utilisation de Vi<a class="headerlink" href="#revision-m07-utilisation-de-vi" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-07-utilisation-de-vi">Fiche de révision — Module 07 — Utilisation de Vi<a class="headerlink" href="#fiche-de-revision-module-07-utilisation-de-vi" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Passer d’un mode à l’autre, contrôler les modifications et lire la portée d’une substitution.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14766,25 +14811,63 @@
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>À quoi sert Échap avant une action ? <strong>À revenir au mode normal.</strong></li>
-<li>Quelle différence entre O et o ? <strong>O ouvre avant la ligne courante, o après.</strong></li>
-<li>Que signifient % et le dernier g dans :%s/a/b/g ? <strong>Toutes les lignes, puis toutes les occurrences de chaque ligne.</strong></li>
-<li>Comment remplir la demande de changement de séparateur ? <strong>Employer par exemple :%s#JEAN#Jean#g.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navigation et insertion</td>
+<td>Revenir en mode normal avec Échap avant de lancer <code>gg</code>, <code>G</code> ou une recherche. Observer la ligne où <code>O</code> ou <code>o</code> ouvre l’insertion.</td>
+</tr>
+<tr>
+<td>Copie et déplacement</td>
+<td>Distinguer la suppression de la ligne avec <code>dd</code>, la copie avec <code>yy</code> et la remise en place avec <code>p</code>. Vérifier la position avant de continuer.</td>
+</tr>
+<tr>
+<td>Substitutions et configuration</td>
+<td>Lire la plage, le motif et les drapeaux. Tester les options de <code>.vimrc</code> en rouvrant le fichier dans Vim.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>Le document écrit .virmc alors que l’énoncé demande .vimrc : la forme de travail est .vimrc.</li>
 <li>Quelques lignes omettent le deux-points d’entrée en commande Ex. Il est ajouté dans les exemples utilisables.</li>
-<li>La question19 demande un autre séparateur ; la correction ne le change pas. La forme avec # répond à cette partie de la consigne.</li>
-<li>
-<p>Les formes source des questions20 et21 ont une portée plus étroite que leur formulation ; les ancrages et le drapeau g sont expliqués, sans modifier le texte de la source.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi/">Cours complet</a></p>
-</li>
+<li>La question 19 demande un autre séparateur ; la correction ne le change pas. La forme avec # répond à cette partie de la consigne.</li>
+<li>Les formes source des questions20 et21 ont une portée plus étroite que leur formulation ; les ancrages et le drapeau g sont expliqués, sans modifier le texte de la source.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Commencer par identifier le mode actif. Pour une substitution, lire la plage avant de valider.</strong></p>
+<p><strong>1. Comment revenir au mode normal ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Appuyer sur Échap. On peut ensuite utiliser les déplacements et lancer une commande Ex avec deux-points.</p>
+</details>
+<p><strong>2. Quelle différence entre <code>O</code> et <code>o</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p><code>O</code> ouvre une nouvelle ligne avant la ligne courante. <code>o</code> ouvre une ligne après.</p>
+</details>
+<p><strong>3. Dans <code>:%s/a/b/g</code>, à quoi servent <code>%</code> et <code>g</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p><code>%</code> désigne toutes les lignes. Le drapeau <code>g</code> remplace toutes les occurrences correspondantes sur chacune d’elles.</p>
+</details>
+<p><strong>4. Quel changement répond à la question 19 ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Changer le séparateur, par exemple avec <code>:%s#JEAN#Jean#g</code>, puis examiner le résultat.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-07-utilisation-de-vi/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-07/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-07-utilisation-de-vi/">Kahoot existant du module</a></li>
 </ul>
 
 

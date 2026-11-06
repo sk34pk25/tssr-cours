@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m04-fichiers-dossiers-et-metacaracteres" class="md-skip">
+        <a href="#fiche-de-revision-module-04-fichiers-dossiers-et-metacaracteres" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12289,10 +12289,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12304,6 +12304,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m04-fichiers-dossiers-et-metacaracteres">Révision — M04 : Fichiers, dossiers et métacaractères<a class="headerlink" href="#revision-m04-fichiers-dossiers-et-metacaracteres" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-04-fichiers-dossiers-et-metacaracteres">Fiche de révision — Module 04 — Fichiers, dossiers et métacaractères<a class="headerlink" href="#fiche-de-revision-module-04-fichiers-dossiers-et-metacaracteres" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Se repérer dans une arborescence et lire les attributs du fichier créé et du répertoire <code>/tmp</code>.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14750,7 +14795,7 @@
 </tr>
 <tr>
 <td>Noms terminés en .conf</td>
-<td>ls /etc/*.conf</td>
+<td><code>ls -d -- /etc/*.conf</code></td>
 </tr>
 <tr>
 <td>Attributs du répertoire</td>
@@ -14758,22 +14803,58 @@
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>Quelle commande identifie le répertoire courant ? <strong>pwd.</strong></li>
-<li>Pourquoi ls -ld /tmp respecte-t-il la consigne ? <strong>-d demande les attributs du répertoire lui-même.</strong></li>
-<li>Que fait le motif /etc/*.conf ? <strong>Le shell sélectionne les noms terminés par .conf directement dans /etc.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chemins et contenu</td>
+<td>Partir de <code>pwd</code>, puis comparer <code>ls -A</code> et <code>ls -ld /tmp</code>. Le premier énumère les entrées du répertoire courant, le second décrit <code>/tmp</code>.</td>
+</tr>
+<tr>
+<td>Attributs du fichier</td>
+<td>Repérer le type, les droits et le propriétaire de <code>MonPremierFichier</code>. Pour une création neuve, le fichier est vide. Un fichier déjà présent peut conserver son contenu.</td>
+</tr>
+<tr>
+<td>Observation du sticky bit</td>
+<td>Vérifier la présence de <code>t</code> ou <code>T</code> dans la dernière position des droits de <code>/tmp</code>. Consigner le résultat observé dans le laboratoire.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>Les permissions, propriétaires et dates de la capture illustrent le serveur source : relever ceux du laboratoire courant.</li>
-<li>
-<p>Le titre du module inclut les métacaractères, mais son TP propre concerne fichiers et dossiers ; le second TP est rattaché au module06 d’après le titre écrit dans son document.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/">Cours complet</a></p>
-</li>
+<li>Le titre du module inclut les métacaractères, mais son TP propre concerne fichiers et dossiers ; le second TP est rattaché au module 06 d’après le titre écrit dans son document.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Le shell développe un motif de noms avant de lancer la commande. Avec <code>ls -d</code>, chaque nom correspondant est affiché comme une entrée.</strong></p>
+<p><strong>1. Pourquoi vérifier <code>pwd</code> avant <code>touch</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Le nom <code>MonPremierFichier</code> est relatif. Sa destination dépend du répertoire courant.</p>
+</details>
+<p><strong>2. Que risque <code>ls /etc/*.conf</code> si un nom correspondant est un répertoire ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>La commande peut lister son contenu. <code>ls -d -- /etc/*.conf</code> affiche les entrées correspondant au motif sans entrer dans ces répertoires.</p>
+</details>
+<p><strong>3. Comment repérer le sticky bit de <code>/tmp</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Lire la dernière position des permissions avec <code>ls -ld /tmp</code>. Elle montre <code>t</code> ou <code>T</code> quand le sticky bit est présent.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-04-fichiers-dossiers-et-metacaracteres/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-04/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-04-fichiers-dossiers-et-metacaracteres/">Kahoot existant du module</a></li>
+<li><a href="../../../memo/permissions-linux/">Mémo des permissions Linux</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
 </ul>
 
 

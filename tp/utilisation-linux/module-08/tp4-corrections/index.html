@@ -14511,6 +14511,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#etat-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#activite-1-afficher-le-repertoire-personnel-avec-une-variable-adequate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14599,10 +14610,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#points-de-lecture-du-support" class="md-nav__link">
     <span class="md-ellipsis">
       
         Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14652,7 +14685,6 @@
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Manipuler des variables</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14672,7 +14704,6 @@
 <pre class="tssr-source-code"><code>echo PATH=$PATH:/$HOME/scripts &gt;&gt; ~/.bashrc</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <ol start="4"><li>Créer une variable "monnom" contenant le login de l’utilisateur</li></ol>
 <pre class="tssr-source-code"><code>monom="$LOGNAME"</code></pre>
 <p class="tssr-source-paragraph">ou</p>
@@ -14701,7 +14732,9 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<p>Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans <strong>Cours Original</strong>.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Utiliser le Bash du compte de laboratoire et repérer le fichier de configuration chargé dans une nouvelle session interactive. Conserver sa version initiale avant de l’éditer.</p>
 <h2 id="activite-1-afficher-le-repertoire-personnel-avec-une-variable-adequate">Activité 1 — Afficher le répertoire personnel avec une variable adéquate.<a class="headerlink" href="#activite-1-afficher-le-repertoire-personnel-avec-une-variable-adequate" title="Permanent link">¶</a></h2>
 <p>Pour afficher le chemin :</p>
 <p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s1">'%s\n'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>
@@ -14745,15 +14778,26 @@ Avant export, le nouveau shell ne reçoit pas la variable locale ; revenir au pa
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">exit</span>
 </span></code></pre></div>
 Cette fois le login doit être visible. Quitter le sous-shell ramène au parent ; l’enfant ne modifie pas automatiquement les variables de son parent.<p></p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Configuration</td>
+<td>Vérifier le chemin du répertoire personnel et la présence de <code>$HOME/scripts</code> dans le <code>PATH</code> d’un nouveau Bash interactif.</td>
+</tr>
+<tr>
+<td>Environnement</td>
+<td>Comparer la valeur de <code>monnom</code> dans un sous-shell avant et après export. Revenir au parent entre les deux observations.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Le document Alias écrit parfois <code>find / mount</code>, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Lecture de la source</p>
 <p>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</p>
@@ -14762,13 +14806,11 @@ Cette fois le login doit être visible. Quitter le sous-shell ramène au parent 
 <p class="admonition-title">Lecture de la source</p>
 <p>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
-</div>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp4-enonces/">Énoncé</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

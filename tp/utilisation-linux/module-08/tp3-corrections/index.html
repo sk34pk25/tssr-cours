@@ -14511,10 +14511,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants" class="md-nav__link">
+  <a href="#etat-initial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activites-1-a-4-refaire-les-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activités 1 à 4 — Refaire les opérations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activite-5-definir-et-verifier-les-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activité 5 — Définir et vérifier les alias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -14526,6 +14559,17 @@
     <span class="md-ellipsis">
       
         Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14681,9 +14725,12 @@ stocker ce nombre dans compteur.txt.</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
-<h2 id="activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants">Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.<a class="headerlink" href="#activite-1-reproduire-les-quatre-actions-processusrecherchedureecomptage-avec-leurs-livrables-puis-creer-des-alias-correspondants" title="Permanent link">¶</a></h2>
-<p>Les quatre premières demandes sont identiques à celles du TP01 : conserver les chemins daemons.txt, fichiers.conf et compteur.txt, la limite -mount, le double affichage tee et le comptage sans relire le fichier.</p>
+<p>Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans <strong>Cours Original</strong>.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Ouvrir un Bash interactif de laboratoire. Savoir reproduire les quatre opérations du TP Utilisation des systèmes avant de définir les alias.</p>
+<h2 id="activites-1-a-4-refaire-les-operations">Activités 1 à 4 — Refaire les opérations<a class="headerlink" href="#activites-1-a-4-refaire-les-operations" title="Permanent link">¶</a></h2>
+<p>Reprendre les quatre contrôles du <a href="../tp1-corrections/">TP Utilisation des systèmes</a>. Vérifier <code>daemons.txt</code> pour les processus, <code>fichiers.conf</code> et l’affichage pour la recherche, la mesure obtenue avec <code>time</code>, puis la valeur de <code>compteur.txt</code>.</p>
+<h2 id="activite-5-definir-et-verifier-les-alias">Activité 5 — Définir et vérifier les alias<a class="headerlink" href="#activite-5-definir-et-verifier-les-alias" title="Permanent link">¶</a></h2>
 <p></p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/process"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/resultats"</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">lister_daemons</span><span class="o">=</span><span class="s1">'ps -e | grep "d$" &gt; "$HOME/process/daemons.txt"'</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">rechercher_conf</span><span class="o">=</span><span class="s1">'find / -mount -type f -name "*.conf" 2&gt;/dev/null | tee "$HOME/resultats/fichiers.conf"'</span>
@@ -14694,7 +14741,26 @@ stocker ce nombre dans compteur.txt.</code></pre>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">time</span><span class="w"> </span>rechercher_conf
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>compter_fichiers
 </span></code></pre></div>
-Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Les variantes cat fichiers.conf | wc -l et grep -c f$ sont montrées dans la correction mais ne satisfont pas l’interdiction de relire ce fichier.<p></p>
+Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Utiliser <code>type lister_daemons rechercher_conf compter_fichiers</code> pour vérifier les définitions avant de relancer chaque alias.<p></p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alias</td>
+<td>Vérifier que les trois noms d’alias sont reconnus dans la session et qu’ils reproduisent les mêmes opérations.</td>
+</tr>
+<tr>
+<td>Preuves</td>
+<td>Relever les fichiers créés et la durée obtenue. Le compteur doit être produit par le flux de recherche.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Lecture de la source</p>
@@ -14704,21 +14770,11 @@ Les alias sont à définir puis à appeler dans le shell interactif, avec des va
 <p class="admonition-title">Lecture de la source</p>
 <p>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
-</div>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp3-enonces/">Énoncé</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

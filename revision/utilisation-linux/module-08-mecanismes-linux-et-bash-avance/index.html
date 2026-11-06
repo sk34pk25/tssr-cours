@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m08-mecanismes-linux-et-bash-avance" class="md-skip">
+        <a href="#fiche-de-revision-module-08-mecanismes-linux-et-bash-avance" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12401,10 +12401,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12416,6 +12416,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m08-mecanismes-linux-et-bash-avance">Révision — M08 : Mécanismes Linux et Bash avancé<a class="headerlink" href="#revision-m08-mecanismes-linux-et-bash-avance" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-08-mecanismes-linux-et-bash-avance">Fiche de révision — Module 08 — Mécanismes Linux et Bash avancé<a class="headerlink" href="#fiche-de-revision-module-08-mecanismes-linux-et-bash-avance" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Vérifier les fichiers produits par un pipeline, une restauration et une configuration de session.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14766,26 +14811,66 @@
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>Pourquoi tee répond-il à l’affichage et à l’enregistrement simultanés ? <strong>Il écrit son entrée à l’écran et dans le fichier demandé.</strong></li>
-<li>Quelle variante respecte le comptage sans relire fichiers.conf ? <strong>Le pipeline find ... | wc -l dirigé vers compteur.txt.</strong></li>
-<li>Quelle différence entre -z et -j dans tar ? <strong>gzip et bzip2.</strong></li>
-<li>Pourquoi monnom est-il vide dans le premier sous-shell ? <strong>La variable est locale avant son export ; les futurs enfants ne l’héritent qu’après export.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recherche, chronométrage et comptage</td>
+<td>Limiter <code>find</code> au système de fichiers demandé. Comparer le résultat visible et le fichier écrit par <code>tee</code>. Produire le compteur à partir du flux de la recherche.</td>
+</tr>
+<tr>
+<td>Archivage</td>
+<td>Contrôler les membres avec <code>tar -tf</code> et vérifier l’extraction dans <code>Restaurations</code>. Comparer les tailles observées avant de conclure sur la compression.</td>
+</tr>
+<tr>
+<td>Alias et environnement</td>
+<td>Vérifier chaque alias avec <code>type</code> puis le lancer en Bash interactif. Tester la variable <code>monnom</code> dans un sous-shell avant et après export, puis le <code>PATH</code> dans une nouvelle session Bash interactive.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>Le document Alias écrit parfois <code>find / mount</code>, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.</li>
 <li>Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».</li>
 <li>Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.</li>
 <li>La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.</li>
-<li>
-<p>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours complet</a></p>
-</li>
+<li>Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Chaque action laisse une preuve distincte. Un affichage, un fichier, une archive vérifiable et une valeur héritée répondent à des contrôles différents.</strong></p>
+<p><strong>1. Pourquoi utiliser <code>tee</code> pour le fichier de résultats ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Il écrit le flux dans le fichier et l’envoie aussi sur sa sortie standard.</p>
+</details>
+<p><strong>2. Quelle archive peut être mise à jour avec <code>tar -u</code> dans ce TP ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>L’archive v2 non compressée. Vérifier l’entrée ajoutée avec <code>tar -tf</code>.</p>
+</details>
+<p><strong>3. Quand le sous-shell reçoit-il <code>monnom</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Une fois la variable exportée dans le shell parent. Fermer le premier sous-shell et en ouvrir un nouveau pour comparer.</p>
+</details>
+<p><strong>4. Comment prouver que le changement de <code>PATH</code> est pérenne ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Ouvrir un nouveau Bash interactif qui charge la configuration attendue, puis vérifier le chemin et la résolution d’une commande du dossier <code>scripts</code>.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-08/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-08-mecanismes-linux-et-bash-avance/">Kahoot existant du module</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
+<li><a href="../../../troubleshooting/service-linux-echec/">Dépanner un service Linux</a></li>
 </ul>
 
 

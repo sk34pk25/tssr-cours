@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m03-premieres-commandes" class="md-skip">
+        <a href="#fiche-de-revision-module-03-premieres-commandes" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12261,10 +12261,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12276,6 +12276,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m03-premieres-commandes">Révision — M03 : Premières commandes<a class="headerlink" href="#revision-m03-premieres-commandes" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-03-premieres-commandes">Fiche de révision — Module 03 — Premières commandes<a class="headerlink" href="#fiche-de-revision-module-03-premieres-commandes" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Ouvrir une session, identifier les connexions et formater les repères de temps.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14754,24 +14799,55 @@
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>Pourquoi une nouvelle connexion est-elle demandée après passwd ? <strong>Elle vérifie que le nouveau mot de passe permet effectivement l’authentification.</strong></li>
-<li>Que représentent UID et GID ? <strong>L’identifiant utilisateur et l’identifiant du groupe principal.</strong></li>
-<li>Pourquoi ne pas remplacer « année courante » par 2020 ? <strong>2020 est l’année de l’exemple de correction, pas une constante de la consigne.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session et identifiants</td>
+<td>Distinguer la session attachée au terminal, les connexions ouvertes et l’identité effective du processus. Comparer les colonnes de <code>who</code> et <code>w</code> avec la sortie de <code>id</code>.</td>
+</tr>
+<tr>
+<td>Formats de date et calendrier</td>
+<td>Vérifier séparément la forme demandée et la valeur retournée par la machine. Pour l’année courante, utiliser le résultat de <code>date +%Y</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>La correction imprime <code>Date +%X</code> avec une majuscule : l’aide pédagogique emploie <code>date</code>, conformément à la commande Linux.</li>
 <li>L’option de who est imprimée avec un tiret typographique et un I majuscule. La forme utilisable est <code>who am i --all --heading</code>.</li>
 <li>La date « lundi 24 septembre 2009 » est un modèle de présentation dans l’énoncé, pas une date à rendre fixe ni une validation du jour de semaine.</li>
-<li>
-<p>La correction ne développe pas le calendrier annuel ; <code>cal 1900</code> répond à la seconde partie de la consigne.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/">Cours complet</a></p>
-</li>
+<li>La correction ne développe pas le calendrier annuel ; <code>cal 1900</code> répond à la seconde partie de la consigne.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>La reconnexion valide le mot de passe. Les commandes d’observation répondent ensuite à des questions différentes sur la session.</strong></p>
+<p><strong>1. Pourquoi changer de session après <code>passwd</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Pour tester l’authentification avec le nouveau mot de passe du compte de laboratoire. Une session déjà ouverte ne prouve pas que la prochaine connexion fonctionnera.</p>
+</details>
+<p><strong>2. Quel outil relie un utilisateur à ses groupes ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p><code>id</code> affiche les identifiants du compte et ses groupes. Les connexions et le temps d’inactivité se lisent avec <code>who</code> et <code>w</code>.</p>
+</details>
+<p><strong>3. Quel contrôle permet de répondre à la question sur septembre 1752 ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Afficher le mois avec le <code>cal</code> du laboratoire et relever la particularité réellement visible. Le format de date et les choix du calendrier peuvent varier selon l’implémentation.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-03-premieres-commandes/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-03/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-03-premieres-commandes/">Kahoot existant du module</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
 </ul>
 
 

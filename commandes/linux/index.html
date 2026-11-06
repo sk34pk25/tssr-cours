@@ -14062,6 +14062,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#sessions-fichiers-et-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessions, fichiers et flux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#paquets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14575,6 +14586,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#sessions-fichiers-et-flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessions, fichiers et flux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#paquets" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14673,6 +14695,54 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>id<span class="w"> </span>utilisateur
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>stat<span class="w"> </span>fichier
 </span></code></pre></div>
+<h2 id="sessions-fichiers-et-flux">Sessions, fichiers et flux<a class="headerlink" href="#sessions-fichiers-et-flux" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Besoin</th>
+<th>Commande</th>
+<th>Contrôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Observer sa connexion et son compte</td>
+<td><code>who am i</code>, puis <code>id</code></td>
+<td>Comparer terminal, heure de connexion, UID et groupes.</td>
+</tr>
+<tr>
+<td>Lister les entrées <code>.conf</code> sous <code>/etc</code></td>
+<td><code>ls -d -- /etc/*.conf</code></td>
+<td>Les noms affichés sont les entrées correspondantes, y compris les répertoires.</td>
+</tr>
+<tr>
+<td>Lire les attributs de <code>/tmp</code></td>
+<td><code>ls -ld -- /tmp</code></td>
+<td>Lire les permissions du répertoire et repérer le sticky bit.</td>
+</tr>
+<tr>
+<td>Comparer des liens</td>
+<td><code>ls -li -- edition1.txt edition3.txt</code></td>
+<td>Deux liens physiques d’un même système de fichiers partagent un inode.</td>
+</tr>
+<tr>
+<td>Rechercher par nom dans les enfants directs</td>
+<td><code>find /etc -maxdepth 1 -type f -name '*.conf'</code></td>
+<td>Le motif entre guillemets est interprété par <code>find</code>.</td>
+</tr>
+<tr>
+<td>Écarter les lignes vides d’un fichier</td>
+<td><code>grep -v '^$' Edition</code></td>
+<td>Les lignes contenant des espaces restent visibles.</td>
+</tr>
+<tr>
+<td>Contrôler une archive</td>
+<td><code>tar -tf sauvegarde.tar</code></td>
+<td>Vérifier les chemins et la présence des fichiers avant une restauration.</td>
+</tr>
+</tbody>
+</table>
+<p>Les TP reprennent ces commandes dans leur contexte, avec l’énoncé, le corrigé et les vérifications à effectuer. <a href="../../modules/04-utilisation-gnu-linux/">Utilisation d’une distribution GNU/Linux</a></p>
 <h2 id="paquets">Paquets<a class="headerlink" href="#paquets" title="Permanent link">¶</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>apt<span class="w"> </span>search<span class="w"> </span>nom

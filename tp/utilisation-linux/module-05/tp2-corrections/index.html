@@ -14511,6 +14511,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#etat-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#activite-1-creer-un-lien-physique-depuis-edition-vers-edition1txt-et-verifier-la-lecture" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14566,10 +14577,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#points-de-lecture-du-support" class="md-nav__link">
     <span class="md-ellipsis">
       
         Points de lecture du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
       
     </span>
   </a>
@@ -14663,7 +14696,9 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Les graphies exactes du document sont conservées dans l’onglet Original. Les exemples suivants harmonisent les noms et expliquent les écarts pour pouvoir réaliser le scénario.</p>
+<p>Comparer cette correction à sa propre tentative. Les commandes pédagogiques sont expliquées ici et la transcription du corrigé reste dans <strong>Cours Original</strong>.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Se placer dans le répertoire de laboratoire où se trouve <code>Edition</code>. Le fichier et les nouveaux liens physiques doivent appartenir au même système de fichiers.</p>
 <h2 id="activite-1-creer-un-lien-physique-depuis-edition-vers-edition1txt-et-verifier-la-lecture">Activité 1 — Créer un lien physique depuis Edition vers edition1.txt et vérifier la lecture.<a class="headerlink" href="#activite-1-creer-un-lien-physique-depuis-edition-vers-edition1txt-et-verifier-la-lecture" title="Permanent link">¶</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ln<span class="w"> </span>Edition<span class="w"> </span>edition1.txt
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cat<span class="w"> </span>edition1.txt
@@ -14690,22 +14725,35 @@ La seconde ligne est un contrôle pédagogique des inodes ; les trois liens phys
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>cat<span class="w"> </span>edition3.txt
 </span></code></pre></div>
 Le lien symbolique devient cassé et la lecture par edition3.txt reste possible, comme dans la correction.<p></p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avant suppression</td>
+<td>Comparer les caractéristiques et le contenu des noms demandés. Noter le chemin porté par le lien symbolique.</td>
+</tr>
+<tr>
+<td>Après suppression</td>
+<td>Comparer les lectures de <code>edition2.txt</code> et <code>edition3.txt</code>. Expliquer le résultat avec le chemin et l’inode.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="points-de-lecture-du-support">Points de lecture du support<a class="headerlink" href="#points-de-lecture-du-support" title="Permanent link">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>La correction écrit <code>Cat</code> dans la concaténation : utiliser <code>cat</code> en minuscules.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Lecture de la source</p>
-<p>L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Lecture de la source</p>
 <p>Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.</p>
 </div>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp2-enonces/">Énoncé</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

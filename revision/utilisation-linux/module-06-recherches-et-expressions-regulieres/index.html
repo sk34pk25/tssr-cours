@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m06-recherches-et-expressions-regulieres" class="md-skip">
+        <a href="#fiche-de-revision-module-06-recherches-et-expressions-regulieres" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12345,10 +12345,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12360,6 +12360,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m06-recherches-et-expressions-regulieres">Révision — M06 : Recherches et expressions régulières<a class="headerlink" href="#revision-m06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-06-recherches-et-expressions-regulieres">Fiche de révision — Module 06 — Recherches et expressions régulières<a class="headerlink" href="#fiche-de-revision-module-06-recherches-et-expressions-regulieres" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Choisir une recherche sur le contenu, un motif de noms ou un parcours d’arborescence.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14762,24 +14807,63 @@
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>Que sélectionne grep -v ^$ ? <strong>Les lignes qui ne sont pas totalement vides ; protéger le motif par des guillemets.</strong></li>
-<li>Pourquoi citer ho* dans find ? <strong>Pour que find reçoive le motif sans expansion préalable du shell.</strong></li>
-<li>Pourquoi rmdir échoue-t-il sur Sources ? <strong>Un fichier a été créé à l’intérieur.</strong></li>
-<li>Quelle différence entre non-voyelle et consonne ? <strong>Une non-voyelle peut aussi être un chiffre ou un symbole.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recherche de lignes</td>
+<td>Tester une recherche sensible puis insensible à la casse dans <code>Edition</code>. <code>^$</code> désigne une ligne de longueur nulle. Une ligne qui ne contient que des espaces peut rester dans le résultat.</td>
+</tr>
+<tr>
+<td>Motifs de noms</td>
+<td>Comparer le glob développé par Bash aux motifs remis à <code>find</code>. Protéger le motif de <code>-name</code> et citer l’astérisque quand il fait partie du nom créé.</td>
+</tr>
+<tr>
+<td>Copie et suppression</td>
+<td>Vérifier les originaux et les copies <code>.save</code>. Contrôler le chemin de <code>Sources</code> et de <code>Divers</code> avant toute suppression dans l’arborescence de laboratoire.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>Le motif source <code>[!aeiouyAEIOUY]</code> exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.</li>
 <li>La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.</li>
-<li>
-<p>L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours complet</a></p>
-</li>
+<li>L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Le motif de Bash sélectionne des noms, l’expression de <code>grep</code> sélectionne du contenu et <code>find</code> parcourt des entrées selon des critères.</strong></p>
+<p><strong>1. Pourquoi citer <code>'ho*'</code> avec <code>find -name</code> ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Pour confier le motif à <code>find</code>. Sans protection, Bash pourrait le développer à partir des noms du répertoire courant.</p>
+</details>
+<p><strong>2. Pourquoi <code>rmdir Sources</code> échoue-t-il après la création du fichier ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Le répertoire contient une entrée. L’échec attendu aide à distinguer la suppression d’un répertoire vide de la suppression récursive.</p>
+</details>
+<p><strong>3. Pourquoi un motif non-voyelle peut-il sélectionner un chiffre ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Exclure les voyelles conserve aussi les chiffres et la ponctuation. Une consigne qui exige une consonne doit limiter le premier caractère aux lettres voulues.</p>
+</details>
+<p><strong>4. Comment distinguer un astérisque littéral du glob ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Dans <code>touch 'fic*ier'</code>, les apostrophes transmettent l’astérisque comme caractère du nom.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-06/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres/">Kahoot existant du module</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
 </ul>
 
 

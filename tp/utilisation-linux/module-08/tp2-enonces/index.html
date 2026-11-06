@@ -14511,6 +14511,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#preparer-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#activite-1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14587,6 +14598,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#livrables-et-verifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Livrables et vérifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -14629,7 +14662,6 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>.Archivage et compression</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14638,17 +14670,12 @@
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Énoncé</h4>
 <p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
-<ol start="1"><li>Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.</li></ol>
-<ol start="2"><li>Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.</li></ol>
-<ol start="3"><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
+<ol start="1"><li>Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.</li><li>Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.</li><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
 </section>
 <section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
-<ol start="4"><li>Comparer la taille des trois archives, laquelle est la moins volumineuse ?</li></ol>
-<ol start="5"><li>Dans votre répertoire de connexion, créer le répertoire Restaurations.</li></ol>
+<ol start="4"><li>Comparer la taille des trois archives, laquelle est la moins volumineuse ?</li><li>Dans votre répertoire de connexion, créer le répertoire Restaurations.</li></ol>
 <p class="tssr-source-paragraph">Restaurer votre sauvegarde dans ce répertoire en une seule instruction.</p>
-<ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li></ol>
-<ol start="7"><li>Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
+<ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li><li>Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
 <ul><li>Aidez-vous de la commande vous permettant de lister le contenu de l'archive.</li></ul>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
@@ -14664,8 +14691,10 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p><strong>Périmètre :</strong> reprise pratique des consignes du document ; les écarts typographiques sont expliqués dans la correction et le cours.</p>
-<p><strong>Durée indicative :</strong> 45 à 60 minutes.</p>
+<h2 id="preparer-latelier">Préparer l’atelier<a class="headerlink" href="#preparer-latelier" title="Permanent link">¶</a></h2>
+<p>Le support demande de suivre les vidéos du module 08 et de faire le TP précédent. Utiliser le répertoire personnel du compte de laboratoire. Vérifier l’espace disponible dans <code>/tmp</code> et préparer <code>Restaurations</code> dans le cadre du TP.</p>
+<p><strong>Durée estimée dans le support</strong></p>
+<p>45 à 60 minutes.</p>
 <h2 id="activite-1">Activité 1<a class="headerlink" href="#activite-1" title="Permanent link">¶</a></h2>
 <p>Archiver son répertoire personnel dans /tmp sous son login et noter la taille.</p>
 <h2 id="activite-2">Activité 2<a class="headerlink" href="#activite-2" title="Permanent link">¶</a></h2>
@@ -14680,9 +14709,30 @@
 <p>Créer une nouvelle sauvegarde non compressée en excluant Restaurations.</p>
 <h2 id="activite-7">Activité 7<a class="headerlink" href="#activite-7" title="Permanent link">¶</a></h2>
 <p>Créer un fichier vide puis mettre à jour l’archive et vérifier sa présence.</p>
+<h2 id="livrables-et-verifications">Livrables et vérifications<a class="headerlink" href="#livrables-et-verifications" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Trace attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archives</td>
+<td>Comparer les tailles mesurées des trois formats, puis vérifier les chemins effectivement restaurés.</td>
+</tr>
+<tr>
+<td>Exclusion et mise à jour</td>
+<td>Contrôler les membres de la seconde archive non compressée. Elle doit exclure <code>Restaurations</code> et inclure le nouveau fichier après mise à jour.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../tp2-corrections/">Correction</a></li>
 <li><a href="../../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
 <li><a href="../">Tous les ateliers du module</a></li>
 </ul>
 </div>

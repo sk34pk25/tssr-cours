@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-m05-lire-des-fichiers-et-gerer-les-liens" class="md-skip">
+        <a href="#fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens" class="md-skip">
           Aller au contenu
         </a>
       
@@ -12317,10 +12317,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -12332,6 +12332,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14610,10 +14632,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-controler" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Se contrôler
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14625,6 +14647,28 @@
     <span class="md-ellipsis">
       
         Pièges du support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retenir puis vérifier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-pratiquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour pratiquer
       
     </span>
   </a>
@@ -14718,11 +14762,12 @@
 
 
 
-<h1 id="revision-m05-lire-des-fichiers-et-gerer-les-liens">Révision — M05 : Lire des fichiers et gérer les liens<a class="headerlink" href="#revision-m05-lire-des-fichiers-et-gerer-les-liens" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens">Fiche de révision — Module 05 — Lire des fichiers et gérer les liens<a class="headerlink" href="#fiche-de-revision-module-05-lire-des-fichiers-et-gerer-les-liens" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
+<p>Saisir et examiner du texte, puis suivre les chemins et les inodes pendant le TP sur les liens.</p>
 <h2 id="gestes-a-retenir">Gestes à retenir<a class="headerlink" href="#gestes-a-retenir" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -14754,27 +14799,62 @@
 </tr>
 <tr>
 <td>Comparer les inodes</td>
-<td>ls -li ; une aide ajoutée au relevé source ls -l</td>
+<td><code>ls -li</code> complète le relevé source <code>ls -l</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="se-controler">Se contrôler<a class="headerlink" href="#se-controler" title="Permanent link">¶</a></h2>
-<ul>
-<li>Comment terminer la saisie de cat ? <strong>Ctrl + D sur une nouvelle ligne.</strong></li>
-<li>Que compte wc -l /etc/passwd ? <strong>Les lignes de la base locale de comptes.</strong></li>
-<li>Pourquoi edition3.txt reste-t-il lisible après suppression de edition1.txt ? <strong>Il conserve un nom physique vers le même inode ; le lien symbolique vise un chemin supprimé.</strong></li>
-</ul>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Point de contrôle</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entrée et sortie</td>
+<td>Saisir les trois lignes puis les deux lignes demandées dans des fichiers distincts. Comparer la concaténation aux originaux dans l’ordre. Une redirection <code>&gt;</code> remplace le contenu du fichier de sortie.</td>
+</tr>
+<tr>
+<td>Lecture partielle</td>
+<td>Contrôler les lignes de la base locale des comptes avec <code>wc -l</code>, puis limiter l’affichage de <code>/etc/hosts</code> avec <code>head -n 2</code>. Les valeurs observées dépendent de la machine.</td>
+</tr>
+<tr>
+<td>Liens et suppression</td>
+<td>Avant la suppression, comparer les inodes et le chemin de la cible. Après la suppression de <code>edition1.txt</code>, comparer la lecture du lien symbolique avec celle de <code>edition3.txt</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="pieges-du-support">Pièges du support<a class="headerlink" href="#pieges-du-support" title="Permanent link">¶</a></h2>
 <ul>
 <li>La correction écrit <code>Cat</code> dans la concaténation : utiliser <code>cat</code> en minuscules.</li>
 <li>L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.</li>
-<li>
-<p>Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.</p>
-</li>
-<li>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">Cours complet</a></p>
-</li>
+<li>Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.</li>
+</ul>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Plusieurs liens physiques peuvent nommer le même inode. Un lien symbolique contient le chemin vers lequel il doit pointer.</strong></p>
+<p><strong>1. Comment quitter la saisie de <code>cat</code> proprement ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Terminer la dernière ligne, puis presser Ctrl+D sur la ligne suivante pour signaler la fin de l’entrée.</p>
+</details>
+<p><strong>2. Quel contrôle distingue les deux types de lien ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p><code>ls -li</code> permet de comparer les inodes. <code>ls -l</code> montre la flèche et le chemin ciblé pour un lien symbolique.</p>
+</details>
+<p><strong>3. Pourquoi <code>edition3.txt</code> reste-t-il lisible ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Il nomme toujours l’inode d’origine. Le lien symbolique qui contient le chemin de <code>edition1.txt</code> devient cassé lorsque ce chemin disparaît.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-05-lire-des-fichiers-et-gerer-les-liens/">Cours complet</a></li>
 <li><a href="../../../tp/utilisation-linux/module-05/">Travaux pratiques</a></li>
+<li><a href="../../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens/">Kahoot existant du module</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
 </ul>
 
 

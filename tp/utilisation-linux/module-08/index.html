@@ -22,7 +22,7 @@
     
     
       
-        <title>TP — M08 : Mécanismes Linux et Bash avancé - TSSR · PAK</title>
+        <title>TP — Module 08 — Mécanismes Linux et Bash avancé - TSSR · PAK</title>
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tp-m08-mecanismes-linux-et-bash-avance" class="md-skip">
+        <a href="#tp-module-08-mecanismes-linux-et-bash-avance" class="md-skip">
           Aller au contenu
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TP — M08 : Mécanismes Linux et Bash avancé
+              TP — Module 08 — Mécanismes Linux et Bash avancé
             
           </span>
         </div>
@@ -14504,6 +14504,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectif-du-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif du laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14531,7 +14572,7 @@
 
 
 
-<h1 id="tp-m08-mecanismes-linux-et-bash-avance">TP — M08 : Mécanismes Linux et Bash avancé<a class="headerlink" href="#tp-m08-mecanismes-linux-et-bash-avance" title="Permanent link">¶</a></h1>
+<h1 id="tp-module-08-mecanismes-linux-et-bash-avance">TP — Module 08 — Mécanismes Linux et Bash avancé<a class="headerlink" href="#tp-module-08-mecanismes-linux-et-bash-avance" title="Permanent link">¶</a></h1>
 <p>La transcription du support Drive et l’aide pédagogique sont séparées pour rendre leur provenance explicite.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cours Original</label><label for="__tabbed_1_2">Cours Optimisé IA</label></div>
 <div class="tabbed-content">
@@ -14544,19 +14585,18 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-1">
-<h4>Utilisation d'une distribution GNU/Linux Utilisation des systèmes</h4>
+<p class="tssr-source-paragraph">Utilisation d'une distribution GNU/Linux</p>
+<h4>Utilisation des systèmes</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes avancés de Linux et Bash</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.</p>
 <p class="tssr-source-paragraph">Durée estimée</p>
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Énoncé</h4>
 <p class="tssr-source-paragraph">Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
-<ol start="1"><li>Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.</li></ol>
-<ol start="2"><li>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.</li></ol>
+<ol start="1"><li>Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.</li><li>Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.</li></ol>
 </section>
 <section class="tssr-transcribed-page" id="source-1zGIoKu66CadvcIDDcB39xveeioWRwruw-page-2">
-<ol start="3"><li>L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?</li></ol>
-<ol start="4"><li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</li></ol>
+<ol start="3"><li>L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?</li><li>En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).</li></ol>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
 </section>
@@ -14569,7 +14609,6 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>.Archivage et compression</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14578,17 +14617,12 @@
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Énoncé</h4>
 <p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
-<ol start="1"><li>Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.</li></ol>
-<ol start="2"><li>Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.</li></ol>
-<ol start="3"><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
+<ol start="1"><li>Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.</li><li>Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.</li><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
 </section>
 <section class="tssr-transcribed-page" id="source-1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
-<ol start="4"><li>Comparer la taille des trois archives, laquelle est la moins volumineuse ?</li></ol>
-<ol start="5"><li>Dans votre répertoire de connexion, créer le répertoire Restaurations.</li></ol>
+<ol start="4"><li>Comparer la taille des trois archives, laquelle est la moins volumineuse ?</li><li>Dans votre répertoire de connexion, créer le répertoire Restaurations.</li></ol>
 <p class="tssr-source-paragraph">Restaurer votre sauvegarde dans ce répertoire en une seule instruction.</p>
-<ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li></ol>
-<ol start="7"><li>Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
+<ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li><li>Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
 <ul><li>Aidez-vous de la commande vous permettant de lister le contenu de l'archive.</li></ul>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
@@ -14629,7 +14663,6 @@
 <div class="tssr-original-document__body">
 
 <section class="tssr-transcribed-page" id="source-1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Manipuler des variables</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14637,17 +14670,10 @@
 <p class="tssr-source-paragraph">45 à 60 minutes</p>
 <h4>Proposition de solution</h4>
 <p class="tssr-source-paragraph">En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.</p>
-<ol start="1"><li>Afficher le répertoire personnel en utilisant une variable adéquate</li></ol>
-<ol start="2"><li>Afficher le contenu de la variable contenant les chemins vers les binaires usuels de l’utilisateur.</li></ol>
-<ol start="3"><li>Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins usuels. Faire en sorte que la manipulation soit pérenne.</li></ol>
+<ol start="1"><li>Afficher le répertoire personnel en utilisant une variable adéquate</li><li>Afficher le contenu de la variable contenant les chemins vers les binaires usuels de l’utilisateur.</li><li>Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins usuels. Faire en sorte que la manipulation soit pérenne.</li></ol>
 </section>
 <section class="tssr-transcribed-page" id="source-1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
-<ol start="4"><li>Créer une variable "monnom" contenant le login de l’utilisateur</li></ol>
-<ol start="5"><li>Afficher les variables de l’utilisateurs</li></ol>
-<ol start="6"><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. Fermer le sous-shell</li></ol>
-<ol start="7"><li>Transformer la variable locale de la question 4 en variable d’environnement</li></ol>
-<ol start="8"><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login de l’utilisateur. Fermer le sous-shell</li></ol>
+<ol start="4"><li>Créer une variable "monnom" contenant le login de l’utilisateur</li><li>Afficher les variables de l’utilisateurs</li><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. Fermer le sous-shell</li><li>Transformer la variable locale de la question 4 en variable d’environnement</li><li>Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login de l’utilisateur. Fermer le sous-shell</li></ol>
 <h4>Solution</h4>
 <p class="tssr-source-paragraph">Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.</p>
 </section>
@@ -14721,7 +14747,6 @@ resultats/compteur.txt</code></pre>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Archivage et compression</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14737,7 +14762,6 @@ resultats/compteur.txt</code></pre>
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -czvf /tmp/$LOGNAME.tar.gz $HOME</code></pre>
 <pre class="tssr-source-code"><code>ls -lh /tmp/$LOGNAME.tar.gz</code></pre>
 <ol start="3"><li>Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.</li></ol>
@@ -14754,7 +14778,6 @@ resultats/compteur.txt</code></pre>
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-3">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <ol start="6"><li>Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.</li></ol>
 <pre class="tssr-source-code"><code>tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME</code></pre>
 <ol start="7"><li>Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.</li></ol>
@@ -14765,7 +14788,6 @@ resultats/compteur.txt</code></pre>
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp" data-desc-position="bottom"><img alt="Visuel isolé du document — M08TP02 - Solution - Archivages et Compression" src="../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp"></a><figcaption>Visuel isolé du document — M08TP02 - Solution - Archivages et Compression</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="source-1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45-page-4">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <pre class="tssr-source-code"><code>tar -tf /tmp/$LOGNAME-v2.tar 
 /home/user30/.profile 
 /home/user30/process/ 
@@ -14909,7 +14931,6 @@ stocker ce nombre dans compteur.txt.</code></pre>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-1">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <h4>Manipuler des variables</h4>
 <p class="tssr-source-paragraph">TP du Module 08 – Mécanismes Linux et Bash avancé</p>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.</p>
@@ -14929,7 +14950,6 @@ stocker ce nombre dans compteur.txt.</code></pre>
 <pre class="tssr-source-code"><code>echo PATH=$PATH:/$HOME/scripts &gt;&gt; ~/.bashrc</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="source-1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu-page-2">
-<p class="tssr-source-paragraph">Archivage et compression</p>
 <ol start="4"><li>Créer une variable "monnom" contenant le login de l’utilisateur</li></ol>
 <pre class="tssr-source-code"><code>monom="$LOGNAME"</code></pre>
 <p class="tssr-source-paragraph">ou</p>
@@ -14958,11 +14978,19 @@ stocker ce nombre dans compteur.txt.</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Les documents originaux et l’aide de pratique sont séparés dans leurs onglets. Les corrections se consultent après une tentative.</p>
+<h2 id="objectif-du-laboratoire">Objectif du laboratoire<a class="headerlink" href="#objectif-du-laboratoire" title="Permanent link">¶</a></h2>
+<p>Produire des fichiers à partir des flux, vérifier une restauration et comparer deux environnements Bash.</p>
+<h2 id="parcours">Parcours<a class="headerlink" href="#parcours" title="Permanent link">¶</a></h2>
+<ol>
+<li>Ouvrir l’énoncé et vérifier les prérequis.</li>
+<li>Réaliser les étapes dans le laboratoire et conserver les observations demandées.</li>
+<li>Ouvrir la correction et expliquer les écarts avant de reprendre la fiche de révision.</li>
+</ol>
 <table>
 <thead>
 <tr>
 <th>Atelier</th>
+<th>À vérifier</th>
 <th>Énoncé</th>
 <th>Correction</th>
 </tr>
@@ -14970,27 +14998,38 @@ stocker ce nombre dans compteur.txt.</code></pre>
 <tbody>
 <tr>
 <td>TP01 — Utilisation des systèmes</td>
-<td><a href="tp1-enonces/">Ouvrir</a></td>
-<td><a href="tp1-corrections/">Ouvrir</a></td>
+<td>Processus, recherche, durée et compteur</td>
+<td><a href="tp1-enonces/">Lire l’énoncé</a></td>
+<td><a href="tp1-corrections/">Comparer la correction</a></td>
 </tr>
 <tr>
 <td>TP02 — Archivage et compression</td>
-<td><a href="tp2-enonces/">Ouvrir</a></td>
-<td><a href="tp2-corrections/">Ouvrir</a></td>
+<td>Créer, restaurer et vérifier une archive</td>
+<td><a href="tp2-enonces/">Lire l’énoncé</a></td>
+<td><a href="tp2-corrections/">Comparer la correction</a></td>
 </tr>
 <tr>
 <td>TP03 — Redirections et Alias</td>
-<td><a href="tp3-enonces/">Ouvrir</a></td>
-<td><a href="tp3-corrections/">Ouvrir</a></td>
+<td>Rejouer les opérations du TP01 avec des alias</td>
+<td><a href="tp3-enonces/">Lire l’énoncé</a></td>
+<td><a href="tp3-corrections/">Comparer la correction</a></td>
 </tr>
 <tr>
 <td>TP04 — Manipuler des variables</td>
-<td><a href="tp4-enonces/">Ouvrir</a></td>
-<td><a href="tp4-corrections/">Ouvrir</a></td>
+<td>Observer les variables et leur héritage</td>
+<td><a href="tp4-enonces/">Lire l’énoncé</a></td>
+<td><a href="tp4-corrections/">Comparer la correction</a></td>
 </tr>
 </tbody>
 </table>
-<p><a href="../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Revenir au cours</a></p>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../../../modules/04-utilisation-gnu-linux/module-08-mecanismes-linux-et-bash-avance/">Cours du module</a></li>
+<li><a href="../../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance/">Fiche de révision</a></li>
+<li><a href="../">Tous les ateliers GNU/Linux</a></li>
+<li><a href="../../../commandes/linux/">Commandes GNU/Linux</a></li>
+<li><a href="../../../troubleshooting/service-linux-echec/">Dépanner un service Linux</a></li>
+</ul>
 </div>
 </div>
 </div>
