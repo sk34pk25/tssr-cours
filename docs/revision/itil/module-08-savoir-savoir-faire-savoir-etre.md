@@ -1,4 +1,4 @@
-# Révision — Module 08 — Savoir, savoir-faire, savoir-être
+# Fiche de révision — Module 08 — Savoir, savoir-faire, savoir-être
 
 ## Associer connaissances, compétence et relation utilisateur
 
@@ -50,14 +50,28 @@ La messagerie facilite l’échange rapide, asynchrone et traçable, mais peut c
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Quelle question ouvre un diagnostic ? 2. Pourquoi reformuler ? 3. Un geste prouve-t-il une intention ? 4. Peut-on annoncer une cause non vérifiée pour rassurer ?
+**1. Quelle question ouvre un diagnostic ?**
 
-??? success "Réponses commentées"
-    1. Une question ouverte qui laisse décrire la situation.
-    2. Pour vérifier la compréhension et compléter les faits.
-    3. Non : tenir compte du contexte et demander clarification.
-    4. Non : expliquer honnêtement l’étape de vérification et le suivi prévu.
+??? success "Réponse expliquée"
+    Une question ouverte qui laisse décrire la situation.
+
+**2. Pourquoi reformuler ?**
+
+??? success "Réponse expliquée"
+    Pour vérifier la compréhension et compléter les faits.
+
+**3. Un geste prouve-t-il une intention ?**
+
+??? success "Réponse expliquée"
+    Non : tenir compte du contexte et demander clarification.
+
+**4. Peut-on annoncer une cause non vérifiée pour rassurer ?**
+
+??? success "Réponse expliquée"
+    Non : expliquer honnêtement l’étape de vérification et le suivi prévu.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-08-savoir-savoir-faire-savoir-etre.md)

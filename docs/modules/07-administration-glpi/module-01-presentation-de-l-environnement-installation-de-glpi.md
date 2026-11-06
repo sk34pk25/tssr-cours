@@ -4,6 +4,12 @@ GLPI relie un inventaire informatique à un centre de services. Une panne peut a
 
 Le laboratoire de cette séquence reproduit les versions des supports : Debian 10, GLPI 9.5, PHP 7.3 dans le TP et PHP 7.4 dans le diaporama, Windows Server2019, Windows 10 et FusionInventory. Il faut utiliser un ensemble de versions cohérent fourni par le formateur. Voir le [périmètre du laboratoire](index.md).
 
+## Objectifs
+
+- Déployer le réseau du laboratoire et tester les dépendances avant l’installation.
+- Installer Apache, PHP, MariaDB et GLPI avec le nom de base retenu.
+- Valider le DNS, les répertoires de données, l’assistant et l’accès au portail.
+
 ## Comprendre la chaîne technique
 
 Le navigateur affiche des pages produites par PHP. Apache sert l’application, PHP interprète son code, MariaDB conserve ses données. Apache et PHP doivent pouvoir lire le code, et le compte de connexion à la base doit disposer des droits nécessaires sur la base GLPI. Une page d’accueil Apache accessible ne prouve donc pas que GLPI peut se connecter à MariaDB.
@@ -100,21 +106,50 @@ systemctl reload apache2
 
 Depuis Windows 10, ouvrir `http://glpi.olympus.gr`. Le support passe successivement par langue, installation/mise à jour, vérification des prérequis, serveur SQL `127.0.0.1`, compte SQL, choix/initialisation de la base et fin de l’installation. Les comptes initiaux cités sont `glpi`, `tech`, `normal` et `post-only` : leurs secrets ne sont pas publiés ici. Modifier les mots de passe initiaux, désactiver le fichier d’installation et vérifier le nom d’hôte d’accès.
 
+## TP — Construire et vérifier l’environnement Olympus
+
+| Phase | Mise en œuvre | Preuve attendue |
+| --- | --- | --- |
+| Réseau de la maquette | Placer la carte LAN de pfSense, le serveur GLPI, le contrôleur de domaine et le client sur VMNet 18. Laisser la carte WAN de pfSense sur le réseau de salle en DHCP. | Chaque VM est raccordée au segment attendu. Les serveurs ont les IP fixes du tableau de ce module et joignent leur passerelle. |
+| Annuaire et poste | Installer ADDS et DNS, créer le domaine de la maquette, puis joindre le poste Windows 10 avec le DNS du contrôleur. | Le nom du domaine se résout et le poste ouvre une session de domaine. |
+| Services GLPI | Installer les paquets indiqués pour la version historique. Préparer la base et distinguer les fichiers applicatifs des données. | Apache répond, le test de configuration réussit, PHP est compatible et l’utilisateur de service accède aux dossiers nécessaires. |
+| DNS et site | Créer l’enregistrement du serveur et l’alias GLPI. Activer le VirtualHost correspondant. | La résolution depuis le poste renvoie l’adresse du serveur GLPI. Le navigateur affiche l’assistant par le nom prévu. |
+| Assistant | Sélectionner la base unique choisie, terminer les étapes et appliquer les contrôles de fin du TP. | La page de connexion charge et le compte autorisé ouvre une session. |
+
+Depuis le serveur et le client, relever les adresses et la résolution DNS avant de poursuivre. Sur le serveur web, tester la configuration et vérifier le service.
+
+```bash
+ip -br address
+ip route
+getent hosts glpi.olympus.gr
+apache2ctl configtest
+systemctl status apache2 --no-pager
+```
+
+Le nom DNS du bloc correspond à la maquette. Adapter seulement le suffixe si le laboratoire en utilise un autre. Reporter la base réellement choisie dans l’assistant et dans la preuve SQL. Le TP se termine par l’accès depuis le client, après la vérification du serveur.
+
 ## Vérifier et expliquer
 
 On attend un nom DNS résolu vers le serveur, une page GLPI fonctionnelle, une base correctement choisie et des dossiers accessibles au service web. Si l’accès par IP fonctionne et celui par nom échoue, commencer par DNS. Si Apache répond mais affiche une erreur GLPI, regarder prérequis PHP, connexion SQL et journaux.
 
-### Mini-quiz
+## À retenir
+
+Valider la topologie, le DNS et les versions avant de lancer l’assistant. Utiliser un seul nom de base du début à la fin. Tester le portail depuis le client pour vérifier ensemble résolution, réseau et application.
+
+## Mini-quiz
 
 1. Quel composant conserve les utilisateurs et tickets ?
 2. Pourquoi tester DNS avant de déployer GLPI ?
 3. Quelle incohérence de nom de base figure dans le TP ?
+4. Que contrôler si le portail répond par adresse mais échoue par nom ?
+5. Quelles preuves distinguent Apache et GLPI ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. MariaDB/MySQL conserve les données ; PHP produit les pages.
     2. La résolution conditionne l’accès aux dépôts et au nom du site.
     3. `glpidb` et `glpidata` sont mélangés. Un seul nom doit être retenu dans la réalisation.
-
+    4. Vérifier l’adresse renvoyée par DNS et l’association du nom au VirtualHost avant de modifier GLPI.
+    5. Un test de configuration et une réponse HTTP confirment Apache. L’assistant puis la connexion avec un compte autorisé confirment l’application et sa base.
 
 ## Appliquer ce module
 

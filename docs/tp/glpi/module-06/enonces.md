@@ -1,9 +1,12 @@
 # TP 06 — Énoncé — Plug-ins et inventaire
 
+## Préparer l’atelier
+
+Préparer un serveur GLPI fonctionnel et les versions du plug-in et de l’agent prévues par le laboratoire. Garder les fichiers CSV de référence disponibles pour vérifier les colonnes.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Consignes complètes
-
 
 
 ### Plugins
@@ -14,7 +17,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 ### Objectifs
 
-- Installer le plugin FusionInventory et l’agent. Prérequis
+- Installer le plugin FusionInventory et l’agent.
+
+### Prérequis
 
 - Avoir un serveur GLPI fonctionnel.
 
@@ -45,9 +50,6 @@ Installation du Plugins FusionInventory.
 - Activez le marketplace puis installez le plugin « Data injection ».
 
 - Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
-
-Consulter la correction expliquée après une première réalisation.
-
 
 
 ## Fichier DataInjection réellement fourni
@@ -91,8 +93,6 @@ Les fichiers sont séparés par `;`. Les accents sont lisibles en Windows-1252. 
 | Port réseau type | Paire torsadée (RJ-45) |
 
 
-## Vérifier le résultat
-
 ## Méthode et vérifications
 
 Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.
@@ -101,6 +101,15 @@ La commande `cp` du corrigé est reformée pour contenir un chemin source comple
 
 Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Collecte | Contrôler la destination de l’agent, l’entité d’arrivée et l’objet découvert ou mis à jour. |
+| Correspondance CSV | Comparer l’en-tête fourni aux champs du modèle. Distinguer la donnée importée et la clé qui sert au rapprochement. |
+| Rapport | Lire les créations, mises à jour et rejets, puis vérifier les objets concernés dans GLPI et l’absence de doublon. |
 
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)
+
+- [Fiche de révision](../../../revision/glpi/module-06-plug-ins-et-inventaire.md)

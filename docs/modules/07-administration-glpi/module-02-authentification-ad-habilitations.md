@@ -2,6 +2,12 @@
 
 L’authentification répond à « qui est cet utilisateur ? ». L’habilitation répond à « quels droits possède-t-il, dans quelle partie de l’organisation ? ». Une liaison LDAP qui fonctionne n’accorde donc pas, à elle seule, le bon profil GLPI.
 
+## Objectifs
+
+- Séparer l’entité, le lieu et le profil dans le modèle d’habilitation.
+- Raccorder GLPI à LDAP, préparer les groupes et importer les identités du scénario.
+- Vérifier les droits et les refus avec des comptes distincts.
+
 ## Entités, récursivité et lieux
 
 Une entité segmente l’administration : par exemple une société, ses clients puis leurs filiales. Les objets d’une entité restent cloisonnés, sauf lorsqu’ils sont rendus récursifs. Un fournisseur commun peut être créé dans l’entité supérieure avec visibilité dans ses sous-entités. Un fournisseur local reste dans son entité sans récursivité.
@@ -60,25 +66,41 @@ Ce schéma de synthèse est ajouté au support. Une règle d’habilitation poss
 
 La condition « contient » sur `(LDAP) MemberOf` est moins stricte qu’une égalité complète au DN. Elle peut aussi accepter des noms voisins : choisir un nom distinct et tester un utilisateur autorisé ainsi qu’un utilisateur qui ne doit pas recevoir le profil. L’imbrication des groupes AD et les attributs réellement remontés doivent être vérifiés dans le laboratoire ; une appartenance souhaitée ne prouve pas qu’elle est visible dans le critère LDAP.
 
-## Réaliser le scénario Olympus
+## TP — Mettre en place les habilitations Olympus
 
-Le TP crée12identités ou fonctions : Zeus, Hephaistos, artemis, Hera, Hermes, Apollon, Aphrodite, Ares, Athena, votre compte, Poseidon et Dionysos. L’annexe complète conserve les fonctions, groupes, profils et lieux. Elle contient les graphies `Sefl-service`, `hotliner` et des variantes tiret/underscore ; les droits se choisissent à partir des profils réels proposés par GLPI.
+1. Dans AD, organiser les utilisateurs, les matériels et les groupes dans les OU du scénario. Créer les groupes globaux de métier et les groupes GLPI, puis reporter les appartenances de l’annexe. Les douze identités ou fonctions sont Zeus, Hephaistos, Artemis, Hera, Hermes, Apollon, Aphrodite, Ares, Athena, le compte du stagiaire, Poseidon et Dionysos.
+2. Dans GLPI, créer les lieux demandés et un administrateur local nominatif. Tester ce compte avant de désactiver les comptes d’exemple. Préparer une matrice avec le groupe AD, le profil GLPI, l’entité et le lieu attendus.
+3. Dans **Configuration → Authentification → Annuaires LDAP**, déclarer le contrôleur et la base de recherche du laboratoire. Tester d’abord la connexion à l’annuaire, puis vérifier que l’utilisateur recherché est visible dans la bonne OU. Saisir le secret de liaison uniquement dans l’environnement prévu.
+4. Créer les règles de profils Observer, Super-Admin, Technician et Hotliner selon l’annexe. Le critère s’appuie sur l’appartenance LDAP, puis les actions affectent le profil et l’entité. Les variantes de graphie du support se vérifient dans la liste des profils de la version installée.
+5. Importer les utilisateurs et groupes, affecter les lieux, puis désactiver les comptes `normal`, `post-only` et `tech` comme demandé. Conserver l’accès administrateur local vérifié à l’étape 2.
 
-Créer les OU des utilisateurs, matériels et groupes, les groupes globaux métier et les groupes GLPI. Créer ensuite un administrateur local nominatif, les lieux, l’annuaire puis les règles Observer, Super-Admin, Technician et Hotliner. Les captures de correction utilisent l’entité racine ; adapter la portée seulement si une autre entité a été définie dans la réalisation.
+| Essai | Vérification |
+| --- | --- |
+| Un utilisateur du groupe de techniciens | Le profil Technician et l’entité sont ceux de la règle. |
+| Un utilisateur autorisé à consulter | Il voit les objets attendus et ne reçoit pas des actions de modification qui dépassent son profil. |
+| Un utilisateur hors du groupe ciblé | La règle ne lui attribue pas le profil testé. |
+| Administrateur local | L’accès de configuration fonctionne même si la liaison LDAP ne fonctionne plus. |
 
-Importer utilisateurs et groupes, affecter les lieux puis désactiver `normal`, `post-only` et `tech`. Pour chaque type d’utilisateur, tester connexion, profil, entité active et actions permises. Une connexion réussie avec le mauvais profil est un échec de l’habilitation.
+Noter le profil actif et une action réussie ou refusée pour chaque essai. Si l’import fonctionne mais le profil est incorrect, vérifier le DN réellement remonté, l’appartenance effective et le critère de règle avant de modifier le compte.
 
-### Mini-quiz
+## À retenir
+
+Le raccordement LDAP identifie l’utilisateur. Les règles déterminent le profil et l’entité. Le lieu renseigne la localisation. Une connexion réussie ne suffit pas à valider l’habilitation.
+
+## Mini-quiz
 
 1. Un lieu peut-il remplacer une entité pour isoler les droits ?
 2. Quels sont les deux éléments indispensables d’une habilitation ?
 3. Pourquoi garder un administrateur local ?
+4. Quel test permet de repérer un critère `MemberOf` trop large ?
+5. Quelles preuves ajouter après une connexion réussie ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Non : lieu géographique et portée administrative ont des fonctions différentes.
     2. Un profil et une entité ; la récursivité est une option.
     3. Pour conserver un accès de configuration si l’annuaire ou les règles ne fonctionnent plus.
-
+    4. Tester aussi un compte dont le groupe porte un nom voisin. Le profil ciblé doit être attribué uniquement au groupe prévu.
+    5. Relever le profil et l’entité actifs, puis essayer au moins une action attendue et une action qui doit être refusée.
 
 ## Appliquer ce module
 

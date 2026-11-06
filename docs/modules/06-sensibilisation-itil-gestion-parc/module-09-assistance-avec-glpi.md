@@ -1,5 +1,11 @@
 # Module 09 — Assistance avec GLPI
 
+## Objectifs
+
+- Expliquer les entrées du ticket et distinguer attribution, traitement, validation et clôture.
+- Tester l’accès à une fiche ou à un article avec les rôles concernés.
+- Réaliser les sept étapes du TP d’exploitation, de la demande au contrôle de clôture.
+
 ## Le ticket assure la continuité du traitement
 
 GLPI centralise incidents et demandes, assure le suivi des échanges et relie les interventions au parc et à la connaissance. Un ticket apporte **traçabilité, communication, répartition du travail et détection des récurrences**. Il doit contenir assez d’informations pour qu’un autre technicien puisse reprendre le dossier.
@@ -52,17 +58,25 @@ Le support décrit création d’article, cibles, visibilité publique ou non, r
 
 Le sujet et sa correction de **17 pages** sont fournis. Le cas relie la demande d’arrivée d’un salarié, ses équipements, les relations et ports du parc, puis la clôture du ticket. Réaliser le sujet dans le laboratoire, conserver les identifiants et preuves attendus, puis comparer avec la correction originale. Les captures correspondent à la version du laboratoire ; retrouver la fonction équivalente si les menus diffèrent.
 
-**Mini-quiz.** 1. Attribué signifie-t-il résolu ? 2. Quelle différence entre observateur et technicien affecté ? 3. Une solution proposée clôture-t-elle toujours immédiatement ? 4. Pourquoi tester l’article avec un autre profil ?
+### Suivre les sept étapes du ticket d’arrivée
 
-??? success "Réponses commentées"
-    1. Non : le travail a un responsable, le résultat reste à obtenir.
-    2. L’un suit l’information ; l’autre prend en charge le traitement.
-    3. Non : approbation ou règle de clôture s’applique selon la configuration.
-    4. Pour vérifier les droits et la visibilité réellement obtenus.
+| Étape du corrigé | Action | Contrôle dans le dossier |
+| --- | --- | --- |
+| 1 | Le responsable du service crée le ticket. | Le demandeur et le besoin sont renseignés. |
+| 2 | Le support de niveau 1 traite et oriente le ticket. | L’affectation et les premières actions figurent dans l’historique. |
+| 3 | Le matériel est vérifié et sorti du stock. | Les éléments correspondent au besoin du salarié. |
+| 4 | L’administrateur Active Directory crée les comptes. | Les accès requis sont préparés et tracés. |
+| 5 | Le matériel est préparé et rapproché des fiches du parc. | Les composants, relations et ports attendus sont vérifiables. |
+| 6 | Le matériel est livré et installé. | Conserver le résultat du test et les références des équipements. |
+| 7 | Le responsable du service clôture le ticket dans le scénario. | La solution est approuvée selon le circuit décrit et la trace est conservée. |
+
+[Ouvrir l’énoncé et les contrôles du TP](../../tp/itil/module-09/index.md).
 
 ## Notions détaillées pour approfondir
 
 Les notions détaillées ci-dessous conservent le périmètre et les exemples du support historique, avec une mise en page réparée. Les réserves et corrections exposées plus haut s’appliquent à cette relecture. Pour la formulation source exacte, utiliser **Cours Original**. Les captures sont des illustrations isolées du support, pas des schémas générés.
+
+### Ticket, flux d’entrée et traitement
 
 <section>
 <h4>Sensibilisation ITIL</h4>
@@ -71,6 +85,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Découvrir la création d’un ticket</li></ul>
 <ul><li>Découvrir le traitement d’un ticket</li><li>Appréhender la base de connaissance</li></ul>
 </section>
+
 <section>
 <p>Le ticket</p>
 <ul><li>Dans le monde de l’informatique, tout fonctionne à base de ticket</li><li>Cela va permettre de solliciter la DSI</li><li>Un ticket passera par plusieurs statuts : cycle de vie du ticket</li><li>Peut-être de type incident ou demande</li><li>Doit compter un minimum d’informations</li><li>De nombreux avantages</li></ul>
@@ -83,6 +98,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Système de gestion de tickets / outil de ticketing</li><li>Conforme aux bonnes pratiques ITIL</li><li>Recueil des sollicitations utilisateur pour une gestion centralisée</li><li>Différents canaux de communication possibles</li><li>Saisie, suivi et traitement du ticket</li></ul>
 <ul><li>Cycle de vie des tickets</li><li>Statistiques possibles</li></ul>
 </section>
+
 <section>
 <p>Flux d’entrée</p>
 <p>Trois grandes façons de créer un ticket</p>
@@ -97,6 +113,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Une solution vient d’être apportée au ticket Résolu</li></ul>
 <ul><li>La solution est approuvée par le demandeur Clos</li></ul>
 </section>
+
 <section>
 <p>Traitement d’un ticket : aperçu</p>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p004-001.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 4.</figcaption></figure>
@@ -107,6 +124,9 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p004-002.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 4.</figcaption></figure>
 <p>Attribution</p>
 </section>
+
+### Observateurs, validations et clôture
+
 <section>
 <p>Traitement d’un ticket : observateurs</p>
 <ul><li>Utilisé lors des escalades hiérarchiques</li><li>Utilisateurs et groupes</li><li>Notifications sans traitement possible du ticket</li><li>Va permettre de suivre l’évolution d’un ticket</li><li>Peuvent être ajoutés automatiquement à la création en fonction de critères</li></ul>
@@ -118,6 +138,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p005-006.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 5.</figcaption></figure>
 <p>Dépasser la date butoir de résolution n’est pas bloquant, juste informatif</p>
 </section>
+
 <section>
 <p>Traitement d’un ticket : validation</p>
 <ul><li>Un ticket peut nécessiter une validation hiérarchique</li><li>Manuelle ou automatique à la création</li><li>Non bloquant pour le traitement du ticket</li><li>Droits spécifiques pour pouvoir être « valideur »</li><li>Demandes multiples possibles</li></ul>
@@ -130,6 +151,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p006-010.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 6.</figcaption></figure>
 <p>Depuis notre vue personnelle</p>
 </section>
+
 <section>
 <p>Traitement d’un ticket : validation</p>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p007-011.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 7.</figcaption></figure>
@@ -138,6 +160,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Onglet Traitement du ticket</li><li>Quatre possibilités<ul><li>Suivi</li><li>Tâche</li><li>Solution</li><li>Document</li></ul></li></ul>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p007-013.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 7.</figcaption></figure>
 </section>
+
 <section>
 <p>Traitement d’un ticket : clôture</p>
 <ul><li>La clôture du ticket s’effectue à l’approbation de la solution</li><li>Peut être effectuée par le demandeur ou le rédacteur (ticket par téléphone)</li><li>Accessible par le mail de validation ou le menu ticket de l’interface simplifiée</li><li>Commentaire obligatoire en cas de refus</li></ul>
@@ -147,6 +170,9 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Liaison de CI possible à la création d’un ticket</li><li>Utile pour le diagnostic</li><li>Utile pour les statistiques</li><li>Nécessite une CMDB à jour et bien renseignée</li></ul>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p008-015.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 8.</figcaption></figure>
 </section>
+
+### Base de connaissances et atelier
+
 <section>
 <p>Base de connaissances : article</p>
 <ul><li>Objectifs<ul><li>Centraliser des connaissances internes aux différents techniciens</li><li>Mettre à disposition des utilisateurs des informations (FAQ)</li></ul></li><li>Accessible depuis Outils =&gt; Base de connaissances</li><li>Restriction à un nombre d’acteurs</li><li>Validation de publications d’articles</li></ul>
@@ -157,6 +183,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p009-017.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 9.</figcaption></figure>
 <ul><li>Article sans cible = Article non publié</li><li>Apparaît dans Gérer</li><li>Visible que par son créateur</li></ul>
 </section>
+
 <section>
 <p>Base de connaissances : cibles</p>
 <ul><li>Vont permettre de publier l’article à différentes personnes</li><li>Entité – Profil – Groupe - Utilisateur</li></ul>
@@ -166,6 +193,7 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <ul><li>Éviter la création systématique d’un ticket</li><li>FAQ (Foire Aux Questions)</li><li>Accessible depuis l’interface simplifiée</li><li>Accès rapide ou par catégories</li></ul>
 <figure><img alt="Interface GLPI présentée dans le support" loading="lazy" src="../../../assets/course-sources/isolated/2e927cb500d1515b/itil-p010-020.webp"/><figcaption>Interface GLPI présentée dans le support — illustration isolée du support, page 10.</figcaption></figure>
 </section>
+
 <section>
 <h4>Création et gestion</h4>
 <h4>des tickets</h4>
@@ -173,6 +201,33 @@ Les notions détaillées ci-dessous conservent le périmètre et les exemples du
 <h4>TP L'exploitation des</h4>
 <h4>services</h4>
 </section>
+
+## Vérifier en pratique
+
+| Point de contrôle | Résultat attendu |
+| --- | --- |
+| Ticket | Vérifier la demande, le responsable du traitement, les étapes et l’historique. |
+| Parc et droits | Vérifier les fiches du matériel, l’utilisateur associé et l’accès dans la bonne entité. |
+| Clôture | Conserver le résultat de la livraison et la validation du responsable dans le scénario. |
+
+## Mini-quiz — 5 questions
+
+1. Attribué signifie-t-il résolu ?
+2. Quelle différence entre observateur et technicien affecté ?
+3. Une solution proposée clôture-t-elle toujours immédiatement ?
+4. Pourquoi tester l’article avec un autre profil ?
+5. Le ticket est attribué et les équipements sont visibles. Que faut-il vérifier pour clôturer ce cas ?
+
+??? success "Réponses commentées"
+    1. Non : le travail a un responsable, le résultat reste à obtenir.
+
+    2. L’un suit l’information ; l’autre prend en charge le traitement.
+
+    3. Non : approbation ou règle de clôture s’applique selon la configuration.
+
+    4. Pour vérifier les droits et la visibilité réellement obtenus.
+
+    5. L’installation et le test du matériel livré, la trace du résultat et la validation prévue par le scénario.
 
 ## Pratiquer et réviser
 

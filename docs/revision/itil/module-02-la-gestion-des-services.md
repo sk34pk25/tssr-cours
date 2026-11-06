@@ -1,4 +1,4 @@
-# Révision — Module 02 — La gestion des services
+# Fiche de révision — Module 02 — La gestion des services
 
 ## Le service crée de la valeur grâce à deux conditions
 
@@ -45,14 +45,28 @@ flowchart LR
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Qui utilise et qui négocie le service ? 2. Un processus est-il une équipe ? 3. Qui réalise dans RACI ? 4. Disponibilité élevée suffit-elle à créer de la valeur ?
+**1. Qui utilise et qui négocie le service ?**
 
-??? success "Réponses commentées"
-    1. L’utilisateur utilise ; le client exprime et négocie les besoins.
-    2. Non, c’est une organisation d’activités ; les fonctions lui apportent des moyens.
-    3. R ; A porte la responsabilité finale.
-    4. Non : il faut aussi une utilité correspondant au besoin.
+??? success "Réponse expliquée"
+    L’utilisateur utilise ; le client exprime et négocie les besoins.
+
+**2. Un processus est-il une équipe ?**
+
+??? success "Réponse expliquée"
+    Non, c’est une organisation d’activités ; les fonctions lui apportent des moyens.
+
+**3. Qui réalise dans RACI ?**
+
+??? success "Réponse expliquée"
+    R ; A porte la responsabilité finale.
+
+**4. Disponibilité élevée suffit-elle à créer de la valeur ?**
+
+??? success "Réponse expliquée"
+    Non : il faut aussi une utilité correspondant au besoin.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-02-la-gestion-des-services.md)

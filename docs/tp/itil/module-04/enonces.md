@@ -30,7 +30,15 @@ Ces étapes constituent une aide pédagogique externe. Les consignes exactes et 
 <p>chaque étape.</p>
 </section>
 
+## Livrables
+
+| Point de contrôle | Preuve à conserver |
+| --- | --- |
+| Responsabilités | Associer un intervenant ou un rôle à chaque étape de la procédure. |
+| Ordonnancement | Relever les dépendances et durées estimées. Justifier les écarts avec le corrigé selon le laboratoire. |
+
 ## Poursuivre
 
 - [Énoncés](enonces.md) et [corrections](corrections.md)
 - [Cours et repères](../../../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md)
+- [Fiche de révision](../../../revision/itil/module-04-transition-des-services.md)

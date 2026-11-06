@@ -1,4 +1,4 @@
-# Révision — Module 03 — Stratégie et conception des services
+# Fiche de révision — Module 03 — Stratégie et conception des services
 
 ## De la décision stratégique à une solution exploitable
 
@@ -59,18 +59,33 @@ Le SLA précise le service, horaires de support, performances, disponibilité, c
 
 ## TP — arrivée d’un commercial
 
-Deux sujets et leurs deux corrections sont fournis. Commencer par le schéma de stratégie, puis détailler la conception : stock, mobilier, électricité, réseau, identité, comptes, téléphonie, poste, déploiement et livraison. La correction de conception développe **14 étapes**, jusqu’à la mise à jour du CMS et la restitution du suivi. Vérifier chaque prérequis avant la livraison, puis les tests utilisateur. Les tableaux et la procédure intégrale figurent dans l’Original et dans les pages de TP liées ci-dessous.
+Deux sujets et leurs deux corrections sont fournis. Commencer par le schéma de stratégie, puis détailler la conception : stock, mobilier, électricité, réseau, identité, comptes, téléphonie, poste, déploiement et livraison. La correction de conception détaille **13 étapes**, de la disponibilité du matériel à sa livraison, avec les contrôles et la mise à jour du CMS. Vérifier chaque prérequis avant la livraison, puis les tests utilisateur. Les tableaux et la procédure intégrale figurent dans l’Original et dans les pages de TP liées ci-dessous.
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Catalogue et portefeuille couvrent-ils les mêmes services ? 2. Qui signe le SLA ? 3. Que vérifie un OLA ? 4. BIA et PRA ont-ils le même objectif ?
+**1. Catalogue et portefeuille couvrent-ils les mêmes services ?**
 
-??? success "Réponses commentées"
-    1. Le portefeuille inclut aussi les services envisagés et retirés.
-    2. Le fournisseur et le client selon leurs responsabilités.
-    3. Les contributions internes nécessaires au respect du SLA.
-    4. Non : impacts métier pour le BIA ; organisation de la reprise informatique pour le PRA.
+??? success "Réponse expliquée"
+    Le portefeuille inclut aussi les services envisagés et retirés.
+
+**2. Qui signe le SLA ?**
+
+??? success "Réponse expliquée"
+    Le fournisseur et le client selon leurs responsabilités.
+
+**3. Que vérifie un OLA ?**
+
+??? success "Réponse expliquée"
+    Les contributions internes nécessaires au respect du SLA.
+
+**4. BIA et PRA ont-ils le même objectif ?**
+
+??? success "Réponse expliquée"
+    Non : impacts métier pour le BIA ; organisation de la reprise informatique pour le PRA.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-03-strategie-et-conception-des-services.md)
+- [Travaux pratiques du module](../../tp/itil/module-03/index.md)

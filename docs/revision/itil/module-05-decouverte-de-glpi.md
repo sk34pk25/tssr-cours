@@ -1,4 +1,4 @@
-# Révision — Module 05 — Découverte de GLPI
+# Fiche de révision — Module 05 — Découverte de GLPI
 
 ## GLPI relie les équipements, les personnes et l’assistance
 
@@ -34,13 +34,25 @@ La recherche rapide porte sur les champs affichés ; la recherche multicritères
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. Pourquoi un technicien ne voit-il pas tous les menus ? 2. ET et OU donnent-ils le même résultat ? 3. Quelle précaution avant une modification massive ?
+**1. Pourquoi un technicien ne voit-il pas tous les menus ?**
 
-??? success "Réponses commentées"
-    1. Les droits et la portée des habilitations limitent les accès.
-    2. Non : ET exige toutes les conditions ; OU accepte les alternatives prévues.
-    3. Vérifier filtre, sélection, entité et action sur un échantillon.
+??? success "Réponse expliquée"
+    Les droits et la portée des habilitations limitent les accès.
+
+**2. ET et OU donnent-ils le même résultat ?**
+
+??? success "Réponse expliquée"
+    Non : ET exige toutes les conditions ; OU accepte les alternatives prévues.
+
+**3. Quelle précaution avant une modification massive ?**
+
+??? success "Réponse expliquée"
+    Vérifier filtre, sélection, entité et action sur un échantillon.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-05-decouverte-de-glpi.md)
+- [Approfondir l’administration de GLPI](../../modules/07-administration-glpi/index.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)

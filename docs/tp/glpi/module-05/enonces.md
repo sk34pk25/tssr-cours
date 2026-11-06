@@ -1,5 +1,9 @@
 # TP 05 — Énoncé — Les bases de MySQL et MariaDB
 
+## Préparer l’atelier
+
+Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et niveaux de service des TP précédents. Se connecter avec le compte autorisé et vérifier le nom de la base avant d’interroger les tables.
+
 Réaliser les consignes avant de consulter la correction. Conserver une preuve pour chaque résultat, puis comparer avec les critères de validation du module.
 
 ## Requêtes SQL
@@ -64,13 +68,20 @@ Vous gérez GLPI dans le domaine de la société Olympus. Votre DSI vous demande
 
 - Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».
 
-Consulter la correction expliquée après une première réalisation.
-
-
 
 ## Vérifier le résultat
 
 Expliquer chaque filtre, comparer le nombre de lignes et vérifier les champs retournés avant de conclure.
 
+## Livrables
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Contexte | Vérifier la base active, les tables et les colonnes avant de sélectionner les données. |
+| Filtrage | Distinguer NULL, égalité d’une chaîne et condition sur la catégorie. Identifier le modèle de switch dans les données de son laboratoire. |
+| Comptage et tri | Distinguer les lignes et les valeurs renseignées, puis rendre la sélection reproductible avec un tri lorsque l’ordre importe. |
+
 - [Correction expliquée](corrections.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)
+
+- [Fiche de révision](../../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb.md)

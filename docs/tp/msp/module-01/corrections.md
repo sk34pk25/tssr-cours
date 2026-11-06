@@ -2,6 +2,19 @@
 
 Cette correction suit la solution adaptée au réseau 172.16.0.128/26. Les commandes sont les exemples fournis, avec les retours à la ligne du PDF réassemblés et la quote finale NTFS de Support_Info rétablie. Les identifiants entre chevrons sont à remplacer dans la maquette. Les explications supplémentaires et les écarts de l’ancien modèle sont dans le [cours](../../../modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md). Les scripts ci-dessous sont fournis dans le dossier et retranscrits sans exécution.
 
+## Accès aux parties
+
+- [1. Installation des systèmes](#msp-phase-1)
+- [2. Utilisateurs et environnement](#msp-phase-2)
+- [3. Stockage, partages et impression](#msp-phase-3)
+- [4. Configuration avancée](#msp-phase-4)
+- [5. Applications](#msp-phase-5)
+- [6. Sauvegarde et restauration](#msp-phase-6)
+- [7. LVM et tableur](#msp-phase-7)
+
+- [Matrice de validation](#msp-bilan)
+- [Scripts consolidés](#msp-scripts)
+
 ## Analyse du dossier et règle de priorité
 
 La solution fournie présente l’inventaire suivant. Les versions d’exécutables citées sont celles qu’elle annonce ; cette reprise n’a pas exécuté ni vérifié les binaires du Drive.
@@ -22,7 +35,9 @@ La solution fournie présente l’inventaire suivant. Les versions d’exécutab
 
 ### Priorité documentaire
 
-1. Énoncé actuel. 2) Méthodes du cours et du corrigé modèle. 3) Amélioration technique uniquement lorsque la méthode fournie est erronée, dangereuse ou ne satisfait pas le sujet actuel.
+1. Suivre l’énoncé actuel.
+2. Utiliser les méthodes du cours et du corrigé modèle lorsqu’elles s’appliquent au sujet.
+3. Expliquer l’ajustement technique quand la méthode fournie ne satisfait pas le scénario.
 
 ### 1.2 Incohérences détectées et décision retenue
 
@@ -115,6 +130,8 @@ Elles sont explicitement annoncées comme fictives. Elles servent à créer les 
 | --- | --- | --- | --- | --- | --- |
 | W10-&lt;INITIALES&gt; | 2 vCPU | 4 Go conseillés (2 Go minimum) | 32 Go système + 40 Go données + 60 Go sauvegarde si nécessaire | Bridged | Windows 10 Professionnel 64 bits |
 | DEB10-&lt;INITIALES&gt; | 1 vCPU | 2048 Mo | 20 Go système + 40 Go données + 2 x 20 Go pour LVM | Bridged | Debian 10 avec environnement graphique |
+
+<span id="msp-phase-1"></span>
 
 ## 3. Partie 1 - Installation des systèmes
 
@@ -224,6 +241,8 @@ ipconfig /all
 ip -br a
 ping ...
 ```
+
+<span id="msp-phase-2"></span>
 
 ## 4. Partie 2 - Utilisateurs et environnement
 
@@ -416,6 +435,8 @@ Capturer le fichier sources.list avec les lignes commentées et un fichier ouver
 grep -nE '^(deb-src|deb cdrom:)' /etc/apt/sources.list || echo 'Toutes les lignes demandées sont commentées'
 vim --version | head
 ```
+
+<span id="msp-phase-3"></span>
 
 ## 5. Partie 3 - Stockage, partages et imprimantes
 
@@ -627,6 +648,8 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -Name D
 Start-Service Spooler
 ```
 
+<span id="msp-phase-4"></span>
+
 ## 6. Partie 4 - Configuration avancée
 
 ### 6.1 GRUB à 2 secondes
@@ -699,6 +722,8 @@ Capturer la ligne LISTENING sur 0.0.0.0:3389 ou [::]:3389 et une session RDP ré
 netstat -ano | findstr :3389
 ```
 
+<span id="msp-phase-5"></span>
+
 ## 7. Partie 5 - Installation des applications
 
 ### 7.1 Installation silencieuse de 7-Zip sous Windows
@@ -740,6 +765,8 @@ sudo ss -lntp | grep 10000
 ```
 
 Accéder depuis le navigateur à https://172.16.0.188:10000/. Le certificat auto-signé provoque un avertissement normal dans ce laboratoire. S’authentifier avec root ou un compte autorisé.
+
+<span id="msp-phase-6"></span>
 
 ## 8. Partie 6 - Sauvegarde et restauration
 
@@ -821,6 +848,8 @@ Enable-ComputerRestore -Drive 'C:\'
 vssadmin resize shadowstorage /For=C: /On=C: /MaxSize=8%
 Checkpoint-Computer -Description 'Avant_MSP_Final' -RestorePointType 'MODIFY_SETTINGS'
 ```
+
+<span id="msp-phase-7"></span>
 
 ## 9. Partie 7 - Pour aller plus loin
 
@@ -920,6 +949,8 @@ Recopier F5:G5 et I5 jusqu’à la ligne 12. Recopier B15:B18 vers les colonnes 
 
 La règle ne définit pas explicitement le cas moyenne &gt; 10 et assiduité = 10. La formule du corrigé utilise En danger! comme cas par défaut. Les données fournies ne contiennent pas cette combinaison, donc les résultats attendus restent identiques.
 
+<span id="msp-bilan"></span>
+
 ## 10. Matrice de validation finale
 
 | Bloc | Preuve minimale à insérer dans votre procédure |
@@ -953,6 +984,8 @@ La règle ne définit pas explicitement le cas moyenne &gt; 10 et assiduité = 1
 | --- | --- |
 | scripts/debian/03_lvm_opt.sh | Création LVM de 32 Go et montage sécurisé de /opt. |
 | tableur/Resultats_seminaire_solution_complete.xlsx | Classeur complété avec toutes les formules. |
+
+<span id="msp-scripts"></span>
 
 ## Scripts consolidés fournis — texte complet
 

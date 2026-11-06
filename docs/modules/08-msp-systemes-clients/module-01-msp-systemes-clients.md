@@ -9,6 +9,29 @@ Les prérequis sont Office 365, les bases des réseaux, les systèmes clients Mi
 
 Les valeurs d’accès nominatives sont remplacées par « fourni par le formateur », y compris dans Original et dans les tableaux CSV. Les adresses personnelles utilisent example.com. Les champs, rôles et différences entre versions sont conservés. Pour les manipulations, les mots de passe sont saisis de façon interactive ou dans un fichier local protégé qui ne doit pas entrer dans le compte rendu partagé.
 
+## Objectifs
+
+- Installer les deux postes locaux, intégrer ceux du binôme au plan réseau et démontrer leur connectivité.
+- Créer les identités et l’environnement de travail, puis vérifier les autorisations avec les comptes concernés.
+- Organiser les volumes, les permissions, les partages et l’impression, puis vérifier l’accès depuis un autre poste.
+- Configurer et tester les accès distants et les applications demandées sur chaque système.
+- Produire des sauvegardes, restaurer une donnée témoin et contrôler la persistance des montages.
+- Livrer une procédure et un tableur vérifiables en justifiant les écarts entre l’énoncé et les modèles.
+
+## Parcours de réalisation
+
+| Partie de l’énoncé | Aller à la solution | Preuve attendue |
+| --- | --- | --- |
+| 1. Installation | [VM, réseau et tests](#msp-optimise-1) | Tableau des machines et essais de connectivité avec le binôme. |
+| 2. Utilisateurs et environnement | [Identités, groupes et stratégies](#msp-optimise-2) | Connexions de test, groupes et restrictions observées. |
+| 3. Stockage et ressources | [Disques, partages et imprimantes](#msp-optimise-3) | Montages et droits effectifs, lecteur U: et paramètres des files d’impression. |
+| 4. Configuration avancée | [GRUB, swap, mises à jour et RDP](#msp-optimise-4) | Paramètres persistants et session RDP authentifiée avec le binôme. |
+| 5. Applications | [7-Zip, Remmina et Webmin](#msp-optimise-5) | Installation et lancement vérifiés sur les systèmes demandés. |
+| 6. Sauvegarde et restauration | [Copies, planifications et restauration](#msp-optimise-6) | Archives produites aux horaires demandés, contrôle distant et restauration témoin. |
+| 7. LVM et tableur | [Montages, volumes et formules](#msp-optimise-7) | Montage persistant, calculs vérifiés et cas limite d’appréciation signalé. |
+
+Chaque partie associe les étapes, les commandes utiles, le résultat attendu et les écarts du dossier. La [matrice de validation finale](#msp-optimise-bilan) permet de contrôler l’ensemble après la réalisation.
+
 ## Comprendre les dépendances avant de commencer
 
 Un compte identifie une personne ; un groupe rassemble un service ; une permission autorise une action sur une ressource. Le partage SMB rend un dossier accessible par le réseau, mais les permissions NTFS continuent de s’appliquer. Sous Debian, le système de fichiers, son point de montage et les permissions du répertoire sont trois éléments distincts. Un montage réussi ne prouve donc pas que les bons utilisateurs ont les bons droits.
@@ -77,7 +100,9 @@ La solution fournie présente l’inventaire suivant. Les versions d’exécutab
 
 ### Priorité documentaire
 
-1. Énoncé actuel. 2) Méthodes du cours et du corrigé modèle. 3) Amélioration technique uniquement lorsque la méthode fournie est erronée, dangereuse ou ne satisfait pas le sujet actuel.
+1. Suivre l’énoncé actuel.
+2. Utiliser les méthodes du cours et du corrigé modèle lorsqu’elles s’appliquent au sujet.
+3. Expliquer l’ajustement technique quand la méthode fournie ne satisfait pas le scénario.
 
 ### 1.2 Incohérences détectées et décision retenue
 
@@ -170,6 +195,8 @@ Elles sont explicitement annoncées comme fictives. Elles servent à créer les 
 | --- | --- | --- | --- | --- | --- |
 | W10-&lt;INITIALES&gt; | 2 vCPU | 4 Go conseillés (2 Go minimum) | 32 Go système + 40 Go données + 60 Go sauvegarde si nécessaire | Bridged | Windows 10 Professionnel 64 bits |
 | DEB10-&lt;INITIALES&gt; | 1 vCPU | 2048 Mo | 20 Go système + 40 Go données + 2 x 20 Go pour LVM | Bridged | Debian 10 avec environnement graphique |
+
+<span id="msp-optimise-1"></span>
 
 ## 3. Partie 1 - Installation des systèmes
 
@@ -279,6 +306,8 @@ ipconfig /all
 ip -br a
 ping ...
 ```
+
+<span id="msp-optimise-2"></span>
 
 ## 4. Partie 2 - Utilisateurs et environnement
 
@@ -471,6 +500,8 @@ Capturer le fichier sources.list avec les lignes commentées et un fichier ouver
 grep -nE '^(deb-src|deb cdrom:)' /etc/apt/sources.list || echo 'Toutes les lignes demandées sont commentées'
 vim --version | head
 ```
+
+<span id="msp-optimise-3"></span>
 
 ## 5. Partie 3 - Stockage, partages et imprimantes
 
@@ -682,6 +713,8 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -Name D
 Start-Service Spooler
 ```
 
+<span id="msp-optimise-4"></span>
+
 ## 6. Partie 4 - Configuration avancée
 
 ### 6.1 GRUB à 2 secondes
@@ -754,6 +787,8 @@ Capturer la ligne LISTENING sur 0.0.0.0:3389 ou [::]:3389 et une session RDP ré
 netstat -ano | findstr :3389
 ```
 
+<span id="msp-optimise-5"></span>
+
 ## 7. Partie 5 - Installation des applications
 
 ### 7.1 Installation silencieuse de 7-Zip sous Windows
@@ -795,6 +830,8 @@ sudo ss -lntp | grep 10000
 ```
 
 Accéder depuis le navigateur à https://172.16.0.188:10000/. Le certificat auto-signé provoque un avertissement normal dans ce laboratoire. S’authentifier avec root ou un compte autorisé.
+
+<span id="msp-optimise-6"></span>
 
 ## 8. Partie 6 - Sauvegarde et restauration
 
@@ -876,6 +913,8 @@ Enable-ComputerRestore -Drive 'C:\'
 vssadmin resize shadowstorage /For=C: /On=C: /MaxSize=8%
 Checkpoint-Computer -Description 'Avant_MSP_Final' -RestorePointType 'MODIFY_SETTINGS'
 ```
+
+<span id="msp-optimise-7"></span>
 
 ## 9. Partie 7 - Pour aller plus loin
 
@@ -974,6 +1013,8 @@ Recopier F5:G5 et I5 jusqu’à la ligne 12. Recopier B15:B18 vers les colonnes 
 ### Cas limite de la consigne
 
 La règle ne définit pas explicitement le cas moyenne &gt; 10 et assiduité = 10. La formule du corrigé utilise En danger! comme cas par défaut. Les données fournies ne contiennent pas cette combinaison, donc les résultats attendus restent identiques.
+
+<span id="msp-optimise-bilan"></span>
 
 ## 10. Matrice de validation finale
 
@@ -1097,7 +1138,7 @@ La base contient huit élèves, quatre notes par élève (B:E), puis total F, mo
 
 Le sujet ne définit pas le cas **moyenne > 10 et assiduité = 10**. La formule imbriquée de la correction le range dans son cas final « En danger ! », ce qui n’est pas une règle explicitement donnée par le sujet. Conserver ce choix comme celui de la correction et demander une règle métier avant de généraliser. Aucune des huit lignes de données n’a une assiduité égale à 10. Tester les valeurs frontières 9, 10 et 11 pour chaque critère révèle cette lacune.
 
-## Mini-quiz d’application
+## Mini-quiz d’application — 10 questions
 
 1. Quelles adresses ne peut-on pas attribuer à un poste dans 172.16.0.128/26 ?
 2. Pourquoi un lecteur U: peut-il se connecter puis refuser la création d’un fichier ?
@@ -1136,4 +1177,6 @@ Le sujet ne définit pas le cas **moyenne > 10 et assiduité = 10**. La formule 
 
 - [Énoncé complet](../../tp/msp/module-01/enonces.md)
 - [Correction détaillée et scripts fournis](../../tp/msp/module-01/corrections.md)
+- [Accéder aux huit scripts consolidés](../../tp/msp/module-01/corrections.md#msp-scripts)
+- [Comparer les preuves à la matrice de validation](../../tp/msp/module-01/corrections.md#msp-bilan)
 - [Fiche de révision](../../revision/msp/module-01-msp-systemes-clients.md)

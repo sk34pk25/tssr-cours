@@ -4,6 +4,12 @@ Un SGBD stocke, administre et permet d’interroger les données. Un SGBD relati
 
 Le rappel historique du support situe MySQL en1994 avec Michael Widenius, son nom venant de sa fille My et de SQL, puis MariaDB en2009, nommé d’après Maria. Le schéma de la base doit être réfléchi avant de remplir ses tables : le cours l’associe au MCD, modèle conceptuel de données. SQL décrit le résultat recherché ; le SGBD détermine comment le produire.
 
+## Objectifs
+
+- Lire un schéma MariaDB et sélectionner les colonnes utiles.
+- Filtrer, compter, trier et joindre les tables de la base GLPI du laboratoire.
+- Contrôler les résultats en distinguant valeurs nulles, noms de modèles et identifiants.
+
 ## Entrer dans le client SQL
 
 ```bash
@@ -74,7 +80,7 @@ SELECT MIN(Age), MAX(Age), SUM(Age), AVG(Age) FROM clients;
 SELECT Prénom AS Firstname FROM clients ORDER BY Age;
 ```
 
-`COUNT(*)` compte les quatre lignes ; `COUNT(Age)` compte les trois âges renseignés. Les agrégats sur Age ignorentNULL : minimum26, maximum45, somme103 et moyenne103/3, soit environ34,33. Le support affiche34 et décrit par erreurMIN comme le maximum : [MIN renvoie le minimum](https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/min). L’alias change le libellé de sortie, pas le nom stocké de la colonne.
+`COUNT(*)` compte les quatre lignes ; `COUNT(Age)` compte les trois âges renseignés. Les agrégats sur Age ignorentNULL : minimum26, maximum45, somme de 103 et moyenne de 103/3, soit environ 34,33. Le support affiche 34 et décrit par erreurMIN comme le maximum : [MIN renvoie le minimum](https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/min). L’alias change le libellé de sortie, pas le nom stocké de la colonne.
 
 ## Relier les tables
 
@@ -100,32 +106,101 @@ WHERE client.Prénom = 'Yann';
 
 La sortie attendue est Overwatch, LeagueofLegends et MarioKart8DELUXE. La condition `ON` réalise la relation ; `WHERE` restreint au client recherché.
 
-## Extraire des données GLPI
+## TP — Extraire des données de la base GLPI
 
-Le TP interroge calendriers, utilisateurs, langue `en_GB`, catégories enfants, commutateurs24 ports non gabarits, nombre deSLM et nom de switch maximal. Les bonus relient catégories et gabarits de demande, puis comptent les catégories par gabarit. Les identifiants de modèle2 et de gabarit3 sont ceux du support : les vérifier dans sa propre base.
+### Identifier le schéma
 
-Le corrigé contient `glpi_itilcatégories` avec accent, `from_glpinetworkequipments` collé, des apostrophes courbes et un agrégat sans regroupement. La [correction expliquée](../../tp/glpi/module-05/corrections.md) fournit les requêtes lisibles, distinctes de ces erreurs de source.
+Se connecter au client MariaDB avec le compte autorisé. Vérifier la base active et les noms de tables du laboratoire avant les requêtes. Le TP utilise `glpidata`. Les requêtes de consultation ci-dessous ne changent aucune donnée.
 
-Le support annonce une sauvegarde de la base dans ses objectifs sans fournir de procédure détaillée. Exemple pédagogique complémentaire, à adapter au compte autorisé et au nom choisi :
+```sql
+SHOW DATABASES;
+USE glpidata;
+SHOW TABLES;
+DESCRIBE glpi_calendars;
+SELECT * FROM glpi_calendars;
+SELECT name, firstname FROM glpi_users;
+SELECT name FROM glpi_users WHERE language = 'en_GB';
+```
+
+La colonne `name` contient ici le nom de connexion. Examiner `realname` si la question demande le patronyme. Les nombres observés dans la capture de correction dépendent des données du laboratoire.
+
+### Appliquer les filtres et compter
+
+```sql
+SELECT name, completename
+FROM glpi_itilcategories
+WHERE completename <> name;
+
+SELECT name
+FROM glpi_networkequipments
+WHERE is_template = 0
+  AND networkequipmentmodels_id = 2;
+
+SELECT COUNT(*) AS nb_de_SLMs
+FROM glpi_slms;
+
+SELECT MAX(name)
+FROM glpi_networkequipments
+WHERE networkequipmentmodels_id = 2;
+```
+
+Contrôler que `2` est bien l’identifiant du modèle 24 ports dans votre base. La correction n’affiche que quatre commutateurs, alors que le TP d’inventaire en demande six. Vérifier les objets réellement créés. `MAX(name)` compare des chaînes. Les suffixes de largeur fixe du scénario permettent que leur ordre coïncide avec l’ordre numérique.
+
+### Relier les catégories aux gabarits de demande
+
+**Illustration IA / externe au cours — de la catégorie à son gabarit de demande.**
+
+```mermaid
+flowchart TD
+    C[Catégorie de ticket] --> D[Identifiant de son gabarit de demande]
+    D -->|Égalité des identifiants| G[Gabarit de ticket correspondant]
+    G --> L[Liste catégorie et gabarit]
+    L --> P[Comptage par gabarit]
+```
+
+```sql
+SELECT c.name AS categorie, t.name AS gabarit
+FROM glpi_itilcategories AS c
+INNER JOIN glpi_tickettemplates AS t
+    ON c.tickettemplates_id_demand = t.id;
+
+SELECT t.name AS gabarit,
+       COUNT(*) AS nb_categories
+FROM glpi_itilcategories AS c
+INNER JOIN glpi_tickettemplates AS t
+    ON c.tickettemplates_id_demand = t.id
+GROUP BY t.id, t.name;
+```
+
+Contrôler que le total de chaque groupe correspond au nombre de catégories de la requête détaillée. Le gabarit `3` de la capture appartient à son jeu de données. N’ajouter un filtre que si la consigne ou le résultat recherché le demande. L’accent dans le nom d’une table et le `FROM` collé du corrigé restent des erreurs visibles dans l’Original.
+
+### Complément pédagogique — vérifier une sauvegarde
+
+Le support annonce la sauvegarde de la base sans détailler une procédure. Sur une base de laboratoire et avec le compte autorisé, produire un fichier et vérifier qu’il est non vide. Tester ensuite la restauration dans une autre base isolée.
 
 ```bash
 mysqldump -u root -p --single-transaction glpidata > glpidata.sql
 test -s glpidata.sql
 ```
 
-Le fichier doit être contrôlé et une restauration testée dans une autre base de laboratoire. La présence d’un fichier ne prouve pas, à elle seule, la possibilité de restaurer.
+## À retenir
 
-### Mini-quiz
+Vérifier les colonnes et les identifiants dans la base interrogée. Un filtre et une jointure répondent à des questions distinctes. Comparer une agrégation à la liste de lignes qui l’alimente.
+
+## Mini-quiz
 
 1. Comment sélectionner les clients sans âge ?
 2. Quelle différence entre `COUNT(*)` et `COUNT(Age)` ?
 3. À quoi sert `ON` dans une jointure ?
+4. Pourquoi vérifier l’identifiant de modèle avant de reprendre le `2` du TP ?
+5. Pourquoi le comptage par gabarit utilise-t-il `GROUP BY` ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `WHERE Age IS NULL`.
-    2. L’un compte les lignes ; l’autre compte les valeurs nonNULL de la colonne.
+    2. L’un compte les lignes ; l’autre compte les valeurs non NULL de la colonne.
     3. À exprimer la correspondance entre les deux tables.
-
+    4. Les identifiants sont propres à la base. Un même numéro peut correspondre à un modèle différent après une autre installation.
+    5. Il sépare les lignes par gabarit, puis calcule le nombre de catégories de chaque groupe. Le comparer à la liste détaillée permet de vérifier le résultat.
 
 ## Appliquer ce module
 

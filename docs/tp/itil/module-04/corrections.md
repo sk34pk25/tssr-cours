@@ -181,7 +181,15 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <table><tbody><tr><td>• GPO7 : • GPO8 : • GPO9 : • GPO10 : o Vérifier le déploiement des imprimantes réseau pour les commerciaux ▪ Imprimante1 : • Test impression ▪ Imprimante2 : • Test impression ▪ Imprimante3 : • Test impression f. Mettre à jour les informations dans le CMS</td><td></td><td></td><td></td><td></td></tr><tr><td>Livraison et configuration d'un ordi portable commercial</td><td>2 heures</td><td></td><td>1</td><td></td></tr><tr><td></td><td></td><td></td><td>technicien</td><td></td></tr><tr><td></td><td></td><td></td><td>parc</td><td></td></tr></tbody></table>
 </section>
 
+## Résultat attendu et contrôles
+
+| Point de contrôle | Preuve à conserver |
+| --- | --- |
+| Responsabilités | Associer un intervenant ou un rôle à chaque étape de la procédure. |
+| Ordonnancement | Relever les dépendances et durées estimées. Justifier les écarts avec le corrigé selon le laboratoire. |
+
 ## Poursuivre
 
 - [Énoncés](enonces.md) et [corrections](corrections.md)
 - [Cours et repères](../../../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md)
+- [Fiche de révision](../../../revision/itil/module-04-transition-des-services.md)

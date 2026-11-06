@@ -1,9 +1,15 @@
-# TP — Sensibilisation ITIL et gestion de parc
+# Travaux pratiques — Sensibilisation ITIL et gestion de parc
 
-Comprendre la gestion des services, le cycle de vie ITIL étudié et son application au support.
+Les quatre ateliers reprennent l’arrivée du même salarié commercial. Le besoin et la conception préparent la transition, puis les fiches du parc sont vérifiées dans GLPI.
 
-## Modules
+| Module | Atelier | Accès |
+| --- | --- | --- |
+| 03 | Stratégie et conception des services, deux sujets | [Énoncés et corrections](module-03/index.md) |
+| 04 | Transition des services | [Énoncé et correction](module-04/index.md) |
+| 09 | Exploitation des services et assistance avec GLPI | [Énoncé et correction](module-09/index.md) |
 
-- [Module 03 — Stratégie et conception des services](module-03/index.md) (2 énoncé(s), 2 correction(s))
-- [Module 04 — Transition des services](module-04/index.md) (1 énoncé(s), 1 correction(s))
-- [Module 09 — Assistance avec GLPI](module-09/index.md) (1 énoncé(s), 1 correction(s))
+## Pour continuer
+
+- [Présentation du cours](../../modules/06-sensibilisation-itil-gestion-parc/index.md)
+- [Fiches de révision](../../revision/itil/index.md)
+- [Approfondir l’administration de GLPI](../../modules/07-administration-glpi/index.md)

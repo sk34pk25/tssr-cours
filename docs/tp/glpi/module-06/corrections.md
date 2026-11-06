@@ -1,16 +1,10 @@
 # TP 06 — Correction expliquée — Plug-ins et inventaire
 
-## Méthode et vérifications
+## État initial
 
-Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.
-
-La commande `cp` du corrigé est reformée pour contenir un chemin source complet, sans espace entre dossier et nom du fichier. Après l’installation de l’agent sur Olympus.gr, vérifier l’URL du serveur, le déclenchement d’un inventaire et la fiche obtenue. Un deuxième inventaire doit actualiser la fiche sans doublon.
-
-Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.
-
+Préparer un serveur GLPI fonctionnel et les versions du plug-in et de l’agent prévues par le laboratoire. Garder les fichiers CSV de référence disponibles pour vérifier les colonnes.
 
 ## Déroulement du scénario
-
 
 
 ### Plugins
@@ -21,7 +15,9 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 ### Objectifs
 
-- Installer le plugin FusionInventory et l’agent. Prérequis
+- Installer le plugin FusionInventory et l’agent.
+
+### Prérequis
 
 - Avoir un serveur GLPI fonctionnel.
 
@@ -76,7 +72,6 @@ Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs.
 - Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
 
 
-
 ## Fichier DataInjection réellement fourni
 
 Les fichiers sont séparés par `;`. Les accents sont lisibles en Windows-1252. Le gabarit vide a les mêmes en-têtes ; la ligne remplie est transcrite sans modifier ses noms.
@@ -117,10 +112,7 @@ Les fichiers sont séparés par `;`. Les accents sont lisibles en Windows-1252. 
 | Port réseau num | 1 |
 | Port réseau type | Paire torsadée (RJ-45) |
 
-
-## Vérifier le résultat
-
-## Méthode et vérifications
+## Résultat attendu et contrôles
 
 Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.
 
@@ -128,6 +120,7 @@ La commande `cp` du corrigé est reformée pour contenir un chemin source comple
 
 Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.
 
-
 - [Énoncé](enonces.md)
 - [Cours du module](../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire.md)
+
+- [Fiche de révision](../../../revision/glpi/module-06-plug-ins-et-inventaire.md)

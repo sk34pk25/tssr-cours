@@ -94,6 +94,10 @@ La moyenne >10 avec assiduité =10 n’est pas définie par les consignes. La fo
     6. Le pool utilise plusieurs ports pour une file ; les priorités portent sur plusieurs files vers un même périphérique.
     7. Moyenne strictement supérieure à 10 et assiduité exactement égale à 10.
 
+## Vérifier les preuves
+
+Utiliser la [matrice de validation du dossier](../../tp/msp/module-01/corrections.md#msp-bilan) pour retrouver les résultats par phase. Comparer l’état initial, l’action menée et le résultat observé, puis consigner les écarts entre le sujet et les essais.
+
 ## Revenir aux documents
 
 - [Cours complet et explications](../../modules/08-msp-systemes-clients/module-01-msp-systemes-clients.md)

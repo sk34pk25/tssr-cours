@@ -1,16 +1,30 @@
 # TP — Module 03 — Gestion de parc — Inventaire informatique
 
-Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.
+## Objectif du laboratoire
 
-- [Énoncé complet](enonces.md)
-- [Correction expliquée](corrections.md)
-- [Cours](../../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
+Inventorier les matériels, logiciels et consommables d’Olympus et vérifier leurs relations.
+
+## Préparer et réaliser l’atelier
+
+L’application GLPI doit être fonctionnelle. Lire les quantités, les lieux et les relations de l’énoncé, puis consulter les illustrations du matériel pour distinguer modèles et références.
+
+1. [Lire l’énoncé complet](enonces.md).
+2. Réaliser les étapes dans le laboratoire et relever les preuves.
+3. [Comparer avec la correction](corrections.md), puis reprendre la [fiche de révision](../../../revision/glpi/module-03-gestion-de-parc-inventaire-informatique.md).
+
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Gabarit et exemplaires | Préparer les valeurs communes, puis contrôler les noms, le nombre et le statut des exemplaires créés. |
+| Baie et connectivité | Vérifier l’encombrement, les vues avant et arrière, les ports et les liaisons. Consigner les écarts entre les captures et la demande. |
+| Affectations et réservations | Contrôler le lieu, l’utilisateur, la licence ou le consommable pour chaque relation. Retrouver la réservation de Zeus. |
+
+## Liens
+
+- [Cours du module](../../../modules/07-administration-glpi/module-03-gestion-de-parc-inventaire-informatique.md)
+- [Tous les ateliers GLPI](../index.md)
+- [Mémo GLPI et SQL](../../../memo/glpi-sql.md)
 
 ## Ressources du scénario
-
-du scénario
-
-du scénario
 
 - [HP DL 380 Gen arrière.png](../../../assets/images/glpi/module-03/hp-dl-380-gen-arriere-png.png)
 - [HP DL 380 Gen avant.png](../../../assets/images/glpi/module-03/hp-dl-380-gen-avant-png.png)
@@ -18,7 +32,7 @@ du scénario
 - [JL 357 A-Aruba-48 P-avant.png](../../../assets/images/glpi/module-03/jl357a-aruba-48p-avant-png.png)
 - [PDU G 2 Arriere.png](../../../assets/images/glpi/module-03/pdu-g2-arriere-png.png)
 - [PDU G 2 Avant.png](../../../assets/images/glpi/module-03/pdu-g2-avant-png.png)
-- [manuel Aruba 24 ports](../../../assets/resources/glpi/manuel-aruba-24-ports.pdf)
+- [manuel Aruba 24 ports](../../../assets/course-sources/b8ce0876eff78941/transcription-117kxWm1eP4YIacFfO8SBR9XaTL8PQvi4.html)
 - [Gabarit switch 24 P.png](../../../assets/images/glpi/module-03/gabarit-switch-24p-png.png)
 - [Gabarit switch 48 P.png](../../../assets/images/glpi/module-03/gabarit-switch-48p-png.png)
 - [HDD alienware.png](../../../assets/images/glpi/module-03/hdd-alienware-png.png)

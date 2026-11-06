@@ -18,7 +18,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 1 - Création du ticket par le responsable du service</h4>
 <p>Vous ouvrez une session sur GLPI en tant que directeur commercial :</p>
 <ul><li> Login : balon.grejoy</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Création du ticket</p>
 <ul><li> Cliquer sur créer un ticket</li></ul>
 <ul><li> Type : demande</li></ul>
@@ -48,7 +48,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 2 - Traitement du ticket par le support N1</h4>
 <p>Vous ouvrez une session sur GLPI en tant que technicien de support de niveau 1</p>
 <ul><li> Login : hoster.tully</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Vous ouvrez le ticket et vous l’escaladez vers le groupe des techniciens parc :</p>
 <ul><li> Cliquer sur « Assistance », puis « tickets »</li></ul>
 <ul><li> Dans la liste des tickets, cliquer sur le titre du ticket.</li></ul>
@@ -80,7 +80,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 3 - Vérification et sortie du matériel du stock.</h4>
 <p>Vous ouvrez une session sur GLPI en tant que technicien de support Parc.</p>
 <ul><li> Login : jorah.mormont</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Vous allez maintenant cliquer sur « Parc »</p>
 <ul><li> Vous effectuez une recherche pour retrouver les éléments suivants :</li></ul>
 <table><tbody><tr><td>Matériel</td><td></td><td></td><td>Nom</td><td>N° Inventaire</td><td>Nouveau nom</td></tr><tr><td>Ordinateurs</td><td></td><td></td><td>Dell XPS 15</td><td>LAPTOP-0013</td><td>ITI-XPS15-006</td></tr><tr><td></td><td>Périphériques</td><td></td><td>WD19DCS</td><td>Dock-00006</td><td>ITI-WD19DCS-006</td></tr><tr><td></td><td>(dock)</td><td></td><td></td><td></td><td></td></tr><tr><td>Moniteurs</td><td></td><td></td><td>Dell 24 SE2416H</td><td>Dell 24 SE2416H-00027</td><td>ITI-Dell24-006</td></tr><tr><td>Téléphones</td><td></td><td></td><td>Tel Cisco 7811</td><td>TEL-0030</td><td>ITI-Cisco7811-006</td></tr><tr><td>Téléphones</td><td></td><td></td><td>IPhoneX</td><td>MOB-0006</td><td>ITI-IphoneX-006</td></tr></tbody></table>
@@ -179,7 +179,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 4 - Création des comptes par l’administrateur Active Directory.</h4>
 <ul><li> Vous ouvrez une session sur GLPI en tant que technicien de support de niveau 1.</li></ul>
 <ul><li> Login : tyrion.lannister</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Vous ouvrez le ticket pour gérer l’installation du système d’exploitation et des logiciels.</p>
 <ul><li> Cliquer sur « Assistance », puis « tickets »</li></ul>
 <ul><li> Dans la liste des tickets, cliquer sur le titre du ticket.</li></ul>
@@ -210,7 +210,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <p>Vous allez gérer que les informations côté ticket et apporter des modifications à l’ordinateur.</p>
 <p>Vous ouvrez une session sur GLPI en tant que technicien de support Parc.</p>
 <ul><li> Login : barristan.selmy</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Vous ouvrez le ticket pour gérer l’installation du système d’exploitation et des logiciels.</p>
 <ul><li> Cliquer sur « Assistance », puis « tickets »</li></ul>
 <ul><li> Dans la liste des tickets, cliquer sur le titre du ticket.</li></ul>
@@ -277,7 +277,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 6 - Livraison et installation du matériel</h4>
 <p>Vous ouvrez une session sur GLPI en tant que technicien de support Parc.</p>
 <ul><li> Login : jorah.mormont</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Vous ouvrez le ticket pour gérer la livraison du matériel.</p>
 <ul><li> Le matériel a été livré, installé et configuré, le technicien parc effectue les modifications nécessaires dans GLPI.</li></ul>
 <ul><li> Cliquer sur « Assistance », puis « tickets »</li></ul>
@@ -413,7 +413,7 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <h4>Etape 7 - Clôture du ticket par le responsable du service.</h4>
 <p>Vous ouvrez une session sur GLPI en tant que directeur commercial :</p>
 <ul><li> Login : balon.grejoy</li></ul>
-<ul><li> Mot de passe : password</li></ul>
+<ul><li> Mot de passe : [secret du laboratoire neutralisé]</li></ul>
 <p>Clôturer le ticket</p>
 <ul><li> Cliquer sur « Tickets »</li></ul>
 <ul><li> Sélectionner le ticket</li></ul>
@@ -426,7 +426,15 @@ Comparer le résultat, la méthode et les preuves ; noter les étapes oubliées 
 <p>Fermer la session.</p>
 </section>
 
+## Résultat attendu et contrôles
+
+| Point de contrôle | Preuve à conserver |
+| --- | --- |
+| Fiches GLPI | Vérifier les objets du parc, leurs composants, leurs utilisateurs et leur réseau après saisie. |
+| Validation | Conserver une preuve des relations et distinguer les résultats observés des exemples de la correction. |
+
 ## Poursuivre
 
 - [Énoncés](enonces.md) et [corrections](corrections.md)
 - [Cours et repères](../../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md)
+- [Fiche de révision](../../../revision/itil/module-09-assistance-avec-glpi.md)

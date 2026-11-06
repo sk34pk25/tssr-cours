@@ -1,4 +1,4 @@
-# Révision — Module 04 — Transition des services
+# Fiche de révision — Module 04 — Transition des services
 
 ## Préparer un changement que l’exploitation saura prendre en charge
 
@@ -61,14 +61,29 @@ Le sujet et sa correction fournie décrivent des documents de changement : les t
 
 
 
-## Vérifier ses acquis
+## Retenir puis vérifier
 
-**Mini-quiz.** 1. À quoi sert une baseline ? 2. Quelle différence entre CMS et CMDB ? 3. Un changement urgent échappe-t-il à toute autorisation ? 4. Push et big bang sont-ils synonymes ?
+**1. À quoi sert une baseline ?**
 
-??? success "Réponses commentées"
-    1. À disposer d’une référence de configuration maîtrisée.
-    2. Le CMS est l’ensemble de gestion ; une CMDB contient des enregistrements et relations.
-    3. Non : appliquer le circuit d’urgence et conserver les preuves.
-    4. Non : initiative de diffusion et rythme de déploiement sont deux axes distincts.
+??? success "Réponse expliquée"
+    À disposer d’une référence de configuration maîtrisée.
+
+**2. Quelle différence entre CMS et CMDB ?**
+
+??? success "Réponse expliquée"
+    Le CMS est l’ensemble de gestion ; une CMDB contient des enregistrements et relations.
+
+**3. Un changement urgent échappe-t-il à toute autorisation ?**
+
+??? success "Réponse expliquée"
+    Non : appliquer le circuit d’urgence et conserver les preuves.
+
+**4. Push et big bang sont-ils synonymes ?**
+
+??? success "Réponse expliquée"
+    Non : initiative de diffusion et rythme de déploiement sont deux axes distincts.
+
+## Pour pratiquer
 
 - [Cours et supports originaux](../../modules/06-sensibilisation-itil-gestion-parc/module-04-transition-des-services.md)
+- [Travaux pratiques du module](../../tp/itil/module-04/index.md)

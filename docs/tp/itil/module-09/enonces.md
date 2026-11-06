@@ -33,7 +33,15 @@ Ces étapes constituent une aide pédagogique externe. Les consignes exactes et 
 <p>o Maintenant, vous allez lier les informations théoriques et l'utilisation de GLPI</p>
 </section>
 
+## Livrables
+
+| Point de contrôle | Preuve à conserver |
+| --- | --- |
+| Fiches GLPI | Vérifier les objets du parc, leurs composants, leurs utilisateurs et leur réseau après saisie. |
+| Validation | Conserver une preuve des relations et distinguer les résultats observés des exemples de la correction. |
+
 ## Poursuivre
 
 - [Énoncés](enonces.md) et [corrections](corrections.md)
 - [Cours et repères](../../../modules/06-sensibilisation-itil-gestion-parc/module-09-assistance-avec-glpi.md)
+- [Fiche de révision](../../../revision/itil/module-09-assistance-avec-glpi.md)

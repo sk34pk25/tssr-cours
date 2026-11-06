@@ -1,23 +1,41 @@
-# Révision — Module 05 — Les bases de MySQL et MariaDB
+# Fiche de révision — Module 05 — Les bases de MySQL et MariaDB
 
-## Lire une requête
+Lire la base du laboratoire et expliquer la sélection, le tri et le comptage demandés.
 
-SELECT colonnes FROM table WHERE filtre ORDER BY tri LIMIT quantité OFFSET décalage.
+## Repères du laboratoire
 
-## À expliquer sans le support
+Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et niveaux de service des TP précédents. Se connecter avec le compte autorisé et vérifier le nom de la base avant d’interroger les tables.
 
-`IS NULL` teste l’absence de valeur ; `COUNT(*)` compte les lignes ; `COUNT(colonne)` ignore NULL ; `MIN` donne le minimum. Une jointure utiliseON pour relier les clés. `GROUP BY` explicite un comptage par gabarit.
+## Contrôles à savoir réaliser
 
-## Mise en situation
+| Contrôle | Preuve à relever |
+| --- | --- |
+| Contexte | Vérifier la base active, les tables et les colonnes avant de sélectionner les données. |
+| Filtrage | Distinguer NULL, égalité d’une chaîne et condition sur la catégorie. Identifier le modèle de switch dans les données de son laboratoire. |
+| Comptage et tri | Distinguer les lignes et les valeurs renseignées, puis rendre la sélection reproductible avec un tri lorsque l’ordre importe. |
 
-Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.
+## Retenir puis vérifier
 
-## Question rapide
+**La requête doit refléter les lignes et les valeurs demandées. Vérifier le résultat avec les données réellement présentes.**
 
-Age=NULL sélectionne-t-il les absences d’âge ?
+**1. Quelle condition retrouve les lignes où l’âge est absent ?**
 
-??? success "Réponse"
-    Non. Utiliser `Age IS NULL`.
+??? success "Réponse expliquée"
+    `Age IS NULL`. Une comparaison `Age = NULL` ne teste pas l’absence de valeur.
 
-- [Cours](../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)
-- [TP](../../tp/glpi/module-05/index.md)
+**2. Pourquoi le modèle de switch du corrigé peut-il avoir un autre identifiant chez vous ?**
+
+??? success "Réponse expliquée"
+    L’identifiant est attribué dans la base de laboratoire. Rechercher le modèle par sa référence avant de reprendre le filtre.
+
+**3. Quelle différence entre `COUNT(*)` et `COUNT(colonne)` ?**
+
+??? success "Réponse expliquée"
+    La première forme compte toutes les lignes du résultat. La seconde compte les lignes où cette colonne contient une valeur non NULL.
+
+## Pour pratiquer
+
+- [Cours complet](../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb.md)
+- [Travaux pratiques](../../tp/glpi/module-05/index.md)
+- [Commandes MariaDB et GLPI](../../commandes/mariadb-glpi.md)
+- [Mémo GLPI et SQL](../../memo/glpi-sql.md)
