@@ -69,7 +69,15 @@ Le texte du corrigé indique 08h00–18h00 pour les jours ouvrés. La capture de
 
 Les deux jours et dix jours sont à interpréter dans le paramétrage du calendrier et de l’unité du SLA. Vérifier la date calculée sur un ticket de test, notamment en fin de journée ou avant un week-end.
 
-Une escalade modifie le ticket pendant sa vie à un instant relatif à une échéance. Pour les incidents serveur, le TP demande dix minutes après création sans prise en charge, affecter le groupe Super-Admin et vous placer observateur ; quatre heures avant la date butoir de résolution, priorité haute et affectation vers vous ; trois heures avant, priorité très haute et affectation vers Zeus. Distinguer heure de création, échéance de prise en charge et échéance de résolution : le déclencheur choisi doit produire le délai demandé. Si une escalade est relative à une prise en charge à 1 h, vérifier que son décalage conduit réellement à création+10 min.
+Une escalade applique une action à un moment lié à une échéance. Le TP des incidents serveur demande trois actions distinctes.
+
+| Moment | Action |
+| --- | --- |
+| Dix minutes après la création, si le ticket reste sans prise en charge | Affecter le groupe Super-Admin et ajouter le compte du stagiaire comme observateur. |
+| Quatre heures avant l’échéance de résolution | Placer la priorité sur Haute et affecter le ticket au compte du stagiaire. |
+| Trois heures avant l’échéance de résolution | Placer la priorité sur Très haute et affecter le ticket à Zeus. |
+
+Le calcul doit distinguer l’heure de création, l’échéance de prise en charge et celle de résolution. Si l’escalade se règle par rapport à une prise en charge d’une heure, vérifier que le décalage produit bien une action dix minutes après la création.
 
 ## TP — Mettre en place l’assistance automatisée
 
@@ -95,7 +103,7 @@ flowchart TD
 | Incident serveur | Groupe, priorité, deux dates calculées et escalades serveur attendues. |
 | Demande bureautique | Gabarit et groupe attendus, échéances calculées avec le calendrier utilisateurs. |
 | Demande dans la catégorie Serveur | Vérifier qu’elle ne déclenche pas une règle réservée aux incidents. |
-| Incident dans une catégorie exclue | Vérifier qu’il ne reçoit pas les actions d’une règle réservée aux catégories du scénario. |
+| Incident dans la catégorie Matériel | Vérifier qu’il ne reçoit pas les actions d’une règle réservée aux catégories du scénario. |
 
 Contrôler l’historique et les acteurs du ticket. En cas d’écart, relever la catégorie et le type effectifs, puis la règle et l’échéance appliquées. L’existence d’une règle dans l’interface ne valide pas son déclenchement.
 

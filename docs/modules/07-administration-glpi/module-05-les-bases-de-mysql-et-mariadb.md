@@ -165,7 +165,7 @@ INNER JOIN glpi_tickettemplates AS t
     ON c.tickettemplates_id_demand = t.id;
 
 SELECT t.name AS gabarit,
-       COUNT(*) AS nb_categories
+       COUNT(*) AS `nombre de catégories qui utilise un gabarit de demande`
 FROM glpi_itilcategories AS c
 INNER JOIN glpi_tickettemplates AS t
     ON c.tickettemplates_id_demand = t.id
