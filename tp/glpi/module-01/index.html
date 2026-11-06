@@ -14664,6 +14664,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectif-du-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif du laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparer-et-realiser-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer et réaliser l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -15254,11 +15295,43 @@ debian.domaine.tld</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.</p>
+<h2 id="objectif-du-laboratoire">Objectif du laboratoire<a class="headerlink" href="#objectif-du-laboratoire" title="Permanent link">¶</a></h2>
+<p>Préparer le réseau Olympus puis installer une application accessible depuis le poste client du laboratoire.</p>
+<h2 id="preparer-et-realiser-latelier">Préparer et réaliser l’atelier<a class="headerlink" href="#preparer-et-realiser-latelier" title="Permanent link">¶</a></h2>
+<p>Le sujet prévoit VMware Workstation, les supports d’installation des systèmes et quatre machines de laboratoire. Relever le plan IP, le serveur DNS et les versions avant de configurer les services.</p>
+<ol>
+<li><a href="enonces/">Lire l’énoncé complet</a>.</li>
+<li>Réaliser les étapes dans le laboratoire et relever les preuves.</li>
+<li><a href="corrections/">Comparer avec la correction</a>, puis reprendre la <a href="../../../revision/glpi/module-01-presentation-de-l-environnement-installation-de-glpi/">fiche de révision</a>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Réseau et nom</td>
+<td>Vérifier l’adresse, la passerelle et le DNS côté client. Contrôler que le nom du site résout vers le serveur GLPI.</td>
+</tr>
+<tr>
+<td>Chaîne web et SQL</td>
+<td>Vérifier le VirtualHost, Apache et PHP, puis le service MariaDB et les droits du compte utilisé par l’application.</td>
+</tr>
+<tr>
+<td>Installation</td>
+<td>Contrôler les dossiers de configuration, données et journaux, puis tester la connexion au portail depuis le client.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="enonces/">Énoncé complet</a></li>
-<li><a href="corrections/">Correction expliquée</a></li>
-<li><a href="../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/">Cours</a></li>
+<li><a href="../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/">Cours du module</a></li>
+<li><a href="../">Tous les ateliers GLPI</a></li>
+<li><a href="../../../tutoriels/installer-glpi/">Installation guidée</a></li>
+<li><a href="../../../troubleshooting/glpi-inaccessible/">Dépannage de l’accès à GLPI</a></li>
 </ul>
 </div>
 </div>

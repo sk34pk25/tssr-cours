@@ -14664,6 +14664,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#objectif-du-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif du laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparer-le-dossier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer le dossier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-de-realisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours de réalisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-de-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -18160,14 +18212,73 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Cette MSP met en place deux postes locaux et utilise les deux postes du binôme. Le sujet comporte sept parties : installation, identités, stockage et ressources, configuration avancée, applications, sauvegardes, puis LVM et tableur.</p>
+<h2 id="objectif-du-laboratoire">Objectif du laboratoire<a class="headerlink" href="#objectif-du-laboratoire" title="Permanent link">¶</a></h2>
+<p>Configurer et documenter deux postes locaux Windows et Debian, puis vérifier les échanges avec les deux postes du binôme.</p>
+<h2 id="preparer-le-dossier">Préparer le dossier<a class="headerlink" href="#preparer-le-dossier" title="Permanent link">¶</a></h2>
+<p>Lire l’énoncé, identifier les paramètres propres à son poste et repérer les différences entre le sujet, l’ancien modèle et la solution adaptée. Préparer un plan IP et conserver un moyen de retour avant les opérations sur les disques.</p>
+<h2 id="parcours-de-realisation">Parcours de réalisation<a class="headerlink" href="#parcours-de-realisation" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Travail</th>
+<th>Preuve à conserver</th>
+<th>Accès</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Installation des systèmes</td>
+<td>Relever le plan IP, les caractéristiques des VM, les paramètres du binôme et les essais de connectivité.</td>
+<td><a href="enonces/#msp-phase-1">Énoncé</a> · <a href="corrections/#msp-phase-1">Correction</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Utilisateurs et environnement</td>
+<td>Comparer les comptes et groupes Windows et Debian. Vérifier l’ouverture de session et les droits attribués.</td>
+<td><a href="enonces/#msp-phase-2">Énoncé</a> · <a href="corrections/#msp-phase-2">Correction</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Stockage, partages et impression</td>
+<td>Joindre l’inventaire des volumes et des partages, les essais d’accès et les paramètres des files d’impression fictives.</td>
+<td><a href="enonces/#msp-phase-3">Énoncé</a> · <a href="corrections/#msp-phase-3">Correction</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Configuration avancée</td>
+<td>Vérifier les sources de paquets et les mises à jour. Faire constater les connexions distantes depuis le poste du binôme.</td>
+<td><a href="enonces/#msp-phase-4">Énoncé</a> · <a href="corrections/#msp-phase-4">Correction</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Applications</td>
+<td>Noter les logiciels installés et vérifier qu’ils se lancent sur les systèmes demandés.</td>
+<td><a href="enonces/#msp-phase-5">Énoncé</a> · <a href="corrections/#msp-phase-5">Correction</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sauvegarde et restauration</td>
+<td>Relever les horaires et les fichiers produits. Vérifier la copie distante, la restauration et les paramètres Windows.</td>
+<td><a href="enonces/#msp-phase-6">Énoncé</a> · <a href="corrections/#msp-phase-6">Correction</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>LVM et tableur</td>
+<td>Vérifier le volume, son format et la persistance du montage. Contrôler les formules et documenter le cas d’appréciation ambigu.</td>
+<td><a href="enonces/#msp-phase-7">Énoncé</a> · <a href="corrections/#msp-phase-7">Correction</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification-de-latelier">Vérification de l’atelier<a class="headerlink" href="#verification-de-latelier" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="enonces/">Énoncé complet, sans solution</a></li>
-<li><a href="corrections/">Correction adaptée et huit scripts fournis</a></li>
-<li><a href="../../../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/">Cours et explications</a></li>
+<li><a href="corrections/#msp-bilan">Matrice de validation finale</a></li>
+<li><a href="corrections/#msp-scripts">Scripts consolidés</a></li>
+<li><a href="../../../modules/08-msp-systemes-clients/module-01-msp-systemes-clients/">Cours et supports</a></li>
 <li><a href="../../../revision/msp/module-01-msp-systemes-clients/">Révision et autoévaluation</a></li>
 </ul>
-<p>Le dossier contient un ancien modèle et une solution adaptée plus récente. Les différences restent visibles dans le cours et les documents Original. Les valeurs d’accès sont neutralisées dans le portail ; les saisies nécessaires à la manipulation se font dans le laboratoire.</p>
+<p>Saisir les valeurs d’accès dans le laboratoire et masquer ces valeurs dans les traces partagées. Indiquer ce qui a été configuré et ce qui a pu être testé sur le matériel disponible.</p>
 </div>
 </div>
 </div>

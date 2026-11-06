@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#revision-module-01-presentation-de-lenvironnement-installation-de-glpi" class="md-skip">
+        <a href="#fiche-de-revision-module-01-presentation-de-lenvironnement-installation-de-glpi" class="md-skip">
           Aller au contenu
         </a>
       
@@ -13300,10 +13300,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#chaine-dinstallation" class="md-nav__link">
+  <a href="#reperes-du-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chaîne d’installation
+        Repères du laboratoire
       
     </span>
   </a>
@@ -13311,10 +13311,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-expliquer-sans-le-support" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À expliquer sans le support
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -13322,10 +13322,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mise-en-situation" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mise en situation
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -13333,10 +13333,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#question-rapide" class="md-nav__link">
+  <a href="#pour-pratiquer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Question rapide
+        Pour pratiquer
       
     </span>
   </a>
@@ -14760,10 +14760,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#chaine-dinstallation" class="md-nav__link">
+  <a href="#reperes-du-laboratoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chaîne d’installation
+        Repères du laboratoire
       
     </span>
   </a>
@@ -14771,10 +14771,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-expliquer-sans-le-support" class="md-nav__link">
+  <a href="#controles-a-savoir-realiser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        À expliquer sans le support
+        Contrôles à savoir réaliser
       
     </span>
   </a>
@@ -14782,10 +14782,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mise-en-situation" class="md-nav__link">
+  <a href="#retenir-puis-verifier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mise en situation
+        Retenir puis vérifier
       
     </span>
   </a>
@@ -14793,10 +14793,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#question-rapide" class="md-nav__link">
+  <a href="#pour-pratiquer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Question rapide
+        Pour pratiquer
       
     </span>
   </a>
@@ -14890,26 +14890,60 @@
 
 
 
-<h1 id="revision-module-01-presentation-de-lenvironnement-installation-de-glpi">Révision — Module 01 — Présentation de l’environnement — Installation de GLPI<a class="headerlink" href="#revision-module-01-presentation-de-lenvironnement-installation-de-glpi" title="Permanent link">¶</a></h1>
+<h1 id="fiche-de-revision-module-01-presentation-de-lenvironnement-installation-de-glpi">Fiche de révision — Module 01 — Présentation de l’environnement — Installation de GLPI<a class="headerlink" href="#fiche-de-revision-module-01-presentation-de-lenvironnement-installation-de-glpi" title="Permanent link">¶</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Complément IA / externe au cours</p>
 <p>Cette fiche du portail est une aide pédagogique de synthèse produite avec une IA. Ses explications et schémas sont distincts des documents originaux. Pour suivre les consignes exactes et retrouver les captures de formation, consultez l’onglet <strong>Cours Original</strong> du module correspondant.</p>
 </div>
-<h2 id="chaine-dinstallation">Chaîne d’installation<a class="headerlink" href="#chaine-dinstallation" title="Permanent link">¶</a></h2>
-<p>Réseau/DNS → dépôts → Apache/PHP/MariaDB → base → code et dossiers → VirtualHost/DNS → assistantGLPI.</p>
-<h2 id="a-expliquer-sans-le-support">À expliquer sans le support<a class="headerlink" href="#a-expliquer-sans-le-support" title="Permanent link">¶</a></h2>
-<p>Apache sert les pages, PHP interprète le code et MariaDB conserve les données. <code>glpidb/glpidata</code> est une incohérence de source à résoudre par un nom unique. Les données vont dans <code>/var/lib/glpi</code>, la configuration dans <code>/etc/glpi</code>, les journaux dans <code>/var/log/glpi</code>.</p>
-<h2 id="mise-en-situation">Mise en situation<a class="headerlink" href="#mise-en-situation" title="Permanent link">¶</a></h2>
-<p>Reprendre le TP du module et expliquer la fonction de chaque objet ou commande. Avant chaque manipulation, annoncer le résultat attendu, puis montrer la preuve obtenue. Pour une erreur, indiquer quelle couche ou quel critère est en cause.</p>
-<h2 id="question-rapide">Question rapide<a class="headerlink" href="#question-rapide" title="Permanent link">¶</a></h2>
-<p>La page Apache suffit-elle à prouver que GLPI fonctionne ?</p>
+<p>Préparer le réseau Olympus puis installer une application accessible depuis le poste client du laboratoire.</p>
+<h2 id="reperes-du-laboratoire">Repères du laboratoire<a class="headerlink" href="#reperes-du-laboratoire" title="Permanent link">¶</a></h2>
+<p>Le sujet prévoit VMware Workstation, les supports d’installation des systèmes et quatre machines de laboratoire. Relever le plan IP, le serveur DNS et les versions avant de configurer les services.</p>
+<h2 id="controles-a-savoir-realiser">Contrôles à savoir réaliser<a class="headerlink" href="#controles-a-savoir-realiser" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Réseau et nom</td>
+<td>Vérifier l’adresse, la passerelle et le DNS côté client. Contrôler que le nom du site résout vers le serveur GLPI.</td>
+</tr>
+<tr>
+<td>Chaîne web et SQL</td>
+<td>Vérifier le VirtualHost, Apache et PHP, puis le service MariaDB et les droits du compte utilisé par l’application.</td>
+</tr>
+<tr>
+<td>Installation</td>
+<td>Contrôler les dossiers de configuration, données et journaux, puis tester la connexion au portail depuis le client.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="retenir-puis-verifier">Retenir puis vérifier<a class="headerlink" href="#retenir-puis-verifier" title="Permanent link">¶</a></h2>
+<p><strong>Une page Apache et un nom DNS correct prouvent des étapes distinctes. Tester ensuite l’application et sa connexion à la base.</strong></p>
+<p><strong>1. Quel test faire si le nom du site ne se résout pas ?</strong></p>
 <details class="success">
-<summary>Réponse</summary>
-<p>Non. Contrôler aussi PHP, la base et les permissions.</p>
+<summary>Réponse expliquée</summary>
+<p>Vérifier le DNS du client et les enregistrements A et CNAME du laboratoire, puis retester la résolution.</p>
 </details>
+<p><strong>2. Pourquoi une page Apache ne suffit-elle pas à valider le TP ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Le serveur web répond, mais le VirtualHost peut encore servir la mauvaise racine ou l’application peut échouer sur PHP ou MariaDB.</p>
+</details>
+<p><strong>3. Quel nom de base reprendre dans l’assistant ?</strong></p>
+<details class="success">
+<summary>Réponse expliquée</summary>
+<p>Le nom réellement créé et autorisé. Le support alterne deux noms dans certains passages, à distinguer lors de la saisie.</p>
+</details>
+<h2 id="pour-pratiquer">Pour pratiquer<a class="headerlink" href="#pour-pratiquer" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/">Cours</a></li>
-<li><a href="../../../tp/glpi/module-01/">TP</a></li>
+<li><a href="../../../modules/07-administration-glpi/module-01-presentation-de-l-environnement-installation-de-glpi/">Cours complet</a></li>
+<li><a href="../../../tp/glpi/module-01/">Travaux pratiques</a></li>
+<li><a href="../../../tutoriels/installer-glpi/">Installation guidée</a></li>
+<li><a href="../../../troubleshooting/glpi-inaccessible/">Dépannage de l’accès à GLPI</a></li>
 </ul>
 
 

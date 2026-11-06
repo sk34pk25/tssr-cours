@@ -2312,6 +2312,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-de-realisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours de réalisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comprendre-les-dependances-avant-de-commencer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3605,10 +3627,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mini-quiz-dapplication" class="md-nav__link">
+  <a href="#mini-quiz-dapplication-10-questions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mini-quiz d’application
+        Mini-quiz d’application — 10 questions
       
     </span>
   </a>
@@ -16042,6 +16064,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcours-de-realisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parcours de réalisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comprendre-les-dependances-avant-de-commencer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17335,10 +17379,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mini-quiz-dapplication" class="md-nav__link">
+  <a href="#mini-quiz-dapplication-10-questions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mini-quiz d’application
+        Mini-quiz d’application — 10 questions
       
     </span>
   </a>
@@ -20862,6 +20906,63 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <p>La solution adaptée de 27 pages au réseau 172.16.0.128/26 et ses huit scripts constituent la correction principale. L’énoncé de 14 pages reste la référence pour les exigences. L’ancien modèle de 143 pages, les variantes de scripts et les quatre classeurs sont conservés dans <strong>Cours Original</strong>. Les explications, contrôles supplémentaires et schémas de cette fiche sont des compléments pédagogiques externes au cours.</p>
 </div>
 <p>Les valeurs d’accès nominatives sont remplacées par « fourni par le formateur », y compris dans Original et dans les tableaux CSV. Les adresses personnelles utilisent example.com. Les champs, rôles et différences entre versions sont conservés. Pour les manipulations, les mots de passe sont saisis de façon interactive ou dans un fichier local protégé qui ne doit pas entrer dans le compte rendu partagé.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installer les deux postes locaux, intégrer ceux du binôme au plan réseau et démontrer leur connectivité.</li>
+<li>Créer les identités et l’environnement de travail, puis vérifier les autorisations avec les comptes concernés.</li>
+<li>Organiser les volumes, les permissions, les partages et l’impression, puis vérifier l’accès depuis un autre poste.</li>
+<li>Configurer et tester les accès distants et les applications demandées sur chaque système.</li>
+<li>Produire des sauvegardes, restaurer une donnée témoin et contrôler la persistance des montages.</li>
+<li>Livrer une procédure et un tableur vérifiables en justifiant les écarts entre l’énoncé et les modèles.</li>
+</ul>
+<h2 id="parcours-de-realisation">Parcours de réalisation<a class="headerlink" href="#parcours-de-realisation" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Partie de l’énoncé</th>
+<th>Aller à la solution</th>
+<th>Preuve attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Installation</td>
+<td><a href="#msp-optimise-1">VM, réseau et tests</a></td>
+<td>Tableau des machines et essais de connectivité avec le binôme.</td>
+</tr>
+<tr>
+<td>2. Utilisateurs et environnement</td>
+<td><a href="#msp-optimise-2">Identités, groupes et stratégies</a></td>
+<td>Connexions de test, groupes et restrictions observées.</td>
+</tr>
+<tr>
+<td>3. Stockage et ressources</td>
+<td><a href="#msp-optimise-3">Disques, partages et imprimantes</a></td>
+<td>Montages et droits effectifs, lecteur U: et paramètres des files d’impression.</td>
+</tr>
+<tr>
+<td>4. Configuration avancée</td>
+<td><a href="#msp-optimise-4">GRUB, swap, mises à jour et RDP</a></td>
+<td>Paramètres persistants et session RDP authentifiée avec le binôme.</td>
+</tr>
+<tr>
+<td>5. Applications</td>
+<td><a href="#msp-optimise-5">7-Zip, Remmina et Webmin</a></td>
+<td>Installation et lancement vérifiés sur les systèmes demandés.</td>
+</tr>
+<tr>
+<td>6. Sauvegarde et restauration</td>
+<td><a href="#msp-optimise-6">Copies, planifications et restauration</a></td>
+<td>Archives produites aux horaires demandés, contrôle distant et restauration témoin.</td>
+</tr>
+<tr>
+<td>7. LVM et tableur</td>
+<td><a href="#msp-optimise-7">Montages, volumes et formules</a></td>
+<td>Montage persistant, calculs vérifiés et cas limite d’appréciation signalé.</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque partie associe les étapes, les commandes utiles, le résultat attendu et les écarts du dossier. La <a href="#msp-optimise-bilan">matrice de validation finale</a> permet de contrôler l’ensemble après la réalisation.</p>
 <h2 id="comprendre-les-dependances-avant-de-commencer">Comprendre les dépendances avant de commencer<a class="headerlink" href="#comprendre-les-dependances-avant-de-commencer" title="Permanent link">¶</a></h2>
 <p>Un compte identifie une personne ; un groupe rassemble un service ; une permission autorise une action sur une ressource. Le partage SMB rend un dossier accessible par le réseau, mais les permissions NTFS continuent de s’appliquer. Sous Debian, le système de fichiers, son point de montage et les permissions du répertoire sont trois éléments distincts. Un montage réussi ne prouve donc pas que les bons utilisateurs ont les bons droits.</p>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
@@ -21011,7 +21112,9 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <h3 id="11-regle-de-priorite-appliquee">1.1 Règle de priorité appliquée<a class="headerlink" href="#11-regle-de-priorite-appliquee" title="Permanent link">¶</a></h3>
 <h3 id="priorite-documentaire">Priorité documentaire<a class="headerlink" href="#priorite-documentaire" title="Permanent link">¶</a></h3>
 <ol>
-<li>Énoncé actuel. 2) Méthodes du cours et du corrigé modèle. 3) Amélioration technique uniquement lorsque la méthode fournie est erronée, dangereuse ou ne satisfait pas le sujet actuel.</li>
+<li>Suivre l’énoncé actuel.</li>
+<li>Utiliser les méthodes du cours et du corrigé modèle lorsqu’elles s’appliquent au sujet.</li>
+<li>Expliquer l’ajustement technique quand la méthode fournie ne satisfait pas le scénario.</li>
 </ol>
 <h3 id="12-incoherences-detectees-et-decision-retenue">1.2 Incohérences détectées et décision retenue<a class="headerlink" href="#12-incoherences-detectees-et-decision-retenue" title="Permanent link">¶</a></h3>
 <table>
@@ -21300,6 +21403,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </tr>
 </tbody>
 </table>
+<p><span id="msp-optimise-1"></span></p>
 <h2 id="3-partie-1-installation-des-systemes">3. Partie 1 - Installation des systèmes<a class="headerlink" href="#3-partie-1-installation-des-systemes" title="Permanent link">¶</a></h2>
 <h3 id="31-preparation-vmware">3.1 Préparation VMware<a class="headerlink" href="#31-preparation-vmware" title="Permanent link">¶</a></h3>
 <ol>
@@ -21426,6 +21530,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ip -br a
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ping ...
 </span></code></pre></div>
+<p><span id="msp-optimise-2"></span></p>
 <h2 id="4-partie-2-utilisateurs-et-environnement">4. Partie 2 - Utilisateurs et environnement<a class="headerlink" href="#4-partie-2-utilisateurs-et-environnement" title="Permanent link">¶</a></h2>
 <h3 id="41-convention-de-nommage-et-comptes">4.1 Convention de nommage et comptes<a class="headerlink" href="#41-convention-de-nommage-et-comptes" title="Permanent link">¶</a></h3>
 <p>Convention commune aux deux systèmes : groupes locaux en minuscules sans accent, préfixés par l_. Les groupes de service sont l_direction, l_commercial, l_comptabilite, l_informatique et l_logistique. Le groupe documentation est ajouté pour satisfaire la consigne de /services.</p>
@@ -21626,6 +21731,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>grep -nE '^(deb-src|deb cdrom:)' /etc/apt/sources.list || echo 'Toutes les lignes demandées sont commentées'
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>vim --version | head
 </span></code></pre></div>
+<p><span id="msp-optimise-3"></span></p>
 <h2 id="5-partie-3-stockage-partages-et-imprimantes">5. Partie 3 - Stockage, partages et imprimantes<a class="headerlink" href="#5-partie-3-stockage-partages-et-imprimantes" title="Permanent link">¶</a></h2>
 <h3 id="51-partition-data-de-15-go-sous-windows-avec-diskpart">5.1 Partition DATA de 15 Go sous Windows avec DISKPART<a class="headerlink" href="#51-partition-data-de-15-go-sous-windows-avec-diskpart" title="Permanent link">¶</a></h3>
 <h3 id="risque-de-destruction">Risque de destruction<a class="headerlink" href="#risque-de-destruction" title="Permanent link">¶</a></h3>
@@ -21789,6 +21895,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -Name DefaultSpoolDirectory -Value 'D:\Spool'
 </span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Start-Service Spooler
 </span></code></pre></div>
+<p><span id="msp-optimise-4"></span></p>
 <h2 id="6-partie-4-configuration-avancee">6. Partie 4 - Configuration avancée<a class="headerlink" href="#6-partie-4-configuration-avancee" title="Permanent link">¶</a></h2>
 <h3 id="61-grub-a-2-secondes">6.1 GRUB à 2 secondes<a class="headerlink" href="#61-grub-a-2-secondes" title="Permanent link">¶</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo vim /etc/default/grub
@@ -21840,6 +21947,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <h3 id="commandes-de-verification_4">Commandes de vérification<a class="headerlink" href="#commandes-de-verification_4" title="Permanent link">¶</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>netstat -ano | findstr :3389
 </span></code></pre></div>
+<p><span id="msp-optimise-5"></span></p>
 <h2 id="7-partie-5-installation-des-applications">7. Partie 5 - Installation des applications<a class="headerlink" href="#7-partie-5-installation-des-applications" title="Permanent link">¶</a></h2>
 <h3 id="71-installation-silencieuse-de-7-zip-sous-windows">7.1 Installation silencieuse de 7-Zip sous Windows<a class="headerlink" href="#71-installation-silencieuse-de-7-zip-sous-windows" title="Permanent link">¶</a></h3>
 <p>La ressource fournie est l’installateur 7-Zip 19.00 x64. L’option /S lance le mode silencieux et /D définit le dossier, à placer en dernier.</p>
@@ -21869,6 +21977,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>sudo ss -lntp | grep 10000
 </span></code></pre></div>
 <p>Accéder depuis le navigateur à https://172.16.0.188:10000/. Le certificat auto-signé provoque un avertissement normal dans ce laboratoire. S’authentifier avec root ou un compte autorisé.</p>
+<p><span id="msp-optimise-6"></span></p>
 <h2 id="8-partie-6-sauvegarde-et-restauration">8. Partie 6 - Sauvegarde et restauration<a class="headerlink" href="#8-partie-6-sauvegarde-et-restauration" title="Permanent link">¶</a></h2>
 <h3 id="81-sauvegarde-quotidienne-debian-a-12-h-30">8.1 Sauvegarde quotidienne Debian à 12 h 30<a class="headerlink" href="#81-sauvegarde-quotidienne-debian-a-12-h-30" title="Permanent link">¶</a></h3>
 <p>Le script 02_sauvegarde_quotidienne.sh crée deux archives tar datées : une pour /home et une pour /services. Il les copie ensuite vers le Debian du binôme par SCP.</p>
@@ -21937,6 +22046,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>vssadmin resize shadowstorage /For=C: /On=C: /MaxSize=8%
 </span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>Checkpoint-Computer -Description 'Avant_MSP_Final' -RestorePointType 'MODIFY_SETTINGS'
 </span></code></pre></div>
+<p><span id="msp-optimise-7"></span></p>
 <h2 id="9-partie-7-pour-aller-plus-loin">9. Partie 7 - Pour aller plus loin<a class="headerlink" href="#9-partie-7-pour-aller-plus-loin" title="Permanent link">¶</a></h2>
 <h3 id="91-montage-permanent-de-logs-dans-varlog-sans-perte">9.1 Montage permanent de LOGS dans /var/log sans perte<a class="headerlink" href="#91-montage-permanent-de-logs-dans-varlog-sans-perte" title="Permanent link">¶</a></h3>
 <ol>
@@ -22041,6 +22151,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <p>Recopier F5:G5 et I5 jusqu’à la ligne 12. Recopier B15:B18 vers les colonnes C à E. Le classeur Resultats_seminaire_solution_complete.xlsx fourni contient toutes les formules, y compris celles manquantes dans certaines lignes du corrigé distribué.</p>
 <h3 id="cas-limite-de-la-consigne">Cas limite de la consigne<a class="headerlink" href="#cas-limite-de-la-consigne" title="Permanent link">¶</a></h3>
 <p>La règle ne définit pas explicitement le cas moyenne &gt; 10 et assiduité = 10. La formule du corrigé utilise En danger! comme cas par défaut. Les données fournies ne contiennent pas cette combinaison, donc les résultats attendus restent identiques.</p>
+<p><span id="msp-optimise-bilan"></span></p>
 <h2 id="10-matrice-de-validation-finale">10. Matrice de validation finale<a class="headerlink" href="#10-matrice-de-validation-finale" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -22283,7 +22394,7 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 </tbody>
 </table>
 <p>Le sujet ne définit pas le cas <strong>moyenne &gt; 10 et assiduité = 10</strong>. La formule imbriquée de la correction le range dans son cas final « En danger ! », ce qui n’est pas une règle explicitement donnée par le sujet. Conserver ce choix comme celui de la correction et demander une règle métier avant de généraliser. Aucune des huit lignes de données n’a une assiduité égale à 10. Tester les valeurs frontières 9, 10 et 11 pour chaque critère révèle cette lacune.</p>
-<h2 id="mini-quiz-dapplication">Mini-quiz d’application<a class="headerlink" href="#mini-quiz-dapplication" title="Permanent link">¶</a></h2>
+<h2 id="mini-quiz-dapplication-10-questions">Mini-quiz d’application — 10 questions<a class="headerlink" href="#mini-quiz-dapplication-10-questions" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quelles adresses ne peut-on pas attribuer à un poste dans 172.16.0.128/26 ?</li>
 <li>Pourquoi un lecteur U: peut-il se connecter puis refuser la création d’un fichier ?</li>
@@ -22325,6 +22436,8 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Print\Printers' -
 <ul>
 <li><a href="../../../tp/msp/module-01/enonces/">Énoncé complet</a></li>
 <li><a href="../../../tp/msp/module-01/corrections/">Correction détaillée et scripts fournis</a></li>
+<li><a href="../../../tp/msp/module-01/corrections/#msp-scripts">Accéder aux huit scripts consolidés</a></li>
+<li><a href="../../../tp/msp/module-01/corrections/#msp-bilan">Comparer les preuves à la matrice de validation</a></li>
 <li><a href="../../../revision/msp/module-01-msp-systemes-clients/">Fiche de révision</a></li>
 </ul>
 </div>

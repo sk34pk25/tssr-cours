@@ -4482,6 +4482,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comprendre-la-chaine-technique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4537,6 +4548,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-construire-et-verifier-lenvironnement-olympus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP — Construire et vérifier l’environnement Olympus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#verifier-et-expliquer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4545,10 +4567,20 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vérifier et expliquer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4556,11 +4588,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -14810,6 +14837,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comprendre-la-chaine-technique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14865,6 +14903,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-construire-et-verifier-lenvironnement-olympus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP — Construire et vérifier l’environnement Olympus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#verifier-et-expliquer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14873,10 +14922,20 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vérifier et expliquer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14884,11 +14943,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -15664,6 +15718,12 @@ debian.domaine.tld</code></pre>
 </div>
 <p>GLPI relie un inventaire informatique à un centre de services. Une panne peut ainsi être rattachée à un ordinateur, à son utilisateur, à ses logiciels et à son historique. Le support présente <strong>Gestion Libre de Parc Informatique</strong> comme une application ITSM, conforme aux pratiques ITIL, libre sous GPL, multilingue et extensible par des plug-ins. Elle peut servir un petit parc comme une organisation répartie sur plusieurs sites.</p>
 <p>Le laboratoire de cette séquence reproduit les versions des supports : Debian 10, GLPI 9.5, PHP 7.3 dans le TP et PHP 7.4 dans le diaporama, Windows Server2019, Windows 10 et FusionInventory. Il faut utiliser un ensemble de versions cohérent fourni par le formateur. Voir le <a href="../">périmètre du laboratoire</a>.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Déployer le réseau du laboratoire et tester les dépendances avant l’installation.</li>
+<li>Installer Apache, PHP, MariaDB et GLPI avec le nom de base retenu.</li>
+<li>Valider le DNS, les répertoires de données, l’assistant et l’accès au portail.</li>
+</ul>
 <h2 id="comprendre-la-chaine-technique">Comprendre la chaîne technique<a class="headerlink" href="#comprendre-la-chaine-technique" title="Permanent link">¶</a></h2>
 <p>Le navigateur affiche des pages produites par PHP. Apache sert l’application, PHP interprète son code, MariaDB conserve ses données. Apache et PHP doivent pouvoir lire le code, et le compte de connexion à la base doit disposer des droits nécessaires sur la base GLPI. Une page d’accueil Apache accessible ne prouve donc pas que GLPI peut se connecter à MariaDB.</p>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
@@ -15751,20 +15811,71 @@ debian.domaine.tld</code></pre>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
 </span></code></pre></div>
 <p>Depuis Windows 10, ouvrir <code>http://glpi.olympus.gr</code>. Le support passe successivement par langue, installation/mise à jour, vérification des prérequis, serveur SQL <code>127.0.0.1</code>, compte SQL, choix/initialisation de la base et fin de l’installation. Les comptes initiaux cités sont <code>glpi</code>, <code>tech</code>, <code>normal</code> et <code>post-only</code> : leurs secrets ne sont pas publiés ici. Modifier les mots de passe initiaux, désactiver le fichier d’installation et vérifier le nom d’hôte d’accès.</p>
+<h2 id="tp-construire-et-verifier-lenvironnement-olympus">TP — Construire et vérifier l’environnement Olympus<a class="headerlink" href="#tp-construire-et-verifier-lenvironnement-olympus" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Mise en œuvre</th>
+<th>Preuve attendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Réseau de la maquette</td>
+<td>Placer la carte LAN de pfSense, le serveur GLPI, le contrôleur de domaine et le client sur VMNet 18. Laisser la carte WAN de pfSense sur le réseau de salle en DHCP.</td>
+<td>Chaque VM est raccordée au segment attendu. Les serveurs ont les IP fixes du tableau de ce module et joignent leur passerelle.</td>
+</tr>
+<tr>
+<td>Annuaire et poste</td>
+<td>Installer ADDS et DNS, créer le domaine de la maquette, puis joindre le poste Windows 10 avec le DNS du contrôleur.</td>
+<td>Le nom du domaine se résout et le poste ouvre une session de domaine.</td>
+</tr>
+<tr>
+<td>Services GLPI</td>
+<td>Installer les paquets indiqués pour la version historique. Préparer la base et distinguer les fichiers applicatifs des données.</td>
+<td>Apache répond, le test de configuration réussit, PHP est compatible et l’utilisateur de service accède aux dossiers nécessaires.</td>
+</tr>
+<tr>
+<td>DNS et site</td>
+<td>Créer l’enregistrement du serveur et l’alias GLPI. Activer le VirtualHost correspondant.</td>
+<td>La résolution depuis le poste renvoie l’adresse du serveur GLPI. Le navigateur affiche l’assistant par le nom prévu.</td>
+</tr>
+<tr>
+<td>Assistant</td>
+<td>Sélectionner la base unique choisie, terminer les étapes et appliquer les contrôles de fin du TP.</td>
+<td>La page de connexion charge et le compte autorisé ouvre une session.</td>
+</tr>
+</tbody>
+</table>
+<p>Depuis le serveur et le client, relever les adresses et la résolution DNS avant de poursuivre. Sur le serveur web, tester la configuration et vérifier le service.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ip<span class="w"> </span>-br<span class="w"> </span>address
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ip<span class="w"> </span>route
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>getent<span class="w"> </span>hosts<span class="w"> </span>glpi.olympus.gr
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>apache2ctl<span class="w"> </span>configtest
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>systemctl<span class="w"> </span>status<span class="w"> </span>apache2<span class="w"> </span>--no-pager
+</span></code></pre></div>
+<p>Le nom DNS du bloc correspond à la maquette. Adapter seulement le suffixe si le laboratoire en utilise un autre. Reporter la base réellement choisie dans l’assistant et dans la preuve SQL. Le TP se termine par l’accès depuis le client, après la vérification du serveur.</p>
 <h2 id="verifier-et-expliquer">Vérifier et expliquer<a class="headerlink" href="#verifier-et-expliquer" title="Permanent link">¶</a></h2>
 <p>On attend un nom DNS résolu vers le serveur, une page GLPI fonctionnelle, une base correctement choisie et des dossiers accessibles au service web. Si l’accès par IP fonctionne et celui par nom échoue, commencer par DNS. Si Apache répond mais affiche une erreur GLPI, regarder prérequis PHP, connexion SQL et journaux.</p>
-<h3 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h3>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Valider la topologie, le DNS et les versions avant de lancer l’assistant. Utiliser un seul nom de base du début à la fin. Tester le portail depuis le client pour vérifier ensemble résolution, réseau et application.</p>
+<h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quel composant conserve les utilisateurs et tickets ?</li>
 <li>Pourquoi tester DNS avant de déployer GLPI ?</li>
 <li>Quelle incohérence de nom de base figure dans le TP ?</li>
+<li>Que contrôler si le portail répond par adresse mais échoue par nom ?</li>
+<li>Quelles preuves distinguent Apache et GLPI ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>MariaDB/MySQL conserve les données ; PHP produit les pages.</li>
 <li>La résolution conditionne l’accès aux dépôts et au nom du site.</li>
 <li><code>glpidb</code> et <code>glpidata</code> sont mélangés. Un seul nom doit être retenu dans la réalisation.</li>
+<li>Vérifier l’adresse renvoyée par DNS et l’association du nom au VirtualHost avant de modifier GLPI.</li>
+<li>Un test de configuration et une réponse HTTP confirment Apache. L’assistant puis la connexion avec un compte autorisé confirment l’application et sa base.</li>
 </ol>
 </details>
 <h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>

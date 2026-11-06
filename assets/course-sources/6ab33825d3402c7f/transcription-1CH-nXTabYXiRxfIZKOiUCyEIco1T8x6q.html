@@ -21,28 +21,28 @@
 <ul><li>Ses objectifs<ul><li>S’assurer que les procédures et les méthodes pour traiter les changements sont efficaces, voire efficientes</li><li>S’assurer que les modifications des CI (Configuration Item) sont bien enregistrées dans le CMS (Content Managment System)</li><li>Répondre aux évolutions exprimées par les clients en minimisant les risques d’interruption de service et en maximisant la valeur fournie</li></ul></li><li>Définition d’un changement<ul><li>Ajout, modification,  ou retrait d’un ou plusieurs CI du système d’information ou d’un ou plusieurs services fournis par ce système d’information</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-4"><h3>Page 4</h3>
-<p>La gestion des changements</p>
-<figure><img src="../isolated/6ab33825d3402c7f/itil-p004-002.webp" alt="Les sept R du changement" loading="lazy"><figcaption>Les sept R du changement — illustration isolée du support, page 4.</figcaption></figure>
+<h4>La gestion des changements</h4>
+<figure><img alt="Les sept R du changement" loading="lazy" src="../isolated/6ab33825d3402c7f/itil-p004-002.webp"/><figcaption>Les sept R du changement — illustration isolée du support, page 4.</figcaption></figure>
 <ul><li>Les « 7 R » de la gestion des changements</li></ul>
 <ul><li>Raised : qui a fait la demande ?</li><li>Reason : pour quelle raison ?</li><li>Return : quel est le retour attendu ?</li><li>Risks : quels sont les risques ?</li><li>Resources : quelles seront les ressources ?</li><li>Responsible : qui est le responsable ?</li><li>Relationship : quelles sont les relations avec les autres changements ?</li></ul>
-<p>La gestion des changements</p>
+
 <ul><li>Les origines d’un changement<ul><li>Les correctifs (événement, incident, problème…)</li><li>La législation</li><li>L’organisation</li><li>Des directives ou des standards</li><li>Des évolutions des services existants</li><li>Des nouveaux services</li><li>Un nouveau modèle de sourcing</li><li>Une innovation technologique…</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-5"><h3>Page 5</h3>
-<p>La gestion des changements</p>
+<h4>La gestion des changements</h4>
 <ul><li>La demande de changement<ul><li>Tous les clients sont habilités à émettre une demande de changement, mais cela ne veut pas dire qu’elle sera acceptée.</li><li>Toute demande de changement doit être formalisée par une RFC.</li><li>RFC (Request For Change) est une formalisation d’une modification d’un ou plusieurs éléments de configuration (CI).</li><li>Une RFC doit contenir :<ul><li>Un identifiant unique</li><li>Une date de demande</li><li>Le nom du demandeur</li><li>Une proposition de priorité de changement (priorité = impact x urgence)</li><li>Une description du changement</li><li>Les risques durant l’implémentation du changement</li><li>Les dates de mise en place du changement</li><li>Une estimation des ressources nécessaires (humaine, matériels…)</li></ul></li></ul></li></ul>
-<p>La gestion des changements</p>
+
 <ul><li>La gestion de la priorité d’une demande de changement</li></ul>
-<p>Code de</p>
-<p>priorité Description Dans GLPI Priorité de changement</p>
-<p>Urgence</p>
-<p>Code de priorité</p>
-<p>Elevée Moyenne Faible</p>
-<p>Critique Très haute Urgent / Critique</p>
-<p>Elevé</p>
+
+
+
+
+
+
+
 <table><caption>Correspondances de priorité du support</caption><thead><tr><th scope="col">Code de priorité</th><th scope="col">Description</th><th scope="col">Dans GLPI</th><th scope="col">Priorité de changement</th></tr></thead><tbody><tr><td>1</td><td>Critique</td><td>Très haute</td><td>Urgent / Critique</td></tr><tr><td>2</td><td>Élevée</td><td>Haute</td><td>Urgent</td></tr><tr><td>3</td><td>Moyen</td><td>Moyenne</td><td>Normal</td></tr><tr><td>4</td><td>Faible</td><td>Basse</td><td>Normal</td></tr><tr><td>5</td><td>Très faible</td><td>Très basse</td><td>Standard / Planifié</td></tr></tbody></table>
-<p>Impact</p>
-<p>Moyen</p>
+
+
 <table><caption>Code de priorité : croisement impact et urgence</caption><thead><tr><th scope="col">Impact / urgence</th><th scope="col">Élevée</th><th scope="col">Moyenne</th><th scope="col">Faible</th></tr></thead><tbody><tr><td>Élevé</td><td>1</td><td>2</td><td>3</td></tr><tr><td>Moyen</td><td>2</td><td>3</td><td>4</td></tr><tr><td>Faible</td><td>3</td><td>4</td><td>5</td></tr></tbody></table>
 </section>
 <section class="tssr-transcribed-page" id="page-6"><h3>Page 6</h3>
@@ -59,16 +59,16 @@
 <ul><li>Son objectif<ul><li>Identifier, contrôler et enregistrer les actifs de services et les éléments de configuration (CI - Configuration Item, les « baselines »)</li><li>Éditer des rapports sur l’état des actifs de services et des éléments de configuration</li><li>Auditer et vérifier les actifs de services et les éléments de configuration</li><li>Protéger l’intégrité des actifs de services et des éléments de configuration</li><li>Gérer un système de gestion de configuration (CMS ou Configuration Management System)</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-8"><h3>Page 8</h3>
-<p>La gestion des actifs de services et des configurations</p>
+<h4>La gestion des actifs de services et des configurations</h4>
 <ul><li>Élément de configuration</li><li>Un élément de configuration, dénommé CI, est un composant du système d’information qui va contribuer à la fourniture d’un ou plusieurs services</li></ul>
 <ul><li>Identifiable par un type et un ensemble d’attributs pour le décrire</li><li>Relation possible avec d’autres CI : situation, physique et fonctionnelle</li></ul>
-<p>La gestion des actifs de services et des configurations</p>
-<figure><img src="../isolated/6ab33825d3402c7f/itil-p008-004.webp" alt="Exemples d’éléments de configuration" loading="lazy"><figcaption>Exemples d’éléments de configuration — illustration isolée du support, page 8.</figcaption></figure>
+
+<figure><img alt="Exemples d’éléments de configuration" loading="lazy" src="../isolated/6ab33825d3402c7f/itil-p008-004.webp"/><figcaption>Exemples d’éléments de configuration — illustration isolée du support, page 8.</figcaption></figure>
 </section>
 <section class="tssr-transcribed-page" id="page-9"><h3>Page 9</h3>
-<p>La gestion des actifs de services et des configurations</p>
+<h4>La gestion des actifs de services et des configurations</h4>
 <ul><li>Activités : planification initiale<ul><li>Définir le périmètre, la stratégie, la politique de gestion des éléments de configuration</li><li>Connaître les outils et les données des différents composants existants (véracité et mise à jour) : analyse de l’existant</li><li>Sélection, configuration et modélisation du CMS/CMDB (type de CI, attributs, relations)</li><li>Chargement initial</li><li>Nomination du propriétaire, des acteurs clés avec leurs rôles et responsabilités</li><li>Formation des collaborateurs</li></ul></li><li>Activités : planification itérative<ul><li>Chargement des CMDB</li><li>Ajustement des procédures, rôles et responsabilités</li></ul></li></ul>
-<p>La gestion des actifs de services et des configurations</p>
+
 <ul><li>Les outils : la CMDB<ul><li>Configuration Management Data Base</li><li>BDD de l’outil de gestion associé</li><li>Contient des enregistrements CI</li></ul></li><li>Les outils : le CMS<ul><li>Configuration Management System</li><li>Ensemble d’outils pour gérer les données de configuration</li><li>Prend les données de plusieurs CMDB pour constituer une CMDB fédérée</li></ul></li><li>Les outils : la DML<ul><li>Definitive Media Library : lieu de stockage sécurisé des CI logiciels</li><li>Référence pour tous les logiciels : contient les médias, documentations et clés de licence associées</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-10"><h3>Page 10</h3>
@@ -88,9 +88,9 @@
 <ul><li>La gestion de l’évaluation des changements<ul><li>Mesure l’impact des changements, en évaluant les effets et les risques</li><li>Crée la revue de post-implémentation (PIR)</li><li>Indépendante de la gestion des changements</li></ul></li><li>La validation et les tests<ul><li>Garant du bon fonctionnement des services (nouveaux et mise à jour) et de la gestion des erreurs découvertes pendant les phases d’intégration, de préproduction et de post-mise en production</li><li>Création de procès-verbaux de recette (fonctionnelle, performance, d’exploitabilité, de service régulier)</li></ul></li><li>La gestion de la planification et le support à la transition<ul><li>Organise le ou les changements de services (nouveaux ou mise à jour) et gère les ressources nécessaires (humaines et matérielles)</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-12"><h3>Page 12</h3>
-<p>La gestion de la connaissance</p>
+<h4>La gestion de la connaissance</h4>
 <ul><li>Ses objectifs<ul><li>Donner de l’information à un collaborateur avec la granularité dont il a besoin</li><li>Fournir une information compréhensible et fiable</li><li>Permettre une prise de décision à tous les instants du cycle de vie</li><li>Permettre d’optimiser et de fiabiliser les prises de décision (efficience)</li><li>Permettre d’enregistrer les situations déjà connues</li><li>Mettre en place et faire vivre un système de gestion de la connaissance</li><li>Gérer l’information</li><li>S’assurer de la bonne utilisation de la base de connaissances</li><li>SKMS - Service Knowledge Management System</li></ul></li></ul>
-<p>La gestion de la connaissance</p>
+
 <ul><li>Gestion de l’information<ul><li>Identifier les exigences, les contraintes, les spécifications des données traitées</li><li>Définir une architecture permettant de supporter ces données</li><li>Définir des outillages appropriés pour mettre en œuvre cette architecture</li><li>Écrire les procédures qui vont faire vivre ces données</li><li>Effectuer une analyse précise de l’état des lieux en matière de gestion de la connaissance</li><li>Appréhender cette spécificité pour mieux bâtir une solution adaptée</li><li>Évaluer la performance des bases de connaissances et être force de propositions pour l’amélioration des bases</li></ul></li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-13"><h3>Page 13</h3>

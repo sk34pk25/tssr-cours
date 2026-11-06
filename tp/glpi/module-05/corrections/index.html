@@ -9012,6 +9012,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#etat-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-connexion-et-reperage" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -9104,6 +9115,17 @@
     <span class="md-ellipsis">
       
         Erreurs de source corrigées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -14817,6 +14839,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#etat-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État initial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-connexion-et-reperage" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14909,6 +14942,17 @@
     <span class="md-ellipsis">
       
         Erreurs de source corrigées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -15034,30 +15078,18 @@
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-1">
-
 <h4>Requêtes SQL</h4>
 <h4 class="tssr-source-paragraph">TP du Module 5 – Les bases de MySQL/MariaDB</h4>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.</p>
 <h4>Solution</h4>
 <h4 class="tssr-source-paragraph">Objectifs</h4>
-<ul><li>Comprendre le fonctionnement des requêtes MySQL. Prérequis</li></ul>
+<ul><li>Comprendre le fonctionnement des requêtes MySQL.</li></ul><h5>Prérequis</h5>
 <ul><li>Avoir fini les TP des modules précédents.</li></ul>
 <p class="tssr-source-paragraph">Contexte :</p>
 <ul><li>Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis quelque temps et votre DSI vous demande des informations à extraire dans la base de données directement.</li></ul>
-<h4 class="tssr-source-paragraph">Des images de correction sont disponibles dans les ressources. Principales tâches à réaliser</h4>
+<p>Des images de correction sont disponibles dans les ressources.</p><h4>Principales tâches à réaliser</h4>
 <h4 class="tssr-source-paragraph">Connexion à la base de données en ligne de commande de votre serveur GLPI</h4>
-<pre class="tssr-source-code"><code>• 
-Connectez-vous en Shell à votre base de données de GLPI avec le compte root que 
-vous 
-avez 
-configuré 
-lorsque 
-vous 
-avez 
-effectué 
-la 
-commande 
-mysql_secure_installation.</code></pre>
+<ul><li>Connectez-vous en Shell à votre base de données de GLPI avec le compte root que vous avez configuré lorsque vous avez effectué la commande <code>mysql_secure_installation</code>.</li></ul>
 <pre class="tssr-source-code"><code>mysql -u root -p</code></pre>
 <ul><li>Affichez toutes les bases de données présentes dans votre serveur MariaDB.</li></ul>
 <pre class="tssr-source-code"><code>show databases;</code></pre>
@@ -15070,75 +15102,47 @@ mysql_secure_installation.</code></pre>
 <ul><li>Affichez les noms et prénoms des utilisateurs de GLPI.</li></ul>
 <pre class="tssr-source-code"><code>select name, firstname from glpi_users;</code></pre>
 <ul><li>Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).</li></ul>
-
-
-
 </section>
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-2">
-
 <pre class="tssr-source-code"><code>select name from glpi_users where language=’en_GB’;</code></pre>
 <ul><li>Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.</li></ul>
 <ul><li>Indice : utiliser un comparateur.</li></ul>
-<pre class="tssr-source-code"><code>select 
-name, 
-completename 
-from 
-glpi_itilcatégories 
-where 
-completename&lt;&gt;name;</code></pre>
-<h4 class="tssr-source-paragraph">Ou</h4>
+<pre class="tssr-source-code"><code>select name, completename
+from glpi_itilcatégories
+where completename&lt;&gt;name;</code></pre>
+<p class="tssr-source-paragraph">Ou</p>
 <pre class="tssr-source-code"><code>select name, completename from glpi_itilcatégories where level &gt; ‘1’;</code></pre>
 <ul><li>Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au modèle GAB-JL356A-ARUBA-2540-24P.</li></ul>
 <ul><li>Indices :</li></ul>
 <ul><li>Utiliser les sélections complexes.</li></ul>
 <ul><li>Is_template à 1 est un gabarit.</li></ul>
 <ul><li>GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.</li></ul>
-<pre class="tssr-source-code"><code>select name from glpi_networkequipments where is_template=’0’ and 
-networkequipmentmodels_id=’2’;</code></pre>
+<pre class="tssr-source-code"><code>select name
+from glpi_networkequipments
+where is_template=’0’ and networkequipmentmodels_id=’2’;</code></pre>
 <ul><li>Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.</li></ul>
 <ul><li>Indice : utiliser un alias.</li></ul>
 <pre class="tssr-source-code"><code>select count(name) as nb_de_SLMs from glpi_slms;</code></pre>
 <ul><li>Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports.</li></ul>
 <ul><li>Indice : utiliser une fonction d’agrégation.</li></ul>
-<pre class="tssr-source-code"><code>select 
-MAX(name) 
-from_glpinetworkequipments 
-where 
-networkequipmentmodels_id=’2’;</code></pre>
+<pre class="tssr-source-code"><code>select MAX(name) from_glpinetworkequipments
+where networkequipmentmodels_id=’2’;</code></pre>
 <h4 class="tssr-source-paragraph">BONUS</h4>
 <ul><li>Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.</li></ul>
 <ul><li>Indice : utiliser une jointure interne.</li></ul>
 <p class="tssr-source-paragraph">Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul qui est de type demande rattaché à une catégorie.</p>
 <p class="tssr-source-paragraph">Une solution :</p>
-<pre class="tssr-source-code"><code>SELECT 
-glpi_tickettemplates.name, 
-glpi_itilcategories.name 
-from 
-glpi_tickettemplates 
-INNER 
-JOIN 
-glpi_itilcategories 
-ON 
-glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id 
+<pre class="tssr-source-code"><code>SELECT glpi_tickettemplates.name, glpi_itilcategories.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
+ON glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
 where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <h4 class="tssr-source-paragraph">BONUS</h4>
 <ul><li>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en- tête « nombre de catégories qui utilise un gabarit de demande ».</li></ul>
-<pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui 
-utilise 
-un 
-gabarit 
-de 
-demande’, 
-glpi_tickettemplates.name 
-from 
-glpi_tickettemplates 
-INNER 
-JOIN 
-glpi_itilcategories 
+<pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
 ON</code></pre>
-
-
-
 </section>
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-3">
 
@@ -15159,6 +15163,8 @@ where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et niveaux de service des TP précédents. Se connecter avec le compte autorisé et vérifier le nom de la base avant d’interroger les tables.</p>
 <p>Les requêtes suivent les douze demandes du support, dans l’ordre. Les identifiants2(modèle 24 ports) et3(gabarit de demande) sont ceux du laboratoire source. Les contrôler dans sa base ; ils ne sont pas universels. Les sorties illustrées dépendent des données effectivement saisies aux modules précédents.</p>
 <h2 id="1-connexion-et-reperage">1. Connexion et repérage<a class="headerlink" href="#1-connexion-et-reperage" title="Permanent link">¶</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
@@ -15215,9 +15221,37 @@ where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <p>Le regroupement rend explicite le comptage par gabarit ; la requête source mêle agrégat et nom sans <code>GROUP BY</code>. Ajouter si besoin un filtre <code>WHERE t.id = 3</code> avant le regroupement. Vérifier le résultat par la liste détaillée précédente : chaque catégorie comptée doit y être présente.</p>
 <h2 id="erreurs-de-source-corrigees">Erreurs de source corrigées<a class="headerlink" href="#erreurs-de-source-corrigees" title="Permanent link">¶</a></h2>
 <p>Prompts non exécutables retirés, apostrophes typographiques remplacées, nom <code>glpi_itilcategories</code> sans accent, <code>FROM glpi_networkequipments</code> séparé, nombres utilisés comme nombres et regroupement du dernier agrégat ajouté. L’Original conserve les formulations et commandes historiques.</p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contexte</td>
+<td>Vérifier la base active, les tables et les colonnes avant de sélectionner les données.</td>
+</tr>
+<tr>
+<td>Filtrage</td>
+<td>Distinguer NULL, égalité d’une chaîne et condition sur la catégorie. Identifier le modèle de switch dans les données de son laboratoire.</td>
+</tr>
+<tr>
+<td>Comptage et tri</td>
+<td>Distinguer les lignes et les valeurs renseignées, puis rendre la sélection reproductible avec un tri lorsque l’ordre importe.</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><a href="../enonces/">Énoncé</a></li>
-<li><a href="../../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/">Cours</a></li>
+<li>
+<p><a href="../../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/">Cours</a></p>
+</li>
+<li>
+<p><a href="../../../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb/">Fiche de révision</a></p>
+</li>
 </ul>
 </div>
 </div>

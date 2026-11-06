@@ -4566,6 +4566,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#choisir-le-flux-de-creation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4610,18 +4621,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#construire-et-tester-dans-le-bon-ordre" class="md-nav__link">
+  <a href="#tp-mettre-en-place-lassistance-automatisee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construire et tester dans le bon ordre
+        TP — Mettre en place l’assistance automatisée
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construire et tester dans le bon ordre">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4629,11 +4650,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -14799,6 +14815,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#choisir-le-flux-de-creation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14843,18 +14870,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#construire-et-tester-dans-le-bon-ordre" class="md-nav__link">
+  <a href="#tp-mettre-en-place-lassistance-automatisee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construire et tester dans le bon ordre
+        TP — Mettre en place l’assistance automatisée
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construire et tester dans le bon ordre">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14862,11 +14899,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -15436,6 +15468,12 @@
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Le ticket assure traçabilité, communication, répartition des tâches et détection des problèmes récurrents. Il sollicite le centre de services, contient des informations exploitables, passe par un cycle de vie et porte un type : <strong>incident</strong> ou <strong>demande</strong>.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Distinguer gabarit, règle métier, calendrier, SLA et escalade.</li>
+<li>Configurer le scénario d’assistance et les échéances demandées.</li>
+<li>Vérifier les cas déclenchés et exclus par les règles.</li>
+</ul>
 <h2 id="choisir-le-flux-de-creation">Choisir le flux de création<a class="headerlink" href="#choisir-le-flux-de-creation" title="Permanent link">¶</a></h2>
 <p>Trois flux sont étudiés : depuis GLPI, par courriel vers une boîte support reliée à un collecteur, ou par téléphone avec saisie par un technicien. Depuis GLPI, l’interface anonyme historique se trouve à <code>http(s)://&lt;serveur&gt;/front/helpdesk.html</code> ; elle ne nécessite pas de connexion, peut être désactivée, personnalisée enHTML/CSS et se rattache par défaut à l’entité racine.</p>
 <p>L’interface simplifiée exige une authentification. Le demandeur remplit un formulaire géré par un gabarit, peut joindre un document, associer un élément concerné, suivre par courriel et consulter ses tickets. Une délégation peut autoriser un autre demandeur. L’interface standard, accessible par <strong>Assistance → Tickets</strong>, sert notamment aux techniciens N1/N2 et présente plus de champs.</p>
@@ -15549,22 +15587,90 @@
 </tbody>
 </table>
 <p>Les deux jours et dix jours sont à interpréter dans le paramétrage du calendrier et de l’unité du SLA. Vérifier la date calculée sur un ticket de test, notamment en fin de journée ou avant un week-end.</p>
-<p>Une escalade modifie le ticket pendant sa vie à un instant relatif à une échéance. Pour les incidents serveur, le TP demande :10 minutes après création sans prise en charge, affecter le groupe Super-Admin et vous placer observateur ;4 heures avant la date butoir de résolution, priorité haute et affectation vers vous ;3 heures avant, priorité très haute et affectation vers Zeus. Distinguer heure de création, échéance de prise en charge et échéance de résolution : le déclencheur choisi doit produire le délai demandé. Si une escalade est relative à une prise en charge à1h, vérifier que son décalage conduit réellement à création+10 min.</p>
-<h2 id="construire-et-tester-dans-le-bon-ordre">Construire et tester dans le bon ordre<a class="headerlink" href="#construire-et-tester-dans-le-bon-ordre" title="Permanent link">¶</a></h2>
-<p>Créer les catégories → les gabarits et leurs associations → les calendriers et SLA → les escalades → les règles métier. Un SLA doit exister avant qu’une règle puisse l’affecter. Un groupe ou un utilisateur doit être importé avant son affectation.</p>
-<p>Créer un ticket pour chaque cas, puis vérifier formulaire, catégorie/type, groupe, priorité et deux échéances. Ajouter une demande Serveur et un incident Matériel comme cas d’exclusion. Pour les escalades, contrôler le déclenchement et les acteurs sans modifier les heures du serveur de formation. La preuve attendue est le ticket effectivement traité et son historique, pas seulement la présence d’une règle.</p>
-<h3 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h3>
+<p>Une escalade applique une action à un moment lié à une échéance. Le TP des incidents serveur demande trois actions distinctes.</p>
+<table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dix minutes après la création, si le ticket reste sans prise en charge</td>
+<td>Affecter le groupe Super-Admin et ajouter le compte du stagiaire comme observateur.</td>
+</tr>
+<tr>
+<td>Quatre heures avant l’échéance de résolution</td>
+<td>Placer la priorité sur Haute et affecter le ticket au compte du stagiaire.</td>
+</tr>
+<tr>
+<td>Trois heures avant l’échéance de résolution</td>
+<td>Placer la priorité sur Très haute et affecter le ticket à Zeus.</td>
+</tr>
+</tbody>
+</table>
+<p>Le calcul doit distinguer l’heure de création, l’échéance de prise en charge et celle de résolution. Si l’escalade se règle par rapport à une prise en charge d’une heure, vérifier que le décalage produit bien une action dix minutes après la création.</p>
+<h2 id="tp-mettre-en-place-lassistance-automatisee">TP — Mettre en place l’assistance automatisée<a class="headerlink" href="#tp-mettre-en-place-lassistance-automatisee" title="Permanent link">¶</a></h2>
+<ol>
+<li>Créer les catégories de ticket, puis les gabarits. Vérifier les champs imposés et l’association du gabarit à la catégorie. Préparer les profils et groupes déjà importés au module 02 avant de les utiliser comme acteurs.</li>
+<li>Créer les calendriers et définir leurs périodes ouvertes et fermées. Configurer les objectifs de prise en charge et de résolution à partir du tableau du scénario. Créer un ticket avant une fermeture du calendrier pour vérifier la date obtenue.</li>
+<li>Ajouter les escalades serveur aux échéances adéquates. Le délai de dix minutes après création et les deux décalages avant la résolution sont des repères différents. Vérifier le moment calculé et l’action configurée.</li>
+<li>Créer les règles qui affectent catégorie, type, groupe, priorité et SLA. Si le moteur n’offre que <strong>tous les critères</strong> ou <strong>un critère quelconque</strong> par règle, créer une règle par catégorie d’incident acceptée. Exiger le type Incident dans chacune de ces règles.</li>
+</ol>
+<p><strong>Illustration IA / externe au cours — chemin d’un ticket soumis au scénario.</strong></p>
+<div class="mermaid">flowchart TD
+    S[Ticket soumis] --&gt; T[Gabarit et champs]
+    T --&gt; R[Catégorie et type examinés]
+    R --&gt;|Critères remplis| A[Affectation et priorité]
+    R --&gt;|Critères non remplis| N[Pas de traitement par cette règle]
+    A --&gt; C[SLA et calendrier]
+    C --&gt; E[Échéances puis escalades]</div>
+<table>
+<thead>
+<tr>
+<th>Essai</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incident serveur</td>
+<td>Groupe, priorité, deux dates calculées et escalades serveur attendues.</td>
+</tr>
+<tr>
+<td>Demande bureautique</td>
+<td>Gabarit et groupe attendus, échéances calculées avec le calendrier utilisateurs.</td>
+</tr>
+<tr>
+<td>Demande dans la catégorie Serveur</td>
+<td>Vérifier qu’elle ne déclenche pas une règle réservée aux incidents.</td>
+</tr>
+<tr>
+<td>Incident dans la catégorie Matériel</td>
+<td>Vérifier qu’il ne reçoit pas les actions d’une règle réservée aux catégories du scénario.</td>
+</tr>
+</tbody>
+</table>
+<p>Contrôler l’historique et les acteurs du ticket. En cas d’écart, relever la catégorie et le type effectifs, puis la règle et l’échéance appliquées. L’existence d’une règle dans l’interface ne valide pas son déclenchement.</p>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le gabarit agit sur le formulaire. La règle agit sur le ticket. Le calendrier contribue au calcul du SLA et l’escalade agit à un moment relatif à une échéance. Les cas exclus comptent autant que les cas déclenchés.</p>
+<h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quel objet détermine les champs obligatoires ?</li>
 <li>Pourquoi « OU » entre trois catégories et le type Incident est-il trop large ?</li>
 <li>Le délai de résolution tient-il compte des périodes fermées ?</li>
+<li>Pourquoi tester une demande dans la catégorie Serveur ?</li>
+<li>Comment prouver qu’une escalade a produit son effet ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>Le gabarit de ticket.</li>
 <li>Une seule condition suffirait. Il faut aussi imposer le type pour chaque catégorie acceptée.</li>
 <li>Le calcul utilise le calendrier associé. Vérifier la date produite dans le laboratoire.</li>
+<li>C’est un cas d’exclusion. Il vérifie qu’une catégorie compatible ne suffit pas sans le type Incident.</li>
+<li>Vérifier le moment et les acteurs de l’action dans l’historique d’un ticket de test, puis comparer avec l’échéance de référence.</li>
 </ol>
 </details>
 <h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>

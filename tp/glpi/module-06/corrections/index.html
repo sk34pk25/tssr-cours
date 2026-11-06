@@ -9142,10 +9142,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#methode-et-verifications" class="md-nav__link">
+  <a href="#etat-initial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode et vérifications
+        État initial
       
     </span>
   </a>
@@ -9191,6 +9191,17 @@
     <span class="md-ellipsis">
       
         Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
       
     </span>
   </a>
@@ -9247,21 +9258,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifier-le-resultat" class="md-nav__link">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier le résultat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methode-et-verifications_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthode et vérifications
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -14845,10 +14845,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#methode-et-verifications" class="md-nav__link">
+  <a href="#etat-initial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Méthode et vérifications
+        État initial
       
     </span>
   </a>
@@ -14894,6 +14894,17 @@
     <span class="md-ellipsis">
       
         Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
       
     </span>
   </a>
@@ -14950,21 +14961,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifier-le-resultat" class="md-nav__link">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier le résultat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methode-et-verifications_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Méthode et vérifications
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -15155,22 +15155,19 @@ fusioninventory-9.5.0+1.0.tar.bz2
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<h2 id="methode-et-verifications">Méthode et vérifications<a class="headerlink" href="#methode-et-verifications" title="Permanent link">¶</a></h2>
-<p>Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.</p>
-<p>La commande <code>cp</code> du corrigé est reformée pour contenir un chemin source complet, sans espace entre dossier et nom du fichier. Après l’installation de l’agent sur Olympus.gr, vérifier l’URL du serveur, le déclenchement d’un inventaire et la fiche obtenue. Un deuxième inventaire doit actualiser la fiche sans doublon.</p>
-<p>Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>Préparer un serveur GLPI fonctionnel et les versions du plug-in et de l’agent prévues par le laboratoire. Garder les fichiers CSV de référence disponibles pour vérifier les colonnes.</p>
 <h2 id="deroulement-du-scenario">Déroulement du scénario<a class="headerlink" href="#deroulement-du-scenario" title="Permanent link">¶</a></h2>
 <h3 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">¶</a></h3>
 <h3 id="tp-du-module-6-presentation-des-plugins-inventaire-avec-fusioninventory">TP du Module 6 – Présentation des plugins – Inventaire avec FusionInventory<a class="headerlink" href="#tp-du-module-6-presentation-des-plugins-inventaire-avec-fusioninventory" title="Permanent link">¶</a></h3>
 <p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir réalisé les TP proposés.</p>
 <h3 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h3>
 <ul>
-<li>
-<p>Installer le plugin FusionInventory et l’agent. Prérequis</p>
-</li>
-<li>
-<p>Avoir un serveur GLPI fonctionnel.</p>
-</li>
+<li>Installer le plugin FusionInventory et l’agent.</li>
+</ul>
+<h3 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">¶</a></h3>
+<ul>
+<li>Avoir un serveur GLPI fonctionnel.</li>
 </ul>
 <p>Contexte :</p>
 <ul>
@@ -15358,14 +15355,18 @@ fusioninventory-9.5.0+1.0.tar.bz2
 </tr>
 </tbody>
 </table>
-<h2 id="verifier-le-resultat">Vérifier le résultat<a class="headerlink" href="#verifier-le-resultat" title="Permanent link">¶</a></h2>
-<h2 id="methode-et-verifications_1">Méthode et vérifications<a class="headerlink" href="#methode-et-verifications_1" title="Permanent link">¶</a></h2>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
 <p>Le TP correspond à FusionInventory 9.5.0+1.0, agent 2.6 et au serveur GLPI du laboratoire. Utiliser les fichiers fournis sans chercher à appliquer cette version à un GLPI récent. Le répertoire extrait doit contenir l’extension, puis l’interface doit montrer son installation et son activation.</p>
 <p>La commande <code>cp</code> du corrigé est reformée pour contenir un chemin source complet, sans espace entre dossier et nom du fichier. Après l’installation de l’agent sur Olympus.gr, vérifier l’URL du serveur, le déclenchement d’un inventaire et la fiche obtenue. Un deuxième inventaire doit actualiser la fiche sans doublon.</p>
 <p>Pour DataInjection : créer le modèle, choisir le CSV vide pour ses en-têtes, associer les champs puis importer le CSV rempli. Vérifier accents, entité/lieu, numérotation, composants, OS et rapport d’import. Les 33 colonnes et la ligne réellement fournie figurent ci-dessous ; les deux fichiers XLSX sont les équivalents disponibles dans les ressources.</p>
 <ul>
 <li><a href="../enonces/">Énoncé</a></li>
-<li><a href="../../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire/">Cours du module</a></li>
+<li>
+<p><a href="../../../../modules/07-administration-glpi/module-06-plug-ins-et-inventaire/">Cours du module</a></p>
+</li>
+<li>
+<p><a href="../../../../revision/glpi/module-06-plug-ins-et-inventaire/">Fiche de révision</a></p>
+</li>
 </ul>
 </div>
 </div>

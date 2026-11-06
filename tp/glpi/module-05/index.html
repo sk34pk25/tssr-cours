@@ -14671,6 +14671,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectif-du-laboratoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectif du laboratoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparer-et-realiser-latelier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer et réaliser l’atelier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ressources-du-scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14865,30 +14898,18 @@ mysql_secure_installation.</code></pre>
 <p class="tssr-original-note">Correction originale : à consulter après avoir tenté l’exercice.</p>
 
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-1">
-
 <h4>Requêtes SQL</h4>
 <h4 class="tssr-source-paragraph">TP du Module 5 – Les bases de MySQL/MariaDB</h4>
 <p class="tssr-source-paragraph">Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.</p>
 <h4>Solution</h4>
 <h4 class="tssr-source-paragraph">Objectifs</h4>
-<ul><li>Comprendre le fonctionnement des requêtes MySQL. Prérequis</li></ul>
+<ul><li>Comprendre le fonctionnement des requêtes MySQL.</li></ul><h5>Prérequis</h5>
 <ul><li>Avoir fini les TP des modules précédents.</li></ul>
 <p class="tssr-source-paragraph">Contexte :</p>
 <ul><li>Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis quelque temps et votre DSI vous demande des informations à extraire dans la base de données directement.</li></ul>
-<h4 class="tssr-source-paragraph">Des images de correction sont disponibles dans les ressources. Principales tâches à réaliser</h4>
+<p>Des images de correction sont disponibles dans les ressources.</p><h4>Principales tâches à réaliser</h4>
 <h4 class="tssr-source-paragraph">Connexion à la base de données en ligne de commande de votre serveur GLPI</h4>
-<pre class="tssr-source-code"><code>• 
-Connectez-vous en Shell à votre base de données de GLPI avec le compte root que 
-vous 
-avez 
-configuré 
-lorsque 
-vous 
-avez 
-effectué 
-la 
-commande 
-mysql_secure_installation.</code></pre>
+<ul><li>Connectez-vous en Shell à votre base de données de GLPI avec le compte root que vous avez configuré lorsque vous avez effectué la commande <code>mysql_secure_installation</code>.</li></ul>
 <pre class="tssr-source-code"><code>mysql -u root -p</code></pre>
 <ul><li>Affichez toutes les bases de données présentes dans votre serveur MariaDB.</li></ul>
 <pre class="tssr-source-code"><code>show databases;</code></pre>
@@ -14901,75 +14922,47 @@ mysql_secure_installation.</code></pre>
 <ul><li>Affichez les noms et prénoms des utilisateurs de GLPI.</li></ul>
 <pre class="tssr-source-code"><code>select name, firstname from glpi_users;</code></pre>
 <ul><li>Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).</li></ul>
-
-
-
 </section>
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-2">
-
 <pre class="tssr-source-code"><code>select name from glpi_users where language=’en_GB’;</code></pre>
 <ul><li>Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.</li></ul>
 <ul><li>Indice : utiliser un comparateur.</li></ul>
-<pre class="tssr-source-code"><code>select 
-name, 
-completename 
-from 
-glpi_itilcatégories 
-where 
-completename&lt;&gt;name;</code></pre>
-<h4 class="tssr-source-paragraph">Ou</h4>
+<pre class="tssr-source-code"><code>select name, completename
+from glpi_itilcatégories
+where completename&lt;&gt;name;</code></pre>
+<p class="tssr-source-paragraph">Ou</p>
 <pre class="tssr-source-code"><code>select name, completename from glpi_itilcatégories where level &gt; ‘1’;</code></pre>
 <ul><li>Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au modèle GAB-JL356A-ARUBA-2540-24P.</li></ul>
 <ul><li>Indices :</li></ul>
 <ul><li>Utiliser les sélections complexes.</li></ul>
 <ul><li>Is_template à 1 est un gabarit.</li></ul>
 <ul><li>GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.</li></ul>
-<pre class="tssr-source-code"><code>select name from glpi_networkequipments where is_template=’0’ and 
-networkequipmentmodels_id=’2’;</code></pre>
+<pre class="tssr-source-code"><code>select name
+from glpi_networkequipments
+where is_template=’0’ and networkequipmentmodels_id=’2’;</code></pre>
 <ul><li>Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.</li></ul>
 <ul><li>Indice : utiliser un alias.</li></ul>
 <pre class="tssr-source-code"><code>select count(name) as nb_de_SLMs from glpi_slms;</code></pre>
 <ul><li>Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports.</li></ul>
 <ul><li>Indice : utiliser une fonction d’agrégation.</li></ul>
-<pre class="tssr-source-code"><code>select 
-MAX(name) 
-from_glpinetworkequipments 
-where 
-networkequipmentmodels_id=’2’;</code></pre>
+<pre class="tssr-source-code"><code>select MAX(name) from_glpinetworkequipments
+where networkequipmentmodels_id=’2’;</code></pre>
 <h4 class="tssr-source-paragraph">BONUS</h4>
 <ul><li>Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.</li></ul>
 <ul><li>Indice : utiliser une jointure interne.</li></ul>
 <p class="tssr-source-paragraph">Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul qui est de type demande rattaché à une catégorie.</p>
 <p class="tssr-source-paragraph">Une solution :</p>
-<pre class="tssr-source-code"><code>SELECT 
-glpi_tickettemplates.name, 
-glpi_itilcategories.name 
-from 
-glpi_tickettemplates 
-INNER 
-JOIN 
-glpi_itilcategories 
-ON 
-glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id 
+<pre class="tssr-source-code"><code>SELECT glpi_tickettemplates.name, glpi_itilcategories.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
+ON glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
 where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <h4 class="tssr-source-paragraph">BONUS</h4>
 <ul><li>Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en- tête « nombre de catégories qui utilise un gabarit de demande ».</li></ul>
-<pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui 
-utilise 
-un 
-gabarit 
-de 
-demande’, 
-glpi_tickettemplates.name 
-from 
-glpi_tickettemplates 
-INNER 
-JOIN 
-glpi_itilcategories 
+<pre class="tssr-source-code"><code>SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
 ON</code></pre>
-
-
-
 </section>
 <section class="tssr-transcribed-page" id="source-1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o-page-3">
 
@@ -14990,15 +14983,45 @@ where glpi_itilcategories.tickettemplates_id_demand=’3’;</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Préparer le laboratoire, lire toutes les consignes puis vérifier chaque résultat avant de consulter la correction. Les deux onglets du lecteur permettent de comparer les documents sources aux explications.</p>
+<h2 id="objectif-du-laboratoire">Objectif du laboratoire<a class="headerlink" href="#objectif-du-laboratoire" title="Permanent link">¶</a></h2>
+<p>Lire la base du laboratoire et expliquer la sélection, le tri et le comptage demandés.</p>
+<h2 id="preparer-et-realiser-latelier">Préparer et réaliser l’atelier<a class="headerlink" href="#preparer-et-realiser-latelier" title="Permanent link">¶</a></h2>
+<p>Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et niveaux de service des TP précédents. Se connecter avec le compte autorisé et vérifier le nom de la base avant d’interroger les tables.</p>
+<ol>
+<li><a href="enonces/">Lire l’énoncé complet</a>.</li>
+<li>Réaliser les étapes dans le laboratoire et relever les preuves.</li>
+<li><a href="corrections/">Comparer avec la correction</a>, puis reprendre la <a href="../../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb/">fiche de révision</a>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contexte</td>
+<td>Vérifier la base active, les tables et les colonnes avant de sélectionner les données.</td>
+</tr>
+<tr>
+<td>Filtrage</td>
+<td>Distinguer NULL, égalité d’une chaîne et condition sur la catégorie. Identifier le modèle de switch dans les données de son laboratoire.</td>
+</tr>
+<tr>
+<td>Comptage et tri</td>
+<td>Distinguer les lignes et les valeurs renseignées, puis rendre la sélection reproductible avec un tri lorsque l’ordre importe.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="liens">Liens<a class="headerlink" href="#liens" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="enonces/">Énoncé complet</a></li>
-<li><a href="corrections/">Correction expliquée</a></li>
-<li><a href="../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/">Cours</a></li>
+<li><a href="../../../modules/07-administration-glpi/module-05-les-bases-de-mysql-et-mariadb/">Cours du module</a></li>
+<li><a href="../">Tous les ateliers GLPI</a></li>
+<li><a href="../../../commandes/mariadb-glpi/">Commandes MariaDB et GLPI</a></li>
+<li><a href="../../../memo/glpi-sql/">Mémo GLPI et SQL</a></li>
 </ul>
 <h2 id="ressources-du-scenario">Ressources du scénario<a class="headerlink" href="#ressources-du-scenario" title="Permanent link">¶</a></h2>
-<p>du scénario</p>
-<p>du scénario</p>
 <ul>
 <li><a href="../../../assets/images/glpi/module-05/afficher-les-calendriers-png.png">afficher les calendriers.png</a></li>
 <li><a href="../../../assets/images/glpi/module-05/afficher-switch-non-gabarit-et-du-gab-24p-png.png">afficher switch non gabarit et du gab 24 P.png</a></li>

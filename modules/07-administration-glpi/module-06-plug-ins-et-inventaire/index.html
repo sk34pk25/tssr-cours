@@ -4622,6 +4622,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deux-chemins-dinstallation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4663,10 +4674,31 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Importer avec DataInjection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-verifier-linventaire-puis-limport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP — Vérifier l’inventaire puis l’import
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4674,11 +4706,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -14788,6 +14815,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deux-chemins-dinstallation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14829,10 +14867,31 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Importer avec DataInjection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-verifier-linventaire-puis-limport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP — Vérifier l’inventaire puis l’import
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14840,11 +14899,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -15236,6 +15290,12 @@ fusioninventory-9.5.0+1.0.tar.bz2
 </div>
 <p>Un plug-in étend GLPI sans changer son code principal. Le catalogue du support couvre rapports/graphiques, inventaire, réseau, gestion administrative, helpdesk et import. Une version de plug-in doit correspondre à une ou plusieurs versions de GLPI ; une mise à jour de GLPI peut donc obliger à adapter ses extensions.</p>
 <p>Le laboratoire utilise FusionInventory 9.5.0+1.0 et l’agent2.6. Ces versions historiques restent celles de l’exercice. Pour une installation récente, suivre la documentation de la version choisie : GLPI dispose d’un inventaire natif et de GLPI Agent. <a href="https://www.glpi-project.org/en/discover-native-glpi-inventory/">Inventaire natif GLPI</a>, <a href="https://glpi-user-documentation.readthedocs.io/fr/master/modules/assets/index.html">documentation des équipements</a>.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Distinguer installation d’un plug-in, activation et communication de l’agent.</li>
+<li>Contrôler les données remontées par l’inventaire du laboratoire.</li>
+<li>Configurer puis vérifier un import DataInjection avec le vrai fichier fourni.</li>
+</ul>
 <h2 id="deux-chemins-dinstallation">Deux chemins d’installation<a class="headerlink" href="#deux-chemins-dinstallation" title="Permanent link">¶</a></h2>
 <p>L’installation manuelle télécharge une archiveGzip/Bzip2, l’extrait sous <code>GlpiInstallationDir/plugins</code>, puis installe et active l’extension dans <strong>Configuration → Plugins</strong>. La configuration se trouve ensuite dans le menu défini par l’extension. Extraire des fichiers ne suffit pas : installation et activation sont deux étapes à contrôler dans l’interface.</p>
 <p>Le Marketplace du support, introduit avecGLPI9.5, demande une inscription et une clé d’enregistrement à renseigner dans <strong>Configuration → Générale</strong>. Cette clé reste dans le laboratoire et ne doit pas être publiée dans les captures ou le cours. Le Marketplace permet ensuite de découvrir et installer les extensions compatibles.</p>
@@ -15287,26 +15347,66 @@ fusioninventory-9.5.0+1.0.tar.bz2
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>chown<span class="w"> </span>-R<span class="w"> </span>www-data<span class="w"> </span>/var/www/glpi/plugins/fusioninventory
 </span></code></pre></div>
 <p>La solution source insère un espace entre le dossier personnel et le nom d’archive dans <code>cp</code> ; il faut une seule cible source complète. Vérifier le nom réel du répertoire extrait avant de lui attribuer son propriétaire. La solution applique le changement à tous les plug-ins ; l’exemple ci-dessus cible l’extension concernée.</p>
-<p>Installer et activer depuisGLPI, puis installer l’agent fourni sur le contrôleur de domaine Olympus.gr, comme demandé. Configurer l’URL du serveur du laboratoire, le mode d’exécution et les tâches nécessaires. Contrôler la communication, déclencher un inventaire avec le mécanisme de l’agent installé, puis comparer nom, OS, composants, entité et lieu. Rejouer un inventaire doit mettre à jour le même objet, sans doublon. Les PDF ne donnent pas une procédure complète de forçage : utiliser l’interface ou l’aide de la version installée plutôt qu’inventer un commutateur de commande.</p>
+<p>Installer et activer depuis GLPI, puis installer l’agent fourni sur le contrôleur de domaine Olympus.gr, comme demandé. Configurer l’URL du serveur du laboratoire, le mode d’exécution et les tâches nécessaires. Contrôler la communication, déclencher un inventaire avec le mécanisme de l’agent installé, puis comparer nom, OS, composants, entité et lieu. Rejouer un inventaire doit mettre à jour le même objet, sans doublon. Les PDF ne donnent pas une procédure complète de forçage : utiliser l’interface ou l’aide de la version installée plutôt qu’inventer un commutateur de commande.</p>
 <h2 id="importer-avec-datainjection">Importer avec DataInjection<a class="headerlink" href="#importer-avec-datainjection" title="Permanent link">¶</a></h2>
-<p>DataInjection importe desCSV. Il faut d’abord décider si l’inventaire automatique fournit déjà les données : importer la même information par deuxflux exige une règle de réconciliation claire. Les droits du compte d’import limitent la création des composants et autres objets.</p>
+<p>DataInjection importe des CSV. Il faut d’abord décider si l’inventaire automatique fournit déjà les données : importer la même information par deux flux exige une règle de réconciliation claire. Les droits du compte d’import limitent la création des composants et autres objets.</p>
 <p>Le support permet notamment ordinateurs, écrans, imprimantes, matériels réseau, téléphones, périphériques, composants, utilisateurs, groupes, entités, contrats, fournisseurs, contacts, informations financières, ports réseau, types de cartouche et de consommable et documents. Il exclut logiciels, versions, licences, données liées au helpdesk et base de connaissance dans le périmètre présenté.</p>
 <p>Les quatre étapes sont : créer un modèle, charger un CSV avec ses en-têtes, faire correspondre les colonnes aux champs des tables, puis importer le fichier rempli et lire le rapport. Créer fabricants puis composants puis ordinateurs lorsque les dépendances le nécessitent.</p>
-<p>Les deuxCSV fournis utilisent le point-virgule et un encodageWindows lisible en Windows-1252. Choisir l’encodage effectif plutôt que supposer qu’un fichier venant d’un système utilise toujours un encodage donné. La diapositive indiqueUTF-8 pour Linux etISO8859-1 pour Windows ; les caractères accentués servent de contrôle avant import.</p>
-<p>Le gabarit vide et celui rempli possèdent33 colonnes : identité/type/lieu/statut/fabricant/modèle/inventaire ; OS/architecture/noyau/version/édition ; CPU ; mémoire ; disque ; carte et port réseau. Le fichier rempli décrit <strong>GAB-Lattitude7520</strong>, un portableDELL, Windows 10 Pro20H2, i7-1185G7,4 cœurs/8 threads, mémoire16000, disque512000 et portRJ45. Les noms et unités exacts sont conservés dans le <a href="../../../tp/glpi/module-06/enonces/">TP</a>.</p>
+<p>Les deux CSV fournis utilisent le point-virgule et un encodage Windows lisible en Windows-1252. Choisir l’encodage effectif plutôt que supposer qu’un fichier venant d’un système utilise toujours un encodage donné. La diapositive indique UTF-8 pour Linux et ISO 8859-1 pour Windows ; les caractères accentués servent de contrôle avant import.</p>
+<p>Le gabarit vide et celui rempli possèdent 33 colonnes : identité/type/lieu/statut/fabricant/modèle/inventaire ; OS/architecture/noyau/version/édition ; CPU ; mémoire ; disque ; carte et port réseau. Le fichier rempli décrit <strong>GAB-Lattitude7520</strong>, un portable Dell, Windows 10 Pro 20H2, i7-1185G7, 4 cœurs/8 threads, mémoire 16000, disque 512000 et port RJ45. Les noms et unités exacts sont conservés dans le <a href="../../../tp/glpi/module-06/enonces/">TP</a>.</p>
 <p>Avant l’import réel : vérifier séparateur, accents, en-têtes et correspondances ; importer une ligne ; lire le rapport ; ouvrir la fiche créée ; contrôler incrémentation, lieu, composants et OS ; relancer un essai pour observer le traitement des doublons. « Importation réussie » ne garantit pas que tous les champs ont été associés au bon objet.</p>
-<h3 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h3>
+<h2 id="tp-verifier-linventaire-puis-limport">TP — Vérifier l’inventaire puis l’import<a class="headerlink" href="#tp-verifier-linventaire-puis-limport" title="Permanent link">¶</a></h2>
+<ol>
+<li>Vérifier la compatibilité du plug-in avec GLPI 9.5 du scénario. Installer l’extension de l’archive au bon emplacement, contrôler son propriétaire, puis effectuer l’installation et l’activation dans l’interface.</li>
+<li>Installer l’agent fourni sur le contrôleur de domaine de la maquette. Contrôler la cible configurée et déclencher l’inventaire par le mécanisme de la version installée. Vérifier qu’un second envoi complète la même fiche.</li>
+<li>Dans DataInjection, préparer le modèle avec le gabarit vide. Vérifier les en-têtes et associer les colonnes au type d’objet attendu. Choisir le champ qui identifie l’ordinateur existant avant de permettre une mise à jour.</li>
+<li>Charger le fichier rempli avec le séparateur et l’encodage relevés. Importer une ligne, lire le rapport et ouvrir la fiche obtenue. Vérifier les propriétés, puis décider si le modèle permet d’étendre l’import.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Ce que la preuve doit montrer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent</td>
+<td>Le nom, l’OS, les composants et l’entité de la machine attendue apparaissent dans GLPI.</td>
+</tr>
+<tr>
+<td>Fichier</td>
+<td>Le rapport reconnaît les colonnes et les libellés accentués sont lisibles.</td>
+</tr>
+<tr>
+<td>Mappage</td>
+<td>Le modèle, l’inventaire, le lieu, le processeur, la mémoire, le disque et le port apparaissent dans les champs prévus.</td>
+</tr>
+<tr>
+<td>Réimport</td>
+<td>L’identification du même objet est cohérente avec la stratégie de création ou mise à jour retenue.</td>
+</tr>
+</tbody>
+</table>
+<p>Si le rapport est positif mais un champ reste vide, revenir au mappage de cette colonne et vérifier les droits du compte. Si une seconde fiche apparaît, vérifier l’identifiant d’appariement et les règles avant de relancer.</p>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>L’agent et l’import peuvent produire des données semblables. Le modèle d’import doit identifier la cible et associer les colonnes. Vérifier la fiche créée et le comportement du réimport.</p>
+<h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quelle différence entre installation et activation d’un plug-in ?</li>
 <li>Pourquoi définir les règles avant l’inventaire ?</li>
-<li>Pourquoi vérifier l’encodage avant l’importCSV ?</li>
+<li>Pourquoi vérifier l’encodage avant l’import CSV ?</li>
+<li>Quelle preuve permet de distinguer un rapport positif d’un mappage complet ?</li>
+<li>Que revoir si le deuxième inventaire crée un doublon ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>L’installation prépare son fonctionnement ; l’activation le rend disponible dans GLPI.</li>
 <li>Pour classer et identifier les objets dès leur arrivée et éviter les doublons.</li>
 <li>Un mauvais encodage altère les libellés et peut empêcher la correspondance avec les intitulés.</li>
+<li>Ouvrir l’objet créé et vérifier les valeurs dans les champs de destination. Le rapport seul ne prouve pas que chaque champ est renseigné.</li>
+<li>Comparer l’identifiant transmis à la fiche existante et vérifier les règles de rapprochement avant de répéter l’inventaire.</li>
 </ol>
 </details>
 <h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>

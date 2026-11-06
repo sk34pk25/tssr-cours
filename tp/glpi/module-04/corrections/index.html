@@ -8882,10 +8882,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#verifier-la-logique-des-regles" class="md-nav__link">
+  <a href="#etat-initial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier la logique des règles
+        État initial
       
     </span>
   </a>
@@ -8931,6 +8931,17 @@
     <span class="md-ellipsis">
       
         Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
       
     </span>
   </a>
@@ -9031,21 +9042,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifier-le-resultat" class="md-nav__link">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier le résultat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verifier-la-logique-des-regles_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vérifier la logique des règles
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -14889,10 +14889,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#verifier-la-logique-des-regles" class="md-nav__link">
+  <a href="#etat-initial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier la logique des règles
+        État initial
       
     </span>
   </a>
@@ -14938,6 +14938,17 @@
     <span class="md-ellipsis">
       
         Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
       
     </span>
   </a>
@@ -15038,21 +15049,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifier-le-resultat" class="md-nav__link">
+  <a href="#resultat-attendu-et-controles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier le résultat
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verifier-la-logique-des-regles_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vérifier la logique des règles
+        Résultat attendu et contrôles
       
     </span>
   </a>
@@ -15351,54 +15351,17 @@
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<h2 id="verifier-la-logique-des-regles">Vérifier la logique des règles<a class="headerlink" href="#verifier-la-logique-des-regles" title="Permanent link">¶</a></h2>
-<p>Le texte source du corrigé préconise parfoisOU entre les catégories et le type. Pour respecter la demande, le test doit exprimer <code>(une des catégories prévues) ET type attendu</code>. Lorsque l’interface ne permet pas ce regroupement, créer une règle par catégorie avecET. Dans la reprise ci-dessous, les avertissementsOU du corrigé sont remplacés par cette précision.</p>
-<p>L’énoncé et la capture de correction fixent la fin du vendredi à 17h30. Le texte du corrigé généralise la plage 08h00–18h00 aux jours ouvrés. Pour l’escalade à10 minutes de création, vérifier l’origine du délai utilisé : une durée relative à une échéance de prise en charge n’est pas automatiquement relative à la création.</p>
-<table>
-<thead>
-<tr>
-<th>Ticket de test</th>
-<th>Formulaire</th>
-<th>Affectation/SLA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Incident Serveur/Virtualisation/AD</td>
-<td>Incident serveur</td>
-<td>Technician, priorité moyenne, prise en charge1h/résolution8h</td>
-</tr>
-<tr>
-<td>Incident Bureautique/Word/Excel</td>
-<td>Incident bureautique, élément associé obligatoire</td>
-<td>Hotliner, priorité basse,4 h/2 jours</td>
-</tr>
-<tr>
-<td>Demande Bureautique/Word/Excel</td>
-<td>Demande bureautique</td>
-<td>Hotliner, priorité très basse,4 h/10 jours</td>
-</tr>
-<tr>
-<td>Demande Serveur</td>
-<td>Ne doit pas déclencher la règle d’incident serveur</td>
-<td>Cas d’exclusion</td>
-</tr>
-<tr>
-<td>Incident Matériel</td>
-<td>Ne doit pas recevoir le SLA serveur</td>
-<td>Cas d’exclusion</td>
-</tr>
-</tbody>
-</table>
-<p>Conserver l’historique des changements de priorité, des acteurs et des échéances. Le directeur Zeus doit exister/importé avant l’escalade qui le vise. L’attribution comme technicien dans la capture exige les habilitations adéquates ; ne pas supposer que le profilObserver suffit.</p>
+<h2 id="etat-initial">État initial<a class="headerlink" href="#etat-initial" title="Permanent link">¶</a></h2>
+<p>GLPI doit fonctionner avec les utilisateurs, groupes, catégories et lieux nécessaires. Préparer les calendriers et les gabarits avant de relier les règles et les niveaux de service.</p>
 <h2 id="deroulement-du-scenario">Déroulement du scénario<a class="headerlink" href="#deroulement-du-scenario" title="Permanent link">¶</a></h2>
 <h3 id="assistance">Assistance<a class="headerlink" href="#assistance" title="Permanent link">¶</a></h3>
 <h3 id="tp-du-module-4-assistance-traitements-automatises-des-tickets">TP du Module 4 – Assistance – Traitements automatisés des tickets<a class="headerlink" href="#tp-du-module-4-assistance-traitements-automatises-des-tickets" title="Permanent link">¶</a></h3>
 <p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.</p>
 <h3 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h3>
 <ul>
-<li>Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets. Prérequis</li>
+<li>Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets.</li>
 </ul>
+<h3 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">¶</a></h3>
 <p>Application GLPI fonctionnelle.</p>
 <h3 id="principales-taches-a-realiser">Principales tâches à réaliser<a class="headerlink" href="#principales-taches-a-realiser" title="Permanent link">¶</a></h3>
 <p>Gabarit de ticket.</p>
@@ -15716,11 +15679,9 @@
 <p>Groupe de technicien « GG_GLPI_hotliner ».</p>
 </li>
 </ul>
-<p>Consulter la correction expliquée après une première réalisation.</p>
-<h2 id="verifier-le-resultat">Vérifier le résultat<a class="headerlink" href="#verifier-le-resultat" title="Permanent link">¶</a></h2>
-<h2 id="verifier-la-logique-des-regles_1">Vérifier la logique des règles<a class="headerlink" href="#verifier-la-logique-des-regles_1" title="Permanent link">¶</a></h2>
-<p>Le texte source du corrigé préconise parfoisOU entre les catégories et le type. Pour respecter la demande, le test doit exprimer <code>(une des catégories prévues) ET type attendu</code>. Lorsque l’interface ne permet pas ce regroupement, créer une règle par catégorie avecET. Dans la reprise ci-dessous, les avertissementsOU du corrigé sont remplacés par cette précision.</p>
-<p>L’énoncé et la capture de correction fixent la fin du vendredi à 17h30. Le texte du corrigé généralise la plage 08h00–18h00 aux jours ouvrés. Pour l’escalade à10 minutes de création, vérifier l’origine du délai utilisé : une durée relative à une échéance de prise en charge n’est pas automatiquement relative à la création.</p>
+<h2 id="resultat-attendu-et-controles">Résultat attendu et contrôles<a class="headerlink" href="#resultat-attendu-et-controles" title="Permanent link">¶</a></h2>
+<p>Le texte source du corrigé préconise parfois OU entre les catégories et le type. Pour respecter la demande, le test doit exprimer <code>(une des catégories prévues) ET type attendu</code>. Lorsque l’interface ne permet pas ce regroupement, créer une règle par catégorie avec ET. Dans la reprise ci-dessous, les avertissements OU du corrigé sont remplacés par cette précision.</p>
+<p>L’énoncé et la capture de correction fixent la fin du vendredi à 17h30. Le texte du corrigé généralise la plage 08h00–18h00 aux jours ouvrés. Pour l’escalade à 10 minutes de création, vérifier l’origine du délai utilisé : une durée relative à une échéance de prise en charge n’est pas automatiquement relative à la création.</p>
 <table>
 <thead>
 <tr>
@@ -15733,17 +15694,17 @@
 <tr>
 <td>Incident Serveur/Virtualisation/AD</td>
 <td>Incident serveur</td>
-<td>Technician, priorité moyenne, prise en charge1h/résolution8h</td>
+<td>Technician, priorité moyenne, prise en charge 1 h / résolution 8 h</td>
 </tr>
 <tr>
 <td>Incident Bureautique/Word/Excel</td>
 <td>Incident bureautique, élément associé obligatoire</td>
-<td>Hotliner, priorité basse,4 h/2 jours</td>
+<td>Hotliner, priorité basse, 4 h/2 jours</td>
 </tr>
 <tr>
 <td>Demande Bureautique/Word/Excel</td>
 <td>Demande bureautique</td>
-<td>Hotliner, priorité très basse,4 h/10 jours</td>
+<td>Hotliner, priorité très basse, 4 h/10 jours</td>
 </tr>
 <tr>
 <td>Demande Serveur</td>
@@ -15757,10 +15718,15 @@
 </tr>
 </tbody>
 </table>
-<p>Conserver l’historique des changements de priorité, des acteurs et des échéances. Le directeur Zeus doit exister/importé avant l’escalade qui le vise. L’attribution comme technicien dans la capture exige les habilitations adéquates ; ne pas supposer que le profilObserver suffit.</p>
+<p>Conserver l’historique des changements de priorité, des acteurs et des échéances. Le directeur Zeus doit exister/importé avant l’escalade qui le vise. L’attribution comme technicien dans la capture exige les habilitations adéquates ; ne pas supposer que le profil Observer suffit.</p>
 <ul>
 <li><a href="../enonces/">Énoncé</a></li>
-<li><a href="../../../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/">Cours du module</a></li>
+<li>
+<p><a href="../../../../modules/07-administration-glpi/module-04-assistance-traitements-automatises-des-tickets/">Cours du module</a></p>
+</li>
+<li>
+<p><a href="../../../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets/">Fiche de révision</a></p>
+</li>
 </ul>
 </div>
 </div>
