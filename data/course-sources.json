@@ -12413,7 +12413,7 @@
       "legacyOriginal": "assets/course-sources/a33356182e938793/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/a33356182e938793/transcription-15wPmzaKhPIC2AxqYSJ1xp2rVRMAxdaLf.html",
-      "transcriptionSha256": "c61c7e354cc0f9c43ce3f8d9ce6de006650b49316f973a540869ea01cf3f778a",
+      "transcriptionSha256": "d53cbf682f516b49e00754e87912ccf016a235a1cf9e3852264dc0ab008456bd",
       "pages": [
         {
           "number": 1,
@@ -13379,7 +13379,7 @@
       "legacyOriginal": "assets/course-sources/ff5adfcbb7299f86/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/ff5adfcbb7299f86/transcription-1QkckDtJxuvxo-zCNO6NKVcQWzlASNEVj.html",
-      "transcriptionSha256": "1c63ced51508f21374423a9875ac82b5bf5f5a3c2b95c17291f64376ebd9f954",
+      "transcriptionSha256": "d18f1b7f4cbe2c6fe303a7919995886372ee67b2c92d31a5ea7d3bc59bd554ea",
       "pages": [
         {
           "number": 1,
@@ -13396,7 +13396,7 @@
           "nativeSha256": "1d33c79d603cfd3e9d9733d8dccd6b5643138fe3a27ef6d6830b2b0ea3c693dd",
           "nativeWords": 46,
           "ocrWords": 17,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -13416,7 +13416,7 @@
           "nativeSha256": "730987cfc59efc37f971dbd55605d35cb2b10e38ab6b5c75361efd4d803e0c3e",
           "nativeWords": 81,
           "ocrWords": 26,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -13426,7 +13426,7 @@
           "nativeSha256": "3cbe0b0e8176e3123c901c9ad19e20bf2e800b985ca789b9188c2a9c6eed8162",
           "nativeWords": 59,
           "ocrWords": 0,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -14151,7 +14151,7 @@
       "legacyOriginal": "assets/course-sources/eaf504284cca02e3/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/eaf504284cca02e3/transcription-1Lkf-lTyovca0i4z_9kGhD7T32aIPlqYD.html",
-      "transcriptionSha256": "dcd7aef6bbe4de8c7a2b4bbed5c8b6cf267cd2db1b44421f07e90512bf7089c1",
+      "transcriptionSha256": "261900fb66e9c301c58aaace12f13e8ab2262340187ebbdcf6c6299209ac0f36",
       "pages": [
         {
           "number": 1,
@@ -14178,7 +14178,7 @@
           "nativeSha256": "02b4aaf5b46dfbe043fce797516f15ad38bdeb76b487dbab4b2ef46eb1db9a9e",
           "nativeWords": 350,
           "ocrWords": 7,
-          "tables": 0,
+          "tables": 4,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -14188,7 +14188,7 @@
           "nativeSha256": "5285740b7b567d292bec13b8f0efc2b159787e6e89ac8dcca06f2a91c27d4320",
           "nativeWords": 443,
           "ocrWords": 5,
-          "tables": 0,
+          "tables": 3,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -14604,7 +14604,7 @@
       "legacyOriginal": "assets/course-sources/6a79d7f43db84631/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/6a79d7f43db84631/transcription-10ZzrWSG0Yv4qDn5q0uoc9aIXFqFdfMX4.html",
-      "transcriptionSha256": "60ed1bafa07c4b71947734f658648af5e14b126f389e533d3d84c0e68fc43dc2",
+      "transcriptionSha256": "cf9ecc48705beb22d2c784f3dc8d95f5afff70704542b22b5bfbbe2e27164840",
       "pages": [
         {
           "number": 1,
@@ -14621,7 +14621,7 @@
           "nativeSha256": "b3eff5f2bafabf71732b998bf3d749572df3e49d08a1be6f5217c04299d9a6c9",
           "nativeWords": 137,
           "ocrWords": 0,
-          "tables": 0,
+          "tables": 2,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 4
@@ -14641,7 +14641,7 @@
           "nativeSha256": "56b44e8af9ae67e9c0ae605ac1f49f8ceb319c0bf065399cae7c6cbc510f75be",
           "nativeWords": 135,
           "ocrWords": 23,
-          "tables": 0,
+          "tables": 1,
           "figures": 0,
           "nativeCoverage": true,
           "sourceGraphicsDetected": 5
@@ -59990,7 +59990,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/f934c07341c3f053/transcription-1knV_w8hId0Rb7jH43kvBj_VUl9X2_a-o.html",
-      "transcriptionSha256": "b7e95b8cde6667ac344830f1f8e7d165bdc2992465b06723091ea4ea549ef934",
+      "transcriptionSha256": "93db769e7406f003268be35880ea3b52fb1d03b81867f78c9e72d552d4f66389",
       "illustrationCount": 1,
       "figures": [
         {
@@ -60138,7 +60138,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/bc760acf7f894ae4/transcription-1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX.html",
-      "transcriptionSha256": "a0bb83fbb65c0ca774909779120f5469afb6d1d02f011a0e6238930f04c7dc79",
+      "transcriptionSha256": "4fca831c2b7a731b78c1fdca126b1f2ba3d4ff36409afaa9da19ee56eb9c198c",
       "illustrationCount": 0,
       "figures": [],
       "pages": [
@@ -60230,7 +60230,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/e323a04269a38662/transcription-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P.html",
-      "transcriptionSha256": "76ef416bc024a0805923899b8f6fb4b6cf332512a678c56bda2357e9d093aabf",
+      "transcriptionSha256": "23197f2228c9b20fcfed018b2079685ae73737d26f02f5f4e736bc5b6d3e0ff1",
       "illustrationCount": 2,
       "figures": [
         {
@@ -61307,7 +61307,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/83cc3b4c3b97718f/transcription-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv.html",
-      "transcriptionSha256": "a19841b3b6a35035104c8155a0d1aa386c7f2285db9ba59d58e23e9426188b65",
+      "transcriptionSha256": "cd2d97fd3017c6ce7848d326f93a8d2212acf8645dbb34ebd800b4ffc71caea8",
       "illustrationCount": 1,
       "figures": [
         {

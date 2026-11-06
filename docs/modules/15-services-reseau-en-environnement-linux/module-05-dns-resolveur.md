@@ -1,6 +1,11 @@
 # Module 05 — DNS résolveur
 
-Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.
+## Objectifs
+
+- Situer un FQDN et distinguer résolveur, redirecteur et autorité.
+- Limiter les requêtes récursives de BIND au périmètre du laboratoire.
+- Comparer les réponses avant et après configuration d’un redirecteur.
+- Vérifier la résolution configurée côté client et le chemin réellement utilisé.
 
 ## Les noms et les réponses DNS
 
@@ -55,7 +60,7 @@ options {
 !!! info "Correction de contexte"
     La solution historique place des directives de récursion et de validation dans `named.conf.local`. Elles s’insèrent dans le bloc de configuration prévu par BIND, généralement `options` pour la politique du serveur de ce TP. Le support demande aussi de désactiver DNSSEC pour son laboratoire. La validation DNSSEC contrôle l’authenticité et l’intégrité des données signées. BIND 9.18 rejette l’option `dnssec-enable` des captures. Conserver la validation dans le scénario courant et examiner la version utilisée. [Référence BIND 9](https://bind9.readthedocs.io/en/latest/reference.html), [Notes de version BIND 9.18](https://bind9.readthedocs.io/en/v9.18.0/notes.html).
 
-## Vérifier la résolution avant et après redirection
+## TP guidé — Comparer la résolution avant et après redirection {#verifier-la-resolution-avant-et-apres-redirection}
 
 1. Valider la configuration avec `named-checkconf`, puis appliquer la modification avec `rndc reload` ou le mécanisme de l’unité installée.
 2. Diriger Cli-db-10, DEB-S1, DEB-S2 et RouTux vers `192.168.X.12` avec leur gestionnaire réseau respectif.
@@ -77,6 +82,15 @@ forward only;
 forwarders { 9.9.9.9; };
 ```
 
+### Preuves à relever
+
+| Essai | Relevé attendu |
+| --- | --- |
+| Service BIND sur DEB-S2 | Unité active, contrôle de syntaxe réussi et client inclus dans l’ACL. |
+| Requête explicite avant redirection | Réponse et serveur `192.168.X.12`, avec code, type et TTL. |
+| Même requête avec le DNS du poste | Serveur configuré pour le profil actif et résultat pour les deux noms du TP. |
+| Après redirection | Politique appliquée et chemin observé dans la configuration, les journaux ou une trace autorisée. |
+
 ## Schéma explicatif complémentaire
 
 ```mermaid
@@ -87,19 +101,30 @@ flowchart LR
  R --> C
 ```
 
-## Autoévaluation
+## À retenir
 
-1. À quoi sert le point final d’un FQDN ?
-2. Quelle règle limite les clients autorisés à demander la récursion ?
-3. Quel mécanisme de sortie utilise `forward only` ?
+Le client demande une réponse au DNS configuré. Le résolveur peut répondre depuis son cache, chercher auprès des autorités ou transmettre. Pour prouver le chemin, comparer la configuration et les traces du résolveur, en plus du résultat côté client.
 
-??? success "Réponses"
-    1. Il représente la racine et marque le nom absolu.
-    2. `allow-recursion` avec l’ACL voulue.
-    3. Les redirecteurs configurés pour les recherches transférées.
+## Mini-quiz — 5 questions {#autoevaluation}
+
+1. Que représente le point final d’un FQDN ?
+2. Quelle différence entre une autorité et un résolveur ?
+3. Que permet forward first après un échec du redirecteur ?
+4. Pourquoi comparer dig @adresse et dig sans adresse ?
+5. Deux requêtes donnent la même IP. Est-ce une preuve du même chemin ?
+
+??? success "Réponses commentées"
+
+    1. La racine de la hiérarchie DNS.
+    2. L’autorité publie les données de sa zone. Le résolveur recherche ou transmet la requête pour le client.
+    3. BIND peut poursuivre la recherche lui-même selon sa configuration, contrairement à forward only pour les requêtes concernées.
+    4. La première commande vise le DNS désigné. La seconde vérifie le chemin choisi par la configuration du poste.
+    5. Le cache, le redirecteur et une recherche itérative peuvent donner la même valeur. Il faut observer le chemin du résolveur.
 
 ## Pour travailler ce module
 
 - [Fiche de révision](../../revision/services-reseau-linux/module-05-dns-resolveur.md)
 - [Travaux pratiques](../../tp/services-reseau-linux/module-05/index.md)
+- [Énoncés](../../tp/services-reseau-linux/module-05/enonces.md) et [corrections](../../tp/services-reseau-linux/module-05/corrections.md)
+- [Kahoot existant](../../kahoot/services-reseau-linux-module-05.md)
 - [Sommaire du cours](index.md)

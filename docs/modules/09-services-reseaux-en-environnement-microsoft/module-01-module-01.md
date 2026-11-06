@@ -2,6 +2,13 @@
 
 Dans le laboratoire, Windows Server fournit les rôles de l’infrastructure et Windows 10 sert de poste client. Les deux TP construisent d’abord trois machines réutilisables, puis vérifient comment les volumes réagissent à la perte d’un disque.
 
+## Objectifs
+
+- Distinguer éditions, licences, rôles et modes d’installation de Windows Server.
+- Préparer deux modèles et trois clones, puis vérifier IIS et le Bureau à distance.
+- Choisir un type de volume selon la capacité, les performances et la tolérance à une panne.
+- Vérifier la disponibilité des fichiers avant et après le retrait d’un disque.
+
 ## Versions, éditions et modes d’installation
 
 Le support situe Windows Server 2008/R2, 2012/R2, 2016, 2019, 2022 et 2025 face aux générations clientes Windows 7, 8/8.1, 10 et 11. Le TP installe Windows Server 2019 Standard et Windows 10. Standard, Datacenter et Essentials répondent à des besoins distincts de virtualisation, capacité et licence. Le tableau du support conserve ses valeurs historiques. Pour dimensionner un autre serveur, vérifier les prérequis correspondant à sa version. [Configuration matérielle Windows Server](https://learn.microsoft.com/windows-server/get-started/hardware-requirements).
@@ -20,17 +27,51 @@ Une licence du système permet son installation. Les licences d’accès client 
 
 Un **rôle** correspond généralement au service fourni aux clients. Une **fonctionnalité** apporte un composant ou un outil au serveur. Le Gestionnaire de serveur installe et supervise ces composants. Les consoles de rôle, les outils distants, PowerShell et CMD servent aux tâches ciblées.
 
-## Préparer et contrôler l’installation
+**Illustration IA / externe au cours — des modèles aux machines du laboratoire.**
 
-Les modèles `VM_Modele_2019` et `VM_Modele_W10` disposent chacun de 32 Go de disque, 2 Go de mémoire et d’une carte en bridge dans le scénario. Installer le système, les VMware Tools, exécuter Sysprep avec les options du TP, arrêter puis conserver les modèles dans leur dossier dédié. Les clones servent aux manipulations. Les machines du TP sont `W19-CD1` à `172.28.10.1`, `W19-SRV1` à `172.28.10.2` et `W10-CLI1` à `172.28.10.11`.
+```mermaid
+flowchart TB
+    A["Modèle Windows Server 2019 · Sysprep"] --> B["W19-CD1"]
+    A --> C["W19-SRV1 · IIS et stockage"]
+    D["Modèle Windows 10 · Sysprep"] --> E["W10-CLI1"]
+    E -->|"Bureau à distance"| C
+```
 
-Avec le masque `/16`, le préfixe réseau canonique est `172.28.0.0/16`. Le support note `172.28.10.0/16` pour désigner la plage de salle. Les trois adresses d’hôte restent celles du scénario. Après renommage et configuration IP, vérifier l’accès à `http://localhost` sur IIS, puis ouvrir une session Bureau à distance depuis le client vers le serveur désigné. L’assistant d’ajout de rôles permet d’installer IIS et la Sauvegarde Windows Server.
+## TP guidé — Installation et configuration initiale
+
+**Durée du support.** Une à deux heures. Préparer les ISO fournies pour le laboratoire, les dossiers de stockage et le réseau prévu.
+
+### A. Créer les modèles
+
+1. Créer `VM_Modele_2019` et `VM_Modele_W10` sous `D:\Machines_Virtuelles\Modeles`. Affecter **32 Go** de disque, **2 Go** de mémoire et une carte en pont à chacun.
+2. Installer Windows Server 2019 Standard et Windows 10 sur leurs disques respectifs, puis les VMware Tools. Vérifier le démarrage et la présence des outils invités.
+3. Généraliser avec Sysprep et arrêter. Dans Workstation, ranger les deux VM dans **VM MODELES – A NE PAS DEMARRER**.
+4. Préparer les clones dans leurs propres dossiers, hors du répertoire des modèles. Démarrer les clones pour leur configuration initiale et garder les modèles arrêtés pour les prochains ateliers.
+
+### B. Renommer et adresser les clones
+
+| Clone | Modèle | Adresse statique |
+| --- | --- | --- |
+| `W19-CD1` | Windows Server 2019 | `172.28.10.1/16` |
+| `W19-SRV1` | Windows Server 2019 | `172.28.10.2/16` |
+| `W10-CLI1` | Windows 10 | `172.28.10.11/16` |
+
+Donner au système invité le même nom que la VM et vérifier l’interface configurée. Avec le masque `/16`, le préfixe réseau canonique est `172.28.0.0/16`. Le support écrit `172.28.10.0/16` pour désigner la plage de salle. Les adresses des trois hôtes restent celles du scénario.
+
+### C. Mettre en service et vérifier
+
+1. Dans le Gestionnaire de serveur de `W19-SRV1`, installer IIS et la fonctionnalité de Sauvegarde Windows Server. Contrôler la fin de l’assistant.
+2. Sur le serveur, ouvrir `http://localhost` et vérifier la page IIS. Ce test porte sur le service local. Examiner le pare-feu et la liaison séparément si un accès depuis le client est demandé.
+3. Autoriser le Bureau à distance dans le scénario. Depuis `W10-CLI1`, tester la connexion à `W19-SRV1` avec l’outil graphique, puis la commande. Vérifier la cible et le droit du compte utilisé.
 
 ```cmd
 ipconfig /all
 ping 172.28.10.2
 mstsc /?
+mstsc /v:172.28.10.2
 ```
+
+Garder comme preuves l’état arrêté des deux modèles, les noms et adresses des clones, la page IIS et la session distante sur le serveur prévu.
 
 ## Partitionner puis formater
 
@@ -50,23 +91,50 @@ Deux portions de 100 Go donnent 200 Go en RAID 0 ou 100 Go en miroir. Trois port
 
 Après la création du volume, choisir le système de fichiers. Le support cite FAT32/exFAT, NTFS et ReFS. Les outils de l’exercice sont Gestion des disques (`diskmgmt.msc`), `diskpart` et les commandes PowerShell de stockage.
 
-## Valider le TP de stockage
+## TP guidé — Gestion du stockage
 
-Déplacer la lettre du CD vers `L:` et ajouter trois disques SCSI de 10 Go à `W19-SRV1`. Créer `D:\` Données, RAID 5 d’environ 6 Go utiles, le miroir de 4 Go monté sur `C:\INFO-TOOLS` avec les disques 1 et 3, puis `E:\` Database en bandes pour 8 Go utiles. Déposer des fichiers témoins avant de retirer le disque 3 dans la VM. Contrôler l’état des volumes et leurs fichiers, puis reconstruire la redondance sur un disque de remplacement. La lisibilité d’un volume en état dégradé prouve seulement qu’il supporte encore la panne simulée.
+**Durée du support.** Trente minutes à une heure. Utiliser `W19-SRV1`. Repérer son disque système, changer la lettre du lecteur CD en `L:` et ajouter trois disques SCSI de **10 Go** chacun. Comparer l’inventaire de Workstation et celui de Gestion des disques avant toute conversion ou initialisation.
 
-### Mini-quiz
+| Besoin | Volume et résultat attendus |
+| --- | --- |
+| Documents de travail | `D:\` **Données**, RAID 5 d’environ 6 Go utiles. Trois portions de 3 Go fournissent environ 6 Go après parité. |
+| Outils accessibles au service informatique | Miroir de **4 Go** sur les disques 1 et 3, monté sous `C:\INFO-TOOLS`. |
+| Espace Database | Volume en bandes de **8 Go** accessible par `E:\`, choisi pour le scénario de performance du TP. |
+
+1. Créer les trois volumes dans Gestion des disques et relever leurs capacités. Vérifier le type, les portions de disque et le chemin de montage.
+2. Créer un fichier témoin par volume. Depuis Workstation, simuler la panne du disque SCSI nº 3 du laboratoire après avoir identifié le bon périphérique.
+3. Comparer le statut et l’accès aux fichiers. Données et INFO-TOOLS peuvent rester accessibles avec une seule perte admissible. Database peut devenir indisponible si le disque retiré participe au volume en bandes.
+4. Ajouter le disque de remplacement et rétablir la redondance selon le type de volume. Pour INFO-TOOLS, le corrigé montre l’ajout d’un nouveau miroir sur le disque prévu. Contrôler la reconstruction et ouvrir les fichiers témoins.
+5. Si un volume sans redondance est perdu, distinguer recréation du volume et restauration des fichiers. Vérifier le résultat depuis une copie prévue par la maquette.
+
+## À retenir
+
+Le modèle prépare les prochains postes. Un clone se vérifie avec son identité et son réseau propres. La redondance tolère certaines pannes, tandis que la restauration récupère des données depuis une autre copie.
+
+## Mini-quiz — 5 questions {#mini-quiz}
 
 1. Que distingue un rôle d’une fonctionnalité ?
-2. Quelle capacité utile donnent trois portions de 3 Go en RAID 5 ?
-3. Pourquoi garder les modèles Sysprep arrêtés ?
+2. Pourquoi conserver les modèles arrêtés après Sysprep ?
+3. Quel préfixe correspond à 172.28.10.2/16 ?
+4. Combien de Go utiles donnent trois portions de 3 Go en RAID 5 ?
+5. Que prouve un fichier lisible sur un volume dégradé ?
 
-??? success "Réponses"
-    1. Le rôle fournit généralement un service, tandis que la fonctionnalité ajoute un composant ou un outil.
-    2. 6 Go. La parité utilise l’équivalent d’une portion.
-    3. Les clones consomment leur propre configuration initiale. Le modèle reste disponible pour les prochains déploiements.
+??? success "Réponses commentées"
 
+    1. Le rôle fournit généralement un service. Une fonctionnalité ajoute un composant ou un outil.
+    2. Pour réutiliser un état généralisé. Les clones reçoivent leurs propres noms et adresses.
+    3. 172.28.0.0/16. L’adresse d’hôte reste 172.28.10.2.
+    4. Environ 6 Go. La parité consomme l’équivalent d’une portion.
+    5. Le volume a supporté la panne simulée. Il faut encore vérifier le remplacement, la reconstruction et la restauration.
 
-## Appliquer le cours
+## Pour pratiquer et réviser {#appliquer-le-cours}
 
-- [Travaux pratiques et démonstrations](../../tp/services-reseaux-microsoft/module-01/index.md)
+- [Énoncés](../../tp/services-reseaux-microsoft/module-01/enonces.md) et [corrections](../../tp/services-reseaux-microsoft/module-01/corrections.md)
+- [Démonstrations](../../tp/services-reseaux-microsoft/module-01/demonstrations.md)
 - [Fiche de révision](../../revision/services-reseaux-microsoft/module-01-module-01.md)
+- [Kahoot existant](../../kahoot/09-services-reseaux-microsoft-module-01-module-01.md)
+- [Sommaire de Services réseau en environnement Microsoft](index.md)
+
+## Provenance pédagogique
+
+Le support M01, les trois démonstrations et les deux paires de TP fondent les réglages. Le schéma et les contrôles intermédiaires expliquent les dépendances de la maquette.
