@@ -1,6 +1,12 @@
 # Module 05 — Gestion du réseau
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Identifier l’interface gérée et construire l’adressage à partir de X et Y.
+- Configurer la carte du réseau de salle, puis la carte Host-only sans seconde route par défaut.
+- Vérifier le nom d’hôte, la route, la résolution et la communication entre les deux VM.
+
 ## Décomposer une configuration réseau
 
 Une interface, une adresse avec préfixe, une route par défaut et un résolveur DNS remplissent des fonctions différentes. Lire ces éléments avant toute modification évite d’attribuer à DNS un défaut de liaison ou de routage.
@@ -76,6 +82,26 @@ Dans les paramètres réseau, choisir IPv4 manuel, puis renseigner adresse, masq
 
 Contrôler successivement la présence de l’interface, l’adresse et le préfixe, une adresse voisine, la passerelle si nécessaire, puis la résolution d’un nom. Le complément `getent hosts nom` interroge la résolution du système ; il complète utilement `ping`, dont l’échec peut aussi venir du filtrage ICMP.
 
+## TP — Configurer puis contrôler les deux VM
+
+1. Sur l’hôte Windows, relever le réseau de salle avec `ipconfig`, puis les DNS et suffixes avec `ipconfig /all`. Calculer l’adresse du serveur à partir de X et Y et vérifier qu’elle est réservée à la VM.
+2. Sur la console du serveur, identifier les interfaces et leur gestionnaire. Configurer la première carte avec l’adresse `10.X.Y.1/16` et la passerelle `10.X.255.254`. Ajouter les DNS et les suffixes dans le mécanisme utilisé par cette carte. Contrôler la route après réactivation.
+3. Attribuer le nom du scénario à la VM. Vérifier la cohérence de `/etc/hostname`, de l’entrée locale dans `/etc/hosts` et du nom courant.
+4. Ajouter l’adaptateur Host-only dans l’hyperviseur. Configurer `192.168.100.1/24` sur cette seule interface. Vérifier qu’elle fournit la route du segment isolé et que la route par défaut reste sur la première carte.
+5. Sur le poste graphique, régler IPv4 en manuel avec une adresse distincte sur le même segment que la première carte du serveur. Tester le serveur par adresse IP, puis tester les services et les trois noms courts du laboratoire.
+
+```bash
+ip -br address
+ip route show
+hostnamectl
+getent hosts dc44-far dc35-cdb1 repos
+ping -c 2 dc44-far
+ping -c 2 dc35-cdb1
+ping -c 2 repos
+```
+
+Conserver les deux relevés d’adresse et de route, les résultats de résolution et le test vers l’autre VM. Un nom peut se résoudre alors que le ping échoue, par exemple si ICMP est filtré. La preuve de résolution et celle de connectivité se lisent séparément.
+
 ## Schéma explicatif — complément pédagogique
 
 ```mermaid
@@ -83,16 +109,24 @@ flowchart LR
  I["Interface active"] --> A["Adresse et préfixe"] --> R["Routes"] --> D["Résolution de noms"] --> T["Test du service"]
 ```
 
+## À retenir
+
+L’adresse et le préfixe définissent le réseau local, tandis que la passerelle sert aux destinations extérieures. Contrôler aussi la persistance des réglages DNS et l’interface utilisée pour chaque route.
+
 ## Autoévaluation
 
 1. Quel est le réseau de `10.49.222.1/16` ?
 2. Pourquoi éviter une passerelle sur la carte Host-only du TP ?
 3. Une édition de resolv.conf est-elle toujours durable ?
+4. Pourquoi séparer `getent hosts repos` et `ping -c 2 repos` ?
+5. Que contrôler après avoir ajouté la carte Host-only ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `10.49.0.0/16`.
     2. Cette carte relie un segment local ; le TP ne lui donne pas le rôle de sortie par défaut.
     3. Non ; le fichier peut être généré par le gestionnaire réseau.
+    4. Le premier vérifie la résolution. Le second vérifie aussi la réponse ICMP, qui peut être filtrée même si le nom se résout.
+    5. L’adresse `192.168.100.1/24`, la route locale correspondante et la présence d’une seule route par défaut sur la carte prévue.
 
 ## Pour travailler ce module
 

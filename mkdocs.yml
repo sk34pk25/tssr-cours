@@ -440,6 +440,7 @@ nav:
       - Présentation: exercices/index.md
       - Quiz Réseaux: exercices/quiz-reseaux.md
       - Quiz Systèmes clients: exercices/quiz-systemes-clients.md
+      - Quiz Administration Debian: exercices/quiz-administration-debian.md
       - Quiz Services réseau Linux: exercices/quiz-services-reseau-linux.md
       - Cas pratiques transversaux: exercices/cas-pratiques.md
   - Kahoot:
@@ -560,6 +561,10 @@ nav:
       - Ports essentiels: memo/ports-essentiels.md
       - IPv4 et CIDR: memo/ipv4-cidr.md
       - Permissions Linux: memo/permissions-linux.md
+      - APT sous Debian: memo/apt-debian.md
+      - Volumes LVM sous Debian: memo/lvm-debian.md
+      - Systèmes de fichiers sous Debian: memo/file-systems-debian.md
+      - Comptes et groupes sous Debian: memo/comptes-groupes-debian.md
       - GLPI et SQL: memo/glpi-sql.md
   - Commandes:
       - Présentation: commandes/index.md

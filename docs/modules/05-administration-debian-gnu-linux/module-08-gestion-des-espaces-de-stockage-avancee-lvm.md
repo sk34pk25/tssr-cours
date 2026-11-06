@@ -1,6 +1,12 @@
 # Module 08 — Gestion des espaces de stockage avancée — LVM
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Relier volume physique, groupe de volumes et volume logique.
+- Ajouter un disque au VG existant et allouer les tailles demandées dans le TP.
+- Comparer la capacité du volume logique à celle du système de fichiers.
+
 ## Les trois objets LVM
 
 LVM ajoute une couche d’allocation entre les périphériques et les volumes utilisés. Un **PV** (*physical volume*) est un périphérique préparé pour LVM. Plusieurs PV alimentent un **VG** (*volume group*). Dans cet espace, des **LV** (*logical volumes*) reçoivent une capacité allouée. Le système de fichiers du module 9 vient au-dessus d’un LV.
@@ -51,19 +57,41 @@ Dans le premier cas, `+512M` ajoute une capacité. Dans le second, `1G` fixe la 
 
 Le support mentionne `lvreduce` ; ne pas traiter sa syntaxe comme une recette universelle. Les sorties d’exemple comportent aussi des capacités et nombres d’extents qui ne forment pas tous un état mathématique cohérent. Utiliser les sorties actuelles de la VM pour calculer l’espace disponible.
 
-## TP — nouveau disque de 40 Go
+## TP — Ajouter un disque de 40 Go au groupe existant
 
-Sur la station avec bureau, le TP demande d’ajouter un disque de 40 Go, de créer une partition occupant le disque pour LVM, de l’intégrer au VG existant, puis de créer **lvvar de 20 Go**. Tout le reste de l’espace libre du VG sert à agrandir **lvhome**. Les noms historiques du corrigé doivent être rapprochés de ceux réellement présents.
+### Identifier le disque et le groupe
 
-Démarche : relever `lsblk` et `pvs/vgs/lvs`, ajouter le disque, confirmer sa présence, préparer la partition et son type, créer le PV, étendre le VG existant, créer lvvar, puis étendre lvhome avec l’espace libre voulu. Le TP suivant formate lvvar et adapte le système de fichiers de home. Si `-r` a déjà été employé avec succès, le système de fichiers peut être déjà agrandi.
-
-Le support donne une astuce de détection SCSI :
+Relever les disques et le VG avant d’ajouter le disque dans l’hyperviseur. Comparer après ajout. Le TP montre `/dev/sdb` et un groupe `vgsystem`. Les noms ci-dessous sont ceux de l’exemple et doivent correspondre à ce que la VM affiche.
 
 ```bash
-udevadm info --query=path --name=sda
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+pvs
+vgs
+lvs -o vg_name,lv_name,lv_size,devices
 ```
 
-Le chemin permet de repérer `host0` dans son exemple. La commande source `echo "- - -" > /sys/class/scsi_host/host0/scan` suppose ce contrôleur précis et une redirection privilégiée ; ne pas recopier `host0` sans l’identifier. Une redirection faite dans un shell ordinaire n’acquiert pas les droits root simplement en préfixant `echo` par sudo.
+Si le disque n’apparaît pas, le corrigé relève le contrôleur SCSI avec `udevadm info --query=path --name=sda`, puis rescane le contrôleur identifié. Le numéro `host2` provient de sa capture. Utiliser le numéro relevé dans la VM ou redémarrer la VM du laboratoire.
+
+### Créer la partition et les volumes
+
+1. Sur le **nouveau disque vide seulement**, lancer `sudo fdisk /dev/sdb`. Créer une partition couvrant le disque avec `n`. Choisir le type **Linux LVM** avec `t`. Le code `8e` du support correspond au type LVM d’une table DOS. Avec GPT, choisir par libellé dans la liste. Afficher la table avec `p` avant de l’écrire avec `w`.
+2. Vérifier dans `lsblk` que la nouvelle partition est bien celle visée. Ajouter cette partition au VG existant, puis créer `lvvar` avec 20 Go. Contrôler l’espace restant avant de l’allouer à `lvhome`.
+
+```bash
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT /dev/sdb
+sudo pvcreate /dev/sdb1
+sudo vgextend vgsystem /dev/sdb1
+sudo pvs
+sudo vgs
+sudo lvcreate -L 20G -n lvvar vgsystem
+sudo lvs
+sudo vgs
+sudo lvextend -l +100%FREE /dev/vgsystem/lvhome
+sudo lvs -o vg_name,lv_name,lv_size,devices
+sudo vgs
+```
+
+`+100%FREE` ajoute l’espace libre du groupe au volume existant. L’état attendu est un nouveau `lvvar`, un `lvhome` agrandi et un VG sans extents libres après l’allocation demandée. La taille affichée par `df -h /home` dépend encore du système de fichiers. Le TP suivant s’en occupe. [Manuel Debian de lvextend](https://manpages.debian.org/bookworm/lvm2/lvextend.8.en.html)
 
 ## Schéma explicatif — complément pédagogique
 
@@ -75,16 +103,24 @@ flowchart LR
  V --> L2["LV var"] --> F2["Système de fichiers"]
 ```
 
+## À retenir
+
+Un PV apporte sa capacité au VG. Les extents du VG sont alloués aux LV. Contrôler le PV, le VG et les LV après chaque étape, puis vérifier séparément le système de fichiers.
+
 ## Autoévaluation
 
 1. Quelle commande renseigne l’espace non alloué du groupe ?
 2. Que signifie le signe `+` dans `-L +512M` ?
 3. Quelle couche faut-il contrôler après l’extension du LV ?
+4. Dans quel ordre réaliser l’ajout demandé après le partitionnement ?
+5. Pourquoi comparer `lvs` et `df -h /home` ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `vgs` ou `vgdisplay`.
     2. Une augmentation, plutôt qu’une taille finale absolue.
     3. Le système de fichiers, puis le montage et la capacité réellement visible.
+    4. Créer le PV, ajouter le PV au VG, créer `lvvar`, puis attribuer à `lvhome` les extents restants.
+    5. Le premier mesure le volume logique. Le second mesure le système de fichiers monté, dont la taille peut rester inchangée.
 
 ## Pour travailler ce module
 
