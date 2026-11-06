@@ -24,10 +24,11 @@ class MarkdownSecurityError(SuperFencesException):
     """Fatal rejection, deliberately not swallowed by SuperFences validators."""
 
 
-def validate_attribute(name: str, raw_value: str, *, fenced: bool = False) -> None:
+def validate_attribute(name: str, raw_value: str | None, *, fenced: bool = False) -> None:
     """ATTR_POLICY_V1; parity fixtures also exercise the TS and browser copies."""
     key = "class" if name == "." else name.lower()
-    value = unescape(raw_value)
+    # Newer attr_list versions represent a bare attribute with None.
+    value = unescape(name if raw_value is None else raw_value)
     tokens = [token for token in value.split(" ") if token]
     plain = not re.search(r'[\x00-\x1f\x7f<>"]', value) and ("'" not in value or key in {"title", "alt", "aria-label"})
     valid = plain and (
