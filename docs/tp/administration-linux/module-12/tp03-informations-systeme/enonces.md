@@ -1,14 +1,8 @@
-# Énoncés — tp03-informations-systeme
+# Énoncés — TP 03 · Informations sur le système
 
 **Reprise structurée des consignes et explications de la source.** Les figures utiles restent isolées et les commandes transcrites restent littérales. Les écarts de version et les corrections techniques sont signalés séparément.
 
-## M12TP03 - Enoncé - Informations sur le système
-
-### Informations sur le système
-
-Durée estimée
-
-20 à 45 minutes
+**Durée du TP** — 20 à 45 minutes
 
 ### I. Relevé d’informations : sur le serveur sans environnement graphique
 
@@ -34,7 +28,7 @@ Durée estimée
 
 ## Clarifications et contrôles — complément pédagogique
 
-Le journal systemd peut être persistant ; vérifier sa configuration et les services installés. Une crontab système ajoute un champ utilisateur. Les captures emploient parfois `warning.log` au singulier alors que l’énoncé demande `warnings.log` : choisir ce dernier de façon cohérente. La légende « 1ère minute » de la correction de planification contredit 10 h : la ligne attendue commence par `0 10`. Le serveur voit sshd et les shells distants, pas nécessairement un processus nommé PuTTY.
+Sur le serveur, relever les processus SSH et leurs terminaux. Avant chaque signal, vérifier le PID du shell de la seconde session et son terminal. Garder la première session ouverte pour contrôler le résultat.
 
 Pour les justifications et références officielles, lire le [cours optimisé](../../../../modules/05-administration-debian-gnu-linux/module-12-maintenance-d-un-systeme-en-production.md).
 

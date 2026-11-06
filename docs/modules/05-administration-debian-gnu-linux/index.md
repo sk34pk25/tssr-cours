@@ -2,7 +2,7 @@
 
 Installer, démarrer, maintenir et administrer un système Debian, du réseau au stockage et aux permissions.
 
-<div class="tssr-index-meta tssr-index-meta--split"><a href="../../parcours/06-administration-linux-1/"><span>Étape 06 / 09</span><strong>13 → 17 juillet 2026</strong><small>CHAUSSIER Alexandre · Première partie</small></a><a href="../../parcours/07-administration-linux-2/"><span>Étape 07 / 09</span><strong>20 → 24 juillet 2026</strong><small>GRELIER François · Seconde partie</small></a></div>
+<div class="tssr-index-meta tssr-index-meta--split"><a href="../../parcours-tssr/#p-97a5760ccb8400b7"><span>Parcours TSSR</span><strong>13 → 17 juillet 2026</strong><small>CHAUSSIER Alexandre · Première partie</small></a><a href="../../parcours-tssr/#p-5752295afb89dc42"><span>Parcours TSSR</span><strong>20 → 24 juillet 2026</strong><small>GRELIER François · Seconde partie</small></a></div>
 
 !!! warning "Périmètre et versions"
     Les supports d’installation ciblent Debian 11 et certaines diapositives citent Debian 12. La version stable officielle au contrôle du 4 novembre 2026 est Debian 13 « trixie » ; les concepts restent valables, mais les écrans, dépôts et versions de paquets doivent être adaptés. Référence : [Versions Debian](https://www.debian.org/releases/).
@@ -28,8 +28,13 @@ Installer, démarrer, maintenir et administrer un système Debian, du réseau au
 
 - [Travaux pratiques](../../tp/administration-linux/index.md)
 - [Fiches de révision](../../revision/administration-linux/index.md)
-- [Commandes](../../commandes/index.md)
-- [Dépannage](../../troubleshooting/index.md)
+- [Commandes GNU/Linux et APT](../../commandes/linux.md)
+- [Installer Debian pas à pas](../../tutoriels/installer-debian.md)
+- [Diagnostiquer un service Linux en échec](../../troubleshooting/service-linux-echec.md)
+- [Mémo APT](../../memo/apt-debian.md)
+- [Mémo LVM](../../memo/lvm-debian.md)
+- [Mémo systèmes de fichiers](../../memo/file-systems-debian.md)
+- [Mémo comptes et groupes](../../memo/comptes-groupes-debian.md)
 
 ## Périmètre des documents
 

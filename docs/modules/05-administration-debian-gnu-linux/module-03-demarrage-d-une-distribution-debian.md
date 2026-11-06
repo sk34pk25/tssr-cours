@@ -1,6 +1,12 @@
 # Module 03 — Démarrage d’une distribution Debian
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Décrire le passage du chargeur à systemd et aux cibles du système.
+- Distinguer unité active, unité activée au démarrage et cible par défaut.
+- Relever les fichiers de SSH et tester le comportement de cron avant et après redémarrage.
+
 ## Comprendre le démarrage
 
 Le support suit une machine BIOS avec MBR : firmware, chargeur GRUB, noyau Linux, initialisation, puis services et sessions. Ce scénario est un exemple d’architecture, pas l’unique chaîne d’amorçage possible. GRUB choisit une entrée, charge le noyau et l’image initiale, puis transmet des paramètres comme la racine du système.
@@ -70,6 +76,35 @@ shutdown -c
 
 Le support présente également `reboot` et `shutdown -r now`. Vérifier les utilisateurs et les tâches en cours avant l’arrêt. `shutdown -c` annule un arrêt planifié encore en attente ; il ne revient pas sur un arrêt déjà réalisé.
 
+## TP 01 — Modifier la cible de démarrage du poste
+
+Depuis la console, relever la cible initiale avec `systemctl get-default` et lire son rôle dans `man systemd.special`. Le TP demande ensuite un démarrage multi-utilisateur sans bureau.
+
+```bash
+systemctl get-default
+sudo systemctl set-default multi-user.target
+systemctl get-default
+sudo systemctl reboot
+```
+
+Après redémarrage, vérifier que la console permet la connexion et que le bureau n’est pas lancé. Charger le bureau avec `sudo systemctl isolate graphical.target` et contrôler son apparition. `isolate` modifie la cible courante et peut arrêter des unités. Si le poste doit retrouver son démarrage initial, remettre la cible relevée au début du TP avec `set-default`.
+
+## TP 02 — Identifier SSH et tester cron au démarrage
+
+Pour SSH, relever le chemin de l’unité, la commande qui lance le démon et le fichier de configuration du démon. Sur Debian, l’unité est généralement `ssh.service`, le démon `sshd` et la configuration serveur `/etc/ssh/sshd_config`.
+
+```bash
+systemctl show -p FragmentPath -p ExecStart ssh.service
+systemctl cat ssh.service
+dpkg -L openssh-server | grep -E '/sshd$|/sshd_config$'
+systemctl is-enabled cron.service
+systemctl is-active cron.service
+```
+
+1. Arrêter cron avec `sudo systemctl stop cron.service` et vérifier son état. Redémarrer la VM. S’il était activé au démarrage, observer qu’il repart après le redémarrage.
+2. Arrêter à nouveau cron, puis désactiver son activation au démarrage avec `sudo systemctl disable cron.service`. Vérifier `is-enabled` séparément de `is-active`. Si une autre unité déclenche cron, identifier la dépendance avant de conclure.
+3. Restaurer l’état attendu dans le laboratoire. Si cron était actif et activé, `sudo systemctl enable --now cron.service` rétablit ces deux propriétés. Noter les états avant, pendant et après le TP.
+
 ## Schéma explicatif — complément pédagogique
 
 ```mermaid
@@ -78,16 +113,24 @@ flowchart LR
  S --> C["Cible"] --> U["Services et sessions"]
 ```
 
+## À retenir
+
+Une cible par défaut règle les prochains démarrages. Une commande `isolate` agit sur l’état courant. L’activation de cron et l’exécution présente du service se contrôlent séparément.
+
 ## Autoévaluation
 
 1. `set-default` change-t-il immédiatement la cible courante ?
 2. Pourquoi cron redémarre-t-il après un simple `stop` suivi d’un reboot ?
 3. Quelle commande distingue les fichiers d’unités des seules unités chargées ?
+4. Quelles sorties permettent de retrouver le fichier d’unité et la commande du service SSH ?
+5. Comment restaurer cron s’il était actif et activé au début du TP ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Non ; `isolate` agit sur l’état courant.
     2. Son activation au démarrage est restée configurée.
     3. `systemctl list-unit-files`.
+    4. `systemctl show -p FragmentPath -p ExecStart ssh.service` donne le chemin et la commande. `systemctl cat ssh.service` affiche aussi les compléments d’unité.
+    5. Sur le serveur du TP, utiliser `sudo systemctl enable --now cron.service`, puis vérifier `is-enabled` et `is-active`.
 
 ## Pour travailler ce module
 

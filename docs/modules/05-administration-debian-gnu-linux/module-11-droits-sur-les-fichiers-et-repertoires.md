@@ -1,6 +1,12 @@
 # Module 11 — Droits sur les fichiers et répertoires
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Interpréter les triplets Unix et calculer l’effet d’un umask.
+- Utiliser sticky et SetGID pour les deux besoins distincts du TP.
+- Vérifier création, accès et refus avec plusieurs comptes du scénario.
+
 ## Lire les permissions Unix
 
 Les droits classiques forment trois triplets : propriétaire `u`, groupe propriétaire `g`, autres `o`. Ils résident dans les métadonnées du fichier et s’affichent avec `ls -l`. Dans la chaîne `-rwxr-x---`, le premier caractère est le type ; les neuf suivants représentent les permissions. Pour examiner le répertoire lui-même, utiliser `ls -ld chemin` ; `ls -l chemin` examine son contenu si chemin est un répertoire.
@@ -76,6 +82,27 @@ La correction place les données sous `/srv`, conformément au rôle de données
 
 Exemples pédagogiques : `chmod 1777 /srv/depot`, `chmod 2775 /srv/documentation`, avec propriétaires et groupes adaptés. Les nombres ne suffisent pas : tester création, lecture, modification et suppression avec des utilisateurs de catégories différentes. Pour depot, observer que les exceptions du propriétaire de répertoire et de root existent toujours ; le texte « seul le propriétaire du fichier » du TP est un objectif simplifié.
 
+### Créer et tester les répertoires du scénario
+
+Dans la VM du TP, vérifier que les quatre répertoires sont disponibles pour l’exercice et que les groupes `admin` et `documentation` existent. Voici une mise en place possible sur des répertoires neufs.
+
+```bash
+sudo install -d -o root -g root -m 0777 /srv/public
+sudo install -d -o root -g root -m 1777 /srv/depot
+sudo install -d -o root -g admin -m 0770 /srv/admin
+sudo install -d -o root -g documentation -m 2775 /srv/documentation
+ls -ld /srv/public /srv/depot /srv/admin /srv/documentation
+```
+
+| Test | Résultat attendu |
+| --- | --- |
+| Deux comptes ordinaires créent chacun un fichier dans `public` | La création réussit si les deux comptes peuvent traverser le chemin. |
+| Un compte ordinaire tente de supprimer le fichier d’un autre dans `depot` | Le sticky bit bloque la suppression par ce compte. Le propriétaire du fichier peut supprimer sa propre entrée. |
+| Un compte du groupe `admin`, puis un compte extérieur, tentent d’entrer dans `admin` | Le membre peut traverser le répertoire. Le compte extérieur obtient un refus. |
+| Un membre de `documentation` crée un fichier et un compte extérieur le lit | Le nouveau fichier hérite du groupe `documentation`. La lecture du fichier dépend également de son mode, donc de l’umask ou des ACL. |
+
+Pour le test de documentation, appliquer un umask cohérent avec la règle de l’atelier et contrôler le fichier créé avec `stat`. Tester aussi une tentative de création par un compte extérieur au groupe. Garder les résultats de comptes ordinaires, car les essais uniquement sous root ne valident pas les refus du scénario.
+
 ## Schéma explicatif — complément pédagogique
 
 ```mermaid
@@ -86,16 +113,24 @@ flowchart TD
  D --> E["Bits spéciaux / autres contrôles"]
 ```
 
+## À retenir
+
+Le droit d’écriture et de traversée d’un répertoire détermine l’action sur ses entrées. Sticky restreint suppression et renommage, tandis que SetGID règle l’héritage du groupe.
+
 ## Autoévaluation
 
 1. Que produit umask 0007 pour un fichier demandé en 0666 ?
 2. SetGID donne-t-il à lui seul le droit d’écriture au groupe sur un nouveau fichier ?
 3. Qui peut supprimer un nom dans un répertoire sticky, sous réserve des autres droits ?
+4. Pourquoi tester `depot` avec deux utilisateurs ordinaires ?
+5. Comment vérifier l’héritage dans `documentation` ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. 0660.
     2. Non ; il règle le groupe hérité, pas tous les bits d’accès.
     3. Le propriétaire du fichier, le propriétaire du répertoire ou un utilisateur privilégié.
+    4. Le test doit montrer qu’ils peuvent déposer leurs fichiers mais que l’un ne peut pas supprimer celui de l’autre.
+    5. Créer un fichier avec un membre du groupe puis relever son groupe et son mode avec `stat`. Tester les droits séparément.
 
 ## Pour travailler ce module
 

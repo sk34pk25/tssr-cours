@@ -1,6 +1,12 @@
 # Module 12 — Maintenance d’un système en production
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Retrouver des événements, configurer rsyslog et démontrer le filtrage.
+- Écrire et tester les trois planifications utilisateur et système du TP.
+- Distinguer état de la mémoire, processus serveur et connexion client avant une action ciblée.
+
 ## Une maintenance fondée sur l’observation
 
 Le support distingue observation proactive et réaction à un incident. Une intervention se prépare en identifiant le système, la charge, les processus, les montages et les messages utiles. Automatiser une tâche n’élimine pas la nécessité de contrôler son résultat et la place prise par ses journaux.
@@ -89,11 +95,59 @@ Le TP de planification utilise François : archive du home les jours ouvrables �
 
 La source écrit `file /vin/bash` : utiliser `file /bin/bash`. `lsof /root` ne signifie pas automatiquement tous les descendants ; l’option récursive appropriée et le périmètre doivent être choisis. Dans `free`, la colonne available estime ce qui est mobilisable sans swap ; la seule colonne free ne représente pas toute la mémoire utilisable. La charge moyenne n’est pas un simple pourcentage CPU.
 
-## TP — agir sur un processus ciblé
+## TP 01 — Rechercher et produire des événements
 
-Ouvrir deux sessions SSH ordinaires et relever leurs terminaux et PID avec `ps`. Le serveur voit sshd et le shell distant, pas nécessairement un processus nommé PuTTY : PuTTY s’exécute sur le client Windows. Le nom finissant par `d` est un exercice de filtrage, pas une définition fiable de « démon ».
+1. Sur le serveur du TP, relever les événements d’ouverture de session et le nom du service qui les émet. Exporter les lignes retenues dans `/adm/sessions.txt`. Pour le disque `sda`, relever dans les messages du noyau le nombre de secteurs et la capacité du support affiché.
+2. Vérifier que rsyslog est présent et créer le répertoire de destination prévu par le laboratoire. Ajouter des règles dans sa configuration. Les règles ci-dessous envoient les événements cron dans un fichier dédié et les priorités warning et plus graves dans un autre.
 
-Envoyer d’abord SIGTERM au **PID identifié de la deuxième session**, puis observer. Si le scénario exige sa terminaison et que le processus n’a pas terminé, SIGKILL est non interceptable ; il empêche le nettoyage normal. Ne pas confondre le PID du shell, celui de sshd et celui du terminal client. Les signaux et vérifications précis restent dans le corrigé associé.
+```text
+cron.*      /adm/logs/cron.log
+*.warning   /adm/logs/warnings.log
+```
+
+3. Valider la configuration et la charger. Envoyer deux messages repérables, puis vérifier chacun des deux fichiers. Le message warning atteint les deux destinations. Le message info atteint la destination cron. Si le TP demande le seul niveau warning, utiliser `*.=warning`.
+
+```bash
+sudo rsyslogd -N1
+sudo systemctl restart rsyslog
+logger -p cron.warning 'TSSR-TP12 warning'
+logger -p cron.info 'TSSR-TP12 info'
+sudo grep -F 'TSSR-TP12' /adm/logs/cron.log /adm/logs/warnings.log
+```
+
+## TP 02 — Planifier les tâches de François et du système
+
+Préparer l’archive de départ et vérifier les droits d’écriture de François dans le dépôt de l’atelier 10. Tester les commandes sous son compte avant de les planifier. Les deux entrées suivantes vont dans sa crontab utilisateur.
+
+```cron
+15 9 * * 1-5 cd / && /usr/bin/tar -uf /srv/depot/francois.tar home/francois/
+0 10 * * 6 /usr/bin/bzip2 -f /srv/depot/francois.tar && /usr/bin/tar -cf /srv/depot/francois.tar -C / home/francois/
+```
+
+La première s’exécute à 9 h 15 du lundi au vendredi. La seconde compresse l’archive le samedi à 10 h et crée une nouvelle archive si la compression réussit. L’option `-f` permet de remplacer le fichier compressé de la semaine précédente comme dans le corrigé. Pour conserver plusieurs semaines, utiliser des noms distincts. L’intitulé « 1ère minute » de la correction contredit l’heure de l’énoncé et sa propre ligne de crontab.
+
+La tâche système ajoute le compte d’exécution après les cinq champs de calendrier. L’exemple écrit l’heure et les processus détaillés à la suite du journal demandé chaque mardi, toutes les 30 minutes.
+
+```cron
+*/30 * * * 2 root { /usr/bin/date; /usr/bin/ps auxf; } >> /var/log/procstatus.log 2>&1
+```
+
+Vérifier la crontab avec `crontab -l` sous le compte concerné. Tester l’écriture du journal et de l’archive avant d’attendre l’échéance, puis vérifier les traces de cron et le résultat produit.
+
+## TP 03 — Mesurer et agir sur le processus demandé
+
+1. Relever la mémoire totale, disponible et le swap dans `free -m` et `/proc/meminfo`. Le corrigé donne environ 975 Mio de swap total et 0 utilisé sur sa machine. Relever les valeurs réelles du serveur du TP.
+2. Ouvrir une seconde connexion depuis PuTTY, relever son terminal, son compte et son PID côté serveur. PuTTY tourne côté client, tandis que le serveur voit `sshd` et le shell distant.
+3. Vérifier le processus exact par son PID avant d’agir. Envoyer SIGTERM au shell du TP et vérifier l’effet depuis la première connexion. La commande de la source dépourvue de PID est conservée dans l’Original.
+
+```bash
+free -m
+grep -E '^(MemTotal|MemAvailable|SwapTotal|SwapFree):' /proc/meminfo
+w
+ps -eo pid,ppid,user,tty,args
+```
+
+Utiliser `ps -p "$pid" -o pid,ppid,user,tty,args` après avoir affecté à `pid` le numéro relevé. N’envoyer le signal qu’après avoir identifié la seconde session et exclu sa propre connexion de contrôle. Voir le corrigé pour les vérifications du PID et de l’arrêt.
 
 ## Schéma explicatif — complément pédagogique
 
@@ -103,18 +157,24 @@ flowchart LR
  V --> O
 ```
 
+## À retenir
+
+Une règle de journalisation se valide par un message connu. Une crontab se contrôle par ses champs, son compte et sa sortie. Avant d’envoyer un signal, vérifier que le PID correspond toujours à la seconde session du TP.
+
 ## Autoévaluation
 
 1. Une crontab utilisateur contient-elle un champ utilisateur ?
 2. Comment vérifier que cron a émis un événement et qu’une règle l’a bien écrit ?
 3. Pourquoi la colonne free n’est-elle pas seule suffisante ?
 4. PuTTY tourne-t-il sur le serveur Debian de ce scénario ?
+5. Quels journaux doivent recevoir le test `cron.warning` dans l’atelier ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Non ; le champ supplémentaire concerne les tables système.
     2. Générer un message identifié avec logger puis examiner les destinations attendues.
     3. Des caches sont récupérables ; available apporte une estimation différente.
     4. Non ; le serveur voit notamment sshd et le shell distant.
+    5. La destination `cron.*` et celle des avertissements. Un message `cron.info` ne relève que de la première de ces deux règles.
 
 ## Pour travailler ce module
 

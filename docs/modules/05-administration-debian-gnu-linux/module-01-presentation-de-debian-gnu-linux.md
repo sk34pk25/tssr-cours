@@ -3,6 +3,10 @@
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
 ## Objectifs et repères
 
+- Situer Debian dans l’écosystème GNU/Linux et expliquer le rôle de son contrat social.
+- Distinguer la version installée, la branche suivie et la suite utilisée par APT.
+- Lire les invites des exemples et préparer une VM de laboratoire.
+
 Debian est une distribution GNU/Linux : elle assemble le noyau Linux, les outils utilisateur, un système de paquets et des logiciels organisés en dépôts. Le projet naît en août 1993. Ses versions portent les noms de personnages de *Toy Story*. Pour administrer une machine, il faut distinguer le **numéro de version**, son **nom de code**, sa **branche** et la **version du noyau** : ces informations ne sont pas interchangeables.
 
 Le support présente Debian comme une base particulièrement adaptée aux serveurs et cite Ubuntu et Linux Mint parmi ses dérivées. Cette orientation pédagogique explique le choix d’un serveur en console dans les TP ; Debian propose également des environnements de bureau.
@@ -53,16 +57,24 @@ flowchart LR
  S --> K["Noyau + outils + paquets"]
 ```
 
+## À retenir
+
+Relever la version installée avant de choisir une commande ou un dépôt. Stable, testing et unstable correspondent à des rôles différents. L’invite sert à repérer le contexte d’exécution des exemples.
+
 ## Autoévaluation
 
 1. Quelle différence existe entre `trixie` et `stable` ?
 2. Faut-il recopier `user@deb:~$` dans le terminal ?
 3. Pourquoi noter la version avant de configurer les dépôts ?
+4. Comment relever la suite installée avant de lire un exemple APT ?
+5. Quelle vérification précède une commande précédée de `#` dans le support ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Le nom de code identifie une version ; l’alias stable change avec les publications.
     2. Non : c’est l’invite, pas la commande.
     3. Les dépôts doivent correspondre à la version et au projet de mise à jour prévu.
+    4. Lire `/etc/os-release` et noter `VERSION_CODENAME`, puis vérifier les sources réellement configurées.
+    5. Déterminer si le symbole représente une invite d’administration et si la commande exige réellement ces droits.
 
 ## Pour travailler ce module
 

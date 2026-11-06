@@ -1,6 +1,12 @@
 # Module 07 — Gestion des espaces de stockage
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Distinguer le disque, la table de partitions et les partitions qu’elle décrit.
+- Reconnaître le type de table et les noms de périphériques.
+- Observer et reproduire la démonstration de partitionnement sur le disque prévu.
+
 ## Disque, table et partitions
 
 Un disque est un périphérique bloc ; sa table de partitions décrit des régions utilisables. Une partition n’est pas encore un système de fichiers et un point de montage n’est pas une partition. Le support prépare les niveaux étudiés ensuite : partitionnement, LVM, puis systèmes de fichiers.
@@ -68,16 +74,24 @@ flowchart TD
  E --> L["Partitions logiques à partir de /dev/sdb5"]
 ```
 
+## À retenir
+
+Identifier le disque avant toute écriture. Le nom d’une partition dépend du type de périphérique. Vérifier la table et le résultat avec deux outils de lecture avant de poursuivre vers LVM.
+
 ## Autoévaluation
 
 1. Que fait `q` avant l’écriture ?
 2. Le type `8e` formate-t-il une partition ?
 3. Pourquoi vérifier taille et identité du disque, en plus du nom `/dev/sdb` ?
+4. Que vérifier avant d’écrire une table avec `fdisk` ?
+5. Que permet `lsblk` après le partitionnement ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Il abandonne les modifications en attente.
     2. Non : c’est un type de partition MBR.
     3. L’ordre de détection peut changer et le nom seul ne prouve pas que c’est le bon disque.
+    4. Confirmer le disque cible, les tailles et types de partitions et l’absence de données à conserver sur ce disque.
+    5. Voir quels périphériques et partitions le noyau présente, avec leur hiérarchie et leurs tailles.
 
 ## Pour travailler ce module
 

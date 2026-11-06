@@ -1,6 +1,12 @@
 # Module 04 — Debian en mode maintenance
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Choisir un accès de maintenance selon la possibilité d’amorcer le système.
+- Identifier la racine montée et vérifier son mode avant toute écriture.
+- Comparer le shell initial et le secours de l’ISO, puis contrôler le retour au démarrage normal.
+
 ## Choisir le moyen de maintenance
 
 Le support traite trois situations : démarrage impossible après une modification, récupération de données et perte du mot de passe root. Le TP se déroule sur les VM du laboratoire avec accès à leur console. Il compare le secours fourni par le système installé et celui du média d’installation.
@@ -56,6 +62,29 @@ Le support souligne les avantages du média : langue française, accès de secou
 !!! info "Clarifications externes — fin du secours"
     Le tiret de `mount -o` doit être un tiret ASCII, contrairement au tiret typographique visible dans la source. En secours systemd, quitter le shell peut poursuivre le démarrage normal ; cela ne signifie pas entrer pour la première fois dans `rescue.target`, déjà associé au secours. Le shell lancé par `init=/bin/bash` n’est pas une session de secours systemd ordinaire. Références : [systemd.special(7)](https://www.freedesktop.org/software/systemd/man/latest/systemd.special.html) et [mode de secours Debian](https://www.debian.org/releases/trixie/amd64/ch08s06.fr.html).
 
+## TP — Comparer deux accès de maintenance
+
+### Serveur en console, shell initial
+
+Sur la VM du TP, appliquer temporairement `init=/bin/bash` à l’entrée GRUB décrite plus haut. Avant le remontage, noter le mode affiché pour la racine. Après `mount -o remount,rw /`, confirmer qu’elle est en lecture-écriture et créer un fichier témoin dans `/root`.
+
+```bash
+id
+findmnt --mountpoint /
+mount -o remount,rw /
+findmnt --mountpoint /
+touch /root/tssr-maintenance-test
+ls -l /root/tssr-maintenance-test
+findmnt --mountpoint /home
+ls -ld /home
+```
+
+Si `/home` n’est pas monté séparément, comparer la disposition relevée au module 02 avant de conclure sur le contenu visible. Synchroniser les écritures avant de quitter le mode de maintenance. Contrôler ensuite le démarrage normal de la VM.
+
+### Poste graphique, média d’installation
+
+Démarrer sur le média, choisir **Advanced options**, puis **Rescue mode** et sélectionner la racine du poste installé. Dans le shell proposé, distinguer le système de secours du système installé, qui peut être monté sous `/target` selon le choix. Utiliser `id` et `findmnt`, puis identifier le bon répertoire `/etc` avant d’ouvrir le fichier demandé. Un changement de test doit rester réversible. Relever le compte effectif et le point de montage dans le compte rendu.
+
 ## Schéma explicatif — complément pédagogique
 
 ```mermaid
@@ -68,16 +97,24 @@ flowchart TD
  V --> R["Intervention ciblée puis contrôle du démarrage"]
 ```
 
+## À retenir
+
+Le shell initial, la cible de secours et l’ISO ne présentent pas nécessairement les mêmes montages. Identifier l’utilisateur effectif, la racine réelle et le mode du montage avant une modification.
+
 ## Autoévaluation
 
 1. Pourquoi `/home` peut-il sembler vide dans le shell initial ?
 2. Quelle commande rend la racine montée accessible en écriture ?
 3. Pourquoi identifier la racine choisie depuis l’ISO ?
+4. Le fichier `/etc` ouvert dans le shell de l’ISO appartient-il forcément au système installé ?
+5. Pourquoi vérifier `findmnt --mountpoint /home` dans le shell initial ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. Son volume séparé n’est peut-être pas monté.
     2. `mount -o remount,rw /`.
     3. Le shell de secours et le système à réparer ne sont pas nécessairement la même arborescence.
+    4. Vérifier où la racine installée est montée. Selon le shell sélectionné, elle peut se trouver sous `/target`.
+    5. Le résultat permet de voir si le volume distinct est monté. Un chemin visible sur la racine ne prouve pas que le volume de données a été monté.
 
 ## Pour travailler ce module
 

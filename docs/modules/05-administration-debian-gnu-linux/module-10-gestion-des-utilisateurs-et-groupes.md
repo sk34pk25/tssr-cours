@@ -1,6 +1,12 @@
 # Module 10 — Gestion des utilisateurs et groupes
 
 **Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
+## Objectifs
+
+- Lire l’identité d’un compte et distinguer groupe principal et groupes secondaires.
+- Créer les trois comptes du scénario avec les shells et répertoires attendus.
+- Contrôler le verrouillage et l’expiration du compte à désactiver.
+
 ## Identités et groupes
 
 Linux contrôle les identités à partir d’identifiants numériques. L’**UID** identifie l’utilisateur ; le **GID** représente un groupe. Un compte possède un groupe principal et peut appartenir à plusieurs groupes supplémentaires. Le nom est une résolution lisible de ces nombres : renommer un compte ne change pas automatiquement l’UID propriétaire des fichiers.
@@ -80,11 +86,36 @@ Shadow enregistre des paramètres temporels en jours, notamment à partir de l�
 
 La source montre l’appartenance au groupe sudo et `sudo -i`. La durée de mémorisation n’est pas une constante de cinq minutes : elle dépend de la configuration. Examiner les autorisations avec `sudo -l` ; administrer les règles avec les outils appropriés, tels que `visudo`, plutôt qu’éditer à l’aveugle une règle. Référence externe : [sudoers(5)](https://manpages.debian.org/trixie/sudo-ldap/sudoers.5.en.html).
 
-## Application au TP
+## TP — Préparer les trois comptes du serveur
 
-Créer admin, stagiaires, documentation et vip si nécessaires. François utilise sh, le groupe principal admin et les groupes stagiaires/documentation. Frédéric utilise bash et les mêmes groupes supplémentaires ; son mot de passe doit expirer à la première connexion. Fabrice utilise bash et vip, avec compte désactivé. Les mots de passe faibles de la source sont des valeurs de laboratoire ; saisir les secrets avec `passwd` plutôt que les placer dans une ligne conservée par l’historique.
+Créer les groupes requis avant les comptes. Vérifier d’abord l’état existant. Sur la VM vierge de l’exercice, créer les groupes manquants parmi `admin`, `stagiaires`, `documentation` et `vip`.
 
-Le corrigé évoque `/home/fred`, tandis que l’énoncé demande `/home/frederic` : suivre l’énoncé et signaler cette divergence dans le compte rendu. Tester les comptes et les groupes au lieu de seulement constater que useradd n’a rien affiché.
+| Compte | Shell | Répertoire personnel | Groupe principal demandé | Groupes supplémentaires |
+| --- | --- | --- | --- | --- |
+| `francois` | `/bin/sh` | `/home/francois` | `admin` | `stagiaires,documentation` |
+| `frederic` | `/bin/bash` | `/home/frederic` | Selon la politique de création locale | `stagiaires,documentation` |
+| `fabrice` | `/bin/bash` | `/home/fabrice` | Selon la politique de création locale | `vip` |
+
+```bash
+getent group admin stagiaires documentation vip
+sudo useradd -m -d /home/francois -s /bin/sh -g admin -G stagiaires,documentation francois
+sudo useradd -m -d /home/frederic -s /bin/bash -G stagiaires,documentation frederic
+sudo useradd -m -d /home/fabrice -s /bin/bash -G vip fabrice
+sudo usermod -L -e 1 fabrice
+```
+
+Définir les secrets des deux comptes actifs selon la procédure du laboratoire, sans les noter dans le compte rendu. Le corrigé évoque `/home/fred`. L’énoncé demande `/home/frederic`, repris ici. `-L` verrouille l’authentification par mot de passe et `-e 1` fixe une date d’expiration passée. Contrôler l’état et la politique d’authentification de la VM.
+
+```bash
+getent passwd francois frederic fabrice
+id francois
+id frederic
+id fabrice
+sudo passwd -S fabrice
+sudo chage -l fabrice
+```
+
+Vérifier le shell, le répertoire, les groupes et l’état du compte avec ces résultats. Si un compte change de groupe, ouvrir une nouvelle session avant de tester son accès au stockage du module 11.
 
 ## Schéma explicatif — complément pédagogique
 
@@ -96,16 +127,24 @@ flowchart LR
  U --> A["Authentification / expiration"]
 ```
 
+## À retenir
+
+Créer les groupes avant les comptes, puis vérifier les attributs avec `getent`, `id` et les outils d’état du compte. Une commande réussie sans affichage ne prouve pas l’ensemble des droits.
+
 ## Autoévaluation
 
 1. Pourquoi préférer `usermod -aG` pour ajouter une appartenance ?
 2. Verrouiller le mot de passe suffit-il toujours à désactiver un compte ?
 3. Combien de champs comporte gshadow ?
+4. Quelles commandes contrôlent le shell et les groupes de Frédéric ?
+5. Pourquoi rouvrir une session après l’ajout d’un groupe ?
 
-??? success "Réponses"
+??? success "Réponses commentées"
     1. `-G` seul remplace la liste des groupes supplémentaires.
     2. Non ; expiration et autres méthodes d’authentification doivent être considérées.
     3. Quatre.
+    4. `getent passwd frederic` indique son shell et son répertoire personnel. `id frederic` indique son groupe principal et ses groupes supplémentaires.
+    5. Les processus de la session déjà ouverte peuvent conserver les groupes chargés à la connexion.
 
 ## Pour travailler ce module
 
