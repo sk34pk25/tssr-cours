@@ -12,69 +12,7 @@
 
 </section>
 <section class="tssr-transcribed-page" id="page-2">
-
-<h4>Définition du service DHCP</h4>
-<h4 class="tssr-source-paragraph">Dynamic Host Configuration Protocol</h4>
-<h4 class="tssr-source-paragraph">Avantages Inconvénients</h4>
-
-
-
-<h4>La notion de bail</h4>
-<p class="tssr-source-paragraph">Ensemble des informations qu’un serveur DHCP transmet à son client.</p>
-<h4 class="tssr-source-paragraph">Une durée</h4>
-<h4 class="tssr-source-paragraph">Il contient</h4>
-<h4 class="tssr-source-paragraph">D’autres paramètres</h4>
-<h4 class="tssr-source-paragraph">Une adresse IP</h4>
-<h4 class="tssr-source-paragraph">Un masque</h4>
-
-
-<pre><code>Le service DHCP
-  Définition du service DHCP
-
-     Dynamic Host Configuration Protocol
-
-
-                                             Avantages          Inconvénients
-
-
-
-
-
-                                                                                         3
-
-
-3
-
-
-  Le service DHCP
- La notion de bail
-
-      Ensemble des informations qu’un serveur DHCP transmet à son client.
-
-
-
-
-                                                                Une durée
-
-
-
-
-
-                                                          paramètres                                                                 D’autres          Il contient       adresseUne IP
-
-
-
-
-
-                                                            Un masque
-
-
-                                                                                         4
-
-
-4</code></pre>
-
-
+<h4>Définition du service DHCP</h4><p>Dynamic Host Configuration Protocol</p><table><caption>Comparaison du support</caption><thead><tr><th scope="col">Avantages</th><th scope="col">Inconvénients</th></tr></thead><tbody><tr><td>Propagation rapide des informations</td><td>Ouvert à toute demande</td></tr><tr><td>Réduction des erreurs</td><td>Vulnérabilité accrue aux attaques DOS</td></tr><tr><td>Centralisation du réseau</td><td></td></tr></tbody></table><h4>La notion de bail</h4><p>Ensemble des informations qu’un serveur DHCP transmet à son client.</p><ul><li>Une durée</li><li>Une adresse IP</li><li>Un masque</li><li>D’autres paramètres</li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-3">
 
@@ -99,97 +37,10 @@
 
 </section>
 <section class="tssr-transcribed-page" id="page-4">
-
-<h4>La notion de bail</h4>
-<h4 class="tssr-source-paragraph">La résiliation du bail</h4>
-<p class="tssr-source-paragraph">DHCP-1</p>
-<p class="tssr-source-paragraph">DHCP-2</p>
-
-
-
-<h4>Les conteneurs</h4>
-<h4 class="tssr-source-paragraph">Nom : LAN_Serveurs</h4>
-<h4 class="tssr-source-paragraph">Les conteneurs de gestion du serveur DHCP À la base : l’étendue</h4>
-<h4 class="tssr-source-paragraph">Un nom</h4>
-<h4 class="tssr-source-paragraph">L’étendue est</h4>
-<p class="tssr-source-paragraph">caractérisée</p>
-<h4 class="tssr-source-paragraph">Des exclusions</h4>
-<h4 class="tssr-source-paragraph">Une plage d’adresses</h4>
-<h4 class="tssr-source-paragraph">Exclusions : 192.168.0.5 à 192.168.0.10</h4>
-<h4 class="tssr-source-paragraph">Plage d’adresses : 192.168.0.1 à 192.168.0.254 /24</h4>
-<p class="tssr-source-paragraph">par</p>
-<h4 class="tssr-source-paragraph">Une durée</h4>
-<h4 class="tssr-source-paragraph">Durée du bail : 2 jours</h4>
-
-
-
-
+<h4>La notion de bail</h4><h4 class="tssr-source-paragraph">La résiliation du bail</h4><p class="tssr-source-paragraph">DHCP-1</p><p class="tssr-source-paragraph">DHCP-2</p><h4>Les conteneurs</h4><h5>À la base : l’étendue</h5><table><caption>Exemple d’étendue</caption><thead><tr><th scope="col">Caractéristique</th><th scope="col">Valeur du support</th></tr></thead><tbody><tr><td>Un nom</td><td>LAN_Serveurs</td></tr><tr><td>Une plage d’adresses</td><td>192.168.0.1 à 192.168.0.254 /24</td></tr><tr><td>Des exclusions</td><td>192.168.0.5 à 192.168.0.10</td></tr><tr><td>Une durée</td><td>2 jours</td></tr></tbody></table>
 </section>
 <section class="tssr-transcribed-page" id="page-5">
-
-<h4>Les conteneurs</h4>
-<h4 class="tssr-source-paragraph">Nom : SRVFIC</h4>
-<h4 class="tssr-source-paragraph">Les conteneurs de gestion du serveur DHCP Le plus ciblé : la réservation</h4>
-<h4 class="tssr-source-paragraph">Un nom</h4>
-<h4 class="tssr-source-paragraph">La réservation</h4>
-<h4 class="tssr-source-paragraph">Le conteneur</h4>
-<p class="tssr-source-paragraph">Le conteneur parent :</p>
-<h4 class="tssr-source-paragraph">L’adresse IP à</h4>
-<p class="tssr-source-paragraph">réserver</p>
-<h4 class="tssr-source-paragraph">parent : l’étendue</h4>
-<p class="tssr-source-paragraph">LAN_Serveurs</p>
-<h4 class="tssr-source-paragraph">Adresse IP : 192.168.0.1</h4>
-<h4 class="tssr-source-paragraph">est caractérisée</h4>
-<p class="tssr-source-paragraph">par</p>
-<h4 class="tssr-source-paragraph">L’adresse matérielle de l’équipement</h4>
-<h4 class="tssr-source-paragraph">L’adresse MAC : 00155D6E6E03</h4>
-
-
-<h4>Démonstration</h4>
-
-
-<pre><code>Le service DHCP
- Les conteneurs
-
-        Les conteneurs de gestion du serveur DHCP
-        Le plus ciblé : la réservation          Nom : SRVFIC
-
-
-                                                                                      Un nom
-
-
-
-                                                                                     La
-                                                                                         réservation                                                                                        conteneur                                   Le conteneur                                                  parent :   Le                                                                                             Adresse                                                                                                                       IP :                                                                                           parent                                                                                                                                                                                                                      :                                                                                                est              L’adresseréserverIP à                                                                                              l’étendue                                      LAN_Serveurs                                                                                                     192.168.0.1                                                                                          caractérisée
-                                                                                      par
-
-
-
-                                                                                                                       L’adresse
-                                                                                                                        matérielle de
-                                                                                                            l’équipement
-
-                                                                    L’adresse MAC : 00155D6E6E03
-
-                                                                                         9
-
-
-9
-
-
-
-
-          Démonstration
-
-
-
-
-
-                                                                                          10
-
-
-10</code></pre>
-
+<h4>Les conteneurs</h4><h5>Le plus ciblé : la réservation</h5><table><caption>Exemple de réservation</caption><thead><tr><th scope="col">Caractéristique</th><th scope="col">Valeur du support</th></tr></thead><tbody><tr><td>Un nom</td><td>SRVFIC</td></tr><tr><td>Le conteneur parent : l’étendue</td><td>LAN_Serveurs</td></tr><tr><td>L’adresse IP à réserver</td><td>192.168.0.1</td></tr><tr><td>L’adresse matérielle de l’équipement</td><td>00155D6E6E03</td></tr></tbody></table><h4>Démonstration</h4>
 </section>
 <section class="tssr-transcribed-page" id="page-6">
 

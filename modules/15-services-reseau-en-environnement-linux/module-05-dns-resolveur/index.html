@@ -3126,6 +3126,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#les-noms-et-les-reponses-dns" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3162,10 +3173,27 @@
   <a href="#verifier-la-resolution-avant-et-apres-redirection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier la résolution avant et après redirection
+        TP guidé — Comparer la résolution avant et après redirection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="TP guidé — Comparer la résolution avant et après redirection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preuves-a-relever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preuves à relever
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3181,10 +3209,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -14793,6 +14832,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#les-noms-et-les-reponses-dns" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14829,10 +14879,27 @@
   <a href="#verifier-la-resolution-avant-et-apres-redirection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vérifier la résolution avant et après redirection
+        TP guidé — Comparer la résolution avant et après redirection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="TP guidé — Comparer la résolution avant et après redirection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preuves-a-relever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preuves à relever
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -14848,10 +14915,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -14979,7 +15057,9 @@
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-1"><h2>Services réseau en environnement Linux</h2><p>Module 05 – DNS Résolveur</p><h3>DNS Partie 1</h3><h3>Objectifs</h3><ul><li>Comprendre le fonctionnement du service DNS</li><li>Mettre en place un serveur DNS résolveur</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-2"><h3>DNS Partie 1</h3><h2>Fonctionnement du service</h2><h2>DNS</h2><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><ul><li>Le service DNS va, entre autres, permettre :</li><li>De faire la correspondance entre un FQDN et une adresse IP</li><li>Et inversement, d'indiquer le nom d'hôte à partir d'une IP</li><li>De connaître les serveurs de messagerie d'un domaine</li><li>Service essentiel au fonctionnement d'Internet</li><li>Protocole standardisé par l'IETF</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-3"><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><p>Toute machine (client, serveur, mobile, etc.) va constamment faire des requêtes sur le serveur DNS associé pour obtenir des IP.</p><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/e323a04269a38662/linux-net-vector-4.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/e323a04269a38662/linux-net-vector-4.webp" loading="lazy" alt="Requête DNS et réponse IPv4 de l’exemple source"></a><figcaption>Requête DNS et réponse IPv4 de l’exemple source</figcaption></figure><p>L’exemple du support demande l’adresse de www.baidu.com. Le serveur répond 103.235.46.39.</p><p>@IP de www.baidu.com . ?</p><p>@IP de www.baidu.com .</p><p>= 103.235.46.39</p><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><ul><li>La structure de nommage du DNS est arborescente.</li><li>Une URL va se lire de la droite vers la gauche pour descendre l'arborescence DNS.</li><li>Le séparateur de « niveau » est le point.</li><li>Les domaines dits TLD (Top Level Domain) sont gérés par l'IANA.</li></ul></section>
-<section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-4"><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><h3>FQDN</h3><h3>https://</h3><h3>www.indiatimes.com.</h3><p>3 2 1</p><table><tbody><tr><th>Élément</th><th>Signification</th></tr><tr><td>. (1)</td><td>Le point par lequel se termine tout nom de domaine représente la racine de l’espace de nom DNS.</td></tr><tr><td>com.</td><td>Nom de domaine, sous-domaine du domaine racine</td></tr><tr><td>. (2)</td><td>Point / caractère de séparation entre domaines</td></tr><tr><td>indiatimes.com.</td><td>Nom de domaine, sous-domaine du domaine « com. »</td></tr><tr><td>. (3)</td><td>Point / caractère de séparation entre le nom du domaine et le nom d’un hôte de ce domaine</td></tr><tr><td>www.indiatimes.com.</td><td>Nom d’hôte pleinement qualifié</td></tr></tbody></table><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><ul><li>Le protocole DNS peut aussi être utilisé pour des domaines non résolvables sur Internet pour des réseaux internes.</li><li>On utilise alors des suffixes non publics.</li></ul><table><tbody><tr><th>Domaine</th><th>Utilité</th></tr><tr><td>masuperentreprise.bzh</td><td>Nom de domaine utilisé pour référencer les services de mon entreprise <br>accessibles depuis l’Internet</td></tr><tr><td>enigmes.corp</td><td>Nom de domaine propre à mon entreprise dans lequel sont référencées <br>les ressources hébergées et accessibles uniquement localement dans <br>l’entreprise</td></tr></tbody></table></section>
+<section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-4">
+<h3>Fonctionnement du service DNS</h3><h4>Nom d’hôte pleinement qualifié</h4><p>Le schéma affiche <code>https://www.indiatimes.com.</code>. Les repères (1), (2) et (3) identifient les points expliqués dans le tableau.</p><table><tbody><tr><th>Élément</th><th>Signification</th></tr><tr><td>. (1)</td><td>Le point par lequel se termine tout nom de domaine représente la racine de l’espace de nom DNS.</td></tr><tr><td>com.</td><td>Nom de domaine, sous-domaine du domaine racine</td></tr><tr><td>. (2)</td><td>Point / caractère de séparation entre domaines</td></tr><tr><td>indiatimes.com.</td><td>Nom de domaine, sous-domaine du domaine « com. »</td></tr><tr><td>. (3)</td><td>Point / caractère de séparation entre le nom du domaine et le nom d’un hôte de ce domaine</td></tr><tr><td>www.indiatimes.com.</td><td>Nom d’hôte pleinement qualifié</td></tr></tbody></table><h4>Noms de domaine internes et publics</h4><ul><li>Le protocole DNS peut aussi être utilisé pour des domaines non résolvables sur Internet pour des réseaux internes.</li><li>On utilise alors des suffixes non publics.</li></ul><table><tbody><tr><th>Domaine</th><th>Utilité</th></tr><tr><td>masuperentreprise.bzh</td><td>Nom de domaine utilisé pour référencer les services de mon entreprise <br>accessibles depuis l’Internet</td></tr><tr><td>enigmes.corp</td><td>Nom de domaine propre à mon entreprise dans lequel sont référencées <br>les ressources hébergées et accessibles uniquement localement dans <br>l’entreprise</td></tr></tbody></table>
+</section>
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-5"><h3>Fonctionnement du service DNS</h3><h3>Fonctionnement DNS</h3><ul><li>On distingue deux « types » de résolution DNS :</li><li>Résoudre les requêtes clientes relatives à tout domaine =&gt; résolveur DNS complet</li><li>Être source d'information pour un ou plusieurs domaines ciblés =&gt; DNS faisant autorité</li></ul><h3>DNS Partie 1</h3><h2>Le DNS résolveur</h2></section>
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-6"><h3>Le DNS résolveur</h3><h3>Rôle</h3><ul><li>Un serveur DNS résolveur complet doit répondre aux requêtes des clients.</li><li>Pour y répondre, il doit faire appel à d'autres serveurs DNS.</li><li>Il n'est pas source d'information de domaines.</li></ul><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/e323a04269a38662/linux-net-vector-5.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/e323a04269a38662/linux-net-vector-5.webp" loading="lazy" alt="Interrogations du résolveur vers les autres serveurs DNS"></a><figcaption>Interrogations du résolveur vers les autres serveurs DNS</figcaption></figure><p>1. Le client adresse sa requête au résolveur. 2. Le résolveur interroge les autres serveurs DNS.</p><p>1 2</p><h3>Le DNS résolveur</h3><h3>Fonctionnement</h3><ul><li>Un serveur DNS résolveur complet interroge avec des requêtes itératives :</li><li>Les serveurs DNS racines</li><li>Les serveurs DNS faisant autorité sur les TLD</li><li>Les serveurs DNS faisant autorité sur le domaine</li><li>Il peut utiliser un serveur DNS « redirecteur » (forwarder) pour limiter les requêtes qu'il va faire.</li></ul></section>
 <section class="tssr-transcribed-page" id="source-1FH2JveLw64dsNm5dgFXqMSiz7DAdCg9P-page-7"><h3>Le DNS résolveur</h3><h3>Fonctionnement</h3><ul><li>On parle de redirecteur inconditionnel quand un serveur DNS lui adresse des requêtes récursives pour résoudre TOUTES les requêtes des clients.</li><li>On parle de redirecteur conditionnel pour indiquer pour un espace de nom donné le serveur à qui adresser la requête récursive de résolution.</li><li>Les deux peuvent être complémentaires.</li></ul><h3>Le DNS résolveur</h3><h3>Fonctionnement</h3><ul><li>Les serveurs DNS gardent les réponses des requêtes en cache.</li><li>La durée de conservation en cache est définie par les serveurs faisant autorité sur l'enregistrement.</li></ul></section>
@@ -15057,7 +15137,13 @@ include /etc/bind/named.conf.default-zones ;</code></pre></section>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Situer un FQDN et distinguer résolveur, redirecteur et autorité.</li>
+<li>Limiter les requêtes récursives de BIND au périmètre du laboratoire.</li>
+<li>Comparer les réponses avant et après configuration d’un redirecteur.</li>
+<li>Vérifier la résolution configurée côté client et le chemin réellement utilisé.</li>
+</ul>
 <h2 id="les-noms-et-les-reponses-dns">Les noms et les réponses DNS<a class="headerlink" href="#les-noms-et-les-reponses-dns" title="Permanent link">¶</a></h2>
 <p>DNS permet de trouver les adresses d’un hôte, le nom associé à une adresse quand une zone inverse le publie, ou les serveurs de messagerie d’un domaine. Un FQDN, <em>Fully Qualified Domain Name</em>, décrit la position complète d’un nom dans l’arborescence DNS. Le point final représente la racine. En lisant <code>www.indiatimes.com.</code> depuis la racine, on passe par <code>com.</code>, puis <code>indiatimes.com.</code>, puis l’hôte <code>www</code>.</p>
 <p>Le support place un schéma <code>https://</code> devant son exemple. La hiérarchie DNS porte sur la partie <strong>nom d’hôte</strong> de l’URL. Le schéma, le port et le chemin appartiennent à d’autres éléments de l’URL. Les TLD se trouvent sous la racine. Les zones publiques et privées suivent la même organisation en labels. Le support illustre une zone interne et une zone publiée sur Internet avec deux noms distincts.</p>
@@ -15145,7 +15231,7 @@ include /etc/bind/named.conf.default-zones ;</code></pre></section>
 <p class="admonition-title">Correction de contexte</p>
 <p>La solution historique place des directives de récursion et de validation dans <code>named.conf.local</code>. Elles s’insèrent dans le bloc de configuration prévu par BIND, généralement <code>options</code> pour la politique du serveur de ce TP. Le support demande aussi de désactiver DNSSEC pour son laboratoire. La validation DNSSEC contrôle l’authenticité et l’intégrité des données signées. BIND 9.18 rejette l’option <code>dnssec-enable</code> des captures. Conserver la validation dans le scénario courant et examiner la version utilisée. <a href="https://bind9.readthedocs.io/en/latest/reference.html">Référence BIND 9</a>, <a href="https://bind9.readthedocs.io/en/v9.18.0/notes.html">Notes de version BIND 9.18</a>.</p>
 </div>
-<h2 id="verifier-la-resolution-avant-et-apres-redirection">Vérifier la résolution avant et après redirection<a class="headerlink" href="#verifier-la-resolution-avant-et-apres-redirection" title="Permanent link">¶</a></h2>
+<h2 id="verifier-la-resolution-avant-et-apres-redirection">TP guidé — Comparer la résolution avant et après redirection<a class="headerlink" href="#verifier-la-resolution-avant-et-apres-redirection" title="Permanent link">¶</a></h2>
 <ol>
 <li>Valider la configuration avec <code>named-checkconf</code>, puis appliquer la modification avec <code>rndc reload</code> ou le mécanisme de l’unité installée.</li>
 <li>Diriger Cli-db-10, DEB-S1, DEB-S2 et RouTux vers <code>192.168.X.12</code> avec leur gestionnaire réseau respectif.</li>
@@ -15161,6 +15247,33 @@ include /etc/bind/named.conf.default-zones ;</code></pre></section>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>forward only;
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>forwarders { 9.9.9.9; };
 </span></code></pre></div>
+<h3 id="preuves-a-relever">Preuves à relever<a class="headerlink" href="#preuves-a-relever" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Essai</th>
+<th>Relevé attendu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service BIND sur DEB-S2</td>
+<td>Unité active, contrôle de syntaxe réussi et client inclus dans l’ACL.</td>
+</tr>
+<tr>
+<td>Requête explicite avant redirection</td>
+<td>Réponse et serveur <code>192.168.X.12</code>, avec code, type et TTL.</td>
+</tr>
+<tr>
+<td>Même requête avec le DNS du poste</td>
+<td>Serveur configuré pour le profil actif et résultat pour les deux noms du TP.</td>
+</tr>
+<tr>
+<td>Après redirection</td>
+<td>Politique appliquée et chemin observé dans la configuration, les journaux ou une trace autorisée.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="schema-explicatif-complementaire">Schéma explicatif complémentaire<a class="headerlink" href="#schema-explicatif-complementaire" title="Permanent link">¶</a></h2>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
@@ -15168,24 +15281,32 @@ include /etc/bind/named.conf.default-zones ;</code></pre></section>
  R --&gt;|Itératif| A["Racine, TLD, autorité"]
  R --&gt;|Selon configuration| F["Redirecteur"]
  R --&gt; C</div>
-<h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le client demande une réponse au DNS configuré. Le résolveur peut répondre depuis son cache, chercher auprès des autorités ou transmettre. Pour prouver le chemin, comparer la configuration et les traces du résolveur, en plus du résultat côté client.</p>
+<h2 id="autoevaluation">Mini-quiz — 5 questions<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
-<li>À quoi sert le point final d’un FQDN ?</li>
-<li>Quelle règle limite les clients autorisés à demander la récursion ?</li>
-<li>Quel mécanisme de sortie utilise <code>forward only</code> ?</li>
+<li>Que représente le point final d’un FQDN ?</li>
+<li>Quelle différence entre une autorité et un résolveur ?</li>
+<li>Que permet forward first après un échec du redirecteur ?</li>
+<li>Pourquoi comparer dig @adresse et dig sans adresse ?</li>
+<li>Deux requêtes donnent la même IP. Est-ce une preuve du même chemin ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
-<li>Il représente la racine et marque le nom absolu.</li>
-<li><code>allow-recursion</code> avec l’ACL voulue.</li>
-<li>Les redirecteurs configurés pour les recherches transférées.</li>
+<li>La racine de la hiérarchie DNS.</li>
+<li>L’autorité publie les données de sa zone. Le résolveur recherche ou transmet la requête pour le client.</li>
+<li>BIND peut poursuivre la recherche lui-même selon sa configuration, contrairement à forward only pour les requêtes concernées.</li>
+<li>La première commande vise le DNS désigné. La seconde vérifie le chemin choisi par la configuration du poste.</li>
+<li>Le cache, le redirecteur et une recherche itérative peuvent donner la même valeur. Il faut observer le chemin du résolveur.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../revision/services-reseau-linux/module-05-dns-resolveur/">Fiche de révision</a></li>
 <li><a href="../../../tp/services-reseau-linux/module-05/">Travaux pratiques</a></li>
+<li><a href="../../../tp/services-reseau-linux/module-05/enonces/">Énoncés</a> et <a href="../../../tp/services-reseau-linux/module-05/corrections/">corrections</a></li>
+<li><a href="../../../kahoot/services-reseau-linux-module-05/">Kahoot existant</a></li>
 <li><a href="../">Sommaire du cours</a></li>
 </ul>
 </div>

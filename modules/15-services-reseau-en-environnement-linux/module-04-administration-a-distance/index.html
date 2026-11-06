@@ -3098,6 +3098,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ouvrir-un-canal-dadministration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3142,6 +3153,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-guide-sessions-et-copies-securisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé — Sessions et copies sécurisées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-explicatif-complementaire" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3153,10 +3175,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -14793,6 +14826,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ouvrir-un-canal-dadministration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14837,6 +14881,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-guide-sessions-et-copies-securisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé — Sessions et copies sécurisées
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schema-explicatif-complementaire" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14848,10 +14903,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -15041,7 +15107,13 @@ deb http://ftp.fr.debian.org/debian/ buster-updates main</code></pre><ul><li>Met
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Installer et vérifier SSH sur les trois cibles Debian.</li>
+<li>Distinguer clé d’hôte, authentification du compte et phrase secrète.</li>
+<li>Tester l’accès par clé et comprendre la portée de la politique root.</li>
+<li>Récupérer les configurations de chaque serveur et vérifier les fichiers reçus.</li>
+</ul>
 <h2 id="ouvrir-un-canal-dadministration">Ouvrir un canal d’administration<a class="headerlink" href="#ouvrir-un-canal-dadministration" title="Permanent link">¶</a></h2>
 <p>SSH chiffre les échanges entre le client et le serveur. Le client vérifie l’identité de l’hôte via sa clé. Le serveur authentifie ensuite le compte demandé. Le support utilise le client OpenSSH et cite PuTTY, mRemoteNG et MobaXterm. Le TP fait de Cli-db-10 le poste d’administration, avec Terminator pour organiser les terminaux.</p>
 <p>Le paquet <code>openssh-server</code> fournit le service sur RouTux, DEB-S1 et DEB-S2. Le client doit pouvoir atteindre leurs adresses avant de configurer les clés. Les lignes Buster du TP appartiennent à Debian 10. Utiliser des dépôts qui correspondent à la version installée dans un laboratoire récent. <a href="https://www.debian.org/releases/buster/">Informations Debian Buster</a>.</p>
@@ -15069,30 +15141,46 @@ deb http://ftp.fr.debian.org/debian/ buster-updates main</code></pre><ul><li>Met
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>scp<span class="w"> </span>exemple.conf<span class="w"> </span>utilisateur@192.168.10.11:/tmp/
 </span></code></pre></div>
 <p>Dans la première copie, la source est distante et la destination locale. Dans la seconde, le fichier local part vers le serveur. Le compte doit avoir les droits de lecture sur la source et d’écriture à la destination. Le TP récupère les fichiers de configuration réseau, DNS et APT des trois machines. Vérifier le nom du fichier et son contenu après chaque transfert. Le support cite WinSCP et MobaXterm côté Windows. Depuis OpenSSH 9.0, <code>scp</code> utilise SFTP par défaut pour le transfert. <a href="https://www.openssh.org/txt/release-9.0">Notes OpenSSH 9.0</a>.</p>
+<h2 id="tp-guide-sessions-et-copies-securisees">TP guidé — Sessions et copies sécurisées<a class="headerlink" href="#tp-guide-sessions-et-copies-securisees" title="Permanent link">¶</a></h2>
+<ol>
+<li>Depuis Cli-db-10, vérifier l’accès IP aux trois serveurs. Installer <strong>Terminator</strong> sur le client du scénario et vérifier <code>openssh-server</code> sur RouTux, DEB-S1 et DEB-S2, avec les dépôts correspondant à leur version.</li>
+<li>Relever les empreintes d’hôte attendues. Avec le compte d’administration prévu sur Cli-db-10, générer une paire de clés et transférer <strong>la partie publique</strong> vers le compte ordinaire de chaque serveur. Pour <code>X=10</code>, les adresses du scénario sont <code>172.18.10.254</code>, <code>192.168.10.11</code> et <code>192.168.10.12</code>.</li>
+<li>Tester une nouvelle session par cible. Dans chacune, relever <code>hostname</code> et <code>whoami</code> pour prouver le serveur et le compte. Distinguer une phrase secrète locale du mot de passe du compte distant.</li>
+<li>Le corrigé montre une copie de clés autorisées vers root. Vérifier la politique serveur avant un essai de ce cas historique. Conserver une console de secours et vérifier un accès ordinaire autorisé avant de recharger SSH.</li>
+<li>Créer un dossier de réception par machine. Copier les fichiers réseau, DNS et APT demandés depuis chacune, avec les droits du compte prévu. Vérifier chemins et contenu à l’arrivée. Si un fichier exige des droits supplémentaires, employer le chemin de copie autorisé par le laboratoire.</li>
+</ol>
 <h2 id="schema-explicatif-complementaire">Schéma explicatif complémentaire<a class="headerlink" href="#schema-explicatif-complementaire" title="Permanent link">¶</a></h2>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
  C["Poste administrateur : clé privée"] --&gt; V["Vérification de la clé d’hôte"]
  V --&gt; A["Compte distant : clé publique autorisée"]
  A --&gt; S["Session ou transfert SSH"]</div>
-<h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>La clé privée reste sur le client. La clé publique va dans le compte distant. Tester l’identité du serveur, la connexion et les permissions avant de conclure qu’une copie a réussi.</p>
+<h2 id="autoevaluation">Mini-quiz — 5 questions<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quel fichier est transmis au serveur par <code>ssh-copy-id -i</code> ?</li>
-<li>Pourquoi une phrase secrète peut-elle être demandée après mise en place des clés ?</li>
-<li>Dans <code>scp hote:/etc/resolv.conf .</code>, où est la source ?</li>
+<li>Quel fichier passe sur le serveur avec ssh-copy-id -i ?</li>
+<li>Pourquoi une phrase secrète peut-elle encore être demandée ?</li>
+<li>Dans scp hote:/etc/resolv.conf ., où se trouve la source ?</li>
+<li>Que faut-il vérifier si l’empreinte de l’hôte a changé ?</li>
+<li>Pourquoi créer un dossier de réception par serveur ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
-<li>La clé publique désignée.</li>
-<li>Elle protège la clé privée utilisée par le client.</li>
-<li>Sur l’hôte distant, au chemin <code>/etc/resolv.conf</code>.</li>
+<li>La clé publique désignée. La clé privée reste sur Cli-db-10.</li>
+<li>Elle protège la clé privée sur le poste local et joue un autre rôle que le mot de passe du compte distant.</li>
+<li>Sur l’hôte distant. Le point indique la destination locale.</li>
+<li>L’identité et l’empreinte attendues par un canal de confiance avant d’accepter la nouvelle clé.</li>
+<li>Plusieurs serveurs ont des fichiers de même nom. Les séparer conserve leur provenance et évite l’écrasement.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../revision/services-reseau-linux/module-04-administration-a-distance/">Fiche de révision</a></li>
 <li><a href="../../../tp/services-reseau-linux/module-04/">Travaux pratiques</a></li>
+<li><a href="../../../tp/services-reseau-linux/module-04/enonces/">Énoncés</a> et <a href="../../../tp/services-reseau-linux/module-04/corrections/">corrections</a></li>
+<li><a href="../../../kahoot/services-reseau-linux-module-04/">Kahoot existant</a></li>
 <li><a href="../">Sommaire du cours</a></li>
 </ul>
 </div>

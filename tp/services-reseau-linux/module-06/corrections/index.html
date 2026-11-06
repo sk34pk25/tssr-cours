@@ -14720,14 +14720,9 @@
   ens33 = LAN Clients
   ens36 = LAN Serveurs</code></pre><pre><code>Reconfigurer le paquet :
 # dpkg-reconfigure isc-dhcp-server</code></pre></section>
-<section class="tssr-transcribed-page" id="source-1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX-page-2"><p>Services réseau en environnement Linux</p><h3>Etape 2 - Configuration du service isc-dhcp-server sur DEB-S1</h3><pre><code>Installation serveur dhcp :
-# aptitude install isc-dhcp-server</code></pre><pre><code>Configuration du service :
-# vi /etc/default/is-dhcp-server
- INTERFACESv4=’’ens33’’
-
-Et :
-
- # vi /etc/dhcp/dhcpd.conf
+<section class="tssr-transcribed-page" id="source-1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX-page-2">
+<h3>Etape 2 - Configuration du service isc-dhcp-server sur DEB-S1</h3><h5>Installation du serveur DHCP</h5><pre><code># aptitude install isc-dhcp-server</code></pre><h5>Configuration du service</h5><pre><code># vi /etc/default/is-dhcp-server
+ INTERFACESv4=’’ens33’’</code></pre><h5>Configuration de dhcpd.conf</h5><pre><code> # vi /etc/dhcp/dhcpd.conf
  # Options serveur
  option domain-name- servers 192.168.X.12;
  # Parametres generaux
@@ -14756,12 +14751,9 @@ Fichier /etc/rsyslog.conf
  local07.*                        /var/log/dhcpd.log
 
  Relance des service :
- # systemctl restart rsyslog isc-dhcp-server</code></pre><h3>Etape 3 - Analyse en mode Debug des échanges client &lt;=&gt; relais &lt;=&gt; serveur</h3><pre><code>Arrêt des services :
- # systemctl stop isc-dhcp- relay.service
- # systemctl status isc-dhcp- relay.service
-
-Démarrage du relai dhcp  en debug :
-# dhcrelay -d -iu ens36 -id  ens33 192.168.30.12</code></pre></section>
+ # systemctl restart rsyslog isc-dhcp-server</code></pre><h3>Etape 3 - Analyse en mode Debug des échanges client &lt;=&gt; relais &lt;=&gt; serveur</h3><h5>Arrêt des services</h5><pre><code> # systemctl stop isc-dhcp- relay.service
+ # systemctl status isc-dhcp- relay.service</code></pre><h5>Démarrage du relais DHCP en mode debug</h5><pre><code># dhcrelay -d -iu ens36 -id  ens33 192.168.30.12</code></pre>
+</section>
 <section class="tssr-transcribed-page" id="source-1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX-page-3"><p>Services réseau en environnement Linux</p><p>Sur le serveur dhcp : # dhcpd -d</p><p>Configurer le client pour passer en DHCP et vérifier les requêtes sur le relai et sur le serveur DHCP  Redémarrer les services : Sur deb-s2 # systemctl start isc-dhcp- server</p><p>Si erreur au démarrage, vérifier l’existence du fichier /var/run/dhcpd.pid (suite au lancement en mode debug). Le supprimer si nécessaire.  Sur routux : # systemctl start isc-dhcp- relay</p></section>
 
 <p class="tssr-original-proof">Référence du document : 1QKukILzDYo1_g60_BIdhNuNuzoQEm9ZX · <span title="Empreinte SHA-256 du fichier source">SHA-256 bc760acf7f894ae4…</span></p>

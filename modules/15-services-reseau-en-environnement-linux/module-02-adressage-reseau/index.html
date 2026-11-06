@@ -3042,6 +3042,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-interfaces-et-profils" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3111,7 +3122,7 @@
   <a href="#atelier-dadressage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Atelier d’adressage
+        TP guidé — Configurer la maquette
       
     </span>
   </a>
@@ -3130,10 +3141,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -14826,6 +14848,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-interfaces-et-profils" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14895,7 +14928,7 @@
   <a href="#atelier-dadressage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Atelier d’adressage
+        TP guidé — Configurer la maquette
       
     </span>
   </a>
@@ -14914,10 +14947,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -15152,20 +15196,20 @@ nameserver 10.100.0.3</code></pre><ul><li>nameserver : pour définir les serveur
 <section class="tssr-transcribed-page" id="source-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv-page-1"><p>Services réseau en environnement Linux</p><h2>Mise en œuvre et configuration réseau</h2><h3>TP 01 du Module 02 – Adressage réseau</h3><p>Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.</p><p>Durée estimée</p><p>3 heures</p><h2>Solution</h2><h3>Etape 1 - Configuration du LAN Clients</h3><p>Création de la machine virtuelle cliente :</p><table><tbody><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>Cli-db-10</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet4</td></tr></tbody></table><h2>Nom : Cli-db-10 IPv4 : * . 10</h2><h2>LAN Clients 172.18.num_stag.0 / 24 VMNet 4</h2><pre><code># nmcli connection modify Wired\ connection\ 1  ipv4.addresses
 172.18.X.10/24 ipv4.method  manual</code></pre></section>
 <section class="tssr-transcribed-page" id="source-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv-page-2"><p>Services réseau en environnement Linux</p><p>+ Désactivation/Activation connexion via nmtui</p><p>ou configuration + activation interactive via nmtui</p><p>ou configuration via l’interface graphique</p><p>Pour cli-deb-10, nommage de la machine à l’installation</p><pre><code>Ou # nmcli general hostname cli- deb-10</code></pre><p>Ou configuration interactive avec nmtui</p><h3>Etape 2 - Configuration du LAN Serveurs</h3><p>Création des machines virtuelles serveur :</p><p>Créer les machines virtuelles suivantes</p><table><tbody><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>DEB-S1</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet6</td></tr><tr><td>DEB-S2</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Custom / VMNet6</td></tr></tbody></table><figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/83cc3b4c3b97718f/linux-net-figure-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/83cc3b4c3b97718f/linux-net-figure-1.webp" loading="lazy" alt="LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12."></a><figcaption>LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.</figcaption></figure></section>
-<section class="tssr-transcribed-page" id="source-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv-page-3"><p>Services réseau en environnement Linux</p><p>Pour une configuration dynamique :</p><p>Sur deb-s1</p><pre><code> # ip a add 192.168.X.11 dev  ens33</code></pre><p>Sur deb-s2</p><pre><code> # ip a add 192.168.X.12 dev  ens33</code></pre><p>Pour flusher les interfaces :</p><pre><code> # ip a flush dev ens33</code></pre><p>Pour une configuration définitive</p><pre><code> Sur deb-s1
- # vi /etc/network/interface
+<section class="tssr-transcribed-page" id="source-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv-page-3">
+<h3>Pour une configuration dynamique</h3><p>Sur deb-s1</p><pre><code> # ip a add 192.168.X.11 dev  ens33</code></pre><p>Sur deb-s2</p><pre><code> # ip a add 192.168.X.12 dev  ens33</code></pre><p>Pour flusher les interfaces :</p><pre><code> # ip a flush dev ens33</code></pre><h3>Pour une configuration définitive</h3><h5>Sur deb-s1</h5><pre><code> # vi /etc/network/interface
  auto ens33
  iface ens33 inet static
 
 address  192.168.X.11
 
-netmask  255.255.255.0</code></pre><p>Sur deb-s2</p><p>Même chose que pour deb-s1 avec IP  192.168.X.12</p><p>Ne pas oublier de redémarrer la configuration : # systemctl restart  networking.service</p><pre><code>Pour le hostname :
-# vi /etc/hostname
+netmask  255.255.255.0</code></pre><p>Sur deb-s2</p><p>Même chose que pour deb-s1 avec IP  192.168.X.12</p><p>Ne pas oublier de redémarrer la configuration.</p><pre><code># systemctl restart  networking.service</code></pre><h5>Configurer le nom d’hôte</h5><pre><code># vi /etc/hostname
 
 deb-s1
 # hostname –F  /etc/hostname
 # vi /etc/hosts
- 127.0.1.1 deb-s1</code></pre><p>Même chose avec deb-s2</p></section>
+ 127.0.1.1 deb-s1</code></pre><p>Même chose avec deb-s2</p>
+</section>
 <section class="tssr-transcribed-page" id="source-1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv-page-4"><p>Services réseau en environnement Linux</p><h2>Etape 3 - Préparation d’un serveur supplémentaire</h2><p>Créer une machine virtuelle avec les caractéristiques suivantes :</p><table><tbody><tr><th>Nom de la VM</th><th>Système d’exploitation</th><th>RAM</th><th>Réseau</th></tr><tr><td>RouTux</td><td>Linux Debian 10.x 64 bits</td><td>1024 MB</td><td>Aucune carte réseau</td></tr></tbody></table><p>Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant.</p></section>
 
 <p class="tssr-original-proof">Référence du document : 1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv · <span title="Empreinte SHA-256 du fichier source">SHA-256 83cc3b4c3b97718f…</span></p>
@@ -15178,7 +15222,13 @@ deb-s1
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Associer chaque carte VMware à son interface Linux.</li>
+<li>Distinguer l’état réseau courant et la configuration persistante.</li>
+<li>Configurer DEB-S1, DEB-S2 et Cli-db-10 avec le gestionnaire prévu.</li>
+<li>Vérifier les noms, adresses, routes et réponses avant et après rechargement.</li>
+</ul>
 <h2 id="identifier-interfaces-et-profils">Identifier interfaces et profils<a class="headerlink" href="#identifier-interfaces-et-profils" title="Permanent link">¶</a></h2>
 <p>Le support présente les noms prévisibles issus de la détection du matériel, tels que <code>ens33</code> et <code>enp0s…</code>, et l’ancien schéma <code>eth0</code>, <code>eth1</code>. <code>lo</code> est l’interface de boucle locale. Dans la maquette, une adresse MAC permet de relier la carte affichée par VMware à l’interface reconnue par Debian. Relever cette correspondance avant de configurer plusieurs cartes.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>link<span class="w"> </span>show
@@ -15241,8 +15291,14 @@ deb-s1
 </table>
 <p>Le support montre un nom court et un FQDN. <code>hostname</code> affiche le nom courant. <code>getent hosts</code> permet de vérifier une recherche suivant les méthodes du système. Une ligne <code>hosts: files dns</code> interroge d’abord les fichiers locaux. Dans le second exemple, <code>mdns4_minimal [NOTFOUND=return]</code> participe à la recherche des noms en <code>.local</code> et peut interrompre la chaîne sur un résultat donné. <code>myhostname</code> traite les noms locaux du poste.</p>
 <p><code>nameserver</code> identifie un serveur DNS. <code>search</code> fournit une liste de suffixes pour les noms relatifs. Les exemples historiques affichent aussi <code>domain</code>. En complément, retenir que <code>domain</code> est une forme à un seul suffixe et que les directives de recherche successives peuvent se remplacer. Si le fichier est généré, appliquer la modification dans le gestionnaire qui le produit. En DHCP, les options reçues alimentent la configuration selon le profil client. <a href="https://manpages.debian.org/trixie/manpages/resolv.conf.5.en.html">resolv.conf(5)</a>.</p>
-<h2 id="atelier-dadressage">Atelier d’adressage<a class="headerlink" href="#atelier-dadressage" title="Permanent link">¶</a></h2>
-<p>Créer Cli-db-10 avec bureau, 1024 MB et VMNet4. Préparer DEB-S1 et DEB-S2 sans bureau sur VMNet6, chacun avec 1024 MB. Installer RouTux sans interface réseau pour le module suivant. Sur le client, renseigner <code>172.18.X.10/24</code> via NetworkManager. Sur les serveurs, tester <code>.11</code> et <code>.12</code> dans <code>192.168.X.0/24</code> avec <code>ip</code>, puis reporter les adresses dans la configuration durable. Vérifier les noms de machines et le ping entre les deux serveurs après le redémarrage du service réseau.</p>
+<h2 id="atelier-dadressage">TP guidé — Configurer la maquette<a class="headerlink" href="#atelier-dadressage" title="Permanent link">¶</a></h2>
+<ol>
+<li>Créer <strong>Cli-db-10</strong> avec bureau, <strong>1 024 Mo</strong> de mémoire et une carte sur VMNet4. Dans NetworkManager, configurer <code>172.18.X.10/24</code> et vérifier l’adresse active. Relever le nom d’hôte et le corriger si nécessaire.</li>
+<li>Préparer <strong>DEB-S1</strong> et <strong>DEB-S2</strong>, chacun sans bureau, avec <strong>1 024 Mo</strong> et VMNet6. Vérifier leur interface par la MAC. Avec <code>ip</code>, les adresser respectivement en <code>192.168.X.11/24</code> et <code>192.168.X.12/24</code>.</li>
+<li>Relever les deux adresses et tester le ping entre les serveurs. Retirer uniquement la configuration temporaire du TP, puis écrire les adresses dans la configuration persistante d’ifupdown.</li>
+<li>Recharger le réseau depuis la console. Relire le nom, l’adresse et le préfixe de chaque serveur, puis répéter les pings. Les tests du module portent sur chaque segment avant le routage entre LAN.</li>
+<li>Installer <strong>RouTux</strong> sans interface réseau à ce stade. Vérifier son nom d’hôte et conserver la VM pour le module 3.</li>
+</ol>
 <p>La correction abrège les commandes dynamiques sans préciser <code>/24</code> et écrit une fois <code>interface</code> au singulier. L’adressage demandé nécessite le préfixe <code>/24</code>. Le fichier employé par ifupdown est <code>/etc/network/interfaces</code>.</p>
 <h2 id="schema-explicatif-complementaire">Schéma explicatif complémentaire<a class="headerlink" href="#schema-explicatif-complementaire" title="Permanent link">¶</a></h2>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
@@ -15251,24 +15307,32 @@ deb-s1
  I --&gt; K["État courant lu avec ip"]
  F["Fichier interfaces ou profil NM"] --&gt; K
  K --&gt; V["Contrôler adresse, route et résolution"]</div>
-<h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>La MAC relie la carte VMware à l’interface du système. Les commandes ip modifient l’état courant. Les réglages ifupdown ou NetworkManager permettent de retrouver l’état attendu après réactivation ou redémarrage.</p>
+<h2 id="autoevaluation">Mini-quiz — 5 questions<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quel réglage est relu au démarrage dans un serveur ifupdown ?</li>
-<li>Comment relier une carte VMware à une interface Linux ?</li>
+<li>Comment identifier la carte VMware correspondant à une interface Linux ?</li>
 <li>Quel fichier décrit l’ordre des méthodes de résolution ?</li>
+<li>Pourquoi tester la communication avant et après la configuration persistante ?</li>
+<li>Quelle différence entre le nom du profil NetworkManager et celui de l’interface ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
-<li>Les déclarations de <code>/etc/network/interfaces</code> et des fichiers qu’il inclut.</li>
-<li>Comparer leurs adresses MAC.</li>
-<li><code>/etc/nsswitch.conf</code>.</li>
+<li>Les déclarations de /etc/network/interfaces et des fichiers qu’il inclut.</li>
+<li>Comparer les adresses MAC dans VMware et dans la sortie de ip link.</li>
+<li>/etc/nsswitch.conf. La ligne hosts permet de lire les méthodes utilisées pour les noms.</li>
+<li>Le premier test valide l’adressage courant. Le second prouve que le réglage est relu et appliqué.</li>
+<li>Le profil contient la configuration. L’interface identifie le périphérique auquel ce profil est appliqué.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../revision/services-reseau-linux/module-02-adressage-reseau/">Fiche de révision</a></li>
 <li><a href="../../../tp/services-reseau-linux/module-02/">Travaux pratiques</a></li>
+<li><a href="../../../tp/services-reseau-linux/module-02/enonces/">Énoncés</a> et <a href="../../../tp/services-reseau-linux/module-02/corrections/">corrections</a></li>
+<li><a href="../../../kahoot/services-reseau-linux-module-02/">Kahoot existant</a></li>
 <li><a href="../">Sommaire du cours</a></li>
 </ul>
 </div>

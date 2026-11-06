@@ -3070,6 +3070,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#du-reseau-de-depart-au-reseau-de-destination" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3095,7 +3106,7 @@
   <a href="#faire-de-routux-un-routeur-ipv4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Faire de RouTux un routeur IPv4
+        TP guidé — Router entre les LAN avec RouTux
       
     </span>
   </a>
@@ -3117,7 +3128,7 @@
   <a href="#integrer-pfsense-sur-linterconnexion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Intégrer pfSense sur l’interconnexion
+        TP guidé — Intégrer pfSense et vérifier le NAT
       
     </span>
   </a>
@@ -3136,10 +3147,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -14804,6 +14826,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#du-reseau-de-depart-au-reseau-de-destination" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14829,7 +14862,7 @@
   <a href="#faire-de-routux-un-routeur-ipv4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Faire de RouTux un routeur IPv4
+        TP guidé — Router entre les LAN avec RouTux
       
     </span>
   </a>
@@ -14851,7 +14884,7 @@
   <a href="#integrer-pfsense-sur-linterconnexion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Intégrer pfSense sur l’interconnexion
+        TP guidé — Intégrer pfSense et vérifier le NAT
       
     </span>
   </a>
@@ -14870,10 +14903,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autoevaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autoévaluation
+        Mini-quiz — 5 questions
       
     </span>
   </a>
@@ -15098,7 +15142,13 @@ netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau :
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
-<p>Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Choisir une route selon le préfixe de destination et le prochain saut.</li>
+<li>Configurer et vérifier le routage IPv4 de RouTux.</li>
+<li>Distinguer le routage, le NAT et les règles de pare-feu.</li>
+<li>Éprouver les chemins aller et retour depuis chaque LAN.</li>
+</ul>
 <h2 id="du-reseau-de-depart-au-reseau-de-destination">Du réseau de départ au réseau de destination<a class="headerlink" href="#du-reseau-de-depart-au-reseau-de-destination" title="Permanent link">¶</a></h2>
 <p>Le routage relie des réseaux logiques. L’hôte A du support compare son adresse et son masque à la destination C. A est dans le LAN Brest avec <code>172.16.6.6/24</code>. C est dans le LAN Quimper avec <code>172.16.2.9</code>. A consulte sa table de routage et remet le paquet à la passerelle B si elle fournit le prochain saut adapté. Le réseau distant doit aussi disposer d’un chemin de retour.</p>
 <table>
@@ -15135,7 +15185,7 @@ netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau :
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span><span class="m">10</span>.56.0.0/16
 </span></code></pre></div>
 <p>Les deux dernières lignes reprennent le réseau de l’exemple source. Elles supposent le prochain saut accessible dans le scénario choisi. Le support montre aussi l’ajout d’une route d’hôte, le changement et la suppression de la route par défaut. Les modifications apportées avec <code>ip route</code> concernent l’état courant. Pour la persistance, utiliser la configuration réseau de la machine, puis relire la route obtenue après application.</p>
-<h2 id="faire-de-routux-un-routeur-ipv4">Faire de RouTux un routeur IPv4<a class="headerlink" href="#faire-de-routux-un-routeur-ipv4" title="Permanent link">¶</a></h2>
+<h2 id="faire-de-routux-un-routeur-ipv4">TP guidé — Router entre les LAN avec RouTux<a class="headerlink" href="#faire-de-routux-un-routeur-ipv4" title="Permanent link">¶</a></h2>
 <p>Associer ses trois cartes à VMNet4, VMNet6 et VMNet2. La correction utilise <code>ens33</code>, <code>ens36</code> et <code>ens37</code>. Vérifier les MAC avant de reprendre ces noms. Chaque carte reçoit la dernière adresse utilisable de son <code>/24</code>.</p>
 <table>
 <thead>
@@ -15165,9 +15215,10 @@ netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau :
 </table>
 <p>Le paramètre <code>net.ipv4.ip_forward=1</code> autorise le noyau à transmettre des paquets IPv4 entre interfaces. La lecture du paramètre doit rendre <code>1</code>. La capture source affichant <code>0</code> illustre l’état désactivé. Pour le test dynamique, <code>sysctl -w net.ipv4.ip_forward=1</code> applique la valeur. Pour la persistance, le corrigé la renseigne dans <code>/etc/sysctl.conf</code> et exécute <code>sysctl -p</code>. Les règles de filtrage applicables au trafic transmis restent à vérifier. <a href="https://www.kernel.org/doc/html/latest/networking/ip-sysctl.html">Documentation du noyau Linux</a>.</p>
 <p>Les postes du LAN Clients utilisent <code>172.18.X.254</code> comme passerelle. Ceux du LAN Serveurs utilisent <code>192.168.X.254</code>. Tester les adresses de RouTux depuis chaque segment, puis tester de Cli-db-10 vers les serveurs et en sens inverse. Vérifier les adresses de retour avant de modifier le NAT.</p>
+<p>Pour la correction, relever l’interface et le prochain saut annoncés par <code>ip route get</code> des deux côtés. Après redémarrage, contrôler que les trois adresses et <code>net.ipv4.ip_forward=1</code> sont toujours présentes. Un ping vers l’interface locale de RouTux ne prouve pas encore qu’il transmet un paquet d’un LAN à l’autre.</p>
 <h2 id="traduction-et-filtrage">Traduction et filtrage<a class="headerlink" href="#traduction-et-filtrage" title="Permanent link">¶</a></h2>
 <p>SNAT transforme l’adresse source. Le cas de sortie du laboratoire utilise l’adresse de l’interface WAN de pfSense pour les connexions dont la source se trouve dans les réseaux de la maquette. DNAT transforme l’adresse de destination, comme dans une redirection vers un service interne. La table de routage choisit le chemin et le pare-feu contrôle quels flux sont admis. La traduction intervient à une étape du traitement des paquets. Le support cite iptables, Shorewall et pfSense.</p>
-<h2 id="integrer-pfsense-sur-linterconnexion">Intégrer pfSense sur l’interconnexion<a class="headerlink" href="#integrer-pfsense-sur-linterconnexion" title="Permanent link">¶</a></h2>
+<h2 id="integrer-pfsense-sur-linterconnexion">TP guidé — Intégrer pfSense et vérifier le NAT<a class="headerlink" href="#integrer-pfsense-sur-linterconnexion" title="Permanent link">¶</a></h2>
 <p>Le TP ajoute temporairement <code>172.30.X.10/24</code> à Cli-db-10 sur VMNet2 pour configurer l’appliance. L’interface LAN de pfSense prend <code>172.30.X.1/24</code>. Son WAN est en pont avec une adresse du réseau amont et la passerelle correspondante. L’interface Web est atteinte depuis le segment LAN du laboratoire.</p>
 <ol>
 <li>Créer <code>GW_Interco</code> sur LAN vers <code>172.30.X.254</code>, l’adresse de RouTux.</li>
@@ -15175,7 +15226,7 @@ netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau :
 <li>Appliquer la règle LAN IPv4 demandée pour le laboratoire et relire sa source, sa destination et sa position.</li>
 <li>Configurer la sortie de RouTux via <code>172.30.X.1</code> sur VMNet2.</li>
 <li>Examiner les règles de NAT sortant automatiques sur WAN. Les réseaux connus par routes statiques entrent dans ce calcul.</li>
-<li>Tester une destination par adresse, puis la résolution d’un nom avec le DNS du laboratoire ou le résolveur de test. Désactiver la carte temporaire du client après validation.</li>
+<li>Depuis DEB-S1 puis Cli-db-10, joindre l’interface LAN de pfSense, puis une adresse de test extérieure autorisée et un nom avec le DNS prévu. Relever l’interface de sortie et la règle appliquée. Désactiver la carte temporaire VMNet2 du client et répéter le contrôle depuis son LAN habituel.</li>
 </ol>
 <p>Le corrigé montre plusieurs interfaces et un accès Web de dépannage. Le complément consiste à conserver la correspondance LAN/WAN et à observer la passerelle effectivement sélectionnée. Une source <code>any</code> appartient au scénario isolé. Les tests séparent route de retour, permission du flux, traduction et DNS. <a href="https://docs.netgate.com/pfsense/en/latest/routing/static.html">Routes statiques pfSense</a>, <a href="https://docs.netgate.com/pfsense/en/latest/nat/outbound.html">NAT sortant pfSense</a>.</p>
 <h2 id="schema-explicatif-complementaire">Schéma explicatif complémentaire<a class="headerlink" href="#schema-explicatif-complementaire" title="Permanent link">¶</a></h2>
@@ -15185,24 +15236,32 @@ netmask  255.255.255.0</code></pre><p>Ne pas oublier de redémarrer le réseau :
  S["Serveur sur 192.168.X.0/24"] --&gt; R
  R --&gt; P["pfSense : routes, filtrage, SNAT"] --&gt; W["WAN"]
  P --&gt;|Routes de retour| R</div>
-<h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le routage joint les préfixes, le pare-feu décide du passage et le NAT modifie une adresse. Tester d’abord la passerelle locale, puis le retour, la sortie et le DNS.</p>
+<h2 id="autoevaluation">Mini-quiz — 5 questions<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quelle valeur permet la transmission IPv4 sur RouTux ?</li>
-<li>Quelle adresse pfSense utilise-t-il pour joindre les deux LAN derrière RouTux ?</li>
+<li>Quel prochain saut pfSense utilise-t-il pour joindre les deux LAN ?</li>
 <li>Quel champ est modifié par SNAT ?</li>
+<li>Que vérifier lorsqu’un client atteint sa passerelle mais pas l’autre LAN ?</li>
+<li>Pourquoi retirer la carte VMNet2 temporaire avant de refaire le dernier test ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
-<li><code>net.ipv4.ip_forward=1</code>.</li>
-<li><code>172.30.X.254</code> sur VMNet2.</li>
-<li>L’adresse source du paquet, avec éventuellement une translation de port selon la règle.</li>
+<li>net.ipv4.ip_forward=1. Vérifier aussi la persistance et le filtrage du trafic transmis.</li>
+<li>172.30.X.254, l’adresse de RouTux sur VMNet2.</li>
+<li>L’adresse source, et éventuellement le port selon la règle.</li>
+<li>La transmission sur RouTux, la route de retour du destinataire et les règles applicables.</li>
+<li>Pour prouver que le client passe par son LAN, RouTux et pfSense plutôt que joindre pfSense directement.</li>
 </ol>
 </details>
 <h2 id="pour-travailler-ce-module">Pour travailler ce module<a class="headerlink" href="#pour-travailler-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../revision/services-reseau-linux/module-03-routage-et-traduction-d-adresses/">Fiche de révision</a></li>
 <li><a href="../../../tp/services-reseau-linux/module-03/">Travaux pratiques</a></li>
+<li><a href="../../../tp/services-reseau-linux/module-03/enonces/">Énoncés</a> et <a href="../../../tp/services-reseau-linux/module-03/corrections/">corrections</a></li>
+<li><a href="../../../kahoot/services-reseau-linux-module-03/">Kahoot existant</a></li>
 <li><a href="../">Sommaire du cours</a></li>
 </ul>
 </div>
