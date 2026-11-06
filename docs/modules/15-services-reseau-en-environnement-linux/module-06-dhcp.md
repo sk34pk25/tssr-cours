@@ -1,6 +1,11 @@
 # Module 06 — Le DHCP
 
-Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.
+## Objectifs
+
+- Lire les quatre messages d’un premier bail DHCPv4.
+- Configurer les réseaux, l’étendue et les options du serveur du TP.
+- Identifier les interfaces du relais et son serveur cible.
+- Observer le bail et vérifier le redémarrage des services après le débogage.
 
 ## Paramètres distribués aux clients
 
@@ -33,7 +38,7 @@ DEB-S1 se trouve sur LAN Serveurs et le client sur LAN Clients. Le relais placé
 
 `default-lease-time` et `max-lease-time` s’expriment en secondes. `option domain-name-servers` fournit les serveurs DNS. `option domain-name` fournit le suffixe demandé lors de l’atelier DNS. `ddns-update-style none` indique le choix de ne pas effectuer de mises à jour DNS dynamiques dans le scénario. `authoritative` indique que le serveur fait autorité pour les sous-réseaux déclarés. Une réservation associe `hardware ethernet` et `fixed-address` dans un bloc `host`. Choisir l’adresse dans le sous-réseau du client et tenir compte de la plage dynamique pour éviter un conflit.
 
-## Configurer le serveur de DEB-S1
+## TP guidé — Configurer le serveur de DEB-S1 et le relais {#configurer-le-serveur-de-deb-s1}
 
 Le TP demande quatre jours de bail par défaut, huit jours au maximum et la plage `.100` à `.200` pour le LAN Clients. Avec `X=30`, le DNS DEB-S2 est `192.168.30.12` et la passerelle client RouTux `172.18.30.254`. La déclaration sans plage du LAN Serveurs décrit le segment où DEB-S1 écoute.
 
@@ -55,7 +60,7 @@ subnet 172.18.30.0 netmask 255.255.255.0 {
 
 Dans `/etc/default/isc-dhcp-server`, le corrigé associe `INTERFACESv4` à la carte du LAN Serveurs du serveur. Identifier cette carte, `ens33` dans l’exemple. Tester la syntaxe avec `dhcpd -t -cf /etc/dhcp/dhcpd.conf`. La commande `dhcp -t` imprimée dans le support comporte une coquille.
 
-## Configurer le relais et suivre les échanges
+### Configurer le relais et suivre les échanges {#configurer-le-relais-et-suivre-les-echanges}
 
 Sur RouTux, la configuration du paquet relais indique `SERVERS` et `INTERFACES`. Le TP fait relancer l’assistant du relais avec `dpkg-reconfigure isc-dhcp-relay`. La cible DHCP est DEB-S1 à `192.168.X.11`. La correction mélange par endroits l’adresse de DEB-S2 et le nom du paquet serveur. Vérifier ces deux valeurs avant de lancer le relais.
 
@@ -69,6 +74,15 @@ Le corrigé illustre la redirection des messages `local7` dans rsyslog. Le nom d
 
 !!! info "Actualisation externe"
     ISC a arrêté la maintenance d’ISC DHCP en 2022. Le TP conserve ce logiciel dans son contexte historique. ISC présente Kea comme un serveur successeur et signale que sa distribution ne fournit pas le relais de l’ancien produit. Les fichiers et commandes du scénario décrivent ISC DHCP. [Statut d’ISC DHCP](https://www.isc.org/dhcp/), [Documentation Kea](https://www.isc.org/kea/).
+
+### Preuves à relever
+
+| Phase | Contrôle |
+| --- | --- |
+| Avant le test | Syntaxe valide, carte d’écoute de DEB-S1 et liaison entre RouTux et DEB-S1. |
+| Pendant le test | Discover, Offer, Request et Ack observés côté relais et côté serveur. Identifier à quel niveau un message manque. |
+| Côté client | Adresse `.100` à `.200`, préfixe `/24`, route via RouTux, DNS DEB-S2 et durée du bail. |
+| Après le test | Binaires de premier plan arrêtés, services relancés, états `is-active` et `is-enabled` vérifiés, puis nouvel essai côté client. |
 
 ## Schéma explicatif complémentaire
 
@@ -87,19 +101,30 @@ sequenceDiagram
  R->>C: Ack et paramètres
 ```
 
-## Autoévaluation
+## À retenir
 
-1. Quelle VM reçoit les requêtes relayées du TP ?
-2. Pourquoi le serveur possède-t-il une déclaration pour le LAN Clients ?
-3. Quels paramètres vérifier sur le client après obtention du bail ?
+Le relais indique le réseau d’origine du client. DEB-S1 fournit le bail, DEB-S2 fournit le DNS. Valider l’adresse, la route, la résolution et le retour aux services normaux après le diagnostic.
 
-??? success "Réponses"
-    1. DEB-S1, adresse `192.168.X.11`.
-    2. Le serveur doit choisir une étendue pour le réseau du client, identifié via le relais.
-    3. Adresse, préfixe, passerelle, DNS et durée du bail.
+## Mini-quiz — 5 questions {#autoevaluation}
+
+1. Quelle VM reçoit les requêtes relayées ?
+2. Pourquoi déclarer le LAN Clients dans dhcpd.conf ?
+3. Quel message confirme le bail ?
+4. Que contrôler après obtention du bail ?
+5. Que faire avant de relancer les services après le mode debug ?
+
+??? success "Réponses commentées"
+
+    1. DEB-S1, à 192.168.X.11. DEB-S2 à .12 est le DNS distribué.
+    2. Le serveur sélectionne une étendue correspondant au réseau d’origine signalé par le relais.
+    3. DHCP Ack. L’offre seule n’établit pas l’attribution.
+    4. Adresse, préfixe, durée, passerelle et DNS, puis la connectivité et la résolution attendues.
+    5. Arrêter les binaires lancés au premier plan, puis relancer et vérifier chaque service sur l’hôte prévu.
 
 ## Pour travailler ce module
 
 - [Fiche de révision](../../revision/services-reseau-linux/module-06-dhcp.md)
 - [Travaux pratiques](../../tp/services-reseau-linux/module-06/index.md)
+- [Énoncés](../../tp/services-reseau-linux/module-06/enonces.md) et [corrections](../../tp/services-reseau-linux/module-06/corrections.md)
+- [Kahoot existant](../../kahoot/services-reseau-linux-module-06.md)
 - [Sommaire du cours](index.md)

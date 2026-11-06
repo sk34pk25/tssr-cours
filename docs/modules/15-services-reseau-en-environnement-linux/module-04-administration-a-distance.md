@@ -1,6 +1,11 @@
 # Module 04 — Administration à distance
 
-Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.
+## Objectifs
+
+- Installer et vérifier SSH sur les trois cibles Debian.
+- Distinguer clé d’hôte, authentification du compte et phrase secrète.
+- Tester l’accès par clé et comprendre la portée de la politique root.
+- Récupérer les configurations de chaque serveur et vérifier les fichiers reçus.
 
 ## Ouvrir un canal d’administration
 
@@ -48,6 +53,14 @@ scp exemple.conf utilisateur@192.168.10.11:/tmp/
 
 Dans la première copie, la source est distante et la destination locale. Dans la seconde, le fichier local part vers le serveur. Le compte doit avoir les droits de lecture sur la source et d’écriture à la destination. Le TP récupère les fichiers de configuration réseau, DNS et APT des trois machines. Vérifier le nom du fichier et son contenu après chaque transfert. Le support cite WinSCP et MobaXterm côté Windows. Depuis OpenSSH 9.0, `scp` utilise SFTP par défaut pour le transfert. [Notes OpenSSH 9.0](https://www.openssh.org/txt/release-9.0).
 
+## TP guidé — Sessions et copies sécurisées
+
+1. Depuis Cli-db-10, vérifier l’accès IP aux trois serveurs. Installer **Terminator** sur le client du scénario et vérifier `openssh-server` sur RouTux, DEB-S1 et DEB-S2, avec les dépôts correspondant à leur version.
+2. Relever les empreintes d’hôte attendues. Avec le compte d’administration prévu sur Cli-db-10, générer une paire de clés et transférer **la partie publique** vers le compte ordinaire de chaque serveur. Pour `X=10`, les adresses du scénario sont `172.18.10.254`, `192.168.10.11` et `192.168.10.12`.
+3. Tester une nouvelle session par cible. Dans chacune, relever `hostname` et `whoami` pour prouver le serveur et le compte. Distinguer une phrase secrète locale du mot de passe du compte distant.
+4. Le corrigé montre une copie de clés autorisées vers root. Vérifier la politique serveur avant un essai de ce cas historique. Conserver une console de secours et vérifier un accès ordinaire autorisé avant de recharger SSH.
+5. Créer un dossier de réception par machine. Copier les fichiers réseau, DNS et APT demandés depuis chacune, avec les droits du compte prévu. Vérifier chemins et contenu à l’arrivée. Si un fichier exige des droits supplémentaires, employer le chemin de copie autorisé par le laboratoire.
+
 ## Schéma explicatif complémentaire
 
 ```mermaid
@@ -57,19 +70,30 @@ flowchart LR
  A --> S["Session ou transfert SSH"]
 ```
 
-## Autoévaluation
+## À retenir
 
-1. Quel fichier est transmis au serveur par `ssh-copy-id -i` ?
-2. Pourquoi une phrase secrète peut-elle être demandée après mise en place des clés ?
-3. Dans `scp hote:/etc/resolv.conf .`, où est la source ?
+La clé privée reste sur le client. La clé publique va dans le compte distant. Tester l’identité du serveur, la connexion et les permissions avant de conclure qu’une copie a réussi.
 
-??? success "Réponses"
-    1. La clé publique désignée.
-    2. Elle protège la clé privée utilisée par le client.
-    3. Sur l’hôte distant, au chemin `/etc/resolv.conf`.
+## Mini-quiz — 5 questions {#autoevaluation}
+
+1. Quel fichier passe sur le serveur avec ssh-copy-id -i ?
+2. Pourquoi une phrase secrète peut-elle encore être demandée ?
+3. Dans scp hote:/etc/resolv.conf ., où se trouve la source ?
+4. Que faut-il vérifier si l’empreinte de l’hôte a changé ?
+5. Pourquoi créer un dossier de réception par serveur ?
+
+??? success "Réponses commentées"
+
+    1. La clé publique désignée. La clé privée reste sur Cli-db-10.
+    2. Elle protège la clé privée sur le poste local et joue un autre rôle que le mot de passe du compte distant.
+    3. Sur l’hôte distant. Le point indique la destination locale.
+    4. L’identité et l’empreinte attendues par un canal de confiance avant d’accepter la nouvelle clé.
+    5. Plusieurs serveurs ont des fichiers de même nom. Les séparer conserve leur provenance et évite l’écrasement.
 
 ## Pour travailler ce module
 
 - [Fiche de révision](../../revision/services-reseau-linux/module-04-administration-a-distance.md)
 - [Travaux pratiques](../../tp/services-reseau-linux/module-04/index.md)
+- [Énoncés](../../tp/services-reseau-linux/module-04/enonces.md) et [corrections](../../tp/services-reseau-linux/module-04/corrections.md)
+- [Kahoot existant](../../kahoot/services-reseau-linux-module-04.md)
 - [Sommaire du cours](index.md)

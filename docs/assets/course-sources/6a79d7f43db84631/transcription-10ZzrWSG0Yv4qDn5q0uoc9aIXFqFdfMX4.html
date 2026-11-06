@@ -12,37 +12,7 @@
 
 </section>
 <section class="tssr-transcribed-page" id="page-2">
-
-<h4>Le fonctionnement des GPO</h4>
-<p class="tssr-source-paragraph">Descriptif</p>
-<p class="tssr-source-paragraph">Les GPO (Group Policy Object) ou stratégies de groupes sont utilisés dans un domaine AD pour paramétrer les ordinateurs et les utilisateurs.</p>
-<h4 class="tssr-source-paragraph">Les + Les -</h4>
-<h4 class="tssr-source-paragraph">La configuration</h4>
-<h4 class="tssr-source-paragraph">Ajoute de la sécurité dans</h4>
-<p class="tssr-source-paragraph">l’entreprise</p>
-<h4 class="tssr-source-paragraph">peut être complexe</h4>
-<p class="tssr-source-paragraph">Automatisation</p>
-<h4 class="tssr-source-paragraph">Le nombre de paramètres est</h4>
-<p class="tssr-source-paragraph">d’actions</p>
-<p class="tssr-source-paragraph">élevé</p>
-<h4 class="tssr-source-paragraph">Réduction des</h4>
-<h4 class="tssr-source-paragraph">Dépendant des</h4>
-<h4 class="tssr-source-paragraph">tâches d’administration</h4>
-<h4 class="tssr-source-paragraph">versions système</h4>
-
-
-
-<h4>Le fonctionnement des GPO</h4>
-<p class="tssr-source-paragraph">Les types de stratégie Les conditions d’utilisation et d’application varient selon le type de stratégie.</p>
-<h4 class="tssr-source-paragraph">La stratégie de groupe La stratégie locale</h4>
-<ul><li>Nécessite un contexte de domaine.</li></ul>
-<ul><li>Est utilisable dans et hors contexte de domaine.</li></ul>
-<ul><li>S’applique sur un ou des ensembles d’éléments.</li></ul>
-<ul><li>Se configure poste par poste.</li></ul>
-<ul><li>En cas de conflits, elle l’emporte sur la stratégie locale.</li></ul>
-
-
-
+<h4>Le fonctionnement des GPO</h4><h5>Descriptif</h5><p>Les GPO (Group Policy Object) ou stratégies de groupes sont utilisés dans un domaine AD pour paramétrer les ordinateurs et les utilisateurs.</p><table><caption>Les + et les −</caption><thead><tr><th scope="col">Les +</th><th scope="col">Les −</th></tr></thead><tbody><tr><td>Ajoute de la sécurité dans l’entreprise</td><td>La configuration peut être complexe</td></tr><tr><td>Automatisation d’actions</td><td>Le nombre de paramètres est élevé</td></tr><tr><td>Réduction des tâches d’administration</td><td>Dépendant des versions système</td></tr></tbody></table><h5>Les types de stratégie</h5><p>Les conditions d’utilisation et d’application varient selon le type de stratégie.</p><table><caption>Les stratégies de groupe et locales</caption><thead><tr><th scope="col">Type</th><th scope="col">Conditions et portée</th></tr></thead><tbody><tr><td>La stratégie de groupe</td><td>Nécessite un contexte de domaine. S’applique sur un ou des ensembles d’éléments. En cas de conflits, elle l’emporte sur la stratégie locale.</td></tr><tr><td>La stratégie locale</td><td>Est utilisable dans et hors contexte de domaine. Se configure poste par poste.</td></tr></tbody></table>
 </section>
 <section class="tssr-transcribed-page" id="page-3">
 
@@ -71,60 +41,10 @@
 
 </section>
 <section class="tssr-transcribed-page" id="page-4">
-
-<h4>Le fonctionnement des GPO</h4>
-<h4 class="tssr-source-paragraph">Les stratégies par défaut</h4>
-<p class="tssr-source-paragraph">Après l’installation d’un domaine, deux stratégies sont configurées par défaut :</p>
-<ul><li>Liée à la racine du domaine.</li><li>Définit les paramètres de sécurité pour les utilisateurs du domaine. Default Domain</li></ul>
-<h4 class="tssr-source-paragraph">Policy (DDP)</h4>
-<h4 class="tssr-source-paragraph">Default Domain</h4>
-<p class="tssr-source-paragraph">Controller</p>
-<ul><li>Liée à l’UO Domain Controllers</li><li>Définit les paramètres de sécurité pour les contrôleurs de domaine.</li></ul>
-<p class="tssr-source-paragraph">Policy</p>
-
-
-
-<h4>Le ciblage des stratégies</h4>
-<h4 class="tssr-source-paragraph">La liaison d’une stratégie se fait via</h4>
-<h4 class="tssr-source-paragraph">Le ciblage permet de définir le ou les objets soumis à cette règle</h4>
-<p>ces objets</p><ul><li>Les objets ordinateurs pour les paramètres ordinateur</li><li>Les objets utilisateurs pour les paramètres utilisateur</li></ul>
-<ul><li>Un site Active Directory</li><li>Un Domaine</li><li>Une Unité d’Organisation</li></ul>
-<h4 class="tssr-source-paragraph">Objet de stratégie</h4>
-<p class="tssr-source-paragraph">créé</p>
-<h4 class="tssr-source-paragraph">Une fois liée, la stratégie s’applique</h4>
-<p class="tssr-source-paragraph">sur</p>
-
-
-
-
+<h4>Le fonctionnement des GPO</h4><h5>Les stratégies par défaut</h5><p>Après l’installation d’un domaine, deux stratégies sont configurées par défaut :</p><table><caption>Stratégies créées par défaut</caption><thead><tr><th scope="col">Stratégie</th><th scope="col">Liaison</th><th scope="col">Paramètres de sécurité</th></tr></thead><tbody><tr><td>Default Domain Policy (DDP)</td><td>Racine du domaine</td><td>Utilisateurs du domaine</td></tr><tr><td>Default Domain Controller Policy</td><td>UO Domain Controllers</td><td>Contrôleurs de domaine</td></tr></tbody></table><h4>Le ciblage des stratégies</h4><ol><li>Le ciblage permet de définir le ou les objets soumis à cette règle.</li><li>La liaison d’une stratégie se fait via un site Active Directory, un domaine ou une unité d’organisation.</li><li>Une fois liée, la stratégie s’applique sur les objets ordinateurs pour les paramètres ordinateur et sur les objets utilisateurs pour les paramètres utilisateur.</li></ol><p>La note du support distingue la liaison à un conteneur d’une affectation directe à un groupe.</p>
 </section>
 <section class="tssr-transcribed-page" id="page-5">
-
-<h4>Le ciblage des stratégies</h4>
-<h4 class="tssr-source-paragraph">La console de gestion</h4>
-<h4 class="tssr-source-paragraph">Conteneurs de liaisons Liaisons de stratégies</h4>
-<h4 class="tssr-source-paragraph">Conteneur des stratégies du domaine</h4>
-
-
-
-<h4>Le ciblage des stratégies</h4>
-<h4 class="tssr-source-paragraph">Ordre de traitement</h4>
-<h4 class="tssr-source-paragraph">Les stratégies héritées sont</h4>
-<h4 class="tssr-source-paragraph">Les stratégies sont héritées du</h4>
-<h4 class="tssr-source-paragraph">appliquées avant celles du</h4>
-<p class="tssr-source-paragraph">parent vers l’enfant.</p>
-<p class="tssr-source-paragraph">conteneur courant.</p>
-<h4 class="tssr-source-paragraph">Priorités et</h4>
-<p class="tssr-source-paragraph">héritage</p>
-<h4 class="tssr-source-paragraph">Les stratégies dont le numéro</h4>
-<h4 class="tssr-source-paragraph">d’ordre est le plus élevé sont</h4>
-<h4 class="tssr-source-paragraph">d’abord appliquées</h4>
-<p class="tssr-source-paragraph">Les stratégies marquées Appliqué deviennent prioritaires.</p>
-<p class="tssr-source-paragraph">(au sein d’un même conteneur).</p>
-
-
-
-
+<h4>Le ciblage des stratégies</h4><h5>La console de gestion</h5><ul><li>Conteneurs de liaisons</li><li>Liaisons de stratégies</li><li>Conteneur des stratégies du domaine</li></ul><h5>Ordre de traitement</h5><p>Priorités et héritage</p><ul><li>Les stratégies sont héritées du parent vers l’enfant.</li><li>Les stratégies héritées sont appliquées avant celles du conteneur courant.</li><li>Les stratégies dont le numéro d’ordre est le plus élevé sont d’abord appliquées au sein d’un même conteneur.</li><li>Les stratégies marquées Appliqué deviennent prioritaires.</li></ul>
 </section>
 <section class="tssr-transcribed-page" id="page-6">
 

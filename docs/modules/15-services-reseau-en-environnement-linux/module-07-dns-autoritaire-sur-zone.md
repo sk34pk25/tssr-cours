@@ -1,6 +1,11 @@
 # Module 07 — DNS autoritaire sur zone
 
-Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.
+## Objectifs
+
+- Déclarer et vérifier une zone directe et les deux zones inverses.
+- Lire les enregistrements et les paramètres d’un fichier de zone.
+- Autoriser le transfert depuis DEB-S1 et vérifier la réponse du secondaire.
+- Éprouver la continuité des réponses autoritaires et des recherches externes.
 
 ## Autorité par zone
 
@@ -23,7 +28,7 @@ Une zone directe contient les noms et les données associées. Une zone inverse 
 
 `$ORIGIN` fournit le suffixe des noms relatifs. `$TTL` fixe le TTL par défaut. `@` représente le sommet de la zone. Un point final marque un nom absolu. Dans le SOA, le numéro de série aide les secondaires à détecter une version plus récente. Le format `AAAAMMJJxx` est la convention du support. Le mécanisme DNS compare les numéros de série selon les règles d’arithmétique de série. [RFC 1982](https://www.rfc-editor.org/rfc/rfc1982).
 
-## Déclarer la zone directe sur DEB-S2
+## TP guidé — Zone directe et zones inverses sur DEB-S2 {#declarer-la-zone-directe-sur-deb-s2}
 
 La solution de l’atelier emploie `type master`, un nom historique pour le rôle primaire. Les fichiers de zone peuvent être référencés par un chemin absolu. Dans l’exemple pour `X=30`, le chemin est identique dans la déclaration et dans la commande de contrôle.
 
@@ -76,7 +81,7 @@ dig @192.168.30.12 -x 192.168.30.12
 dig @192.168.30.12 -x 192.168.30.254
 ```
 
-## Ajouter la copie secondaire sur DEB-S1
+## TP guidé — Copie secondaire et redondance DNS {#ajouter-la-copie-secondaire-sur-deb-s1}
 
 Le premier contrôle demande un transfert explicite avec `dig @192.168.30.12 tssr.example AXFR`. Le faire depuis le client puis depuis DEB-S1 pour vérifier la restriction d’origine. La permission effective de transfert dépend de la configuration et de la version. Déclarer explicitement `allow-transfer` pour l’hôte secondaire et vérifier le résultat. Le transport de zone AXFR utilise TCP. [RFC 5936](https://www.rfc-editor.org/rfc/rfc5936).
 
@@ -100,6 +105,16 @@ Le support demande ensuite de suivre les requêtes avec `rndc querylog` et le jo
 
 Enfin, configurer DEB-S1 pour les recherches externes selon les mêmes règles d’accès et de redirection que DEB-S2. Le TP demande de constater la portée de cette redondance. Avec la seule zone directe copiée, les deux zones inverses restent à déclarer et à transférer si leur continuité est requise. Le service du primaire est rétabli à la fin de l’exercice.
 
+### Preuves à relever
+
+| Essai | Résultat à vérifier |
+| --- | --- |
+| Zone directe | Interroger DEB-S2 pour SOA, NS, adresses des serveurs, alias et réponse autoritaire. Comparer FQDN et nom court après renouvellement DHCP. |
+| Zones inverses | Vérifier chaque PTR de l’énoncé en interrogeant DEB-S2 avec l’adresse correspondant au `X` de la maquette. |
+| Autorisation de transfert | Comparer AXFR depuis le client et depuis DEB-S1. La politique finale permet l’origine autorisée uniquement. |
+| Copie secondaire | Comparer SOA, NS, serial et un nouvel enregistrement sur DEB-S1. Tester ensuite primaire arrêté. |
+| Résolution externe | Tester via DEB-S1 avec le primaire arrêté, puis rétablir le primaire et la journalisation normale. |
+
 ## Schéma explicatif complémentaire
 
 ```mermaid
@@ -111,21 +126,30 @@ flowchart LR
  S --> R
 ```
 
-## Autoévaluation
+## À retenir
 
-1. Quel enregistrement permet au secondaire de comparer les versions de zone ?
-2. Quel nom de zone inverse convient à `192.168.30.0/24` ?
-3. Une copie de la zone directe apporte-t-elle aussi les zones inverses ?
-4. Quel test montre que le secondaire répond avec autorité ?
+Vérifier l’autorité avec le serveur interrogé et le drapeau aa. Le secondaire maintient la copie d’une zone, repérable par le SOA et un enregistrement témoin. Chaque zone inverse et la résolution externe ont leurs propres conditions de continuité.
 
-??? success "Réponses"
-    1. Le SOA et son numéro de série.
-    2. `30.168.192.in-addr.arpa.`.
+## Mini-quiz — 5 questions {#autoevaluation}
+
+1. Quel enregistrement donne le numéro de série ?
+2. Quelle zone inverse correspond à 192.168.30.0/24 ?
+3. Le transfert de la zone directe transfère-t-il les inverses ?
+4. Comment vérifier qu’un secondaire répond avec autorité ?
+5. Comment distinguer IXFR et AXFR dans les observations du TP ?
+
+??? success "Réponses commentées"
+
+    1. Le SOA. Comparer sa valeur sur le primaire et le secondaire.
+    2. 30.168.192.in-addr.arpa. Les octets du réseau apparaissent dans l’ordre inverse.
     3. Chaque zone inverse possède sa propre déclaration et son propre transfert.
-    4. Interroger directement le secondaire avec `dig @adresse`, vérifier la réponse et le drapeau `aa`.
+    4. Interroger directement son adresse avec +norecurse et vérifier le drapeau aa et l’enregistrement attendu.
+    5. IXFR porte sur les différences disponibles. AXFR transfère la zone entière. Vérifier le type effectivement observé.
 
 ## Pour travailler ce module
 
 - [Fiche de révision](../../revision/services-reseau-linux/module-07-dns-autoritaire-sur-zone.md)
 - [Travaux pratiques](../../tp/services-reseau-linux/module-07/index.md)
+- [Énoncés](../../tp/services-reseau-linux/module-07/enonces.md) et [corrections](../../tp/services-reseau-linux/module-07/corrections.md)
+- [Kahoot existant](../../kahoot/services-reseau-linux-module-07.md)
 - [Sommaire du cours](index.md)

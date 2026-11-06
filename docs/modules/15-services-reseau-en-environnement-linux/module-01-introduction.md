@@ -1,6 +1,10 @@
 # Module 01 — Introduction
 
-Le cours optimisé reprend la leçon et ses manipulations. Les précisions et exemples complémentaires sont indiqués dans le texte. L’onglet Original donne accès aux transcriptions des supports.
+## Objectifs
+
+- Relier les besoins des utilisateurs aux services étudiés.
+- Lire le plan des réseaux Clients, Serveurs et Interconnexion.
+- Identifier le rôle de chaque machine et les contrôles à faire dans l’ordre.
 
 ## Des besoins des utilisateurs aux services
 
@@ -44,6 +48,17 @@ Le schéma historique utilise `88.44.22.0/24` et la passerelle `88.44.22.254` po
 !!! info "Actualisation externe"
     Les supports datent du scénario Debian 10. Debian indique que le LTS de Buster s’est terminé le 30 juin 2024. Lors d’une reproduction sur une version maintenue, relever les différences de dépôts, de paquets et de gestion réseau. [Informations de version Debian Buster](https://www.debian.org/releases/buster/).
 
+### Cas d’application — Préparer le schéma de la maquette
+
+Le module introduit le parcours et ne fournit pas d’énoncé de TP. Pour préparer les manipulations suivantes, choisir le `X` attribué et construire un relevé avec le nom de la machine, le VMNet, le préfixe, l’adresse d’hôte et le rôle. Vérifier que les trois segments sont distincts et que l’adresse WAN correspond à l’environnement de formation.
+
+| Si le poste échoue à joindre un service | Vérifier dans cet ordre |
+| --- | --- |
+| Même segment | VMNet, interface active, adresse et masque. |
+| Segment distant | Passerelle, routes d’aller et de retour, filtrage. |
+| Adresse joignable mais nom en échec | Résolveur configuré, nom demandé et réponse DNS. |
+| Nom résolu mais service indisponible | Écoute du service, protocole et autorisations. |
+
 ## Schéma explicatif complémentaire
 
 ```mermaid
@@ -53,19 +68,29 @@ flowchart LR
  R --> I["VMNet2"] --> P["pfSense"] --> W["Réseau amont"]
 ```
 
-## Autoévaluation
+## À retenir
+
+Commencer par la carte, l’adresse et le segment, puis vérifier le routage. Tester ensuite le DNS et le service attendu. La variable X reste identique dans l’adressage, les options DHCP et les zones inverses.
+
+## Mini-quiz — 5 questions {#autoevaluation}
 
 1. Quel segment relie RouTux à l’interface LAN de pfSense ?
-2. Sur quelle VM le cours place-t-il le DNS résolveur ?
-3. Quelle variable doit rester cohérente dans toute la maquette ?
+2. Sur quelle VM se trouve le DNS résolveur ?
+3. Pourquoi la valeur X reste-t-elle identique d’un exercice à l’autre ?
+4. Quel contrôle précède un test DNS entre deux réseaux ?
+5. Quels rôles distincts assurent DHCP et SSH ?
 
-??? success "Réponses"
-    1. VMNet2 et `172.30.X.0/24`.
-    2. DEB-S2.
-    3. `X`, le numéro de stagiaire choisi.
+??? success "Réponses commentées"
+
+    1. VMNet2, avec le réseau 172.30.X.0/24.
+    2. DEB-S2, sur le LAN Serveurs.
+    3. Les préfixes, les options DHCP et les zones inverses doivent rester cohérents pour la même maquette.
+    4. Vérifier les adresses, les routes et la connectivité IP d’aller et de retour.
+    5. DHCP distribue les paramètres réseau. SSH permet d’administrer une machine à distance.
 
 ## Pour travailler ce module
 
 - [Fiche de révision](../../revision/services-reseau-linux/module-01-introduction.md)
 - [Travaux pratiques](../../tp/services-reseau-linux/index.md)
+- [Kahoot existant](../../kahoot/services-reseau-linux-module-01.md)
 - [Sommaire du cours](index.md)
