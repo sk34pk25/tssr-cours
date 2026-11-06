@@ -14780,9 +14780,8 @@ GetHashCode               Method        int GetHashCode()</code></pre>
 <pre><code>Name Enabled Description</code></pre>
 <p>Indiquez les valeurs de chaque propriété.</p>
 <p>Adara Mcintyre True Technician</p>
-<pre><code>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-avez-vous utilisée ?
-Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+<p>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?</p>
+<pre><code>Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
 Get-LocalUser -Name "adara mcintyre"</code></pre>
 <ul><li>Affichez le statut du service Spooler.</li></ul>
 <p>Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?</p>
@@ -14793,8 +14792,7 @@ Get-LocalUser -Name "adara mcintyre"</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="source-1TqWsLOg5YcprfveeH7NzxLpEr8QNWTWB-page-4">
 <p>Bonus</p>
-<pre><code>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-AccountExpires du compte de l’utilisateur Axel Rios.</code></pre>
+<p>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.</p>
 <ul><li>Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *</li></ul>
 <p>La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.</p>
 <pre><code>Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
@@ -14873,10 +14871,9 @@ Set-LocalUser -Name "adara mcintyre"| select *</code></pre>
 </span></code></pre></div>
 <p>Indiquez les valeurs de chaque propriété.</p>
 <p>Adara Mcintyre True Technician</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>avez-vous utilisée ?
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Get-LocalUser -Name "adara mcintyre"
+<p>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Get-LocalUser -Name "adara mcintyre"
 </span></code></pre></div>
 <ul>
 <li>Affichez le statut du service Spooler.</li>
@@ -14888,21 +14885,19 @@ Set-LocalUser -Name "adara mcintyre"| select *</code></pre>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Get-Service -Name Spooler
 </span></code></pre></div>
 <p>Bonus</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>AccountExpires du compte de l’utilisateur Axel Rios.
-</span></code></pre></div>
+<p>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.</p>
 <ul>
 <li>Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *</li>
 </ul>
 <p>La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Set-LocalUser -Name "adara mcintyre"| select *
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Set-LocalUser -Name "adara mcintyre"| select *
 </span></code></pre></div>
 <h2 id="controler-les-objets-avant-et-apres-laction">Contrôler les objets avant et après l’action<a class="headerlink" href="#controler-les-objets-avant-et-apres-laction" title="Permanent link">¶</a></h2>
 <p><code>Get-Member -MemberType Property</code> montre les propriétés. La syntaxe peut également accepter une abréviation de paramètre non ambiguë. Retenir le nom complet dans une procédure. Les noms et descriptions du compte local sont des valeurs de la maquette. Le bonus et la correction emploient des identités différentes. Relire le nom demandé dans l’énoncé avant de choisir le compte.</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">$service</span> <span class="p">=</span> <span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">Spooler</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nv">$service</span> <span class="p">|</span> <span class="nb">Get-Member</span> <span class="n">-MemberType</span> <span class="n">Property</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nv">$service</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">DisplayName</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">$service</span> <span class="p">=</span> <span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">Spooler</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">$service</span> <span class="p">|</span> <span class="nb">Get-Member</span> <span class="n">-MemberType</span> <span class="n">Property</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">$service</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">DisplayName</span>
 </span></code></pre></div>
 <p>Le corrigé appelle <code>Stop()</code> sur le spouleur. Interroger de nouveau le service après l’action pour vérifier son état. La capture du bonus utilise <code>(Get-Date).AddDays(2)</code> pour <code>AccountExpires</code>. Vérifier la propriété après la modification et distinguer l’expiration du compte de celle du mot de passe.</p>
 <ul>

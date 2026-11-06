@@ -15024,7 +15024,7 @@ A chaque tour de boucle, la valeur de l’index $i prend la valeur de l’index 
 <p>Intégrer les structures de commandes dans des scripts de base</p>
 <p>Consignes :</p>
 <p>Depuis la machine CLI01</p>
-<pre><code>Stocker dans une variable le résultat de la commande Get-EventLog system.</code></pre>
+<p>Stocker dans une variable le résultat de la commande Get-EventLog system.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Affichez l’entrée de journal numéro 10.</p>
 <p>Quelle est la valeur de l’Index du journal ?</p>
@@ -15036,7 +15036,7 @@ A chaque tour de boucle, la valeur de l’index $i prend la valeur de l’index 
 <p>Si la date saisie est correcte, la boucle s’arrête et l’utilisateur est félicité.</p>
 <p>BONUS : indiquez le nombre d’essais effectués par l’utilisateur.</p>
 <p>Pour répondre au besoin, vous utiliserez les structures If et ForEach.</p>
-<pre><code>Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;</code></pre>
+<p>Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;</p>
 <p>dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active Directory.</p>
 <p>Indiquez le nombre d’utilisateurs actif et inactif.</p>
 <p>Utilisation de While / If ou Switch</p>
@@ -15093,7 +15093,7 @@ $index</code></pre>
 <p>Si la date saisie est correcte, la boucle s’arrête et l’utilisateur est félicité.</p>
 <p>BONUS : indiquez le nombre d’essais effectués par l’utilisateur.</p>
 <ul><li>Pour répondre au besoin, vous utiliserez les structures If et ForEach.</li></ul>
-<pre><code>Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;</code></pre>
+<p>Créer un script qui générera deux variables de tableaux $UserActif et $SUserInactif ;</p>
 <p>dans chacune sera stockée la liste des utilisateurs actifs et inactifs de votre serveur Active Directory.</p>
 <p>Indiquez le nombre d’utilisateurs actifs et inactifs.</p>
 <h4>Script de la capture</h4><pre><code>[int]$n = Read-Host "Veuillez saisir votre date de naissance"
@@ -15181,6 +15181,29 @@ foreach ($i in $user){
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
+<p>Vérifier le journal Système et identifier l’OU autorisée. Pour la devinette, choisir un format de date explicite. Pour le menu, préparer un CSV de test et une simulation des actions d’écriture.</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Journal</td>
+<td>Nombre d’objets, <code>Index</code> aux positions demandées et somme.</td>
+</tr>
+<tr>
+<td>Devinette</td>
+<td>Traces d’un essai antérieur, postérieur, exact et invalide.</td>
+</tr>
+<tr>
+<td>AD et menu</td>
+<td>Comptages, cas des quatre choix et vérification du refus hors périmètre.</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><a href="tp-01-variables-et-structures/">Énoncé complet</a></li>
 <li><a href="correction-tp-01/">Correction et contrôles</a></li>

@@ -3592,6 +3592,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#declarer-puis-appeler" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3648,6 +3659,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#assembler-les-deux-fichiers-du-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembler les deux fichiers du TP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#organisation-du-tp-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3664,10 +3686,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -14799,6 +14843,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#declarer-puis-appeler" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14855,6 +14910,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#assembler-les-deux-fichiers-du-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembler les deux fichiers du TP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#organisation-du-tp-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14871,10 +14937,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -15200,6 +15288,12 @@ done
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Une fonction donne un nom à un ensemble de commandes que le script peut réutiliser. Ce module couvre la déclaration, l’appel, les paramètres, l’usage des variables et le chargement d’un fichier de fonctions.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Définir une fonction, lui transmettre des paramètres et récupérer son statut.</li>
+<li>Limiter la portée des variables et charger un fichier de fonctions identifié.</li>
+<li>Séparer le menu des actions et vérifier la sauvegarde, le listing et la suppression.</li>
+</ul>
 <h2 id="declarer-puis-appeler">Déclarer, puis appeler<a class="headerlink" href="#declarer-puis-appeler" title="Permanent link">¶</a></h2>
 <p>Déclarez la fonction avant que le déroulement atteigne son premier appel. Le corps est exécuté lors de l’appel. Le support illustre <code>func_infos</code> avec les informations de la distribution, puis utilise un appel séparé pour démarrer la fonction.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>func_infos<span class="o">()</span><span class="w"> </span><span class="o">{</span>
@@ -15275,6 +15369,39 @@ done
 </tbody>
 </table>
 <p>La correction distingue le dossier vide, un script sans copie et un script déjà sauvegardé. Les guillemets protègent les noms contenant des espaces. Une commande de copie ou de suppression doit signaler son résultat. Préparez un répertoire de laboratoire avec des fichiers de test pour observer chaque branche.</p>
+<h3 id="assembler-les-deux-fichiers-du-tp">Assembler les deux fichiers du TP<a class="headerlink" href="#assembler-les-deux-fichiers-du-tp" title="Permanent link">¶</a></h3>
+<ol>
+<li>Définissez dans <code>fonctions.fct</code> une fonction par action. Parcourez les chemins avec un motif Bash plutôt qu’avec la sortie de <code>ls</code>. Protégez les chemins dans les appels à <code>cp</code> et <code>rm</code>.</li>
+<li>Dans <code>script_M8TP1.sh</code>, vérifiez la lisibilité du fichier de fonctions et chargez-le. Gardez le menu dans le script principal.</li>
+<li>Traitez S, D, L et Q séparément. Une action doit rendre un statut que le menu peut vérifier. L et D n’ont pas le même périmètre. L consulte les scripts, tandis que D retire les fichiers <code>.save</code> du dossier d’exercice.</li>
+<li>Analysez la syntaxe de chacun des fichiers et utilisez uniquement un dossier de TP isolé pour l’essai. La correction donne le contenu complet des deux fichiers.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Enchaînement</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L, puis S, puis L</td>
+<td>L’état passe de « sans sauvegarde » à « sauvegardé »</td>
+</tr>
+<tr>
+<td>D, puis L</td>
+<td>Les copies ont disparu. Les scripts restent présents</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>Sortie du menu avec statut zéro</td>
+</tr>
+<tr>
+<td>Dossier vide ou choix invalide</td>
+<td>Aucune action sur un chemin imaginaire. Un choix invalide est signalé</td>
+</tr>
+</tbody>
+</table>
 <h3 id="organisation-du-tp-complement-pedagogique">Organisation du TP — Complément pédagogique<a class="headerlink" href="#organisation-du-tp-complement-pedagogique" title="Permanent link">¶</a></h3>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart TD
@@ -15287,13 +15414,27 @@ done
     E --&gt; C
     F --&gt; C
     C --&gt;|Q| G["Quitter"]</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Une fonction reçoit ses propres arguments et transmet un statut à l’appelant. Le chargement d’un fichier exécute son contenu dans le shell courant. Le menu orchestre les fonctions et les tests vérifient les effets sur les fichiers.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Que désigne <code>$1</code> dans une fonction appelée avec un argument ?</li>
 <li>Quel rôle joue <code>return 2</code> ?</li>
-<li>À quel moment les commandes au niveau supérieur d’un fichier chargé s’exécutent-elles ?</li>
+<li>À quel moment le code au niveau supérieur de <code>fonctions.fct</code> s’exécute-t-il ?</li>
+<li>Que doit montrer L après S dans le dossier du TP ?</li>
+<li>Pourquoi contrôler les statuts de copie et de suppression ?</li>
 </ol>
-<p><strong>Réponses.</strong> Le premier argument de la fonction. La fonction se termine avec le statut 2. Lors de <code>source</code> ou <code>.</code>.</p>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Le premier argument de cet appel à la fonction.</li>
+<li>Il quitte la fonction avec le statut 2, que l’appelant peut tester.</li>
+<li>Pendant le chargement par <code>source</code> ou <code>.</code>.</li>
+<li>Chaque script correspondant doit avoir sa copie <code>.sh.save</code> et l’état affiché doit le confirmer.</li>
+<li>Une commande peut échouer pour un fichier. Le menu peut alors signaler un résultat partiel au lieu d’annoncer une réussite globale.</li>
+</ol>
+</details>
+<h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-08/">TP 01 et correction</a></li>
 <li><a href="../../../revision/11-initiation-scripting-bash/module-08-les-fonctions/">Fiche de révision</a></li>

@@ -14794,13 +14794,20 @@ schémas. Les avertissements de certificat de la solution restent des observatio
 historiques à examiner dans leur contexte. Les ressources binaires ne sont pas jointes.</p>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-05/">Cours</a> ·
 <a href="../../../tp/13-virtualisation-serveurs/module-05/">Atelier et correction</a></p>
-<p>Provenance A : trois PDF M05 du Drive TSSR en lecture seule ; B : synthèse fidèle.
-Aucune question, ressource externe ou association Kahoot n’est ajoutée.</p>
+<p>Provenance A : trois PDF M05 du Drive TSSR en lecture seule ; B : synthèse fidèle.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>Quel disque choisir pour installer ESXi et lequel pour créer DS-Local ?</p>
+<ol>
+<li>Quel composant exécute les VM du laboratoire ?</li>
+<li>Pourquoi vérifier la banque locale avant de créer SRV-1 ?</li>
+<li>Que relever pour démontrer la mise en service de SRV-1 ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>Installer ESXi sur le disque de 40 Go, puis sélectionner le disque SCSI de 200 Go dans l’assistant de création de la banque VMFS.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>L’hôte ESXi. L’outil de gestion présente et pilote les objets, tandis que l’exécution se déroule sur l’hôte.</li>
+<li>Elle doit être accessible sur l’hôte choisi et contenir assez d’espace. Vérifier aussi le réseau et le média d’installation avant le démarrage.</li>
+<li>L’hôte et la banque utilisés, la configuration de la VM, son état et l’accès au système invité.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-05/">Revenir au cours</a></p>
 

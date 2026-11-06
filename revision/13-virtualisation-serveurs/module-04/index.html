@@ -14818,13 +14818,19 @@ avec Sysprep et arrêter → exporter → importer une copie dans des sous-dossi
 <li><a href="../../../modules/13-virtualisation-serveurs/module-04/">Cours M04</a>.</li>
 <li><a href="../../../tp/13-virtualisation-serveurs/module-04/">Atelier unique, énoncé et correction</a>.</li>
 </ul>
-<p>Contenu A : support M04, énoncé et solution de l’Atelier n°2 Hyper-V, Drive TSSR en
-lecture seule. Contenu B : synthèse des éléments attestés, sans quiz ni exercice ajouté.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>Quel mode d’import choisir pour garder simultanément l’original et la copie ?</p>
+<ol>
+<li>Quel mode d’import garde l’original et une copie distincte ?</li>
+<li>Pourquoi vérifier l’adresse visée dans la preuve de ping ?</li>
+<li>Quels contrôles précèdent Sysprep dans ce TP ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>Copy the virtual machine crée un nouvel identifiant. Placer les fichiers de la copie dans des emplacements séparés, puis renommer et vérifier la nouvelle VM.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>Choisir Copy the virtual machine et des dossiers distincts. Vérifier le nouvel identifiant de la copie.</li>
+<li>Un ping vers la passerelle ne démontre pas que les deux VM communiquent. Relever leur adresse avec <code>ipconfig</code> et viser l’autre invité.</li>
+<li>Identifier la première VM Hyper-V, vérifier le choix Generalize et Shutdown, puis contrôler son état arrêté avant l’export.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-04/">Revenir au cours</a></p>
 

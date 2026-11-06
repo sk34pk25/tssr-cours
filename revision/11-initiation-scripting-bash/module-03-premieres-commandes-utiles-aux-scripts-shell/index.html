@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14729,7 +14748,18 @@
 </tbody>
 </table>
 <p><code>\c</code> termine l’affichage sans saut de ligne, <code>\n</code> produit un saut, <code>\t</code> une tabulation et <code>\\</code> un antislash. Sans <code>exit</code> explicite, le statut final est celui de la dernière commande exécutée.</p>
-<p><strong>Autoévaluation.</strong> Après <code>bash -c 'exit 2'</code>, le statut à récupérer est <code>2</code>. Il change dès qu’une autre commande synchrone se termine.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment observer un statut non nul sans quitter le shell courant ?</li>
+<li>Quel outil décrit une commande intégrée ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Lancer <code>bash -c 'exit 4'</code>, puis enregistrer <code>$?</code> immédiatement.</li>
+<li><code>help</code> dans Bash, par exemple <code>help exit</code>. <code>type</code> indique d’abord la catégorie de commande.</li>
+</ol>
+</details>
 <p><a href="../../../modules/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/">Cours</a></p>
 
 

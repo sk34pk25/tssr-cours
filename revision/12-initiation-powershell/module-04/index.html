@@ -14814,7 +14814,19 @@ menu, puis objets du scénario. Les données, résultats et actions
 d’administration propres au laboratoire ne doivent pas être réemployés hors de
 son cadre.</p>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Écrivez les cas de sortie d’une boucle <code>while</code> et d’une boucle <code>do ... until</code> pour une saisie initiale vide. Relevez le type de la valeur retournée par <code>Read-Host</code>. Expliquez ce que mesure la position <code>[10]</code> et ce que signifie <code>.Index</code> sur l’objet du journal. Essayez ensuite un menu <code>switch</code> avec un choix invalide.</p>
+<ol>
+<li>Quelle différence entre la position <code>[10]</code> et <code>.Index</code> ?</li>
+<li>Que renvoie <code>Read-Host</code> ?</li>
+<li>Quels cas valident le menu ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li><code>[10]</code> sélectionne le onzième élément du tableau. <code>.Index</code> lit une propriété du journal sur cet objet.</li>
+<li>Une chaîne par défaut. La convertir avant une comparaison de nombres ou de dates.</li>
+<li>Chaque choix prévu, une saisie inconnue qui relance le menu et la sortie qui termine la boucle.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-04/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-04/">TP et correction</a></li>

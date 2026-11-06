@@ -14813,7 +14813,19 @@ de session du laboratoire sont exclus.</p>
 <li><a href="../../../tp/12-initiation-powershell/module-02/">TP 01 — L'objet</a></li>
 </ul>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Prenez un objet service et retrouvez son type, ses propriétés et une méthode avec <code>Get-Member</code>. Préparez deux contrôles, l’un avant et l’autre après l’action demandée. Comparez ensuite une valeur <code>DateTime</code> avec le résultat de <code>AddDays(1)</code> et expliquez pourquoi il faut conserver ce dernier si on souhaite le réutiliser.</p>
+<ol>
+<li>Comment reconnaître la valeur de retour d’une méthode ?</li>
+<li>Que faut-il relever après l’appel à <code>Stop()</code> ?</li>
+<li>Quel est le résultat de <code>AddDays(1)</code> ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Lire la colonne <code>Definition</code> de <code>Get-Member -MemberType Method</code>.</li>
+<li>L’état issu d’une nouvelle interrogation du service. La méthode ne fournit pas elle-même ce résultat.</li>
+<li>Une nouvelle valeur <code>DateTime</code>. Elle peut être stockée puis comparée à la date initiale.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-02/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-02/">TP et correction</a></li>

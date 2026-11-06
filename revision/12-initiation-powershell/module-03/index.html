@@ -14811,7 +14811,19 @@
 <p>Les résultats dépendent des objets de laboratoire et ne sont pas des valeurs universelles. La suppression d’un utilisateur présente dans le scénario est destructive : elle ne s’exécute que dans le laboratoire prévu.</p>
 <p>Les divergences de filtrage, de désactivation, de tailles, d’export, d’import et de forme <code>Get-Content</code> restent à relire dans les documents sources.</p>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Sélectionnez les services actifs, triez-les par nom puis mesurez leur nombre. Préparez deux sorties à partir de la même liste, un tableau pour la console et un CSV pour réutiliser les données. Expliquez la différence entre <code>Get-Content</code>, <code>Import-Csv</code> et <code>Import-Clixml</code>. Ajoutez une propriété calculée pour une taille en Kio.</p>
+<ol>
+<li>Pourquoi demander <code>Department</code> et <code>City</code> avec <code>-Properties</code> ?</li>
+<li>Où placer <code>Format-Table</code> ?</li>
+<li>Comment distinguer la lecture du fichier de la création d’un compte ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Ces attributs peuvent manquer dans le jeu de propriétés renvoyé par défaut.</li>
+<li>En fin de chaîne d’affichage. Reprendre les objets d’origine pour exporter le CSV.</li>
+<li>Contrôler les en-têtes et la projection avec <code>Import-Csv</code>, puis vérifier l’OU et l’identité cible avant de simuler la création.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-03/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-03/">TP et correction</a></li>

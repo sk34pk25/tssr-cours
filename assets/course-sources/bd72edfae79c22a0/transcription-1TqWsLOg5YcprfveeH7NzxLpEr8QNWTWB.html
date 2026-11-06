@@ -44,10 +44,9 @@ GetHashCode               Method        int GetHashCode()</code></pre>
 <pre><code>Name Enabled Description</code></pre>
 <p>Indiquez les valeurs de chaque propriété.</p>
 <p>Adara Mcintyre True Technician</p>
-<pre><code>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-avez-vous utilisée ?
-Set-LocalUser -Name &quot;adara mcintyre&quot;-Description &quot;Administrateur&quot;
-Get-LocalUser -Name &quot;adara mcintyre&quot;</code></pre>
+<p>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?</p>
+<pre><code>Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+Get-LocalUser -Name "adara mcintyre"</code></pre>
 <ul><li>Affichez le statut du service Spooler.</li></ul>
 <p>Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?</p>
 <pre><code>(Get-Service -Name Spooler).stop()</code></pre>
@@ -57,8 +56,7 @@ Get-LocalUser -Name &quot;adara mcintyre&quot;</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="page-4">
 <p>Bonus</p>
-<pre><code>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-AccountExpires du compte de l’utilisateur Axel Rios.</code></pre>
+<p>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.</p>
 <ul><li>Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *</li></ul>
 <p>La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.</p>
 <pre><code>Set-LocalUser -Name &quot;adara mcintyre&quot;-AccountExpires (get-date).adddays(2)

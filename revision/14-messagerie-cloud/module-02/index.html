@@ -14736,6 +14736,10 @@
 </tbody>
 </table>
 <p><strong>Entraînement.</strong> Un utilisateur synchronisé apparaît dans le tenant. Son alias échoue et il peut ouvrir la boîte partagée sans pouvoir envoyer. Tracez les deux contrôles indépendants, proxyAddresses et délégation d’envoi.</p>
+<details class="success">
+<summary>Correction commentée</summary>
+<p>Vérifier l’adresse dans <code>proxyAddresses</code> côté AD, la synchronisation et la réception effective. Puis vérifier séparément le droit Envoyer en tant que ou Envoyer de la part de. L’accès à la boîte partagée prouve uniquement que son contenu peut être consulté.</p>
+</details>
 <h2 id="sexercer">S’exercer<a class="headerlink" href="#sexercer" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../modules/14-messagerie-cloud/module-02/">Cours et documents sources</a></li>

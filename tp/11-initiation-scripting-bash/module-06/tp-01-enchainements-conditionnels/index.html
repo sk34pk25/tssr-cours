@@ -14682,6 +14682,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#preuves-a-relever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preuves à relever
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -14766,6 +14777,35 @@
 <p>Avec un argument, il est utilisé comme nom. Sans argument, une saisie est demandée. Avec plus d’un argument, le script quitte avec le code <code>1</code>. Le nom <code>root</code> est refusé avec le message de scénario et le code <code>2</code>; sinon, le message d’accueil et la fin de script prévus sont affichés.</p>
 <h2 id="formes-attestees">Formes attestées<a class="headerlink" href="#formes-attestees" title="Permanent link">¶</a></h2>
 <p><code>[ $# -eq 1 ] &amp;&amp; name=$1</code>, <code>[[ $# -gt 1 ]]</code>, <code>[[ $# -eq 0 ]]</code>, <code>[[ $name = root ]]</code>, <code>read -p ...</code>, <code>echo -e ...</code>, <code>exit 1</code> et <code>exit 2</code>.</p>
+<h2 id="preuves-a-relever">Preuves à relever<a class="headerlink" href="#preuves-a-relever" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Preuve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aucun argument</td>
+<td>Invite de saisie, puis accueil si le nom est valide</td>
+</tr>
+<tr>
+<td>Un nom ordinaire</td>
+<td>Accueil et statut zéro</td>
+</tr>
+<tr>
+<td>Deux arguments</td>
+<td>Message d’usage et statut 1</td>
+</tr>
+<tr>
+<td>Argument <code>root</code></td>
+<td>Refus et statut 2</td>
+</tr>
+</tbody>
+</table>
+<p>Consignez le statut immédiatement après chaque appel.</p>
+<p><a href="../correction-tp-01/">Correction du TP</a></p>
 </div>
 </div>
 </div>

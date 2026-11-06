@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#preuves-a-relever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preuves à relever
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14734,6 +14753,9 @@ Compte utilisateur de Estelle INEXISTANT</code></pre>
 <p>Le menu source sépare création, modification du mot de passe, suppression, vérification et quitter. La donnée est le nom d’utilisateur et le fichier consulté est <code>/etc/passwd</code>.</p>
 <p>Les commandes attestées sont <code>useradd -m -s /bin/bash $nom</code>, <code>passwd $nom</code>, <code>userdel $nom</code> et <code>grep $nom "/etc/passwd"</code>. Le scénario utilise aussi <code>case</code>, les variantes minuscules et majuscules, <code>read -p</code>, <code>echo</code>, les tests de chaîne vide, <code>exit 0</code> et <code>exit 1</code>.</p>
 <p>Les privilèges nécessaires à ces commandes sont signalés comme contexte d’exécution source, sans ajout de procédure <code>sudo</code>.</p>
+<h2 id="preuves-a-relever">Preuves à relever<a class="headerlink" href="#preuves-a-relever" title="Permanent link">¶</a></h2>
+<p>Dans la machine virtuelle dédiée, préparez un identifiant de test <code>tp_</code> et relevez son état avant et après chaque action. Essayez d’abord la vérification de présence et la sortie, puis contrôlez les opérations de création, modification et suppression. Un identifiant hors du périmètre d’exercice doit être refusé pour toute opération de modification dans la variante. Ne consignez aucune valeur d’accès dans la preuve.</p>
+<p><a href="../correction-tp-02/">Correction du TP</a></p>
 </div>
 </div>
 </div>

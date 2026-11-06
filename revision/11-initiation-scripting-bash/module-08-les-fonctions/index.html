@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14723,6 +14742,18 @@
 </tbody>
 </table>
 <p><strong>TP 01.</strong> Le menu boucle sur S pour sauvegarder, D pour supprimer les sauvegardes, L pour lister et Q pour quitter. Le fichier de fonctions contient les trois traitements. Le script principal charge ce fichier, affiche les choix et traite le retour des fonctions.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Quelle différence entre <code>return</code> et <code>exit</code> dans une fonction ?</li>
+<li>Quelle séquence valide sauvegarde et suppression ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li><code>return</code> revient à l’appelant avec un statut. <code>exit</code> termine le script ou le shell qui exécute la fonction.</li>
+<li>Lister, sauvegarder, relister, supprimer et relister. Les fichiers de départ restent présents après suppression des copies.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-08-les-fonctions/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-08/">TP et correction</a></li>

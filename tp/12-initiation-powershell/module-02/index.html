@@ -14811,8 +14811,7 @@ Get-Service -ServiceName *search</code></pre>
 <p>Utiliser les commandes de gestion de l’objet.</p>
 <p>Consignes :</p>
 <p>Depuis la machine CLI01 :</p>
-<pre><code>Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet
-System.ServiceProcess.ServiceController</code></pre>
+<p>Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet System.ServiceProcess.ServiceController</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Indiquez deux propriétés de type String</p>
 <p>Indiquez une méthode de type Bool et une de type int.</p>
@@ -14826,18 +14825,15 @@ System.ServiceProcess.ServiceController</code></pre>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Quelles propriétés avez-vous affichées ?</p>
 <p>Indiquez les valeurs de chaque propriété.</p>
-<pre><code>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-avez-vous utilisée ?</code></pre>
+<p>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?</p>
 <p>Affichez le statut du service Spooler.</p>
 <p>Utilisez la méthode pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?</p>
 <p>Vérifier à nouveau le statut du service.</p>
 </section>
 <section class="tssr-transcribed-page" id="source-1xn1SKBNjc5eBQSLwmp2ZYpD-iUlG4SA7-page-3">
 <p>Bonus</p>
-<pre><code>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-AccountExpires du compte de l’utilisateur Axel Rios.
-Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios
-» |  select *</code></pre>
+<p>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.</p>
+<p>Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *</p>
 <p>La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure</p>
 <p>à la date actuelle.</p>
 <h3>Solution</h3>
@@ -14897,9 +14893,8 @@ GetHashCode               Method        int GetHashCode()</code></pre>
 <pre><code>Name Enabled Description</code></pre>
 <p>Indiquez les valeurs de chaque propriété.</p>
 <p>Adara Mcintyre True Technician</p>
-<pre><code>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande
-avez-vous utilisée ?
-Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+<p>Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?</p>
+<pre><code>Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
 Get-LocalUser -Name "adara mcintyre"</code></pre>
 <ul><li>Affichez le statut du service Spooler.</li></ul>
 <p>Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?</p>
@@ -14910,8 +14905,7 @@ Get-LocalUser -Name "adara mcintyre"</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="source-1TqWsLOg5YcprfveeH7NzxLpEr8QNWTWB-page-4">
 <p>Bonus</p>
-<pre><code>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété
-AccountExpires du compte de l’utilisateur Axel Rios.</code></pre>
+<p>Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.</p>
 <ul><li>Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *</li></ul>
 <p>La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.</p>
 <pre><code>Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
@@ -14930,6 +14924,29 @@ Set-LocalUser -Name "adara mcintyre"| select *</code></pre>
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
+<p>Choisir le service et le compte de test prévus. Noter leur état initial avant toute modification et prévoir le rétablissement demandé dans la maquette.</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Preuve à relever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service</td>
+<td>Type, propriétés et signatures de méthodes, puis état avant et après l’arrêt demandé.</td>
+</tr>
+<tr>
+<td>Compte local</td>
+<td>Nom de la cible et description avant et après la modification autorisée.</td>
+</tr>
+<tr>
+<td>Bonus</td>
+<td>Date d’expiration relue et écart avec l’heure de contrôle.</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><a href="tp-01-objet/">Énoncé complet</a></li>
 <li><a href="correction-tp-01/">Correction et contrôles</a></li>

@@ -3946,6 +3946,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TP guidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tester-les-services-et-garder-les-erreurs-pour-le-bilan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester les services et garder les erreurs pour le bilan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-controler-et-liberer-une-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer, contrôler et libérer une session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparer-les-cibles-ad-et-controler-le-profil-de-lediteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer les cibles AD et contrôler le profil de l’éditeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -15002,6 +15063,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tp-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TP guidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tester-les-services-et-garder-les-erreurs-pour-le-bilan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester les services et garder les erreurs pour le bilan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-controler-et-liberer-une-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer, contrôler et libérer une session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparer-les-cibles-ad-et-controler-le-profil-de-lediteur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Préparer les cibles AD et contrôler le profil de l’éditeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -15858,20 +15980,65 @@ $ErrorActionPreference</code></pre>
 </span></code></pre></div>
 <p>Le bloc distant s’exécute dans son propre contexte. Passez les valeurs avec <code>param()</code> et <code>-ArgumentList</code>, ou avec <code>$using:variable</code>. <code>Invoke-Command -ComputerName</code> accepte plusieurs cibles. Les objets retournés peuvent être désérialisés. L’accès à une troisième machine depuis la session distante représente le second saut, dont les droits dépendent de la méthode d’authentification configurée.</p>
 <p>Le TP demande d’identifier les ordinateurs AD avant une opération d’arrêt. Le code source filtre un chemin d’annuaire. Pour vérifier le résultat, dresser d’abord la liste des cibles, vérifier séparément les contrôleurs de domaine et limiter le test aux machines de la maquette prévues à cet effet.</p>
+<h2 id="tp-guide">TP guidé<a class="headerlink" href="#tp-guide" title="Permanent link">¶</a></h2>
+<h3 id="tester-les-services-et-garder-les-erreurs-pour-le-bilan">Tester les services et garder les erreurs pour le bilan<a class="headerlink" href="#tester-les-services-et-garder-les-erreurs-pour-le-bilan" title="Permanent link">¶</a></h3>
+<p>Dans l’éditeur du TP, tester un service connu puis un nom inexistant. Capturer les erreurs de la commande sans affichage immédiat et afficher un bilan unique après la boucle. Réunir ensuite cette logique dans une fonction qui reçoit les noms.</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">function</span> <span class="nb">Test-LabService</span> <span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">param</span><span class="p">([</span><span class="k">Parameter</span><span class="p">(</span><span class="k">Mandatory</span><span class="p">)]</span><span class="no">[string[]]</span><span class="nv">$Name</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nv">$erreurs</span> <span class="p">=</span> <span class="p">@()</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nv">$resultats</span> <span class="p">=</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$nom</span> <span class="k">in</span> <span class="nv">$Name</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="nv">$service</span> <span class="p">=</span> <span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="nv">$nom</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="n">-ErrorVariable</span> <span class="p">+</span><span class="n">erreurs</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="no">[pscustomobject]</span><span class="p">@{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="n">Nom</span> <span class="p">=</span> <span class="nv">$nom</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            <span class="n">Etat</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$service</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$service</span><span class="p">.</span><span class="n">Status</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="s1">'Non obtenu'</span> <span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="p">}</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="no">[pscustomobject]</span><span class="p">@{</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="n">Resultats</span> <span class="p">=</span> <span class="p">@(</span><span class="nv">$resultats</span><span class="p">)</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="n">Erreurs</span> <span class="p">=</span> <span class="p">@(</span><span class="nv">$erreurs</span><span class="p">)</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="p">}</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">}</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nv">$bilan</span> <span class="p">=</span> <span class="nb">Test-LabService</span> <span class="n">-Name</span> <span class="s1">'Spooler'</span><span class="p">,</span> <span class="s1">'ServiceInexistantTP'</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="nb">Write-Host</span> <span class="s1">'Vérification des services terminée.'</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nv">$bilan</span><span class="p">.</span><span class="n">Resultats</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nv">$bilan</span><span class="p">.</span><span class="n">Erreurs</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">FullyQualifiedErrorId</span><span class="p">,</span><span class="n">CategoryInfo</span>
+</span></code></pre></div>
+<p>Un résultat « Non obtenu » doit être interprété avec l’erreur conservée. Une commande peut échouer pour une autre raison qu’un service absent. Le préfixe <code>+</code> dans <code>-ErrorVariable +erreurs</code> ajoute les erreurs des appels successifs dans la même variable.</p>
+<h3 id="creer-controler-et-liberer-une-session">Créer, contrôler et libérer une session<a class="headerlink" href="#creer-controler-et-liberer-une-session" title="Permanent link">¶</a></h3>
+<p>Créer une session vers CD01 dans la maquette, la conserver dans une variable et relever son état. Comparer la sortie d’un test local et distant. Libérer la session même si la commande du test échoue.</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">$session</span> <span class="p">=</span> <span class="nb">New-PSSession</span> <span class="n">-ComputerName</span> <span class="n">CD01</span> <span class="n">-ErrorAction</span> <span class="n">Stop</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">try</span> <span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="nv">$session</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span><span class="n">State</span><span class="p">,</span><span class="n">Availability</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="nb">Invoke-Command</span> <span class="n">-Session</span> <span class="nv">$session</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">hostname</span> <span class="p">}</span> <span class="n">-ErrorAction</span> <span class="n">Stop</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="nb">Remove-PSSession</span> <span class="n">-Session</span> <span class="nv">$session</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="preparer-les-cibles-ad-et-controler-le-profil-de-lediteur">Préparer les cibles AD et contrôler le profil de l’éditeur<a class="headerlink" href="#preparer-les-cibles-ad-et-controler-le-profil-de-lediteur" title="Permanent link">¶</a></h3>
+<ol>
+<li>Transformer la recherche des ordinateurs en fonction avec un paramètre de domaine. Définir aussi l’OU autorisée. Établir dans ce même domaine la liste des contrôleurs avec <code>Get-ADDomainController</code>. Si cette interrogation échoue, interrompre la préparation.</li>
+<li>Comparer les noms DNS, exclure les contrôleurs et les objets sans nom DNS, puis confronter la sélection à la liste de machines autorisées. Vérifier les noms courts et les FQDN avant une simulation <code>Stop-Computer -WhatIf</code> sur la liste approuvée. Le filtre illustré dans le corrigé s’appuie sur l’organisation d’une maquette. Une OU seule ne prouve pas qu’un ordinateur peut être arrêté.</li>
+<li>Ouvrir le profil de l’hôte ISE ou de la console concernée après l’avoir sauvegardé. Tester une erreur non bloquante connue avec <code>$ErrorActionPreference = 'SilentlyContinue'</code>, puis constater qu’elle reste consultable dans <code>$Error</code>. Pour un exercice ciblé, préférer le réglage de la seule commande. Restaurer le profil et vérifier l’effet à la réouverture.</li>
+</ol>
+<p><a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters">Paramètres communs et collecte d’erreurs</a> · <a href="https://learn.microsoft.com/powershell/module/activedirectory/get-addomaincontroller">Référence de Get-ADDomainController</a></p>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Une fonction reçoit ses entrées, produit un résultat exploitable et permet de distinguer un échec d’une sortie vide. Une session distante se vérifie et se ferme. La sélection AD et la liste de cibles autorisées précèdent toute simulation d’arrêt.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quel paramètre permet à <code>catch</code> d’intercepter une erreur non bloquante ?</li>
 <li>Où retrouver la dernière erreur de la session ?</li>
 <li>Quelle commande termine une session ouverte par <code>New-PSSession</code> ?</li>
 <li>Quelle différence entre <code>;</code> et <code>|</code> ?</li>
+<li>Comment prouver qu’une erreur masquée reste consultable ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li><code>-ErrorAction Stop</code> sur la commande concernée.</li>
 <li><code>$Error[0]</code>.</li>
 <li><code>Remove-PSSession</code>.</li>
 <li>Le premier sépare des commandes. Le second transmet des objets.</li>
+<li>Provoquer une erreur non bloquante connue dans la maquette puis lire l’enregistrement capturé par <code>-ErrorVariable</code> ou <code>$Error[0]</code>.</li>
 </ol>
 </details>
 <h2 id="travaux-pratiques-et-revision">Travaux pratiques et révision<a class="headerlink" href="#travaux-pratiques-et-revision" title="Permanent link">¶</a></h2>

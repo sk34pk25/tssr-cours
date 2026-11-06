@@ -3758,6 +3758,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suivre-les-objets-dans-le-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3828,6 +3839,67 @@
     <span class="md-ellipsis">
       
         Vérifier le TP de bout en bout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TP guidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtenir-les-attributs-ad-avant-les-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtenir les attributs AD avant les opérations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesurer-le-partage-et-construire-les-vues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesurer le partage et construire les vues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exporter-des-objets-et-valider-limport-avant-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporter des objets et valider l’import avant création
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
       
     </span>
   </a>
@@ -14815,6 +14887,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suivre-les-objets-dans-le-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14885,6 +14968,67 @@
     <span class="md-ellipsis">
       
         Vérifier le TP de bout en bout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tp-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP guidé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TP guidé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtenir-les-attributs-ad-avant-les-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtenir les attributs AD avant les opérations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesurer-le-partage-et-construire-les-vues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesurer le partage et construire les vues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exporter-des-objets-et-valider-limport-avant-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporter des objets et valider l’import avant création
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
       
     </span>
   </a>
@@ -15101,8 +15245,7 @@ Name –like ’’Power*’’</code></pre>
 <p>Afin de pouvoir tester des valeurs de propriété, chaque type de valeur dispose d’un opérateur de comparaison adapté.</p>
 <table><thead><tr><th scope="col">Comparaison</th><th scope="col">Insensibilité à la casse</th><th scope="col">Sensibilité à la casse</th></tr></thead><tbody><tr><td>Égalité</td><td>-eq</td><td>-ceq</td></tr><tr><td>Inégalité</td><td>-ne</td><td>-cne</td></tr><tr><td>Supérieur à</td><td>-gt</td><td>-cgt</td></tr><tr><td>Supérieur ou égal à</td><td>-ge</td><td>-cge</td></tr><tr><td>Inférieur à</td><td>-lt</td><td>-clt</td></tr><tr><td>Inférieur ou égal à</td><td>-le</td><td>-cle</td></tr><tr><td>Comparaison d’égalité d’expression</td><td>-like</td><td>-clike</td></tr><tr><td>Comparaison d’inégalité d’expression</td><td>-notlike</td><td>-cnotlike</td></tr></tbody></table>
 <h3>La commande Where-Object</h3>
-<pre><code>Si on applique plusieurs conditions à la commande Where-Object, on va
-utiliser les expressions logiques ET et OU.</code></pre>
+<p>Si on applique plusieurs conditions à la commande Where-Object, on va utiliser les expressions logiques ET et OU.</p>
 <ul><li>Dans le cas d’un ET logique, les deux conditions doivent être valides pour que l’objet soit retenu.</li></ul>
 <pre><code>PS &gt; Get-Process | Select Name,Id | Where –Filterscript{$PSitem.Id–gt1500
 –and$PSItem.Id–lt2000}</code></pre>
@@ -15742,34 +15885,29 @@ Format-Wide ne le prend pas en charge.</code></pre>
 <h3>Énoncé</h3>
 <p>Objectifs :</p>
 <p>Manipuler les objets leurs propriétés et leurs méthodes</p>
-<pre><code>Utilisation de la commande Select-Object, Sort-Object et Where-Object.</code></pre>
+<p>Utilisation de la commande Select-Object, Sort-Object et Where-Object.</p>
 <p>Consignes :</p>
 <p>Depuis la machine CLI01</p>
-<pre><code>Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name,
-Enabled Department City.</code></pre>
+<p>Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, Enabled Department City.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
-des propriétés Department et City ?</code></pre>
+<p>Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides des propriétés Department et City ?</p>
 <p>Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.</p>
 <p>Affichez les cinq premiers utilisateurs Active Directory</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 </section>
 <section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-2">
-<pre><code>Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur
-propriété Department</code></pre>
+<p>Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department</p>
 <p>Indiquez les commandes utilisées.</p>
-<pre><code> Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled,
-Department, City puis triez par la propriété City.</code></pre>
+<p>Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, City puis triez par la propriété City.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Reprenez la commande précédente puis appliquez le tri sur la propriété Department</code></pre>
-<p>dans l’ordre descendant.</p>
+<p>Reprenez la commande précédente puis appliquez le tri sur la propriété Department dans l’ordre descendant.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Effectuer le tri sur les deux propriétés City et Department.</code></pre>
+<p>Effectuer le tri sur les deux propriétés City et Department.</p>
 <p>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Bonus</p>
 <p>Désactiver les utilisateurs dont le nom commence par un D.</p>
-<pre><code>Utiliser la commande Disable-AdAccount</code></pre>
+<p>Utiliser la commande Disable-AdAccount</p>
 </section>
 <section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-3">
 <p>Depuis la machine CLI01</p>
@@ -15789,13 +15927,11 @@ Department, City puis triez par la propriété City.</code></pre>
 <p>BONUS</p>
 <p>Reprenez les commandes précédentes et indiquez les fichiers dont la taille est supérieure à 10 Mo et inférieure à 100 Mo.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri
-descendant sur le nom.</code></pre>
+<p>Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant sur le nom.</p>
 <p>Depuis la machine CLI01</p>
 <p>Affichez la liste des utilisateurs Active Directory sur cinq colonnes.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec</code></pre>
-<p>les propriétés : Name, Enabled, Department, City</p>
+<p>Affichez la liste des utilisateurs Active Directory qui sont actifs, en format tableau, avec les propriétés : Name, Enabled, Department, City</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
@@ -15819,8 +15955,7 @@ descendant sur le nom.</code></pre>
 <p>Que remarquez-vous ?</p>
 </section>
 <section class="tssr-transcribed-page" id="source-1WvzWMpdknTaN7Uw07NG9460kw-qGdQBZ-page-6">
-<pre><code>Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message
-d’erreur sur la propriété Name.</code></pre>
+<p>Sans modifier le fichier CSV, trouvez une solution pour ne plus avoir de message d’erreur sur la propriété Name.</p>
 <p>Quelle commande avez-vous utilisée ?</p>
 <p>Affichez la liste des fichiers du partage de CD01 ; pour chaque propriété vous allez traduire le nom de la propriété. Chaque valeur sera exprimée en GB :</p>
 <p>Indiquez votre commande.</p>
@@ -15850,16 +15985,9 @@ d’erreur sur la propriété Name.</code></pre>
 <p>Depuis la machine CLI01</p>
 <ul><li>Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, Enabled Department City.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Get-AdUser
--Filter
-*
-|
-Select-Object
--Property
-GivenName,Name,Enabled,Department,City
-Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
-des propriétés Department et City ?
-Get-Help Get-ADUser -ShowWindow</code></pre>
+<pre><code>Get-AdUser -Filter * | Select-Object -Property GivenName,Name,Enabled,Department,City</code></pre>
+<p>Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides des propriétés Department et City ?</p>
+<pre><code>Get-Help Get-ADUser -ShowWindow</code></pre>
 <p>Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.</p>
 <pre><code>Get-AdUser -Filter * -Properties *
 get-ADuser -filter * -properties City, Department | select-object -Property
@@ -15870,8 +15998,8 @@ Givenname, Name , Enabled, Department, city</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-2">
 <ul><li>Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department</li></ul>
-<pre><code>Indiquez les commandes utilisées.
-Get-AdUser -Filter * | Select-Object City
+<p>Indiquez les commandes utilisées.</p>
+<pre><code>Get-AdUser -Filter * | Select-Object City
 Get-AdUser -Filter * | Select-Object Department
 get-ADuser -filter * -properties * | select-object department,city</code></pre>
 <ul><li>Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, City puis triez par la propriété City.</li></ul>
@@ -15881,9 +16009,9 @@ get-ADuser -filter * -properties * | select-object department,city</code></pre>
 <ul><li>Reprenez la commande précédente puis appliquez le tri sur la propriété Department dans l’ordre descendant.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
 <pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
-| sort -property Department -Descending
-Effectuer le tri sur les deux propriétés City et Department.
-Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| sort -property Department -Descending</code></pre>
+<p>Effectuer le tri sur les deux propriétés City et Department.</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | sort -property City,Department</code></pre>
 <ul><li>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
@@ -15900,8 +16028,8 @@ Name,Enabled,city,department | where-object name -like "*r*" |sort-object
 -Property department, City</code></pre>
 <p>Bonus</p>
 <ul><li>Désactiver les utilisateurs dont le nom commence par un D.</li></ul>
-<pre><code>Utiliser la commande Disable-AdAccount
-Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+<p>Utiliser la commande Disable-AdAccount</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | Where -Property Name -like "R" | Disabled-ADAccount
 get-ADuser -filter 'name -like "d*"' | Disable-ADAccount</code></pre>
 </section>
@@ -15922,8 +16050,8 @@ object name,Enabled</code></pre>
 <pre><code>Get-ADUser -Filter * | Where-Object Enabled -like $True | measure
 Get-ADUser -Filter * | Where-Object Enabled -like $False | measure</code></pre>
 <ul><li>Affichez tous les fichiers du répertoire \\CD01\Partage.</li></ul>
-<pre><code>Quelle commande avez-vous utilisée ?
-Get-ChildItem \\CD01\Partage\ -File -Recurse</code></pre>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse</code></pre>
 <ul><li>Reprenez la commande précédente puis affichez la taille moyenne des fichiers.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
 <pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
@@ -15941,9 +16069,8 @@ Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript
 </section>
 <section class="tssr-transcribed-page" id="source-1AWWRP3sm9JLep9ATxwpu3ZEuO91tymga-page-4">
 <pre><code>Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript {
-$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }
-Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant
-sur le nom.</code></pre>
+$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }</code></pre>
+<p>Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant sur le nom.</p>
 <p>Depuis la machine CLI01</p>
 <ul><li>Affichez la liste des utilisateurs Active Directory sur cinq colonnes.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
@@ -15953,8 +16080,8 @@ sur le nom.</code></pre>
 <pre><code>Get-ADUser -Filter * -Properties * | Where enabled -eq $True | Format-
 Table name,enabled,Department,City</code></pre>
 <ul><li>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.</li></ul>
-<pre><code>Quelle commande avez-vous utilisée ?
-Get-ADGroup -Filter * -Properties * | Format-Table -Property
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADGroup -Filter * -Properties * | Format-Table -Property
 name,description,created -GroupBy GroupScope</code></pre>
 <ul><li>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, NomdDns, Distinguishedname, AdresseipV4 puis regroupez-les par système d’exploitation.</li></ul>
 <p>Indiquez les commandes utilisées.</p>
@@ -16043,6 +16170,12 @@ KB'
 <p class="admonition-title">Complément IA / externe au cours — fiche pédagogique du portail</p>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Sélectionner, trier, filtrer et mesurer des objets sans perdre les propriétés utiles.</li>
+<li>Préparer un affichage et un export à partir des mêmes données structurées.</li>
+<li>Vérifier les colonnes, les unités et les doublons avant une importation AD.</li>
+</ul>
 <p>Le module suit le trajet des objets depuis la commande de départ jusqu’au résultat affiché ou exporté. Les démonstrations couvrent le pipeline, la sélection, la mesure, le tri, le filtrage, les formats d’affichage, les conversions, la lecture de fichiers et les propriétés calculées.</p>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
@@ -16166,20 +16299,60 @@ KB'
 <li>Calculer les tailles lisibles du partage et expliquer le résultat du test d’un doublon AD.</li>
 </ol>
 <p>Le corrigé contient des exemples historiques qui dépendent de l’annuaire, du partage et du journal de la maquette. <code>Get-EventLog</code> appartient à Windows PowerShell. Pour vérifier le résultat de chaque étape, conserver le nombre d’objets ainsi qu’un exemple de propriété avant le formatage.</p>
+<h2 id="tp-guide">TP guidé<a class="headerlink" href="#tp-guide" title="Permanent link">¶</a></h2>
+<h3 id="obtenir-les-attributs-ad-avant-les-operations">Obtenir les attributs AD avant les opérations<a class="headerlink" href="#obtenir-les-attributs-ad-avant-les-operations" title="Permanent link">¶</a></h3>
+<p>Demander les propriétés supplémentaires à l’annuaire, puis conserver les objets avant toute mise en forme. Vérifier la différence entre une propriété non chargée et une valeur réellement vide. Afficher cinq lignes, trier par ville puis par service, et appliquer les critères de nom et d’état avant le comptage.</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">$users</span> <span class="p">=</span> <span class="p">@(</span><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="n">Department</span><span class="p">,</span><span class="n">City</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">$colonnes</span> <span class="p">=</span> <span class="s1">'GivenName'</span><span class="p">,</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'Enabled'</span><span class="p">,</span> <span class="s1">'Department'</span><span class="p">,</span> <span class="s1">'City'</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">5</span> <span class="n">-Property</span> <span class="nv">$colonnes</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">City</span><span class="p">,</span><span class="n">Department</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="nv">$colonnes</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">Department</span> <span class="n">-Descending</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="nv">$colonnes</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s1">'*r*'</span> <span class="p">}</span> <span class="p">|</span> <span class="nb">Sort-Object</span> <span class="n">City</span><span class="p">,</span><span class="n">Department</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Enabled</span> <span class="o">-and</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s1">'A*'</span> <span class="o">-or</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span> <span class="o">-like</span> <span class="s1">'F*'</span><span class="p">)</span> <span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">$users</span> <span class="p">|</span> <span class="nb">Group-Object</span> <span class="n">-Property</span> <span class="n">Enabled</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span><span class="n">Count</span>
+</span></code></pre></div>
+<p>Pour le bonus de désactivation, afficher les comptes commençant par D dans l’OU de test, puis contrôler les identités avant toute simulation. Le filtrage sur le nom seul est trop large pour lancer une action sur tout le domaine.</p>
+<h3 id="mesurer-le-partage-et-construire-les-vues">Mesurer le partage et construire les vues<a class="headerlink" href="#mesurer-le-partage-et-construire-les-vues" title="Permanent link">¶</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">$fichiers</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span> <span class="n">-LiteralPath</span> <span class="s1">'\\CD01\Partage'</span> <span class="o">-File</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">$fichiers</span> <span class="p">|</span> <span class="nb">Measure-Object</span> <span class="n">-Property</span> <span class="n">Length</span> <span class="n">-Average</span> <span class="n">-Minimum</span> <span class="n">-Maximum</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">$fichiers</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Length</span> <span class="o">-gt</span> <span class="n">10MB</span> <span class="o">-and</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Length</span> <span class="o">-lt</span> <span class="n">100MB</span> <span class="p">}</span> <span class="p">|</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">Sort-Object</span> <span class="n">Name</span> <span class="n">-Descending</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span><span class="n">Length</span><span class="p">,</span><span class="n">Mode</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">$fichiers</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,@{</span><span class="n">Name</span><span class="p">=</span><span class="s1">'Taille (Gio)'</span><span class="p">;</span> <span class="n">Expression</span><span class="p">={</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="no">[math]</span><span class="p">::</span><span class="n">Round</span><span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">Length</span> <span class="p">/</span> <span class="n">1GB</span><span class="p">,</span> <span class="n">3</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}}</span>
+</span></code></pre></div>
+<p>En console, afficher les noms sur cinq colonnes avec <code>Format-Wide Name -Column 5</code> et les comptes actifs avec <code>Format-Table</code>. Pour les groupes, demander <code>Description</code> et <code>whenCreated</code>, trier sur <code>GroupCategory</code> puis utiliser <code>Format-Table -GroupBy GroupCategory</code>. Pour les ordinateurs, demander <code>OperatingSystem</code> et <code>IPv4Address</code>, trier sur <code>OperatingSystem</code> et afficher les quatre propriétés demandées avec <code>Format-List</code>. Pour le journal Système du support, choisir <code>TimeGenerated</code>, <code>Index</code> et <code>Message</code> puis lire le message dans une liste ou un tableau avec <code>-Wrap</code>.</p>
+<h3 id="exporter-des-objets-et-valider-limport-avant-creation">Exporter des objets et valider l’import avant création<a class="headerlink" href="#exporter-des-objets-et-valider-limport-avant-creation" title="Permanent link">¶</a></h3>
+<ol>
+<li>Préparer le dossier d’export autorisé et conserver la sélection d’objets séparée de son formatage. Écrire une vue CSV avec un séparateur explicite puis une vue HTML. Relire les noms de colonnes et le nombre de lignes avec <code>Import-Csv</code>.</li>
+<li>Essayer l’ajout des ordinateurs sur une <strong>copie</strong> du CSV. Si les propriétés diffèrent, l’ajout échoue normalement. <code>-Force</code> peut écarter des propriétés. Pour conserver les deux types, choisir un schéma partagé, par exemple <code>Name</code> et <code>TypeObjet</code>, avant les deux exports. Garder le fichier d’import utilisateurs distinct du fichier mixte.</li>
+<li>Après changement de l’en-tête <code>Name</code>, afficher le résultat de la projection qui le rétablit. Vérifier l’identité, l’OU de test et les doublons avant une éventuelle simulation de création. La commande de suppression de tous les utilisateurs citée par l’Original reste un cas à analyser. Pour le contrôle du doublon, rechercher uniquement le compte visé et expliquer le conflit.</li>
+</ol>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">$export</span> <span class="p">=</span> <span class="nv">$users</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Property</span> <span class="nv">$colonnes</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">$export</span> <span class="p">|</span> <span class="nb">Export-Csv</span> <span class="n">-Path</span> <span class="s1">'.\utilisateurs.csv'</span> <span class="n">-Delimiter</span> <span class="s1">';'</span> <span class="n">-NoTypeInformation</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nv">$export</span> <span class="p">|</span> <span class="nb">ConvertTo-Html</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="s1">'.\utilisateurs.html'</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">Import-Csv</span> <span class="n">-Path</span> <span class="s1">'.\utilisateurs.csv'</span> <span class="n">-Delimiter</span> <span class="s1">';'</span> <span class="p">|</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="nb">Select-Object</span> <span class="n">-First</span> <span class="n">5</span> <span class="n">-Property</span> <span class="nv">$colonnes</span>
+</span></code></pre></div>
+<p>Si l’en-tête a été renommé <code>Nom</code>, la projection <code>Select-Object @{Name='Name'; Expression={$_.Nom}}</code> recrée la propriété attendue sans toucher au fichier. Ajouter explicitement les autres propriétés requises après avoir inspecté le CSV. Une absence d’erreur d’import de fichier ne prouve pas que l’annuaire accepterait la création. <a href="https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/export-csv">Référence de Export-Csv</a></p>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Garder les objets structurés jusqu’à l’export. Demander les attributs AD avant de filtrer. Vérifier le schéma CSV, les unités de taille et l’identité précise des comptes concernés avant toute écriture.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
 <li>Quel objet circule après <code>Select-Object -ExpandProperty Name</code> ?</li>
 <li>Où placer le filtre s’il utilise <code>City</code>, une propriété absente du résultat final ?</li>
 <li>Pourquoi <code>Format-Table</code> gêne-t-il un export CSV de données ?</li>
 <li>Quel nombre utilise-t-on pour convertir des octets en Kio ?</li>
+<li>Pourquoi tester l’ajout des ordinateurs sur une copie du CSV ?</li>
 </ol>
 <details class="success">
-<summary>Réponses</summary>
+<summary>Réponses commentées</summary>
 <ol>
 <li>La valeur de <code>Name</code>, souvent une chaîne.</li>
 <li>Avant la sélection qui retire <code>City</code>.</li>
 <li>La commande transmet des instructions d’affichage.</li>
 <li><code>1KB</code> vaut 1024 en PowerShell. La colonne se nomme donc Kio.</li>
+<li>Leurs propriétés peuvent différer des colonnes d’utilisateurs. Une copie permet de constater l’écart et de contrôler un schéma commun sans perdre le fichier d’import.</li>
 </ol>
 </details>
 <h2 id="travaux-pratiques-et-revision">Travaux pratiques et révision<a class="headerlink" href="#travaux-pratiques-et-revision" title="Permanent link">¶</a></h2>

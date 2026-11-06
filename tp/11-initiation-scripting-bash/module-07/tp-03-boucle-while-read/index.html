@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#preuves-a-relever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preuves à relever
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14731,6 +14750,13 @@ etc..</code></pre>
 <p>La source mentionne les vidéos M01 à M07, non fournies dans Drive M07.</p>
 <p>Créer <code>script_M7TP3.sh</code> afin d'afficher, pour chaque utilisateur de <code>/etc/passwd</code>, le nom et l'UID. Le traitement demandé est ligne par ligne avec <code>while read</code>.</p>
 <p>La source propose <code>tr -s ":" " "</code> pour remplacer les séparateurs. Son exemple affiche notamment <code>root</code> avec l'UID <code>0</code>, puis <code>daemon</code> avec l'UID <code>1</code>.</p>
+<h2 id="preuves-a-relever">Preuves à relever<a class="headerlink" href="#preuves-a-relever" title="Permanent link">¶</a></h2>
+<ol>
+<li>Repérez les sept champs séparés par deux-points. Le nom est le premier et l’UID le troisième.</li>
+<li>Vérifiez le couple <code>root</code> et <code>0</code> dans le scénario. Contrôlez aussi une ligne avec un commentaire contenant des espaces.</li>
+<li>Comparez la ligne d’entrée et le couple affiché pour vérifier qu’aucun champ n’a été décalé.</li>
+</ol>
+<p><a href="../correction-tp-03/">Correction du TP</a></p>
 </div>
 </div>
 </div>

@@ -13,16 +13,9 @@
 <p>Depuis la machine CLI01</p>
 <ul><li>Affichez la liste des utilisateurs ActiveDirectory avec la propriété GivenName, Name, Enabled Department City.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
-<pre><code>Get-AdUser
--Filter
-*
-|
-Select-Object
--Property
-GivenName,Name,Enabled,Department,City
-Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides
-des propriétés Department et City ?
-Get-Help Get-ADUser -ShowWindow</code></pre>
+<pre><code>Get-AdUser -Filter * | Select-Object -Property GivenName,Name,Enabled,Department,City</code></pre>
+<p>Consultez l’aide de la commande Get-AdUser pour trouver la solution aux valeurs vides des propriétés Department et City ?</p>
+<pre><code>Get-Help Get-ADUser -ShowWindow</code></pre>
 <p>Indiquez la commande complète permettant l’affichage des valeurs de toutes les propriétés.</p>
 <pre><code>Get-AdUser -Filter * -Properties *
 get-ADuser -filter * -properties City, Department | select-object -Property
@@ -33,8 +26,8 @@ Givenname, Name , Enabled, Department, city</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="page-2">
 <ul><li>Sélectionnez les utilisateurs Active Directory par leurs propriétés City puis par leur propriété Department</li></ul>
-<pre><code>Indiquez les commandes utilisées.
-Get-AdUser -Filter * | Select-Object City
+<p>Indiquez les commandes utilisées.</p>
+<pre><code>Get-AdUser -Filter * | Select-Object City
 Get-AdUser -Filter * | Select-Object Department
 get-ADuser -filter * -properties * | select-object department,city</code></pre>
 <ul><li>Affichez les utilisateurs Active Directory avec les propriétés Name, Enabled, Department, City puis triez par la propriété City.</li></ul>
@@ -44,9 +37,9 @@ get-ADuser -filter * -properties * | select-object department,city</code></pre>
 <ul><li>Reprenez la commande précédente puis appliquez le tri sur la propriété Department dans l’ordre descendant.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
 <pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
-| sort -property Department -Descending
-Effectuer le tri sur les deux propriétés City et Department.
-Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| sort -property Department -Descending</code></pre>
+<p>Effectuer le tri sur les deux propriétés City et Department.</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
 | sort -property City,Department</code></pre>
 <ul><li>Reprenez la commande précédente puis ajoutez une condition sur le nom qui doit comporter un r.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
@@ -63,10 +56,10 @@ Name,Enabled,city,department | where-object name -like &quot;*r*&quot; |sort-obj
 -Property department, City</code></pre>
 <p>Bonus</p>
 <ul><li>Désactiver les utilisateurs dont le nom commence par un D.</li></ul>
-<pre><code>Utiliser la commande Disable-AdAccount
-Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
-| Where -Property Name -like &quot;R&quot; | Disabled-ADAccount
-get-ADuser -filter &#x27;name -like &quot;d*&quot;&#x27; | Disable-ADAccount</code></pre>
+<p>Utiliser la commande Disable-AdAccount</p>
+<pre><code>Get-ADUser -Filter * -Properties * | Select Name,Enabled,Department,City
+| Where -Property Name -like "R" | Disabled-ADAccount
+get-ADuser -filter 'name -like "d*"' | Disable-ADAccount</code></pre>
 </section>
 <section class="tssr-transcribed-page" id="page-3">
 <p>Depuis la machine CLI01</p>
@@ -85,8 +78,8 @@ object name,Enabled</code></pre>
 <pre><code>Get-ADUser -Filter * | Where-Object Enabled -like $True | measure
 Get-ADUser -Filter * | Where-Object Enabled -like $False | measure</code></pre>
 <ul><li>Affichez tous les fichiers du répertoire \\CD01\Partage.</li></ul>
-<pre><code>Quelle commande avez-vous utilisée ?
-Get-ChildItem \\CD01\Partage\ -File -Recurse</code></pre>
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse</code></pre>
 <ul><li>Reprenez la commande précédente puis affichez la taille moyenne des fichiers.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
 <pre><code>Get-ChildItem \\CD01\Partage\ -File -Recurse | Measure -Property length -
@@ -104,9 +97,8 @@ Get-ChildItem \\CD01\Partage\ -File -Recurse | Where -FilterScript
 </section>
 <section class="tssr-transcribed-page" id="page-4">
 <pre><code>Get-ChildItem -path \\CD01\Partage -File -recurse | where -filterscript {
-$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }
-Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant
-sur le nom.</code></pre>
+$PSItem.length -gt 10MB -and $PSItem.length -lt 100MB }</code></pre>
+<p>Affichez le résultat avec les propriétés Name, Length et mode et effectuez un tri descendant sur le nom.</p>
 <p>Depuis la machine CLI01</p>
 <ul><li>Affichez la liste des utilisateurs Active Directory sur cinq colonnes.</li></ul>
 <p>Quelle commande avez-vous utilisée ?</p>
@@ -116,8 +108,8 @@ sur le nom.</code></pre>
 <pre><code>Get-ADUser -Filter * -Properties * | Where enabled -eq $True | Format-
 Table name,enabled,Department,City</code></pre>
 <ul><li>Affichez la liste des groupes Active Directory sous forme de tableau avec leurs noms, leurs descriptions ainsi que la date de création. Puis regroupez-les par type de groupe.</li></ul>
-<pre><code>Quelle commande avez-vous utilisée ?
-Get-ADGroup -Filter * -Properties * | Format-Table -Property
+<p>Quelle commande avez-vous utilisée ?</p>
+<pre><code>Get-ADGroup -Filter * -Properties * | Format-Table -Property
 name,description,created -GroupBy GroupScope</code></pre>
 <ul><li>Affichez la liste des ordinateurs du domaine sous forme de liste avec les propriétés : Nom, NomdDns, Distinguishedname, AdresseipV4 puis regroupez-les par système d’exploitation.</li></ul>
 <p>Indiquez les commandes utilisées.</p>

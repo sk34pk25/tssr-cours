@@ -14817,7 +14817,19 @@
 <p>Les opérations de remoting et le scénario à impact sont réservés à l’environnement autorisé. Les versions d’IDE, valeurs de laboratoire et résultats de captures sont historiques ou contextuels.</p>
 </blockquote>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Écrivez les trois blocs <code>try</code>, <code>catch</code> et <code>finally</code> pour une recherche de service. Prévoyez un nom connu et un nom absent. Justifiez <code>-ErrorAction Stop</code> et le nom de la variable collectant les erreurs. Décrivez ensuite la différence entre une session interactive, un bloc envoyé avec <code>Invoke-Command</code> et la fermeture avec <code>Remove-PSSession</code>.</p>
+<ol>
+<li>Comment empêcher l’affichage immédiat d’une erreur non bloquante et la conserver ?</li>
+<li>Quelle commande utiliser après une session créée par <code>New-PSSession</code> ?</li>
+<li>Quel résultat vérifier avant de simuler l’arrêt de postes ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Combiner <code>-ErrorAction SilentlyContinue</code> avec <code>-ErrorVariable</code>. Le préfixe <code>+</code> ajoute les erreurs à une variable existante.</li>
+<li><code>Remove-PSSession</code> libère la session. Un bloc <code>finally</code> permet de le faire même après une erreur.</li>
+<li>La liste autorisée, sans contrôleurs de domaine, sans cibles non identifiées et sans machines hors du TP.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-05/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-05/">TP et correction</a></li>

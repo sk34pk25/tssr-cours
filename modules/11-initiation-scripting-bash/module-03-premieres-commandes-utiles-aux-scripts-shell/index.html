@@ -3452,6 +3452,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#afficher-et-mettre-en-forme" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3493,7 +3504,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Trouver l’aide de Bash">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique-affichage-et-statut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique — Affichage et statut
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en pratique — Affichage et statut">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3513,10 +3535,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -14788,6 +14832,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#afficher-et-mettre-en-forme" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14829,7 +14884,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Trouver l’aide de Bash">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-pratique-affichage-et-statut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mise en pratique — Affichage et statut
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise en pratique — Affichage et statut">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -14849,10 +14915,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -15026,6 +15114,12 @@
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Le support présente quatre gestes de base dans le terminal. Affichez une information, effacez l’écran, transmettez un code de sortie et cherchez l’aide des commandes intégrées.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Afficher une donnée et un libellé dans des formats reproductibles.</li>
+<li>Identifier les commandes intégrées et consulter leur aide.</li>
+<li>Conserver et expliquer le statut de sortie d’une commande.</li>
+</ul>
 <h2 id="afficher-et-mettre-en-forme">Afficher et mettre en forme<a class="headerlink" href="#afficher-et-mettre-en-forme" title="Permanent link">¶</a></h2>
 <p><code>echo</code> écrit ses arguments sur la sortie standard. Le support présente <code>echo -e</code> pour interpréter des séquences d’échappement. Les guillemets conservent le texte avec ses espaces dans un seul argument.</p>
 <table>
@@ -15077,19 +15171,62 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">help</span><span class="w"> </span><span class="nb">exit</span>
 </span></code></pre></div>
 <p><code>help</code> liste les rubriques d’aide. <code>help wait</code> montre l’aide de cette commande, comme dans le support. <code>help exit</code> détaille le code de sortie. Une commande externe dispose de sa propre documentation.</p>
+<h2 id="mise-en-pratique-affichage-et-statut">Mise en pratique — Affichage et statut<a class="headerlink" href="#mise-en-pratique-affichage-et-statut" title="Permanent link">¶</a></h2>
+<p>Aucun TP distinct n’est fourni pour ce module. Cet essai pédagogique reprend les commandes du support.</p>
+<ol>
+<li>Affichez un libellé et une valeur contenant des espaces. Comparez <code>echo -e</code> et <code>printf</code> pour produire une tabulation.</li>
+<li>Relevez la catégorie indiquée par <code>type echo</code> et <code>type clear</code>. Ouvrez l’aide intégrée de <code>exit</code>.</li>
+<li>Dans un shell enfant, demandez le statut <code>4</code> avec le bloc précédent. Enregistrez <code>$?</code> aussitôt et vérifiez sa valeur avant de poursuivre.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Contrôle</th>
+<th>Résultat prévu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Affichage avec tabulation</td>
+<td>Une séparation visible entre libellé et valeur</td>
+</tr>
+<tr>
+<td><code>type echo</code> dans Bash</td>
+<td>Une commande intégrée, sauf redéfinition locale</td>
+</tr>
+<tr>
+<td><code>bash -c 'exit 4'</code></td>
+<td>L’appelant continue et peut lire le statut <code>4</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="transmission-du-statut-complement-pedagogique">Transmission du statut — Complément pédagogique<a class="headerlink" href="#transmission-du-statut-complement-pedagogique" title="Permanent link">¶</a></h3>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
     A["Commande ou script"] --&gt; B["Statut rendu à l’appelant"]
     B --&gt; C["Lire $? immédiatement"]
     C --&gt; D["Afficher, conserver ou tester"]</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>La sortie standard contient les données destinées à l’appelant. Le statut représente l’issue du traitement. Lisez-le immédiatement et cherchez l’aide avec l’outil adapté à la catégorie de commande.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quelle séquence produit une tabulation ?</li>
-<li>D’où vient le statut en fin de script sans <code>exit</code> explicite ?</li>
-<li>Comment ouvrir l’aide de <code>wait</code> ?</li>
+<li>Quelle séquence représente une tabulation ?</li>
+<li>D’où vient le statut d’un script sans <code>exit</code> explicite ?</li>
+<li>Comment afficher l’aide de la commande intégrée <code>wait</code> ?</li>
+<li>Pourquoi enregistrer <code>$?</code> avant un affichage de diagnostic ?</li>
+<li>Pourquoi passer le format séparément dans <code>printf '%s\n' "$message"</code> ?</li>
 </ol>
-<p><strong>Réponses.</strong> <code>\t</code> avec l’interprétation des séquences. De la dernière commande exécutée. <code>help wait</code>.</p>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li><code>\t</code> lorsque la commande interprète les séquences d’échappement.</li>
+<li>De la dernière commande exécutée.</li>
+<li>Avec <code>help wait</code> dans Bash.</li>
+<li>L’affichage a son propre statut et peut remplacer celui que l’on veut observer.</li>
+<li>Le format reste constant même si le message contient des caractères qui ressemblent à des directives.</li>
+</ol>
+</details>
+<h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>
 <p><a href="../../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell/">Fiche de révision</a></p>
 </div>
 </div>

@@ -3536,6 +3536,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executer-une-branche" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3581,6 +3592,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#tp-01-arguments-et-refus-de-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 01 — Arguments et refus de root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-02-menu-de-comptes-dans-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 02 — Menu de comptes dans la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lecture-dune-condition-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3597,10 +3630,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -14788,6 +14843,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executer-une-branche" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14833,6 +14899,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#tp-01-arguments-et-refus-de-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 01 — Arguments et refus de root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-02-menu-de-comptes-dans-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TP 02 — Menu de comptes dans la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lecture-dune-condition-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14849,10 +14937,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -15407,6 +15517,12 @@ esac</code></pre>
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>À partir d’un statut ou d’une expression, choisissez la branche à exécuter. Le module couvre <code>if</code>, les comparaisons, les motifs et <code>case</code>. Il prolonge l’exemple du nombre de résultats dans le script de connexion.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Utiliser un statut, un test de fichier ou une comparaison dans une condition.</li>
+<li>Choisir entre <code>if</code> et <code>case</code> et prévoir une branche pour les saisies invalides.</li>
+<li>Vérifier les codes de sortie du script d’accueil et les branches du menu de comptes.</li>
+</ul>
 <h2 id="executer-une-branche">Exécuter une branche<a class="headerlink" href="#executer-une-branche" title="Permanent link">¶</a></h2>
 <p><code>if</code> prend une commande ou une liste de commandes. <code>then</code> s’exécute quand le statut testé vaut zéro. <code>elif</code> teste un autre cas si la condition précédente a échoué. <code>else</code> traite les cas restants et <code>fi</code> ferme la structure. Les blocs peuvent être imbriqués.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -15532,6 +15648,45 @@ esac</code></pre>
 </span></code></pre></div>
 <h2 id="deux-tp-distincts">Deux TP distincts<a class="headerlink" href="#deux-tp-distincts" title="Permanent link">¶</a></h2>
 <p>Le TP 01 exploite <code>$#</code> et <code>$1</code>. Il demande le nom quand aucun argument n’est fourni, refuse un nombre d’arguments supérieur à un, interdit <code>root</code> et salue les autres noms. Le TP 02 emploie <code>case</code> dans un menu de gestion de comptes. Les actions de création, changement du mot de passe et suppression demandent une machine virtuelle de laboratoire et les droits appropriés.</p>
+<h3 id="tp-01-arguments-et-refus-de-root">TP 01 — Arguments et refus de <code>root</code><a class="headerlink" href="#tp-01-arguments-et-refus-de-root" title="Permanent link">¶</a></h3>
+<ol>
+<li>Refusez plus d’un argument et rendez le statut <code>1</code>.</li>
+<li>Avec un argument, reprenez sa valeur. Sans argument, lisez la saisie et contrôlez sa validité.</li>
+<li>Avec <code>root</code>, affichez le refus et rendez le statut <code>2</code>. Pour une autre valeur valide, affichez l’accueil et relevez le statut de réussite.</li>
+</ol>
+<h3 id="tp-02-menu-de-comptes-dans-la-vm">TP 02 — Menu de comptes dans la VM<a class="headerlink" href="#tp-02-menu-de-comptes-dans-la-vm" title="Permanent link">¶</a></h3>
+<ol>
+<li>Lisez un identifiant et validez sa forme. Traitez le choix avec <code>case</code>.</li>
+<li>Pour V, vérifiez l’existence d’un compte local et comparez un compte présent à un nom absent.</li>
+<li>Pour C, M ou S, utilisez un compte de test préfixé <code>tp_</code> dans la VM et les droits prévus. Vérifiez l’état avant et après chaque action. La correction sépare ces branches de la simple vérification.</li>
+<li>Pour Q, quittez sans modifier de compte. Pour un choix inconnu, relevez le diagnostic et le statut.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Cas de contrôle</th>
+<th>Résultat prévu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP 01, deux arguments</td>
+<td>Usage et statut 1</td>
+</tr>
+<tr>
+<td>TP 01, argument <code>root</code></td>
+<td>Refus et statut 2</td>
+</tr>
+<tr>
+<td>TP 02, modification avec un nom hors préfixe</td>
+<td>Refus avant toute commande de gestion de comptes</td>
+</tr>
+<tr>
+<td>TP 02, V sur un compte présent</td>
+<td>Confirmation de présence locale</td>
+</tr>
+</tbody>
+</table>
 <h3 id="lecture-dune-condition-complement-pedagogique">Lecture d’une condition — Complément pédagogique<a class="headerlink" href="#lecture-dune-condition-complement-pedagogique" title="Permanent link">¶</a></h3>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
@@ -15540,13 +15695,27 @@ esac</code></pre>
     B --&gt;|Non| D["Essayer elif ou exécuter else"]
     C --&gt; E["Après fi"]
     D --&gt; E</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le statut zéro sélectionne la branche de succès. Validez le type de donnée avant sa comparaison et placez le motif de secours à la fin de <code>case</code>. Pour une action sur un compte, contrôlez d’abord la cible et l’environnement.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quelle forme teste qu’un chemin désigne un fichier ordinaire ?</li>
-<li>Quand une branche <code>case</code> placée après <code>*</code> est-elle atteinte avec <code>;;</code> ?</li>
-<li>Que change le guillemetage du motif à droite de <code>=</code> ?</li>
+<li>Quel test reconnaît un fichier ordinaire ?</li>
+<li>Quand une branche située après <code>*</code> est-elle atteinte dans ce menu ?</li>
+<li>Que change le guillemetage du motif à droite de <code>=</code> dans <code>[[ ]]</code> ?</li>
+<li>Quel statut le TP 01 attend-il pour l’identifiant <code>root</code> ?</li>
+<li>Quelles vérifications précèdent C, M ou S dans la correction du TP 02 ?</li>
 </ol>
-<p><strong>Réponses.</strong> <code>-f</code>. Un motif <code>*</code> précédent correspond déjà à la valeur. Les caractères cités sont traités littéralement.</p>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li><code>-f</code>.</li>
+<li>Jamais si la branche <code>*</code> correspond déjà et se termine par <code>;;</code>.</li>
+<li>Les caractères cités sont traités littéralement, y compris un astérisque cité.</li>
+<li>Le statut 2, après un refus explicite.</li>
+<li>La cible est un compte <code>tp_</code> du laboratoire et les droits requis sont présents dans la VM.</li>
+</ol>
+</details>
+<h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-06/">TP 01 et TP 02</a></li>
 <li><a href="../../../revision/11-initiation-scripting-bash/module-06-execution-conditionnelle/">Fiche de révision</a></li>

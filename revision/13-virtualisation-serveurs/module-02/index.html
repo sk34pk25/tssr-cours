@@ -14835,13 +14835,19 @@ M02.</p>
   de gestion avancée des réseaux virtuels.</li>
 </ul>
 <h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¶</a></h2>
-<p>Contenu A : support, énoncé et solution M02 consultés dans Drive TSSR en lecture seule.
-Contenu B : synthèse web limitée aux sources.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>L’invité a une adresse dans VMnet8 et le TP attend Bridged. Quel réglage contrôler en premier ?</p>
+<ol>
+<li>La VM reçoit une adresse du réseau NAT. Quel contrôle rétablit l’attendu du TP ?</li>
+<li>Quelle différence vérifier entre le nom de la VM et le nom d’hôte de Windows ?</li>
+<li>Quelle preuve garder avant de passer à Hyper-V ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>Ouvrir les paramètres de la carte virtuelle et confirmer le mode de connexion. Vérifier ensuite l’interface physique choisie et l’adressage dans Windows.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>Contrôler le réseau de la carte virtuelle, puis le pont et la carte physique utilisée. Le scénario final demande Bridged.</li>
+<li>Le premier se lit dans l’inventaire Workstation. Le second se vérifie dans le système invité après son démarrage.</li>
+<li>Les ressources et les extensions processeur exposées, le réseau Bridged, les outils invités et le snapshot demandé après arrêt de la VM.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-02/">Revenir au cours</a></p>
 

@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14722,6 +14741,18 @@
 </table>
 <p>Bash intègre <code>test</code> et <code>[</code>. Dans <code>[[ ]]</code>, un membre droit non cité de <code>=</code> peut être un motif. <code>*</code> représente zéro ou plusieurs caractères, <code>?</code> un caractère et <code>[abc]</code> un caractère choisi. Placez le motif général <code>*</code> en dernier dans un <code>case</code>.</p>
 <p><strong>TP.</strong> Le premier distingue les statuts 1 et 2 pour les arguments et le refus de <code>root</code>. Le second organise un menu de comptes locaux. Pour vérifier un compte dans <code>/etc/passwd</code>, comparez le premier champ exactement.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment comparer littéralement une valeur contenant <code>*</code> ?</li>
+<li>Quel est le résultat attendu avec deux arguments dans le premier TP ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Citer le membre droit de <code>=</code> dans <code>[[ ]]</code> pour que l’astérisque reste un caractère.</li>
+<li>Le script affiche son usage et renvoie le statut 1. Le cas <code>root</code> avec un seul argument renvoie 2.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-06-execution-conditionnelle/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-06/">TP et corrections</a></li>

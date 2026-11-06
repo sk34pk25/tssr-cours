@@ -14803,10 +14803,18 @@ Le « Bonus » vide n’est pas transformé en exercice.</p>
 <p>Provenance A : trois PDF M07 Drive TSSR en lecture seule ; B : synthèse fidèle,
 données internes neutralisées. Aucun quiz ou lien Kahoot ajouté.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>ESXi2 voit le LUN mais pas la banque. Quel contrôle précède une modification de disque ?</p>
+<ol>
+<li>Quel contrôle distingue une LUN iSCSI d’un export NFS ?</li>
+<li>Comment prouver que la banque est réellement partagée ?</li>
+<li>Que rechercher avant d’augmenter l’espace d’une banque pleine ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>Vérifier l’identité du LUN, l’accès de l’initiateur et le résultat de la réanalyse. Rechercher la banque existante sans initialiser à nouveau le disque partagé.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>L’adaptateur iSCSI découvre un périphérique bloc à utiliser pour la banque. NFS monte un export identifié par serveur et chemin.</li>
+<li>Vérifier sa présence et son accès sur les deux hôtes, puis contrôler qu’ils voient la même ressource et pas deux copies locales.</li>
+<li>Examiner la capacité disponible, les fichiers de VM et les snapshots. Identifier la couche saturée avant de changer un volume.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-07/">Revenir au cours</a></p>
 

@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14730,6 +14749,18 @@
 </table>
 <p>Les codes de couleur du support vont de 30 à 37 pour le texte et 40 à 47 pour le fond. <code>\033[1;32m</code> demande le vert en gras et <code>\033[0m</code> réinitialise le style.</p>
 <p><strong>TP 01.</strong> Construisez le chemin de <code>fic_M5TP1.txt</code> dans le dossier saisi, vérifiez chaque étape et citez le chemin lors de son utilisation. Le succès de <code>mkdir -p</code> signifie que le dossier est prêt, y compris s’il existait déjà.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Quelle branche est prise dans <code>A &amp;&amp; B || C</code> si B échoue ?</li>
+<li>Que vérifier si l’écriture du fichier échoue dans le TP ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>C est exécutée. Pour faire dépendre le choix uniquement de A, utiliser <code>if</code>.</li>
+<li>Le diagnostic et le statut non nul. La lecture doit être conditionnée à la réussite de l’écriture.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-05-les-caracteres-speciaux-du-script/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-05/">TP et correction</a></li>

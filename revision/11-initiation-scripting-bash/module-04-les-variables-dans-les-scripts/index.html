@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14726,6 +14745,18 @@
 </table>
 <p><code>$0</code> identifie l’invocation, <code>$#</code> compte les arguments et <code>$1</code> donne le premier. <code>"$@"</code> transmet chaque argument séparément, tandis que <code>"$*"</code> les réunit en une chaîne. <code>$$</code> donne l’identifiant du shell invoqué, <code>$!</code> celui du dernier lancement en arrière-plan et <code>$?</code> le dernier statut.</p>
 <p><strong>TP 01.</strong> Repérez <code>HISTFILE</code> et <code>PATH</code>. Après la saisie d’un fichier texte, contrôlez les fins de ligne avec <code>wc -l</code> et les extraits avec <code>head -n 2</code> et <code>tail -n 2</code>. Protégez les chemins cités et vérifiez l’accès avant la lecture.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment lire un chemin dont le nom contient des espaces ?</li>
+<li>Que mesure <code>wc -l</code> si un fichier ne finit pas par un saut de ligne ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Lire avec <code>IFS= read -r chemin</code>, puis utiliser <code>"$chemin"</code> dans les appels suivants.</li>
+<li>Le nombre de fins de ligne. Le résultat peut différer du nombre de lignes visibles.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-04-les-variables-dans-les-scripts/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-04/">TP et correction</a></li>

@@ -14860,7 +14860,19 @@ les propriétés de la console.</p>
 <li><a href="../../../tp/12-initiation-powershell/module-01/">TP 01 — Premières commandes</a></li>
 </ul>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Comparez <code>$PSVersionTable</code> entre deux consoles. Retrouvez une commande avec <code>Get-Command</code>, un exemple avec <code>Get-Help -Examples</code>, puis l’origine de la commande avec <code>Get-Command | Select-Object Name,ModuleName</code>. Expliquez pourquoi <code>Get-Module</code> et <code>Get-Module -ListAvailable</code> renvoient des listes différentes. Repérez enfin la stratégie qui l’emporte dans <code>Get-ExecutionPolicy -List</code>.</p>
+<ol>
+<li>Comment expliquer un nombre de commandes différent entre deux consoles ?</li>
+<li>Que relève-t-on pour identifier le module d’une commande ?</li>
+<li>Quel profil vérifier avant de l’éditer ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Comparer leurs éditions, versions et modules présents ou chargés.</li>
+<li>La propriété <code>ModuleName</code> de <code>Get-Command</code>, puis l’état du module avec <code>Get-Module</code>.</li>
+<li>Le profil utilisateur de l’hôte voulu. Une autre console peut charger un fichier différent.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-01/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-01/">TP et correction</a></li>

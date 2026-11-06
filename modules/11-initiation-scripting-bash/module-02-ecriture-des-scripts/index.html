@@ -3424,6 +3424,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interpreteur-commentaires-et-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3458,6 +3469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#organiser-et-verifier-les-sorties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organiser et vérifier les sorties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#du-fichier-a-la-trace-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3474,10 +3496,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -14777,6 +14821,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#interpreteur-commentaires-et-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14811,6 +14866,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#organiser-et-verifier-les-sorties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organiser et vérifier les sorties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#du-fichier-a-la-trace-complement-pedagogique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -14827,10 +14893,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mini-quiz" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mini-quiz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliquer-ce-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliquer ce module
       
     </span>
   </a>
@@ -15139,6 +15227,12 @@ apt list --upgradable | grep bash
 <p>Cette fiche contient une reformulation et des aides d’apprentissage rédigées par IA. Elle est distincte de la transcription des documents du Drive et ne la remplace pas. Les schémas de synthèse de cette fiche sont des illustrations IA / externes au cours, sauf les captures explicitement attribuées à un document source.</p>
 </div>
 <p>Créez un fichier texte à partir de l’algorithme, choisissez son interpréteur et contrôlez les résultats. Le support utilise Bash et l’éditeur <code>vi</code> ou <code>vim</code>.</p>
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">¶</a></h2>
+<ul>
+<li>Écrire un fichier texte avec un shebang et des commentaires utiles.</li>
+<li>Comparer l’appel par Bash au lancement direct du fichier.</li>
+<li>Contrôler la syntaxe et relier chaque sortie à une étape du TP.</li>
+</ul>
 <h2 id="interpreteur-commentaires-et-permissions">Interpréteur, commentaires et permissions<a class="headerlink" href="#interpreteur-commentaires-et-permissions" title="Permanent link">¶</a></h2>
 <p>Ouvrez <code>monscript.sh</code> avec <code>vi monscript.sh</code>. Placez le shebang en première ligne. Documentez le rôle du script avec <code>#</code>. Un en-tête peut donner son usage, ses dépendances et sa version.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
@@ -15219,6 +15313,17 @@ apt list --upgradable | grep bash
 </tbody>
 </table>
 <p><strong>Clarification pédagogique.</strong> Sans correspondance, le motif peut être transmis tel quel à <code>ls</code>. <code>whereis bash</code> recherche certains emplacements, dont le résultat varie selon l’installation. La liste dépend des métadonnées APT disponibles et le filtre peut retenir des paquets dont le nom contient <code>bash</code>. Le script fourni dans le Drive est consultable dans la correction du TP.</p>
+<h3 id="organiser-et-verifier-les-sorties">Organiser et vérifier les sorties<a class="headerlink" href="#organiser-et-verifier-les-sorties" title="Permanent link">¶</a></h3>
+<ol>
+<li>Créez un fichier avec des fins de ligne LF. Placez le shebang et un commentaire d’usage avant l’accueil.</li>
+<li>Placez deux fichiers de test, dont un nom avec des espaces. Comparez les listes par extension dans le dossier de travail. Relevez aussi le cas où une extension ne correspond à aucun fichier.</li>
+<li>Distinguez la version retournée par <code>bash --version</code> des emplacements retournés par <code>whereis bash</code>. Vérifiez séparément l’emplacement du fichier de configuration si l’énoncé le demande.</li>
+<li>Consultez la liste APT et interprétez sa sortie. Un filtre sans ligne peut signifier qu’aucun nom ne correspond aux informations locales. L’exercice ne demande pas d’installer une mise à jour.</li>
+<li>Contrôlez d’abord la syntaxe. Pour tester le lancement direct en VM, ajoutez le droit d’exécution au propriétaire et comparez la sortie attendue à la sortie observée.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>-n<span class="w"> </span>monscript.sh
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>./monscript.sh
+</span></code></pre></div>
 <h3 id="du-fichier-a-la-trace-complement-pedagogique">Du fichier à la trace — Complément pédagogique<a class="headerlink" href="#du-fichier-a-la-trace-complement-pedagogique" title="Permanent link">¶</a></h3>
 <p><strong>Illustration IA / externe au cours — schéma pédagogique de synthèse.</strong></p>
 <div class="mermaid">flowchart LR
@@ -15226,13 +15331,27 @@ apt list --upgradable | grep bash
     B --&gt; C["Contrôle syntaxique"]
     C --&gt; D["Essai dans le laboratoire"]
     D --&gt; E["Trace ou diagnostic ciblé"]</div>
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<p>Le shebang choisit l’interpréteur pour un lancement direct. Le droit d’exécution rend ce lancement possible. L’analyse syntaxique, la trace et la vérification du résultat répondent à trois questions différentes.</p>
 <h2 id="mini-quiz">Mini-quiz<a class="headerlink" href="#mini-quiz" title="Permanent link">¶</a></h2>
 <ol>
-<li>Quel élément sélectionne l’interpréteur lors de <code>./monscript.sh</code> ?</li>
-<li>Que contrôle <code>bash -n</code> ?</li>
+<li>Quel élément sélectionne l’interpréteur pour <code>./monscript.sh</code> ?</li>
+<li>Que contrôle <code>bash -n monscript.sh</code> ?</li>
 <li>Que montre <code>bash -x</code> ?</li>
+<li>Quel effet a <code>chmod u+x</code> sur ce fichier ?</li>
+<li>Que vérifier si <code>ls -l *.bash</code> échoue dans le dossier du TP ?</li>
 </ol>
-<p><strong>Réponses.</strong> Le shebang. La syntaxe. Les commandes réellement exécutées et leurs arguments développés.</p>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Le shebang de la première ligne, lorsque le fichier peut être exécuté.</li>
+<li>La syntaxe. Une commande manquante ou un résultat inattendu peuvent apparaître ensuite lors d’un essai.</li>
+<li>La trace des commandes exécutées et de leurs arguments développés. Une valeur sensible peut y apparaître.</li>
+<li>Il ajoute le droit d’exécution du propriétaire. Un appel explicite par <code>bash</code> requiert surtout de pouvoir lire le fichier.</li>
+<li>Vérifier la présence d’un fichier correspondant. Avec les réglages usuels, le motif non développé est transmis à <code>ls</code>.</li>
+</ol>
+</details>
+<h2 id="appliquer-ce-module">Appliquer ce module<a class="headerlink" href="#appliquer-ce-module" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-02/">TP 02 et correction</a></li>
 <li><a href="../../../revision/11-initiation-scripting-bash/module-02-ecriture-des-scripts/">Fiche de révision</a></li>

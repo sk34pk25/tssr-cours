@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14722,6 +14741,18 @@
 </table>
 <p>Identifiez l’initialisation, le test, le corps et la progression. <code>expr 2 \* 7</code> protège l’opérateur multiplication. Une boucle alimentée par un tube s’exécute généralement dans un sous-shell. Une redirection de fichier permet de réutiliser les affectations après la boucle.</p>
 <p><strong>TP.</strong> Le vendredi 13 et les années bissextiles mettent en œuvre <code>until</code>. Le comptage par extension mobilise <code>for</code> et un fichier de configuration. L’extraction du nom et de l’UID repose sur <code>while read</code> et le séparateur <code>:</code>.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Pourquoi un répertoire nommé <code>archives.sh</code> doit-il être ignoré ?</li>
+<li>Pourquoi utiliser <code>IFS=:</code> pour lire les comptes ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Le TP compte les fichiers ordinaires. Vérifier le type de l’entrée avant son extension.</li>
+<li>Le séparateur des champs est le deux-points. Les espaces du commentaire ne modifient pas la position de l’UID.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-07-les-structures-de-boucle/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-07/">TP et corrections</a></li>

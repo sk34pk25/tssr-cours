@@ -14747,10 +14747,18 @@
 <p>La <strong>consolidation</strong> réduit le nombre d’hôtes physiques en regroupant les charges. La <strong>mutualisation</strong> met une capacité à la disposition de plusieurs charges. La <strong>rationalisation</strong> standardise les configurations et les pratiques de gestion. Quatre anciennes machines regroupées sur un même hôte illustrent la consolidation. Un stockage commun illustre la mutualisation. L’usage de modèles et d’un plan de sauvegarde commun illustre la rationalisation.</p>
 <p>Pour préparer un PRA, relever les dépendances et tester le redémarrage des VM dans l’ordre attendu. La perte d’un hôte consolidé peut toucher plusieurs services à la fois.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>Pourquoi un seul hôte physique puissant ne garantit-il pas la disponibilité des services ?</p>
+<ol>
+<li>Quatre serveurs sont regroupés sur un hôte. Quel bénéfice et quel contrôle associer ?</li>
+<li>Comment reconnaître un hyperviseur de type 2 ?</li>
+<li>Quels éléments documenter pour la reprise ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>Les VM partagent les ressources et dépendent de l’hôte. Il faut vérifier les conditions de reprise et la capacité d’un hôte de secours.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>La consolidation réduit le nombre de machines physiques. Mesurer la charge simultanée des invités et tester la reprise en cas de panne de l’hôte.</li>
+<li>Il s’exécute sur un système d’exploitation hôte. Vérifier dans le schéma du module où se trouve la couche qui gère les VM.</li>
+<li>Les dépendances entre VM, leurs réseaux et leurs banques de données, l’ordre de redémarrage et la capacité d’un hôte de secours.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-01/">Revenir au cours</a></p>
 

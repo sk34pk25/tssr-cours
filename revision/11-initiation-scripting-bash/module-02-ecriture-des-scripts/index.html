@@ -14654,6 +14654,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#questions-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14722,6 +14741,18 @@
 </table>
 <p>Enregistrez le script en LF. Après un contrôle de syntaxe, comparez le résultat attendu avec la trace du laboratoire. Un message de diagnostic utile peut afficher le contexte vers la sortie d’erreur avec <code>&gt;&amp;2</code>. Une pause <code>read</code> est utile pendant le diagnostic interactif.</p>
 <p><strong>TP 02.</strong> Les actions couvrent <code>ls -l *.sh</code>, <code>ls -l *.bash</code>, <code>bash --version</code>, <code>whereis bash</code> et la consultation des mises à jour connues par APT. Prévoyez le cas où aucun fichier ne correspond à un motif.</p>
+<h2 id="questions-flash">Questions flash<a class="headerlink" href="#questions-flash" title="Permanent link">¶</a></h2>
+<ol>
+<li>Comment distinguer un problème de syntaxe d’un problème de permissions ?</li>
+<li>Que vérifier quand le filtre APT n’affiche aucune ligne ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Lancer d’abord <code>bash -n monscript.sh</code>. Si la syntaxe passe mais que <code>./monscript.sh</code> est refusé, vérifier le droit d’exécution, le shebang et les fins de ligne.</li>
+<li>Regarder la liste de départ et la fraîcheur des informations locales. Un filtre vide ne dit pas à lui seul pourquoi aucune ligne ne correspond.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/11-initiation-scripting-bash/module-02-ecriture-des-scripts/">Cours</a></li>
 <li><a href="../../../tp/11-initiation-scripting-bash/module-02/">TP et correction</a></li>

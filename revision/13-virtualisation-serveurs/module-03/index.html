@@ -14747,10 +14747,18 @@
 </table>
 <p>Le support emploie VMM comme terme générique pour la gestion des VM. Distinguer ce terme du nom de produits de gestion. Pour la disponibilité, identifier les mécanismes de reprise des VM, les réseaux et les banques accessibles aux hôtes ainsi que les points de panne communs.</p>
 <h2 id="question-de-revision">Question de révision<a class="headerlink" href="#question-de-revision" title="Permanent link">¶</a></h2>
-<p>La console centrale voit deux hôtes. Que reste-t-il à vérifier avant d’annoncer une reprise automatique ?</p>
+<ol>
+<li>Que représente la configuration d’une VM par rapport à son disque ?</li>
+<li>Un outil de gestion voit deux hôtes. Leurs VM partagent-elles nécessairement le même stockage ?</li>
+<li>Quels renseignements permettent de comparer deux hôtes avant de regrouper les VM ?</li>
+</ol>
 <details class="success">
-<summary>Correction</summary>
-<p>La présence et le fonctionnement du mécanisme de disponibilité, la capacité restante et l’accès du second hôte aux fichiers et réseaux nécessaires à la VM.</p>
+<summary>Réponses commentées</summary>
+<ol>
+<li>La configuration décrit les ressources et périphériques virtuels. Le disque conserve le contenu utilisé par le système invité.</li>
+<li>Vérifier les banques de données accessibles par chacun. L’inventaire commun ne prouve pas l’accès au stockage.</li>
+<li>CPU, mémoire, réseau, stockage et ressources consommées, puis les dépendances et contraintes de reprise des invités.</li>
+</ol>
 </details>
 <p><a href="../../../modules/13-virtualisation-serveurs/module-03/">Revenir au cours</a></p>
 

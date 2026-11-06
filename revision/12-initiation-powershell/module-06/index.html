@@ -14747,7 +14747,19 @@
    d'utilisateurs Active Directory.</li>
 </ol>
 <h2 id="autoevaluation">Autoévaluation<a class="headerlink" href="#autoevaluation" title="Permanent link">¶</a></h2>
-<p>Identifiez les deux parties de <code>PSCredential</code> et une commande qui accepte l’objet. Comparez les deux scripts DNS en séparant erreur de grammaire, commande introuvable et résultat de configuration. Expliquez la différence entre un enregistrement NS, une délégation et le transfert d’une zone secondaire. Pour le menu AD, donnez un cas de test pour la création d’un compte, le doublon et la limite de l’OU.</p>
+<ol>
+<li>Que contient <code>PSCredential</code> ?</li>
+<li>Que prouve une analyse syntaxique réussie ?</li>
+<li>Quelle preuve est nécessaire pour la zone secondaire ?</li>
+</ol>
+<details class="success">
+<summary>Réponses commentées</summary>
+<ol>
+<li>Un nom d’utilisateur et un secret protégé en <code>SecureString</code>, utilisables par une commande qui accepte cet objet.</li>
+<li>Que le texte suit la grammaire PowerShell. Vérifier ensuite les commandes, leurs paramètres, les droits et la configuration produite.</li>
+<li>Vérifier le type et les données de la zone sur le serveur cible ainsi que le transfert autorisé depuis la source.</li>
+</ol>
+</details>
 <ul>
 <li><a href="../../../modules/12-initiation-powershell/module-06/">Cours du module</a></li>
 <li><a href="../../../tp/12-initiation-powershell/module-06/">TP et correction</a></li>
