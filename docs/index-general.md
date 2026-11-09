@@ -128,3 +128,13 @@
 - [Module 05](modules/09-services-reseaux-en-environnement-microsoft/module-05-module-05.md)
 - [Module 06](modules/09-services-reseaux-en-environnement-microsoft/module-06-module-06.md)
 <!-- TSSR-COURSE-CREATOR:services-reseaux-en-environnement-microsoft:END -->
+
+<!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:START -->
+## Sauvegarde et Restauration
+
+- [Sauvegarde et Restauration](modules/16-sauvegarde-et-restauration/index.md)
+- [Module 01 — Concept, enjeux et définition](modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition.md)
+- [Module 02 — Types de sauvegarde](modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde.md)
+- [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
+- [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
+<!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->

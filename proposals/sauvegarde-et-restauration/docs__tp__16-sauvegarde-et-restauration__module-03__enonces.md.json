@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — enonces",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-03/enonces.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Énoncé · Sauvegarde et restauration Veeam\n\nDurée estimée : 1 heure. Avoir suivi les modules 1 à 3 et réalisé le TP précédent. Transcription dans le [module 03](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/).\n\nObjectifs : installer Veeam Backup & Replication ; sauvegarder des VM ; restaurer une VM.\n\n1. Sur SRV-HyperV, ouvrir le port 445, Accès réseau (NP-in).\n2. Sur Srv-backup, désinstaller Backup Exec et installer VEEAM 12 backup & replication.\n3. Inventory, Add Server : nom `SRV-HyperV`, type Microsoft Hyper-V Server (Standalone), compte `SRV-HyperV\\administrateur`, task limit 4. L’énoncé écrit « Crédential ».\n4. Vérifier la présence de SRV-AD1 et SRV-FIC1.\n5. Home, Backup job, Virtual Machine. Nom `SVGD-FIC1`, VM `Srv-Fic1`, stockage Default Backup Repository, task limit 4. Exécution immédiate.\n6. Si la complète n’a pas d’erreur, supprimer srv-fic1 dans Hyper-V, restaurer la VM entière, puis vérifier que le serveur est opérationnel.\n\n[Correction inexistante](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-03/corrections/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "e4738b66a727071cc4e8180aeff54583fef088c9250eb75f0ec6c029db036c0b"
+    },
+    "idempotencyKey": "521166a14b6f972d416ac7204cbfefa0f73e52ea5e69fe6dc1938a25ef959712"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — corrections restauration",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-02/corrections-restauration.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Correction · Restauration Backup Exec\n\n**Inexistant.**\n\nAucun corrigé n’est fourni. Le critère écrit est une session ouverte avec l’utilisateur restauré, puis une nouvelle complète après la duplication vers `backup-fic1`.\n\n[Énoncé](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-02/restauration/) · [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "300a877e4c1031c4bd2960cb4ce22f881d2ad10e1b694b1cf59b3707487104f1"
+    },
+    "idempotencyKey": "c571766a3b04dd2c0c696bc684c4da7269480394f3d1af6bfae6a3a56a11a6c3"
+  }
+}

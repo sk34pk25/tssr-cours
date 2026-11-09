@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — corrections",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-01/corrections.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Correction · Création de l’infrastructure\n\n**Inexistant.**\n\nAucun document de correction n’accompagne cet énoncé. Les contrôles à réussir sont ceux de l’énoncé : sessions ouvertes, connectivité depuis srv-backup, portail du NAS, `sudo wbinfo -t`, service ISCSI actif, pings depuis srv-fic1.\n\n[Énoncé](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-01/enonces/) · [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "6fcb702d6b286a8c88271937cc4ac7486489119e9d818e8476ba1631727315a5"
+    },
+    "idempotencyKey": "5f3a1213aa79b1e72085fd08bca9b077c1bc1a40e1ac0fc4b84738eece720094"
+  }
+}

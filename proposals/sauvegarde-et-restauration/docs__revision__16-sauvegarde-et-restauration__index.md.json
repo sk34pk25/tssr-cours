@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — index",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/revision/16-sauvegarde-et-restauration/index.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Fiches de révision — Sauvegarde et Restauration\n\n- [Module 01 · Concept, enjeux et définition](https://sk34pk25.github.io/tssr-cours/revision/16-sauvegarde-et-restauration/module-01/)\n- [Module 02 · Types de sauvegarde](https://sk34pk25.github.io/tssr-cours/revision/16-sauvegarde-et-restauration/module-02/)\n- [Module 03 · Gestion du stockage](https://sk34pk25.github.io/tssr-cours/revision/16-sauvegarde-et-restauration/module-03/)\n- [Module 04 · Redondance et RAID](https://sk34pk25.github.io/tssr-cours/revision/16-sauvegarde-et-restauration/module-04/)\n\n[Retour au cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "c66153ef1772297b9bd09676aee976a4a4f621c0028d843c8f3a273f22e2608d"
+    },
+    "idempotencyKey": "952c034f997e45e17997e77de2c950ffe79ccbf37c53f3dc1ef3e66b09f2a92a"
+  }
+}

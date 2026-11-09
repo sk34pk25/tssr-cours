@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — sauvegarde restauration",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/commandes/sauvegarde-restauration.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Commandes et gestes — Sauvegarde et restauration\n\nLes lignes ci-dessous sont celles des supports et des énoncés. Les valeurs d’accès appartiennent à la maquette de formation.\n\n| Geste | Commande ou chemin | Contrôle |\n|---|---|---|\n| Intégration du NAS à l’annuaire | `sudo wbinfo -t` dans la console du portail | Le support demande un résultat d’intégration correct |\n| Portail du NAS | `https://192.168.30.1` | Le service ISCSI s’active ensuite dans le menu service |\n| Bundles de la maquette | `R:\\Distrib\\Bundles\\TSSR\\RES24_0160B - Sauvegarde & restauration` | Un dossier par VM sur `D:\\` |\n| Initiateur iSCSI | Portail `192.168.30.1`, port `3260` | Statut connecté, puis disque de 80 Go formaté |\n| Agent Backup Exec en échec | Copier `C:\\Program Files\\Veritas\\Backup Exec\\Agents`, puis `C:\\Agents\\RAWSX64\\setup.exe` | Après `0xe00086ce`, refaire l’ajout depuis srv-backup |\n| Export MySQL cité | `mysqldump` vers un fichier `DUMP.sql` | Le support ne fige pas un compte réel |\n| Import MySQL cité | `mysql` avec redirection `< fichier_source.sql` | Même réserve |\n| RMAN cité | `backup incremental level 0 section size 512m database plus archivelog` | Exemple Oracle du support |\n\nLe support montre aussi des invites de mot de passe dans les exemples MySQL. Elles ne sont pas recopiées sous forme d’affectation.\n\n[Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/) · [Mémo](https://sk34pk25.github.io/tssr-cours/memo/sauvegarde-restauration/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "9fbfb1cd4016896b97d320c24a3de314a6586f7fb6bda2615f445b1bc37e87f8"
+    },
+    "idempotencyKey": "0a2e6cfa9d9f9b6ca5a5cae38d50f473a12b15cdd4202fa3827ddaef43563de1"
+  }
+}

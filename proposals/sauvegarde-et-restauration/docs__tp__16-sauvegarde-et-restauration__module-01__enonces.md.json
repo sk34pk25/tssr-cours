@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — enonces",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-01/enonces.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Énoncé · Création de l’infrastructure\n\nDurée estimée : 1 heure. Avoir suivi le module 1. Le gestionnaire Hyper-V et le partage distrib sont nécessaires sur la machine de salle.\n\nLa transcription intégrale, le tableau des comptes et les adresses de la figure sont dans l’onglet **Cours Original** du [module 01](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/). Cette page garde l’ordre des gestes.\n\nObjectifs : installer le rôle Hyper-V ; déployer l’infrastructure pour les ateliers suivants.\n\n1. Importer les bundles `R:\\Distrib\\Bundles\\TSSR\\RES24_0160B - Sauvegarde & restauration`.\n2. Stocker chaque VM dans son dossier sur `D:\\`.\n3. Ne pas importer SRV-AD1 ni SRV-FIC1 : elles sont dans SRV-HyperV.\n4. Comptes du tableau : Srv-backup a le mot de passe écrit `Pa$$w0rd`. Les autres cellules affichent `*`. La vérification demande ensuite Administrateur / Pa$$w0rd sur les VM et admin / Pa$$w0rd sur le NAS.\n5. Allumer toutes les VM.\n6. Depuis srv-backup, joindre SRV-AD1, SRV-Fic1 et SRV-NAS. Ajuster le pare-feu si besoin.\n7. Portail `https://192.168.30.1`, puis `sudo wbinfo -t`, puis activer ISCSI.\n8. Depuis srv-fic1, ping srv-ad1, srv-backup et truenas.\n\n[Pas-à-pas commenté](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/) · [Correction inexistante](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-01/corrections/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "ba07c9189c6a9d8315276fb710d6b34796df774c8313a334ef0c2055de30835c"
+    },
+    "idempotencyKey": "7ea11b3418aecdd0ba678bbfef2ddd074357140297a0f85e8ae151746c868fbd"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — installation",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-02/installation.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Énoncé · Installation et configuration de Backup Exec\n\nDurée estimée : 3 heures. Avoir suivi les modules 1 et 2 et réalisé le TP d’infrastructure. La transcription des tableaux est dans l’onglet **Cours Original** du [module 02](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/).\n\nObjectifs : installer Veritas Backup Exec ; créer le stockage iSCSI ; sauvegarder le contrôleur et le serveur de fichiers.\n\n1. Sur srv-ad1, créer un utilisateur et ouvrir une session avec lui.\n2. Sur srv-backup, installation personnalisée locale en français. Passer les avertissements de vérification et l’ajout de licence. Options : défaut, Advanced Disk-based Backup, NDMP. Compte de service : admin du domaine. Instance locale de SQL Express.\n3. Initiateur iSCSI vers `192.168.30.1`, port `3260`. Formater le disque de 80 Go.\n4. Stockage sur disque nommé `backup`, description `backup sur nas`, 4 écritures simultanées.\n5. Ajouter Srv-ad1 avec mise à niveau de l’agent. Job `srv-ad1 job`, complète puis incrémentale, complète initiale, démarrage immédiat.\n6. Ajouter Srv-fic1. Si l’erreur `0xe00086ce` apparaît, copier `C:\\Program Files\\Veritas\\Backup Exec\\Agents` vers `C:\\` de la cible par `c$`, exécuter `C:\\Agents\\RAWSX64\\setup.exe`, puis refaire l’ajout.\n7. Job `srv-fic1 job`, complète, complète initiale, démarrage immédiat.\n\n[Correction inexistante](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-02/corrections-installation/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "622f965dc9be0d6e608db0cda0ab899169a7bedcd0a285e198410fb598edc6fb"
+    },
+    "idempotencyKey": "57175ae8d1e39298cd81a1e91b177945001c578cc76584aeb36e3e68d6bff15c"
+  }
+}

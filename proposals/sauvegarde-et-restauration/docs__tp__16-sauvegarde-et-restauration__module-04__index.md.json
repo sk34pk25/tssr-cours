@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — index",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/tp/16-sauvegarde-et-restauration/module-04/index.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Travaux pratiques · Module 04\n\nUtilisation du RAID. Durée indiquée : 1 heure.\n\n| Document | Accès |\n|---|---|\n| Énoncé | [Lire l’énoncé](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-04/enonces/) |\n| Correction | [Inexistant](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-04/corrections/) |\n| Cours | [Module 04](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid/) |\n\n[Tous les TP](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "993cd2a9dcb4f762396307631f28acb431a44d50269fb3795999f484ee093c70"
+    },
+    "idempotencyKey": "0106c0937e6afe3728db163cf08041933ec4a802ec5e53747ae021c855b70fc5"
+  }
+}

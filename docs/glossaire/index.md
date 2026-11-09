@@ -9,7 +9,7 @@ hide:
 
 Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontrés dans les cours, travaux pratiques et fiches de révision de la formation.
 
-<div class="tssr-glossary" data-glossary-root data-total="522">
+<div class="tssr-glossary" data-glossary-root data-total="532">
   <form class="tssr-glossary-controls" data-glossary-controls hidden aria-label="Filtrer le glossaire">
     <div class="tssr-glossary-controls__primary">
       <label class="tssr-glossary-field tssr-glossary-field--search" for="glossaire-recherche">
@@ -35,6 +35,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="powershell">Initiation à PowerShell</option>
         <option value="virtualisation">Virtualisation de serveurs</option>
         <option value="cloud">Messagerie Cloud</option>
+        <option value="sauvegarde">Sauvegarde et Restauration</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-module">
@@ -140,6 +141,10 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
         <option value="cloud02" data-course="cloud">Messagerie Cloud · M02 · Administration Microsoft 365</option>
         <option value="cloud03" data-course="cloud">Messagerie Cloud · M03 · Reprise du module 02</option>
         <option value="cloud04" data-course="cloud">Messagerie Cloud · M04 · Services complémentaires</option>
+        <option value="svg01" data-course="sauvegarde">Sauvegarde · M01 · Concepts</option>
+        <option value="svg02" data-course="sauvegarde">Sauvegarde · M02 · Types de sauvegarde</option>
+        <option value="svg03" data-course="sauvegarde">Sauvegarde · M03 · Stockage</option>
+        <option value="svg04" data-course="sauvegarde">Sauvegarde · M04 · RAID</option>
         </select>
       </label>
       <label class="tssr-glossary-field" for="glossaire-tri">
@@ -184,7 +189,7 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
       <button type="button" class="tssr-glossary-letter" data-glossary-letter="Z" aria-pressed="false">Z</button>
     </fieldset>
     <div class="tssr-glossary-controls__status">
-      <p data-glossary-status role="status" aria-live="polite"><strong data-glossary-count>522</strong> termes affichés <span data-glossary-summary>Tous les termes</span></p>
+      <p data-glossary-status role="status" aria-live="polite"><strong data-glossary-count>532</strong> termes affichés <span data-glossary-summary>Tous les termes</span></p>
       <button type="reset" class="tssr-glossary-reset" data-glossary-reset>Réinitialiser</button>
     </div>
   </form>
@@ -1420,6 +1425,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> détection d’adresse dupliquée</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/01-bases-reseaux/module-06-l-adressage-ipv6/" title="Bases des réseaux — Module 06 — L’adressage IPv6">Réseaux · M06 · Adressage IPv6</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="das" data-glossary-card data-term="DAS" data-full-name data-aliases="Direct Attached Storage" data-keywords="Direct Attached Storage | bande" data-definition="Stockage rattaché directement au serveur ou au poste, souvent un lecteur de bandes, sans réseau entre l’application et le système de fichiers." data-courses="sauvegarde" data-modules="svg03" data-letter="D" data-course-sort="sauvegarde et restauration" data-module-sort="101" data-source-order="529" aria-labelledby="das-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="das-titre"><a href="#das" class="tssr-glossary-card__anchor" aria-label="DAS">DAS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Stockage rattaché directement au serveur ou au poste, souvent un lecteur de bandes, sans réseau entre l’application et le système de fichiers.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Direct Attached Storage</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/" title="Sauvegarde et Restauration — Module 03 — Gestion du stockage">Sauvegarde · M03 · Stockage</a></li>
   </ul>
 </article>
 
@@ -3080,13 +3096,14 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
-<article class="tssr-glossary-card" id="iscsi" data-glossary-card data-term="iSCSI" data-full-name data-aliases data-keywords="stockage bloc | SCSI | initiateur | cible | LUN" data-definition="Protocole qui transporte les commandes SCSI sur TCP/IP. Un initiateur se connecte à une cible qui lui présente des unités de stockage en mode bloc." data-courses="virtualisation" data-modules="virt07" data-letter="I" data-course-sort="virtualisation de serveurs" data-module-sort="093" data-source-order="511" aria-labelledby="iscsi-titre">
+<article class="tssr-glossary-card" id="iscsi" data-glossary-card data-term="iSCSI" data-full-name data-aliases data-keywords="stockage bloc | SCSI | initiateur | cible | LUN" data-definition="Protocole qui transporte les commandes SCSI sur TCP/IP. Un initiateur se connecte à une cible qui lui présente des unités de stockage en mode bloc." data-courses="virtualisation sauvegarde" data-modules="virt07 svg02" data-letter="I" data-course-sort="virtualisation de serveurs" data-module-sort="093" data-source-order="511" aria-labelledby="iscsi-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="iscsi-titre"><a href="#iscsi" class="tssr-glossary-card__anchor" aria-label="iSCSI">iSCSI</a></h2>
   </header>
   <p class="tssr-glossary-card__definition">Protocole qui transporte les commandes SCSI sur TCP/IP. Un initiateur se connecte à une cible qui lui présente des unités de stockage en mode bloc.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/13-virtualisation-serveurs/module-07/" title="Virtualisation de serveurs — Module 07 — Gestion du stockage">Virtualisation · M07 · Stockage</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/" title="Sauvegarde et Restauration — Module 02 — Types de sauvegarde">Sauvegarde · M02 · Types de sauvegarde</a></li>
   </ul>
 </article>
 
@@ -3699,6 +3716,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="nas" data-glossary-card data-term="NAS" data-full-name data-aliases="Network Attached Storage" data-keywords="CIFS | NFS | fichiers" data-definition="Appareil de fichiers relié au réseau local, avec son propre système de fichiers. Le support cite CIFS pour Windows, NFS ou Samba pour Unix et Linux." data-courses="sauvegarde" data-modules="svg03" data-letter="N" data-course-sort="sauvegarde et restauration" data-module-sort="101" data-source-order="531" aria-labelledby="nas-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="nas-titre"><a href="#nas" class="tssr-glossary-card__anchor" aria-label="NAS">NAS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Appareil de fichiers relié au réseau local, avec son propre système de fichiers. Le support cite CIFS pour Windows, NFS ou Samba pour Unix et Linux.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Network Attached Storage</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/" title="Sauvegarde et Restauration — Module 03 — Gestion du stockage">Sauvegarde · M03 · Stockage</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="nat" data-glossary-card data-term="NAT" data-full-name="Network Address Translation" data-aliases="traduction d’adresses réseau" data-keywords="PAT | adresse privée" data-definition="Traduction d’adresses réalisée par un équipement frontière, souvent pour faire partager une adresse publique à plusieurs hôtes privés." data-courses="reseaux windows reseaux-ms reseaux-linux msp-reseau" data-modules="r04 wadd srvms04 srvlin03 mspr01" data-letter="N" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="45" aria-labelledby="nat-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="nat-titre"><a href="#nat" class="tssr-glossary-card__anchor" aria-label="NAT">NAT</a></h2>
@@ -4053,6 +4081,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="pca" data-glossary-card data-term="PCA" data-full-name data-aliases="Plan de continuité d’activité" data-keywords="crise | continuité" data-definition="Plan de continuité d’activité. Il couvre la crise avant, pendant et après, au-delà du seul système d’information : communication, repli, sécurité et gouvernance." data-courses="sauvegarde" data-modules="svg01" data-letter="P" data-course-sort="sauvegarde et restauration" data-module-sort="099" data-source-order="524" aria-labelledby="pca-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="pca-titre"><a href="#pca" class="tssr-glossary-card__anchor" aria-label="PCA">PCA</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Plan de continuité d’activité. Il couvre la crise avant, pendant et après, au-delà du seul système d’information : communication, repli, sécurité et gouvernance.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Plan de continuité d’activité</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/" title="Sauvegarde et Restauration — Module 01 — Concept, enjeux et définition">Sauvegarde · M01 · Concepts</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="pdu" data-glossary-card data-term="PDU" data-full-name="Protocol Data Unit" data-aliases="unité de données de protocole" data-keywords="OSI | encapsulation" data-definition="Unité de données manipulée par une couche réseau : bits, trame, paquet, segment ou données selon le niveau du modèle." data-courses="reseaux" data-modules="r01" data-letter="P" data-course-sort="bases des reseaux" data-module-sort="000" data-source-order="51" aria-labelledby="pdu-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="pdu-titre"><a href="#pdu" class="tssr-glossary-card__anchor" aria-label="PDU">PDU</a></h2>
@@ -4295,6 +4334,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="pra" data-glossary-card data-term="PRA" data-full-name data-aliases="Plan de reprise d’activité" data-keywords="reprise | sauvegarde" data-definition="Plan de reprise d’activité, volet informatique du PCA. Il réunit le plan de sauvegarde, le stockage des éléments à restaurer, la procédure et les licences." data-courses="sauvegarde" data-modules="svg01" data-letter="P" data-course-sort="sauvegarde et restauration" data-module-sort="099" data-source-order="525" aria-labelledby="pra-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="pra-titre"><a href="#pra" class="tssr-glossary-card__anchor" aria-label="PRA">PRA</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Plan de reprise d’activité, volet informatique du PCA. Il réunit le plan de sauvegarde, le stockage des éléments à restaurer, la procédure et les licences.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Plan de reprise d’activité</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/" title="Sauvegarde et Restauration — Module 01 — Concept, enjeux et définition">Sauvegarde · M01 · Concepts</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="prefixe-reseau" data-glossary-card data-term="Préfixe réseau" data-full-name data-aliases="network prefix" data-keywords="CIDR | masque" data-definition="Suite de bits commune qui identifie un réseau IP ; sa longueur est indiquée après une barre oblique dans la notation CIDR." data-courses="reseaux" data-modules="r03 r06" data-letter="P" data-course-sort="bases des reseaux" data-module-sort="002" data-source-order="54" aria-labelledby="prefixe-reseau-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="prefixe-reseau-titre"><a href="#prefixe-reseau" class="tssr-glossary-card__anchor" aria-label="Préfixe réseau">Préfixe réseau</a></h2>
@@ -4483,6 +4533,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="raid" data-glossary-card data-term="RAID" data-full-name data-aliases="Redundant Array of Independent Disks" data-keywords="grappe | parité | miroir" data-definition="Répartition des données sur plusieurs disques pour la performance, la tolérance aux pannes, ou les deux. Le support détaille les niveaux 0, 1, 5 et 10." data-courses="sauvegarde" data-modules="svg04" data-letter="R" data-course-sort="sauvegarde et restauration" data-module-sort="102" data-source-order="532" aria-labelledby="raid-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="raid-titre"><a href="#raid" class="tssr-glossary-card__anchor" aria-label="RAID">RAID</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Répartition des données sur plusieurs disques pour la performance, la tolérance aux pannes, ou les deux. Le support détaille les niveaux 0, 1, 5 et 10.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Redundant Array of Independent Disks</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid/" title="Sauvegarde et Restauration — Module 04 — La redondance de données et le RAID">Sauvegarde · M04 · RAID</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="rdp" data-glossary-card data-term="RDP" data-full-name="Remote Desktop Protocol" data-aliases="protocole Bureau à distance" data-keywords="TCP 3389" data-definition="Protocole Microsoft utilisé par le Bureau à distance pour transporter l’affichage, les entrées et certains périphériques d’une session distante." data-courses="windows" data-modules="w08" data-letter="R" data-course-sort="systemes clients microsoft" data-module-sort="013" data-source-order="141" aria-labelledby="rdp-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="rdp-titre"><a href="#rdp" class="tssr-glossary-card__anchor" aria-label="RDP">RDP</a></h2>
@@ -4546,6 +4607,18 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__aliases"><span>Alias</span> Registry</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/02-systemes-clients-microsoft/module-13-les-strategies-de-groupe-local/" title="Systèmes clients Microsoft — Module 13 — Les stratégies de groupe local">Windows · M13 · Stratégies de groupe</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="regle-3-2-1" data-glossary-card data-term="Règle 3-2-1" data-full-name data-aliases="3-2-1" data-keywords="copie | hors site | rétention" data-definition="Règle de copies qui compte les données d’origine et au moins deux sauvegardes, sur deux types de supports, dont une copie hors du site." data-courses="sauvegarde" data-modules="svg01 svg03" data-letter="R" data-course-sort="sauvegarde et restauration" data-module-sort="099" data-source-order="523" aria-labelledby="regle-3-2-1-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="regle-3-2-1-titre"><a href="#regle-3-2-1" class="tssr-glossary-card__anchor" aria-label="Règle 3-2-1">Règle 3-2-1</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Règle de copies qui compte les données d’origine et au moins deux sauvegardes, sur deux types de supports, dont une copie hors du site.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> 3-2-1</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/" title="Sauvegarde et Restauration — Module 01 — Concept, enjeux et définition">Sauvegarde · M01 · Concepts</a></li>
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/" title="Sauvegarde et Restauration — Module 03 — Gestion du stockage">Sauvegarde · M03 · Stockage</a></li>
   </ul>
 </article>
 
@@ -4714,6 +4787,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="rotation-gfs" data-glossary-card data-term="Rotation GFS" data-full-name data-aliases="GPF | Grand-père Père Fils" data-keywords="bandes | grand-père | père | fils" data-definition="Rotation des médias en fils quotidien, père hebdomadaire et grand-père mensuel. Le support chiffre environ 21 bandes pour une planification sur cinq jours." data-courses="sauvegarde" data-modules="svg02" data-letter="R" data-course-sort="sauvegarde et restauration" data-module-sort="100" data-source-order="528" aria-labelledby="rotation-gfs-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="rotation-gfs-titre"><a href="#rotation-gfs" class="tssr-glossary-card__anchor" aria-label="Rotation GFS">Rotation GFS</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Rotation des médias en fils quotidien, père hebdomadaire et grand-père mensuel. Le support chiffre environ 21 bandes pour une planification sur cinq jours.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> GPF · Grand-père Père Fils</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/" title="Sauvegarde et Restauration — Module 02 — Types de sauvegarde">Sauvegarde · M02 · Types de sauvegarde</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="routage-dynamique" data-glossary-card data-term="Routage dynamique" data-full-name data-aliases data-keywords="protocole de routage" data-definition="Méthode où des routeurs échangent des informations au moyen d’un protocole afin d’adapter automatiquement leurs routes aux changements." data-courses="reseaux" data-modules="r04" data-letter="R" data-course-sort="bases des reseaux" data-module-sort="003" data-source-order="57" aria-labelledby="routage-dynamique-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="routage-dynamique-titre"><a href="#routage-dynamique" class="tssr-glossary-card__anchor" aria-label="Routage dynamique">Routage dynamique</a></h2>
@@ -4806,6 +4890,17 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   </ul>
 </article>
 
+<article class="tssr-glossary-card" id="san" data-glossary-card data-term="SAN" data-full-name data-aliases="Storage Area Network" data-keywords="bloc | Fibre Channel" data-definition="Réseau de stockage qui présente des blocs aux serveurs. Le serveur gère le système de fichiers. Le support cite SCSI, Fibre Channel ou SATA." data-courses="sauvegarde" data-modules="svg03" data-letter="S" data-course-sort="sauvegarde et restauration" data-module-sort="101" data-source-order="530" aria-labelledby="san-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="san-titre"><a href="#san" class="tssr-glossary-card__anchor" aria-label="SAN">SAN</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Réseau de stockage qui présente des blocs aux serveurs. Le serveur gère le système de fichiers. Le support cite SCSI, Fibre Channel ou SATA.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Storage Area Network</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/" title="Sauvegarde et Restauration — Module 03 — Gestion du stockage">Sauvegarde · M03 · Stockage</a></li>
+  </ul>
+</article>
+
 <article class="tssr-glossary-card" id="saut-de-page" data-glossary-card data-term="Saut de page" data-full-name data-aliases data-keywords="Word | mise en page" data-definition="Marque Word qui force le contenu suivant à commencer sur une nouvelle page sans multiplier les paragraphes vides." data-courses="m365" data-modules="m02" data-letter="S" data-course-sort="microsoft 365 — outils collaboratifs" data-module-sort="021" data-source-order="199" aria-labelledby="saut-de-page-titre">
   <header class="tssr-glossary-card__header">
     <h2 id="saut-de-page-titre"><a href="#saut-de-page" class="tssr-glossary-card__anchor" aria-label="Saut de page">Saut de page</a></h2>
@@ -4823,6 +4918,27 @@ Retrouvez ici les termes, acronymes, commandes et concepts essentiels rencontré
   <p class="tssr-glossary-card__definition">Séparation Word qui permet d’appliquer à une partie du document une mise en page, des colonnes ou des en-têtes différents.</p>
   <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
     <li><a class="tssr-glossary-card__context" href="../modules/03-microsoft-365-outils-collaboratifs/module-02-connaissances-des-notions-de-base-word/" title="Microsoft 365 — Outils collaboratifs — Module 02 — Connaissances des notions de base Word">Microsoft 365 · M02 · Word</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="sauvegarde-differentielle" data-glossary-card data-term="Sauvegarde différentielle" data-full-name data-aliases="Sauvegarde cumulative | T1" data-keywords="bit d’archive | cumulative" data-definition="Copie des données modifiées depuis la dernière sauvegarde complète. Le bit d’archive reste à 1. La restauration utilise la complète et la dernière différentielle." data-courses="sauvegarde" data-modules="svg02" data-letter="S" data-course-sort="sauvegarde et restauration" data-module-sort="100" data-source-order="526" aria-labelledby="sauvegarde-differentielle-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="sauvegarde-differentielle-titre"><a href="#sauvegarde-differentielle" class="tssr-glossary-card__anchor" aria-label="Sauvegarde différentielle">Sauvegarde différentielle</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Copie des données modifiées depuis la dernière sauvegarde complète. Le bit d’archive reste à 1. La restauration utilise la complète et la dernière différentielle.</p>
+  <p class="tssr-glossary-card__aliases"><span>Alias</span> Sauvegarde cumulative · T1</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/" title="Sauvegarde et Restauration — Module 02 — Types de sauvegarde">Sauvegarde · M02 · Types de sauvegarde</a></li>
+  </ul>
+</article>
+
+<article class="tssr-glossary-card" id="sauvegarde-incrementale" data-glossary-card data-term="Sauvegarde incrémentale" data-full-name data-aliases data-keywords="bit d’archive | chaîne" data-definition="Copie des données modifiées depuis la dernière sauvegarde, complète ou incrémentale. Le bit d’archive revient à 0. La restauration exige toute la chaîne." data-courses="sauvegarde" data-modules="svg02" data-letter="S" data-course-sort="sauvegarde et restauration" data-module-sort="100" data-source-order="527" aria-labelledby="sauvegarde-incrementale-titre">
+  <header class="tssr-glossary-card__header">
+    <h2 id="sauvegarde-incrementale-titre"><a href="#sauvegarde-incrementale" class="tssr-glossary-card__anchor" aria-label="Sauvegarde incrémentale">Sauvegarde incrémentale</a></h2>
+  </header>
+  <p class="tssr-glossary-card__definition">Copie des données modifiées depuis la dernière sauvegarde, complète ou incrémentale. Le bit d’archive revient à 0. La restauration exige toute la chaîne.</p>
+  <ul class="tssr-glossary-card__contexts" aria-label="Cours et modules associés">
+    <li><a class="tssr-glossary-card__context" href="../modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/" title="Sauvegarde et Restauration — Module 02 — Types de sauvegarde">Sauvegarde · M02 · Types de sauvegarde</a></li>
   </ul>
 </article>
 

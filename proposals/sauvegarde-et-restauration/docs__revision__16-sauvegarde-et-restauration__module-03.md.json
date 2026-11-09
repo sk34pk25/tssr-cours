@@ -1,0 +1,23 @@
+{
+  "action": "create",
+  "title": "Sauvegarde et Restauration — module 03",
+  "description": "Proposition du cours Sauvegarde et Restauration. Page autonome pour le vote. Les liens vers les pages de ce cours pas encore publiées sont des URL du site, afin que le build isolé sur main reste valide.",
+  "base_commit_sha": "6200a4d45cad85a289dd71ab77ddad6b0a83c11b",
+  "files": [
+    {
+      "file_path": "docs/revision/16-sauvegarde-et-restauration/module-03.md",
+      "change_type": "create",
+      "content_encoding": "utf-8",
+      "new_content": "# Fiche de révision — Module 03 — Gestion du stockage\n\n## À savoir refaire\n\n- Citer les cinq critères de choix d’un support.\n- Placer le système de fichiers : machine pour le DAS, serveur pour le SAN, appareil pour le NAS.\n- Lire LTO 9 : 18 To natifs, 45 To compressés.\n- Distinguer sauvegarde locale et externalisée, avec le rappel 3-2-1.\n- Installer Veeam 12 après Backup Exec et restaurer srv-fic1.\n\n## Se tester\n\n1. Le NAS du support parle-t-il en blocs ou en fichiers ?\n2. Quel port Hyper-V le TP fait-il ouvrir ?\n3. Quel dépôt le job `SVGD-FIC1` utilise-t-il ?\n\n??? success \"Réponses\"\n\n    1. En fichiers : CIFS, NFS ou Samba. Le SAN identifie des blocs.\n    2. Le port 445, Accès réseau (NP-in).\n    3. Default Backup Repository.\n\n[Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/) · [TP](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-03/)\n"
+    }
+  ],
+  "payload_summary": {
+    "source": {
+      "type": "google_drive_read_only",
+      "rootId": "1N73OtTF2TKxYUEO9X0_4NObnmEAugzZ1",
+      "fileId": "1Crf4o0ALj5h06mvf4lwEklmEs_RXZXbs",
+      "sha256": "32ba03020fecc1b9f676d21614f35383e913bf36277f6b369f9e4bbb57f4ed09"
+    },
+    "idempotencyKey": "0766705236562c952e78efeaed36452b2553cac719e7fbe5dd1e7ce006bcda29"
+  }
+}
