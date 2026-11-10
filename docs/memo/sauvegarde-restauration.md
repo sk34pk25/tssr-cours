@@ -50,4 +50,4 @@ GFS sur 5 jours : environ 21 bandes. Fils quotidien, père hebdomadaire, grand-p
 | NAS | 192.168.30.1 · iSCSI 3260 |
 | Routeur | .254 dans chaque VLAN |
 
-[Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/)
+[Cours](../modules/16-sauvegarde-et-restauration/index.md)

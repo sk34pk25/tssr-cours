@@ -17,3 +17,4 @@ Chaque fiche reprend les objectifs, contrôles, commandes repérées et pièges 
 - [Initiation à PowerShell](12-initiation-powershell/index.md)
 - [Virtualisation de serveurs](13-virtualisation-serveurs/index.md)
 - [Messagerie Cloud](14-messagerie-cloud/index.md)
+- [Sauvegarde et Restauration](16-sauvegarde-et-restauration/index.md)

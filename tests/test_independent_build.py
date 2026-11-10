@@ -57,6 +57,16 @@ class IndependentBuildTests(unittest.TestCase):
     def test_no_inter_cr_dependency_passes(self):
         assert_independent_build(self.payload('# M07\n\nStandalone.\n'), repo=self.repo)
 
+    def test_absolute_site_link_is_internal_and_must_be_in_the_set_or_base(self):
+        absolute = ('# M07\n\n[TP](https://sk34pk25.github.io/tssr-cours/'
+                    'tp/11-initiation-scripting-bash/module-07/)\n')
+        with self.assertRaisesRegex(IndependentBuildError, 'INDEPENDENT_BUILD_FAILED'):
+            assert_independent_build(self.payload(absolute), repo=self.repo)
+        payload = self.payload(absolute)
+        payload['files'].append({'file_path': self.targets[0], 'change_type': 'create',
+                                 'new_content': '# TP\n', 'content_encoding': 'utf-8'})
+        assert_independent_build(payload, repo=self.repo)
+
     def test_untrusted_path_is_refused(self):
         payload = self.payload('# X')
         payload['files'][0]['file_path'] = '../outside.md'

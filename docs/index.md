@@ -18,7 +18,7 @@ hide:
 
 <div class="tssr-hero__metrics">
   <span class="tssr-hero__metric"><strong>28</strong><span>périodes au planning</span></span>
-  <span class="tssr-hero__metric" data-tssr-metric="modules"><strong>99</strong><span>modules et ateliers</span></span>
+  <span class="tssr-hero__metric" data-tssr-metric="modules"><strong>103</strong><span>modules et ateliers</span></span>
   <span class="tssr-hero__metric"><strong>417</strong><span>références de sources</span></span>
 </div>
 </div>

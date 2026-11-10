@@ -268,6 +268,13 @@ nav:
           - "Module 03 — Administration Microsoft 365 — reprise documentaire du module 2": modules/14-messagerie-cloud/module-03.md
           - "Module 04 — Services complémentaires": modules/14-messagerie-cloud/module-04.md
           - Travaux pratiques: tp/14-messagerie-cloud/index.md
+      - Sauvegarde et Restauration:
+          - Présentation: modules/16-sauvegarde-et-restauration/index.md
+          - "Module 01 — Concept, enjeux et définition": modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition.md
+          - "Module 02 — Types de sauvegarde": modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde.md
+          - "Module 03 — Gestion du stockage": modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md
+          - "Module 04 — La redondance de données et le RAID": modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md
+          - Travaux pratiques: tp/16-sauvegarde-et-restauration/index.md
 
   - Tutoriels:
       - Présentation: tutoriels/index.md
@@ -277,6 +284,7 @@ nav:
       - Installer GLPI: tutoriels/installer-glpi.md
       - Capture et déploiement Windows: tutoriels/capture-deploiement-windows.md
       - Configurer FortiClient VPN: tutoriels/forticlient-vpn.md
+      - Importer la maquette de sauvegarde: tutoriels/infrastructure-sauvegarde.md
   - Travaux pratiques:
       - Présentation: tp/index.md
       - Bases des réseaux:
@@ -435,6 +443,7 @@ nav:
       - "Initiation à PowerShell": tp/12-initiation-powershell/index.md
       - "Virtualisation de serveurs": tp/13-virtualisation-serveurs/index.md
       - "Messagerie Cloud": tp/14-messagerie-cloud/index.md
+      - "Sauvegarde et Restauration": tp/16-sauvegarde-et-restauration/index.md
 
   - Exercices:
       - Présentation: exercices/index.md
@@ -443,6 +452,7 @@ nav:
       - Quiz Administration Debian: exercices/quiz-administration-debian.md
       - Quiz Services réseau Linux: exercices/quiz-services-reseau-linux.md
       - Cas pratiques transversaux: exercices/cas-pratiques.md
+      - Quiz Sauvegarde et Restauration: exercices/quiz-sauvegarde-et-restauration.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
       - Messagerie Cloud:
@@ -450,6 +460,11 @@ nav:
           - Module 02: kahoot/14-messagerie-cloud-module-02.md
           - Module 03: kahoot/14-messagerie-cloud-module-03.md
           - Module 04: kahoot/14-messagerie-cloud-module-04.md
+      - Sauvegarde et Restauration:
+          - Module 01: kahoot/16-sauvegarde-et-restauration-module-01.md
+          - Module 02: kahoot/16-sauvegarde-et-restauration-module-02.md
+          - Module 03: kahoot/16-sauvegarde-et-restauration-module-03.md
+          - Module 04: kahoot/16-sauvegarde-et-restauration-module-04.md
       - Virtualisation de serveurs:
           - Module 03: kahoot/13-virtualisation-serveurs-module-03.md
           - Module 04: kahoot/13-virtualisation-serveurs-module-04.md
@@ -555,6 +570,7 @@ nav:
       - "Initiation à PowerShell": revision/12-initiation-powershell/index.md
       - "Virtualisation de serveurs": revision/13-virtualisation-serveurs/index.md
       - "Messagerie Cloud": revision/14-messagerie-cloud/index.md
+      - "Sauvegarde et Restauration": revision/16-sauvegarde-et-restauration/index.md
 
   - Mémos:
       - Présentation: memo/index.md
@@ -566,12 +582,14 @@ nav:
       - Systèmes de fichiers sous Debian: memo/file-systems-debian.md
       - Comptes et groupes sous Debian: memo/comptes-groupes-debian.md
       - GLPI et SQL: memo/glpi-sql.md
+      - Sauvegarde et restauration: memo/sauvegarde-restauration.md
   - Commandes:
       - Présentation: commandes/index.md
       - Réseau: commandes/reseau.md
       - Windows et PowerShell: commandes/windows-powershell.md
       - GNU/Linux: commandes/linux.md
       - MariaDB et GLPI: commandes/mariadb-glpi.md
+      - Sauvegarde et restauration: commandes/sauvegarde-restauration.md
   - Dépannage:
       - Présentation: troubleshooting/index.md
       - Client sans réseau: troubleshooting/client-sans-reseau.md
@@ -579,10 +597,12 @@ nav:
       - Windows instable: troubleshooting/windows-instable.md
       - GLPI inaccessible: troubleshooting/glpi-inaccessible.md
       - Outlook ne se connecte pas: troubleshooting/outlook-connexion.md
+      - Sauvegarde et restauration: troubleshooting/sauvegarde-restauration.md
   - Glossaire: glossaire/index.md
   - Ressources:
       - Présentation: ressources/index.md
       - Sources officielles: ressources/sources-officielles.md
       - Inventaire des sources: ressources/inventaire-sources.md
       - Supports originaux et provenance: ressources/conformite-sources.md
+      - Sauvegarde et Restauration: ressources/sauvegarde-et-restauration.md
   - Index général: index-general.md

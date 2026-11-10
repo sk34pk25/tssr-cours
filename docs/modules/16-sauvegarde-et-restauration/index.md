@@ -11,21 +11,21 @@ Le cours suit quatre supports et cinq énoncés de travaux pratiques. Chaque mod
 
 | Module | Intitulé du support | Documents |
 |---|---|---|
-| 01 | Concept, enjeux et définition | [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-01-concept-enjeux-et-definition/) · [TP infrastructure](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-01/) |
-| 02 | Types de sauvegarde | [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-02-types-de-sauvegarde/) · [TP Backup Exec](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-02/) |
-| 03 | Gestion du stockage | [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage/) · [TP Veeam](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-03/) |
-| 04 | La redondance de données — RAID | [Cours](https://sk34pk25.github.io/tssr-cours/modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid/) · [TP RAID](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/module-04/) |
+| 01 | Concept, enjeux et définition | [Cours](module-01-concept-enjeux-et-definition.md) · [TP infrastructure](../../tp/16-sauvegarde-et-restauration/module-01/index.md) |
+| 02 | Types de sauvegarde | [Cours](module-02-types-de-sauvegarde.md) · [TP Backup Exec](../../tp/16-sauvegarde-et-restauration/module-02/index.md) |
+| 03 | Gestion du stockage | [Cours](module-03-gestion-du-stockage.md) · [TP Veeam](../../tp/16-sauvegarde-et-restauration/module-03/index.md) |
+| 04 | La redondance de données — RAID | [Cours](module-04-redondance-de-donnees-raid.md) · [TP RAID](../../tp/16-sauvegarde-et-restauration/module-04/index.md) |
 
 ## Accès complémentaires
 
-- [Travaux pratiques](https://sk34pk25.github.io/tssr-cours/tp/16-sauvegarde-et-restauration/)
-- [Fiches de révision](https://sk34pk25.github.io/tssr-cours/revision/16-sauvegarde-et-restauration/)
-- [Quiz](https://sk34pk25.github.io/tssr-cours/exercices/quiz-sauvegarde-et-restauration/)
-- [Mémo](https://sk34pk25.github.io/tssr-cours/memo/sauvegarde-restauration/)
-- [Commandes et gestes du laboratoire](https://sk34pk25.github.io/tssr-cours/commandes/sauvegarde-restauration/)
-- [Dépannage](https://sk34pk25.github.io/tssr-cours/troubleshooting/sauvegarde-restauration/)
-- [Tutoriel d’import de la maquette](https://sk34pk25.github.io/tssr-cours/tutoriels/infrastructure-sauvegarde/)
-- [Ressources de ce cours](https://sk34pk25.github.io/tssr-cours/ressources/sauvegarde-et-restauration/)
+- [Travaux pratiques](../../tp/16-sauvegarde-et-restauration/index.md)
+- [Fiches de révision](../../revision/16-sauvegarde-et-restauration/index.md)
+- [Quiz](../../exercices/quiz-sauvegarde-et-restauration.md)
+- [Mémo](../../memo/sauvegarde-restauration.md)
+- [Commandes et gestes du laboratoire](../../commandes/sauvegarde-restauration.md)
+- [Dépannage](../../troubleshooting/sauvegarde-restauration.md)
+- [Tutoriel d’import de la maquette](../../tutoriels/infrastructure-sauvegarde.md)
+- [Ressources de ce cours](../../ressources/sauvegarde-et-restauration.md)
 
 ## Ordre de travail
 

@@ -343,5 +343,38 @@ class GranularityTests(unittest.TestCase):
                 client.submit(preview)
 
 
+    def test_course_set_keeps_a_new_course_together_and_rejects_another_course(self):
+        course = "modules/99-fixture-sauvegarde/index.md"
+        folder = "99-fixture-sauvegarde"
+        pages = [
+            f"docs/modules/{folder}/index.md",
+            f"docs/modules/{folder}/module-01-concepts.md",
+            f"docs/tp/{folder}/index.md",
+            "docs/memo/fixture-sauvegarde.md",
+        ]
+        components = []
+        for path in pages:
+            kind = "COURSE_PAGE" if "/modules/" in path else "TP" if "/tp/" in path else "MEMO"
+            components.append({"filePath": path, "courseId": course, "component": kind,
+                "provenance": "C — jeu complet", "summary": "Page du même cours."})
+        payload = {"action": "create", "title": "Jeu complet fixture",
+            "base_commit_sha": subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+            "files": [{"file_path": path, "change_type": "create", "new_content": "# Page\n"}
+                      for path in pages],
+            "payload_summary": {"granularity": {"schemaVersion": 1, "bundleType": "COURSE_SET",
+                "courseId": course, "components": components}}}
+        payload["description"] = review_description(payload["payload_summary"]["granularity"])
+        self.assertEqual(assert_payload_granularity(payload)["bundleType"], "COURSE_SET")
+        foreign = "docs/modules/01-bases-reseaux/index.md"
+        payload["files"].append({"file_path": foreign, "change_type": "update", "new_content": "# X\n"})
+        payload["payload_summary"]["granularity"]["components"].append({
+            "filePath": foreign, "courseId": course, "component": "COURSE_PAGE",
+            "provenance": "C — jeu complet", "summary": "Page d’un autre cours."})
+        payload["description"] = review_description(payload["payload_summary"]["granularity"])
+        with self.assertRaises(GranularityError):
+            assert_payload_granularity(payload)
+
+
 if __name__ == "__main__":
     unittest.main()
