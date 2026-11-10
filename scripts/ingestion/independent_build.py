@@ -13,6 +13,8 @@ import sys
 import tarfile
 import tempfile
 
+from ingestion.proposal_links import ProposalLinkError, assert_proposal_links
+
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -40,6 +42,13 @@ def assert_independent_build(payload, *, repo=ROOT):
             require(file.get('content_encoding', 'utf-8') == 'utf-8')
             require(file.get('change_type') in {'create', 'update'} and isinstance(file.get('new_content'), str))
             paths.add(path)
+        listed = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', base], cwd=repo, timeout=15)
+        require(listed is not None)
+        available = {line for line in listed.decode().splitlines() if line}
+        try:
+            assert_proposal_links(files, available)
+        except ProposalLinkError as error:
+            raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: unresolved cross-CR dependency or strict build error') from error
         archive = subprocess.check_output(['git', 'archive', '--format=tar', base], cwd=repo, timeout=30)
         with tempfile.TemporaryDirectory(prefix='tssr-independent-build-') as directory:
             root = Path(directory)

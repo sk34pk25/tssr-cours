@@ -19,3 +19,11 @@ Deno.test("reference, encoded and HTML missing Markdown targets rejected; code i
   }
   assertProposalLinks([file('```md\n[x](missing.md)\n```\n`[x](missing.md)`')], new Set([path]));
 });
+Deno.test("absolute public-site links are internal pages, including directory URLs", () => {
+  const target = "docs/tp/11-initiation-scripting-bash/module-07/index.md";
+  const absolute = "[TP](https://sk34pk25.github.io/tssr-cours/tp/11-initiation-scripting-bash/module-07/)";
+  assertThrows(() => assertProposalLinks([file(absolute)], new Set([path])), Error, "UNRESOLVED_CROSS_CR_DEPENDENCY");
+  assertProposalLinks([file(absolute)], new Set([path, target]));
+  assertProposalLinks([file("[doc](https://learn.microsoft.com/windows)")], new Set([path]));
+  assertProposalLinks([file(absolute + "\n[même jeu](https://sk34pk25.github.io/tssr-cours/tp/11-initiation-scripting-bash/module-07/index.md)")], new Set([path, target]));
+});

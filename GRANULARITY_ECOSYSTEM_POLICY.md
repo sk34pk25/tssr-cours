@@ -20,6 +20,30 @@ gain permission to bundle unrelated objects. Explicit `TRANSVERSAL` proposals
 are also single-file and cannot include a main module page. Multi-file proposals
 without an unambiguous manifest fail closed.
 
+## Whole course set
+
+A brand-new course whose pages link to each other must be submitted as one
+`COURSE_SET`, not as a sequence of single pages. The set includes the course
+index, its module pages, and the pedagogical pages that belong to that course
+(TP, revision, Kahoot, memo, commands, exercises, troubleshooting, tutorials,
+resources). Shared indexes (`docs/tp/index.md`, `mkdocs.yml`, the glossary, the
+home page) stay outside the set: navigation remains a separate human change.
+
+`courseId` is `modules/<folder>/index.md`. There is no `moduleId` on the set.
+Every file path must sit under that course folder or carry a distinctive token
+of its slug. A page from another course is refused. The readable
+`review_description` still has to appear in `description`.
+
+Internal links are checked against the Git base **plus the files of this same
+proposal**. A relative `.md` link and an absolute link to
+`https://sk34pk25.github.io/tssr-cours/` are the same kind of dependency.
+Directory URLs are resolved to `docs/<path>.md` or `docs/<path>/index.md`.
+A target that is neither on the base nor in the set is
+`UNRESOLVED_CROSS_CR_DEPENDENCY`. The broker runs this check before the
+isolated MkDocs build. The edge function `assertProposalLinks` runs it again
+at submission and before the Git write. Deploy that function for the server
+rule to apply; the broker check is local and does not replace the deployment.
+
 ## Manifest contract
 
 An endpoint payload carries `payload_summary.granularity`. An ingestion preview

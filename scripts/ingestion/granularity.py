@@ -177,10 +177,80 @@ def embedded_identity(content, target):
 
 def review_description(manifest):
     """Visible even when the server strips unknown payload_summary fields."""
-    lines = [f"{manifest['bundleType']} — {manifest['moduleId']}", f"Formation : {manifest['courseId']}"]
+    if manifest.get("bundleType") == "COURSE_SET":
+        lines = [f"COURSE_SET — {manifest['courseId']}", f"Formation : {manifest['courseId']}"]
+    else:
+        lines = [f"{manifest['bundleType']} — {manifest['moduleId']}", f"Formation : {manifest['courseId']}"]
     for item in manifest["components"]:
         lines.append(f"- {item['filePath']} | {item['component']} | {item['provenance']} | {item['summary']}")
     return "\n".join(lines)
+
+
+_COURSE_FOLDER = re.compile(r"modules/(\d{2,3}-[a-z0-9]+(?:-[a-z0-9]+)*)/index\.md")
+_SHARED_INDEXES = {
+    "docs/index.md", "docs/index-general.md", "docs/glossaire/index.md",
+    "docs/tp/index.md", "docs/revision/index.md", "docs/memo/index.md",
+    "docs/commandes/index.md", "docs/exercices/index.md", "docs/troubleshooting/index.md",
+    "docs/tutoriels/index.md", "docs/ressources/index.md", "docs/kahoot/bibliotheque.md",
+    "docs/parcours/index.md", "docs/parcours-tssr/index.md",
+}
+
+
+def _course_set_owned(path, folder, tokens):
+    if path.startswith((f"docs/modules/{folder}/", f"docs/tp/{folder}/", f"docs/revision/{folder}/")):
+        return True
+    if path.startswith("docs/kahoot/") and folder in path:
+        return True
+    name = path.rsplit("/", 1)[-1]
+    return any(token in name for token in tokens)
+
+
+def _validate_course_set(payload, manifest, files, paths, repo):
+    """One proposal for a whole course so internal links are in the same set."""
+    course = manifest.get("courseId")
+    require(isinstance(course, str) and _COURSE_FOLDER.fullmatch(course))
+    require(not manifest.get("moduleId"))
+    folder = _COURSE_FOLDER.fullmatch(course)[1]
+    tokens = [token for token in folder.split("-", 1)[-1].split("-") if len(token) >= 5]
+    require(bool(tokens))
+    components = manifest.get("components")
+    require(isinstance(components, list) and len(components) == len(files))
+    require(all(isinstance(item, dict) for item in components))
+    require([item.get("filePath") for item in components] == paths)
+    require("docs/" + course in paths)
+    base = payload.get("base_commit_sha")
+    require(isinstance(base, str) and re.fullmatch(r"[0-9a-f]{40}", base))
+    base_type = subprocess.run(["git", "cat-file", "-t", base], cwd=repo, capture_output=True, timeout=15)
+    require(base_type.returncode == 0 and base_type.stdout == b"commit\n")
+    for file, component in zip(files, components):
+        path, new = file["file_path"], file["new_content"]
+        require(path not in _SHARED_INDEXES and _course_set_owned(path, folder, tokens))
+        require(not path.startswith("docs/modules/") or path.startswith(f"docs/modules/{folder}/"))
+        require(component.get("courseId") == course and component.get("component") in KINDS)
+        if component.get("moduleId") is not None:
+            module = component["moduleId"]
+            require(isinstance(module, str) and module.startswith(f"modules/{folder}/module-"))
+        for field in ("summary", "provenance"):
+            require(isinstance(component.get(field), str) and 0 < len(component[field].strip()) <= 1000)
+            require(not any(ord(char) < 32 for char in component[field]))
+        old = git_text(repo, base, path, optional=True)
+        require((old is None) == (file["change_type"] == "create"))
+        if old is not None:
+            raw = old.encode("utf-8")
+            require(file.get("base_file_sha") == hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest())
+        markers = KAHOOT.findall(new)
+        require(len(markers) <= 1)
+        if path.startswith("docs/kahoot/"):
+            require(len(markers) == 1)
+        for marker in markers:
+            metadata = decode(unquote(marker))
+            require(metadata.get("courseId") == course)
+            module = metadata.get("moduleId")
+            require(isinstance(module, str) and module.startswith(f"modules/{folder}/module-"))
+            require("docs/" + module in paths or git_text(repo, base, "docs/" + module, optional=True) is not None)
+    require(isinstance(payload.get("title"), str) and bool(payload["title"].strip()))
+    require(isinstance(payload.get("description"), str) and review_description(manifest) in payload["description"])
+    return manifest
 
 
 def assert_payload_granularity(payload, *, repo=ROOT, agent=True):
@@ -224,7 +294,9 @@ def _validate(payload, repo, agent):
         return {"bundleType": "COURSE_PAGE" if MODULE.fullmatch(path.removeprefix("docs/")) else "TRANSVERSAL"}
     require(isinstance(manifest, dict) and type(manifest.get("schemaVersion")) is int and manifest["schemaVersion"] == 1)
     kind = manifest.get("bundleType")
-    require(kind in {"COURSE_PAGE", "ECOSYSTEM", "TRANSVERSAL"})
+    require(kind in {"COURSE_PAGE", "ECOSYSTEM", "TRANSVERSAL", "COURSE_SET"})
+    if kind == "COURSE_SET":
+        return _validate_course_set(payload, manifest, files, paths, repo)
     if kind == "TRANSVERSAL":
         require(len(files) == 1 and not manifest.get("moduleId") and not manifest.get("courseId"))
         require(not MODULE.fullmatch(paths[0].removeprefix("docs/")))
