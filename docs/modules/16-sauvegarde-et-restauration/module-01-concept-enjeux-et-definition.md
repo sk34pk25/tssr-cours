@@ -369,3 +369,9 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     - « Veritas Backup EXE » et « Veritas Backup Exec » : doublon de graphie, les deux sont conservés dans l’onglet Cours Original.
     - Astérisques du tableau des comptes, puis mot de passe écrit dans la vérification : lecture retenue dans le pas-à-pas.
     - Démonstrations et correction : **Inexistant**.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/16-sauvegarde-et-restauration/module-01.md)
+- [Kahoot — 20 questions](../../kahoot/16-sauvegarde-et-restauration-module-01.md)
+- [Sommaire du cours](index.md)

@@ -26,10 +26,14 @@ Le cours suit quatre supports et cinq énoncés de travaux pratiques. Chaque mod
 - [Dépannage](../../troubleshooting/sauvegarde-restauration.md)
 - [Tutoriel d’import de la maquette](../../tutoriels/infrastructure-sauvegarde.md)
 - [Ressources de ce cours](../../ressources/sauvegarde-et-restauration.md)
+- [Kahoot — module 01](../../kahoot/16-sauvegarde-et-restauration-module-01.md)
+- [Kahoot — module 02](../../kahoot/16-sauvegarde-et-restauration-module-02.md)
+- [Kahoot — module 03](../../kahoot/16-sauvegarde-et-restauration-module-03.md)
+- [Kahoot — module 04](../../kahoot/16-sauvegarde-et-restauration-module-04.md)
 
 ## Ordre de travail
 
 1. Lire l’onglet **Cours Original** du module, support puis énoncé.
 2. Réaliser le TP dans la maquette de formation, sans ouvrir un corrigé : il n’y en a pas.
 3. Revenir à **Cours Optimisé IA** pour les schémas, les contrôles et le mini-quiz.
-4. Consolider avec la fiche de révision et le Kahoot préparé du module.
+4. Consolider avec la fiche de révision et le Kahoot lié du module, 20 questions.

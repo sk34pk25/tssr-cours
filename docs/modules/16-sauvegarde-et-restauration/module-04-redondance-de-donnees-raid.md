@@ -270,3 +270,9 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     - « 5 Go » puis « 5 Gb » : même ordre de grandeur en gigaoctets, symbole signalé.
     - Écart lecture / écriture entre le texte et la synthèse RAID 1 et RAID 5 : les deux sont conservés.
     - Questions ouvertes et correction : **Inexistant**.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/16-sauvegarde-et-restauration/module-04.md)
+- [Kahoot — 20 questions](../../kahoot/16-sauvegarde-et-restauration-module-04.md)
+- [Sommaire du cours](index.md)

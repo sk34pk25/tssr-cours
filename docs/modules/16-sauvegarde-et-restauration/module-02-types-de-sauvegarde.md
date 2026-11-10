@@ -387,3 +387,9 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     - Descriptions de jobs vides dans l’énoncé : laissées vides.
     - Démonstrations et corrections : **Inexistant**.
     - Alignement des deux colonnes grand-père : lecture du schéma, signalée dans le tableau.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/16-sauvegarde-et-restauration/module-02.md)
+- [Kahoot — 20 questions](../../kahoot/16-sauvegarde-et-restauration-module-02.md)
+- [Sommaire du cours](index.md)

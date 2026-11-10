@@ -265,3 +265,9 @@ La transcription du support et l’aide pédagogique sont séparées pour rendre
     - Cartouches DLT et LTO : description seulement, photos non publiées.
     - Capacités LTO 10 à 12 : celles du tableau, non corrigées.
     - Démonstrations et correction : **Inexistant**.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/16-sauvegarde-et-restauration/module-03.md)
+- [Kahoot — 20 questions](../../kahoot/16-sauvegarde-et-restauration-module-03.md)
+- [Sommaire du cours](index.md)
