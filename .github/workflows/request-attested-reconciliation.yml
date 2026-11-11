@@ -1,0 +1,26 @@
+name: Request attested reconciliation
+
+# A contents-only token cannot call workflow_dispatch. This job can: it has
+# actions: write, checks out nothing, and only starts the existing reconcile
+# workflow. It runs when this file changes on main, after the publication
+# proof is already on gh-pages. It does not weaken that proof.
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/request-attested-reconciliation.yml
+
+permissions: {}
+
+jobs:
+  request:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Dispatch Reconcile attested publications
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run reconcile-publications.yml --ref main -f dry_run=false
