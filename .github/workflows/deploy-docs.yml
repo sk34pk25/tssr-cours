@@ -226,11 +226,24 @@ jobs:
           git add --all
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --cached --quiet; then
-            echo "Aucun changement à publier."
-          else
-            git -c core.hooksPath=/dev/null commit -m "deploy: $COMMIT_SHA"
+          # The reconciler accepts only this exact subject as proof of the source SHA.
+          if ! printf '%s' "$COMMIT_SHA" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "SHA de déploiement invalide."
+            exit 1
+          fi
+          publish_attestation() {
+            git -c core.hooksPath=/dev/null commit $1 -m "deploy: $COMMIT_SHA"
             git -c credential.helper='!gh auth git-credential' push origin HEAD:gh-pages
+          }
+          if git diff --cached --quiet; then
+            if [ "$(git log -1 --format=%s)" = "deploy: $COMMIT_SHA" ]; then
+              echo "Aucun changement à publier."
+            else
+              # Same tree, but gh-pages no longer attests this exact source commit.
+              publish_attestation --allow-empty
+            fi
+          else
+            publish_attestation
           fi
 
   report:

@@ -258,6 +258,12 @@ class WorkflowBoundaryTests(unittest.TestCase):
         self.assertIn("- name: Validate and build MkDocs\n", self.deploy_jobs["build"])
         self.assertIn("- name: Publish gh-pages without force push\n", deploy)
         self.assertNotIn("continue-on-error", self.deploy)
+        self.assertIn("printf '%s' \"$COMMIT_SHA\" | grep -Eq '^[0-9a-f]{40}$'", deploy)
+        self.assertLess(deploy.index("git diff --cached --quiet"), deploy.index("publish_attestation --allow-empty"))
+        self.assertIn('[ "$(git log -1 --format=%s)" = "deploy: $COMMIT_SHA" ]', deploy)
+        self.assertIn('commit $1 -m "deploy: $COMMIT_SHA"', deploy)
+        self.assertNotIn("--force", deploy)
+        self.assertNotIn("git push --force", deploy)
 
     def test_callbacks_only_follow_attestation_and_include_complete_binding(self):
         for job, phase in ((self.pr_jobs["report-failure"], "pr-validation"), (self.deploy_jobs["report"], "deploy")):
