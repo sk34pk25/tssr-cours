@@ -166,9 +166,12 @@ class AgentPostgres(m.MaintenancePostgres):
 
 
     def test_agent_course_images_keep_small_sets_and_accept_the_unprefixed_folder(self):
-        # The image guard replaces the recovery function, which names this table.
-        self.sql((m.MIGRATIONS / "20261016222437_publication_recovery.sql").read_text(), self.db)
-        self.sql((m.MIGRATIONS / "20261113120000_course_set_images.sql").read_text(), self.db)
+        # The agent schema stops at agent_propose_only. The image guard replaces
+        # the recovery function, so every later migration must already be applied.
+        applied = "20260928072234_agent_propose_only.sql"
+        for path in sorted(m.MIGRATIONS.glob("*.sql")):
+            if applied < path.name <= "20261113120000_course_set_images.sql":
+                self.sql(path.read_text(), self.db)
         summary = '{"_actor_profile_id":"%s"}' % m.PROFILE
 
         def propose(files, ok=True):
