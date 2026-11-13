@@ -1,0 +1,227 @@
+diff --git a/docs/commandes/index.md b/docs/commandes/index.md
+index 18bc5fae..1f2af7cd 100644
+--- a/docs/commandes/index.md
++++ b/docs/commandes/index.md
+@@ -5,3 +5,4 @@
+ - [GNU/Linux](linux.md)
+ - [MariaDB et GLPI](mariadb-glpi.md)
+ - [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Réseau et Sécurité](reseau-et-securite.md)
+diff --git a/docs/exercices/index.md b/docs/exercices/index.md
+index 6aa7b146..c6b45914 100644
+--- a/docs/exercices/index.md
++++ b/docs/exercices/index.md
+@@ -1,8 +1,9 @@
+-# Exercices
+-
+-- [Quiz Réseaux](quiz-reseaux.md)
+-- [Quiz Systèmes clients](quiz-systemes-clients.md)
+-- [Quiz Administration Debian](quiz-administration-debian.md)
+-- [Quiz Services réseau Linux](quiz-services-reseau-linux.md)
+-- [Cas pratiques transversaux](cas-pratiques.md)
+-- [Quiz Sauvegarde et Restauration](quiz-sauvegarde-et-restauration.md)
++# Exercices
++
++- [Quiz Réseaux](quiz-reseaux.md)
++- [Quiz Systèmes clients](quiz-systemes-clients.md)
++- [Quiz Administration Debian](quiz-administration-debian.md)
++- [Quiz Services réseau Linux](quiz-services-reseau-linux.md)
++- [Cas pratiques transversaux](cas-pratiques.md)
++- [Quiz Sauvegarde et Restauration](quiz-sauvegarde-et-restauration.md)
++- [Quiz Réseau et Sécurité](quiz-reseau-et-securite.md)
+diff --git a/docs/index-general.md b/docs/index-general.md
+index 249f3ac5..26b645fe 100644
+--- a/docs/index-general.md
++++ b/docs/index-general.md
+@@ -138,3 +138,17 @@
+ - [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
+ - [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
+ <!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->
++
++## Réseau et Sécurité
++
++Semaine 1/2, du 2 au 6 novembre 2026 : modules 01 à 05. Semaine 2/2, du 9 au 13 novembre 2026 : modules 06 à 08.
++
++- [Réseau et Sécurité](modules/17-reseau-et-securite/index.md)
++- [Module 01 — Flux de sorties vers Internet](modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md)
++- [Module 02 — Configuration du pare-feu pfSense](modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md)
++- [Module 03 — Configuration du NAT](modules/17-reseau-et-securite/module-03-configuration-du-nat.md)
++- [Module 04 — Services hébergés dans une DMZ](modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md)
++- [Module 05 — Sécuriser le surf Internet](modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md)
++- [Module 06 — Certificats et PKI](modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md)
++- [Module 07 — Télétravail](modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md)
++- [Module 08 — VPN site à site](modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md)
+diff --git a/docs/memo/index.md b/docs/memo/index.md
+index 3f525647..2c00c10b 100644
+--- a/docs/memo/index.md
++++ b/docs/memo/index.md
+@@ -1,11 +1,12 @@
+-# Mémos
+-
+-- [Ports essentiels](ports-essentiels.md)
+-- [IPv4 et CIDR](ipv4-cidr.md)
+-- [Permissions Linux](permissions-linux.md)
+-- [APT sous Debian](apt-debian.md)
+-- [Volumes LVM sous Debian](lvm-debian.md)
+-- [Systèmes de fichiers sous Debian](file-systems-debian.md)
+-- [Comptes et groupes sous Debian](comptes-groupes-debian.md)
+-- [GLPI et SQL](glpi-sql.md)
+-- [Sauvegarde et restauration](sauvegarde-restauration.md)
++# Mémos
++
++- [Ports essentiels](ports-essentiels.md)
++- [IPv4 et CIDR](ipv4-cidr.md)
++- [Permissions Linux](permissions-linux.md)
++- [APT sous Debian](apt-debian.md)
++- [Volumes LVM sous Debian](lvm-debian.md)
++- [Systèmes de fichiers sous Debian](file-systems-debian.md)
++- [Comptes et groupes sous Debian](comptes-groupes-debian.md)
++- [GLPI et SQL](glpi-sql.md)
++- [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Réseau et Sécurité](reseau-et-securite.md)
+diff --git a/docs/ressources/index.md b/docs/ressources/index.md
+index 304f33bd..c79a195e 100644
+--- a/docs/ressources/index.md
++++ b/docs/ressources/index.md
+@@ -9,3 +9,4 @@
+ Les installateurs exécutables, paquets anciens et archives FusionInventory ne sont pas servis par le site. Leur présence dans l’archive d’origine est documentée dans l’inventaire.
+ 
+ - [Sauvegarde et Restauration](sauvegarde-et-restauration.md) : transcriptions dans les modules, corrections et installateurs non publiés.
++- [Réseau et Sécurité](reseau-et-securite.md) : énoncés et corrections transcrits, supports et bundles non publiés.
+diff --git a/docs/revision/index.md b/docs/revision/index.md
+index ef4188e5..7151cbcc 100644
+--- a/docs/revision/index.md
++++ b/docs/revision/index.md
+@@ -18,3 +18,4 @@ Chaque fiche reprend les objectifs, contrôles, commandes repérées et pièges
+ - [Virtualisation de serveurs](13-virtualisation-serveurs/index.md)
+ - [Messagerie Cloud](14-messagerie-cloud/index.md)
+ - [Sauvegarde et Restauration](16-sauvegarde-et-restauration/index.md)
++- [Réseau et Sécurité](17-reseau-et-securite/index.md)
+diff --git a/docs/tp/index.md b/docs/tp/index.md
+index 70dba1b3..4bf32c10 100644
+--- a/docs/tp/index.md
++++ b/docs/tp/index.md
+@@ -18,3 +18,4 @@ Les énoncés et les corrections sont séparés. Utiliser un environnement isol
+ - [Virtualisation de serveurs](13-virtualisation-serveurs/index.md)
+ - [Messagerie Cloud](14-messagerie-cloud/index.md)
+ - [Sauvegarde et Restauration](16-sauvegarde-et-restauration/index.md)
++- [Réseau et Sécurité](17-reseau-et-securite/index.md)
+diff --git a/docs/troubleshooting/index.md b/docs/troubleshooting/index.md
+index ef9e3644..58e02c28 100644
+--- a/docs/troubleshooting/index.md
++++ b/docs/troubleshooting/index.md
+@@ -6,3 +6,4 @@
+ - [GLPI inaccessible](glpi-inaccessible.md)
+ - [Outlook ne se connecte pas](outlook-connexion.md)
+ - [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Réseau et Sécurité](reseau-et-securite.md)
+diff --git a/docs/tutoriels/index.md b/docs/tutoriels/index.md
+index 4d7264b0..e18c098d 100644
+--- a/docs/tutoriels/index.md
++++ b/docs/tutoriels/index.md
+@@ -9,3 +9,4 @@ Les tutoriels isolent les procédures longues du cours. Chaque procédure indiqu
+ - [Capturer et déployer une image Windows](capture-deploiement-windows.md)
+ - [Configurer FortiClient VPN](forticlient-vpn.md)
+ - [Importer la maquette de sauvegarde](infrastructure-sauvegarde.md)
++- [Lire le schéma de Réseau et Sécurité](reseau-et-securite.md)
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 16676c80..95b50fd5 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -276,6 +276,18 @@ nav:
+           - "Module 04 — La redondance de données et le RAID": modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md
+           - Travaux pratiques: tp/16-sauvegarde-et-restauration/index.md
+ 
++      - Réseau et Sécurité:
++          - Présentation: modules/17-reseau-et-securite/index.md
++          - "Semaine 1/2 — Module 01 — Flux de sorties vers Internet": modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md
++          - "Semaine 1/2 — Module 02 — Configuration du pare-feu pfSense": modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md
++          - "Semaine 1/2 — Module 03 — Configuration du NAT": modules/17-reseau-et-securite/module-03-configuration-du-nat.md
++          - "Semaine 1/2 — Module 04 — Services hébergés dans une DMZ": modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md
++          - "Semaine 1/2 — Module 05 — Sécuriser le surf Internet": modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md
++          - "Semaine 2/2 — Module 06 — Certificats et PKI": modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md
++          - "Semaine 2/2 — Module 07 — Télétravail": modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md
++          - "Semaine 2/2 — Module 08 — VPN site à site": modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md
++          - Travaux pratiques: tp/17-reseau-et-securite/index.md
++
+   - Tutoriels:
+       - Présentation: tutoriels/index.md
+       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
+@@ -285,6 +297,7 @@ nav:
+       - Capture et déploiement Windows: tutoriels/capture-deploiement-windows.md
+       - Configurer FortiClient VPN: tutoriels/forticlient-vpn.md
+       - Importer la maquette de sauvegarde: tutoriels/infrastructure-sauvegarde.md
++      - Lire le schéma Réseau et Sécurité: tutoriels/reseau-et-securite.md
+   - Travaux pratiques:
+       - Présentation: tp/index.md
+       - Bases des réseaux:
+@@ -444,6 +457,7 @@ nav:
+       - "Virtualisation de serveurs": tp/13-virtualisation-serveurs/index.md
+       - "Messagerie Cloud": tp/14-messagerie-cloud/index.md
+       - "Sauvegarde et Restauration": tp/16-sauvegarde-et-restauration/index.md
++      - "Réseau et Sécurité": tp/17-reseau-et-securite/index.md
+ 
+   - Exercices:
+       - Présentation: exercices/index.md
+@@ -453,6 +467,7 @@ nav:
+       - Quiz Services réseau Linux: exercices/quiz-services-reseau-linux.md
+       - Cas pratiques transversaux: exercices/cas-pratiques.md
+       - Quiz Sauvegarde et Restauration: exercices/quiz-sauvegarde-et-restauration.md
++      - Quiz Réseau et Sécurité: exercices/quiz-reseau-et-securite.md
+   - Kahoot:
+       - Tous les Kahoots: kahoot/bibliotheque.md
+       - Messagerie Cloud:
+@@ -465,6 +480,15 @@ nav:
+           - Module 02: kahoot/16-sauvegarde-et-restauration-module-02.md
+           - Module 03: kahoot/16-sauvegarde-et-restauration-module-03.md
+           - Module 04: kahoot/16-sauvegarde-et-restauration-module-04.md
++      - Réseau et Sécurité:
++          - "Module 01 — semaine 1/2": kahoot/17-reseau-et-securite-module-01.md
++          - "Module 02 — semaine 1/2": kahoot/17-reseau-et-securite-module-02.md
++          - "Module 03 — semaine 1/2": kahoot/17-reseau-et-securite-module-03.md
++          - "Module 04 — semaine 1/2": kahoot/17-reseau-et-securite-module-04.md
++          - "Module 05 — semaine 1/2": kahoot/17-reseau-et-securite-module-05.md
++          - "Module 06 — semaine 2/2": kahoot/17-reseau-et-securite-module-06.md
++          - "Module 07 — semaine 2/2": kahoot/17-reseau-et-securite-module-07.md
++          - "Module 08 — semaine 2/2": kahoot/17-reseau-et-securite-module-08.md
+       - Virtualisation de serveurs:
+           - Module 03: kahoot/13-virtualisation-serveurs-module-03.md
+           - Module 04: kahoot/13-virtualisation-serveurs-module-04.md
+@@ -571,6 +595,7 @@ nav:
+       - "Virtualisation de serveurs": revision/13-virtualisation-serveurs/index.md
+       - "Messagerie Cloud": revision/14-messagerie-cloud/index.md
+       - "Sauvegarde et Restauration": revision/16-sauvegarde-et-restauration/index.md
++      - "Réseau et Sécurité": revision/17-reseau-et-securite/index.md
+ 
+   - Mémos:
+       - Présentation: memo/index.md
+@@ -583,6 +608,7 @@ nav:
+       - Comptes et groupes sous Debian: memo/comptes-groupes-debian.md
+       - GLPI et SQL: memo/glpi-sql.md
+       - Sauvegarde et restauration: memo/sauvegarde-restauration.md
++      - Réseau et Sécurité: memo/reseau-et-securite.md
+   - Commandes:
+       - Présentation: commandes/index.md
+       - Réseau: commandes/reseau.md
+@@ -590,6 +616,7 @@ nav:
+       - GNU/Linux: commandes/linux.md
+       - MariaDB et GLPI: commandes/mariadb-glpi.md
+       - Sauvegarde et restauration: commandes/sauvegarde-restauration.md
++      - Réseau et Sécurité: commandes/reseau-et-securite.md
+   - Dépannage:
+       - Présentation: troubleshooting/index.md
+       - Client sans réseau: troubleshooting/client-sans-reseau.md
+@@ -598,6 +625,7 @@ nav:
+       - GLPI inaccessible: troubleshooting/glpi-inaccessible.md
+       - Outlook ne se connecte pas: troubleshooting/outlook-connexion.md
+       - Sauvegarde et restauration: troubleshooting/sauvegarde-restauration.md
++      - Réseau et Sécurité: troubleshooting/reseau-et-securite.md
+   - Glossaire: glossaire/index.md
+   - Ressources:
+       - Présentation: ressources/index.md
+@@ -605,4 +633,5 @@ nav:
+       - Inventaire des sources: ressources/inventaire-sources.md
+       - Supports originaux et provenance: ressources/conformite-sources.md
+       - Sauvegarde et Restauration: ressources/sauvegarde-et-restauration.md
++      - Réseau et Sécurité: ressources/reseau-et-securite.md
+   - Index général: index-general.md

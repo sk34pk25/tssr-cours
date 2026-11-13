@@ -138,3 +138,17 @@
 - [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
 - [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
 <!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->
+
+## Réseau et Sécurité
+
+Semaine 1/2, du 2 au 6 novembre 2026 : modules 01 à 05. Semaine 2/2, du 9 au 13 novembre 2026 : modules 06 à 08.
+
+- [Réseau et Sécurité](modules/17-reseau-et-securite/index.md)
+- [Module 01 — Flux de sorties vers Internet](modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md)
+- [Module 02 — Configuration du pare-feu pfSense](modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md)
+- [Module 03 — Configuration du NAT](modules/17-reseau-et-securite/module-03-configuration-du-nat.md)
+- [Module 04 — Services hébergés dans une DMZ](modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md)
+- [Module 05 — Sécuriser le surf Internet](modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md)
+- [Module 06 — Certificats et PKI](modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md)
+- [Module 07 — Télétravail](modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md)
+- [Module 08 — VPN site à site](modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md)

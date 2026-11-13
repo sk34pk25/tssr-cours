@@ -1,0 +1,490 @@
+[
+  {
+    "filePath": "docs/commandes/reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "COMMANDS",
+    "provenance": "A — commandes extraites des PDF",
+    "summary": "Chemins et scripts cités dans les documents."
+  },
+  {
+    "filePath": "docs/exercices/quiz-reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "EXERCISE",
+    "provenance": "B — reformulation courte des PDF",
+    "summary": "Questions de lecture avec les réponses des documents."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-01.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-02.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-03.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-04.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-05.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-06.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-07.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/kahoot/17-reseau-et-securite-module-08.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "KAHOOT",
+    "provenance": "B — questions tirées des énoncés et corrections",
+    "summary": "Vingt questions techniques, quiz non lié."
+  },
+  {
+    "filePath": "docs/memo/reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "MEMO",
+    "provenance": "B — valeurs présentes dans les PDF",
+    "summary": "Mémo des plages, ports et noms DNS du laboratoire."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "COURSE_PAGE",
+    "provenance": "A — planning et dossier, sans support de cours",
+    "summary": "Présentation du cours, semaines 1/2 et 2/2."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "COURSE_PAGE",
+    "provenance": "A — texte des PDF TSSR0170",
+    "summary": "Module ou présentation : support Inexistant, énoncé transcrit avec les captures."
+  },
+  {
+    "filePath": "docs/ressources/reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "RESOURCE",
+    "provenance": "A — inventaire du dossier, sans PDF publié",
+    "summary": "Ce qui est transcrit et ce qui reste Inexistant."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-01.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-02.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-03.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-04.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-05.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-06.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-07.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/revision/17-reseau-et-securite/module-08.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "REVISION",
+    "provenance": "B — synthèse des valeurs et étapes des PDF",
+    "summary": "Fiche technique du module : plages, services et étapes."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-01/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-01/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-01/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-02/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-02/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-02/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-03/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-03/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-03/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-03-configuration-du-nat.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-04/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-04/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-04/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-05/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-05/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-05/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp6/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp6/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp6/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp7/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp7/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-06/tp7/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-07/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-07/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-07/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-08/corrections.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-08/enonces.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/tp/17-reseau-et-securite/module-08/index.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": "modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md",
+    "component": "TP",
+    "provenance": "A — PDF d’énoncé ou de correction",
+    "summary": "Énoncé ou correction transcrit dans l’ordre du PDF, avec les captures."
+  },
+  {
+    "filePath": "docs/troubleshooting/reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "TROUBLESHOOTING",
+    "provenance": "B — contrôles des énoncés et corrections",
+    "summary": "Contrôles écrits pour les pannes citées."
+  },
+  {
+    "filePath": "docs/tutoriels/reseau-et-securite.md",
+    "courseId": "modules/17-reseau-et-securite/index.md",
+    "moduleId": null,
+    "component": "TUTORIAL",
+    "provenance": "A — libellés du schéma et tableau de la correction",
+    "summary": "Lecture du schéma du TP1 et de l’exemple d’adressage."
+  }
+]
