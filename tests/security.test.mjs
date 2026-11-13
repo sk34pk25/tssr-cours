@@ -159,7 +159,7 @@ test("consensus snapshots active editors, auto-approves the author and requires 
 test("publication detects stale file hashes before creating a Git commit", () => {
   const github = read("supabase/functions/_shared/github.ts");
   const comparison = github.indexOf("current.sha !== file.base_file_sha");
-  const commit = github.indexOf('const created = await github<{ sha: string }>(config, "/git/commits"');
+  const commit = github.search(/const created = await [A-Za-z]+<\{ sha: string \}>\(config, "\/git\/commits"/);
   assert.ok(comparison >= 0, "missing file conflict comparison");
   assert.ok(commit > comparison, "the conflict comparison must precede commit creation");
   assert.match(github, /markFailure\([\s\S]+conflict \? "conflict" : "failed"/);
