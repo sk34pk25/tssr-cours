@@ -44,9 +44,21 @@ export async function guardEditorAction(client: SupabaseClient, action: string):
 /** Acquire once just before the FIRST Git write, recheck drain before each one. */
 export function publicationWriteGuard(client: SupabaseClient, changeId: string) {
   let operation: string | null = null;
+  let pending: Promise<string> | null = null;
   return {
     async beforeWrite() {
-      operation ??= await beginOperation(client, "publication", changeId);
+      // Parallel blob uploads share one operation. A failed admission is not
+      // cached, so a later call can still begin after the gate opens.
+      if (!operation) {
+        pending ??= beginOperation(client, "publication", changeId).then((id) => {
+          operation = id;
+          return id;
+        }, (error) => {
+          pending = null;
+          throw error;
+        });
+        await pending;
+      }
       await assertPublicationDrain(client, changeId);
     },
     engaged: () => operation !== null,

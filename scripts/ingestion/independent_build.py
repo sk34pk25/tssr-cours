@@ -4,6 +4,8 @@ The repository/base supplies trusted build code. Payloads may only replace
 regular Markdown under docs (not assets); no payload code/config is executed.
 Captured build output is intentionally not returned: it can contain content.
 """
+import base64
+import binascii
 import io
 import os
 from pathlib import Path
@@ -13,6 +15,7 @@ import sys
 import tarfile
 import tempfile
 
+from ingestion.granularity import proposal_target, split_proposal_files
 from ingestion.proposal_links import ProposalLinkError, assert_proposal_links
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,9 +36,11 @@ def assert_independent_build(payload, *, repo=ROOT):
         require(isinstance(base, str) and re.fullmatch('[0-9a-f]{40}', base))
         require(subprocess.check_output(['git', 'cat-file', '-t', base], cwd=repo) == b'commit\n')
         files = payload.get('files')
-        require(isinstance(files, list) and 0 < len(files) <= 100)
+        require(isinstance(files, list))
+        pages, images = split_proposal_files(files)
+        require(0 < len(pages) <= 100 and len(images) <= 200)
         paths = set()
-        for file in files:
+        for file in pages:
             path = file.get('file_path', '')
             require(re.fullmatch(r'docs/(?!assets/|overrides/)[a-z0-9_-]+(?:/[a-z0-9_-]+)*\.md', path))
             require(path not in paths and not file.get('new_file_path'))
@@ -63,11 +68,28 @@ def assert_independent_build(payload, *, repo=ROOT):
                     else:
                         target.parent.mkdir(parents=True, exist_ok=True)
                         target.write_bytes(tree.extractfile(entry).read())
-            for file in files:
-                target = root / file['file_path']
+            for file in pages:
+                try:
+                    target = proposal_target(root, file['file_path'])
+                except ValueError:
+                    raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: invalid isolated proposal')
                 require(target.is_file() == (file['change_type'] == 'update'))
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(file['new_content'].encode('utf-8'))
+            for file in images:
+                try:
+                    target = proposal_target(root, file['file_path'])
+                except ValueError:
+                    raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: invalid isolated proposal')
+                require(file.get('content_encoding') == 'base64' and file.get('change_type') == 'create')
+                require(not target.exists())
+                try:
+                    raw = base64.b64decode(file['new_content'], validate=True)
+                except (binascii.Error, ValueError):
+                    raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: invalid isolated proposal')
+                require(0 < len(raw) <= 5_000_000)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(raw)
             # No credentials, Git config, Python path injection or user cache
             # inherited by the committed build hooks. Source checkout untouched.
             env = {'PATH': os.defpath, 'HOME': directory, 'LANG': 'C.UTF-8',

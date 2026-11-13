@@ -184,3 +184,70 @@ Deno.test("mkdocs editing permits editorial fields only", () => {
   const brokenNav = goodConfig.replace("index.md", "absent.md");
   assertThrows(() => validateMkDocsEdit(oldConfig, brokenNav, files));
 });
+
+const PNG = btoa(String.fromCharCode(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a));
+const courseIndex = {
+  file_path: "docs/modules/99-fixture-cours/index.md",
+  change_type: "create" as const,
+  new_content: "# Cours\n",
+  content_encoding: "utf-8" as const,
+};
+function coursePng(name: string, content = PNG, media = "image/png") {
+  return {
+    file_path: `docs/assets/images/99-fixture-cours/${name}`,
+    change_type: "create" as const,
+    new_content: content,
+    content_encoding: "base64" as const,
+    media_type: media,
+  };
+}
+
+Deno.test("a single page and a text proposal of 100 files keep the existing quota", () => {
+  assertEquals(validateProposedFiles([{
+    file_path: "docs/page.md", change_type: "create", new_content: "# Page\n",
+  }]).length, 1);
+  const hundred = Array.from({ length: 100 }, (_, index) => ({
+    file_path: `docs/lot/page-${index}.md`, change_type: "create" as const, new_content: "# Page\n",
+  }));
+  assertEquals(validateProposedFiles(hundred).length, 100);
+  assertThrows(() => validateProposedFiles([...hundred, {
+    file_path: "docs/lot/page-extra.md", change_type: "create", new_content: "# Page\n",
+  }]), Error, "Une proposition doit contenir entre 1 et 100 fichiers.");
+});
+
+Deno.test("course images past the text quota stay in the same proposal", () => {
+  const images = Array.from({ length: 100 }, (_, index) => coursePng(`schema-${index}.png`));
+  const accepted = validateProposedFiles([courseIndex, ...images]);
+  assertEquals(accepted.length, 101);
+  assertEquals(accepted.at(-1)?.content_encoding, "base64");
+  assertThrows(() => validateProposedFiles([
+    courseIndex,
+    ...Array.from({ length: 100 }, (_, index) => coursePng(`autre-${index}.png`).file_path
+      ? { ...coursePng(`autre-${index}.png`), file_path: `docs/assets/images/autre-cours/schema-${index}.png` }
+      : coursePng("x.png")),
+  ]), Error, "ensemble du cours correspondant");
+  assertThrows(() => validateProposedFiles([
+    courseIndex, ...images, { ...coursePng("note.svg"), file_path: "docs/assets/images/99-fixture-cours/note.svg", media_type: "image/svg+xml" },
+  ]), Error, "ensemble du cours correspondant");
+  assertThrows(() => validateProposedFiles([
+    courseIndex, ...images.slice(0, 99), { ...coursePng("page.html"), file_path: "docs/assets/images/99-fixture-cours/page.html", media_type: "text/html" },
+  ]), Error, "ensemble du cours correspondant");
+});
+
+Deno.test("uppercase folders and root images are refused once the text quota is exceeded", () => {
+  const images = Array.from({ length: 100 }, (_, index) => coursePng(`schema-${index}.png`));
+  const upper = { ...coursePng("schema.png"), file_path: "docs/assets/images/RESEAU/schema.png" };
+  const root = { ...coursePng("schema.png"), file_path: "docs/assets/images/schema.png" };
+  assertThrows(() => validateProposedFiles([courseIndex, ...images, upper]), Error, "ensemble du cours correspondant");
+  assertThrows(() => validateProposedFiles([courseIndex, ...images, root]), Error, "ensemble du cours correspondant");
+});
+
+Deno.test("an oversized course image is refused without raising the binary caps", () => {
+  const oversized = "A".repeat(6_666_668);
+  assertThrows(() => validateProposedFiles([
+    courseIndex,
+    ...Array.from({ length: 99 }, (_, index) => coursePng(`ok-${index}.png`)),
+    coursePng("gros.png", oversized),
+  ]), Error, "dépasse 5 Mo");
+});
+

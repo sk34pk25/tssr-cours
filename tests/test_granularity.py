@@ -1,4 +1,5 @@
 """Offline approval-unit policy: never authenticates or submits proposals."""
+import base64
 import copy
 import json
 from pathlib import Path
@@ -374,6 +375,48 @@ class GranularityTests(unittest.TestCase):
         payload["description"] = review_description(payload["payload_summary"]["granularity"])
         with self.assertRaises(GranularityError):
             assert_payload_granularity(payload)
+
+    def test_course_set_images_are_additive_and_refused_outside_the_course(self):
+        course = "modules/99-fixture-sauvegarde/index.md"
+        folder = "99-fixture-sauvegarde"
+        pages = [f"docs/modules/{folder}/index.md", f"docs/tp/{folder}/index.md"]
+        image = f"docs/assets/images/{folder}/schema.png"
+        png = base64.b64encode(b"\x89PNG\r\n\x1a\n" + b"\x00" * 8).decode()
+        components = []
+        for path in pages:
+            kind = "COURSE_PAGE" if "/modules/" in path else "TP"
+            components.append({"filePath": path, "courseId": course, "component": kind,
+                "provenance": "C — jeu complet", "summary": "Page du même cours."})
+        files = [{"file_path": path, "change_type": "create", "new_content": "# Page\n"} for path in pages]
+        files[0]["new_content"] = f"# Page\n\n![Schéma](../../assets/images/{folder}/schema.png)\n"
+        files.append({"file_path": image, "change_type": "create", "content_encoding": "base64",
+            "media_type": "image/png", "new_content": png})
+        payload = {"action": "create", "title": "Jeu complet fixture",
+            "base_commit_sha": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+            "files": files,
+            "payload_summary": {"granularity": {"schemaVersion": 1, "bundleType": "COURSE_SET",
+                "courseId": course, "components": components}}}
+        payload["description"] = review_description(payload["payload_summary"]["granularity"])
+        self.assertEqual(assert_payload_granularity(payload)["bundleType"], "COURSE_SET")
+        short = copy.deepcopy(payload)
+        short_path = "docs/assets/images/fixture-sauvegarde/schema.png"
+        short["files"][-1]["file_path"] = short_path
+        short["files"][0]["new_content"] = "# Page\n\n![Schéma](../../assets/images/fixture-sauvegarde/schema.png)\n"
+        self.assertEqual(assert_payload_granularity(short)["bundleType"], "COURSE_SET")
+        missing = copy.deepcopy(payload)
+        missing["files"] = missing["files"][:-1]
+        with self.assertRaises(GranularityError):
+            assert_payload_granularity(missing)
+        for path, content in (
+            (f"docs/assets/images/autre-cours/schema.png", png),
+            (f"docs/assets/images/{folder}/note.svg", png),
+            (f"docs/assets/images/{folder}/page.html", png),
+            (image, base64.b64encode(b"\x89PNG\r\n\x1a\n" + b"\x00" * 5_000_001).decode()),
+        ):
+            refused = copy.deepcopy(payload)
+            refused["files"][-1] = {**refused["files"][-1], "file_path": path, "new_content": content}
+            with self.assertRaises(GranularityError):
+                assert_payload_granularity(refused)
 
 
 if __name__ == "__main__":

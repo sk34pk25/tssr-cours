@@ -1,6 +1,7 @@
 import { maskMarkdownCode, type ProposedFile } from "./validation.ts";
 
 const SITE_ORIGIN = "https://sk34pk25.github.io/tssr-cours";
+const IMAGE_PATH = /\.(png|jpe?g|webp|gif)$/i;
 
 /** Additional server invariant, not a replacement for Python-Markdown strict
  * builds. Check local Markdown destinations in changed Markdown against
@@ -23,6 +24,9 @@ export function assertProposalLinks(files: ProposedFile[], available: Set<string
       catch { throw new Error("UNRESOLVED_CROSS_CR_DEPENDENCY: invalid link encoding"); }
       const targets = resolveProposalLink(path, link);
       if (!targets) continue;
+      if (targets.every((target) => IMAGE_PATH.test(target)) && !targets.some((target) => available.has(target))) {
+        continue;
+      }
       if (!targets.some((target) => available.has(target))) {
         throw new Error("UNRESOLVED_CROSS_CR_DEPENDENCY: local Markdown target absent");
       }
@@ -42,6 +46,7 @@ export function resolveProposalLink(fromPath: string, link: string): string[] | 
     return sitePageCandidates(rest);
   }
   if (bare.startsWith("/")) return null;
+  if (IMAGE_PATH.test(bare)) return [joinRelative(fromPath, bare)];
   if (!bare.endsWith(".md") && !bare.endsWith("/") && /\.[a-z0-9]+$/i.test(bare)) return null;
   const parts = fromPath.split("/").slice(0, -1);
   const relative = bare.endsWith("/") ? bare.slice(0, -1) : bare;
@@ -55,6 +60,15 @@ export function resolveProposalLink(fromPath: string, link: string): string[] | 
   const page = joined.replace(/^\//, "");
   const rest = page.startsWith("docs/") ? page.slice("docs/".length) : page;
   return sitePageCandidates(rest);
+}
+
+function joinRelative(fromPath: string, bare: string): string {
+  const parts = fromPath.split("/").slice(0, -1);
+  for (const part of bare.split("/")) {
+    if (part === "..") parts.pop();
+    else if (part && part !== ".") parts.push(part);
+  }
+  return parts.join("/");
 }
 
 function sitePageCandidates(rest: string): string[] {

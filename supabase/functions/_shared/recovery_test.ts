@@ -1,7 +1,13 @@
 import { assertEquals, assertRejects } from "jsr:@std/assert@1.0.18";
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2.112.3";
 import type { GitHubReader } from "./publication.ts";
-import { handleRecovery } from "./recovery.ts";
+import { courseRecoveryManifestFits, handleRecovery } from "./recovery.ts";
+
+Deno.test("course recovery lists up to 300 files and text recovery stays under 100", () => {
+  assertEquals(courseRecoveryManifestFits(300, 300), true);
+  assertEquals(courseRecoveryManifestFits(301, 301), false);
+  assertEquals(courseRecoveryManifestFits(254, 254), true);
+});
 
 const ID = "651b0516-95a7-40c0-976d-6f1652217bfa";
 const SHA = "b7f7def6c3dc7073d88f4acc2521da84da37cf83";
