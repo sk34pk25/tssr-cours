@@ -284,7 +284,11 @@ def _validate_course_images(images, folder, repo, base):
         require(isinstance(path, str) and path not in seen)
         seen.add(path)
         match = COURSE_IMAGE.fullmatch(path)
-        require(match and match.group(1).lower() == folder)
+        allowed = {folder}
+        prefix, _, rest = folder.partition("-")
+        if prefix.isdigit() and rest:
+            allowed.add(rest)
+        require(match and match.group(1).lower() in allowed)
         require(file.get("change_type") in {"create", "update"} and not file.get("new_file_path"))
         require(file.get("content_encoding") == "base64" and isinstance(file.get("new_content"), str))
         raw = _image_bytes(file["new_content"])

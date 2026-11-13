@@ -23,6 +23,7 @@ import {
 import {
   assertEditablePath,
   buildNavigationEdit,
+  courseImageMatches,
   courseImageSlug,
   type ProposedFile,
   validateMkDocsEdit,
@@ -162,7 +163,7 @@ async function submit(
     .match(/^modules\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.md$/)?.[1];
   const courseSet = (summary.granularity as { bundleType?: string } | undefined)?.bundleType === "COURSE_SET";
   const courseImage = (file: ProposedFile | undefined) => Boolean(
-    courseSet && courseSlug && file && courseImageSlug(file.file_path) === courseSlug && file.change_type === "create",
+    courseSet && courseSlug && file && courseImageMatches(courseImageSlug(file.file_path), courseSlug) && file.change_type === "create",
   );
   if (agent) {
     if (Array.isArray(files) && files.some(file => file?.content_encoding === "base64" && !courseImage(file))) {

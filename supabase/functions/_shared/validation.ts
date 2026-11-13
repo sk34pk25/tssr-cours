@@ -30,6 +30,15 @@ export function courseIndexSlug(path: string): string | null {
   return match ? match[1] : null;
 }
 
+/** The image directory is the module folder, or that folder without its
+ * numeric prefix (`17-reseau-et-securite` stores images in `reseau-et-securite`). */
+export function courseImageMatches(slug: string | null, folder: string): boolean {
+  if (!slug || !folder) return false;
+  if (slug === folder) return true;
+  const rest = folder.match(/^[0-9]+-(.+)$/)?.[1];
+  return rest === slug;
+}
+
 /** Text stays at 1..100 files. Past that, only images of a course whose index
  * is in the same proposal are accepted. Smaller proposals are unchanged. */
 export function assertProposalFileQuota(files: ProposedFile[]): void {
@@ -47,7 +56,7 @@ export function assertProposalFileQuota(files: ProposedFile[]): void {
   );
   for (const image of images) {
     const slug = courseImageSlug(image.file_path || "");
-    if (!slug || !slugs.has(slug)) {
+    if (![...slugs].some((folder) => courseImageMatches(slug, folder))) {
       throw new Error("Les images hors quota ne sont admises que dans l'ensemble du cours correspondant.");
     }
   }

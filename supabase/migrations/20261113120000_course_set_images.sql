@@ -105,6 +105,11 @@ begin
         where page->>'file_path' = 'docs/modules/'
           || (regexp_match(item->>'file_path', '^docs/assets/images/([a-z0-9]+(?:-[a-z0-9]+)*)/'))[1]
           || '/index.md'
+          or page->>'file_path' ~ (
+            '^docs/modules/[0-9]+-'
+            || (regexp_match(item->>'file_path', '^docs/assets/images/([a-z0-9]+(?:-[a-z0-9]+)*)/'))[1]
+            || '/index\\.md$'
+          )
       )
   ) then
     raise exception 'Les images hors quota ne sont admises que dans l''ensemble du cours correspondant.';

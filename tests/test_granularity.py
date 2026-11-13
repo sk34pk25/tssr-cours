@@ -398,6 +398,11 @@ class GranularityTests(unittest.TestCase):
                 "courseId": course, "components": components}}}
         payload["description"] = review_description(payload["payload_summary"]["granularity"])
         self.assertEqual(assert_payload_granularity(payload)["bundleType"], "COURSE_SET")
+        short = copy.deepcopy(payload)
+        short_path = "docs/assets/images/fixture-sauvegarde/schema.png"
+        short["files"][-1]["file_path"] = short_path
+        short["files"][0]["new_content"] = "# Page\n\n![Schéma](../../assets/images/fixture-sauvegarde/schema.png)\n"
+        self.assertEqual(assert_payload_granularity(short)["bundleType"], "COURSE_SET")
         missing = copy.deepcopy(payload)
         missing["files"] = missing["files"][:-1]
         with self.assertRaises(GranularityError):
