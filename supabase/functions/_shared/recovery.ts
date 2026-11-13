@@ -3,6 +3,7 @@ import { githubConfig, readGitHub } from "./github.ts";
 import { changeRequestId, commitSha } from "./publication-metadata.ts";
 import { type GitHubReader, type PublicationRow, verifyDeployment, verifyRunEvidence } from "./publication.ts";
 import { assertAncestor, type DeploymentProof, verifyReconciliationEvidence } from "./reconciliation.ts";
+import { courseImageSlug } from "./validation.ts";
 
 interface File { file_path: string; new_file_path: string | null; change_type: string; content_encoding: string; new_content: string | null }
 export interface RecoveryEvidence {
@@ -18,12 +19,21 @@ async function hexHash(algorithm: string, bytes: Uint8Array): Promise<string> {
   return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
 }
 
+function decodeBase64(value: string): Uint8Array {
+  const binary = atob(value);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(0 + index);
+  return bytes;
+}
+
 /** Read immutable Git trees. Git blob identity proves exact bytes, not path existence. */
 export async function verifyRecoveryFiles(files: File[], refs: string[], read: GitHubReader) {
-  requireProof(files.length > 0 && files.length <= 100, "RECOVERY_FILES_INVALID");
+  const images = files.filter((file) => courseImageSlug(file.file_path));
+  const pages = images.length ? files.filter((file) => !courseImageSlug(file.file_path)) : files;
+  requireProof(pages.length > 0 && pages.length <= 100 && images.length <= 200, "RECOVERY_FILES_INVALID");
   const seen = new Set<string>();
   const proofs = [];
-  for (const file of files) {
+  for (const file of pages) {
     requireProof(!seen.has(file.file_path) && /^docs\/[a-zA-Z0-9_./-]+\.md$/.test(file.file_path) &&
       !file.file_path.split('/').includes('..') && !file.new_file_path &&
       ["create", "update"].includes(file.change_type) && file.content_encoding === "utf-8" &&
@@ -34,6 +44,20 @@ export async function verifyRecoveryFiles(files: File[], refs: string[], read: G
     const gitBytes = new Uint8Array(prefix.length + bytes.length);
     gitBytes.set(prefix); gitBytes.set(bytes, prefix.length);
     proofs.push({ path: file.file_path, sha256: await hexHash("SHA-256", bytes), blob: await hexHash("SHA-1", gitBytes) });
+  }
+  for (const file of images) {
+    requireProof(!seen.has(file.file_path) && !file.new_file_path &&
+      ["create", "update"].includes(file.change_type) && file.content_encoding === "base64" &&
+      typeof file.new_content === "string", "RECOVERY_FILES_INVALID");
+    seen.add(file.file_path);
+    const text = new TextEncoder().encode(file.new_content);
+    let bytes: Uint8Array;
+    try { bytes = decodeBase64(file.new_content); }
+    catch { requireProof(false, "RECOVERY_FILES_INVALID"); bytes = new Uint8Array(); }
+    const prefix = new TextEncoder().encode(`blob ${bytes.length}\0`);
+    const gitBytes = new Uint8Array(prefix.length + bytes.length);
+    gitBytes.set(prefix); gitBytes.set(bytes, prefix.length);
+    proofs.push({ path: file.file_path, sha256: await hexHash("SHA-256", text), blob: await hexHash("SHA-1", gitBytes) });
   }
   for (const ref of new Set(refs)) {
     const tree = await read<{ truncated: boolean; tree: Array<{ path: string; sha: string; type: string; mode: string }> }>(`/git/trees/${commitSha(ref)}?recursive=1`);
@@ -70,10 +94,14 @@ export async function handleRecovery(client: SupabaseClient, body: Record<string
     requireProof(!files.error && Array.isArray(files.data), "RECOVERY_FILES_UNAVAILABLE");
     const repository = `${config.owner}/${config.repo}`;
     await verifyRunEvidence(row.publication_callback, repository, config.branch, read);
-    const initial = await read<{ sha: string; parents: unknown[]; files: Array<{ filename: string; status: string }> }>(`/commits/${commitSha(row.published_commit_sha)}?per_page=100`);
+    const hasCourseImages = files.data.some((file) => courseImageSlug(file.file_path));
+    const initial = await read<{ sha: string; parents: unknown[]; files: Array<{ filename: string; status: string }> }>(`/commits/${commitSha(row.published_commit_sha)}?per_page=${hasCourseImages ? 300 : 100}`);
     const expectedPaths = files.data.map(f => f.file_path).sort();
+    const manifestFits = hasCourseImages
+      ? initial.files.length === expectedPaths.length && initial.files.length < 300
+      : initial.files.length < 100 && initial.files.length === expectedPaths.length;
     requireProof(initial.sha === row.published_commit_sha && initial.parents.length === 1 &&
-      initial.files.length < 100 && initial.files.length === expectedPaths.length &&
+      manifestFits &&
       initial.files.every(f => files.data.some(file => file.file_path === f.filename &&
         f.status === (file.change_type === "create" ? "added" : "modified"))) &&
       initial.files.map(f => f.filename).sort().every((path, i) => path === expectedPaths[i]), "RECOVERY_INITIAL_MANIFEST_MISMATCH");

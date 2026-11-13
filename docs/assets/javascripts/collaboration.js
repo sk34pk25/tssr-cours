@@ -828,10 +828,15 @@
   }
 
   async function showDiff(request) {
+    const imageFiles = request.change_request_files.filter((file) =>
+      file.content_encoding === "base64" && String(file.media_type || "").startsWith("image/") && file.new_content);
+    const gallery = imageFiles.length ? `<section class="tssr-image-gallery" aria-label="Aperçu des images">${imageFiles.map((file) =>
+      `<figure><img alt="Aperçu de ${utils.escapeHtml(file.file_path)}" src="data:${utils.escapeHtml(file.media_type)};base64,${file.new_content}"><figcaption>${utils.escapeHtml(file.file_path)}</figcaption></figure>`
+    ).join("")}</section>` : "";
     const fileTabs = request.change_request_files.map((file, index) =>
       `<button type="button" class="tssr-tab" data-diff-file="${index}" aria-selected="${index === 0}">${utils.escapeHtml(file.new_file_path || file.file_path)}</button>`
     ).join("");
-    const dialog = createDialog(`Changements : ${request.title}`, `<div class="tssr-tabs">${fileTabs}</div><div data-diff-content></div>`);
+    const dialog = createDialog(`Changements : ${request.title}`, `${gallery}<div class="tssr-tabs">${fileTabs}</div><div data-diff-content></div>`);
     const render = (index) => {
       const file = request.change_request_files[index];
       const target = dialog.querySelector("[data-diff-content]");

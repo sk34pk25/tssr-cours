@@ -23,6 +23,7 @@ import {
 import {
   assertEditablePath,
   buildNavigationEdit,
+  courseImageSlug,
   type ProposedFile,
   validateMkDocsEdit,
   validateProposedFiles,
@@ -156,8 +157,15 @@ async function submit(
   payloadSummary: Record<string, unknown> = {},
 ): Promise<Response> {
   const agent = context.profile.actor_kind === "AGENT";
+  const summary = recordBody(body.payload_summary);
+  const courseSlug = String((summary.granularity as { courseId?: string } | undefined)?.courseId || "")
+    .match(/^modules\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.md$/)?.[1];
+  const courseSet = (summary.granularity as { bundleType?: string } | undefined)?.bundleType === "COURSE_SET";
+  const courseImage = (file: ProposedFile | undefined) => Boolean(
+    courseSet && courseSlug && file && courseImageSlug(file.file_path) === courseSlug && file.change_type === "create",
+  );
   if (agent) {
-    if (Array.isArray(files) && files.some(file => file?.content_encoding === "base64")) {
+    if (Array.isArray(files) && files.some(file => file?.content_encoding === "base64" && !courseImage(file))) {
       throw new Error("Permission agent : ajouts/modifications Markdown uniquement.");
     }
     // Before Git reads, path-validation errors or the creation RPC. Scan keys
@@ -167,8 +175,10 @@ async function submit(
   const trusted = await trustedFiles(files, baseCommitSha);
   if (agent) {
     if (proposalKind !== "content_change" || trusted.some(file =>
-      !file.file_path.startsWith("docs/") || !file.file_path.endsWith(".md") ||
-      !["create", "update"].includes(file.change_type) || file.content_encoding === "base64")) {
+      !file.file_path.startsWith("docs/") ||
+      !(file.file_path.endsWith(".md") || courseImage(file)) ||
+      !["create", "update"].includes(file.change_type) ||
+      (file.content_encoding === "base64" && !courseImage(file)))) {
       throw new Error("Permission agent : ajouts/modifications Markdown uniquement.");
     }
     payloadSummary = await agentSummary(payloadSummary, trusted, baseCommitSha);

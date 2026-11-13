@@ -15,6 +15,43 @@ export interface ProposedFile {
 }
 
 const SAFE_IMAGE = /^docs\/assets\/images\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/i;
+const COURSE_IMAGE = /^docs\/assets\/images\/([a-z0-9]+(?:-[a-z0-9]+)*)\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/i;
+const COURSE_INDEX = /^docs\/modules\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.md$/;
+export const MAX_TEXT_FILES = 100;
+export const MAX_COURSE_IMAGES = 200;
+
+export function courseImageSlug(path: string): string | null {
+  const match = String(path || "").match(COURSE_IMAGE);
+  return match ? match[1].toLowerCase() : null;
+}
+
+export function courseIndexSlug(path: string): string | null {
+  const match = String(path || "").match(COURSE_INDEX);
+  return match ? match[1] : null;
+}
+
+/** Text stays at 1..100 files. Past that, only images of a course whose index
+ * is in the same proposal are accepted. Smaller proposals are unchanged. */
+export function assertProposalFileQuota(files: ProposedFile[]): void {
+  if (!Array.isArray(files) || files.length < 1) {
+    throw new Error("Une proposition doit contenir entre 1 et 100 fichiers.");
+  }
+  if (files.length <= MAX_TEXT_FILES) return;
+  const images = files.filter((file) => courseImageSlug(file?.file_path || ""));
+  const rest = files.filter((file) => !courseImageSlug(file?.file_path || ""));
+  if (rest.length < 1 || rest.length > MAX_TEXT_FILES || images.length === 0 || images.length > MAX_COURSE_IMAGES) {
+    throw new Error("Une proposition doit contenir entre 1 et 100 fichiers.");
+  }
+  const slugs = new Set(
+    rest.map((file) => courseIndexSlug(file?.file_path || "")).filter((slug): slug is string => Boolean(slug)),
+  );
+  for (const image of images) {
+    const slug = courseImageSlug(image.file_path || "");
+    if (!slug || !slugs.has(slug)) {
+      throw new Error("Les images hors quota ne sont admises que dans l'ensemble du cours correspondant.");
+    }
+  }
+}
 const SAFE_RESOURCE = /^docs\/assets\/resources\/[a-zA-Z0-9_./-]+\.(pdf|txt|cfg|conf|ini|csv|json|ya?ml|xml|zip|xlsx|pptx|pka|bat|cmd|ps1|sh)$/i;
 const SAFE_MARKDOWN = /^docs\/[a-zA-Z0-9_./-]+\.md$/;
 const SAFE_DATA = /^data\/glossaire\.json$/;
@@ -503,9 +540,7 @@ function validateGlossaryData(content: string): void {
 }
 
 export function validateProposedFiles(files: ProposedFile[]): ProposedFile[] {
-  if (!Array.isArray(files) || files.length < 1 || files.length > 100) {
-    throw new Error("Une proposition doit contenir entre 1 et 100 fichiers.");
-  }
+  assertProposalFileQuota(files);
   const seen = new Set<string>();
   let totalBinarySize = 0;
 

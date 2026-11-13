@@ -9,6 +9,7 @@ import re
 from urllib.parse import unquote
 
 SITE_ORIGIN = "https://sk34pk25.github.io/tssr-cours"
+_IMAGE = re.compile(r"\.(png|jpe?g|webp|gif)$", re.I)
 _FENCE = re.compile(r"```.*?```", re.S)
 _INLINE = re.compile(r"`[^`\n]+`")
 _COMMENT = re.compile(r"<!--.*?-->", re.S)
@@ -36,6 +37,17 @@ def site_page_candidates(rest):
     return ["docs/" + rest + ".md", "docs/" + rest + "/index.md"]
 
 
+def _join_relative(from_path, bare):
+    parts = from_path.split("/")[:-1]
+    for part in bare.split("/"):
+        if part == "..":
+            if parts:
+                parts.pop()
+        elif part and part != ".":
+            parts.append(part)
+    return posixpath.normpath("/".join(parts))
+
+
 def resolve_proposal_link(from_path, link):
     bare = link.split("?", 1)[0].split("#", 1)[0]
     if not bare or bare.startswith("#"):
@@ -46,6 +58,8 @@ def resolve_proposal_link(from_path, link):
         return site_page_candidates(bare[len(SITE_ORIGIN):].lstrip("/"))
     if bare.startswith("/"):
         return None
+    if _IMAGE.search(bare):
+        return [_join_relative(from_path, bare)]
     if not bare.endswith(".md") and not bare.endswith("/") and re.search(r"\.[a-z0-9]+$", bare, re.I):
         return None
     parts = from_path.split("/")[:-1]
@@ -89,6 +103,8 @@ def assert_proposal_links(files, available):
                 link = unquote(next((group for group in match.groups() if group), ""))
                 targets = resolve_proposal_link(path, link)
                 if not targets:
+                    continue
+                if all(_IMAGE.search(target) for target in targets) and not any(target in present for target in targets):
                     continue
                 if not any(target in present for target in targets):
                     raise ProposalLinkError("UNRESOLVED_CROSS_CR_DEPENDENCY: local Markdown target absent")

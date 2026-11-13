@@ -4,6 +4,8 @@ Unitary legacy proposals remain valid. Multi-file ecosystems require an explicit
 manifest and evidence at the immutable Git base; shared files require a bounded
 module delta. The main module page always needs its own approval.
 """
+import base64
+import binascii
 import hashlib
 import json
 from pathlib import Path
@@ -27,6 +29,15 @@ FOLDERS = {"TP": "tp", "REVISION": "revision", "EXERCISE": "exercices",
            "COURSE_PAGE": "modules"}
 SCOPE = re.compile(r"<!-- TSSR-MODULE-SCOPE-V1:([^\n]+?) -->.*?<!-- /TSSR-MODULE-SCOPE-V1 -->", re.S)
 KAHOOT = re.compile(r"<!-- TSSR-KAHOOT-V1:([^\n]+?) -->")
+COURSE_IMAGE = re.compile(
+    r"docs/assets/images/([a-z0-9]+(?:-[a-z0-9]+)*)/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)\Z",
+    re.I,
+)
+MAX_TEXT_FILES = 100
+MAX_COURSE_IMAGES = 200
+MAX_IMAGE_BYTES = 5_000_000
+MAX_BINARY_BYTES = 12_000_000
+_MD_IMAGE = re.compile(r"!\[[^\]]*\]\(\s*(?:<([^>\n]+)>|([^)\s]+))")
 
 
 class GranularityError(ValueError):
@@ -37,6 +48,61 @@ class GranularityError(ValueError):
 def require(condition):
     if not condition:
         raise GranularityError()
+
+
+def split_proposal_files(files):
+    """Markdown stays the approval unit. Course images are an extra list."""
+    pages, images = [], []
+    for file in files:
+        path = file.get("file_path") if isinstance(file, dict) else None
+        if isinstance(path, str) and COURSE_IMAGE.fullmatch(path):
+            images.append(file)
+        else:
+            pages.append(file)
+    return pages, images
+
+
+def _image_bytes(content):
+    try:
+        raw = base64.b64decode(content, validate=True)
+    except (binascii.Error, ValueError):
+        return None
+    return raw
+
+
+def _image_signature(path, raw):
+    lower = path.lower()
+    if lower.endswith(".png"):
+        return raw.startswith(b"\x89PNG\r\n\x1a\n")
+    if lower.endswith(".jpg") or lower.endswith(".jpeg"):
+        return raw.startswith(b"\xff\xd8\xff")
+    if lower.endswith(".gif"):
+        return raw.startswith(b"GIF8")
+    return raw.startswith(b"RIFF") and raw[8:12] == b"WEBP"
+
+
+def _linked_paths(content, from_path):
+    found = []
+    for match in _MD_IMAGE.finditer(content or ""):
+        link = match.group(1) or match.group(2) or ""
+        bare = link.split("?", 1)[0].split("#", 1)[0]
+        if not bare or bare.startswith(("#", "/")) or re.match(r"^[a-z][a-z0-9+.-]*:", bare, re.I):
+            continue
+        if not COURSE_IMAGE.fullmatch(_join_docs(from_path, bare) or ""):
+            continue
+        found.append(_join_docs(from_path, bare))
+    return found
+
+
+def _join_docs(from_path, bare):
+    parts = from_path.split("/")[:-1]
+    for part in bare.split("/"):
+        if part == "..":
+            if parts:
+                parts.pop()
+        elif part and part != ".":
+            parts.append(part)
+    return posixpath.normpath("/".join(parts))
 
 
 def unique_object(pairs):
@@ -205,12 +271,40 @@ def _course_set_owned(path, folder, tokens):
     return any(token in name for token in tokens)
 
 
-def _validate_course_set(payload, manifest, files, paths, repo):
+def _blob_exists(repo, base, path):
+    probe = subprocess.run(["git", "cat-file", "-e", f"{base}:{path}"], cwd=repo, capture_output=True, timeout=15)
+    return probe.returncode == 0
+
+
+def _validate_course_images(images, folder, repo, base):
+    total = 0
+    seen = set()
+    for file in images:
+        path = file.get("file_path")
+        require(isinstance(path, str) and path not in seen)
+        seen.add(path)
+        match = COURSE_IMAGE.fullmatch(path)
+        require(match and match.group(1).lower() == folder)
+        require(file.get("change_type") in {"create", "update"} and not file.get("new_file_path"))
+        require(file.get("content_encoding") == "base64" and isinstance(file.get("new_content"), str))
+        raw = _image_bytes(file["new_content"])
+        require(raw is not None and 0 < len(raw) <= MAX_IMAGE_BYTES and _image_signature(path, raw))
+        total += len(raw)
+        require(total <= MAX_BINARY_BYTES)
+        if file["change_type"] == "update":
+            require(isinstance(base, str) and _blob_exists(repo, base, path))
+        else:
+            require(not (isinstance(base, str) and _blob_exists(repo, base, path)))
+
+
+def _validate_course_set(payload, manifest, files, paths, repo, images=None):
     """One proposal for a whole course so internal links are in the same set."""
+    images = images or []
     course = manifest.get("courseId")
     require(isinstance(course, str) and _COURSE_FOLDER.fullmatch(course))
     require(not manifest.get("moduleId"))
     folder = _COURSE_FOLDER.fullmatch(course)[1]
+    _validate_course_images(images, folder, repo, payload.get("base_commit_sha"))
     tokens = [token for token in folder.split("-", 1)[-1].split("-") if len(token) >= 5]
     require(bool(tokens))
     components = manifest.get("components")
@@ -242,6 +336,10 @@ def _validate_course_set(payload, manifest, files, paths, repo):
         require(len(markers) <= 1)
         if path.startswith("docs/kahoot/"):
             require(len(markers) == 1)
+        linked = _linked_paths(new, path)
+        image_paths = {item.get("file_path") for item in images}
+        for target in linked:
+            require(target in image_paths or _blob_exists(repo, base, target))
         for marker in markers:
             metadata = decode(unquote(marker))
             require(metadata.get("courseId") == course)
@@ -268,9 +366,12 @@ def assert_payload_granularity(payload, *, repo=ROOT, agent=True):
 def _validate(payload, repo, agent):
     require(isinstance(payload, dict))
     files = payload.get("files")
-    require(isinstance(files, list) and 1 <= len(files) <= 100)
+    require(isinstance(files, list) and files)
+    pages, images = split_proposal_files(files)
+    require(1 <= len(pages) <= MAX_TEXT_FILES)
+    require(len(images) <= MAX_COURSE_IMAGES)
     paths = []
-    for file in files:
+    for file in pages:
         require(isinstance(file, dict))
         path = file.get("file_path")
         require(isinstance(path, str) and re.fullmatch(r"[a-z0-9_-]+(?:/[a-z0-9_-]+)*\.(md|json)", path))
@@ -283,8 +384,10 @@ def _validate(payload, repo, agent):
         require(isinstance(file.get("new_content"), str))
         paths.append(path)
     manifest = payload.get("payload_summary", {}).get("granularity")
+    if images and (not isinstance(manifest, dict) or manifest.get("bundleType") != "COURSE_SET"):
+        raise GranularityError()
     if manifest is None:
-        require(len(files) == 1)
+        require(len(pages) == 1)
         # Existing unitary inputs do not acquire new metadata obligations.
         path = paths[0]
         for marker in KAHOOT.findall(files[0]["new_content"]):
@@ -296,7 +399,7 @@ def _validate(payload, repo, agent):
     kind = manifest.get("bundleType")
     require(kind in {"COURSE_PAGE", "ECOSYSTEM", "TRANSVERSAL", "COURSE_SET"})
     if kind == "COURSE_SET":
-        return _validate_course_set(payload, manifest, files, paths, repo)
+        return _validate_course_set(payload, manifest, pages, paths, repo, images)
     if kind == "TRANSVERSAL":
         require(len(files) == 1 and not manifest.get("moduleId") and not manifest.get("courseId"))
         require(not MODULE.fullmatch(paths[0].removeprefix("docs/")))
