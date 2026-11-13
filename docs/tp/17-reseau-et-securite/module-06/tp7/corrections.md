@@ -1,17 +1,137 @@
-# Correction — TP7 — Certificat d’une PKI privée ADCS
+# Correction — TP7 — Certificat émanant d'une Private-KI ADCS
 
-Titre identique, « TD7 Module 2 ». Prérequis : avoir terminé le TP6. Durée : 3 heures.
 
-Objectif : mettre en place une infrastructure à clés publiques sur un serveur Windows pour gérer les certificats de façon centralisée, avec des certificats signés par une autorité.
+Certificat émanant d'une
+Private-KI ADCS
+TD7 Module 2
 
-Texte extractible :
+ Avant de démarrer ce TP, avoir terminé le TP6.
 
-- sur SRV-CD, exécuter `D:/InstallationPKI.ps1` et rendre le site certsrv fiable, cadenas compris, avec son certificat ;
-- après avoir récupéré le certificat du site, exécuter « le script suivant », dont le nom n’est pas écrit ;
-- sur SRV-MBR, générer un certificat de confiance avec l’autorité de SRV-CD pour `www.votrenom.eni` ;
-- sur SRV-WEB, même démarche pour `extranet.votrenom.eni` ;
-- sur pfSense, même démarche pour `routeur.votrenom.eni`.
+             Durée estimée
 
-L’énoncé parle de la clé privée du formateur à `http://88.66.44.1` et des URL `intranet` / `extranet` sous `votredomaine.eni`. La correction ne reprend ni cette URL ni ces noms-là pour SRV-MBR.
+               3 heures
 
-La majorité des 21 pages sont des captures. Les pages du PDF qui ne portent que l’en-tête de formation sont des captures d’écran. Aucun texte n’y est extractible : elles ne sont pas recopiées, et aucun logo n’est repris. Le nom du second script et les identifiants ne sont pas écrits : **Inexistant**.
+Énoncé
+
+Objectifs:
+
+Mise en place d’une Infrastructure à Clés Publiques (PKI) sur un serveur Windows pour
+gérer les certificats numériques de manière centralisée. Cette approche facilitera le
+développement sécurisé avec certificats signés par une autorité de certification
+reconnue.
+
+![TP7, correction, page 1](../../../../assets/images/reseau-et-securite/tp7/correction-p01-01.png)
+
+![TP7, correction, page 1](../../../../assets/images/reseau-et-securite/tp7/correction-p01-02.png)
+
+Texte visible sur la capture :
+
+```text
+192.168.150.100/24
+VMnet10 VMnet12
+VMnet11
+```
+
+Sur SRV-CD
+   •   Exécuter le script D:/InstallationPKI.ps1
+   •   Faites en sorte que votre site certsrv soit fiable(le cadenas) avec son certificat.
+
+   •
+   •
+
+![TP7, correction, page 2](../../../../assets/images/reseau-et-securite/tp7/correction-p02-04.png)
+
+![TP7, correction, page 2](../../../../assets/images/reseau-et-securite/tp7/correction-p02-05.png)
+
+![TP7, correction, page 3](../../../../assets/images/reseau-et-securite/tp7/correction-p03-07.png)
+
+![TP7, correction, page 3](../../../../assets/images/reseau-et-securite/tp7/correction-p03-08.png)
+
+•   Après avoir récupérer le certificat pour le site exécuté le script suivant:
+
+![TP7, correction, page 4](../../../../assets/images/reseau-et-securite/tp7/correction-p04-10.png)
+
+![TP7, correction, page 4](../../../../assets/images/reseau-et-securite/tp7/correction-p04-11.png)
+
+![TP7, correction, page 4](../../../../assets/images/reseau-et-securite/tp7/correction-p04-12.png)
+
+![TP7, correction, page 5](../../../../assets/images/reseau-et-securite/tp7/correction-p05-14.png)
+
+![TP7, correction, page 5](../../../../assets/images/reseau-et-securite/tp7/correction-p05-15.png)
+
+Sur SRV-MBR
+   •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
+       URL www.votrenom.eni
+
+![TP7, correction, page 6](../../../../assets/images/reseau-et-securite/tp7/correction-p06-17.png)
+
+![TP7, correction, page 6](../../../../assets/images/reseau-et-securite/tp7/correction-p06-18.png)
+
+![TP7, correction, page 7](../../../../assets/images/reseau-et-securite/tp7/correction-p07-20.png)
+
+![TP7, correction, page 8](../../../../assets/images/reseau-et-securite/tp7/correction-p08-22.png)
+
+![TP7, correction, page 8](../../../../assets/images/reseau-et-securite/tp7/correction-p08-23.png)
+
+![TP7, correction, page 9](../../../../assets/images/reseau-et-securite/tp7/correction-p09-25.png)
+
+![TP7, correction, page 10](../../../../assets/images/reseau-et-securite/tp7/correction-p10-27.png)
+
+![TP7, correction, page 11](../../../../assets/images/reseau-et-securite/tp7/correction-p11-29.png)
+
+![TP7, correction, page 11](../../../../assets/images/reseau-et-securite/tp7/correction-p11-30.png)
+
+![TP7, correction, page 12](../../../../assets/images/reseau-et-securite/tp7/correction-p12-32.png)
+
+![TP7, correction, page 12](../../../../assets/images/reseau-et-securite/tp7/correction-p12-33.png)
+
+Sur SRV-WEB
+   •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
+       URL extranet.votrenom.eni
+
+![TP7, correction, page 13](../../../../assets/images/reseau-et-securite/tp7/correction-p13-35.png)
+
+![TP7, correction, page 13](../../../../assets/images/reseau-et-securite/tp7/correction-p13-36.png)
+
+![TP7, correction, page 13](../../../../assets/images/reseau-et-securite/tp7/correction-p13-37.png)
+
+![TP7, correction, page 14](../../../../assets/images/reseau-et-securite/tp7/correction-p14-39.png)
+
+![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-41.png)
+
+![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-42.png)
+
+![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-43.png)
+
+![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-44.png)
+
+Sur le routeur PFsense
+   •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
+       URL routeur.votrenom.eni
+
+![TP7, correction, page 16](../../../../assets/images/reseau-et-securite/tp7/correction-p16-46.png)
+
+![TP7, correction, page 16](../../../../assets/images/reseau-et-securite/tp7/correction-p16-47.png)
+
+![TP7, correction, page 16](../../../../assets/images/reseau-et-securite/tp7/correction-p16-48.png)
+
+![TP7, correction, page 16](../../../../assets/images/reseau-et-securite/tp7/correction-p16-49.png)
+
+![TP7, correction, page 17](../../../../assets/images/reseau-et-securite/tp7/correction-p17-51.png)
+
+![TP7, correction, page 17](../../../../assets/images/reseau-et-securite/tp7/correction-p17-52.png)
+
+![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-54.png)
+
+![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-55.png)
+
+![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-56.png)
+
+![TP7, correction, page 19](../../../../assets/images/reseau-et-securite/tp7/correction-p19-58.png)
+
+![TP7, correction, page 19](../../../../assets/images/reseau-et-securite/tp7/correction-p19-59.png)
+
+![TP7, correction, page 19](../../../../assets/images/reseau-et-securite/tp7/correction-p19-60.png)
+
+Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté.

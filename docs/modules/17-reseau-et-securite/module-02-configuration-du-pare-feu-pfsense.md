@@ -1,52 +1,141 @@
 # Module 02 — Configuration du pare-feu pfSense
 
-Semaine **1/2**. Énoncé titré TD2, 3 h. Correction « TD2 du Module 1 », 3-4 h. Le document écrit « Pfsense ».
+Semaine **1/2**. Support de cours : **Inexistant**.
 
 [Énoncé](../../tp/17-reseau-et-securite/module-02/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-02/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-02.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-02.md)
 
-Support de cours : **Inexistant**. Le dossier ne contient que l’énoncé et la correction.
-
 === "Cours Original"
 
-    Titre imprimé : « Configuration du pare-feu Pfsense », libellé TD2. Durée estimée : 3 heures. Prérequis : avoir fait le TP1. Récupérer sur « distrib » l’archive `TSSR170-Réseau&Sécurité.7z`. Les bundles, OVF et OVA cités ne sont pas dans le dossier. Fichiers : **Inexistant**.
+    Configuration du pare-feu
+    Pfsense
+    TD2
 
-    Objectif : créer l’infrastructure et y transcrire la matrice de flux du TP1 dans pfSense. Le schéma de la page 1 n’a pas de texte hors titre. Les pages du PDF qui ne portent que l’en-tête de formation sont des captures d’écran. Aucun texte n’y est extractible : elles ne sont pas recopiées, et aucun logo n’est repris.
+     Avant de démarrer ce TP, il convient d’avoir fait le TP1. Récupérer le Bundle sur distrib
+     TSSR170-Réseau&Sécurité.7z
 
-    Installation de SRV-CD :
+                Durée estimée
 
-    - utiliser `Win-SRV.ovf` pour déployer le serveur Windows ;
-    - lui attribuer l’adresse IP et la passerelle du schéma ;
-    - le connecter sur le VMnet 11 ;
-    - renommer la VM SRV-CD ;
-    - installer les rôles AD DS et DNS ; le nom de domaine sera `votrenom.eni` ;
-    - ouvrir PowerShell en administrateur, se placer dans `E:/scirpts`, puis exécuter dans l’ordre : `OU.ps1`, puis, après avoir modifié `Users.csv` et `Groups.csv` avec le nom de domaine, `Users.ps1`, `Groups.ps1`, `AdduseronGroups.ps1` ;
-    - créer un redirecteur DNS avec l’IP du DNS de la salle.
+                  3 heures
 
-    Installation de SRV-MBR : même fichier `Win-SRV.ovf`, le renommer SRV-MBR, adresse et passerelle du schéma, VMnet 11, joindre le domaine, installer le rôle DHCP et préparer une étendue pour le LAN client.
+    Énoncé
 
-    Routeur pfSense : fichier `Routeur.ovf`, mot de passe par défaut. Modifier les IP du réseau, vérifier les VMnet du schéma, modifier le domaine et le DNS dans les paramètres généraux, ajouter le relais DHCP du LAN client.
+    Objectifs:
 
-    Client Windows 10 ou 11, ISO sur Distrib : RAM 3 Go, CPU 2, stockage par défaut, réseau VMnet10. Vérifier l’adresse du DHCP, puis faire une réservation avec l’adresse du schéma. Désactiver le pare-feu Windows.
+    Création de l’infrastructure ci-dessous et y transcrire la politique de la matrice de flux du
+    TP1 dans pfSense.
 
-    Client Debian 12, ISO sur Distrib : RAM 2 Go, CPU 1, stockage par défaut, réseau VMnet10. Même contrôle DHCP et même réservation.
+    ![TP2, énoncé, page 1](../../assets/images/reseau-et-securite/tp2/enonce-p01-01.png)
 
-    Sur pfSense : mettre les règles de pare-feu du TP1 côté LANCLIENT et LANSERVER. Les autres règles seront faites plus tard. Tester. L’énoncé écrit « par-feu ».
+    ![TP2, énoncé, page 1](../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png)
 
-    Client Windows 11 : le joindre au domaine.
+    Texte visible sur la capture :
 
-    L’énoncé dit qu’un PDF commenté est disponible dans les ressources à télécharger. Ces ressources ne sont pas dans le dossier : **Inexistant**.
+    ```text
+    Routeur formafeur 88.66.44.1
+    VMnet 10 LAN CLT
+    VMnet12 LAN DMZ
+    VMnet11 LAN SRV
+    ```
+
+    Installation de l’infrastructure
+    Installation du serveur SRV-CD
+
+           Utiliser le fichier Win-SRV.ovf pour deployer votre serveur Windows.
+
+           Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+           Connectez-le sur le VMnet 11
+           Renomer votre VM par SRV-CD
+           Installer les rôles AD DS et le DNS, votre nom de domaine sera votre nom.eni
+
+          Ouvrir Powershell en tant qu’Administeur de vous déplacer sur E:/scirpts puis
+          exécutez les scripts dans l’ordre suivant:
+          OU.ps1
+          Attention modifier les fichiers Users.csv et Groups.csv avec votre nom de domaine
+    avant d’éxecuter les scripts suivants.
+          Users.ps1
+          Groups.ps1
+          AdduseronGroups.ps1
+
+           Faites un redirecteur dans le gestionnaire DNS avec l’IP le DNS de votre salle
+
+    Installation du serveur SRV-MBR
+
+           Utiliser également le fichier Win-SRV.ovf
+
+           Renomer votre serveur par: SRV-MBR
+           Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+           Connectez-le sur le VMnet 11
+
+           Joindre ce serveur à votre domaine.
+
+           Installer le role DHCP et préparez une etendue pour le LAN client.
+
+    Installation du routeur Pfsense
+
+           Utiliser le fichier Routeur.ovf, le mot de passe par défaut
+
+           Modifier les IP correspondant à votre réseau et vérifier que les différentes cartes
+    sont sur les bons VMnet comme indiqué sur le schéma.
+
+           Modifier dans les paramètres générales votre domaine et votre DNS
+
+           Ajouter le relay DHCP pour votre LAN client.
+
+    Installation du client Windows 10 ou 11
+
+           Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :
+
+           RAM : 3Go
+
+    CPU : 2
+
+           Stockage : laisser par défaut
+
+           Réseau : VMnet10
+
+          Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+    serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.
+
+    Désactiver le pare-feu Windows
+
+    Installation du client Debian 12
+
+    Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :
+
+           RAM : 2Go
+
+           CPU : 1
+
+           Stockage : laisser par défaut
+
+           Réseau : VMnet10
+
+          Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+    serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.
+
+    Sur routeur Pfsense
+
+          Mettre en place les règles de par-feu côté LANCLIENT, LANSERVER
+    déterminées au TP1, les autres règles seront effectuées plus tard puis tester le bon
+    fonctionnement.
+
+    Client Windows 11
+
+           Le joindre au domaine
+
+    Solution
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+    ressources à télécharger.
 
 === "Cours Optimisé IA"
 
-    Ordre du laboratoire, uniquement avec les étapes écrites. Quand l’énoncé et la correction divergent, les deux noms de fichiers sont cités. Aucun des fichiers n’est publié.
+    Le support de cours est **Inexistant**. Les OVF et les archives sont **Inexistant** sur le site.
 
-    1. Avoir fini le TP1.
-    2. Déployer SRV-CD sur VMnet 11, AD DS et DNS, domaine `votrenom.eni`.
-    3. Lancer les scripts dans l’ordre du document suivi. Correction : `Install-DNS-ADDS.ps1`, `DNS-Zone-Inversées.ps1`, `OU.ps1`, puis les CSV adaptés, `Users.ps1`, `Groups.ps1`, `AdduseronGroups.ps1`. Énoncé : cet ordre sans les deux premiers, et le dossier `E:/scirpts`.
-    4. Redirecteur DNS vers le DNS de la salle.
-    5. Déployer SRV-MBR sur VMnet 11, le joindre, rôle DHCP et étendue du LAN client.
-    6. Déployer pfSense, aligner IP et VMnet, domaine, DNS, relais DHCP.
-    7. Clients Windows et Debian sur VMnet10, réservation DHCP, pare-feu Windows désactivé.
-    8. Règles du TP1 sur LAN client et LAN serveurs seulement. Tester. Joindre le client Windows au domaine.
+    1. Déployer SRV-CD sur VMnet 11, rôles AD DS et DNS, domaine votredomaine.eni.
+    2. Exécuter les scripts du document, après avoir adapté Users.csv et Groups.csv, puis créer le redirecteur vers le DNS de la salle.
+    3. Déployer SRV-MBR sur VMnet 11, le joindre au domaine, installer DHCP et une étendue pour le LAN client.
+    4. Déployer pfSense, aligner les IP et les VMnet, le domaine, le DNS et le relais DHCP.
+    5. Client Windows : 3 Go, 2 CPU, VMnet10. Debian 12 : 2 Go, 1 CPU, VMnet10. Réserver l’adresse du schéma et désactiver le pare-feu Windows.
+    6. Appliquer les règles du TP1 sur LANCLIENT et LANSERVER, tester, joindre le client Windows au domaine.
 
-    Contrôles : le client reçoit une adresse du DHCP ; la réservation correspond au schéma ; le redirecteur pointe vers le DNS de la salle. Les copies d’écran de la correction ne remplacent pas ces contrôles : elles n’ont pas de texte.
+    La correction ajoute deux scripts et d’autres noms de fichiers : la note est en fin de correction.

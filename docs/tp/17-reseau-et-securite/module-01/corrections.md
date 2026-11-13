@@ -1,23 +1,126 @@
-# Correction — TP1 — Flux de sorties vers Internet
+# Correction — TP1 — Étudier les besoins de l'entreprise en termes de flux de sorties vers internet
 
-La correction est titrée TD1, durée estimée 1 h. L’objectif y parle d’une infrastructure sécurisée et d’un travail en binômes. Le prérequis cite les mêmes deux fichiers.
 
-Exemple chiffré de la correction, à partir de la plage Lan « Global /24 » `172.20.2.0/24` :
+Étudier les besoins de
+l'entreprise en termes de
+flux de sorties vers internet
+TD1
 
-| Élément | Lan SRV /26 | Lan Client /25 | Lan DMZ /26 |
-|---|---|---|---|
-| Plage | 172.20.2.128 – 172.20.2.191 /26 | 172.20.2.0 – 172.20.2.127 /25 | 172.20.2.192 – 172.20.2.255 /26 |
-| Avant-dernière, notée pour le routeur | 190 | 126 | 254 |
-| SRV-CD, « 21ième » | 150 |  |  |
-| SRV-MBR, « 23ième » | 152 |  |  |
-| SRV-WEB, le texte dit « 7ième » |  |  | 200 |
-| CLT-WIN, le texte dit « 9ième » |  | 10 |  |
-| CLT-DEB, le texte dit « 11ième » |  | 12 |  |
+ Avant de démarrer ce TP, il convient d’avoir récupéré le fichiers « Règles de pare-feu.xlsx »
+ et d’avoir choisi une plage d’adressage dans le fichier « List-IP-Stagiaires.xlsx » déposé
+ dans Teams.
 
-Les rangs de l’énoncé (8e, 10e, 12e) et ceux de la correction (7e, 9e, 11e) diffèrent. Les deux textes sont conservés. Aucune autre valeur n’est calculée ici.
+            Durée estimée
 
-La correction répète ensuite les mêmes consignes : modifier le drawio, identifier les segments, n’ouvrir que les ports nécessaires, justifier, remplir le classeur. Elle ne contient pas de matrice remplie. Les pages du PDF qui ne portent que l’en-tête de formation sont des captures d’écran. Aucun texte n’y est extractible : elles ne sont pas recopiées, et aucun logo n’est repris.
+                 1h
 
-La dernière page répète que la solution est un PDF commenté. Il n’y a pas d’autre corrigé écrit.
+Énoncé
 
-[Retour](index.md) · [Cours](../../../modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md)
+Objectifs:
+
+Ce exercice vise à mettre en place une infrastructure réseau sécurisée pour une
+entreprise, en séparant les réseaux internes et en contrôlant les flux vers Internet.
+Vous travaillerez en binômes pour analyser le schéma réseau ci-dessous et y déterminer
+les règles de pare-feu appropriées dans le fichier excel fourni par votre formateur.
+
+![TP1, correction, page 2](../../../assets/images/reseau-et-securite/tp1/correction-p02-02.png)
+
+![TP1, correction, page 2](../../../assets/images/reseau-et-securite/tp1/correction-p02-03.png)
+
+Texte visible sur la capture :
+
+```text
+192.168.150.100/24
+VMnet10
+VMnet12
+VMnet11
+```
+
+Dans le fichier List-IP-Stagiaires.xlsx
+
+Attribuez-vous une colonne des adressages réseaux
+
+En partant de la plage Lan « Global /24 » calculer : 172.20.2.0/24
+
+                        Lan SRV /26                  Lan Client /25    Lan DMZ /26
+
+ Plage d’adresses       172.20.2.128 -               172.20.2.0 -      172.20.2.192 -
+ disponibles            172.20.2.191 /26             172.20.2.127/25   172.20.2.255 /26
+
+ IP routeur sera        190                          126               254
+ l’avant dernière de
+ sa plage
+
+ IP du SRV-CD sera la   150
+ 21ième adresse
+ disponible de son
+ réseau
+
+ IP du SRV-MBR sera     152
+ la 23ième adresse
+ disponible de son
+ réseau
+
+ IP du SRV-WEB sera                                                    200
+ la 7ième adresse
+ disponible de son
+ réseau
+
+ IP du CLT-WIN sera                                  10
+ la 9ième adresse
+ disponible de son
+ réseau
+
+ IP du CLT-DEB sera                                  12
+ la 11ième adresse
+ disponible de son
+ réseau
+
+En binôme ou seul, analyser en profondeur un schéma réseau fourni en y ajoutant vos
+adresses, le fichier SchémaRéseauTP1.drawio vous est mis disposition pour le modifier.
+
+Identifier les différents segments du réseau et leurs besoins en termes de communication.
+
+Déterminer les flux de données nécessaires entre les différents segments et vers l'extérieur
+en n'ouvrant que les ports strictement nécessaires pour des services ou applications
+spécifiques tout en bloquant le trafic non autorisé.
+
+Justifier chaque règle proposée en expliquant son rôle dans la sécurité globale du réseau.
+
+Remplissez le fichier « Règles de pare-feu.xlsx » qui vous sera remis par votre formateur,
+
+![TP1, correction, page 5](../../../assets/images/reseau-et-securite/tp1/correction-p05-07.png)
+
+Texte visible sur la capture :
+
+```text
+Pare-feu / Alias / Ports li @
+DHCP67 Port(s) 67 Alias-DHCP67 O0
+DHCP68 Port(s) 68 Alias-DHCP68 UD
+Globalcatalog Port(s) 3368:3269 Alias-Global-catalog3268/3269 O0
+Kerberos Port(s) 88 Alias-Kerberos-88 UD
+LDAPs Port(s) 389:636 Alias-LDAP/LDAPS [ri]
+```
+
+![TP1, correction, page 5](../../../assets/images/reseau-et-securite/tp1/correction-p05-08.png)
+
+Texte visible sur la capture :
+
+```text
+Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ
+oO Etats Protocole Source Port Destination Port Passerelle d'attente Ordonnancement Description Actions
+```
+
+Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+
+![TP1, correction, page 6](../../../assets/images/reseau-et-securite/tp1/correction-p06-10.png)
+
+Texte visible sur la capture :
+
+```text
+Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ
+oO Etats Protocole Source Port Destination Port Passerelle d'attente  Ordonnancement Description Actions
+```
+
+Note : l’énoncé place SRV-WEB, CLT-WIN et CLT-DEB aux 8e, 10e et 12e adresses. Cette correction les place aux 7e, 9e et 11e, avec les valeurs 200, 10 et 12 pour l’exemple 172.20.2.0/24.

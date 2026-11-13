@@ -35,6 +35,6 @@ Routeur formateur du schéma : `192.168.150.100/24`. L’énoncé du NAT écrit 
 
 ## Noms DNS écrits
 
-`extra.rouliere.eni`, `votrenom.eni`, `votredomaine.eni`, et les préfixes `www`, `intranet`, `intra`, `internet`, `extranet`, `routeur`.
+`extra.votrenom.eni`, `votredomaine.eni`, et les préfixes `www`, `intranet`, `intra`, `internet`, `extranet`, `routeur`.
 
 [Cours](../modules/17-reseau-et-securite/index.md)

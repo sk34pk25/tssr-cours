@@ -1,30 +1,53 @@
 # Module 07 — Connecter les collaborateurs pour le télétravail
 
-Semaine **2/2**. Énoncé TD8, 4 h. Correction « TD8 du Module 2 », 4 h. OpenVPN et WireGuard.
+Semaine **2/2**. Support de cours : **Inexistant**.
 
 [Énoncé](../../tp/17-reseau-et-securite/module-07/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-07.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-07.md)
 
-Support de cours : **Inexistant**. Le dossier ne contient que l’énoncé et la correction.
-
 === "Cours Original"
 
-    Titre : « Connecter les collaborateurs pour le télétravail », libellé TD8. Durée : 4 heures. La ligne « Avant de démarrer » ne précise rien.
+    Connecter les
+    collaborateurs pour le
+    télétravail
+     TD8
 
-    Objectif de l’énoncé : « Mise en place ».
+     Avant de démarrer ce TP.
 
-    Le seul autre texte est, sous le titre « Sur SRV-CD », l’adresse `https://wireguard.how/client/debian/`.
+                Durée estimée
 
-    Un PDF commenté est annoncé dans les ressources à télécharger : **Inexistant**.
+                  4 heures
+
+    Énoncé
+
+    Objectifs:
+
+    Mise en place
+
+    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-01.png)
+
+    ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
+
+    Texte visible sur la capture :
+
+    ```text
+    Routeur formafeur 88.66.44.1
+    VMnet 10 LAN CLT
+    VMnet11 LAN SRV
+    VMnet12 LAN DMZ
+    ```
+
+    Sur SRV-CD
+    https://wireguard.how/client/debian/
+
+    Solution
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+    ressources à télécharger.
 
 === "Cours Optimisé IA"
 
-    L’énoncé ne décrit pas les étapes : il donne seulement l’adresse `https://wireguard.how/client/debian/` sous le titre SRV-CD, et l’objectif « Mise en place ». Cette adresse est externe au cours. Elle est citée telle quelle.
+    Le support de cours est **Inexistant**. Le fichier d’installation client n’est pas publié.
 
-    La correction est le document qui décrit OpenVPN puis WireGuard. Ordre écrit :
-
-    1. Ping des WAN entre binômes, ou, à distance, client Windows sur le bridge avec l’adresse de CLT-NAT, CLT-NAT éteint.
-    2. Si le LDAP n’est plus en place : autorité, certificat serveur, LDAP, serveur OpenVPN, client OpenVPN.
-    3. Échanger le fichier d’installation et tester.
-    4. WireGuard et pair CLT-NAT, renouvellement des clés, routage, SSH vers le serveur web.
-
-    Les clics visibles seulement sur les captures ne sont pas retranscrits : **Inexistant** sous forme de texte. Les fichiers d’installation générés par pfSense ne sont pas dans le dossier : **Inexistant**.
+    1. Vérifier le ping des adresses WAN entre binômes. Les CEL sortent le client Windows sur le réseau bridge, reprennent l’adresse de CLT-NAT et éteignent CLT-NAT.
+    2. Sur pfSense, si le LDAP n’est plus là : autorité de certification, certificat serveur, authentification LDAP, serveur OpenVPN, client OpenVPN.
+    3. Échanger le fichier d’installation et tester chacun son tour.
+    4. Paramétrer WireGuard et le pair CLT-NAT. Renouveler les clés, activer le routage, puis joindre le serveur web en SSH. Les commandes citées sont sur https://wireguard.how/client/debian/.

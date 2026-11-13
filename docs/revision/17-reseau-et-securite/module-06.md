@@ -1,11 +1,13 @@
 # Révision — Module 06, certificats
 
-Semaine 2/2. Support : **Inexistant**. Deux TP.
+Semaine 2/2. Support de cours : **Inexistant**.
 
-- TP6 énoncé : IIS et Apache2 sur SRV-MBR, HTTPS pfSense, noms `intranet`, `extranet`, `routeur` en `votredomaine.eni`.
-- TP6 correction : deuxième IP `172.20.X.153/26`, sites `www` et `intranet` en `votrenom.eni`, SRV-WEB `172.20.X.202/26`, lynx, `Cd ..`.
-- TP7 : `D:/InstallationPKI.ps1` sur SRV-CD, puis certificats de cette autorité.
-- Énoncé TP7 : pfSense utilise `http://88.66.44.1`. Les identifiants sont **Inexistant**.
-- Les captures sans texte ne donnent pas les commandes : **Inexistant**.
+## TP6, certificats autosignés
+
+IIS et Apache, plus HTTPS sur pfSense. Seconde adresse 172.20.X.153/26 sur SRV-MBR. Sites www.votredomaine.eni et intranet.votredomaine.eni. Sur SRV-WEB, 172.20.X.202/26, lynx, intra.votredomaine.eni et internet.votredomaine.eni. FQDN du routeur : routeur.votredomaine.eni.
+
+## TP7, PKI ADCS
+
+Script D:/InstallationPKI.ps1 sur SRV-CD. Le site certsrv doit être fiable. Les certificats de www, extranet et routeur sont signés par cette autorité. L’énoncé cite aussi http://88.66.44.1.
 
 [Cours](../../modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md)

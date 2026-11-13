@@ -1,31 +1,123 @@
-# Énoncé — TP2 — Configuration du pare-feu pfSense
+# Énoncé — TP2 — Configuration du pare-feu Pfsense
 
-Titre imprimé : « Configuration du pare-feu Pfsense », libellé TD2. Durée estimée : 3 heures. Prérequis : avoir fait le TP1. Récupérer sur « distrib » l’archive `TSSR170-Réseau&Sécurité.7z`. Les bundles, OVF et OVA cités ne sont pas dans le dossier. Fichiers : **Inexistant**.
 
-Objectif : créer l’infrastructure et y transcrire la matrice de flux du TP1 dans pfSense. Le schéma de la page 1 n’a pas de texte hors titre. Les pages du PDF qui ne portent que l’en-tête de formation sont des captures d’écran. Aucun texte n’y est extractible : elles ne sont pas recopiées, et aucun logo n’est repris.
+Configuration du pare-feu
+Pfsense
+TD2
 
-Installation de SRV-CD :
+ Avant de démarrer ce TP, il convient d’avoir fait le TP1. Récupérer le Bundle sur distrib
+ TSSR170-Réseau&Sécurité.7z
 
-- utiliser `Win-SRV.ovf` pour déployer le serveur Windows ;
-- lui attribuer l’adresse IP et la passerelle du schéma ;
-- le connecter sur le VMnet 11 ;
-- renommer la VM SRV-CD ;
-- installer les rôles AD DS et DNS ; le nom de domaine sera `votrenom.eni` ;
-- ouvrir PowerShell en administrateur, se placer dans `E:/scirpts`, puis exécuter dans l’ordre : `OU.ps1`, puis, après avoir modifié `Users.csv` et `Groups.csv` avec le nom de domaine, `Users.ps1`, `Groups.ps1`, `AdduseronGroups.ps1` ;
-- créer un redirecteur DNS avec l’IP du DNS de la salle.
+            Durée estimée
 
-Installation de SRV-MBR : même fichier `Win-SRV.ovf`, le renommer SRV-MBR, adresse et passerelle du schéma, VMnet 11, joindre le domaine, installer le rôle DHCP et préparer une étendue pour le LAN client.
+              3 heures
 
-Routeur pfSense : fichier `Routeur.ovf`, mot de passe par défaut. Modifier les IP du réseau, vérifier les VMnet du schéma, modifier le domaine et le DNS dans les paramètres généraux, ajouter le relais DHCP du LAN client.
+Énoncé
 
-Client Windows 10 ou 11, ISO sur Distrib : RAM 3 Go, CPU 2, stockage par défaut, réseau VMnet10. Vérifier l’adresse du DHCP, puis faire une réservation avec l’adresse du schéma. Désactiver le pare-feu Windows.
+Objectifs:
 
-Client Debian 12, ISO sur Distrib : RAM 2 Go, CPU 1, stockage par défaut, réseau VMnet10. Même contrôle DHCP et même réservation.
+Création de l’infrastructure ci-dessous et y transcrire la politique de la matrice de flux du
+TP1 dans pfSense.
 
-Sur pfSense : mettre les règles de pare-feu du TP1 côté LANCLIENT et LANSERVER. Les autres règles seront faites plus tard. Tester. L’énoncé écrit « par-feu ».
+![TP2, énoncé, page 1](../../../assets/images/reseau-et-securite/tp2/enonce-p01-01.png)
 
-Client Windows 11 : le joindre au domaine.
+![TP2, énoncé, page 1](../../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png)
 
-L’énoncé dit qu’un PDF commenté est disponible dans les ressources à télécharger. Ces ressources ne sont pas dans le dossier : **Inexistant**.
+Texte visible sur la capture :
 
-[Retour](index.md)
+```text
+Routeur formafeur 88.66.44.1
+VMnet 10 LAN CLT
+VMnet12 LAN DMZ
+VMnet11 LAN SRV
+```
+
+Installation de l’infrastructure
+Installation du serveur SRV-CD
+
+       Utiliser le fichier Win-SRV.ovf pour deployer votre serveur Windows.
+
+       Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+       Connectez-le sur le VMnet 11
+       Renomer votre VM par SRV-CD
+       Installer les rôles AD DS et le DNS, votre nom de domaine sera votre nom.eni
+
+      Ouvrir Powershell en tant qu’Administeur de vous déplacer sur E:/scirpts puis
+      exécutez les scripts dans l’ordre suivant:
+      OU.ps1
+      Attention modifier les fichiers Users.csv et Groups.csv avec votre nom de domaine
+avant d’éxecuter les scripts suivants.
+      Users.ps1
+      Groups.ps1
+      AdduseronGroups.ps1
+
+       Faites un redirecteur dans le gestionnaire DNS avec l’IP le DNS de votre salle
+
+Installation du serveur SRV-MBR
+
+       Utiliser également le fichier Win-SRV.ovf
+
+       Renomer votre serveur par: SRV-MBR
+       Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
+       Connectez-le sur le VMnet 11
+
+       Joindre ce serveur à votre domaine.
+
+       Installer le role DHCP et préparez une etendue pour le LAN client.
+
+Installation du routeur Pfsense
+
+       Utiliser le fichier Routeur.ovf, le mot de passe par défaut
+
+       Modifier les IP correspondant à votre réseau et vérifier que les différentes cartes
+sont sur les bons VMnet comme indiqué sur le schéma.
+
+       Modifier dans les paramètres générales votre domaine et votre DNS
+
+       Ajouter le relay DHCP pour votre LAN client.
+
+Installation du client Windows 10 ou 11
+
+       Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :
+
+       RAM : 3Go
+
+CPU : 2
+
+       Stockage : laisser par défaut
+
+       Réseau : VMnet10
+
+      Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.
+
+Désactiver le pare-feu Windows
+
+Installation du client Debian 12
+
+Récupérer l’ISO sur Distrib puis mettre les caractéristiques suivantes :
+
+       RAM : 2Go
+
+       CPU : 1
+
+       Stockage : laisser par défaut
+
+       Réseau : VMnet10
+
+      Vérifier que vous récupérer une adresse IP du serveur DHCP. Retourner sur votre
+serveur DHCP puis faites une réservation avec l’adresse IP indiqué sur le schéma.
+
+Sur routeur Pfsense
+
+      Mettre en place les règles de par-feu côté LANCLIENT, LANSERVER
+déterminées au TP1, les autres règles seront effectuées plus tard puis tester le bon
+fonctionnement.
+
+Client Windows 11
+
+       Le joindre au domaine
+
+Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+ressources à télécharger.

@@ -3,4 +3,4 @@
 
 Quiz préparé pour le [module 02](../modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md). Aucun quiz en ligne n’est fourni avec les documents de ce cours : lien officiel **Inexistant**.
 
-Les questions reformulent les énoncés et les corrections de ce module.
+Les questions portent sur les règles, les services et les valeurs du module.

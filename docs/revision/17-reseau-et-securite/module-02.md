@@ -1,12 +1,17 @@
 # Révision — Module 02, pare-feu pfSense
 
-Semaine 1/2. Support : **Inexistant**.
+Semaine 1/2. Support de cours : **Inexistant**.
 
-- Prérequis : TP1. Les archives et OVF cités sont **Inexistant**.
-- SRV-CD sur VMnet 11, AD DS et DNS, domaine en `.eni`.
-- Ordre des scripts : l’énoncé commence à `OU.ps1` dans `E:/scirpts`. La correction ajoute `Install-DNS-ADDS.ps1` et `DNS-Zone-Inversées.ps1` dans `D:/scirpts`.
-- SRV-MBR : domaine, DHCP, étendue du LAN client.
-- Clients sur VMnet10 : Windows 3 Go et 2 CPU, Debian 12 avec 2 Go et 1 CPU.
-- Règles du TP1 seulement sur LAN client et LAN serveurs.
+## SRV-CD
+
+VMnet 11. Rôles AD DS et DNS. Domaine votredomaine.eni. Scripts, dans l’ordre de la correction : Install-DNS-ADDS.ps1, DNS-Zone-Inversées.ps1, OU.ps1, puis Users.ps1, Groups.ps1 et AdduseronGroups.ps1 après adaptation des CSV. Redirecteur vers le DNS de la salle.
+
+## SRV-MBR et clients
+
+SRV-MBR sur VMnet 11, joint au domaine, rôle DHCP, étendue du LAN client. Windows : 3 Go, 2 CPU, VMnet10. Debian 12 : 2 Go, 1 CPU, VMnet10. Réservation DHCP, pare-feu Windows désactivé.
+
+## pfSense
+
+Aligner IP, VMnet, domaine, DNS et relais DHCP. Appliquer d’abord les règles du TP1 sur LANCLIENT et LANSERVER.
 
 [Cours](../../modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md)

@@ -17,12 +17,12 @@ Les deux périodes ouvrent cette même page. Le parcours les distingue par les d
 Aucun support de cours n’accompagne ce dossier. Chaque module indique donc **Inexistant** à la place du support.
 
 1. L’onglet **Cours Original** recopie le texte de l’énoncé et, quand la correction ajoute des valeurs ou des étapes écrites, ces ajouts sont signalés comme venant de la correction. Les graphies des documents sont conservées.
-2. L’onglet **Cours Optimisé IA** remet ces mêmes étapes dans l’ordre du laboratoire, avec les contrôles. Il ne crée pas de procédure absente des PDF.
-3. Les pages de travaux pratiques séparent l’énoncé et la correction.
-4. Les captures sans texte ne sont pas recopiées. Les bundles, OVF et OVA cités mais absents du dossier sont **Inexistant**.
+2. L’onglet **Cours Optimisé IA** remet ces mêmes étapes dans l’ordre du laboratoire.
+3. Les pages de travaux pratiques séparent l’énoncé et la correction, avec les captures à leur place.
+4. Les bundles, OVF et OVA cités mais absents du dossier sont **Inexistant**.
 5. Le classeur d’attribution des plages contient un nom de stagiaire. Ce nom n’est pas publié.
 
-Le dossier « Module 6 » contient le TP6 et le TP7. Ils restent deux travaux du module 06. Quand le PDF imprime un numéro de TD différent du nom de fichier, la page retient le numéro du fichier et signale le libellé imprimé.
+Le dossier du module 6 contient le TP6 et le TP7. Ils restent deux travaux du module 06.
 
 ## Semaine 1/2 — modules 1 à 5
 

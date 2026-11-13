@@ -1,9 +1,39 @@
-# Énoncé — TP8 — Télétravail
+# Énoncé — TP8 — Connecter les collaborateurs pour le télétravail
 
-Titre : « Connecter les collaborateurs pour le télétravail », libellé TD8. Durée : 4 heures. La ligne « Avant de démarrer » ne précise rien.
 
-Objectif de l’énoncé : « Mise en place ».
+Connecter les
+collaborateurs pour le
+télétravail
+ TD8
 
-Le seul autre texte est, sous le titre « Sur SRV-CD », l’adresse `https://wireguard.how/client/debian/`.
+ Avant de démarrer ce TP.
 
-Un PDF commenté est annoncé dans les ressources à télécharger : **Inexistant**.
+            Durée estimée
+
+              4 heures
+
+Énoncé
+
+Objectifs:
+
+Mise en place
+
+![TP8, énoncé, page 1](../../../assets/images/reseau-et-securite/tp8/enonce-p01-01.png)
+
+![TP8, énoncé, page 1](../../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
+
+Texte visible sur la capture :
+
+```text
+Routeur formafeur 88.66.44.1
+VMnet 10 LAN CLT
+VMnet11 LAN SRV
+VMnet12 LAN DMZ
+```
+
+Sur SRV-CD
+https://wireguard.how/client/debian/
+
+Solution
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+ressources à télécharger.

@@ -7,7 +7,7 @@ Exercice de lecture des énoncés et des corrections. Ce n’est pas le Kahoot. 
 1. Quelle durée l’énoncé du TP1 indique-t-il ? Réponse : 2 h. La correction indique 1 h.
 2. Dans l’exemple `172.20.2.0/24` de la correction, quelle plage est le LAN client ? Réponse : `172.20.2.0` à `172.20.2.127 /25`.
 3. Quel port Squid l’énoncé et la correction du TP5 donnent-ils ? Réponse : 3128.
-4. Quelle URL le TP4 fait-il tester ? Réponse : `https://extra.rouliere.eni`.
+4. Quelle URL le TP4 fait-il tester ? Réponse : `https://extra.votrenom.eni`.
 
 ## Semaine 2/2
 
