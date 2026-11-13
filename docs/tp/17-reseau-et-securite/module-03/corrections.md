@@ -60,7 +60,9 @@ Récupérer la VM CLT-NAT.ovf puis changer l’@IP comme indiqué dans le fichie
 
 ID :stag
 
-Pwd : P@ssw0rd
+Pwd : [masqué]
+
+La valeur de cette ligne est masquée.
 
 ![TP3, correction, page 4](../../../assets/images/reseau-et-securite/tp3/correction-p04-10.png)
 
