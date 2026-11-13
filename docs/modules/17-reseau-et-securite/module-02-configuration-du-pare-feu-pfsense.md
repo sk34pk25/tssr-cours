@@ -28,14 +28,16 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
     ![TP2, énoncé, page 1](../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png)
 
-    Texte visible sur la capture :
+    Valeurs de la capture :
 
-    ```text
-    Routeur formafeur 88.66.44.1
-    VMnet 10 LAN CLT
-    VMnet12 LAN DMZ
-    VMnet11 LAN SRV
-    ```
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS
+    - SRV-MBR : 192.168.X.102/24, DHCP
+
 
     Installation de l’infrastructure
     Installation du serveur SRV-CD
@@ -124,12 +126,24 @@ Semaine **1/2**. Support de cours : **Inexistant**.
            Le joindre au domaine
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-    ressources à télécharger.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-02/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. Les OVF et les archives sont **Inexistant** sur le site.
+
+    ![Schéma réseau du TP2](../../assets/images/reseau-et-securite/tp2/enonce-p01-02.png)
+
+    Valeurs de la capture :
+
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS
+    - SRV-MBR : 192.168.X.102/24, DHCP
+
 
     1. Déployer SRV-CD sur VMnet 11, rôles AD DS et DNS, domaine votredomaine.eni.
     2. Exécuter les scripts du document, après avoir adapté Users.csv et Groups.csv, puis créer le redirecteur vers le DNS de la salle.

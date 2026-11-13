@@ -10,7 +10,7 @@ Pistes écrites dans les documents. Ce qui n’y figure pas est **Inexistant**.
 | Le site de la DMZ ne s’ouvre pas | `/etc/hosts`, `/etc/resolv.conf`, enregistrement DNS, alias d’URL, règles de pare-feu |
 | Un site est bloqué par le proxy | Regarder Status > Proxy Filter. La correction demande aussi les règles de pare-feu |
 | Le tunnel site à site | Vérifier l’état IPsec, la connectivité entre LAN, puis les logs |
-| Le second script de la PKI | Son nom n’est pas écrit : **Inexistant** |
-| Les paramètres IKE et ESP | Ils ne sont pas dans le texte : **Inexistant** |
+| Le second script de la PKI | **Inexistant** |
+| Les paramètres IKE et ESP | **Inexistant** |
 
 [Cours](../modules/17-reseau-et-securite/index.md)

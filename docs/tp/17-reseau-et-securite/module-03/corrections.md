@@ -22,14 +22,6 @@ réseau et de l'importance de la redirection NAT dans les environnements profess
 
 ![TP3, correction, page 1](../../../assets/images/reseau-et-securite/tp3/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10
-VMnet12
-VMnet11
-```
 
 Installation de l’infrastructure
 Connection au Routeur Formateur
@@ -47,24 +39,9 @@ Faire un alias du SRV-MBR
 
 ![TP3, correction, page 2](../../../assets/images/reseau-et-securite/tp3/correction-p02-04.png)
 
-Texte visible sur la capture :
-
-```text
-H#tps;//192.168.150.100/system_gateways.php
-Système / Routage / Passerelles
-Passerelles Routes statiques
-Nom Par défaut Interface Passerelle IP surveillée Description
-wan_pHcp & Default (IPv4)  WAN 10.178.255.254 10.178.255.254 Interface WAN_DHCP Gat
-```
 
 ![TP3, correction, page 2](../../../assets/images/reseau-et-securite/tp3/correction-p02-05.png)
 
-Texte visible sur la capture :
-
-```text
-Réseau Passerelle Interface Description
-172209.192/26 LANSTAG200 - 192.168.150.9 LANSTAGIAIRE LANDMZ-Sella
-```
 
 Ajouter une redirection NAT sur le protocole RDP sur l’Alias de votre serveur SRV-MBR
 
@@ -74,14 +51,6 @@ Activer le bureau à distance avec le groupe GG-IT
 
 ![TP3, correction, page 3](../../../assets/images/reseau-et-securite/tp3/correction-p03-07.png)
 
-Texte visible sur la capture :
-
-```text
-Pare-feu / Alias / Modifier
-Le nom de l'alias ne peut contenir que les caractères "a
-192.168.1.1-192.168.1.10 ou bien un petit sous réseau tel que 192.168.1.16/28 est également utilisabl
-172.20.9.152 Le serveur membre du domaine
-```
 
 ![TP3, correction, page 3](../../../assets/images/reseau-et-securite/tp3/correction-p03-08.png)
 
@@ -101,17 +70,10 @@ windows. Utilser des utilisateurs du groupe GG-IT pour les tests.
 ![TP3, correction, page 5](../../../assets/images/reseau-et-securite/tp3/correction-p05-12.png)
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).
 
 ![TP3, correction, page 6](../../../assets/images/reseau-et-securite/tp3/correction-p06-14.png)
 
-Texte visible sur la capture :
-
-```text
-Serveur 192.168.150.9
-Mot de passe
-Hachage du mot de passe
-```
 
 ![TP3, correction, page 6](../../../assets/images/reseau-et-securite/tp3/correction-p06-15.png)
 

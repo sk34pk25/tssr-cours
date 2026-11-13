@@ -33,14 +33,14 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
     ![TP1, énoncé, page 2](../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png)
 
-    Texte visible sur la capture :
+    Valeurs de la capture :
 
-    ```text
-    192.168.150.100/24
-    VMnet10
-    VMnet12
-    VMnet11
-    ```
+    - Routeur formateur : 192.168.150.100/24
+    - VMnet10, VMnet11 et VMnet12
+    - SRV-CD : Active Directory, DNS
+    - SRV-MBR : DHCP
+    - SRV-WEB
+
 
     Dans le fichier List-IP-Stagiaires.xlsx
 
@@ -84,16 +84,6 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
     ![TP1, énoncé, page 3](../../assets/images/reseau-et-securite/tp1/enonce-p03-05.png)
 
-    Texte visible sur la capture :
-
-    ```text
-    1921681503  [192.168.150.103 |172.30.3.0 172.20.3.0 172.203 172.203 172.203
-    192.168.150.4 [192168150104 |172.30.4.0 172.20.4.0 172.20.4 172.20.4 172.20.4
-    192.168.150.5 [192.168.150.105 [172.30 172.20.5.0 172.20.5 172.20.5 172.20.5
-    192.168.150.6 [192.168.150.106 |172.30. 172.20.6.0 172.20.6 172.20.6 172.20.6
-    1921681507 [192168150107 |172.30. 172.20.7.0 172.20.7 172.20.7 172.20.7
-    192.168.150.8 [192168150108 |172.30. 172.20.8.0 172.20.8 172.20.8 172.20.8
-    ```
 
     Mettre à jour le schéma en y ajoutant vos adresses, le fichier « SchémaRéseauTP1.drawio »
     vous est mis disposition pour le modifier.
@@ -111,11 +101,22 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     Les colonnes en vert pour les actions “permit” et en rouges pour les actions “deny”.
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté (voir la page [Correction](../../tp/17-reseau-et-securite/module-01/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. Le travail consiste à calculer les plages puis à écrire la matrice de flux.
+
+    ![Schéma réseau du TP1](../../assets/images/reseau-et-securite/tp1/enonce-p02-03.png)
+
+    Valeurs de la capture :
+
+    - Routeur formateur : 192.168.150.100/24
+    - VMnet10, VMnet11 et VMnet12
+    - SRV-CD : Active Directory, DNS
+    - SRV-MBR : DHCP
+    - SRV-WEB
+
 
     1. Choisir une colonne dans List-IP-Stagiaires.xlsx. Le nom de stagiaire n’est pas publié.
     2. À partir du Lan Global /24, calculer Lan SRV /26, Lan Client /25 et Lan DMZ /26.

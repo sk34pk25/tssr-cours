@@ -27,14 +27,14 @@ les règles de pare-feu appropriées dans le fichier excel fourni par votre form
 
 ![TP1, correction, page 2](../../../assets/images/reseau-et-securite/tp1/correction-p02-03.png)
 
-Texte visible sur la capture :
+Valeurs de la capture :
 
-```text
-192.168.150.100/24
-VMnet10
-VMnet12
-VMnet11
-```
+- Routeur formateur : 192.168.150.100/24
+- VMnet10, VMnet11 et VMnet12
+- SRV-CD : Active Directory, DNS
+- SRV-MBR : DHCP
+- SRV-WEB
+
 
 Dans le fichier List-IP-Stagiaires.xlsx
 
@@ -91,36 +91,14 @@ Remplissez le fichier « Règles de pare-feu.xlsx » qui vous sera remis par vot
 
 ![TP1, correction, page 5](../../../assets/images/reseau-et-securite/tp1/correction-p05-07.png)
 
-Texte visible sur la capture :
-
-```text
-Pare-feu / Alias / Ports li @
-DHCP67 Port(s) 67 Alias-DHCP67 O0
-DHCP68 Port(s) 68 Alias-DHCP68 UD
-Globalcatalog Port(s) 3368:3269 Alias-Global-catalog3268/3269 O0
-Kerberos Port(s) 88 Alias-Kerberos-88 UD
-LDAPs Port(s) 389:636 Alias-LDAP/LDAPS [ri]
-```
 
 ![TP1, correction, page 5](../../../assets/images/reseau-et-securite/tp1/correction-p05-08.png)
 
-Texte visible sur la capture :
-
-```text
-Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ
-oO Etats Protocole Source Port Destination Port Passerelle d'attente Ordonnancement Description Actions
-```
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).
 
 ![TP1, correction, page 6](../../../assets/images/reseau-et-securite/tp1/correction-p06-10.png)
 
-Texte visible sur la capture :
-
-```text
-Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ
-oO Etats Protocole Source Port Destination Port Passerelle d'attente  Ordonnancement Description Actions
-```
 
 Note : l’énoncé place SRV-WEB, CLT-WIN et CLT-DEB aux 8e, 10e et 12e adresses. Cette correction les place aux 7e, 9e et 11e, avec les valeurs 200, 10 et 12 pour l’exemple 172.20.2.0/24.

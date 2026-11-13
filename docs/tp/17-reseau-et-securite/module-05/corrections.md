@@ -8,7 +8,7 @@ SÉCURISER LE SURF INTERNET
 TD5 Module 1
 
  Avant de démarrer ce TP, d’avoir réalisé les TP précédents. Il convient aux CEL d’avoir
- regardé sur la bibliothèque  les vidéos « pfSense - La sécurité avec un pare-feu open
+ regardé la bibliothèque de vidéos « pfSense - La sécurité avec un pare-feu open
  source” Filtrage Web et Portail captif.
 
             Durée estimée
@@ -27,14 +27,6 @@ réseau..
 
 ![TP5, correction, page 1](../../../assets/images/reseau-et-securite/tp5/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10
-VMnet12
-VMnet11
-```
 
 Paramétrage du squid Pfsense
 1: Configuration de Squid
@@ -54,15 +46,6 @@ Paramétrage du squid Pfsense
 
 ![TP5, correction, page 2](../../../assets/images/reseau-et-securite/tp5/correction-p02-04.png)
 
-Texte visible sur la capture :
-
-```text
-Squid General Settings
-Enable Squid Proxy
-Check to enable the Squid proxy.
-Important: If unchecked, ALL Squid services wi
-Select the IP version Squid will use to select addr
-```
 
 ![TP5, correction, page 2](../../../assets/images/reseau-et-securite/tp5/correction-p02-05.png)
 
@@ -73,16 +56,16 @@ Ajouter le proxy de votre PFsense sur les postes clients
 
 ![TP5, correction, page 3](../../../assets/images/reseau-et-securite/tp5/correction-p03-07.png)
 
-Texte visible sur la capture :
-
-```text
-Squid A
-Allowed Subnets  [372.20.9.0/25
-```
 
 ![TP5, correction, page 3](../../../assets/images/reseau-et-securite/tp5/correction-p03-08.png)
 
 ![TP5, correction, page 3](../../../assets/images/reseau-et-securite/tp5/correction-p03-09.png)
+
+Valeurs de la capture :
+
+- Certificat webConfigurator default, émetteur auto-signé, CN pfSense
+- Valide du 14/07/2024 au 16/08/2025
+
 
 ![TP5, correction, page 3](../../../assets/images/reseau-et-securite/tp5/correction-p03-10.png)
 
@@ -107,12 +90,6 @@ votre client Windows, essayez d'accéder à un site web normal et à un site blo
 
 ![TP5, correction, page 5](../../../assets/images/reseau-et-securite/tp5/correction-p05-15.png)
 
-Texte visible sur la capture :
-
-```text
-Check this option to enable squidGuard
-To activate squidGuard configuration changes
-```
 
 ![TP5, correction, page 5](../../../assets/images/reseau-et-securite/tp5/correction-p05-16.png)
 
@@ -132,7 +109,7 @@ Désactiver squid proxy et mettre en place le portail captive pour vos clients
 Faites une procédure et la remettre à votre formateur
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).
 
 ![TP5, correction, page 8](../../../assets/images/reseau-et-securite/tp5/correction-p08-24.png)
 

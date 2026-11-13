@@ -26,14 +26,16 @@ Semaine **2/2**. Support de cours : **Inexistant**.
 
     ![TP9, énoncé, page 1](../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png)
 
-    Texte visible sur la capture :
+    Valeurs de la capture :
 
-    ```text
-    Routeur formafeur 88.66.44.1
-    VMnet 10 LAN CLT
-    VMnet12 LAN DMZ
-    VMnet11 LAN SRV
-    ```
+    - Deux sites, Binôme 1 et Binôme 2, reliés par un tunnel
+    - Chaque site : routeur formateur 88.66.44.1, WAN 88.66.44.X en bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12, SRV-Apache 172.20.X.200/24
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : Active Directory, DNS, PKI
+    - SRV-MBR : DHCP, IIS
+
 
     Sur le routeur PFsense
     En binôme pour salle
@@ -41,12 +43,24 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     Mise en place d’un deuxième PFsense pour CEL
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-    ressources à télécharger.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-08/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. Il faut deux pfSense et un LAN derrière chacun. En salle, le travail est en binôme. Les CEL mettent en place un deuxième pfSense.
+
+    ![Schéma réseau du TP9](../../assets/images/reseau-et-securite/tp9/enonce-p01-02.png)
+
+    Valeurs de la capture :
+
+    - Deux sites, Binôme 1 et Binôme 2, reliés par un tunnel
+    - Chaque site : routeur formateur 88.66.44.1, WAN 88.66.44.X en bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12, SRV-Apache 172.20.X.200/24
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : Active Directory, DNS, PKI
+    - SRV-MBR : DHCP, IIS
+
 
     1. Créer le tunnel IPsec.
     2. Phase 1 IKE sur les deux pfSense, puis phase 2 ESP.
@@ -54,4 +68,4 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     4. Règles de pare-feu du VPN, autorisation du trafic IPsec, puis du trafic entre les LAN.
     5. Vérifier l’état du tunnel, la connectivité, puis les logs.
 
-    Les algorithmes et les clés ne sont pas écrits dans le texte : **Inexistant**. Ils sont sur les captures de la correction.
+    Algorithmes et clés : **Inexistant**.

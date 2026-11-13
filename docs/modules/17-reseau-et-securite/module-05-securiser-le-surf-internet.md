@@ -9,7 +9,7 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     SÉCURISER LE SURF INTERNET
     TD5
 
-     Avant de démarrer ce TP, il convient aux CEL d’avoir regardé sur la bibliothèque  les
+     Avant de démarrer ce TP, il convient aux CEL d’avoir regardé la bibliothèque de
      vidéos « pfSense - La sécurité avec un pare-feu open source” Filtrage Web et Portail
      captif.
 
@@ -26,22 +26,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
     ![TP5, énoncé, page 1](../../assets/images/reseau-et-securite/tp5/enonce-p01-01.png)
 
-    Texte visible sur la capture :
-
-    ```text
-    Routeur formateur 88.66.44.1
-    Squid
-    ```
 
     ![TP5, énoncé, page 1](../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png)
 
-    Texte visible sur la capture :
-
-    ```text
-    Routeur formafeur 88.66.44.1
-    VMnet 10 LAN CLT VMnet12 LAN DMZ
-    VMnet11 LAN SRV
-    ```
 
     Paramétrage du squid Pfsense
     1 - Configuration de Squid
@@ -170,12 +157,14 @@ Semaine **1/2**. Support de cours : **Inexistant**.
            Vérifiez l'accès à Internet après authentification
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-    ressources à télécharger.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-05/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. Les vidéos demandées aux CEL sont **Inexistant**.
+
+    ![Schéma réseau du TP5](../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png)
+
 
     1. Activer Squid, port 3128. L’énoncé choisit l’interface LAN, le mode transparent et un cache de 100. La correction choisit LANCLIENT, un cache de 1024, sans mode transparent.
     2. Rediriger le HTTP du LAN vers 127.0.0.1:3128 si vous suivez l’énoncé.

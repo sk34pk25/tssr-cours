@@ -26,14 +26,17 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
     ![TP4, énoncé, page 1](../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png)
 
-    Texte visible sur la capture :
+    Valeurs de la capture :
 
-    ```text
-    Routeur formafeur 88.66.44.1
-    VMnet 10 LAN CLT
-    VMnet12 LAN DMZ
-    VMnet11 LAN SRV
-    ```
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS
+    - SRV-MBR : 192.168.X.102/24, DHCP
+    - SRV-Apache : 172.20.X.200/24
+
 
     Installation du serveur WEB
     Récupérer le bunble SRV-Apache.ova
@@ -69,12 +72,25 @@ Semaine **1/2**. Support de cours : **Inexistant**.
            Tester l’accès au serveur WEB avec le FQDN
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-    ressources à télécharger.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-04/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. L’image du serveur web est **Inexistant**.
+
+    ![Schéma réseau du TP4](../../assets/images/reseau-et-securite/tp4/enonce-p01-02.png)
+
+    Valeurs de la capture :
+
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS
+    - SRV-MBR : 192.168.X.102/24, DHCP
+    - SRV-Apache : 172.20.X.200/24
+
 
     1. Déployer le serveur web sur VMnet 12, mot de passe root P@ssw0rd, et renseigner /etc/hosts et /etc/resolv.conf.
     2. Créer l’enregistrement DNS et tester https://extra.votrenom.eni.

@@ -27,25 +27,41 @@ Semaine **2/2**. Support de cours : **Inexistant**.
 
     ![TP8, énoncé, page 1](../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
 
-    Texte visible sur la capture :
+    Valeurs de la capture :
 
-    ```text
-    Routeur formafeur 88.66.44.1
-    VMnet 10 LAN CLT
-    VMnet11 LAN SRV
-    VMnet12 LAN DMZ
-    ```
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS, PKI
+    - SRV-MBR : 192.168.X.102/24, DHCP, IIS
+    - SRV-Apache : 172.20.X.200/24
+
 
     Sur SRV-CD
     https://wireguard.how/client/debian/
 
     Solution
-    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-    ressources à télécharger.
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md)).
 
 === "Cours Optimisé IA"
 
     Le support de cours est **Inexistant**. Le fichier d’installation client n’est pas publié.
+
+    ![Schéma réseau du TP8](../../assets/images/reseau-et-securite/tp8/enonce-p01-02.png)
+
+    Valeurs de la capture :
+
+    - Routeur formateur : 88.66.44.1
+    - WAN : 88.66.44.X, bridge
+    - LAN CLT : 172.20.X.0/24, VMnet10
+    - LAN DMZ : VMnet12
+    - LAN SRV : 192.168.X.0/24, VMnet11
+    - SRV-CD : 192.168.X.100/24, Active Directory, DNS, PKI
+    - SRV-MBR : 192.168.X.102/24, DHCP, IIS
+    - SRV-Apache : 172.20.X.200/24
+
 
     1. Vérifier le ping des adresses WAN entre binômes. Les CEL sortent le client Windows sur le réseau bridge, reprennent l’adresse de CLT-NAT et éteignent CLT-NAT.
     2. Sur pfSense, si le LDAP n’est plus là : autorité de certification, certificat serveur, authentification LDAP, serveur OpenVPN, client OpenVPN.

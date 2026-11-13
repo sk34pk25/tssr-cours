@@ -20,14 +20,6 @@ Mise en place
 
 ![TP7, énoncé, page 1](../../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-Routeur formafeur 88.66.44.1
-VMnet 10 LAN CLT
-VMnet12 LAN DMZ
-VMnet11 LAN SRV
-```
 
 Sur SRV-CD
 Exécuter le script D:/InstallationPKI.ps1
@@ -43,5 +35,4 @@ Utiliser la clé privée de votre formateur http://88.66.44.1 pour sécuriser vo
 routeur.votredomaine.eni, votre formateur vous indiquera les identifiants.
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-ressources à télécharger.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](corrections.md)).

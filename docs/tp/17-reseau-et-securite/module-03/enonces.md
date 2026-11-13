@@ -22,14 +22,16 @@ réseau et de l'importance de la redirection NAT dans les environnements profess
 
 ![TP3, énoncé, page 1](../../../assets/images/reseau-et-securite/tp3/enonce-p01-02.png)
 
-Texte visible sur la capture :
+Valeurs de la capture :
 
-```text
-Routeur formafeur 88.66.44.1
-VMnet 10 LAN CLT
-VMnet12 LAN DMZ
-VMnet11 LAN SRV
-```
+- Routeur formateur : 88.66.44.1
+- WAN : 88.66.44.X, bridge
+- LAN CLT : 172.20.X.0/24, VMnet10
+- LAN DMZ : VMnet12
+- LAN SRV : 192.168.X.0/24, VMnet11
+- SRV-CD : 192.168.X.100/24, Active Directory, DNS
+- SRV-MBR : 192.168.X.102/24, DHCP
+
 
 Installation de l’infrastructure
 Connection au Routeur Formateur
@@ -54,5 +56,4 @@ Entre binôme tester l’accès au bureau à distance depuis le client windows. 
 utilisateurs du groupe GG-IT pour les tests.
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-ressources à télécharger.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](corrections.md)).

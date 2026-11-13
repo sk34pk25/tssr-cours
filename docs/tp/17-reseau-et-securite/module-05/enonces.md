@@ -4,7 +4,7 @@
 SÉCURISER LE SURF INTERNET
 TD5
 
- Avant de démarrer ce TP, il convient aux CEL d’avoir regardé sur la bibliothèque  les
+ Avant de démarrer ce TP, il convient aux CEL d’avoir regardé la bibliothèque de
  vidéos « pfSense - La sécurité avec un pare-feu open source” Filtrage Web et Portail
  captif.
 
@@ -21,22 +21,9 @@ web et sur pfSense, offrant ainsi un contrôle avancé sur le trafic Internet de
 
 ![TP5, énoncé, page 1](../../../assets/images/reseau-et-securite/tp5/enonce-p01-01.png)
 
-Texte visible sur la capture :
-
-```text
-Routeur formateur 88.66.44.1
-Squid
-```
 
 ![TP5, énoncé, page 1](../../../assets/images/reseau-et-securite/tp5/enonce-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-Routeur formafeur 88.66.44.1
-VMnet 10 LAN CLT VMnet12 LAN DMZ
-VMnet11 LAN SRV
-```
 
 Paramétrage du squid Pfsense
 1 - Configuration de Squid
@@ -165,5 +152,4 @@ Connectez-vous au client Linux du réseau LAN
        Vérifiez l'accès à Internet après authentification
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
-ressources à télécharger.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](corrections.md)).

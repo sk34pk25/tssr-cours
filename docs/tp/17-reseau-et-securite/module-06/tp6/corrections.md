@@ -24,13 +24,6 @@ chiffrant le trafic entre clients et serveurs.
 
 ![TP6, correction, page 1](../../../../assets/images/reseau-et-securite/tp6/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10 VMnet12
-VMnet11
-```
 
 Sur SRV-MBR
 
@@ -46,21 +39,9 @@ Ajout de règles
 
 ![TP6, correction, page 2](../../../../assets/images/reseau-et-securite/tp6/correction-p02-04.png)
 
-Texte visible sur la capture :
-
-```text
-WireGuard
-Port Passerelle d'attente Ordonnancement Descri Actions
-```
 
 ![TP6, correction, page 2](../../../../assets/images/reseau-et-securite/tp6/correction-p02-05.png)
 
-Texte visible sur la capture :
-
-```text
-Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ
-oO Etats Protocole Source Port Destination Port Passerelle d'attente Ordonnancement Description Actions
-```
 
 •
 
@@ -73,14 +54,6 @@ oO Etats Protocole Source Port Destination Port Passerelle d'attente Ordonnancem
 
 ![TP6, correction, page 3](../../../../assets/images/reseau-et-securite/tp6/correction-p03-07.png)
 
-Texte visible sur la capture :
-
-```text
-1.208.152 255.255.255.192
-_| 1.208.183 255.255.255.192
-au tot Passerelles par défaut
-q Passerelle Métrique
-```
 
 ![TP6, correction, page 3](../../../../assets/images/reseau-et-securite/tp6/correction-p03-08.png)
 
@@ -127,15 +100,6 @@ Sur SRV-WEB
 
 ![TP6, correction, page 7](../../../../assets/images/reseau-et-securite/tp6/correction-p07-21.png)
 
-Texte visible sur la capture :
-
-```text
-GNU nano 7.2 /etc/network,
-source /etc/network/interfaces.d/*
-address 172.20.9.200/26
-gateway 172.20.9.254
-address 172.20.9.202/26
-```
 
 •   Tester l'accès aux différents sites à partir de SRV-WEB avec la commande lynx et
        depuis les postes clients dans les navigateurs.
@@ -149,6 +113,11 @@ address 172.20.9.202/26
 ![TP6, correction, page 8](../../../../assets/images/reseau-et-securite/tp6/correction-p08-23.png)
 
 ![TP6, correction, page 8](../../../../assets/images/reseau-et-securite/tp6/correction-p08-24.png)
+
+Valeurs de la capture :
+
+- openssl genrsa -out internet.votrenom.eni.key 2048
+
 
 ![TP6, correction, page 8](../../../../assets/images/reseau-et-securite/tp6/correction-p08-25.png)
 
@@ -185,4 +154,4 @@ Sur le routeur PFsense
 ![TP6, correction, page 11](../../../../assets/images/reseau-et-securite/tp6/correction-p11-35.png)
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).

@@ -23,14 +23,6 @@ TP1 dans pfSense.
 
 ![TP2, correction, page 1](../../../assets/images/reseau-et-securite/tp2/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10
-VMnet12
-VMnet11
-```
 
 Installation de l’infrastructure
 Installation du serveur SRV-CD
@@ -74,12 +66,6 @@ avant d’éxecuter les scripts suivants.
 
 ![TP2, correction, page 4](../../../assets/images/reseau-et-securite/tp2/correction-p04-13.png)
 
-Texte visible sur la capture :
-
-```text
-Entrez le réseau (ex: 192.168.1.0): 172.20.9.0
-Entrez le masque de sous-réseau (ex: 255.255.255.0): 255.255.255.0
-```
 
 ![TP2, correction, page 4](../../../assets/images/reseau-et-securite/tp2/correction-p04-14.png)
 
@@ -138,18 +124,15 @@ sont sur les bons VMnet comme indiqué sur le schéma.
 
 ![TP2, correction, page 9](../../../assets/images/reseau-et-securite/tp2/correction-p09-32.png)
 
+Valeurs de la capture :
+
+- Nom de l’ordinateur : SRV-MBR
+- Domaine : votrenom.eni
+- Groupe de travail : WORKGROUP
+
+
 ![TP2, correction, page 9](../../../assets/images/reseau-et-securite/tp2/correction-p09-33.png)
 
-Texte visible sur la capture :
-
-```text
-PS D:\Scripts> .\InstaLlationDHCP+Etendueps1
-Entrez l'adresse IP de début de plage: 172.20.9.10
-Entrez l'adresse IP de fin de plage: 172.20.9.100
-Entrez le masque de sous-réseau (ex: 255.255.255.0): 255.255.255.128
-Entrez l'adresse IP du serveur DNS: 172.20.9.150
-Entrez l'adresse IP de la passerelle par défaut: 172.20.9.126
-```
 
 Modifier dans les paramètres générales votre domaine et votre DNS
 
@@ -157,26 +140,9 @@ Modifier dans les paramètres générales votre domaine et votre DNS
 
 ![TP2, correction, page 10](../../../assets/images/reseau-et-securite/tp2/correction-p10-35.png)
 
-Texte visible sur la capture :
-
-```text
-http://172.28.9.254/
-LANCLIENT Clan) -> emt => ud: 172.28.9.126/25
-LANSERUER (opti) -> em2 172.28.9.198/26
-LANDMZ Copt2)  -> em3 172.28.9.254/26
-3) Reset webConfigurator password 12) PHP shell + pfSense tools
-```
 
 ![TP2, correction, page 10](../../../assets/images/reseau-et-securite/tp2/correction-p10-36.png)
 
-Texte visible sur la capture :
-
-```text
-Système / Routage / Passerelles
-Passerelles Routes statiques Groupes de passerelle
-Nom Par défaut Interface Passerelle IP surveillée Description
-og  wanew2 Default (IPv4)  WAN 192.168.150.100 192.168.150.100 Interface wan Gateway
-```
 
 ![TP2, correction, page 10](../../../assets/images/reseau-et-securite/tp2/correction-p10-37.png)
 
@@ -224,34 +190,14 @@ fonctionnement.
 
 ![TP2, correction, page 13](../../../assets/images/reseau-et-securite/tp2/correction-p13-43.png)
 
-Texte visible sur la capture :
-
-```text
-Passerelle par défaut IPv4
-Passerelle par défaut IPv6
-```
 
 ![TP2, correction, page 13](../../../assets/images/reseau-et-securite/tp2/correction-p13-44.png)
 
-Texte visible sur la capture :
-
-```text
-GRPSRVWIN Hôte(s) 172.20.9.150, 172.20.9.152 GRP-SRV-WIN gOt
-PCAdmin Hôte(s) 172.20.9.10, 172.20.9.11 PC-Admin PA
-SRVDC1 Hôte(s) 172.20.9.150 SRV-DC1 #00
-SRVMBR Hôte(s) 172.20.9.152 SRV-MBR PA
-```
 
 ![TP2, correction, page 14](../../../assets/images/reseau-et-securite/tp2/correction-p14-46.png)
 
 ![TP2, correction, page 14](../../../assets/images/reseau-et-securite/tp2/correction-p14-47.png)
 
-Texte visible sur la capture :
-
-```text
-Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ LANSTAGIAIRE IPsec
-oO Etats Protocole Source Port Destination Port Passerelle d'attente Ordonnancement Description Actions
-```
 
 ![TP2, correction, page 14](../../../assets/images/reseau-et-securite/tp2/correction-p14-48.png)
 
@@ -260,17 +206,10 @@ Client Windows 11
        Le joindre au domaine
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).
 
 ![TP2, correction, page 15](../../../assets/images/reseau-et-securite/tp2/correction-p15-50.png)
 
-Texte visible sur la capture :
-
-```text
-Flottant(e) WireGuard WAN LANCLIENT LANSERVER LANDMZ LANSTAGIAIRE
-IPsec
-0 États Protocole Source Port Destination Port Passerelle File d'attente Ordonnancement Description
-```
 
 ![TP2, correction, page 15](../../../assets/images/reseau-et-securite/tp2/correction-p15-51.png)
 

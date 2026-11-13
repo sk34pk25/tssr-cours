@@ -20,14 +20,6 @@ Objectifs: Explorer les aspects essentiels de la mise en place et de la gestion 
 
 ![TP4, correction, page 1](../../../assets/images/reseau-et-securite/tp4/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10
-VMnet12
-VMnet11
-```
 
 Installation du serveur WEB
 Récupérer le bundle SRV-WEB.ovf
@@ -42,31 +34,12 @@ infrastructure.
 
 ![TP4, correction, page 2](../../../assets/images/reseau-et-securite/tp4/correction-p02-04.png)
 
-Texte visible sur la capture :
-
-```text
-source /etc/netuark/interfaces.d/x
-address 172.20.9.200/26
-gateway 172.20.9.254
-```
 
 ![TP4, correction, page 2](../../../assets/images/reseau-et-securite/tp4/correction-p02-05.png)
 
-Texte visible sur la capture :
-
-```text
-inet 127.0.0.1/8 scope host lo
-inet 172.20.9.200/26 brd 172.20.3.255 scope global ens33
-```
 
 ![TP4, correction, page 2](../../../assets/images/reseau-et-securite/tp4/correction-p02-06.png)
 
-Texte visible sur la capture :
-
-```text
-nameserver 172.20.9.150
-nameserver 10.176.9.3
-```
 
 Sur le SRV-DC
 
@@ -86,12 +59,6 @@ Attention aux règles de pare-feu
 
 ![TP4, correction, page 3](../../../assets/images/reseau-et-securite/tp4/correction-p03-09.png)
 
-Texte visible sur la capture :
-
-```text
-PS D:\Scripts> .\AddDnsZone.ps1
-Entrez l'adresse IP pour l'enregistrement ‘extra’: 172.20.9.200
-```
 
 ![TP4, correction, page 3](../../../assets/images/reseau-et-securite/tp4/correction-p03-10.png)
 
@@ -104,18 +71,10 @@ Client Windows
        Tester l’accès au serveur WEB avec le FQDN en interne
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (correction reproduite ci-dessous).
 
 ![TP4, correction, page 4](../../../assets/images/reseau-et-securite/tp4/correction-p04-12.png)
 
-Texte visible sur la capture :
-
-```text
-GRPSRVWIN Hôte(s) 172.20.9.150, 172.20.9.152 GRP-SRV-WIN gon
-PCAdmin Hôte(s) 172.20.9.10, 172.20.9.11 PC-Admin #00
-SRVDC1 Hôte(s) 172.20.9.150 SRV-DC1 PA
-SRVMBR Hôte(s) 172.20.9.152 SRV-MBR #00
-```
 
 ![TP4, correction, page 4](../../../assets/images/reseau-et-securite/tp4/correction-p04-13.png)
 

@@ -24,13 +24,6 @@ reconnue.
 
 ![TP7, correction, page 1](../../../../assets/images/reseau-et-securite/tp7/correction-p01-02.png)
 
-Texte visible sur la capture :
-
-```text
-192.168.150.100/24
-VMnet10 VMnet12
-VMnet11
-```
 
 Sur SRV-CD
    •   Exécuter le script D:/InstallationPKI.ps1
@@ -97,6 +90,14 @@ Sur SRV-WEB
 
 ![TP7, correction, page 14](../../../../assets/images/reseau-et-securite/tp7/correction-p14-39.png)
 
+Valeurs de la capture :
+
+- openssl req -new -key
+- Fichiers : internet.votrenom.eni.cert, internet.votrenom.eni.csr, internet.votrenom.eni.key, internet.votrenom.eni.pem
+
+Contenu PEM masqué
+
+
 ![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-41.png)
 
 ![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-42.png)
@@ -121,7 +122,16 @@ Sur le routeur PFsense
 
 ![TP7, correction, page 17](../../../../assets/images/reseau-et-securite/tp7/correction-p17-52.png)
 
+Valeurs de la capture :
+
+- Nom descriptif : routeur.votrenom.eni
+
+Contenu PEM masqué
+
+
 ![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-54.png)
+Contenu PEM masqué
+
 
 ![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-55.png)
 
@@ -134,4 +144,4 @@ Sur le routeur PFsense
 ![TP7, correction, page 19](../../../../assets/images/reseau-et-securite/tp7/correction-p19-60.png)
 
 Solution
-Une solution est proposée pour ce TP sous la forme d'un PDF commenté.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté (correction reproduite ci-dessous).
