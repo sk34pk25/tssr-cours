@@ -216,13 +216,23 @@ function assertNoConflicts(files: ProposedFile[], currentTree: Map<string, GitTr
 async function mapPool<T, R>(items: T[], limit: number, task: (item: T, index: number) => Promise<R>): Promise<R[]> {
   const results = new Array<R>(items.length);
   let cursor = 0;
-  const workers = Array.from({ length: Math.min(limit, Math.max(items.length, 1)) }, async () => {
-    while (cursor < items.length) {
+  let stopped = false;
+  let failure: unknown;
+  const workers = Array.from({ length: Math.min(Math.max(limit, 1), Math.max(items.length, 1)) }, async () => {
+    while (true) {
+      // One failure stops new claims. Work already started is allowed to finish.
+      if (stopped || cursor >= items.length) return;
       const index = cursor++;
-      results[index] = await task(items[index], index);
+      try {
+        results[index] = await task(items[index], index);
+      } catch (error) {
+        stopped = true;
+        failure ??= error;
+      }
     }
   });
   await Promise.all(workers);
+  if (failure) throw failure;
   return results;
 }
 

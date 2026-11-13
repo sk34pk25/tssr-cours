@@ -29,7 +29,7 @@ function files(count: number): ProposedFile[] {
   return [...pages, ...images];
 }
 
-function mock(options: { failAt?: number; delayMs?: number }) {
+function mock(options: { failAt?: number; delayMs?: number; failDelayMs?: number }) {
   const calls: string[] = [];
   let blobs = 0;
   let inFlight = 0;
@@ -48,7 +48,8 @@ function mock(options: { failAt?: number; delayMs?: number }) {
       maxInFlight = Math.max(maxInFlight, inFlight);
       blobs += 1;
       const current = blobs;
-      await new Promise((resolve) => setTimeout(resolve, options.delayMs ?? 0));
+      const delay = options.failAt === current ? (options.failDelayMs ?? options.delayMs ?? 0) : (options.delayMs ?? 0);
+      await new Promise((resolve) => setTimeout(resolve, delay));
       inFlight -= 1;
       if (options.failAt && current === options.failAt) throw new Error("blob refused");
       return { sha: SHA } as T;
@@ -93,5 +94,38 @@ Deno.test("a blob failure publishes nothing", async () => {
     author_display_name: "Patrik",
     base_commit_sha: SHA,
   }, files(40), ["Patrik"], github.io), Error, "blob refused");
+  assert(!github.calls.some((call) => call === "POST /git/trees" || call === "POST /git/commits" || call.startsWith("PATCH ")));
+});
+
+Deno.test("one blob failure stops the pool from starting further uploads", async () => {
+  const github = mock({ failAt: 1, delayMs: 30, failDelayMs: 0 });
+  await assertRejects(() => createAtomicCommit(config(), {
+    id: "11111111-1111-4111-8111-111111111111",
+    title: "Cours",
+    author_display_name: "Patrik",
+    base_commit_sha: SHA,
+  }, files(80), ["Patrik"], github.io), Error, "blob refused");
+  const blobs = github.calls.filter((call) => call === "POST /git/blobs").length;
+  assertEquals(blobs, 6);
+  assertEquals(github.maxInFlight(), 6);
+  assert(!github.calls.some((call) => call === "POST /git/trees" || call === "POST /git/commits" || call.startsWith("PATCH ")));
+});
+
+Deno.test("text-only uploads stay sequential and stop at the first failure", async () => {
+  const pages: ProposedFile[] = Array.from({ length: 5 }, (_, index) => ({
+    file_path: `docs/note-${index}.md`,
+    change_type: "create",
+    new_content: "# Note\n",
+    content_encoding: "utf-8",
+  }));
+  const github = mock({ failAt: 3, delayMs: 0 });
+  await assertRejects(() => createAtomicCommit(config(), {
+    id: "11111111-1111-4111-8111-111111111111",
+    title: "Notes",
+    author_display_name: "Patrik",
+    base_commit_sha: SHA,
+  }, pages, ["Patrik"], github.io), Error, "blob refused");
+  assertEquals(github.calls.filter((call) => call === "POST /git/blobs").length, 3);
+  assertEquals(github.maxInFlight(), 1);
   assert(!github.calls.some((call) => call === "POST /git/trees" || call === "POST /git/commits" || call.startsWith("PATCH ")));
 });
