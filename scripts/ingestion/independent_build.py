@@ -15,7 +15,7 @@ import sys
 import tarfile
 import tempfile
 
-from ingestion.granularity import split_proposal_files
+from ingestion.granularity import proposal_target, split_proposal_files
 from ingestion.proposal_links import ProposalLinkError, assert_proposal_links
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -69,12 +69,18 @@ def assert_independent_build(payload, *, repo=ROOT):
                         target.parent.mkdir(parents=True, exist_ok=True)
                         target.write_bytes(tree.extractfile(entry).read())
             for file in pages:
-                target = root / file['file_path']
+                try:
+                    target = proposal_target(root, file['file_path'])
+                except ValueError:
+                    raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: invalid isolated proposal')
                 require(target.is_file() == (file['change_type'] == 'update'))
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(file['new_content'].encode('utf-8'))
             for file in images:
-                target = root / file['file_path']
+                try:
+                    target = proposal_target(root, file['file_path'])
+                except ValueError:
+                    raise IndependentBuildError('INDEPENDENT_BUILD_FAILED: invalid isolated proposal')
                 require(file.get('content_encoding') == 'base64' and file.get('change_type') == 'create')
                 require(not target.exists())
                 try:

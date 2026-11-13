@@ -228,10 +228,18 @@ Deno.test("course images past the text quota stay in the same proposal", () => {
   ]), Error, "ensemble du cours correspondant");
   assertThrows(() => validateProposedFiles([
     courseIndex, ...images, { ...coursePng("note.svg"), file_path: "docs/assets/images/99-fixture-cours/note.svg", media_type: "image/svg+xml" },
-  ]), Error, "éditable");
+  ]), Error, "ensemble du cours correspondant");
   assertThrows(() => validateProposedFiles([
     courseIndex, ...images.slice(0, 99), { ...coursePng("page.html"), file_path: "docs/assets/images/99-fixture-cours/page.html", media_type: "text/html" },
-  ]), Error, "éditable");
+  ]), Error, "ensemble du cours correspondant");
+});
+
+Deno.test("uppercase folders and root images are refused once the text quota is exceeded", () => {
+  const images = Array.from({ length: 100 }, (_, index) => coursePng(`schema-${index}.png`));
+  const upper = { ...coursePng("schema.png"), file_path: "docs/assets/images/RESEAU/schema.png" };
+  const root = { ...coursePng("schema.png"), file_path: "docs/assets/images/schema.png" };
+  assertThrows(() => validateProposedFiles([courseIndex, ...images, upper]), Error, "ensemble du cours correspondant");
+  assertThrows(() => validateProposedFiles([courseIndex, ...images, root]), Error, "ensemble du cours correspondant");
 });
 
 Deno.test("an oversized course image is refused without raising the binary caps", () => {

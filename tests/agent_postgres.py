@@ -165,6 +165,34 @@ class AgentPostgres(m.MaintenancePostgres):
         self.assertEqual(vote.stdout.strip(),"approved")
 
 
+    def test_agent_course_images_keep_small_sets_and_accept_the_unprefixed_folder(self):
+        self.sql((m.MIGRATIONS / "20261113120000_course_set_images.sql").read_text(), self.db)
+        summary = '{"_actor_profile_id":"%s"}' % m.PROFILE
+
+        def propose(files, ok=True):
+            query = (
+                "set role service_role; set request.jwt.claim.role='service_role'; "
+                "select row_to_json(r) from public.create_change_request("
+                f"'Images','','{m.SHA}', $files${json.dumps(files)}$files$::jsonb, "
+                f"null, 'content_change', '{summary}') r;"
+            )
+            return self.sql(query, self.db, ok)
+
+        image = {"new_content": "aGVsbG8=", "content_encoding": "base64",
+                 "media_type": "image/png", "change_type": "create"}
+        only = propose([{**image, "file_path": "docs/assets/images/reseau-et-securite/a.png"}])
+        self.assertIn("id", only.stdout)
+        images = [{**image, "file_path": f"docs/assets/images/reseau-et-securite/p{i}.png"} for i in range(100)]
+        missing = propose(images + [image | {"file_path": "docs/assets/images/reseau-et-securite/extra.png"}], ok=False)
+        self.assertNotEqual(missing.returncode, 0)
+        accepted = propose([
+            {"file_path": "docs/modules/17-reseau-et-securite/index.md", "new_content": "# Cours\n",
+             "content_encoding": "utf-8", "change_type": "create"},
+            *images,
+        ])
+        self.assertIn("id", accepted.stdout)
+
+
 if __name__ == "__main__":
     # The original suite is run separately; run only new cases here.
     suite=unittest.TestSuite(AgentPostgres(name) for name in dir(AgentPostgres) if name.startswith("test_agent_"))

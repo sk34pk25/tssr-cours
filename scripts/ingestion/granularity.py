@@ -50,12 +50,40 @@ def require(condition):
         raise GranularityError()
 
 
+def safe_proposal_path(path):
+    """Reject escapes before any path is joined onto a build directory."""
+    if not isinstance(path, str) or not path or path.startswith(("/", "\\")):
+        return False
+    if "\\" in path or "//" in path or "\x00" in path:
+        return False
+    current = path
+    for _ in range(3):
+        if "%2e" in current.lower():
+            return False
+        if "\\" in current or "//" in current or current.startswith(("/", "\\")):
+            return False
+        if any(part in {"", ".", ".."} for part in current.split("/")):
+            return False
+        current = unquote(current)
+    return True
+
+
+def proposal_target(root, relative):
+    if not safe_proposal_path(relative):
+        raise ValueError("unsafe proposal path")
+    root_resolved = Path(root).resolve()
+    target = (root_resolved / relative).resolve()
+    if target != root_resolved and root_resolved not in target.parents:
+        raise ValueError("unsafe proposal path")
+    return target
+
+
 def split_proposal_files(files):
     """Markdown stays the approval unit. Course images are an extra list."""
     pages, images = [], []
     for file in files:
         path = file.get("file_path") if isinstance(file, dict) else None
-        if isinstance(path, str) and COURSE_IMAGE.fullmatch(path):
+        if isinstance(path, str) and safe_proposal_path(path) and COURSE_IMAGE.fullmatch(path):
             images.append(file)
         else:
             pages.append(file)
@@ -281,7 +309,7 @@ def _validate_course_images(images, folder, repo, base):
     seen = set()
     for file in images:
         path = file.get("file_path")
-        require(isinstance(path, str) and path not in seen)
+        require(isinstance(path, str) and safe_proposal_path(path) and path not in seen)
         seen.add(path)
         match = COURSE_IMAGE.fullmatch(path)
         allowed = {folder}

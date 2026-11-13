@@ -15,7 +15,7 @@ export interface ProposedFile {
 }
 
 const SAFE_IMAGE = /^docs\/assets\/images\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/i;
-const COURSE_IMAGE = /^docs\/assets\/images\/([a-z0-9]+(?:-[a-z0-9]+)*)\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/i;
+const COURSE_IMAGE = /^docs\/assets\/images\/([a-z0-9]+(?:-[a-z0-9]+)*)\/[a-zA-Z0-9_./-]+\.(png|jpe?g|webp|gif)$/;
 const COURSE_INDEX = /^docs\/modules\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.md$/;
 export const MAX_TEXT_FILES = 100;
 export const MAX_COURSE_IMAGES = 200;
@@ -54,8 +54,9 @@ export function assertProposalFileQuota(files: ProposedFile[]): void {
   const slugs = new Set(
     rest.map((file) => courseIndexSlug(file?.file_path || "")).filter((slug): slug is string => Boolean(slug)),
   );
-  for (const image of images) {
-    const slug = courseImageSlug(image.file_path || "");
+  for (const file of files) {
+    if ((file?.content_encoding || "utf-8") !== "base64") continue;
+    const slug = courseImageSlug(file?.file_path || "");
     if (![...slugs].some((folder) => courseImageMatches(slug, folder))) {
       throw new Error("Les images hors quota ne sont admises que dans l'ensemble du cours correspondant.");
     }

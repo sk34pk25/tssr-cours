@@ -19,6 +19,11 @@ async function hexHash(algorithm: string, bytes: Uint8Array): Promise<string> {
   return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
 }
 
+/** A course set may carry 100 text files and 200 images. GitHub lists at most 300. */
+export function courseRecoveryManifestFits(reported: number, expected: number): boolean {
+  return reported === expected && reported <= 300;
+}
+
 function decodeBase64(value: string): Uint8Array {
   const binary = atob(value);
   const bytes = new Uint8Array(binary.length);
@@ -98,7 +103,7 @@ export async function handleRecovery(client: SupabaseClient, body: Record<string
     const initial = await read<{ sha: string; parents: unknown[]; files: Array<{ filename: string; status: string }> }>(`/commits/${commitSha(row.published_commit_sha)}?per_page=${hasCourseImages ? 300 : 100}`);
     const expectedPaths = files.data.map(f => f.file_path).sort();
     const manifestFits = hasCourseImages
-      ? initial.files.length === expectedPaths.length && initial.files.length < 300
+      ? courseRecoveryManifestFits(initial.files.length, expectedPaths.length)
       : initial.files.length < 100 && initial.files.length === expectedPaths.length;
     requireProof(initial.sha === row.published_commit_sha && initial.parents.length === 1 &&
       manifestFits &&

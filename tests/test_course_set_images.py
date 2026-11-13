@@ -1,5 +1,6 @@
 """Locks that stay outside the image addition: rate limit and page links."""
 from pathlib import Path
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,6 +42,27 @@ class CourseSetImagePolicyTest(unittest.TestCase):
         self.assertIn('if (changeRequest.status === "approved")', vote)
         self.assertEqual(vote.count("publishApprovedChange"), 1)
         self.assertLess(vote.index('status === "approved"'), vote.index("publishApprovedChange"))
+
+    def test_proposal_paths_cannot_escape_the_build_directory(self):
+        import sys
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from ingestion.granularity import proposal_target, safe_proposal_path
+        root = Path(tempfile.mkdtemp())
+        escaped = [
+            "docs/assets/images/reseau/../../etc/passwd.png",
+            "docs/assets/images/reseau/%2e%2e/x.png",
+            "docs/assets/images/reseau/%2E%2E/%2e%2e/x.png",
+            "docs/assets/images/reseau/%252e%252e/x.png",
+            "/etc/passwd.png",
+            "docs\\assets\\images\\x.png",
+            "docs//assets/images/x.png",
+        ]
+        for path in escaped:
+            self.assertFalse(safe_proposal_path(path), path)
+            with self.assertRaises(ValueError):
+                proposal_target(root, path)
+        self.assertFalse((root.parent / "etc").exists())
+        self.assertTrue(safe_proposal_path("docs/assets/images/reseau-et-securite/tp1/a.png"))
 
 
 if __name__ == "__main__":

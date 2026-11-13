@@ -94,7 +94,9 @@ begin
   where coalesce(item->>'content_encoding', 'utf-8') = 'base64'
     and coalesce(item->>'file_path', '') ~ '^docs/assets/images/[a-z0-9]+(-[a-z0-9]+)*/[A-Za-z0-9_./-]+\.(png|jpe?g|webp|gif)$';
   text_count := file_count - coalesce(image_count, 0);
-  if text_count < 1 or text_count > 100 or coalesce(image_count, 0) > 200 then
+  -- At or under 100 files the historical rule applies: any mix, including images only.
+  -- Above 100, the surplus must be course images and the text part stays within 1..100.
+  if file_count < 1 or (file_count > 100 and (text_count < 1 or text_count > 100 or coalesce(image_count, 0) > 200)) then
     raise exception 'Une proposition doit contenir entre 1 et 100 fichiers.';
   end if;
   if file_count > 100 and exists (
@@ -108,7 +110,7 @@ begin
           or page->>'file_path' ~ (
             '^docs/modules/[0-9]+-'
             || (regexp_match(item->>'file_path', '^docs/assets/images/([a-z0-9]+(?:-[a-z0-9]+)*)/'))[1]
-            || '/index\\.md$'
+            || '/index\.md$'
           )
       )
   ) then

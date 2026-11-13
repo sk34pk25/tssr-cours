@@ -54,6 +54,8 @@ export function githubConfig(): GitHubConfig {
   return { token, owner, repo, branch, publishMode: requestedMode as GitHubConfig["publishMode"] };
 }
 
+type GitHubCall = <T>(config: GitHubConfig, path: string, init?: RequestInit) => Promise<T>;
+
 async function github<T>(config: GitHubConfig, path: string, init: RequestInit = {}): Promise<T> {
   if (!["GET", "HEAD"].includes((init.method || "GET").toUpperCase())) {
     if (!config.beforeWrite) throw new MaintenanceError();
@@ -211,18 +213,43 @@ function assertNoConflicts(files: ProposedFile[], currentTree: Map<string, GitTr
   }
 }
 
-async function createAtomicCommit(
+async function mapPool<T, R>(items: T[], limit: number, task: (item: T, index: number) => Promise<R>): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let cursor = 0;
+  const workers = Array.from({ length: Math.min(limit, Math.max(items.length, 1)) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor++;
+      results[index] = await task(items[index], index);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
+async function readTextFile(io: GitHubCall, config: GitHubConfig, filePath: string): Promise<string> {
+  await io<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
+  const encodedPath = filePath.split("/").map(encodeURIComponent).join("/");
+  const file = await io<{ content: string; encoding: string; type: string }>(
+    config,
+    `/contents/${encodedPath}?ref=${encodeURIComponent(config.branch)}`,
+  );
+  if (file.type !== "file" || file.encoding !== "base64") throw new Error("Le fichier demandé n’est pas un fichier texte lisible.");
+  return decodeBase64(file.content);
+}
+
+export async function createAtomicCommit(
   config: GitHubConfig,
   request: ChangeRequestRow,
   files: ProposedFile[],
   approverNames: string[],
+  io: GitHubCall = github,
 ): Promise<{ commitSha: string; currentSha: string }> {
   // Check every display value before creating even an unreferenced Git object.
   const message = buildCommitMessage(request, approverNames);
-  const ref = await github<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
+  const ref = await io<{ object: { sha: string } }>(config, `/git/ref/heads/${encodeURIComponent(config.branch)}`);
   const currentSha = ref.object.sha;
-  const commit = await github<{ tree: { sha: string } }>(config, `/git/commits/${currentSha}`);
-  const recursive = await github<{ tree: GitTreeItem[]; truncated: boolean }>(config, `/git/trees/${commit.tree.sha}?recursive=1`);
+  const commit = await io<{ tree: { sha: string } }>(config, `/git/commits/${currentSha}`);
+  const recursive = await io<{ tree: GitTreeItem[]; truncated: boolean }>(config, `/git/trees/${commit.tree.sha}?recursive=1`);
   if (recursive.truncated) throw new Error("L’arbre GitHub est trop volumineux pour une validation sûre.");
   const currentTree = treeMap(recursive.tree);
   assertNoConflicts(files, currentTree);
@@ -230,37 +257,40 @@ async function createAtomicCommit(
   const availableFiles = applyAvailableFiles(new Set(currentTree.keys()), files);
   assertProposalLinks(files, availableFiles);
   const mkdocsChange = files.find((file) => file.file_path === "mkdocs.yml");
-  const currentMkDocs = await fetchRepositoryFile("mkdocs.yml");
-  const nextMkDocs = mkdocsChange?.new_content ?? currentMkDocs.content;
-  validateMkDocsEdit(currentMkDocs.content, nextMkDocs || "", availableFiles);
+  const currentMkDocs = await readTextFile(io, config, "mkdocs.yml");
+  const nextMkDocs = mkdocsChange?.new_content ?? currentMkDocs;
+  validateMkDocsEdit(currentMkDocs, nextMkDocs || "", availableFiles);
 
-  const elements: Array<Record<string, unknown>> = [];
-  for (const file of files) {
-    if (file.change_type === "delete" || file.change_type === "rename") {
-      elements.push({ path: file.file_path, mode: "100644", type: "blob", sha: null });
-    }
-    if (file.change_type !== "delete") {
-      const blob = await github<{ sha: string }>(config, "/git/blobs", {
-        method: "POST",
-        body: JSON.stringify({
-          content: file.new_content,
-          encoding: file.content_encoding === "base64" ? "base64" : "utf-8",
-        }),
-      });
-      elements.push({
-        path: file.new_file_path || file.file_path,
-        mode: currentTree.get(file.file_path)?.mode || "100644",
-        type: "blob",
-        sha: blob.sha,
-      });
-    }
-  }
+  const deletions = files.filter((file) => file.change_type === "delete" || file.change_type === "rename");
+  const writes = files.filter((file) => file.change_type !== "delete");
+  // Text-only proposals stay strictly sequential. Image sets upload blobs
+  // with a small pool. The ref is not moved here.
+  const concurrency = writes.some((file) => file.content_encoding === "base64") ? 6 : 1;
+  const written = await mapPool(writes, concurrency, async (file) => {
+    const blob = await io<{ sha: string }>(config, "/git/blobs", {
+      method: "POST",
+      body: JSON.stringify({
+        content: file.new_content,
+        encoding: file.content_encoding === "base64" ? "base64" : "utf-8",
+      }),
+    });
+    return {
+      path: file.new_file_path || file.file_path,
+      mode: currentTree.get(file.file_path)?.mode || "100644",
+      type: "blob" as const,
+      sha: blob.sha,
+    };
+  });
+  const elements: Array<Record<string, unknown>> = [
+    ...deletions.map((file) => ({ path: file.file_path, mode: "100644", type: "blob", sha: null })),
+    ...written,
+  ];
 
-  const tree = await github<{ sha: string }>(config, "/git/trees", {
+  const tree = await io<{ sha: string }>(config, "/git/trees", {
     method: "POST",
     body: JSON.stringify({ base_tree: commit.tree.sha, tree: elements }),
   });
-  const created = await github<{ sha: string }>(config, "/git/commits", {
+  const created = await io<{ sha: string }>(config, "/git/commits", {
     method: "POST",
     body: JSON.stringify({ message, tree: tree.sha, parents: [currentSha] }),
   });
