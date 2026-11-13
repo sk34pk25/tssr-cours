@@ -122,6 +122,8 @@ Sur le routeur PFsense
 
 ![TP7, correction, page 17](../../../../assets/images/reseau-et-securite/tp7/correction-p17-51.png)
 
+Contenu PEM masqué
+
 ![TP7, correction, page 17](../../../../assets/images/reseau-et-securite/tp7/correction-p17-52.png)
 
 Valeurs de la capture :
