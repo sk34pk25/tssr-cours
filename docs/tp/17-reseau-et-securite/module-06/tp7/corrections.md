@@ -100,6 +100,8 @@ Contenu PEM masqué
 
 ![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-41.png)
 
+Contenu PEM masqué
+
 ![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-42.png)
 
 ![TP7, correction, page 15](../../../../assets/images/reseau-et-securite/tp7/correction-p15-43.png)
@@ -134,6 +136,8 @@ Contenu PEM masqué
 
 
 ![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-55.png)
+
+Contenu PEM masqué
 
 ![TP7, correction, page 18](../../../../assets/images/reseau-et-securite/tp7/correction-p18-56.png)
 
