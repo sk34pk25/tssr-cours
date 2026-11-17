@@ -63,11 +63,10 @@ prendre en compte le choix d’installation des logiciels lors du déploiement.
 
 CustomSettings.ini
 
+```ini
 ; Bloc Déploiement App
 
 ;SkipApplications=YES
-
-Services transverses en environnement Microsoft (RDS/WDS)
 
 ; L'application 001 Firefox est obligatoirement sélectionnée (grisée)
 
@@ -76,6 +75,7 @@ MandatoryApplications001={9d1c7416-d506-4e04-abd0-e723136e598d}
 ; L'application 002 Filezilla donne le choix d'être ou non sélectionnée
 
 Applications002={4a6c7f23-c9b5-4f25-b040-4fee6f01691d}
+```
 
 Résultat lors du déploiement, Firefox est sélectionné par défaut et non modifiable, Filezilla
 
