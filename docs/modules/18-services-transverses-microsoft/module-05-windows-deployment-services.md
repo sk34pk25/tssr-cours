@@ -134,7 +134,11 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
 
     Un fichier de réponse peut être lié à une image de démarrage s’il contient des informations concernant l’étape 1, windowsPE, du processus d’installation. Dans ce cas, le fichier `unattend.xml` est à stocker dans le répertoire WDSClientUnattend du partage WDS. Il est à configurer depuis l’onglet Client du serveur. Ce fichier est appliqué au chargement de l’image de boot de l’architecture sélectionnée.
 
+    ![Visuel externe : onglet Client et fichier unattend du serveur WDS](../../assets/images/services-transverses-microsoft/m5s-p11-05.webp)
+
     Un fichier de réponse peut être lié à une image d’installation s’il contient des informations concernant les étapes 2 à 7 du processus d’installation. Sur l’image d’installation ciblée, depuis l’onglet Général, cocher la case Autoriser l’image à s’installer sans assistance et indiquer le fichier de réponse à utiliser. Ce fichier sera appliqué lors du déploiement de cette image.
+
+    ![Visuel externe : liaison d’un fichier de réponses à une image d’installation](../../assets/images/services-transverses-microsoft/m5s-p12-06.webp)
 
     ## Conclusion
 
@@ -167,5 +171,9 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
     ![Visuel externe : assistant de création d’une image de capture](../../assets/images/services-transverses-microsoft/m5s-p10-04.webp)
 
     Sans MDT, le fichier de réponses vient d’un exemple, de `New-ShieldingDataAnswerFile`, ou de WSIM dans l’ADK. Lié au boot (étape windowsPE), `unattend.xml` va dans WDSClientUnattend et se désigne dans l’onglet Client. Lié à l’installation (étapes 2 à 7), la case Autoriser l’image à s’installer sans assistance désigne le fichier sur l’image.
+
+    ![Visuel externe : onglet Client et fichier unattend du serveur WDS](../../assets/images/services-transverses-microsoft/m5s-p11-05.webp)
+
+    ![Visuel externe : liaison d’un fichier de réponses à une image d’installation](../../assets/images/services-transverses-microsoft/m5s-p12-06.webp)
 
     L’atelier du support s’intitule Mise en œuvre de WDS, module 5, atelier 4.

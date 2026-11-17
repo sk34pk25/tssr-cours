@@ -81,7 +81,7 @@ Etape 3 : installation et configuration des rôles
 DHCP.
 
 - Promouvoir INFRA contrôleur de domaine d’un nouveau domaine dans une nouvelle
-forêt. Le domaine sera nommé prénom.eni (ou prénom est à remplacer par votre
+forêt. Le domaine sera nommé prénom.lab (ou prénom est à remplacer par votre
 
 prénom).
 

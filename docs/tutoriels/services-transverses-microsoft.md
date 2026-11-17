@@ -3,7 +3,7 @@
 Ce tutoriel suit l’ordre des énoncés. Il ne remplace pas les pages de TP.
 
 1. Préparer cinq VM sur Vmnet 10. CLINVX reste sans système.
-2. Nommer le domaine `prénom.eni`, donner à INFRA les rôles AD DS, DNS et DHCP, puis joindre RDS, DEPLOY et CLI10.
+2. Nommer le domaine `prénom.lab`, donner à INFRA les rôles AD DS, DNS et DHCP, puis joindre RDS, DEPLOY et CLI10.
 3. Installer RDS en déploiement standard, scénario de bureaux basés sur une session.
 4. Publier LibreOffice et FileZilla si les installeurs du partage distrib sont disponibles. Ils sont **Inexistant** dans ce dossier.
 5. Lire le module 4 : images WIM et images de partition, scénarios bare-metal, Wipe-and-Load, Replace et mise à niveau.

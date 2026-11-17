@@ -97,7 +97,7 @@ Services transverses en environnement Microsoft (RDS/WDS)
 Terminer la configuration DHCP en validant toutes les questions.
 
 - Promouvoir INFRA contrôleur de domaine d’un nouveau domaine dans une nouvelle
-forêt. Le domaine sera nommé prénom.eni (ou prénom est à remplacer par votre
+forêt. Le domaine sera nommé prénom.lab (ou prénom est à remplacer par votre
 
 prénom).
 

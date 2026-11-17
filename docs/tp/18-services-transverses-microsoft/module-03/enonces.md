@@ -39,7 +39,7 @@ configurée lors de l’atelier 2.
 - Tester l’accès aux applications publiées sur CLI10 depuis le portail web d’Accès Bureau
 à distance en utilisant le navigateur web Internet Explorer à l’adresse
 
-https://rds.prénom.eni/RDweb
+https://rds.prenom.lab/RDweb
 
 - Faire en sorte de regrouper les applications dans des dossiers Bureautique et Outils sur le
 portail web.
@@ -57,7 +57,7 @@ Etape 4 : Configuration des raccourcis pour les applications publiées
 
 - Depuis le contrôleur de domaine, récupérer et exporter le certificat de RDS.
 - Sur INFRA, lancer Internet Explorer.
-- Indiquer l’URL du service RDS Web Accès https://rds.prenom.eni/rdweb.
+- Indiquer l’URL du service RDS Web Accès https://rds.prenom.lab/rdweb.
 - Cliquer sur Erreur de Certificat puis sur Afficher les certificats.
 - Depuis l’onglet Détails, cliquer sur Copier dans un fichier.
 - L’assistant d’export du certificat se lance.
@@ -87,7 +87,7 @@ vérifier qu’il n’y a plus d’erreur de certificat.
 - Pour prénom1, rendre accessibles les raccourcis RemoteApp dans le menu Démarrer :
 - Configurer le composant « Connexion RemoteApp et Bureau à distance ».
 - URL de connexion au serveur RDS :
-https://rds.prénom.eni/RDweb/feed/webfeed.aspx
+https://rds.prenom.lab/RDweb/feed/webfeed.aspx
 
 - Vérifier la présence des raccourcis dans le menu Démarrer.
 - Quelles applications sont accessibles ?

@@ -11,7 +11,7 @@ Le cours tient sur une seule semaine du parcours, du 16 au 20 novembre 2026. For
 3. Les travaux pratiques séparent l’énoncé et la correction. Les captures gardées sont des visuels externes du laboratoire.
 4. Le module 4 n’a pas d’énoncé ni de correction : **Inexistant**.
 5. Les vidéos citées, les bases de machines, les ISO et le contenu du partage distrib sont **Inexistant**.
-6. Les mots de passe et la clé de produit des exemples MDT sont `[masqué]`. Les domaines `prénom.eni`, `deploy.eni` et `rds.prénom.eni` restent des valeurs de laboratoire.
+6. Les mots de passe et la clé de produit des exemples MDT sont `[masqué]`. Les domaines et identifiants de laboratoire qui portaient un nom de personne ou un suffixe interdit sont transcrits `prénom.lab`, `votrenom.lab`, `deploy.lab`, `rds.prenom.lab`, `LAB-DEMO`, `LABSALLE09`. Les mêmes valeurs encore lisibles dans les captures sont masquées.
 7. Les cinq comptes de l’énoncé sont écrits `prénom1` à `prénom5` : Direction, Direction, Pédagogique, Pédagogique, Informatique. L’ordre du tableau est conservé.
 
 ## Modules

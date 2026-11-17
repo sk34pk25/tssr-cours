@@ -226,7 +226,7 @@ Services transverses en environnement Microsoft (RDS/WDS)
 
 UserID=deploy
 
-UserDomain=matthieu.eni
+UserDomain=votrenom.lab
 
 UserPassword=[masqué]
 
@@ -282,15 +282,15 @@ OSDComputerName=PC-DEMO
 
 SkipDomainMembership=YES
 
-JoinDomain=matthieu.eni
+JoinDomain=votrenom.lab
 
 DomainAdmin=administrateur
 
-DomainAdminDomain=matthieu.eni
+DomainAdminDomain=votrenom.lab
 
 DomainAdminPassword=[masqué]
 
-MachineObjectOU=OU=CLIENTS,OU=ORDINATEURS,OU=ENI,DC=mat,DC=tssr,DC=eni
+MachineObjectOU=OU=CLIENTS,OU=ORDINATEURS,OU=LAB,DC=votrenom,DC=lab
 
 ; Installation de l'OS
 

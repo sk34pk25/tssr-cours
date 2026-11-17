@@ -4,7 +4,7 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
 
 [Travaux](../../tp/18-services-transverses-microsoft/module-06/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-06.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-06.md)
 
-Les exemples de fichiers de réponse contiennent des mots de passe et une clé de produit. Ils sont remplacés par `[masqué]`. Les noms de domaine de laboratoire (`deploy.eni`) sont conservés comme valeurs techniques.
+Les exemples de fichiers de réponse contiennent des mots de passe et une clé de produit. Ils sont remplacés par `[masqué]`. Les noms de domaine de laboratoire (`deploy.lab`) sont conservés comme valeurs techniques.
 
 === "Cours Original"
 
@@ -64,6 +64,8 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
 
     ![Visuel externe : onglet Windows PE d’un partage MDT](../../assets/images/services-transverses-microsoft/m6s-p05-04.webp)
 
+    ![Visuel externe : exemple de règles CustomSettings d’un partage MDT](../../assets/images/services-transverses-microsoft/m6s-p08-05.webp)
+
     ## MDT – Windows PE
 
     Média nécessaire à l’initialisation des séquences de tâches de MDT. Généré à partir du partage de déploiement. Formats WIM et ISO disponibles, pour les architectures 32 et 64 bits. Fichiers stockés dans le répertoire Boot de l’arborescence du partage de déploiement. Paramétrage dans les propriétés du partage, onglet Windows PE. Ajout de fonctionnalités et de pilotes complémentaires possible. Une mise à jour du partage de déploiement est nécessaire après toute modification.
@@ -104,7 +106,7 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
     [Default]
     DeployRoot=\\WDS\DeploymentShare$
     UserID=mdt
-    UserDomain=deploy.eni
+    UserDomain=deploy.lab
     UserPassword=[masqué]
     KeyboardLocale=fr-FR
     KeyboardLocalePE=040c:0000040c
@@ -117,10 +119,12 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
 
     | Famille | Paramètres écrits |
     |---|---|
-    | Interactivité de l’installeur | `SkipTaskSequence` vaut YES, `TaskSequenceID=ENISALLE09`, `SkipUserData` vaut YES, `SkipApplications` vaut YES, `SkipAppsOnUpgrade` vaut YES, `SkipAdminPassword` vaut YES, `AdminPassword=[masqué]` |
+    | Interactivité de l’installeur | `SkipTaskSequence` vaut YES, `TaskSequenceID=LABSALLE09`, `SkipUserData` vaut YES, `SkipApplications` vaut YES, `SkipAppsOnUpgrade` vaut YES, `SkipAdminPassword` vaut YES, `AdminPassword=[masqué]` |
     | Paramètres régionaux | `SkipLocaleSelection` vaut YES, `SkipTimeZone` vaut YES, `UserLocale=fr-FR`, `KeyboardLocale=040C:0000040C`, `TimeZoneName=Romance Standard Time` |
     | Autres sauts | `SkipCapture` vaut YES, `SkipBitlocker` vaut YES, `SkipSummary` vaut YES |
-    | Nommage et domaine | `SkipComputerName` vaut YES, `OSDComputerName=ENI-DEMO`, `SkipDomainMembership` vaut YES, `JoinDomain=deploy.eni`, `DomainAdmin=mdt`, `DomainAdminDomain=deploy.eni`, `DomainAdminPassword=[masqué]` |
+    | Nommage et domaine | `SkipComputerName` vaut YES, `OSDComputerName=LAB-DEMO`, `SkipDomainMembership` vaut YES, `JoinDomain=deploy.lab`, `DomainAdmin=mdt`, `DomainAdminDomain=deploy.lab`, `DomainAdminPassword=[masqué]` |
+
+    ![Visuel externe : propriétés d’une séquence de tâches MDT](../../assets/images/services-transverses-microsoft/m6s-p12-06.webp)
     | Activation | `SkipProductKey` vaut YES, commentaire « clé KMS pour W10 Pro N », `ProductKey=[masqué]` |
 
     ## Démonstration
@@ -134,7 +138,7 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
     ```ini
     DeployRoot=\\WDS\DeploymentShare$
     UserID=mdt
-    UserDomain=deploy.eni
+    UserDomain=deploy.lab
     UserPassword=[masqué]
     ```
 
@@ -247,6 +251,8 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
 
     ![Visuel externe : onglet Windows PE d’un partage MDT](../../assets/images/services-transverses-microsoft/m6s-p05-04.webp)
 
+    ![Visuel externe : exemple de règles CustomSettings d’un partage MDT](../../assets/images/services-transverses-microsoft/m6s-p08-05.webp)
+
     WinPE sort en WIM et ISO, 32 et 64 bits, dans Boot. Toute modification de cet onglet impose une mise à jour du partage. Les systèmes s’importent depuis un média, un WIM ou les images déjà dans WDS. Les images en trop dans un WIM peuvent être supprimées.
 
     Bootstrap.ini est lu au chargement de WinPE. Le modifier impose Update Deployment Share, puis le remplacement de l’image de boot dans WDS. CustomSettings.ini est lu au déploiement et n’impose pas cette mise à jour. Les deux sont dans Control, ou dans l’onglet Rules.
@@ -257,7 +263,7 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
     [Default]
     DeployRoot=\\WDS\DeploymentShare$
     UserID=mdt
-    UserDomain=deploy.eni
+    UserDomain=deploy.lab
     UserPassword=[masqué]
     KeyboardLocale=fr-FR
     KeyboardLocalePE=040c:0000040c
@@ -266,9 +272,12 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
 
     L’exemple de règles du partage : `SkipComputerBackup=NO`, `SkipProductKey=YES`, `SkipAdminPassword` vaut YES, `SkipCapture=NO`, `SkipBitLocker=NO`.
 
-    L’exemple détaillé reprend `TaskSequenceID=ENISALLE09`, `OSDComputerName=ENI-DEMO`, `JoinDomain=deploy.eni`, `DomainAdmin=mdt`, `DomainAdminDomain=deploy.eni`, les locales `fr-FR` et `040C:0000040C`, `Romance Standard Time`, et les sauts de l’installeur, de la capture, de BitLocker et du résumé. `AdminPassword`, `DomainAdminPassword` et `ProductKey` sont `[masqué]`. Le support commente la clé comme une clé KMS pour Windows 10 Pro N.
+    L’exemple détaillé reprend `TaskSequenceID=LABSALLE09`, `OSDComputerName=LAB-DEMO`, `JoinDomain=deploy.lab`, `DomainAdmin=mdt`, `DomainAdminDomain=deploy.lab`, les locales `fr-FR` et `040C:0000040C`, `Romance Standard Time`, et les sauts de l’installeur, de la capture, de BitLocker et du résumé. `AdminPassword`, `DomainAdminPassword` et `ProductKey` sont `[masqué]`. Le support commente la clé comme une clé KMS pour Windows 10 Pro N.
 
-    Le même compte `mdt` / `deploy.eni` sert à restreindre le partage (partage ou NTFS) et peut joindre le poste au domaine. Le support demande que l’authentification et les ACL restent cohérentes.
+    ![Visuel externe : propriétés d’une séquence de tâches MDT](../../assets/images/services-transverses-microsoft/m6s-p12-06.webp)
+
+
+    Le même compte `mdt` / `deploy.lab` sert à restreindre le partage (partage ou NTFS) et peut joindre le poste au domaine. Le support demande que l’authentification et les ACL restent cohérentes.
 
     La séquence est liée au système choisi, créée depuis un modèle, et produit Unattend.xml et ts.xml. On l’édite ensuite. Une partie des paramètres n’apparaît que dans Unattend.xml, onglet OS Info. Le cours ne détaille pas ces fichiers.
 

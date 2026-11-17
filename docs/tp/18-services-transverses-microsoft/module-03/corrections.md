@@ -49,7 +49,7 @@ Les programmes sont maintenant publiés.
 - Tester l’accès aux applications publiées sur CLI10 depuis le portail web d’Accès Bureau
 à distance en utilisant le navigateur web Internet Explorer à l’adresse
 
-https://rds.prénom.eni/RDweb
+https://rds.prenom.lab/RDweb
 
 Depuis un navigateur web « Internet Explorer » sur CLI10, se connecter au portail web RDS.
 
@@ -131,7 +131,7 @@ Etape 4 : Configuration des raccourcis pour les applications publiées
 
 - Depuis le contrôleur de domaine récupérer et exporter le certificat de RDS.
 - Sur INFRA, lancer Internet Explorer.
-- Indiquer l’URL du service RDS Web Accès https://rds.prenom.eni/rdweb
+- Indiquer l’URL du service RDS Web Accès https://rds.prenom.lab/rdweb
 Services transverses en environnement Microsoft (RDS/WDS)
 
 - Cliquer sur Erreur de Certificat puis sur Afficher les certificats
@@ -168,7 +168,7 @@ Services transverses en environnement Microsoft (RDS/WDS)
 
 Le certificat est bien importé dans la GPO.
 
-L’objet ordinateur CLI10 sera déplacé dans l’UO nouvellement créée ENI → ORDINATEURS
+L’objet ordinateur CLI10 sera déplacé dans l’UO nouvellement créée LAB → ORDINATEURS
 
 → CLIENTS
 
@@ -194,7 +194,7 @@ Services transverses en environnement Microsoft (RDS/WDS)
 Dans le panneau de configuration de CLI10.
 
 - URL de connexion au serveur RDS :
-https://rds.prénom.eni/RDweb/feed/webfeed.aspx
+https://rds.prenom.lab/RDweb/feed/webfeed.aspx
 
 - Entrer les identifiants de l’utilisateur prénom1.
 Services transverses en environnement Microsoft (RDS/WDS)
