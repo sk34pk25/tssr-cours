@@ -9,3 +9,4 @@
 - [Comptes et groupes sous Debian](comptes-groupes-debian.md)
 - [GLPI et SQL](glpi-sql.md)
 - [Sauvegarde et restauration](sauvegarde-restauration.md)
+- [Services transverses Microsoft](services-transverses-microsoft.md)

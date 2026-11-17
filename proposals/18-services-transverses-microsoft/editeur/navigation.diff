@@ -1,0 +1,83 @@
+diff --git a/docs/commandes/index.md b/docs/commandes/index.md
+index 18bc5fae..f121298a 100644
+--- a/docs/commandes/index.md
++++ b/docs/commandes/index.md
+@@ -5,3 +5,4 @@
+ - [GNU/Linux](linux.md)
+ - [MariaDB et GLPI](mariadb-glpi.md)
+ - [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Services transverses Microsoft](services-transverses-microsoft.md)
+diff --git a/docs/exercices/index.md b/docs/exercices/index.md
+index 6aa7b146..327c7060 100644
+--- a/docs/exercices/index.md
++++ b/docs/exercices/index.md
+@@ -6,3 +6,4 @@
+ - [Quiz Services réseau Linux](quiz-services-reseau-linux.md)
+ - [Cas pratiques transversaux](cas-pratiques.md)
+ - [Quiz Sauvegarde et Restauration](quiz-sauvegarde-et-restauration.md)
++- [Quiz Services transverses Microsoft](quiz-services-transverses-microsoft.md)
+diff --git a/docs/index-general.md b/docs/index-general.md
+index 249f3ac5..1e636f86 100644
+--- a/docs/index-general.md
++++ b/docs/index-general.md
+@@ -138,3 +138,15 @@
+ - [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
+ - [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
+ <!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->
++
++## Services transverses Microsoft (RDS/WDS)
++
++Semaine unique, du 16 au 20 novembre 2026.
++
++- [Services transverses Microsoft (RDS/WDS)](modules/18-services-transverses-microsoft/index.md)
++- [Module 01 — Mise en place de l’infrastructure](modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md)
++- [Module 02 — Remote Desktop Services](modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md)
++- [Module 03 — Publication d’applications](modules/18-services-transverses-microsoft/module-03-publication-dapplications.md)
++- [Module 04 — Déploiement d’un système d’exploitation](modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md)
++- [Module 05 — Windows Deployment Services](modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md)
++- [Module 06 — Microsoft Deployment Toolkit](modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md)
+diff --git a/docs/memo/index.md b/docs/memo/index.md
+index 3f525647..828a5132 100644
+--- a/docs/memo/index.md
++++ b/docs/memo/index.md
+@@ -9,3 +9,4 @@
+ - [Comptes et groupes sous Debian](comptes-groupes-debian.md)
+ - [GLPI et SQL](glpi-sql.md)
+ - [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Services transverses Microsoft](services-transverses-microsoft.md)
+diff --git a/docs/ressources/index.md b/docs/ressources/index.md
+index 304f33bd..20097d53 100644
+--- a/docs/ressources/index.md
++++ b/docs/ressources/index.md
+@@ -9,3 +9,4 @@
+ Les installateurs exécutables, paquets anciens et archives FusionInventory ne sont pas servis par le site. Leur présence dans l’archive d’origine est documentée dans l’inventaire.
+ 
+ - [Sauvegarde et Restauration](sauvegarde-et-restauration.md) : transcriptions dans les modules, corrections et installateurs non publiés.
++- [Services transverses Microsoft](services-transverses-microsoft.md) : transcriptions, captures de laboratoire et sources absentes marquées Inexistant.
+diff --git a/docs/revision/index.md b/docs/revision/index.md
+index ef4188e5..b8a80ac3 100644
+--- a/docs/revision/index.md
++++ b/docs/revision/index.md
+@@ -18,3 +18,4 @@ Chaque fiche reprend les objectifs, contrôles, commandes repérées et pièges
+ - [Virtualisation de serveurs](13-virtualisation-serveurs/index.md)
+ - [Messagerie Cloud](14-messagerie-cloud/index.md)
+ - [Sauvegarde et Restauration](16-sauvegarde-et-restauration/index.md)
++- [Services transverses Microsoft (RDS/WDS)](18-services-transverses-microsoft/index.md)
+diff --git a/docs/troubleshooting/index.md b/docs/troubleshooting/index.md
+index ef9e3644..1258ee26 100644
+--- a/docs/troubleshooting/index.md
++++ b/docs/troubleshooting/index.md
+@@ -6,3 +6,4 @@
+ - [GLPI inaccessible](glpi-inaccessible.md)
+ - [Outlook ne se connecte pas](outlook-connexion.md)
+ - [Sauvegarde et restauration](sauvegarde-restauration.md)
++- [Services transverses Microsoft](services-transverses-microsoft.md)
+diff --git a/docs/tutoriels/index.md b/docs/tutoriels/index.md
+index 4d7264b0..1ab35fc9 100644
+--- a/docs/tutoriels/index.md
++++ b/docs/tutoriels/index.md
+@@ -9,3 +9,4 @@ Les tutoriels isolent les procédures longues du cours. Chaque procédure indiqu
+ - [Capturer et déployer une image Windows](capture-deploiement-windows.md)
+ - [Configurer FortiClient VPN](forticlient-vpn.md)
+ - [Importer la maquette de sauvegarde](infrastructure-sauvegarde.md)
++- [Lire la maquette RDS/WDS](services-transverses-microsoft.md)

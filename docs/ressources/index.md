@@ -9,3 +9,4 @@
 Les installateurs exécutables, paquets anciens et archives FusionInventory ne sont pas servis par le site. Leur présence dans l’archive d’origine est documentée dans l’inventaire.
 
 - [Sauvegarde et Restauration](sauvegarde-et-restauration.md) : transcriptions dans les modules, corrections et installateurs non publiés.
+- [Services transverses Microsoft](services-transverses-microsoft.md) : transcriptions, captures de laboratoire et sources absentes marquées Inexistant.

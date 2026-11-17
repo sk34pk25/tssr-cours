@@ -138,3 +138,15 @@
 - [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
 - [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
 <!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->
+
+## Services transverses Microsoft (RDS/WDS)
+
+Semaine unique, du 16 au 20 novembre 2026.
+
+- [Services transverses Microsoft (RDS/WDS)](modules/18-services-transverses-microsoft/index.md)
+- [Module 01 — Mise en place de l’infrastructure](modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md)
+- [Module 02 — Remote Desktop Services](modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md)
+- [Module 03 — Publication d’applications](modules/18-services-transverses-microsoft/module-03-publication-dapplications.md)
+- [Module 04 — Déploiement d’un système d’exploitation](modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md)
+- [Module 05 — Windows Deployment Services](modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md)
+- [Module 06 — Microsoft Deployment Toolkit](modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md)

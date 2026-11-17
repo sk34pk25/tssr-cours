@@ -6,3 +6,4 @@
 - [Quiz Services réseau Linux](quiz-services-reseau-linux.md)
 - [Cas pratiques transversaux](cas-pratiques.md)
 - [Quiz Sauvegarde et Restauration](quiz-sauvegarde-et-restauration.md)
+- [Quiz Services transverses Microsoft](quiz-services-transverses-microsoft.md)

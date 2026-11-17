@@ -276,6 +276,16 @@ nav:
           - "Module 04 — La redondance de données et le RAID": modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md
           - Travaux pratiques: tp/16-sauvegarde-et-restauration/index.md
 
+      - Services transverses Microsoft (RDS/WDS):
+          - Présentation: modules/18-services-transverses-microsoft/index.md
+          - "Module 01 — Mise en place de l’infrastructure": modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md
+          - "Module 02 — Remote Desktop Services": modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md
+          - "Module 03 — Publication d’applications": modules/18-services-transverses-microsoft/module-03-publication-dapplications.md
+          - "Module 04 — Déploiement d’un système d’exploitation": modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md
+          - "Module 05 — Windows Deployment Services": modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md
+          - "Module 06 — Microsoft Deployment Toolkit": modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md
+          - Travaux pratiques: tp/18-services-transverses-microsoft/index.md
+
   - Tutoriels:
       - Présentation: tutoriels/index.md
       - Diagnostic réseau: tutoriels/diagnostic-reseau.md
@@ -285,6 +295,7 @@ nav:
       - Capture et déploiement Windows: tutoriels/capture-deploiement-windows.md
       - Configurer FortiClient VPN: tutoriels/forticlient-vpn.md
       - Importer la maquette de sauvegarde: tutoriels/infrastructure-sauvegarde.md
+      - Lire la maquette RDS/WDS: tutoriels/services-transverses-microsoft.md
   - Travaux pratiques:
       - Présentation: tp/index.md
       - Bases des réseaux:
@@ -444,6 +455,7 @@ nav:
       - "Virtualisation de serveurs": tp/13-virtualisation-serveurs/index.md
       - "Messagerie Cloud": tp/14-messagerie-cloud/index.md
       - "Sauvegarde et Restauration": tp/16-sauvegarde-et-restauration/index.md
+      - "Services transverses Microsoft (RDS/WDS)": tp/18-services-transverses-microsoft/index.md
 
   - Exercices:
       - Présentation: exercices/index.md
@@ -453,6 +465,7 @@ nav:
       - Quiz Services réseau Linux: exercices/quiz-services-reseau-linux.md
       - Cas pratiques transversaux: exercices/cas-pratiques.md
       - Quiz Sauvegarde et Restauration: exercices/quiz-sauvegarde-et-restauration.md
+      - Quiz Services transverses Microsoft: exercices/quiz-services-transverses-microsoft.md
   - Kahoot:
       - Tous les Kahoots: kahoot/bibliotheque.md
       - Messagerie Cloud:
@@ -460,6 +473,13 @@ nav:
           - Module 02: kahoot/14-messagerie-cloud-module-02.md
           - Module 03: kahoot/14-messagerie-cloud-module-03.md
           - Module 04: kahoot/14-messagerie-cloud-module-04.md
+      - Services transverses Microsoft (RDS/WDS):
+          - Module 01: kahoot/18-services-transverses-microsoft-module-01.md
+          - Module 02: kahoot/18-services-transverses-microsoft-module-02.md
+          - Module 03: kahoot/18-services-transverses-microsoft-module-03.md
+          - Module 04: kahoot/18-services-transverses-microsoft-module-04.md
+          - Module 05: kahoot/18-services-transverses-microsoft-module-05.md
+          - Module 06: kahoot/18-services-transverses-microsoft-module-06.md
       - Sauvegarde et Restauration:
           - Module 01: kahoot/16-sauvegarde-et-restauration-module-01.md
           - Module 02: kahoot/16-sauvegarde-et-restauration-module-02.md
@@ -571,6 +591,7 @@ nav:
       - "Virtualisation de serveurs": revision/13-virtualisation-serveurs/index.md
       - "Messagerie Cloud": revision/14-messagerie-cloud/index.md
       - "Sauvegarde et Restauration": revision/16-sauvegarde-et-restauration/index.md
+      - "Services transverses Microsoft (RDS/WDS)": revision/18-services-transverses-microsoft/index.md
 
   - Mémos:
       - Présentation: memo/index.md
@@ -583,6 +604,7 @@ nav:
       - Comptes et groupes sous Debian: memo/comptes-groupes-debian.md
       - GLPI et SQL: memo/glpi-sql.md
       - Sauvegarde et restauration: memo/sauvegarde-restauration.md
+      - Services transverses Microsoft: memo/services-transverses-microsoft.md
   - Commandes:
       - Présentation: commandes/index.md
       - Réseau: commandes/reseau.md
@@ -590,6 +612,7 @@ nav:
       - GNU/Linux: commandes/linux.md
       - MariaDB et GLPI: commandes/mariadb-glpi.md
       - Sauvegarde et restauration: commandes/sauvegarde-restauration.md
+      - Services transverses Microsoft: commandes/services-transverses-microsoft.md
   - Dépannage:
       - Présentation: troubleshooting/index.md
       - Client sans réseau: troubleshooting/client-sans-reseau.md
@@ -598,6 +621,7 @@ nav:
       - GLPI inaccessible: troubleshooting/glpi-inaccessible.md
       - Outlook ne se connecte pas: troubleshooting/outlook-connexion.md
       - Sauvegarde et restauration: troubleshooting/sauvegarde-restauration.md
+      - Services transverses Microsoft: troubleshooting/services-transverses-microsoft.md
   - Glossaire: glossaire/index.md
   - Ressources:
       - Présentation: ressources/index.md
@@ -605,4 +629,5 @@ nav:
       - Inventaire des sources: ressources/inventaire-sources.md
       - Supports originaux et provenance: ressources/conformite-sources.md
       - Sauvegarde et Restauration: ressources/sauvegarde-et-restauration.md
+      - Services transverses Microsoft: ressources/services-transverses-microsoft.md
   - Index général: index-general.md

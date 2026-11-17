@@ -18,3 +18,4 @@ Chaque fiche reprend les objectifs, contrôles, commandes repérées et pièges 
 - [Virtualisation de serveurs](13-virtualisation-serveurs/index.md)
 - [Messagerie Cloud](14-messagerie-cloud/index.md)
 - [Sauvegarde et Restauration](16-sauvegarde-et-restauration/index.md)
+- [Services transverses Microsoft (RDS/WDS)](18-services-transverses-microsoft/index.md)
