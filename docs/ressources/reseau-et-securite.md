@@ -15,6 +15,6 @@ Aucun support de cours n’est dans le dossier. Aucun PDF n’est publié.
 | `SRV-Apache.ova`, `SRV-WEB.ovf`, `CLT-NAT.ovf` | **Inexistant** |
 | Vidéos de filtrage et de portail captif | **Inexistant** |
 | Certificat CA-TP5 | **Inexistant** |
-| Quiz en ligne | **Inexistant** · [quiz préparés](../kahoot/17-reseau-et-securite-module-01.md) |
+| Quiz en ligne officiel | 20 questions par module : [module 01](../kahoot/17-reseau-et-securite-module-01.md), [module 02](../kahoot/17-reseau-et-securite-module-02.md), [module 03](../kahoot/17-reseau-et-securite-module-03.md), [module 04](../kahoot/17-reseau-et-securite-module-04.md), [module 05](../kahoot/17-reseau-et-securite-module-05.md), [module 06](../kahoot/17-reseau-et-securite-module-06.md), [module 07](../kahoot/17-reseau-et-securite-module-07.md), [module 08](../kahoot/17-reseau-et-securite-module-08.md) |
 
 [Cours](../modules/17-reseau-et-securite/index.md)

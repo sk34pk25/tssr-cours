@@ -2,7 +2,7 @@
 
 Semaine **1/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-05/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-05/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-05.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-05.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-05/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-05/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-05.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-05.md)
 
 === "Cours Original"
 
@@ -171,3 +171,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     3. Activer SquidGuard, une liste noire, et une ACL qui bloque les sites pour adultes. La correction ajoute le jeu, l’astrologie et la liste MyfirstBlackList, et interdit un domaine imposé (exemple : site-interdit.example).
     4. Intégrer SquidGuard avec /usr/local/bin/squidGuard. Tester un site autorisé et un site bloqué. Lire Status > Proxy Filter.
     5. Bonus : portail captif (énoncé, six étapes, test depuis le client Linux) ou désactivation de Squid puis procédure remise au formateur (correction).
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-05.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-05.md)
+- [Sommaire du cours](index.md)

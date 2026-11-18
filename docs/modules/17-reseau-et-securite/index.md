@@ -52,10 +52,18 @@ Le dossier du module 6 contient le TP6 et le TP7. Ils restent deux travaux du mo
 - [Dépannage](../../troubleshooting/reseau-et-securite.md)
 - [Tutoriel de lecture du schéma](../../tutoriels/reseau-et-securite.md)
 - [Ressources](../../ressources/reseau-et-securite.md)
+- [Kahoot — module 01](../../kahoot/17-reseau-et-securite-module-01.md)
+- [Kahoot — module 02](../../kahoot/17-reseau-et-securite-module-02.md)
+- [Kahoot — module 03](../../kahoot/17-reseau-et-securite-module-03.md)
+- [Kahoot — module 04](../../kahoot/17-reseau-et-securite-module-04.md)
+- [Kahoot — module 05](../../kahoot/17-reseau-et-securite-module-05.md)
+- [Kahoot — module 06](../../kahoot/17-reseau-et-securite-module-06.md)
+- [Kahoot — module 07](../../kahoot/17-reseau-et-securite-module-07.md)
+- [Kahoot — module 08](../../kahoot/17-reseau-et-securite-module-08.md)
 
 ## Ordre de travail
 
 1. Lire **Cours Original**. Le support est **Inexistant**.
 2. Faire le TP, puis lire la correction transcrite.
 3. Revenir à **Cours Optimisé IA** pour l’ordre des contrôles.
-4. Finir par la fiche de révision et le Kahoot préparé. Le lien officiel du quiz est **Inexistant**.
+4. Consolider avec la fiche de révision et le Kahoot lié du module, 20 questions.

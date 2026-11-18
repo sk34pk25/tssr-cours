@@ -2,7 +2,7 @@
 
 Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **Inexistant**.
 
-[Travaux](../../tp/18-services-transverses-microsoft/module-02/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-02.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-02.md)
+[Travaux](../../tp/18-services-transverses-microsoft/module-02/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-02.md) · [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-02.md)
 
 === "Cours Original"
 
@@ -183,3 +183,9 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
     ![Visuel externe : Connexion Bureau à distance, options générales](../../assets/images/services-transverses-microsoft/m2s-p10-02.webp)
 
     Les connexions se lisent dans RDS / Collections, partie CONNEXIONS, avec un menu contextuel par utilisateur. L’atelier 2 est la mise en œuvre d’un bureau à distance.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/18-services-transverses-microsoft/module-02.md)
+- [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-02.md)
+- [Sommaire du cours](index.md)

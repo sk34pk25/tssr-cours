@@ -2,7 +2,7 @@
 
 Semaine **1/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-03/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-03/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-03.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-03.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-03/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-03/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-03.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-03.md)
 
 === "Cours Original"
 
@@ -87,3 +87,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     5. Tester depuis le client Windows avec un utilisateur de GG-IT.
 
     Les adresses et mots de passe du routeur formateur diffèrent entre l’énoncé et la correction : la note est en fin de correction.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-03.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-03.md)
+- [Sommaire du cours](index.md)

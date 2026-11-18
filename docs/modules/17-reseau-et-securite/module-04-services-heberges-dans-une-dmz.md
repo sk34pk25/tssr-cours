@@ -2,7 +2,7 @@
 
 Semaine **1/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-04/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-04/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-04.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-04.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-04/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-04/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-04.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-04.md)
 
 === "Cours Original"
 
@@ -96,3 +96,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     2. Créer l’enregistrement DNS et tester https://extra.votrenom.eni.
     3. Sur pfSense, créer un alias d’URL puis une redirection NAT depuis le WAN. Surveiller les règles de pare-feu.
     4. Tester depuis l’hôte avec l’IP WAN, et depuis le client Windows avec le FQDN.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-04.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-04.md)
+- [Sommaire du cours](index.md)

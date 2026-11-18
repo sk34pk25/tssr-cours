@@ -2,7 +2,7 @@
 
 Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **Inexistant**.
 
-[Travaux](../../tp/18-services-transverses-microsoft/module-03/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-03.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-03.md)
+[Travaux](../../tp/18-services-transverses-microsoft/module-03/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-03.md) · [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-03.md)
 
 === "Cours Original"
 
@@ -109,3 +109,9 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
     Le support cite ensuite, sans les dérouler dans l’atelier : le SSO par la délégation d’informations d’identification par défaut, les CAL RDS, la passerelle HTTPS sur un serveur dédié, et le broker qui suit les sessions, répartit la charge et reconnecte. Le schéma nomme clients, pare-feu, RD Web Access, RD Gateway, broker, RDSH, RDVH, stockage, Active Directory et serveur de licences.
 
     L’atelier 3 est la mise en œuvre des RemoteApp.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/18-services-transverses-microsoft/module-03.md)
+- [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-03.md)
+- [Sommaire du cours](index.md)

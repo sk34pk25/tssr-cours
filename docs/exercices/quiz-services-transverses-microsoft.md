@@ -1,6 +1,6 @@
 # Quiz — Services transverses Microsoft (RDS/WDS)
 
-Vingt questions par module sont préparées pour Kahoot. Le lien officiel est **Inexistant**.
+Quiz officiel, 20 questions par module.
 
 | Module | Kahoot |
 |---|---|

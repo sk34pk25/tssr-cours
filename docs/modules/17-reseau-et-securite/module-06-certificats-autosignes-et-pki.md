@@ -2,7 +2,7 @@
 
 Semaine **2/2**. Support de cours : **Inexistant**.
 
-[TP6](../../tp/17-reseau-et-securite/module-06/tp6/index.md) · [TP7](../../tp/17-reseau-et-securite/module-06/tp7/index.md) · [Révision](../../revision/17-reseau-et-securite/module-06.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-06.md)
+[TP6](../../tp/17-reseau-et-securite/module-06/tp6/index.md) · [TP7](../../tp/17-reseau-et-securite/module-06/tp7/index.md) · [Révision](../../revision/17-reseau-et-securite/module-06.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-06.md)
 
 === "Cours Original"
 
@@ -119,3 +119,9 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     TP6. Certificats autosignés pour IIS, Apache et pfSense, afin de chiffrer le trafic. La correction ajoute une seconde IP 172.20.X.153/26 sur SRV-MBR, les sites www et intranet, puis sur SRV-WEB l’adresse 172.20.X.202/26, lynx, et les sites intra et internet. pfSense répond en HTTPS sur routeur.votredomaine.eni.
 
     TP7. Exécuter D:/InstallationPKI.ps1 sur SRV-CD, rendre certsrv fiable, puis faire signer les certificats des sites et du routeur par cette autorité. L’énoncé cite aussi http://88.66.44.1 pour la clé du formateur. Identifiants : **Inexistant**.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-06.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-06.md)
+- [Sommaire du cours](index.md)

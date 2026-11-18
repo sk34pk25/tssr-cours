@@ -2,7 +2,7 @@
 
 Semaine **2/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-07/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-07.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-07.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-07/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-07/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-07.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-07.md)
 
 === "Cours Original"
 
@@ -67,3 +67,9 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     2. Sur pfSense, si le LDAP n’est plus là : autorité de certification, certificat serveur, authentification LDAP, serveur OpenVPN, client OpenVPN.
     3. Échanger le fichier d’installation et tester chacun son tour.
     4. Paramétrer WireGuard et le pair CLT-NAT. Renouveler les clés, activer le routage, puis joindre le serveur web en SSH. Les commandes citées sont sur https://wireguard.how/client/debian/.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-07.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-07.md)
+- [Sommaire du cours](index.md)

@@ -2,7 +2,7 @@
 
 Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **Inexistant**.
 
-[Travaux](../../tp/18-services-transverses-microsoft/module-01/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-01.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-01.md)
+[Travaux](../../tp/18-services-transverses-microsoft/module-01/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-01.md) · [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-01.md)
 
 Active Directory, DNS et DHCP. Cinq machines sur Vmnet 10.
 
@@ -111,3 +111,9 @@ Active Directory, DNS et DHCP. Cinq machines sur Vmnet 10.
     ```
 
     La conclusion du support : le socle est en place, les services de bureau à distance et de déploiement peuvent être installés.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/18-services-transverses-microsoft/module-01.md)
+- [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-01.md)
+- [Sommaire du cours](index.md)

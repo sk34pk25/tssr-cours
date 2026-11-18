@@ -1,6 +1,6 @@
 # Quiz — Réseau et Sécurité
 
-Exercice de lecture des énoncés et des corrections. Ce n’est pas le Kahoot. Les réponses sont sous chaque question. Le lien officiel Kahoot est **Inexistant**.
+Exercice de lecture des énoncés et des corrections. Ce n’est pas le Kahoot. Les réponses sont sous chaque question. Le quiz officiel, 20 questions par module : [module 01](../kahoot/17-reseau-et-securite-module-01.md), [module 02](../kahoot/17-reseau-et-securite-module-02.md), [module 03](../kahoot/17-reseau-et-securite-module-03.md), [module 04](../kahoot/17-reseau-et-securite-module-04.md), [module 05](../kahoot/17-reseau-et-securite-module-05.md), [module 06](../kahoot/17-reseau-et-securite-module-06.md), [module 07](../kahoot/17-reseau-et-securite-module-07.md), [module 08](../kahoot/17-reseau-et-securite-module-08.md).
 
 ## Semaine 1/2
 

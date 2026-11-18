@@ -35,10 +35,16 @@ Le cours tient sur une seule semaine du parcours, du 16 au 20 novembre 2026. For
 - [Dépannage](../../troubleshooting/services-transverses-microsoft.md)
 - [Tutoriel](../../tutoriels/services-transverses-microsoft.md)
 - [Ressources](../../ressources/services-transverses-microsoft.md)
+- [Kahoot — module 01](../../kahoot/18-services-transverses-microsoft-module-01.md)
+- [Kahoot — module 02](../../kahoot/18-services-transverses-microsoft-module-02.md)
+- [Kahoot — module 03](../../kahoot/18-services-transverses-microsoft-module-03.md)
+- [Kahoot — module 04](../../kahoot/18-services-transverses-microsoft-module-04.md)
+- [Kahoot — module 05](../../kahoot/18-services-transverses-microsoft-module-05.md)
+- [Kahoot — module 06](../../kahoot/18-services-transverses-microsoft-module-06.md)
 
 ## Ordre de travail
 
 1. Lire **Cours Original**.
 2. Faire le TP lorsqu’il existe, puis lire la correction transcrite.
 3. Revenir à **Cours Optimisé IA**.
-4. Finir par la fiche et le Kahoot préparé. Le lien officiel du quiz est **Inexistant**.
+4. Consolider avec la fiche de révision et le Kahoot lié du module, 20 questions.
