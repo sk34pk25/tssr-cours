@@ -6,3 +6,5 @@
 - [GLPI inaccessible](glpi-inaccessible.md)
 - [Outlook ne se connecte pas](outlook-connexion.md)
 - [Sauvegarde et restauration](sauvegarde-restauration.md)
+- [Réseau et Sécurité](reseau-et-securite.md)
+- [Services transverses Microsoft](services-transverses-microsoft.md)

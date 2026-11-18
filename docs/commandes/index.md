@@ -5,3 +5,5 @@
 - [GNU/Linux](linux.md)
 - [MariaDB et GLPI](mariadb-glpi.md)
 - [Sauvegarde et restauration](sauvegarde-restauration.md)
+- [Réseau et Sécurité](reseau-et-securite.md)
+- [Services transverses Microsoft](services-transverses-microsoft.md)

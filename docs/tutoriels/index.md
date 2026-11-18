@@ -9,3 +9,5 @@ Les tutoriels isolent les procédures longues du cours. Chaque procédure indiqu
 - [Capturer et déployer une image Windows](capture-deploiement-windows.md)
 - [Configurer FortiClient VPN](forticlient-vpn.md)
 - [Importer la maquette de sauvegarde](infrastructure-sauvegarde.md)
+- [Lire le schéma de Réseau et Sécurité](reseau-et-securite.md)
+- [Lire la maquette RDS/WDS](services-transverses-microsoft.md)

@@ -138,3 +138,29 @@
 - [Module 03 — Gestion du stockage](modules/16-sauvegarde-et-restauration/module-03-gestion-du-stockage.md)
 - [Module 04 — La redondance de données et le RAID](modules/16-sauvegarde-et-restauration/module-04-redondance-de-donnees-raid.md)
 <!-- TSSR-COURSE-CREATOR:sauvegarde-et-restauration:END -->
+
+## Réseau et Sécurité
+
+Semaine 1/2, du 2 au 6 novembre 2026 : modules 01 à 05. Semaine 2/2, du 9 au 13 novembre 2026 : modules 06 à 08.
+
+- [Réseau et Sécurité](modules/17-reseau-et-securite/index.md)
+- [Module 01 — Flux de sorties vers Internet](modules/17-reseau-et-securite/module-01-flux-de-sorties-vers-internet.md)
+- [Module 02 — Configuration du pare-feu pfSense](modules/17-reseau-et-securite/module-02-configuration-du-pare-feu-pfsense.md)
+- [Module 03 — Configuration du NAT](modules/17-reseau-et-securite/module-03-configuration-du-nat.md)
+- [Module 04 — Services hébergés dans une DMZ](modules/17-reseau-et-securite/module-04-services-heberges-dans-une-dmz.md)
+- [Module 05 — Sécuriser le surf Internet](modules/17-reseau-et-securite/module-05-securiser-le-surf-internet.md)
+- [Module 06 — Certificats et PKI](modules/17-reseau-et-securite/module-06-certificats-autosignes-et-pki.md)
+- [Module 07 — Télétravail](modules/17-reseau-et-securite/module-07-teletravail-openvpn-wireguard.md)
+- [Module 08 — VPN site à site](modules/17-reseau-et-securite/module-08-vpn-ipsec-site-a-site.md)
+
+## Services transverses Microsoft (RDS/WDS)
+
+Semaine unique, du 16 au 20 novembre 2026.
+
+- [Services transverses Microsoft (RDS/WDS)](modules/18-services-transverses-microsoft/index.md)
+- [Module 01 — Mise en place de l’infrastructure](modules/18-services-transverses-microsoft/module-01-mise-en-place-de-linfrastructure.md)
+- [Module 02 — Remote Desktop Services](modules/18-services-transverses-microsoft/module-02-remote-desktop-services.md)
+- [Module 03 — Publication d’applications](modules/18-services-transverses-microsoft/module-03-publication-dapplications.md)
+- [Module 04 — Déploiement d’un système d’exploitation](modules/18-services-transverses-microsoft/module-04-deploiement-dun-systeme-dexploitation.md)
+- [Module 05 — Windows Deployment Services](modules/18-services-transverses-microsoft/module-05-windows-deployment-services.md)
+- [Module 06 — Microsoft Deployment Toolkit](modules/18-services-transverses-microsoft/module-06-microsoft-deployment-toolkit.md)
