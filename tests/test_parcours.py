@@ -109,8 +109,8 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(rendered.count('data-period-start='), len(load_planning()))
         self.assertNotIn('>Passé<', rendered)
         self.assertEqual(rendered.count("Ce cours est consultable uniquement via les vidéos sur le site de l’établissement."), 2)
-        self.assertNotIn("RICHEZ", rendered)
-        self.assertNotIn("GAUTIER", rendered)
+        self.assertIn("RICHEZ Cédric", rendered)
+        self.assertIn("GAUTIER Romain", rendered)
         self.assertEqual(rendered.count('href="../modules/09-services-reseaux-en-environnement-microsoft/"'), 2)
         self.assertIn('href="../modules/15-services-reseau-en-environnement-linux/"', rendered)
         uncertain = {**model()[0], "mapping": {

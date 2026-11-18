@@ -5,7 +5,7 @@ hide:
 
 # Utilisation d’une distribution GNU/Linux
 
-<div class="tssr-course-hero"><span class="tssr-course-hero__step">Étape 05 / 09</span><p>Pratiquer le shell, manipuler les fichiers et maîtriser les mécanismes Bash réellement présents dans les supports.</p><dl><div><dt>Période</dt><dd>6 → 10 juillet 2026</dd></div><div><dt>Formateur</dt><dd>Formateur</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl></div>
+<div class="tssr-course-hero"><span class="tssr-course-hero__step">Étape 05 / 09</span><p>Pratiquer le shell, manipuler les fichiers et maîtriser les mécanismes Bash réellement présents dans les supports.</p><dl><div><dt>Période</dt><dd>6 → 10 juillet 2026</dd></div><div><dt>Formateur</dt><dd>RICHEZ Cédric</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl></div>
 
 ## Modules disponibles
 
