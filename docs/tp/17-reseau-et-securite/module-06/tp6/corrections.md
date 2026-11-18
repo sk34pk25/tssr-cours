@@ -48,9 +48,9 @@ Ajout de règles
    •   Installer le rôle IIS
 
    •   Configurer et publier 2 sites nommés:
-             www.votrenom.eni:80
+             www.votrenom.lab:80
 
-               intranet.votrenom.eni sur l’IP172.20.X.153
+               intranet.votrenom.lab sur l’IP172.20.X.153
 
 ![TP6, correction, page 3](../../../../assets/images/reseau-et-securite/tp6/correction-p03-07.png)
 
@@ -95,8 +95,8 @@ Sur SRV-WEB
    •   Installer le navigateur lynx
 
    •   Configurer et publier 2 sites WEB nommés :
-       intra.votrenom.eni sur n'importe quelle IP
-       internet.votrenom.eni sur l'IP 172.20.X.202
+       intra.votrenom.lab sur n'importe quelle IP
+       internet.votrenom.lab sur l'IP 172.20.X.202
 
 ![TP6, correction, page 7](../../../../assets/images/reseau-et-securite/tp6/correction-p07-21.png)
 
@@ -116,7 +116,7 @@ Sur SRV-WEB
 
 Valeurs de la capture :
 
-- openssl genrsa -out internet.votrenom.eni.key 2048
+- openssl genrsa -out internet.votrenom.lab.key 2048
 
 
 ![TP6, correction, page 8](../../../../assets/images/reseau-et-securite/tp6/correction-p08-25.png)
@@ -143,7 +143,7 @@ Valeurs de la capture :
 
 Sur le routeur PFsense
    •   Faites en sorte de vous connecter en https avec le certificate adequate en utilisant
-       le FQDN routeur.votrenom.eni.
+       le FQDN routeur.votrenom.lab.
 
    •
 

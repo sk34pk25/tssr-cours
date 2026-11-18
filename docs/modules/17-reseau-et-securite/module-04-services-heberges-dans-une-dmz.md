@@ -54,11 +54,11 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
            Exécuter le script D:/scripts/Script-TP3-AddDnsZone.ps1 et entrer la nouvelle adresse
     IP du SRV-Apache
-           Tester l’URL https://extra.votrenom.eni
+           Tester l’URL https://extra.votrenom.lab
 
     Sur du routeur Pfsense
 
-           Faites un alias URLs pour extra.votrenom.eni
+           Faites un alias URLs pour extra.votrenom.lab
 
     Et ensuite une redirection NAT depuis le WAN pour accèder on site WEB A voir si fessable
            Attention aux règles de pare-feu
@@ -93,7 +93,7 @@ Semaine **1/2**. Support de cours : **Inexistant**.
 
 
     1. Déployer le serveur web sur VMnet 12, mot de passe root P@ssw0rd, et renseigner /etc/hosts et /etc/resolv.conf.
-    2. Créer l’enregistrement DNS et tester https://extra.votrenom.eni.
+    2. Créer l’enregistrement DNS et tester https://extra.votrenom.lab.
     3. Sur pfSense, créer un alias d’URL puis une redirection NAT depuis le WAN. Surveiller les règles de pare-feu.
     4. Tester depuis l’hôte avec l’IP WAN, et depuis le client Windows avec le FQDN.
 

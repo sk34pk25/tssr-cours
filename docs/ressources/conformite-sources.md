@@ -1,6 +1,6 @@
 # Supports originaux du Drive et compléments pédagogiques
 
-Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont transcrits en texte HTML et tableaux. Les reproductions de pages et de diapositives ENI, y compris sous forme de planches d’images, sont exclues. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF ENI et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
+Les documents ci-dessous proviennent du dossier TSSR du Google Drive. Les supports sont transcrits en texte HTML et tableaux. Les reproductions de pages et de diapositives du support d’origine, y compris sous forme de planches d’images, sont exclues. Chaque fichier a été récupéré à nouveau depuis le Drive puis contrôlé par empreinte SHA-256. Les copies PDF du support d’origine et les captures de pages entières ont été retirées du site ; les sources du Drive ne sont pas modifiées.
 
 Les fiches de synthèse et leurs schémas sont affichés séparément dans **Cours Optimisé IA**. Les précisions externes citent leur source et ne modifient pas les documents de formation.
 
@@ -122,6 +122,6 @@ Les corrections de TP sont repliées à l’ouverture pour permettre une premiè
 
 La construction du site contrôle les empreintes des transcriptions et des illustrations ainsi que la séquence des pages. Les tableaux restent structurés, et les commandes et opérateurs restent lisibles dans le lecteur. Les extraits visuels sont isolés et leur recadrage est vérifié. Le manuel Aruba se consulte dans la transcription liée au TP GLPI.
 
-Le cours **Infrastructures réseaux** est consultable uniquement via les vidéos sur le site de l’ENI.
+Le cours **Infrastructures réseaux** est consultable uniquement via les vidéos sur le site de l’établissement.
 
 Aucun support de Sauvegarde et restauration, de Réseau et sécurité ou de Services transverses Microsoft n’a été trouvé dans le dossier TSSR consulté le 5 novembre 2026.

@@ -2,7 +2,7 @@
 
 Pratiquer les commandes et les mécanismes du shell à partir des onze ateliers documentés.
 
-<div class="tssr-index-meta"><span>Planning TSSR</span><strong>6 → 10 juillet 2026</strong><span>RICHEZ Cédric</span><a href="../../parcours-tssr/#p-abb81b3446a662d6">Voir la période dans le parcours</a></div>
+<div class="tssr-index-meta"><span>Planning TSSR</span><strong>6 → 10 juillet 2026</strong><span>Formateur</span><a href="../../parcours-tssr/#p-abb81b3446a662d6">Voir la période dans le parcours</a></div>
 
 ## Périmètre des sources
 

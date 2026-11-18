@@ -4,7 +4,7 @@ Semaine 2/2. Support de cours : **Inexistant**.
 
 ## TP6, certificats autosignés
 
-IIS et Apache, plus HTTPS sur pfSense. Seconde adresse 172.20.X.153/26 sur SRV-MBR. Sites www.votredomaine.eni et intranet.votredomaine.eni. Sur SRV-WEB, 172.20.X.202/26, lynx, intra.votredomaine.eni et internet.votredomaine.eni. FQDN du routeur : routeur.votredomaine.eni.
+IIS et Apache, plus HTTPS sur pfSense. Seconde adresse 172.20.X.153/26 sur SRV-MBR. Sites www.votredomaine.lab et intranet.votredomaine.lab. Sur SRV-WEB, 172.20.X.202/26, lynx, intra.votredomaine.lab et internet.votredomaine.lab. FQDN du routeur : routeur.votredomaine.lab.
 
 ## TP7, PKI ADCS
 

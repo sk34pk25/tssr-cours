@@ -1,15 +1,15 @@
-# Tutoriel — Configurer FortiClient VPN pour le laboratoire ENI
+# Tutoriel — Configurer FortiClient VPN pour le laboratoire
 
 ## Source et périmètre
 
-Cette procédure reprend le support ENI daté 2026-01. Télécharger le client uniquement depuis le site officiel Fortinet ou la source fournie par l’établissement.
+Cette procédure reprend le support de laboratoire daté 2026-01. Télécharger le client uniquement depuis le site officiel Fortinet ou la source fournie par l’établissement.
 
 ## Configuration
 
 1. Installer **FortiClient VPN**.
 2. Accepter les conditions puis choisir **Configurer le VPN**.
 3. Créer une connexion SSL-VPN avec un nom explicite.
-4. Saisir la passerelle `vpnssl.campus-eni.fr`.
+4. Saisir la passerelle `vpnssl.exemple.lab`.
 5. Activer le port personnalisé `10443`.
 6. Enregistrer.
 7. Se connecter avec le compte AD apprenant attribué par l’établissement.

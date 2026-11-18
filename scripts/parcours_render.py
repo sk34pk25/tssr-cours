@@ -5,6 +5,12 @@ from parcours import canonical_title
 from parcours_catalog import ROOT, catalog, load_msp, model
 
 LABELS = {"COURSE": "Cours", "MSP": "MSP", "STAGE": "Stage", "INTERRUPTION": "Interruption", "EVALUATION": "Évaluation finale"}
+# The planning snapshot keeps the source names. Published pages do not.
+PUBLISHED_FORMATEURS = {"RICHEZ Cédric": "Formateur", "GAUTIER Romain": "Formateur"}
+
+
+def published_formateurs(names):
+    return [PUBLISHED_FORMATEURS.get(name, name) for name in names]
 
 
 def href(path):
@@ -23,13 +29,13 @@ def render_parcours(root=ROOT):
         relation = p["mapping"]
         access = link(relation["path"], "Ouvrir le contenu") if relation["path"] else "Correspondance à confirmer" if relation["state"] == "MATCH_PROBABLE" else "Contenu non encore disponible" if relation["state"] in {"MISSING", "MSP"} else "Période sans cours associé"
         if relation["state"] == "MISSING" and canonical_title(p["cours"]) == "les infrastructures reseaux":
-            access = "Ce cours est consultable uniquement via les vidéos sur le site de l’ENI."
+            access = "Ce cours est consultable uniquement via les vidéos sur le site de l’établissement."
         parts.append(f'''<article class="tssr-timeline__card" id="{p['id']}">
 <span class="tssr-timeline__number">{index:02d}</span>
 <div class="tssr-timeline__body">
 <p class="tssr-timeline__date">{LABELS[p['kind']]} · <time datetime="{p['date_debut']}">{p['date_debut']}</time> → <time datetime="{p['date_fin']}">{p['date_fin']}</time></p>
 <h2>{escape(p['cours'])}</h2>
-<dl><div><dt>Formateur(s)</dt><dd>{escape(', '.join(p['formateurs']))}</dd></div><div><dt>Modalité / lieu</dt><dd>{escape(p['modalite_lieu'])}</dd></div></dl>
+<dl><div><dt>Formateur(s)</dt><dd>{escape(', '.join(published_formateurs(p['formateurs'])))}</dd></div><div><dt>Modalité / lieu</dt><dd>{escape(p['modalite_lieu'])}</dd></div></dl>
 <p class="tssr-period-status" data-period-start="{p['date_debut']}" data-period-end="{p['date_fin']}">État calculé à l’ouverture avec JavaScript</p>
 <p>{access}</p></div></article>''')
     parts.extend(['</div>', '', 'Les modalités sont reproduites telles que fournies, y compris pour les stages. Les intervalles non décrits ne sont pas complétés artificiellement.', '', '[Consulter les anciennes étapes éditoriales](../parcours/index.md).'])

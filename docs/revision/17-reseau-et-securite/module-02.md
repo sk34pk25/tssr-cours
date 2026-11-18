@@ -4,7 +4,7 @@ Semaine 1/2. Support de cours : **Inexistant**.
 
 ## SRV-CD
 
-VMnet 11. Rôles AD DS et DNS. Domaine votredomaine.eni. Scripts, dans l’ordre de la correction : Install-DNS-ADDS.ps1, DNS-Zone-Inversées.ps1, OU.ps1, puis Users.ps1, Groups.ps1 et AdduseronGroups.ps1 après adaptation des CSV. Redirecteur vers le DNS de la salle.
+VMnet 11. Rôles AD DS et DNS. Domaine votredomaine.lab. Scripts, dans l’ordre de la correction : Install-DNS-ADDS.ps1, DNS-Zone-Inversées.ps1, OU.ps1, puis Users.ps1, Groups.ps1 et AdduseronGroups.ps1 après adaptation des CSV. Redirecteur vers le DNS de la salle.
 
 ## SRV-MBR et clients
 

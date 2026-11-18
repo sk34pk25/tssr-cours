@@ -50,7 +50,7 @@ La progression ci-dessous suit les dates réelles de la formation. Elle constitu
       <span class="tssr-timeline__date">22 → 26 juin 2026</span>
       <h2>Systèmes clients Microsoft (1/2)</h2>
       <p>Première semaine consacrée aux fondamentaux Windows, à l’installation, à PowerShell, au stockage et aux comptes locaux.</p>
-      <dl><div><dt>Formateur</dt><dd>RICHEZ Cédric</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl>
+      <dl><div><dt>Formateur</dt><dd>Formateur</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl>
       <a href="03-systemes-clients-microsoft-1/">Ouvrir l’étape 03 <span aria-hidden="true">→</span></a>
     </div>
   </article>
@@ -70,7 +70,7 @@ La progression ci-dessous suit les dates réelles de la formation. Elle constitu
       <span class="tssr-timeline__date">6 → 10 juillet 2026</span>
       <h2>Utilisation d’une distribution GNU/Linux</h2>
       <p>Pratiquer le shell, les fichiers, les recherches, Vi et les mécanismes Bash présents dans les supports disponibles.</p>
-      <dl><div><dt>Formateur</dt><dd>RICHEZ Cédric</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl>
+      <dl><div><dt>Formateur</dt><dd>Formateur</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl>
       <a href="05-utilisation-linux/">Ouvrir l’étape 05 <span aria-hidden="true">→</span></a>
     </div>
   </article>

@@ -23,7 +23,7 @@ Configurez une adresse IPv4 fixe sur l’interface réseau de la VM.
 - La partie réseau de l’adresse doit être la même que celle de l’ordinateur utilisé pour réaliser les TP.
 - La partie hôte est composée du rang alphabétique de la première lettre du prénom puis de celui de la première lettre du nom de famille.
 
-Exemple conservé du scénario : pour **Pierre-Louis Le Guervelec**, `P` est la 16e lettre de l’alphabet et `L` la 12e ; les troisième et quatrième octets sont donc respectivement `16` et `12`.
+Exemple conservé du scénario : pour **Paul Lefebvre**, `P` est la 16e lettre de l’alphabet et `L` la 12e ; les troisième et quatrième octets sont donc respectivement `16` et `12`.
 
 - Masque : `255.255.0.0`.
 - Passerelle par défaut et serveur DNS préféré : mêmes valeurs que celles configurées sur la VM Campus en ligne.

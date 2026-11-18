@@ -103,7 +103,7 @@ Dans **Connexions réseau → Ethernet0 → Propriétés → Protocole Internet 
 | Masque | `255.255.0.0` dans ce scénario. |
 | Passerelle et DNS préféré | Ceux relevés sur l’environnement Campus. |
 
-L’exemple Pierre-Louis Le Guervelec donne `16.12` pour la partie hôte. La correction illustre un autre nom avec `172.28.18.7` ; ne pas mélanger ces deux exemples. Vérifier que la manipulation a lieu sur **Win10-XX**.
+L’exemple Paul Lefebvre donne `16.12` pour la partie hôte. La correction illustre un autre nom avec `172.28.18.7` ; ne pas mélanger ces deux exemples. Vérifier que la manipulation a lieu sur **Win10-XX**.
 
 ### C. Comparer les chemins de communication
 

@@ -27,13 +27,13 @@ Connaître l’utilisation et le paramétrage d’Outlook.
 
 #### Principales tâches à réaliser
 
-- Ouvrez Outlook et connectez-vous avec votre adresse mail campus-eni.fr afin d’utiliser
+- Ouvrez Outlook et connectez-vous avec votre adresse mail exemple.lab afin d’utiliser
 
 l’autodiscover.
 
 - Connectez-vous à votre tenant puis notez le nom de l’appareil sur lequel est installé
 
-votre office et comparer avec le nom de la machine ENI.
+votre office et comparer avec le nom de la machine du laboratoire.
 
 - Relevez le lieu et l’adresse IP de votre dernière connexion.
 - Testez l’autodiscover par le menu de la zone de notification et notez les protocoles
@@ -49,7 +49,7 @@ Nouvelle tâche » à votre ruban.
 
 organisation avec comme texte : « je suis actuellement en congés. Je serais de nouveau disponible à partir du (2 jours plus tard) dès 8h00.
 
-- Tester en envoyant un mail depuis une autre adresse mail vers votre mail compus-eni.fr.
+- Tester en envoyant un mail depuis une autre adresse mail vers votre mail exemple.lab.
 - Créez une règle qui répond à ces critères :
 
   - À partir du message de retour de la réponse automatique.
@@ -78,7 +78,7 @@ automatique dans le corps de votre message.
 - Faites de même dans Outlook sur le web.
 - Afficher les 3 volets Calendrier, Contacts et Tâches à droite de la page Outlook.
 - Afficher les messages en mode Conversation pour toute votre boîte aux lettres.
-- Créez une réunion Teams avec votre mail campus-eni.fr vers une autre adresse mail.
+- Créez une réunion Teams avec votre mail exemple.lab vers une autre adresse mail.
 
   - Pouvez-vous y accéder avec votre autre adresse mail ?
 
@@ -92,7 +92,7 @@ automatique dans le corps de votre message.
   - Statut “en cours de réalisation”
   - 70% de pourcentage d’achèvement.
 
-- Envoyez un message de votre compte campus-eni.fr vers votre tenant et transformez-le
+- Envoyez un message de votre compte exemple.lab vers votre tenant et transformez-le
 
 en rendez-vous.
 

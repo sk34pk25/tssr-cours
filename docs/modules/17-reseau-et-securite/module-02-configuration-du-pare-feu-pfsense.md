@@ -47,7 +47,7 @@ Semaine **1/2**. Support de cours : **Inexistant**.
            Attribuer lui, l’adresse IP ainsi que sa passerelle définis sur le schema.
            Connectez-le sur le VMnet 11
            Renomer votre VM par SRV-CD
-           Installer les rôles AD DS et le DNS, votre nom de domaine sera votre nom.eni
+           Installer les rôles AD DS et le DNS, votre nom de domaine sera votre nom.lab
 
           Ouvrir Powershell en tant qu’Administeur de vous déplacer sur E:/scirpts puis
           exécutez les scripts dans l’ordre suivant:
@@ -145,7 +145,7 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     - SRV-MBR : 192.168.X.102/24, DHCP
 
 
-    1. Déployer SRV-CD sur VMnet 11, rôles AD DS et DNS, domaine votredomaine.eni.
+    1. Déployer SRV-CD sur VMnet 11, rôles AD DS et DNS, domaine votredomaine.lab.
     2. Exécuter les scripts du document, après avoir adapté Users.csv et Groups.csv, puis créer le redirecteur vers le DNS de la salle.
     3. Déployer SRV-MBR sur VMnet 11, le joindre au domaine, installer DHCP et une étendue pour le LAN client.
     4. Déployer pfSense, aligner les IP et les VMnet, le domaine, le DNS et le relais DHCP.

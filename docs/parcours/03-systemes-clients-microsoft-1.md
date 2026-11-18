@@ -5,7 +5,7 @@ hide:
 
 # Systèmes clients Microsoft (1/2)
 
-<div class="tssr-course-hero"><span class="tssr-course-hero__step">Étape 03 / 09</span><p>Installer et prendre en main Windows, puis administrer le stockage et les identités locales.</p><dl><div><dt>Période</dt><dd>22 → 26 juin 2026</dd></div><div><dt>Formateur</dt><dd>RICHEZ Cédric</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl></div>
+<div class="tssr-course-hero"><span class="tssr-course-hero__step">Étape 03 / 09</span><p>Installer et prendre en main Windows, puis administrer le stockage et les identités locales.</p><dl><div><dt>Période</dt><dd>22 → 26 juin 2026</dd></div><div><dt>Formateur</dt><dd>Formateur</dd></div><div><dt>Modalité</dt><dd>En ligne · Campus en ligne</dd></div></dl></div>
 
 ## Modules rattachés à la première semaine
 

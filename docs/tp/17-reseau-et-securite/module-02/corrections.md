@@ -34,7 +34,7 @@ Installation du serveur SRV-CD
 
        Renomer votre VM par SRV-CD
 
-       Votre nom de domaine sera votre nom.eni
+       Votre nom de domaine sera votre nom.lab
        Utiliser les scripts suivants :
 
        Ouvrir Powershell en tant qu’Administeur de vous déplacer sur D:/scirpts puis
@@ -127,7 +127,7 @@ sont sur les bons VMnet comme indiqué sur le schéma.
 Valeurs de la capture :
 
 - Nom de l’ordinateur : SRV-MBR
-- Domaine : votrenom.eni
+- Domaine : votrenom.lab
 - Groupe de travail : WORKGROUP
 
 

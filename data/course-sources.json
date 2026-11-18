@@ -413,7 +413,7 @@
       "legacyOriginal": "assets/course-sources/4dde7d467424ae97/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/4dde7d467424ae97/texte.html",
-      "transcriptionSha256": "a98bf4567c156072a332c68a10b703ed629cdd2f8fd5f52deed30510c2270228",
+      "transcriptionSha256": "e9afa9d45e3584028f6650c3bec759460d41514f474c511176eea10720c1e0ed",
       "pages": [
         {
           "number": 1,
@@ -681,7 +681,7 @@
       "legacyOriginal": "assets/course-sources/c2f50f0a3db45fb1/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/c2f50f0a3db45fb1/texte.html",
-      "transcriptionSha256": "2db21078ef2b62cffbdf07e3930e591d100c4ffc8e80b28ca38e5ad9133c245a",
+      "transcriptionSha256": "9cbafa183d827bf1eae326ffc3b709bda9cd1ac2074df8e68f66c8fac7275ec8",
       "pages": [
         {
           "number": 1,
@@ -761,7 +761,7 @@
       "legacyOriginal": "assets/course-sources/ff8b5796103c077e/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/ff8b5796103c077e/texte.html",
-      "transcriptionSha256": "65d180971a4df1575b01d7747add09e622ba592147414bfa4b54f8a802903600",
+      "transcriptionSha256": "1428feb9ace032e5712fecdfb928f6c7c686e76b179ebb51cd6b7aafe2af237b",
       "pages": [
         {
           "number": 1,
@@ -919,7 +919,7 @@
       "legacyOriginal": "assets/course-sources/8d9600957196c512/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/8d9600957196c512/texte.html",
-      "transcriptionSha256": "d8140868d9d5d7aa7b440664c549547ac44fb6a397ee0365ab5fabdef52f55e4",
+      "transcriptionSha256": "7ee74d3eac8ab25702e082bfa3753d1cd6fe0ec8b904fddd91ac9c74944637af",
       "pages": [
         {
           "number": 1,
@@ -1017,7 +1017,7 @@
       "legacyOriginal": "assets/course-sources/1e1b6f635d6593b2/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/1e1b6f635d6593b2/texte.html",
-      "transcriptionSha256": "611c6e3e43550645bef7da4f60e83081ffbadb6d351851bda2c34b361539fa18",
+      "transcriptionSha256": "d8027ea2091072586959479d8696c8ae43f3d04c8b07b957455a3e34c307e090",
       "pages": [
         {
           "number": 1,
@@ -1376,7 +1376,7 @@
       "legacyOriginal": "assets/course-sources/83fd3c99e1a0c64d/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/83fd3c99e1a0c64d/texte.html",
-      "transcriptionSha256": "44abc743b6b5d6038750076954b6ab29c5ee9ac5337304d5786cab370c521b0a",
+      "transcriptionSha256": "1377eac8793ebaefbbc0337b295a13f7bd22d87db90758a87228f68da43f8555",
       "pages": [
         {
           "number": 1,
@@ -4254,7 +4254,7 @@
         },
         {
           "path": "assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p5-1.webp",
-          "sha256": "d6950196d58cd6b5176d08ca7fd85fea1623ab4b269f25efd3a700b8b950603d",
+          "sha256": "893e215280d24685b5c0cc81636aa9a0443c869f33de2806babee69dd80f77b9",
           "page": 5,
           "reviewedIsolation": true,
           "kind": "capture-ui",
@@ -5343,7 +5343,7 @@
       "legacyOriginal": "assets/course-sources/9cb17ec8495d3204/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/9cb17ec8495d3204/texte.html",
-      "transcriptionSha256": "e6d53b843171dce8c6f2d83fa3ca9da185e17fb6a2b50d4e254b244c15664fa9",
+      "transcriptionSha256": "87e8aec514ce95e23d74ccbfcf561ad6607eda57fc5ba6e91d7faa2ebc187798",
       "pages": [
         {
           "number": 1,
@@ -5665,7 +5665,7 @@
       "legacyOriginal": "assets/course-sources/c236aadd3eb7bc01/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/c236aadd3eb7bc01/texte.html",
-      "transcriptionSha256": "75f7bfb5741b536a3f0310df7dc3b5ff16ff37229c8c86f43dfd28d972188e09",
+      "transcriptionSha256": "a4856ce0d73e41b8438b8bfb4ab959ee81514d18cf0865627f0e282ea79074b6",
       "pages": [
         {
           "number": 1,
@@ -8956,7 +8956,7 @@
         },
         {
           "path": "assets/course-sources/isolated/5602b57b41f6a32e/g1-d17-p02-i2.webp",
-          "sha256": "31617263c3c482cab8e044969d5004c1cfbe12b0d8edae667b30fbe6eb32ce2d",
+          "sha256": "4542887dff36b72938c96c9508463acbbab8eeffd15c949a301691962bba1a88",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 2,
@@ -16775,7 +16775,7 @@
       "legacyOriginal": "assets/course-sources/91154f62451e05b1/original.pdf",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/91154f62451e05b1/transcription-1cSuFMkKLzf-5P7v0aszRGy6bE4qiyZHs.html",
-      "transcriptionSha256": "fd88d55fb37343805235ca1fc28adfb717d39103ecffd7049b152c22861f4f59",
+      "transcriptionSha256": "b2989f7e82c04e158785bba58beae968ec2d13df0d85028cd16f71720010b7dd",
       "pages": [
         {
           "number": 1,
@@ -17007,7 +17007,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i1.webp",
-          "sha256": "8a059d2769b03daf3e2de3b8df54566f28dd45be58b510fad1e2c0996ba973e1",
+          "sha256": "4128330bf1ef2379bd5b5671a00772e8e7de61bc0e2222141fd94b7273264dfe",
           "page": 4,
           "sourcePage": 4,
           "sourceCrop": [
@@ -17031,7 +17031,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i2.webp",
-          "sha256": "fc849913016f79c0fde05bdddb56d566243f7317f8650383c02eabd9690d8422",
+          "sha256": "6eea63218c3885544f0c91d6dfb8ec5555aa3c7266bbccfaad2138f93713e9d7",
           "page": 4,
           "sourcePage": 4,
           "sourceCrop": [
@@ -17055,7 +17055,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p05-i1.webp",
-          "sha256": "3a158acb8663312c31b907c7c4f0e5e314c88a27177d6cd0adfd4521f404221e",
+          "sha256": "8f5fd69d787ed75b53375d7d7b84a61ca5cb26f4b55fe41cc80216bc0b122ae9",
           "page": 5,
           "sourcePage": 5,
           "sourceCrop": [
@@ -17079,7 +17079,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i1.webp",
-          "sha256": "f352177abfbc536e2517e116d35f04db632bebca08a2c085f4462145ec7df001",
+          "sha256": "d24a20e62ea3582703a79d130be12814ec948fb5df5cce3bd4ace533413fd580",
           "page": 6,
           "sourcePage": 6,
           "sourceCrop": [
@@ -17103,7 +17103,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i2.webp",
-          "sha256": "008125131cd36d4de66fea69c73b38fa8227da3d0ad17eb25694069177ec5972",
+          "sha256": "650c146050338bd80ee29f13302d866789db6410cb74e009e15838c5b1a52b0f",
           "page": 6,
           "sourcePage": 6,
           "sourceCrop": [
@@ -17175,7 +17175,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p08-i1.webp",
-          "sha256": "11f6cab4830326606ceddbaad2892a3ddebee0987bc38db452ee392ca0fb3b5a",
+          "sha256": "026f6d0b0c4c16d07d4a7b8231b480eb616e7c0cdb7fb33ce8744321d924ec5c",
           "page": 8,
           "sourcePage": 8,
           "sourceCrop": [
@@ -17199,7 +17199,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p09-i1.webp",
-          "sha256": "88805d7291ba963723699282ac31ad7be1a39f296a6ca76fa49c4914e9c46f42",
+          "sha256": "48524e2153bd979fbd691703d246c89f01ee094b9ba3bad32a60690ad735d74e",
           "page": 9,
           "sourcePage": 9,
           "sourceCrop": [
@@ -17223,7 +17223,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p10-i1.webp",
-          "sha256": "a396b2ab97974e9cf450e9130739e29179d060b07ba919303ce5eebe0d3efe32",
+          "sha256": "c478f4a51b70ff5653537ff4c73ff8406ab3e6f5b111d59b78129b9719dde1fc",
           "page": 10,
           "sourcePage": 10,
           "sourceCrop": [
@@ -17247,7 +17247,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p11-i1.webp",
-          "sha256": "5300a53dd3854094562826dcdcecb5c64c12318ec4c2d6cd527b022413b4c82f",
+          "sha256": "558a9b096b4ceeec35785068bbf6e9afc60ea8f13b84dc570ab6d32338670fcd",
           "page": 11,
           "sourcePage": 11,
           "sourceCrop": [
@@ -17271,7 +17271,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p12-i1.webp",
-          "sha256": "48ea4ac71c4e79b8cab79068d5a2d331f8730070878a8a437f7d7b1f7cb37a3a",
+          "sha256": "22aff30c97dd96739d08a0f640ed3304ecc6b2f1f3ac7b53c62d05c24a177f1e",
           "page": 12,
           "sourcePage": 12,
           "sourceCrop": [
@@ -17295,7 +17295,7 @@
         },
         {
           "path": "assets/course-sources/isolated/91154f62451e05b1/u04-d16-p13-i1.webp",
-          "sha256": "872b803bf6e7b881bc786efaaaf605972801ea4af8e4a4509a0372ee165e6da8",
+          "sha256": "8ef2a4771e390edfd112fef256f5fce593c1d8ada829439f9c78f602a13e0f45",
           "page": 13,
           "sourcePage": 13,
           "sourceCrop": [
@@ -29313,7 +29313,7 @@
       "figures": [
         {
           "path": "assets/course-sources/isolated/84deb13b4f31ad60/deb-p1-1.webp",
-          "sha256": "7a73fac3c9ca97c6b5d9ef3e2726c02389a41b26d65c3939f8ced44ca00c62ef",
+          "sha256": "ad86745e0c224b158a4d97ca5396d43501e06e0347bb3a48dae8d88f3ddcce81",
           "page": 1,
           "reviewedIsolation": true,
           "kind": "capture-ui",
@@ -30348,7 +30348,7 @@
       "figures": [
         {
           "path": "assets/course-sources/isolated/8448afd9585de604/deb-p1-1.webp",
-          "sha256": "be373a3853a11e0cb9b8314832fc28560a4b840f71f2879788c3cc555fc413c5",
+          "sha256": "8d1473c04a5938d7cbd8a39c04d09cac806d5d661fb2a6538aa117e1ddcdb5ce",
           "page": 1,
           "reviewedIsolation": true,
           "kind": "capture-ui",
@@ -37222,7 +37222,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1b131977058f7c60/g07-d11-p08-i1.webp",
-          "sha256": "97ab76697abc3effc6d6ffd9819c247f82b3e7fea2a6f8ab085cbcdb54714f1c",
+          "sha256": "b52ccd3815d2373ef931a5dc4158f87fae64c0fb9cfabfc224adae9c3e5a8f6c",
           "page": 8,
           "sourcePage": 8,
           "sourceCrop": [
@@ -38142,7 +38142,7 @@
         },
         {
           "path": "assets/course-sources/isolated/c9ad26c2b4912579/msp-p4-4.webp",
-          "sha256": "caea7c3be8af7b4f4c12f65621c71208f4be1563fea0c286cba9dc3a9ca62803",
+          "sha256": "2b99bb0cecb1b620c6438426478f6cf34f392fe27fa6a1cda7182e10691daaf1",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 4,
@@ -39876,7 +39876,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p2-4.webp",
-          "sha256": "1df9befc81fdc8c9d7e5f48218d66708b1e9d3e3946fb40f1c9b1b9052eb5c91",
+          "sha256": "9bab438ab01cf567b85c904846700b7a09d0ab76d53da5471df91b4fb4642be1",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 2,
@@ -41976,7 +41976,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p61-88.webp",
-          "sha256": "2da3f33ee3f0767551befc31284708f96ef7236415fc80ba60557fb72843b665",
+          "sha256": "eab93864d86ca7ad5bac6d31160ab24437f19db7a5a6217eed4edf71bd24ee46",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 61,
@@ -42051,7 +42051,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p62-91.webp",
-          "sha256": "2bd834650aea9cbe6f06adf17954696bb5a9234335c598f1b100fe8b49884288",
+          "sha256": "bc812cd9b37f3bc5295680eef646a1c2147e58a05ea3b6d26caca20971de7ce5",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 62,
@@ -42351,7 +42351,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p68-103.webp",
-          "sha256": "c1a3847648cf1dbf369e62c0bb62fc1aa763d51d2d1bc85cf18132954798ae16",
+          "sha256": "8f96fc303fa48d8955e009e7bd9b7cb0c21132b94418219b5ec3d839a9a539de",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 68,
@@ -44951,7 +44951,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p125-207.webp",
-          "sha256": "d89038b722932747319627915f15e732a7058a54c0ef85c1d4fe54e5b79578ca",
+          "sha256": "cc0e08bc7cc3443b98977a28391f6323fbc994f0dc4ae358f675f0e524e84aa2",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 125,
@@ -45026,7 +45026,7 @@
         },
         {
           "path": "assets/course-sources/isolated/1316bbc9d075426a/msp-p127-210.webp",
-          "sha256": "2d39ae317ecf562f9e98f0c68bef2ac1257455b8f679452c526b7eef2eecd14c",
+          "sha256": "cfa9814bd78776f65fe7a1c0d744add2149048ed2b8bb7d619623747b8db4887",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 127,
@@ -48190,7 +48190,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/135ae8437059066d/transcription-1G13m58rOo6jBKcQFzsctXG2Pj1XfKmaS.html",
-      "transcriptionSha256": "1e0d0f8a49f37eb43c82b662aecfdc2eb23983e78a1cade3addf47d52e9f1ba1",
+      "transcriptionSha256": "ae298c9b252e69d721c83efca1473001bc896936270311edf247002a0c0e6bdf",
       "pages": [
         {
           "number": 1,
@@ -48241,7 +48241,7 @@
         },
         {
           "path": "assets/course-sources/isolated/135ae8437059066d/ps-p2-i2-1.webp",
-          "sha256": "f77f023b3dfdd603206485b9faac1314625aa384359d2e3ec47fefcc59c5a565",
+          "sha256": "9e43702bc62159743f7298e61b5d39f25a6f31f23aa93dee8bc73d829743561b",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 2,
@@ -49693,7 +49693,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/240a1fd65e5af2db/transcription-1u7ZS6VCu6ni6Uy0uAHWirDuRvmhzji8e.html",
-      "transcriptionSha256": "230d8af9a0ee86fd14e6e9b7de93bf327133a0755ab8cd7f3eb660ea26248441",
+      "transcriptionSha256": "2d270455f3e20a5b603ee2c5de1c3d6c9a427787b98da217e7a2a8d95f3bb8f2",
       "pages": [
         {
           "number": 1,
@@ -49819,7 +49819,7 @@
         },
         {
           "path": "assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i4-1.webp",
-          "sha256": "a926ac4da31be5cb97340b69c94a1efe3405746041f8097330f72c4ccc951e77",
+          "sha256": "3635eefdbbebbf5858ae908a9e57d1fd59bb3c14221bb07310bb853ae451d2bf",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 2,
@@ -49844,7 +49844,7 @@
         },
         {
           "path": "assets/course-sources/isolated/240a1fd65e5af2db/ps-p2-i5-1.webp",
-          "sha256": "c2beab7ba45af7c72809f9b033a0d8b1abdd87f7df7de8b068763bba63d0c495",
+          "sha256": "26fb7d8f4c381d4df2461726a862c16aaee33d4889ada2476278c08702a3565c",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 2,
@@ -53099,7 +53099,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/05fe89244edfff8f/transcription-1QFC1_tXd6PhXvwUg0gisgE7SABd8fBf1.html",
-      "transcriptionSha256": "a2f3b1db7166574066b58b3d33c17a7c554d0d91e46fa2a188b3a734de67eff3",
+      "transcriptionSha256": "d7bf7a00b4da6dd434ed54ba50cfe180b13c3124fc59ffaa1a2b7997ae6915d5",
       "pages": [
         {
           "number": 1,
@@ -53430,7 +53430,7 @@
         },
         {
           "path": "assets/course-sources/isolated/05fe89244edfff8f/ps-p13-i1-1.webp",
-          "sha256": "e42cf3faeff7078eff490c37e5aaf1b3cd9f408a766efa3c6559d31cc7f0ab16",
+          "sha256": "d19039b087ea58974a92110170e3bcdf2fafd285b34a2bd6ca8ea5cef5f2bf95",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 13,
@@ -61693,7 +61693,7 @@
       "figures": [],
       "illustrationCount": 0,
       "sourceNotice": "Le contenu du fichier shell est transcrit en texte. Les fins de ligne sont présentées au format Web.",
-      "transcriptionSha256": "da8965af1ea764d564f0a46b82185723588913ff73e33686278e082e795e4e5b"
+      "transcriptionSha256": "b4fcd7f29a2c2fc6a6dce388bdb583077438e0554dc5d033fdd36c551590e024"
     },
     "1BCvLWFpU75kfErsL8oAw0FrxBbLBc08r": {
       "id": "1BCvLWFpU75kfErsL8oAw0FrxBbLBc08r",
@@ -61849,7 +61849,7 @@
           "sourceGraphicsDetected": 0
         }
       ],
-      "transcriptionSha256": "957c6dcfdd48da4b2256eb7d9840058dd347f58067c696ec07cd6ae3f3b70073"
+      "transcriptionSha256": "bf2b276464ef0716fb9f383adae8f1c560ee151dea55e43f97e6d37295adda75"
     },
     "1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_03": {
       "id": "1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_03",
@@ -61883,7 +61883,7 @@
           "sourceGraphicsDetected": 0
         }
       ],
-      "transcriptionSha256": "e34bd25cc1ad8d9718c2e5eacbe05329d149e5f93caddedb423573375b7986ca"
+      "transcriptionSha256": "af55bcc85e05a2c338ca5b3d1141dd227d5eaf9c5b7fa4b54f3830e16a5f41d2"
     },
     "1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_04": {
       "id": "1feFTnFkBcojCBjy6y36UD3ApBv9A-KQh_member_04",
@@ -64041,7 +64041,7 @@
       "sourceNotice": "Le PDF classé dans le module 3 est identique, par SHA-256, au document correspondant du module 2. Transcription du document source. Les parcours et libellés historiques sont conservés. Les mots de passe, codes de validation et coordonnées nominatives sont neutralisés. Les noms de domaine d’accès des exemples utilisent des domaines réservés à la documentation.",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/5aa0bc1641f5fddd/transcription-1_CAYnYBOD0DQW9uNGykBtX_GAqNUtC-G.html",
-      "transcriptionSha256": "1c3f524f9e75836c393d9e15db7989e07fc02e58c0ceb4630727e7a6659248c0",
+      "transcriptionSha256": "f899f8be6bf1aac01340ceb33fa24c045868bed6251eb76c1ebeb6a9be5fae9b",
       "pages": [
         {
           "number": 1,
@@ -64347,7 +64347,7 @@
         },
         {
           "path": "assets/course-sources/isolated/b0ef5fef8cee558e/cloud-p18-i3.webp",
-          "sha256": "e7d0ac3e6a33a6e082d44b69305eb4d09e4a3a9b92b771e0bac77560c0b27dea",
+          "sha256": "dafa622ccd57df44ab9c5fc2c32895a68b1832fb71624fb2dc6f42ab4c0d39a2",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 18,
@@ -64427,7 +64427,7 @@
       "sourceNotice": "Le PDF classé dans le module 3 est identique, par SHA-256, au document correspondant du module 2. Transcription du document source. Les parcours et libellés historiques sont conservés. Les mots de passe, codes de validation et coordonnées nominatives sont neutralisés. Les noms de domaine d’accès des exemples utilisent des domaines réservés à la documentation.",
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/16589f599d6f5c87/transcription-1wU7nbtTzD6ImXy4wWZ2oezVQvQxR6QLW.html",
-      "transcriptionSha256": "838eff818f4e3bd48c9088be6c92d12c4a9316e7b3a537db3e8d517ec33debfd",
+      "transcriptionSha256": "b00d32ef0e4f94103cb30eb6a53e1374d33be220836c4ba50c736a1c587cf007",
       "pages": [
         {
           "number": 1,
@@ -65122,7 +65122,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/5aa0bc1641f5fddd/transcription-1pRrCblXivh0TaW_p6JN-OSvGiDZn8zdu.html",
-      "transcriptionSha256": "79c9e3777994a8af03a682c9c6bab81c64ce353f613c0d685d2297b0bd27c03a",
+      "transcriptionSha256": "696577a105f0b164924f1d668f059854a154ffd168f8cf4532e172ed7ba8a5cf",
       "pages": [
         {
           "number": 1,
@@ -65428,7 +65428,7 @@
         },
         {
           "path": "assets/course-sources/isolated/b0ef5fef8cee558e/cloud-p18-i3.webp",
-          "sha256": "e7d0ac3e6a33a6e082d44b69305eb4d09e4a3a9b92b771e0bac77560c0b27dea",
+          "sha256": "dafa622ccd57df44ab9c5fc2c32895a68b1832fb71624fb2dc6f42ab4c0d39a2",
           "kind": "capture-ui",
           "reviewedIsolation": true,
           "page": 18,
@@ -65508,7 +65508,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/16589f599d6f5c87/transcription-1LC5uqVZGBDGEtpTF3BWw0woL2fjgAqL9.html",
-      "transcriptionSha256": "73679cb7690c555d3169a6b3ad1be1733e6a6f4a99b2ad57175c880b639ac8b5",
+      "transcriptionSha256": "9beb2d44820a0ec4b8997ebf74aa9c9842e3e268ccc658cf3ffbe38e30b7c87e",
       "pages": [
         {
           "number": 1,
@@ -66414,7 +66414,7 @@
       ],
       "sourceFormat": "pdf",
       "transcript": "assets/course-sources/27df445441ffef9a/transcription-1M6R8Vim0BbF_C6NwdGVZN-_rP4Kcqe7B.html",
-      "transcriptionSha256": "d34aca115ce287d6647ca987fcfcbed5e074e6b4a62684ab2c482502733cbae3",
+      "transcriptionSha256": "d7068b212bed8f27a4796121945362f194da8f5a4f7051e96f8c4b1cd4b812ff",
       "pages": [
         {
           "number": 1,
@@ -70646,5 +70646,5 @@
       "module": "modules/04-utilisation-gnu-linux/module-06-recherches-et-expressions-regulieres.md"
     }
   ],
-  "visualPolicy": "Texte et tableaux ; aucun PDF ENI, diapositive, reproduction de page ni planche. Seuls les croquis isolés contrôlés visuellement peuvent être publiés."
+  "visualPolicy": "Texte et tableaux ; aucun PDF d’éditeur, diapositive, reproduction de page ni planche. Seuls les croquis isolés contrôlés visuellement peuvent être publiés."
 }

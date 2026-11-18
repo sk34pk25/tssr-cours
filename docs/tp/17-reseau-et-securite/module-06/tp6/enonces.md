@@ -36,17 +36,17 @@ Valeurs de la capture :
 Sur SRV-MBR
 Installer le rôle IIS et créer un certificat autosigné
 
-Faire un enristrement DNS vers intranet.votredomaine.eni
+Faire un enristrement DNS vers intranet.votredomaine.lab
 
 Sur SRV-MBR
 Installer le Apache2 et créer un certificat autosigné
 
-Faire un enristrement DNS vers extranet.votredomaine.eni
+Faire un enristrement DNS vers extranet.votredomaine.lab
 
 Sur le routeur PFsense
 Activer le https avec le certificat autosigné existant
 
-Faire un enristrement DNS vers routeur.votredomaine.eni
+Faire un enristrement DNS vers routeur.votredomaine.lab
 
 Solution
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page [Correction](corrections.md)).
