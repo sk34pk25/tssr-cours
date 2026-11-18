@@ -11,47 +11,47 @@ Install-WindowsFeature dns -IncludeManagementTools
 Set-DnsClientServerAddress  -InterfaceIndex 6 -ServerAddresses 172.20.0.2 -PassThru
 
 # Configuration Suffixe DNS Principal
-Set-ItemProperty “HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\” –Name Domain –Value &quot;gilles.eni&quot;
+Set-ItemProperty “HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\” –Name Domain –Value &quot;gilles.lab&quot;
 Restart-Computer
 
 ## Redirecteurs
 # Redirecteur conditionnel
-Add-DnsServerConditionalForwarderZone -ZoneName &quot;gilles.eni&quot; -MasterServers 172.20.0.1
-# Redirecteur vers S1-GL et ENI
+Add-DnsServerConditionalForwarderZone -ZoneName &quot;gilles.lab&quot; -MasterServers 172.20.0.1
+# Redirecteur vers S1-GL et LAB
 Set-DnsServerForwarder -IPAddress 10.0.0.3,10.100.0.3 -PassThru
 
 ## Zones
 
-# Zone enfant ad.gilles.eni
-Add-DnsServerPrimaryZone -Name &quot;ad.gilles.eni&quot; -ZoneFile &quot;ad.gilles.eni.dns&quot;
+# Zone enfant ad.gilles.lab
+Add-DnsServerPrimaryZone -Name &quot;ad.gilles.lab&quot; -ZoneFile &quot;ad.gilles.lab.dns&quot;
 # Glue DNS pour le NS de la zone
-Add-DnsServerResourceRecord -A -Name &quot;s2-w-cd.gilles.eni.&quot; -IPv4Address 172.20.0.1 -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -A -Name &quot;s2-w-cd.gilles.lab.&quot; -IPv4Address 172.20.0.1 -ZoneName &quot;ad.gilles.lab&quot;
 # Enregistrement dans la zone
-Add-DnsServerResourceRecord -A -Name &quot;dns1&quot; -IPv4Address 172.20.0.2 -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -A -Name &quot;dns1&quot; -IPv4Address 172.20.0.2 -ZoneName &quot;ad.gilles.lab&quot;
 
-#Add-DnsServerResourceRecord -CName -Name &quot;dns2&quot; -HostNameAlias &quot;s3-gl.gilles.eni&quot; -ZoneName &quot;ad.gilles.eni&quot;
+#Add-DnsServerResourceRecord -CName -Name &quot;dns2&quot; -HostNameAlias &quot;s3-gl.gilles.lab&quot; -ZoneName &quot;ad.gilles.lab&quot;
 # Lister le contenu de la zone
-Get-DnsServerResourceRecord -ZoneName &quot;ad.gilles.eni&quot; | ft -AutoSize
+Get-DnsServerResourceRecord -ZoneName &quot;ad.gilles.lab&quot; | ft -AutoSize
 # Activation de la mise à jour dynamique
-Set-DnsServerPrimaryZone -name &quot;ad.gilles.eni&quot; -DynamicUpdate NonsecureAndSecure
+Set-DnsServerPrimaryZone -name &quot;ad.gilles.lab&quot; -DynamicUpdate NonsecureAndSecure
 
 # Configuration des serveurs secondaires + glue DNS
-Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.eni&quot; -NameServer &quot;s3-gl.gilles.eni&quot; -ZoneName &quot;ad.gilles.eni&quot;
-Add-DnsServerResourceRecord -A -Name &quot;s3-gl.gilles.eni.&quot; -IPv4Address 172.20.8.3 -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.lab&quot; -NameServer &quot;s3-gl.gilles.lab&quot; -ZoneName &quot;ad.gilles.lab&quot;
+Add-DnsServerResourceRecord -A -Name &quot;s3-gl.gilles.lab.&quot; -IPv4Address 172.20.8.3 -ZoneName &quot;ad.gilles.lab&quot;
 ## Ou
-Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.eni&quot; -NameServer &quot;s4-w-sm.gilles.eni&quot; -ZoneName &quot;ad.gilles.eni&quot;
-Add-DnsServerResourceRecord -A -Name &quot;s4-w-sm.gilles.eni.&quot; -IPv4Address 172.20.8.4 -ZoneName &quot;ad.gilles.eni&quot;
+Add-DnsServerResourceRecord -NS -Name &quot;ad.gilles.lab&quot; -NameServer &quot;s4-w-sm.gilles.lab&quot; -ZoneName &quot;ad.gilles.lab&quot;
+Add-DnsServerResourceRecord -A -Name &quot;s4-w-sm.gilles.lab.&quot; -IPv4Address 172.20.8.4 -ZoneName &quot;ad.gilles.lab&quot;
 
 # Zone inverse réseau 172.20.0.0/16
 Add-DnsServerPrimaryZone -NetworkId 172.20.0.0/16 -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure
 #Ou
 #Add-DnsServerPrimaryZone -Name &quot;20.172.in-addr.arpa&quot; -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure
-Add-DnsServerResourceRecordPtr -Name &quot;1.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s1-gl.gilles.eni&quot;
-Add-DnsServerResourceRecordPtr -Name &quot;2.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s2-w-cd.gilles.eni&quot;
-Add-DnsServerResourceRecordPtr -Name &quot;3.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s3-gl.gilles.eni&quot;
-Add-DnsServerResourceRecordPtr -Name &quot;4.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s4-w-sm.gilles.eni&quot;
-Add-DnsServerResourceRecordPtr -Name &quot;254.7&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.eni&quot;
-Add-DnsServerResourceRecordPtr -Name &quot;254.15&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.eni&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;1.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s1-gl.gilles.lab&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;2.0&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s2-w-cd.gilles.lab&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;3.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s3-gl.gilles.lab&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;4.8&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;s4-w-sm.gilles.lab&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;254.7&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.lab&quot;
+Add-DnsServerResourceRecordPtr -Name &quot;254.15&quot; -ZoneName &quot;20.172.in-addr.arpa&quot; -AllowUpdateAny -PtrDomainName &quot;routeur.gilles.lab&quot;
 # Lister le contenu de la zone
 Get-DnsServerResourceRecord -ZoneName &quot;20.172.in-addr.arpa&quot; | ft -AutoSize</code></pre>
 </section>

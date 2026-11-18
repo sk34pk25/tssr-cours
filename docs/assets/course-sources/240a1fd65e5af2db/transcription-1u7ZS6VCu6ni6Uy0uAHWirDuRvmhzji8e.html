@@ -21,7 +21,7 @@ Get-ADUser -Filter * | Where-Object Name -Like &quot;Barron&quot;</code></pre>
 <pre><code>Il est possible de déterminer le comportement général des erreurs dans la console en modifiant la
 variable $ErrorActionPreference.</code></pre>
 <p>Toutes les erreurs seront affichées, mais ne bloqueront pas l’exécution du script.</p>
-<h4>Commandes visibles dans les captures</h4><pre><code>Get-ChildItem C:\Users\eni -ErrorAction Continue -ErrorVariable $erreurs
+<h4>Commandes visibles dans les captures</h4><pre><code>Get-ChildItem C:\Users\lab -ErrorAction Continue -ErrorVariable $erreurs
 $erreurs
 $ErrorActionPreference = &quot;SilentlyContinue&quot;</code></pre>
 <figure><img src="../isolated/240a1fd65e5af2db/ps-p2-i2-1.webp" alt="Capture du support « Fiche démo 5 - La gestion des erreurs »" loading="lazy"><figcaption>Capture du support « Fiche démo 5 - La gestion des erreurs »</figcaption></figure>

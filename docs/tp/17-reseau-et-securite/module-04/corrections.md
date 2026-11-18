@@ -43,14 +43,14 @@ infrastructure.
 
 Sur le SRV-DC
 
-Il faut faire un enregistrement DNS sur extra.votrenom.eni
+Il faut faire un enregistrement DNS sur extra.votrenom.lab
 Exécuter le script D:/scripts/AddDnsZone.ps1 et entrer la nouvelle adresse IP du SRV-Apache
 
-       Tester l’URL https://extra.votrenom.eni
+       Tester l’URL https://extra.votrenom.lab
 
 Sur du routeur Pfsense
 
-Faites un alias URLs pour extra.votrenom.eni
+Faites un alias URLs pour extra.votrenom.lab
 
 Et ensuite une redirection NAT depuis le WAN pour accèder on site WEB depuis l’extérieur.
 Attention aux règles de pare-feu

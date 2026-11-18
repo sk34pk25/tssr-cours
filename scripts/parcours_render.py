@@ -23,7 +23,7 @@ def render_parcours(root=ROOT):
         relation = p["mapping"]
         access = link(relation["path"], "Ouvrir le contenu") if relation["path"] else "Correspondance à confirmer" if relation["state"] == "MATCH_PROBABLE" else "Contenu non encore disponible" if relation["state"] in {"MISSING", "MSP"} else "Période sans cours associé"
         if relation["state"] == "MISSING" and canonical_title(p["cours"]) == "les infrastructures reseaux":
-            access = "Ce cours est consultable uniquement via les vidéos sur le site de l’ENI."
+            access = "Ce cours est consultable uniquement via les vidéos sur le site de l’établissement."
         parts.append(f'''<article class="tssr-timeline__card" id="{p['id']}">
 <span class="tssr-timeline__number">{index:02d}</span>
 <div class="tssr-timeline__body">

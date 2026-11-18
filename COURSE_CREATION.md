@@ -22,7 +22,7 @@ La mutation passe par l’Edge Function existante `change-requests` avec l’act
 Chaque nouveau module issu du Drive est transcrit intégralement en HTML, page par
 page : texte natif, texte des illustrations relevé par OCR, tableaux et illustrations
 séparées. Les sources PDF sont lues et vérifiées dans le Drive TSSR puis conservées
-uniquement dans le dossier de travail privé pour les contrôles. Aucun PDF ENI ni
+uniquement dans le dossier de travail privé pour les contrôles. Aucun PDF du support d’origine ni
 capture d’une page entière n’est déployé. Les transcriptions et l’aide pédagogique
 IA/externe restent dans deux onglets distincts. Le lecteur ne propose ni lecteur
 PDF, ni téléchargement PDF, ni bouton « Texte accessible ».

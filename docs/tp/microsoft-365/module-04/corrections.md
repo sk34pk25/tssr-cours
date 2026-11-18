@@ -13,15 +13,15 @@
 
 Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
 
-En fonction des informations qui vous ont été fournies, connectez-vous à la machine de l’ENI.
+En fonction des informations qui vous ont été fournies, connectez-vous à la machine du laboratoire.
 
-- Ouvrez Outlook et connectez -vous avec votre adresse campus-eni.fr :
+- Ouvrez Outlook et connectez -vous avec votre adresse exemple.lab :
 
 micheline.d@10durand2020.onmicrosoft.com afin d’utiliser l’autodiscover. Lancez Outlook dans vos applications. Cette fenêtre s’ouvre ; renseignez votre adresse puis cliquez sur connexion. Un code vérification vous est envoyé par SMS. Vérifiez puis cliquez sur terminer. Une fenêtre de connexion permettant d’activer Office doit s’ouvrir ; il suffit de renseigner vos identifiants.
 
 - Connectez-vous à Microsoft 365 avec votre navigateur puis notez le nom de l’appareil
 
-sur lequel est installé votre Office et comparer avec le nom de la machine ENI. Connectez-vous à http:// portal.office.com puis dans Mon compte → Appareil, relevez le nom de l’appareil. Ouvrez une console cmd puis tapez hostname.
+sur lequel est installé votre Office et comparer avec le nom de la machine du laboratoire. Connectez-vous à http:// portal.office.com puis dans Mon compte → Appareil, relevez le nom de l’appareil. Ouvrez une console cmd puis tapez hostname.
 
 - Relevez le lieu de votre dernière connexion et relevez l’adresse IP.
 
@@ -43,7 +43,7 @@ Cliquez sur votre boîte mail.
 
 - Créez une règle de réponse automatique pour les messages en dehors de votre
 
-organisation avec comme te xte : « Je suis actuellement en congés. Je serais de nouveau disponible à partir du (2 jours plus tard) dès 8h00. Testez en envoyant un mail depuis votre mail compus-eni.fr vers votre compte de tenant. Cliquez sur Fichier puis « Réponses automatiques ».
+organisation avec comme te xte : « Je suis actuellement en congés. Je serais de nouveau disponible à partir du (2 jours plus tard) dès 8h00. Testez en envoyant un mail depuis votre mail exemple.lab vers votre compte de tenant. Cliquez sur Fichier puis « Réponses automatiques ».
 
 - Créez une règle qui répond à ces critères :
 
@@ -80,11 +80,11 @@ Dans le menu Affichage → Barre des tâches, cochez les 3 options.
 
 Sélectionnez Boîte de réception puis dans le menu Affichage cliquez sur Afficher en tant que conversation à appliquer à toutes les boîtes aux lettres.
 
-- Créez une réunion Teams avec votre compte campus-eni.fr et une autre adresse mail.
+- Créez une réunion Teams avec votre compte exemple.lab et une autre adresse mail.
 
 #### Pouvez-vous y accéder avec votre adresse mail ?
 
-Dans le menu calendrier, cliquez sur Nouvelle réunion Teams. Votre compte campus-eni.fr doit pouvoir y accéder.
+Dans le menu calendrier, cliquez sur Nouvelle réunion Teams. Votre compte exemple.lab doit pouvoir y accéder.
 
 - Envoyez un courriel vers une autre adresse mail et rappelez-le.
 
@@ -100,7 +100,7 @@ Office 365”. Mettez-la en priorité haute avec le statut “en cours de réali
 
 #### Magnifique ?
 
-- Envoyez un message de votre compte campus-eni.fr vers votre tenant et transformez-le
+- Envoyez un message de votre compte exemple.lab vers votre tenant et transformez-le
 
 en rendez-vous. Glissez le message vers le menu calendrier.
 
@@ -130,7 +130,7 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 #### 60 minutes
 
-En fonction des informations qui vous ont été fournies, connectez-vous à la machine de l’ENI.
+En fonction des informations qui vous ont été fournies, connectez-vous à la machine du laboratoire.
 
 - Allez à cette URL : https://testconnectivity.microsoft.com afin de tester les accès à votre
 

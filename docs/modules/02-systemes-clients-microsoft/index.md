@@ -2,7 +2,7 @@
 
 Installer, administrer, sécuriser, maintenir et industrialiser un poste client Windows.
 
-<div class="tssr-index-meta tssr-index-meta--split"><a href="../../parcours/03-systemes-clients-microsoft-1/"><span>Étape 03 / 09</span><strong>22 → 26 juin 2026</strong><small>RICHEZ Cédric · Première partie</small></a><a href="../../parcours/04-systemes-clients-microsoft-2/"><span>Étape 04 / 09</span><strong>29 juin → 3 juillet 2026</strong><small>KURTULUS Hasan · Seconde partie</small></a></div>
+<div class="tssr-index-meta tssr-index-meta--split"><a href="../../parcours/03-systemes-clients-microsoft-1/"><span>Étape 03 / 09</span><strong>22 → 26 juin 2026</strong><small>Formateur · Première partie</small></a><a href="../../parcours/04-systemes-clients-microsoft-2/"><span>Étape 04 / 09</span><strong>29 juin → 3 juillet 2026</strong><small>KURTULUS Hasan · Seconde partie</small></a></div>
 
 !!! warning "Périmètre et versions"
     Le support enseigne Windows 10. Windows 10 a atteint sa fin de support général le 14 octobre 2025 ; les manipulations restent utiles pour le laboratoire et les environnements hérités, mais un déploiement neuf doit viser une édition Windows encore prise en charge. Référence : [Cycle de vie Windows 10](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro).

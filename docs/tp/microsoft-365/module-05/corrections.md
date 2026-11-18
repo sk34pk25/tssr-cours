@@ -19,7 +19,7 @@ Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 
 
 #### 60 minutes
 
-En fonction des informations qui vous ont été fournies, connectez-vous à la machine de l’ENI.
+En fonction des informations qui vous ont été fournies, connectez-vous à la machine du laboratoire.
 
 - Ouvrez un navigateur en navigation privé e et allez à la
 
@@ -39,7 +39,7 @@ Utilisez une page en navigation privée pour ne pas interférer avec une autre c
 
 Créez le contenu du fichier. Sélectionnez le fichier puis renommez-le.
 
-- Partagez le fichier « recette du pain perdu » avec votre compte campus-eni.fr. Indiquez
+- Partagez le fichier « recette du pain perdu » avec votre compte exemple.lab. Indiquez
 
 une date d’expiration au lendemain et comme mot de passe : Pa$$w0rd (c’est un zéro). Envoyez-le avec le message : « voici la recette que tu m’avais demandée ». Sélectionnez le fichier puis cliquez sur Partager. Indiquez votre adresse mail campus puis ajoutez les messages. Ensuite, cliquez sur « Toute personne disposant … », indiquez une date d’expiration et le mot de passe : Pa$$w0rd (c’est un zéro) puis envoyez-le.
 
@@ -53,7 +53,7 @@ Sélectionnez le fichier puis cliquez sur les trois points et Historique des ver
 
 - Ouvrez OneDrive avec votre explorateur et modifiez l’emplacement de synchronisation
 
-des fichiers vers « C:\usersvotrenom\Documents\OneDrive ». Allez dans l’explorateur Windows et cliquez sur le nuage bleu puis renseignez votre adresse campus-eni.fr.
+des fichiers vers « C:\usersvotrenom\Documents\OneDrive ». Allez dans l’explorateur Windows et cliquez sur le nuage bleu puis renseignez votre adresse exemple.lab.
 
 Créez un répertoire dans Documents puis changez l’emplacement.
 

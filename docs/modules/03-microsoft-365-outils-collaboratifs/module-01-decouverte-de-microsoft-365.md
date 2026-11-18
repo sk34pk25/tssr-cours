@@ -139,7 +139,7 @@ Le support organise **Microsoft Office 365** par familles. Un plan n’est pas u
 ### Créer un tenant
 
 1. **Sélectionnez un plan.** Exemple : famille, A1, E5, F3.
-2. **Fournissez une adresse mail valide.** Exemple : `prénom.nomannée@campus-eni.fr`.
+2. **Fournissez une adresse mail valide.** Exemple : `prénom.nomannée@exemple.lab`.
 3. **Entrez les données de votre entreprise.** Exemple : nom et nombre de salariés.
 4. **Choisissez le nom de votre tenant.** Exemple : `admin@monentreprise.onmicrosoft.com`.
 5. **Validez** et terminez l’inscription.

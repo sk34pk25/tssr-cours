@@ -54,7 +54,7 @@ Sur SRV-CD
 
 Sur SRV-MBR
    •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
-       URL www.votrenom.eni
+       URL www.votrenom.lab
 
 ![TP7, correction, page 6](../../../../assets/images/reseau-et-securite/tp7/correction-p06-17.png)
 
@@ -80,7 +80,7 @@ Sur SRV-MBR
 
 Sur SRV-WEB
    •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
-       URL extranet.votrenom.eni
+       URL extranet.votrenom.lab
 
 ![TP7, correction, page 13](../../../../assets/images/reseau-et-securite/tp7/correction-p13-35.png)
 
@@ -93,7 +93,7 @@ Sur SRV-WEB
 Valeurs de la capture :
 
 - openssl req -new -key
-- Fichiers : internet.votrenom.eni.cert, internet.votrenom.eni.csr, internet.votrenom.eni.key, internet.votrenom.eni.pem
+- Fichiers : internet.votrenom.lab.cert, internet.votrenom.lab.csr, internet.votrenom.lab.key, internet.votrenom.lab.pem
 
 Contenu PEM masqué
 
@@ -110,7 +110,7 @@ Contenu PEM masqué
 
 Sur le routeur PFsense
    •   Générer votre certificat de confiance avec le CA du SRV-CD pour sécuriser votre
-       URL routeur.votrenom.eni
+       URL routeur.votrenom.lab
 
 ![TP7, correction, page 16](../../../../assets/images/reseau-et-securite/tp7/correction-p16-46.png)
 
@@ -128,7 +128,7 @@ Contenu PEM masqué
 
 Valeurs de la capture :
 
-- Nom descriptif : routeur.votrenom.eni
+- Nom descriptif : routeur.votrenom.lab
 
 Contenu PEM masqué
 
