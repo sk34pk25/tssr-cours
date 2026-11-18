@@ -2,7 +2,7 @@
 
 Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **Inexistant**.
 
-[Travaux](../../tp/18-services-transverses-microsoft/module-05/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-05.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-05.md)
+[Travaux](../../tp/18-services-transverses-microsoft/module-05/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-05.md) · [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-05.md)
 
 === "Cours Original"
 
@@ -177,3 +177,9 @@ Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **
     ![Visuel externe : liaison d’un fichier de réponses à une image d’installation](../../assets/images/services-transverses-microsoft/m5s-p12-06.webp)
 
     L’atelier du support s’intitule Mise en œuvre de WDS, module 5, atelier 4.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/18-services-transverses-microsoft/module-05.md)
+- [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-05.md)
+- [Sommaire du cours](index.md)

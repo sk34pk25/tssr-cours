@@ -2,7 +2,7 @@
 
 Semaine **1/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-01/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-01/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-01.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-01.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-01/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-01/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-01.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-01.md)
 
 === "Cours Original"
 
@@ -123,3 +123,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     3. Placer le routeur sur l’avant-dernière adresse de chaque plage, SRV-CD sur la 21e, SRV-MBR sur la 23e, SRV-WEB sur la 8e, CLT-WIN sur la 10e, CLT-DEB sur la 12e. La correction de l’exemple 172.20.2.0/24 utilise d’autres rangs pour les trois derniers : voir la note en fin de correction.
     4. Reporter les adresses sur SchémaRéseauTP1.drawio. Le schéma montre le routeur formateur 192.168.150.100/24, LANCLT (VMnet10), LANSRV (VMnet11, SRV-CD et SRV-MBR) et LANDMZ (VMnet12, SRV-WEB).
     5. Remplir Règles de pare-feu.xlsx. Feuille WAN, deux exemples : Pass TCP vers Wan IP sur 80 et 443 ; Block Any vers Wan IP. Les feuilles LANCLT, LANSRV et LAVDMZ n’ont que les titres.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-01.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-01.md)
+- [Sommaire du cours](index.md)

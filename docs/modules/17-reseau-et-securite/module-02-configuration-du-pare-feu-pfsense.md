@@ -2,7 +2,7 @@
 
 Semaine **1/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-02/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-02/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-02.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-02.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-02/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-02/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-02.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-02.md)
 
 === "Cours Original"
 
@@ -153,3 +153,9 @@ Semaine **1/2**. Support de cours : **Inexistant**.
     6. Appliquer les règles du TP1 sur LANCLIENT et LANSERVER, tester, joindre le client Windows au domaine.
 
     La correction ajoute deux scripts et d’autres noms de fichiers : la note est en fin de correction.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-02.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-02.md)
+- [Sommaire du cours](index.md)

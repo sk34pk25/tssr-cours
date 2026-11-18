@@ -2,7 +2,7 @@
 
 Semaine **2/2**. Support de cours : **Inexistant**.
 
-[Énoncé](../../tp/17-reseau-et-securite/module-08/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-08/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-08.md) · [Kahoot préparé](../../kahoot/17-reseau-et-securite-module-08.md)
+[Énoncé](../../tp/17-reseau-et-securite/module-08/enonces.md) · [Correction](../../tp/17-reseau-et-securite/module-08/corrections.md) · [Révision](../../revision/17-reseau-et-securite/module-08.md) · [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-08.md)
 
 === "Cours Original"
 
@@ -69,3 +69,9 @@ Semaine **2/2**. Support de cours : **Inexistant**.
     5. Vérifier l’état du tunnel, la connectivité, puis les logs.
 
     Algorithmes et clés : **Inexistant**.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/17-reseau-et-securite/module-08.md)
+- [Kahoot — 20 questions](../../kahoot/17-reseau-et-securite-module-08.md)
+- [Sommaire du cours](index.md)

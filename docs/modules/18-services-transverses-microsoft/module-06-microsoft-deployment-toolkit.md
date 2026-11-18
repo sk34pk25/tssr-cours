@@ -2,7 +2,7 @@
 
 Semaine du 16 au 20 novembre 2026. Les vidéos citées par les énoncés sont **Inexistant**.
 
-[Travaux](../../tp/18-services-transverses-microsoft/module-06/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-06.md) · [Kahoot préparé](../../kahoot/18-services-transverses-microsoft-module-06.md)
+[Travaux](../../tp/18-services-transverses-microsoft/module-06/index.md) · [Révision](../../revision/18-services-transverses-microsoft/module-06.md) · [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-06.md)
 
 Les exemples de fichiers de réponse contiennent des mots de passe et une clé de produit. Ils sont remplacés par `[masqué]`. Les noms de domaine de laboratoire (`deploy.lab`) sont conservés comme valeurs techniques.
 
@@ -292,3 +292,9 @@ Les exemples de fichiers de réponse contiennent des mots de passe et une clé d
     Les applications se rangent dans Applications : installeur importé, partage réseau, ou groupe. On donne les caractéristiques, le dossier source, le nom du dossier dans le partage et la commande silencieuse. L’exemple de fenêtre de sélection a `SkipApplications` qui vaut NO.
 
     Les pilotes de boot (réseau, stockage) sont en général les pilotes natifs ; ceux de l’OS (vidéo, son) s’importent dans Out-of-Box Drivers, classables par marque, modèle et OS. Par défaut, tous les pilotes réseau entrent dans WinPE. Des profils permettent de cibler.
+
+## Pour pratiquer et réviser
+
+- [Fiche de révision](../../revision/18-services-transverses-microsoft/module-06.md)
+- [Kahoot — 20 questions](../../kahoot/18-services-transverses-microsoft-module-06.md)
+- [Sommaire du cours](index.md)

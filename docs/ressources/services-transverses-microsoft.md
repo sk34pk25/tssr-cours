@@ -11,7 +11,7 @@ Aucun PDF et aucun lien vers le dossier d’origine ne sont publiés.
 | Bases VMware ou ISO Windows Server 2019 et Windows 10 | **Inexistant** |
 | ADK, ADKWinPEAddons, MDT | **Inexistant** |
 | FileZilla, LibreOffice, Firefox, pilotes VMware | **Inexistant** |
-| Kahoot officiel | **Inexistant** |
+| Kahoot officiel | 20 questions par module : [module 01](../kahoot/18-services-transverses-microsoft-module-01.md), [module 02](../kahoot/18-services-transverses-microsoft-module-02.md), [module 03](../kahoot/18-services-transverses-microsoft-module-03.md), [module 04](../kahoot/18-services-transverses-microsoft-module-04.md), [module 05](../kahoot/18-services-transverses-microsoft-module-05.md), [module 06](../kahoot/18-services-transverses-microsoft-module-06.md) |
 
 Les captures conservées sont des visuels externes du laboratoire.
 
