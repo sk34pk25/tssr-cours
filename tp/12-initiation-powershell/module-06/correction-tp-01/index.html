@@ -17064,47 +17064,47 @@ Install-WindowsFeature dns -IncludeManagementTools
 Set-DnsClientServerAddress  -InterfaceIndex 6 -ServerAddresses 172.20.0.2 -PassThru
 
 # Configuration Suffixe DNS Principal
-Set-ItemProperty “HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\” –Name Domain –Value "gilles.eni"
+Set-ItemProperty “HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\” –Name Domain –Value "gilles.lab"
 Restart-Computer
 
 ## Redirecteurs
 # Redirecteur conditionnel
-Add-DnsServerConditionalForwarderZone -ZoneName "gilles.eni" -MasterServers 172.20.0.1
-# Redirecteur vers S1-GL et ENI
+Add-DnsServerConditionalForwarderZone -ZoneName "gilles.lab" -MasterServers 172.20.0.1
+# Redirecteur vers S1-GL et LAB
 Set-DnsServerForwarder -IPAddress 10.0.0.3,10.100.0.3 -PassThru
 
 ## Zones
 
-# Zone enfant ad.gilles.eni
-Add-DnsServerPrimaryZone -Name "ad.gilles.eni" -ZoneFile "ad.gilles.eni.dns"
+# Zone enfant ad.gilles.lab
+Add-DnsServerPrimaryZone -Name "ad.gilles.lab" -ZoneFile "ad.gilles.lab.dns"
 # Glue DNS pour le NS de la zone
-Add-DnsServerResourceRecord -A -Name "s2-w-cd.gilles.eni." -IPv4Address 172.20.0.1 -ZoneName "ad.gilles.eni"
+Add-DnsServerResourceRecord -A -Name "s2-w-cd.gilles.lab." -IPv4Address 172.20.0.1 -ZoneName "ad.gilles.lab"
 # Enregistrement dans la zone
-Add-DnsServerResourceRecord -A -Name "dns1" -IPv4Address 172.20.0.2 -ZoneName "ad.gilles.eni"
+Add-DnsServerResourceRecord -A -Name "dns1" -IPv4Address 172.20.0.2 -ZoneName "ad.gilles.lab"
 
-#Add-DnsServerResourceRecord -CName -Name "dns2" -HostNameAlias "s3-gl.gilles.eni" -ZoneName "ad.gilles.eni"
+#Add-DnsServerResourceRecord -CName -Name "dns2" -HostNameAlias "s3-gl.gilles.lab" -ZoneName "ad.gilles.lab"
 # Lister le contenu de la zone
-Get-DnsServerResourceRecord -ZoneName "ad.gilles.eni" | ft -AutoSize
+Get-DnsServerResourceRecord -ZoneName "ad.gilles.lab" | ft -AutoSize
 # Activation de la mise à jour dynamique
-Set-DnsServerPrimaryZone -name "ad.gilles.eni" -DynamicUpdate NonsecureAndSecure
+Set-DnsServerPrimaryZone -name "ad.gilles.lab" -DynamicUpdate NonsecureAndSecure
 
 # Configuration des serveurs secondaires + glue DNS
-Add-DnsServerResourceRecord -NS -Name "ad.gilles.eni" -NameServer "s3-gl.gilles.eni" -ZoneName "ad.gilles.eni"
-Add-DnsServerResourceRecord -A -Name "s3-gl.gilles.eni." -IPv4Address 172.20.8.3 -ZoneName "ad.gilles.eni"
+Add-DnsServerResourceRecord -NS -Name "ad.gilles.lab" -NameServer "s3-gl.gilles.lab" -ZoneName "ad.gilles.lab"
+Add-DnsServerResourceRecord -A -Name "s3-gl.gilles.lab." -IPv4Address 172.20.8.3 -ZoneName "ad.gilles.lab"
 ## Ou
-Add-DnsServerResourceRecord -NS -Name "ad.gilles.eni" -NameServer "s4-w-sm.gilles.eni" -ZoneName "ad.gilles.eni"
-Add-DnsServerResourceRecord -A -Name "s4-w-sm.gilles.eni." -IPv4Address 172.20.8.4 -ZoneName "ad.gilles.eni"
+Add-DnsServerResourceRecord -NS -Name "ad.gilles.lab" -NameServer "s4-w-sm.gilles.lab" -ZoneName "ad.gilles.lab"
+Add-DnsServerResourceRecord -A -Name "s4-w-sm.gilles.lab." -IPv4Address 172.20.8.4 -ZoneName "ad.gilles.lab"
 
 # Zone inverse réseau 172.20.0.0/16
 Add-DnsServerPrimaryZone -NetworkId 172.20.0.0/16 -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure
 #Ou
 #Add-DnsServerPrimaryZone -Name "20.172.in-addr.arpa" -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure
-Add-DnsServerResourceRecordPtr -Name "1.0" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s1-gl.gilles.eni"
-Add-DnsServerResourceRecordPtr -Name "2.0" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s2-w-cd.gilles.eni"
-Add-DnsServerResourceRecordPtr -Name "3.8" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s3-gl.gilles.eni"
-Add-DnsServerResourceRecordPtr -Name "4.8" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s4-w-sm.gilles.eni"
-Add-DnsServerResourceRecordPtr -Name "254.7" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "routeur.gilles.eni"
-Add-DnsServerResourceRecordPtr -Name "254.15" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "routeur.gilles.eni"
+Add-DnsServerResourceRecordPtr -Name "1.0" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s1-gl.gilles.lab"
+Add-DnsServerResourceRecordPtr -Name "2.0" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s2-w-cd.gilles.lab"
+Add-DnsServerResourceRecordPtr -Name "3.8" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s3-gl.gilles.lab"
+Add-DnsServerResourceRecordPtr -Name "4.8" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "s4-w-sm.gilles.lab"
+Add-DnsServerResourceRecordPtr -Name "254.7" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "routeur.gilles.lab"
+Add-DnsServerResourceRecordPtr -Name "254.15" -ZoneName "20.172.in-addr.arpa" -AllowUpdateAny -PtrDomainName "routeur.gilles.lab"
 # Lister le contenu de la zone
 Get-DnsServerResourceRecord -ZoneName "20.172.in-addr.arpa" | ft -AutoSize</code></pre>
 </section>
@@ -17608,47 +17608,47 @@ Add-ADGroupMember DL_Base_Redir_Crea G_Compta</code></pre>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">Set-DnsClientServerAddress</span>  <span class="n">-InterfaceIndex</span> <span class="n">6</span> <span class="n">-ServerAddresses</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">2</span> <span class="n">-PassThru</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c"># Configuration Suffixe DNS Principal</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">Set-ItemProperty</span> <span class="err">“</span><span class="n">HKLM</span><span class="p">:\</span><span class="n">SYSTEM</span><span class="p">\</span><span class="n">CurrentControlSet</span><span class="p">\</span><span class="n">Services</span><span class="p">\</span><span class="n">Tcpip</span><span class="p">\</span><span class="n">Parameters</span><span class="p">\</span><span class="err">”</span> <span class="err">–</span><span class="n">Name</span> <span class="n">Domain</span> <span class="err">–</span><span class="n">Value</span> <span class="s2">"gilles.eni"</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">Set-ItemProperty</span> <span class="err">“</span><span class="n">HKLM</span><span class="p">:\</span><span class="n">SYSTEM</span><span class="p">\</span><span class="n">CurrentControlSet</span><span class="p">\</span><span class="n">Services</span><span class="p">\</span><span class="n">Tcpip</span><span class="p">\</span><span class="n">Parameters</span><span class="p">\</span><span class="err">”</span> <span class="err">–</span><span class="n">Name</span> <span class="n">Domain</span> <span class="err">–</span><span class="n">Value</span> <span class="s2">"gilles.lab"</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">Restart-Computer</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c">## Redirecteurs</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c"># Redirecteur conditionnel</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">Add-DnsServerConditionalForwarderZone</span> <span class="n">-ZoneName</span> <span class="s2">"gilles.eni"</span> <span class="n">-MasterServers</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c"># Redirecteur vers S1-GL et ENI</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">Add-DnsServerConditionalForwarderZone</span> <span class="n">-ZoneName</span> <span class="s2">"gilles.lab"</span> <span class="n">-MasterServers</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c"># Redirecteur vers S1-GL et LAB</span>
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="nb">Set-DnsServerForwarder</span> <span class="n">-IPAddress</span> <span class="n">10</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">3</span><span class="p">,</span><span class="n">10</span><span class="p">.</span><span class="n">100</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">3</span> <span class="n">-PassThru</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c">## Zones</span>
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c"># Zone enfant ad.gilles.eni</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="nb">Add-DnsServerPrimaryZone</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.eni"</span> <span class="n">-ZoneFile</span> <span class="s2">"ad.gilles.eni.dns"</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c"># Zone enfant ad.gilles.lab</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="nb">Add-DnsServerPrimaryZone</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.lab"</span> <span class="n">-ZoneFile</span> <span class="s2">"ad.gilles.lab.dns"</span>
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c"># Glue DNS pour le NS de la zone</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s2-w-cd.gilles.eni."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s2-w-cd.gilles.lab."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
 </span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="c"># Enregistrement dans la zone</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"dns1"</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">2</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"dns1"</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">2</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
 </span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c">#Add-DnsServerResourceRecord -CName -Name "dns2" -HostNameAlias "s3-gl.gilles.eni" -ZoneName "ad.gilles.eni"</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c">#Add-DnsServerResourceRecord -CName -Name "dns2" -HostNameAlias "s3-gl.gilles.lab" -ZoneName "ad.gilles.lab"</span>
 </span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c"># Lister le contenu de la zone</span>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nb">Get-DnsServerResourceRecord</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span> <span class="p">|</span> <span class="nb">ft </span><span class="n">-AutoSize</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nb">Get-DnsServerResourceRecord</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span> <span class="p">|</span> <span class="nb">ft </span><span class="n">-AutoSize</span>
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="c"># Activation de la mise à jour dynamique</span>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="nb">Set-DnsServerPrimaryZone</span> <span class="n">-name</span> <span class="s2">"ad.gilles.eni"</span> <span class="n">-DynamicUpdate</span> <span class="n">NonsecureAndSecure</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="nb">Set-DnsServerPrimaryZone</span> <span class="n">-name</span> <span class="s2">"ad.gilles.lab"</span> <span class="n">-DynamicUpdate</span> <span class="n">NonsecureAndSecure</span>
 </span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
 </span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="c"># Configuration des serveurs secondaires + glue DNS</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-NS</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.eni"</span> <span class="n">-NameServer</span> <span class="s2">"s3-gl.gilles.eni"</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s3-gl.gilles.eni."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">8</span><span class="p">.</span><span class="n">3</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-NS</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.lab"</span> <span class="n">-NameServer</span> <span class="s2">"s3-gl.gilles.lab"</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s3-gl.gilles.lab."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">8</span><span class="p">.</span><span class="n">3</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
 </span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="c">## Ou</span>
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-NS</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.eni"</span> <span class="n">-NameServer</span> <span class="s2">"s4-w-sm.gilles.eni"</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s4-w-sm.gilles.eni."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">8</span><span class="p">.</span><span class="n">4</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.eni"</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-NS</span> <span class="n">-Name</span> <span class="s2">"ad.gilles.lab"</span> <span class="n">-NameServer</span> <span class="s2">"s4-w-sm.gilles.lab"</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="nb">Add-DnsServerResourceRecord</span> <span class="n">-A</span> <span class="n">-Name</span> <span class="s2">"s4-w-sm.gilles.lab."</span> <span class="n">-IPv4Address</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">8</span><span class="p">.</span><span class="n">4</span> <span class="n">-ZoneName</span> <span class="s2">"ad.gilles.lab"</span>
 </span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
 </span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="c"># Zone inverse réseau 172.20.0.0/16</span>
 </span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="nb">Add-DnsServerPrimaryZone</span> <span class="n">-NetworkId</span> <span class="n">172</span><span class="p">.</span><span class="n">20</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">16</span> <span class="n">-ZoneFile</span> <span class="n">20</span><span class="p">.</span><span class="n">172</span><span class="p">.</span><span class="n">dns</span> <span class="n">-DynamicUpdate</span> <span class="n">NonsecureAndSecure</span>
 </span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="c">#Ou</span>
 </span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="c">#Add-DnsServerPrimaryZone -Name "20.172.in-addr.arpa" -ZoneFile 20.172.dns -DynamicUpdate NonsecureAndSecure</span>
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"1.0"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s1-gl.gilles.eni"</span>
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"2.0"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s2-w-cd.gilles.eni"</span>
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"3.8"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s3-gl.gilles.eni"</span>
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"4.8"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s4-w-sm.gilles.eni"</span>
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"254.7"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"routeur.gilles.eni"</span>
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"254.15"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"routeur.gilles.eni"</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"1.0"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s1-gl.gilles.lab"</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"2.0"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s2-w-cd.gilles.lab"</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"3.8"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s3-gl.gilles.lab"</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"4.8"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"s4-w-sm.gilles.lab"</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"254.7"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"routeur.gilles.lab"</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="nb">Add-DnsServerResourceRecordPtr</span> <span class="n">-Name</span> <span class="s2">"254.15"</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="n">-AllowUpdateAny</span> <span class="n">-PtrDomainName</span> <span class="s2">"routeur.gilles.lab"</span>
 </span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="c"># Lister le contenu de la zone</span>
 </span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="nb">Get-DnsServerResourceRecord</span> <span class="n">-ZoneName</span> <span class="s2">"20.172.in-addr.arpa"</span> <span class="p">|</span> <span class="nb">ft </span><span class="n">-AutoSize</span>
 </span></code></pre></div>

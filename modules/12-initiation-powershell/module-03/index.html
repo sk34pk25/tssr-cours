@@ -17595,8 +17595,8 @@ $PSItem.Name –eq « Administrator » )</code></pre>
 <pre><code>PS &gt;Get-AdUser –Filter * | Format-List –Property Name,Enabled,SamAccountName</code></pre>
 <h3>La commande Export-Object</h3>
 <ul><li>Les valeurs contenues dans les objets sont exportables dans des formats utilisables dans les applications métiers. Les formats pris en charge nativement sont : le CSV, le CLIXML, le JSON, le HTML.</li></ul>
-<pre><code>PS &gt; Get-AdUser –filter * | Export-CSVC:\ENI\ExportCSV.csv–Délimiter «;»
-PS &gt; Get-AdUser –filter * | Export-CSVC:\ENI\ExportCSV.csv–Delimiter «;»
+<pre><code>PS &gt; Get-AdUser –filter * | Export-CSVC:\LAB\ExportCSV.csv–Délimiter «;»
+PS &gt; Get-AdUser –filter * | Export-CSVC:\LAB\ExportCSV.csv–Delimiter «;»
 NoTypeInformation</code></pre>
 <ul><li>Le type d’objet ne sera plus exporté dans le fichier CSV.</li></ul>
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/05fe89244edfff8f/ps-p10-i1-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/05fe89244edfff8f/ps-p10-i1-1.webp" alt="Capture du support « Module 03 - Support de cours »" loading="lazy"></a><figcaption>Capture du support « Module 03 - Support de cours »</figcaption></figure>
@@ -17605,14 +17605,14 @@ NoTypeInformation</code></pre>
 <section class="tssr-transcribed-page" id="source-1QFC1_tXd6PhXvwUg0gisgE7SABd8fBf1-page-11">
 <h3>La commande Export-Object</h3>
 <p>Pour les formats HTML et JSON, il faut convertir les données puis les exporter.</p>
-<pre><code>PS &gt; Get-Service | ConvertTo-Html | Out-File C:\ENI\Services.html</code></pre>
+<pre><code>PS &gt; Get-Service | ConvertTo-Html | Out-File C:\LAB\Services.html</code></pre>
 <p>Il existe des modules supplémentaires qui permettent de manipuler plus de formats (module Import-Excel par exemple).</p>
 <h3>La commande Out-File</h3>
 <ul><li>Comme en Bash, les chevrons ( &gt; ; &gt;&gt; ) peuvent être utilisés pour rediriger le résultat de commandes dans un fichier.</li><li>Alternativement, la commande Out-File peut être utilisée. Elle prend en charge un ensemble d’options :</li></ul>
-<pre><code>PS &gt; Get-Service | Out-File C:\ENI\Services.txt</code></pre>
+<pre><code>PS &gt; Get-Service | Out-File C:\LAB\Services.txt</code></pre>
 <ul><li>Pour ajouter les données à la suite de celles présentes dans le fichier, on ajoute le paramètre Append.</li></ul>
-<pre><code>PS &gt; Get-Service | Out-File C:\ENI\Services.txt –Append
-PS &gt; Get-Service | Out-File C:\ENI\Services.txt –Width 42</code></pre>
+<pre><code>PS &gt; Get-Service | Out-File C:\LAB\Services.txt –Append
+PS &gt; Get-Service | Out-File C:\LAB\Services.txt –Width 42</code></pre>
 <ul><li>Le paramètre Width spécifie le nombre de caractères par ligne. Par défaut le nombre de caractères est de 80.</li></ul>
 <figure><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/course-sources/isolated/05fe89244edfff8f/ps-p11-i1-1.webp" data-desc-position="bottom"><img src="../../../assets/course-sources/isolated/05fe89244edfff8f/ps-p11-i1-1.webp" alt="Capture du support « Module 03 - Support de cours »" loading="lazy"></a><figcaption>Capture du support « Module 03 - Support de cours »</figcaption></figure>
 </section>

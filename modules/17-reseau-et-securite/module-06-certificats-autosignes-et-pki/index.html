@@ -17169,13 +17169,13 @@ TD5</p>
 </ul>
 <p>Sur SRV-MBR
 Installer le rôle IIS et créer un certificat autosigné</p>
-<p>Faire un enristrement DNS vers intranet.votredomaine.eni</p>
+<p>Faire un enristrement DNS vers intranet.votredomaine.lab</p>
 <p>Sur SRV-MBR
 Installer le Apache2 et créer un certificat autosigné</p>
-<p>Faire un enristrement DNS vers extranet.votredomaine.eni</p>
+<p>Faire un enristrement DNS vers extranet.votredomaine.lab</p>
 <p>Sur le routeur PFsense
 Activer le https avec le certificat autosigné existant</p>
-<p>Faire un enristrement DNS vers routeur.votredomaine.eni</p>
+<p>Faire un enristrement DNS vers routeur.votredomaine.lab</p>
 <p>Solution
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-06/tp6/corrections/">Correction</a>).</p>
 <h2 id="tp7">TP7<a class="headerlink" href="#tp7" title="Permanent link">¶</a></h2>
@@ -17194,12 +17194,12 @@ Private-KI ADCS                                           TD5</p>
 <p>Sur SRV-CD
 Exécuter le script D:/InstallationPKI.ps1</p>
 <p>Sur SRV-MBR
-Utiliser la clé privée du SRV-CD pour sécuriser votre URL intranet.votredomaine.eni</p>
+Utiliser la clé privée du SRV-CD pour sécuriser votre URL intranet.votredomaine.lab</p>
 <p>Sur SRV-WEB
-Utiliser la clé privée du SRV-CD pour sécuriser votre URL extranet.votredomaine.eni</p>
+Utiliser la clé privée du SRV-CD pour sécuriser votre URL extranet.votredomaine.lab</p>
 <p>Sur le routeur PFsense
 Utiliser la clé privée de votre formateur http://88.66.44.1 pour sécuriser votre URL
-routeur.votredomaine.eni, votre formateur vous indiquera les identifiants.</p>
+routeur.votredomaine.lab, votre formateur vous indiquera les identifiants.</p>
 <p>Solution
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger (voir la page <a href="../../../tp/17-reseau-et-securite/module-06/tp7/corrections/">Correction</a>).</p>
 </div>
@@ -17218,7 +17218,7 @@ Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponib
 <li>SRV-Apache : 172.20.X.200/24</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png" data-desc-position="bottom"><img alt="Schéma réseau du TP7" src="../../../assets/images/reseau-et-securite/tp7/enonce-p01-02.png"></a></p>
-<p>TP6. Certificats autosignés pour IIS, Apache et pfSense, afin de chiffrer le trafic. La correction ajoute une seconde IP 172.20.X.153/26 sur SRV-MBR, les sites www et intranet, puis sur SRV-WEB l’adresse 172.20.X.202/26, lynx, et les sites intra et internet. pfSense répond en HTTPS sur routeur.votredomaine.eni.</p>
+<p>TP6. Certificats autosignés pour IIS, Apache et pfSense, afin de chiffrer le trafic. La correction ajoute une seconde IP 172.20.X.153/26 sur SRV-MBR, les sites www et intranet, puis sur SRV-WEB l’adresse 172.20.X.202/26, lynx, et les sites intra et internet. pfSense répond en HTTPS sur routeur.votredomaine.lab.</p>
 <p>TP7. Exécuter D:/InstallationPKI.ps1 sur SRV-CD, rendre certsrv fiable, puis faire signer les certificats des sites et du routeur par cette autorité. L’énoncé cite aussi http://88.66.44.1 pour la clé du formateur. Identifiants : <strong>Inexistant</strong>.</p>
 </div>
 </div>
