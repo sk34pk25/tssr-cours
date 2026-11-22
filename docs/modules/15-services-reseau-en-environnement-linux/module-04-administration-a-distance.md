@@ -1,99 +1,506 @@
 # Module 04 — Administration à distance
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Installer et vérifier SSH sur les trois cibles Debian.
-- Distinguer clé d’hôte, authentification du compte et phrase secrète.
-- Tester l’accès par clé et comprendre la portée de la politique root.
-- Récupérer les configurations de chaque serveur et vérifier les fichiers reçus.
+## Parcours de lecture
 
-## Ouvrir un canal d’administration
+1. Support · Module 04 - Support de cours · 8 pages transcrites
+2. Services réseau en environnement Linux
+3. Protocole et clients
+4. Transfert de fichiers
+5. Accès par clé
+6. Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites
+7. Configuration du service SSH
+8. Énoncé
+9. Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites
+10. Configuration du service SSH
+11. Solution
 
-SSH chiffre les échanges entre le client et le serveur. Le client vérifie l’identité de l’hôte via sa clé. Le serveur authentifie ensuite le compte demandé. Le support utilise le client OpenSSH et cite PuTTY, mRemoteNG et MobaXterm. Le TP fait de Cli-db-10 le poste d’administration, avec Terminator pour organiser les terminaux.
+**Visuel externe**
 
-Le paquet `openssh-server` fournit le service sur RouTux, DEB-S1 et DEB-S2. Le client doit pouvoir atteindre leurs adresses avant de configurer les clés. Les lignes Buster du TP appartiennent à Debian 10. Utiliser des dépôts qui correspondent à la version installée dans un laboratoire récent. [Informations Debian Buster](https://www.debian.org/releases/buster/).
-
-```bash
-dpkg -l openssh-server
-systemctl status ssh.service
-ssh utilisateur@192.168.10.11
+```mermaid
+flowchart TD
+    N1["Support · Module 04 - Support de cours · 8 pages transcrites"]
+    N2["Services réseau en environnement Linux"]
+    N3["Protocole et clients"]
+    N4["Transfert de fichiers"]
+    N5["Accès par clé"]
+    N6["Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites"]
+    N7["Configuration du service SSH"]
+    N8["Énoncé"]
+    N9["Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites"]
+    N10["Configuration du service SSH"]
+    N11["Solution"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
 ```
 
-Une clé d’hôte nouvelle ou changée demande une vérification de l’empreinte attendue. Le journal du service aide à distinguer un défaut d’authentification d’un échec réseau. Le code d’exemple utilise `X=10` et suppose un compte `utilisateur` créé sur le serveur.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## Générer et installer une clé
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-`ssh-keygen` produit une clé privée et une clé publique. La clé privée reste sur le poste administrateur. Le contenu public est ajouté aux clés autorisées du compte distant. Le support montre une paire RSA `id_rsa` et `id_rsa.pub` et cite des algorithmes historiques. Un choix explicite du fichier facilite le suivi quand plusieurs paires coexistent.
+## Support · Module 04 - Support de cours · 8 pages transcrites
 
-```bash
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
-ssh-keygen -t ed25519 -f ~/.ssh/tssr-lab
-ssh-copy-id -i ~/.ssh/tssr-lab.pub utilisateur@192.168.10.11
-ssh -i ~/.ssh/tssr-lab utilisateur@192.168.10.11
-```
+!!! note "À retenir"
+    Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés.
 
-Cet exemple complémentaire emploie Ed25519 pour un environnement compatible. Avec l’option `-i`, `ssh-copy-id` reçoit le fichier public voulu. Sans cette option, le choix dépend des clés exposées par l’agent et des fichiers disponibles. Le support généralise le choix de `id_rsa`, qui correspond à sa démonstration. Le compte distant garde ses autorisations dans `~/.ssh/authorized_keys`. Vérifier propriétaire et droits du répertoire et du fichier. [ssh-copy-id(1)](https://manpages.debian.org/trixie/openssh-client/ssh-copy-id.1.en.html).
+Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
 
-Une phrase secrète protège la clé privée au repos. Une connexion par clé peut demander cette phrase sans demander le mot de passe du compte distant. Le support illustre une clé sans phrase secrète pour une automatisation. Pour un accès humain, conserver la protection adaptée et utiliser un agent si nécessaire.
+## Services réseau en environnement Linux
 
-## Politique d’accès root
+Module 04 - Administration à distance
 
-Le support recommande les comptes ordinaires et présente aussi l’accès root par clé dans sa dernière démonstration. Le corrigé copie les clés autorisées d’un utilisateur vers root. L’effet dépend de la configuration du serveur, dont `PermitRootLogin`, et des droits des fichiers. Un compte d’administration ordinaire peut obtenir les privilèges nécessaires après connexion selon la délégation locale.
+### Administration à distance
 
-En complément, `PermitRootLogin prohibit-password` permet certaines méthodes comme la clé selon les autres réglages. `PermitRootLogin no` interdit la connexion root via SSH. Contrôler la configuration effective avec `sshd -T`, et la syntaxe avec `sshd -t` avant rechargement. Tester une nouvelle session en conservant une console d’administration disponible. [sshd_config(5)](https://man.openbsd.org/sshd_config).
+### Objectifs
 
-## Copier un fichier avec scp
+!!! note "À retenir"
+    Mettre en place les accès SSH aux serveurs
 
-```bash
-mkdir -p conf_deb-s1
-scp utilisateur@192.168.10.11:/etc/resolv.conf conf_deb-s1/
-scp exemple.conf utilisateur@192.168.10.11:/tmp/
-```
+- Mettre en place les accès SSH aux serveurs
 
-Dans la première copie, la source est distante et la destination locale. Dans la seconde, le fichier local part vers le serveur. Le compte doit avoir les droits de lecture sur la source et d’écriture à la destination. Le TP récupère les fichiers de configuration réseau, DNS et APT des trois machines. Vérifier le nom du fichier et son contenu après chaque transfert. Le support cite WinSCP et MobaXterm côté Windows. Depuis OpenSSH 9.0, `scp` utilise SFTP par défaut pour le transfert. [Notes OpenSSH 9.0](https://www.openssh.org/txt/release-9.0).
+### Administration à distance
 
-## TP guidé — Sessions et copies sécurisées
+## Protocole et clients
 
-1. Depuis Cli-db-10, vérifier l’accès IP aux trois serveurs. Installer **Terminator** sur le client du scénario et vérifier `openssh-server` sur RouTux, DEB-S1 et DEB-S2, avec les dépôts correspondant à leur version.
-2. Relever les empreintes d’hôte attendues. Avec le compte d’administration prévu sur Cli-db-10, générer une paire de clés et transférer **la partie publique** vers le compte ordinaire de chaque serveur. Pour `X=10`, les adresses du scénario sont `172.18.10.254`, `192.168.10.11` et `192.168.10.12`.
-3. Tester une nouvelle session par cible. Dans chacune, relever `hostname` et `whoami` pour prouver le serveur et le compte. Distinguer une phrase secrète locale du mot de passe du compte distant.
-4. Le corrigé montre une copie de clés autorisées vers root. Vérifier la politique serveur avant un essai de ce cas historique. Conserver une console de secours et vérifier un accès ordinaire autorisé avant de recharger SSH.
-5. Créer un dossier de réception par machine. Copier les fichiers réseau, DNS et APT demandés depuis chacune, avec les droits du compte prévu. Vérifier chemins et contenu à l’arrivée. Si un fichier exige des droits supplémentaires, employer le chemin de copie autorisé par le laboratoire.
+### Protocole et clients
 
-## Schéma explicatif complémentaire
+### Les outils
+
+!!! note "À retenir"
+    Pour administrer un serveur Linux, on va s'y connecter à distance via un protocole sécurisé : SSH C'est un protocole normalisé et sécurisé permettant de chiffrer les communications entre le client et le serveur Support réseau SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH Client Serveur Protocole utilisé
+
+- Pour administrer un serveur Linux, on va s'y connecter à distance via un protocole sécurisé : SSH
+- C'est un protocole normalisé et sécurisé permettant de chiffrer les communications entre le client et le serveur
+
+Support réseau
+
+SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH
+
+Client
+
+Serveur
+
+Protocole utilisé
+
+### Protocole et client
+
+### Côté client
+
+!!! note "À retenir"
+    Sous Linux et macOS, le client sera le client openssh-client fourni avec la commande ssh, utilisable aussi sous Windows Server 2019 maintenant.
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
- C["Poste administrateur : clé privée"] --> V["Vérification de la clé d’hôte"]
- V --> A["Compte distant : clé publique autorisée"]
- A --> S["Session ou transfert SSH"]
+    N1["Sous Windows il est possible d'utiliser :"]
+    N2["PuTTy : outil basique pour se connecter en SSH"]
+    N3["mRemoteNG : multifenêtres, multiprotocoles"]
+    N4["MobaXterm : multi-onglets, multiprotocoles"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-## À retenir
+- Sous Linux et macOS, le client sera le client openssh-client fourni avec la commande ssh, utilisable aussi sous Windows Server 2019 maintenant.
+- Sous Windows il est possible d'utiliser :
+- PuTTy : outil basique pour se connecter en SSH
 
-La clé privée reste sur le client. La clé publique va dans le compte distant. Tester l’identité du serveur, la connexion et les permissions avant de conclure qu’une copie a réussi.
+https://www.chiark.greenend.org.uk/~sgtatham/putty
 
-## Mini-quiz — 5 questions {#autoevaluation}
+- mRemoteNG : multifenêtres, multiprotocoles
 
-1. Quel fichier passe sur le serveur avec ssh-copy-id -i ?
-2. Pourquoi une phrase secrète peut-elle encore être demandée ?
-3. Dans scp hote:/etc/resolv.conf ., où se trouve la source ?
-4. Que faut-il vérifier si l’empreinte de l’hôte a changé ?
-5. Pourquoi créer un dossier de réception par serveur ?
+https://mremoteng.org/ - https://mremoteng.readthedocs.io/
 
-??? success "Réponses commentées"
+- MobaXterm : multi-onglets, multiprotocoles
 
-    1. La clé publique désignée. La clé privée reste sur Cli-db-10.
-    2. Elle protège la clé privée sur le poste local et joue un autre rôle que le mot de passe du compte distant.
-    3. Sur l’hôte distant. Le point indique la destination locale.
-    4. L’identité et l’empreinte attendues par un canal de confiance avant d’accepter la nouvelle clé.
-    5. Plusieurs serveurs ont des fichiers de même nom. Les séparer conserve leur provenance et évite l’écrasement.
+https://mobaxterm.mobatek.net/
 
-## Pour travailler ce module
+### Administration à distance
 
-- [Fiche de révision](../../revision/services-reseau-linux/module-04-administration-a-distance.md)
-- [Travaux pratiques](../../tp/services-reseau-linux/module-04/index.md)
-- [Énoncés](../../tp/services-reseau-linux/module-04/enonces.md) et [corrections](../../tp/services-reseau-linux/module-04/corrections.md)
-- [Kahoot existant](../../kahoot/services-reseau-linux-module-04.md)
-- [Sommaire du cours](index.md)
+## Transfert de fichiers
+
+### Transfert de fichiers
+
+### Commande scp
+
+!!! note "À retenir"
+    Il est possible de transférer des fichiers de façon sécurisée grâce au protocole SSH avec la commande scp.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Pour la copie, on utilisera :"]
+    N2["scp sous Linux"]
+    N3["WinSCP sous Windows (ou les outils avancés comme MobaXTerm)"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Il est possible de transférer des fichiers de façon sécurisée grâce au protocole SSH avec la commande scp.
+
+Transcription du détail du support.
+
+```
+SSH + CP = SCP
+```
+
+- Pour la copie, on utilisera :
+- scp sous Linux
+- WinSCP sous Windows (ou les outils avancés comme MobaXTerm)
+
+### Transfert de fichiers
+
+### La commande scp
+
+!!! note "À retenir"
+    La commande fonctionne dans les deux sens, soit on transfère un fichier du client vers le serveur soit du serveur vers le client.
+
+!!! example "Exemple"
+    Exemple de copie d'un fichier d'un serveur vers le local : # scp user@ip:/etc/exemple.conf /tmp /etc/exemple.conf Réseau SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH Client SSH Serveur SSH /tmp
+
+- La commande fonctionne dans les deux sens, soit on transfère un fichier du client vers le serveur soit du serveur vers le client.
+- Exemple de copie d'un fichier d'un serveur vers le local : # scp user@ip:/etc/exemple.conf /tmp
+
+/etc/exemple.conf
+
+Réseau
+
+SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH SSH
+
+Client SSH Serveur SSH
+
+/tmp
+
+### Administration à distance
+
+## Accès par clé
+
+### Accès par clé
+
+### Clés SSH
+
+!!! note "À retenir"
+    De base, l'accès SSH se fait avec un login et password.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["De base, l'accès SSH se fait avec un login et password."]
+    N2["On ne se connecte jamais en root via SSH."]
+    N3["Il est préférable de mettre en place des clés SSH pour se connecter."]
+    N4["Permet aussi d'automatiser des transferts via SCP ou rsync."]
+    N5["Plusieurs algorithmes de clés : RSA, DSA, ECDSA"]
+    N6["On va utiliser le plus habituel, i.e. RSA."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
+
+- De base, l'accès SSH se fait avec un login et password.
+- On ne se connecte jamais en root via SSH.
+- Il est préférable de mettre en place des clés SSH pour se connecter.
+- Permet aussi d'automatiser des transferts via SCP ou rsync.
+- Plusieurs algorithmes de clés : RSA, DSA, ECDSA
+- On va utiliser le plus habituel, i.e. RSA.
+
+### Accès par clé
+
+### Génération de la clé
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Pour générer une paire de clés SSH, on va utiliser la commande ssh-keygen."]
+    N2["On obtient une paire de fichiers :"]
+    N3["Une clé privée (à conserver en local et backuper)"]
+    N4["Une clé publique à installer sur les serveurs pour se connecter"]
+    N5["Si le nom n'est pas précisé, les clés s’appellent :"]
+    N6["id_rsa pour la clé privée"]
+    N7["id_rsa.pub pour la clé publique"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+- Pour générer une paire de clés SSH, on va utiliser la commande ssh-keygen.
+- On obtient une paire de fichiers :
+- Une clé privée (à conserver en local et backuper)
+- Une clé publique à installer sur les serveurs pour se connecter
+- Si le nom n'est pas précisé, les clés s’appellent :
+- id_rsa pour la clé privée
+- id_rsa.pub pour la clé publique
+
+### Accès par clé
+
+### Génération de la clé
+
+Transcription du détail du support.
+
+```
+fred@cli-debian:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/fred/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/fred/.ssh/id_rsa.
+Your public key has been saved in /home/fred/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:HZrJ3cZaWa4nrrwHqve4oLVVUgfxcPauRZyBbAA8ip8 fred@cli-debian
+The key’s randomart image is shown for an RSA 2048-bit key.
+```
+
+### Accès par clé
+
+### Génération de la clé
+
+- Suivant le contexte, on mettra ou pas une passphrase :
+- Accès sécurisé sur un serveur : passphrase
+- Synchronisation de données entre deux machines : pas de passphrase
+
+### Accès par clé
+
+### Copie de la clé
+
+- Une fois la clé générée, on va la copier sur la machine distante.
+- On utilise la commande ssh-copy-id.
+
+Transcription du détail du support.
+
+```
+fred@cli-debian:~$ ssh-copy-id admin@192.168.6.66
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/admin/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+fred@192.168.6.66's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with: "ssh 'admin@192.168.6.66'"
+and check to make sure that only the key(s) you wanted were added.
+```
+
+### Accès par clé
+
+### Copie de la clé
+
+- Par défaut, elle copie la clé id_rsa, si besoin préciser le nom de la clé à copier
+- Elle génère le fichier authorized_keys sur le serveur
+- Dans le répertoire $HOME/.ssh
+
+### Accès par clé
+
+### Clé pour root
+
+- Il n'est pas autorisé de se connecter en root via un login / pass
+- Par contre, c'est possible avec une clé SSH
+- Pour sa mise en place :
+
+Transcription du détail du support.
+
+```
+root@srv-debian:~# mkdir /root/.ssh
+root@srv-debian:~# chmod 700 /root/.ssh
+root@srv-debian:~# cp /home/admin/.ssh/authorized_keys /root/.ssh/
+```
+
+Référence du document : 1Dn8otCfssD-wTKjFRq7274ZvWMMI_KAB · SHA-256 bcbd1729184530a0…
+
+## Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites
+
+Le nom du fichier Drive présente une anomalie historique d’encodage. Son nom est conservé ; le titre interne est transcrit dans le document. Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
+
+## Configuration du service SSH
+
+### TP 01 du Module 04 – Administration à distance
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+1 heure
+
+## Énoncé
+
+### Objectifs
+
+- Installer et configurer le service SSH
+
+### Prérequis
+
+- Les ateliers précédents doivent être fonctionnels
+
+### Notes
+
+- Pour toutes les configurations réseau, vous remplacerez num_stag par un chiffre entre 1 et 30, par exemple 10.
+
+### Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian
+
+- Configurer le fichier sources.list de tous vos serveurs afin qu’ils ne contiennent que les lignes suivantes :
+
+```
+deb http://ftp.fr.debian.org/debian/ buster main
+deb http://security.debian.org/debian-security buster/updates main
+deb http://ftp.fr.debian.org/debian/ buster-updates main
+```
+
+- Mettre à jour le gestionnaire de dépendances
+- Vérifier l’état d’installation du paquet openssh-server, l’installer au besoin.
+
+### Etape 2 - Configuration du service SSH
+
+- Installer Terminator sur la machine Cli-db-10 ; vous utiliserez cette machine pour centraliser l’administration de vos serveurs GNU/Linux.
+
+![Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire.](../../assets/course-sources/isolated/2fb77fc967dabe2b/linux-net-figure-40.webp)
+
+Poste Linux utilisé pour centraliser l’accès aux serveurs du laboratoire.
+
+- Configurer le service SSH pour permettre la connexion à vos différents serveurs sans avoir à saisir de mot de passe (échange de clés).
+- Vous allez devoir vous connecter depuis la machine Cli-db-10 sur les serveurs : RouTux, Deb-S1, Deb-S2.
+
+### Etape 3 - Utilisation des commandes de copie sécurisée
+
+- Sur la machine Cli-db-10, utiliser la commande scp pour copier les fichiers de configuration paramétrés sur chacune des machines Debian (interfaces, resolv.conf, sources.list…).
+
+Référence du document : 1Zs40kPBB9hVOO2m-tubv3SpuMGSrrMEa · SHA-256 2fb77fc967dabe2b…
+
+## Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites
+
+Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+## Configuration du service SSH
+
+### TP 01 du Module 04 – Administration à distance
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+1 heure
+
+## Solution
+
+### Etape 1 - Installation du serveur SSH sur TOUS les serveurs Debian
+
+- Modifier le fichier sources.list sur chaque machine et y ajouter les données demandées : # vi /etc/apt/sources.list
+
+```
+deb http://ftp.fr.debian.org/debian/ buster main
+```
+
+```
+deb http://security.debian.org/debian-security buster/updates main
+```
+
+```
+deb http://ftp.fr.debian.org/debian/ buster-updates main
+```
+
+Mettre à jour le gestionnaire :
+
+```
+# apt update
+```
+
+Vérifier la présence d’openssh-server :
+
+```
+# apt install openssh-server
+```
+
+ou
+
+```
+# dpkg -l |grep openssh-server
+```
+
+### Etape 2 - Configuration du service SSH
+
+- Installer Terminator sur la machine Cli-db-10 : # apt install terminator
+
+Créer la clé SSH :
+
+Sur cli-db-10
+
+```
+# ssh-keygen
+```
+
+=> sans phrase de passe
+
+Envoyer la clé SSH sur les serveurs :
+
+```
+# ssh-copy-id  user@192.168.X.11
+```
+
+```
+# ssh user@192.168.X.11
+```
+
+=> connexion sans mot de passe avec le compte utilisateur standard
+
+Sur deb-s1
+
+```
+ $ su -
+```
+
+```
+ # mkdir .ssh
+```
+
+```
+ # chmod 700 .ssh
+```
+
+```
+ # cp  /home/user/.ssh/authorized _keys /root/.ssh
+```
+
+= > connexion sans mot de passe avec root
+
+### A réaliser également sur deb-s2 et routux
+
+### Etape 3 - Utilisation des commandes de copie sécurisée
+
+- Recopier les fichiers en local, par exemple ici avec le fichier /etc/resolv.conf :
+
+```
+$ mkdir conf_deb-s1
+```
+
+```
+$ scp  root@192.168.X.11:/etc/resolv.conf conf_deb-s1
+```
+
+Référence du document : 1Q4bxGyPu9nc9S_OIkQyoacBFsQUjR4iV · SHA-256 3e49ebce5a1945fc…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Support · Module 04 - Support de cours · 8 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
+| Énoncé · M04 - Enonc‚ du TP1- Configuration du service ssh · 2 pages transcrites | Le nom du fichier Drive présente une anomalie historique d’encodage. |
+| Correction · M04 - Solution du TP1 - Configuration du service ssh · 2 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |

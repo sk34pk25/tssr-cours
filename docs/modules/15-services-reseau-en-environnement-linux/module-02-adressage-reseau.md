@@ -1,123 +1,795 @@
 # Module 02 — Adressage réseau
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Associer chaque carte VMware à son interface Linux.
-- Distinguer l’état réseau courant et la configuration persistante.
-- Configurer DEB-S1, DEB-S2 et Cli-db-10 avec le gestionnaire prévu.
-- Vérifier les noms, adresses, routes et réponses avant et après rechargement.
+## Parcours de lecture
 
-## Identifier interfaces et profils
+1. Support · Module 02 - Support de cours · 13 pages transcrites
+2. Services réseau en environnement Linux
+3. Nommage des cartes
+4. réseau et outils de
+5. configuration
+6. Passerelle par défaut
+7. Nom d'hôte
+8. Client DNS
+9. Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites
+10. Mise en œuvre et configuration réseau
+11. Énoncé
+12. Nom : Cli-db-10 IPv4 : * . 10
+13. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+14. Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites
+15. Mise en œuvre et configuration réseau
+16. Solution
+17. Nom : Cli-db-10 IPv4 : * . 10
+18. LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+19. Etape 3 - Préparation d’un serveur supplémentaire
 
-Le support présente les noms prévisibles issus de la détection du matériel, tels que `ens33` et `enp0s…`, et l’ancien schéma `eth0`, `eth1`. `lo` est l’interface de boucle locale. Dans la maquette, une adresse MAC permet de relier la carte affichée par VMware à l’interface reconnue par Debian. Relever cette correspondance avant de configurer plusieurs cartes.
+**Visuel externe**
 
-```bash
-ip link show
-ip address show
-ip route show
+```mermaid
+flowchart TD
+    N1["Support · Module 02 - Support de cours · 13 pages transcrites"]
+    N2["Services réseau en environnement Linux"]
+    N3["Nommage des cartes"]
+    N4["réseau et outils de"]
+    N5["configuration"]
+    N6["Passerelle par défaut"]
+    N7["Nom d'hôte"]
+    N8["Client DNS"]
+    N9["Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites"]
+    N10["Mise en œuvre et configuration réseau"]
+    N11["Énoncé"]
+    N12["Nom : Cli-db-10 IPv4 : * . 10"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-L’état de liaison, les adresses et la table de routage se lisent séparément. Les abréviations `ip l`, `ip a` et `ip r` apparaissent dans les exemples. Les manuels `man ip`, `man ip-address` et `man ip-route` expliquent les objets et leurs opérations.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## Configurer l’état courant avec ip
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-```bash
-ip link set ens33 up
-ip address add 192.168.10.11/24 dev ens33
-ip address show dev ens33
-ip address del 192.168.10.11/24 dev ens33
-```
+## Support · Module 02 - Support de cours · 13 pages transcrites
 
-Ces commandes agissent immédiatement dans le noyau. La configuration persistante est lue au redémarrage par le gestionnaire retenu. Le TP demande une première configuration avec `ip`, un test entre DEB-S1 et DEB-S2, puis la suppression de cet état avant le paramétrage durable. Pour retirer seulement les adresses IPv4 de l’interface identifiée, utiliser `ip -4 address flush dev ens33` depuis la console du laboratoire.
+!!! note "À retenir"
+    Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés.
 
-## Écrire une configuration ifupdown
+Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
 
-Le fichier `/etc/network/interfaces` conserve les paramètres des interfaces gérées par ifupdown. La déclaration de boucle locale reste en place. L’exemple suivant prend `X=10` pour DEB-S1. La route par défaut sera ajoutée au module suivant.
+## Services réseau en environnement Linux
 
-```text
-auto lo
-iface lo inet loopback
+Module 02 - Adressage réseau
 
-auto ens33
-iface ens33 inet static
-    address 192.168.10.11/24
-```
+### Adressage réseau
 
-Le support montre aussi l’écriture `address` accompagnée de `netmask`, ainsi que `iface ens37 inet dhcp` pour une autre carte. `systemctl restart networking` recharge le service dans ce scénario. Contrôler l’adresse, le préfixe et l’état de l’interface après l’action.
+### Objectifs
 
-## Configurer un profil NetworkManager
+!!! note "À retenir"
+    Paramétrer les interfaces réseau d'un serveur Linux Découvrir les différentes méthodes de paramétrage
 
-Sur Cli-db-10, utiliser l’interface graphique, `nmtui` ou `nmcli`. Distinguer le nom du profil et celui de la carte. `nmcli connection show` affiche les profils. `nmcli device show ens33` lit l’état associé à cette carte. Le profil d’exemple ci-dessous doit correspondre au nom réellement relevé.
+- Paramétrer les interfaces réseau d'un serveur Linux
+- Découvrir les différentes méthodes de paramétrage
 
-```bash
-nmcli connection show
-nmcli connection modify 'Wired connection 1' ipv4.method manual ipv4.addresses 172.18.10.10/24
-nmcli connection up 'Wired connection 1'
-```
+### Adressage réseau
 
-Le préfixe `+` devant `ipv4.addresses` ajoute une valeur à la liste. La réactivation applique les paramètres du profil à la connexion. Les lignes ifupdown et le profil NetworkManager correspondent à deux modes de gestion. Identifier le propriétaire de l’interface avant de choisir où rendre le réglage permanent. [Manuel nmcli](https://networkmanager.dev/docs/api/latest/nmcli.html).
+### Public ciblé
 
-## Passerelle par défaut
+- Techniciens système et réseaux
 
-La route par défaut sert lorsque la table ne possède pas de route plus spécifique. Dans les exemples du support, elle peut être ajoutée, changée ou supprimée via `ip route`. Une modification persistante se fait dans le profil NetworkManager avec `ipv4.gateway` ou dans la configuration ifupdown avec `gateway`. La passerelle doit être joignable sur le réseau de l’interface concernée. Vérifier `ip route` après le changement et examiner les métriques si plusieurs profils proposent une sortie.
+### Adressage réseau
 
-## Nom d’hôte et résolution du poste
+## Nommage des cartes
 
-| Emplacement | Rôle |
-|---|---|
-| `/etc/hostname` | Nom configuré pour la machine |
-| `/etc/hosts` | Associations locales entre adresses et noms |
-| `/etc/nsswitch.conf` | Ordre des méthodes de résolution de la bibliothèque système |
-| `/etc/resolv.conf` ou gestionnaire réseau | Serveurs et suffixes de recherche DNS |
+## réseau et outils de
 
-Le support montre un nom court et un FQDN. `hostname` affiche le nom courant. `getent hosts` permet de vérifier une recherche suivant les méthodes du système. Une ligne `hosts: files dns` interroge d’abord les fichiers locaux. Dans le second exemple, `mdns4_minimal [NOTFOUND=return]` participe à la recherche des noms en `.local` et peut interrompre la chaîne sur un résultat donné. `myhostname` traite les noms locaux du poste.
+## configuration
 
-`nameserver` identifie un serveur DNS. `search` fournit une liste de suffixes pour les noms relatifs. Les exemples historiques affichent aussi `domain`. En complément, retenir que `domain` est une forme à un seul suffixe et que les directives de recherche successives peuvent se remplacer. Si le fichier est généré, appliquer la modification dans le gestionnaire qui le produit. En DHCP, les options reçues alimentent la configuration selon le profil client. [resolv.conf(5)](https://manpages.debian.org/trixie/manpages/resolv.conf.5.en.html).
+### Nommage des cartes réseaux et outils de configuration
 
-## TP guidé — Configurer la maquette {#atelier-dadressage}
+### Nommage et outils
 
-1. Créer **Cli-db-10** avec bureau, **1 024 Mo** de mémoire et une carte sur VMNet4. Dans NetworkManager, configurer `172.18.X.10/24` et vérifier l’adresse active. Relever le nom d’hôte et le corriger si nécessaire.
-2. Préparer **DEB-S1** et **DEB-S2**, chacun sans bureau, avec **1 024 Mo** et VMNet6. Vérifier leur interface par la MAC. Avec `ip`, les adresser respectivement en `192.168.X.11/24` et `192.168.X.12/24`.
-3. Relever les deux adresses et tester le ping entre les serveurs. Retirer uniquement la configuration temporaire du TP, puis écrire les adresses dans la configuration persistante d’ifupdown.
-4. Recharger le réseau depuis la console. Relire le nom, l’adresse et le préfixe de chaque serveur, puis répéter les pings. Les tests du module portent sur chaque segment avant le routage entre LAN.
-5. Installer **RouTux** sans interface réseau à ce stade. Vérifier son nom d’hôte et conserver la VM pour le module 3.
+!!! note "À retenir"
+    systemd a introduit un nouveau système de nommage des interfaces réseau Il s'adapte suivant le matériel détecté L'interface de loopback s'appelle toujours lo Les interfaces réseau vont s'appeler par exemple : ens[1-n] enp0s[1-n] L'ancien système de nommage est eth[0-n]
 
-La correction abrège les commandes dynamiques sans préciser `/24` et écrit une fois `interface` au singulier. L’adressage demandé nécessite le préfixe `/24`. Le fichier employé par ifupdown est `/etc/network/interfaces`.
-
-## Schéma explicatif complémentaire
+**Visuel externe**
 
 ```mermaid
 flowchart LR
- M["Carte VMware et MAC"] --> I["Interface Linux"]
- I --> K["État courant lu avec ip"]
- F["Fichier interfaces ou profil NM"] --> K
- K --> V["Contrôler adresse, route et résolution"]
+    N1["systemd a introduit un nouveau système de nommage des interfaces réseau"]
+    N2["Il s'adapte suivant le matériel détecté"]
+    N3["L'interface de loopback s'appelle toujours lo"]
+    N4["Les interfaces réseau vont s'appeler par exemple :"]
+    N5["ens(1-n)"]
+    N6["enp0s(1-n)"]
+    N7["L'ancien système de nommage est eth(0-n)"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
 
-## À retenir
+- systemd a introduit un nouveau système de nommage des interfaces réseau
+- Il s'adapte suivant le matériel détecté
+- L'interface de loopback s'appelle toujours lo
+- Les interfaces réseau vont s'appeler par exemple :
+- ens[1-n]
+- enp0s[1-n]
+- L'ancien système de nommage est eth[0-n]
 
-La MAC relie la carte VMware à l’interface du système. Les commandes ip modifient l’état courant. Les réglages ifupdown ou NetworkManager permettent de retrouver l’état attendu après réactivation ou redémarrage.
+### Nommage des cartes réseaux et outils de configuration
 
-## Mini-quiz — 5 questions {#autoevaluation}
+### Nommage et outils
 
-1. Quel réglage est relu au démarrage dans un serveur ifupdown ?
-2. Comment identifier la carte VMware correspondant à une interface Linux ?
-3. Quel fichier décrit l’ordre des méthodes de résolution ?
-4. Pourquoi tester la communication avant et après la configuration persistante ?
-5. Quelle différence entre le nom du profil NetworkManager et celui de l’interface ?
+!!! note "À retenir"
+    On va distinguer 3 façons de configurer le réseau : De façon dynamique avec la commande ip De façon statique avec le « fichier interfaces » Avec l'outil NetworkManager
 
-??? success "Réponses commentées"
+**Visuel externe**
 
-    1. Les déclarations de /etc/network/interfaces et des fichiers qu’il inclut.
-    2. Comparer les adresses MAC dans VMware et dans la sortie de ip link.
-    3. /etc/nsswitch.conf. La ligne hosts permet de lire les méthodes utilisées pour les noms.
-    4. Le premier test valide l’adressage courant. Le second prouve que le réglage est relu et appliqué.
-    5. Le profil contient la configuration. L’interface identifie le périphérique auquel ce profil est appliqué.
+```mermaid
+flowchart LR
+    N1["On va distinguer 3 façons de configurer le réseau :"]
+    N2["De façon dynamique avec la commande ip"]
+    N3["De façon statique avec le « fichier interfaces »"]
+    N4["Avec l'outil NetworkManager"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
-## Pour travailler ce module
+- On va distinguer 3 façons de configurer le réseau :
+- De façon dynamique avec la commande ip
+- De façon statique avec le « fichier interfaces »
+- Avec l'outil NetworkManager
 
-- [Fiche de révision](../../revision/services-reseau-linux/module-02-adressage-reseau.md)
-- [Travaux pratiques](../../tp/services-reseau-linux/module-02/index.md)
-- [Énoncés](../../tp/services-reseau-linux/module-02/enonces.md) et [corrections](../../tp/services-reseau-linux/module-02/corrections.md)
-- [Kahoot existant](../../kahoot/services-reseau-linux-module-02.md)
-- [Sommaire du cours](index.md)
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec la commande IP
+
+!!! note "À retenir"
+    Configuration dynamique, donc : Prise en compte directement Pas conservée après un reboot de la machine Commande qui sert à gérer tout le réseau avec un ensemble de sous-commandes : Transcription du détail du support.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Configuration dynamique, donc :"]
+    N2["Prise en compte directement"]
+    N3["Pas conservée après un reboot de la machine"]
+    N4["Commande qui sert à gérer tout le réseau avec un ensemble de sous-commandes :"]
+    N5["On indique le type d'objet à manipuler (adresse, route, etc.) et les options"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- Configuration dynamique, donc :
+- Prise en compte directement
+- Pas conservée après un reboot de la machine
+- Commande qui sert à gérer tout le réseau avec un ensemble de sous-commandes :
+
+Transcription du détail du support.
+
+```
+ip [ OPTIONS ] OBJECT { COMMAND | help }
+OBJECT := { link | addr | addrlabel | route | rule | neigh | ntable | tunnel | tuntap
+          | maddr | mroute | mrule | monitor | xfrm | netns | l2tp }
+```
+
+- On indique le type d'objet à manipuler (adresse, route, etc.) et les options
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec la commande IP
+
+!!! note "À retenir"
+    Pour afficher les informations d'adressage : Transcription du détail du support.
+
+- Pour afficher les informations d'adressage :
+
+Transcription du détail du support.
+
+```
+$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:0c:29:4d:bc:c2 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::20c:29ff:fe4d:bcc2/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+- Ajout ou suppression d'adresses :
+
+Transcription du détail du support.
+
+```
+# ip a add 10.11.12.13/24 dev ens33
+# ip a del 172.16.0.1/16 dev ens37
+# ip a flush ens33
+```
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec la commande IP
+
+!!! note "À retenir"
+    Activer ou désactiver une interface : Transcription du détail du support.
+
+- Activer ou désactiver une interface :
+
+Transcription du détail du support.
+
+```
+# ip link set ens33 down
+# ip l set ens37 up
+```
+
+- N'oubliez pas le man :
+
+Transcription du détail du support.
+
+```
+$ man ip
+$ man ip-address
+```
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec le fichier interfaces
+
+!!! note "À retenir"
+    Configuration stabilisée dans le temps même après redémarrage du serveur Fichier /etc/network/interfaces Transcription du détail du support.
+
+- Configuration stabilisée dans le temps même après redémarrage du serveur
+- Fichier /etc/network/interfaces
+
+Transcription du détail du support.
+
+```
+# L’interface réseau de loopback => il ne faut pas la modifier
+auto lo
+iface lo inet loopback
+
+# L’interface ens33 est configurée manuellement.
+auto ens33
+iface ens33 inet static
+    address 192.168.66.6
+    netmask 255.255.0.0
+
+# L’interface ens37 est quant à elle configurée via DHCP.
+auto ens37
+iface ens37 inet dhcp
+```
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec le fichier interfaces
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Interface de loopback à ne pas toucher"]
+    N2["Interface ens33 en configuration statique :"]
+    N3["address : adresse IP"]
+    N4["netmask : le masque de réseau (possible en CIDR sur la ligne address)"]
+    N5["gateway : la passerelle"]
+    N6["Interface ens37 en DHCP"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
+
+- Interface de loopback à ne pas toucher
+- Interface ens33 en configuration statique :
+- address : adresse IP
+- netmask : le masque de réseau (possible en CIDR sur la ligne address)
+- gateway : la passerelle
+- Interface ens37 en DHCP
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec le fichier interfaces
+
+Ne pas oublier de redémarrer le réseau après configuration.
+
+```
+# systemctl restart networking
+```
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec Network Manager
+
+- Si Network Manager est installé, il faut utiliser les commandes adéquates et ne pas configurer dans le « fichier interfaces »
+
+Transcription du détail du support.
+
+```
+# systemctl status NetworkManager
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/lib/systemd/system/NetworkManager.service; enabled; vendor p…)
+   Active: active (running) since Mon 2019-05-20 12:24:14 CEST; 66h 6min ago
+```
+
+- La commande nmcli est utilisée pour gérer les interfaces réseau
+- Possible aussi d'utiliser nmtui et l'interface graphique si installée
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec Network Manager
+
+- Exemple avec nmcli pour afficher la configuration
+
+Transcription du détail du support.
+
+```
+$ nmcli
+ens33: connecté to Wired connection 1
+       "Intel 82545EM"
+       ethernet (e1000), 00:0C:29:08:4B:4C, hw, mtu 1500
+       ip4 default
+       inet4 172.16.6.6/24
+       route4 172.16.6.0/24
+       [...]
+
+lo: non-géré
+    "lo"
+    loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+    servers: 10.0.0.1
+    domains: demo.example
+    interface: ens33
+```
+
+### Nommage des cartes réseaux et outils de configuration
+
+### Configuration avec Network Manager
+
+- Modification de l'IP :
+
+Transcription du détail du support.
+
+```
+# nmcli connection modify Wired\ connection\ 1 ipv4.addresses 192.168.66.6/24
+# nmcli connection modify Wired\ connection\ 1 ipv4.addresses 192.168.66.6/24 ipv4.method manual
+# nmcli connection modify Wired\ connection\ 1 +ipv4.addresses 192.168.1.1/24
+```
+
+### Adressage réseau
+
+## Passerelle par défaut
+
+### Passerelle par défaut
+
+### Modification de la passerelle par défaut
+
+- La passerelle par défaut est modifiable avec les différentes méthodes :
+- Avec Network Manager :
+
+Transcription du détail du support.
+
+```
+# nmcli connection modify Wired\ connection\ 1 ipv4.gateway 192.168.66.254
+```
+
+- Dans le fichier interfaces :
+
+Transcription du détail du support.
+
+```
+# L’interface ens33 est configurée manuellement.
+auto ens33
+iface ens33 inet static
+    address 192.168.66.6
+    netmask 255.255.0.0
+    gateway 192.168.66.254
+```
+
+### Passerelle par défaut
+
+### La commande ip
+
+- Avec la commande ip
+
+Transcription du détail du support.
+
+```
+$ man ip-route
+Affichage de la table de routage : itinéraires et passerelles :
+$ ip r
+default via 192.168.0.254 dev ens37
+10.11.0.0/16 dev ens33 proto kernel scope link src 10.11.12.13
+192.168.0.0/24 dev ens37 proto kernel scope link src 192.168.0.1
+
+Ajouter une route par défaut :
+# ip r add default via 10.11.0.254
+Modifier la route par défaut :
+# ip r change default via 10.11.255.254
+Supprimer la route par défaut :
+# ip route del default via 192.168.0.254
+```
+
+Dans tous les cas, la commande « ip r » permet d'afficher la table de routage de la machine.
+
+### Adressage réseau
+
+## Nom d'hôte
+
+### Nom d’hôte
+
+### Caractéristiques
+
+- Le nom d'hôte de la machine peut être :
+- Un nom court
+- Un FQDN (Full Qualified Domain Name)
+- Il est configuré dans le fichier /etc/hostname qui ne doit contenir que le nom d'hôte (court ou long)
+- Le nom d'hôte doit être résolvable localement. On doit donc le retrouver dans le fichier /etc/hosts
+
+### Nom d’hôte
+
+### Fichiers du nom d'hôte
+
+- Fichier /etc/hostname
+
+Transcription du détail du support.
+
+```
+srv-lan.demo.example
+```
+
+- Fichier /etc/hosts
+
+Transcription du détail du support.
+
+```
+127.0.0.1       localhost
+127.0.1.1       srv-lan.demo.example   srv-lan
+```
+
+- La commande hostname permet d'afficher le nom d'hôte
+
+### Adressage réseau
+
+## Client DNS
+
+### Client DNS
+
+### La résolution DNS
+
+- Autre élément de configuration du réseau : la résolution DNS
+- Elle va se faire :
+- Localement grâce au fichier /etc/hosts
+- Avec un serveur DNS configuré avec Network Manager ou avec le fichier /etc/resolv.conf
+
+### Client DNS
+
+### La résolution DNS
+
+- L'ordre de résolution est défini :
+- Dans le fichier /etc/nsswitch.conf
+
+Transcription du détail du support.
+
+```
+$ grep hosts /etc/nsswitch.conf
+hosts: files dns
+```
+
+- Ou avec une interface graphique :
+
+Transcription du détail du support.
+
+```
+# grep hosts /etc/nsswitch.conf
+hosts: files mdns4_minimal [NOTFOUND=return] dns myhostname
+```
+
+- Il faudra interpréter l'ordre : 1. fichier /etc/hosts 2. mdns4_minimal : interrogation mDNS (multicast DNS) pour les noms d’hôtes IPv4 en .local 3. serveur DNS 4. myhostname : résolution des noms locaux du poste
+
+### Client DNS
+
+### La résolution DNS
+
+- Pour configurer la résolution DNS en tant que client DNS :
+- Avec Network Manager
+
+Transcription du détail du support.
+
+```
+# nmcli connection modify Wired\ connection\ 1 ipv4.dns 192.168.66.1
+```
+
+- Dans le fichier /etc/resolv.conf
+
+Transcription du détail du support.
+
+```
+search demo.example ad.formation.example
+domain ad.formation.example
+nameserver 10.0.0.3
+nameserver 10.100.0.3
+```
+
+- nameserver : pour définir les serveurs DNS
+- search et domain pour définir les suffixes DNS
+- Si la configuration est en DHCP, c'est ce dernier qui fournit la configuration DNS
+
+Référence du document : 1zPFqVRivViktyikdvOrkv5ylNUNNdjsB · SHA-256 59d3b9ffb6ff15f3…
+
+## Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites
+
+Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
+
+Services réseau en environnement Linux
+
+## Mise en œuvre et configuration réseau
+
+### TP 01 du Module 02 – Adressage réseau
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+3 heures
+
+## Énoncé
+
+### Objectifs
+
+- Créer des machines virtuelles conformément à un cahier des charges.
+- Configurer l’adressage réseau sous GNU/Linux Debian.
+
+### Prérequis
+
+- VMware Workstation doit être installé sur votre machine physique.
+
+Récupérer l’image ISO du système d’exploitation indiqué dans le tableau de l’étape 1. Il est conseillé de télécharger l’ISO du DVD au départ ; les machines virtuelles n’auront pas obligatoirement accès à Internet :
+
+https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/
+
+### Notes
+
+- Pour toutes les configurations réseau, remplacer num_stag par un chiffre entre 1 et 30, par exemple 10.
+- Installer une seule fois la Debian sans interface bureautique et faire des clones permettra d’accélérer les déploiements des VMs.
+- Veiller à bien lire toutes les instructions pour chaque VM.
+
+Services réseau en environnement Linux
+
+### Etape 1 - Configuration du LAN Clients
+
+Création de la machine virtuelle cliente :
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| Cli-db-10 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet4 |
+
+## Nom : Cli-db-10 IPv4 : * . 10
+
+## LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+
+### Installation du système d’exploitation :
+
+- Installer le système d’exploitation. Ne pas configurer l’adressage réseau pendant l’installation (il sera configuré post installation).
+
+### L’environnement de bureau Debian doit être installé sur Cli-db-10. Configuration système :
+
+- Configurer l’adressage réseau IPv4 des postes en vous référant au précédent schéma.
+
+Vous utiliserez le Network Manager pour configurer le réseau de Cli-db-10.
+
+- Vérifier le nom du poste, le renommer au besoin.
+
+### Etape 2 - Configuration du LAN Serveurs
+
+Création des machines virtuelles serveur :
+
+Créer les machines virtuelles suivantes
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| DEB-S1 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
+| DEB-S2 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
+
+Services réseau en environnement Linux
+
+![LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.](../../assets/course-sources/isolated/937392f18a03f083/linux-net-figure-2.webp)
+
+LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.
+
+Installation du système d’exploitation sur les machines virtuelles :
+
+- Installer le système d’exploitation indiqué dans le tableau sur les machines virtuelles créées précédemment.
+- Ne pas configurer l’adressage réseau pendant l’installation (il sera configuré post installation).
+
+L’environnement de bureau Debian NE DOIT PAS être installé (ni aucun autre environnement graphique…) sur ces machines.
+
+Configuration système des machines :
+
+- Configurer au moyen de la commande ip l’adressage réseau IPv4 des postes en vous référant au précédent schéma.
+- S’assurer qu’ils communiquent bien entre eux.
+- Une fois le point précédent vérifié, purger la configuration précédemment établie (flush) puis reporter dans le fichier de configuration des interfaces leur configuration respective.
+- Redémarrer le service networking et vérifier la bonne prise en compte de la configuration de vos interfaces.
+- Vérifier le nom des postes, les renommer au besoin.
+- Vérifier que les postes communiquent bien entre eux (ping).
+
+### Etape 3 - Préparation d’un serveur supplémentaire
+
+Créer une machine virtuelle avec les caractéristiques suivantes :
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| RouTux | Linux Debian 10.x 64 bits | 1024 MB | Aucune carte réseau |
+
+- Installer son système d’exploitation. NE PAS INSTALLER l’environnement de bureau Debian, ne pas configurer le réseau.
+- Vérifier le nom d’hôte de la machine (le modifier au besoin)
+
+Référence du document : 1qf439STpGg6CjXLb56PDeWq-eR2WLeqw · SHA-256 937392f18a03f083…
+
+## Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites
+
+Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. Les adresses numériques et les consignes restent celles de la source.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+Services réseau en environnement Linux
+
+## Mise en œuvre et configuration réseau
+
+### TP 01 du Module 02 – Adressage réseau
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 2 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+3 heures
+
+## Solution
+
+### Etape 1 - Configuration du LAN Clients
+
+Création de la machine virtuelle cliente :
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| Cli-db-10 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet4 |
+
+## Nom : Cli-db-10 IPv4 : * . 10
+
+## LAN Clients 172.18.num_stag.0 / 24 VMNet 4
+
+```
+# nmcli connection modify Wired\ connection\ 1  ipv4.addresses
+172.18.X.10/24 ipv4.method  manual
+```
+
+Services réseau en environnement Linux
+
++ Désactivation/Activation connexion via nmtui
+
+ou configuration + activation interactive via nmtui
+
+ou configuration via l’interface graphique
+
+Pour cli-deb-10, nommage de la machine à l’installation
+
+```
+Ou # nmcli general hostname cli- deb-10
+```
+
+Ou configuration interactive avec nmtui
+
+### Etape 2 - Configuration du LAN Serveurs
+
+Création des machines virtuelles serveur :
+
+Créer les machines virtuelles suivantes
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| DEB-S1 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
+| DEB-S2 | Linux Debian 10.x 64 bits | 1024 MB | Custom / VMNet6 |
+
+![LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.](../../assets/course-sources/isolated/83cc3b4c3b97718f/linux-net-figure-1.webp)
+
+LAN Serveurs sur VMNet6. DEB-S1 se termine par .11 et DEB-S2 par .12.
+
+### Pour une configuration dynamique
+
+Sur deb-s1
+
+```
+ # ip a add 192.168.X.11 dev  ens33
+```
+
+Sur deb-s2
+
+```
+ # ip a add 192.168.X.12 dev  ens33
+```
+
+Pour flusher les interfaces :
+
+```
+ # ip a flush dev ens33
+```
+
+### Pour une configuration définitive
+
+##### Sur deb-s1
+
+```
+ # vi /etc/network/interface
+ auto ens33
+ iface ens33 inet static
+
+address  192.168.X.11
+
+netmask  255.255.255.0
+```
+
+Sur deb-s2
+
+Même chose que pour deb-s1 avec IP 192.168.X.12
+
+Ne pas oublier de redémarrer la configuration.
+
+```
+# systemctl restart  networking.service
+```
+
+##### Configurer le nom d’hôte
+
+```
+# vi /etc/hostname
+
+deb-s1
+# hostname –F  /etc/hostname
+# vi /etc/hosts
+ 127.0.1.1 deb-s1
+```
+
+Même chose avec deb-s2
+
+Services réseau en environnement Linux
+
+## Etape 3 - Préparation d’un serveur supplémentaire
+
+Créer une machine virtuelle avec les caractéristiques suivantes :
+
+| Nom de la VM | Système d’exploitation | RAM | Réseau |
+| --- | --- | --- | --- |
+| RouTux | Linux Debian 10.x 64 bits | 1024 MB | Aucune carte réseau |
+
+Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant.
+
+Référence du document : 1XzrvZsfEVxEIGPrQNLhbPcmPEkfOmpGv · SHA-256 83cc3b4c3b97718f…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Support · Module 02 - Support de cours · 13 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
+| Énoncé · M02 - Enoncé du TP1 - Adressage réseau · 3 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
+| Correction · M02 - Solution du TP1 - Adressage réseau · 4 pages transcrites | Les noms et chemins de formation portant le nom de l’éditeur ont été neutralisés. |
+| LAN Clients 172.18.num_stag.0 / 24 VMNet 4 | Services réseau en environnement Linux + Désactivation/Activation connexion via nmtui ou configuration + activation interactive via nmtui ou configuration via l’interface graphi… |
+| Etape 3 - Préparation d’un serveur supplémentaire | Créer une machine virtuelle avec les caractéristiques suivantes : Même chose qu’à l’étape 2 sans configuration de réseau pour l’instant. |
