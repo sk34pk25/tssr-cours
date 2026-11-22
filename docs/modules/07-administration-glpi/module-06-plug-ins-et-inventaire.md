@@ -1,112 +1,504 @@
 # Module 06 — Plug-ins et inventaire
 
-Un plug-in étend GLPI sans changer son code principal. Le catalogue du support couvre rapports/graphiques, inventaire, réseau, gestion administrative, helpdesk et import. Une version de plug-in doit correspondre à une ou plusieurs versions de GLPI ; une mise à jour de GLPI peut donc obliger à adapter ses extensions.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Le laboratoire utilise FusionInventory 9.5.0+1.0 et l’agent2.6. Ces versions historiques restent celles de l’exercice. Pour une installation récente, suivre la documentation de la version choisie : GLPI dispose d’un inventaire natif et de GLPI Agent. [Inventaire natif GLPI](https://www.glpi-project.org/en/discover-native-glpi-inventory/), [documentation des équipements](https://glpi-user-documentation.readthedocs.io/fr/master/modules/assets/index.html).
+## Parcours de lecture
 
-## Objectifs
+1. Support · Module 06 - Support de cours · 10 pages transcrites
+2. Énoncé · M6 - Enoncé du TP - Plugins · 2 pages transcrites
+3. Correction · M6 - Solution du TP - Plugins · 2 pages transcrites
 
-- Distinguer installation d’un plug-in, activation et communication de l’agent.
-- Contrôler les données remontées par l’inventaire du laboratoire.
-- Configurer puis vérifier un import DataInjection avec le vrai fichier fourni.
+**Visuel externe**
 
-## Deux chemins d’installation
+```mermaid
+flowchart TD
+    N1["Support · Module 06 - Support de cours · 10 pages transcrites"]
+    N2["Énoncé · M6 - Enoncé du TP - Plugins · 2 pages transcrites"]
+    N3["Correction · M6 - Solution du TP - Plugins · 2 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+```
 
-L’installation manuelle télécharge une archiveGzip/Bzip2, l’extrait sous `GlpiInstallationDir/plugins`, puis installe et active l’extension dans **Configuration → Plugins**. La configuration se trouve ensuite dans le menu défini par l’extension. Extraire des fichiers ne suffit pas : installation et activation sont deux étapes à contrôler dans l’interface.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Le Marketplace du support, introduit avecGLPI9.5, demande une inscription et une clé d’enregistrement à renseigner dans **Configuration → Générale**. Cette clé reste dans le laboratoire et ne doit pas être publiée dans les captures ou le cours. Le Marketplace permet ensuite de découvrir et installer les extensions compatibles.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## Comprendre FusionInventory
+## Support · Module 06 - Support de cours · 10 pages transcrites
 
-La partie serveur est un plug-in GLPI ; la partie cliente est un agent Windows, Linux, macOS ouAndroid. Le support lui attribue inventaire automatique, déploiement push/pull, collecte, inventaire distant SNMP, découverte réseau et Wake-on-LAN.
+#### Administration GLPI
 
-Le client communique périodiquement avec le serveur en HTTP et transmet des documents XML. Le serveur peut demander une communication anticipée. Cette relation explique pourquoi « agent installé » et « machine visible dans GLPI » sont deux états distincts.
+#### Module 06 – Présentation des plug-ins – Inventaire avec
+
+#### FusionInventory
+
+#### Objectifs
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    A["Agent sur le poste"] -->|"Inventaire XML / HTTP"| S["Plug-in serveur"]
-    S --> R["Règles d’import et de liaison"]
-    R --> O["Ordinateur, composants, entité, lieu"]
+    N1["Comment ajouter/gérer des plugins avec GLPI"]
+    N2["Exploration du site https://plugins.glpi-project.org/"]
+    N3["Comment installer le plugin FusionInventory pour GLPI"]
+    N4["Installation d’un agent FusionInventory sous Windows"]
+    N5["Savoir modifier la configuration de l’agent FusionInventory"]
+    N6["Comment forcer un inventaire depuis un agent"]
+    N7["Installer le plugin Data-Injection en vue d’importer des données"]
+    N8["Paramétrer un modèle d’importation Data-Injection"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-Ce schéma de synthèse est ajouté au cours. Avant d’importer, préparer les lieux et entités, la relation utilisateur–ordinateur, la limitation des informations inutiles, les dictionnaires et les listes noires. Sans règles d’identification, plusieurs passages peuvent produire des doublons ou déplacer des objets dans la mauvaise entité.
+- Comment ajouter/gérer des plugins avec GLPI
+- Exploration du site https://plugins.glpi-project.org/
 
-| Règle ou liste du support | But |
-|---|---|
-| Informations d’ordinateur | Modifier des informations à chaque mise à jour à partir de la collecte |
-| Lieu | Affecter ou modifier automatiquement le lieu |
-| Entité ordinateur | Déterminer l’entité de rattachement |
-| Import et liaison des matériels | Identifier précisément l’objet à mettre à jour ou créer, éviter les doublons |
-| Matériels ignorés durant l’import | Examiner ce qui n’a pas été importé après découverte |
+- Comment installer le plugin FusionInventory pour GLPI
+- Installation d’un agent FusionInventory sous Windows
+- Savoir modifier la configuration de l’agent FusionInventory
+- Comment forcer un inventaire depuis un agent
+- Installer le plugin Data-Injection en vue d’importer des données
+- Paramétrer un modèle d’importation Data-Injection
 
-Les dictionnaires sont présentés sous **Administration → Dictionnaires**, les règlesFusion sous **Administration → Fusion → Règles**. Les libellés exacts peuvent varier avec la version du laboratoire.
+#### Présentation des plug-ins
 
-## Déployer le laboratoire
+#### Les plug-ins : présentation
 
-Récupérer l’archive fournie sans l’exécuter comme un programme, puis l’extraire dans le dossier des plug-ins. Exemple correspondant à la structure du TP :
+!!! note "À retenir"
+    Étendre les possibilités de GLPI sans modification du produit de base Catalogue: « https://plugins.glpi-project.org »
 
-```bash
-cp /chemin/fourni/fusioninventory-9.5.0+1.0.tar.bz2 /var/www/glpi/plugins/
+- Étendre les possibilités de GLPI sans modification du produit de base
+- Catalogue: « https://plugins.glpi-project.org »
+
+#### * Domaines traités
+
+!!! note "À retenir"
+    Depuis la version 9.5, il est possible d’utiliser le Marketplace (inscription sur le site obligatoire) Principaux domaines : Rapports / Graphiques Inventaire * Réseau Gestion administrative HelpDesk * Import
+
+!!! warning "Attention"
+    Depuis la version 9.5, il est possible d’utiliser le Marketplace (inscription sur le site obligatoire) Principaux domaines : Rapports / Graphiques Inventaire * Réseau Gestion administrative HelpDesk * Import
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Principaux domaines :"]
+    N2["Rapports / Graphiques"]
+    N3["Inventaire *"]
+    N4["Réseau"]
+    N5["Gestion administrative"]
+    N6["HelpDesk *"]
+    N7["Import"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+- Depuis la version 9.5, il est possible d’utiliser le Marketplace (inscription sur le site obligatoire)
+- Principaux domaines :
+- Rapports / Graphiques
+- Inventaire *
+- Réseau
+- Gestion administrative
+- HelpDesk *
+- Import
+
+#### Les plug-ins : installation manuelle
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Récupération des sources au format Gzip ou Bzip2"]
+    N2["Extraction des plug-ins : « GlpiInstallationDir/plugins »"]
+    N3["Chemin d’accès de configuration du plugin : va dépendre du plugin"]
+    N4["Une version de plugin pour une version ou plus de GLPI"]
+    N5["La mise à jour de GLPI peut nécessiter une mise à jour du plugin"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- Récupération des sources au format Gzip ou Bzip2
+- Extraction des plug-ins : « GlpiInstallationDir/plugins »
+- Installation et activation depuis l’interface graphique : « Configuration => Plugins »
+- Chemin d’accès de configuration du plugin : va dépendre du plugin
+
+- Une version de plugin pour une version ou plus de GLPI
+
+- La mise à jour de GLPI peut nécessiter une mise à jour du plugin
+
+#### Paramétrage du Marketplace
+
+!!! note "À retenir"
+    Inscription gratuite sur le site https://services.glpi- network.com/register afin de récupérer une clé d’enregistrement Puis la coller dans la section Configuration→Générale de GLPI :
+
+- Inscription gratuite sur le site https://services.glpi- network.com/register afin de récupérer une clé d’enregistrement
+- Puis la coller dans la section Configuration→Générale de GLPI :
+
+#### Les plug-ins : installation par le Marketplace
+
+#### Plugin FusionInventory
+
+!!! note "À retenir"
+    Visuel isolé — Module 06 - Support de cours
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p04-i1.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+#### FusionInventory Présentation des plug-ins – Inventaire avec FusionInventory
+
+!!! note "À retenir"
+    Plugins dans GLPI => la partie serveur Les clients FusionInventory agents : Windows/Linux/macOS/Android Permettre un inventaire automatique des équipements Déploiement en mode Push / Pull d’applications Collecte de données Inventaire distant SNMP Découverte réseau Wake-on-LAN
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Plugins dans GLPI = la partie serveur"]
+    N2["Les clients FusionInventory agents : Windows/Linux/macOS/Android"]
+    N3["Permettre un inventaire automatique des équipements"]
+    N4["Déploiement en mode Push / Pull d’applications"]
+    N5["Collecte de données"]
+    N6["Inventaire distant SNMP"]
+    N7["Découverte réseau"]
+    N8["Wake-on-LAN"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+- Plugins dans GLPI => la partie serveur
+- Les clients FusionInventory agents : Windows/Linux/macOS/Android
+- Permettre un inventaire automatique des équipements
+- Déploiement en mode Push / Pull d’applications
+- Collecte de données
+- Inventaire distant SNMP
+- Découverte réseau
+- Wake-on-LAN
+
+#### FusionInventory : vue d'ensemble
+
+!!! note "À retenir"
+    Modèle client / serveur Le client communique à intervalle régulier avec son serveur Le serveur peut réveiller le client pour une communication anticipée Données d’inventaire, remontée d’information de collecte, etc.
+
+- Modèle client / serveur
+- Le client communique à intervalle régulier avec son serveur
+
+- Le serveur peut réveiller le client pour une communication anticipée
+- Données d’inventaire, remontée d’information de collecte, etc.
+- Protocole HTTP : documents XML
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p05-i1.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+#### FusionInventory : préparation inventaire
+
+!!! note "À retenir"
+    Nécessité de préparer la partie serveur avant toute importation de clients Comment gérer l’affectation des lieux et entités aux objets inventoriés ?
+
+- Nécessité de préparer la partie serveur avant toute importation de clients
+- Comment gérer l’affectation des lieux et entités aux objets inventoriés ?
+
+- Comment maintenir une relation cohérente utilisateur <=> ordinateur
+- Inventaire automatique par défaut très volumineux => limitation nécessaire
+- Définition d’une liste noire
+
+#### Dictionnaires Administration =>
+
+#### Règles fusion Administration => Fusion =>
+
+#### Dictionnaires
+
+#### Règles
+
+#### FusionInventory : règles Présentation des plug-ins – Inventaire avec FusionInventory
+
+- « Règles d’informations d’ordinateur »
+
+- À chaque update, modifier des informations ordinateur en fonction d’information de collecte
+
+- « Règles de lieu »
+
+- Permettre l’affectation et modification automatique du lieu des équipements importés par Fusion
+
+- « Règles sur l’entité ordinateur »
+
+- Permettre l’affectation et modification automatique de l’entité de rattachement
+
+- « Règles d’import et de liaison des matériels »
+
+- Liste fixe – Identification précise des machines à mettre à jour ou importer – éviter les doublons
+
+- « Matériels ignorés durant l’import »
+
+- Liste des équipements n’ayant pas pu être importés suite à une découverte réseau
+
+#### Pour aller plus loin : Plugin Data Injection
+
+#### Data Injection Présentation des plug-ins – Inventaire avec FusionInventory
+
+- Il permet d’injecter des données depuis un fichier .csv
+- Comme dans la création à la main, l’ordre de création est important
+- Par exemple, création d’un fabricant, puis d’un composant et enfin l’ordinateur
+- Attention :
+- Aux droits des utilisateurs qui utilisent l’injection
+- Si l’utilisateur n’a pas le droit de créer un composant, il ne sera pas créé
+- Si vous utilisez FusionInventory, est-il indispensable d’injecter vos données ?
+
+#### Data Injection
+
+- Ce qu’on peut importer
+
+- Ce qu’on ne peut pas importer
+
+- Logiciel
+- Versions de logiciels
+- Licences
+- Données relations au helpdesk (catégories, tickets)
+- Données relatives à la base de connaissance
+
+- Ordinateur
+- Écran
+- Imprimante
+- Matériel réseau
+- Téléphone
+- Périphériques
+- Composants
+- Utilisateur
+- Groupe
+
+- Entité
+- Contrat
+- Fournisseur
+- Contact
+- Informations financières
+- Ports réseau
+- Type de cartouche
+- Type de consommable
+- Documents
+
+#### Data Injection
+
+- Étape 1 – La création d'un modèle
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p08-i1.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+#### Data Injection
+
+- Étape 2 – Injecter un fichier au format .csv avec vos en-têtes de colonne
+
+- UTF-8 pour un fichier venant de Linux
+
+- ISO8859-1 pour un fichier venant de
+
+#### Windows
+
+#### Data Injection
+
+- Étape 3 - Correspondance de vos en-têtes de colonne avec les champs des différentes tables
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p09-i1.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p09-i2.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+#### Data Injection
+
+- Étape 4 - Procéder à l’importation avec votre fichier rempli
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p10-i1.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+![Visuel isolé — Module 06 - Support de cours](../../assets/course-sources/isolated/ca46466dda0781a7/g07-d12-p10-i2.webp)
+
+Visuel isolé — Module 06 - Support de cours
+
+Référence du document : 1eMXIAtWOdMn7JW5Yk_x7-7OfxkaCRy5H · SHA-256 ca46466dda0781a7…
+
+## Énoncé · M6 - Enoncé du TP - Plugins · 2 pages transcrites
+
+#### Plugins
+
+#### TP du Module 6 – Présentation des plugins – Inventaire avec FusionInventory
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir réalisé les TP proposés.
+
+#### Enoncé
+
+#### Objectifs
+
+- Installer le plugin FusionInventory et l’agent. Prérequis
+
+- Avoir un serveur GLPI fonctionnel.
+
+Contexte :
+
+- La société Olympus vous demande d’installer le plugin FusionInventory et l’agent sur l’application GLPI au sein de son domaine.
+
+#### Adressage IP des VM : 192.168.1.0/24 + DHCP salle
+
+#### .254
+
+#### Réseau de salle
+
+#### DHCP
+
+#### 192.168.1.0/24
+
+#### PFSENSE
+
+#### VMNET 18
+
+#### srv-glpi srv-CD1
+
+#### .1 .2
+
+#### Principales tâches à réaliser
+
+Installation du Plugins FusionInventory.
+
+- Récupérez depuis le serveur Debian, le fichier fusioninventory-9.5.0+1.0.tar.bz2.
+
+- Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire /var/www/glpi/plugins.
+
+- Changez l’utilisateur propriétaire pour www-data sur ce répertoire et tout son contenu.
+
+- Installez et activez le plugin dans l’interface GLPI.
+
+- Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr.
+
+#### Bonus
+
+- Activez le marketplace puis installez le plugin « Data injection ».
+
+- Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+Référence du document : 1JlK3HycSj3txJmlL-sdZAJawq7lY-naP · SHA-256 49fcfc040440dc4b…
+
+## Correction · M6 - Solution du TP - Plugins · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Plugins
+
+#### TP du Module 6 – Présentation des plugins – Inventaire avec FusionInventory
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 6 et d’avoir réalisé les TP proposés.
+
+#### Solution
+
+#### Objectifs
+
+- Installer le plugin FusionInventory et l’agent. Prérequis
+
+- Avoir un serveur GLPI fonctionnel.
+
+Contexte :
+
+- La société Olympus vous demande d’installer le plugin FusionInventory et l’agent sur l’application GLPI au sein de son domaine.
+
+#### Adressage IP des VM : 192.168.1.0/24 + DHCP salle
+
+#### .254
+
+#### Réseau de salle
+
+#### DHCP
+
+#### 192.168.1.0/24
+
+#### PFSENSE
+
+#### VMNET 18
+
+#### srv-glpi srv-CD1
+
+#### .1 .2
+
+#### Principales tâches à réaliser
+
+Installation du Plugins FusionInventory.
+
+- Récupérez depuis le serveur Debian, le fichier fusioninventory-9.5.0+1.0.tar.bz2.
+
+Utilisez de WinSCP afin de récupérer le fichier.
+
+- Extrayez l’archive fusioninventory-9.5.0+1.0.tar.bz2 dans le répertoire /var/www/glpi/plugins.
+
+```
+cp 
+/home/votrenom/ 
+fusioninventory-9.5.0+1.0.tar.bz2 
+/var/www/glpi/plugins/
+```
+
+```
 cd /var/www/glpi/plugins
-tar xvjf fusioninventory-9.5.0+1.0.tar.bz2
-chown -R www-data /var/www/glpi/plugins/fusioninventory
 ```
 
-La solution source insère un espace entre le dossier personnel et le nom d’archive dans `cp` ; il faut une seule cible source complète. Vérifier le nom réel du répertoire extrait avant de lui attribuer son propriétaire. La solution applique le changement à tous les plug-ins ; l’exemple ci-dessus cible l’extension concernée.
+```
+tar xvjf fusioninventory-9.5.0+1.0.tar.bz2
+```
 
-Installer et activer depuis GLPI, puis installer l’agent fourni sur le contrôleur de domaine Olympus.gr, comme demandé. Configurer l’URL du serveur du laboratoire, le mode d’exécution et les tâches nécessaires. Contrôler la communication, déclencher un inventaire avec le mécanisme de l’agent installé, puis comparer nom, OS, composants, entité et lieu. Rejouer un inventaire doit mettre à jour le même objet, sans doublon. Les PDF ne donnent pas une procédure complète de forçage : utiliser l’interface ou l’aide de la version installée plutôt qu’inventer un commutateur de commande.
+- Changez l’utilisateur propriétaire pour www-data sur ce répertoire et tout son contenu.
 
-## Importer avec DataInjection
+```
+chown -R www-data /var/www/glpi/plugins
+```
 
-DataInjection importe des CSV. Il faut d’abord décider si l’inventaire automatique fournit déjà les données : importer la même information par deux flux exige une règle de réconciliation claire. Les droits du compte d’import limitent la création des composants et autres objets.
+- Installez et activez le plugin dans l’interface GLPI.
 
-Le support permet notamment ordinateurs, écrans, imprimantes, matériels réseau, téléphones, périphériques, composants, utilisateurs, groupes, entités, contrats, fournisseurs, contacts, informations financières, ports réseau, types de cartouche et de consommable et documents. Il exclut logiciels, versions, licences, données liées au helpdesk et base de connaissance dans le périmètre présenté.
+Menu Configuration - Plugins dans l’interface.
 
-Les quatre étapes sont : créer un modèle, charger un CSV avec ses en-têtes, faire correspondre les colonnes aux champs des tables, puis importer le fichier rempli et lire le rapport. Créer fabricants puis composants puis ordinateurs lorsque les dépendances le nécessitent.
+Au bout de la ligne fusioninventory > installer puis activer.
 
-Les deux CSV fournis utilisent le point-virgule et un encodage Windows lisible en Windows-1252. Choisir l’encodage effectif plutôt que supposer qu’un fichier venant d’un système utilise toujours un encodage donné. La diapositive indique UTF-8 pour Linux et ISO 8859-1 pour Windows ; les caractères accentués servent de contrôle avant import.
+- Installez l’agent FusionInventory sur votre contrôleur de domaine Olympus.gr.
 
-Le gabarit vide et celui rempli possèdent 33 colonnes : identité/type/lieu/statut/fabricant/modèle/inventaire ; OS/architecture/noyau/version/édition ; CPU ; mémoire ; disque ; carte et port réseau. Le fichier rempli décrit **GAB-Lattitude7520**, un portable Dell, Windows 10 Pro 20H2, i7-1185G7, 4 cœurs/8 threads, mémoire 16000, disque 512000 et port RJ45. Les noms et unités exacts sont conservés dans le [TP](../../tp/glpi/module-06/enonces.md).
+Image de correction disponible dans les ressources.
 
-Avant l’import réel : vérifier séparateur, accents, en-têtes et correspondances ; importer une ligne ; lire le rapport ; ouvrir la fiche créée ; contrôler incrémentation, lieu, composants et OS ; relancer un essai pour observer le traitement des doublons. « Importation réussie » ne garantit pas que tous les champs ont été associés au bon objet.
+#### Bonus
 
-## TP — Vérifier l’inventaire puis l’import
+- Activez le marketplace puis installez le plugin « Data injection ».
 
-1. Vérifier la compatibilité du plug-in avec GLPI 9.5 du scénario. Installer l’extension de l’archive au bon emplacement, contrôler son propriétaire, puis effectuer l’installation et l’activation dans l’interface.
-2. Installer l’agent fourni sur le contrôleur de domaine de la maquette. Contrôler la cible configurée et déclencher l’inventaire par le mécanisme de la version installée. Vérifier qu’un second envoi complète la même fiche.
-3. Dans DataInjection, préparer le modèle avec le gabarit vide. Vérifier les en-têtes et associer les colonnes au type d’objet attendu. Choisir le champ qui identifie l’ordinateur existant avant de permettre une mise à jour.
-4. Charger le fichier rempli avec le séparateur et l’encodage relevés. Importer une ligne, lire le rapport et ouvrir la fiche obtenue. Vérifier les propriétés, puis décider si le modèle permet d’étendre l’import.
+#### Allez sur le site
 
-| Contrôle | Ce que la preuve doit montrer |
+Image de correction disponible dans les ressources.
+
+Utilisez les 2 fichiers CSV disponibles avec les ressources des TPs.
+
+- Un fichier avec seulement les en-têtes et un autre rempli est disponible auprès du formateur.
+
+Référence du document : 1mNQ1Ny59XO49rcfVCwwXIxfECc3hEqF9 · SHA-256 57f74bdf13543af9…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
 | --- | --- |
-| Agent | Le nom, l’OS, les composants et l’entité de la machine attendue apparaissent dans GLPI. |
-| Fichier | Le rapport reconnaît les colonnes et les libellés accentués sont lisibles. |
-| Mappage | Le modèle, l’inventaire, le lieu, le processeur, la mémoire, le disque et le port apparaissent dans les champs prévus. |
-| Réimport | L’identification du même objet est cohérente avec la stratégie de création ou mise à jour retenue. |
-
-Si le rapport est positif mais un champ reste vide, revenir au mappage de cette colonne et vérifier les droits du compte. Si une seconde fiche apparaît, vérifier l’identifiant d’appariement et les règles avant de relancer.
-
-## À retenir
-
-L’agent et l’import peuvent produire des données semblables. Le modèle d’import doit identifier la cible et associer les colonnes. Vérifier la fiche créée et le comportement du réimport.
-
-## Mini-quiz
-
-1. Quelle différence entre installation et activation d’un plug-in ?
-2. Pourquoi définir les règles avant l’inventaire ?
-3. Pourquoi vérifier l’encodage avant l’import CSV ?
-4. Quelle preuve permet de distinguer un rapport positif d’un mappage complet ?
-5. Que revoir si le deuxième inventaire crée un doublon ?
-
-??? success "Réponses commentées"
-    1. L’installation prépare son fonctionnement ; l’activation le rend disponible dans GLPI.
-    2. Pour classer et identifier les objets dès leur arrivée et éviter les doublons.
-    3. Un mauvais encodage altère les libellés et peut empêcher la correspondance avec les intitulés.
-    4. Ouvrir l’objet créé et vérifier les valeurs dans les champs de destination. Le rapport seul ne prouve pas que chaque champ est renseigné.
-    5. Comparer l’identifiant transmis à la fiche existante et vérifier les règles de rapprochement avant de répéter l’inventaire.
-
-## Appliquer ce module
-
-- [Énoncé du TP](../../tp/glpi/module-06/enonces.md)
-- [Correction expliquée](../../tp/glpi/module-06/corrections.md)
-- [Fiche de révision](../../revision/glpi/module-06-plug-ins-et-inventaire.md)
+| Correction · M6 - Solution du TP - Plugins · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
