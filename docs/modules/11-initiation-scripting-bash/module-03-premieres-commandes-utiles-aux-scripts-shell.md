@@ -1,105 +1,179 @@
 # Module 03 — Premières commandes utiles aux scripts shell
 
-Le support présente quatre gestes de base dans le terminal. Affichez une information, effacez l’écran, transmettez un code de sortie et cherchez l’aide des commandes intégrées.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
+
+## Parcours de lecture
+
+1. Support · Module 03 - Support de cours · 4 pages transcrites
+2. Module 03 – Premières commandes utiles aux scripts Shell
+3. Objectifs
+
+**Visuel externe**
+
+```mermaid
+flowchart TD
+    N1["Support · Module 03 - Support de cours · 4 pages transcrites"]
+    N2["Module 03 – Premières commandes utiles aux scripts Shell"]
+    N3["Objectifs"]
+    N1 --> N2
+    N2 --> N3
+```
+
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
+
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Support · Module 03 - Support de cours · 4 pages transcrites
+
+!!! note "À retenir"
+    Le texte, les tableaux et le code sont transcrits d’après le PDF de formation.
+
+Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. Les sauts de ligne suivent la présentation du support. Les exemples historiques sont commentés dans le cours optimisé.
+
+## Page 1
+
+## Module 03 – Premières commandes utiles aux scripts Shell
 
 ## Objectifs
 
-- Afficher une donnée et un libellé dans des formats reproductibles.
-- Identifier les commandes intégrées et consulter leur aide.
-- Conserver et expliquer le statut de sortie d’une commande.
+!!! note "À retenir"
+    Découvrir les commandes intégrées à Bash Afficher des informations sur la console Sortir du programme Trouver de l'aide
 
-## Afficher et mettre en forme
-
-`echo` écrit ses arguments sur la sortie standard. Le support présente `echo -e` pour interpréter des séquences d’échappement. Les guillemets conservent le texte avec ses espaces dans un seul argument.
-
-| Séquence | Effet avec `echo -e` dans Bash |
-| --- | --- |
-| `\c` | Arrête l’affichage et supprime le saut de ligne final |
-| `\n` | Nouvelle ligne |
-| `\t` | Tabulation |
-| `\\` | Antislash littéral |
-
-```bash
-echo "Début du contrôle"
-echo -e 'Nom\tStatut\nlocal\tprêt'
-```
-
-**Complément pédagogique.** Pour une valeur issue d’une saisie, `printf '%s\n' "$message"` fixe le format. Le contenu de la variable reste une donnée. [Commandes intégrées Bash](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
-
-## Effacer l’écran et identifier une commande
-
-Le support emploie `clear` pour effacer l’affichage du terminal. Dans l’environnement habituel, `clear` est externe. Bash intègre `echo`, `exit` et `help`. Dans le laboratoire, `type` indique comment chaque nom est résolu.
-
-```bash
-type echo
-type clear
-type exit
-```
-
-## Sortir et transmettre un statut
-
-`exit n` termine le shell courant avec un statut. Par convention, `0` indique le succès et un statut non nul représente une autre issue. L’appelant lit le statut dans `$?`. Sans `exit` explicite, le script se termine avec le statut de la dernière commande exécutée. `exit` sans argument réutilise ce statut. [Commandes intégrées du shell](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
-
-```bash
-bash -c 'exit 4'
-statut=$?
-printf 'Statut lu par l’appelant : %s\n' "$statut"
-```
-
-Le résultat prévu est `4`. Copiez `$?` immédiatement, avant qu’une nouvelle commande ne le remplace.
-
-## Trouver l’aide de Bash
-
-```bash
-help
-help wait
-help exit
-```
-
-`help` liste les rubriques d’aide. `help wait` montre l’aide de cette commande, comme dans le support. `help exit` détaille le code de sortie. Une commande externe dispose de sa propre documentation.
-
-## Mise en pratique — Affichage et statut
-
-Aucun TP distinct n’est fourni pour ce module. Cet essai pédagogique reprend les commandes du support.
-
-1. Affichez un libellé et une valeur contenant des espaces. Comparez `echo -e` et `printf` pour produire une tabulation.
-2. Relevez la catégorie indiquée par `type echo` et `type clear`. Ouvrez l’aide intégrée de `exit`.
-3. Dans un shell enfant, demandez le statut `4` avec le bloc précédent. Enregistrez `$?` aussitôt et vérifiez sa valeur avant de poursuivre.
-
-| Contrôle | Résultat prévu |
-| --- | --- |
-| Affichage avec tabulation | Une séparation visible entre libellé et valeur |
-| `type echo` dans Bash | Une commande intégrée, sauf redéfinition locale |
-| `bash -c 'exit 4'` | L’appelant continue et peut lire le statut `4` |
-
-### Transmission du statut — Complément pédagogique
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    A["Commande ou script"] --> B["Statut rendu à l’appelant"]
-    B --> C["Lire $? immédiatement"]
-    C --> D["Afficher, conserver ou tester"]
+    N1["Découvrir les commandes intégrées à Bash"]
+    N2["Afficher des informations sur la console"]
+    N3["Sortir du programme"]
+    N4["Trouver de l'aide"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-## À retenir
+- Découvrir les commandes intégrées à Bash
+- Afficher des informations sur la console
+- Sortir du programme
+- Trouver de l'aide
 
-La sortie standard contient les données destinées à l’appelant. Le statut représente l’issue du traitement. Lisez-le immédiatement et cherchez l’aide avec l’outil adapté à la catégorie de commande.
+## Page 2
 
-## Mini-quiz
+### Premières commandes utiles aux scripts Shell
 
-1. Quelle séquence représente une tabulation ?
-2. D’où vient le statut d’un script sans `exit` explicite ?
-3. Comment afficher l’aide de la commande intégrée `wait` ?
-4. Pourquoi enregistrer `$?` avant un affichage de diagnostic ?
-5. Pourquoi passer le format séparément dans `printf '%s\n' "$message"` ?
+!!! note "À retenir"
+    Les commandes abordées dans cette partie sont des commandes internes (ou fonctionnalités du Shell).
 
-??? success "Réponses commentées"
-    1. `\t` lorsque la commande interprète les séquences d’échappement.
-    2. De la dernière commande exécutée.
-    3. Avec `help wait` dans Bash.
-    4. L’affichage a son propre statut et peut remplacer celui que l’on veut observer.
-    5. Le format reste constant même si le message contient des caractères qui ressemblent à des directives.
+Les commandes abordées dans cette partie sont des commandes internes (ou fonctionnalités du Shell).
 
-## Appliquer ce module
+Aucun fichier binaire dédié ne leur est associé.
 
-[Fiche de révision](../../revision/11-initiation-scripting-bash/module-03-premieres-commandes-utiles-aux-scripts-shell.md)
+### Premières commandes utiles aux scripts Shell
+
+### echo
+
+### affichage écran
+
+!!! note "À retenir"
+    echo permet d’afficher du texte Syntaxe Si « expression » contient des caractères spéciaux, il faut la protéger avec des doubles quotes et lui ajouter l’option –e.
+
+echo permet d’afficher du texte
+
+Syntaxe
+
+```
+echo [option] "expression"
+```
+
+Si « expression » contient des caractères spéciaux, il faut la protéger avec des doubles quotes et lui ajouter l’option –e.
+
+On peut de plus utiliser des options de mise en forme
+
+| Séquence | Mise en forme |
+| --- | --- |
+| \c | inhibe le changement de ligne en fin de commande |
+| \n | nouvelle ligne |
+| \t | tabulation horizontale |
+| \\ | le caractère \ |
+
+## Page 3
+
+### Premières commandes utiles aux scripts Shell
+
+### clear
+
+### effacement de l’écran
+
+!!! note "À retenir"
+    Syntaxe Commande simple sans argument, permettant d’afficher une page écran vierge
+
+Syntaxe
+
+```
+clear
+```
+
+Commande simple sans argument, permettant d’afficher une page écran vierge
+
+### Premières commandes utiles aux scripts Shell
+
+### exit
+
+### sortie du Shell courant
+
+!!! note "À retenir"
+    Syntaxe n est la valeur retournée au Shell père dans la variable $?
+
+Syntaxe
+
+```
+exit [ n ]
+```
+
+- n est la valeur retournée au Shell père dans la variable $?
+- Un script est généralement exécuté dans un environnement enfant
+- Celui-ci peut se terminer par la commande « exit 0 » ou non (dans ce cas, celle-ci est implicite)
+
+## Page 4
+
+### Premières commandes utiles aux scripts Shell
+
+### help
+
+### affiche la liste des commandes internes au Shell
+
+!!! note "À retenir"
+    Lorsqu’une commande interne est spécifiée en argument, affiche l’aide de la commande.
+
+Lorsqu’une commande interne est spécifiée en argument, affiche l’aide de la commande.
+
+- Afficher les commandes internes au Shell Syntaxe
+
+```
+help
+```
+
+Syntaxe
+
+```
+help wait
+```
+
+- Afficher l’aide de la commande interne wait
+
+Premières commandes utiles aux scripts Shell
+
+Démo
+
+Premières commandes
+
+Référence du document : 13yBSYlgjpQW4Pxubwql5vmOU3moLJi-a · SHA-256 c9fce4502e47015f…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Support · Module 03 - Support de cours · 4 pages transcrites | Le texte, les tableaux et le code sont transcrits d’après le PDF de formation. |
+| Objectifs | Découvrir les commandes intégrées à Bash Afficher des informations sur la console Sortir du programme Trouver de l'aide |
