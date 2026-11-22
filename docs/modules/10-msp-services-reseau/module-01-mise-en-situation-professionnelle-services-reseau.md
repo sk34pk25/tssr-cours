@@ -1,169 +1,686 @@
 # Mise en situation professionnelle : services réseau
 
-Cette maquette met en place les réseaux, services et contrôles de l’équipe fictive **Support-Terre**. Le sujet prévoit environ **4,5 jours** et suppose les cours et TP précédents réalisés. L’onglet **Cours Original** contient les 18 pages de l’énoncé. **Correction fournie : Inexistant.** Les explications et exemples ci-dessous constituent un accompagnement pédagogique externe.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Construire le plan IPv4, le routeur et les cinq machines de la maquette.
-- Distribuer les paramètres clients, résoudre les noms et joindre le domaine.
-- Configurer un stockage résilient, des accès par groupes et les stratégies.
-- Démontrer la continuité de DHCP, DNS et Active Directory, puis administrer les serveurs à distance.
+1. Énoncé · Mise en situation professionnelle : services réseau · 18 pages transcrites
 
-## 1. Préparer le plan et les machines
+Énoncé unique. Correction fournie : Inexistant.
 
-Préparer VMware Workstation et les médias d’installation de pfSense, Windows Server et Debian prévus par le laboratoire. `D` désigne le dernier octet de l’adresse du poste fourni ; `XY` désigne vos initiales. Calculer `192.168.(4 × D).0/22` et vérifier que le troisième octet calculé est valide. Le `/22` couvre quatre réseaux `/24` : le premier pour les clients, le dernier pour les serveurs. Le routeur utilise la dernière adresse **d’hôte utilisable** de chacun de ces deux `/24`, soit `.254`. Vérifier aussi que les quatre valeurs de troisième octet, de `4 × D` à `4 × D + 3`, restent dans l’intervalle IPv4. La formule du sujet fonctionne pour `D` de 0 à 63. Au-delà, utiliser un plan attribué par le laboratoire.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
+
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Énoncé · Mise en situation professionnelle : services réseau · 18 pages transcrites
+
+!!! note "À retenir"
+    Les mentions du centre de formation ont été neutralisées, les en-têtes répétitifs et les logos retirés.
+
+Énoncé unique de 18 pages. Les mentions du centre de formation ont été neutralisées, les en-têtes répétitifs et les logos retirés. Les valeurs, incohérences et consignes historiques sont conservées ; aucune correction fournie n’a été trouvée.
+
+### Page 1
+
+#### Mise en situation professionnelle : services réseau
+
+!!! note "À retenir"
+    Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules précédents et d’avoir réalisé les TP proposés.
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules précédents et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+Environ 4,5 jours
+
+#### Sommaire
+
+#### Table des matières
+
+!!! note "À retenir"
+    Présentation et préparation de l'infrastructure — page 3 a.
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    C["LAN Clients — premier /24 — VMnet3"] --- F["ROUTEUR-XY — pfSense — trois cartes"]
-    S["LAN Serveurs — dernier /24 — VMnet2"] --- F
-    F --- W["WAN — réseau ponté du laboratoire"]
-    S --- A["Windows 1 — AD et DNS du domaine"]
-    S --- B["Windows 2 — fichiers et services réseau"]
-    S --- L["Debian — services réseau et SSH"]
+    N1["Présentation et préparation de l'infrastructure — page 3"]
+    N2["Implémentation du service DHCP — page 9"]
+    N3["Implémentation d’un service DNS interne — page 9"]
+    N1 --> N2
+    N2 --> N3
 ```
 
-| Machine | Fin de l’adresse locale | Disque et RAM du sujet | Réseau |
-|---|---:|---|---|
-| Windows Server 1 | `.101` | 60 Go, 4 Go | VMnet2 |
-| Windows Server 2 | `.102` | 60 Go, 4 Go | VMnet2 |
-| Debian serveur, sans interface graphique | `.111` | 20 Go, 1 Go | VMnet2 |
-| Windows 10 client | `.10` | 40 Go, 2 Go | VMnet3 |
-| Debian client, avec interface graphique | `.1` | 20 Go, 2 Go | VMnet3 |
+1. Présentation et préparation de l'infrastructure — page 3
 
-L’exemple du sujet utilise `D = 13` : réseau `192.168.52.0/22`, LAN Clients `192.168.52.0/24`, LAN Serveurs `192.168.55.0/24`. Sur le WAN d’exemple `10.3.0.0/16`, l’adresse du routeur est `10.3.42.13`. Reporter le nom d’interface, l’adresse IP et la MAC sur le schéma. Employer les valeurs WAN réellement attribuées si le réseau du laboratoire diffère.
+a. Présentation de l’infrastructure — page 3
 
-### Contrôler le réseau avant les services
+b. Conception du plan d’adressage IPv4 — page 4
 
-1. Dans Workstation, vérifier VMnet3 pour les clients, VMnet2 pour les serveurs et le pont pour le WAN. Associer les trois cartes de pfSense par leur MAC, puis configurer leurs adresses.
-2. Depuis chaque machine, tester son interface de passerelle et les échanges dans son propre LAN. Tester ensuite entre les deux LAN et relever la route de retour.
-3. Depuis pfSense, tester la passerelle WAN attribuée puis `9.9.9.9`, comme le demande le sujet. Depuis une VM de chaque LAN, vérifier l’accès à une ressource externe autorisée. Si le routeur sort mais pas la VM, relire filtre, route de retour et NAT sortant pour le réseau de la source.
-4. Reporter le résultat de chaque liaison sur le schéma. Les règles **any** du sujet sont réservées à la maquette. Limiter le relais DHCP à l’interface LAN Clients.
+c. Implémentation du routeur — page 5
 
-### DNS et dépôts provisoires
+d. Ajout des serveurs à l’infrastructure — page 6
 
-Identifier le DNS du poste de salle avec `Get-DnsClientServerAddress -AddressFamily IPv4`. Vérifier sa joignabilité avant de l’utiliser sur les deux Debian. Le sujet attend une résolution **interne** de `ftp.fr.debian.org` dans ce laboratoire, des dépôts ordinaires via ce nom et les mises à jour de sécurité via `security.debian.org`. Ce résultat dépend du réseau de formation. Identifier le gestionnaire du réseau et de la résolution avant de modifier une configuration, puis actualiser les index APT et relever les erreurs éventuelles.
+e. Les postes clients — page 7
 
-## 2. Installer DHCP pour le LAN Clients
+f. Routage et NAT — page 7
 
-| Parité de `D` | DHCP initial | DNS initial |
-|---|---|---|
-| Pair | Windows Server 2 | Debian |
-| Impair | Debian | Windows Server 2 |
+g. Configuration cliente DNS et accès aux dépôts Debian — page 8
 
-1. Définir une étendue pour la moitié des 254 hôtes utilisables du LAN Clients selon la convention de la proposition. Pour `D=13`, la plage `192.168.52.20` à `192.168.52.146` donne 127 adresses et préserve les IP statiques `.1`, `.10` et `.254`.
-2. Transmettre le préfixe `/24` et la passerelle pfSense du LAN Clients. Le DNS interne sera ajouté après l’étape suivante. L’étendue doit correspondre au réseau d’origine du client, bien que le serveur écoute sur le LAN Serveurs.
-3. Configurer le relais pfSense côté Clients vers l’adresse du serveur DHCP initial choisi par parité. Vérifier son chemin aller et retour, puis faire passer un poste de test en DHCP.
-4. Relever un bail neuf et le serveur qui l’a fourni. Vérifier l’adresse de l’étendue, le masque et la passerelle, puis tester cette passerelle. Vérifier que le LAN Serveurs conserve les adresses statiques.
+2. Implémentation du service DHCP — page 9
 
-## 3. Mettre en place le DNS interne
+3. Implémentation d’un service DNS interne — page 9
 
-Configurer le DNS désigné par la parité. Tester d’abord une requête vers le DNS de l’établissement, puis utiliser ce dernier comme redirecteur général. Configurer les serveurs et l’option DNS de DHCP pour utiliser le DNS interne. Créer la zone **`prénomD.infra.tld`**, puis les enregistrements des trois serveurs. Vérifier la réponse SOA et la résolution du nom du serveur primaire indiqué par celle-ci. Une requête de nom qui réussit ne prouve pas que la résolution inverse fonctionne.
+a. Configuration d’un redirecteur inconditionnel — page 9
 
-Tester d’abord un PTR pour un serveur avant de créer les zones inverses. Un A existant ne crée pas à lui seul un PTR. Créer ensuite une zone inverse pour chacun des deux `/24`. Ajouter le PTR de la dernière adresse utilisable de chaque LAN vers `routeur.prénomD.infra.tld`, puis interroger directement le DNS du TP pour les deux adresses. Pour `D=13`, les zones inverses sont `52.168.192.in-addr.arpa` et `55.168.192.in-addr.arpa`.
+b. Configuration du client DNS sur votre infrastructure — page 10
 
-| Contrôle | Preuve attendue |
+### Page 2
+
+!!! note "À retenir"
+    Configuration de la résolution directe d’un espace de noms interne — page 10 d.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Contexte de domaine Active Directory — page 11"]
+    N2["Accès aux ressources du domaine — page 13"]
+    N3["Configuration de paramètres de GPO — page 15"]
+    N4["Redondance des principaux services — page 15"]
+    N5["Administration de l'infrastructure 'depuis sa chaise' — page 18"]
+    N6["Windows Admin Center — page 18"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
+
+c. Configuration de la résolution directe d’un espace de noms interne — page 10
+
+d. Configuration de la résolution inverse — page 10
+
+4. Contexte de domaine Active Directory — page 11
+
+a. Création d'un domaine Active Directory — page 11
+
+b. Etude de la nouvelle zone DNS suite à la création du domaine Active Directory .... 11
+
+c. Intégration de postes à votre domaine Active Directory — page 12
+
+d. Création des unités d’organisation, utilisateurs et groupes — page 12
+
+5. Accès aux ressources du domaine — page 13
+
+a. Ajout et configuration d’un nouvel espace disque sous Windows — page 13
+
+b. Configuration du partage de fichiers et des règles de restriction d’accès — page 13
+
+c. Création de documentation de la configuration réalisée au point précédant — page 14
+
+6. Configuration de paramètres de GPO — page 15
+
+7. Redondance des principaux services — page 15
+
+a. Ajout d’une nouvelle instance du service DHCP — page 15
+
+b. Ajout d’un second serveur DNS — page 16
+
+c. Modification de la configuration des clients DNS — page 17
+
+d. Ajout d’un second contrôleur de domaine — page 17
+
+8. Administration de l'infrastructure "depuis sa chaise" — page 18
+
+9. Windows Admin Center — page 18
+
+### Page 3
+
+#### Énoncé
+
+#### 1. Présentation et préparation de l'infrastructure
+
+!!! note "À retenir"
+    Le cœur de métier de la société "Support-Terre" est de proposer du support informatique personnalisé pour les PME.
+
+Le cœur de métier de la société "Support-Terre" est de proposer du support informatique personnalisé pour les PME.
+
+Vous intégrez l'équipe technique du projet "TSSRC-Série-EU". Votre objectif est de maquetter une infrastructure en respectant les contraintes imposées par l'équipe architecture du projet.
+
+Prérequis
+
+- Disposer d'images ISO (Windows Server, Debian, pfSense)
+
+- VMware Workstation doit être installé dans votre environnement de travail
+
+a. Présentation de l’infrastructure
+
+Le contexte d’infrastructure sur lequel vous travaillerez est organisé autour de 3 périmètres réseau :
+
+| LAN Serveurs | Réseau d’appartenance des serveurs / services mis en place pour les utilisateurs de l’entreprise |
 | --- | --- |
-| DNS de formation | Réponse à une requête explicite depuis le serveur qui deviendra résolveur interne. |
-| Redirecteur général | Réponse publique depuis les clients et serveurs qui utilisent le DNS interne. |
-| Zone directe | SOA et résolution du FQDN de son primaire, puis réponses A pour les trois serveurs. |
-| Zones inverses | PTR pour chaque adresse `.254`, interrogé sur le DNS prévu. |
-| Configuration cliente | Adresse du DNS visible dans les options du bail renouvelé ou dans le profil statique. |
+| LAN Clients | Réseau d’appartenance des postes clients des utilisateurs |
+| WAN | Réseau public, non géré par l’entreprise, destiné à fournir des services aux utilisateurs |
 
-## 4. Créer le domaine et contrôler ses dépendances
+Vous aurez à gérer l’ensemble des machines présentes dans les réseaux LAN Serveurs et LAN Clients.
 
-Sur Windows Server 1, installer AD DS et DNS, puis créer une nouvelle forêt et le domaine **`prénomD.domaine.tssr`**, au niveau fonctionnel **Windows Server 2016** demandé. Examiner les enregistrements A et SRV, notamment ceux qui permettent de trouver LDAP et Kerberos. Sur le DNS principal du TP, rediriger **ce seul espace de noms** vers le DNS du contrôleur. La zone `prénomD.infra.tld` et le domaine AD ne désignent pas le même espace.
+### Page 4
 
-Intégrer Windows 10 et Windows Server 2 au domaine et tester une ouverture de session. Si `D` est pair, vérifier que le rôle DHCP Windows est autorisé dans AD et que sa portée est active ; `Get-DhcpServerInDC` permet de contrôler l’autorisation. Créer les unités d’organisation pour services, postes et serveurs, puis les groupes de service. Créer les comptes du tableau de l’Original avec la première lettre du prénom suivie du nom et contrôler leurs appartenances. Depuis le client, vérifier une ouverture de session par service et relever l’identité et le domaine.
+!!! note "À retenir"
+    Trois périmètres réseau et emplacement des machines — illustration isolée du support, page 4.
 
-Avant la jonction au domaine, interroger le DNS interne pour `_ldap._tcp.dc._msdcs.<domaine-AD>` en type SRV et résoudre le nom du contrôleur annoncé. Ce test vérifie la redirection conditionnelle depuis le DNS réellement utilisé par le poste. Une résolution du seul nom du serveur ne valide pas la découverte des services AD.
+!!! example "Exemple"
+    Exemple : Le dernier octet de l'adresse IP du poste de travail fourni par le centre de formation est 13.
 
-## 5. Stockage, partages et accès
+**Visuel externe**
 
-Le sujet demande trois disques de 1 Go et un volume **F:** supportant la perte d’un disque. Dans la version de Windows Server utilisée, choisir un mode de stockage qui fournit cette tolérance ; vérifier le résultat dans le laboratoire. Créer `F:\DATA`, puis `SERVICES` et `PUBLIC`. Associer les comptes aux groupes de service et les groupes de service aux groupes d’autorisation des ressources. Vérifier à la fois le partage et les ACL NTFS.
+```mermaid
+flowchart LR
+    N1["Un réseau 192.168.4xD.0 / 22 est attribué par stagiaire."]
+    N2["Le premier sous réseau est utilisé pour adresser le LAN Clients"]
+    N3["Le dernier sous réseau est utilisé pour adresser le LAN Serveurs"]
+    N1 --> N2
+    N2 --> N3
+```
 
-| Ressource | Modification | Lecture |
-|---|---|---|
-| `SERVICES\Direction` | Direction, Comptabilité | Secrétariat |
-| `SERVICES\Comptabilité` | Comptabilité | Direction, Secrétariat |
-| `SERVICES\Secrétariat` | Secrétariat | — |
-| `SERVICES\Support` | Support, Secrétariat | Direction |
-| `PUBLIC` | Membres de la société | — |
+![Trois périmètres réseau et emplacement des machines](../../assets/course-sources/isolated/0f4c80111269a2f2/msp-services-p04.webp)
 
-Pour le volume **F:**, relever le type de résilience, les trois disques qui le composent et sa capacité utile. Dans le scénario isolé, prévoir un fichier témoin et un contrôle de lecture pendant la simulation autorisée de perte d’un disque. Vérifier l’état dégradé, puis le retour à l’état normal après la réparation.
+Trois périmètres réseau et emplacement des machines — illustration isolée du support, page 4.
 
-Le service informatique dispose du contrôle total sur les dossiers partagés selon le sujet. L’accès au dossier **Informatique** est réservé à ce service. **Incohérence de l’Original :** le tableau indique `F:\DATA\Informatique`, la phrase suivante `D:\DATA\Informatique`. La proposition conserve **F:** pour rester cohérente avec le volume créé et partage ce dossier sous `Outils$`. Le suffixe `$` masque le partage dans l’affichage ordinaire ; seules les permissions protègent son accès. Tester un compte autorisé et un compte non autorisé. Pour Comptabilité, comparer un comptable en modification avec Direction et Secrétariat en lecture. Tester aussi un membre sans droit prévu. Utiliser le chemin réseau de chaque partage pour éprouver à la fois SMB et NTFS. Documenter la création de F:, les groupes imbriqués et les autorisations effectives de Comptabilité.
+b. Conception du plan d’adressage IPv4
 
-## 6. Appliquer une stratégie, puis vérifier
+D correspond au dernier octet de l'adresse IP du poste de travail fourni par le centre de formation
 
-| Exigence du sujet | Preuve à relever dans la maquette |
-|---|---|
-| Fond de bureau commun | Ouvrir une session avec deux comptes ciblés. |
-| Accès au Panneau de configuration et aux Paramètres réservé aux administrateurs du domaine | Comparer administrateur et compte standard. |
-| Mots de passe : 30 jours, minimum 3 caractères, complexité désactivée | Vérifier la politique réellement appliquée au domaine. C’est une consigne historique de laboratoire, à ne pas reprendre en production. |
-| Partage SERVICES visible automatiquement pour les secrétaires | Vérifier le lecteur ou raccourci dans leur session et l’absence hors périmètre. |
-| Installation ou mise à jour de pilotes réservée aux administrateurs locaux | Tester avec un compte standard et contrôler la stratégie effective. |
-| Empêcher le redémarrage automatique pendant l’utilisation | Vérifier le résultat avec la version de Windows et le mécanisme de mises à jour du TP. |
-| Ne pas lancer de recherche Internet depuis Windows | Tester une recherche et observer les résultats proposés. |
-| Bloquer la remontée d’erreurs vers Microsoft | Contrôler le réglage effectif et son périmètre. |
+- Un réseau 192.168.4xD.0 / 22 est attribué par stagiaire.
 
-Appliquer et tester un réglage à la fois. `gpresult /r` aide à vérifier que le bon utilisateur ou ordinateur reçoit la bonne GPO ; un réglage visible dans la console ne prouve pas son effet sur le client.
+Exemple :
 
-## 7. Vérifier la continuité des services
+Le dernier octet de l'adresse IP du poste de travail fourni par le centre de formation est 13. 13x4=52. Le réseau qui m’est alloué est le 192.168.52.0 / 22
 
-**DHCP.** Installer le second service sur l’autre serveur (Debian ou Windows Server 2), avec des plages **disjointes**. Pour `D=13`, la proposition prend `.147` à `.253` sur Windows 2. Fournir les mêmes options de passerelle et de DNS. Relayer les demandes vers les deux serveurs. Avec le premier arrêté, demander un nouveau bail sur un poste de test et relever le serveur qui répond, la plage et les options. Rétablir le premier, arrêter le second et inverser l’essai. Rétablir les deux services à la fin. Les plages séparées répartissent les adresses sans partager l’état des baux.
+- Ce réseau est segmenté en 4 sous réseaux, chacun ayant un masque de 255.255.255.0 (/24)
 
-**DNS.** Installer le second DNS sur l’autre serveur. Configurer le redirecteur général vers le DNS de formation, le redirecteur du domaine AD vers Windows Server 1, et la zone directe `prénomD.infra.tld` en secondaire. Autoriser le transfert seulement vers le serveur secondaire et vérifier son résultat en interrogeant ce serveur directement. Augmenter le numéro de série de la zone lorsque sa méthode de gestion l’exige.
+- Le premier sous réseau est utilisé pour adresser le LAN Clients
 
-**Incohérence de l’Original :** le sujet écarte la résolution inverse sur le second DNS, puis demande un contrôle de transfert dans « chacune des 2 zones ». La proposition teste le transfert de la **zone directe** explicitement demandée, et indique que les zones inverses restent sur le DNS initial. Le domaine AD reste à ce stade une redirection, pas une seconde zone à transférer.
+- Le dernier sous réseau est utilisé pour adresser le LAN Serveurs
 
-**Clients.** Ajouter le second DNS dans les options DHCP et dans les configurations statiques. Vérifier que les deux serveurs savent répondre aux noms internes attendus : un DNS de secours qui ignore les zones internes peut donner un résultat intermittent.
+- Le réseau du poste de travail fourni par le centre de formation est utilisé pour adresser la machine de l’environnement étant sur le WAN.
 
-**AD.** Promouvoir Windows Server 2 comme second contrôleur. Créer un objet de test sur Windows Server 2 et le vérifier directement sur Windows Server 1. Contrôler la réplication et les enregistrements SRV du nouveau contrôleur. Arrêter le premier contrôleur dans le laboratoire et vérifier la connexion depuis le client, puis le redémarrer avant d’arrêter le second. Employer un compte de test dont la session n’est pas mise en cache et relever le contrôleur réellement sollicité. Rétablir ensuite les deux et vérifier la réplication. [Diagnostic de la réplication Active Directory](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/diagnose-replication-failures) Si Windows Server 2 héberge désormais la zone AD localement, examiner le redirecteur conditionnel antérieur : le DNS Windows ne peut pas conserver une zone hébergée et un redirecteur conditionnel du même nom sur le même serveur.
+Reproduire le précédent schéma (ou équivalent) puis y reporter vos adresses de réseaux locaux Clients et Serveurs.
 
-## 8 et 9. Administrer depuis le poste client
+### Page 5
 
-### 8. Administrer depuis Windows 10
+c. Implémentation du routeur
 
-1. Installer et vérifier le serveur SSH sur Debian. Tester SSH vers Debian depuis le client Windows avec le compte prévu après avoir contrôlé sa joignabilité et l’identité du serveur. Relever le nom de l’hôte dans la session.
-2. Configurer le Bureau à distance sur les deux serveurs Windows avec le périmètre informatique du sujet. Tester chacun depuis Windows 10 avec un membre du service, puis avec un compte hors périmètre. Distinguer port joignable, authentification et autorisation de session.
-3. Dans **Fonctionnalités facultatives** du poste Windows 10, ajouter les outils RSAT de **Gestionnaire de serveur**, **AD DS**, **DHCP** et **DNS** adaptés à la version. Ajouter les serveurs dans le Gestionnaire de serveur, puis ouvrir la console Utilisateurs et ordinateurs Active Directory.
-4. Depuis la console DNS distante, créer l’enregistrement A de test demandé dans la zone **intégrée au domaine**. Vérifier sa réponse en interrogeant le DNS du domaine, puis retirer l’enregistrement de test selon la consigne de laboratoire. [Outils RSAT](https://learn.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/remote-server-administration-tools)
+Installer une première machine virtuelle pfSense à partir d’une image ISO d’installation, elle possédera les caractéristiques suivantes :
 
-### 9. Tester Windows Admin Center
+| Nom | ROUTEUR-XY (remplacer XY par vos initiales) |
+| --- | --- |
+| Système d’exploitation | pfSense |
+| Nombre de cartes réseau associées 3 | 3 |
 
-1. Choisir l’un des serveurs Windows comme hôte de Windows Admin Center, conformément à l’énoncé. Relever la version compatible et préparer l’accès au navigateur depuis le poste client.
-2. Installer la passerelle de laboratoire et ouvrir son interface depuis Windows 10. Vérifier son certificat et le compte utilisé.
-3. Ajouter les machines Microsoft de la maquette. Pour chacune, relever les fonctions disponibles selon le type de connexion et les droits du compte, par exemple l’inventaire, l’état des services ou les événements. [Options d’installation de Windows Admin Center](https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/plan/installation-options)
+À l’issue de l’installation, configurer le réseau en respectant les contraintes suivantes :
 
-## À retenir
+- Sur les réseaux LAN Clients et Serveurs, ROUTEUR-XY utilisera la dernière adresse d’hôte utilisable
 
-À chaque étape, garder une preuve indépendante de la configuration. Le bail doit être attribué, le nom doit être résolu par le serveur attendu, le compte doit ouvrir une session et l’autorisation doit être testée depuis le poste client. Pour la continuité, provoquer une panne à la fois dans la maquette, constater le résultat puis remettre le service en état.
+- Sur le réseau global (accessible par l'interface WAN), votre routeur aura pour adresse : id_reseau.42.D
 
-## Mini-quiz d’application
+Exemple :
 
-1. Quelles sont les deux passerelles pour `D=13` ?
-2. Quels serveurs hébergent le DHCP et le DNS initiaux lorsque `D` est impair ?
-3. Quelle preuve distingue un transfert de zone réussi d’une réponse obtenue depuis un cache ou le serveur primaire ?
-4. Un partage `Outils$` est-il protégé par son nom ?
-5. Pourquoi tester un nouveau compte quand on arrête un contrôleur ?
+L'ID de réseau du poste de travail fourni par le centre de formation est 10.3.0.0/16 et le dernier octet de l'adresse IP du poste de travail fourni par le centre de formation est 13.
 
-??? success "Réponses commentées"
-    1. `192.168.52.254` et `192.168.55.254`.
-    2. Le DNS initial est Windows Server 2 ; le DHCP initial est Debian. Windows Server 2 recevra ensuite le second DHCP.
-    3. Interroger directement le secondaire pour un nouvel enregistrement de la zone transférée et vérifier le SOA ou le numéro de série.
-    4. Non, le suffixe le masque ; les autorisations décident de l’accès.
-    5. Pour écarter une session réussie seulement grâce aux identifiants déjà mis en cache.
+➔ L'adresse IP du routeur sera 10.3.42.13
 
-## Pour pratiquer et réviser
+Vous reproduirez le schéma ci-dessous (ou équivalent) et y reporterez les informations correspondantes :
 
-- [Énoncé complet](../../tp/10-msp-services-reseau/module-01/enonces.md)
-- [Proposition de correction externe](../../tp/10-msp-services-reseau/module-01/corrections.md)
-- [Fiche de révision](../../revision/10-msp-services-reseau/module-01-mise-en-situation-professionnelle-services-reseau.md)
-- [Retour à la mise en situation](index.md)
+![Interfaces du routeur et réseaux VMware](../../assets/course-sources/isolated/0f4c80111269a2f2/msp-services-p05.webp)
 
-## Références externes
+Interfaces du routeur et réseaux VMware — illustration isolée du support, page 5.
 
-- [Microsoft Learn — autoriser et configurer DHCP](https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/quickstart-install-configure-dhcp-server)
-- [Microsoft Learn — zones et transferts DNS](https://learn.microsoft.com/en-us/windows-server/networking/dns/zone-types)
-- [Microsoft Learn — redirecteurs et résolution DNS](https://learn.microsoft.com/en-us/windows-server/networking/dns/forwarding)
+### Page 6
+
+!!! note "À retenir"
+    TOUS les accès devront être autorisés depuis n’importe quel réseau.
+
+TOUS les accès devront être autorisés depuis n’importe quel réseau. Pour cela, vous créerez une règle de filtrage « any » sur chaque interface réseau de votre pfSense le nécessitant !
+
+Après configuration, s’assurer que ROUTEUR-XY communique avec la passerelle du réseau fourni par le centre de formation.
+
+d. Ajout des serveurs à l’infrastructure
+
+Vous hébergerez trois serveurs dans votre infrastructure. Vous respecterez les contraintes d’adressage réseau définies au point b. et reporterez l’adressage réseau IPv4 de chaque machine dans le tableau ci-dessous. Édictez une convention de nommage à appliquer. Ajouter les machines correspondantes à votre infrastructure. Pour cela, vous pouvez créer de nouvelles VM ou importer des templates "sysprep" de votre stock personnel ou mis à disposition par le centre de formation.
+
+*Les rôles indiqués NE SONT PAS à installer pour le moment, ils sont donnés à titre indicatif.
+
+*Votre coach vous précisera les versions et éditions des systèmes d'exploitation. Sans information de sa part, les versions et éditions des systèmes d'exploitation seront celles qui ont été utilisées lors des précédents modules de cours.
+
+| Système | Rôles* | Caractéristiques |
+| --- | --- | --- |
+| Serveur Windows 1 Nom : ………………….. Adresse IPv4 : 192.168.___.101 | AD DNS de la zone AD | Windows Server* 1 disque dur : 60 Go Mémoire vive : 4 Go (à modifier si besoin) Réseau VMware WS : Custom – VMnet2 |
+| Serveur Windows 2 Nom : ………………….. Adresse IPv4 : 192.168.___.102 | Serveur de fichiers DNS DHCP | Windows Server* 1 disque dur : 60 Go Mémoire vive : 4 Go (à modifier si besoin) Réseau VMware WS : Custom – VMnet2 |
+| Serveur GNU/Linux Nom : ………………….. Adresse IPv4 : 192.168.___.111 | DHCP DNS | Debian* sans interface graphique 1 disque dur : 20 Go Mémoire vive : 1 Go Réseau VMware WS : Custom – VMnet2 |
+
+### Page 7
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["☐ Les trois serveurs communiquent entre eux"]
+    N2["☐ Les trois serveurs communiquent bien avec votre routeur"]
+    N3["☐ Vérifier que les clients parviennent bien à communiquer avec les serveurs"]
+    N4["Au besoin vérifier / adapter la configuration des pare-feu des"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+Après configuration, s’assurer que
+
+- ☐ Les trois serveurs communiquent entre eux
+
+- ☐ Les trois serveurs communiquent bien avec votre routeur
+
+e. Les postes clients
+
+Vous utiliserez des postes clients pour tester le bon fonctionnement des services qui seront mis en place. Vous devrez disposer d’un client Windows et un client Debian.
+
+| Système | Caractéristiques |
+| --- | --- |
+| Client Windows Nom : ………………….. Adresse IPv4 : 192.168.___.10 | Windows 10 1 disque dur : 40 Go Mémoire vive : 2 Go Réseau VMware WS : Custom – VMnet3 |
+| Client GNU/Linux Nom : ………………….. Adresse IPv4 : 192.168.___.1 | Debian - Interface graphique de votre choix 1 disque dur : 20 Go Mémoire vive : 2 Go Réseau VMware WS : Custom – VMnet3 |
+
+Installer ces machines (ou récupérer des images "sysprep" prêtes à l'emploi), configurer statiquement leur adressage IPv4 et les nommer en respectant votre convention de nommage.
+
+f. Routage et NAT
+
+Configuration de la passerelle par défaut
+
+- ☐ Depuis l’interface web de votre pfSense, via les outils de diagnostic, vérifier que celui-ci communique bien avec la machine ayant l’adresse IPv4 : 9.9.9.9.
+
+- ☐ Configurer l’adresse de votre pfSense comme adresse de passerelle par défaut sur les clients et sur les serveurs.
+
+- ☐ Vérifier que les clients parviennent bien à communiquer avec les serveurs
+
+- Au besoin vérifier / adapter la configuration des pare-feu des
+
+systèmes d’exploitation et vérifier les règles de filtrage actives sur votre routeur pfSense
+
+### Page 8
+
+- ☐ Vérifier que la communication entre vos différentes machines virtuelles et une ressource en dehors votre organisation (l'adresse IP du proxy du centre de formation par exemple) est bien fonctionnelle.
+
+- Au besoin, vérifier sur votre routeur si une règle de NAT s’applique
+
+bien pour chaque contexte réseau.
+
+g. Configuration cliente DNS et accès aux dépôts Debian
+
+Pour installer des outils sur le client Debian et des services sur le serveur Debian, ces machines devront être clientes DNS du serveur DNS dont le poste de travail fourni par l'centre de formation est client.
+
+- Trouver et utiliser la commande PowerShell appropriée pour identifier le serveur DNS dont est client votre poste de salle PS > ………………………………………
+- ☐ S’assurer que votre client et votre serveur GNU/Linux communiquent bien avec le serveur identifié à l’étape précédente.
+
+- Configurer votre client et votre serveur GNU/Linux afin qu’ils soient temporairement clients DNS du serveur identifié précédemment.
+
+- ☐ Vérifier que l’hôte ftp.fr.debian.org est bien résolu en une adresse IP interne à centre de formation (et non pas en une adresse IP publique)
+
+- Vérifiez / modifiez la configuration des serveurs de dépôt du client et du serveur Debian afin qu’elle respecte les contraintes suivantes :
+
+- Pour les mises à jour de sécurité, celles-ci devront être actives (ligne non
+
+commentée) et se faire depuis l’hôte « security.debian.org » o Pour les nouvelles installations et les mises à jour, celles-ci devront être
+
+récupérées depuis l’hôte « ftp.fr.debian.org » (et non pas deb.debian.org) • Mettre à jour la base des paquets logiciels.
+
+### Page 9
+
+#### 2. Implémentation du service DHCP
+
+| Si D (le dernier octet du poste mis à disposition par le centre de formation) est pair | Si D (le dernier octet du poste mis à disposition par le centre de formation) est impair |
+| --- | --- |
+| • Le service DHCP sera hébergé par le 2ème serveur Windows | • Le service DHCP sera hébergé par le serveur Debian |
+
+La configuration du service DHCP doit respecter les contraintes suivantes :
+
+- Le service DHCP ne doit distribuer des baux qu’aux postes du réseau LAN Clients.
+
+- Sur la totalité de la plage réseau configurée (en /24), seule la moitié des adresses sera allouable aux clients.
+
+- La passerelle par défaut doit être transmise par le service DHCP.
+
+- Si un service de relais DHCP doit être mis en place, il devra être implémenté sur votre
+
+routeur.
+
+#### 3. Implémentation d’un service DNS interne
+
+| Si D est pair | Si D est impair |
+| --- | --- |
+| • Le service DNS sera hébergé par le serveur Debian | • Le service DNS sera hébergé par le 2ème serveur Windows |
+
+- Vous procéderez à l’ajout du rôle ou du service sur le serveur considéré
+
+a. Configuration d’un redirecteur inconditionnel
+
+- ☐ Tester la liaison depuis votre serveur DNS vers le serveur DNS de l’école (identifié au g. du chapitre 1)
+
+- ☐ Au moyen de la commande appropriée : …………………………………………………………………….
+
+Requêter depuis votre serveur DNS, le serveur DNS de l’école et tester la résolution d’un nom d’hôte.
+
+- Configurer sur votre serveur DNS un redirecteur inconditionnel vers le serveur
+
+DNS du centre de formation.
+
+### Page 10
+
+b. Configuration du client DNS sur votre infrastructure
+
+- Renseigner dans la configuration réseau de vos différents serveurs l’adresse de votre serveur DNS
+- Modifier la configuration de votre serveur DHCP afin qu’il fournisse à tous ses clients l’adresse de votre serveur DNS
+
+- ☐ S’assurer que les postes clients et les serveurs parviennent bien à résoudre des noms d’hôtes publics.
+
+c. Configuration de la résolution directe d’un espace de noms interne
+
+- Sur votre serveur DNS, créer une zone pour prénomD.infra.tld (D le dernier octet du poste mis à disposition par le centre de formation), y ajouter des enregistrements pour vos 3 serveurs.
+
+- ☐ Depuis un poste client, requêter l’enregistrement du SOA de la zone créée et vérifier si celui-ci est bien un FQDN résolvable. Si ce n’est pas le cas, faire les modifications nécessaires.
+
+- ☐ Faites un test de résolution inverse d’un de vos serveurs.
+
+Ce test aboutit-il ? Pourquoi ? ……………………………………………………………………………………
+
+d. Configuration de la résolution inverse
+
+- Ajouter une zone inverse pour chacun de vos réseaux : LAN Client et LAN Serveur. Y créer un enregistrement pour routeur.prénomD.infra.tld ayant pour adresse IP la dernière de chaque réseau.
+
+- ☐ Depuis un client, faire un test de résolution inverse de la dernière adresse de vos deux réseaux.
+
+### Page 11
+
+#### 4. Contexte de domaine Active Directory
+
+- Votre domaine Active Directory utilise les informations d'une nouvelle zone DNS prénomD . domaine . tssr
+
+a. Création d'un domaine Active Directory
+
+- Sur votre « Serveur Windows 1 », installer les composants permettant la prise en charge des services de domaine Active Directory puis le promouvoir contrôleur de domaine en respectant les contraintes suivantes :
+
+- Il s’agit d’un nouveau domaine dans une nouvelle forêt
+
+- Le nom du domaine est celui reporté dans les prérequis de cet atelier
+
+- Installer le service DNS sur le contrôleur de domaine
+
+- Le niveau fonctionnel du domaine et de la forêt doit être « Windows Server
+
+2016 »
+
+b. Étude de la nouvelle zone DNS suite à la création du domaine Active
+
+Directory
+
+- Afficher le contenu de la nouvelle zone DNS prénomD.domaine.tssr et observez les différents enregistrements présents.
+
+- À quoi correspondent-ils et quelle est leur utilité ?
+
+…………………………………………………………………………………………………
+
+…………………………………………………………………………………………………
+
+…………………………………………………………………………………………………
+
+…………………………………………………………………………………………………
+
+### Page 12
+
+c. Intégration de postes à votre domaine Active Directory
+
+Prérequis :
+
+Les clients et serveurs de votre infrastructure interrogent principalement le serveur DNS que vous avez configuré au point 3.
+
+Ce serveur n'héberge pas le domaine DNS lié à votre domaine Active Directory !
+
+Pour intégrer votre client Windows et votre serveur Windows au domaine, vous devez donc configurer un redirecteur conditionnel dans le serveur configuré au point 3.
+
+- zone DNS : prénomD.domaine.tssr,
+
+- Serveur DNS vers lequel rediriger les requêtes : "Serveur Windows 1"
+
+- Intégrer votre poste client Windows au domaine Active Directory
+
+- Intégrer le « Serveur Windows 2 » au domaine Active Directory
+- ☐ Le client Windows et "Serveur Windows 2" sont bien intégrés au domaine AD
+
+- Si D est pair, contrôler l’état de fonctionnement du service DHCP hébergé par le serveur Windows, celui-ci est-il toujours fonctionnel ? Pourquoi ?
+
+…………………………………………………………………………………………………
+
+- Au besoin, faire les modifications nécessaires pour rétablir le bon fonctionnement du service DHCP.
+
+d. Création des unités d’organisation, utilisateurs et groupes
+
+- En respectant les bonnes pratiques Microsoft, créer les utilisateurs en vous basant sur le tableau ci-dessous. L’identifiant de connexion sera composé de la première lettre du prénom suivi du nom de famille.
+
+- Créer des unités d’organisation afin de regrouper les utilisateurs d’un même service et de séparer les comptes d’ordinateur des postes clients et des serveurs.
+
+- Créer des groupes afin de cibler les utilisateurs de chaque service.
+
+### Page 13
+
+| Service | Membres |  |  |
+| --- | --- | --- | --- |
+| Direction | Christian Hef | Pauline Atron | Pascaline Résident |
+| Comptabilité | Bruno Ilan | Christelle Rédit | Florence Acture |
+| Secrétariat | Cédric Ourrier | Sandrine Tandard | Aline Genda |
+| Production | Chloé Haîne | Ursule Sine | Denis Elais |
+| Support Informatique | Clément Lavier | <Vous-même> | Elodie Cran |
+
+- ☐ Tester l'ouverture de session sur le domaine d'un utilisateur par service depuis le client Windows
+
+#### 5. Accès aux ressources du domaine
+
+En partant de votre infrastructure de domaine Active Directory existante, vous allez ajouter un espace disque sécurisé que vous partagerez en respectant les préconisations Microsoft.
+
+a. Ajout et configuration d’un nouvel espace disque sous Windows
+
+- Ajouter trois disques de 1 Go (ces disques feraient 1 To en contexte réel) sur le serveur « Serveur Windows 2 », à partir de ces disques, créer un volume F: tolérant aux pannes (celui-ci devant permettre la perte d’un disque sans perte de données).
+
+b. Configuration du partage de fichiers et des règles de restriction d’accès
+
+- A la racine du volume F: configuré précédemment, créer un répertoire nommé DATA qui contiendra un sous-dossier SERVICES et un sous dossier PUBLIC.
+
+- Les dossiers SERVICES et PUBLIC seront partagés.
+
+- Les restrictions d’accès aux ressources partagées sont indiquées ci-dessous.
+
+### Page 14
+
+|  | Chemin |  |  | Privilèges d’accès |  |
+| --- | --- | --- | --- | --- | --- |
+| F:\DATA\SERVICES\Direction |  |  | Les membres de la direction et de la comptabilité ont accès en modification, les secrétaires ont accès en lecture. |  |  |
+| F:\DATA\SERVICES\Comptabilité |  |  | Les membres de la direction et du secrétariat ont accès en lecture, les comptables en modification. |  |  |
+| F:\DATA\SERVICES\Secrétariat |  |  | Seuls les secrétaires ont accès en modification sur ce dossier. |  |  |
+| F:\DATA\SERVICES\Support |  |  | Les membres du service Support auront un accès en modification ainsi que les membres du service secrétariat. La direction aura un accès en lecture seulement. |  |  |
+| F:\DATA\PUBLIC |  |  | Accessible en modification pour tous les membres de la société. |  |  |
+
+- Pour des raisons de commodité de gestion, les membres du service informatique auront un accès en contrôle total sur tous les dossiers partagés.
+- Respecter les préconisations Microsoft d’imbrication des groupes de domaine que vous appliquerez aux ACL des différents dossiers. Créer les groupes de domaine nécessaires à vos réalisations.
+
+- Mettre en place le partage suivant
+
+|  | Chemin |  |  | Privilèges d’accès |  |
+| --- | --- | --- | --- | --- | --- |
+| F:\DATA\Informatique |  |  | Seuls les membres du service informatique auront un accès à ce dossier |  |  |
+
+- Le dossier D:\DATA\Informatique sera partagé sous le nom "Outils", ce partage sera caché.
+
+- ☐ Tester depuis le client Windows les accès aux différentes ressources.
+
+c. Création de documentation de la configuration réalisée au point précédent
+
+Vous documenterez les aspects suivants :
+
+- Processus de configuration du nouvel espace disque (F:)
+
+- Configuration du partage et des autorisations s’appliquant au dossier du service comptabilité
+
+### Page 15
+
+#### 6. Configuration de paramètres de GPO
+
+Pour chaque paramètre demandé, à l’issue de sa configuration, vous testerez sa bonne effectivité sur votre poste client Windows avant de passer au paramètre suivant.
+
+Vous configurerez au moyen de stratégies de groupes les aspects suivants :
+
+- Tous les utilisateurs de votre domaine auront le même arrière-plan de bureau (de votre choix)
+
+- Seuls les administrateurs du domaine auront accès au Panneau de configuration et à l’outil Paramètres
+
+- Tous les utilisateurs du domaine devront changer leur mot de passe tous les 30 jours, leur mot de passe aura 3 caractères minimum et ne sera pas soumis à des critères de complexité
+
+- Les secrétaires verront automatiquement le partage SERVICES apparaitre dans leur explorateur de fichiers
+
+- Seul un administrateur de la machine pourra installer ou mettre à jour les pilotes de périphériques.
+
+- Empêcher le redémarrage automatique des postes en cours d’utilisation
+
+- Lors de recherches Windows, ne pas rechercher sur Internet
+
+- Bloquer la remontée d’erreurs à Microsoft
+
+#### 7. Redondance des principaux services
+
+Un audit a été réalisé sur votre infrastructure de domaine Active Directory existante, celui- ci a fait ressortir la problématique suivante : les services d’infrastructure critiques ne sont actuellement pas tolérants aux pannes qui pourraient survenir.
+
+Les mises en œuvre à réaliser dans cet atelier visent à accroitre la disponibilité des services et la tolérance de pannes de l’infrastructure précédemment mise en place.
+
+a. Ajout d’une nouvelle instance du service DHCP
+
+- Au point 2, vous avez mis en œuvre le service DHCP sur un de vos serveurs. Notez ci- dessous les informations relatives au service mis en œuvre. Serveur sur lequel le service a été implémenté :
+
+………………………………………………………………………………………………………….
+
+Plage d’adresse distribuée : ………………………………………………………………………………………………………….
+
+### Page 16
+
+- Installer le service DHCP sur votre autre serveur (PAS LE CONTRÔLEUR DE DOMAINE).
+
+| Mise en œuvre initiale du service DHCP sur | Machine sur laquelle implémenter le second service DHCP |
+| --- | --- |
+| Le serveur Debian | Le 2ème serveur Windows |
+| Le 2ème serveur Windows | Le serveur Debian |
+
+- Ce service DHCP devra distribuer des adresses en dehors de la plage d’adresse
+
+déjà distribuée par votre premier service DHCP. o Il devra fournir l’adresse de la passerelle par défaut et celle de votre serveur DNS
+
+configuré au point 3. o Modifier la configuration du relais DHCP de votre pfSense afin que les requêtes
+
+clientes soient adressées à vos deux serveurs DHCP
+
+- ☐ Valider le bon fonctionnement de votre second serveur DHCP
+
+- ☐ Contrôler le bon fonctionnement de la tolérance de panne du service
+
+après l’arrêt successif d’un puis de l’autre serveur DHCP
+
+b. Ajout d’un second serveur DNS
+
+Au point 3, vous avez mis en œuvre le service DNS sur un de vos serveurs, le tableau suivant vous indique sur quel autre serveur implémenter votre second service DNS.
+
+- Installer le service DNS sur votre autre serveur (PAS LE CONTRÔLEUR DE DOMAINE).
+
+| Mise en œuvre initiale du service DNS sur | Machine sur laquelle implémenter le second service DNS |
+| --- | --- |
+| Le serveur Debian | Le 2ème serveur Windows |
+| Le 2ème serveur Windows | Le serveur Debian |
+
+Les contraintes d’implémentation du service sont les suivantes :
+
+- Ce serveur utilisera comme redirecteur inconditionnel le serveur DNS de l’école
+
+### Page 17
+
+- Ce serveur utilisera comme redirecteur conditionnel le "Windows Serveur 1" pour
+
+répondre aux requêtes relatives au domaine prénomD.domaine.tssr o Ce serveur devra disposer de la zone prénomD.infra.tld en tant que zone
+
+secondaire o La prise en charge de la résolution inverse n’est pas souhaitée
+
+- ☐ Vérifier depuis un client que la résolution de noms est bien fonctionnelle
+
+EN INTERROGEANT VOTRE SECOND SERVEUR DNS.
+
+- ☐ Ajouter un enregistrement depuis votre premier service DNS dans
+
+chacune des 2 zones puis vérifier que cet enregistrement a bien été transféré dans la zone du second service DNS.
+
+c. Modification de la configuration des clients DNS
+
+- Modifiez la configuration de vos services DHCP afin qu’ils indiquent l’adresse
+
+de votre nouveau serveur DNS en complément de celle de votre premier. o Modifier la configuration des serveurs et leur ajouter l’adresse IP de votre
+
+second service DNS en complément de celui déjà configuré.
+
+- ☐ Contrôler la configuration cliente DNS des différents postes.
+
+d. Ajout d’un second contrôleur de domaine
+
+- Afin de ne pas perdre les services de domaine Active Directory en cas de défaillance du serveur Windows 1, ajouter le rôle des services de domaine sur le serveur Windows 2.
+
+- ☐ Vérifier qu’il est possible de créer des objets dans la base Active Directory
+
+depuis le second contrôleur de domaine et qu’ils sont bien répliqués sur le premier.
+
+- ☐ Vérifier que les enregistrements de services (DNS) liés aux services de
+
+domaine ont bien été générés pour le second contrôleur.
+
+- ☐ Arrêter successivement chacun des contrôleurs et vérifier si vos
+
+utilisateurs parviennent bien à se connecter depuis le poste client.
+
+### Page 18
+
+#### 8. Administration de l'infrastructure "depuis sa chaise"
+
+Les éléments de votre infrastructure étant en salle serveur sécurisée, toutes les manipulations d'administration de serveurs seront effectuées depuis le poste client Windows 10.
+
+- Installer le service SSH-Server sur votre serveur Debian. Pouvez-vous vous connecter en ssh depuis votre Client Windows ? En cas d'échec, faites le nécessaires pour que cela soit fonctionnel.
+- Configurer le service bureau à distance sur les serveurs Windows. Seuls les membres du service informatique pourront ouvrir une session sur les serveurs. Faire des tests de connexions à l'aide de votre client RDP du client Windows 10.
+- Sur le client Windows 10, afficher la liste des "Fonctionnalités facultatives" disponible
+- Pour plus de productivité, rechercher puis installer les outils RSAT (Outils d’administration de serveur distant) du "Gestionnaire de serveur" et de gestion des rôles ADDS, DHCP et DNS sur votre client Windows 10.
+- Lancer l'outil Gestionnaire de serveur et faire en sorte de pouvoir gérer vos serveurs Windows depuis cette console
+
+- Pouvez-vous ouvrir la console "Utilisateurs et ordinateurs Active Directory" ?
+
+- Pouvez-vous créer un enregistrement A dans la zone DNS intégrée au domaine ?
+
+#### 9. Windows Admin Center
+
+![Fenêtre de présentation de Windows Admin Center](../../assets/course-sources/isolated/0f4c80111269a2f2/msp-services-p18.webp)
+
+Fenêtre de présentation de Windows Admin Center — illustration isolée du support, page 18.
+
+- Tester cette nouvelle fonctionnalité proposée par Windows Server 2019. Renseignez- vous, documentez-vous puis choisissez l'un de vos serveurs Windows pour y installer WAC.
+- Importer toutes les machines Microsoft dans cet outil et observer/tester le plus de possibilités proposées par WAC
+
+Référence du document : 17vtIX3kItMGv8dqN_fTSGJ2Nmzux766Q · SHA-256 0f4c80111269a2f2…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Énoncé · Mise en situation professionnelle : services réseau · 18 pages transcrites | Les mentions du centre de formation ont été neutralisées, les en-têtes répétitifs et les logos retirés. |
+
+## Repères de relation du parcours
+
+- Sur Windows Server 1, installer AD DS et DNS
+- Tester SSH vers Debian
