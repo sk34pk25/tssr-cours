@@ -1,332 +1,739 @@
 # Module 08 — Mécanismes Linux et Bash avancé
 
-**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Combiner les commandes avec redirections et pipelines, mesurer leur exécution, archiver/restaurer, créer des alias et observer l’héritage des variables. Les quatre énoncés et leurs corrections restent distincts, même lorsque les scénarios se recoupent.
+## Parcours de lecture
 
-**Durée des ateliers.** Quatre TP : 45 à 60 minutes, sauf Alias 30 à 45 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+1. Énoncé · Enoncé du TP 1 - Utilisation des systèmes · 2 pages transcrites
+2. Énoncé · M08TP02 - Enoncé - Archivages et Compression · 2 pages transcrites
+3. Énoncé · M08TP03 - Enoncé - Redirections et Alias · 2 pages transcrites
+4. Énoncé · M08TP04 - Enoncé - Manipuler des Variables · 2 pages transcrites
+5. Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites
+6. Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites
+7. Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites
+8. Correction · M08TP04 - Solution - Manipuler des Variables · 2 pages transcrites
 
-## Objectifs
-
-- Rediriger les deux flux et combiner les commandes pour produire les preuves demandées.
-- Créer, contrôler et restaurer une archive, puis comparer les compressions.
-- Composer un alias et observer ce qu’un sous-shell hérite après `export`.
-
-## 1. Suivre les flux
-
-| Syntaxe | Rôle dans les TP |
-|---|---|
-| `>` | Écrire le résultat standard dans un fichier, en le remplaçant |
-| `>>` | Ajouter à la suite du fichier |
-| `2>/dev/null` | Rediriger la sortie d’erreur vers `/dev/null` et conserver la sortie standard |
-| `commande1 \| commande2` | Transmettre la sortie standard à l’entrée de la commande suivante |
-| `tee fichier` | Afficher le flux tout en l’enregistrant |
-| `time ...` | Mesurer l’exécution de la commande ou du pipeline visé |
-
-Le fichier **fichiers.conf** contient des chemins trouvés, et non le contenu des fichiers .conf. Le fichier **compteur.txt** doit ne contenir que le nombre demandé. Les répertoires process et resultats doivent exister avant la redirection.
-
-Les exemples utilisent le répertoire personnel comme point de départ. Les chemins relatifs **resultats/...** de la correction dépendent de cette position ; les chemins **$HOME/resultats/...** permettent de l’expliciter.
-
-**Illustration IA / externe au cours — Suivre la sortie de find jusqu’au terminal et au fichier.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    Find[find cherche les fichiers] -->|sortie standard| Tee[tee]
-    Tee --> Ecran[Affichage terminal]
-    Tee --> Fichier[fichiers.conf]
-    Find -->|sortie d’erreur| Erreurs[Diagnostics et accès refusés]
-    Erreurs -->|si 2 est redirigé| Null["/dev/null"]
+    N1["Énoncé · Enoncé du TP 1 - Utilisation des systèmes · 2 pages transcrites"]
+    N2["Énoncé · M08TP02 - Enoncé - Archivages et Compression · 2 pages transcrites"]
+    N3["Énoncé · M08TP03 - Enoncé - Redirections et Alias · 2 pages transcrites"]
+    N4["Énoncé · M08TP04 - Enoncé - Manipuler des Variables · 2 pages transcrites"]
+    N5["Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites"]
+    N6["Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites"]
+    N7["Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites"]
+    N8["Correction · M08TP04 - Solution - Manipuler des Variables · 2 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-## 2. Limiter une recherche au système de fichiers racine
+Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.
 
-```bash
-find / -mount -type f -name '*.conf' 2>/dev/null
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
+
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Énoncé · Enoncé du TP 1 - Utilisation des systèmes · 2 pages transcrites
+
+!!! note "À retenir"
+    Utilisation d'une distribution GNU/Linux
+
+Utilisation d'une distribution GNU/Linux
+
+#### Utilisation des systèmes
+
+!!! note "À retenir"
+    TP du Module 08 – Mécanismes avancés de Linux et Bash Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.
+
+TP du Module 08 – Mécanismes avancés de Linux et Bash
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.
+2. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.
+
+1. L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?
+2. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).
+
+#### Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1zGIoKu66CadvcIDDcB39xveeioWRwruw · SHA-256 c195b2e8d913b711…
+
+## Énoncé · M08TP02 - Enoncé - Archivages et Compression · 2 pages transcrites
+
+#### .Archivage et compression
+
+!!! note "À retenir"
+    TP du Module 08 – Mécanismes Linux et Bash avancé Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.
+
+TP du Module 08 – Mécanismes Linux et Bash avancé
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.
+
+Avoir effectué le TP précèdent
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Comparer la taille des trois archives, laquelle est la moins volumineuse ?"]
+    N2["Dans votre répertoire de connexion, créer le répertoire Restaurations."]
+    N3["Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire."]
+    N4["Aidez-vous de la commande vous permettant de lister le contenu de l'archive."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-La recherche commence à **/** ; **-mount** évite de descendre vers d’autres systèmes de fichiers ; **-type f** vise les fichiers standards. Le motif est protégé pour être interprété par find. Une recherche peut rencontrer des accès refusés ; la redirection d’erreur les retire de la sortie utilisée dans le TP.
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
 
-`time` doit encadrer une exécution : il ne reconstruit pas rétroactivement la durée exacte d’une commande déjà terminée si elle n’a pas été mesurée. Les sorties real, user et sys du document sont des observations historiques à comparer aux résultats de son laboratoire.
+1. Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.
+2. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.
+3. Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.
 
-!!! note "Lire le résultat de la recherche"
-    `2>/dev/null` masque les diagnostics, notamment les accès refusés. Une liste non vide peut donc être partielle. Relancer sans redirection si le TP demande de justifier le périmètre réellement parcouru.
+1. Comparer la taille des trois archives, laquelle est la moins volumineuse ?
+2. Dans votre répertoire de connexion, créer le répertoire Restaurations.
 
-## 3. Archive et compression sont deux opérations
+Restaurer votre sauvegarde dans ce répertoire en une seule instruction.
 
-| Forme GNU tar du scénario | But |
-|---|---|
-| `-c` | Créer une archive |
-| `-t` | Lister son contenu |
-| `-x` | Extraire |
-| `-u` | Mettre à jour une archive non compressée |
-| `-f fichier` | Choisir le fichier archive |
-| `-v` | Afficher les noms traités |
-| `-z` | Utiliser gzip |
-| `-j` | Utiliser bzip2 |
-| `-C répertoire` | Changer le répertoire de destination de l’opération |
-| `--exclude=...` | Exclure les chemins correspondants |
+1. Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.
+2. Créer dans votre répertoire d'accueil un nouveau fichier vide et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.
 
-Le document archive **$HOME** dans **/tmp**, en nommant l’archive avec **$LOGNAME**. GNU tar signale qu’il enlève le `/` initial des chemins enregistrés : lors de la restauration, le contenu peut donc apparaître sous **Restaurations/home/nom_utilisateur/**. Lire `tar -tf` pour vérifier les chemins réels plutôt que supposer leur emplacement.
+- Aidez-vous de la commande vous permettant de lister le contenu de l'archive.
 
-Les captures comparent environ 50 K pour l’archive brute, 6,3 K pour gzip et 6,2 K pour bzip2 dans leur jeu d’essai. Le résultat de son propre répertoire peut différer : comparer les tailles réellement obtenues, sans promettre le même classement.
+#### Solution
 
-## 4. Alias : nom court d’une instruction
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
 
-Un alias simplifie l’appel d’une ligne répétée. Les **guillemets simples** de sa définition conservent les variables pour l’exécution future de l’alias. Le TP les définit dans le shell interactif courant ; ils ne deviennent pas automatiquement des réglages permanents.
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
 
-Le TP Redirections et Alias reprend les quatre questions du TP Utilisation des systèmes, puis demande de les reproduire avec des alias. Cette répétition est conservée comme entraînement, sans présenter les deux documents comme un seul énoncé.
+Référence du document : 1849gpp2Ws7VdMW-vLZ_wDCfr2wDQ3ciU · SHA-256 08975db62419d231…
 
-## 5. Variables locales et environnement
+## Énoncé · M08TP03 - Enoncé - Redirections et Alias · 2 pages transcrites
 
-**$HOME** désigne le répertoire personnel ; **$PATH** contient les répertoires de recherche des programmes, séparés par `:` ; **$LOGNAME** contient le login dans le contexte du laboratoire.
+#### Redirections et Alias
 
-```bash
-monnom="$LOGNAME"
+!!! note "À retenir"
+    TP du Module 08 – Mécanismes avancés de Linux et Bash Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir réalisé les TP proposés.
+
+TP du Module 08 – Mécanismes avancés de Linux et Bash
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+30 à 45 mn
+
+#### Énoncé
+
+- Lister tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.
+
+- Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier $HOME/resultats/fichiers.conf.
+
+- La commande précédente a duré un certain temps, comment connaître le temps exact d’exécution de celle-ci ?
+
+- En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.
+
+Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).
+
+- Reproduire toutes les actions précédentes, mais avec la création d’alias…
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les
+
+ressources à télécharger.
+
+Référence du document : 1plmKj5RcQ-PzKQ2c-Mc3K8JjSMT91G8S · SHA-256 5c47e61141614e56…
+
+## Énoncé · M08TP04 - Enoncé - Manipuler des Variables · 2 pages transcrites
+
+#### Manipuler des variables
+
+TP du Module 08 – Mécanismes Linux et Bash avancé
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Afficher le répertoire personnel en utilisant une variable adéquate"]
+    N2["Créer une variable 'monnom' contenant le login de l’utilisateur"]
+    N3["Afficher les variables de l’utilisateurs"]
+    N4["Transformer la variable locale de la question 4 en variable d’environnement"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-Cette affectation sans espaces crée une variable dans le shell courant. Un sous-shell lancé par **bash** ne l’hérite pas automatiquement. **export monnom** la place dans l’environnement transmis aux futurs processus enfants.
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
 
-**env** affiche les variables d’environnement exportées ; il ne liste pas toutes les variables locales. **set** permet d’examiner les variables du shell et peut afficher également d’autres définitions ; cette distinction explique pourquoi env ne suffit pas à vérifier une variable locale.
+1. Afficher le répertoire personnel en utilisant une variable adéquate
+2. Afficher le contenu de la variable contenant les chemins vers les binaires usuels de l’utilisateur.
+3. Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins usuels. Faire en sorte que la manipulation soit pérenne.
 
-Pour rendre un ajout au PATH pérenne dans le shell interactif de l’exercice, placer une seule fois la ligne voulue dans **$HOME/.bashrc**. Éviter de développer les variables au moment d’écrire cette ligne : le fichier doit conserver les références `$PATH` et `$HOME`.
+1. Créer une variable "monnom" contenant le login de l’utilisateur
+2. Afficher les variables de l’utilisateurs
+3. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. Fermer le sous-shell
+4. Transformer la variable locale de la question 4 en variable d’environnement
+5. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login de l’utilisateur. Fermer le sous-shell
 
-## Ateliers complets
+#### Solution
 
-### TP01 — Utilisation des systèmes
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
 
-#### Activité 1 — Lister tous les processus dont l’affichage se termine par d et enregistrer dans $HOME/process/daemons.txt.
+Référence du document : 1cL5Li6UGrq2tMk87-RYuk-voQS56_T_i · SHA-256 386ff594282d51a1…
 
-```bash
-mkdir -p "$HOME/process"
-ps -e | grep 'd$' > "$HOME/process/daemons.txt"
-cat "$HOME/process/daemons.txt"
+## Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Utilisation des systèmes
+
+TP du Module 08 – Mécanismes Linux et Bash avancé
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 8 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Listez tous les processus qui finissent par un d. Le résultat sera stocké dans $HOME/process/daemons.txt.
+
 ```
-Le motif filtre ici la fin des lignes de l’affichage ps du scénario.
-
-#### Activité 2 — Rechercher depuis / les fichiers .conf, sans quitter son système de fichiers, et afficher/enregistrer simultanément les chemins.
-
-```bash
-mkdir -p "$HOME/resultats"
-find / -mount -type f -name '*.conf' 2>/dev/null |
-    tee "$HOME/resultats/fichiers.conf"
-```
-Comparer les chemins affichés et ceux enregistrés.
-
-#### Activité 3 — Mesurer le temps exact de cette exécution.
-
-Relancer la recherche en l’encadrant par time :
-
-```bash
-time find / -mount -type f -name '*.conf' 2>/dev/null |
-    tee "$HOME/resultats/fichiers.conf"
-```
-Observer les informations de temps ; une exécution non mesurée ne peut pas être chronométrée rétroactivement avec cette seule commande.
-
-#### Activité 4 — En une commande, enregistrer uniquement le nombre de fichiers trouvés sans relire fichiers.conf.
-
-```bash
-find / -mount -type f -name '*.conf' 2>/dev/null |
-    wc -l > "$HOME/resultats/compteur.txt"
-cat "$HOME/resultats/compteur.txt"
-```
-La commande principale effectue la recherche et le comptage ; cat est le contrôle séparé du livrable.
-
-### TP02 — Archivage et compression
-
-#### Activité 1 — Archiver son répertoire personnel dans /tmp sous son login et noter la taille.
-
-```bash
-tar -cvf "/tmp/$LOGNAME.tar" "$HOME"
-ls -lh "/tmp/$LOGNAME.tar"
-```
-Le chemin de sortie est hors du répertoire archivé.
-
-#### Activité 2 — Créer l’archive compressée avec gzip en une seule instruction.
-
-```bash
-tar -czvf "/tmp/$LOGNAME.tar.gz" "$HOME"
-ls -lh "/tmp/$LOGNAME.tar.gz"
+mkdir $HOME/process
 ```
 
-#### Activité 3 — Répéter avec bzip2.
-
-```bash
-tar -cjvf "/tmp/$LOGNAME.tar.bz2" "$HOME"
-ls -lh "/tmp/$LOGNAME.tar.bz2"
+```
+ps -e | grep d$ > $HOME/process/daemons.txt
 ```
 
-#### Activité 4 — Comparer les trois tailles et identifier la plus petite de son essai.
-
-```bash
-ls -l /tmp/"$LOGNAME".tar*
 ```
-Relever les octets ou les unités cohérentes avant de conclure.
-
-#### Activité 5 — Créer Restaurations dans son répertoire personnel et y restaurer en une instruction d’extraction.
-
-```bash
-mkdir -p "$HOME/Restaurations"
-tar -xzvf "/tmp/$LOGNAME.tar.gz" -C "$HOME/Restaurations"
+cat process/daemons.txt
 ```
-Inspecter les chemins extraits : l’archive de $HOME peut contenir le préfixe home/login sous Restaurations.
 
-#### Activité 6 — Créer une nouvelle sauvegarde non compressée en excluant Restaurations.
+1. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier
 
-```bash
-tar -cvf "/tmp/$LOGNAME-v2.tar" --exclude=Restaurations "$HOME"
-tar -tf "/tmp/$LOGNAME-v2.tar"
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp)
+
+Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
+
+$HOME/resultats/fichiers.conf.
+
 ```
-La seconde commande vérifie l’absence du répertoire exclu.
-
-#### Activité 7 — Créer un fichier vide puis mettre à jour l’archive et vérifier sa présence.
-
-```bash
-touch "$HOME/new_fichier.txt"
-tar -uvf "/tmp/$LOGNAME-v2.tar" "$HOME/new_fichier.txt"
-tar -tf "/tmp/$LOGNAME-v2.tar"
+mkdir $HOME/resultats
 ```
-L’opération de mise à jour concerne l’archive non compressée v2, comme dans le document.
 
-### TP03 — Redirections et Alias
+```
+find 
+/ 
+-mount 
+-type 
+f 
+-name 
+"*.conf" 
+2>/dev/null 
+| 
+tee 
+resultats/fichiers.conf
+```
 
-#### Activité 1 — Reproduire les quatre actions processus/recherche/durée/comptage avec leurs livrables, puis créer des alias correspondants.
+```
+cat resultats/fichiers.conf
+```
 
-Les quatre premières demandes sont identiques à celles du TP01 : conserver les chemins daemons.txt, fichiers.conf et compteur.txt, la limite -mount, le double affichage tee et le comptage sans relire le fichier.
+1. L’exécution de la commande précédente a duré un certain temps ; comment connaître le temps exact d’exécution de celle-ci ?
 
-```bash
-mkdir -p "$HOME/process" "$HOME/resultats"
-alias lister_daemons='ps -e | grep "d$" > "$HOME/process/daemons.txt"'
-alias rechercher_conf='find / -mount -type f -name "*.conf" 2>/dev/null | tee "$HOME/resultats/fichiers.conf"'
-alias compter_fichiers='find / -mount -type f -name "*.conf" 2>/dev/null | wc -l > "$HOME/resultats/compteur.txt"'
+```
+time 
+find / 
+-mount 
+-type f 
+-name 
+"*.conf" 
+2>/dev/null | 
+tee 
+resultats/fichiers.conf
+```
 
-lister_daemons
-rechercher_conf
-time rechercher_conf
+1. En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf. Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des scripts).
+
+```
+find / -mount 
+-type f -name "*.conf" 2>/dev/null | wc 
+-l > 
+resultats/compteur.txt
+```
+
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp)
+
+Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
+
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
+
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp)
+
+Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
+
+Référence du document : 1A_l5ftbuPhXgvu64ds_oOADq33XA0S5l · SHA-256 22be2935f155b285…
+
+## Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Archivage et compression
+
+TP du Module 08 – Mécanismes Linux et Bash avancé
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.
+
+Avoir effectué le TP précèdent
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Comparer la taille des trois archives, laquelle est la moins volumineuse ?"]
+    N2["Dans votre répertoire de connexion, créer le répertoire Restaurations."]
+    N3["Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire."]
+    N4["Aidez-vous de la commande vous permettant de lister le contenu de l'archive."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Réaliser une sauvegarde de votre répertoire personnel dans /tmp, en utilisant votre login pour le nommage du fichier, noter sa taille.
+
+```
+tar -cvf /tmp/$LOGNAME.tar $HOME
+```
+
+```
+ls -lh /tmp/$LOGNAME.tar
+```
+
+1. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+```
+tar -czvf /tmp/$LOGNAME.tar.gz $HOME
+```
+
+```
+ls -lh /tmp/$LOGNAME.tar.gz
+```
+
+1. Répéter l'étape précédente en utilisant cette fois-ci une compression au format bzip2.
+
+```
+tar -cjvf /tmp/$LOGNAME.tar.bz2 $HOME
+```
+
+```
+ls -lh /tmp/$LOGNAME.tar.bz2
+```
+
+1. Comparer la taille des trois archives, laquelle est la moins volumineuse ?
+
+```
+ls -l /tmp/$LOGNAME.tar*
+```
+
+1. Dans votre répertoire de connexion, créer le répertoire Restaurations.
+
+Restaurer votre sauvegarde dans ce répertoire en une seule instruction.
+
+```
+mkdir $HOME/Restaurations
+```
+
+```
+tar -xzvf /tmp/$LOGNAME.tar.gz -C Restaurations
+```
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i1.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i2.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+1. Créer une nouvelle sauvegarde, non compressée, en excluant ce répertoire.
+
+```
+tar -cvf /tmp/$LOGNAME-v2.tar --exclude=Restaurations $HOME
+```
+
+1. Créer dans votre répertoire d'accueil un nouveau fichier vide, et réaliser une mise à jour de votre archive avec votre répertoire d’accueil.
+
+- Aidez-vous de la commande vous permettant de lister le contenu de l'archive.
+
+```
+touch new_fichier.txt
+```
+
+```
+tar -uvf /tmp/$LOGNAME-v2.tar ~/new_fichier.txt
+```
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i1.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp)
+
+Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
+
+```
+tar -tf /tmp/$LOGNAME-v2.tar 
+/home/user30/.profile 
+/home/user30/process/ 
+/home/user30/process/daemons.txt 
+/home/user30/Edition.sav 
+/home/user30/new_fichier.txt 
+/home/user30/Tp/ 
+/home/user30/Tp/KornShell/ 
+/home/user30/Tp/Bourne/ 
+/home/user30/Edition 
+/home/user30/.viminfo 
+/home/user30/.bashrc 
+/home/user30/Edidtion2 
+/home/user30/edition3.txt.save 
+/home/user30/fichier2+3 
+/home/user30/.bash_history 
+/home/user30/MonDeuxiemeFichier 
+/home/user30/resultats/ 
+/home/user30/resultats/compteur.txt 
+/home/user30/resultats/fichiers.conf 
+/home/user30/Edition2 
+/home/user30/MonTroisiemeFichier 
+/home/user30/.vimrc 
+/home/user30/MonPremierFichier 
+/home/user30/bin/ 
+/home/user30/.bash_logout 
+/home/user30/edition3.txt
+```
+
+Référence du document : 1FfhJtjSREwl6y0VQpHRdneF4OUkTwI45 · SHA-256 8702440981273989…
+
+## Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Redirections et Alias
+
+TP du Module 08 – Mécanismes avancés de Linux et Bash
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module à 8 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+30 à 45 mn
+
+#### Énoncé
+
+```
+• 
+Lister tous les processus qui finissent par un d. 
+ 
+Le résultat sera stocké dans $HOME/process/daemons.txt. 
+mkdir $HOME/process 
+ps –e |grep d$ > $HOME/process/daemons.txt
+```
+
+```
+• 
+Recherchez les fichiers dont le nom se termine par .conf à partir de la racine.  
+Cette recherche ne devra être effectuée que sur le système de fichier racine.  
+Le 
+résultat 
+sera 
+affiché 
+à 
+l'écran 
+tout 
+en 
+étant 
+stocké 
+dans 
+le 
+fichier 
+$HOME/resultats/fichiers.conf. 
+mkdir $HOME/resultats  
+find / mount -type f -name "*.conf" 2>/dev/null |tee $HOME/resultats/fichiers.conf
+```
+
+```
+• 
+La commande précédente a duré un certain temps, comment connaître le temps 
+exact d’exécution de celle-ci ? 
+time find / mount -type f -name "*.conf" 2>/dev/null |tee $HOME/resultats/fichiers.conf
+```
+
+```
+• 
+En une commande, renvoyez dans le fichier $HOME/resultats/compteur.txt le nombre 
+de fichiers trouvés au point 2, sans utiliser le fichier fichiers.conf.   
+Le résultat devra comporter uniquement ce nombre (ce résultat sera réutilisé dans des 
+scripts). 
+cat resultats/fichiers.conf |wc -l > resultats/compteur.txt 
+ 
+# Alternativement 
+grep –c f$ resultats/fichiers.conf > resultats/compteur.txt 
+ 
+# Alternativement sans utiliser le fichier fichier.conf 
+find / -mount -type f -name "*.conf" 2>/dev/null |wc -l > resultats/compteur.txt
+```
+
+```
+• 
+Reproduire toutes les actions précédentes, mais avec la création d’alias… 
+# Créer les répertoires nécessaires 
+mkdir -p $HOME/process 
+mkdir -p $HOME/resultats 
+ 
+# Définir des alias pour les commandes 
+alias lister_daemons='ps -e | grep d$ > $HOME/process/daemons.txt' 
+alias rechercher_conf='find / -mount -type f -name "*.conf" 2>/dev/null | tee 
+$HOME/resultats/fichiers.conf' 
+alias compter_fichiers='find / -mount -type f -name "*.conf" 2>/dev/null | wc -l > 
+$HOME/resultats/compteur.txt' 
+ 
+# Lister tous les processus qui finissent par un d 
+lister_daemons 
+ 
+# Rechercher les fichiers .conf à partir de la racine 
+rechercher_conf 
+ 
+# Mesurer le temps d'exécution de la recherche 
+time rechercher_conf 
+ 
+# Compter le nombre de fichiers trouvés et stocker le résultat 
+compter_fichiers 
+ 
+# Alternative pour compter les fichiers à partir du fichier fichiers.conf 
+cat $HOME/resultats/fichiers.conf | wc -l > $HOME/resultats/compteur.txt 
+ 
+# Alternative avec grep pour compter les fichiers à partir du fichier fichiers.conf 
+grep -c f$ $HOME/resultats/fichiers.conf > $HOME/resultats/compteur.txt 
+ 
+# Alternative sans utiliser le fichier fichiers.conf 
 compter_fichiers
 ```
-Les alias sont à définir puis à appeler dans le shell interactif, avec des validations distinctes. Vérifier le contenu des trois fichiers produits. Les variantes cat fichiers.conf | wc -l et grep -c f$ sont montrées dans la correction mais ne satisfont pas l’interdiction de relire ce fichier.
 
-### TP04 — Manipuler des variables
+- Explication des alias
 
-#### Activité 1 — Afficher le répertoire personnel avec une variable adéquate.
-
-Pour afficher le chemin :
-
-```bash
-printf '%s\n' "$HOME"
 ```
-La correction utilise ls $HOME ou ls ~ : ces commandes affichent son contenu. Pour reproduire cette interprétation :
-
-```bash
-ls "$HOME"
+• 
+lister_daemons : Alias pour lister les processus qui se terminent par d et stocker le 
+résultat dans daemons.txt.
 ```
 
-#### Activité 2 — Afficher les chemins des binaires usuels.
-
-```bash
-printf '%s\n' "$PATH"
 ```
-Le document utilise echo $PATH ; chaque répertoire est séparé par un deux-points.
-
-#### Activité 3 — Créer scripts sous $HOME, l’ajouter au PATH et rendre l’ajout pérenne.
-
-```bash
-mkdir -p "$HOME/scripts"
-export PATH="$PATH:$HOME/scripts"
+• 
+rechercher_conf : Alias pour rechercher les fichiers .conf à partir de la racine et 
+afficher le résultat à l'écran tout en le stockant dans fichiers.conf.
 ```
 
-Ajouter une seule fois dans **$HOME/.bashrc** la ligne suivante, telle quelle :
-
-```bash
-export PATH="$PATH:$HOME/scripts"
+```
+• 
+compter_fichiers : Alias pour compter le nombre de fichiers.conf trouvés et 
+stocker ce nombre dans compteur.txt.
 ```
 
-Vérifier le PATH d’un nouveau shell interactif. Le slash ajouté avant $HOME dans la correction n’est pas nécessaire.
+- Remarques
 
-#### Activité 4 — Créer la variable monnom avec le login de l’utilisateur.
+- Les alias sont définis pour simplifier l'exécution des commandes, mais ils ne sont valables que pour la session actuelle.
 
-```bash
-monnom="$LOGNAME"
+Référence du document : 1WnpSJp6H8sn81c2zptNez04ulEMacnMF · SHA-256 be3c60614c14cbcd…
+
+## Correction · M08TP04 - Solution - Manipuler des Variables · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Manipuler des variables
+
+TP du Module 08 – Mécanismes Linux et Bash avancé
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 8.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Afficher le répertoire personnel en utilisant une variable adéquate"]
+    N2["Créer une variable 'monnom' contenant le login de l’utilisateur"]
+    N3["Afficher les variables de l’utilisateurs"]
+    N4["Transformer la variable locale de la question 4 en variable d’environnement"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
-La variante monnom=$(logname) reprend l’autre méthode de la source lorsque logname fonctionne dans la session. Conserver un seul nom de variable pour tout l’exercice.
 
-#### Activité 5 — Afficher les variables de l’utilisateur et distinguer locales et environnement.
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
 
-```bash
-set
+1. Afficher le répertoire personnel en utilisant une variable adéquate
+
+```
+ls $HOME
+```
+
+ou
+
+```
+ls ~
+```
+
+1. Afficher le contenu de la variable contenant les chemins vers les binaires usuels de l’utilisateur.
+
+```
+echo $PATH
+```
+
+1. Créer un dossier scripts à la racine du répertoire personnel et ajouter le aux chemins usuels. Faire en sorte que la manipulation soit pérenne.
+
+```
+mkdir $HOME/scripts
+```
+
+```
+PATH=$PATH:/$HOME/scripts
+```
+
+```
+echo PATH=$PATH:/$HOME/scripts >> ~/.bashrc
+```
+
+1. Créer une variable "monnom" contenant le login de l’utilisateur
+
+```
+monom="$LOGNAME"
+```
+
+ou
+
+```
+monom=$(logname)
+```
+
+1. Afficher les variables de l’utilisateurs
+
+```
 env
 ```
-env, employé par la correction, ne présente que l’environnement exporté ; set permet de retrouver aussi monnom local dans le shell courant.
 
-#### Activité 6 — Ouvrir un sous-shell, vérifier que monnom n’est pas hérité puis le fermer.
+1. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit être vide. Fermer le sous-shell
 
-```bash
+```
 bash
-printf '%s\n' "$monnom"
+```
+
+```
+echo $monnom
+```
+
+```
 exit
 ```
-Avant export, le nouveau shell ne reçoit pas la variable locale ; revenir au parent pour la suite.
 
-#### Activité 7 — Transformer la variable locale en variable d’environnement.
+1. Transformer la variable locale de la question 4 en variable d’environnement
 
-```bash
+```
 export monnom
 ```
 
-#### Activité 8 — Ouvrir un nouveau sous-shell et vérifier la valeur héritée.
+1. Ouvrir un sous-shell et vérifier le contenu de la variable monom. Il doit contenir le login de l’utilisateur. Fermer le sous-shell
 
-```bash
+```
 bash
-printf '%s\n' "$monnom"
+```
+
+```
+echo $monnom
+```
+
+```
 exit
 ```
-Cette fois le login doit être visible. Quitter le sous-shell ramène au parent ; l’enfant ne modifie pas automatiquement les variables de son parent.
 
-## Écarts et précisions du document
+Référence du document : 1Sjrk6fcYKzpsxbi0jhG3s_b-jECxhqqu · SHA-256 8ad17bc349e75f78…
 
-!!! note "Lecture de la source"
-    Le document Alias écrit parfois `find / mount`, sans le tiret de -mount, et un tiret typographique dans ps –e : les exemples utilisables rétablissent les options ASCII.
+## Fiche de synthèse
 
-!!! note "Lecture de la source"
-    Deux variantes de comptage de la correction relisent fichiers.conf, contrairement à la consigne. Seule la variante find | wc -l respecte la demande « sans utiliser ce fichier ».
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
 
-!!! note "Lecture de la source"
-    Les sources alternent monnom et monom. La pratique emploie monnom de façon cohérente dans l’affectation, l’export et les vérifications.
-
-!!! note "Lecture de la source"
-    La source ajoute /$HOME/scripts au PATH et utilise echo avec expansion immédiate pour .bashrc. L’aide utilise $HOME/scripts et une ligne de configuration dont les variables restent littérales.
-
-!!! note "Lecture de la source"
-    Les en-têtes « Archivage et compression » du TP Variables et « Titre exact du cours complet » du TP Alias sont des résidus de gabarit, pas de nouvelles matières.
-
-## À retenir
-
-Distinguer la sortie standard des diagnostics avant de filtrer. Inspecter une archive avec `tar -t` avant d’extraire vers le répertoire prévu. Utiliser `export` pour transmettre une variable aux futurs processus enfants.
-
-## Mini-quiz
-
-1. Pourquoi utiliser `tee` pour la liste des fichiers ?
-2. Comment compter sans relire `fichiers.conf` ?
-3. Que masque `2>/dev/null` pendant la recherche ?
-4. À quoi servent `-z` et `-j` avec `tar` ?
-5. Pourquoi le premier sous-shell ne reçoit-il pas `monnom` ?
-
-??? note "Réponses commentées"
-    1. `tee` recopie son entrée à la fois sur sa sortie standard et dans le fichier demandé.
-    2. Passer la sortie de `find` directement à `wc -l`, puis rediriger le compteur vers `compteur.txt`.
-    3. Les diagnostics envoyés sur la sortie d’erreur, comme les accès refusés. Une liste affichée peut donc être partielle.
-    4. Ils sélectionnent respectivement gzip et bzip2. Le TP demande de comparer les tailles réellement obtenues.
-    5. La variable n’est pas encore exportée. Après `export monnom`, un nouveau processus enfant hérite de sa valeur.
-
-## Pour pratiquer et réviser
-
-- [TP : énoncés et corrections](../../tp/utilisation-linux/module-08/index.md)
-- [Fiche de révision](../../revision/utilisation-linux/module-08-mecanismes-linux-et-bash-avance.md)
-- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-08-mecanismes-linux-et-bash-avance.md)
-- [Commandes GNU/Linux](../../commandes/linux.md)
-- [Manuel des redirections Bash](https://www.gnu.org/s/bash/manual/html_node/Redirections.html)
-- [Présentation du cours](index.md)
-
-## Provenance pédagogique
-
-Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
+| Partie | Repère du cours |
+| --- | --- |
+| Énoncé · Enoncé du TP 1 - Utilisation des systèmes · 2 pages transcrites | Utilisation d'une distribution GNU/Linux |
+| Correction · Solution du TP 1 - Utilisation des systèmes · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · M08TP02 - Solution - Archivages et Compression · 4 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · M08TP03 - Solution - Alias et Redirections · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · M08TP04 - Solution - Manipuler des Variables · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

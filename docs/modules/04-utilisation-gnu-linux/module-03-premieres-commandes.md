@@ -1,181 +1,270 @@
 # Module 03 — Premières commandes
 
-**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Identifier sa session, observer les utilisateurs et les identifiants, puis formater la date et lire des calendriers.
+## Parcours de lecture
 
-**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+1. Énoncé · M03TP01 - Enoncé - Premières Commandes · 2 pages transcrites
+2. Correction · M03TP01 - Solution - Premières Commandes · 4 pages transcrites
 
-## Objectifs
-
-- Identifier une connexion, un utilisateur, ses groupes et le processus de session.
-- Vérifier le changement de mot de passe par une nouvelle connexion.
-- Afficher l’heure, une date formatée et un calendrier demandé.
-
-## 1. Lire la commande et vérifier le résultat
-
-Dans ce premier atelier, l’aide pédagogique consiste à relier chaque question à une information observable. Les commandes s’exécutent dans le terminal de la machine de formation ; les noms, dates et identifiants des captures sont des exemples historiques.
-
-| Outil | Information recherchée |
-|---|---|
-| `passwd` | Changement du mot de passe de son compte |
-| `who am i` | Informations sur la connexion de la session courante |
-| `who` | Utilisateurs actuellement connectés |
-| `w -u` | Sessions et temps d’inactivité affichés par cet outil |
-| `who am i --all --heading` | Tableau enrichi, en-têtes et PID de session présenté par la correction |
-| `id` | UID, GID et groupes d’appartenance |
-| `date` | Heure et date avec une présentation choisie |
-| `cal` | Calendriers mensuels et annuels |
-
-La distinction essentielle est celle entre **l’utilisateur**, **une connexion de cet utilisateur** et **un processus**. Une même personne peut avoir plusieurs sessions. Le PID affiché dans le tableau de connexion ne doit pas être confondu avec l’ensemble des processus lancés par le compte.
-
-**Illustration IA / externe au cours — Choisir la commande selon l’information attendue.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    Besoin[Information attendue] --> Session[Connexion courante]
-    Besoin --> Connexions[Connexions et activité]
-    Besoin --> Identite[Identifiants et groupes]
-    Session --> WhoI[who am i]
-    Connexions --> WhoW[who ou w]
-    Identite --> Id[id]
+    N1["Énoncé · M03TP01 - Enoncé - Premières Commandes · 2 pages transcrites"]
+    N2["Correction · M03TP01 - Solution - Premières Commandes · 4 pages transcrites"]
+    N1 --> N2
 ```
 
-## 2. Mot de passe et identité
+Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.
 
-Après `passwd`, suivre les demandes interactives de l’outil, respecter la complexité du laboratoire puis fermer et rouvrir la session. Aucun mot de passe n’est fourni dans cette page : le contrôle consiste à réussir une nouvelle authentification.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-`id` affiche l’**UID** de l’utilisateur, le **GID** de son groupe principal et les groupes supplémentaires. Relever à la fois les numéros et leurs noms ; les valeurs des captures ne sont pas des valeurs attendues universelles.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## 3. Choisir la forme de la date
+## Énoncé · M03TP01 - Enoncé - Premières Commandes · 2 pages transcrites
 
-| Format | Élément |
-|---|---|
-| `%X` | Heure dans la représentation locale |
-| `%A` | Nom complet du jour |
-| `%d` | Numéro du jour |
-| `%B` | Nom complet du mois |
-| `%Y` | Année sur quatre chiffres |
+#### Premières commandes
 
-Les guillemets de `date "+%A %d %B %Y"` permettent de conserver les espaces du format dans un seul argument. La langue de sortie dépend de la configuration locale.
+!!! note "À retenir"
+    TP du Module 03 – Découverte du shell et premières commandes Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 3.
 
-## 4. Interpréter un calendrier
+TP du Module 03 – Découverte du shell et premières commandes
 
-`cal 1 1900` vise janvier 1900 ; `cal 1900` vise l’année entière. Pour janvier de l’année courante, fournir le mois et l’année observée : `cal 1 "$(date +%Y)"`. Le document donne 2020 dans sa correction ; ce nombre appartient à sa capture et ne remplace pas l’énoncé « année courante ».
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 3.
 
-Pour septembre 1752, consulter également le manuel de la version de `cal` du laboratoire. Le support montre un saut des dates 3 à 13 dans la transition de calendrier représentée. Ce constat est celui de l’outil et du scénario source ; il ne décrit pas un changement simultané dans tous les pays.
+Avoir effectué le TP précèdent
 
-## Ateliers complets
+Durée estimée
 
-### TP01 — Premières commandes
+45 à 60 minutes
 
-#### Activité 1 — Changer le mot de passe, fermer la session puis se reconnecter pour vérifier le changement.
+#### Énoncé
 
-```bash
-passwd
+!!! note "À retenir"
+    En fonction du modules que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+!!! example "Exemple"
+    A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009 Commande cal avec et sans argument : 1.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Depuis quand êtes-vous connecté ?"]
+    N2["Quels sont les utilisateurs qui travaillent sur le serveur ?"]
+    N3["Quel est le temps d'inactivité des utilisateurs connectés ?"]
+    N4["Quel est le numéro de processus de votre session ?"]
+    N5["A l'invite de commande, afficher juste l’heure."]
+    N6["A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009"]
+    N7["Commande cal avec et sans argument :"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
 ```
-Suivre les demandes interactives puis réussir une nouvelle connexion.
 
-#### Activité 2 — Depuis quand la session courante est-elle connectée ?
+En fonction du modules que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
 
-```bash
+1. Changer votre mot de passe, fermer la session et reconnectez-vous pour vérifier le changement de mot de passe.
+2. Depuis quand êtes-vous connecté ?
+3. Quels sont les utilisateurs qui travaillent sur le serveur ?
+4. Quel est le temps d'inactivité des utilisateurs connectés ?
+5. Quel est le numéro de processus de votre session ?
+
+1. Afficher vos identifiants d'utilisateur et de groupes (UID et GID) et relevez les noms de vos groupes d’appartenance.
+2. A l'invite de commande, afficher juste l’heure.
+3. A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009
+
+1. Commande cal avec et sans argument :
+   1. Afficher le calendrier de Janvier 1900 puis celui de toute l’année.
+   2. Afficher le calendrier du mois de Janvier de l'année courante.
+   3. Afficher le calendrier de septembre 1752, quelle est la particularité de ce mois ?
+
+#### Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1OIn_dxpEqPqSCFO5kih6P8WH7RtHTocT · SHA-256 de01dabfc58eec3d…
+
+## Correction · M03TP01 - Solution - Premières Commandes · 4 pages transcrites
+
+!!! note "À retenir"
+    Correction originale : à consulter après avoir tenté l’exercice.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Premières commandes
+
+!!! note "À retenir"
+    TP du Module 03 – Découverte du shell et premières commandes Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 3.
+
+TP du Module 03 – Découverte du shell et premières commandes
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 3.
+
+Avoir effectué le TP précèdent
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+!!! note "À retenir"
+    En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+!!! example "Exemple"
+    Exemple de sortie du support : le nom du groupe propre au centre de formation est neutralisé en « groupe-formation ».
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Depuis quand êtes-vous connecté ?"]
+    N2["Quels sont les utilisateurs qui travaillent sur le serveur ?"]
+    N3["Quel est le temps d'inactivité des utilisateurs connectés ?"]
+    N4["Quel est le numéro de processus de votre session ?"]
+    N5["A l'invite de commande, afficher juste l’heure."]
+    N6["A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009"]
+    N7["Commande cal avec et sans argument :"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Changer votre mot de passe, fermer la session et reconnectez-vous pour vérifier le changement de mot de passe.
+
+passwd (respectez la complexité requise), pensez à quitter et vous reconnecter
+
+1. Depuis quand êtes-vous connecté ?
+
 who am i
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i1.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i2.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+1. Quels sont les utilisateurs qui travaillent sur le serveur ?
+
 ```
-Relever la date et l’heure de connexion de sa propre ligne.
-
-#### Activité 3 — Quels utilisateurs travaillent sur le serveur ?
-
-```bash
 who
 ```
-Observer les sessions connectées ; plusieurs lignes peuvent concerner un même compte.
 
-#### Activité 4 — Quel est le temps d’inactivité des utilisateurs connectés ?
+1. Quel est le temps d'inactivité des utilisateurs connectés ?
 
-```bash
+```
 w -u
 ```
-Lire la colonne d’inactivité de chaque session.
 
-#### Activité 5 — Quel est le numéro de processus de la session présenté par l’outil de connexion ?
+1. Quel est le numéro de processus de votre session ?
 
-```bash
-who am i --all --heading
 ```
-Lire la colonne PID du résultat, comme dans le document.
+who am I –all --heading
+```
 
-#### Activité 6 — Afficher UID, GID et noms des groupes d’appartenance.
+1. Afficher vos identifiants d'utilisateur et de groupes (UID et GID) et relevez les noms de vos groupes d’appartenance.
 
-```bash
+```
 id
 ```
-Relever l’utilisateur, le groupe principal et les groupes supplémentaires.
 
-#### Activité 7 — Afficher uniquement l’heure.
+Exemple de sortie du support : le nom du groupe propre au centre de formation est neutralisé en « groupe-formation ». Les UID et GID sont ceux de la machine d’exemple.
 
-```bash
-date +%X
+```
+uid=1030(user30) gid=1030(user30) groupes=1030(user30),100(users),1000(groupe-formation)
 ```
 
-#### Activité 8 — Afficher uniquement la date selon le modèle jour, numéro, mois, année.
+1. A l'invite de commande, afficher juste l’heure.
 
-```bash
+```
+Date +%X
+```
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i1.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i2.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i3.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+1. A l'invite, afficher juste la date, suivant l'exemple : lundi 24 septembre 2009
+
+```
 date "+%A %d %B %Y"
 ```
-Le résultat doit être la date courante dans la forme demandée ; la langue dépend du système.
 
-#### Activité 9 — Afficher janvier 1900, toute l’année 1900, janvier de l’année courante, puis septembre 1752 et sa particularité.
+1. Commande cal avec et sans argument :
 
-```bash
-cal 1 1900
-cal 1900
-cal 1 "$(date +%Y)"
-cal 9 1752
-man cal
+a. Afficher le calendrier de Janvier 1900 puis celui de toute l’année.
+
 ```
-Comparer les quatre sorties. Rechercher 1752 dans le manuel pour expliquer le saut observé dans le scénario.
+cal 1 1900
+```
 
-## Écarts et précisions du document
+b. Afficher le calendrier du mois de Janvier de l'année courante.
 
-!!! note "Lecture de la source"
-    La correction imprime `Date +%X` avec une majuscule : l’aide pédagogique emploie `date`, conformément à la commande Linux.
+```
+cal 1 2020
+```
 
-!!! note "Lecture de la source"
-    L’option de who est imprimée avec un tiret typographique et un I majuscule. La forme utilisable est `who am i --all --heading`.
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i1.webp)
 
-!!! note "Lecture de la source"
-    La date « lundi 24 septembre 2009 » est un modèle de présentation dans l’énoncé, pas une date à rendre fixe ni une validation du jour de semaine.
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-!!! note "Lecture de la source"
-    La correction ne développe pas le calendrier annuel ; `cal 1900` répond à la seconde partie de la consigne.
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i2.webp)
 
-## À retenir
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-`who am i` décrit la connexion courante, `who` et `w` décrivent les sessions et `id` décrit le compte et ses groupes. Pour produire une date lisible, transmettre le format complet dans un seul argument. Pour un calendrier, vérifier le mois et l’année dans l’en-tête obtenu.
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i3.webp)
 
-## Mini-quiz
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-1. Quel contrôle termine l’activité de changement de mot de passe ?
-2. Comment distinguer deux connexions du même compte ?
-3. Quels champs de `id` distinguent groupe principal et groupes supplémentaires ?
-4. Pourquoi entourer `+%A %d %B %Y` de guillemets ?
-5. Comment afficher janvier de l’année en cours sans figer 2020 ?
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i4.webp)
 
-??? note "Réponses commentées"
-    1. Fermer la session, puis réussir une nouvelle connexion avec le nouveau mot de passe. Le contrôle porte sur l’authentification, pas uniquement sur le retour de `passwd`.
-    2. Lire les terminaux et heures de connexion dans `who`. Deux lignes peuvent correspondre au même identifiant utilisateur.
-    3. `gid` indique le groupe principal et `groups` énumère les appartenances affichées. `uid` identifie le compte.
-    4. Le format contient des espaces. Les guillemets en font un seul argument pour `date`.
-    5. Utiliser `cal 1 "$(date +%Y)"`. Le shell calcule l’année avant de lancer `cal`.
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-## Pour pratiquer et réviser
+c. Afficher le calendrier de septembre 1752, quelle est la particularité de ce mois ?
 
-- [TP : énoncés et corrections](../../tp/utilisation-linux/module-03/index.md)
-- [Fiche de révision](../../revision/utilisation-linux/module-03-premieres-commandes.md)
-- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-03-premieres-commandes.md)
-- [Commandes GNU/Linux](../../commandes/linux.md)
-- [Présentation du cours](index.md)
+```
+cal 9 1752
+```
 
-## Provenance pédagogique
+Voir le man en recherchant la mention 1752. C’est le mois du passage au calendrier grégorien, 11 jours ont sautés pour l'occasion, du 3 au 13.
 
-Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p04-i1.webp)
+
+Visuel isolé du document — M03TP01 - Solution - Premières Commandes
+
+Référence du document : 1T_24hs0UrEXhrpnPCZCYbuY2paK3h2GA · SHA-256 a99de2a7574cb337…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Correction · M03TP01 - Solution - Premières Commandes · 4 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

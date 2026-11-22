@@ -1,133 +1,178 @@
 # Module 04 — Fichiers, dossiers et métacaractères
 
-**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Se repérer dans l’arborescence, créer un fichier, lire ses attributs et distinguer le contenu d’un répertoire de ses propres caractéristiques. Le TP Métacaractères mal classé dans le dossier Module 4 reste étudié au module 06, conformément à son titre interne.
+## Parcours de lecture
 
-**Durée des ateliers.** 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+1. Énoncé · Enoncé du TP 1 - Fichiers et dossiers · 2 pages transcrites
+2. Correction · Solution du TP 1 - Fichiers et dossiers · 2 pages transcrites
 
-## Objectifs
-
-- Vérifier le répertoire courant avant une manipulation.
-- Créer un fichier et identifier son propriétaire, son groupe et ses permissions.
-- Lister des noms correspondant à un motif et afficher les attributs d’un répertoire.
-
-## 1. Savoir où l’on travaille
-
-`pwd` affiche le chemin du répertoire courant. Les commandes de cet atelier sont sensibles à la casse : **MonPremierFichier** doit conserver ses majuscules. Un chemin commençant par `/` est absolu ; un nom seul se résout depuis le répertoire courant.
-
-`ls -A` montre les noms présents, y compris les noms cachés, sans les entrées spéciales `.` et `..`. Cette observation répond à la question « existe-t-il des fichiers et des répertoires ? » sans créer de contenu supplémentaire.
-
-## 2. Créer puis observer
-
-`touch MonPremierFichier` crée le fichier s’il n’existe pas. Si ce nom existe déjà, touch modifie ses horodatages ; il ne vide pas automatiquement un fichier existant. Dans le scénario, choisir le nom demandé et vérifier que l’on part d’un nouveau fichier.
-
-`ls -l MonPremierFichier` affiche notamment les permissions, le nombre de liens, le propriétaire, le groupe, la taille et la date. Les noms et droits visibles sont les résultats à relever sur sa machine.
-
-## 3. Un motif de noms n’est pas une recherche dans le contenu
-
-```bash
-ls -d -- /etc/*.conf
-```
-
-Le shell développe le motif `*.conf` en noms du répertoire /etc avant de lancer ls. L’option `-d` affiche chaque entrée trouvée par le shell, y compris un répertoire dont le nom se termine par `.conf`. Le support emploie `ls` sans cette option. [Manuel GNU de ls](https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html) Les motifs plus élaborés, leur protection et la création de l’arborescence du TP Métacaractères sont détaillés au [module 06](module-06-recherches-et-expressions-regulieres.md).
-
-**Illustration IA / externe au cours — Le shell développe le motif avant l’appel à ls.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    Motif[Motif dans la commande] --> Shell[Le shell trouve les noms]
-    Shell --> Arguments[Les noms deviennent des arguments de ls]
-    Arguments --> Noms[Avec -d, ls affiche les entrées]
-    Arguments --> Contenu[Sans -d, ls peut lister leur contenu]
+    N1["Énoncé · Enoncé du TP 1 - Fichiers et dossiers · 2 pages transcrites"]
+    N2["Correction · Solution du TP 1 - Fichiers et dossiers · 2 pages transcrites"]
+    N1 --> N2
 ```
 
-## 4. Le répertoire ou ce qu’il contient ?
+Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA. Les fichiers M04TP02 stockés dans le dossier M04 du Drive portent le titre interne « TP du Module 06 » : ils sont donc consultables dans le module 06, avec cette anomalie documentaire signalée.
 
-| Commande | Objet observé |
-|---|---|
-| `ls -l /tmp` | Éléments contenus directement dans /tmp |
-| `ls -ld /tmp` | Le répertoire /tmp lui-même |
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-L’option `-d` est donc décisive pour respecter la dernière consigne. Le support montre des permissions particulières de /tmp, avec un **t** final, le sticky bit. Dans ce répertoire partagé, ce bit limite la suppression ou le renommage des entrées selon leur propriétaire ; ce n’est pas une permission accordant tous les droits sur les fichiers.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## Ateliers complets
+## Énoncé · Enoncé du TP 1 - Fichiers et dossiers · 2 pages transcrites
 
-### TP01 — Fichiers et dossiers
+!!! note "À retenir"
+    Utilisation d'une distribution GNU/Linux
 
-#### Activité 1 — Indiquer sa position dans l’arborescence.
+Utilisation d'une distribution GNU/Linux
 
-```bash
+#### Fichiers et dossiers
+
+!!! note "À retenir"
+    TP du Module 04 – Fichiers et dossiers sous Linux Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et d’avoir effectué le TP précédent.
+
+TP du Module 04 – Fichiers et dossiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+Où êtes-vous positionné dans l'arborescence ?
+
+Existe-t-il des fichiers et des répertoires ?
+
+Créez un fichier vide appelé MonPremierFichier.
+
+Affichez les permissions et le propriétaire attribués à ce fichier.
+
+Affichez les fichiers se terminant par l'extension .conf dans le répertoire /etc.
+
+Affichez les caractéristiques détaillées du répertoire /tmp (pas son contenu). Que remarquez-vous de particulier ?
+
+#### Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1il7AmAnsXZ_sEalyaeuxPkmrkLrTd345 · SHA-256 acc841d14127f89d…
+
+## Correction · Solution du TP 1 - Fichiers et dossiers · 2 pages transcrites
+
+!!! note "À retenir"
+    Correction originale : à consulter après avoir tenté l’exercice.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Fichiers et dossiers
+
+!!! note "À retenir"
+    TP du Module 04 – Fichiers et dossiers sous Linux Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et d’avoir effectué le TP précédent.
+
+TP du Module 04 – Fichiers et dossiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 4 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Où êtes-vous positionné dans l'arborescence ?"]
+    N2["Existe-t-il des fichiers et des répertoires ?"]
+    N3["Créez un fichier vide appelé MonPremierFichier."]
+    N4["Affichez les permissions et le propriétaire attribués à ce fichier."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Où êtes-vous positionné dans l'arborescence ?
+
+```
 pwd
 ```
 
-#### Activité 2 — Observer la présence de fichiers et de répertoires.
+1. Existe-t-il des fichiers et des répertoires ?
 
-```bash
+```
 ls -A
 ```
 
-#### Activité 3 — Créer un fichier vide appelé MonPremierFichier.
+1. Créez un fichier vide appelé MonPremierFichier.
 
-```bash
+```
 touch MonPremierFichier
 ```
 
-#### Activité 4 — Afficher les permissions et le propriétaire de MonPremierFichier.
+1. Affichez les permissions et le propriétaire attribués à ce fichier.
 
-```bash
+```
 ls -l MonPremierFichier
 ```
-Identifier les champs, sans recopier les valeurs de la capture comme des valeurs attendues.
 
-#### Activité 5 — Afficher les noms terminés par .conf dans /etc.
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i1.webp)
 
-```bash
-ls -d -- /etc/*.conf
+Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
+
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
+
+1. Affichez les fichiers se terminant par l'extension .conf dans le répertoire /etc.
+
+```
+ls /etc/*.conf
 ```
 
-#### Activité 6 — Afficher les caractéristiques de /tmp lui-même, puis relever sa particularité.
+1. Affichez les caractéristiques détaillées du répertoire /tmp (pas son contenu), que remarquez-vous de particulier ?
 
-```bash
+```
 ls -ld /tmp
 ```
-L’option -d évite de lister son contenu. Observer notamment le t des permissions dans l’environnement présenté.
 
-## Écarts et précisions du document
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i1.webp)
 
-!!! note "Lecture de la source"
-    Les permissions, propriétaires et dates de la capture illustrent le serveur source : relever ceux du laboratoire courant.
+Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-!!! note "Lecture de la source"
-    Le titre du module inclut les métacaractères, mais son TP propre concerne fichiers et dossiers ; le second TP est rattaché au module06 d’après le titre écrit dans son document.
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i2.webp)
 
-## À retenir
+Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-`pwd` indique où un nom relatif sera cherché. `ls -l` affiche les attributs et `ls -ld` permet d’examiner le répertoire lui-même. Dans `/tmp`, le `t` se lit dans le champ des permissions.
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i3.webp)
 
-## Mini-quiz
+Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-1. Où `touch MonPremierFichier` crée-t-il le fichier ?
-2. Que révèle `ls -l` après la création ?
-3. Qui développe `/etc/*.conf` ?
-4. Pourquoi ajouter `-d` à la liste des noms `.conf` ?
-5. Pourquoi utiliser `ls -ld -- /tmp` dans le TP ?
+Référence du document : 1mff_PKIvJil4tvcBDtmbMiDHiUQuqZKP · SHA-256 7455a0ec69483e30…
 
-??? note "Réponses commentées"
-    1. Dans le répertoire courant si ce nom relatif n’existe pas. Utiliser `pwd` avant la création et `ls -l -- MonPremierFichier` ensuite.
-    2. Entre autres, le type, les permissions, le propriétaire et le groupe du fichier.
-    3. Le shell développe le motif en chemins correspondants avant de lancer `ls`. Le motif vise les noms directement sous `/etc`.
-    4. Un répertoire peut aussi correspondre au motif. `-d` affiche son nom comme celui des autres entrées.
-    5. `-d` sélectionne le répertoire `/tmp` lui-même et `-l` affiche ses permissions, dont le sticky bit s’il est présent.
+## Fiche de synthèse
 
-## Pour pratiquer et réviser
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
 
-- [TP : énoncés et corrections](../../tp/utilisation-linux/module-04/index.md)
-- [Fiche de révision](../../revision/utilisation-linux/module-04-fichiers-dossiers-et-metacaracteres.md)
-- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-04-fichiers-dossiers-et-metacaracteres.md)
-- [Mémo sur les permissions Linux](../../memo/permissions-linux.md)
-- [Présentation du cours](index.md)
-
-## Provenance pédagogique
-
-Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
+| Partie | Repère du cours |
+| --- | --- |
+| Énoncé · Enoncé du TP 1 - Fichiers et dossiers · 2 pages transcrites | Utilisation d'une distribution GNU/Linux |
+| Correction · Solution du TP 1 - Fichiers et dossiers · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
