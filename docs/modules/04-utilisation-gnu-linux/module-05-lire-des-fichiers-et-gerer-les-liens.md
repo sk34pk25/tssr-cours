@@ -1,188 +1,331 @@
 # Module 05 — Lire des fichiers et gérer les liens
 
-**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Écrire un contenu avec cat, concaténer des fichiers, compter des lignes puis comparer liens physiques et symboliques. Les deux ateliers utilisent les noms de fichiers du scénario source.
+## Parcours de lecture
 
-**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+1. Énoncé · Enoncé du TP 1 - Lire des fichiers · 3 pages transcrites
+2. Énoncé · Enoncé du TP 2 - Les liens · 2 pages transcrites
+3. Correction · Solution du TP 1 - Lire des fichiers · 2 pages transcrites
+4. Correction · Solution du TP 2 - Les liens · 3 pages transcrites
 
-## Objectifs
-
-- Créer deux fichiers texte et réunir leurs contenus dans un troisième.
-- Compter les lignes ou limiter l’affichage à l’aide de la commande adaptée.
-- Distinguer un lien physique d’un lien symbolique par l’observation des inodes et des chemins.
-
-## 1. Créer et lire des fichiers avec cat
-
-Dans `cat > MonDeuxiemeFichier`, le shell redirige la sortie de cat vers le fichier. Saisir ensuite les lignes demandées, puis terminer l’entrée avec **Ctrl + D** sur une nouvelle ligne. L’affichage seul s’obtient avec `cat MonDeuxiemeFichier`.
-
-La redirection `>` crée ou remplace le fichier cible. Dans la concaténation, les deux fichiers sources sont lus dans l’ordre et le résultat est écrit dans un troisième fichier ; ce dernier ne doit pas remplacer une des sources.
-
-## 2. Compter ou limiter l’affichage
-
-`wc -l /etc/passwd` compte les lignes de la base locale de comptes représentée par ce fichier. Le résultat n’est pas automatiquement le nombre de personnes qui se connectent : le fichier contient aussi des comptes de service et ne décrit pas nécessairement toutes les sources d’identité d’un système.
-
-`head -n 2 /etc/hosts` affiche uniquement les deux premières lignes. Le contenu de la capture appartient à la machine source ; vérifier les lignes réellement présentes sur sa VM.
-
-## 3. Deux sortes de liens
-
-| Lien | Création | Ce qu’il désigne | Observation utile |
-|---|---|---|---|
-| **Physique** | `ln source nouveau_nom` | Un autre nom du même fichier, dans les limites du système de fichiers | Même inode et nombre de liens partagé |
-| **Symbolique** | `ln -s cible nouveau_lien` | Un chemin vers une cible | Type l et flèche vers la cible dans ls -l |
-
-Dans le TP, **Edition**, **edition1.txt** et **edition3.txt** sont les noms physiques du même contenu. **/tmp/stagxx/edition2.txt** est un lien symbolique vers le chemin edition1.txt.
-
-**Illustration IA / externe au cours — liens du scénario.**
+**Visuel externe**
 
 ```mermaid
-flowchart LR
-    A[Edition] --> I[Inode et contenu communs]
-    B[edition1.txt] --> I
-    C[edition3.txt] --> I
-    S[edition2.txt lien symbolique] --> P[Chemin edition1.txt]
+flowchart TD
+    N1["Énoncé · Enoncé du TP 1 - Lire des fichiers · 3 pages transcrites"]
+    N2["Énoncé · Enoncé du TP 2 - Les liens · 2 pages transcrites"]
+    N3["Correction · Solution du TP 1 - Lire des fichiers · 2 pages transcrites"]
+    N4["Correction · Solution du TP 2 - Les liens · 3 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-Supprimer **edition1.txt** laisse Edition et edition3.txt accéder au contenu, mais le lien symbolique reste dirigé vers un nom qui n’existe plus. Le contenu existe encore sans que ce chemin symbolique puisse le retrouver.
+Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.
 
-Les noms de compte **user30** et de dossier **stag30** sont des valeurs de la correction. L’aide pratique emploie **$HOME** et le dossier **/tmp/stagxx** à adapter aux consignes du laboratoire. Le fichier Edition doit déjà être fourni ; son contenu n’est pas inventé par le portail.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-## Ateliers complets
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-### TP01 — Lire des fichiers
+## Énoncé · Enoncé du TP 1 - Lire des fichiers · 3 pages transcrites
 
-#### Activité 1 — Créer MonDeuxiemeFichier avec cat et le contenu exact de trois lignes demandé.
+!!! note "À retenir"
+    Utilisation d'une distribution GNU/Linux
 
-Lancer :
+Utilisation d'une distribution GNU/Linux
 
-```bash
+#### Lire des fichiers
+
+!!! note "À retenir"
+    TP du Module 05 – Utiliser des fichiers sous Linux Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+TP du Module 05 – Utiliser des fichiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+!!! warning "Attention"
+    Créez un fichier MonTroisiemeFichier avec cat, contenant le texte : Ne pas oublier de lire au moins 4 pages de man avant d'aller se coucher Créez un nouveau fichier fichier2+3 par concaténation des deux fichiers qui viennent d'être créés.
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Créez un nouveau fichier appelé MonDeuxiemeFichier à l'aide de la commande cat, dont le contenu sera :
+
+Conseil :
+
+pour bien utiliser la ligne de commande
+
+faire des étirements de doigts avant chaque repas.
+
+1. Créez un fichier MonTroisiemeFichier avec cat, contenant le texte :
+
+Ne pas oublier de lire au moins 4 pages de man
+
+avant d'aller se coucher
+
+1. Créez un nouveau fichier fichier2+3 par concaténation des deux fichiers qui viennent d'être créés.
+2. Combien de comptes d'utilisateurs ont été créés sur la machine, sachant que le fichier contenant les utilisateurs est /etc/passwd et qu'une ligne correspond à un utilisateur ?
+3. Affichez uniquement les 2 premières lignes du fichier /etc/hosts
+
+#### Utilisation d'une distribution GNU/Linux Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1G8_Aa1e7ENpfp1PwLJtxqbwoxyrbkFsq · SHA-256 b78f64f571954fe6…
+
+## Énoncé · Enoncé du TP 2 - Les liens · 2 pages transcrites
+
+!!! note "À retenir"
+    Utilisation d'une distribution GNU/Linux
+
+Utilisation d'une distribution GNU/Linux
+
+#### Les liens
+
+!!! note "À retenir"
+    TP du Module 05 – Utiliser des fichiers sous Linux Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+TP du Module 05 – Utiliser des fichiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Énoncé
+
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Créez un lien physique du fichier Edition vers le fichier edition1.txt. Vérifiez que vous pouvez afficher son contenu.
+2. Créez un lien symbolique du fichier edition1.txt vers le fichier /tmp/stagxx/edition2.txt, vérifiez que vous pouvez afficher son contenu.
+
+1. Créez un lien physique du fichier edition1.txt vers le fichier edition3.txt, vérifiez que vous pouvez afficher son contenu.
+2. Affichez avec la commande ls les caractéristiques de ces 4 fichiers en mettant en évidence les différences.
+3. Supprimez le fichier edition1.txt ; pouvez-vous afficher le contenu de edition2.txt et edition3.txt ?
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1GAwhjiJTIo4YDiLLShWTUbatcQbGzpIS · SHA-256 a6a1edcd9c60a18a…
+
+## Correction · Solution du TP 1 - Lire des fichiers · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Lire des fichiers
+
+TP du Module 05 – Utiliser des fichiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Créez un nouveau fichier appelé MonDeuxiemeFichier à l'aide de la commande cat, dont le contenu sera :
+
+Conseil :
+
+pour bien utiliser la ligne de commande
+
+faire des étirements de doigts avant chaque repas.
+
+```
 cat > MonDeuxiemeFichier
 ```
 
-Saisir, puis terminer avec Ctrl + D :
-
-```text
+```
 Conseil :
+```
+
+```
 pour bien utiliser la ligne de commande
+```
+
+```
 faire des étirements de doigts avant chaque repas.
 ```
 
-#### Activité 2 — Créer MonTroisiemeFichier avec cat et les deux lignes demandées.
+1. Créez un fichier MonTroisiemeFichier avec cat, contenant le texte :
 
-```bash
+Ne pas oublier de lire au moins 4 pages de man
+
+avant d'aller se coucher
+
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p01-i1.webp)
+
+Visuel isolé du document — Solution du TP 1 - Lire des fichiers
+
+```
 cat > MonTroisiemeFichier
 ```
 
-Saisir, puis terminer avec Ctrl + D :
-
-```text
+```
 Ne pas oublier de lire au moins 4 pages de man
-avant d'aller se coucher
 ```
 
-#### Activité 3 — Créer fichier2+3 par concaténation des deux fichiers.
-
-```bash
-cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3
-cat fichier2+3
 ```
-Vérifier que les trois lignes du premier fichier précèdent les deux du second.
+Avant d’aller se coucher
+```
 
-#### Activité 4 — Compter les lignes de /etc/passwd, une ligne correspondant à une entrée de compte.
+1. Créez un nouveau fichier fichier2+3 par concaténation des deux fichiers qui viennent d'être créés.
 
-```bash
+```
+Cat MonDeuxiemeFichier MonTroisiemeFichier > fichier2+3
+```
+
+1. Combien de comptes d'utilisateurs ont été créés sur la machine, sachant que le fichier contenant les utilisateurs est /etc/passwd et qu'une ligne correspond à un utilisateur ?
+
+```
 wc -l /etc/passwd
 ```
-Relever le résultat du système, pas le nombre de la capture.
 
-#### Activité 5 — Afficher uniquement les deux premières lignes de /etc/hosts.
+1. Affichez uniquement les 2 premières lignes du fichier /etc/hosts
 
-```bash
+```
 head -n 2 /etc/hosts
 ```
 
-### TP02 — Les liens
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i1.webp)
 
-#### Activité 1 — Créer un lien physique depuis Edition vers edition1.txt et vérifier la lecture.
+Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
-```bash
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Lire des fichiers
+
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i3.webp)
+
+Visuel isolé du document — Solution du TP 1 - Lire des fichiers
+
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i4.webp)
+
+Visuel isolé du document — Solution du TP 1 - Lire des fichiers
+
+Référence du document : 1945gKHO12jhPd0jsB4kE9EdT91tMRyWq · SHA-256 0d448896f01cbd8b…
+
+## Correction · Solution du TP 2 - Les liens · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Les liens
+
+TP du Module 05 – Utiliser des fichiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 5 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Créez un lien physique du fichier Edition vers le fichier edition1.txt, vérifiez que vous pouvez afficher son contenu.
+
+```
 ln Edition edition1.txt
+```
+
+```
 cat edition1.txt
 ```
 
-#### Activité 2 — Créer un lien symbolique depuis edition1.txt vers /tmp/stagxx/edition2.txt, puis vérifier.
+1. Créez un lien symbolique du fichier edition1.txt vers le fichier /tmp/stagxx/edition2.txt, vérifiez que vous pouvez afficher son contenu.
 
-Depuis le répertoire personnel :
-
-```bash
-mkdir -p /tmp/stagxx
-ln -s "$HOME/edition1.txt" /tmp/stagxx/edition2.txt
-cat /tmp/stagxx/edition2.txt
 ```
-Le chemin absolu de la cible évite qu’elle soit interprétée relativement au dossier /tmp/stagxx.
+mkdir /tmp/stag30
+```
 
-#### Activité 3 — Créer un lien physique depuis edition1.txt vers edition3.txt.
+```
+ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt
+```
 
-```bash
+```
+cat /tmp/stag30/edition2.txt
+```
+
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p01-i1.webp)
+
+Visuel isolé du document — Solution du TP 2 - Les liens
+
+1. Créez un lien physique du fichier edition1.txt vers le fichier edition3.txt, vérifiez que vous pouvez afficher son contenu.
+
+```
 ln edition1.txt edition3.txt
-cat edition3.txt
 ```
 
-#### Activité 4 — Afficher les caractéristiques des quatre noms et mettre les différences en évidence.
+1. Affichez avec la commande ls les caractéristiques de ces 4 fichiers en mettant en évidence les différences.
 
-```bash
-ls -l Edition edition1.txt edition3.txt /tmp/stagxx/edition2.txt
-ls -li Edition edition1.txt edition3.txt /tmp/stagxx/edition2.txt
 ```
-La seconde ligne est un contrôle pédagogique des inodes ; les trois liens physiques partagent le même numéro.
+ls -l edition* Edition /tmp/stag30/edition2.txt
+```
 
-#### Activité 5 — Supprimer edition1.txt, puis tester les lectures via edition2.txt et edition3.txt.
+1. Supprimez le fichier edition1.txt, pouvez-vous afficher le contenu de edition2.txt et edition3.txt ?
 
-```bash
+```
 rm edition1.txt
-cat /tmp/stagxx/edition2.txt
+```
+
+```
+cat /tmp/stag30/edition2.txt
+```
+
+```
+cat: /tmp/stag30/edition2.txt: Aucun fichier ou dossier de ce type
+```
+
+```
 cat edition3.txt
 ```
-Le lien symbolique devient cassé et la lecture par edition3.txt reste possible, comme dans la correction.
 
-## Écarts et précisions du document
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i1.webp)
 
-!!! note "Lecture de la source"
-    La correction écrit `Cat` dans la concaténation : utiliser `cat` en minuscules.
+Visuel isolé du document — Solution du TP 2 - Les liens
 
-!!! note "Lecture de la source"
-    L’énoncé du troisième fichier commence la seconde ligne par « avant » ; la correction la reproduit une fois avec « Avant ». L’exercice ci-dessous conserve le texte de l’énoncé.
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i2.webp)
 
-!!! note "Lecture de la source"
-    Le relevé des inodes avec ls -li est une aide de vérification ajoutée ; le document demande initialement les caractéristiques avec ls -l.
+Visuel isolé du document — Solution du TP 2 - Les liens
 
-## À retenir
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i3.webp)
 
-`cat` concatène les fichiers dans l’ordre des arguments. `wc -l` mesure les lignes terminées par un saut de ligne. Deux liens physiques partagent un inode, tandis qu’un lien symbolique désigne un chemin.
+Visuel isolé du document — Solution du TP 2 - Les liens
 
-## Mini-quiz
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p03-i1.webp)
 
-1. Comment terminer une saisie interactive avec `cat` ?
-2. Dans quel ordre `cat A B > C` assemble-t-il le contenu ?
-3. Comment observer seulement deux lignes de `/etc/hosts` ?
-4. Comment confirmer que deux noms sont des liens physiques du même fichier ?
-5. Que se passe-t-il pour `edition2.txt` et `edition3.txt` après suppression de `edition1.txt` ?
+Visuel isolé du document — Solution du TP 2 - Les liens
 
-??? note "Réponses commentées"
-    1. Utiliser `Ctrl + D` sur une nouvelle ligne pour signaler la fin de l’entrée au terminal.
-    2. Il écrit les octets de `A` puis ceux de `B` dans `C`. `>` remplace le contenu précédent de `C`.
-    3. Utiliser `head -n 2 /etc/hosts`. `wc -l` compterait des lignes au lieu de les afficher.
-    4. Comparer les numéros d’inode dans `ls -li`, sur le même système de fichiers. Ils sont identiques dans le scénario du TP.
-    5. Le lien symbolique `edition2.txt` devient pendant si son chemin cible disparaît. Le lien physique `edition3.txt` donne encore accès au même inode.
+Référence du document : 1qiNhvPoDt3_8j85ejHghAwcvbU4g6La5 · SHA-256 d8e50d555cefa72f…
 
-## Pour pratiquer et réviser
+## Fiche de synthèse
 
-- [TP : énoncés et corrections](../../tp/utilisation-linux/module-05/index.md)
-- [Fiche de révision](../../revision/utilisation-linux/module-05-lire-des-fichiers-et-gerer-les-liens.md)
-- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-05-lire-des-fichiers-et-gerer-les-liens.md)
-- [Commandes GNU/Linux](../../commandes/linux.md)
-- [Présentation du cours](index.md)
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
 
-## Provenance pédagogique
-
-Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
+| Partie | Repère du cours |
+| --- | --- |
+| Énoncé · Enoncé du TP 1 - Lire des fichiers · 3 pages transcrites | Utilisation d'une distribution GNU/Linux |
+| Énoncé · Enoncé du TP 2 - Les liens · 2 pages transcrites | Utilisation d'une distribution GNU/Linux |
+| Correction · Solution du TP 1 - Lire des fichiers · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · Solution du TP 2 - Les liens · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

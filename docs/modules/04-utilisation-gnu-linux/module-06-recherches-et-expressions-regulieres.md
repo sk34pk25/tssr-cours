@@ -1,230 +1,355 @@
 # Module 06 — Recherches et expressions régulières
 
-**Sources du module.** Énoncés et corrections des TP du module. Aucun support théorique distinct n’est fourni.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Rechercher dans le contenu avec grep, retrouver des chemins avec find puis utiliser les développements de noms du shell. Les deux TP sont conservés : Recherches et regex, puis Métacaractères.
+## Parcours de lecture
 
-**Durée des ateliers.** Deux TP de 45 à 60 minutes. Lire chaque énoncé avant de commencer. Employer la machine et les fichiers de formation prévus.
+1. Énoncé · Enoncé du TP 1 - Recherches et regex · 3 pages transcrites
+2. Énoncé · M04TP02 - Enoncé - Métacaractères · 2 pages transcrites
+3. Correction · Solution du TP 1 - Recherches et regex · 3 pages transcrites
+4. Correction · M04TP02 - Solution - Métacaractères · 3 pages transcrites
 
-## Objectifs
-
-- Choisir entre recherche dans le texte, parcours de l’arborescence et motif du shell.
-- Écrire et protéger les motifs employés dans les deux ateliers.
-- Contrôler la profondeur, le type de fichier et les chemins retenus avant de copier ou de supprimer.
-
-## 1. Trois mécanismes à distinguer
-
-| Besoin | Interprète | Exemple |
-|---|---|---|
-| Sélectionner des noms avant de lancer une commande | Shell Bash | `/etc/[a-d]*` |
-| Sélectionner des lignes d’un fichier | Expression régulière de grep | `grep -v '^$' Edition` |
-| Parcourir une arborescence et tester les chemins | find | `find /etc -type f -name 'ho*'` |
-
-Un astérisque n’a pas le même rôle dans un motif de noms et dans une expression régulière. Les guillemets autour de `'ho*'` empêchent le shell de développer ce motif avant que find le reçoive.
-
-**Illustration IA / externe au cours — Trois recherches, trois interprètes.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    Question[Que faut-il trouver ?] --> Contenu[Une ligne dans un fichier]
-    Question --> Parcours[Des chemins dans une arborescence]
-    Question --> Noms[Des noms passés à une commande]
-    Contenu --> Grep[grep lit le contenu]
-    Parcours --> Find[find applique ses critères]
-    Noms --> Shell[Le shell développe le motif]
+    N1["Énoncé · Enoncé du TP 1 - Recherches et regex · 3 pages transcrites"]
+    N2["Énoncé · M04TP02 - Enoncé - Métacaractères · 2 pages transcrites"]
+    N3["Correction · Solution du TP 1 - Recherches et regex · 3 pages transcrites"]
+    N4["Correction · M04TP02 - Solution - Métacaractères · 3 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
 ```
 
-## 2. Rechercher dans le texte
+Le dossier de ce module contient des énoncés et corrections de TP, sans support de cours distinct. Les documents disponibles sont reproduits intégralement ; aucun support manquant n’a été reconstitué par IA.
 
-- `grep Dupont Edition` recherche cette casse dans les lignes.
-- `grep -i dupont Edition` ignore la casse.
-- `grep -v '^$' Edition` exclut les lignes vides. Une ligne composée uniquement d’espaces n’est pas une ligne vide au sens de cette expression.
-- `grep -sl localhost /etc/*` affiche les noms de fichiers correspondants ; `-l` sélectionne les noms et `-s` supprime les messages d’erreur. Le motif /etc/* est développé une seule fois, sans recherche récursive.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Dans `^$`, **^** marque le début et **$** la fin : rien ne se trouve entre les deux. L’option **-v** inverse la sélection.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## 3. Parcourir avec find
+## Énoncé · Enoncé du TP 1 - Recherches et regex · 3 pages transcrites
 
-**-type f** vise les fichiers standards, **-type d** les répertoires. Le point de départ détermine l’étendue de la recherche ; les noms sont testés par **-name**.
+!!! note "À retenir"
+    Utilisation d'une distribution GNU/Linux
 
-Dans `-exec cp {} {}.save \;`, **{}** est remplacé par le chemin trouvé, et **\;** termine l’action sans que le shell consomme son point-virgule. La consigne vise les noms se terminant par **txt** : le document utilise donc `'*txt'`, sans imposer un point avant txt.
+Utilisation d'une distribution GNU/Linux
 
-## 4. Développer et protéger les noms
+#### Recherches et regex
 
-| Forme | Signification dans les exercices |
-|---|---|
-| `*` | Zéro ou plusieurs caractères dans un nom |
-| `[a-d]` | Un caractère de a à d |
-| `[a-zA-Z]` | Une lettre des plages ASCII indiquées |
-| `[!aeiouyAEIOUY]` | Un caractère qui n’appartient pas à cet ensemble de voyelles |
-| `{Bourne,KornShell,...}` | Développement d’accolades Bash pour produire plusieurs chemins |
-| `'fic*ier'` | Nom littéral contenant un astérisque protégé |
+!!! note "À retenir"
+    TP du Module 06 – Fichiers et dossiers sous Linux Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir effectué le TP précédent.
 
-Dans la correction, `touch fic*ier` n’est pas protégé. Avec le réglage habituel de Bash, un motif sans correspondance peut rester littéral ; si des noms correspondent déjà, il serait développé. Les guillemets rendent le but de l’énoncé explicite.
+TP du Module 06 – Fichiers et dossiers sous Linux
 
-## 5. Respecter le rattachement du document
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir effectué le TP précédent.
 
-Le TP nommé **M04TP02 — Métacaractères** est stocké dans le dossier Module 4, mais sa première page porte **« TP du Module 06 — Spécificités du shell Bash »**. Il est donc présenté ici, avec cette notice de provenance, sans renommer les sources ni déplacer les fichiers du Drive.
+Durée estimée
 
-La correction mélange également deux demandes : essayer **rmdir** sur Sources non vide et utiliser **rm -r**. La première doit échouer dans l’état demandé ; la seconde supprime réellement l’arborescence d’exercice. Observer le résultat demandé avant de poursuivre.
+45 à 60 minutes
 
-## Ateliers complets
+#### Énoncé
 
-### TP01 — Recherches et regex
+!!! note "À retenir"
+    Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
 
-#### Activité 1 — Rechercher les lignes contenant Dupont dans Edition.
+**Visuel externe**
 
-```bash
+```mermaid
+flowchart LR
+    N1["Recherchez toutes les lignes contenant Dupont dans le fichier Edition."]
+    N2["Affichez toutes les lignes non vides du fichier Edition."]
+    N3["Recherchez tous les répertoires depuis votre répertoire personnel."]
+    N1 --> N2
+    N2 --> N3
+```
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Recherchez toutes les lignes contenant Dupont dans le fichier Edition.
+2. Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier Edition.
+
+1. Affichez toutes les lignes non vides du fichier Edition.
+2. Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-répertoires.
+3. Recherchez tous les fichiers standards commençant par ho à partir du répertoire /etc.
+4. Recherchez tous les répertoires depuis votre répertoire personnel.
+
+1. Recherchez tous les fichiers standards de votre répertoire personnel se terminant par txt et en faire une copie avec l'extension .save.
+
+#### Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 116dD0Y9yfykwJumCShlSuHBvWNZeLMut · SHA-256 c8ed46b85b0ad434…
+
+## Énoncé · M04TP02 - Enoncé - Métacaractères · 2 pages transcrites
+
+!!! note "À retenir"
+    Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ».
+
+Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.
+
+#### Les métacaractères
+
+!!! note "À retenir"
+    TP du Module 06 – Spécificités du shell Bash Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.
+
+TP du Module 06 – Spécificités du shell Bash
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.
+
+Avoir effectué le TP précèdent
+
+Durée estimée
+
+#### 45 à 60 minutes Énoncé
+
+!!! note "À retenir"
+    En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.
+2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :
+
+![Visuel isolé du document — M04TP02 - Enoncé - Métacaractères](../../assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp)
+
+Visuel isolé du document — M04TP02 - Enoncé - Métacaractères
+
+1. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.
+2. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?
+3. Supprimer le répertoire Divers en utilisant la commande rm.
+
+1. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :
+   - ils sont présents directement dans /etc
+   - leurs noms finissent par l'extension .conf
+   - la première lettre est une consonne, celle précédant l'extension est comprise entre f et s
+   - ils comportent exactement 6 lettres (hors extension).
+
+#### Solution
+
+!!! note "À retenir"
+    Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1UxNuienstNgVxtr1UyNDEU4GdedUSzJP · SHA-256 249cdf9a0cce0395…
+
+## Correction · Solution du TP 1 - Recherches et regex · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Recherches et regex
+
+TP du Module 06 – Fichiers et dossiers sous Linux
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 6 et d’avoir effectué le TP précédent.
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Recherchez toutes les lignes contenant Dupont dans le fichier Edition."]
+    N2["Affichez toutes les lignes non vides du fichier Edition."]
+    N3["Recherchez tous les répertoires depuis votre répertoire personnel."]
+    N1 --> N2
+    N2 --> N3
+```
+
+Dans le module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Recherchez toutes les lignes contenant Dupont dans le fichier Edition.
+
+```
 grep Dupont Edition
 ```
 
-#### Activité 2 — Rechercher dupont quelle que soit la casse.
+1. Recherchez toutes les lignes contenant dupont quelle que soit la casse dans le fichier Edition.
 
-```bash
+```
 grep -i dupont Edition
 ```
 
-#### Activité 3 — Afficher toutes les lignes non vides.
+1. Affichez toutes les lignes non vides du fichier Edition.
 
-```bash
+```
 grep -v '^$' Edition
 ```
 
-#### Activité 4 — Lister les fichiers contenant localhost directement dans /etc, sans sous-répertoires.
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp)
 
-```bash
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+1. Listez les fichiers contenant localhost dans le répertoire /etc sans inclure les sous-répertoires.
+
+```
 grep -sl localhost /etc/*
 ```
-Les noms du résultat dépendent des fichiers lisibles du système.
 
-#### Activité 5 — Rechercher les fichiers standards commençant par ho à partir de /etc.
+1. Recherchez tous les fichiers standards commençant par ho à partir du répertoire /etc.
 
-```bash
-find /etc -type f -name 'ho*'
+```
+find /etc -type f -name "ho*"
 ```
 
-#### Activité 6 — Rechercher tous les répertoires depuis le répertoire personnel.
+1. Recherchez tous les répertoires depuis votre répertoire personnel.
 
-```bash
-find "$HOME" -type d
+```
+find ~ -type d
 ```
 
-#### Activité 7 — Trouver les fichiers standards de son répertoire personnel terminés par txt et en faire une copie .save.
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp)
 
-```bash
-find "$HOME" -type f -name '*txt' -exec cp {} {}.save \;
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp)
+
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+1. Recherchez tous les fichiers standards de votre répertoire personnel se terminant par txt et en faire une copie avec l'extension .save.
+
 ```
-Vérifier la présence des copies et le maintien des originaux. Une copie nom.txt.save ne se termine plus par txt.
+find ~ -type f -name "*txt" -exec cp {} {}.save \;
+```
 
-### TP02 — Métacaractères
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp)
 
-#### Activité 1 — Afficher les noms de fichiers et répertoires commençant par a, b, c ou d directement dans /etc, sans lister leur contenu.
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
-```bash
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp)
+
+Visuel isolé du document — Solution du TP 1 - Recherches et regex
+
+Référence du document : 1TTMm3YMJBJkNEW3msGC_fPMvC0tQCeYy · SHA-256 89832fa8712cd294…
+
+## Correction · M04TP02 - Solution - Métacaractères · 3 pages transcrites
+
+Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». Son rattachement pédagogique est donc M06 ; le chemin et le fichier originaux sont conservés.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Les métacaractères
+
+TP du Module 06 – Spécificités du shell Bash
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 6.
+
+Avoir effectué le TP précèdent
+
+Durée estimée
+
+45 à 60 minutes
+
+#### Proposition de solution
+
+En fonction du module que vous venez de parcourir, vous trouverez les commandes nécessaires pour répondre aux questions.
+
+1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.
+
+```
 ls -d /etc/[a-d]*
 ```
--d conserve l’affichage des noms des répertoires eux-mêmes.
 
-#### Activité 2 — Créer en une seule commande l’arborescence bin et Tp sous $HOME, puis Bourne, KornShell, Divers et ses trois sous-répertoires.
+1. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :
 
-Se placer dans le répertoire personnel, puis lancer la commande unique de création :
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp)
 
-```bash
-cd "$HOME"
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
+
+```
 mkdir -p bin Tp/{Bourne,KornShell,Divers/{Sources,lib,Executables}}
 ```
 
-```text
-$HOME
-├── bin
-└── Tp
-    ├── Bourne
-    ├── KornShell
-    └── Divers
-        ├── Sources
-        ├── lib
-        └── Executables
+1. Positionnez-vous dans le répertoire Sources. Dans ce répertoire, créer un fichier qui comporte, dans son nom, un astérisque.
+
+```
+cd Tp/Divers/Sources/
 ```
 
-#### Activité 3 — Se positionner dans Sources et créer un fichier dont le nom comporte un astérisque.
-
-```bash
-cd "$HOME/Tp/Divers/Sources"
-touch 'fic*ier'
-ls
 ```
-Le nom attendu est littéralement fic*ier ; les guillemets ne font pas partie du nom.
-
-#### Activité 4 — Sans changer de répertoire, essayer de supprimer Sources avec rmdir et expliquer le résultat.
-
-```bash
-rmdir "$HOME/Tp/Divers/Sources"
+touch fic*ier
 ```
-Sources contient le fichier créé : rmdir ne supprime que les répertoires vides. La correction illustre ensuite rm -r, une action différente qui supprime son contenu.
 
-#### Activité 5 — Supprimer Divers avec rm.
+1. Sans vous déplacez dans l’arborescence, essayer de supprimer le répertoire Sources en utilisant la commande rmdir. Que constatez-vous ?
 
-Après l’observation précédente, revenir dans le répertoire personnel puis supprimer uniquement l’arborescence d’exercice :
-
-```bash
-cd "$HOME"
-rm -r "$HOME/Tp/Divers"
 ```
-La correction emploie un chemin relatif ../../Divers depuis son contexte de départ ; le chemin explicite évite la dépendance à un répertoire courant supprimé.
+Remarque : La commande rmdir peut être utilisée uniquement pour supprimer des 
+répertoires vides, alors que rm -r permet de supprimer des fichiers et des répertoires 
+non vides ainsi que leurs contenus, si l'option -r (récursive) est utilisée.
+```
 
-#### Activité 6 — Depuis le répertoire personnel, lister en détail les fichiers directement dans /etc : extension .conf, six lettres, initiale consonne et lettre avant l’extension entre f et s.
+```
+rm -r $HOME/Tp/Divers/Sources/
+```
 
-Le document propose :
+On constate que même positionné dans un répertoire nous pouvons le supprimer
 
-```bash
+1. Supprimer le répertoire Divers en utilisant la commande rm.
+
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp)
+
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
+
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp)
+
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
+
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp)
+
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
+
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp)
+
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
+
+```
+rm -r ../../Divers/
+```
+
+1. Après vous être positionné dans votre répertoire d'accueil, afficher la liste détaillée des fichiers répondants aux critères suivants :
+   - ils sont présents directement dans /etc
+   - leurs noms finissent par l'extension .conf
+   - la première lettre est une consonne, celle précédant l'extension est comprise entre f et s
+   - ils comportent exactement 6 lettres (hors extension).
+
+```
 ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf
 ```
 
-Pour imposer une consonne ASCII au premier caractère, au lieu de tout caractère non voyelle :
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp)
 
-```bash
-ls -ld /etc/[b-df-hj-np-tv-xzB-DF-HJ-NP-TV-XZ][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf
-```
-Le premier ensemble fournit une lettre, les quatre suivants quatre lettres, puis [f-s] la sixième ; .conf suit ces six caractères.
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-## Écarts et précisions du document
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp)
 
-!!! note "Lecture de la source"
-    Le motif source `[!aeiouyAEIOUY]` exclut les voyelles, mais il n’impose pas que le premier caractère soit une lettre. Une variante stricte de consonnes est fournie pour respecter entièrement la consigne.
+Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-!!! note "Lecture de la source"
-    La correction supprime Sources alors que le terminal y est positionné. Le chemin courant peut alors ne plus exister. Revenir dans $HOME avant la suppression finale de Divers rend la suite du TP lisible.
+Référence du document : 1xGFJoYQKMrxSvb9Ksus3MoEavJ-d_aDa · SHA-256 277a72096d21b97f…
 
-!!! note "Lecture de la source"
-    L’énoncé demande des fichiers directement dans /etc : les exemples de glob et grep ne sont pas récursifs ; find est employé pour les consignes qui demandent un parcours.
+## Fiche de synthèse
 
-## À retenir
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
 
-`grep` examine des lignes, `find` parcourt des chemins et le shell développe les motifs de noms. Vérifier la casse, la profondeur et le type recherché. Protéger un motif quand il doit parvenir intact à `grep` ou `find`.
-
-## Mini-quiz
-
-1. Que sélectionne `grep -v '^$' Edition` ?
-2. Pourquoi protéger `'ho*'` dans une commande `find` ?
-3. Comment limiter `find` aux enfants directs de `/etc` ?
-4. Pourquoi `rmdir` ne peut-il pas retirer `Sources` dans l’exercice ?
-5. Pourquoi un motif qui exclut les voyelles ne suffit-il pas pour reconnaître une consonne ?
-
-??? note "Réponses commentées"
-    1. Les lignes qui ne sont pas complètement vides. Une ligne qui ne contient que des espaces est encore retenue par ce motif.
-    2. Le shell transmet le motif intact. `find -name` le compare ensuite au nom de chaque entrée parcourue.
-    3. Avec `-maxdepth 1` sur GNU find. `-type f` permet de garder les fichiers réguliers.
-    4. `Sources` contient le fichier créé précédemment. L’atelier demande d’observer ce refus avant de poursuivre.
-    5. Le motif peut encore accepter un chiffre ou un signe. Définir l’ensemble de lettres voulu ou utiliser un critère supplémentaire.
-
-## Pour pratiquer et réviser
-
-- [TP : énoncés et corrections](../../tp/utilisation-linux/module-06/index.md)
-- [Fiche de révision](../../revision/utilisation-linux/module-06-recherches-et-expressions-regulieres.md)
-- [Kahoot existant du module](../../kahoot/04-utilisation-gnu-linux-module-06-recherches-et-expressions-regulieres.md)
-- [Commandes GNU/Linux](../../commandes/linux.md)
-- [Présentation du cours](index.md)
-
-## Provenance pédagogique
-
-Les consignes, noms et exemples proviennent des documents de formation disponibles. Les explications, contrôles, variantes explicitement signalées et mini-quiz sont une aide pédagogique distincte de la transcription originale. Les sorties de captures sont des exemples, pas des valeurs à imposer à chaque machine.
+| Partie | Repère du cours |
+| --- | --- |
+| Énoncé · Enoncé du TP 1 - Recherches et regex · 3 pages transcrites | Utilisation d'une distribution GNU/Linux |
+| Énoncé · M04TP02 - Enoncé - Métacaractères · 2 pages transcrites | Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». |
+| Correction · Solution du TP 1 - Recherches et regex · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Correction · M04TP02 - Solution - Métacaractères · 3 pages transcrites | Ce fichier est stocké sous Module 4 / TP2 dans le Drive et préfixé M04TP02, mais sa première page porte « TP du Module 06 – Spécificités du shell Bash ». |
