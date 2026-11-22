@@ -151,11 +151,11 @@ passwd (respectez la complexité requise), pensez à quitter et vous reconnecter
 
 who am i
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i1.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i1.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i2.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p01-i2.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
@@ -195,15 +195,15 @@ uid=1030(user30) gid=1030(user30) groupes=1030(user30),100(users),1000(groupe-fo
 Date +%X
 ```
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i1.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i1.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i2.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i2.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i3.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p02-i3.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
@@ -227,19 +227,19 @@ b. Afficher le calendrier du mois de Janvier de l'année courante.
 cal 1 2020
 ```
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i1.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i1.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i2.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i2.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i3.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i3.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i4.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p03-i4.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 
@@ -255,7 +255,7 @@ Voir le man en recherchant la mention 1752. C’est le mois du passage au calend
 
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
 
-![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p04-i1.webp)
+![Visuel isolé du document — M03TP01 - Solution - Premières Commandes](../../assets/course-sources/isolated/a99de2a7574cb337/u04-d11-p04-i1.webp)
 
 Visuel isolé du document — M03TP01 - Solution - Premières Commandes
 

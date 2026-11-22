@@ -258,7 +258,7 @@ cat process/daemons.txt
 
 1. Recherchez les fichiers dont le nom se termine par .conf à partir de la racine. Cette recherche ne devra être effectuée que sur le système de fichier racine. Le résultat sera affiché à l'écran tout en étant stocké dans le fichier
 
-![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
 
@@ -309,15 +309,15 @@ find / -mount
 resultats/compteur.txt
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
 
-![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
 
-![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes](../../assets/course-sources/isolated/22be2935f155b285/u04-d04-p03-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Utilisation des systèmes
 
@@ -368,7 +368,7 @@ ls -lh /tmp/$LOGNAME.tar
 
 1. Créer une nouvelle archive de votre répertoire personnel, mais cette fois-ci en la compressant avec gzip, l'opération devant être réalisée en une seule instruction.
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p01-i1.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 
@@ -408,15 +408,15 @@ mkdir $HOME/Restaurations
 tar -xzvf /tmp/$LOGNAME.tar.gz -C Restaurations
 ```
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i1.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i1.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i2.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i2.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p02-i3.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 
@@ -438,11 +438,11 @@ touch new_fichier.txt
 tar -uvf /tmp/$LOGNAME-v2.tar ~/new_fichier.txt
 ```
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i1.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i1.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 
-![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp)
+![Visuel isolé du document — M08TP02 - Solution - Archivages et Compression](../../assets/course-sources/isolated/8702440981273989/u04-d05-p03-i2.webp)
 
 Visuel isolé du document — M08TP02 - Solution - Archivages et Compression
 

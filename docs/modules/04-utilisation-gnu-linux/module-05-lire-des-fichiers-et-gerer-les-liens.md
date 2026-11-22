@@ -173,7 +173,7 @@ Ne pas oublier de lire au moins 4 pages de man
 
 avant d'aller se coucher
 
-![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p01-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
@@ -207,19 +207,19 @@ wc -l /etc/passwd
 head -n 2 /etc/hosts
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
-![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
-![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i3.webp)
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i3.webp)
 
 Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
-![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i4.webp)
+![Visuel isolé du document — Solution du TP 1 - Lire des fichiers](../../assets/course-sources/isolated/0d448896f01cbd8b/u04-d03-p02-i4.webp)
 
 Visuel isolé du document — Solution du TP 1 - Lire des fichiers
 
@@ -267,7 +267,7 @@ ln -s /home/user30/edition1.txt /tmp/stag30/edition2.txt
 cat /tmp/stag30/edition2.txt
 ```
 
-![Visuel isolé du document — Solution du TP 2 - Les liens](../../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p01-i1.webp)
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP 2 - Les liens
 
@@ -301,19 +301,19 @@ cat: /tmp/stag30/edition2.txt: Aucun fichier ou dossier de ce type
 cat edition3.txt
 ```
 
-![Visuel isolé du document — Solution du TP 2 - Les liens](../../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i1.webp)
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP 2 - Les liens
 
-![Visuel isolé du document — Solution du TP 2 - Les liens](../../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i2.webp)
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP 2 - Les liens
 
-![Visuel isolé du document — Solution du TP 2 - Les liens](../../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i3.webp)
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p02-i3.webp)
 
 Visuel isolé du document — Solution du TP 2 - Les liens
 
-![Visuel isolé du document — Solution du TP 2 - Les liens](../../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p03-i1.webp)
+![Visuel isolé du document — Solution du TP 2 - Les liens](../../assets/course-sources/isolated/d8e50d555cefa72f/u04-d20-p03-i1.webp)
 
 Visuel isolé du document — Solution du TP 2 - Les liens
 

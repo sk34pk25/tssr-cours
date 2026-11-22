@@ -134,11 +134,11 @@ touch MonPremierFichier
 ls -l MonPremierFichier
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p01-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
@@ -154,15 +154,15 @@ ls /etc/*.conf
 ls -ld /tmp
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 
-![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i3.webp)
+![Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers](../../assets/course-sources/isolated/7455a0ec69483e30/u04-d18-p02-i3.webp)
 
 Visuel isolé du document — Solution du TP 1 - Fichiers et dossiers
 

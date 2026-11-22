@@ -180,7 +180,7 @@ vi Edition
 /Dupont Jean
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p01-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -198,11 +198,11 @@ a
 -Jacques
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i2.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -248,7 +248,7 @@ O
 MARTIN Camille
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p03-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p03-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -276,11 +276,11 @@ BERNARD Alex
 :wq
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i2.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p04-i2.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -318,7 +318,7 @@ dd
 : g/Dupont/s//Durand/g
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p05-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p05-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -328,11 +328,11 @@ Visuel isolé du document — Solution du TP - Utilisation de Vi
 : g/Durand/m$
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i2.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p06-i2.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -390,11 +390,11 @@ vi Edition
 :g/ Durand/s//Dupont/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i2.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p07-i2.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -412,7 +412,7 @@ g/Jean /s/Jean/&-Paul
 :g/\(Jean\)/s//\U\1/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p08-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p08-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -422,7 +422,7 @@ Visuel isolé du document — Solution du TP - Utilisation de Vi
 :g/JEAN/s//Jean/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p09-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p09-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -432,7 +432,7 @@ Visuel isolé du document — Solution du TP - Utilisation de Vi
 :%s/Jean/Jean-Jean/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p10-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p10-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -446,7 +446,7 @@ Exemple : Frederic Thouin (033)124666
 :%s/\<[1-3]/(033)&/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p11-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p11-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -456,7 +456,7 @@ Visuel isolé du document — Solution du TP - Utilisation de Vi
 g/^F/s/$/0/
 ```
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p12-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p12-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 
@@ -464,7 +464,7 @@ Visuel isolé du document — Solution du TP - Utilisation de Vi
 
 Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
 
-![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p13-i1.webp)
+![Visuel isolé du document — Solution du TP - Utilisation de Vi](../../assets/course-sources/isolated/91154f62451e05b1/u04-d16-p13-i1.webp)
 
 Visuel isolé du document — Solution du TP - Utilisation de Vi
 

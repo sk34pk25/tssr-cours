@@ -115,7 +115,7 @@ En fonction du module que vous venez de parcourir, vous trouverez les commandes 
 1. Afficher les fichiers et répertoires (pas leur contenu) dont le nom commence par a, b, c ou d du répertoire /etc.
 2. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :
 
-![Visuel isolé du document — M04TP02 - Enoncé - Métacaractères](../../../assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp)
+![Visuel isolé du document — M04TP02 - Enoncé - Métacaractères](../../assets/course-sources/isolated/249cdf9a0cce0395/u04-d12-p01-i1.webp)
 
 Visuel isolé du document — M04TP02 - Enoncé - Métacaractères
 
@@ -185,11 +185,11 @@ grep -i dupont Edition
 grep -v '^$' Edition
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p01-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
@@ -211,15 +211,15 @@ find /etc -type f -name "ho*"
 find ~ -type d
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p02-i3.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
@@ -229,11 +229,11 @@ Visuel isolé du document — Solution du TP 1 - Recherches et regex
 find ~ -type f -name "*txt" -exec cp {} {}.save \;
 ```
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i1.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
-![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp)
+![Visuel isolé du document — Solution du TP 1 - Recherches et regex](../../assets/course-sources/isolated/89832fa8712cd294/u04-d10-p03-i2.webp)
 
 Visuel isolé du document — Solution du TP 1 - Recherches et regex
 
@@ -269,7 +269,7 @@ ls -d /etc/[a-d]*
 
 1. Créer l'arborescence suivante dans votre répertoire de travail ($HOME) en une seule ligne de commande :
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p01-i1.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
@@ -303,19 +303,19 @@ On constate que même positionné dans un répertoire nous pouvons le supprimer
 
 1. Supprimer le répertoire Divers en utilisant la commande rm.
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i1.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i2.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i3.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p02-i4.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
@@ -333,11 +333,11 @@ rm -r ../../Divers/
 ls -ld /etc/[!aeiouyAEIOUY][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][f-s].conf
 ```
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i1.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
-![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp)
+![Visuel isolé du document — M04TP02 - Solution - Métacaractères](../../assets/course-sources/isolated/277a72096d21b97f/u04-d21-p03-i2.webp)
 
 Visuel isolé du document — M04TP02 - Solution - Métacaractères
 
