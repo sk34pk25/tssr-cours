@@ -1,173 +1,601 @@
 # Module 09 — Les pilotes et les imprimantes
 
-**Séquence :** Systèmes clients Microsoft  
-**Fil conducteur :** comprendre le rôle du pilote, identifier un périphérique puis configurer et tester une ressource d’impression.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
+
+## Parcours de lecture
+
+1. Support · Module 09 - Support de cours · 9 pages transcrites
+2. Systèmes clients Microsoft
+3. Objectifs
+4. Pilotes
+5. Gestionnaires de périphériques
+6. Pilotes
+7. Pilotes
+8. Pilotes
+9. Démonstration
+10. Imprimantes
+11. Imprimantes
+12. Imprimantes
+13. Imprimantes
+14. Imprimantes
+15. Imprimantes
+16. Démonstration
+17. TP
+18. Conclusion
+19. Énoncé · Enonc‚ du TP - Les pilotes et les imprimantes · 4 pages transcrites
+20. Systèmes Clients Microsoft Les pilotes et les imprimantes
+21. Énoncé
+22. Solution
+23. Correction · Solution du TP - Les pilotes et imprimantes · 4 pages transcrites
+24. Les pilotes et les imprimantes
+25. Proposition de solution
+
+**Visuel externe**
+
+```mermaid
+flowchart TD
+    N1["Support · Module 09 - Support de cours · 9 pages transcrites"]
+    N2["Systèmes clients Microsoft"]
+    N3["Objectifs"]
+    N4["Pilotes"]
+    N5["Gestionnaires de périphériques"]
+    N6["Pilotes"]
+    N7["Pilotes"]
+    N8["Pilotes"]
+    N9["Démonstration"]
+    N10["Imprimantes"]
+    N11["Imprimantes"]
+    N12["Imprimantes"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
+```
+
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
+
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Support · Module 09 - Support de cours · 9 pages transcrites
+
+## Systèmes clients Microsoft
+
+!!! note "À retenir"
+    Module 09 – Les pilotes et les imprimantes
+
+Module 09 – Les pilotes et les imprimantes
 
 ## Objectifs
 
-- Définir un pilote et choisir les outils de consultation adaptés.
-- Distinguer architecture, signature, fichiers du pilote et magasin Windows.
-- Séparer périphérique d’impression, imprimante logique, file et partage.
-- Exporter les informations des pilotes, régler Print to PDF et installer l’imprimante partagée du TP.
+!!! note "À retenir"
+    Définir un pilote Windows et les pilotes Windows et les imprimantes Utiliser, configurer une imprimante Partager une ressource « imprimante »
 
-## 1. Matériel, détection et pilote
-
-Un pilote permet au système d’exploiter un composant matériel ou logiciel. Le support distingue le matériel **Plug and Play**, pris en charge « à chaud », du matériel non Plug and Play pouvant nécessiter un redémarrage. Détection et installation peuvent être automatiques ou manuelles.
-
-Le **Gestionnaire de périphériques**, `devmgmt.msc`, montre les composants pris en charge ou non. Il permet de mettre à jour, désactiver ou désinstaller un périphérique, ainsi que de restaurer un pilote et d’examiner ses informations détaillées. Une installation visible et un matériel correctement exploité sont deux vérifications complémentaires.
-
-Les pilotes dépendent de l’architecture, **32 ou 64 bits**. Le support privilégie les pilotes signés et les relie à la stabilité du système ; il précise leur obligation pour les éditions 64 bits dans le contexte présenté.
-
-## 2. Fichiers et magasin de pilotes
-
-| Fichier | Rôle présenté dans le cours |
-|---|---|
-| `*.inf` | Définition du pilote au format texte, utilisée pour sa prise en charge. |
-| `*.sys` | Pilote lui-même. |
-| `*.cat` | Catalogue/certificat associé à la signature, fourni par Microsoft ou un tiers de confiance selon le support. |
-| `*.exe`, `*.dll`, `*.xml`… | Fichiers complémentaires selon les besoins. |
-
-L’installation peut commencer depuis le fichier INF, un programme `setup.exe` ou un assistant de mise à jour. Une fois installé, le pilote est mémorisé pour permettre sa réinstallation automatique. Le support cite `C:\Windows\inf`, avec les noms `oemXX.inf` pour les pilotes tiers installés, et d’autres fichiers sous `C:\Windows\System32` ou `C:\Windows\SysWOW64`.
-
-Le **DriverStore**, `C:\Windows\System32\DriverStore`, est le magasin de pilotes de Windows. Le cours présente `pnputil` pour sa gestion et `msinfo32` pour le détail matériel.
-
-```bat
-driverquery
-driverquery /si
-pnputil /enum-drivers
-pnputil /add-driver pilote.inf
-```
-
-Le nom `pilote.inf` représente le paquet du scénario. Lister les pilotes tiers et ajouter un paquet au magasin sont deux opérations différentes. Les exports du TP ci-dessous restent des opérations de consultation.
-
-## 3. Le vocabulaire de l’impression
-
-| Terme | Sens dans le support |
-|---|---|
-| Périphérique d’impression | Matériel qui produit la feuille. |
-| Imprimante | Ressource logicielle comprenant pilote, configuration, file et port. |
-| File d’attente / spouleur | Gestion des travaux, conversion vers un langage interprétable et envoi au port d’impression. |
-| Imprimante locale | Périphérique relié directement au poste par un port local. |
-| Imprimante partagée | Ressource locale publiée par l’OS d’un poste ; dépend de la disponibilité de cet hôte. |
-| Imprimante réseau | Équipement autonome doté de sa propre interface réseau, de son OS et souvent d’une configuration web. |
-
-**Illustration IA / externe au cours — chemin logique d’un travail.**
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    A["Application et document"] --> B["Imprimante logique et pilote"]
-    B --> C["Spouleur et file d’attente"]
-    C --> D["Port local ou réseau"]
-    D --> E["Périphérique d’impression"]
+    N1["Définir un pilote"]
+    N2["Windows et les pilotes"]
+    N3["Windows et les imprimantes"]
+    N4["Utiliser, configurer une imprimante"]
+    N5["Partager une ressource « imprimante »"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
 ```
 
-Une imprimante locale peut employer un pilote générique déjà présent dans le magasin ou un pilote signé du constructeur offrant davantage de fonctions. Ses propriétés donnent accès à la file d’attente, aux informations générales et aux options avancées : horaires de disponibilité et priorité, notamment.
+- Définir un pilote
+- Windows et les pilotes
+- Windows et les imprimantes
+- Utiliser, configurer une imprimante
+- Partager une ressource « imprimante »
 
-## 4. Permissions, partage, serveur et pool
+## Pilotes
 
-Le support montre l’onglet **Sécurité** avec les actions **Imprimer**, **Gérer cette imprimante** et **Gestion des documents**. Le partage rend une imprimante locale accessible par `\\serveur\imprimante` tant que l’hôte est disponible. Les utilisateurs accèdent au serveur depuis l’Explorateur puis choisissent **Connecter**.
+!!! note "À retenir"
+    Prise en charge du matériel Plug and Play : prise en charge « à chaud » Non Plug and Play : nécessite un redémarrage (plus rare) Plusieurs modes de prise en charge Détection et installation automatique Détection et installation manuelle Affichage et paramétrage Outil Gestionnaire de périphériques Devmgmt.msc
 
-!!! info "Clarification externe — permissions de l’imprimante"
-    Le support emploie l’expression « sécurité NTFS de l’imprimante ». L’objet imprimante possède en réalité ses propres droits d’utilisation et d’administration ; il ne s’agit pas de convertir l’imprimante en fichier NTFS. [Droits d’accès aux imprimantes, Microsoft](https://learn.microsoft.com/en-us/windows/win32/printdocs/printer-defaults).
+**Visuel externe**
 
-Le rôle **Serveur d’impression** centralise la publication et la gestion de plusieurs imprimantes. Le spouleur organise les travaux et les envoie aux périphériques ; le support indique que son emplacement peut être changé par un réglage du registre, sans fournir ici de procédure complète à appliquer.
+```mermaid
+flowchart LR
+    N1["Prise en charge du matériel"]
+    N2["Plug and Play : prise en charge « à chaud »"]
+    N3["Non Plug and Play : nécessite un redémarrage (plus rare)"]
+    N4["Plusieurs modes de prise en charge"]
+    N5["Détection et installation automatique"]
+    N6["Détection et installation manuelle"]
+    N7["Affichage et paramétrage"]
+    N8["Outil Gestionnaire de périphériques"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
 
-Un **pool d’impression** relie une imprimante logique à plusieurs périphériques, pour distribuer les travaux au prochain disponible et réduire l’attente. Il faut distinguer cette distribution d’un simple partage d’une seule imprimante.
+- Prise en charge du matériel
+- Plug and Play : prise en charge « à chaud »
+- Non Plug and Play : nécessite un redémarrage (plus rare)
+- Plusieurs modes de prise en charge
+- Détection et installation automatique
+- Détection et installation manuelle
+- Affichage et paramétrage
+- Outil Gestionnaire de périphériques
+- Devmgmt.msc
 
-## 5. TP guidé — environ 1 heure
+## Gestionnaires de périphériques
 
-### A. Exporter les informations des pilotes sur Win10-XX
+!!! note "À retenir"
+    Affichage des composants pris en charge et non pris en charge Mettre à jour, désactiver, désinstaller Fonctionnalités avancées : Restaurer le pilote, informations détaillées, paramètres Illustration isolée du support — Module 09 - Support de cours
 
-La correction utilise deux commandes distinctes : l’une pour les détails, l’autre pour la signature.
+- Affichage des composants pris en charge et non pris en charge
+- Mettre à jour, désactiver, désinstaller
+- Fonctionnalités avancées : Restaurer le pilote, informations détaillées, paramètres
 
-```bat
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p2-1.webp)
+
+Illustration isolée du support — Module 09 - Support de cours
+
+## Pilotes
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Pour la gestion des composants matériel et logiciel"]
+    N2["Spécifiques à chaque architecture : 32 bits ou 64 bits"]
+    N3["Les pilotes signés sont privilégiés par Microsoft"]
+    N4["Ils permettent de garantir la stabilité des systèmes"]
+    N5["Ils sont obligatoires pour les éditions 64 bits"]
+    N6["Les principaux fichiers"]
+    N7["*.inf : définition du pilote au format texte"]
+    N8["*.sys : pilote lui-même"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+- Pour la gestion des composants matériel et logiciel
+- Spécifiques à chaque architecture : 32 bits ou 64 bits
+- Les pilotes signés sont privilégiés par Microsoft
+- Les certificats sont délivrés par Microsoft ou générés en suivant les procédures fournies par Microsoft
+- Ils permettent de garantir la stabilité des systèmes
+- Ils sont obligatoires pour les éditions 64 bits
+- Les principaux fichiers
+- *.inf : définition du pilote au format texte
+- *.sys : pilote lui-même
+- *.cat : certificat fourni par Microsoft ou un tiers de confiance
+- *.exe, *.dll, *.xml… : fichiers complémentaires selon les besoins
+
+## Pilotes
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["La prise en charge se fait à partir du fichier INF"]
+    N2["Directement depuis le fichier (clic droit Installer)"]
+    N3["À partir d’un assistant d’installation (setup.exe) ou de mise à jour"]
+    N4["Une fois installé, le pilote est mémorisé par le système"]
+    N5["Permet sa réinstallation automatique"]
+    N6["Fichiers INF dans C:\Windows\inf"]
+    N7["Chaque pilote installé manuellement génère un fichier oemXX.inf"]
+    N8["Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
+
+- La prise en charge se fait à partir du fichier INF
+- Directement depuis le fichier (clic droit Installer)
+- À partir d’un assistant d’installation (setup.exe) ou de mise à jour
+- Une fois installé, le pilote est mémorisé par le système
+- Permet sa réinstallation automatique
+- Fichiers INF dans C:\Windows\inf
+- Chaque pilote installé manuellement génère un fichier oemXX.inf
+- Autres fichiers dans C:\Windows\system32 et C:\Windows\sysWOW64
+- Le magasin de pilotes Windows
+- Pour une prise en charge immédiate du matériel (installation du système)
+- Emplacement : C:\Windows\System32\DriverStore
+- Gestion du magasin en ligne de commande avec pnputil
+
+## Pilotes
+
+En complément
+
+- msinfo32 pour le détail du matériel
+- driverquery : outil CMD pour lister les pilotes installés
+- driverquery /SI pour lister les pilotes signés
+- pnputil : gestion du magasin de pilotes (ajout, suppression, information)
+- pnputil /enum-drivers pour lister les pilotes tiers (oemXX.inf)
+- pnputil /add-driver pilote.inf pour ajouter un pilote au magasin
+
+## Démonstration
+
+## Imprimantes
+
+| Vocabulaire | Définition du support |
+| --- | --- |
+| Périphérique d’impression | Le matériel : moteur permettant de sortir la feuille imprimée. |
+| Imprimante | Le logiciel : envoie l’ordre d’impression au périphérique d’impression (pilote, configuration, file d’attente d’impression, port d’impression). |
+| File d’attente d’impression | Service spouleur : conversion numérique du document dans un langage interprétable par le périphérique d’impression. Envoi du job vers le port d’impression. |
+| Imprimante locale | Périphérique d’impression directement relié à l’ordinateur via un port local. |
+| Imprimante partagée | Imprimante locale partagée sur le réseau grâce à l’OS de l’ordinateur. Disponible si et seulement si l’ordinateur est allumé. |
+| Imprimante réseau | Imprimante indépendante. Possède son propre OS, une interface réseau, un service web pour la configuration. |
+
+## Imprimantes
+
+Imprimante locale
+
+- Directement reconnue par le système
+- Utilisation d'un pilote générique du magasin de pilote
+- Possibilité d'installer le pilote signé du constructeur pour plus de fonctionnalités
+- Sécurité NTFS de l'imprimante
+
+(Propriétés de l'imprimante onglet Sécurité)
+
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p5-1.webp)
+
+Illustration isolée du support — Module 09 - Support de cours
+
+## Imprimantes
+
+!!! note "À retenir"
+    Imprimante locale Disponible via le composant du Panneau de configuration Visualiser la file d'attente et autres options Éditer les propriétés de l'imprimante Informations générales Options avancées (horaire de production, priorité…)
+
+Imprimante locale
+
+- Disponible via le composant du Panneau de configuration
+- Visualiser la file d'attente et autres options
+- Éditer les propriétés de l'imprimante
+- Informations générales
+- Options avancées (horaire de production, priorité…)
+
+## Imprimantes
+
+Imprimante locale
+
+- Disponible via le composant du Panneau de configuration
+- Visualiser la file d'attente et autres options
+- Éditer les propriétés de l'imprimante
+- Informations générales
+- Options avancées (horaire de production, priorité…)
+- Partager l'imprimante locale sur le réseau
+- Disponible et utilisable via le réseau de l'entreprise
+- Accessible depuis le chemin UNC : \\serveur\imprimante
+- Disponible si l'ordinateur hôte est allumé
+- Les droits NTFS s'appliquent
+
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-1.webp)
+
+Illustration isolée du support — Module 09 - Support de cours
+
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p6-2.webp)
+
+Illustration isolée du support — Module 09 - Support de cours
+
+## Imprimantes
+
+Imprimante réseau
+
+- Les imprimantes sont généralement raccordées au réseau de l’entreprise
+- Le service de rôle Serveur d’impression pour
+- Partager plusieurs imprimantes
+- Centraliser la gestion des imprimantes
+- Simplifier l'accès et la gestion des imprimantes
+
+Réseau
+
+Depuis le client
+
+- Accès au serveur d'impression depuis le chemin UNC
+- …puis connecter…
+
+## Imprimantes
+
+Le spouleur d'impression
+
+- Programme qui gère la file d'attente
+- Envoie les travaux d'impression au périphérique d'impression
+- Peut être déplacé via une clé de la base de registre
+
+Créer un pool d'impression
+
+- Imprimante connectée à plusieurs périphériques d'impression
+- Distribuer automatiquement les travaux d'impression à la prochaine imprimante disponible
+- Réduit les délais d'attente des documents pour les utilisateurs.
+
+![Illustration isolée du support — Module 09 - Support de cours](../../assets/course-sources/isolated/f5f6f49eafb0aeb3/g2-p7-1.webp)
+
+Illustration isolée du support — Module 09 - Support de cours
+
+## Démonstration
+
+## TP
+
+## Conclusion
+
+!!! note "À retenir"
+    Les périphériques ont besoin D’une liaison à un ordinateur Liaison locale Liaison réseau Les ordinateurs ont besoin D’un « mode d’emploi » du périphérique Les imprimantes sont des ressources à part entière Référence du document : 1yLnisoK5zTai4MhKpPNzNqRt4iXBSVHH · SHA-256 f5f6f49eafb0aeb3…
+
+- Les périphériques ont besoin
+- D’une liaison à un ordinateur
+- Liaison locale
+- Liaison réseau
+- Les ordinateurs ont besoin
+- D’un « mode d’emploi » du périphérique
+- Les imprimantes sont des ressources à part entière
+
+Référence du document : 1yLnisoK5zTai4MhKpPNzNqRt4iXBSVHH · SHA-256 f5f6f49eafb0aeb3…
+
+## Énoncé · Enonc‚ du TP - Les pilotes et les imprimantes · 4 pages transcrites
+
+## Systèmes Clients Microsoft Les pilotes et les imprimantes
+
+### TP du Module 09 – Les pilotes et les imprimantes
+
+!!! note "À retenir"
+    Au cours de ce TP, vous serez amené à rechercher et à afficher des informations concernant les pilotes et les imprimantes de votre VM Windows 10 ainsi que de votre seconde VM.
+
+Au cours de ce TP, vous serez amené à rechercher et à afficher des informations concernant les pilotes et les imprimantes de votre VM Windows 10 ainsi que de votre seconde VM. Votre seconde VM héberge une imprimante et il s'agira d'y accéder via le réseau, de l'installer et de vérifier sa présence sur votre système.
+
+Durée estimée
+
+1 heure
+
+## Énoncé
+
+!!! note "À retenir"
+    Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+
+Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique
+
+### Sur Win10-XX
+
+- Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
+
+o Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des pilotes
+
+o Pilotes_signature.csv contenant les informations sur la signature des pilotes
+
+- Vous pourrez ouvrir et convertir ces fichiers avec Excel
+
+- Avec l'interface graphique
+
+o Affichez les informations détaillées sur le pilote graphique avec la console MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
+
+### Gestion des imprimantes Quelles sont les 4 imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez-vous dans la console MMC adaptée ?
+
+- Éditez les propriétés de l'imprimante Microsoft Print to PDF
+
+o Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par défaut. Sans configuration particulière, l'imprimante sortira des documents en orientation paysage. Imprimez une page de test pour vérification.
+
+- Depuis votre VM Win10-XX, connectez-vous à l'imprimante partagée HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery.
+
+o Attendez quelques minutes le temps que le pilote s'installe puis vérifier sa présence dans le panneau de configuration et dans la console MMC adaptée
+
+### Sur Discovery Gestion de configurations personnalisées
+
+- À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante "HP LaserJet".
+- Affichez maintenant les informations suivantes concernant "HP LaserJet" :
+
+o Son nom
+
+o Si elle est partagée ou non
+
+o Le nom du partage
+
+o Le nom du port
+
+o Son emplacement
+
+o Sa priorité
+
+## Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1gil6UWwobVqnHO-vdeev-U6K8dHlkDEa · SHA-256 ad95c9c4657c7087…
+
+## Correction · Solution du TP - Les pilotes et imprimantes · 4 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+## Les pilotes et les imprimantes
+
+### TP du Module 09 – Les pilotes et les imprimantes
+
+## Proposition de solution
+
+Sur Win10-XX
+
+- Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants :
+
+o Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des
+
+pilotes
+
+o Pilotes_signature.csv contenant les informations sur la signature des pilotes
+
+- Vous pourrez ouvrir et convertir ces fichiers avec Excel
+
+```
 driverquery /v /fo CSV > pilotes_details.csv
+```
+
+```
 driverquery /si /fo CSV > pilotes_signatures.csv
 ```
 
-`/fo CSV` choisit le format et `>` écrit le résultat dans un fichier. Ouvrir le CSV avec Excel ; si tout apparaît en colonne A, sélectionner cette colonne, choisir **Données → Convertir → Délimité**, puis le séparateur **Virgule**. Vérifier que les propriétés sont réparties en colonnes.
+Possibilités d'ouvrir les fichiers CSV avec Excel
 
-!!! note "Écart de noms conservé"
-    L’énoncé nomme `Pilotes_detail.csv` et `Pilotes_signature.csv`, alors que la correction utilise les pluriels `pilotes_details.csv` et `pilotes_signatures.csv`. Les commandes ci-dessus suivent la correction. L’objectif est le contenu des deux exports, avec des noms identifiés de façon cohérente.
+Sélectionner la colonne A
 
-!!! tip "Complément externe — options de driverquery"
-    `/v` produit un affichage détaillé et `/si` des informations sur les pilotes signés ; ne pas les cumuler dans cet exercice. [Référence Microsoft driverquery](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/driverquery).
+Menu Données
 
-### B. Identifier la carte graphique
+Convertir
 
-1. Ouvrir `devmgmt.msc` et développer **Cartes graphiques**.
-2. Ouvrir les propriétés de **VMware SVGA 3D**, onglet **Détails**.
-3. Consulter la propriété d’identification montrée par la correction, **ID compatibles**.
-4. Relever **VENDOR_ID `15AD`** et **DEVICE_ID `0405`** dans cet exemple VMware.
+Délimité > Suivant
 
-La correction cite `www.pcilookup.com` comme outil de recherche de ces identifiants ; il reste une référence historique du support, et non une validation de la machine actuelle. Les valeurs identifient le composant de l’exemple, pas tous les matériels possibles.
+Cocher Virgule
 
-### C. Examiner les imprimantes puis régler Print to PDF
+Terminer
 
-Dans **Panneau de configuration → Matériel et audio → Périphériques et imprimantes**, relever les imprimantes présentes ; les retrouver dans le nœud **Files d’attente à l’impression** du Gestionnaire de périphériques.
+- Avec l'interface graphique
 
-!!! note "Différence entre l’énoncé et la correction"
-    L’énoncé demande « les 4 imprimantes » par défaut. La correction et sa capture en montrent trois : **Fax**, **Microsoft Print to PDF** et **Microsoft XPS Document Writer**. Relever l’état réel de la VM ; une quatrième imprimante ne doit pas être inventée pour compléter le chiffre.
+o Affichez les informations détaillées sur le pilote graphique avec la console
 
-Pour Print to PDF :
+MMC adaptée. Retrouvez le VENDOR_ID et le DEVICE_ID du périphérique.
 
-1. Choisir **Définir comme imprimante par défaut**.
-2. Ouvrir **Propriétés de l’imprimante → Préférences**.
-3. Choisir l’orientation **Paysage** puis valider.
-4. Imprimer une page de test.
-5. Comme il s’agit d’une imprimante virtuelle, choisir un nom et un emplacement pour le document produit, puis vérifier son orientation.
+Rechercher > devmgmt.msc
 
-### D. Connecter l’imprimante partagée de Discovery
+Déployez le nœud Cartes graphiques
 
-Depuis l’Explorateur de Win10-XX, ouvrir le chemin de l’imprimante **`HP_LaserJet_Accueil_RDC_Bât2`** publié par Discovery :
+Clic droit sur VMware SVGA 3D > Propriétés
 
-```text
-\\ADRESSE_IP_DISCOVERY\HP_LaserJet_Accueil_RDC_Bât2
+Onglet Détails
+
+Propriété ID compatibles
+
+Le VENDOR_ID est 15AD
+
+Le DEVICE_ID est 0405
+
+Il est possible de se rendre sur le site www.pcilookup.com et d'y renseigner ces ID pour retrouver des informations sur le matériel en question.
+
+Gestion des imprimantes
+
+Quelles sont les imprimantes disponibles par défaut sur votre VM Win10-XX ? Les retrouvez- vous dans la console MMC adaptée ?
+
+Panneau de configuration
+
+Matériel et audio
+
+Périphériques et imprimantes
+
+Les imprimantes disponibles par défaut sont FAX, Microsoft Print to PDF, Microsoft XPS Document Writer
+
+Dans la console Gestionnaire de périphérique
+
+Nœud Files d'attente à l'impression, nous retrouvons nos imprimantes.
+
+- Éditez les propriétés de l'imprimante Microsoft Print to PDF
+
+o Faites en sorte que Microsoft Print to PDF soit définie comme imprimante par
+
+défaut. Sans configuration particulière, l'imprimante sortira des documents en orientation paysage. Imprimez une page de test pour vérification.
+
+Clic droit sur l'imprimante Microsoft Print to PDF > Définir comme imprimante par défaut
+
+Clic droit sur l'imprimante Microsoft Print to PDF > Propriétés de l'imprimante
+
+Préférence
+
+Orientation : Paysage
+
+OK
+
+Imprimer une page de test
+
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p2-1.webp)
+
+Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
+
+Cette imprimante est virtuelle et va sortir un document numérique au format PDF.
+
+Indiquer le nom et l'emplacement du futur document (par exemple sur le bureau) et vérifiez qu'il est bien au format paysage
+
+- Depuis votre VM Win10-XX, connectez-vous à l'imprimante partagée HP_LaserJet_Accueil_RDC_Bât2 disponible via Discovery
+
+o Attendez quelques minutes le temps que le pilote s'installe puis vérifier sa
+
+présence dans le panneau de configuration et dans la console MMC adaptée
+
+Avec votre explorateur Windows, dans la barre de navigation, entrez le chemin UNC suivant \\@ ip de Discovery\HP_LaserJet_Accueil_RDC_Bât2
+
+Renseigner les login / mdp de l'utilisateur adm lorsque vous êtes challengé.
+
+Faites un clic droit sur HP_LaserJet_Accueil_RDC_Bât > Connecter…
+
+Au bout d'un certain temps, la nouvelle imprimante partagée apparaît dans la liste des imprimantes dans le panneau de configuration.
+
+Sur Discovery
+
+Gestion de configurations personnalisées
+
+- À l'aide de PowerShell, afficher les informations par défaut concernant l'imprimante "HP LaserJet"
+
+```
+Get-Printer -name "HP LaserJet"
 ```
 
-Remplacer le marqueur par l’adresse de la VM. Utiliser le compte demandé par le scénario lorsqu’une authentification est présentée, choisir **Connecter**, attendre l’installation du pilote puis vérifier la nouvelle imprimante dans le Panneau de configuration et dans la console adaptée. La correction abrège ponctuellement le nom en `HP_LaserJet_Accueil_RDC_Bât` : le nom réellement publié par Discovery fait foi pour le test.
+- Affichez maintenant les informations suivantes concernant "HP LaserJet" :
 
-### E. Lire la configuration sur Discovery
+o Son nom
 
-```powershell
-Get-Printer -Name "HP LaserJet"
-Get-Printer -Name "HP LaserJet" | Select-Object Name,Shared,ShareName,PortName,Location,Priority
+o Si elle est partagée ou non
+
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p3-1.webp)
+
+Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
+
+![Illustration isolée du support — Solution du TP - Les pilotes et imprimantes](../../assets/course-sources/isolated/baa642b049964f05/g2-p3-2.webp)
+
+Illustration isolée du support — Solution du TP - Les pilotes et imprimantes
+
+o Le nom du partage
+
+o Le nom du port
+
+o Son emplacement
+
+o Sa priorité
+
+```
+Get-Printer -Name "HP LaserJet" | select Name,Shared,ShareName,PortName,Location, Priority
 ```
 
-| Propriété | Contrôle effectué |
-|---|---|
-| `Name` | Nom local de la ressource imprimante. |
-| `Shared` | Publication en partage ou non. |
-| `ShareName` | Nom utilisé dans le chemin réseau. |
-| `PortName` | Port associé à la ressource. |
-| `Location` | Emplacement renseigné. |
-| `Priority` | Priorité de la ressource. |
+Référence du document : 124yp7LoB3rJdpK1_0wRpKCBh31RDAZAT · SHA-256 baa642b049964f05…
 
-Ne pas confondre **Name** et **ShareName** : le nom affiché localement peut différer du nom de publication. Vérifier le partage et l’installation côté client avant de conclure que l’accès fonctionne.
+## Fiche de synthèse
 
-## 6. Mini-quiz — 5 questions
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
 
-1. Quel fichier définit un paquet de pilote au format texte ?
-2. Quelle console donne les détails d’un périphérique ?
-3. Pourquoi utiliser deux commandes pour les exports `driverquery` ?
-4. Quelle différence entre imprimante partagée et imprimante réseau dans le vocabulaire du cours ?
-5. Quelle propriété PowerShell donne le nom publié en partage ?
-
-??? success "Réponses commentées"
-    1. Le fichier `.inf`.
-    2. Le Gestionnaire de périphériques, `devmgmt.msc`.
-    3. Le TP distingue le détail des pilotes de leurs informations de signature.
-    4. La première dépend de l’hôte qui la partage ; la seconde est un équipement autonome connecté au réseau.
-    5. `ShareName`, à distinguer de `Name`.
-
-## Pour pratiquer et réviser
-
-- [TP — présentation](../../tp/systemes-clients/module-09/index.md)
-- [Énoncé complet](../../tp/systemes-clients/module-09/enonces.md) et [correction](../../tp/systemes-clients/module-09/corrections.md)
-- [Fiche de révision](../../revision/systemes-clients/module-09-les-pilotes-et-les-imprimantes.md)
-- [Kahoot existant](../../kahoot/02-systemes-clients-microsoft-09-les-pilotes-et-les-imprimantes.md)
-- [Retour à la formation](index.md)
-
-## Sources et choix éditoriaux
-
-Support M09, énoncé et correction lus en lecture seule dans le Drive. Les divergences de nombres, de fichiers et de noms d’imprimante sont signalées ; les versions originales ne sont pas harmonisées artificiellement. Les tableaux, le schéma et le mini-quiz apportent une organisation pédagogique, et les clarifications Microsoft sont externes au support. Les captures utiles et les transcriptions figurent dans **Cours Original**.
+| Partie | Repère du cours |
+| --- | --- |
+| Systèmes clients Microsoft | Module 09 – Les pilotes et les imprimantes |
+| Objectifs | Définir un pilote Windows et les pilotes Windows et les imprimantes Utiliser, configurer une imprimante Partager une ressource « imprimante » |
+| Pilotes | Prise en charge du matériel Plug and Play : prise en charge « à chaud » Non Plug and Play : nécessite un redémarrage (plus rare) Plusieurs modes de prise en charge Détection et… |
+| Gestionnaires de périphériques | Affichage des composants pris en charge et non pris en charge Mettre à jour, désactiver, désinstaller Fonctionnalités avancées : Restaurer le pilote, informations détaillées, pa… |
+| Pilotes | Pour la gestion des composants matériel et logiciel Spécifiques à chaque architecture : 32 bits ou 64 bits Les pilotes signés sont privilégiés par Microsoft Les certificats sont… |
+| Pilotes | La prise en charge se fait à partir du fichier INF Directement depuis le fichier (clic droit Installer) À partir d’un assistant d’installation (setup.exe) ou de mise à jour Une… |
+| Pilotes | En complément msinfo32 pour le détail du matériel driverquery : outil CMD pour lister les pilotes installés driverquery /SI pour lister les pilotes signés pnputil : gestion du m… |
+| Imprimantes | Imprimante locale Directement reconnue par le système Utilisation d'un pilote générique du magasin de pilote Possibilité d'installer le pilote signé du constructeur pour plus de… |
+| Imprimantes | Imprimante locale Disponible via le composant du Panneau de configuration Visualiser la file d'attente et autres options Éditer les propriétés de l'imprimante Informations génér… |
+| Imprimantes | Imprimante locale Disponible via le composant du Panneau de configuration Visualiser la file d'attente et autres options Éditer les propriétés de l'imprimante Informations génér… |
+| Imprimantes | Imprimante réseau Les imprimantes sont généralement raccordées au réseau de l’entreprise Le service de rôle Serveur d’impression pour Partager plusieurs imprimantes Centraliser… |
+| Imprimantes | Le spouleur d'impression Programme qui gère la file d'attente Envoie les travaux d'impression au périphérique d'impression Peut être déplacé via une clé de la base de registre C… |
+| Conclusion | Les périphériques ont besoin D’une liaison à un ordinateur Liaison locale Liaison réseau Les ordinateurs ont besoin D’un « mode d’emploi » du périphérique Les imprimantes sont d… |
+| Énoncé | Lisez l'ensemble de cet atelier avant de vous lancer dans la pratique |
+| Solution | Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger. |
+| Correction · Solution du TP - Les pilotes et imprimantes · 4 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Proposition de solution | Sur Win10-XX Avec la commande cmd.exe adaptée, générez les fichiers CSV suivants : o Pilotes_detail.csv recensant les informations détaillées sur l’ensemble des pilotes o Pilote… |
