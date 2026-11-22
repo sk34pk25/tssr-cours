@@ -1,209 +1,779 @@
 # Module 05 — Les bases de MySQL et MariaDB
 
-Un SGBD stocke, administre et permet d’interroger les données. Un SGBD relationnel organise celles-ci en tables reliées par des clés : MySQL, MariaDB, PostgreSQL, Oracle, SQLServer et DB2 sont les exemples du support. L’application GLPI l’utilise comme un logiciel de comptabilité ou un serveur de messagerie utilise sa propre base.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-Le rappel historique du support situe MySQL en1994 avec Michael Widenius, son nom venant de sa fille My et de SQL, puis MariaDB en2009, nommé d’après Maria. Le schéma de la base doit être réfléchi avant de remplir ses tables : le cours l’associe au MCD, modèle conceptuel de données. SQL décrit le résultat recherché ; le SGBD détermine comment le produire.
+## Parcours de lecture
 
-## Objectifs
+1. Support · Module 05 - Support de cours · 14 pages transcrites
+2. Énoncé · M5 - Enoncé du TP - Requêtes SQL · 2 pages transcrites
+3. Correction · M5 - Soution du TP - Requêtes SQL · 3 pages transcrites
 
-- Lire un schéma MariaDB et sélectionner les colonnes utiles.
-- Filtrer, compter, trier et joindre les tables de la base GLPI du laboratoire.
-- Contrôler les résultats en distinguant valeurs nulles, noms de modèles et identifiants.
-
-## Entrer dans le client SQL
-
-```bash
-mysql -u root -p
-```
-
-```sql
-SHOW DATABASES;
-CONNECT glpidata;
-SHOW TABLES;
-DESCRIBE glpi_users;
-```
-
-`mysql` est ici le client du SGBD, `-u` choisit le compte et `-p` demande son secret. Ne pas inclure celui-ci dans la ligne. `CONNECT` apparaît dans le support ; `USE glpidata;` exprime aussi le choix de la base. Ne pas recopier le prompt `mysql>` dans une requête.
-
-`DROP DATABASE` supprime une base : l’exemple source sert à comprendre la syntaxe et ne fait pas partie des requêtes d’extraction du TP. `INSERT` ajoute des lignes ; `UPDATE` modifie les lignes existantes, contrairement au regroupement approximatif des deux commandes dans le diaporama. Ces modifications ne sont pas étudiées ici.
-
-## Tables, lignes et colonnes
-
-La table exemple contient quatre clients. Les colonnes sont les attributs ; les lignes sont les enregistrements. L’âge de Yann n’est pas renseigné.
-
-| ID | Prénom | Nom | Ville | Age |
-|---:|---|---|---|---:|
-| 1 | Fred | Enlefrigau | Stockholm | 45 |
-| 2 | François | Belététoi | Pyongyang | 26 |
-| 3 | Gilles | Edenotre | Rennes | 32 |
-| 4 | Yann | Apourtous | Caen | NULL |
-
-Le support alterne `Edenotre` et `Etdenotre`, ainsi que `client` et `clients`. Les exemples ci-dessous utilisent `clients` pour les sélections simples ; le nom réel de la table doit rester cohérent dans une réalisation.
-
-```sql
-SELECT * FROM clients;
-SELECT Nom, Ville FROM clients;
-SELECT Prénom, Nom FROM clients WHERE Ville = 'Caen';
-SELECT Prénom, Nom FROM clients WHERE ID > 3;
-```
-
-La projection choisit les colonnes ; `WHERE` choisit les lignes. Les comparateurs sont `=`, `<`, `<=`, `>`, `>=`, `<>` ou`!=`. `<=>` compare aussi les valeursNULL. Écrire les chaînes entre apostrophes droites, les nombres sans guillemets typographiques.
-
-## Combiner, trier et limiter
-
-`AND` exige les deux critères ; `OR` en accepte au moins un ; `XOR` en accepte exactement un ; `NOT` inverse un prédicat. Les parenthèses rendent les regroupements explicites.
-
-```sql
-SELECT Prénom, Nom FROM clients
-WHERE ID >= 2 AND Ville = 'Caen';
-
-SELECT Prénom, Nom FROM clients
-WHERE (ID >= 2 AND Ville = 'Caen')
-   OR (ID > 2 AND Ville = 'Rennes');
-
-SELECT Prénom FROM clients ORDER BY Age, Nom;
-SELECT Prénom FROM clients ORDER BY Age DESC;
-SELECT Prénom FROM clients ORDER BY Age, ID LIMIT 2 OFFSET 1;
-```
-
-L’ordre ascendant est utilisé si `ASC` ou`DESC` n’est pas précisé. `OFFSET1` ignore la première ligne ; `LIMIT2` conserve les deux suivantes. Dans les données du cours, le tri ascendant par âge placeYann(NULL), François(26), Gilles(32), puis Fred(45) : la limite retourne François et Gilles. Ajouter une clé de tri départage les égalités.
-
-## Traiter NULL et les agrégats correctement
-
-`NULL` représente une absence de valeur. Le support montre `Age = NULL` comme s’il sélectionnaitYann ; cette comparaison ne teste pas l’absence. Employer `IS NULL` ou`IS NOT NULL`. [Référence MariaDB sur NULL](https://mariadb.com/docs/server/reference/data-types/null-values).
-
-```sql
-SELECT Prénom, Nom FROM clients WHERE Age IS NULL;
-SELECT Prénom, Nom FROM clients WHERE Age IS NOT NULL;
-SELECT COUNT(*) AS nombre_clients, COUNT(Age) AS ages_renseignes FROM clients;
-SELECT MIN(Age), MAX(Age), SUM(Age), AVG(Age) FROM clients;
-SELECT Prénom AS Firstname FROM clients ORDER BY Age;
-```
-
-`COUNT(*)` compte les quatre lignes ; `COUNT(Age)` compte les trois âges renseignés. Les agrégats sur Age ignorentNULL : minimum26, maximum45, somme de 103 et moyenne de 103/3, soit environ 34,33. Le support affiche 34 et décrit par erreurMIN comme le maximum : [MIN renvoie le minimum](https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/min). L’alias change le libellé de sortie, pas le nom stocké de la colonne.
-
-## Relier les tables
-
-Une clé primaire identifie une ligne de façon unique et ne peut pas êtreNULL. Une clé étrangère relie une colonne à une clé de la table référencée et impose l’intégrité du lien. L’exemple relie `achat.ID_client` à `client.ID` : un achat ne doit pas référencer un client inexistant. Le support présente la référence à une clé primaire ; l’essentiel à retenir ici est l’identifiant stable et la contrainte de relation.
-
-| Achat de l’exemple | ID_client | Prix | Plateforme |
-|---|---:|---:|---|
-| Overwatch | 4 | 14,99 | XBOX ONE |
-| Call of Duty | 2 | 69,99 | PS4 |
-| Minecraft | 1 | 23,95 | SWITCH |
-| League of Legends | 4 | 0 | PC |
-| Mario Kart8DELUXE | 4 | 43,99 | SWITCH |
-| CivilizationVI | 3 | 29,99 | PC |
-
-Une jointure interne conserve les correspondances entre les tables. Pour retrouver les jeux de Yann dans l’exemple à table `client` :
-
-```sql
-SELECT achat.Nom
-FROM achat
-INNER JOIN client ON client.ID = achat.ID_client
-WHERE client.Prénom = 'Yann';
-```
-
-La sortie attendue est Overwatch, LeagueofLegends et MarioKart8DELUXE. La condition `ON` réalise la relation ; `WHERE` restreint au client recherché.
-
-## TP — Extraire des données de la base GLPI
-
-### Identifier le schéma
-
-Se connecter au client MariaDB avec le compte autorisé. Vérifier la base active et les noms de tables du laboratoire avant les requêtes. Le TP utilise `glpidata`. Les requêtes de consultation ci-dessous ne changent aucune donnée.
-
-```sql
-SHOW DATABASES;
-USE glpidata;
-SHOW TABLES;
-DESCRIBE glpi_calendars;
-SELECT * FROM glpi_calendars;
-SELECT name, firstname FROM glpi_users;
-SELECT name FROM glpi_users WHERE language = 'en_GB';
-```
-
-La colonne `name` contient ici le nom de connexion. Examiner `realname` si la question demande le patronyme. Les nombres observés dans la capture de correction dépendent des données du laboratoire.
-
-### Appliquer les filtres et compter
-
-```sql
-SELECT name, completename
-FROM glpi_itilcategories
-WHERE completename <> name;
-
-SELECT name
-FROM glpi_networkequipments
-WHERE is_template = 0
-  AND networkequipmentmodels_id = 2;
-
-SELECT COUNT(*) AS nb_de_SLMs
-FROM glpi_slms;
-
-SELECT MAX(name)
-FROM glpi_networkequipments
-WHERE networkequipmentmodels_id = 2;
-```
-
-Contrôler que `2` est bien l’identifiant du modèle 24 ports dans votre base. La correction n’affiche que quatre commutateurs, alors que le TP d’inventaire en demande six. Vérifier les objets réellement créés. `MAX(name)` compare des chaînes. Les suffixes de largeur fixe du scénario permettent que leur ordre coïncide avec l’ordre numérique.
-
-### Relier les catégories aux gabarits de demande
-
-**Illustration IA / externe au cours — de la catégorie à son gabarit de demande.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    C[Catégorie de ticket] --> D[Identifiant de son gabarit de demande]
-    D -->|Égalité des identifiants| G[Gabarit de ticket correspondant]
-    G --> L[Liste catégorie et gabarit]
-    L --> P[Comptage par gabarit]
+    N1["Support · Module 05 - Support de cours · 14 pages transcrites"]
+    N2["Énoncé · M5 - Enoncé du TP - Requêtes SQL · 2 pages transcrites"]
+    N3["Correction · M5 - Soution du TP - Requêtes SQL · 3 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
 ```
 
-```sql
-SELECT c.name AS categorie, t.name AS gabarit
-FROM glpi_itilcategories AS c
-INNER JOIN glpi_tickettemplates AS t
-    ON c.tickettemplates_id_demand = t.id;
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-SELECT t.name AS gabarit,
-       COUNT(*) AS `nombre de catégories qui utilise un gabarit de demande`
-FROM glpi_itilcategories AS c
-INNER JOIN glpi_tickettemplates AS t
-    ON c.tickettemplates_id_demand = t.id
-GROUP BY t.id, t.name;
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Support · Module 05 - Support de cours · 14 pages transcrites
+
+#### Administration GLPI
+
+#### Module 05 – Les bases de MySQL et MariaDB
+
+#### Objectifs
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Rappels sur les SGBD et le langage d’interrogation SQL"]
+    N2["Utilisation des commandes de bases de MySQL/MariaDB"]
+    N3["Se connecter à une base de données et en afficher la structure"]
+    N4["Ce qu’est une table dans une base de données"]
+    N5["Effectuer une recherche d’enregistrements selon certains critères"]
+    N6["Utiliser les fonctions de base du langage SQL"]
+    N7["Afficher par des requêtes SQL, la liste des utilisateurs de GLPI"]
+    N8["Effectuer une sauvegarde de la base de données de GLPI"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-Contrôler que le total de chaque groupe correspond au nombre de catégories de la requête détaillée. Le gabarit `3` de la capture appartient à son jeu de données. N’ajouter un filtre que si la consigne ou le résultat recherché le demande. L’accent dans le nom d’une table et le `FROM` collé du corrigé restent des erreurs visibles dans l’Original.
+- Rappels sur les SGBD et le langage d’interrogation SQL
+- Utilisation des commandes de bases de MySQL/MariaDB
 
-### Complément pédagogique — vérifier une sauvegarde
+- Se connecter à une base de données et en afficher la structure
+- Ce qu’est une table dans une base de données
+- Effectuer une recherche d’enregistrements selon certains critères
+- Utiliser les fonctions de base du langage SQL
+- Afficher par des requêtes SQL, la liste des utilisateurs de GLPI
+- Effectuer une sauvegarde de la base de données de GLPI
 
-Le support annonce la sauvegarde de la base sans détailler une procédure. Sur une base de laboratoire et avec le compte autorisé, produire un fichier et vérifier qu’il est non vide. Tester ensuite la restauration dans une autre base isolée.
+#### Rappels sur les SGBD
 
-```bash
-mysqldump -u root -p --single-transaction glpidata > glpidata.sql
-test -s glpidata.sql
+#### SGBD - Système de Gestion de Bases de Données
+
+!!! note "À retenir"
+    Sert à stocker, administrer, effectuer des opérations, récolter des données (data) sur un support facilement consultable.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Un SGBD est rarement utilisé seul"]
+    N2["Il est souvent utilisé par des logiciels tiers comme :"]
+    N3["Un serveur internet"]
+    N4["Des logiciels de comptabilité"]
+    N5["Les serveurs de messagerie"]
+    N6["Etc."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
 ```
 
-## À retenir
+- Sert à stocker, administrer, effectuer des opérations, récolter des données (data) sur un support facilement consultable.
+- Création des SGBDR - Système de Gestion de Base de Données Relationnelle (DB2, Oracle, SQL Server, PostgreSQL, MySQL…)
+- Un SGBD est rarement utilisé seul
+- Il est souvent utilisé par des logiciels tiers comme :
+- Un serveur internet
+- Des logiciels de comptabilité
+- Les serveurs de messagerie
+- Etc.
 
-Vérifier les colonnes et les identifiants dans la base interrogée. Un filtre et une jointure répondent à des questions distinctes. Comparer une agrégation à la liste de lignes qui l’alimente.
+#### SGBD - Système de Gestion de Bases de Données
 
-## Mini-quiz
+#### Historique
 
-1. Comment sélectionner les clients sans âge ?
-2. Quelle différence entre `COUNT(*)` et `COUNT(Age)` ?
-3. À quoi sert `ON` dans une jointure ?
-4. Pourquoi vérifier l’identifiant de modèle avant de reprendre le `2` du TP ?
-5. Pourquoi le comptage par gabarit utilise-t-il `GROUP BY` ?
+**Visuel externe**
 
-??? success "Réponses commentées"
-    1. `WHERE Age IS NULL`.
-    2. L’un compte les lignes ; l’autre compte les valeurs non NULL de la colonne.
-    3. À exprimer la correspondance entre les deux tables.
-    4. Les identifiants sont propres à la base. Un même numéro peut correspondre à un modèle différent après une autre installation.
-    5. Il sépare les lignes par gabarit, puis calcule le nombre de catégories de chaque groupe. Le comparer à la liste détaillée permet de vérifier le résultat.
+```mermaid
+flowchart LR
+    N1["MySQL a été créé en 1994"]
+    N2["Michael Widenius est un des co-créateurs"]
+    N3["My (prénom de la fille de Widenius) et SQL (Structured Query Language)"]
+    N4["Double licence GPL et propriétaire (Oracle Corporation depuis 2009)"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
-## Appliquer ce module
+- MySQL a été créé en 1994
+- Michael Widenius est un des co-créateurs
 
-- [Énoncé du TP](../../tp/glpi/module-05/enonces.md)
-- [Correction expliquée](../../tp/glpi/module-05/corrections.md)
-- [Fiche de révision](../../revision/glpi/module-05-les-bases-de-mysql-et-mariadb.md)
+- My (prénom de la fille de Widenius) et SQL (Structured Query Language)
+- Double licence GPL et propriétaire (Oracle Corporation depuis 2009)
+- En 2009, Widenius a créé MariaDB qui est open source (Maria, prénom de sa deuxième fille)
+
+![Visuel isolé — Module 05 - Support de cours](../../assets/course-sources/isolated/3239ef86ad6e4c9e/g07-d14-p03-i1.webp)
+
+Visuel isolé — Module 05 - Support de cours
+
+![Visuel isolé — Module 05 - Support de cours](../../assets/course-sources/isolated/3239ef86ad6e4c9e/g07-d14-p03-i2.webp)
+
+Visuel isolé — Module 05 - Support de cours
+
+#### Le langage
+
+!!! note "À retenir"
+    Contrairement à Bash par exemple, SQL ne s’exécute pas de manière séquentielle mais analyse globalement une requète.
+
+- Contrairement à Bash par exemple, SQL ne s’exécute pas de manière séquentielle mais analyse globalement une requète.
+- La création d’une base de données et de sa structure (tables et clés) doit être mûrement réfléchie en amont ; c’est l’étape du MCD (Modèle Conceptuel de Données).
+
+- On fabrique d’abord les étagères de la bibliothèque et on organise à vide avant de vouloir tout bouger une fois que les livres sont dessus.
+
+#### Des commandes de base
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["mysql est la commande qui permet, entre autres, de se connecter à MariaDB"]
+    N2["Ici, se connecter en tant que root avec son mot de passe"]
+    N3["SHOW – commande qui permet de lister"]
+    N4["Ici, permet de voir toutes les bases de données présentes"]
+    N5["CONNECT – commande qui permet de se connecter à une base de données"]
+    N6["Ici, permet de se connecter à la base de données glpidata"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
+
+- mysql est la commande qui permet, entre autres, de se connecter à MariaDB
+
+- Ici, se connecter en tant que root avec son mot de passe
+
+```
+mysql –u root -p
+```
+
+- SHOW – commande qui permet de lister
+- Ici, permet de voir toutes les bases de données présentes
+
+```
+mysql>SHOW databases;
+```
+
+- CONNECT – commande qui permet de se connecter à une base de données
+
+- Ici, permet de se connecter à la base de données glpidata
+
+```
+mysql>CONNECT glpidata;
+```
+
+#### Des commandes de base
+
+- DROP – commande qui permet de supprimer
+- Ici, permet de supprimer la base de données glpidata
+
+```
+mysql>DROP database glpidata;
+```
+
+- SHOW – commande qui permet de lister
+- Ici, permet de voir toutes les tables présentes une fois connecté à une base de données
+
+```
+mysql>SHOW tables;
+```
+
+- UPDATE / INSERT – commandes qui permettent d’ajouter du contenu à une base de données
+
+- Ces commandes ne seront pas vues dans ce cours.
+
+#### La structure
+
+- Dans une base de données, les informations sont contenues dans des tables (ou relations)
+- Une relation est constituée de deux sous-ensembles :
+- L’en-tête est composé d’attributs (colonnes)
+- Le corps est composé de lignes
+- La table clients définit cinq attributs (ID, Prénom, Nom, Ville et Age) et se compose de quatre lignes (1, 2, 3 et 4)
+
+| ID | Prénom | Nom | Ville | Age |
+| --- | --- | --- | --- | --- |
+| Fred | Enlefrigau | Stockholm |  |  |
+| François | Belététoi | Pyongyang |  |  |
+| Gilles | Edenotre | Rennes |  |  |
+| Yann | Apourtous | Caen |  |  |
+
+#### La commande SELECT
+
+!!! note "À retenir"
+    Cette commande sert à lister les données d’un ou plusieurs attributs d’une table SELECT * FROM nom_de_la_table * veut dire tous les attributs Exemple : lister tous les attributs de la table clients
+
+- Cette commande sert à lister les données d’un ou plusieurs attributs d’une table
+
+- SELECT * FROM nom_de_la_table
+- * veut dire tous les attributs
+- Exemple : lister tous les attributs de la table clients
+
+```
+mysql>SELECT * FROM clients;
+```
+
+| ID | Prénom | Nom | Ville | Age |
+| --- | --- | --- | --- | --- |
+| 1 | Fred | Enlefrigau | Stockholm | 45 |
+| 2 | François | Belététoi | Pyongyang | 26 |
+| 3 | Gilles | Etdenotre | Rennes | 32 |
+| 4 | Yann | Apourtous | Caen | NULL |
+
+#### La commande SELECT
+
+!!! note "À retenir"
+    SELECT nom_de_l’attribut, nom_d’un_deuxième_attribut FROM nom_de_la_table Liste les attributs « Nom » et « Ville » de la table clients
+
+- SELECT nom_de_l’attribut, nom_d’un_deuxième_attribut FROM nom_de_la_table
+- Liste les attributs « Nom » et « Ville » de la table clients
+
+```
+mysql>SELECT Nom, Ville FROM clients;
+```
+
+| Nom | Ville |
+| --- | --- |
+| Enlefrigau | Stockholm |
+| Belététoi | Pyongyang |
+| Etdenotre | Rennes |
+| Apourtous | Caen |
+
+#### La condition WHERE à la commande SELECT
+
+!!! note "À retenir"
+    WHERE permet de mettre une condition à notre recherche Liste les attributs « Prénom » et « Nom » de la table clients si Caen est la ville
+
+- WHERE permet de mettre une condition à notre recherche
+- Liste les attributs « Prénom » et « Nom » de la table clients si Caen est la ville
+
+```
+mysql>SELECT Prénom, Nom FROM clients WHERE Ville='Caen';
+```
+
+| Prénom | Nom |
+| --- | --- |
+| Yann | Apourtous |
+
+#### Les opérateurs de comparaison
+
+- WHERE permet d’utiliser des symboles pour définir des critères plus précis de recherche
+
+- = égal
+- < inférieur
+- <= inférieur ou égal
+- > supérieur
+- >= supérieur ou égal
+- <> ou != différent
+- <=> égal (fonctionne aussi si la valeur est NULL)
+
+- Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est strictement supérieur à 3.
+
+```
+mysql>SELECT Prénom, Nom FROM clients WHERE
+ID > 3;
+```
+
+| Prénom | Nom |
+| --- | --- |
+| Yann | Apourtous |
+
+#### La combinaison de critères
+
+!!! note "À retenir"
+    Il existe aussi des opérateurs qui permettent de combiner plusieurs critères AND et OR ou XOR ou exclusif (ou, mais pas les deux) NOT non (sauf) Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est supérieur ou égal à 2 et la ville est Caen.
+
+- Il existe aussi des opérateurs qui permettent de combiner plusieurs critères
+
+- AND et
+- OR ou
+- XOR ou exclusif (ou, mais pas les deux)
+- NOT non (sauf)
+- Liste les attributs « Prénom » et « Nom » de la table clients si l’ID est supérieur ou égal à 2 et la ville est Caen.
+
+```
+mysql>SELECT Prénom, Nom FROM clients WHERE ID >= 2 AND ville = 'Caen';
+```
+
+| Prénom | Nom |
+| --- | --- |
+| Yann | Apourtous |
+
+#### Les sélections complexes
+
+!!! note "À retenir"
+    Si vous souhaitez utiliser plusieurs opérateurs de combinaison ( ) met la priorité sur les opérateurs combinés Liste les attributs « Prénom » et « Nom » de la table clients si (l’ID est supérieur ou égal à 2 et la ville est Caen) ou (l’ID est strictement supérieur à 2 et la ville est Rennes).
+
+- Si vous souhaitez utiliser plusieurs opérateurs de combinaison
+- ( ) met la priorité sur les opérateurs combinés
+- Liste les attributs « Prénom » et « Nom » de la table clients si (l’ID est supérieur ou égal à 2 et la ville est Caen) ou (l’ID est strictement supérieur à 2 et la ville est Rennes).
+
+```
+mysql>SELECT Prénom, Nom FROM clients WHERE (ID >= '2' AND ville = 'Caen') OR (ID 
+> 2 AND ville = 'Rennes');
+```
+
+| Prénom | Nom |
+| --- | --- |
+| Yann | Apourtous |
+| Gilles | Etdenotre |
+
+#### Les valeurs NULL et NOT NULL
+
+!!! note "À retenir"
+    Le marqueur NULL représente qu’il n’y a pas de valeur Le marqueur NOT NULL représente qu’il existe une valeur On peut utiliser, colonne = NULL ou colonne is NULL Idem pour NOT NULL, colonne = NOT NULL ou colonne is NOT NULL Liste les attributs « Prénom » et « Nom » de la table clients si l'âge n’est pas renseigné
+
+- Le marqueur NULL représente qu’il n’y a pas de valeur
+- Le marqueur NOT NULL représente qu’il existe une valeur
+- On peut utiliser, colonne = NULL ou colonne is NULL
+- Idem pour NOT NULL, colonne = NOT NULL ou colonne is NOT NULL
+
+- Liste les attributs « Prénom » et « Nom » de la table clients si l'âge n’est pas renseigné
+
+```
+mysql>SELECT Prénom, Nom FROM clients WHERE age = NULL;
+```
+
+| Prénom | Nom |
+| --- | --- |
+| Yann | Apourtous |
+
+#### Le tri des données
+
+- Si vous souhaitez trier vos données en sortie
+- ORDER BY colonne tri en fonction de la colonne choisie
+- ASC tri par ordre croissant
+- DESC tri par ordre décroissant
+- Par défaut, sans préciser ASC ou DESC, c’est un ordre ascendant
+- Liste les attributs « Prénom » de la table clients triés par âge puis par nom.
+
+```
+mysql>SELECT Prénom FROM clients ORDER by age, nom;
+```
+
+| Prénom |
+| --- |
+| Yann |
+| François |
+| Gilles |
+| Fred |
+
+#### Choisir le nombre de lignes récupérées
+
+- Si vous souhaitez restreindre le nombre de lignes en résultat
+- LIMIT nombre_de_ligne OFFSET à_partir_de_quelle_ligne
+- OFFSET est optionnel et dans ce cas, il est égal à 0
+- OFFSET différent de 0, permet de déterminer à partir de quelle ligne on compte le nombre de lignes souhaitées
+- Liste les attributs « Prénom » de la table clients triés par âge à partir de la deuxième ligne et que deux lignes.
+
+```
+mysql>SELECT Prénom FROM clients ORDER by age LIMIT '2' OFFSET '1';
+```
+
+| Prénom |
+| --- |
+| François |
+| Gilles |
+
+#### Compter le nombre de lignes récupérées
+
+- Si vous souhaitez compter le nombre de lignes en résultat
+- COUNT vous donne le nombre de lignes en résultat
+- Un attribut NULL ne compte pas
+- Compte le nombre d’attributs « âge » de la table clients.
+
+```
+mysql>SELECT COUNT(age) FROM clients;
+3
+```
+
+#### Utilisation d'un alias
+
+- Il est possible de modifier le nom d’une colonne à l’affichage
+- Nom_de_la_colonne as nom_d’affichage
+- Liste les attributs « Prénom » de la table clients trier par âge en changeant le nom de la colonne Prénom par Firstname.
+
+```
+mysql>SELECT Prénom as Firstname FROM clients ORDER by age;
+```
+
+| Firstname |
+| --- |
+| Yann |
+| François |
+| Gilles |
+| Fred |
+
+#### Quelques fonctions d'agrégation
+
+- Quelques fonctions qui permettent un traitement numérique
+- MAX(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
+- MIN(Nom_de_la_colonne) affiche la valeur maximum d’une colonne
+- SUM(Nom_de_la_colonne) affiche la somme d’une colonne
+- AVG(Nom_de_la_colonne) affiche la moyenne d’une colonne
+
+- Liste la moyenne des âges de la table clients.
+
+```
+mysql>SELECT AVG(age) FROM clients;
+34
+```
+
+#### La clé primaire (primary key)
+
+- Une clé primaire identifie de manière unique une ligne (contrainte d’unicité)
+
+- Dans la table client et la table achat, il s’agit de l’ID
+- Elle identifie une ou plusieurs colonnes (création d’index que nous ne verrons pas dans ce cours)
+- Une clé primaire ne peut pas être NULL.
+
+#### La clé étrangère (foreign key)
+
+- Une clé étrangère permet de gérer des relations entre plusieurs tables
+
+- Elle vérifie l'intégrité de notre base.
+- Dans notre table achat, il s’agit de ID_client et vérifie que le client existe bien dans la table client.
+- Si vous indiquez un ID_client qui n’existe pas, MySQL vous indiquera une erreur et c’est pour cela qu’on appelle les clés des contraintes (CONSTRAINT).
+- À la création d’une clé étrangère, un index est automatiquement créé.
+- La colonne ID_client est la clé étrangère de la table achat en relation avec la colonne ID de la table client. La colonne ID de la table client DOIT être une clé primaire.
+
+| ID | Prénom | Nom | Ville | Age |
+| --- | --- | --- | --- | --- |
+| 1 | Fred | Enlefrigau | Stockholm | 45 |
+| 2 | François | Belététoi | Pyongyang | 26 |
+| 3 | Gilles | Edenotre | Rennes | 32 |
+| 4 | Yann | Apourtous | Caen |  |
+
+| ID | Nom | ID_client | Prix | Pateforme |
+| --- | --- | --- | --- | --- |
+| 1 | Overwatch | 4 | 14,99 | XBOX ONE |
+| 2 | Call of Duty | 2 | 69,99 | PS4 |
+| 3 | Minecraft | 1 | 23,95 | SWITCH |
+| 4 | League of Legends | 4 | 0 | PC |
+| 5 | Mario Kart 8 DELUXE | 4 | 43,99 | SWITCH |
+| 6 | Civilization VI | 3 | 29,99 | PC |
+
+#### Les jointures
+
+- L’idée est de pouvoir associer plusieurs tables dans une même requête (l’avantage des tables relationnelles)
+
+- Lorsque l’on fait une jointure, on crée une table virtuelle qui réunit les 2 tables avec ID de la table client qui correspond à ID_client de la table achat
+
+#### La jointure interne
+
+- INNER JOIN
+
+- Jointure interne
+- Condition vraie dans les 2 tables
+
+#### A B
+
+#### La jointure représente l’intersection de A et B
+
+- SELECT * FROM table_A INNER JOIN table_B ON table_A.clé = table_B.clé
+
+#### * Il existe d’autres jointures que nous ne verrons pas dans ce cours
+
+| ID | Prénom | Nom | Ville | Age |
+| --- | --- | --- | --- | --- |
+| 1 | Fred | Enlefrigau | Stockholm | 45 |
+| 2 | François | Belététoi | Pyongyang | 26 |
+| 3 | Gilles | Edenotre | Rennes | 32 |
+| 4 | Yann | Apourtous | Caen |  |
+
+| ID | Nom | ID_client | Prix | Pateforme |
+| --- | --- | --- | --- | --- |
+| 1 | Overwatch | 4 | 14,99 | XBOX ONE |
+| 2 | Call of Duty | 2 | 69,99 | PS4 |
+| 3 | Minecraft | 1 | 23,95 | SWITCH |
+| 4 | League of Legends | 4 | 0 | PC |
+| 5 | Mario Kart 8 DELUXE | 4 | 43,99 | SWITCH |
+| 6 | Civilization VI | 3 | 29,99 | PC |
+
+#### La jointure interne
+
+- Si je souhaite connaître le nom des jeux qu’a achetés Yann :
+- SELECT achat.nom : # je sélectionne ce que je veux afficher
+- FROM achat : # sur quelle table je travaille
+- INNER JOIN client : # je la joins à la table client
+- ON client.id = achat.id_client : # on fait la jointure sur la colonne ID de la table client et sur la colonne ID_client de la table achat
+- WHERE client.Prénom = ‘yann’; : # ID_client à 4 correspond à Yann
+
+```
+mysql>SELECT achat.nom FROM achat INNER JOIN client ON client.id = achat.id_client where 
+client.prénom = ‘yann’;
+```
+
+| Nom |
+| --- |
+| Overwatch |
+| League of Legends |
+| Mario Kart 8 DELUXE |
+
+Référence du document : 1jTYcrI9DsvbHbatiTABHNIJRTST3YJOh · SHA-256 3239ef86ad6e4c9e…
+
+## Énoncé · M5 - Enoncé du TP - Requêtes SQL · 2 pages transcrites
+
+#### Requêtes SQL
+
+#### TP du Module 5 – Les bases de MySQL/MariaDB
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
+
+#### Enoncé
+
+#### Objectifs
+
+- Comprendre le fonctionnement des requêtes MySQL. Prérequis
+
+- Avoir fini les TP des modules précédents.
+
+Contexte :
+
+- Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis quelque temps et votre DSI vous demande des informations à extraire dans la base de données directement. Principales tâches à réaliser
+
+#### Connexion à la base de données en ligne de commande de votre serveur GLPI
+
+```
+• 
+Connectez-vous en Shell à votre base de données de GLPI avec le compte root que 
+vous 
+avez 
+configuré 
+lorsque 
+vous 
+avez 
+effectué 
+la 
+commande 
+mysql_secure_installation.
+```
+
+- Affichez toutes les bases de données présentes dans votre serveur MariaDB.
+
+- Connectez-vous à la base de données glpidata puis affichez toutes les tables présentes.
+
+- Affichez tous les attributs de la table des calendriers.
+
+- Affichez les noms et prénoms des utilisateurs de GLPI.
+
+- Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).
+
+- Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.
+
+- Indice : utiliser un comparateur.
+
+- Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au modèle GAB-JL356A-ARUBA-2540-24P.
+
+- Indices :
+
+- Utiliser les sélections complexes.
+
+- Is_template à 1 est un gabarit.
+
+- GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.
+
+- Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.
+
+- Indice : utiliser un alias.
+
+- Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports.
+
+- Indice : utiliser une fonction d’agrégation.
+
+#### BONUS
+
+- Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.
+
+- Indice : utiliser une jointure interne.
+
+#### BONUS
+
+- Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en-tête « nombre de catégories qui utilise un gabarit de demande ».
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+Référence du document : 19sKB7N1JMcfOPh045bfERaW6DXogBlju · SHA-256 30bc1746cd40575a…
+
+## Correction · M5 - Soution du TP - Requêtes SQL · 3 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Requêtes SQL
+
+#### TP du Module 5 – Les bases de MySQL/MariaDB
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 5 et d’avoir réalisé les TP proposés.
+
+#### Solution
+
+#### Objectifs
+
+- Comprendre le fonctionnement des requêtes MySQL.
+
+##### Prérequis
+
+- Avoir fini les TP des modules précédents.
+
+Contexte :
+
+- Vous gérez l’application GLPI au sein du domaine de la société Olympus depuis quelque temps et votre DSI vous demande des informations à extraire dans la base de données directement.
+
+Des images de correction sont disponibles dans les ressources.
+
+#### Principales tâches à réaliser
+
+#### Connexion à la base de données en ligne de commande de votre serveur GLPI
+
+- Connectez-vous en Shell à votre base de données de GLPI avec le compte root que vous avez configuré lorsque vous avez effectué la commande `mysql_secure_installation`.
+
+```
+mysql -u root -p
+```
+
+- Affichez toutes les bases de données présentes dans votre serveur MariaDB.
+
+```
+show databases;
+```
+
+Attention, ne pas oublier le ; à chaque fin de ligne.
+
+- Connectez-vous à la base de données glpidata puis affichez toutes les tables présentes.
+
+```
+connect glpidata;
+```
+
+```
+show tables;
+```
+
+- Affichez tous les attributs de la table des calendriers.
+
+```
+select * from glpi_calendars;
+```
+
+- Affichez les noms et prénoms des utilisateurs de GLPI.
+
+```
+select name, firstname from glpi_users;
+```
+
+- Affichez le nom des utilisateurs qui ont la langue en anglais (en_GB).
+
+```
+select name from glpi_users where language=’en_GB’;
+```
+
+- Affichez le nom et le nom complet des catégories de ticket qui sont enfants de.
+
+- Indice : utiliser un comparateur.
+
+```
+select name, completename
+from glpi_itilcatégories
+where completename<>name;
+```
+
+Ou
+
+```
+select name, completename from glpi_itilcatégories where level > ‘1’;
+```
+
+- Affichez le nom des switchs réseau qui ne sont pas des gabarits et qui sont liés au modèle GAB-JL356A-ARUBA-2540-24P.
+
+- Indices :
+
+- Utiliser les sélections complexes.
+
+- Is_template à 1 est un gabarit.
+
+- GAB-JL356A-ARUBA-2540-24P est networkequipmentmodels_id à 2.
+
+```
+select name
+from glpi_networkequipments
+where is_template=’0’ and networkequipmentmodels_id=’2’;
+```
+
+- Comptez le nombre de SLMs et affichez en en-tête de colonne nb_de_SLMs.
+
+- Indice : utiliser un alias.
+
+```
+select count(name) as nb_de_SLMs from glpi_slms;
+```
+
+- Affichez le nom du switch avec le chiffre le plus haut qui utilise le modèle 24Ports.
+
+- Indice : utiliser une fonction d’agrégation.
+
+```
+select MAX(name) from_glpinetworkequipments
+where networkequipmentmodels_id=’2’;
+```
+
+#### BONUS
+
+- Affichez le(s) nom(s) de la catégorie de ticket et le nom du gabarit de ticket qui est utilisé pour une demande dans les catégories de ticket.
+
+- Indice : utiliser une jointure interne.
+
+Le but étant d’afficher le gabarit de ticket « demande bureautique » qui est le seul qui est de type demande rattaché à une catégorie.
+
+Une solution :
+
+```
+SELECT glpi_tickettemplates.name, glpi_itilcategories.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
+ON glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id
+where glpi_itilcategories.tickettemplates_id_demand=’3’;
+```
+
+#### BONUS
+
+- Comptez-les en affichant le nom du gabarit utilisé et le nombre avec comme en- tête « nombre de catégories qui utilise un gabarit de demande ».
+
+```
+SELECT count(glpi_tickettemplates.name) as ‘nombre de catégories qui utilise un gabarit de demande’, glpi_tickettemplates.name
+from glpi_tickettemplates
+INNER JOIN glpi_itilcategories
+ON
+```
+
+```
+glpi_itilcategories.tickettemplates_id_demand=glpi_tickettemplates.id 
+where glpi_itilcategories.tickettemplates_id_demand=’3’;
+```
+
+Référence du document : 1oGRkZ3gFA16mmN9ZLpVa9rT3e3jIYN7o · SHA-256 35c7ff2134c6c85a…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Correction · M5 - Soution du TP - Requêtes SQL · 3 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |

@@ -1,133 +1,879 @@
 # Module 04 — Assistance et traitements automatisés des tickets
 
-Le ticket assure traçabilité, communication, répartition des tâches et détection des problèmes récurrents. Il sollicite le centre de services, contient des informations exploitables, passe par un cycle de vie et porte un type : **incident** ou **demande**.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Distinguer gabarit, règle métier, calendrier, SLA et escalade.
-- Configurer le scénario d’assistance et les échéances demandées.
-- Vérifier les cas déclenchés et exclus par les règles.
+1. Support · Module 04 - Support de cours · 10 pages transcrites
+2. Énoncé · M4 - Enoncé du TP - Assistance · 4 pages transcrites
+3. Correction · M4 - Solution du TP - Assistance · 5 pages transcrites
 
-## Choisir le flux de création
-
-Trois flux sont étudiés : depuis GLPI, par courriel vers une boîte support reliée à un collecteur, ou par téléphone avec saisie par un technicien. Depuis GLPI, l’interface anonyme historique se trouve à `http(s)://<serveur>/front/helpdesk.html` ; elle ne nécessite pas de connexion, peut être désactivée, personnalisée enHTML/CSS et se rattache par défaut à l’entité racine.
-
-L’interface simplifiée exige une authentification. Le demandeur remplit un formulaire géré par un gabarit, peut joindre un document, associer un élément concerné, suivre par courriel et consulter ses tickets. Une délégation peut autoriser un autre demandeur. L’interface standard, accessible par **Assistance → Tickets**, sert notamment aux techniciens N1/N2 et présente plus de champs.
-
-## Personnaliser le formulaire avec un gabarit
-
-Un gabarit déclare des champs obligatoires, masqués ou prédéfinis pour les interfaces standard et simplifiée. Il peut être le gabarit par défaut. Le choix du type et de la catégorie charge le gabarit associé. Toujours vérifier l’entité active et la récursivité du gabarit.
-
-La démarche du support est : créer les catégories, créer les gabarits nommés `catégorie-type`, puis les associer depuis la catégorie. Une catégorie peut avoir un gabarit d’incident et un de demande. Les catégories du TP sont :
-
-```text
-Logiciel
-├── Bureautique
-│   ├── Word
-│   ├── Excel
-│   └── Outlook
-└── Infographiste
-Serveur
-├── Virtualisation
-└── Active Directory
-Matériel
-├── Souris/clavier
-└── Ecran
-```
-
-| Gabarit | Champs obligatoires | Champs masqués |
-|---|---|---|
-| Incident serveur | Titre, catégorie, type, lieu, description | Aucun explicitement demandé |
-| Incident bureautique | Les précédents + éléments associés | Urgence et impact |
-| Demande bureautique | Titre, catégorie, type, lieu, description | Urgence et impact |
-
-Le TP associe Bureautique, Word et Excel aux deux gabarits bureautiques ; Serveur, Virtualisation et Active Directory à Incident serveur. Outlook existe dans l’arbre mais n’est pas explicitement cité dans ces associations : ne pas élargir la consigne sans décision expliquée.
-
-## Appliquer les règles métier
-
-Le gabarit sert d’abord à la présentation du formulaire ; la configuration automatique du ticket se centralise dans **Administration → Règles**. Les critères identifient notamment type et catégorie ; les actions affectent priorité, groupe/technicien ou SLA. Plusieurs règles peuvent écrire un même champ : leur ordre et leur concurrence doivent être contrôlés. Le support décrit leur lecture à la création du ticket ; tester les déclencheurs de la version utilisée plutôt que généraliser à toute modification.
-
-Une condition correcte pour les incidents serveur est `(catégorie=Serveur OU Virtualisation OU Active Directory) ET type=Incident`. Le corrigé préconise « OU » pour tous les critères, type compris : cela accepterait aussi un incident d’une autre catégorie ou une demande de la catégorie Serveur. Pour conserver les deux contraintes, utiliser une règle par catégorie avec type=Incident et opérateur ET, ou un mécanisme de regroupement de critères effectivement disponible dans l’interface. Vérifier par un ticket positif et un ticket qui doit rester exclu.
-
-## Calendriers, SLA et escalades
-
-Un SLA fixe un temps de prise en charge ou de résolution. Une date butoir peut être saisie directement ou calculée par un objet SLA, affecté manuellement ou par une règle. Le calcul dépend du calendrier de travail ; le dépassement informe, il n’empêche pas le traitement.
-
-| Calendrier du TP | Jours | Horaires attendus |
-|---|---|---|
-| cal serveur | Lundi–jeudi | 08 h00–18 h00 |
-| cal serveur | Vendredi | 08 h00–17 h30 |
-| cal utilisateurs | Lundi–vendredi | 09 h00–17 h30 |
-
-Le texte du corrigé indique 08h00–18h00 pour les jours ouvrés. La capture de correction confirme l’horaire demandé par l’énoncé, 08h00–17h30 le vendredi.
-
-| Niveau de service | Prise en charge | Résolution | Calendrier | Priorité initiale / groupe |
-|---|---:|---:|---|---|
-| Incident serveur | 1 h | 8 h | cal serveur | Moyenne / GG_GLPI_Technician |
-| Incident bureautique | 4 h | 2 jours | cal utilisateurs | Basse / GG_GLPI_hotliner |
-| Demande bureautique | 4 h | 10 jours | cal utilisateurs | Très basse / GG_GLPI_hotliner |
-
-Les deux jours et dix jours sont à interpréter dans le paramétrage du calendrier et de l’unité du SLA. Vérifier la date calculée sur un ticket de test, notamment en fin de journée ou avant un week-end.
-
-Une escalade applique une action à un moment lié à une échéance. Le TP des incidents serveur demande trois actions distinctes.
-
-| Moment | Action |
-| --- | --- |
-| Dix minutes après la création, si le ticket reste sans prise en charge | Affecter le groupe Super-Admin et ajouter le compte du stagiaire comme observateur. |
-| Quatre heures avant l’échéance de résolution | Placer la priorité sur Haute et affecter le ticket au compte du stagiaire. |
-| Trois heures avant l’échéance de résolution | Placer la priorité sur Très haute et affecter le ticket à Zeus. |
-
-Le calcul doit distinguer l’heure de création, l’échéance de prise en charge et celle de résolution. Si l’escalade se règle par rapport à une prise en charge d’une heure, vérifier que le décalage produit bien une action dix minutes après la création.
-
-## TP — Mettre en place l’assistance automatisée
-
-1. Créer les catégories de ticket, puis les gabarits. Vérifier les champs imposés et l’association du gabarit à la catégorie. Préparer les profils et groupes déjà importés au module 02 avant de les utiliser comme acteurs.
-2. Créer les calendriers et définir leurs périodes ouvertes et fermées. Configurer les objectifs de prise en charge et de résolution à partir du tableau du scénario. Créer un ticket avant une fermeture du calendrier pour vérifier la date obtenue.
-3. Ajouter les escalades serveur aux échéances adéquates. Le délai de dix minutes après création et les deux décalages avant la résolution sont des repères différents. Vérifier le moment calculé et l’action configurée.
-4. Créer les règles qui affectent catégorie, type, groupe, priorité et SLA. Si le moteur n’offre que **tous les critères** ou **un critère quelconque** par règle, créer une règle par catégorie d’incident acceptée. Exiger le type Incident dans chacune de ces règles.
-
-**Illustration IA / externe au cours — chemin d’un ticket soumis au scénario.**
+**Visuel externe**
 
 ```mermaid
 flowchart TD
-    S[Ticket soumis] --> T[Gabarit et champs]
-    T --> R[Catégorie et type examinés]
-    R -->|Critères remplis| A[Affectation et priorité]
-    R -->|Critères non remplis| N[Pas de traitement par cette règle]
-    A --> C[SLA et calendrier]
-    C --> E[Échéances puis escalades]
+    N1["Support · Module 04 - Support de cours · 10 pages transcrites"]
+    N2["Énoncé · M4 - Enoncé du TP - Assistance · 4 pages transcrites"]
+    N3["Correction · M4 - Solution du TP - Assistance · 5 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
 ```
 
-| Essai | Preuve à relever |
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
+
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
+
+## Support · Module 04 - Support de cours · 10 pages transcrites
+
+#### Administration GLPI
+
+#### Module 04 – Assistance – Traitements automatisés des tickets
+
+#### Objectifs
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Le suivi opérationnel par des tickets"]
+    N2["Les différentes solutions pour créer un ticket"]
+    N3["Les gabarits de ticket : personnalisation du masque de saisie"]
+    N4["Déclencheurs du chargement d’un gabarit de ticket"]
+    N5["Les règles métiers pour modifier dynamiquement un ticket"]
+    N6["La gestion des niveaux de services (SLA)"]
+    N7["Ordre de création pour un traitement automatisé"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+- Le suivi opérationnel par des tickets
+- Les différentes solutions pour créer un ticket
+
+- Les gabarits de ticket : personnalisation du masque de saisie
+- Déclencheurs du chargement d’un gabarit de ticket
+- Les règles métiers pour modifier dynamiquement un ticket
+- La gestion des niveaux de services (SLA)
+- Ordre de création pour un traitement automatisé
+
+#### Rappels sur les tickets
+
+#### Le ticket
+
+!!! note "À retenir"
+    Dans le monde de l’informatique, tout fonctionne à base de ticket Il va permettre de solliciter le centre de service Un ticket passera par plusieurs statuts : c’est le cycle de vie d’un ticket Il peut être de type « incident » ou « demande » Il doit compter un minimum d’informations
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Dans le monde de l’informatique, tout fonctionne à base de ticket"]
+    N2["Il va permettre de solliciter le centre de service"]
+    N3["Un ticket passera par plusieurs statuts : c’est le cycle de vie d’un ticket"]
+    N4["Il peut être de type « incident » ou « demande »"]
+    N5["Il doit compter un minimum d’informations"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- Dans le monde de l’informatique, tout fonctionne à base de ticket
+- Il va permettre de solliciter le centre de service
+
+- Un ticket passera par plusieurs statuts : c’est le cycle de vie d’un ticket
+- Il peut être de type « incident » ou « demande »
+- Il doit compter un minimum d’informations
+
+#### Répartition des
+
+#### Traçabilité Détection des
+
+#### tâches Communication
+
+#### problèmes
+
+#### Utilisation d’un outil de gestion de ticket
+
+#### Flux d'entrée
+
+#### Trois façons de créer un ticket
+
+!!! note "À retenir"
+    Interface d’ouverture de tickets anonymes Interface simplifiée Interface standard Depuis GLPI Envoi d’un mail dans une boîte mail support Configuration d’un collecteur Mail Création du ticket par téléphone Utilisation de l’interface standard par le technicien Téléphone
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Interface d’ouverture de tickets anonymes"]
+    N2["Interface simplifiée"]
+    N3["Interface standard Depuis GLPI"]
+    N4["Envoi d’un mail dans une boîte mail support"]
+    N5["Configuration d’un collecteur Mail"]
+    N6["Création du ticket par téléphone"]
+    N7["Utilisation de l’interface standard par le technicien Téléphone"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+- Interface d’ouverture de tickets anonymes
+- Interface simplifiée
+- Interface standard Depuis GLPI
+
+- Envoi d’un mail dans une boîte mail support
+- Configuration d’un collecteur Mail
+
+- Création du ticket par téléphone
+- Utilisation de l’interface standard par le technicien Téléphone
+
+#### Création ticket : interface anonyme
+
+!!! note "À retenir"
+    http(s)://<@glpi>/front/helpdesk.html Aucune authentification requise Possibilité de désactivation Personnalisation possible : HTML/CSS Par défaut, rattaché à l’entité racine Visuel isolé — Module 04 - Support de cours
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["http(s)://@glpi/front/helpdesk.html"]
+    N2["Aucune authentification requise"]
+    N3["Possibilité de désactivation"]
+    N4["Personnalisation possible : HTML/CSS"]
+    N5["Par défaut, rattaché à l’entité racine"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- http(s)://<@glpi>/front/helpdesk.html
+- Aucune authentification requise
+
+- Possibilité de désactivation
+- Personnalisation possible : HTML/CSS
+- Par défaut, rattaché à l’entité racine
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p03-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Création ticket : interface simplifiée
+
+- Accessible après authentification
+- Formulaire à compléter et géré par un gabarit
+- Si une délégation est configurée, possibilité de sélectionner un utilisateur
+- Ajout possible de document (imprime écran, manuel, etc.)
+- Suivi par mail possible
+- Association possible des CI concernés
+- Récapitulatif de tous ses tickets depuis l’accueil
+
+#### Création ticket : interface standard
+
+!!! note "À retenir"
+    Assistance => Tickets => Ticket par téléphone Utilisé par le support N1 et N2 Accès à plus d’éléments Vu en détail par la suite Visuel isolé — Module 04 - Support de cours Visuel isolé — Module 04 - Support de cours
+
+- Assistance => Tickets =>
+- Ticket par téléphone
+
+- Utilisé par le support N1 et N2
+- Accès à plus d’éléments
+- Vu en détail par la suite
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p04-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p04-i2.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Gabarits de ticket
+
+#### Le gabarit : généralités
+
+!!! note "À retenir"
+    Personnalisation de l’interface de saisie d’un ticket en fonction du type et d’une catégorie de ticket Interface standard et simplifiée Champs obligatoires Champs masqués Champs prédéfinis Notion de gabarit par défaut Accessibles depuis le menu listant les tickets
+
+- Personnalisation de l’interface de saisie d’un ticket en fonction du type et d’une catégorie de ticket
+- Interface standard et simplifiée
+
+- Champs obligatoires
+- Champs masqués
+- Champs prédéfinis
+- Notion de gabarit par défaut
+- Accessibles depuis le menu listant les tickets
+
+#### Le gabarit : fonctionnement
+
+#### Le gabarit : création
+
+!!! note "À retenir"
+    Assistance => Tickets => Attention à l’entité active : récursivité possible Personnalisation visuelle Rendu côté utilisateur Liaison avec catégorie / type Depuis la catégorie Visuel isolé — Module 04 - Support de cours Visuel isolé — Module 04 - Support de cours Visuel isolé — Module 04 - Support de cours
+
+!!! warning "Attention"
+    Assistance => Tickets => Attention à l’entité active : récursivité possible Personnalisation visuelle Rendu côté utilisateur Liaison avec catégorie / type Depuis la catégorie Visuel isolé — Module 04 - Support de cours Visuel isolé — Module 04 - Support de cours Visuel isolé — Module 04 - Support de cours
+
+- Assistance => Tickets =>
+- Attention à l’entité active : récursivité possible
+
+- Personnalisation visuelle
+
+- Rendu côté utilisateur
+
+- Liaison avec catégorie / type
+- Depuis la catégorie
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p06-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p06-i2.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p06-i3.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Le gabarit : bonnes pratiques
+
+- On commence par créer ses différentes catégories
+- Création des gabarits nommés ainsi : « catégorie-type »
+- Jusqu’à deux gabarits par catégorie (incidents et demandes)
+- Liaison entre les gabarits et les catégories pour chaque type
+
+- On évite au maximum d’inclure dans le gabarit le paramétrage du ticket (priorité, SLA, etc.)
+
+- Gabarit uniquement pour le visuel
+- Utilisation de règles métier pour la configuration du ticket
+
+#### Règles métier pour les tickets
+
+!!! note "À retenir"
+    « Administration => règles » Permettre une configuration automatisée des tickets saisis Maintenance simplifiée : configuration centralisée au travers de règles Visuel isolé — Module 04 - Support de cours
+
+- « Administration => règles »
+- Permettre une configuration automatisée des tickets saisis
+
+- Maintenance simplifiée : configuration centralisée au travers de règles
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p07-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Règles métier pour les tickets
+
+- Règles uniquement lues à la création du ticket
+- Toutes les règles sont interprétées
+- Importance de l’ordre => Champs concurrent
+- Critères : permettre d’identifier les tickets *
+- Type
+- Catégorie
+- Actions : définir des champs hors de portée de l’utilisateur *
+- Priorité
+- Techniciens / groupes de techniciens
+- SLA
+- etc.
+
+#### * Donnés à titre d’exemples
+
+#### Niveaux de services
+
+- Objectif : attribuer un temps de résolution ou de prise en charge
+- Saisie manuelle d’une date/heure ou utilisation des objets SLA sous GLPI
+
+- Attribution des objets SLA manuelle ou automatique via des règles
+
+#### Sélection d’un SLA
+
+#### Priorité SLA
+
+#### 1 2h
+
+#### 2 8h
+
+#### 3 2j Calcul effectué en fonction du calendrier de travail
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p08-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Niveaux de services : objets SLA
+
+- « Configuration => Niveaux de services »
+
+- Doivent être facilement identifiables
+- Le type : temps de résolution/prise en charge
+
+- La durée max de résolution souhaitée
+- Possibilité de créer des niveaux d’escalades
+
+#### Dépasser la date butoir de résolution n’est pas bloquant, juste informatif
+
+#### Niveaux de services
+
+- Permettre une modification automatisée du ticket pendant son cycle de vie
+- Se configure à travers des objets SLA qu’on applique à un ticket
+
+- Identifiable par un nom
+- Configuration d’un déclencheur temporelle par rapport au temps de résolution
+- Vont ensuite s’appuyer sur des critères (optionnels) pour réaliser des actions
+- Critères et actions applicables aux différents champs du ticket
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p09-i1.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+![Visuel isolé — Module 04 - Support de cours](../../assets/course-sources/isolated/c0540fd062bffa26/g07-d06-p09-i2.webp)
+
+Visuel isolé — Module 04 - Support de cours
+
+#### Ordre de création
+
+- Matériel
+- Logiciel => Bureautique
+- Logiciel => Infographiste Créer les catégories de ticket
+
+#### lier aux catégories suivant le type
+
+- Personnalisation de l’interface
+- Champs obligatoires
+- Champs masqués Créer les gabarits de ticket puis les
+
+- Temps de prise en charge
+- Temps de résolution Créer les SLAs
+
+- Critère (catégories, type, temps restant…)
+- Action (élévation de priorité, affection à un niveau supérieur…) Créer les escalades de SLAs
+
+- Critère (type (incident, demande), catégorie de ticket)
+- Action (affectation technicien, SLA, priorité…) Créer les règles métier
+
+#### pour les tickets
+
+```
+Assistance – Traitements automatisés des tickets
+                                                                     Ordre de création
+
+                                                                                              • Matériel
+                   Créer les catégories de ticket              • Logiciel => Bureautique
+                                                                                              • Logiciel => Infographiste
+
+                 Créer les gabarits de ticket puis les         • Personnalisation de l’interface                                                                                              • Champs obligatoires
+                        lier aux catégories suivant le type          • Champs masqués
+
+                          Créer les SLAs                          •• TempsTemps dede résolutionprise en charge
+
+                    Créer les escalades de SLAs               •• CritèreAction (élévation(catégories,detype,priorité,tempsaffectionrestant…)à un niveau supérieur…)
+
+                      Créer les règles métier                   • Critère (type (incident, demande), catégorie de ticket)
+                       pour les tickets                         • Action (affectation technicien, SLA, priorité…)
+
+19
+```
+
+Référence du document : 1FpyeKf-53BHRTG1_lWgd5AZEkFTlvBLP · SHA-256 c0540fd062bffa26…
+
+## Énoncé · M4 - Enoncé du TP - Assistance · 4 pages transcrites
+
+#### Assistance
+
+#### TP du Module 4 – Assistance – Traitements automatisés des tickets
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+#### Enoncé
+
+#### Objectifs
+
+- Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets. Prérequis
+
+Application GLPI fonctionnelle.
+
+#### Principales tâches à réaliser
+
+Gabarit de ticket.
+
+- Créez un gabarit de ticket « Incident serveur » :
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Créez un gabarit de ticket « Incident Bureautique » :
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Éléments associés.
+
+- Champs masqués :
+
+- Urgence.
+
+- Impact.
+
+- Créez un gabarit de ticket « Demande Bureautique » :
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Champs masqués :
+
+- Urgence.
+
+- Impact.
+
+#### Catégorie de ticket
+
+- Créez les catégories :
+
+- Logiciel.
+
+- Bureautique comme enfant de logiciel.
+
+- Word comme enfant de bureautique.
+
+- Excel comme enfant de Bureautique.
+
+- Outlook comme enfant de bureautique.
+
+- Infographiste comme enfant de logiciel.
+
+- Serveur.
+
+- Virtualisation comme enfant de serveur.
+
+- Active Directory comme enfant de serveur.
+
+- Matériel.
+
+- Souris/clavier comme enfant de matériel.
+
+- Ecran comme enfant de matériel.
+
+- Lier les catégories à leurs gabarits :
+
+- Catégorie « Bureautique », « Word » et « Excel » aux gabarits de ticket
+
+« Incident bureautique » et « Demande bureautique ».
+
+- Catégorie « Serveur », « Virtualisation » et « Active Directory » au gabarit
+
+« Incident serveur ».
+
+#### Calendrier
+
+- Tous les Incidents serveur seront traités sur un calendrier « cal serveur » en jours ouvrés (lundi à jeudi) 08h00 – 18h00 et 8h00 – 17h-30 le vendredi.
+
+- Tous les autres incidents utiliseront un calendrier « cal utilisateurs » en jours ouvrés (lundi à vendredi) 9h00 – 17h30.
+
+#### Niveau de service
+
+- Créez un niveau de service « SLA incident serveur » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Calendrier « cal serveur ».
+
+- SLA « Incident serveur ».
+
+- Le temps de prise en charge pour les incidents de type « serveur », « virtualisation » et « Active Directory » devra être inférieur à 1h00.
+
+- Le temps de résolution pour les incidents serveur devra être inférieur à 8h.
+
+- Si incident de toutes les catégories « serveur », « virtualisation » et « Active Directory » n’est pas prise en charge 10 minutes après la création du ticket, le groupe « GG_GLPI_Super-Admin » sera automatiquement positionné dessus ainsi que vous en tant qu’observateur sur le ticket.
+
+- Si le ticket n’est pas résolu 4h avant la date butoir de résolution, le ticket passera en priorité haute avec une escalade vers vous.
+
+- Si le ticket n’est pas résolu 3h avant la date butoir de résolution, le ticket passera en priorité très haute avec une escalade vers le directeur « Zeus ».
+
+- Créez un niveau de service « SLA incident bureautique » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Avec le calendrier « cal utilisateurs ».
+
+- Un SLA Temps de résolution de 2 jours.
+
+- Un SLA Temps de prise en charge 4h.
+
+- Créez un niveau de service « SLA demande bureautique » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Avec le calendrier « cal utilisateurs ».
+
+- Un SLA Temps de résolution de 10 jours.
+
+- Un SLA Temps de prise en charge 4h.
+
+#### Règles métier pour les tickets
+
+- Créez une règle métier pour les tickets « règle SLA serveur ».
+
+- Comme critères :
+
+- Catégories « serveur », « virtualisation » et « Active Directory ».
+
+- Type incident.
+
+- Comme actions :
+
+- SLAs Temps de résolution « incident serveur ».
+
+- SLAs Temps de prise en charge « incident serveur ».
+
+- Priorité moyenne.
+
+- Groupe de technicien « GG_GLPI_Technician ».
+
+- Créez une règle métier pour les tickets « règle SLA incident bureautique ».
+
+- Comme critères :
+
+- Catégories « Bureautique », « Word » et « Excel ».
+
+- Type « incident ».
+
+- Comme actions :
+
+- SLAs Temps de résolution « incident bureautique ».
+
+- SLAs Temps de prise en charge « incident bureautique ».
+
+- Priorité basse.
+
+- Groupe de technicien « GG_GLPI_hotliner ».
+
+- Créez une règle métier pour les tickets « règle SLA demande bureautique ».
+
+- Comme critères :
+
+- Catégories « Bureautique », « Word » et « Excel ».
+
+- Type « demande ».
+
+- Comme actions :
+
+- SLAs Temps de résolution « demande bureautique ».
+
+- SLAs Temps de prise en charge « demande bureautique ».
+
+- Priorité très basse.
+
+- Groupe de technicien « GG_GLPI_hotliner ».
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+Référence du document : 1CJv68x4D5Y-2jNFQZgdGPW6NfxHeVTGa · SHA-256 e2e4b49e5c11e0b5…
+
+## Correction · M4 - Solution du TP - Assistance · 5 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+#### Assistance
+
+#### TP du Module 4 – Assistance – Traitements automatisés des tickets
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+#### Enoncé
+
+#### Objectifs
+
+- Correctement utiliser les gabarits de ticket et les règles métiers pour les tickets. Prérequis
+
+Application GLPI fonctionnelle.
+
+#### Principales tâches à réaliser
+
+Gabarit de ticket.
+
+- Créez un gabarit de ticket « Incident serveur » :
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Créez un gabarit de ticket « Incident Bureautique » :
+
+Image de correction disponible dans les ressources.
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Éléments associés.
+
+- Champs masqués :
+
+- Urgence.
+
+- Impact.
+
+- Créez un gabarit de ticket « Demande Bureautique » :
+
+Image de correction disponible dans les ressources.
+
+- Champs obligatoires :
+
+- Titre.
+
+- Catégorie.
+
+- Type.
+
+- Lieu.
+
+- Description.
+
+- Champs masqués :
+
+- Urgence.
+
+- Impact.
+
+#### Catégorie de ticket
+
+- Créez les catégories :
+
+Image de correction disponible dans les ressources.
+
+- Logiciel.
+
+- Bureautique comme enfant de logiciel.
+
+- Word comme enfant de bureautique.
+
+- Excel comme enfant de Bureautique.
+
+- Outlook comme enfant de bureautique.
+
+- Infographiste comme enfant de logiciel.
+
+- Serveur.
+
+- Virtualisation comme enfant de serveur.
+
+- Active Directory comme enfant de serveur.
+
+- Matériel.
+
+- Souris/clavier comme enfant de matériel.
+
+- Ecran comme enfant de matériel.
+
+- Lier les catégories à leurs gabarits :
+
+- Catégorie « Bureautique », « Word » et « Excel » aux gabarits de ticket
+
+« Incident bureautique » et « Demande bureautique ».
+
+Il est possible d’affecter un gabarit à plusieurs catégories avec la modification en masse.
+
+Image de correction disponible dans les ressources.
+
+- Catégorie « Serveur », « Virtualisation » et « Active Directory » au gabarit
+
+« Incident serveur ».
+
+#### Calendrier
+
+- Tous les Incidents serveur seront traités sur un calendrier « cal serveur » en jours ouvrés (lundi à jeudi) 08h00 – 18h00 et 8h00 – 17h-30 le vendredi.
+
+#### Intitulés > calendrier
+
+Ajoutez le calendrier « cal serveur » avec les heures 8h/18h pour tous les jours ouvrés :
+
+Créez chaque jour avec les bons horaires.
+
+Image de correction disponible dans les ressources.
+
+- Tous les autres incidents utiliseront un calendrier « cal utilisateurs » en jours ouvrés (lundi à vendredi) 9h00 – 17h30.
+
+#### Niveau de service
+
+- Créez un niveau de service « SLA incident serveur » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Calendrier « cal serveur ».
+
+- SLA « Incident serveur ».
+
+- Le temps de prise en charge pour les incidents de type « serveur », « virtualisation » et « Active Directory » devra être inférieur à 1h00.
+
+- Le temps de résolution pour les incidents serveur devra être inférieur à 8h.
+
+- Si incident de toutes les catégories « serveur », « virtualisation » et « Active Directory » n’est pas prise en charge 10 minutes après la création du ticket, le groupe « GG_GLPI_Super-Admin » sera automatiquement positionné dessus ainsi que vous en tant qu’observateur sur le ticket.
+
+Créez une escalade sur le temps de prise en charge.
+
+Attention, mettre OU comme opérateur logique pour les critères.
+
+Critères : catégories serveur, virtualisation et Active Directory.
+
+Action : observateur > vous et groupe de technicien > GG_GLPI_Super- Admin.
+
+Image de correction disponible dans les ressources.
+
+- Si le ticket n’est pas résolu 4h avant la date butoir de résolution, le ticket passera en priorité haute avec une escalade vers vous.
+
+Créez une escalade sur le temps de résolution à -4h.
+
+Attention, mettre OU comme opérateur logique pour les critères.
+
+Critères : catégories serveur, virtualisation et Active Directory.
+
+#### Action : priorité > haute et technicien > vous
+
+Image de correction disponible dans les ressources.
+
+- Si le ticket n’est pas résolu 3h avant la date butoir de résolution, le ticket passera en
+
+priorité très haute avec une escalade vers le directeur « Zeus ».
+
+Créez une escalade sur le temps de résolution à -3h.
+
+Attention, mettre OU comme opérateur logique pour les critères.
+
+Critères : catégories serveur, virtualisation et Active Directory.
+
+#### Action : priorité > très haute et technicien > Zeus
+
+Image de correction disponible dans les ressources.
+
+- Créez un niveau de service « SLA incident bureautique » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Avec le calendrier « cal utilisateurs ».
+
+- Un SLA Temps de résolution de 2 jours.
+
+- Un SLA Temps de prise en charge 4h.
+
+- Créez un niveau de service « SLA demande bureautique » de l’entreprise Olympus avec les spécificités suivantes :
+
+- Avec le calendrier « cal utilisateurs ».
+
+- Un SLA Temps de résolution de 10 jours.
+
+- Un SLA Temps de prise en charge 4h.
+
+#### Règles métier pour les tickets
+
+- Créez une règle métier pour les tickets « règle SLA serveur ».
+
+Attention, mettre OU comme opérateur logique pour les critères.
+
+Image de correction disponible dans les ressources.
+
+- Comme critères :
+
+- Catégories « serveur », « virtualisation » et « Active Directory ».
+
+- Type incident.
+
+- Comme actions :
+
+- SLAs Temps de résolution « incident serveur ».
+
+- SLAs Temps de prise en charge « incident serveur ».
+
+- Priorité moyenne.
+
+- Groupe de technicien « GG_GLPI_Technician ».
+
+- Créez une règle métier pour les tickets « règle SLA incident bureautique ».
+
+- Comme critères :
+
+- Catégories « Bureautique », « Word » et « Excel ».
+
+- Type « incident ».
+
+- Comme actions :
+
+- SLAs Temps de résolution « incident bureautique ».
+
+- SLAs Temps de prise en charge « incident bureautique ».
+
+- Priorité basse.
+
+- Groupe de technicien « GG_GLPI_hotliner ».
+
+- Créez une règle métier pour les tickets « règle SLA demande bureautique ».
+
+- Comme critères :
+
+- Catégories « Bureautique », « Word » et « Excel ».
+
+- Type « demande ».
+
+- Comme actions :
+
+- SLAs Temps de résolution « demande bureautique ».
+
+- SLAs Temps de prise en charge « demande bureautique ».
+
+- Priorité très basse.
+
+- Groupe de technicien « GG_GLPI_hotliner ».
+
+#### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger, accompagnée de captures d’écran pour vous guider.
+
+Référence du document : 1WOpF00qpzzBpwuC_3wVm4EWWBfk2XC02 · SHA-256 c16c564c0406dda9…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
 | --- | --- |
-| Incident serveur | Groupe, priorité, deux dates calculées et escalades serveur attendues. |
-| Demande bureautique | Gabarit et groupe attendus, échéances calculées avec le calendrier utilisateurs. |
-| Demande dans la catégorie Serveur | Vérifier qu’elle ne déclenche pas une règle réservée aux incidents. |
-| Incident dans la catégorie Matériel | Vérifier qu’il ne reçoit pas les actions d’une règle réservée aux catégories du scénario. |
-
-Contrôler l’historique et les acteurs du ticket. En cas d’écart, relever la catégorie et le type effectifs, puis la règle et l’échéance appliquées. L’existence d’une règle dans l’interface ne valide pas son déclenchement.
-
-## À retenir
-
-Le gabarit agit sur le formulaire. La règle agit sur le ticket. Le calendrier contribue au calcul du SLA et l’escalade agit à un moment relatif à une échéance. Les cas exclus comptent autant que les cas déclenchés.
-
-## Mini-quiz
-
-1. Quel objet détermine les champs obligatoires ?
-2. Pourquoi « OU » entre trois catégories et le type Incident est-il trop large ?
-3. Le délai de résolution tient-il compte des périodes fermées ?
-4. Pourquoi tester une demande dans la catégorie Serveur ?
-5. Comment prouver qu’une escalade a produit son effet ?
-
-??? success "Réponses commentées"
-    1. Le gabarit de ticket.
-    2. Une seule condition suffirait. Il faut aussi imposer le type pour chaque catégorie acceptée.
-    3. Le calcul utilise le calendrier associé. Vérifier la date produite dans le laboratoire.
-    4. C’est un cas d’exclusion. Il vérifie qu’une catégorie compatible ne suffit pas sans le type Incident.
-    5. Vérifier le moment et les acteurs de l’action dans l’historique d’un ticket de test, puis comparer avec l’échéance de référence.
-
-## Appliquer ce module
-
-- [Énoncé du TP](../../tp/glpi/module-04/enonces.md)
-- [Correction expliquée](../../tp/glpi/module-04/corrections.md)
-- [Fiche de révision](../../revision/glpi/module-04-assistance-traitements-automatises-des-tickets.md)
+| Correction · M4 - Solution du TP - Assistance · 5 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
