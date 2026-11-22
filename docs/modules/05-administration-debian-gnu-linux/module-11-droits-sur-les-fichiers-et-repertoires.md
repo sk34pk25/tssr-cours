@@ -1,139 +1,509 @@
 # Module 11 — Droits sur les fichiers et répertoires
 
-**Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Interpréter les triplets Unix et calculer l’effet d’un umask.
-- Utiliser sticky et SetGID pour les deux besoins distincts du TP.
-- Vérifier création, accès et refus avec plusieurs comptes du scénario.
+## Parcours de lecture
 
-## Lire les permissions Unix
+1. Support · RES24_0050B - M11 - Linux Administration (Debian) · 21 pages transcrites
+2. Droits sur les fichiers et répertoires
+3. Droits sur les fichiers et répertoires
+4. Les types de droits
+5. Les types de droits
+6. Les types de droits
+7. Les types de droits
+8. Droits sur les fichiers et répertoires
+9. Modification des droits
+10. Modification des droits
+11. Modification du propriétaire et/ou du groupe propriétaire
+12. Modifier les droits et propriétaires
+13. Droits sur les fichiers et répertoires
+14. Gestion du modèle de droit « Umask »
+15. Gestion du modèle de droit « Umask »
+16. Gestion du modèle de droit « Umask »
+17. Les droits spéciaux Unix
+18. Les droits spéciaux Unix
+19. Modèle de droits et droits spéciaux
+20. Droits sur les fichiers et répertoires
+21. Conclusion
+22. Énoncé · M11TP01 - Enoncé - Gestion des permissions · 1 pages transcrites
+23. Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites
+24. Transcription des commandes et informations utiles visibles
+25. Transcription des commandes et informations utiles visibles
+26. Transcription des commandes et informations utiles visibles
+27. Transcription des commandes et informations utiles visibles
 
-Les droits classiques forment trois triplets : propriétaire `u`, groupe propriétaire `g`, autres `o`. Ils résident dans les métadonnées du fichier et s’affichent avec `ls -l`. Dans la chaîne `-rwxr-x---`, le premier caractère est le type ; les neuf suivants représentent les permissions. Pour examiner le répertoire lui-même, utiliser `ls -ld chemin` ; `ls -l chemin` examine son contenu si chemin est un répertoire.
-
-| Droit | Valeur | Sur un fichier | Sur un répertoire |
-|---|---|---|---|
-| `r` | 4 | Lire son contenu | Lister les noms des entrées |
-| `w` | 2 | Modifier son contenu | Modifier des entrées, avec les droits de parcours nécessaires |
-| `x` | 1 | Autoriser l’exécution selon le type de fichier | Traverser le répertoire et accéder à un nom connu |
-
-Pour atteindre un fichier, il faut aussi pouvoir traverser les répertoires de son chemin. Supprimer un nom dépend principalement des droits du répertoire parent, pas du bit d’écriture du fichier. Les ACL et les mécanismes supplémentaires peuvent modifier l’analyse ; ce module apprend d’abord le modèle classique.
-
-## Octal et symbolique
-
-Dans un triplet, additionner les valeurs présentes : `rwx=7`, `rw-=6`, `r-x=5`, `r--=4`. Ainsi `775` signifie rwx pour propriétaire et groupe, puis r-x pour les autres ; `750` donne aucun droit aux autres et `664` correspond à rw-rw-r--.
-
-```bash
-chmod g+w,o-rx /data/commun
-chmod 770 /data/commun
-chmod -R g+w,o-rx /data/commun
-```
-
-La première forme ajoute/retire certains droits ; la deuxième fixe les triplets classiques. La récursivité applique l’opération aux descendants et mérite une vérification préalable : fichiers et répertoires n’ont pas le même besoin d’exécution. Le symbole `X` permet l’exécution conditionnelle pour les répertoires ou les fichiers déjà exécutables.
-
-## Propriétaire et groupe
-
-```bash
-chown penthium:users /data
-chown -R :users /data/commun
-```
-
-`utilisateur:groupe` change les deux ; `:groupe` change le groupe. Vérifier ensuite avec `ls -ld` et, pour les descendants concernés, `ls -l`. Les opérations chown demandent les droits correspondants ; les permissions affichées ne donnent pas à tout utilisateur le droit de changer arbitrairement un propriétaire.
-
-## Umask — permissions à la création
-
-Le masque retire des bits aux droits demandés par le programme. Dans le cas habituel sans ACL par défaut : `mode_effectif = mode_demandé & ~umask`. Avec demandes classiques 0666 pour un fichier ordinaire et 0777 pour un répertoire :
-
-| Umask | Nouveau fichier | Nouveau répertoire |
-|---|---|---|
-| `0022` | `0644` | `0755` |
-| `0007` | `0660` | `0770` |
-
-```bash
-umask
-umask 0007
-```
-
-Le changement concerne le processus courant et ses descendants, pas les objets existants. La source propose `~/.bashrc` pour un réglage Bash ; le fichier chargé dépend du type de shell et de session. Choisir une politique adaptée aux comptes et aux services au lieu de supposer que 0022 est une exigence universelle.
-
-!!! info "Corrections externes — lecture, masque et sticky bit"
-    Le droit `w` d’un fichier n’exige pas universellement `r`. Un exécutable binaire peut fonctionner sans lecture, alors qu’un interpréteur doit normalement lire son script. L’umask retire des bits, ce n’est pas une soustraction arithmétique générale. Sur un répertoire sticky, le propriétaire du répertoire est également autorisé à supprimer des entrées, en plus du propriétaire du fichier et d’un utilisateur privilégié. Références : [chmod(1)](https://manpages.debian.org/trixie/coreutils/chmod.1.en.html), [umask(2)](https://manpages.debian.org/trixie/manpages-dev/umask.2.en.html).
-
-## Droits spéciaux
-
-| Bit | Valeur spéciale | Fichier exécutable | Répertoire |
-|---|---|---|---|
-| SetUID | 4 | Exécution avec identité effective du propriétaire, sous conditions | Pas le mécanisme d’héritage utilisé ici |
-| SetGID | 2 | Exécution avec groupe effectif du fichier, sous conditions | Nouveaux objets associés au groupe du répertoire ; propagation aux sous-répertoires créés |
-| Sticky | 1 | L’usage historique décrit n’est pas un mécanisme actuel d’accélération sous Linux | Restriction de suppression/renommage dans un répertoire partagé |
-
-`s` ou `t` indique que le bit spécial et `x` sont présents ; `S` ou `T` signale le bit spécial sans `x` dans la position correspondante. Le SetGID de répertoire ne rend pas automatiquement tous les nouveaux fichiers modifiables par le groupe : leur mode demandé et le masque restent déterminants. L’effet des bits spéciaux peut aussi être restreint par le montage et le système.
-
-## TP — arborescence partagée
-
-La correction place les données sous `/srv`, conformément au rôle de données de service du scénario. Créer les groupes requis avant d’attribuer les propriétaires.
-
-| Besoin source | Principe de réalisation et contrôle |
-|---|---|
-| public : lecture/écriture pour tous | Répertoire traversable et inscriptible par les catégories prévues |
-| depot : dépôt partagé protégé | Permissions partagées et sticky bit, puis test croisé entre deux utilisateurs |
-| admin : groupe admin seulement | Groupe propriétaire admin, rwx du groupe, aucun droit aux autres |
-| documentation : lecture pour tous, écriture du groupe | Groupe documentation, SetGID, masque cohérent pour les nouveaux objets |
-
-Exemples pédagogiques : `chmod 1777 /srv/depot`, `chmod 2775 /srv/documentation`, avec propriétaires et groupes adaptés. Les nombres ne suffisent pas : tester création, lecture, modification et suppression avec des utilisateurs de catégories différentes. Pour depot, observer que les exceptions du propriétaire de répertoire et de root existent toujours ; le texte « seul le propriétaire du fichier » du TP est un objectif simplifié.
-
-### Créer et tester les répertoires du scénario
-
-Dans la VM du TP, vérifier que les quatre répertoires sont disponibles pour l’exercice et que les groupes `admin` et `documentation` existent. Voici une mise en place possible sur des répertoires neufs.
-
-```bash
-sudo install -d -o root -g root -m 0777 /srv/public
-sudo install -d -o root -g root -m 1777 /srv/depot
-sudo install -d -o root -g admin -m 0770 /srv/admin
-sudo install -d -o root -g documentation -m 2775 /srv/documentation
-ls -ld /srv/public /srv/depot /srv/admin /srv/documentation
-```
-
-| Test | Résultat attendu |
-| --- | --- |
-| Deux comptes ordinaires créent chacun un fichier dans `public` | La création réussit si les deux comptes peuvent traverser le chemin. |
-| Un compte ordinaire tente de supprimer le fichier d’un autre dans `depot` | Le sticky bit bloque la suppression par ce compte. Le propriétaire du fichier peut supprimer sa propre entrée. |
-| Un compte du groupe `admin`, puis un compte extérieur, tentent d’entrer dans `admin` | Le membre peut traverser le répertoire. Le compte extérieur obtient un refus. |
-| Un membre de `documentation` crée un fichier et un compte extérieur le lit | Le nouveau fichier hérite du groupe `documentation`. La lecture du fichier dépend également de son mode, donc de l’umask ou des ACL. |
-
-Pour le test de documentation, appliquer un umask cohérent avec la règle de l’atelier et contrôler le fichier créé avec `stat`. Tester aussi une tentative de création par un compte extérieur au groupe. Garder les résultats de comptes ordinaires, car les essais uniquement sous root ne valident pas les refus du scénario.
-
-## Schéma explicatif — complément pédagogique
+**Visuel externe**
 
 ```mermaid
 flowchart TD
- A["Utilisateur et groupes de sa session"] --> B["Parcours des répertoires"]
- B --> C["Catégorie u, g ou o"]
- C --> D["Droit requis sur l’objet"]
- D --> E["Bits spéciaux / autres contrôles"]
+    N1["Support · RES24_0050B - M11 - Linux Administration (Debian) · 21 pages transcrites"]
+    N2["Droits sur les fichiers et répertoires"]
+    N3["Droits sur les fichiers et répertoires"]
+    N4["Les types de droits"]
+    N5["Les types de droits"]
+    N6["Les types de droits"]
+    N7["Les types de droits"]
+    N8["Droits sur les fichiers et répertoires"]
+    N9["Modification des droits"]
+    N10["Modification des droits"]
+    N11["Modification du propriétaire et/ou du groupe propriétaire"]
+    N12["Modifier les droits et propriétaires"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-## À retenir
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Le droit d’écriture et de traversée d’un répertoire détermine l’action sur ses entrées. Sticky restreint suppression et renommage, tandis que SetGID règle l’héritage du groupe.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## Autoévaluation
+## Support · RES24_0050B - M11 - Linux Administration (Debian) · 21 pages transcrites
 
-1. Que produit umask 0007 pour un fichier demandé en 0666 ?
-2. SetGID donne-t-il à lui seul le droit d’écriture au groupe sur un nouveau fichier ?
-3. Qui peut supprimer un nom dans un répertoire sticky, sous réserve des autres droits ?
-4. Pourquoi tester `depot` avec deux utilisateurs ordinaires ?
-5. Comment vérifier l’héritage dans `documentation` ?
+### Administration Debian
 
-??? success "Réponses commentées"
-    1. 0660.
-    2. Non ; il règle le groupe hérité, pas tous les bits d’accès.
-    3. Le propriétaire du fichier, le propriétaire du répertoire ou un utilisateur privilégié.
-    4. Le test doit montrer qu’ils peuvent déposer leurs fichiers mais que l’un ne peut pas supprimer celui de l’autre.
-    5. Créer un fichier avec un membre du groupe puis relever son groupe et son mode avec `stat`. Tester les droits séparément.
+### GNU/Linux
 
-## Pour travailler ce module
+!!! note "À retenir"
+    Module 11 – Droits sur les fichiers et répertoires
 
-- [Fiche de révision](../../revision/administration-linux/module-11-droits-sur-les-fichiers-et-repertoires.md)
-- [Travaux pratiques](../../tp/administration-linux/module-11/index.md)
-- [Progression du cours](index.md)
+Module 11 – Droits sur les fichiers et répertoires
+
+## Droits sur les fichiers et répertoires
+
+### Objectifs
+
+!!! note "À retenir"
+    Comprendre le fonctionnement des droits Gérer les droits sur les répertoires et fichiers Gérer les utilisateurs et groupes propriétaires des répertoires et fichiers Gérer le modèle de droits Les droits spéciaux Donner les droits suffisants, ni plus, ni moins
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Comprendre le fonctionnement des droits"]
+    N2["Gérer les droits sur les répertoires et fichiers"]
+    N3["Gérer les utilisateurs et groupes propriétaires des répertoires et fichiers"]
+    N4["Gérer le modèle de droits"]
+    N5["Les droits spéciaux"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- Comprendre le fonctionnement des droits
+- Gérer les droits sur les répertoires et fichiers
+- Gérer les utilisateurs et groupes propriétaires des répertoires et fichiers
+- Gérer le modèle de droits
+- Les droits spéciaux
+
+Donner les droits suffisants, ni plus, ni moins
+
+## Droits sur les fichiers et répertoires
+
+### Les droits Unix/Linux
+
+## Les types de droits
+
+!!! note "À retenir"
+    Les droits d’accès sur les fichiers sont directement inscrits dans l’inode des fichiers (répertoires).
+
+- Les droits d’accès sur les fichiers sont directement inscrits dans l’inode des fichiers (répertoires). Ils sont découpés en trois colonnes : utilisateur propriétaire (user), groupe propriétaire (group) et les autres (other).
+- En pratique, il y a toujours trois groupes de trois droits.
+
+### rwxrwxr-x utilisateur groupe other
+
+## Les types de droits
+
+| Droit | Octal | Fichier | Répertoire |
+| --- | --- | --- | --- |
+| Lecture (r) | 4 | Permet de lire, ouvrir le fichier. Ex. : cat | Permet de lister le contenu du dossier. Ex. : ls |
+| Écriture (w) | 2 | Permet d’écrire dans le fichier (le droit de lecture doit être présent). | Permet de modifier le contenu du dossier (créer, copier, renommer, supprimer). Ex. : mkdir cp rm |
+| Exécution (x) | 1 | Permet d’exécuter le fichier binaire ou script shell (le droit de lecture doit être présent). | Permet à un utilisateur de traverser ou d’accéder à un fichier dans le dossier. Ex. : cd |
+
+## Les types de droits
+
+!!! note "À retenir"
+    Pour calculer les droits en octal, il faut additionner les valeurs des droits présents pour les trois groupes.
+
+Pour calculer les droits en octal, il faut additionner les valeurs des droits présents pour les trois groupes.
+
+| Droits | Calcul octal |
+| --- | --- |
+| rwx | 4+2+1 = 7 |
+| rw- | 4+2 = 6 |
+| r-x | 4+1 = 5 |
+| r-- | 4 |
+
+### Exemples
+
+| Droits | Octal |
+| --- | --- |
+| rwxrwxr-x | 775 |
+| rwxr-x--- | 750 |
+| rw-rw-r-- | 664 |
+
+## Les types de droits
+
+!!! note "À retenir"
+    Pour afficher les droits d’un fichier ou répertoire, la commande ls sera utilisée : Dans cet exemple, sont mis en avant les droits de l’utilisateur propriétaire en vert, les droits du groupe propriétaire en bleu et ceux des autres en violet.
+
+- Pour afficher les droits d’un fichier ou répertoire, la commande ls sera utilisée :
+
+```
+root@deb:~$ ls –ld
+total 16
+drwxr-xr-x 3 user30 user30 4096 17:36 .
+-rw------- 1 user30 user30  616 09:34 Edition
+drwxr-xr-x 2 user30 user30 4096 17:36 Nantes
+lrwxrwxrwx 1 user30 user30   15 17:38 Quimper -> Rennes/Quimper/
+drwxr-xr-x 3 user30 user30 4096 17:36 Rennes
+-rw-r--r-- 1 user30 user30   33 17:35 todo.list
+```
+
+- Dans cet exemple, sont mis en avant les droits de l’utilisateur propriétaire en vert, les droits du groupe propriétaire en bleu et ceux des autres en violet.
+
+## Droits sur les fichiers et répertoires
+
+### Modifier les droits et
+
+### propriétaires
+
+## Modification des droits
+
+!!! note "À retenir"
+    La commande chmod permet de modifier les droits.
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["La commande chmod permet de modifier les droits."]
+    N2["Il est possible d’utiliser cette commande de deux façons :"]
+    N3["Absolue : en octal ou symbolique avec le signe « = »"]
+    N4["Relative : en symbolique avec les signes « + » ou « - »"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+```
+• chmod <-R> [ugoa][+ - =][rwxX] fichier ou dossier
+```
+
+- La commande chmod permet de modifier les droits.
+- Il est possible d’utiliser cette commande de deux façons :
+- Absolue : en octal ou symbolique avec le signe « = »
+- Relative : en symbolique avec les signes « + » ou « - »
+- Attention à l’option –R, le fait de réaliser un chmod de façon récursive doit être effectué de façon réfléchie et ne doit pas être généralisé à tous les usages.
+
+## Modification des droits
+
+!!! note "À retenir"
+    Modifier les permissions d’un répertoire en notation symbolique Modifier les permissions d’un répertoire en notation octale Modifier les permissions d’un répertoire ET de son contenu
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Modifier les permissions d’un répertoire en notation symbolique"]
+    N2["Modifier les permissions d’un répertoire en notation octale"]
+    N3["Modifier les permissions d’un répertoire ET de son contenu"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Modifier les permissions d’un répertoire en notation symbolique
+
+```
+root@deb:~# chmod g+w,o-rx /data/commun
+```
+
+- Modifier les permissions d’un répertoire en notation octale
+
+```
+root@deb:~# chmod 770 /data/commun
+```
+
+- Modifier les permissions d’un répertoire ET de son contenu
+
+```
+root@deb:~# chmod –R g+w,o-rx /data/commun
+```
+
+## Modification du propriétaire et/ou du groupe propriétaire
+
+!!! note "À retenir"
+    La commande chown permet de modifier l’utilisateur propriétaire et le groupe propriétaire Modifier l’utilisateur et le groupe propriétaire Modifier seulement le groupe propriétaire de /data/commun ET son contenu
+
+```
+• chown <-R> [user]:[group] fichier(dossier)
+```
+
+- La commande chown permet de modifier l’utilisateur propriétaire et le groupe propriétaire
+- Modifier l’utilisateur et le groupe propriétaire
+
+```
+root@deb:~# chown penthium:users /data
+```
+
+- Modifier seulement le groupe propriétaire de /data/commun ET son contenu
+
+```
+root@deb:~# chown –R :users /data/commun
+```
+
+## Modifier les droits et propriétaires
+
+Démo
+
+Modifier les droits et propriétaires
+
+## Droits sur les fichiers et répertoires
+
+### Modèle de droits et
+
+### droits spéciaux
+
+## Gestion du modèle de droit « Umask »
+
+- L’umask est utilisé pour déterminer les droits des fichiers et répertoires.
+- La valeur de l’umask sera « soustraite » à la valeur des droits maximaux à la création : 0666 pour un fichier, 0777 pour un répertoire.
+- Sur Debian, l’umask par défaut des utilisateurs est de 0022. Il est important que l’umask de root et des utilisateurs de service (UID < 1000) reste à 0022.
+- Il est possible pour chaque utilisateur de changer son umask avec la commande umask.
+
+## Gestion du modèle de droit « Umask »
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Je vais calculer la somme en octal : 770"]
+    N2["Ensuite je vais soustraire cette valeur cible de 777, le maximum possible"]
+    N3["Ce qui amène ici le résultat 007"]
+    N4["Ou 0007 avec prise en compte du premier chiffre représentant les droits spéciaux"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- En pratique, on calcule toujours l’umask à partir des droits pour les répertoires (sinon le droit d’exécution ne sera pas posé pour les dossiers créés avec ce masque.)
+- Si je souhaite obtenir des droits de lecture-écriture-exécution pour l’utilisateur et le groupe propriétaire :
+- Je vais calculer la somme en octal : 770
+- Ensuite je vais soustraire cette valeur cible de 777, le maximum possible
+- Ce qui amène ici le résultat 007
+- Ou 0007 avec prise en compte du premier chiffre représentant les droits spéciaux
+
+## Gestion du modèle de droit « Umask »
+
+```
+• umask [mode]
+```
+
+- Afficher le masque courant
+
+```
+user30@deb:~$ umask 
+0022
+```
+
+- Modifier le masque courant
+
+```
+user30@deb:~$ umask 0007
+user30@deb:~$ umask 
+0007
+```
+
+- Pour avoir un umask spécifique lors de sa connexion, il sera possible d’ajouter une entrée avec la commande umask dans son fichier de chargement de son shell (le fichier ~/.bashrc pour le shell bash)
+
+## Les droits spéciaux Unix
+
+| Droit | Octal | Fichier | Répertoire |
+| --- | --- | --- | --- |
+| SetUID. Symbolique sur colonne user, champ x : s = SetUID + droit x positionné ; S = SetUID positionné seul | 4--- | Exécution avec les droits du propriétaire du fichier. Ex : la commande /usr/bin/passwd s’exécute avec les droits de root, afin de permettre l’écriture dans les fichiers passwd et shadow. | Non utilisé pour les dossiers |
+| SetGID. Symbolique sur colonne group, champ x : s = SetGID + droit x positionné ; S = SetGID positionné seul | 2--- | Exécution avec les droits du groupe. Ex : /usr/sbin/crontab s’éxecute avec les droits du groupe crontab. | Tout fichier créé dans ce dossier héritera du groupe du dossier parent. Les sous-dossiers créés hériteront quant à eux du droit SetGID. |
+
+## Les droits spéciaux Unix
+
+| Droit | Octal | Fichier | Répertoire |
+| --- | --- | --- | --- |
+| Sticky bit. Symbolique sur colonne other, champ x : t = Sticky bit + droit x positionné ; T = Sticky bit positionné seul | 1--- | Mise en zone de swap. Le but est que le fichier puisse être stocké en mémoire pour pouvoir être relancé plus rapidement. | Tout fichier créé ne pourra être supprimé que par son propriétaire et par root. Ex : /tmp |
+
+```
+chmod <-R> [ugoa][+ - =][st] fichier ou dossier
+```
+
+## Modèle de droits et droits spéciaux
+
+Démo
+
+Masque de droits et droits spéciaux
+
+## Droits sur les fichiers et répertoires
+
+### TP
+
+Démo
+
+Gestion des permissions
+
+## Conclusion
+
+- Vous comprenez le fonctionnement des droits Unix Linux
+- Vous savez modifier les droits et propriétaires de dossiers et fichiers
+- Vous savez manipuler les modèles de droits
+- Vous savez positionner des droits spéciaux
+
+Référence du document : 1YjWdn_o7rBxiW5UEpEx2rc0vrgJXifmZ · SHA-256 321e29630af1a8bc…
+
+## Énoncé · M11TP01 - Enoncé - Gestion des permissions · 1 pages transcrites
+
+### Gestion des permissions
+
+TP du Module 11 – Droits sur les fichiers et répertoires
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+45 minutes à 1 heure
+
+### Énoncé
+
+### Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.
+
+Trouver les solutions pour les besoins suivants :
+
+- Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs
+- Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer
+- Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement
+- Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation. Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation
+
+Vous aurez besoin de configurer les droits spéciaux pour certains des répertoires. Faites-en sorte que l’arborescence créée soit pertinente d’un point de vue FHS. Tester les paramétrages avec les différents types de comptes utilisateurs (administrateur, utilisateur, gestionnaire de la documentation ...).
+
+### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1aMX2b0y7CWZqPmSSH6Al0pi7wOV1X_wo · SHA-256 bdf164070587677a…
+
+## Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+### Gestion des permissions
+
+TP du Module 11 – Droits sur les fichiers et répertoires
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 11 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+45 minutes à 1 heure
+
+### Énoncé
+
+### Créer une structure de stockage sur le serveur sans interface graphique pour les fichiers utilisateurs.
+
+Trouver les solutions pour les besoins suivants :
+
+- Public : un répertoire public accessible en lecture / écriture pour tous les utilisateurs
+
+Création de la structure de stockage dans le dossier /srv (Données des services hebergées, par exemple unh serveur de fichier). Ajout du droit d’écriture à others .
+
+- Dépôt : un répertoire depot accessible en lecture / écriture pour tous les utilisateurs mais dans lequel seul le propriétaire du fichier pourra le supprimer
+
+Création du dossier sans l'option -p, devenu inutile maintenant que /srv existe ajout du droit w à others ainsi que du droit t , le sticky bit, qui interdit la suppression par d’autres comptes que l’utilisateur propriétaire ou root
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p1-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+mkdir -p /srv/public
+ls -ld /srv/public
+chmod og+w /srv/public
+ls -ld /srv/public
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p1-3.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+mkdir /srv/depot
+chmod o+wt /srv/depot
+ls -ld /srv/depot/
+```
+
+- Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement
+
+Suppression de tous les droits pour others ajout du droit d’écriture pour le groupe propriétaire Affection du groupe admin comme groupe propriétaire
+
+- Documentation : un répertoire documentation accessible en lecture pour tous les utilisateurs et en lecture/écriture pour le groupe documentation. Faire en sorte que tout nouveau fichier créé dans ce répertoire appartienne au groupe documentation
+
+Ajout du droit d'écriture pour le groupe ainsi que du droit s qui active le SetGID .
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-p2-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+mkdir /srv/admin
+chmod o-rx /srv/admin
+chmod g+w /srv/admin
+chown :admin /srv/admin
+ls -ld /srv/admin/
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/f1b4d02bf2d2efce/deb-small-p2-3.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+mkdir /srv/documentation
+chmod g+ws /srv/documentation/
+ls -ld /srv/documentation/
+```
+
+Référence du document : 1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk · SHA-256 f1b4d02bf2d2efce…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Les types de droits | Les droits d’accès sur les fichiers sont directement inscrits dans l’inode des fichiers (répertoires). |
+| Les types de droits | Pour calculer les droits en octal, il faut additionner les valeurs des droits présents pour les trois groupes. |
+| Les types de droits | Pour afficher les droits d’un fichier ou répertoire, la commande ls sera utilisée : Dans cet exemple, sont mis en avant les droits de l’utilisateur propriétaire en vert, les dro… |
+| Modification des droits | La commande chmod permet de modifier les droits. |
+| Modification des droits | Modifier les permissions d’un répertoire en notation symbolique Modifier les permissions d’un répertoire en notation octale Modifier les permissions d’un répertoire ET de son co… |
+| Modification du propriétaire et/ou du groupe propriétaire | La commande chown permet de modifier l’utilisateur propriétaire et le groupe propriétaire Modifier l’utilisateur et le groupe propriétaire Modifier seulement le groupe propriéta… |
+| Modifier les droits et propriétaires | Démo Modifier les droits et propriétaires |
+| Gestion du modèle de droit « Umask » | L’umask est utilisé pour déterminer les droits des fichiers et répertoires. |
+| Gestion du modèle de droit « Umask » | En pratique, on calcule toujours l’umask à partir des droits pour les répertoires (sinon le droit d’exécution ne sera pas posé pour les dossiers créés avec ce masque.) Si je sou… |
+| Gestion du modèle de droit « Umask » | Afficher le masque courant Modifier le masque courant Pour avoir un umask spécifique lors de sa connexion, il sera possible d’ajouter une entrée avec la commande umask dans son… |
+| Modèle de droits et droits spéciaux | Démo Masque de droits et droits spéciaux |
+| Conclusion | Vous comprenez le fonctionnement des droits Unix Linux Vous savez modifier les droits et propriétaires de dossiers et fichiers Vous savez manipuler les modèles de droits Vous sa… |
+| Correction · M11TP01 - Solution - Gestion des permissions · 2 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Admin : un répertoire admin accessible en lecture / écriture pour le groupe admin uniquement Suppression de tous les droits pour others ajout du droit d’écriture pour le groupe… |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Référence du document : 1xC5OyxrH9JZsvp6OxeQrSf4NWCcwnxtk · SHA-256 f1b4d02bf2d2efce… |

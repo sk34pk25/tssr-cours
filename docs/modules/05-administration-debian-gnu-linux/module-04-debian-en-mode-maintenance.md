@@ -1,123 +1,627 @@
 # Module 04 — Debian en mode maintenance
 
-**Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Choisir un accès de maintenance selon la possibilité d’amorcer le système.
-- Identifier la racine montée et vérifier son mode avant toute écriture.
-- Comparer le shell initial et le secours de l’ISO, puis contrôler le retour au démarrage normal.
+## Parcours de lecture
 
-## Choisir le moyen de maintenance
+1. Support · RES24_0050B - M04 - Linux Administration (Debian) · 18 pages transcrites
+2. Debian en mode maintenance
+3. Debian en mode maintenance
+4. Passer en mode maintenance
+5. Debian en mode maintenance
+6. Méthode 1
+7. Méthode 1
+8. Méthode 1
+9. Debian en mode maintenance
+10. Méthode 2
+11. Méthode 2
+12. Méthode 2
+13. Méthode 2
+14. Debian en mode maintenance
+15. Mode maintenance via le CD d’installation
+16. Mode maintenance via le CD-ROM
+17. Debian en mode maintenance
+18. Conclusion
+19. Énoncé · M04TP01 - Enoncé - Debian en mode maintenance · 2 pages transcrites
+20. Correction · M04TP01 - Solution - Debian en mode maintenance · 6 pages transcrites
+21. Transcription des commandes et informations utiles visibles
+22. Transcription des commandes et informations utiles visibles
+23. Transcription des commandes et informations utiles visibles
+24. Transcription des commandes et informations utiles visibles
+25. Transcription des commandes et informations utiles visibles
+26. Transcription des commandes et informations utiles visibles
+27. Transcription des commandes et informations utiles visibles
 
-Le support traite trois situations : démarrage impossible après une modification, récupération de données et perte du mot de passe root. Le TP se déroule sur les VM du laboratoire avec accès à leur console. Il compare le secours fourni par le système installé et celui du média d’installation.
-
-| Méthode | Origine de l’environnement | Point déterminant |
-|---|---|---|
-| Paramètre `single` dans GRUB | Système installé | Authentification root généralement demandée dans ce scénario |
-| `init=/bin/bash` | Noyau installé, shell à la place de l’initialisation normale | Services et arrêt ordinaires absents |
-| Rescue mode de l’ISO | Environnement externe au système installé | Sélection du système racine à monter |
-
-Avant d’intervenir, relever la VM, son disque et sa disposition de volumes. Un snapshot de laboratoire fournit un retour à un état connu ; il ne remplace pas une sauvegarde durable.
-
-## Méthode 1 — secours via GRUB
-
-1. Afficher GRUB et sélectionner le noyau voulu.
-2. Appuyer sur `e`, repérer la ligne commençant par `linux` et conserver les chemins et le paramètre `root=` propres à la machine.
-3. Remplacer l’option de fin `quiet` par `single`, conformément au scénario.
-4. Démarrer l’entrée modifiée avec `Ctrl` + `X` ou `F10`.
-5. S’authentifier si demandé, puis effectuer l’intervention minimale.
-
-Le clavier peut être en QWERTY à ce stade. Le fait de ne pas réussir à saisir un mot de passe ne prouve donc pas qu’il a été perdu. La présence d’un compte root verrouillé, le firmware et une éventuelle protection GRUB peuvent aussi changer le déroulement.
-
-## Méthode 2 — shell initial
-
-Pour le TP sur le serveur en console, la source demande d’ajouter `init=/bin/bash` à la ligne du noyau, en conservant son périphérique racine. Le système de fichiers peut être initialement monté en lecture seule.
-
-```bash
-mount -o remount,rw /
-```
-
-Cette commande remonte **le montage racine courant** en lecture-écriture. Elle ne monte pas automatiquement tous les volumes qui figuraient dans `/etc/fstab`. Contrôler donc les montages avant de conclure que le contenu de `/home` ou `/var` a disparu. Le TP demande de créer un fichier dans `/root`, puis de vérifier l’accès au répertoire personnel de l’utilisateur.
-
-```bash
-id
-findmnt /
-sync
-```
-
-Ces commandes de contrôle et de synchronisation complètent la démarche : `id` établit l’identité effective, `findmnt` décrit le montage, `sync` demande la synchronisation des écritures. Le support indique une extinction forcée dans ce mode très limité ; ne transposez pas cette méthode à un système normalement initialisé.
-
-## Méthode 3 — média d’installation
-
-1. Connecter l’ISO à la VM et faire démarrer celle-ci sur le lecteur virtuel. Dans l’exemple VMware, la touche Échap doit parvenir à la console de la VM.
-2. Ouvrir **Advanced options**, puis **Rescue mode**.
-3. Choisir langue, clavier et paramètres demandés.
-4. Sélectionner le système de fichiers racine de l’installation à réparer.
-5. Ouvrir le shell proposé et vérifier où se trouve l’installation montée.
-
-Le TP demande d’accéder au fichier `passwd` de l’installation, de déterminer si sa modification est possible et de relever l’utilisateur utilisé ainsi que l’absence ou la présence d’une demande de mot de passe. Il s’agit d’une observation ; **aucune modification arbitraire de `/etc/passwd` n’est nécessaire** pour réussir ce contrôle.
-
-Le support souligne les avantages du média : langue française, accès de secours indépendant du mot de passe root installé et extinction gérée par cet environnement. Les contraintes sont la disponibilité du média et le choix correct du démarrage en virtualisation.
-
-!!! info "Clarifications externes — fin du secours"
-    Le tiret de `mount -o` doit être un tiret ASCII, contrairement au tiret typographique visible dans la source. En secours systemd, quitter le shell peut poursuivre le démarrage normal ; cela ne signifie pas entrer pour la première fois dans `rescue.target`, déjà associé au secours. Le shell lancé par `init=/bin/bash` n’est pas une session de secours systemd ordinaire. Références : [systemd.special(7)](https://www.freedesktop.org/software/systemd/man/latest/systemd.special.html) et [mode de secours Debian](https://www.debian.org/releases/trixie/amd64/ch08s06.fr.html).
-
-## TP — Comparer deux accès de maintenance
-
-### Serveur en console, shell initial
-
-Sur la VM du TP, appliquer temporairement `init=/bin/bash` à l’entrée GRUB décrite plus haut. Avant le remontage, noter le mode affiché pour la racine. Après `mount -o remount,rw /`, confirmer qu’elle est en lecture-écriture et créer un fichier témoin dans `/root`.
-
-```bash
-id
-findmnt --mountpoint /
-mount -o remount,rw /
-findmnt --mountpoint /
-touch /root/tssr-maintenance-test
-ls -l /root/tssr-maintenance-test
-findmnt --mountpoint /home
-ls -ld /home
-```
-
-Si `/home` n’est pas monté séparément, comparer la disposition relevée au module 02 avant de conclure sur le contenu visible. Synchroniser les écritures avant de quitter le mode de maintenance. Contrôler ensuite le démarrage normal de la VM.
-
-### Poste graphique, média d’installation
-
-Démarrer sur le média, choisir **Advanced options**, puis **Rescue mode** et sélectionner la racine du poste installé. Dans le shell proposé, distinguer le système de secours du système installé, qui peut être monté sous `/target` selon le choix. Utiliser `id` et `findmnt`, puis identifier le bon répertoire `/etc` avant d’ouvrir le fichier demandé. Un changement de test doit rester réversible. Relever le compte effectif et le point de montage dans le compte rendu.
-
-## Schéma explicatif — complément pédagogique
+**Visuel externe**
 
 ```mermaid
 flowchart TD
- A["Besoin de maintenance"] --> B["Système installé amorçable ?"]
- B -->|Oui| G["GRUB : paramètres temporaires"]
- B -->|Non| I["ISO : mode de secours"]
- G --> V["Vérifier identité et montages"]
- I --> V
- V --> R["Intervention ciblée puis contrôle du démarrage"]
+    N1["Support · RES24_0050B - M04 - Linux Administration (Debian) · 18 pages transcrites"]
+    N2["Debian en mode maintenance"]
+    N3["Debian en mode maintenance"]
+    N4["Passer en mode maintenance"]
+    N5["Debian en mode maintenance"]
+    N6["Méthode 1"]
+    N7["Méthode 1"]
+    N8["Méthode 1"]
+    N9["Debian en mode maintenance"]
+    N10["Méthode 2"]
+    N11["Méthode 2"]
+    N12["Méthode 2"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-## À retenir
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Le shell initial, la cible de secours et l’ISO ne présentent pas nécessairement les mêmes montages. Identifier l’utilisateur effectif, la racine réelle et le mode du montage avant une modification.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## Autoévaluation
+## Support · RES24_0050B - M04 - Linux Administration (Debian) · 18 pages transcrites
 
-1. Pourquoi `/home` peut-il sembler vide dans le shell initial ?
-2. Quelle commande rend la racine montée accessible en écriture ?
-3. Pourquoi identifier la racine choisie depuis l’ISO ?
-4. Le fichier `/etc` ouvert dans le shell de l’ISO appartient-il forcément au système installé ?
-5. Pourquoi vérifier `findmnt --mountpoint /home` dans le shell initial ?
+### Administration Debian
 
-??? success "Réponses commentées"
-    1. Son volume séparé n’est peut-être pas monté.
-    2. `mount -o remount,rw /`.
-    3. Le shell de secours et le système à réparer ne sont pas nécessairement la même arborescence.
-    4. Vérifier où la racine installée est montée. Selon le shell sélectionné, elle peut se trouver sous `/target`.
-    5. Le résultat permet de voir si le volume distinct est monté. Un chemin visible sur la racine ne prouve pas que le volume de données a été monté.
+### GNU/Linux
 
-## Pour travailler ce module
+Module 04 – Debian en mode maintenance
 
-- [Fiche de révision](../../revision/administration-linux/module-04-debian-en-mode-maintenance.md)
-- [Travaux pratiques](../../tp/administration-linux/module-04/index.md)
-- [Progression du cours](index.md)
+## Debian en mode maintenance
+
+### Objectifs
+
+!!! note "À retenir"
+    Savoir démarrer en mode maintenance depuis GRUB ou depuis le CD d’installation Réparer Linux
+
+- Savoir démarrer en mode maintenance depuis GRUB ou depuis le CD d’installation
+
+Réparer Linux
+
+## Debian en mode maintenance
+
+### Démarrer un système en
+
+### mode maintenance
+
+## Passer en mode maintenance
+
+!!! note "À retenir"
+    Il est parfois nécessaire de passer en mode maintenance sur un ordinateur ou un serveur pour diverses raisons En voici quelques-unes : Le système ne démarre plus à la suite d'une mise à jour ou d’une installation Le mot de passe de l’utilisateur root est perdu Récupération de données …
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["En voici quelques-unes :"]
+    N2["Le système ne démarre plus à la suite d'une mise à jour ou d’une installation"]
+    N3["Le mot de passe de l’utilisateur root est perdu"]
+    N4["Récupération de données"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+- Il est parfois nécessaire de passer en mode maintenance sur un ordinateur ou un serveur pour diverses raisons
+- En voici quelques-unes :
+- Le système ne démarre plus à la suite d'une mise à jour ou d’une installation
+- Le mot de passe de l’utilisateur root est perdu
+- Récupération de données
+- …
+
+## Debian en mode maintenance
+
+### Mode maintenance via
+
+### GRUB
+
+## Méthode 1
+
+!!! note "À retenir"
+    Passer par le boot manager GRUB pour passer en mode maintenance Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e] Ce mode n’est pas fonctionnel en mode « sudo sans mot de passe » pour l’utilisateur.
+
+- Passer par le boot manager GRUB pour passer en mode maintenance
+- Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e]
+
+Ce mode n’est pas fonctionnel en mode « sudo sans mot de passe » pour l’utilisateur.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f8cc5ca64839f70b/deb-p6-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f8cc5ca64839f70b/deb-p6-2.webp)
+
+Capture ou visuel isolé du document de formation.
+
+## Méthode 1
+
+!!! note "À retenir"
+    Modifier la fin de la ligne suivante De cette manière Valider avec [ctrl] + [x] ou [F10].
+
+!!! warning "Attention"
+    Attention le clavier est au format QWERTY en_US par défaut Après vos actions en mode maintenance, la séquence de touches [ctrl] + [d] vous permettra de poursuivre vers le chargement vers la cible « rescue.target »
+
+- Modifier la fin de la ligne suivante
+
+```
+linux 
+/vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro quiet
+```
+
+- De cette manière
+
+```
+linux 
+/vmlinuz-4.19.0-8-amd64 root=/dev/mapper/debian--vg-sys ro single
+```
+
+- Valider avec [ctrl] + [x] ou [F10]. Saisissez le mot de passe root. Attention le clavier est au format QWERTY en_US par défaut
+- Après vos actions en mode maintenance, la séquence de touches [ctrl] + [d] vous permettra de poursuivre vers le chargement vers la cible « rescue.target »
+
+## Méthode 1
+
+!!! note "À retenir"
+    Démo Maintenance via GRUB avec mot de passe root
+
+Démo
+
+Maintenance via GRUB avec mot de passe root
+
+## Debian en mode maintenance
+
+### Maintenance via GRUB sans mot de passe root
+
+## Méthode 2
+
+!!! note "À retenir"
+    Passer par le boot manager GRUB pour passer en mode maintenance Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e] Capture ou visuel isolé du document de formation.
+
+- Passer par le boot manager GRUB pour passer en mode maintenance
+- Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e]
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f8cc5ca64839f70b/deb-p10-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/f8cc5ca64839f70b/deb-p10-2.webp)
+
+Capture ou visuel isolé du document de formation.
+
+## Méthode 2
+
+!!! note "À retenir"
+    Modifier la fin de la ligne de cette manière Valider avec [ctrl] + [x] ou [F10].
+
+- Modifier la fin de la ligne de cette manière
+
+```
+linux 
+/vmlinuz-4.19.0-8 root=/dev/mapper/debian--vg-sys ro init=/bin/bash
+```
+
+- Valider avec [ctrl] + [x] ou [F10]. Attention le clavier est au format QWERTY en-US
+
+## Méthode 2
+
+- Le système est démarré mais le système de fichier racine est en lecture seule. Il faut lancer la commande suivante pour obtenir l’accès en lecture-écriture :
+
+```
+root@(none):/# mount –o remount,rw /
+[   88.5124578] EXT4-fs (dm-0): re-mounted. Opts: errors=remount-ro
+root@(none):/#
+```
+
+- Après vos actions, synchronisez l’écriture des données en RAM vers le disque avec la commande sync
+- Rappel : il n’est pas possible d’éteindre proprement l’ordinateur dans ce mode
+- Il faudra forcer l’extinction par un poweroff matériel
+
+## Méthode 2
+
+Démo
+
+Maintenance via GRUB sans mot de passe root
+
+## Debian en mode maintenance
+
+### Mode maintenance
+
+### via le CD-ROM
+
+## Mode maintenance via le CD d’installation
+
+Une autre solution : passer par le mode maintenance inclus dans chaque CD d’installation.
+
+| Avantages | Inconvénients |
+| --- | --- |
+| Langue française disponible | Nécessité d’avoir un CD-ROM disponible ou une image |
+| Pas besoin du mot de passe root | Complexité possible en virtualisation |
+| Extinction |  |
+
+## Mode maintenance via le CD-ROM
+
+Démo
+
+Maintenance via le CD-ROM
+
+## Debian en mode maintenance
+
+### Démo TP
+
+## Conclusion
+
+- Vous savez passer en mode maintenance au démarrage depuis GRUB
+- Vous savez démarrer sur le CD d’installation Debian en mode maintenance
+
+Référence du document : 11zEIM3oEyioi-kQtk3b43VC_RnlD9zjq · SHA-256 f8cc5ca64839f70b…
+
+## Énoncé · M04TP01 - Enoncé - Debian en mode maintenance · 2 pages transcrites
+
+### Debian en mode maintenance
+
+TP du Module 04 – Debian en mode maintenance
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+30 minutes à 1 heure
+
+### Énoncé
+
+### I. Sur le serveur Debian sans environnement graphique
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Activer l’écriture sur la partition racine."]
+    N2["Pouvez-vous créer un fichier dans l’espace personnel du compte root ?"]
+    N3["Est-ce normal ?"]
+    N1 --> N2
+    N2 --> N3
+```
+
+Utiliser le menu GRUB pour démarrer le serveur en mode maintenance et sans avoir besoin de s’authentifier avec le mot de passe de root (voir support de cours)
+
+- Activer l’écriture sur la partition racine.
+- Pouvez-vous créer un fichier dans l’espace personnel du compte root ?
+- Pouvez-vous accéder au répertoire personnel de l’utilisateur créé à l’installation ?
+- Est-ce normal ?
+
+### II. Sur le serveur Debian avec environnement graphique
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Sélectionner la langue, le nom (comme lors d'une installation)"]
+    N2["Sélectionner le système de fichiers racine à monter"]
+    N3["Pouvez-vous le modifier ? (attention à ne rien casser !!)"]
+    N4["Avec quel utilisateur êtes-vous connecté ?"]
+    N5["Avez-vous indiqué un mot de passe ?"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+Démarrer dans le "Rescue mode" (dans "Advanced options") à partir de l'ISO d'installation Debian* :
+
+- Sélectionner la langue, le nom (comme lors d'une installation)
+- Sélectionner le système de fichiers racine à monter
+
+Accéder au fichier /etc/passwd sur votre disque dur.
+
+- Pouvez-vous le modifier ? (attention à ne rien casser !!)
+- Avec quel utilisateur êtes-vous connecté ?
+- Avez-vous indiqué un mot de passe ?
+
+### * Menu de démarrage dans VMware Workstation:
+
+Pour démarrer depuis le CD, appuyez sur la touche "Echap" lors de l'affichage du logo VMware au démarrage du système.
+
+Attention, pensez à faire le "focus" sur votre VM en cliquant dans la fenêtre console afin que la touche "Echap" soit bien prise en compte par votre VM (et non par votre poste physique.)
+
+En cas de redémarrage, pensez à connecter votre CDROM
+
+### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 18o5SM7zMGtoh6DTtEEn7kjx7oSU2MloO · SHA-256 8584547906922a41…
+
+## Correction · M04TP01 - Solution - Debian en mode maintenance · 6 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+Administration Debian GNU-Linux
+
+### Debian en mode maintenance
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Activer l’écriture sur la partition racine."]
+    N2["Pouvez-vous créer un fichier dans l’espace personnel du compte root ?"]
+    N3["Est-ce normal ?"]
+    N1 --> N2
+    N2 --> N3
+```
+
+TP du Module 04 – Debian en mode maintenance
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos des modules 1 à 4 et d’avoir réalisé les TP proposés.
+
+Durée estimée
+
+30 minutes à 1 heure
+
+Solution
+
+I. Sur le serveur Debian sans environnement graphique
+
+Utiliser le menu GRUB pour démarrer le serveur en mode maintenance et sans avoir besoin de s’authentifier avec le mot de passe de root (voir support de cours)
+
+Sur le menu de démarrage Grub, appuyer sur la touche ‘e’
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p1-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+Administration Debian GNU-Linux
+
+Chercher la ligne commencant par "linux" , à la fin de celle-ci remplacer 'quiet' par 'init=/bin/bash'
+
+Attention : clavier en qwerty US Appuyer sur F10 pour lancer le système
+
+Commenté [MC1]: Image dans le domaine public. Source : https://freesvg.org/golden-qwerty-keyboard- vector-image
+
+Mappage de touche au format qwerty US
+
+Une session root est ouverte sans besoin d'authentification
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p2-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p2-2.webp)
+
+Capture ou visuel isolé du document de formation.
+
+Administration Debian GNU-Linux
+
+- Activer l’écriture sur la partition racine.
+
+Saisir la commande " mount -o remount,rw / " Le message qui suit est une information, pas une erreur.
+
+- Pouvez-vous créer un fichier dans l’espace personnel du compte root ?
+
+Une commande touch dans /root ne renvoi pas de message d'erreur, le ficher a bien été créée
+
+- Pouvez-vous accéder au répertoire personnel de l’utilisateur créé à l’installation ?
+
+Impossible de se déplacer dans le dossier de l'utilisateur standard
+
+- Est-ce normal ?
+
+Le dossier /home est vide. Le dossier /home a été place sur un autre Volume Logique que la partition racine.
+
+Seule cette dernière est directement accessible dans ce cas.
+
+→ Utiliser la commande sync pour s’assurer que toute modification apportée est effectivement écrite ;
+
+puis forcer l'extinction du serveur par les options de VMware Workstation
+
+II. Sur le serveur Debian avec environnement graphique
+
+Démarrer dans le "Rescue mode" (dans "Advanced options") à partir de l'ISO d'installation Debian* :
+
+Vérifiez dans les paramètres de la VM que l'image CD est bien sélectionnée et que la case "Connect at power on" est bien cochée
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p3-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-2.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+mount -o remount,rw /
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-3.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+touch /root/essai-ecriture
+ls /root/
+essai-ecriture
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-4.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+cd /home/camille
+bash: cd: /home/camille: No such file or directory
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-5.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+ls /home
+```
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p3-6.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+sync
+```
+
+Administration Debian GNU-Linux
+
+Mettre le focus dans la VM est cliquer sur "echap" au logo vmware. Si le menu grub s’affiche, saisir la sequence ‘ctrl+alt+ins’ avant de réappuyer sur ‘echap’
+
+Enfin valider le démarrage sur le CD-Rom
+
+→ Choisir 'Advanced options' puis Rescue mode''
+
+- Sélectionner la langue, le nom (comme lors d'une installation)
+
+→ → Saisir la langue et la disposition du clavier
+
+Saisie du nom d'hôte. Remarquez la mention 'mode de récupération' en haut de l'écran
+
+- Sélectionner le système de fichiers racine à monter
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p4-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p4-5.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-26.webp)
+
+Détail de la procédure du laboratoire, isolé et vérifié.
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-27.webp)
+
+Détail de la procédure du laboratoire, isolé et vérifié.
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-28.webp)
+
+Détail de la procédure du laboratoire, isolé et vérifié.
+
+![Détail de la procédure du laboratoire, isolé et vérifié.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-detail-p4-29.webp)
+
+Détail de la procédure du laboratoire, isolé et vérifié.
+
+Administration Debian GNU-Linux
+
+Ici il faut bien choisir le Volume Logique contenant le système de fichier racine. Remarquons l’importance des noms explicites pour les Groupes de Volumes & Volumes Logiques.
+
+Choisir la première option pour avoir accès à notre système Debian installé Noter l’option “Reinstallation de Grub”, utile pour dépanner un système qui ne démarre pas
+
+Après validation d'un message informatif, un shell root s'ouvre sans authentification Accédez au fichier /etc/passwd sur votre disque dur.
+
+Ouvrir le ficher avec VI
+
+- Pouvez-vous le modifier ? (attention à ne rien casser !!)
+
+Se déplacer en fin de fichier [G], Passer en mode insertion avec une nouvelle ligne [o], Saisir du texte puis revenir en mode commande [echap],
+
+Enregistrer sans quitter (:w)
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-1.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-2.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Capture ou visuel isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-p5-3.webp)
+
+Capture ou visuel isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p5-4.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p5-5.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+vi /etc/passwd
+```
+
+Administration Debian GNU-Linux
+
+Un message nous informe de la bonne écriture dans le fichier
+
+Supprimer la ligne que vous venez d'écrire (et seulement celle-ci) (dd)
+
+Enregistrer et quitter (:wq)
+
+- Avec quel utilisateur êtes-vous connecté ?
+
+La variable d'environnement USER nous renvoie la valeur 'root' également lisible simplement dans le prompt bash. NB : la commande ‘logname’ ne renvoie rien dans ce cas particulier
+
+- Avez-vous indiqué un mot de passe ?
+
+Non, comme vue précédemment, un shell root s'ouvre sans authentication dans ce type de cas
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-2.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-3.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+![Commande ou détail d’interface isolé du document de formation.](../../assets/course-sources/isolated/6d3aef0054997f69/deb-small-p6-4.webp)
+
+Commande ou détail d’interface isolé du document de formation.
+
+## Transcription des commandes et informations utiles visibles
+
+```
+echo $USER
+root
+```
+
+Référence du document : 19REgdUNZGMio0n3mfymkL4GCslcvqFjc · SHA-256 6d3aef0054997f69…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Passer en mode maintenance | Il est parfois nécessaire de passer en mode maintenance sur un ordinateur ou un serveur pour diverses raisons En voici quelques-unes : Le système ne démarre plus à la suite d'un… |
+| Méthode 1 | Passer par le boot manager GRUB pour passer en mode maintenance Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e] Ce mode n’est pas foncti… |
+| Méthode 1 | Modifier la fin de la ligne suivante De cette manière Valider avec [ctrl] + [x] ou [F10]. |
+| Méthode 1 | Démo Maintenance via GRUB avec mot de passe root |
+| Méthode 2 | Passer par le boot manager GRUB pour passer en mode maintenance Utiliser les flèches pour choisir la ligne du noyau voulu puis appuyez sur la touche [e] Capture ou visuel isolé… |
+| Méthode 2 | Modifier la fin de la ligne de cette manière Valider avec [ctrl] + [x] ou [F10]. |
+| Méthode 2 | Le système est démarré mais le système de fichier racine est en lecture seule. |
+| Méthode 2 | Démo Maintenance via GRUB sans mot de passe root |
+| Mode maintenance via le CD d’installation | Une autre solution : passer par le mode maintenance inclus dans chaque CD d’installation. |
+| Conclusion | Vous savez passer en mode maintenance au démarrage depuis GRUB Vous savez démarrer sur le CD d’installation Debian en mode maintenance Référence du document : 11zEIM3oEyioi-kQtk… |
+| Correction · M04TP01 - Solution - Debian en mode maintenance · 6 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Commande ou détail d’interface isolé du document de formation. |
+| Transcription des commandes et informations utiles visibles | Administration Debian GNU-Linux Mettre le focus dans la VM est cliquer sur "echap" au logo vmware. |
+| Transcription des commandes et informations utiles visibles | Administration Debian GNU-Linux Un message nous informe de la bonne écriture dans le fichier Supprimer la ligne que vous venez d'écrire (et seulement celle-ci) (dd) Enregistrer… |
+| Transcription des commandes et informations utiles visibles | Référence du document : 19REgdUNZGMio0n3mfymkL4GCslcvqFjc · SHA-256 6d3aef0054997f69… |

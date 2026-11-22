@@ -1,100 +1,328 @@
 # Module 07 — Gestion des espaces de stockage
 
-**Cours optimisé — reformulation pédagogique du support et des TP associés.** Les exemples du parcours conservent leur contexte Debian 11 ; les corrections et actualisations sont identifiées comme compléments externes. Les transcriptions intégrales se consultent dans l’onglet Original.
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-- Distinguer le disque, la table de partitions et les partitions qu’elle décrit.
-- Reconnaître le type de table et les noms de périphériques.
-- Observer et reproduire la démonstration de partitionnement sur le disque prévu.
+## Parcours de lecture
 
-## Disque, table et partitions
+1. Support · RES24_0050B - M07 - Linux Administration (Debian) · 17 pages transcrites
+2. Gestion des espaces de stockage
+3. Gestion des espaces de stockage
+4. La norme Intel du MBR
+5. La norme Intel du GPT
+6. Nommage des disques sous Linux
+7. Nommage des partitions
+8. Nommage des partitions
+9. Gestion des espaces de stockage
+10. La commande fdisk
+11. La commande fdisk
+12. La commande fdisk
+13. La commande fdisk
+14. La commande fdisk
+15. La commande fdisk
+16. Outil de partitionnement
+17. Conclusion
 
-Un disque est un périphérique bloc ; sa table de partitions décrit des régions utilisables. Une partition n’est pas encore un système de fichiers et un point de montage n’est pas une partition. Le support prépare les niveaux étudiés ensuite : partitionnement, LVM, puis systèmes de fichiers.
-
-## Lire MBR et GPT
-
-| Sujet | MBR, scénario « legacy » | GPT |
-|---|---|---|
-| Structure | Secteur initial avec code d’amorçage, quatre entrées et signature | En-têtes et tableaux de partitions avec identifiants GUID |
-| Organisation | Partitions primaires, éventuelle partition étendue contenant les logiques | Entrées de partitions sans structure primaire/étendue équivalente |
-| Limites | Dépendent notamment de l’adressage et de la taille des secteurs | Capacités et nombre d’entrées bien plus importants |
-
-Le support détaille 446 octets pour le code initial et 64 octets pour les quatre entrées MBR. Avec la signature de deux octets, on retrouve le secteur classique de 512 octets. L’ordre d’amorçage firmware et le partitionnement sont liés au scénario mais ne doivent pas être confondus : GPT est une table, UEFI est un firmware.
-
-!!! info "Clarification externe — limites et histoire"
-    « GPT créé en 2013 » et « 56 partitions logiques au maximum » ne sont pas des règles générales à apprendre. Les limites pratiques dépendent de la table, du noyau, des outils et des secteurs ; le repère MBR d’environ 2 Tio suppose des secteurs logiques de 512 octets. GPT peut être utilisé dans différents scénarios de firmware. Référence : [fdisk(8), formats de tables](https://manpages.debian.org/trixie/fdisk/fdisk.8.en.html).
-
-## Nommage dans /dev
-
-Le support utilise des disques SCSI/SATA tels que `/dev/sda` et `/dev/sdb`. La lettre représente l’ordre de détection de ces périphériques, pas une identité durable du disque. Dans le scénario MBR, les numéros 1 à 4 sont réservés aux partitions primaires ou à la partition étendue ; les partitions logiques commencent à 5.
-
-| Objet du schéma source | Nom |
-|---|---|
-| Deuxième disque | `/dev/sdb` |
-| Deux partitions primaires | `/dev/sdb1`, `/dev/sdb2` |
-| Conteneur étendu | `/dev/sdb3` |
-| Trois partitions logiques | `/dev/sdb5`, `/dev/sdb6`, `/dev/sdb7` |
-
-Cette numérotation historique ne se transpose pas aux partitions GPT. D’autres familles de périphériques, comme NVMe, ont aussi d’autres conventions de noms. Toujours lire la machine réelle avant d’écrire sur un disque.
-
-## Examiner avec fdisk
-
-```bash
-fdisk -l /dev/sda
-fdisk /dev/sdb
-```
-
-La première commande affiche les informations. La seconde ouvre un éditeur interactif. Dans les sorties du support, contrôler la capacité, la taille de secteur, le type d’étiquette `dos`, puis les débuts, fins, tailles et types des partitions.
-
-| Lettre interactive | Action |
-|---|---|
-| `m` | Afficher l’aide |
-| `p` | Relire le projet de table |
-| `n` | Créer une partition |
-| `t` | Changer son type |
-| `w` | Écrire la table puis quitter |
-| `q` | Quitter sans enregistrer les modifications en attente |
-
-## Reproduire la démonstration
-
-Le support ouvre un disque de **30 Gio** et prépare une partition primaire de **20 Gio**. Après `n`, il choisit primaire, laisse le numéro et le premier secteur proposés, puis saisit `+20G` au dernier secteur. `p` permet de vérifier la proposition avant écriture. Le type MBR `83` désigne Linux ; `8e` Linux LVM. Choisir le type adapté à l’étape suivante ne crée ni PV LVM ni système de fichiers.
-
-Les modifications de cette session restent en mémoire jusqu’à `w`. Avant ce point, vérifier le disque, les partitions conservées et l’espace restant. Après écriture, examiner à nouveau le disque ; si le noyau ne peut pas relire une table utilisée, traiter ce message avant de poursuivre. Un simple changement d’étiquette ou un formatage ultérieur peut rendre des données inaccessibles : l’exercice doit viser le disque ajouté au laboratoire.
-
-## Application au parcours
-
-Aucun énoncé ni corrigé séparé n’est présent pour le module 7 dans les sources de ce cours : **TP source : Inexistant**. La démonstration fdisk et le TP LVM du module 8 constituent les manipulations disponibles. Un exercice pédagogique supplémentaire consiste à expliquer oralement la différence entre disque, partition étendue et partition logique avant toute écriture.
-
-## Schéma explicatif — complément pédagogique
+**Visuel externe**
 
 ```mermaid
 flowchart TD
- D["Disque /dev/sdb"] --> P["Partition primaire /dev/sdb1"]
- D --> E["Partition étendue /dev/sdb3"]
- E --> L["Partitions logiques à partir de /dev/sdb5"]
+    N1["Support · RES24_0050B - M07 - Linux Administration (Debian) · 17 pages transcrites"]
+    N2["Gestion des espaces de stockage"]
+    N3["Gestion des espaces de stockage"]
+    N4["La norme Intel du MBR"]
+    N5["La norme Intel du GPT"]
+    N6["Nommage des disques sous Linux"]
+    N7["Nommage des partitions"]
+    N8["Nommage des partitions"]
+    N9["Gestion des espaces de stockage"]
+    N10["La commande fdisk"]
+    N11["La commande fdisk"]
+    N12["La commande fdisk"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+    N8 --> N9
+    N9 --> N10
+    N10 --> N11
+    N11 --> N12
 ```
 
-## À retenir
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-Identifier le disque avant toute écriture. Le nom d’une partition dépend du type de périphérique. Vérifier la table et le résultat avec deux outils de lecture avant de poursuivre vers LVM.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## Autoévaluation
+## Support · RES24_0050B - M07 - Linux Administration (Debian) · 17 pages transcrites
 
-1. Que fait `q` avant l’écriture ?
-2. Le type `8e` formate-t-il une partition ?
-3. Pourquoi vérifier taille et identité du disque, en plus du nom `/dev/sdb` ?
-4. Que vérifier avant d’écrire une table avec `fdisk` ?
-5. Que permet `lsblk` après le partitionnement ?
+### Administration Debian
 
-??? success "Réponses commentées"
-    1. Il abandonne les modifications en attente.
-    2. Non : c’est un type de partition MBR.
-    3. L’ordre de détection peut changer et le nom seul ne prouve pas que c’est le bon disque.
-    4. Confirmer le disque cible, les tailles et types de partitions et l’absence de données à conserver sur ce disque.
-    5. Voir quels périphériques et partitions le noyau présente, avec leur hiérarchie et leurs tailles.
+### GNU/Linux
 
-## Pour travailler ce module
+!!! note "À retenir"
+    Module 07 – Gestion des espaces de stockage
 
-- [Fiche de révision](../../revision/administration-linux/module-07-gestion-des-espaces-de-stockage.md)
-- [Travaux pratiques](../../tp/administration-linux/index.md)
-- [Progression du cours](index.md)
+Module 07 – Gestion des espaces de stockage
+
+## Gestion des espaces de stockage
+
+### Objectifs
+
+!!! note "À retenir"
+    Comprendre le fonctionnement du partitionnement sous Linux Utiliser la commande fdisk Connaître les systèmes de fichiers sous Linux Créer des partitions en mode « legacy »
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Comprendre le fonctionnement du partitionnement sous Linux"]
+    N2["Utiliser la commande fdisk"]
+    N3["Connaître les systèmes de fichiers sous Linux"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Comprendre le fonctionnement du partitionnement sous Linux
+- Utiliser la commande fdisk
+- Connaître les systèmes de fichiers sous Linux
+
+Créer des partitions en mode « legacy »
+
+## Gestion des espaces de stockage
+
+### Partitionner un disque
+
+## La norme Intel du MBR
+
+- Le MBR (Master Boot Record) est constitué de 2 principaux éléments :
+- Le boot loader : 446 premiers octets - Sous Linux il contient le stage 1 de GRUB
+- La table de partition : 64 octets, contient la position des 4 partitions primaires
+- La partition étendue pourra quant à elle stocker les informations au maximum de 56 partitions logiques
+- La plus grosse problématique du MBR est la taille limite des partitions fixée au maximum à 2,2To (espace d'adressage de 32 bits)
+
+## La norme Intel du GPT
+
+!!! note "À retenir"
+    Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant du MBR Le nombre maximum de partitions est fixé à 128 (voire 256) La limite théorique des partitions et des disques est de 9,4 Zo (Zettaoctet)
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant du MBR"]
+    N2["Le nombre maximum de partitions est fixé à 128 (voire 256)"]
+    N3["La limite théorique des partitions et des disques est de 9,4 Zo (Zettaoctet)"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant du MBR
+- Le nombre maximum de partitions est fixé à 128 (voire 256)
+- La limite théorique des partitions et des disques est de 9,4 Zo (Zettaoctet)
+
+## Nommage des disques sous Linux
+
+!!! note "À retenir"
+    Sous Linux, les disques de type SCSI/SATA sont matérialisés dans le répertoire /dev suivi de sd puis la lettre correspondant au disque Par exemple, s’il y a deux disques dans le système : /dev/sda correspond au premier disque détecté /dev/sdb correspond au deuxième disque
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Par exemple, s’il y a deux disques dans le système :"]
+    N2["/dev/sda correspond au premier disque détecté"]
+    N3["/dev/sdb correspond au deuxième disque"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Sous Linux, les disques de type SCSI/SATA sont matérialisés dans le répertoire /dev suivi de sd puis la lettre correspondant au disque
+- Par exemple, s’il y a deux disques dans le système :
+- /dev/sda correspond au premier disque détecté
+- /dev/sdb correspond au deuxième disque
+
+## Nommage des partitions
+
+!!! note "À retenir"
+    Linux ne nomme pas les partitions à la suite Linux va réserver les chiffres de 1 à 4 pour les partitions principales (principale et étendue) Quel que soit le nombre de partitions principales, s’il y a une partition étendue alors les partitions logiques commenceront quoiqu’il arrive à 5
+
+- Linux ne nomme pas les partitions à la suite
+- Linux va réserver les chiffres de 1 à 4 pour les partitions principales (principale et étendue)
+- Quel que soit le nombre de partitions principales, s’il y a une partition étendue alors les partitions logiques commenceront quoiqu’il arrive à 5
+
+## Nommage des partitions
+
+!!! note "À retenir"
+    Exemple : le deuxième disque du système est partitionné avec 2 partitions principales et une partition étendue contenant 3 partitions logiques.
+
+- Exemple : le deuxième disque du système est partitionné avec 2 partitions principales et une partition étendue contenant 3 partitions logiques. Linux présentera tout cela de cette façon :
+
+/dev/sdb disque entier /dev/sdb1 1re partition principale /dev/sdb2 2e partition principale
+
+/dev/sdb3 partition étendue /dev/sdb5 1re partition logique /dev/sdb6 2e partition logique /dev/sdb7 3e partition logique
+
+## Gestion des espaces de stockage
+
+### Outil de partitionnement
+
+## La commande fdisk
+
+!!! note "À retenir"
+    -l affiche la table de partition du périphérique
+
+```
+• fdisk [option] <peripherique de stockage>
+```
+
+- -l affiche la table de partition du périphérique
+
+```
+root@deb:~# fdisk -l /dev/sda
+```
+
+```
+Disque /dev/sda : 20 GiB, 21474836480 octets, 41943040 secteurs
+Unités : secteur de 1 × 512 = 512 octets
+Taille de secteur (logique / physique) : 512 octets / 512 octets
+taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+Type d'étiquette de disque : dos
+Identifiant de disque : 0x732e6aa1
+Périphérique Amorçage Début Fin Secteurs Taille Id Type
+/dev/sda1 * 2048 499711 497664 243M 83 Linux
+/dev/sda2 501758 41940991 41439234 19,8G 5 Étendue 
+```
+
+## La commande fdisk
+
+```
+root@deb:~# fdisk /dev/sdb
+```
+
+```
+Bienvenue dans fdisk (util-linux 2.29.2).
+Les modifications resteront en mémoire jusqu'à écriture.
+Soyez prudent avant d'utiliser la commande d'écriture.
+```
+
+```
+Commande (m pour l'aide) : m
+[...]
+n ajouter une nouvelle partition
+p afficher la table de partitions
+t modifier le type d'une partition
+[...]
+w écrire la table sur le disque et quitter
+q quitter sans enregistrer les modifications
+```
+
+## La commande fdisk
+
+```
+root@deb:~# fdisk /dev/sdb
+```
+
+```
+Commande (m pour l'aide) : n
+Type de partition
+p primaire (0 primaire, 0 étendue, 4 libre)
+e étendue (conteneur pour partitions logiques)
+Sélectionnez (p par défaut) : p
+Numéro de partition (1-4, 1 par défaut) :
+Premier secteur (2048-62914559, 2048 par défaut) :
+Dernier secteur, +secteurs ou +taille{K,M,G,T,P} (2048-62914559, 
+62914559 par défaut) : +20G
+```
+
+## La commande fdisk
+
+!!! note "À retenir"
+    Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée.
+
+Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée.
+
+```
+Commande (m pour l'aide) : p
+Disque /dev/sdb : 30 GiB, 32212254720 octets, 62914560 secteurs
+Unités : secteur de 1 × 512 = 512 octets
+Taille de secteur (logique / physique) : 512 octets / 512 octets
+taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+Type d'étiquette de disque : dos
+Identifiant de disque : 0x0ab85bf5
+Périphérique Amorçage Début Fin Secteurs Taille Id Type
+/dev/sdb1 2048 41945087 41943040 20G 83 Linux
+```
+
+## La commande fdisk
+
+Une fois les partitions créées, il ne faut pas oublier de définir le type de partition via la commande t.
+
+```
+Commande (m pour l'aide) : t
+Partition 1 sélectionnée
+Code Hexa (taper L pour afficher tous les codes) :L
+ 0  Vide            24  NEC DOS         81  Minix / Linux a
+ 1  FAT12           27  TFS WinRE masqu 82  partition d'éch 
+ 2  root XENIX      39  Plan 9          83  Linux
+ 3  usr XENIX       3c  récupération Pa 84  OS/2 cachée
+ 4  FAT16 <32M      40  Venix 80286     85  Linux
+ 5  Étendue         41  PPC PReP Boot   86  NTFS volume set
+ 6  FAT16           42  SFS             87  NTFS volume set
+ 7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext
+ 8  AIX             4e  2e partie QNX4. 8e  Linux LVM
+```
+
+## La commande fdisk
+
+L’enregistrement des modifications se fait via la commande w.
+
+```
+Commande (m pour l'aide) : w
+La table de partitions a été altérée.
+Appel d'ioctl() pour relire la table de partitions.
+Synchronisation des disques.
+root@deb:~#
+```
+
+## Outil de partitionnement
+
+Démo
+
+Les partitions avec fdisk
+
+## Conclusion
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Vous comprenez le fonctionnement du partitionnement sous Linux"]
+    N2["Vous savez utiliser la commande fdisk"]
+    N3["Vous connaissez les systèmes de fichiers sous Linux"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- Vous comprenez le fonctionnement du partitionnement sous Linux
+- Vous savez utiliser la commande fdisk
+- Vous connaissez les systèmes de fichiers sous Linux
+
+Référence du document : 1ewlQdlA9cnQTk6SQexzyBqyAoO7wgvqC · SHA-256 41c2481ebc0b5e38…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| La norme Intel du MBR | Le MBR (Master Boot Record) est constitué de 2 principaux éléments : Le boot loader : 446 premiers octets - Sous Linux il contient le stage 1 de GRUB La table de partition : 64… |
+| La norme Intel du GPT | Le GPT (GUID Partition Table) est créé en 2013, il est le remplaçant du MBR Le nombre maximum de partitions est fixé à 128 (voire 256) La limite théorique des partitions et des… |
+| Nommage des disques sous Linux | Sous Linux, les disques de type SCSI/SATA sont matérialisés dans le répertoire /dev suivi de sd puis la lettre correspondant au disque Par exemple, s’il y a deux disques dans le… |
+| Nommage des partitions | Linux ne nomme pas les partitions à la suite Linux va réserver les chiffres de 1 à 4 pour les partitions principales (principale et étendue) Quel que soit le nombre de partition… |
+| Nommage des partitions | Exemple : le deuxième disque du système est partitionné avec 2 partitions principales et une partition étendue contenant 3 partitions logiques. |
+| La commande fdisk | -l affiche la table de partition du périphérique |
+| La commande fdisk | Une nouvelle partition 1 de type Linux et de taille 20 GiB a été créée. |
+| La commande fdisk | Une fois les partitions créées, il ne faut pas oublier de définir le type de partition via la commande t. |
+| La commande fdisk | L’enregistrement des modifications se fait via la commande w. |
+| Conclusion | Vous comprenez le fonctionnement du partitionnement sous Linux Vous savez utiliser la commande fdisk Vous connaissez les systèmes de fichiers sous Linux Référence du document :… |
