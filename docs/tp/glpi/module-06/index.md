@@ -26,12 +26,7 @@ Préparer un serveur GLPI fonctionnel et les versions du plug-in et de l’agent
 
 ## Ressources du scénario
 
-- [modèle excel data injection gabarit vide.csv](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-vide-csv.csv)
-- [modèle excel data injection gabarit vide.xlsx](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-vide-xlsx.xlsx)
-- [modèle excel data injection gabarit.csv](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-csv.csv)
-- [modèle excel data injection gabarit.xlsx](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-xlsx.xlsx)
-- [data injection correspondance 1.png](../../../assets/images/glpi/module-06/data-injection-correspondance-1-png.png)
-- [data injection correspondance 2.png](../../../assets/images/glpi/module-06/data-injection-correspondance-2-png.png)
-- [data injection import.png](../../../assets/images/glpi/module-06/data-injection-import-png.png)
-- [data injection rapport.png](../../../assets/images/glpi/module-06/data-injection-rapport-png.png)
-- [marketplace datainjection.png](../../../assets/images/glpi/module-06/marketplace-datainjection-png.png)
+Les captures de correction sont placées à leur étape dans la [correction](corrections.md).
+
+- [modèle excel data injection gabarit vide.csv](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-vide-csv.csv)
+- [modèle excel data injection gabarit.csv](../../../assets/resources/donnees/glpi/modele-excel-data-injection-gabarit-csv.csv)

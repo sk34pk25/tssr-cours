@@ -27,12 +27,4 @@ Le sujet réutilise les calendriers, utilisateurs, catégories, commutateurs et 
 
 ## Ressources du scénario
 
-- [afficher les calendriers.png](../../../assets/images/glpi/module-05/afficher-les-calendriers-png.png)
-- [afficher switch non gabarit et du gab 24 P.png](../../../assets/images/glpi/module-05/afficher-switch-non-gabarit-et-du-gab-24p-png.png)
-- [connection à la bdd et affichage des tables.png](../../../assets/images/glpi/module-05/connection-a-la-bdd-et-affichage-des-tables-png.png)
-- [connection et affichage bdd.png](../../../assets/images/glpi/module-05/connection-et-affichage-bdd-png.png)
-- [nb_de_SLMs.png](../../../assets/images/glpi/module-05/nb-de-slms-png.png)
-- [nom complément de nom de catégorie enfant.png](../../../assets/images/glpi/module-05/nom-complement-de-nom-de-categorie-enfant-png.png)
-- [nom des users en anglais.png](../../../assets/images/glpi/module-05/nom-des-users-en-anglais-png.png)
-- [nom et prenom des utilisateurs.png](../../../assets/images/glpi/module-05/nom-et-prenom-des-utilisateurs-png.png)
-- [numéro max du switch 24 P.png](../../../assets/images/glpi/module-05/numero-max-du-switch-24p-png.png)
+Les captures de correction sont placées à leur étape dans la [correction](corrections.md).

@@ -39,9 +39,12 @@ Gabarit de ticket.
 
 - Description.
 
+![gabarit ticket incident serveur](../../../assets/images/glpi/module-04/gabarit-ticket-incident-serveur-png.png)
+
 - Créez un gabarit de ticket « Incident Bureautique » :
 
-Image de correction disponible dans les ressources.
+![gabarit ticket incident bureautique](../../../assets/images/glpi/module-04/gabarit-ticket-incident-bureautique-png.png)
+
 
 - Champs obligatoires :
 
@@ -65,7 +68,8 @@ Image de correction disponible dans les ressources.
 
 - Créez un gabarit de ticket « Demande Bureautique » :
 
-Image de correction disponible dans les ressources.
+Capture : Inexistant
+
 
 - Champs obligatoires :
 
@@ -89,7 +93,8 @@ Image de correction disponible dans les ressources.
 
 - Créez les catégories :
 
-Image de correction disponible dans les ressources.
+![catégories de ticket](../../../assets/images/glpi/module-04/categories-de-ticket-png.png)
+
 
 - Logiciel.
 
@@ -123,7 +128,8 @@ Image de correction disponible dans les ressources.
 
 Il est possible d’affecter un gabarit à plusieurs catégories avec la modification en masse.
 
-Image de correction disponible dans les ressources.
+![affectation en masse gabarit et catégories](../../../assets/images/glpi/module-04/affectation-en-masse-gabarit-et-categories-png.png)
+
 
 - Catégorie « Serveur », « Virtualisation » et « Active Directory » au gabarit
 
@@ -139,9 +145,12 @@ Ajoutez le calendrier « cal serveur » avec les heures 8 h/18 h pour tous les j
 
 Créez chaque jour avec les bons horaires.
 
-Image de correction disponible dans les ressources.
+![cal serveur](../../../assets/images/glpi/module-04/cal-serveur-png.png)
+
 
 - Tous les autres incidents utiliseront un calendrier « cal utilisateurs » en jours ouvrés (lundi à vendredi) 9 h00 – 17 h30.
+
+![cal utilisateurs](../../../assets/images/glpi/module-04/cal-utilisateurs-png.png)
 
 ### Niveau de service
 
@@ -155,6 +164,8 @@ Image de correction disponible dans les ressources.
 
 - Le temps de résolution pour les incidents serveur devra être inférieur à 8 h.
 
+![SLM incidents serveur](../../../assets/images/glpi/module-04/slm-incidents-serveur-png.png)
+
 - Si incident de toutes les catégories « serveur », « virtualisation » et « Active Directory » n’est pas prise en charge 10 minutes après la création du ticket, le groupe « GG_GLPI_Super-Admin » sera automatiquement positionné dessus ainsi que vous en tant qu’observateur sur le ticket.
 
 Créez une escalade sur le temps de prise en charge.
@@ -165,7 +176,10 @@ Critères : catégories serveur, virtualisation et Active Directory.
 
 Action : observateur > vous et groupe de technicien > GG_GLPI_Super- Admin.
 
-Image de correction disponible dans les ressources.
+![escalade prise en charge serveur](../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-png.png)
+
+![escalade prise en charge serveur action et critere](../../../assets/images/glpi/module-04/escalade-prise-en-charge-serveur-action-et-critere-png.png)
+
 
 - Si le ticket n’est pas résolu 4 h avant la date butoir de résolution, le ticket passera en priorité haute avec une escalade vers vous.
 
@@ -177,7 +191,8 @@ Critères : catégories serveur, virtualisation et Active Directory.
 
 ### Action : priorité > haute et technicien > vous
 
-Image de correction disponible dans les ressources.
+![escalade haute et tres haute resolution serveur](../../../assets/images/glpi/module-04/escalade-haute-et-tres-haute-resolution-serveur-png.png)
+
 
 - Si le ticket n’est pas résolu 3 h avant la date butoir de résolution, le ticket passera en
 
@@ -191,7 +206,7 @@ Critères : catégories serveur, virtualisation et Active Directory.
 
 ### Action : priorité > très haute et technicien > Zeus
 
-Image de correction disponible dans les ressources.
+
 
 - Créez un niveau de service « SLA incident bureautique » de l’entreprise Olympus avec les spécificités suivantes :
 
@@ -215,7 +230,10 @@ Image de correction disponible dans les ressources.
 
 Regrouper les catégories par OU, tout en imposant le type par ET ; voir la méthode expliquée en tête de page.
 
-Image de correction disponible dans les ressources.
+![regle sla serveur critere](../../../assets/images/glpi/module-04/regle-sla-serveur-critere-png.png)
+
+![regle sla serveur action](../../../assets/images/glpi/module-04/regle-sla-serveur-action-png.png)
+
 
 - Comme critères :
 

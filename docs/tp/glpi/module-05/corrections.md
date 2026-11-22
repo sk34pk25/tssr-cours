@@ -18,6 +18,10 @@ CONNECT glpidata;
 SHOW TABLES;
 ```
 
+![connection et affichage bdd](../../../assets/images/glpi/module-05/connection-et-affichage-bdd-png.png)
+
+![connection à la bdd et affichage des tables](../../../assets/images/glpi/module-05/connection-a-la-bdd-et-affichage-des-tables-png.png)
+
 ## 2. Calendriers, utilisateurs et langue
 
 ```sql
@@ -25,6 +29,12 @@ SELECT * FROM glpi_calendars;
 SELECT name, firstname FROM glpi_users;
 SELECT name FROM glpi_users WHERE language = 'en_GB';
 ```
+
+![afficher les calendriers](../../../assets/images/glpi/module-05/afficher-les-calendriers-png.png)
+
+![nom et prenom des utilisateurs](../../../assets/images/glpi/module-05/nom-et-prenom-des-utilisateurs-png.png)
+
+![nom des users en anglais](../../../assets/images/glpi/module-05/nom-des-users-en-anglais-png.png)
 
 La consigne appelle « noms et prénoms » ce que le corrigé extrait par `name, firstname` ; `name` est ici l’identifiant de connexion. Pour rechercher le patronyme réel, examiner aussi la colonne `realname` du schéma utilisé. La capture du support montre17lignes d’utilisateurs,3 calendriers et les comptes initiaux en anglais ; ce sont des exemples, pas des nombres imposés au TP.
 
@@ -35,6 +45,8 @@ SELECT name, completename
 FROM glpi_itilcategories
 WHERE completename <> name;
 ```
+
+![nom complément de nom de catégorie enfant](../../../assets/images/glpi/module-05/nom-complement-de-nom-de-categorie-enfant-png.png)
 
 Une autre solution du support utilise `level > 1` ; vérifier la convention de niveau dans les données. L’accent de `glpi_itilcatégories` dans le PDF est une coquille : le nom utilisé par la capture est sans accent.
 
@@ -47,6 +59,8 @@ WHERE is_template = 0
   AND networkequipmentmodels_id = 2;
 ```
 
+![afficher switch non gabarit et du gab 24P](../../../assets/images/glpi/module-05/afficher-switch-non-gabarit-et-du-gab-24p-png.png)
+
 Les deux conditions sont nécessaires. La capture montre quatre résultats ; le TP 3 demande six exemplaires. Le résultat de votre base doit refléter votre réalisation complète, sans supprimer les deux exemplaires supplémentaires pour imiter la capture.
 
 ## 5. Compter les niveaux de service
@@ -55,6 +69,8 @@ Les deux conditions sont nécessaires. La capture montre quatre résultats ; le 
 SELECT COUNT(*) AS nb_de_SLMs
 FROM glpi_slms;
 ```
+
+![nb_de_SLMs](../../../assets/images/glpi/module-05/nb-de-slms-png.png)
 
 Le corrigé fait `COUNT(name)`, qui ne compte que les noms nonNULL. `COUNT(*)` compte les lignes. La capture source obtient3SLM.
 
@@ -65,6 +81,8 @@ SELECT MAX(name)
 FROM glpi_networkequipments
 WHERE networkequipmentmodels_id = 2;
 ```
+
+![numéro max du switch 24P](../../../assets/images/glpi/module-05/numero-max-du-switch-24p-png.png)
 
 Le PDF colle `FROM` au nom de table ; les espaces sont rétablis ici. `MAX(name)` compare des chaînes. Il suit l’ordre numérique attendu seulement si les suffixes sont de largeur fixe (`0001` à`0006`). La capture s’arrête à`0004`, car ses données ne contiennent que quatre exemplaires.
 
