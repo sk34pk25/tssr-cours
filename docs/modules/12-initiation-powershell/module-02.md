@@ -1,202 +1,719 @@
 # Module 02 — PowerShell : langage objet
 
-## Objectifs
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-À l'issue de ce module, vous devez pouvoir reconnaître un objet PowerShell,
-repérer ses membres et distinguer ses propriétés de ses méthodes. Le TP
-utilise des objets de service, d'utilisateur local et de date dans un
-environnement de laboratoire.
+## Parcours de lecture
 
-## PowerShell : un langage orienté objet
+1. Support · Module 02 - Support de cours · 9 pages transcrites
+2. Démonstration · Fiche démo 1 - Get-Member · 2 pages transcrites
+3. Démonstration · Fiche démo 2 - Les propriétés · 2 pages transcrites
+4. Démonstration · Fiche démo 3 - Les méthodes · 2 pages transcrites
+5. Énoncé · Énoncé du TP - L'objet · 3 pages transcrites
+6. Correction · Solution du TP - L'objet · 4 pages transcrites
 
-Le support présente PowerShell comme un langage orienté objet. Un objet est
-défini par un ensemble de **propriétés** et de **méthodes**. Les exemples du
-module utilisent notamment les objets retournés par `Get-Service`,
-`Get-LocalUser` et `Get-Date`.
+**Visuel externe**
 
-Les objets observés, leurs membres et les résultats affichés dépendent de
-l'environnement historique du laboratoire. Ils servent ici d'exemples du
-support, pas d'inventaire universel.
-
-## Examiner les membres avec `Get-Member`
-
-`Get-Member` permet de visualiser les informations d'un objet PowerShell. Les
-sources mettent en avant les colonnes suivantes :
-
-- `TypeName` : le type de l'objet traité ;
-- `MemberType` : la nature du membre affiché ;
-- `Definition` : la définition connue du membre.
-
-```powershell
-Get-Service | Get-Member
-Get-LocalUser | Get-Member
-Get-Date | Get-Member
+```mermaid
+flowchart TD
+    N1["Support · Module 02 - Support de cours · 9 pages transcrites"]
+    N2["Démonstration · Fiche démo 1 - Get-Member · 2 pages transcrites"]
+    N3["Démonstration · Fiche démo 2 - Les propriétés · 2 pages transcrites"]
+    N4["Démonstration · Fiche démo 3 - Les méthodes · 2 pages transcrites"]
+    N5["Énoncé · Énoncé du TP - L'objet · 3 pages transcrites"]
+    N6["Correction · Solution du TP - L'objet · 4 pages transcrites"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
 ```
 
-!!! note "Formulation du support"
-    Le support affirme que `Get-Member` s'utilise exclusivement après une
-    commande dont le verbe est `Get`. Cette formulation est conservée comme
-    indication documentaire du support ; elle n'est pas présentée ici comme
-    une règle universelle.
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-La démonstration rappelle également les commandes suivantes, déjà utilisées
-dans le parcours, pour rechercher une commande puis consulter son aide :
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-```powershell
-Get-Command -name *-service
+## Support · Module 02 - Support de cours · 9 pages transcrites
+
+!!! note "À retenir"
+    Les formulations historiques et les exemples du document sont conservés.
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Initiation à PowerShell
+
+Module 02 – PowerShell : langage objet
+
+### Objectifs
+
+!!! note "À retenir"
+    Utiliser un langage objet pour administrer les systèmes Microsoft.
+
+- Utiliser un langage objet pour administrer les systèmes Microsoft.
+
+### PowerShell, un langage orienté objet
+
+!!! note "À retenir"
+    Contrairement au Bash ou au CMD, PowerShell est un langage orienté objet.
+
+!!! example "Exemple"
+    Exemple : on recherche l’utilisateur local « Tom » en CMD et avec PowerShell.
+
+Contrairement au Bash ou au CMD, PowerShell est un langage orienté objet. Exemple : on recherche l’utilisateur local « Tom » en CMD et avec PowerShell.
+
+Tom Tom CMD PowerShell
+
+### PowerShell, un langage orienté objet
+
+!!! note "À retenir"
+    Regardons la composition d’un objet PowerShell : • Un objet est défini par un ensemble de propriétés et de méthodes.
+
+Regardons la composition d’un objet PowerShell : • Un objet est défini par un ensemble de propriétés et de méthodes. • On peut comparer un objet PowerShell à un objet du quotidien. • Un feutre possède des propriétés et des méthodes.
+
+| Propriétés | Méthodes |
+| --- | --- |
+| Marque, Couleur | Enlever le bouchon |
+| Forme, Pointe | Écrire |
+| Taille, Poids | Mettre le bouchon |
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p2-i2-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### PowerShell, un langage orienté objet
+
+!!! note "À retenir"
+    La commande renvoie un objet « service Windows ».
+
+```
+PS > Get-Service
+```
+
+La commande renvoie un objet « service Windows ».
+
+| Propriétés | Méthodes |
+| --- | --- |
+| Nom du service | Démarrer le service |
+| Type de démarrage | Désactiver le service |
+| Statut du service | Arrêter le service |
+
+### Get-Member
+
+!!! note "À retenir"
+    La CMDLET est la commande qui permet de connaître : Le type d’objet traité par la “CMDLET” Les méthodes applicables à l’objet Les propriétés connues de l’objet Capture du support « Module 02 - Support de cours » Capture du support « Module 02 - Support de cours »
+
+```
+PS> Get-Member
+```
+
+La CMDLET est la commande qui permet de connaître :
+
+Le type d’objet traité par la “CMDLET”
+
+Les méthodes applicables à l’objet
+
+Les propriétés connues de l’objet
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p3-i1-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p3-i2-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### Get-Member
+
+!!! note "À retenir"
+    La Cmdlet Get-member s’utilise exclusivement à la suite d’une commande dont le verbe est Get.
+
+```
+PS > Get-Member
+```
+
+La Cmdlet
+
+- Get-member s’utilise exclusivement à la suite d’une commande dont le verbe est Get.
+- Le PIPE ou | est obtenu par la combinaison de touche ALT GR puis 6.
+- Elle est à ajouter aux deux commandes vues précédemment Get-Command et Get-Help.
+- Ces trois commandes sont dites commandes clés pour pratiquer le langage PowerShell.
+
+```
+PS > Get-Command
+Get-Help
+Get-Member
+```
+
+### Démonstration
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p4-i1-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### Les objets : propriétés
+
+- Les propriétés d’un objet PowerShell sont définies par le type d’objet.
+- La valeur des propriétés peut être de différents types.
+
+| Type de valeurs | Contenus acceptés |
+| --- | --- |
+| STRING « Chaîne de caractères Unicode » | De « a » à « Z » plus la ponctuation |
+| INT « Integer » | De « -2 147 483 648 et 2 147 483 647 inclus. » |
+| BOOL « Boolean » | « $FALSE » « $TRUE » « $NULL » |
+| Array « Tableau » | Un tableau contient des valeurs facilement identifiables par un jeu de coordonnées. |
+| Object « Objet » | Une propriété peut contenir un objet complet. |
+
+### Les objets : propriétés et valeur
+
+Constitution d’un objet
+
+OBJET
+
+Propriété Propriété Propriété Propriété
+
+Valeur Valeur Valeur Valeur
+
+```
+PS > Get-Service
+-ServiceName
+« Wsearch »
+```
+
+| Typedevaleurs | Contenusacceptés |
+| --- | --- |
+| STRING«ChaînedecaractèresUnicode» | De«a»à«Z»pluslaponctuation |
+| INT«Integer» | De « -2 147 483 648 et 2 147 483 647 inclus . » |
+| BOOL«Boolean» | «$FALSE» «$TRUE» «$NULL» |
+| Array«Tableau» | Untableaucontientdesvaleursfacilement identifiablesparunjeudecoordonnées . |
+| Object«Objet» | Unepropriétépeutcontenirunobjetcomplet . |
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p5-i1-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### Les objets : propriétés et valeur
+
+- On peut modifier la valeur d’une propriété avec le verbe Set en début de commande suivi du nom de l’objet.
+
+```
+PS > Get-Service –ServiceName «wsearch»
+```
+
+- On effectue à nouveau la commande
+
+### Démonstration
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p6-i1-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p6-i2-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### Les objets : méthodes
+
+- Les objets disposent également de méthodes parfois communes à plusieurs types d’objets.
+- Contrairement aux propriétés, les méthodes effectuent des actions sur la totalité de l’objet ou sur la valeur d’une ou plusieurs propriétés d’un objet.
+
+```
+L’objet
+«system.datetime»
+peut être employé avec
+plusieurs méthodes.
+```
+
+### Les objets : méthodes
+
+- Pour appliquer une méthode, on utilise la commande permettant d’obtenir un objet.
+
+```
+PS > Get-Date
+```
+
+- On encadre la commande avec des parenthèses afin d’appliquer la méthode. On ajoute la méthode précédée d’un point de concaténation, puis à la suite de la méthode on ajoute entre parenthèses la valeur nécessaire à la méthode.
+
+```
+PS > (Get-Date).AddDays(*)
+```
+
+- Ici la méthode AddDays ajoute un jour de plus à l’objet System.DateTime renvoyé par la commande Get-date.
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p7-i1-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p7-i2-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+![Capture du support « Module 02 - Support de cours »](../../assets/course-sources/isolated/3929e85d6989805b/ps-p7-i3-1.webp)
+
+Capture du support « Module 02 - Support de cours »
+
+### Démonstration
+
+### TP
+
+### Conclusion
+
+- Vous savez utiliser un langage objet pour administrer les systèmes Microsoft.
+
+Référence du document : 1NMGTFA7wCb6r7SmzRYR2FaLWCFOT9AVl · SHA-256 3929e85d6989805b…
+
+## Démonstration · Fiche démo 1 - Get-Member · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Get-Member
+
+Démonstration 01 du module 2
+
+```
+L’objectif de cette démonstration est de présenter la commande Get-Member qui permet de
+visualiser les informations d’un objet PowerShell.
+```
+
+### Déroulement
+
+- Toute commande PowerShell agit sur un objet du système Windows. La commande Get-member permet de connaître trois informations fondamentales sur l’objet en cours.
+
+On obtient le type d’objet Paramètre TypeName.
+
+La colonne MemberType renseigne sur les méthodes et les propriétés qui composent notre objet.
+
+La commande Get-Member fait partie des trois commandes dites clés pour utiliser PowerShell
+
+#### Commandes visibles dans les captures
+
+```
+Get-LocalUser | Get-Member
+```
+
+![Capture du support « Fiche démo 1 - Get-Member »](../../assets/course-sources/isolated/f4986df6713d8bef/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 1 - Get-Member »
+
+comme langage d’administration de système. Pour rappel les commandes clés sont :
+
+Get-Command
+
+Get-Help
+
+Get-Member
+
+Une bonne connaissance de ces trois commandes est essentielle.
+
+#### Commandes visibles dans les captures
+
+```
+Get-Command -Name *-service
 Get-Help Get-Command
 ```
 
-## Propriétés et valeurs
+![Capture du support « Fiche démo 1 - Get-Member »](../../assets/course-sources/isolated/f4986df6713d8bef/ps-p2-i2-1.webp)
 
-Les propriétés d'un objet sont définies par son type. Le support indique que
-leurs valeurs peuvent avoir différents types : `String`, `Int`, `Bool`,
-`Array` et `Object`.
+Capture du support « Fiche démo 1 - Get-Member »
 
-Dans le TP, l'observation des propriétés d'un service passe notamment par :
+![Capture du support « Fiche démo 1 - Get-Member »](../../assets/course-sources/isolated/f4986df6713d8bef/ps-p2-i3-1.webp)
 
-```powershell
-Get-Service -Name Spooler | Get-Member -MemberType Property
-Get-Service -Name Spooler
+Capture du support « Fiche démo 1 - Get-Member »
+
+Référence du document : 1Q8B3yCRRfLODG9poBxUvigyimrtsAYFg · SHA-256 f4986df6713d8bef…
+
+## Démonstration · Fiche démo 2 - Les propriétés · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Les propriétés
+
+Démonstration 02 du module 2
+
+L’objectif de cette démonstration est de vous présenter les propriétés.
+
+### Déroulement
+
+Chaque objet PowerShell contient des propriétés. La liste de ses propriétés est définie par le type d’objet auquel il appartient.
+
+- Le type de propriétés est indiqué par la commande Get-Member dans la colonne Definition.
+- Connaître le type de propriété est essentiel pour pouvoir la manipuler.
+
+La propriété Description est de type String ; elle n’accepte donc que les chaînes de caractères.
+
+La propriété PasswordRequired est type Bool ; elle n’accepte que les valeurs de type booléen.
+
+Pour modifier les valeurs d’une propriété, on va dans un premier temps choisir l’objet sur lequel on souhaite modifier la valeur de la propriété.
+
+#### Commandes visibles dans les captures
+
+```
+Get-LocalUser | Get-Member
 ```
 
-Les noms de comptes, valeurs de propriétés et sorties propres au laboratoire
-ne sont pas publiés. Utilisez les valeurs fournies dans l'environnement de
-formation lorsque le TP les demande.
+![Capture du support « Fiche démo 2 - Les propriétés »](../../assets/course-sources/isolated/6d99a86e47a7b23a/ps-p1-i2-1.webp)
 
-!!! note "Formes documentaires à conserver"
-    Certaines démonstrations emploient `-ServiceName`, alors que la correction
-    emploie `-Name`. Cette divergence est documentée dans la correction du TP
-    et n'est pas harmonisée silencieusement.
+Capture du support « Fiche démo 2 - Les propriétés »
 
-## Méthodes
+On indique à la commande Get-Service que l’on souhaite uniquement les services contenant search en fin de nom de service.
 
-Le support distingue les méthodes des propriétés : les méthodes réalisent des
-actions sur l'objet, sur la valeur d'une ou plusieurs propriétés, ou des
-conversions. Les propriétés sont, elles, décrites comme « statiques » dans la
-démonstration.
+On obtient la valeur de la propriété DisplayName ici Windows Search.
 
-Pour appliquer une méthode, les sources encadrent la commande qui retourne
-l'objet, ajoutent un point puis la méthode et ses parenthèses :
+Pour modifier la valeur, il faut disposer de l’objet de la propriété et de la valeur. On utilise en suite la commande permettant de modifier les valeurs de propriété de l’objet Service.
 
-```powershell
-(get-date).adddays(1)
-(Get-Service -Name Spooler).stop()
+La commande Set-Service est associée au nom de l’objet service puis à la propriété à modifier et enfin à la valeur de la propriété souhaitée.
+
+La propriété DisplayName est de type String ; nous lui indiquons donc une chaîne de caractères encadrée par les symboles ‘’ ou double quote.
+
+La commande L’objet La propriété La valeur de type « String »
+
+On vérifie la bonne prise en compte de la modification.
+
+La modification d’un objet système nécessite une console avec les droits d’administration
+
+#### Commandes visibles dans les captures
+
+```
+Get-Service -ServiceName *search
+Set-Service -ServiceName Wsearch -DisplayName "Service de recherche windows"
+Get-Service -ServiceName *search
 ```
 
-La seconde commande appartient au scénario du TP : elle modifie l'état du
-service ciblé. Les états, dates et membres affichés dans les captures sont des
-observations historiques ou dynamiques de laboratoire.
+![Capture du support « Fiche démo 2 - Les propriétés »](../../assets/course-sources/isolated/6d99a86e47a7b23a/ps-p2-i2-1.webp)
 
-## Vérifications issues du TP
+Capture du support « Fiche démo 2 - Les propriétés »
 
-- identifier le type, les propriétés et les méthodes affichés pour l'objet
-  demandé ;
-- relever les propriétés et les valeurs observées dans le scénario ;
-- vérifier l'état du service après l'appel de la méthode demandée ;
-- contrôler une date d'expiration de compte après la mise à jour demandée,
-  avec les identifiants fournis dans le laboratoire.
+![Capture du support « Fiche démo 2 - Les propriétés »](../../assets/course-sources/isolated/6d99a86e47a7b23a/ps-p2-i3-1.webp)
 
-## Examiner le type avant de choisir une action
+Capture du support « Fiche démo 2 - Les propriétés »
 
-Le support compare le nom « Tom » affiché par CMD avec un objet qui possède plusieurs propriétés et méthodes. Le feutre illustre la distinction entre **décrire** une chose, par sa couleur ou son poids, et **agir** sur elle, par exemple enlever son bouchon. Dans PowerShell, `Get-Service` renvoie des objets de service. `Name`, `DisplayName` et `Status` décrivent ces objets. Des méthodes comme `Start()` et `Stop()` agissent sur le service.
+![Capture du support « Fiche démo 2 - Les propriétés »](../../assets/course-sources/isolated/6d99a86e47a7b23a/ps-p2-i4-1.webp)
+
+Capture du support « Fiche démo 2 - Les propriétés »
+
+Référence du document : 1TMjGZOgeMyCZiXLYdPiiNrL_fQ_1CMnl · SHA-256 6d99a86e47a7b23a…
+
+## Démonstration · Fiche démo 3 - Les méthodes · 2 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Les méthodes
+
+Démonstration 03 du module 2
+
+L’objectif de cette démonstration est de vous présenter ce que sont les méthodes.
+
+### Déroulement
+
+De la même façon qu’un objet contient des propriétés, les méthodes qu’il contient vont permettre d’effectuer des actions sur la totalité de l’objet, sur une propriété ou de faire des actions de conversion par exemple.
+
+- Les méthodes sont révélées par la commande Get-Member.
+- Les méthodes sont des actions à la différence des propriétés qui, elles, sont statiques.
+
+La méthode Start a une portée sur tout l’objet service.
+
+L’utilisation d’une méthode se fait en ayant les informations à disposition telles que l’objet sur lequel on souhaite exécuter la méthode ou la propriété de l’objet sur laquelle on va exécuter cette méthode.
+
+#### Commandes visibles dans les captures
+
+```
+Get-Service | Get-Member
+```
+
+![Capture du support « Fiche démo 3 - Les méthodes »](../../assets/course-sources/isolated/cffd3435671bffbd/ps-p1-i2-1.webp)
+
+Capture du support « Fiche démo 3 - Les méthodes »
+
+```
+L’objet System.DateTime dispose de méthodes permettant de faire varier les valeurs obtenues par
+```
+
+la commande Get-Date.
+
+Pour ajouter un jour au résultat, on utilise la méthode Add-Days suivie du nombre de jours que l’on souhaite ajouter.
+
+L’objet la méthode la valeur
+
+L’objet est contenu entre parenthèses ; il est suivi d’un point puis de la méthode, ce qui indique que l’on utilise la méthode de cet objet.
+
+La valeur fournie entre parenthèses de la méthode doit être d’un type utilisable par la méthode.
+
+#### Commandes visibles dans les captures
+
+```
+Get-Date | Get-Member
+(Get-Date).AddDays(1)
+```
+
+![Capture du support « Fiche démo 3 - Les méthodes »](../../assets/course-sources/isolated/cffd3435671bffbd/ps-p2-i2-1.webp)
+
+Capture du support « Fiche démo 3 - Les méthodes »
+
+![Capture du support « Fiche démo 3 - Les méthodes »](../../assets/course-sources/isolated/cffd3435671bffbd/ps-p2-i3-1.webp)
+
+Capture du support « Fiche démo 3 - Les méthodes »
+
+![Capture du support « Fiche démo 3 - Les méthodes »](../../assets/course-sources/isolated/cffd3435671bffbd/ps-p2-i4-1.webp)
+
+Capture du support « Fiche démo 3 - Les méthodes »
+
+Référence du document : 1tgwX51FKJ8Rir-NZAix7etPRe6HWF8bv · SHA-256 cffd3435671bffbd…
+
+## Énoncé · Énoncé du TP - L'objet · 3 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+### Initiation à PowerShell L’objet
+
+TP du Module 02
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 de ce cours.
+
+Durée estimée
+
+30 minutes
+
+### Énoncé
+
+Objectifs :
+
+Comprendre le langage objet.
+
+Utiliser les commandes de gestion de l’objet.
+
+Consignes :
+
+Depuis la machine CLI01 :
+
+Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet System.ServiceProcess.ServiceController
+
+Quelle commande avez-vous utilisée ?
+
+Indiquez deux propriétés de type String
+
+Indiquez une méthode de type Bool et une de type int.
+
+Affichez les propriétés du service Spooler.
+
+Quelle commande avez-vous utilisée ?
+
+Quelles propriétés avez-vous affichées ?
+
+Indiquez les valeurs de chaque propriété.
+
+Affichez les propriétés de l’utilisateur local Adara Mcintyre.
+
+Quelle commande avez-vous utilisée ?
+
+Quelles propriétés avez-vous affichées ?
+
+Indiquez les valeurs de chaque propriété.
+
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?
+
+Affichez le statut du service Spooler.
+
+Utilisez la méthode pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?
+
+Vérifier à nouveau le statut du service.
+
+Bonus
+
+Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.
+
+Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *
+
+La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure
+
+à la date actuelle.
+
+### Solution
+
+Une solution est proposée pour ce TP sous la forme d'un PDF commenté, disponible dans les ressources à télécharger.
+
+Référence du document : 1xn1SKBNjc5eBQSLwmp2ZYpD-iUlG4SA7 · SHA-256 0b856b384bf49271…
+
+## Correction · Solution du TP - L'objet · 4 pages transcrites
+
+Transcription du support du Drive. Les formulations historiques et les exemples du document sont conservés. Les valeurs d’accès du laboratoire sont indiquées comme « fourni par le formateur ». Les adresses de messagerie personnelles utilisent example.com.
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+### L’objet
+
+TP du Module 02
+
+Avant de démarrer ce TP, il convient d’avoir suivi les vidéos du module 2 de ce cours.
+
+Durée estimée
+
+30 minutes
+
+### Énoncé
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    A["Objet ServiceController"] --> B["Propriétés<br/>Name, DisplayName, Status"]
-    A --> C["Méthodes<br/>Start, Stop, Refresh"]
-    A --> D["Type .NET<br/>Get-Member"]
+    N1["Comprendre le langage objet."]
+    N2["Utiliser les commandes de gestion de l’objet."]
+    N3["Indiquez deux propriétés de type String"]
+    N4["Indiquez une méthode de type Bool et une de type int."]
+    N5["Affichez les propriétés du service Spooler."]
+    N6["Indiquez les valeurs de chaque propriété."]
+    N7["Affichez les propriétés de l’utilisateur local Adara Mcintyre."]
+    N8["Affichez le statut du service Spooler."]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
 ```
 
-*Schéma pédagogique externe au cours.*
+Objectifs :
 
-```powershell
-$service = Get-Service -Name Spooler
-$service | Get-Member
-$service | Get-Member -MemberType Property
-$service | Get-Member -MemberType Method
-$service.Name
-$service.DisplayName
-$service.Status
+- Comprendre le langage objet.
+- Utiliser les commandes de gestion de l’objet.
+
+Consignes :
+
+Depuis la machine CLI01 :
+
+- Utilisez la commande Get-Member pour afficher les propriétés et méthodes de l’objet System.ServiceProcess.ServiceController
+
+Quelle commande avez-vous utilisée ?
+
+```
+Get-Service | Get-Member
 ```
 
-`TypeName` décrit le type examiné. `MemberType` distingue notamment les propriétés, les méthodes et les alias. `Definition` précise le type et les formes d’appel. Pour afficher les membres du tableau lui-même, passer celui-ci à `Get-Member -InputObject`. Avec le pipeline, `Get-Member` inspecte les objets qui circulent dans le tableau.
+- Indiquez deux propriétés de type String
 
-## Lire, modifier, puis relire
-
-La démonstration recherche `WSearch`, relève son nom d’affichage, modifie ce nom, puis interroge de nouveau le service. La possibilité de lire une propriété dépend du type et de la définition de son membre. Pour appliquer un changement au système, utiliser la commande appropriée avec la bonne cible et les droits du laboratoire.
-
-```powershell
-Get-Service -Name '*search'
-Get-Service -Name WSearch | Select-Object Name,DisplayName,Status
-Set-Service -Name WSearch -DisplayName 'Service de recherche Windows'
-Get-Service -Name WSearch | Select-Object Name,DisplayName,Status
+```
+DisplayName               Property      string DisplayName {get;set;}
+MachineName               Property      string MachineName {get;set;}
 ```
 
-La table d’origine cite `String`, `Int`, `Bool`, `Array` et `Object`. Une valeur booléenne vaut `$true` ou `$false`. `$null` indique une absence de valeur. Une propriété peut elle-même contenir une collection ou un objet. Dans le TP, la description du compte local est comparée avant et après `Set-LocalUser`. Le nom du compte est celui de la maquette du formateur.
+- Indiquez une méthode de type Bool et une de type int.
 
-## Comprendre le résultat d’une méthode
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p1-i2-1.webp)
 
-```powershell
-$maintenant = Get-Date
-$maintenant | Get-Member -MemberType Method
-$demain = $maintenant.AddDays(1)
-$maintenant
-$demain
+Capture du support « Solution du TP - L'objet »
+
+```
+Equals                    Method        bool Equals(System.Object obj)
+GetHashCode               Method        int GetHashCode()
 ```
 
-`AddDays(1)` produit une nouvelle valeur de type `DateTime`. La valeur initiale reste dans `$maintenant`. Une méthode de type `void` peut agir sans produire un objet utilisable dans un pipeline. Le TP compare le statut du spouleur avant et après l’appel de `Stop()` sur le service de laboratoire. Le contrôle passe par une nouvelle interrogation de `Get-Service -Name Spooler`.
+La méthode de type Bool est Equals la méthode de type Int est GetHashCode
 
-## TP guidé
+- Affichez les propriétés du service Spooler.
 
-### Décrire le spouleur avant d’agir
+Quelle commande avez-vous utilisée ?
 
-Sur CLI01, examiner les membres du service. Noter deux propriétés de type chaîne et relever dans `Definition` une méthode à retour booléen et une méthode à retour entier. Comparer `Equals()` et `GetHashCode()` dans la console de la maquette. Relever ensuite les valeurs réelles du nom, du nom affiché et de l’état.
-
-```powershell
-$spouleur = Get-Service -Name Spooler
-$spouleur | Get-Member -MemberType Property
-$spouleur | Get-Member -MemberType Method -Name Equals,GetHashCode,Stop
-$spouleur | Select-Object Name,DisplayName,Status
+```
+get-service -name spooler | get-member -MemberType Property
 ```
 
-### Modifier le compte de test, puis relire
+Quelles propriétés avez-vous affichées ?
 
-Sélectionner le compte local prévu dans l’énoncé et relever ses propriétés. Vérifier le nom avant de simuler la modification de la description. La relecture après simulation doit montrer la valeur initiale. Après la modification autorisée dans la maquette, relire l’objet pour confirmer la valeur demandée.
-
-```powershell
-$nom = Read-Host 'Nom exact du compte local du TP'
-Get-LocalUser -Name $nom | Format-List Name,Enabled,Description,AccountExpires
-Set-LocalUser -Name $nom -Description 'Administrateur' -WhatIf
+```
+Get-Service -Name Spooler
 ```
 
-Le TP demande ensuite d’appeler `Stop()` sur le spouleur. Dans la VM autorisée, relever d’abord `Status` et vérifier que l’arrêt ne perturbe aucun autre travail. Après appel, interroger le service à nouveau. `Stop()` demande un arrêt et ne renvoie pas le nouvel état. Si le service est encore en arrêt, attendre ou relire son état avant de conclure. Rétablir l’état initial du service et la description initiale du compte de test selon la consigne de la maquette.
+Les propriétés affichées par défaut sont :
 
-### Vérifier le bonus sur l’expiration
+```
+Status Name DisplayName
+```
 
-Construire une nouvelle date avec une méthode de `DateTime`, par exemple `(Get-Date).AddDays(3)`. Simuler `Set-LocalUser -AccountExpires` sur le compte du bonus. Après validation de la cible et application autorisée, relire `AccountExpires` et vérifier qu’il reste au moins 48 heures par rapport à l’heure du contrôle.
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p2-i2-1.webp)
 
-## À retenir
+Capture du support « Solution du TP - L'objet »
 
-Lire le type et les membres avant de choisir une propriété ou une méthode. Une méthode peut produire une nouvelle valeur ou modifier l’état d’une ressource. Le TP se valide par deux lectures, avant l’action et après son effet.
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p2-i3-1.webp)
 
-## Mini-quiz
+Capture du support « Solution du TP - L'objet »
 
-1. Quelle colonne décrit les arguments et le type de retour d’une méthode ?
-2. Comment lire le statut d’un objet stocké dans `$service` ?
-3. Que renvoie `$maintenant.AddDays(1)` ?
-4. Pourquoi réinterroger le spouleur après `Stop()` ?
-5. Quelle propriété contrôle l’expiration demandée dans le bonus ?
+- Indiquez les valeurs de chaque propriété.
 
-??? success "Réponses commentées"
-    1. `Definition` dans la sortie de `Get-Member`.
-    2. `$service.Status`.
-    3. Une nouvelle date augmentée d’un jour.
-    4. La méthode ne renvoie pas le nouvel état et l’objet conservé peut être ancien. Une nouvelle lecture de `Get-Service` permet de constater l’état.
-    5. `AccountExpires`. Après la modification autorisée, comparer cette valeur à la date actuelle sur la machine de test.
+Running Spooler Print Spooler
 
-## Travaux pratiques et révision
+- Affichez les propriétés de l’utilisateur local Adara Mcintyre.
 
-- [TP et correction du module](../../tp/12-initiation-powershell/module-02/index.md)
-- [Fiche de révision](../../revision/12-initiation-powershell/module-02.md)
-- [Sommaire du cours](index.md)
+Quelle commande avez-vous utilisée ?
+
+```
+Get-LocalUser -Name
+```
+
+Quelles propriétés avez-vous affichées ?
+
+```
+Name Enabled Description
+```
+
+Indiquez les valeurs de chaque propriété.
+
+Adara Mcintyre True Technician
+
+Modifiez la valeur de la propriété de Description en Administrateur. Quelle commande avez-vous utilisée ?
+
+```
+Set-LocalUser -Name "adara mcintyre"-Description "Administrateur"
+Get-LocalUser -Name "adara mcintyre"
+```
+
+- Affichez le statut du service Spooler.
+
+Utilisez la Cmdlet pour arrêter le service Spooler. Quelle commande avez-vous utilisée ?
+
+```
+(Get-Service -Name Spooler).stop()
+```
+
+Vérifier à nouveau le statut du service.
+
+```
+Get-Service -Name Spooler
+```
+
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p3-i2-1.webp)
+
+Capture du support « Solution du TP - L'objet »
+
+Bonus
+
+Utilisez la méthode de l’objet Get-Date pour renseigner la valeur de la propriété AccountExpires du compte de l’utilisateur Axel Rios.
+
+- Testez la mise à jour de la propriété avec la commande Get-LocalUser «Axel Rios » | select *
+
+La valeur de la propriété AccountExpires doit être, au minimum, de 48 heures supérieure à la date actuelle.
+
+```
+Set-LocalUser -Name "adara mcintyre"-AccountExpires (get-date).adddays(2)
+Set-LocalUser -Name "adara mcintyre"| select *
+```
+
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p4-i2-1.webp)
+
+Capture du support « Solution du TP - L'objet »
+
+![Capture du support « Solution du TP - L'objet »](../../assets/course-sources/isolated/bd72edfae79c22a0/ps-p4-i3-1.webp)
+
+Capture du support « Solution du TP - L'objet »
+
+Référence du document : 1TqWsLOg5YcprfveeH7NzxLpEr8QNWTWB · SHA-256 bd72edfae79c22a0…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
+| --- | --- |
+| Support · Module 02 - Support de cours · 9 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 1 - Get-Member · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 2 - Les propriétés · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Démonstration · Fiche démo 3 - Les méthodes · 2 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Énoncé · Énoncé du TP - L'objet · 3 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
+| Correction · Solution du TP - L'objet · 4 pages transcrites | Les formulations historiques et les exemples du document sont conservés. |
