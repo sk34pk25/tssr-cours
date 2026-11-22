@@ -1,133 +1,378 @@
 # Module 02 — Les applications de virtualisation d’environnements sur un poste de travail
 
-L’atelier construit une VM Windows Server 2019 dans VMware Workstation 16. Cette VM devient l’hôte Hyper-V du module 4. Vérifier dès maintenant la configuration du processeur, le raccordement au réseau et l’état final de la VM évite de reprendre l’installation plus tard.
+Les parties ci-dessous reprennent le cours original, dans le même ordre. Les encadrés et les schémas répètent ses formulations.
 
-## Objectifs
+## Parcours de lecture
 
-- Repérer les composants de Workstation et les réglages d’une machine virtuelle.
-- Choisir entre Host-only, NAT, Bridged et LAN segment selon les échanges recherchés.
-- Préparer et installer la VM `SRV_2K19` avec les paramètres de l’atelier.
-- Contrôler l’installation, les outils invités et le snapshot final.
+1. Support · Module 02 - Support de cours · 5 pages transcrites
+2. Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages transcrites
+3. Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites
 
-## 1. Préparer le poste et lire la console
+**Visuel externe**
 
-Le support utilise Workstation 16. La solution illustre aussi Workstation 16 Pro et une compatibilité matérielle 16.2.x. Relever la version du logiciel et celle du matériel virtuel avant de déplacer une VM vers un autre poste. Le document prévoit une installation de Workstation avec les paramètres par défaut.
+```mermaid
+flowchart TD
+    N1["Support · Module 02 - Support de cours · 5 pages transcrites"]
+    N2["Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages tr…"]
+    N3["Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Soluti…"]
+    N1 --> N2
+    N2 --> N3
+```
 
-| Contrôle | Ce qu’il permet de vérifier |
-| --- | --- |
-| Intel VT-x ou AMD-V | Le processeur dispose des extensions utilisées pour la virtualisation. |
-| BIOS ou UEFI | Les extensions sont activées et accessibles au logiciel de virtualisation. |
-| Mémoire et espace libre | Le poste peut accueillir la VM et ses futurs snapshots. |
-| Bibliothèque Workstation | La VM correcte est enregistrée et sélectionnée avant de changer ses paramètres. |
+SOURCE DRIVE · TRANSCRIPTION DU SUPPORT
 
-La **Library** présente les VM enregistrées. Depuis la console, on peut en créer, en ouvrir ou en importer selon le format. Le support indique ces possibilités puis se concentre sur la création. Sélectionner la VM avant de démarrer l’invité ou d’ouvrir **Virtual Machine Settings**.
+Le contenu des documents du dossier TSSR est transcrit ci-dessous, page par page. Les textes et tableaux sont intégrés à la page Web. Aucun fichier PDF, aucune diapositive entière ni aucune reproduction de page n’est affiché. Seuls des croquis ou visuels isolés et vérifiés peuvent accompagner la transcription. Les versions et les consignes restent celles des supports de formation. Les compléments IA sont conservés dans leur onglet distinct.
 
-## 2. Régler le matériel et interagir avec l’invité
+## Support · Module 02 - Support de cours · 5 pages transcrites
 
-Le matériel virtuel comprend processeur, mémoire, disques, CD/DVD, cartes réseau et périphériques. Certains réglages peuvent être modifiés à chaud. Dans l’atelier, préparer le matériel avant le premier démarrage.
+#### Module 02 – Les applications de virtualisation
 
-| Objet | Action ou repère du support |
-| --- | --- |
-| Disque virtuel | Choisir la taille maximale et le rangement dans un fichier unique ou en plusieurs fichiers. L’espace d’un disque à allocation progressive augmente avec son utilisation. |
-| Lecteur CD/DVD | Connecter le média ou l’image ISO, puis vérifier la connexion au démarrage. |
-| Clavier et souris | La VM capture les entrées. `Ctrl` + `Alt` rend la main à l’hôte. |
-| Combinaison de sécurité | `Ctrl` + `Alt` + `Inser` envoie `Ctrl` + `Alt` + `Suppr` à l’invité. |
-| VMware Tools et dossiers partagés | Les outils facilitent l’interaction avec l’invité. Un Shared Folder peut présenter un dossier de l’hôte sous forme de lecteur réseau. |
-| Médias amovibles | Le cours présente CD/DVD, USB et disquette. Contrôler à quelle machine le périphérique est connecté. |
+#### d’environnements sur un poste de travail
 
-Le choix « fichier unique » est celui de l’exercice. La marge de capacité sur l’hôte reste à contrôler lorsque l’invité écrit ou que l’on crée des snapshots.
+!!! note "À retenir"
+    Les applications de virtualisation d’environnements sur un poste de travail
 
-## 3. Choisir le mode réseau
+Les applications de virtualisation d’environnements sur un poste de travail
 
-| Mode | Communication recherchée | Contrôle immédiat |
-| --- | --- | --- |
-| Host-only, souvent VMnet1 | Échanges avec l’hôte et les VM du réseau privé | Les VM concernées sont connectées au même réseau virtuel. |
-| NAT, souvent VMnet8 | Sortie via l’hôte depuis un réseau privé | L’invité a une adresse du réseau NAT et le service de traduction fonctionne. |
-| Bridged | Raccordement de la VM au réseau physique du laboratoire | La carte utilise le pont prévu et l’invité obtient un adressage compatible. |
-| LAN segment | Liaison entre les VM du segment déclaré | Chaque carte cible le même segment, avec un adressage cohérent. |
+#### Objectifs
 
-Le service VMware DHCP distribue l’adressage du réseau virtuel privé configuré. Le service VMware NAT assure la traduction sur le réseau NAT. Choisir le mode avant de diagnostiquer une adresse inattendue. [Modes réseau de VMware Workstation](https://knowledge.broadcom.com/external/article/309842/understanding-networking-types-in-hosted.html)
+!!! note "À retenir"
+    Comprendre le fonctionnement d’une application de virtualisation de serveurs Configurer et mettre en place une machine virtuelle sur VMware Workstation
 
-**Illustration IA / externe au cours — chemins de connexion.**
+- Comprendre le fonctionnement d’une application de virtualisation de serveurs
+- Configurer et mettre en place une machine virtuelle sur VMware Workstation
+
+#### Prérequis et installation
+
+!!! note "À retenir"
+    Les applications de virtualisation d’environnements sur un poste de travail
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Installation
+
+!!! note "À retenir"
+    Version actuelle : VMware Workstation 16 Attention, il n’y a pas de rétrocompatibilité :
+
+!!! warning "Attention"
+    Version actuelle : VMware Workstation 16 Attention, il n’y a pas de rétrocompatibilité :
+
+- Version actuelle : VMware Workstation 16
+- Attention, il n’y a pas de rétrocompatibilité :
+
+#### Prérequis matériel
+
+**Visuel externe**
 
 ```mermaid
 flowchart LR
-    V["Carte de la VM"] --> P["Host-only"] --> H["Hôte et VM du réseau privé"]
-    V --> N["NAT"] --> T["Traduction sur l’hôte"]
-    V --> B["Bridged"] --> L["Réseau physique"]
-    V --> S["LAN segment"] --> E["VM du segment"]
+    N1["Processeur Intel VT-x ou AMD-V (attention aux réglages BIOS / UEFI)"]
+    N2["RAM et espace disque adaptés"]
+    N3["Une VM « ancienne version » fonctionnera avec la version la plus récente"]
+    N4["Mais une VM « nouvelle version » fonctionnera uniquement avec celle-ci"]
+    N5["Utilisez les paramètres d’installation par défaut"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
 ```
 
-## 4. TP guidé — Installation de Workstation et de la VM
+- Processeur Intel VT-x ou AMD-V (attention aux réglages BIOS / UEFI)
+- RAM et espace disque adaptés
+- Une VM « ancienne version » fonctionnera avec la version la plus récente
+- Mais une VM « nouvelle version » fonctionnera uniquement avec celle-ci
+- Utilisez les paramètres d’installation par défaut
 
-L’atelier dure environ une heure. Le poste de laboratoire utilise Windows Server 2019 et l’adressage du contexte de formation. Préparer Workstation, l’ISO autorisée et les outils invités fournis pour le laboratoire.
+La dernière version est préférable, mais il peut y avoir des problèmes de fonctionnement suivant les systèmes hôte (ex. WS 2019 + v16)
 
-### A. Préparer la VM et l’installation
+Les applications de virtualisation d’environnements sur un poste de travail
 
-1. Vérifier la version de Workstation et créer un dossier de VM sur le volume de données du laboratoire.
-2. Créer une VM Windows Server 2019 nommée `SRV_2K19`. Choisir le dossier de stockage préparé.
-3. Régler les paramètres avant de lancer l’installation.
+#### Outils et composants installés
 
-| Réglage du TP | Valeur attendue |
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["La console de gestion VMware Workstation"]
+    N2["Elle affiche la liste des VM"]
+    N3["Elle permet d’ajouter ou de créer des machines virtuelles"]
+    N4["Gestion des VM"]
+    N5["Créer une nouvelle VM ou en importer une"]
+    N6["Une fois la VM créée ou importée, elle s’affiche dans la liste (Library)"]
+    N7["La console affichera le système virtualisé une fois la VM démarrée"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
+
+- La console de gestion VMware Workstation
+- Elle affiche la liste des VM
+- Elle permet d’ajouter ou de créer des machines virtuelles
+- Lors de la sélection d’une VM, elle permet le démarrage ou le réglage des paramètres matériel
+- Gestion des VM
+- Créer une nouvelle VM ou en importer une
+- Une fois la VM créée ou importée, elle s’affiche dans la liste (Library)
+- La console affichera le système virtualisé une fois la VM démarrée
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Interaction avec l’hôte
+
+#### Gestion du matériel
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["Les médias amovibles de type CD / DVD, USB, disquette sont gérés"]
+    N2["Par défaut, la VM « capture » le clavier et la souris"]
+    N3["Ctrl + Alt pour reprendre la main"]
+    N4["Des composants additionnels peuvent être installés pour améliorer l’interaction"]
+    N5["Pour faire Ctrl + Alt + Suppr dans la VM, taper Ctrl + Alt + Inser"]
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
+
+- Les médias amovibles de type CD / DVD, USB, disquette sont gérés
+- Par défaut, la VM « capture » le clavier et la souris
+- Ctrl + Alt pour reprendre la main
+- Des composants additionnels peuvent être installés pour améliorer l’interaction
+- La fonction Shared Folder permet de mapper un dossier de l’hôte dans la VM en tant que lecteur réseau
+- Pour faire Ctrl + Alt + Suppr dans la VM, taper Ctrl + Alt + Inser
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Interaction avec l’hôte
+
+#### Gestion du réseau
+
+!!! note "À retenir"
+    VMware met en place des cartes réseau virtuelles pour permettre les différents modes de connexion : VMnet1 pour le réseau Host-only (privé + accès à l’hôte) VMnet8 pour le réseau NAT (accès à l’Internet par l’hôte) Des services sont présents pour gérer l’adressage de ces réseaux :
+
+**Visuel externe**
+
+```mermaid
+flowchart LR
+    N1["VMnet1 pour le réseau Host-only (privé + accès à l’hôte)"]
+    N2["VMnet8 pour le réseau NAT (accès à l’Internet par l’hôte)"]
+    N3["Des services sont présents pour gérer l’adressage de ces réseaux :"]
+    N1 --> N2
+    N2 --> N3
+```
+
+- VMware met en place des cartes réseau virtuelles pour permettre les différents modes de connexion :
+- VMnet1 pour le réseau Host-only (privé + accès à l’hôte)
+- VMnet8 pour le réseau NAT (accès à l’Internet par l’hôte)
+- Des services sont présents pour gérer l’adressage de ces réseaux :
+
+#### VMware DHCP Service pour le réseau privé et VMware NAT
+
+#### Service pour le réseau NAT
+
+!!! note "À retenir"
+    Il peut être nécessaire de désactiver ces services si l’on veut utiliser ces réseaux avec son propre adressage dynamique.
+
+Il peut être nécessaire de désactiver ces services si l’on veut utiliser ces réseaux avec son propre adressage dynamique.
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Étapes de création
+
+- Mode d’installation
+- Choisissez « I will install … later »
+- Dans le cas contraire, VMware gérera l’installation à votre place avec des paramètres pas nécessairement adaptés
+- Choix du système
+- Définir l’architecture matérielle selon le système
+- Nom de la VM dans l’interface et choix de l’emplacement
+- Attention « Mes Documents » est sélectionné par défaut
+- Prévoir 1 dossier par VM
+- Taille du disque virtuel (et mode de stockage)
+- Par défaut, VMware utilise l’espace au fur et à mesure des besoins
+- Sélectionner plutôt le mode « Store virtual disk in a single file » pour des besoins de performance
+- Paramétrage matériel : « Customize Hardware »
+- Pour ajouter ou supprimer des composants
+- Pour régler le nombre de CPU et la quantité de RAM
+- Pour définir le média d’installation et le mode de connexion réseau
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Gestion de la VM – Workstation 16
+
+!!! note "À retenir"
+    Gestion de base Gestion de la fenêtre, la fermeture avec la X met votre VM en pause Gestion directe du matériel (disques, réseau, médias, etc.) Accès aux paramètres et fonctions complémentaires Les applications de virtualisation d’environnements sur un poste de travail
+
+Gestion de base
+
+Gestion de la fenêtre, la fermeture avec la X met votre VM en pause
+
+Gestion directe du matériel (disques, réseau, médias, etc.)
+
+Accès aux paramètres et fonctions complémentaires
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Paramétrages matériels
+
+- Après création de la VM, les paramétrages sont accessibles depuis la fonction « Virtual Machine Settings »
+- Permet de modifier les paramètres initiaux
+- Permet l’ajout et la suppression de matériel
+- Certains composants sont paramétrables à chaud (ajout de disques, réseau …)
+- Connexion au réseau : 4 modes disponibles
+- Bridged : mode pont, équivalent à une connexion au réseau physique
+- NAT : utilise la configuration réseau de l’hôte pour accéder à l’Internet
+- Host-only : mode interne avec connexion à l’hôte, les VM ne peuvent communiquer qu’entre elles et avec l’hôte
+- LAN segment : permet d’utiliser des segments réseau spécifiques et indépendants, à condition de les déclarer avec le bouton LAN Segments
+
+Chacun de ces modes est indépendant des autres. Ils agissent comme des commutateurs permettant d’isoler les VM dans des réseaux spécifiques.
+
+Les applications de virtualisation d’environnements sur un poste de travail
+
+#### Problèmes courants
+
+- Démarrer sur un média CD/DVD une fois le système installé
+- S’assurer que la VM a bien « capturé » le clavier et redémarrer
+- Appuyer 1 fois sur la touche Échap lorsque le logo VMware s’affiche
+- Il est possible de paramétrer la séquence de démarrage dans le BIOS de la VM
+- Fonctionnement du réseau aléatoire
+- Le fonctionnement du réseau est un point sensible, notamment lors de paramétrages fréquents
+- Désactivez et réactivez les cartes réseau de votre machine physique
+- Espace disque hôte insuffisant
+- Vérifier l’emplacement du dossier de la VM et le déplacer si nécessaire
+- Surveiller l’espace disponible dans le volume de données
+- Espace disque invité insuffisant
+- Ajouter un disque depuis les paramétrages de la VM ou redimensionner (plus fastidieux)
+- Le dimensionnement initial est important !
+
+Référence du document : 1_u4oJfvNBUqY8cliTHJxU9IrHtGQ-d8r · SHA-256 82fc8506a1dc77c0…
+
+## Énoncé · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation · 2 pages transcrites
+
+#### Énoncé :
+
+#### Atelier N°1
+
+TP du Module 02 – Installation VMWare Workstation
+
+Avant de démarrer ce TP, il convient d’avoir suivi les prérequis du Module 2.
+
+Durée estimée
+
+1 heure
+
+#### Objectif :
+
+Déployer une machine virtuelle Windows Server 2019
+
+#### Prérequis :
+
+Votre Machine physique est déployée sous Windows Server 2019
+
+- L’adressage IP s’effectuera par l’intermédiaire du service DHCP de l’centre de formation
+
+#### Énoncé :
+
+- Contrôler la présence de la solution de virtualisation VMware Workstation 16.
+- Créer un nouveau dossier sur le volume « D » que vous nommerez « Machines virtuelles ». Ce dossier servira de point de stockage pour toutes vos machines virtuelles créées dans Workstation.
+- Créer une VM nommée « SRV_2K19 » de type Windows Server 2019 avec pour prérequis :
+- 2 CPU / 1 cœur
+- 2 Go RAM
+- 1 carte réseau bridgée
+- 60 Go de disque en “single file”
+
+et activer "Virtualize Intel VT-x/EPT or AMD-V/RVI"
+
+- Récupérer le fichier ISO de Windows Server 2019 depuis le partage"iso\os\windows\” du serveur “distrib” et l’utiliser comme image du CDROM de la machine virtuelle.
+- Procéder à l’installation de Windows Server 2019 avec « expérience utilisateur » dans la machine virtuelle.
+- Y installer les « VMware Tools ».
+- Nommer la machine virtuelle puis l’arrêter.
+- Faites IMPERATIVEMENT une capture instantanée “snapshot “ de la machine virtuelle que vous nommerez « Fin Atelier 1 »
+
+Référence du document : 1QHBdDIVKA5tGWoxhBZI8-uv7yg1InAkv · SHA-256 3424e9708fc72f9e…
+
+## Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites
+
+Correction originale : à consulter après avoir tenté l’exercice.
+
+Solution
+
+#### Atelier N°1
+
+Solution du TP du Module 02 – Installation VMWare Workstation
+
+Durée estimée
+
+1 heures
+
+#### Objectif :
+
+Déployer une machine virtuelle Windows Server 2019
+
+#### Prérequis :
+
+Votre Machine physique est déployée sous Windows Server 2019
+
+- L’adressage IP s’effectuera par l’intermédiaire du service DHCP
+
+#### Énoncé :
+
+- Contrôler la présence de la solution de virtualisation VMware Workstation 16.
+- Créer un nouveau dossier sur le volume « D » que vous nommerez « Machines virtuelles ». Ce dossier servira de point de stockage pour toutes vos machines virtuelles créées dans Workstation.
+- Créer une VM nommée « SRV_2K19 » de type Windows Server 2019 avec pour prérequis :
+- 2 CPU / 1 cœur
+- 2 Go RAM
+- 1 carte réseau bridgée
+- 60 Go de disque en “single file”
+
+et activer "Virtualize Intel VT-x/EPT or AMD-V/RVI" au niveau des processeurs
+
+- Récupérer le fichier ISO de Windows Server 2019 sur le partage"iso\os\windows\” du serveur “distrib” et l’utiliser comme image du CDROM de la machine virtuelle.
+
+![Capture isolée du support, page 2](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p02-i2.webp)
+
+Capture isolée du support, page 2
+
+#### Informations dans les visuels du support
+
+- Dans l’assistant VMware Workstation, sélectionner le fichier ISO Windows Server 2019 fourni.
+- Easy Install détecte Windows Server 2019. La capture choisit l’édition Windows Server 2019 Standard et le compte de laboratoire admin. Les champs de mot de passe utilisent la valeur fournie par le formateur et l’ouverture de session automatique est décochée.
+
+![Capture isolée du support, page 3](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p03-i3.webp)
+
+Capture isolée du support, page 3
+
+#### Informations dans les visuels du support
+
+- Nommer la machine SRV_2K19. La capture propose D:\Machines virtuelles\SRV_2K19 comme emplacement.
+- Fixer la capacité maximale à 60 Go, conserver l’allocation à la demande et choisir Store virtual disk as a single file.
+
+Cliquer sur
+
+Pour activer les fonctions avancées de virtualisation, cocher la case comme suit :
+
+Modifier le paramètre de la carte réseau en « bridge » :
+
+- Procéder à l’installation de Windows Server 2019 avec « expérience utilisateur » dans la machine virtuelle.
+- Y installer les « VMware Tools ».
+
+- Nommer la machine virtuelle puis l’arrêter.
+
+![Capture isolée du support, page 7](../../assets/course-sources/isolated/112b74c68d3fb657/v13-d20-p07-i3.webp)
+
+Capture isolée du support, page 7
+
+- Faites IMPERATIVEMENT une capture instantanée “snapshot “ de la machine virtuelle que vous nommerez « Fin Atelier 1 »
+
+Référence du document : 1vj0BH68FvefVA0yi04I3yR_3NIf5vPgJ · SHA-256 112b74c68d3fb657…
+
+## Fiche de synthèse
+
+Les lignes reprennent les titres du cours et la première phrase de chaque partie.
+
+| Partie | Repère du cours |
 | --- | --- |
-| Processeurs | 2 processeurs, 1 cœur par processeur |
-| Mémoire | 2 Go |
-| Disque | 60 Go dans un fichier unique |
-| Virtualisation processeur | Exposer VT-x/EPT ou AMD-V/RVI à l’invité pour l’atelier Hyper-V |
-| Réseau final | Bridged |
-| Média et système | ISO Windows Server 2019, avec expérience utilisateur |
-
-!!! note "Deux parcours d’assistant"
-
-    Le support montre « I will install the operating system later ». Le corrigé sélectionne l’ISO au départ et montre Easy Install. Dans les deux cas, vérifier le matériel avant de démarrer. Le corrigé passe aussi par un réglage NAT intermédiaire. La consigne finale est Bridged.
-
-### B. Installer et vérifier l’invité
-
-1. Associer l’ISO autorisée au CD/DVD virtuel et vérifier que le lecteur est connecté au démarrage.
-2. Démarrer la VM et installer Windows Server 2019 avec expérience utilisateur. Contrôler l’édition proposée à l’écran avant de poursuivre.
-3. Installer VMware Tools dans l’invité et vérifier leur présence après le redémarrage si nécessaire.
-4. Confirmer le nom du système invité, puis relever son adresse et son réseau. Le nom d’inventaire de Workstation et le nom du système invité sont deux réglages distincts.
-5. Arrêter proprement l’invité. Créer le snapshot `Fin Atelier 1` dans Workstation et vérifier que l’état de la VM est arrêté.
-
-### C. Corriger un écart
-
-Après installation, le support présente aussi un démarrage sur média. Donner le clavier à la VM, puis appuyer une fois sur Échap à l’apparition du logo VMware pour choisir le périphérique de démarrage. Le firmware de l’invité permet de vérifier l’ordre d’amorçage. Pour un défaut réseau persistant, isoler d’abord la carte virtuelle et le réseau auquel elle est reliée. Un changement d’état sur la carte physique de l’hôte peut interrompre ses connexions et doit être réservé au poste de laboratoire.
-
-| Symptôme | Premier contrôle | Résultat attendu |
-| --- | --- | --- |
-| La VM ne démarre pas sur l’ISO | Vérifier le média et le CD/DVD virtuel | L’assistant d’installation de Windows démarre. |
-| Adresse du réseau NAT alors que le TP demande le pont | Vérifier la carte virtuelle et la carte physique à laquelle le pont est associé | L’adresse correspond au réseau de laboratoire prévu. |
-| Hyper-V échoue ensuite à détecter les extensions processeur | Contrôler VT-x/EPT ou AMD-V/RVI dans Workstation et sur l’hôte | Les fonctions requises sont exposées à la VM hôte. |
-| Le disque est plein | Identifier si la saturation concerne le volume hôte ou le disque vu par l’invité | De l’espace est disponible au niveau où la panne est observée. |
-
-**Complément pédagogique.** Le snapshot fournit un point de retour du laboratoire. Une sauvegarde doit rester restaurable après une perte du stockage où la VM et ses snapshots sont conservés.
-
-## À retenir
-
-L’atelier se termine avec une VM nommée et arrêtée, les outils invités installés, le réseau Bridged et un snapshot identifié. Avant de poursuivre avec Hyper-V, conserver les ressources et extensions processeur demandées.
-
-## Mini-quiz — 5 questions {#question-de-revision}
-
-1. Dans quel mode la VM est-elle raccordée au réseau physique de laboratoire ?
-2. Quelle différence entre VMware DHCP Service et VMware NAT Service ?
-3. Quels paramètres de processeur et de disque sont demandés ?
-4. Pourquoi vérifier l’exposition des extensions processeur avant le module Hyper-V ?
-5. Dans quel état créer le snapshot final ?
-
-??? success "Réponses commentées"
-
-    1. Bridged. Le mode NAT visible dans le corrigé est une étape intermédiaire.
-    2. Le premier distribue les paramètres IP du réseau virtuel configuré. Le second assure la traduction pour les connexions du réseau NAT.
-    3. Deux processeurs d’un cœur chacun et un disque virtuel de 60 Go dans un seul fichier.
-    4. La prochaine VM hôte doit pouvoir exécuter un hyperviseur imbriqué. Il lui faut les extensions exposées par Workstation.
-    5. Après l’arrêt propre de l’invité. Vérifier le snapshot `Fin Atelier 1` dans l’inventaire de la VM.
-
-## Pour pratiquer et réviser
-
-- [Énoncé de l’atelier](../../tp/13-virtualisation-serveurs/module-02/tp-01-workstation.md) et [correction](../../tp/13-virtualisation-serveurs/module-02/correction-tp-01.md)
-- [Fiche de révision](../../revision/13-virtualisation-serveurs/module-02.md)
-- [Sommaire de Virtualisation de serveurs](index.md)
-
-## Provenance pédagogique
-
-Le support M02 et les deux documents de l’atelier 1 donnent la configuration et les manipulations. Les contrôles proposés, le schéma et la distinction entre snapshot et sauvegarde sont des aides de synthèse.
+| Correction · TSSR110-Virtualisation_Mise en Situation - Module 2 - Workstation - Solution · 8 pages transcrites | Correction originale : à consulter après avoir tenté l’exercice. |
